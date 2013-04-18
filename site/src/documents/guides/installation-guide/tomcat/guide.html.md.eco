@@ -72,7 +72,7 @@ The database creation scripts reside in the `sql/create` folder:
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
-We recommend to create a separate database or database schema for fox cycle.
+We recommend to create a separate database or database schema for camunda cycle.
 
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these
@@ -135,7 +135,7 @@ The name of the mail session to look up can be changed by editing the following 
     
 The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, set the JNDI name of the Mail Session to a custom name:
 
-    <bean id="cycleConfiguration" class="com.camunda.fox.cycle.configuration.CycleConfiguration">
+    <bean id="cycleConfiguration" class="org.camunda.bpm.cycle.configuration.CycleConfiguration">
 	  [...]   
 	  <!-- cycle email service configuration -->
 	  <property name="emailFrom" value="cycle@localhost" />
