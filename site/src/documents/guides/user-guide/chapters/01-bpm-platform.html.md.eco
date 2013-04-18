@@ -429,11 +429,11 @@ To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have t
 	<Context>
 		<ResourceLink name="ProcessEngineService"
 		        global="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
-		        type="ProcessEngineService!org.camunda.bpm.ProcessEngineService" />
+		        type="org.camunda.bpm.ProcessEngineService" />
 		        
 		<ResourceLink name="ProcessApplicationService"
 		        global="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
-		        type="ProcessEngineService!org.camunda.bpm.ProcessApplicationService" />
+		        type="org.camunda.bpm.ProcessApplicationService" />
 	</Context>
 
 These elements are used to create a link to the global JNDI Resources definied in `$CATALINA_HOME/conf/server.xml`.
