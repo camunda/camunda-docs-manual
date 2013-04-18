@@ -23,6 +23,7 @@ layout: 'default'
         <li><a href="tomcat/#rest">REST API</a></li>
         <li><a href="tomcat/#cycle">camunda cycle</a></li>
         <li><a href="tomcat/#cockpit">camunda cockpit</a></li>
+        <li><a href="tomcat/#tasklist">camunda tasklist</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -35,6 +36,7 @@ layout: 'default'
         <li><a href="jboss/#rest">REST API</a></li>
         <li><a href="jboss/#cycle">camunda cycle</a></li>
         <li><a href="jboss/#cockpit">camunda cockpit</a></li>
+        <li><a href="jboss/#tasklist">camunda tasklist</a></li>
       </ul>
     </div>
     <div class="span3">    

@@ -17,7 +17,7 @@ This document will guide you through the installation of camunda BPM and its com
 How to...
 
 
-<a id="vanilla"></a>Installing the platform on a vanilla JBoss
+<a id="vanilla"></a>Installing the platform on a vanilla Glassfish
 --------------------------------------------------------------
 
 How to...
@@ -31,7 +31,7 @@ See above, how to [install the pre-built distro](#platform) or [install the plat
 
 **Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
 
-The following steps are required to deploy the REST API on a JBoss instance:
+The following steps are required to deploy the REST API on a Glassfish instance:
 
 1. Download the REST API web application archive from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
@@ -52,8 +52,20 @@ How to...
 
 <a id="cockpit"></a>Installing camunda cockpit
 ----------------------------------------------
+To install camunda cockpit, a Glassfish installation with the `org.camunda.bpm.camunda-engine` module is required.
+See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Glassfish](#vanilla).
 
-Drop a war.
+**Note**: The distro already ships camunda cockpit. It may be accessed on the context path `/cockpit`.
+
+The following steps are required to deploy camunda cockpit on a Glassfish instance:
+
+1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-$PLATFORM_VERSION.war`.
+2. Optionally, you may change the context path to which cockpit will be deployed (default is `/cockpit`). 
+   Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
+2. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`. 
+3. Startup Glassfish Application Server.
+4. Access camunda cockpit on the context you configured.
 
 <a id="tasklist"></a>Installing camunda tasklist
 -----------------------------------------------
@@ -62,9 +74,9 @@ See above, how to [install the pre-built distro](#platform) or [install the plat
 
 **Note**: The distro already ships camunda tasklist. It may be accessed on the context path `/tasklist`.
 
-The following steps are required to deploy camunda cockpit on a JBoss instance:
+The following steps are required to deploy camunda tasklist on a Glassfish instance:
 
-1. Download the tasklist web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tasklist/camunda-tasklist/).
+1. Download the tasklist web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tasklist/camunda-tasklist-glassfish/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-tasklist-glassfish-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the tasklist will be deployed (default is `/tasklist`). 
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
