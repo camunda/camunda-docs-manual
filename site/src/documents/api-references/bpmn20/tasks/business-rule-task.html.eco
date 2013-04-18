@@ -1,0 +1,43 @@
+<section id="business-rule-task">
+
+  <div class="page-header">
+      <h1>Business Rule Task</h1>
+  </div>
+  
+  <div class="row-fluid">
+  <div class="span9">
+      <p>
+        A Business Rule task is used to synchronously execute one or more rules. 
+      </p>
+
+      <div data-bpmn-symbol="businessruletask"  data-bpmn-symbol-name="Businss Rule Task"> </div>
+      
+      <p>
+        You might use the rule engine of your choice, on the open source side we 
+        made good experiences with JBoss Drools. Therefor You have to plug in your implementation of the rule task exactly like in a Service Task.
+        So the difference is only that it has a different icon in the BPMN process model - but this can make already a huge difference for acceptance 
+        of the process model.
+      </p>
+      <div class="app-source" app-source-no-tabs="xxxx" ></div>
+      <script type="text/xml" id="xxxx">
+<businessRuleTask id="businessRuleTask" activiti:class="${MyRuleServiceDelegate}" /> 
+      </script>
+
+
+    </div>
+    <div class="span3">
+      <h3>On this page</h3>
+      <ul>            
+          <li>Business Rule Task</li>
+      </ul>
+      <h3>There's more...</h3>
+      <ul>            
+          <li><a href="<%= @docUrl('api-references/bpmn20/') %>#!/tasks/service-task">Service Task</a></li>
+          <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial</a></li>
+          <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Order+Confirmation+Rules">Demo using Drools on the Business Rule Task</a></li>
+      </ul>      
+    </div>
+  </div>
+  
+	
+</section>

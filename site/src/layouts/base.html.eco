@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="camundaorg> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="camundaorg> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="camundaorg> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="camundaorg"> <!--<![endif]-->
+<head ng-app="camundaorg">
+  <!-- meta -->
+  <meta charset="utf-8" />
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <meta name="viewport" content="width=device-width" />
+
+  <meta name="description" content="<%= @getPreparedDescription() %>" />
+  <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+  <meta name="author" content="<%= @site.author or '' %>" />
+
+  <title><%= @getPreparedTitle() %></title>
+
+  <%- @getBlock('meta').toHTML() %>
+
+  <!-- ie6-8 support of html5 elements -->
+  <!--[if lt IE 9]>
+    <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <base app-base="<%= @pathSeparator() %>" />
+
+  <!-- styles -->
+  <%- @getBlock('styles').add(@commonStyles()).toHTML() %>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="<%= @docUrl('app/img/favicon.ico') %>" />
+</head>
+<body>
+
+  <%- @partial('navigation.html.eco', @, {}) %>
+
+  <%- @content %>
+
+  <%- @partial('footer.html.eco', @, {}) %>
+
+  <!-- scripts -->
+  <%- @getBlock('scripts').add(@commonScripts(), { defer:false }).toHTML() %>
+
+  <!-- tracking -->
+  <script type="text/javascript">
+    <!--
+    var wiredminds = [];
+    wiredminds.push(["setTrackParam", "wm_custnum", "eca343094da1ee95"]);
+    // Begin own parameters.
+    wiredminds.push(["setTrackParam", "wm_campaign_key", "wmc"]);
+    wiredminds.push(["registerHeatmapEvent", "mousedown"]); // End own parameters.
+    wiredminds.push(["count"]);
+
+    (function() {
+      function wm_async_load() {
+        var wm = document.createElement("script");
+        wm.type = "text/javascript";
+        wm.async = true;
+        wm.src = "http://test.wiredminds.de/track/count.js";
+        var el = document.getElementsByTagName('script')[0];
+        el.parentNode.insertBefore(wm, el);
+      }
+
+      if (window.addEventListener) {
+        window.addEventListener('load', wm_async_load, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', wm_async_load);
+      }
+    })();
+    // -->
+  </script>
+
+  <noscript>
+    <div>
+      <a href="http://www.wiredminds.de">
+        <img src="http://test.wiredminds.de/track/ctin.php?wm_custnum=eca343094da1ee95&amp;nojs=1" alt="" style="border:0px;"/>
+      </a>
+    </div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,80 @@
+camunda BPM Installation Guide (Tomcat 7)
+=========================================
+
+This document will guide you through the installation of camunda BPM and its components on a <a href="http://tomcat.apache.org/">Apache Tomcat 7 Server</a>.
+
+<div class="alert alert-info">
+  <strong>Reading the Guide</strong> Throughout this guide we will use a number of variables to denote common path names and constants.
+  <code>$CATALINA_HOME</code> points to the main directory of the tomcat server.
+  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to or have installed, e.g. <code>7.0.0</code>.
+</div>
+
+
+<a id="platform"></a>Installing the pre-built distro
+----------------------------------------------------
+
+How to...
+
+
+<a id="vanilla"></a>Installing the platform on a vanilla Tomcat
+---------------------------------------------------------------
+
+How to...
+
+In order to use the [JNDI Bindings for Bpm Platform Services on Tomcat](<%= @docUrl("guides/user-guide/") %>#jndi-bindings-services-tomcat) you have to edit the file `$CATALINA_HOME/conf/server.xml` and add the following Resources:
+
+	<Resource name="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
+		auth="Container"
+		type="org.camunda.bpm.ProcessEngineService"
+		description="camunda BPM platform Process Engine Service"
+		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessEngineServiceObjectFactory" />
+	          
+	<Resource name="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
+		auth="Container"
+		type="org.camunda.bpm.ProcessApplicationService"
+		description="camunda BPM platform Process Application Service"
+		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessApplicationServiceObjectFactory" />
+
+
+<a id="rest"></a>Installing the REST API web application
+--------------------------------------------------------
+
+To install the REST API, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
+See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Tomcat](#vanilla).
+
+**Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
+
+The following steps are required to deploy the REST API on a Tomcat instance:
+
+1. Download the REST API web application archive from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
+2. Copy the war file to `$CATALINA_HOME/webapps`. 
+   Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/engine-rest`.
+3. Startup Tomcat.
+4. Access the REST API on the context you configured. 
+   For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, 
+   if you deployed the application in the context `/engine-rest`.
+
+
+<a id="cycle"></a>Installing camunda cycle
+------------------------------------------
+
+How to...
+
+
+<a id="cockpit"></a>Installing camunda cockpit
+----------------------------------------------
+
+To install camunda cockpit, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
+See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Tomcat](#vanilla).
+
+**Note**: The distro already ships camunda cockpit. It may be accessed on the context path `/cockpit`.
+
+The following steps are required to deploy camunda cockpit on a Tomcat instance:
+
+1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-$PLATFORM_VERSION.war`.
+2. Copy the war file to `$CATALINA_HOME/webapps`. 
+   Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/cockpit`.
+3. Startup Tomcat.
+4. Access camunda cockpit on the context you configured.

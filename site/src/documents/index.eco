@@ -1,0 +1,58 @@
+---
+
+title: 'docs index'
+layout: 'default'
+
+---
+
+<div class="span12">
+  <div class="page-header">
+    <h1>camunda BPM Documentation</h1>  
+  </div>
+  <div class="row">
+
+    <div class="span4">    
+      <a href="<%= @docUrl("guides/")%>">
+        <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
+      </a>
+      <h2>
+        <a href="<%= @docUrl("guides/")%>">
+          Guides
+        </a>
+      </h2>
+      <ul>
+        <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
+        <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
+        <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="span4">
+      <a href="<%= @docUrl("api-references/")%>">
+        <img src="<%= @docUrl('assets/img/welcome/reference.png') %>" />
+      </a>
+      <h2>
+        <a href="<%= @docUrl("api-references/")%>">
+          References
+        </a>
+      </h2>
+      <ul>
+        <li><a href="<%= @docUrl("api-references/java/")%>">Java API</a></li>
+        <li><a href="<%= @docUrl("api-references/rest/")%>">REST API</a></li>
+        <li><a href="<%= @docUrl("api-references/bpmn20/")%>">BPMN 2.0 (Implementation)</a></li>
+      </ul>
+    </div>  
+
+    <!--
+    <div class="span4">
+      <img src="<%= @docUrl('assets/img/welcome/best-practices.png') %>" />
+      <h2>Best Practices</h2>
+      <ul>
+        <li><a href="">Best Pracices</a></li>
+        <li><a href="">Tutorials</a></li>      
+        <li><a href="">Patterns</a></li>      
+      </ul>
+    </div>
+    -->
+  </div>
+</div>

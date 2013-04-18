@@ -1,0 +1,56 @@
+{
+  "name": "camundaorg-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "camunda BPM pages",
+  "homepage": "http://camunda.org/",
+  "keywords": [
+    "camunda.org",
+    "camunda",
+    "bpm platform",
+    "engine"
+  ],
+  "author": {
+    "name": "camunda",
+    "email": "info@camunda.com",
+    "url": "https://github.com/camunda"
+  },
+  "maintainers": [
+    {
+      "name": "camunda",
+      "email": "info@camunda.com",
+      "url": "https://github.com/camunda"
+    },
+    {
+      "name": "Nico Rehwaldt",
+      "email": "git-nikku@nixis.de",
+      "url": "https://github.com/Nikku"
+    }
+  ],
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camunda/camunda.org.git"
+  },
+  "engines": {
+    "node": ">= 0.8.x",
+    "npm": ">= 1.2"
+  },
+  "dependencies": {
+    "docpad": "6.x",
+    "docpad-plugin-cleanurls": "2.x",
+    "docpad-plugin-coffeescript": "2.x",
+    "docpad-plugin-eco": "2.x",
+    "docpad-plugin-less": "2.x",
+    "docpad-plugin-markdown": "2.x",
+    "docpad-plugin-partials": "~2.5.0",
+    "docpad-plugin-stylus": "2.x",
+    "docpad-plugin-text": "2.x"
+  },
+  "devDependencies": {
+    "docpad-plugin-livereload": "2.x"
+  },
+  "main": "node_modules/docpad/bin/docpad-server",
+  "readme": "# camunda.org pages\n\nSee [camunda](http://camunda.org). ",
+  "readmeFilename": "README.md"
+}

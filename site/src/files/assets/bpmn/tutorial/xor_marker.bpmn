@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="6.5.0" expressionLanguage="http://www.w3.org/1999/XPath" id="sid-e380285b-2b23-41d9-87b4-6e018d1999bb" targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="sid-f0ae7837-6878-4192-81e6-b227a835fd8e" isClosed="false" isExecutable="false" processType="None">
+      <exclusiveGateway gatewayDirection="Unspecified" id="sid-9DF2C9E1-12FC-41DB-AF78-4F7C02802481">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="adaptertype" metaValue=""/>
+            <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+            <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue=""/>
+            <signavio:signavioMetaData metaKey="adapterclassname" metaValue=""/>
+         </extensionElements>
+      </exclusiveGateway>
+      <exclusiveGateway gatewayDirection="Unspecified" id="sid-BD4036F5-8980-4F74-8C91-74F07FC07BFB">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="adaptertype" metaValue=""/>
+            <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+            <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue=""/>
+            <signavio:signavioMetaData metaKey="adapterclassname" metaValue=""/>
+         </extensionElements>
+      </exclusiveGateway>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-7e3d6531-a3d2-416f-b232-7859a405f865">
+      <bpmndi:BPMNPlane bpmnElement="sid-f0ae7837-6878-4192-81e6-b227a835fd8e" id="sid-4ac8ac36-51ef-4e35-bc09-d46a330512a1">
+         <bpmndi:BPMNShape bpmnElement="sid-9DF2C9E1-12FC-41DB-AF78-4F7C02802481" id="sid-9DF2C9E1-12FC-41DB-AF78-4F7C02802481_gui" isMarkerVisible="true">
+            <omgdc:Bounds height="40.0" width="40.0" x="8.0" y="10.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BD4036F5-8980-4F74-8C91-74F07FC07BFB" id="sid-BD4036F5-8980-4F74-8C91-74F07FC07BFB_gui" isMarkerVisible="false">
+            <omgdc:Bounds height="40.0" width="40.0" x="60.0" y="10.0"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

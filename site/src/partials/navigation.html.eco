@@ -1,0 +1,52 @@
+<div class="navbar navbar-fixed-top" ng-controller="NavigationController">
+  <div class="docs-navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand ir" href="<%= @pathSeparator() %>">docs.camunda.org</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="dropdown" ng-class="activeClass('/guides')">
+            <a href="<%= @docUrl("guides/") %>">Guides</a>
+            <ul class="dropdown-menu">
+              <li ng-class="activeClass('/guides/user-guide')">
+                <a href="<%= @docUrl("guides/user-guide/") %>">User Guide</a>
+              </li>
+              <li ng-class="activeClass('/guides/installation-guide')">
+                <a href="<%= @docUrl("guides/installation-guide/") %>">Installation Guide</a>
+              </li>
+              <li ng-class="activeClass('/guides/migration-guide')">
+                <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown" ng-class="activeClass('/api-references')">
+            <a href="<%= @docUrl("api-references/") %>">References</a>
+            <ul class="dropdown-menu">
+              <li ng-class="activeClass('api-references/java')">
+                <a target="_blank" href="http://camunda.org/javadocs/">Java API</a>
+              </li>
+              <li ng-class="activeClass('api-references/rest')">
+                <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
+              </li>
+              <li ng-class="activeClass('api-references/bpmn20')">
+                <a href="<%= @docUrl("api-references/bpmn20/") %>">
+                  BPMN 2.0 (Implementation)
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--li ng-class="activeClass('/best-practices')">
+            <a href="<%= @docUrl("best-practices/") %>">Best Practices</a>
+          </li -->
+        </ul>
+      </div>
+      <a class="pull-right back-to-main ir" href="http://camunda.org">
+        back to camunda.org
+      </a>
+    </div>
+  </div>
+</div>

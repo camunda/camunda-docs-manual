@@ -1,0 +1,16 @@
+<!-- footer -->
+<footer class="footer">
+
+  <div class="container">
+    <p class="pull-right">
+      <a href="#" target="_self">Back to top</a>
+    </p>
+
+    <p>
+      <a href="http://camunda.org">camunda.org</a> and <a href="<%- @docUrl('/') %>">docs.camunda.org</a> are part of camunda BPM
+    </p>
+    <p>
+      Built by <a href="http://www.camunda.com">camunda</a> and contributors &mdash; camunda Services GmbH &copy; 2013
+    </p>
+  </div>
+</footer>

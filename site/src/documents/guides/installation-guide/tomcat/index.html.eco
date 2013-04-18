@@ -1,0 +1,22 @@
+---
+
+title: 'camunda BPM Installation Guide (Tomcat 7)'
+layout: 'default'
+
+---
+
+<div id="navSide" class="span3 bs-docs-sidebar">
+  <ul class="nav nav-list bs-docs-sidenav" data-ca-affix>
+    <li><a href="#platform"><i class="icon-chevron-right"></i>BPM platform</a></li>
+    <li><a href="#rest"><i class="icon-chevron-right"></i>REST API</a></li>
+    <li><a href="#cycle"><i class="icon-chevron-right"></i>camunda cycle</a></li>
+    <li><a href="#cockpit"><i class="icon-chevron-right"></i>camunda cockpit</a></li>
+  </ul>
+</div>
+
+
+<div class="span9">
+
+<%- @include("./guide.html.md") %>
+
+</div>

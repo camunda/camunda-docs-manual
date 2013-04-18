@@ -1,0 +1,38 @@
+---
+
+title: 'REST API'
+layout: 'default'
+
+---
+
+<div class="span3">
+  <form class="well form-search" module="rest-api" ng-submit="submitForm()" ng-cloak>
+    <div class="input-prepend dropdown search" ng-class="{ open: (focused && bestMatch.rank > 0 && bestMatch.page != currentPage) }">
+      <span class="add-on">
+        <i class="icon-search"></i>
+      </span>
+      <input type="text" tabindex="1" accesskey="s" focused="focused" ng-change="updateSearch()" ng-model="search" placeholder="search the docs" />
+      <ul class="dropdown-menu">
+        <li><a href="#!/{{ bestMatch.page.url }}">{{ bestMatch.page.shortName || bestMatch.page.name }}</a></li>
+      </ul>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div ng-show="search">Filtered results:</div>
+
+    <ul class="nav nav-list" ng-hide="categories.length">
+      <li ng-repeat="page in pages" ng-class="navClass(page)"><a href="#!/{{ page.url }}" tabindex="2">{{ page.name }}</a></li>
+    </ul>
+
+    <ul class="nav nav-list well" ng-repeat="category in categories">
+      <li class="nav-header module">{{ category.name }}</li>
+
+      <li ng-repeat="page in category.pages" ng-class="navClass(page)"><a href="#!/{{ page.url }}" tabindex="2">{{ page.name }}</a></li>
+    </ul>
+  </form>
+</div>
+
+<div class="span9">
+  <div class="docs" ng-include="currentPage.partialUrl" ng-cloak></div>
+</div>

@@ -1,0 +1,66 @@
+<section id="none-events">
+
+  <div class="page-header">
+      <h1>None Events</h1>
+  </div>
+  
+  <div class="row-fluid">
+  <div class="span9">
+      <p>
+        None events are unspecified, they are called 'blank' as well. For instance a 'none' start event technically means that the trigger for starting the process instance is unspecified. This means that the engine cannot anticipate when the process instance must be started. The none start event is used when the process instance is started through the API by calling one of the startProcessInstanceByXXX methods. 
+      </p>
+    <div class="app-source" app-source-no-tabs="noneEvent1"></div>
+    <script type="text/xml" id="noneEvent2">
+ProcessInstance processInstance = runtimeService.startProcessInstanceByXXX();    
+    </script>
+
+Note: a subprocess always has a none start event. 
+
+      <div id="event1" style="position:relative" data-bpmn-src="implement/event-none"></div>
+
+    </div>
+    <div class="span3">
+      <h3>On this page</h3>
+      <ul>            
+          <li>None Start Event</li>
+          <li>None End Event</li>
+          <li>Intermediate None Event (Throwing)</li>
+      </ul>
+      <h3>There's more...</h3>
+      <ul>            
+          <li><a href="http://camunda.org/design/reference.html#!/events/basics">Events in the BPMN Tutorial</a></li>
+      </ul>      
+    </div>
+  </div>
+  
+<h1>None End Event</h1>
+
+A 'none' end event means that the result thrown when the event is reached is unspecified. As such, the engine will not do anything extra besides ending the current path of execution. The XML representation of a none end event is the normal end event declaration, without any sub-element (other end event types all have a sub-element declaring the type).
+
+    <div class="app-source" app-source-no-tabs="noneEvent2"></div>
+    <script type="text/xml" id="noneEvent2">
+<endEvent id="end" name="my end event" />
+    </script>
+
+
+
+<h1>Intermediate None Event (throwing)</h1>
+
+The following process diagram shows a simple example of an intermediate none event, which is often used to indicate some state achieved in the process.
+
+      <div id="event2" style="position:relative" data-bpmn-src="implement/event-none-intermediate" ></div>
+
+This can be a good hook to monitor some KPI's, basically by adding an execution listener
+
+<div class="app-source" app-source-no-tabs="noneEvent3"></div>
+<script type="text/xml" id="noneEvent3">
+<intermediateThrowEvent id="noneEvent">
+  <extensionElements>
+    <activiti:executionListener class="org.camunda.bpm.engine.test.bpmn.event.IntermediateNoneEventTest$MyExecutionListener" event="start" />
+  </extensionElements>
+</intermediateThrowEvent>
+</script>
+
+There you can add some own code to maybe send some event to your BAM tool or DWH. The engine itself doesn't do anything in that event, it just passes through.   
+	
+</section>

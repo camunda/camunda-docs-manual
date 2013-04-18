@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="6.5.0" expressionLanguage="http://www.w3.org/1999/XPath" id="sid-eb2fddb6-cb4e-4ae3-9712-8b91afde4fcb" targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-466f7e87-b569-41a1-a820-8b2f17a273c5">
+      <participant id="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE" name="pizza delivery - supplier">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </participant>
+      <participant id="sid-D947437B-21BE-49BF-BF05-AE04CA578C71" name="pizza order - customer">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </participant>
+      <messageFlow id="sid-B14309B2-8D70-4F3A-8F83-9FF17160D489" name="inquiry" sourceRef="sid-D947437B-21BE-49BF-BF05-AE04CA578C71" targetRef="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </messageFlow>
+      <messageFlow id="sid-2830E2C8-8454-4520-BC0C-EBC04962B104" name="order" sourceRef="sid-D947437B-21BE-49BF-BF05-AE04CA578C71" targetRef="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </messageFlow>
+      <messageFlow id="sid-15587FD6-5FA8-446E-9BA1-76D00AD2A1DB" name="take the money" sourceRef="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE" targetRef="sid-D947437B-21BE-49BF-BF05-AE04CA578C71">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </messageFlow>
+      <messageFlow id="sid-96A6AF84-A58C-4071-822A-BB01A7EF88D1" name="delivery" sourceRef="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE" targetRef="sid-D947437B-21BE-49BF-BF05-AE04CA578C71">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </messageFlow>
+      <messageFlow id="sid-2E7CDC44-50E2-468D-9734-8CBA3F0BDF08" name="pay" sourceRef="sid-D947437B-21BE-49BF-BF05-AE04CA578C71" targetRef="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="userstory" metaValue="[]"/>
+         </extensionElements>
+      </messageFlow>
+   </collaboration>
+   <bpmndi:BPMNDiagram id="sid-584a4487-9cfe-4131-971a-d2b5a6ff0594">
+      <bpmndi:BPMNPlane bpmnElement="sid-466f7e87-b569-41a1-a820-8b2f17a273c5" id="sid-b49b5d53-e9ac-440c-a773-3d8501182ca3">
+         <bpmndi:BPMNShape bpmnElement="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE" id="sid-6C3098A0-CF4C-4C92-A16D-335ACD6943AE_gui" isHorizontal="true">
+            <omgdc:Bounds height="60.0" width="500.0" x="15.0" y="190.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-D947437B-21BE-49BF-BF05-AE04CA578C71" id="sid-D947437B-21BE-49BF-BF05-AE04CA578C71_gui" isHorizontal="true">
+            <omgdc:Bounds height="60.0" width="500.0" x="15.0" y="15.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-B14309B2-8D70-4F3A-8F83-9FF17160D489" id="sid-B14309B2-8D70-4F3A-8F83-9FF17160D489_gui">
+            <omgdi:waypoint x="163.0" y="75.0"/>
+            <omgdi:waypoint x="163.0" y="190.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-2830E2C8-8454-4520-BC0C-EBC04962B104" id="sid-2830E2C8-8454-4520-BC0C-EBC04962B104_gui">
+            <omgdi:waypoint x="63.0" y="75.0"/>
+            <omgdi:waypoint x="63.0" y="190.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-15587FD6-5FA8-446E-9BA1-76D00AD2A1DB" id="sid-15587FD6-5FA8-446E-9BA1-76D00AD2A1DB_gui">
+            <omgdi:waypoint x="370.0" y="190.0"/>
+            <omgdi:waypoint x="370.0" y="75.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-96A6AF84-A58C-4071-822A-BB01A7EF88D1" id="sid-96A6AF84-A58C-4071-822A-BB01A7EF88D1_gui">
+            <omgdi:waypoint x="264.0" y="190.0"/>
+            <omgdi:waypoint x="264.0" y="75.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-2E7CDC44-50E2-468D-9734-8CBA3F0BDF08" id="sid-2E7CDC44-50E2-468D-9734-8CBA3F0BDF08_gui">
+            <omgdi:waypoint x="476.0" y="75.0"/>
+            <omgdi:waypoint x="476.0" y="190.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

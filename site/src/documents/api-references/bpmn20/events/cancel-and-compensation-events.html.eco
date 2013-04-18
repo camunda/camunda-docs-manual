@@ -1,0 +1,217 @@
+<section id="cancel-and-compensation-events">
+
+  <div class="page-header">
+      <h1>Cancel and Compensation Events</h1>
+  </div>
+  
+  <div class="row-fluid">
+  <div class="span9">
+      <p>
+        Cancel and compensation events occur in the context of the <a href="<%= @docUrl('api-references/bpmn20/') %>#!/subprocesses/transaction-subprocess">Transaction subprocess</a>. 
+        Please read that part first to understand the overall idea.
+      </p>
+
+
+      <h1>Cancel End Event</h1>
+
+      <p>
+      The cancel end event can only be used in combination with a <a href="<%= @docUrl('api-references/bpmn20/') %>#!/subprocesses/transaction-subprocess">Transaction subprocess</a>. When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
+      </p>
+
+      <div class="bpmnContainer"  data-bpmn-symbol="endevent/cancel" ></div>
+
+    </div>
+    <div class="span3">
+      <h3>On this page</h3>
+      <ul>            
+          <li>Cancel End Event</li>          
+          <li>Cancel Boundary Event</li>
+          <li>Compensation Intermediate Throwing Event</li>
+          <li>Compensation Boundary Event</li>
+      </ul>
+      <h3>There's more...</h3>
+      <ul>            
+          <li><a href="<%= @docUrl('api-references/bpmn20/') %>#!/subprocesses/transaction-subprocess">Transaction subprocess</a></li>
+          <li><a href="http://camunda.org/design/reference.html#!/events/compensation">Compensation Events in the BPMN Turorial</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+<h1>Cancel Boundary Event</h1>
+<p>
+  An attached intermediate catching cancel on the boundary of a transaction subprocess, or boundary cancel event for short, is triggered when a transaction is cancelled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
+</p>
+
+<div class="bpmnContainer"  data-bpmn-symbol="intermediatecatchevent/cancel" > </div>
+
+<p>
+Note: Only a single cancel boundary event is allowed for a transaction subprocess.
+</p>
+<p>
+Note: If the transaction subprocess hosts nested subprocesses, compensation is only triggered for subprocesses that have completed successfully.
+</p>
+<p>
+Note: If a cancel boundary event is placed on a transaction subprocess with multi instance characteristics, if one instance triggers cancellation, the boundary event cancels all instances.
+</p>
+
+<p>
+A cancel boundary event is defined as a typical boundary event:
+</p>
+
+<div class="app-source" app-source-no-tabs="cancel1"></div>
+<script type="text/xml" id="cancel1">   
+<boundaryEvent id="boundary" attachedToRef="transaction" >       
+          <cancelEventDefinition />
+</boundaryEvent>
+</script>                     
+
+<p>
+Since the cancel boundary event is always interrupting, the cancelActivity attribute is not required. 
+</p>
+
+
+
+
+
+
+
+
+
+
+<h1>Compensation Intermediate Throwing Event</h1>
+<p>
+An intermediate throwing compensation event can be used to trigger compensation.
+</p>
+
+<div class="bpmnContainer"  data-bpmn-symbol="intermediatethrowevent/compensate" ></div>
+
+
+Triggering compensation: Compensation can either be triggered for a designated activity or for the scope which hosts the compensation event. Compensation is performed through execution of the compensation handler associated with an activity.
+<ul>
+
+    <li>When compensation is thrown for an activity, the associated compensation handler is executed the same number of times the activity competed successfully.</li>
+
+    <li>If compensation is thrown for the current scope, all activities withing the current scope are compensated, which includes activities on concurrent branches.</li>
+
+    <li>Compensation is triggered hierarchically: if an activity to be compensated is a subprocess, compensation is triggered for all activities contained in the subprocess. If the subprocess has nested activities, compensation is thrown recursively. However, compensation is not propagated to the "upper levels" of the process: if compensation is triggered within a subprocess, it is not propagated to activities outside of the subprocess scope. The bpmn specification states that compensation is triggered for activities at "the same level of subprocess".</li>
+
+    <li>Compensation is performed in reverse order of execution. This means that whichever activity completed last is compensated first, etc.</li>
+
+    <li>The intermediate throwing compensation event can be used to compensate transaction subprocesses which competed successfully. </li>
+</ul>
+
+<p>
+Note: If compensation is thrown within a scope which contains a subprocess and the subprocess contains activities with compensation handlers, compensation is only propagated to the subprocess if it has completed successfully when compensation is thrown. If some of the activities nested inside the subprocess have completed and have attached compensation handlers, the compensation handlers are not executed if the subprocess containing these activities is not completed yet. Consider the following example:
+</p>
+
+
+<div id="event-compensation-throw" style="position:relative" data-bpmn-src="implement/event-compensation-throw" > </div>
+
+
+<p>
+In this process we have two concurrent executions, one executing the embedded subprocess and one executing the "charge credit card" activity. Lets assume both executions are started and the first concurrent execution is waiting for a user to complete the "review bookings" task. The second execution performs the "charge credit card" activity and an error is thrown, which causes the "cancel reservations" event to trigger compensation. At this point the parallel subprocess is not yet completed which means that the compensation event is not propagated to the subprocess and thus the "cancel hotel reservation" compensation handler is not executed. If the user task (and thus the embedded subprocess) completes before the "cancel reservations" is performed, compensation is propagated to the embedded subprocess.
+</p>
+
+Process variables: When compensating an embedded subprocess, the execution used for executing the compensation handlers has access to the local process variables of the subprocess in the state they were in when the subprocess completed execution. To achieve this, a snapshot of the process variables associated with the scope execution (execution created for executing the subprocess) is taken. Form this, a couple of implications follow:
+<ul>
+    <li>The compensation handler does not have access to variables added to concurrent executions created inside the subprocess scope.</li>
+
+    <li>Process variables associated with executions higher up in the hierarchy, (for instance process variables associated with the process instance execution are not contained in the snapshot: the compensation handler has access to these process variables in the state they are in when compensation is thrown.</li>
+
+    <li>A variable snapshot is only taken for embedded subprocesses, not for other activities. </li>
+</ul>
+
+Current limitations:
+
+<ul>
+    <li>waitForCompletion="false" is currently unsupported. When compensation is triggered using the intermediate throwing compensation event, the event is only left, after compensation completed successfully.</li>
+
+    <li>Compensation itself is currently performed by concurrent executions. The concurrent executions are started in reverse order in which the compensated activities completed. Future versions of activity might include an option to perform compensation sequentially.</li>
+
+    <li>Compensation is not propagated to sub process instances spawned by call activities.</li>
+</ul>
+
+
+<p>
+A compensation intermediate event is defined as a intermediate throwing event. The specific type sub-element is in this case a compensateEventDefinition element.
+</p>
+
+<div class="app-source" app-source-no-tabs="compensation1"></div>
+<script type="text/xml" id="compensation1">   
+<intermediateThrowEvent id="throwCompensation">
+        <compensateEventDefinition />
+</intermediateThrowEvent>
+</script>
+
+In addition, the optional argument activityRef can be used to trigger compensation of a specific scope / activity:
+
+<div class="app-source" app-source-no-tabs="compensation2"></div>
+<script type="text/xml" id="compensation2">   
+<intermediateThrowEvent id="throwCompensation">
+        <compensateEventDefinition activityRef="bookHotel" />
+</intermediateThrowEvent>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>Compensation Boundary Event</h1>
+<p>
+An attached intermediate catching compensation on the boundary of an activity or compensation boundary event for short, can be used to attach a compensation handler to an activity.
+</p>
+
+<div class="bpmnContainer"  data-bpmn-symbol="intermediatecatchevent/compensate" > </div>
+
+<p>
+The compensation boundary event must reference a single compensation handler using a directed association.
+</p>
+
+
+A compensation boundary event has a different activation policy from other boundary events. Other boundary events like for instance the signal boundary event are activated when the activity they are attached to is started. When the activity is left, they are deactivated and the corresponding event subscription is cancelled. The compensation boundary event is different. The compensation boundary is activated when the activity is attached to completes successfully. At this point, the corresponding subscription to compensation events is created. The subscription is removed either when a compensation event is triggered or when the corresponding process instance ends. From this, it follows:
+<ul>
+    <li>When compensation is triggered, the compensation handler associated with the compensation boundary event is invoked the same number of times the activity it is attached to completed successfully.</li> 
+
+    <li>If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.</li> 
+
+    <li>If a compensation boundary event is attached to an activity which is contained inside a loop, a compensation event subscription is created for each time the activity is executed.</li> 
+
+    <li>If the process instance ends, the subscriptions to compensation events are cancelled.</li> 
+</ul>
+
+<p>
+Note: the compensation boundary event is not supported on embedded subprocesses.
+</p>
+
+
+<p>
+A compensation boundary event is defined as a typical boundary event:
+</p>
+
+<div class="app-source" app-source-no-tabs="compensation4"></div>
+<script type="text/xml" id="compensation4">   
+<boundaryEvent id="compensateBookHotelEvt" attachedToRef="bookHotel" >       
+          <compensateEventDefinition />
+</boundaryEvent>
+
+<association associationDirection="One" id="a1"  sourceRef="compensateBookHotelEvt" targetRef="undoBookHotel" />
+
+<serviceTask id="undoBookHotel" isForCompensation="true" activiti:class="..." />
+</script>
+
+<p>
+Since the compensation boundary event is activated after the activity has completed successfully, the cancelActivity attribute is not supported. 
+</p>
+
+
+
+	
+</section>

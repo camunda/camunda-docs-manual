@@ -1,0 +1,122 @@
+<section id="call-activity">
+
+  <div class="page-header">
+      <h1>Call Activity</h1>
+  </div>
+  
+  <div class="row-fluid">
+  <div class="span9">
+      <p>
+      BPMN 2.0 makes a distinction between an embedded subprocess and the call activity. From a conceptual point of view, both will call a subprocess when process execution arrives at the activity.
+      </p>
+      <p>
+      The difference is that the call activity references a process that is external to the process definition, whereas the subprocess is embedded within the original process definition. The main use case for the call activity is to have a reusable process definition that can be called from multiple other process definitions.
+      </p>
+      <p>
+      When process execution arrives in the call activity, a new process instance is created, which is  used to execute the subprocess, potentially creating parallel child execution as within a regular process. The super process instance  waits until the subprocess is completely ended, and continues the original process afterwards.
+      </p>
+
+      <div id="call-activity" style="position:relative" data-bpmn-src="implement/call-activity" ></div>
+
+      <p>
+      A call activity is visualized the same as a collapsed embedded subprocess, however with a thick border. Depending on the modeling tool, a call activity can also be expanded, but the default visualization is the collapsed representation.
+      </p>
+
+    </div>
+    <div class="span3">
+      <h3>On this page</h3>
+      <ul>            
+          <li>Call Activity</li>
+          <li>Passing Variables</li>
+          <li>Example</li>
+      </ul>
+      <h3>There's more...</h3>
+      <ul>            
+          <li><a href="http://camunda.org/design/reference.html#!/activities/callactivity">Call Activity in the BPMN Tutorial</a></li>
+          <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Process+Decomposition">Process Decomposition</a></li>
+      </ul>      
+    </div>
+  </div>
+  
+<p>
+A call activity is a regular activity, that requires a calledElement that references a process definition by its key. In practice, this means that the id of the process is used in the calledElement:
+</p>
+    <div class="app-source" app-source-no-tabs="callactivity1"></div>
+    <script type="text/xml" id="callactivity1">
+<callActivity id="callCheckCreditProcess" name="Check credit" calledElement="checkCreditProcess" />    
+    </script>
+<p>
+Note that the process definition of the subprocess is resolved at runtime. This means that the subprocess can be deployed independently from the calling process, if needed.
+</p>
+
+
+
+
+
+
+<h1>Passing variables</h1>
+
+You can pass process variables to the sub process and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
+
+<div class="app-source" app-source-no-tabs="callactivity2"></div>
+<script type="text/xml" id="callactivity2">    
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+  <extensionElements>
+          <activiti:in source="someVariableInMainProcess" target="nameOfVariableInSubProcess" />
+          <activiti:out source="someVariableInSubProcss" target="nameOfVariableInMainProcess" />
+  </extensionElements>
+</callActivity>
+</script>
+<p>
+We use a Custom Extension as a shortcut for the BPMN standard elements called dataInputAssociation and dataOutputAssociation, which only work if you declare process variables in the BPMN 2.0 standard way.
+</p>
+<p>
+It is possible to use expressions here as well:
+</p>
+
+<div class="app-source" app-source-no-tabs="callactivity3"></div>
+<script type="text/xml" id="callactivity3">    
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+        <extensionElements>
+          <activiti:in sourceExpression="${x+5}" target="y" />
+          <activiti:out source="${y+5}" target="z" />
+        </extensionElements>
+</callActivity>
+</script>
+
+<p>
+So in the end z = y+5 = x+5+5
+</p>
+
+
+
+
+
+
+<h1>Example</h1>
+
+The following process diagram shows a simple handling of an order. Since for example the billing could be common to many other processes, it is modeled as a call activity.
+
+<div id="call-activity2" style="position:relative" data-bpmn-src="implement/call-activity" ></div>
+
+The XML looks as follows:
+
+<div class="app-source" app-source-no-tabs="callactivity4"></div>
+<script type="text/xml" id="callactivity4">    
+<startEvent id="theStart" />
+<sequenceFlow id="flow1" sourceRef="theStart" targetRef="shipping" />
+
+<callActivity id="shipping" name="Shipping" calledElement="shippingProcess" />
+<sequenceFlow id="flow2" sourceRef="shipping" targetRef="billing" />
+    
+<callActivity id="billing" name="Billing" calledElement="billingProcess" />
+<sequenceFlow id="flow3" sourceRef="billing" targetRef="end" />
+       
+<endEvent id="end" />
+</script>
+
+<p>
+There is nothing special to the process definition of the subprocess. It could as well be used without being called from another process. 	
+</p>
+	
+</section>

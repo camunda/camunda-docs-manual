@@ -1,0 +1,14 @@
+---
+
+title: 'User Guide'
+layout: 'default'
+
+---
+
+<div class="span12">
+  <div class="page-header">
+    <h1>User Guide</h1>
+  </div>
+
+  <%- @include('./single-page.html.md.eco') %>
+</div>

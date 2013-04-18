@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="6.5.0" expressionLanguage="http://www.w3.org/1999/XPath" id="sid-c40f20e2-2b07-43d9-98db-32b37dafeaa9" targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="sid-5cc6049e-15bd-43f5-8c00-70f6c040a746" isClosed="false" isExecutable="false" processType="None">      
+      <userTask id="task1" name="User Task MI (parallel)">
+			  <multiInstanceLoopCharacteristics isSequential="false">
+			    <loopDataInputRef>assigneeList</loopDataInputRef>
+			    <inputDataItem name="assignee" />
+			  </multiInstanceLoopCharacteristics>
+      </userTask>
+      <serviceTask id="task2" name="Service Task MI (sequential)">
+			  <multiInstanceLoopCharacteristics isSequential="true">
+			    <loopDataInputRef>assigneeList</loopDataInputRef>
+			    <inputDataItem name="assignee" />
+			  </multiInstanceLoopCharacteristics>
+      </serviceTask>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-a46764bc-e1a2-4973-97ef-0a89a66337da">
+      <bpmndi:BPMNPlane bpmnElement="sid-5cc6049e-15bd-43f5-8c00-70f6c040a746" id="sid-36b44f8b-2f01-4bb3-ab29-dd2f26572c31">
+         <bpmndi:BPMNShape bpmnElement="task1" id="task1_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="15.0" y="15.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="task2" id="task2_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="15.0"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

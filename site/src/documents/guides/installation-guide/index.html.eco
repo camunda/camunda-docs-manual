@@ -1,0 +1,53 @@
+---
+
+title: 'Installation Guides'
+layout: 'default'
+
+---
+
+<div class="span12">
+  <div class="page-header">
+    <h1>Installation Guide</h1>
+  </div>
+  
+  <p>Learn how to install the camunda BPM platform and web applications on the different application servers.</p>
+  
+  <div class="row">
+    <div class="span3">    
+      <a href="tomcat/">
+        <img src="assets/img/tomcat-tile.png" />
+      </a>
+      <h2><a href="tomcat/">Apache Tomcat 7</a></h2>      
+      <ul>
+        <li><a href="tomcat/#platform">BPM platform</a></li>
+        <li><a href="tomcat/#cycle">REST API</a></li>
+        <li><a href="tomcat/#cockpit">camunda cycle</a></li>
+        <li><a href="tomcat/#rest">camunda cockpit</a></li>
+      </ul>
+    </div>
+    <div class="span3">
+      <a href="jboss/">
+        <img src="assets/img/as7-tile.png" />
+      </a>
+      <h2><a href="jboss/">JBoss AS 7</a></h2>
+      <ul>
+        <li><a href="jboss/#platform">BPM platform</a></li>
+        <li><a href="jboss/#cycle">REST API</a></li>
+        <li><a href="jboss/#cockpit">camunda cycle</a></li>
+        <li><a href="jboss/#rest">camunda cockpit</a></li>
+      </ul>
+    </div>
+    <div class="span3">    
+      <a href="glassfish/">
+        <img src="assets/img/glassfish-tile.png" />
+      </a>
+      <h2><a href="glassfish/">Glassfish 3.1</a></h2>      
+      <ul>
+        <li><a href="glassfish/#platform">BPM platform</a></li>
+        <li><a href="glassfish/#cycle">REST API</a></li>
+        <li><a href="glassfish/#cockpit">camunda cycle</a></li>
+        <li><a href="glassfish/#rest">camunda cockpit</a></li>
+      </ul>
+    </div>   
+  </div>
+</div>

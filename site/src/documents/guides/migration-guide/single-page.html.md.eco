@@ -1,0 +1,21 @@
+<section id="toc">
+
+<h1>Table of Contents</h1>
+<%- @include('./toc.html.md.eco') %>
+
+</section>
+
+<section id="introduction">
+
+  <%- @include('./chapters/00-introduction.html.md.eco') %>
+</section>
+
+<section id="migration-step-by-step">
+
+  <%- @include('./chapters/01-migration-step-by-step.html.md') %>
+</section>
+
+<section id="migrate-from-camunda-fox">
+
+  <%- @include('./chapters/02-migrate-from-camunda-fox.html.md.eco') %>
+</section>

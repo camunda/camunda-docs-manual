@@ -1,0 +1,471 @@
+# BPM Platform
+
+The camunda BPM platform is a powerful yet lightweight framework for workflow and process execution. The functionality provided by the camunda BPM platform comprises three main aspects:
+
+* **[Process Engine](#platform-process-engine)**: the process engine is the core component responsible for executing BPMN 2.0 Business Processes. The Process Engine API provides means for deploying, executing and monitoring business processes.
+* **[Process Application](#platform-process-application)**: a process application is a Java application that interacts with the process engine. The process application uses the process engine API for interacting with business processes and provides the Java Code implementations for service tasks in the BPMN 2.0 processes.
+* **[Runtime Container Integration](#platform-runtime-container-integration)**: the runtime container integration allows the BPM platform to use resources (such as Thread Pools) provided by the container in which it is deployed and expose management resources inside this container (such as JMX MBeans).
+
+<section id="platform-process-engine"></section>
+
+## Process Engine
+
+### Process Engine Bootstrapping
+
+There are two basic modes of the Process Engine:
+* Shared Process Engine:
+* Embedded Process Engine:
+
+See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Architecture+Overview">Architecture Overview</a> for more details on the differences on this.
+
+In order to configure and create a Process Engine you have different options:
+
+* *Container managed Process Engine:* The container of your choice (e.g. Tomcat, JBoss, Glassfish or WebSphere) completly manages the Process Engine for you. Configuration is done in a container specific way, see Container Integration for details.
+* *Application managed Process Engine:*
+ * Create Process Engine via Java API: You can startup a Process Engine (shared or embedded) completly by plain Java code, more details below.
+ * Create Process Engine using XML configuration: You can use an XML configuration (Spring) to configure and startup your Engine, more details below.
+ * Create Process Engine using Spring: Spring can manage your Process Engine for you, see <a href="#programming-model-spring">Engine Startup via Spring</a> for details.
+            
+#### ProcessEngineConfiguration bean
+
+The camunda engine uses the <a href="http://www.camunda.org/javadocs/index.html?org/camunda/bpm/engine/ProcessEngineConfiguration.html">ProcessEngineConfiguration bean</a> to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the processEngineConfiguration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class the matches (the most) your environment, to minimalise the number of properties needed to configure the engine. The following classes are currently available:
+
+* org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration: the process engine is used in a standalone way. The engine itself will take care of the transactions. By default, the database will only be checked when the engine boots (and an exception is thrown if there is no database schema or the schema version is incorrect).
+* org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration: this is a convenience class for unit testing purposes. The engine itself will take care of the transactions. An H2 in-memory database is used by default. The database will be created and dropped when the engine boots and shuts down. When using this, probably no additional configuration is needed (except when using for example the job executor or mail capabilities).
+* org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration: To be used when the process engine is used in a Spring environment. See the Spring integration section for more information.
+* org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration: To be used when the engine runs in standalone mode, with JTA transactions.
+
+#### Bootstrap a Process Engine using Java API
+
+You can completly configure the engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
+    
+    ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
+    ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration();
+
+Now you can call the buildProcessEngine() operation to create a Process Engine:
+
+    ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
+      .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
+      .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
+      .setJobExecutorActivate(true)
+      .buildProcessEngine();
+
+#### Configure Process Engine via XML
+
+The easiest way to configure your Process Engine is via through an XML file called activiti.cfg.xml. Using that you can simply do:
+
+    ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine()
+
+The activiti.cfg.xml must contain a bean that has the id 'processEngineConfiguration', select the best fitting ProcessEngineConfiguration class suiting your needs:
+
+    <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+
+This will look for an activiti.cfg.xml file on the classpath and construct an engine based on the configuration in that file. The following snippet shows an example configuration:
+
+    <beans xmlns="http://www.springframework.org/schema/beans" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+      
+        <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB\_CLOSE\_DELAY=1000" />
+        <property name="jdbcDriver" value="org.h2.Driver" />
+        <property name="jdbcUsername" value="sa" />
+        <property name="jdbcPassword" value="" />
+        
+        <property name="databaseSchemaUpdate" value="true" />
+        
+        <property name="jobExecutorActivate" value="false" />
+        
+        <property name="mailServerHost" value="mail.my-corp.com" /> 
+        <property name="mailServerPort" value="5025" />    
+      </bean>
+
+    </beans>
+
+Note that the configuration XML is in fact a Spring configuration. This does not mean that the camunda engine can only be used in a Spring environment! We are simply leveraging the parsing and dependency injection capabilities of Spring internally for building up the engine.
+
+The ProcessEngineConfiguration object can also be created programmatically using the configuration file. It is also possible to use a different bean id:
+
+    ProcessEngineConfiguration.createProcessEngineConfigurationFromResourceDefault();
+    ProcessEngineConfiguration.createProcessEngineConfigurationFromResource(String resource);
+    ProcessEngineConfiguration.createProcessEngineConfigurationFromResource(String resource, String beanName);
+    ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(InputStream inputStream);
+    ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(InputStream inputStream, String beanName);
+
+
+It is also possible not to use a configuration file, and create a configuration based on defaults (see the different supported classes for more information).
+
+    ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
+    ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration();
+
+All these `ProcessEngineConfiguration.createXXX()` methods return a ProcessEngineConfiguration that can further be tweaked if needed. After calling the `buildProcessEngine()` operation, a ProcessEngine is created as explained above.
+
+### Process Engine API
+
+#### Services API
+
+The Java API is the most common way of interacting with the engine. The central starting point is the ProcessEngine, which can be created in several ways as described in the configuration section. From the ProcessEngine, you can obtain the various services that contain the workflow/BPM methods. ProcessEngine and the services objects are thread safe. So you can keep a reference to 1 of those for a whole server. 
+    
+<img src="<%= @docUrl('assets/img/implementation-java/api.services.png') %>">
+
+    ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+
+    RuntimeService runtimeService = processEngine.getRuntimeService();
+    RepositoryService repositoryService = processEngine.getRepositoryService();
+    TaskService taskService = processEngine.getTaskService();
+    ManagementService managementService = processEngine.getManagementService();
+    IdentityService identityService = processEngine.getIdentityService();
+    HistoryService historyService = processEngine.getHistoryService();
+    FormService formService = processEngine.getFormService();
+  
+
+`ProcessEngines.getDefaultProcessEngine()` will initialize and build a process engine the first time it is called and afterwards always return the same process engine. Proper creation and closing of all process engines can be done with `ProcessEngines.init()` and `ProcessEngines.destroy()`.
+
+The ProcessEngines class will scan for all activiti.cfg.xml and activiti-context.xml files. For all `activiti.cfg.xml` files, the process engine will be built in the typical way: `ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(inputStream).buildProcessEngine()`. For all `activiti-context.xml` files, the process engine will be built in the Spring way: First the Spring application context is created and then the process engine is obtained from that application context.
+
+All services are stateless. This means that you can easily run camunda BPM on multiple nodes in a cluster, each going to the same database, without having to worry about which machine actually executed previous calls. Any call to any service is idempotent regardless of where it is executed.
+
+The **RepositoryService** is probably the first service needed when working with the camunda engine. This service offers operations for managing and manipulating deployments and process definitions. Without going into much detail here, a process definition is a Java counterpart of BPMN 2.0 process. It is a representation of the structure and behaviour of each of the steps of a process. A deployment is the unit of packaging within the engine. A deployment can contain multiple BPMN 2.0 xml files and any other resource. The choice of what is included in one deployment is up to the developer. It can range from a single process BPMN 2.0 xml file to a whole package of processes and relevant resources (for example the deployment 'hr-processes' could contain everything related to hr processes). The RepositoryService allows to deploy such packages. Deploying a deployment means it is uploaded to the engine, where all processes are inspected and parsed before being stored in the database. From that point on, the deployment is known to the system and any process included in the deployment can now be started.
+
+Furthermore, this service allows to
+
+* query on deployments and process definitions known to the engine.
+* Suspend and activate deployments as a whole or specific process definitions. Suspending means no further operations can be done on them, while activation is the opposite operation.
+* Retrieve various resources such as files contained within the deployment or process diagrams that were auto generated by the engine.
+* Retrieve a pojo version of the process definition which can be used to introspect the process using Java rather than xml.
+
+Wile the RepositoryService is rather about static information (ie. data that doesn't change, or at least not a lot), the **RuntimeService** is quite the opposite. It deals with starting new process instances of process definitions. As said above, a process definition defines the structure and behaviour of the different steps in a process. A process instance is one execution of such a process definition. For each process definition there typically are many instances running at the same time. The RuntimeService also is the service which is used to retrieve and store process variables. This is data which is specific to the given process instance and can be used by various constructs in the process (eg. an exclusive gateway often uses process variables to determine which path is chosen to continue the process). The Runtimeservice also allows to query on process instances and executions. Executions are a representation of the 'token' concept of BPMN 2.0. Basically an execution is a pointer pointing to where the process instance currently is. Lastly, the RuntimeService is used whenever a process instance is waiting for an external trigger and the process needs to be continued. A process instance can have various wait states and this service contains various operations to 'signal' the instance that the external trigger is received and the process instance can be continued.
+
+Tasks that need to be performed by actual human users of the system are core to the process engine. Everything around tasks is grouped in the **TaskService**, such as
+* Querying tasks assigned to users or groups.
+* Creating new standalone tasks. These are tasks that are not related to a process instances.
+* Manipulating to which user a task is assigned or which users are in some way involved with the task.
+* Claiming and completing a task. Claiming means that someone decided to be the assigee for the task, meaning that this user will complete the task. Completing means 'doing the work of the tasks'. Typically this is filling in a form of sorts.
+
+The **IdentityService** is pretty simple. It allows the management (creation, update, deletion, querying, ...) of groups and users. It is important to understand that the core engine actually doesn't do any checking on users at runtime. For example, a task could be assigned to any user, but the engine does not verify if that user is known to the system. This is because the engine can also used in conjunction with services such as ldap, active directory, etc.
+
+The **FormService** is an optional service. Meaning that the camunda engine can perfectly be used without it, without sacrificing any functionality. This service introduces the concept of a start form and a task form. A start form is a form that is shown to the user before the process instance is started, while a task form is the form that is displayed when a user wants to complete a form. You can define these forms in the BPMN 2.0 process definition. This service exposes this data in an easy way to work with. But again, this is optional as forms don't need to be embedded in the process definition.
+
+The **HistoryService** exposes all historical data gathered by the engine. When executing processes, a lot of data can be kept by the engine (this is configurable) such as process instance start times, who did which tasks, how long it took to complete the tasks, which path was followed in each process instance, etc. This service exposes mainly query capabilities to access this data.
+
+The **ManagementService** is typically not needed when coding custom application. It allows to retrieve information about the database tables and table metadata. Furthermore, it exposes query capabilities and management operations for jobs. Jobs are used in the engine for various things such as timers, asynchronous continuations, delayed suspension/activation, etc. Later on, these topics will be discussed in more detail.
+
+<div class="alert">
+   <strong>Javadocs: </strong> 
+  <p>For more detailed information on the service operations and the engine API, see the <a href="http://www.camunda.org/javadocs/">javadocs</a>.</p>
+</div>
+
+    
+#### Query API
+
+To query data from the engine is possible in multiple ways:
+
+* Java Query API: Fluent Java API to query engine entities (like ProcessInstances, Tasks, ...).
+* REST Query API: REST API to query engine entities (like ProcessInstances, Tasks, ...).
+* Native Queries: Provide own SQL queries to retrieve engine entities (like ProcessInstances, Tasks, ...) if the Query API lacks possibilities you need (e.g. OR conditions).
+* Custom Queries: Use completly custom queries and an own MyBatis mapping to retrieve own value objects or join engine with domain data.
+* SQL Queries: Use database SQL queries for use cases like Reporting.
+
+The recommended way is to use on of the Query APIs.
+
+The Java Query API allows to program completely typesafe queries with a fluent API You can add various conditions to your queries (all of which are applied together as a logical AND) and precisely one ordering. The following code shows an example:
+    List<Task> tasks = taskService.createTaskQuery()
+      .taskAssignee("kermit")
+      .processVariableValueEquals("orderId", "0815")
+      .orderByDueDate().asc()
+      .list();
+
+You can find more information on this in the <a href="http://www.camunda.org/javadocs/">javadocs</a>.
+
+##### REST Query API
+
+The Java Query API is exposed as REST service as well, see [REST documentation](<%= @docUrl('api-references/rest/') %>) for details.
+
+##### Native Queries
+ 
+Sometimes you need more powerful queries, e.g. queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g. Task, ProcessInstance, Execution, etc.... Since the query will be fired at the database you have to use table and column names as they are defined in the database; this requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
+
+
+    List<Task> tasks = taskService.createNativeTaskQuery()
+      .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
+      .parameter("taskName", "gonzoTask")
+      .list();
+
+    long count = taskService.createNativeTaskQuery()
+      .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T1, "
+             + managementService.getTableName(VariableInstanceEntity.class) + " V1 WHERE V1.TASK_ID_ = T1.ID_")
+      .count();
+
+##### Custom Queries
+
+For performance reasons it might sometimes be desirable not to query the engine objects but some own value or DTO objects collecting data from different tables - maybe including your own domain classes.
+
+See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Performance+Tuning+with+custom+Queries">Performance Tuning with custom Queries</a>.
+
+##### SQL Queries
+
+The table layout is pretty straighforward - we concentrated on making it easy to understand. Hence it is OK to do SQL queries for e.g. reporting use cases. Just make sure that you do not mess up the engine data by updating the tables without exactly knowing what you are doing.
+
+See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Reports+with+BIRT">Reports with BIRT</a> as example use case.
+
+### Database configuration
+
+There are two ways to configure the database that the camunda engine will use. The first option is to define the JDBC properties of the database:
+
+* jdbcUrl: JDBC URL of the database.
+* jdbcDriver: implementation of the driver for the specific database type.
+* jdbcUsername: username to connect to the database.
+* jdbcPassword: password to connect to the database.
+
+Note that internally the engine uses <a href="http://www.mybatis.org/">Apache MyBatis</a> for persistence. 
+
+The data source that is constructed based on the provided JDBC properties will have the default MyBatis connection pool settings. The following attributes can optionally be set to tweak that connection pool (taken from the MyBatis documentation):
+
+* jdbcMaxActiveConnections: The number of active connections that the connection pool at maximum at any time can contain. Default is 10.
+* jdbcMaxIdleConnections: The number of idle connections that the connection pool at maximum at any time can contain.
+* jdbcMaxCheckoutTime: The amount of time in milliseconds a connection can be 'checked out' from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
+* jdbcMaxWaitTime: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it�s taking unusually long (to avoid failing silently forever if the pool is misconfigured) Default is 20000 (20 seconds).
+
+Example database configuration:
+
+    <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB\_CLOSE\_DELAY=1000" />
+    <property name="jdbcDriver" value="org.h2.Driver" />
+    <property name="jdbcUsername" value="sa" />
+    <property name="jdbcPassword" value="" />
+     
+
+Alternatively, a `javax.sql.DataSource` implementation can be used (e.g. DBCP from Apache Commons):
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
+      <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://localhost:3306/camunda" />
+      <property name="username" value="camunda" />
+      <property name="password" value="camunda" />
+      <property name="defaultAutoCommit" value="false" />
+    </bean>      
+
+    <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+      
+        <property name="dataSource" ref="dataSource" />
+        ...
+
+
+Note that camunda does not ship with a library that allows to define such a data source. So you have to make sure that the libraries (e.g. from DBCP) are on your classpath.
+
+The following properties can be set, regardless of whether you are using the JDBC or data source approach:
+
+* `databaseType`: it's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2}. This property is required when not using the default H2 database. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
+* `databaseSchemaUpdate`: allows to set the strategy to handle the database schema on process engine boot and shutdown.
+  * `false` (default): Checks the version of the DB schema against the library when the process engine is being created and throws an exception if the versions don't match.
+  * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if it is necessary. If the schema doesn't exist, it is created.
+  * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed. 
+
+<div class="alert">
+  <strong>Supported Databases: </strong> 
+  <p>For information on supported databases please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Supported+environments">Supported Environments</a>.</p>
+</div>  
+
+Here are some sample JDBC urls:
+
+* h2: jdbc:h2:tcp://localhost/camunda
+* mysql: jdbc:mysql://localhost:3306/camunda?autoReconnect=true
+* oracle: jdbc:oracle:thin:@localhost:1521:xe
+* postgres: jdbc:postgresql://localhost:5432/camunda
+* db2: jdbc:db2://localhost:50000/camunda
+* mssql: jdbc:sqlserver://localhost:1433/camunda
+
+For more information on the database setup please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup">Database Setup</a>
+
+### Database table names explained
+
+The table names all start with ACT\_. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
+
+* ACT_RE_\*: 'RE' stands for repository. Tables with this prefix contain 'static' information such as process definitions and process resources (images, rules, etc.).
+* ACT_RU_*: 'RU' stands for runtime. These are the runtime tables, that contain the runtime data of process instances, user tasks, variables, jobs, etc. The engine only stores the runtime data during process instance execution, and removes the records when a process instance ends. This keeps the runtime tables small and fast.
+* ACT_ID_*: 'ID' stands for identity. These tables contain identity information, such as users, groups, etc.
+* ACT_HI_*: 'HI' stands for history. These are the tables that contain historic data, such as past process instances, variables, tasks, etc.
+* ACT_GE_*: general data, which is used in various use cases.
+
+### Job executor activation
+
+<a href="https://app.camunda.com/confluence/display/foxUserGuide/The+Job+Executor">The JobExecutor</a> is a component that manages a couple of threads to fire timers and asynchronous messages. For unit testing scenarios, it is cumbersome to work with multiple threads. Therefore the API allows to query for (ManagementService.createJobQuery) and execute jobs (ManagementService.executeJob) through the API so that job execution can be controlled from within a unit test. To avoid interference by the job executor, it can be turned off.
+
+
+By default, the JobExecutor is activated when the process engine boots. Specify
+
+    <property name="jobExecutorActivate" value="false" />
+
+when you don't want the JobExecutor to be activated upon booting the process engine.
+
+### History configuration
+
+Customizing the configuration of <a href="https://app.camunda.com/confluence/display/foxUserGuide/History">history</a> is optional. This allows you to tweak settings that influence the history capabilities of the engine. 
+
+    <property name="history" value="audit" />
+
+### Process Definition Cache
+
+All process definition are cached (after they're parsed) to avoid hitting the database every time a process definition is needed and because process definition data doesn't change.
+
+### Logging
+
+We use <a href="http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html">Java Logging</a> to avoid any third party logging requirements. 
+
+<section id="platform-process-application"></section>
+
+## Process Applications
+
+A process application is an application that provides a set of process definitions and uses the container-managed process engine. It can provides both Java classes and BPMN process definitions.
+
+
+<div class="alert">
+  <p>
+    <strong>Heads-up!</strong>
+    You might want to checkout the <a href="http://www.camunda.org/">Getting Started Tutorial</a> first as it explaines the creation of a process application step by step.
+  </p>
+</div>
+
+You can transform every normal Java application (jar, war or ear) into a Process Application! You simply have to add:
+
+* A Process Application class: The Process Application class constitutes the interface between your application and the process engine. There are different base classes you can extent to reflect different environments (e.g. Servlet vs. EJB Container).
+* A processes.xml file to META-INF: The deployment descriptor file allows  to provide a declarative configuration of the deployment(s) this process application makes to the process engine. It can be exmpty and serve as simple marker file - but it must be present.
+
+That's it! 
+
+
+### Process Application class
+
+You need to have the Process Application class on your classpath - and it has to be annotated with @ProcessApplication. This class constitutes the interface between your application and the process engine. 
+
+There are different base classes you might want to subclass depending on your environment:
+
+* <strong><a href="http://www.camunda.org/javadocs/org/camunda/bpm/application/impl/ServletProcessApplication.html">ServletProcessApplication</a>:</strong> Use this in a Servlet Container like Tomcat.
+* <strong><a href="http://www.camunda.org/javadocs/org/camunda/bpm/application/impl/EjbProcessApplication.html">EjbProcessApplication</a>:</strong> Use this in a Java EE environment and application servers like JBoss, Glassfish or WebSphere Application Server.</li>
+* <strong><a href="http://www.camunda.org/javadocs/org/camunda/bpm/application/impl/EmbeddedProcessApplication.html">EmbeddedProcessApplication</a>:</strong> Use this in any Java environment which does not have a special container.</li>
+
+Examples:
+
+    package org.camunda.bpm.example.loanapproval;
+
+    import org.camunda.bpm.application.ProcessApplication;
+    import org.camunda.bpm.application.impl.ServletProcessApplication;
+
+    @ProcessApplication("Loan Approval App")
+    public class LoanApprovalApplication extends ServletProcessApplication {
+      // empty implementation
+    }
+
+    @ProcessApplication("Loan Approval App")
+    @Singleton
+    @Startup
+    @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    public class DefaultEjbProcessApplication extends EjbProcessApplication {
+
+      @PostConstruct
+      public void start() {
+        deploy();
+      }
+
+      @PreDestroy
+      public void stop() {
+        undeploy();
+      }
+    }
+
+### processes.xml
+
+The deployment descriptor allows to configure which process definitions are deployed to which engine.
+
+<p class="alert">
+  You need to have an processes.xml in META-INF/processes.xml. It can be an empty file but it must be there. Otherwiese your Process Application is not recognized as Process Application!
+</p> 
+
+Typically you will add the processes.xml to your `src/main/resources/META-INF` folder.
+
+
+    <process-application
+      xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <process-archive name="loan-approval">
+        <process-engine>default</process-engine>
+        <properties>
+          <property name="isDeleteUponUndeploy">false</property>
+          <property name="isScanForProcessDefinitions">true</property>
+        </properties>
+      </process-archive>
+
+    </process-application>
+
+### Migration from camunda fox 6.x
+
+<div class="alert">
+    <strong>Note that the Process Application logic has slightly changed from camunda fox 6.x (the predecessor to camunda BPM 7.0), you need to migrate your applications.</strong>
+    Please follow the instructions in the <a href="<%= @docUrl('guides/migration-guide/index.html') %>">Activiti Migration Guide</a> which contains a section about camunda fox at the end.
+</div>
+
+</section>
+
+## Runtime Container Integration
+
+
+<section id="jndi-bindings-services"></section>
+### JNDI Bindings for BPM Platform Services
+
+The BPM Platform Services (i.e. Process Engine Service and Process Application Service) are provided via JNDI Bindings with the following JNDI names:
+
+* Process Engine Service: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
+* Process Application Service: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
+
+On Glassfish 3.1.1 and on JBoss AS 7 you can do a lookup with the JNDI names to get one of these BPM Platform Services. However, on Apache Tomcat 7 you have to do quite more to be able to do a lookup to get one of these BPM Platform Services.
+
+<section id="jndi-bindings-services-tomcat"></section>
+### JNDI Bindings on Apache Tomcat 7
+
+To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have to add in your process application the file `META-INF/context.xml` and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
+
+	<Context>
+		<ResourceLink name="ProcessEngineService"
+		        global="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
+		        type="ProcessEngineService!org.camunda.bpm.ProcessEngineService" />
+		        
+		<ResourceLink name="ProcessApplicationService"
+		        global="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
+		        type="ProcessEngineService!org.camunda.bpm.ProcessApplicationService" />
+	</Context>
+
+These elements are used to create a link to the global JNDI Resources definied in `$CATALINA_HOME/conf/server.xml`.
+
+Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.xml` deployment descriptor.
+
+	<web-app>
+		<resource-ref>
+			<description>Process Engine Service</description>
+			<res-ref-name>ProcessEngineService</res-ref-name>
+			<res-type>org.camunda.bpm.ProcessEngineService</res-type> 
+			<res-auth>Container</res-auth>
+			</resource-ref>
+
+		<resource-ref>
+			<description>Process Application Service</description>
+			<res-ref-name>ProcessApplicationService</res-ref-name>
+			<res-type>org.camunda.bpm.ProcessApplicationService</res-type> 
+			<res-auth>Container</res-auth>
+		</resource-ref>
+		...
+	</web-app>
+
+**Note**: You can choose different resource link names for the Process Engine Service and Process Application Service. The resource link name has to match with the value inside the `<res-ref-name>`-element inside the correspondig `<resource-ref>`-element in `WEB-INF/web.xml`. We propose the name `ProcessEngineService` for the Process Engine Service and `ProcessApplicationService` for the Process Application Service.
+
+In order to do a lookup for a Bpm Platform Service you have to use the resource link name to get the linked global resource. For example:
+
+* Process Engine Service: `java:comp/env/ProcessEngineService`
+* Process Application Service: `java:comp/env/ProcessApplicationService`
+
+If you have declared another resource link names than we proposed, you have to use `java:comp/env/$YOUR_RESOURCE_LINK_NAME` to do a lookup to get the corresponding Bpm Platform Service.
+
+## Configuration & Extensions
+
+## Integrating the camunda BPM platform into different Environments
