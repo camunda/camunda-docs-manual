@@ -20,9 +20,9 @@ layout: 'default'
       <h2><a href="tomcat/">Apache Tomcat 7</a></h2>      
       <ul>
         <li><a href="tomcat/#platform">BPM platform</a></li>
-        <li><a href="tomcat/#cycle">REST API</a></li>
-        <li><a href="tomcat/#cockpit">camunda cycle</a></li>
-        <li><a href="tomcat/#rest">camunda cockpit</a></li>
+        <li><a href="tomcat/#rest">REST API</a></li>
+        <li><a href="tomcat/#cycle">camunda cycle</a></li>
+        <li><a href="tomcat/#cockpit">camunda cockpit</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -32,9 +32,9 @@ layout: 'default'
       <h2><a href="jboss/">JBoss AS 7</a></h2>
       <ul>
         <li><a href="jboss/#platform">BPM platform</a></li>
-        <li><a href="jboss/#cycle">REST API</a></li>
-        <li><a href="jboss/#cockpit">camunda cycle</a></li>
-        <li><a href="jboss/#rest">camunda cockpit</a></li>
+        <li><a href="jboss/#rest">REST API</a></li>
+        <li><a href="jboss/#cycle">camunda cycle</a></li>
+        <li><a href="jboss/#cockpit">camunda cockpit</a></li>
       </ul>
     </div>
     <div class="span3">    
@@ -44,9 +44,10 @@ layout: 'default'
       <h2><a href="glassfish/">Glassfish 3.1</a></h2>      
       <ul>
         <li><a href="glassfish/#platform">BPM platform</a></li>
-        <li><a href="glassfish/#cycle">REST API</a></li>
-        <li><a href="glassfish/#cockpit">camunda cycle</a></li>
-        <li><a href="glassfish/#rest">camunda cockpit</a></li>
+        <li><a href="glassfish/#rest">REST API</a></li>
+        <li><a href="glassfish/#cycle">camunda cycle</a></li>
+        <li><a href="glassfish/#cockpit">camunda cockpit</a></li>
+        <li><a href="glassfish/#tasklist">camunda tasklist</a></li>
       </ul>
     </div>   
   </div>

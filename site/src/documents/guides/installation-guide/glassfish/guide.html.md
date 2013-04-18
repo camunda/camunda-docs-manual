@@ -44,13 +44,30 @@ The following steps are required to deploy the REST API on a JBoss instance:
    if you deployed the application in the context `/engine-rest`. For more information on how to use the REST API
 
 
-<a id="cycle"></a>Installing cycle to a running camunda BPM platform
------------------------------------------------------------
+<a id="cycle"></a>Installing camunda cycle
+------------------------------------------
 
 How to...
 
 
-<a id="cockpit"></a>Installing cockpit to a running camunda BPM platform
----------------------------------------------------------------
+<a id="cockpit"></a>Installing camunda cockpit
+----------------------------------------------
 
 Drop a war.
+
+<a id="tasklist"></a>Installing camunda tasklist
+-----------------------------------------------
+To install camunda tasklist, a Glassfish installation with the `org.camunda.bpm.camunda-engine` module is required.
+See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Glassfish](#vanilla).
+
+**Note**: The distro already ships camunda tasklist. It may be accessed on the context path `/tasklist`.
+
+The following steps are required to deploy camunda cockpit on a JBoss instance:
+
+1. Download the tasklist web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tasklist/camunda-tasklist/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-tasklist-glassfish-$PLATFORM_VERSION.war`.
+2. Optionally, you may change the context path to which the tasklist will be deployed (default is `/tasklist`). 
+   Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
+3. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`.
+4. Startup the Glassfish Application Server.
+5. Access camunda tasklist on the context you configured.
