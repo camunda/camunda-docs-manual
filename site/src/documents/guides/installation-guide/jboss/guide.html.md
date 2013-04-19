@@ -269,6 +269,7 @@ Connector passwords are encrypted before they are stored in the cycle database u
 ----------------------------------------------
 To install camunda cockpit, a JBoss installation with the `org.camunda.bpm.camunda-engine` module is required.
 See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla JBoss](#vanilla).
+Furthermore, to be able to use camunda cockpit the REST API has to be [installed on JBoss](#rest) too.
 
 **Note**: The distro already ships camunda cockpit. It may be accessed on the context path `/cockpit`.
 
@@ -286,6 +287,7 @@ The following steps are required to deploy camunda cockpit on a JBoss instance:
 -----------------------------------------------
 To install camunda tasklist, a JBoss installation with the `org.camunda.bpm.camunda-engine` module is required.
 See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla JBoss](#vanilla).
+Furthermore, to be able to use camunda tasklist the REST API has to be [installed on JBoss](#rest) too.
 
 **Note**: The distro already ships camunda tasklist. It may be accessed on the context path `/tasklist`.
 
