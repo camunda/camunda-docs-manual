@@ -76,30 +76,30 @@ When you open the Glassfish administration console (by default http://localhost:
 `Resources -> JDBC -> JDBC Connection Pools` the preconfigured H2CyclePool connection pool
 and under `Resources -> JDBC -> JDBC Resources` the corresponding JDBC Resource named `jdbc/CycleDS`.
 
-#### Exchange the database ####
-To exchange the preconfigured H2 database with your own, e.g. Oracle, you have to do the following:
+#### Exchange the datasource ####
+To exchange the preconfigured H2 datasource with your own, e.g. Oracle, you have to do the following:
 
 1. Copy your JDBC database driver JAR file to either `$GLASSFISH_HOME/glassfish/lib` or when you want to integrate the JDBC driver into a GlassFish Server domain,
    copy it into the `$GLASSFISH_HOME/glassfish/domains/DOMAIN_DIR/lib` directory, then restart the server.
 2. Open the Glassfish administration console (default is http://localhost:4848).
-3. Go to `Resources -> JDBC -> JDBC Connection Pools` and click on **New**.
+3. Go to `Resources -> JDBC -> JDBC Connection Pools` and click on **New**. ([show image](assets/img/jdbc_connection_pools.png))
 4. On the next page, under *General Settings*, enter a *Pool Name*, which identifies the *Connection Pool*, in our case it is *OracleCyclePool*.
    Also choose the appropriate *Resource Type*, e.g. `javax.sql.XADatasource` because we want an XA Datasource in this example.
-   A *Database Driver Vendor* has to be specified for your driver, e.g. Oracle in our case. Click on **Next**.
+   A *Database Driver Vendor* has to be specified for your driver, e.g. Oracle in our case. Click on **Next**. ([show image](assets/img/jdbc_new_pool_step_1.png))
 5. In the next step when your database driver is unknown to Glassfish, you need to enter a *Datasource Classname* or a *Driver Classname*,
-   otherwise it is prefilled. The *Pool Settings and Transaction* options can be left untouched.
+   otherwise it is prefilled. The *Pool Settings and Transaction* options can be left untouched. ([show image](assets/img/jdbc_new_pool_step_2_1.png))
 6. On the bottom of the page, you will find an *Additional Properties* table.
-   Here you can enter properties for your database driver like your user and password credentials, database url and so on.
+   Here you can enter properties for your database driver like your user and password credentials, database url and so on. ([show image](assets/img/jdbc_new_pool_step_2_2.png))
 7. Click **Save** to store the changes.
 8. To test if your db connection configuration is correct, go to `Resources -> JDBC -> JDBC Connection Pools -> Your Connection Pool` and click the **Ping** button at the top.
    If no error is shown, proceed to step 9, otherwise consult your Glassfish / database manual.
 9. Now we have to change the preconfigured connection pool to our newly created one for the JDBC Resource. To do so, go to `Resources -> JDBC -> JDBC Resources -> jdbc/CycleDS`
-   and edit the *Pool Name* from `H2CyclePool` to our new connection pool, `OracleCyclePool`.
+   and edit the *Pool Name* from `H2CyclePool` to our new connection pool, `OracleCyclePool`. ([show image](assets/img/jdbc_edit_resource.png))
 10. **Save** the changes.
 11. Congratulations! Now cycle should connect to your database.
    
 ### Install camunda cycle on vanilla Glassfish ###
-You can download the camunda cycle web application from [our sever](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-glssfish/).
+You can download the camunda cycle web application from [our sever](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-glassfish/).
 Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-glassfish-$PLATFORM_VERSION.war`.
 
 #### Create a datasource ####
@@ -112,7 +112,7 @@ In order to use a custom datasource name, you have to edit the file `WEB-INF/cla
 
 #### Modify default-web.xml ####
 <div class="alert alert-info">
-    In order for cycle to work, you **MUST** modify the file `$GLASSFISH_HOME/glassfish/domain/domain1/config/default-web.xml`,
+    In order for cycle to work, you **MUST** modify the file `$GLASSFISH_HOME/glassfish/domains/domain1/config/default-web.xml`,
     otherwise you will get a BASIC AUTH window popping up, when you try to log into cycle.
 </div>
 
@@ -130,6 +130,7 @@ Open the `default-web.xml` and comment out / remove the following lines at the e
 3. Open the Glassfish Administration Console.
 4. Navigate to *Applications* and click **Deploy**.
 5. On the next page, under *Location*, select the appropriate option and browse your files and select the `camunda-cycle-glassfish-$PLATFORM_VERSION.war` file.
+   ([show image](assets/img/deploy_app.png))
 6. Leave the other settings unchanged and click **Ok**. Optionally, you can also change the context root for cycle here. We propose to use `/cycle`.
 7. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user. 
    The initial user has administrator privileges and can be used to create more users once you have logged in.
