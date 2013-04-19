@@ -11,7 +11,11 @@ This document will guide you through the installation of camunda BPM and its com
 
 <a id="platform"></a>Installing the pre-built distro
 ----------------------------------------------------
-How to...
+1. Download the pre-packaged distribution from http://www.camunda.org/download/camunda-bpm/jboss/VERSION/zip/.
+   Replace VERSION with the current camunda bpm version.
+2. Unpack the distro to a directory.
+3. Adjust the datasource according to your needs (see below).
+4. Startup the server by running `camunda-welcome.bat` or using the `$JBOSS_HOME/bin/standalone.{bat/sh}` script.
 
 ### Accessing the H2 console ###
 In JBoss you can easily access the H2 console to inspect your local H2 database (used in demo/evaluation scenarios):
