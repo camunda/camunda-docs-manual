@@ -1,0 +1,69 @@
+## Migrate from camunda fox
+
+As camunda fox included the Activiti engine you have to perform the [steps above](#migration-activiti) as well. 
+Note that **camunda fox EE 6.2** or **camunda fox CE 1.34** has the same database structure as camunda BPM 7.0.
+
+You have to follow these steps:
+
+* Do the Activiti migration as described above as camunda fox included the Activiti engine. 
+  Note that camunda fox EE 6.2 or camunda fox CE 1.34 has the same database structure as camunda BPM 7.0.
+* Remove the `fox-platform-client.x.jar` from your deployment - it is not needed anymore.
+* Add a Process Application Class, see [Process Applications](<%= @docUrl('guides/user-guide/') %>#platform-process-application).
+* Adjust the `processes.xml` to the new format, see [Process Applications](<%= @docUrl('guides/user-guide/') %>#platform-process-application).
+* If you use the new camunda Tasklist component you have to adjust the `formKey`, 
+  as described in the [Getting Started](http://camunda.org/implement/getting-started.html). We provide more information soon.
+* If you use the `fox.taskForm` bean as described in 
+  [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application) 
+  you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
+
+    <dependency>
+      <groupId>com.camunda.bpm</groupId>
+      <artifactId>camunda-engine-cdi</artifactId>
+      <version>7.0.0-alpha1</version>
+    </dependency> 
+
+* If you do a JNDI lookup to get one of the Platform Services (i.e. `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as following:
+  * ProcessArchiveService:
+    * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessArchiveService`
+    * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
+    * **Note:** The name of `ProcessArchiveService` has changed to `ProcessApplicationService`.
+  * ProcessEngineService:
+    * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessEngineService`
+    * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
+
+
+<div class="accordion" id="foxClasses">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#foxClasses" href="#foxClassesCollapsed">
+        <i class="icon-question-sign"></i> 
+        Which camunda fox class names have changed?
+      </a>
+    </div>
+    <div id="foxClassesCollapsed" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>component</th>
+              <th>camunda fox class name</th>
+              <th>camunda BPM class name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>fox-platform-api</td>
+              <td>ProcessArchiveService</td>
+              <td>ProcessApplicationService</td>
+            </tr>
+            <tr>
+              <td>fox-platform-client</td>
+              <td>ProcessArchiveSupport</td>
+              <td>DefaultEjbProcessApplication</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

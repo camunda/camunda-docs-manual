@@ -311,7 +311,7 @@ footer {
 
 /* ----------------------------- */
 
-.docs h1 {
+.docs > h1 {
   padding-bottom: 20px;
   margin: 20px 0 30px;
   border-bottom: 1px solid #EEE;

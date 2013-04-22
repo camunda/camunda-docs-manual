@@ -1,6 +1,6 @@
 <section id="toc">
 
-<h1>Table of Contents</h1>
+<h2>Table of Contents</h2>
 <%- @include('./toc.html.md.eco') %>
 
 </section>
@@ -10,12 +10,12 @@
   <%- @include('./chapters/00-introduction.html.md.eco') %>
 </section>
 
-<section id="migration-step-by-step">
+<section id="migration-activiti">
 
-  <%- @include('./chapters/01-migration-step-by-step.html.md') %>
+  <%- @include('./chapters/01-migration-activiti.html.md') %>
 </section>
 
-<section id="migrate-from-camunda-fox">
+<section id="migration-camunda-fox">
 
-  <%- @include('./chapters/02-migrate-from-camunda-fox.html.md.eco') %>
+  <%- @include('./chapters/02-migration-camunda-fox.html.md.eco') %>
 </section>
