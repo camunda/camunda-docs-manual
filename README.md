@@ -60,7 +60,7 @@ Use a double empty line before headings to make a document more readable.
 
 ### When to use HTML markup
 
-Use HTML markup with [Twitter Bootstrap flavour](http://twitter.github.io/bootstrap/)
+Use HTML markup with [twitter bootstrap flavour](http://twitter.github.io/bootstrap/)
 
 * for [notes](http://twitter.github.io/bootstrap/components.html#alerts)
 
