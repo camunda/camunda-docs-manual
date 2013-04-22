@@ -16,11 +16,11 @@ You have to follow these steps:
   [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application) 
   you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
 
-    <dependency>
-      <groupId>com.camunda.bpm</groupId>
-      <artifactId>camunda-engine-cdi</artifactId>
-      <version>7.0.0-alpha1</version>
-    </dependency> 
+      <dependency>
+        <groupId>com.camunda.bpm</groupId>
+        <artifactId>camunda-engine-cdi</artifactId>
+        <version>7.0.0-alpha1</version>
+      </dependency>
 
 * If you do a JNDI lookup to get one of the Platform Services (i.e. `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as following:
   * ProcessArchiveService:
