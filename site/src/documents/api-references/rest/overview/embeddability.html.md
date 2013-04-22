@@ -13,37 +13,34 @@ Required steps
 --------------
 
 * Add the REST API as a Maven dependency to your project.
-    
-      <dependency>
-        <groupId>org.camunda.bpm</groupId>
-        <artifactId>camunda-engine-rest</artifactId>
-        <classifier>classes</classifier>
-        <version>7.0.0.alpha2</version>
-      </dependency>
+
+
+        <dependency>
+          <groupId>org.camunda.bpm</groupId>
+          <artifactId>camunda-engine-rest</artifactId>
+          <classifier>classes</classifier>
+          <version>7.0.0.alpha2</version>
+        </dependency>
 
 * Add those REST resources to your JAX-RS application that you need. Example:
-      
-      @ApplicationPath("/")
-      public class MyApplication extends Application {
-        
-        @Override
-        public Set<Class<?>> getClasses() {
-          Set<Class<?>> classes = new HashSet<Class<?>>();
-          
-          // add your own classes
-          ...
 
-          // add camunda engine rest classes that you need
-          classes.add(ProcessEngineRestServiceImpl.class);
-          classes.add(ProcessDefinitionRestServiceImpl.class);
-          classes.add(ProcessInstanceRestServiceImpl.class);
-          classes.add(TaskRestServiceImpl.class);
-          
-          // mandatory
-          classes.add(JacksonConfigurator.class);
-          return classes;
+        @ApplicationPath("/")
+        public class MyApplication extends Application {
+          @Override
+          public Set<Class<?>> getClasses() {
+            Set<Class<?>> classes = new HashSet<Class<?>>();
+            // add your own classes 
+            ...
+            // add camunda engine rest classes that you need
+            classes.add(ProcessEngineRestServiceImpl.class);
+            classes.add(ProcessDefinitionRestServiceImpl.class);
+            classes.add(ProcessInstanceRestServiceImpl.class);
+            classes.add(TaskRestServiceImpl.class);
+            // mandatory
+            classes.add(JacksonConfigurator.class);
+            return classes;
+          }
         }
-      }
 
   The classes `ProcessDefinitionRestServiceImpl`, `ProcessInstanceRestServiceImpl` and `TaskRestServiceImpl`
   contain the methods as structured in this documentation. 
