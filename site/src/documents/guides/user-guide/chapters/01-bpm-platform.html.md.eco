@@ -13,8 +13,9 @@ The camunda BPM platform is a powerful yet lightweight framework for workflow an
 ### Process Engine Bootstrapping
 
 There are two basic modes of the Process Engine:
-* Shared Process Engine:
-* Embedded Process Engine:
+
+* *Shared Process Engine:* A process engine that is provided by the bpm platform and may be shared between multiple process applications.
+* *Embedded Process Engine:* A process engine that runs embedded in the application and is only used by that particular application.
 
 See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Architecture+Overview">Architecture Overview</a> for more details on the differences on this.
 
@@ -38,11 +39,12 @@ The camunda engine uses the <a href="http://www.camunda.org/javadocs/index.html?
 #### Bootstrap a Process Engine using Java API
 
 You can completly configure the engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
-    
+
     ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
     ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration();
 
 Now you can call the buildProcessEngine() operation to create a Process Engine:
+
 
     ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
       .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
@@ -93,7 +95,6 @@ The ProcessEngineConfiguration object can also be created programmatically using
     ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(InputStream inputStream);
     ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(InputStream inputStream, String beanName);
 
-
 It is also possible not to use a configuration file, and create a configuration based on defaults (see the different supported classes for more information).
 
     ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
@@ -138,6 +139,7 @@ Furthermore, this service allows to
 Wile the RepositoryService is rather about static information (ie. data that doesn't change, or at least not a lot), the **RuntimeService** is quite the opposite. It deals with starting new process instances of process definitions. As said above, a process definition defines the structure and behaviour of the different steps in a process. A process instance is one execution of such a process definition. For each process definition there typically are many instances running at the same time. The RuntimeService also is the service which is used to retrieve and store process variables. This is data which is specific to the given process instance and can be used by various constructs in the process (eg. an exclusive gateway often uses process variables to determine which path is chosen to continue the process). The Runtimeservice also allows to query on process instances and executions. Executions are a representation of the 'token' concept of BPMN 2.0. Basically an execution is a pointer pointing to where the process instance currently is. Lastly, the RuntimeService is used whenever a process instance is waiting for an external trigger and the process needs to be continued. A process instance can have various wait states and this service contains various operations to 'signal' the instance that the external trigger is received and the process instance can be continued.
 
 Tasks that need to be performed by actual human users of the system are core to the process engine. Everything around tasks is grouped in the **TaskService**, such as
+
 * Querying tasks assigned to users or groups.
 * Creating new standalone tasks. These are tasks that are not related to a process instances.
 * Manipulating to which user a task is assigned or which users are in some way involved with the task.
@@ -170,6 +172,7 @@ To query data from the engine is possible in multiple ways:
 The recommended way is to use on of the Query APIs.
 
 The Java Query API allows to program completely typesafe queries with a fluent API You can add various conditions to your queries (all of which are applied together as a logical AND) and precisely one ordering. The following code shows an example:
+
     List<Task> tasks = taskService.createTaskQuery()
       .taskAssignee("kermit")
       .processVariableValueEquals("orderId", "0815")
@@ -185,7 +188,6 @@ The Java Query API is exposed as REST service as well, see [REST documentation](
 ##### Native Queries
  
 Sometimes you need more powerful queries, e.g. queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g. Task, ProcessInstance, Execution, etc.... Since the query will be fired at the database you have to use table and column names as they are defined in the database; this requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
-
 
     List<Task> tasks = taskService.createNativeTaskQuery()
       .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
@@ -213,23 +215,23 @@ See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Reports+wit
 
 There are two ways to configure the database that the camunda engine will use. The first option is to define the JDBC properties of the database:
 
-* jdbcUrl: JDBC URL of the database.
-* jdbcDriver: implementation of the driver for the specific database type.
-* jdbcUsername: username to connect to the database.
-* jdbcPassword: password to connect to the database.
+* `jdbcUrl`: JDBC URL of the database.
+* `jdbcDriver`: implementation of the driver for the specific database type.
+* `jdbcUsername`: username to connect to the database.
+* `jdbcPassword`: password to connect to the database.
 
 Note that internally the engine uses <a href="http://www.mybatis.org/">Apache MyBatis</a> for persistence. 
 
 The data source that is constructed based on the provided JDBC properties will have the default MyBatis connection pool settings. The following attributes can optionally be set to tweak that connection pool (taken from the MyBatis documentation):
 
-* jdbcMaxActiveConnections: The number of active connections that the connection pool at maximum at any time can contain. Default is 10.
-* jdbcMaxIdleConnections: The number of idle connections that the connection pool at maximum at any time can contain.
-* jdbcMaxCheckoutTime: The amount of time in milliseconds a connection can be 'checked out' from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
-* jdbcMaxWaitTime: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it�s taking unusually long (to avoid failing silently forever if the pool is misconfigured) Default is 20000 (20 seconds).
+* `jdbcMaxActiveConnections`: The number of active connections that the connection pool at maximum at any time can contain. Default is 10.
+* `jdbcMaxIdleConnections`: The number of idle connections that the connection pool at maximum at any time can contain.
+* `jdbcMaxCheckoutTime`: The amount of time in milliseconds a connection can be 'checked out' from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
+* `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it�s taking unusually long (to avoid failing silently forever if the pool is misconfigured) Default is 20000 (20 seconds).
 
 Example database configuration:
 
-    <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB\_CLOSE\_DELAY=1000" />
+    <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
     <property name="jdbcDriver" value="org.h2.Driver" />
     <property name="jdbcUsername" value="sa" />
     <property name="jdbcPassword" value="" />
