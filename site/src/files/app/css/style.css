@@ -165,7 +165,7 @@ footer {
 }
 
 .push-down {
-  height: 117px;
+  height: 147px;
 }
 
 .docs-navbar-inner {
@@ -214,10 +214,6 @@ footer {
 
 .popover {
   width: 300px;
-}
-
-section {
-  padding-top: 30px;
 }
 
 .app-source {
@@ -315,10 +311,22 @@ section {
 
 /* ----------------------------- */
 
-.docs > h1 {
+.docs h1 {
   padding-bottom: 20px;
   margin: 20px 0 30px;
   border-bottom: 1px solid #EEE;
+}
+
+.docs h2 {
+  margin: 30px 0 10px;
+}
+
+.docs h3 {
+  margin: 20px 0 5px;
+}
+
+.docs h4 {
+  margin: 20px 0 10px;
 }
 
 .docs section:first-child {
