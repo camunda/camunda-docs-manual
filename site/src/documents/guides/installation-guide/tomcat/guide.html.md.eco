@@ -7,34 +7,122 @@ This document will guide you through the installation of camunda BPM and its com
   <strong>Reading the Guide</strong> Throughout this guide we will use a number of variables to denote common path names and constants.
   <code>$CATALINA_HOME</code> points to the main directory of the tomcat server.
   <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to or have installed, e.g. <code>7.0.0</code>.
+  <code>$TOMCAT_DISTRIBUTION</code> represents the downloaded pre-packaged camunda BPM distribution for Tomcat, e.g. <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code>.
 </div>
 
 
 <a id="platform"></a>Installing the pre-built distro
 ----------------------------------------------------
 
-How to...
+1. Download the pre-packaged distribution from http://www.camunda.org/download/camunda-bpm/tomcat/VERSION/zip/.
+   Replace VERSION with the current camunda BPM version.
+2. Unpack the distro to a directory.
+3. Adjust the datasource according to your needs (see below).
+4. Startup the server by running `camunda-welcome.bat` or using the `$TOMCAT_HOME/bin/startup.{bat/sh}` script.
 
 
 <a id="vanilla"></a>Installing the platform on a vanilla Tomcat
 ---------------------------------------------------------------
 
-How to...
+This section will describe how you can install the camunda BPM platform on a [vanilla Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless we recommand you to [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
+
+### <a id="database-camunda-bpm-platform"></a>Create the database schema for camunda BPM platform
+
+If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator. 
+
+The database creation scripts are reside in the `sql/create` folder:
+
+`$TOMCAT_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
+`$TOMCAT_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
+
+There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+
+### Configuring JDBC Resource
+
+To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server.xml`. This could like the following example for H2 database:
+
+    <Server>
+      ...
+      <GlobalNamingResources>
+        ...
+        <Resource name="jdbc/ProcessEngine"
+                  auth="Container"
+                  type="javax.sql.DataSource" 
+                  factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+                  uniqueResourceName="process-engine"
+                  driverClassName="org.h2.Driver" 
+                  url="jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0"
+                  username="sa"  
+                  password=""  
+                  maxPoolSize="20"  
+                  minPoolSize="5" />
+      </GlobalNamingResources>
+    </Server>
+
+### Add necessary libraries to vanilla Tomcat 7
+
+First you have to copy the following libraries into your vanilla Tomcat library folder `$TOMCAT_HOME/lib`:
+
+`$TOMCAT_DISTRIBUTION/lib/camunda-engine-$PLATFORM_VERSION.jar`
+
+`$TOMCAT_DISTRIBUTION/lib/java-uuid-generator-VERSION.jar`
+
+`$TOMCAT_DISTRIBUTION/lib/joda-time-VERSION.jar`
+
+`$TOMCAT_DISTRIBUTION/lib/mybatis-VERSION.jar`
+
+Furthermore you have to merge your corresponding JDBC driver into the folder `$TOMCAT_HOME/lib`.
+
+### Add bpm-platform.xml
+
+You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf`:
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+
+        <job-executor>
+          <job-acquisition name="default" />
+        </job-executor>
+
+        <process-engine name="default">
+          <job-acquisition>default</job-acquisition>
+          <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
+          <datasource>java:jdbc/ProcessEngine</datasource>
+
+          <properties>
+              <property name="history">full</property>
+              <property name="databaseSchemaUpdate">true</property>
+          </properties>
+
+        </process-engine>
+
+      </bpm-platform>
+
+### Provide JNDI Bindings for Bpm Platfarm Services
 
 In order to use the [JNDI Bindings for Bpm Platform Services on Tomcat](<%= @docUrl("guides/user-guide/") %>#jndi-bindings-services-tomcat) you have to edit the file `$CATALINA_HOME/conf/server.xml` and add the following Resources:
 
-	<Resource name="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
-		auth="Container"
-		type="org.camunda.bpm.ProcessEngineService"
-		description="camunda BPM platform Process Engine Service"
-		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessEngineServiceObjectFactory" />
-	          
-	<Resource name="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
-		auth="Container"
-		type="org.camunda.bpm.ProcessApplicationService"
-		description="camunda BPM platform Process Application Service"
-		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessApplicationServiceObjectFactory" />
-
+    <Server>
+      ...
+      <GlobalNamingResources>
+        ...
+      	<Resource name=
+            "global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
+      		auth="Container"
+      		type="org.camunda.bpm.ProcessEngineService"
+      		description="camunda BPM platform Process Engine Service"
+      		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessEngineServiceObjectFactory" />
+      	          
+      	<Resource name=
+            "global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
+      		auth="Container"
+      		type="org.camunda.bpm.ProcessApplicationService"
+      		description="camunda BPM platform Process Application Service"
+      		factory="org.camunda.bpm.container.impl.tomcat.deployment.ProcessApplicationServiceObjectFactory" />
+      </GlobalNamingResources>
+    </Server>
 
 <a id="rest"></a>Installing the REST API web application
 --------------------------------------------------------
@@ -158,6 +246,7 @@ Connector passwords are encrypted before they are stored in the cycle database u
 
 To install camunda cockpit, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
 See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Tomcat](#vanilla).
+Furthermore, to be able to use camunda cockpit the REST API has to be [installed on Tomcat](#rest) too.
 
 **Note**: The distro already ships camunda cockpit. It may be accessed on the context path `/cockpit`.
 
@@ -174,6 +263,7 @@ The following steps are required to deploy camunda cockpit on a Tomcat instance:
 -----------------------------------------------
 To install camunda tasklist, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
 See above, how to [install the pre-built distro](#platform) or [install the platform on a vanilla Tomcat](#vanilla).
+Furthermore, to be able to use camunda tasklist the REST API has to be [installed on Tomcat](#rest) too.
 
 **Note**: The distro already ships camunda tasklist. It may be accessed on the context path `/tasklist`.
 
