@@ -95,19 +95,19 @@ Therefore you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/
             name="platformJobExecutorPool" 
             resource-adapter-name="camunda-jobexecutor-rar" 
             connection-definition-name=
-                          "org.camunda.bpm.platform.jobexecutor.impl.ra.outbound.PlatformJobExecutorConnectionFactory" 
+                "org.camunda.bpm.container.impl.threading.jca.outbound.JcaExecutorServiceConnectionFactory" 
             transaction-support="NoTransaction" />
 
         <connector-resource
             enabled="true" 
             pool-name="platformJobExecutorPool" 
-            jndi-name="eis/PlatformJobExecutorConnectionFactory" />
+            jndi-name="eis/JcaExecutorServiceConnectionFactory" />
       </resources>
 
       <servers>
         <server>
           ...
-          <resource-ref ref="eis/PlatformJobExecutorConnectionFactory"></resource-ref>
+          <resource-ref ref="eis/JcaExecutorServiceConnectionFactory"></resource-ref>
         </server>
       </servers>
     </domain>
