@@ -104,8 +104,8 @@ typically `bin`.
     </datasource>
     
 <div class="alert alert-info">
-  **Cycle**<br/>
-  Note that if you plan use camunda cycle, you need to configure an additional datasource. See the [cycle section](#cycle) for a guide.
+  <strong>Cycle</strong><br/>
+  Note that if you plan use camunda cycle, you need to configure an additional datasource. See the <a href="#cycle">cycle section</a> for a guide.
 </div>
 
 Using h2 is ideal for development purposes, but is not recommended for production usage.
