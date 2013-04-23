@@ -32,12 +32,12 @@ Required steps
             // add your own classes 
             ...
             // add camunda engine rest classes that you need
-            classes.add(ProcessEngineRestServiceImpl.class);
-            classes.add(ProcessDefinitionRestServiceImpl.class);
-            classes.add(ProcessInstanceRestServiceImpl.class);
-            classes.add(TaskRestServiceImpl.class);
+            classes.add(org.camunda.bpm.engine.rest.impl.ProcessEngineRestServiceImpl.class);
+            classes.add(org.camunda.bpm.engine.rest.impl.ProcessDefinitionRestServiceImpl.class);
+            classes.add(org.camunda.bpm.engine.rest.impl.ProcessInstanceRestServiceImpl.class);
+            classes.add(org.camunda.bpm.engine.rest.impl.TaskRestServiceImpl.class);
             // mandatory
-            classes.add(JacksonConfigurator.class);
+            classes.add(org.camunda.bpm.engine.rest.mapper.JacksonConfigurator.class);
             return classes;
           }
         }
