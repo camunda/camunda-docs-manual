@@ -5,7 +5,7 @@ layout: 'default'
 
 ---
 
-<div class="span12 docs">
+<div class="span12 docs docs-guide">
   <h1>Migration Guide</h1>
 
   <%- @include('./single-page.html.md.eco') %>

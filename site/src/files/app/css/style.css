@@ -434,3 +434,13 @@ footer {
   background: url("../../assets/img/glassfish-tile.png");
   background-size: contain;
 }
+
+/** bootstrap overrides for improving readability */
+
+.docs-guide h1, .docs-guide h2, .docs-guide h3, .docs-guide h4 {
+  margin-top: 40px;
+}
+
+.docs-guide h4 {
+  font-size: 20px;
+}
