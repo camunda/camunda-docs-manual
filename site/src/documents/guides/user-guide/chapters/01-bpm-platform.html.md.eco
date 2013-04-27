@@ -345,6 +345,7 @@ You can deleagte the bootstrapping of the process engine and process deployment 
 * **ServletProcessApplication**: To be used for Process Applications is a Servlet Container like Apache Tomcat.
 * **EjbProcessApplication**: To be used in a Java EE application server like JBoss, Glassfish or WebSphere Application Server.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine is an ordinary Java SE application.
+* **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.
 
 In the following, we walk through the different implementations and discuss where and how they can be used. 
 
@@ -542,7 +543,97 @@ Where the class `MyProcessApplication` could look like this:
 
     }
 
+#### The SpringProcessApplication
+<div class="alert ">
+  <p>
+    <strong>Supported on</strong>     
+  </p>
+  <p>
+    <span class="container-tiny jvm"></span>
+    <span class="container-tiny tomcat"></span>
+    <span class="container-tiny glassfish"></span>
+  </p>
+  <p>The spring process application is currently <strong>not supported on JBoss AS 7</strong>.</p>  
+  <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
+</div>
 
+The `org.camunda.bpm.engine.spring.application.SpringProcessApplication` class allows bootstrapping a process application through a 
+Spring Application Context. You can either reference the SpringProcessApplication class from an Xml-based application context 
+configuration file or use annotation-based setup. 
+
+If your application is a WebApplicaiton you should use `org.camunda.bpm.engine.spring.application.SpringServletProcessApplication` 
+as it provides support for exposing the servlet context path through the `ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH` property. 
+ 
+<div class="alert alert-info">
+  <strong>SpringServletProcessApplication</strong>
+  <p>We recommend always using SpringServletProcessApplication unless the deployment is not a web application. Using this class requires the 
+  <code>org.springframework:spring-web</code> module to be on the classpath.</p>
+</div>
+
+##### Configuring a Spring Process Application
+
+The following shows an example of how to bootstrap a SpringProcessApplication inside a spring application context Xml file:
+
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans   
+                               http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <bean class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+        
+    </beans>
+
+(Remember that you need a `META-INF/processes.xml` file, additionally).
+
+##### Configuring a Managed Process Engine using Spring
+
+If you use a Spring Process Application, you may want to configure your process engine inside the spring 
+application context Xml file (as opposed to the processes.xml file). In this case, you must 
+use the `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` class for creating the process engine object
+instance. In addition to creating the process engine object, this implementation registers the process engine with the BPM Platform 
+infrastructure such that the process engine is returned by the `ProcessEngineService`. The following is an example of how to 
+configure a managed process engine using Spring.
+
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans   
+                               http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+            <property name="targetDataSource">
+                <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+                    <property name="driverClass" value="org.h2.Driver"/>
+                    <property name="url" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>
+                    <property name="username" value="sa"/>
+                    <property name="password" value=""/>
+                </bean>
+            </property>
+        </bean>
+
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+
+        <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+            <property name="processEngineName" value="default" />
+            <property name="dataSource" ref="dataSource"/>
+            <property name="transactionManager" ref="transactionManager"/>
+            <property name="databaseSchemaUpdate" value="true"/>
+            <property name="jobExecutorActivate" value="false"/>
+        </bean>
+
+        <!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform -->
+        <bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
+            <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
+        </bean>
+        
+        <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
+        <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
+        <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
+        <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
+        <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
+            
+    </beans>
 
 ### The processes.xml deployment descriptor
 
