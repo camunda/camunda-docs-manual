@@ -415,6 +415,11 @@ footer {
   padding-bottom: 0px;
 }
 
+.jvm {
+  background: url("../../assets/img/jvm-tile.png");
+  background-size: contain;
+}
+
 .tomcat {
   background: url("../../assets/img/tomcat-tile.png");
   background-size: contain;
