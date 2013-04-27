@@ -526,10 +526,9 @@ The Embedded Process Application does also not provide auto-startup. You need to
     processApplication.deploy();
 
     // interact with the process engine
-    ProcessEngine processEngine = BpmPlatform.getProcessEngineService().getProcessEngine("embeddedEngine");
-    assertNotNull(processEngine);
-    assertEquals("embeddedEngine", processEngine.getName());
-
+    ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
+    processEngine.getRuntimeService().startProcessInstanceByKey(...);
+    
     // undeploy the process application
     processApplication.undeploy();
 
