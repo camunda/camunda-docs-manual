@@ -357,11 +357,11 @@ In the following, we walk through the different implementations and discuss wher
     <span class="container-tiny as7"></span>
     <span class="container-tiny glassfish"></span>
 
-  <p>The Servlet Process Application is supported on all containers. Read the [note about Servlet Process Application and EJB / Java EE containers](#servlet-process-applicarion-inside-ejb-container).</p>
+  <p>The Servlet Process Application is supported on all containers. Read the <a href="#servlet-process-applicarion-inside-ejb-container">note about Servlet Process Application and EJB / Java EE containers</a>.</p>
   <p><strong>Packaging</strong>: WAR (or embedded WAR inside EAR)</p>
 </div>
 
-The `ServletProcessApplication` class is the base class for developing Process Applications based on the Servlet Specification (Java Web Applications). The servlet process application implements the `javax.servlet.ServletContextListener` interface which allows it to to participate in the deployment lifecycle of your Web application
+The `ServletProcessApplication` class is the base class for developing Process Applications based on the Servlet Specification (Java Web Applications). The servlet process application implements the `javax.servlet.ServletContextListener` interface which allows it to participate in the deployment lifecycle of your Web application
 
 The following is an example of a Servlet Process Application:
 
@@ -377,8 +377,8 @@ The following is an example of a Servlet Process Application:
 
 Notice the `@ProcessApplication` annotation. This annotation fulfills two purposes:
 
-  * **providing the name of the ProcessApplication**: you can provide a custom name for you process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
-  * **triggering auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file or for the deployment of the camunda-engine.jar as a shared library in the shard library (i.e. Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the webapplication is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
+  * **providing the name of the ProcessApplication**: You can provide a custom name for you process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
+  * **triggering auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file or for the deployment of the camunda-engine.jar as a shared library in the shared library (i.e. Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the webapplication is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat 7) annotating your class with `@ProcessApplication` is sufficient. 
 
@@ -474,16 +474,13 @@ If you want to customize the behavior of the the EjbProcessApplication class you
 
 The fact that the EjbProcessApplication exposes itself as a Session Bean Component inside the EJB container 
 
- * determines the invocation semantics when invoking code from the process application and the 
+ * determines the invocation semantics when invoking code from the process application and
  * the nature of the `ProcessApplicationReference` held by the process engine.
 
-When the process engine invokes the Ejb Process Application, it gets EJB invocation semantics. 
-For example, if your process application provides a `JavaDelegate` implementation, the process engine
-will call the EjbProcessApplication's `execute(java.util.concurrent.Callable)` Method and from that method invoke 
-`JavaDelegate`. This makes sure that 
+When the process engine invokes the Ejb Process Application, it gets EJB invocation semantics. For example, if your process application provides a `JavaDelegate` implementation, the process engine will call the EjbProcessApplication's `execute(java.util.concurrent.Callable)` method and from that method invoke `JavaDelegate`. This makes sure that 
 
   * the call is intercepted by the EJB container and "enters" the process application legally.
-  * the `JavaDelegate` may take advantage of the EjbProcessApplication's invocation context and resolve resources from the component's Environment (such as a `java:comp/BeanManager`).
+  * the `JavaDelegate` may take advantage of the EjbProcessApplication's invocation context and resolve resources from the component's environment (such as a `java:comp/BeanManager`).
  
 <pre>
                    Big pile of EJB interceptors
@@ -564,7 +561,7 @@ The processes.xml deployment descriptor contains the deployment metadata for a p
 
 A single deployment (process-archive) is declared. The process archive has the name *loan-approval* and is deployed to the process engine with the name *default*. Two additional properties are specified:
 
-  * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted form the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) form the database. 
+  * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) from the database. 
   * `isScanForProcessDefinitions`: if this property is set to true, the classpath of the process application is automatically scanned for process definition resources. Process definition resources must end in `.bpmn20.xml` or `.bpmn`.
 
 #### Location of the processes.xml file
@@ -585,8 +582,7 @@ If you want to specify a custom location for the processes.xml file, you need to
 
     }
 
-The provided path(s) must be resolvable through the `ClassLoader#getResourceAsStream(String)`-Method 
-of the classloader returned  by the `AbstractProcessApplication#getProcessApplicationClassloader()` method of the process application.
+The provided path(s) must be resolvable through the `ClassLoader#getResourceAsStream(String)`-Method of the classloader returned  by the `AbstractProcessApplication#getProcessApplicationClassloader()` method of the process application.
 
 Multiple distinct locations are supported.
 
