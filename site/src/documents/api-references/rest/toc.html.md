@@ -31,4 +31,5 @@
   * [Complete Task](#post-complete)
   * [Resolve Task](#post-resolve)
   * [Delegate Task](#post-delegate)
+* [Identity](#identity)
   * [Get a User's Groups](#get-group-info)

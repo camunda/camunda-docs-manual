@@ -155,8 +155,14 @@
   <%- @include("./task/post-delegate.html.md") %>
 </section>
 
+</section>
+
+<section id="identity">
+
+<h1>Identity</h1>
+
 <section id="get-group-info" name="Get a User's Groups">
-  <%- @include("./task/get-group-info.html.md") %>
+  <%- @include("./identity/get-group-info.html.md") %>
 </section>
 
 </section>
