@@ -119,6 +119,12 @@ Example
 <!-- TODO: Insert a 'real' example -->
 POST `/process-definition/aProcessDefinitionId/start`
 
+Request body:
+
+    {"variables": 
+        {"aVariable": "aStringValue",
+         "anotherVariable": true}}
+
 #### Response
 
     {"links":[{"href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
