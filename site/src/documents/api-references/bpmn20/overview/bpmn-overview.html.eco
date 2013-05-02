@@ -129,7 +129,7 @@ This page gives you an overview of BPMN 2.0 elements and the current coverage of
 				</a>				
 			</div>
 			<div class="span3 bpmnContainer" data-bpmn-symbol="eventbasedgateway" data-bpmn-symbol-name="Event">
-				<a href="#!/gateways/parallel-gateway">
+				<a href="#!/gateways/event-based-gateway">
 					<div title="since 7.0" id="1" ></div>
 				</a>				
 			</div>
