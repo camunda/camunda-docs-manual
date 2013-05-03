@@ -92,6 +92,8 @@ CAM_PAGES = [
   { module: "rest-api", category: "Task", id: "post-resolve", name: "Resolve Task", url: "task/post-resolve", keywords: "tasks post task resolve variables" },
   { module: "rest-api", category: "Task", id: "post-delegate", name: "Delegate Task", url: "task/post-delegate", keywords: "tasks post task delegate assignee" },
   
+  { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
+  
   { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" }
 ];
 

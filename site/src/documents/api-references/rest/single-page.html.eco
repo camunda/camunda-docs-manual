@@ -157,6 +157,16 @@
 
 </section>
 
+<section id="message">
+
+<h1>Message</h1>
+
+<section id="post-message" name="Deliver a Message">
+  <%- @include("./message/post-message.html.md") %>
+</section>
+
+</section>
+
 <section id="identity">
 
 <h1>Identity</h1>
