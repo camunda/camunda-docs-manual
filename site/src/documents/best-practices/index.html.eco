@@ -6,13 +6,17 @@ layout: 'default'
 ---
 
 <div class="span12">
-
   <div class="page-header">
     <img src="<%= @docUrl('assets/img/welcome/best-practices.png') %>" />
     <h1>Best Practices</h1>  
   </div>
+</div>
+<div class="span8">
+	<p>
+		The following image shows how the content of the best practice section is organized and connected.
+		Click on the image to navigate to the topic you want to start with.
+	</p>
 
-  <ul>
-    
-  </ul>
+    <img src="<%= @docUrl('assets/img/best-practices/overview.png') %>" />
+
 </div>

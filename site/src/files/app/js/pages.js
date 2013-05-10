@@ -94,10 +94,25 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
   
-  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" }
+  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" },
+
+  { module: "guidelines", category: "Cross Refernces", id: "overview",          name: "Overview", url: "", keywords: "" },
+  { module: "guidelines", category: "Cross Refernces", id: "checklist",         name: "Checklists", url: "../checklists/", keywords: "" },
+  { module: "guidelines", category: "Cross Refernces", id: "create-checklist",  name: "Your custom checklist", url: "../checklists/custom", keywords: "" },
+  { module: "guidelines", category: "Cross Refernces", id: "patterns",          name: "Patterns", url: "../patterns/", keywords: "" },
+  { module: "guidelines", category: "Naming Conventions", id: "naming-convention-tasks", name: "Tasks", url: "naming-conventions/tasks", keywords: "tasks naming conventions" },
+  { module: "guidelines", category: "Naming Conventions", id: "naming-convention-events", name: "Events", url: "naming-conventions/events", keywords: "events naming conventions" },
+  { module: "guidelines", category: "Layout Styles", id: "layout-styles-direction", name: "Modeling Direction", url: "layout-styles/direction", keywords: "events naming conventions" },
+
+  { module: "patterns", category: "Human Pools", id: "joint-work", name: "Joint work on task", url: "joint-work-on-task", keywords: "joint work user task" },
+
+  { module: "tutorials", category: "Monitoring", id: "kpi", name: "KPI's using history and measuring points", url: "kpi-history-query", keywords: "kpi history query" },
+
+
 ];
 
 CAM_MODULES = {
   "bpmn-impl-reference": { baseUrl: "api-references/bpmn20/", mainPage: "bpmn-overview" },
-  "rest-api": { baseUrl: "api-references/rest/", mainPage: "introduction" }
+  "rest-api": { baseUrl: "api-references/rest/", mainPage: "introduction" },
+  "guidelines": { baseUrl: "best-practices/guidelines/", mainPage: "overview" },
 };

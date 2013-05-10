@@ -1,0 +1,5 @@
+- image map?
+- breadcrumps or cross references?
+
+- how to create links between the different pages
+- how to implement the custom checklists?
