@@ -1,39 +1,67 @@
 ---
 
-title: 'Tutorials'
+title: 'Demos and Quickstarts'
 layout: 'default'
 
 ---
 
-<div class="row-fluid doc">
-
-  <div class="span3">
-    <form class="well form-search" section="examples" ng-submit="submitForm()" ng-cloak>
-      <div class="input-prepend dropdown search" ng-class="{ open: focused && bestMatch.rank > 0 && bestMatch.page != currentPage}">
-        <span class="add-on"> <i class="icon-search"></i>
-        </span> <input type="text" tabindex="1" accesskey="s" focused="focused" ng-change="updateSearch()" ng-model="search" placeholder="search the docs" />
-        <ul class="dropdown-menu">
-          <li><a href="#!{{ bestMatch.page.url }}">{{ bestMatch.page.shortName || bestMatch.page.name }}</a></li>
-        </ul>
-      </div>
-
-      <div class="spacer"></div>
-
-      <div ng-show="search">Filtered results:</div>
-
-      <ul class="nav nav-list" ng-hide="categories.length">
-        <li ng-repeat="page in pages" ng-class="navClass(page)"><a href="#!{{ page.url }}" tabindex="2">{{ page.name }}</a></li>
-      </ul>
-
-      <ul class="nav nav-list well" ng-repeat="category in categories">
-        <li class="nav-header module">{{ category.name }}</li>
-
-        <li ng-repeat="page in category.pages" ng-class="navClass(page)"><a href="#!{{ page.url }}" tabindex="2">{{ page.name }}</a></li>
-      </ul>
-    </form>
+<div class="span12">
+  <div class="page-header">
+    <h1>Demos and Quickstarts</h1>
   </div>
+  
+  <p>
+  	Examples are a great way to explore or learn the capabilities of the camunda BPM platform. We have different kind of examples which are described below.
+  </p>
+  
+  <div class="row">
+    <div class="span4">
+      <a href="https://github.com/camunda/camunda-showcases">
+      	<img src="showcases.png" />
+      </a>
+      <h2>Showcases</h2>
+      <ul>
+        <li>Full demo applications to showcase how to build process applications. Showing multiple aspects or even complete use cases.</li>
+        <li><strong>Maintained and released</strong> with new major releases (7.0, 7.1, ...).</li>
+      </ul>
 
-  <div class="span9">
-    <div ng-include="currentPage.partialUrl" ng-cloak></div>
+	  <a href="https://github.com/camunda/camunda-showcases" class="btn btn-primary btn-large">
+          <i class="icon-folder-open icon-large icon-white"></i> Goto showcases on GitHub
+      </a>
+      <p><a href="https://github.com/camunda/camunda-showcases">https://github.com/camunda/camunda-showcases</a></p>
+
+    </div>
+    <div class="span4">
+      <a href="https://github.com/camunda/camunda-outer-space-demos">
+        <img src="outer-space-demos.png" />
+      </a>
+      <h2>Outer-Space-Demos</h2>
+      <ul>
+        <li>Demo applications build once - often for a specific event like a conference or magazine article.</li>
+        <li><strong>Not maintained and released</strong>. We might keep them up-to-date, but there is no guarantee on that.</li>
+      </ul>
+
+	  <a href="https://github.com/camunda/camunda-outer-space-demos" class="btn btn-primary btn-large">
+          <i class="icon-folder-open icon-large icon-white"></i> Goto outer-space-demos on GitHub
+      </a>
+      <p><a href="https://github.com/camunda/camunda-outer-space-demos">https://github.com/camunda/camunda-outer-space-demos</a></p>
+
+    </div>
+    <div class="span4">    
+      <a href="https://github.com/camunda/camunda-quickstarts">
+        <img src="quickstarts.png" />
+      </a>
+      <h2>Quickstarts</h2>      
+      <ul>
+        <li>Small building block to demonstrate (and test) one specific feature.</li>
+        <li><strong>Continuous Integrated</strong> with platform QA and build process, hence always up-to-date and working.</li>
+      </ul>
+
+	  <a href="https://github.com/camunda/camunda-quickstarts" class="btn btn-primary btn-large">
+          <i class="icon-folder-open icon-large icon-white"></i> Goto quickstarts on GitHub
+      </a>
+      <p><a href="https://github.com/camunda/camunda-quickstarts">https://github.com/camunda/camunda-quickstarts</a></p>
+
+    </div>
   </div>
 </div>

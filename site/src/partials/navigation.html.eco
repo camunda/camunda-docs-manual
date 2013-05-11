@@ -40,21 +40,22 @@
             </ul>
           </li>
           <li class="dropdown" ng-class="activeClass('/best-practices')">
-            <a href="<%= @docUrl("best-practices/") %>">Best Practices</a>
+            <a href="<%= @docUrl("best-practices/") %>">Best Practices (BETA)</a>
 
             <ul class="dropdown-menu">
+              <li ng-class="activeClass('best-practices/checklists')">
+                <a href="<%= @docUrl("best-practices/checklists/")%>">Checklists</a>
+              </li>
+              <li class="divider"></li>
               <li class="nav-header">Modeling</li>
               <li ng-class="activeClass('best-practices/methodology')">
                 <a href="<%= @docUrl("best-practices/methodology/")%>">BPMN 2.0 Methodology</a>
               </li>
-              <li ng-class="activeClass('best-practices/checklists')">
-                <a href="<%= @docUrl("best-practices/checklists/")%>">Checklists</a>
-              </li>
               <li ng-class="activeClass('best-practices/guideline')">
-                <a href="<%= @docUrl("best-practices/guidelines/")%>">Guidelines</a>
+                <a href="<%= @docUrl("best-practices/guidelines/")%>">Guideline Rule Catalog</a>
               </li>
               <li ng-class="activeClass('best-practices/patterns')">
-                <a href="<%= @docUrl("best-practices/patterns/")%>">Patterns</a>
+                <a href="<%= @docUrl("best-practices/patterns/")%>">Pattern Catalog</a>
               </li>
               <li class="divider"></li>
               <li class="nav-header">Implementation</li>
@@ -63,6 +64,9 @@
               </li>
               <li ng-class="activeClass('best-practices/examples')">
                 <a href="<%= @docUrl("best-practices/examples/")%>">Demos and Quickstarts</a>
+              </li>
+              <li ng-class="activeClass('best-practices/blueprint/aspects')">
+                <a href="<%= @docUrl("best-practices/blueprints/aspects/")%>">Technical Aspects Catalog</a>
               </li>
               <li ng-class="activeClass('best-practices/blueprint')">
                 <a href="<%= @docUrl("best-practices/blueprints/")%>">Architecture Blueprints</a>

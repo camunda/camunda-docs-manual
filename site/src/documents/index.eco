@@ -49,13 +49,13 @@ layout: 'default'
       <h2>Best Practices</h2>
       <ul>
         <li><a href="<%= @docUrl("best-practices/")%>">Overview</a></li>
+        <li><a href="<%= @docUrl("best-practices/checklists/")%>">Checklists</a></li>      
         <li>
           Modeling
           <ul>
             <li><a href="<%= @docUrl("best-practices/methodology/")%>">BPMN 2.0 Methodology</a></li>      
-            <li><a href="<%= @docUrl("best-practices/checklists/")%>">Custom checklists</a></li>      
-            <li><a href="<%= @docUrl("best-practices/guidelines/")%>">Guidelines</a></li>      
-            <li><a href="<%= @docUrl("best-practices/patterns/")%>">Patterns</a></li>      
+            <li><a href="<%= @docUrl("best-practices/guidelines/")%>">Guideline Rule Catalog</a></li>      
+            <li><a href="<%= @docUrl("best-practices/patterns/")%>">Pattern Catalog</a></li>      
           </ul>
         </li>
         <li>
@@ -63,6 +63,7 @@ layout: 'default'
           <ul>
             <li><a href="<%= @docUrl("best-practices/tutorials/")%>">Tutorials</a></li>
             <li><a href="<%= @docUrl("best-practices/examples/")%>">Demos and Quickstarts</a></li>
+            <li><a href="<%= @docUrl("best-practices/blueprints/aspects/")%>">Technical Aspects Catalog</a></li>
             <li><a href="<%= @docUrl("best-practices/blueprints/")%>">Architecture Blueprints</a></li>
           </ul>
         </li>

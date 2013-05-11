@@ -96,17 +96,22 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" },
 
-  { module: "guidelines", category: "Cross Refernces", id: "overview",          name: "Overview", url: "", keywords: "" },
-  { module: "guidelines", category: "Cross Refernces", id: "checklist",         name: "Checklists", url: "../checklists/", keywords: "" },
-  { module: "guidelines", category: "Cross Refernces", id: "create-checklist",  name: "Your custom checklist", url: "../checklists/custom", keywords: "" },
-  { module: "guidelines", category: "Cross Refernces", id: "patterns",          name: "Patterns", url: "../patterns/", keywords: "" },
+  { module: "guidelines", category: "Overview", id: "how-to-use",      name: "How to use the guidelines", url: "hot-to-use", keywords: "" },
+  { module: "guidelines", category: "Overview", id: "checklists",      name: "Default checklist", url: "checklists", keywords: "" },
+  { module: "guidelines", category: "Overview", id: "symbols",         name: "Symbols used", url: "symbols", keywords: "" },
   { module: "guidelines", category: "Naming Conventions", id: "naming-convention-tasks", name: "Tasks", url: "naming-conventions/tasks", keywords: "tasks naming conventions" },
   { module: "guidelines", category: "Naming Conventions", id: "naming-convention-events", name: "Events", url: "naming-conventions/events", keywords: "events naming conventions" },
   { module: "guidelines", category: "Layout Styles", id: "layout-styles-direction", name: "Modeling Direction", url: "layout-styles/direction", keywords: "events naming conventions" },
 
+  { module: "patterns", category: "Overview", id: "how-to-use",      name: "How to use the patterns", url: "hot-to-use", keywords: "" },
+  { module: "patterns", category: "Overview", id: "checklists",      name: "Default checklist", url: "checklists", keywords: "" },
   { module: "patterns", category: "Human Pools", id: "joint-work", name: "Joint work on task", url: "joint-work-on-task", keywords: "joint work user task" },
 
   { module: "tutorials", category: "Monitoring", id: "kpi", name: "KPI's using history and measuring points", url: "kpi-history-query", keywords: "kpi history query" },
+
+  { module: "technical-aspects", category: "Overview", id: "how-to-use", name: "How to use the blueprints", url: "xxx", keywords: "" },
+  { module: "technical-aspects", category: "Overview", id: "checklists", name: "Default checklist", url: "xxx", keywords: "" },
+  { module: "technical-aspects", category: "Transactions", id: "checklists", name: "Use async for not idempotent services", url: "xxx", keywords: "" },
 
 
 ];
@@ -115,4 +120,7 @@ CAM_MODULES = {
   "bpmn-impl-reference": { baseUrl: "api-references/bpmn20/", mainPage: "bpmn-overview" },
   "rest-api": { baseUrl: "api-references/rest/", mainPage: "introduction" },
   "guidelines": { baseUrl: "best-practices/guidelines/", mainPage: "overview" },
+  "patterns": { baseUrl: "best-practices/patterns/", mainPage: "overview" },
+  "tutorials": { baseUrl: "best-practices/tutorials/", mainPage: "overview" },
+  "technical-aspects": { baseUrl: "best-practices/blueprints/aspects/", mainPage: "overview" },
 };
