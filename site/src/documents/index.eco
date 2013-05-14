@@ -11,7 +11,7 @@ layout: 'default'
   </div>
   <div class="row">
 
-    <div class="span4">
+    <div class="span4">    
       <a href="<%= @docUrl("guides/")%>">
         <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
       </a>
@@ -43,33 +43,16 @@ layout: 'default'
       </ul>
     </div>  
 
-    
+    <!--
     <div class="span4">
       <img src="<%= @docUrl('assets/img/welcome/best-practices.png') %>" />
       <h2>Best Practices</h2>
       <ul>
-        <li><a href="<%= @docUrl("best-practices/")%>">Overview</a></li>
-        <li><a href="<%= @docUrl("best-practices/checklists/")%>">Checklists</a></li>      
-        <li>
-          Modeling
-          <ul>
-            <li><a href="<%= @docUrl("best-practices/methodology/")%>">BPMN 2.0 Methodology</a></li>      
-            <li><a href="<%= @docUrl("best-practices/guidelines/")%>">Guideline Rule Catalog</a></li>      
-            <li><a href="<%= @docUrl("best-practices/patterns/")%>">Pattern Catalog</a></li>      
-          </ul>
-        </li>
-        <li>
-          Implementation
-          <ul>
-            <li><a href="<%= @docUrl("best-practices/tutorials/")%>">Tutorials</a></li>
-            <li><a href="<%= @docUrl("best-practices/examples/")%>">Demos and Quickstarts</a></li>
-            <li><a href="<%= @docUrl("best-practices/blueprints/aspects/")%>">Technical Aspects Catalog</a></li>
-            <li><a href="<%= @docUrl("best-practices/blueprints/")%>">Architecture Blueprints</a></li>
-          </ul>
-        </li>
-        <li><a href="<%= @docUrl("best-practices/success-stories/")%>">Success Stories</a></li>
+        <li><a href="">Best Pracices</a></li>
+        <li><a href="">Tutorials</a></li>      
+        <li><a href="">Patterns</a></li>      
       </ul>
     </div>
-    
+    -->
   </div>
 </div>
