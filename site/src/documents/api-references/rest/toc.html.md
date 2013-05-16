@@ -8,7 +8,7 @@
   * [Get Definitions](#get-definitions)
   * [Get Definitions Count](#get-definitions-count)
   * [Get BPMN 2.0 XML](#get-definition-xml)
-  * [Start Process](#post-start-process)
+  * [Start Process Instance](#post-start-process-instance)
   * [Get Process Instance Statistics](#get-statistics)
   * [Get Activity Instance Statistics](#get-activity-statistics)
   * [Get Start Form Key](#get-start-form-key)

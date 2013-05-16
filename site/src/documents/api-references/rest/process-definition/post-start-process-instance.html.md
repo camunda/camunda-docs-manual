@@ -1,5 +1,5 @@
-Start Process
-=============
+Start Process Instance
+======================
 
 Instantiates a given process definition. Process variables may be supplied in the request body.
 

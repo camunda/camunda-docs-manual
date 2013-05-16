@@ -57,8 +57,8 @@
   <%- @include("./process-definition/get-xml.html.md") %>
 </section>
 
-<section id="post-start-process" name="Start Process">
-  <%- @include("./process-definition/post-start-process.html.md") %>
+<section id="post-start-process-instance" name="Start Process Instance">
+  <%- @include("./process-definition/post-start-process-instance.html.md") %>
 </section>
 
 <section id="get-statistics" name="Get Process Instance Statistics">
