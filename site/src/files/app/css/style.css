@@ -444,3 +444,11 @@ footer {
 .docs-guide h4 {
   font-size: 20px;
 }
+
+img.tile {
+  margin-top:10px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  width: 230px;
+  display: block;
+}
