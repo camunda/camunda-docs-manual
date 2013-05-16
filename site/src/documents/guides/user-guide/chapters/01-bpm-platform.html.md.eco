@@ -459,7 +459,7 @@ If you want to customize the behavior of the the EjbProcessApplication class you
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     @ProcessApplication
     @Local(ProcessApplicationInterface.class)
-    public class DefaultEjbProcessApplication extends EjbProcessApplication {
+    public class MyEjbProcessApplication extends EjbProcessApplication {
       
       @PostConstruct
       public void start() {
