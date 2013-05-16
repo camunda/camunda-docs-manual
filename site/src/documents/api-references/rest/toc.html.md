@@ -31,5 +31,7 @@
   * [Complete Task](#post-complete)
   * [Resolve Task](#post-resolve)
   * [Delegate Task](#post-delegate)
+* [Message](#message)
+  * [Deliver a Message](#post-message)
 * [Identity](#identity)
   * [Get a User's Groups](#get-group-info)
