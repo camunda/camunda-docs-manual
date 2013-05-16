@@ -100,7 +100,16 @@ You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf`:
 
       </bpm-platform>
 
-### Provide JNDI Bindings for Bpm Platfarm Services
+### Add listener to bootstrap camunda BPM platform
+
+To bootstrap the camunda BPM platform you have to edit the file `$CATALINA_HOME/conf/server.xml` and add the following listener:
+
+    <Server>
+      ...
+      <Listener className="org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap" />
+    </Server>
+
+### Provide JNDI Bindings for Bpm Platform Services
 
 In order to use the [JNDI Bindings for Bpm Platform Services on Tomcat](<%= @docUrl("guides/user-guide/") %>#jndi-bindings-services-tomcat) you have to edit the file `$CATALINA_HOME/conf/server.xml` and add the following Resources:
 
