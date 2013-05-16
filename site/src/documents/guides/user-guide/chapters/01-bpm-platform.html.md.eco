@@ -453,13 +453,14 @@ This deployment option requires that your project is a composite deployment (suc
 
 If you want to customize the behavior of the the EjbProcessApplication class you have to option of writing a custom EjbProcessApplication class. The following is an example of such an implementation:
 
-    @ProcessApplication("Loan Approval App")
     @Singleton
     @Startup
-    @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
-    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    public class LoanApprovalProcessApplication extends EjbProcessApplication {
-
+    @ConcurrencyManagement(ConcurrencyManagementType.BEAN) 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @ProcessApplication
+    @Local(ProcessApplicationInterface.class)
+    public class DefaultEjbProcessApplication extends EjbProcessApplication {
+      
       @PostConstruct
       public void start() {
         deploy();
@@ -469,6 +470,7 @@ If you want to customize the behavior of the the EjbProcessApplication class you
       public void stop() {
         undeploy();
       }
+        
     }
 
 ##### Invocation Semantics of  the EjbProcessApplication
