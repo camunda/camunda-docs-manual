@@ -7,11 +7,11 @@ layout: 'default'
 
 <div class="span12">
   <div class="page-header">
-    <h1>camunda BPM Documentation</h1>  
+    <h1>camunda BPM Documentation</h1>
   </div>
   <div class="row">
 
-    <div class="span4">    
+    <div class="span4">
       <a href="<%= @docUrl("guides/")%>">
         <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
       </a>
@@ -24,6 +24,7 @@ layout: 'default'
         <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
         <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
         <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
+        <li><a href="<%= @docUrl("how-tos/")%>">How-tos</a></li>
       </ul>
     </div>
 
@@ -41,7 +42,7 @@ layout: 'default'
         <li><a href="<%= @docUrl("api-references/rest/")%>">REST API</a></li>
         <li><a href="<%= @docUrl("api-references/bpmn20/")%>">BPMN 2.0 (Implementation)</a></li>
       </ul>
-    </div>  
+    </div>
 
     <!--
     <div class="span4">
@@ -49,8 +50,8 @@ layout: 'default'
       <h2>Best Practices</h2>
       <ul>
         <li><a href="">Best Pracices</a></li>
-        <li><a href="">Tutorials</a></li>      
-        <li><a href="">Patterns</a></li>      
+        <li><a href="">Tutorials</a></li>
+        <li><a href="">Patterns</a></li>
       </ul>
     </div>
     -->
