@@ -79,6 +79,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "post-instances", name: "Get Instances (POST)", url: "process-instance/post-query", keywords: "instances post process-instance query filter" },
   { module: "rest-api", category: "Process Instance", id: "post-instances-count", name: "Get Instances Count (POST)", url: "process-instance/post-query-count", keywords: "instances post process-instance query filter count" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variables", name: "Get Process Variables", url: "process-instance/get-variables", keywords: "instances get process-instance variables" },
+  { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
 
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },

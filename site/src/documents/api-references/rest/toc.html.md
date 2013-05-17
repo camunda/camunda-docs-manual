@@ -19,6 +19,7 @@
   * [Get Instances (POST)](#post-instances)
   * [Get Instances Count (POST)](#post-instances-count)
   * [Get Process Variables](#get-instance-variables)
+  * [Delete Process Instance](#delete-instance)
 * [Task](#task)
   * [Get Single Task](#get-task)
   * [Get Tasks](#get-tasks)

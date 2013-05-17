@@ -93,7 +93,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/process-instance/aProcessInstanceId`
 
 #### Response

@@ -73,16 +73,16 @@
   <%- @include("./process-definition/get-start-form-key.html.md") %>
 </section>
 
-<section id="get-instance" name="Get Single Instance">
-  <%- @include("./process-instance/get.html.md") %>
-</section>
-
 </section>
 
 
 <section id="process-instance">
 
 <h1>Process Instance</h1>
+
+<section id="get-instance" name="Get Single Instance">
+  <%- @include("./process-instance/get.html.md") %>
+</section>
 
 <section id="get-instances" name="Get Instances">
   <%- @include("./process-instance/get-query.html.md") %>
@@ -102,6 +102,10 @@
 
 <section id="get-instance-variables" name="Get Process Variables">
   <%- @include("./process-instance/get-variables.html.md") %>
+</section>
+
+<section id="delete-instance" name="Delete Process Instance">
+  <%- @include("./process-instance/delete.html.md") %>
 </section>
 
 </section>
