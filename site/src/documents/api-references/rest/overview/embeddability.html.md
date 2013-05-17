@@ -19,7 +19,7 @@ Required steps
           <groupId>org.camunda.bpm</groupId>
           <artifactId>camunda-engine-rest</artifactId>
           <classifier>classes</classifier>
-          <version>7.0.0.alpha2</version>
+          <version>7.0.0.alpha5</version>
         </dependency>
 
 * Add those REST resources to your JAX-RS application that you need. Example:
@@ -37,7 +37,9 @@ Required steps
             classes.add(org.camunda.bpm.engine.rest.impl.ProcessInstanceRestServiceImpl.class);
             classes.add(org.camunda.bpm.engine.rest.impl.TaskRestServiceImpl.class);
             // mandatory
-            classes.add(org.camunda.bpm.engine.rest.mapper.JacksonConfigurator.class);
+            classes.add(org.camunda.bpm.engine.rest.mapper.JacksonConfigurator.class);            
+            classes.add(org.camunda.bpm.engine.rest.exception.RestExceptionHandler.class);
+            classes.add(org.camunda.bpm.engine.rest.exception.ProcessEngineExceptionHandler.class);
             return classes;
           }
         }
@@ -52,6 +54,11 @@ Required steps
   `org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper` and `org.codehaus.jackson.jaxrs.JsonParseExceptionMapper`.
   Depending on the runtime environment, this may not be necessary. 
   On JBoss AS 7 these should be automatically added as an implicit module dependency.
+  
+  For proper exception responses of the format as described in the [Introduction](/api-references/rest/#!/overview/introduction),
+  it is required to include `RestExceptionHandler`. `ProcessEngineExceptionHandler` is used to translate any exception thrown by the
+  engine that is not explicitly handled by the REST API classes to a generic HTTP 500 error with the same response body format.
+  If you would like to have all kinds of exceptions translated to this format, you can use `org.camunda.bpm.engine.rest.exception.ExceptionHandler` instead of `ProcessEngineExceptionHandler`.
   
   Next is the wiring of the REST API and the process engine(s). 
   This requires to create a Service Provider that implements the interface `ProcessEngineProvider`

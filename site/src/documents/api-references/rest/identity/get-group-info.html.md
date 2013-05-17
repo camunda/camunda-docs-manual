@@ -71,8 +71,8 @@ Response codes
   </tr>
   <tr>
     <td>400</td>
-    <td></td>
-    <td>If the `userId` query parameter is missing.</td>
+    <td>application/json</td>
+    <td>If the `userId` query parameter is missing. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
   </tr>
 </table>
 

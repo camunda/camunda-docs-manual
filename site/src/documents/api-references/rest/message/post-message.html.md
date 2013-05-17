@@ -68,8 +68,8 @@ Response codes
   </tr>
   <tr>
     <td>400</td>
-    <td></td>
-    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition).</td>
+    <td>application/json</td>
+    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition). See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
   </tr>
 </table>
 
