@@ -16,7 +16,7 @@ The integration of a plugin into the overall cockpit architecture is depicted in
 
 ![Cockpit architecture with plugins](architecture.png "Cockpit architecture with plugins")
 
-On the server side, it can extend cockpit with custom SQL queries and JAX-RS resource classes that extend the cockpit API. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squese additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand may expose the plugin functionality to the client side part of the plugin.
+On the server side, it can extend cockpit with custom SQL queries and JAX-RS resource classes that extend the cockpit API. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand may expose the plugin functionality to the client side part of the plugin.
 
 On the client side a plugin may include [AngularJS](http://angularjs.org/) modules to extend the cockpit webapplication. Via those modules a plugin provides custom views and services.
 
@@ -133,9 +133,9 @@ A first test may look as follows:
       }
     }
 
-In the test `#testPluginDiscovery` we use the internal cockpit api to check whether the plugin was recognized.
+In the test `#testPluginDiscovery` we use the internal cockpit API to check whether the plugin was recognized.
 
-Before we can actually run the test, we need to create a `activiti.cfg.xml` to be present on the class path (usually under `src/test/resources`). That file configures the process engine to be bootstraped.
+Before we can actually run the test, we need to create a `activiti.cfg.xml` to be present on the class path (usually under `src/test/resources`). That file configures the process engine to be bootstrapped.
 
 We go ahead and create the file.
 
@@ -258,14 +258,14 @@ Note that `#getQueryService()` is merely a shortcut the service that may also be
 
 ### Defining and Publishing Plugin Services
 
-Plugins publish their services via apis defined through JAX-RS resources.
+Plugins publish their services via APIs defined through JAX-RS resources.
 
-First, we need to add the JAX-RS api to our projects `pom.xml`. That is best done by including the following dependency:
+First, we need to add the JAX-RS API to our projects `pom.xml`. That is best done by including the following dependency:
 
     <dependencies>
       ...
 
-      <!-- provides jax-rs (among other apis) -->
+      <!-- provides jax-rs (among other APIs) -->
       <dependency>
         <groupId>org.jboss.spec</groupId>
         <artifactId>jboss-javaee-6.0</artifactId>
@@ -275,7 +275,7 @@ First, we need to add the JAX-RS api to our projects `pom.xml`. That is best don
       </dependency>
       ...
 
-A server side plugin api consists of a root resource and a number of sub resources that are provided by the root resource. A root resource may inherit from `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginRootResource` to receive some basic traits. It must publish itself on the path `plugin/$pluginName` via a `@Path` annotation.
+A server side plugin API consists of a root resource and a number of sub resources that are provided by the root resource. A root resource may inherit from `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginRootResource` to receive some basic traits. It must publish itself on the path `plugin/$pluginName` via a `@Path` annotation.
 
 A root resource for our plugin may look as follows:
 
@@ -299,7 +299,7 @@ A root resource for our plugin may look as follows:
       }
     }
 
-Note that a sub resource gets initialized by the plugin when requests to `{engineName}/process-instance` are being made. That ensures that a cockpit service is multi-tenacy ready out of the box (i.e. capable to work with all process engines provided by the camunda BPM platform).
+Note that a sub resource gets initialized by the plugin when requests to `{engineName}/process-instance` are being made. That ensures that a cockpit service is multi-tenancy ready out of the box (i.e. capable to work with all process engines provided by the camunda BPM platform).
 
 A sub-resource may extend `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginResource` to get initialized with the correct process engine mappings. The resource shown below exposes our custom SQL query to the client when accessing the resource via `GET`.
 
@@ -348,14 +348,14 @@ In order to include plugin resources into the cockpit application those resource
       // ...
     }
 
-Given the above setup the resource class extends the cockpit api with the following paths
+Given the above setup the resource class extends the cockpit API with the following paths
 
     GET $cockpit_api_root/plugin/sample/$engine/process-instance
 
 
 #### Test Case
 
-To test your JAX-RS resources you can instantiate them directly during a plugin test case. Alternatively you can write a real api test using [arquillian](http://arquillian.org/).
+To test your JAX-RS resources you can instantiate them directly during a plugin test case. Alternatively you can write a real API test using [arquillian](http://arquillian.org/).
 See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
 
@@ -385,7 +385,7 @@ To test that the assets are served, we can either [implement a test case](https:
 
 ### Integration into cockpit
 
-Before integrating the plugin into cockpit, make sure you have built the plugin at least once using `mvn clean install` (or however you IDE calls it). Furthermore, make sure that you have the [camunda BPM platform](https://github.com/camunda/camunda-bpm-platform) checked out on your local file system.
+Before integrating the plugin into cockpit, make sure you have built the plugin at least once using `mvn clean install` (or however your IDE calls it). Furthermore, make sure that you have the [camunda BPM platform](https://github.com/camunda/camunda-bpm-platform) checked out on your local file system.
 
 To integrate the plugin, we need to add it to the dependencies of the cockpit web project (located in the `webapps/cockpit/cockpit-webapp`).
 
