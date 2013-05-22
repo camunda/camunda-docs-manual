@@ -313,8 +313,8 @@ Furthermore, to be able to use camunda cockpit the REST API has to be [installed
 
 The following steps are required to deploy camunda cockpit on a Glassfish instance:
 
-1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit/).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-$PLATFORM_VERSION.war`.
+1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit-glassfish/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-glassfish-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which cockpit will be deployed (default is `/cockpit`). 
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
 2. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`. 

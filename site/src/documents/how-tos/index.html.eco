@@ -1,0 +1,21 @@
+---
+
+title: 'How-tos'
+layout: 'default'
+
+---
+
+<div class="span12">
+
+  <div class="page-header">
+    <h1>camunda BPM How-tos</h1>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <ul>
+        <li><a href="./cockpit/develop-a-plugin/">Developing a cockpit plugin</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

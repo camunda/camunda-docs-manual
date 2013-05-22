@@ -1,13 +1,13 @@
 Get a User's Groups
 ===================
 
-Gets the groups of a user, their sizes and all users that share a group with the given user.
+Gets the groups of a user and all users that share a group with the given user.
 
 
 Method
 ------
 
-GET `/task/groups`
+GET `/identity/groups`
 
 
 Parameters
@@ -45,12 +45,6 @@ Its properties are as follows:
     <td>A json array of group object. Every group object has a `id` property and a `name` property.</td>
   </tr>
   <tr>
-    <td>groupCounts</td>
-    <td>Object</td>
-    <td>A json object consisting of key-value pairs. The key is a group name and the value the number of group members.
-    The keys are consistent with the groups listed in the `groups` array.</td>
-  </tr>
-  <tr>
     <td>groupUsers</td>
     <td>Array</td>
     <td>A json array that contains all users that are member in one of the groups.<br/>
@@ -77,8 +71,8 @@ Response codes
   </tr>
   <tr>
     <td>400</td>
-    <td></td>
-    <td>If the `userId` query parameter is missing.</td>
+    <td>application/json</td>
+    <td>If the `userId` query parameter is missing. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
   </tr>
 </table>
 
@@ -88,15 +82,13 @@ Example
 
 #### Request
 
-GET `/task/groups?userId=aUserId`
+GET `/identity/groups?userId=aUserId`
 
 #### Response
 
     {"groups":
       [{"id":"group1Id",
        "name":"group1"}],
-    "groupCounts":
-      {"group1Id":1},
     "groupUsers":
       [{"firstName":"firstName",
        "lastName":"lastName",

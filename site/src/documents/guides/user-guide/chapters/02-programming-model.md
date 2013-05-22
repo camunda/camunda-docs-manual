@@ -4,7 +4,20 @@
 
 ## Spring Framework Integration
 
-### Bootstrapping an application-managed Process Engine as a Spring Bean
+The camunda-engine spring framework integration is located inside the camunda-engine-spring module and can be added to apache maven-based projects through the following dependency:
+
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-spring</artifactId>
+      <version>${camunda.version}</version>
+    </dependency>
+
+
+### Bootstrapping a process engine
+
+You can use a Spring application context Xml file for bootstrapping the process engine. You can bootstrap both application-managed and container-managed process engines through Spring.
+
+#### Bootstrapping an application-managed Process Engine
   
 The ProcessEngine can be configured as a regular Spring bean. The starting point of the integration is the class `org.camunda.bpm.engine.spring.ProcessEngineFactoryBean`. That bean takes a process engine configuration and creates the process engine. This means that the creation and configuration of properties for Spring is the same as documented in the configuration section. For Spring integration the configuration and engine beans will look like this:
 
@@ -20,6 +33,10 @@ The ProcessEngine can be configured as a regular Spring bean. The starting point
 
   
 Note that the processEngineConfiguration bean uses the <a href="http://www.camunda.org/javadocs/org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class. 
+
+#### Bootstrapping a container-managed Process Engine as a Spring Bean
+
+If you want the process enigne to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration. 
 
 ### Transactions
 
@@ -190,6 +207,15 @@ And the Spring bean configuration (also shown above) looks like this:
 
       <bean id="printer" class="org.camunda.bpm.engine.spring.test.transaction.Printer" />
     </beans>
+
+#### Expression resolving with the Shared Process Engine
+
+In a shared process engine deployment scenario, you have a process engine which dispatches to multiple applications. In this case, there is not a single spring application context but each application may maintain its own application context. The process engine cannot use a single expression resolver for a single application context but must delegate to the appropriate process application, depending on which process is currently executed.
+
+This functionality is provided by the `org.camunda.bpm.engine.spring.application.SpringProcessApplicationElResolver`. This class is a ProcessApplicationElReolver implementation delegating to the local application context. Expression resolving then works in the following way: the shared process engine checks which process application corresponds to the
+process it is currently executing. It then delegates to that process application for resolving expressions. The process application delegates to the SpringProcessApplicationElResolver which uses the local Spring application context for resolving beans.
+
+The SpringProcessApplicationElResolver class is automatically detected if the camunda-engine-spring module is visible from the classpath of a process application.
 
 ### Testing
 

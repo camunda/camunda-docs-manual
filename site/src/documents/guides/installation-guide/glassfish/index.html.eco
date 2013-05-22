@@ -15,7 +15,7 @@ layout: 'default'
   </ul>
 </div>
 
-<div class="span9 docs">
+<div class="span9 docs docs-guide">
 
 <%- @include("./guide.html.md") %>
 

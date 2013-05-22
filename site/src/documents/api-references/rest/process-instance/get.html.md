@@ -83,8 +83,8 @@ Response codes
   </tr>
   <tr>
     <td>404</td>
-    <td></td>
-    <td>Process instance with given id does not exist.</td>
+    <td>application/json</td>
+    <td>Process instance with given id does not exist. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
   </tr>
 </table>
 
@@ -93,7 +93,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/process-instance/aProcessInstanceId`
 
 #### Response

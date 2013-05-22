@@ -68,7 +68,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Definition", id: "get-definitions", name: "Get Definitions", url: "process-definition/get-query", keywords: "definitions get process-definition query filter" },
   { module: "rest-api", category: "Process Definition", id: "get-definitions-count", name: "Get Definitions Count", url: "process-definition/get-query-count", keywords: "definitions get process-definition query filter count" },
   { module: "rest-api", category: "Process Definition", id: "get-definition-xml", name: "Get BPMN 2.0 XML", url: "process-definition/get-xml", keywords: "definition get process-definition xml bpmn 2.0 2" },
-  { module: "rest-api", category: "Process Definition", id: "post-start-process", name: "Start Process", url: "process-definition/post-start-process", keywords: "definition post process-definition start instance" },
+  { module: "rest-api", category: "Process Definition", id: "post-start-process-instance", name: "Start Process Instance", url: "process-definition/post-start-process-instance", keywords: "definition post process-definition start instance" },
   { module: "rest-api", category: "Process Definition", id: "get-statistics", name: "Get Process Instance Statistics", url: "process-definition/get-statistics", keywords: "definitions get process-definition instance statistics aggregate sum" },
   { module: "rest-api", category: "Process Definition", id: "get-activity-statistics", name: "Get Activity Instance Statistics", url: "process-definition/get-activity-statistics", keywords: "definitions get process-definition activity statistics aggregate sum" },
   { module: "rest-api", category: "Process Definition", id: "get-start-form-key", name: "Get Start Form Key", url: "process-definition/get-start-form-key", keywords: "definition get process-definition startForm start form key" },
@@ -79,6 +79,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "post-instances", name: "Get Instances (POST)", url: "process-instance/post-query", keywords: "instances post process-instance query filter" },
   { module: "rest-api", category: "Process Instance", id: "post-instances-count", name: "Get Instances Count (POST)", url: "process-instance/post-query-count", keywords: "instances post process-instance query filter count" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variables", name: "Get Process Variables", url: "process-instance/get-variables", keywords: "instances get process-instance variables" },
+  { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
 
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
@@ -91,7 +92,10 @@ CAM_PAGES = [
   { module: "rest-api", category: "Task", id: "post-complete", name: "Complete Task", url: "task/post-complete", keywords: "tasks post task complete variables" },
   { module: "rest-api", category: "Task", id: "post-resolve", name: "Resolve Task", url: "task/post-resolve", keywords: "tasks post task resolve variables" },
   { module: "rest-api", category: "Task", id: "post-delegate", name: "Delegate Task", url: "task/post-delegate", keywords: "tasks post task delegate assignee" },
-  { module: "rest-api", category: "Task", id: "get-group-info", name: "Get a User's Groups", url: "task/get-group-info", keywords: "tasks get task groups user" }
+  
+  { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
+  
+  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" }
 ];
 
 CAM_MODULES = {

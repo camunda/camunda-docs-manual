@@ -57,8 +57,8 @@
   <%- @include("./process-definition/get-xml.html.md") %>
 </section>
 
-<section id="post-start-process" name="Start Process">
-  <%- @include("./process-definition/post-start-process.html.md") %>
+<section id="post-start-process-instance" name="Start Process Instance">
+  <%- @include("./process-definition/post-start-process-instance.html.md") %>
 </section>
 
 <section id="get-statistics" name="Get Process Instance Statistics">
@@ -73,16 +73,16 @@
   <%- @include("./process-definition/get-start-form-key.html.md") %>
 </section>
 
-<section id="get-instance" name="Get Single Instance">
-  <%- @include("./process-instance/get.html.md") %>
-</section>
-
 </section>
 
 
 <section id="process-instance">
 
 <h1>Process Instance</h1>
+
+<section id="get-instance" name="Get Single Instance">
+  <%- @include("./process-instance/get.html.md") %>
+</section>
 
 <section id="get-instances" name="Get Instances">
   <%- @include("./process-instance/get-query.html.md") %>
@@ -102,6 +102,10 @@
 
 <section id="get-instance-variables" name="Get Process Variables">
   <%- @include("./process-instance/get-variables.html.md") %>
+</section>
+
+<section id="delete-instance" name="Delete Process Instance">
+  <%- @include("./process-instance/delete.html.md") %>
 </section>
 
 </section>
@@ -155,8 +159,24 @@
   <%- @include("./task/post-delegate.html.md") %>
 </section>
 
+</section>
+
+<section id="message">
+
+<h1>Message</h1>
+
+<section id="post-message" name="Deliver a Message">
+  <%- @include("./message/post-message.html.md") %>
+</section>
+
+</section>
+
+<section id="identity">
+
+<h1>Identity</h1>
+
 <section id="get-group-info" name="Get a User's Groups">
-  <%- @include("./task/get-group-info.html.md") %>
+  <%- @include("./identity/get-group-info.html.md") %>
 </section>
 
 </section>

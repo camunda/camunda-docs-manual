@@ -51,6 +51,15 @@ layout: 'default'
         <li><a href="glassfish/#cockpit">camunda cockpit</a></li>
         <li><a href="glassfish/#tasklist">camunda tasklist</a></li>
       </ul>
-    </div>   
+    </div>
+    <div class="span3">
+      <a href="was/">
+        <img src="assets/img/was-tile.png" />
+      </a>
+      <h2><a href="was/">WebSphere 8.x</a></h2>
+      <ul>
+        <li><a href="was/#platform">BPM platform</a></li>
+      </ul>
+    </div>
   </div>
 </div>

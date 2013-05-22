@@ -104,8 +104,8 @@ typically `bin`.
     </datasource>
     
 <div class="alert alert-info">
-  **Cycle**<br/>
-  Note that if you plan use camunda cycle, you need to configure an additional datasource. See the [cycle section](#cycle) for a guide.
+  <strong>Cycle</strong><br/>
+  Note that if you plan use camunda cycle, you need to configure an additional datasource. See the <a href="#cycle">cycle section</a> for a guide.
 </div>
 
 Using h2 is ideal for development purposes, but is not recommended for production usage.
@@ -275,8 +275,8 @@ Furthermore, to be able to use camunda cockpit the REST API has to be [installed
 
 The following steps are required to deploy camunda cockpit on a JBoss instance:
 
-1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit/).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-$PLATFORM_VERSION.war`.
+1. Download the cockpit web application from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cockpit/camunda-cockpit-jboss/).
+   Choose the correct version named `$PLATFORM_VERSION/camunda-cockpit-jboss-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which cockpit will be deployed (default is `/cockpit`). 
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 2. Copy the war file to `$JBOSS_HOME/standalone/deployments`. 

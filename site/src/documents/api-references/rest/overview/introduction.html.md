@@ -31,10 +31,9 @@ Error Handling
 
 For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all
 possible error causes that may arise when the request is served. For example, most of the requests will not work properly if
-there are problems with database access. <br/>
+there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
 
-Any of these undocumented errors will be translated to a HTTP 500 error.
-
+All errors also provide a JSON response body of the form `{"type" : "SomeExceptionClass", "message" : "a detailed message"}.`
 
 Authentication
 --------------
