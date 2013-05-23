@@ -13,7 +13,7 @@ layout: 'default'
   </div>
 
   <ul>
-    <li><a href="./java/">Java API</a></li>
+    <li><a href="http://camunda.org/javadocs/">Java API</a></li>
     <li><a href="./rest/">REST API</a></li>
     <li><a href="./bpmn20/">BPMN 2.0 (Implementation)</a></li>
   </ul>
