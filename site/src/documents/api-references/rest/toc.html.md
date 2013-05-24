@@ -25,6 +25,7 @@
   * [Update/Delete Process Variables](#patch-instance-variables)
   * [Delete Process Instance](#delete-instance)
 * [Execution](#execution)
+  * [Get Single Execution](#get-execution)
   * [Get Executions](#get-executions)
   * [Get Executions Count](#get-executions-count)
   * [Get Executions (POST)](#post-executions)

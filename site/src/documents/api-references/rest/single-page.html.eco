@@ -130,6 +130,10 @@
 
 <h1>Execution</h1>
 
+<section id="get-execution" name="Get Single Execution">
+  <%- @include("./execution/get.html.md") %>
+</section>
+
 <section id="get-executions" name="Get Executions">
   <%- @include("./execution/get-query.html.md") %>
 </section>

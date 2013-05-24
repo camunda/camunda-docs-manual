@@ -1,7 +1,7 @@
 Get Single Instance
 ===================
 
-Retrieves a single process instance according to the ProcessInstance interface in the engine.
+Retrieves a single process instance according to the `ProcessInstance` interface in the engine.
 
 
 Method
