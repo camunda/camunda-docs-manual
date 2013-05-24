@@ -85,6 +85,11 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "patch-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/patch-variables", keywords: "instances patch process-instance variables" },
   { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
 
+  { module: "rest-api", category: "Execution", id: "get-executions", name: "Get Executions", url: "execution/get-query", keywords: "instances get execution query filter" },
+  { module: "rest-api", category: "Execution", id: "get-executions-count", name: "Get Executions Count", url: "execution/get-query-count", keywords: "instances get execution query filter count" },
+  { module: "rest-api", category: "Execution", id: "post-executions", name: "Get Executions (POST)", url: "execution/post-query", keywords: "instances post execution query filter" },
+  { module: "rest-api", category: "Execution", id: "post-executions-count", name: "Get Executions Count (POST)", url: "execution/post-query-count", keywords: "instances post execution query filter count" },
+  
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
   { module: "rest-api", category: "Task", id: "get-tasks-count", name: "Get Tasks Count", url: "task/get-query-count", keywords: "tasks get task filter query count" },

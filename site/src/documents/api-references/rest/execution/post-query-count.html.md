@@ -1,9 +1,9 @@
-Get Instances Count (POST)
-==========================
+Get Executions Count (POST)
+===========================
 
-Query for the number of process instances that fulfill given parameters.
-This method takes the same message body as the <a href="#!/process-instance/post-query" doc-location-highlight>POST query</a>
-and is thus slightly more powerful than the <a href="#!/process-instance/get-query-count" doc-location-highlight>GET query count</a>.
+Query for the number of executions that fulfill given parameters.
+This method takes the same message body as the <a href="#!/execution/post-query" doc-location-highlight>POST query</a>
+and is thus slightly more powerful than the <a href="#!/execution/get-query-count" doc-location-highlight>GET query count</a>.
 
 
 Method
@@ -21,40 +21,36 @@ A json object with the following properties:
 
 <table class="table table-striped">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
     <td>businessKey</td>
-    <td>Filter by process instance business key.</td>
+    <td>Filter by the business key of the process instances the executions belong to.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
-    <td>Filter by the process definition the instances run on.</td>
+    <td>Filter by the process definition the executions run on.</td>
   </tr>
   <tr>
     <td>processDefinitionKey</td>
-    <td>Filter by the key of the process definition the instances run on.</td>
+    <td>Filter by the key of the process definition the executions run on.</td>
   </tr>
   <tr>
-    <td>superProcessInstance</td>
-    <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
+    <td>processInstanceId</td>
+    <td>Filter by the id of the process instance the execution belongs to.</td>
   </tr>
   <tr>
-    <td>subProcessInstance</td>
-    <td>Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.</td>
+    <td>activityId</td>
+    <td>Filter by the id of the activity the execution currently executes.</td>
   </tr>
   <tr>
-    <td>active</td>
-    <td>Only include active process instances. Values may be `true` or `false`.</td>
+    <td>signalEventSubscriptionName</td>
+    <td>Select only those executions that expect a signal of the given name.</td>
   </tr>
   <tr>
-    <td>suspended</td>
-    <td>Only include suspended process instances. Values may be `true` or `false`.</td>
+    <td>messageEventSubscriptionName</td>
+    <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have variables with certain values. <br/>
+    <td>A json array to only include executions that have variables with certain values. <br/>
     The array consists of objects with the three properties `key`, `operator` and `value`.
     `key (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
     `value` may be `String`, `Number` or `Boolean`.
@@ -62,6 +58,18 @@ A json object with the following properties:
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
+    `key` and `value` may not contain underscore characters.      
+    </td>
+  </tr>
+  <tr>
+    <td>processVariables</td>
+    <td>A json array to only include executions that belong to a process instance with variables with certain values. <br/>
+    A valid parameter value has the form `key_operator_value`.
+    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <br/>
+    Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
+    `key` and `value` may not contain underscore characters.      
     </td>
   </tr>
 </table>
@@ -81,7 +89,7 @@ A json object that contains the count as the only property.
   <tr>
     <td>count</td>
     <td>Number</td>
-    <td>The number of matching process instances.</td>
+    <td>The number of matching executions.</td>
   </tr>
 </table>
 
@@ -114,7 +122,7 @@ Example
 
 #### Request
 
-POST `/process-instance/count`
+POST `/execution/count`
 
 Request body:
 

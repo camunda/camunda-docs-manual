@@ -1,15 +1,15 @@
-Get Instances (POST)
-====================
+Get Executions (POST)
+=====================
 
-Query for process instances that fulfill given parameters through a json object.
-This method is slightly more powerful than the <a href="#!/process-instance/get-query" doc-location-highlight>GET query</a>, because it allows
-to filter by multiple process variables of types `String`, `Number` or `Boolean`.
+Query for executions that fulfill given parameters through a json object.
+This method is slightly more powerful than the <a href="#!/execution/get-query" doc-location-highlight>GET query</a>, because it allows
+to filter by multiple instance and execution variables of types `String`, `Number` or `Boolean`.
 
 
 Method
 ------
 
-POST `/process-instance`
+POST `/execution`
 
 
 Parameters
@@ -22,47 +22,55 @@ Parameters
 </p>
 <table class="table table-striped">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
     <td>businessKey</td>
-    <td>Filter by process instance business key.</td>
+    <td>Filter by the business key of the process instances the executions belong to.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
-    <td>Filter by the process definition the instances run on.</td>
+    <td>Filter by the process definition the executions run on.</td>
   </tr>
   <tr>
     <td>processDefinitionKey</td>
-    <td>Filter by the key of the process definition the instances run on.</td>
+    <td>Filter by the key of the process definition the executions run on.</td>
   </tr>
   <tr>
-    <td>superProcessInstance</td>
-    <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
+    <td>processInstanceId</td>
+    <td>Filter by the id of the process instance the execution belongs to.</td>
   </tr>
   <tr>
-    <td>subProcessInstance</td>
-    <td>Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.</td>
+    <td>activityId</td>
+    <td>Filter by the id of the activity the execution currently executes.</td>
   </tr>
   <tr>
-    <td>active</td>
-    <td>Only include active process instances. Values may be `true` or `false`.</td>
+    <td>signalEventSubscriptionName</td>
+    <td>Select only those executions that expect a signal of the given name.</td>
   </tr>
   <tr>
-    <td>suspended</td>
-    <td>Only include suspended process instances. Values may be `true` or `false`.</td>
+    <td>messageEventSubscriptionName</td>
+    <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have variables with certain values. <br/>
-    The array consists of objects with the three properties `name`, `operator` and `value`.
-    `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
+    <td>A json array to only include executions that have variables with certain values. <br/>
+    The array consists of objects with the three properties `key`, `operator` and `value`.
+    `key (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
     `value` may be `String`, `Number` or `Boolean`.
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
+    `key` and `value` may not contain underscore characters.      
+    </td>
+  </tr>
+  <tr>
+    <td>processVariables</td>
+    <td>A json array to only include executions that belong to a process instance with variables with certain values. <br/>
+    A valid parameter value has the form `key_operator_value`.
+    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <br/>
+    Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
+    `key` and `value` may not contain underscore characters.      
     </td>
   </tr>
   <tr>
@@ -90,8 +98,8 @@ Parameters
 Result
 ------
 
-A json array of process instance objects.
-Each process instance object has the following properties:
+A json array of execution objects.
+Each execution object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -102,27 +110,17 @@ Each process instance object has the following properties:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The id of the process instance.</td>
+    <td>The id of the execution.</td>
   </tr>
   <tr>
-    <td>definitionId</td>
+    <td>processInstanceId</td>
     <td>String</td>
-    <td>The id of the process definition that this process instance belongs to.</td>
-  </tr>
-  <tr>
-    <td>businessKey</td>
-    <td>String</td>
-    <td>The business key of the process instance.</td>
+    <td>The id of the process instance that this execution instance belongs to.</td>
   </tr>
   <tr>
     <td>ended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the process instance has ended.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>A flag indicating whether the process instance is suspended.</td>
+    <td>A flag indicating whether the execution has ended.</td>
   </tr>
 </table>
 
@@ -155,7 +153,7 @@ Example
 
 #### Request
 
-POST `/process-instance`
+POST `/execution`
 
 Request body:
 
@@ -171,9 +169,8 @@ Request body:
 
 #### Response
 
-    [{"links":[],
-     "id":"anId",
-     "definitionId":"aProcessDefinitionId",
-     "businessKey":"aKey",
-     "ended":false,
-     "suspended":false}]
+Status 200.
+
+    [{"id":"anId",
+     "processInstanceId":"aProcInstId",
+     "ended":false}]

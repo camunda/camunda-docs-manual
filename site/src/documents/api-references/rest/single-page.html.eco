@@ -126,6 +126,28 @@
 
 </section>
 
+<section id="execution">
+
+<h1>Execution</h1>
+
+<section id="get-executions" name="Get Executions">
+  <%- @include("./execution/get-query.html.md") %>
+</section>
+
+<section id="get-executions-count" name="Get Executions Count">
+  <%- @include("./execution/get-query-count.html.md") %>
+</section>
+
+<section id="post-executions" name="Get Executions (POST)">
+  <%- @include("./execution/post-query.html.md") %>
+</section>
+
+<section id="post-executions-count" name="Get Executions Count (POST)">
+  <%- @include("./execution/post-query-count.html.md") %>
+</section>
+
+</section>
+
 
 <section id="task">
 
