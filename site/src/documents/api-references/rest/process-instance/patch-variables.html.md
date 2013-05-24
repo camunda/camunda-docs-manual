@@ -71,7 +71,7 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>400</td>
+    <td>500</td>
     <td>application/json</td>
     <td>Update or delete could not be executed, for example because the process instance does not exist.</td>
   </tr>

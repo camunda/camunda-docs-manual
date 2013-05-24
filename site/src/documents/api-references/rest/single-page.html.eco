@@ -100,6 +100,18 @@
   <%- @include("./process-instance/post-query-count.html.md") %>
 </section>
 
+<section id="get-single-instance-variable" name="Get Single Process Variable">
+  <%- @include("./process-instance/get-single-variable.html.md") %>
+</section>
+
+<section id="put-single-instance-variable" name="Put Single Process Variable">
+  <%- @include("./process-instance/put-single-variable.html.md") %>
+</section>
+
+<section id="delete-single-instance-variable" name="Delete Single Process Variable">
+  <%- @include("./process-instance/delete-single-variable.html.md") %>
+</section>
+
 <section id="get-instance-variables" name="Get Process Variables">
   <%- @include("./process-instance/get-variables.html.md") %>
 </section>
