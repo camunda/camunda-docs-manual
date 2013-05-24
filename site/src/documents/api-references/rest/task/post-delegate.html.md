@@ -65,7 +65,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>If the task does not exist or delegation was not successful. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
+    <td>If the task does not exist or delegation was not successful. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
   

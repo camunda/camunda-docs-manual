@@ -84,7 +84,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
