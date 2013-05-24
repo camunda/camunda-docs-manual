@@ -90,6 +90,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "get-executions-count", name: "Get Executions Count", url: "execution/get-query-count", keywords: "executions execution get query filter count" },
   { module: "rest-api", category: "Execution", id: "post-executions", name: "Get Executions (POST)", url: "execution/post-query", keywords: "executions execution post query filter" },
   { module: "rest-api", category: "Execution", id: "post-executions-count", name: "Get Executions Count (POST)", url: "execution/post-query-count", keywords: "executions execution post query filter count" },
+  { module: "rest-api", category: "Execution", id: "signal-execution", name: "Trigger Execution", url: "execution/post-signal", keywords: "executions execution post signal trigger" },
   
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },

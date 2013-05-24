@@ -150,6 +150,10 @@
   <%- @include("./execution/post-query-count.html.md") %>
 </section>
 
+<section id="post-signal" name="Trigger Execution">
+  <%- @include("./execution/post-signal.html.md") %>
+</section>
+
 </section>
 
 

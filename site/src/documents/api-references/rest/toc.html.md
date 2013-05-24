@@ -30,6 +30,7 @@
   * [Get Executions Count](#get-executions-count)
   * [Get Executions (POST)](#post-executions)
   * [Get Executions Count (POST)](#post-executions-count)
+  * [Trigger Execution](#post-signal)
 * [Task](#task)
   * [Get Single Task](#get-task)
   * [Get Tasks](#get-tasks)

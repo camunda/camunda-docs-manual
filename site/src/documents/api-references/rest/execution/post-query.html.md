@@ -22,6 +22,10 @@ Parameters
 </p>
 <table class="table table-striped">
   <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
     <td>businessKey</td>
     <td>Filter by the business key of the process instances the executions belong to.</td>
   </tr>
