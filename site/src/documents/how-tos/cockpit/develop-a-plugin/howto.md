@@ -421,20 +421,23 @@ Without going in all the details here, our plugins `plugin.js` may look like thi
       DashboardController.$inject = ["$scope", "$http", "Uri"];
 
 
-      var PluginConfiguration = function PluginConfiguration(PluginsProvider) {
+      var Configuration = function Configuration(ViewsProvider) {
 
-        PluginsProvider.registerDefaultPlugin('cockpit.dashboard', {
+        ViewsProvider.registerDefaultView('cockpit.dashboard', {
           id: 'process-definitions',
           label: 'Deployed Processes',
           url: 'plugin://sample-plugin/static/app/dashboard.html',
-          controller: DashboardController
+          controller: DashboardController,
+
+          // make sure we have a higher priority than the default plugin
+          priority: 12
         });
       };
 
-      PluginConfiguration.$inject = ['PluginsProvider'];
+      Configuration.$inject = ['ViewsProvider'];
 
 
-      module.config(PluginConfiguration);
+      module.config(Configuration);
 
       return module;
     });
