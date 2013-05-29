@@ -1,18 +1,18 @@
-Unclaim Task
-============
+Delete Single Process Variable
+==============================
 
-Resets a task's assignee. If successful, the task is not assigned to a user.
+Deletes a variable of a given process instance.
 
 
 Method
------- 
+------
 
-POST `/task/{id}/unclaim`
+DELETE `/process-instance/{id}/variable/{varId}`
 
 
 Parameters
 ----------
-
+  
 #### Path Parameters
 
 <table class="table table-striped">
@@ -22,7 +22,11 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to unclaim.</td>
+    <td>The id of the process instance to delete the variable from.</td>
+  </tr>
+  <tr>
+    <td>varId</td>
+    <td>The name of the variable to delete.</td>
   </tr>
 </table>
 
@@ -32,9 +36,9 @@ Result
 
 This method returns no content.
 
-
+  
 Response codes
---------------
+--------------  
 
 <table class="table table-striped">
   <tr>
@@ -47,21 +51,17 @@ Response codes
     <td></td>
     <td>Request successful.</td>
   </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
-  </tr>
 </table>
 
-
+  
 Example
 -------
 
 #### Request
 
-POST `/task/anId/unclaim`
+DELETE `/process-instance/aProcessInstanceId/variable/aVarName`
 
+     
 #### Response
-
+    
 Status 204. No content.

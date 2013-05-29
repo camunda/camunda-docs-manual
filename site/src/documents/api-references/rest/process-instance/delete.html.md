@@ -1,13 +1,13 @@
-Delegate Task
-=============
+Delete Process Instance
+=======================
 
-Delegate a task to another user.
+Deletes a running process instance.
 
 
 Method
 ------
 
-POST `/task/{id}/delegate`
+DELETE `/process-instance/{id}`
 
 
 Parameters
@@ -22,13 +22,13 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to delegate.</td>
+    <td>The id of the process instance to be retrieved.</td>
   </tr>
 </table>
-  
+
 #### Request Body
 
-A json object with the following properties:
+A json object with the following property:
 
 <table class="table table-striped">
   <tr>
@@ -36,8 +36,8 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>userId</td>
-    <td>The id of the user that the task should be delegated to.</td>
+    <td>deleteReason</td>
+    <td>A String describing why the process instance is deleted. Will be inserted into the engine's history. Optional parameter.</td>
   </tr>
 </table>
 
@@ -58,28 +58,26 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
-    <td></td>
+    <td>200</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>500</td>
+    <td>404</td>
     <td>application/json</td>
-    <td>If the task does not exist or delegation was not successful. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
-  
+
 Example
 -------
-  
+
 #### Request
 
-POST `/task/anId/delegate`
+DELETE `/process-instance/aProcessInstanceId`
 
-Request body:
+    {"deleteReason" : "some reason"}
 
-    {"userId": "aUserId"}
-  
 #### Response
 
 Status 204. No content.

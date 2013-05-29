@@ -1,13 +1,13 @@
-Get Process Variables
-=====================
+Get Single Process Variable
+===========================
 
-Retrieves all variables of a given process instance.
+Retrieves a variable of a given process instance.
 
 
 Method
 ------
 
-GET `/process-instance/{id}/variables`
+GET `/process-instance/{id}/variable/{varId}`
 
 
 Parameters
@@ -22,7 +22,11 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process instance to retrieve the variables for.</td>
+    <td>The id of the process instance to retrieve the variable for.</td>
+  </tr>
+  <tr>
+    <td>varId</td>
+    <td>The name of the variable to get.</td>
   </tr>
 </table>
 
@@ -30,8 +34,7 @@ Parameters
 Result
 ------
 
-A json object with a single `variables` property, which holds an array of variable objects.
-Each variable object has the following properties:
+A json object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -72,9 +75,9 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>500</td>
+    <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -84,13 +87,10 @@ Example
 
 #### Request
 
-GET `/process-instance/aProcessInstanceId/variables`
+GET `/process-instance/aProcessInstanceId/variable/aVarName`
   
 #### Response
 
-    {"variables":
-      [{"name":"aProcessVariableKey",
-       "value":
-        {"property1":"aPropertyValue",
-        "property2":true},
-       "type":"ExampleVariableObject"}]}
+    {"name" : "aVarName,
+     "value" : "someValue",
+     "type" : "String"}

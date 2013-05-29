@@ -1,7 +1,7 @@
 Get Single Instance
 ===================
 
-Retrieves a single process instance according to the ProcessInstance interface in the engine.
+Retrieves a single process instance according to the `ProcessInstance` interface in the engine.
 
 
 Method
@@ -84,7 +84,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -93,7 +93,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/process-instance/aProcessInstanceId`
 
 #### Response

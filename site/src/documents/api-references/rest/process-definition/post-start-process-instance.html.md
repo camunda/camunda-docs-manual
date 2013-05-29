@@ -107,7 +107,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The instance could not be created successfully. See the [Introduction](/api-references/rest/#!/overview/introduction) for the error response format.</td>
+    <td>The instance could not be created successfully. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
