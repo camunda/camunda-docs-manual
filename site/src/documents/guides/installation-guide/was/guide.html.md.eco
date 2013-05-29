@@ -195,8 +195,8 @@ First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file
 2. Select as Scope **"Node"**.
 3. Select the **Install RAR** button.
 4. Select the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> from the modules folder of the camunda BPM platform for IBM WebShpere Application Server distribution. Click Next to go to the Properties page.
-5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-bpm-platform-jobexecutor-RAR</code>.
-6. Click on the new entry <code>camunda-bpm-platform-jobexecutor-RAR</code>, if you choose the same name in the previous step.
+5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-ibm-websphere-rar</code>.
+6. Click on the new entry <code>camunda-ibm-websphere-rar</code>, if you choose the same name in the previous step.
 
 ###Defining a Managed Connection Factory
 1. Select **"J2C Connection Factories"**.
