@@ -82,7 +82,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "put-instance-variable", name: "Put Single Process Variable", url: "process-instance/put-single-variable", keywords: "instances put process-instance variable single" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variable", name: "Delete Single Process Variable", url: "process-instance/delete-single-variable", keywords: "instances delete process-instance variable single" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variables", name: "Get Process Variables", url: "process-instance/get-variables", keywords: "instances get process-instance variables" },
-  { module: "rest-api", category: "Process Instance", id: "patch-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/patch-variables", keywords: "instances patch process-instance variables" },
+  { module: "rest-api", category: "Process Instance", id: "post-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/post-variables", keywords: "instances post process-instance variables" },
   { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
 
   { module: "rest-api", category: "Execution", id: "get-execution", name: "Get Single Execution", url: "execution/get", keywords: "executions execution get" },
@@ -90,7 +90,13 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "get-executions-count", name: "Get Executions Count", url: "execution/get-query-count", keywords: "executions execution get query filter count" },
   { module: "rest-api", category: "Execution", id: "post-executions", name: "Get Executions (POST)", url: "execution/post-query", keywords: "executions execution post query filter" },
   { module: "rest-api", category: "Execution", id: "post-executions-count", name: "Get Executions Count (POST)", url: "execution/post-query-count", keywords: "executions execution post query filter count" },
+  { module: "rest-api", category: "Execution", id: "get-execution-variable", name: "Get Single Execution Variable", url: "execution/get-single-variable", keywords: "executions get execution variable single" },
+  { module: "rest-api", category: "Execution", id: "put-execution-variable", name: "Put Single Execution Variable", url: "execution/put-single-variable", keywords: "executions put execution variable single" },
+  { module: "rest-api", category: "Execution", id: "get-execution-variable", name: "Delete Single Execution Variable", url: "execution/delete-single-variable", keywords: "executions delete execution variable single" },
+  { module: "rest-api", category: "Execution", id: "get-execution-variables", name: "Get Execution Variables", url: "execution/get-variables", keywords: "executions get execution variables" },
+  { module: "rest-api", category: "Execution", id: "post-execution-variables", name: "Update/Delete Execution Variables", url: "execution/post-variables", keywords: "executions post execution variables" },
   { module: "rest-api", category: "Execution", id: "signal-execution", name: "Trigger Execution", url: "execution/post-signal", keywords: "executions execution post signal trigger" },
+  { module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
   
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
