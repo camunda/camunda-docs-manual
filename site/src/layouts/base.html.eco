@@ -43,42 +43,5 @@
 
   <!-- scripts -->
   <%- @getBlock('scripts').add(@commonScripts(), { defer:false }).toHTML() %>
-
-  <!-- tracking -->
-  <script type="text/javascript">
-    <!--
-    var wiredminds = [];
-    wiredminds.push(["setTrackParam", "wm_custnum", "eca343094da1ee95"]);
-    // Begin own parameters.
-    wiredminds.push(["setTrackParam", "wm_campaign_key", "wmc"]);
-    wiredminds.push(["registerHeatmapEvent", "mousedown"]); // End own parameters.
-    wiredminds.push(["count"]);
-
-    (function() {
-      function wm_async_load() {
-        var wm = document.createElement("script");
-        wm.type = "text/javascript";
-        wm.async = true;
-        wm.src = "http://test.wiredminds.de/track/count.js";
-        var el = document.getElementsByTagName('script')[0];
-        el.parentNode.insertBefore(wm, el);
-      }
-
-      if (window.addEventListener) {
-        window.addEventListener('load', wm_async_load, false);
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', wm_async_load);
-      }
-    })();
-    // -->
-  </script>
-
-  <noscript>
-    <div>
-      <a href="http://www.wiredminds.de">
-        <img src="http://test.wiredminds.de/track/ctin.php?wm_custnum=eca343094da1ee95&amp;nojs=1" alt="" style="border:0px;"/>
-      </a>
-    </div>
-  </noscript>
 </body>
 </html>
