@@ -116,8 +116,8 @@
   <%- @include("./process-instance/get-variables.html.md") %>
 </section>
 
-<section id="patch-instance-variables" name="Update/Delete Process Variables">
-  <%- @include("./process-instance/patch-variables.html.md") %>
+<section id="post-instance-variables" name="Update/Delete Process Variables">
+  <%- @include("./process-instance/post-variables.html.md") %>
 </section>
 
 <section id="delete-instance" name="Delete Process Instance">
@@ -148,6 +148,26 @@
 
 <section id="post-executions-count" name="Get Executions Count (POST)">
   <%- @include("./execution/post-query-count.html.md") %>
+</section>
+
+<section id="get-single-execution-variable" name="Get Single Execution Variable">
+  <%- @include("./execution/get-single-variable.html.md") %>
+</section>
+
+<section id="put-single-execution-variable" name="Put Single Execution Variable">
+  <%- @include("./execution/put-single-variable.html.md") %>
+</section>
+
+<section id="delete-single-execution-variable" name="Delete Single Execution Variable">
+  <%- @include("./execution/delete-single-variable.html.md") %>
+</section>
+
+<section id="get-execution-variables" name="Get Execution Variables">
+  <%- @include("./execution/get-variables.html.md") %>
+</section>
+
+<section id="post-execution-variables" name="Update/Delete Execution Variables">
+  <%- @include("./execution/post-variables.html.md") %>
 </section>
 
 <section id="post-signal" name="Trigger Execution">
