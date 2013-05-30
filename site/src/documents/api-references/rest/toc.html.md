@@ -22,7 +22,7 @@
   * [Put Single Process Variable](#put-single-instance-variable)
   * [Delete Single Process Variable](#delete-single-instance-variable)
   * [Get Process Variables](#get-instance-variables)
-  * [Update/Delete Process Variables](#patch-instance-variables)
+  * [Update/Delete Process Variables](#post-instance-variables)
   * [Delete Process Instance](#delete-instance)
 * [Execution](#execution)
   * [Get Single Execution](#get-execution)

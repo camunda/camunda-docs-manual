@@ -82,7 +82,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "put-instance-variable", name: "Put Single Process Variable", url: "process-instance/put-single-variable", keywords: "instances put process-instance variable single" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variable", name: "Delete Single Process Variable", url: "process-instance/delete-single-variable", keywords: "instances delete process-instance variable single" },
   { module: "rest-api", category: "Process Instance", id: "get-instance-variables", name: "Get Process Variables", url: "process-instance/get-variables", keywords: "instances get process-instance variables" },
-  { module: "rest-api", category: "Process Instance", id: "patch-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/patch-variables", keywords: "instances patch process-instance variables" },
+  { module: "rest-api", category: "Process Instance", id: "post-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/post-variables", keywords: "instances post process-instance variables" },
   { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
 
   { module: "rest-api", category: "Execution", id: "get-execution", name: "Get Single Execution", url: "execution/get", keywords: "executions execution get" },

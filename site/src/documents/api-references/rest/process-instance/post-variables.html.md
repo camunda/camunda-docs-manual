@@ -1,14 +1,14 @@
 Update/Delete Process Variables
 ===============================
 
-Updates or deletes the variables of a process instance. Uses the [HTTP PATCH](http://tools.ietf.org/html/rfc5789) verb.
+Updates or deletes the variables of a process instance.
 Updates precede deletes. So if a variable is updated AND deleted, the deletion overrides the update.
 
 
 Method
 ------
 
-PATCH `/process-instance/{id}/variables`
+POST `/process-instance/{id}/variables`
 
 
 Parameters
@@ -82,7 +82,7 @@ Example
 
 #### Request
 
-PATCH `/process-instance/aProcessInstanceId/variables`
+POST `/process-instance/aProcessInstanceId/variables`
 
 Request body:
 
