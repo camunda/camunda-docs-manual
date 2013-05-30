@@ -241,13 +241,12 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
   * Destination and authentication must be left blank.
   <a href="assets/img/activation.png" target="_blank"><img class="tile" src="assets/img/activation.png" alt=""/></a>
 
-8. In **Step 6-7**,
+8. In **Step 6-8**,
   * Do not override the default JNDI Names
-9. In **Step 8**,
-  * Set the Target Resource JNDI Name to the name of the managed connection factory provided for the jobexecutor (see Section "Defining a Managed Connection Factory" above). The default setting is "eis/JcaExecutorServiceConnectionFactory".
-  * Set the WorkManager Reference of work manager to be used by the camunda-platform-jobexecutor. The default setting is **"wm/camunda-bpm-workmanager"**
+9. In **Step 9**,
+  * Set the Target Resource JNDI Name to the name of the managed connection factory provided for the jobexecutor (see Section "Defining a Managed Connection Factory" above). The default setting is **"eis/JcaExecutorServiceConnectionFactory"**.
   <a href="assets/img/connection-factory.png" target="_blank"><img class="tile" src="assets/img/connection-factory.png" alt=""/></a>
-10. In **Steps 9-11**, go with the default settings.
+10. In **Steps 10-12**, go with the default settings.
 11. Click **"Finish"**.
 12. Save the configuration.
 13. Start the camunda-bpm-platform application. If this fails initially, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.
