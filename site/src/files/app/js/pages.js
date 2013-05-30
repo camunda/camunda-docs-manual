@@ -96,6 +96,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "get-execution-variables", name: "Get Execution Variables", url: "execution/get-variables", keywords: "executions get execution variables" },
   { module: "rest-api", category: "Execution", id: "post-execution-variables", name: "Update/Delete Execution Variables", url: "execution/post-variables", keywords: "executions post execution variables" },
   { module: "rest-api", category: "Execution", id: "signal-execution", name: "Trigger Execution", url: "execution/post-signal", keywords: "executions execution post signal trigger" },
+  { module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
   
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
