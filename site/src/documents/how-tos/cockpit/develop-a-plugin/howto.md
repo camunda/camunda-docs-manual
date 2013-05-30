@@ -7,27 +7,76 @@ The result will look similar to the screenshot shown below.
 
 <img src="./cockpit-plugin.png" style=" margin-bottom: 30px; border: solid 1px #666;" alt="Cockpit architecture with plugins" title="Cockpit architecture with plugins" />
 
-The Nature of a cockpit Plugin
+
+The nature of a cockpit plugin
 ------------------------------
 
-A cockpit plugin is a maven jar project that is included in the cockpit webapplication as a library dependency. It provides a server side and a client side extension to cockpit.
+A cockpit plugin is a maven jar project that is included in the cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to cockpit.
 
 The integration of a plugin into the overall cockpit architecture is depicted in the following figure.
 
 ![Cockpit architecture with plugins](architecture.png "Cockpit architecture with plugins")
 
-On the server side, it can extend cockpit with custom SQL queries and JAX-RS resource classes that extend the cockpit API. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand may expose the plugin functionality to the client side part of the plugin.
+On the server-side, it can extend cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the cockpit API and expose data to the client-side part of the plugin.
 
-On the client side a plugin may include [AngularJS](http://angularjs.org/) modules to extend the cockpit webapplication. Via those modules a plugin provides custom views and services.
-
-
-The Server Site
----------------
-
-We will walk through the important aspects of developing a server side plugin, creating a plugin jar, defining a custom query and exposing that query via a JAX-RS resource.
+On the client-side a plugin may include [AngularJS](http://angularjs.org/) modules to extend the cockpit webapplication. Via those modules a plugin provides custom views and services.
 
 
-### Plugin Skeleton
+### File structure
+
+The basic skeleton of a cockpit plugin looks as follows:
+
+    cockpit-plugin/
+    ├── src/
+    |   ├── main/
+    |   |   ├── java/
+    |   |   |   └── org/my/plugin/
+    |   |   |       ├── db/
+    |   |   |       |   └── MyDto.java                                    (5)
+    |   |   |       ├── resource/
+    |   |   |       |   ├── MyPluginRootResource.java                     (3)
+    |   |   |       |   └── ...                                           (4)
+    |   |   |       └── MyPlugin.java                                     (1)
+    |   |   └── resources/
+    |   |       ├── META-INF/services/
+    |   |       |   └── org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
+    |   |       └── org/my/plugin/
+    |   |           ├── queries/
+    |   |           |   └── sample.xml                                    (6)
+    |   |           └── assets/app/                                       (7)
+    |   |               └── app/
+    |   |                   ├── plugin.js                                 (8)
+    |   |                   ├── view.html
+    |   |                   └── ...
+    |   └── test/
+    |       ├── java/
+    |       |   └── org/my/plugin/
+    |       |       └── MyPluginTest.java
+    |       └── resources/
+    |           └── activiti.cfg.xml
+    └── pom.xml
+
+As runtime relevant resources it defines
+
+1. a plugin main class
+2. a `META-INF/services` entry that publishes the plugin to cockpit
+3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API
+4. other resources that are part in the server-side API
+5. data transfer objects used by the resources
+6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
+7. resource directory from which client-side plugin assets are served as static files
+8. a main file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment
+
+The following sections will expand on the specific files and their purpose.
+
+
+Server side
+-----------
+
+We will walk through the important aspects of developing the server-side parts of the plugin, creating a plugin jar, defining a custom query and exposing that query via a JAX-RS resource.
+
+
+### Plugin archive
 
 As a first step we create a maven jar project that represents our plugin library. Inside the projects `pom.xml` we must declare a dependency to the cockpit core with the maven coordinates `org.camunda.bpm.cockpit:camunda-cockpit-core`. The project contains all the infrastructure to create and test the server-side parts of a plugin.
 
@@ -58,7 +107,7 @@ As a first step we create a maven jar project that represents our plugin library
     </project>
 
 
-### Plugin Main Class
+### Plugin main class
 
 The main entry point for a plugin is the service provide interface (SPI) `org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin`. Each plugin must provide an implementation of this class and register it via `META-INF/services`.
 
@@ -82,7 +131,7 @@ By inheriting from `org.camunda.bpm.cockpit.plugin.spi.impl.AbstractCockpitPlugi
 To register the plugin with cockpit, we must put its class name into a file called `org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin` that resides in the directory `META-INF/services`. That will publish the plugin via the Java [ServiceLoader facilities](http://docs.oracle.com/javase/6/docs/api/java/util/ServiceLoader.html).
 
 
-#### Test Case
+#### Test case
 
 We will go ahead and write a test case that makes sure the plugin gets properly discovered.
 Before we do so, we need to add test dependencies to our project `pom.xml`.
@@ -163,7 +212,7 @@ We go ahead and create the file.
       </bean>
     </beans>
 
-### Custom Query Definition
+### Custom query
 
 The plugin mechanism allows us to provide additional SQL queries that may be run against the process engine database. Those queries must be defined via MyBatis mapping files.
 
@@ -230,7 +279,7 @@ Additionally we need to publish the mapping file by overriding the method `#getM
     }
 
 
-#### Test Case
+#### Test case
 
 To test that the plugin defined query actually works, we extend our testcase. By using the cockpit provided service `QueryService` we can verify that the query can be executed:
 
@@ -256,7 +305,7 @@ To test that the plugin defined query actually works, we extend our testcase. By
 Note that `#getQueryService()` is merely a shortcut the service that may also be accessed via cockpit's main entry point, the `org.camunda.bpm.cockpit.Cockpit` class.
 
 
-### Defining and Publishing Plugin Services
+### Defining and publishing plugin services
 
 Plugins publish their services via APIs defined through JAX-RS resources.
 
@@ -275,7 +324,7 @@ First, we need to add the JAX-RS API to our projects `pom.xml`. That is best don
       </dependency>
       ...
 
-A server side plugin API consists of a root resource and a number of sub resources that are provided by the root resource. A root resource may inherit from `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginRootResource` to receive some basic traits. It must publish itself on the path `plugin/$pluginName` via a `@Path` annotation.
+A server-side plugin API consists of a root resource and a number of sub resources that are provided by the root resource. A root resource may inherit from `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginRootResource` to receive some basic traits. It must publish itself on the path `plugin/$pluginName` via a `@Path` annotation.
 
 A root resource for our plugin may look as follows:
 
@@ -353,7 +402,7 @@ Given the above setup the resource class extends the cockpit API with the follow
     GET $cockpit_api_root/plugin/sample/$engine/process-instance
 
 
-#### Test Case
+#### Test case
 
 To test your JAX-RS resources you can instantiate them directly during a plugin test case. Alternatively you can write a real API test using [arquillian](http://arquillian.org/).
 See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
@@ -361,24 +410,31 @@ See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/
 
 ### Summary
 
-Server side parts of the plugin? Done. We will now go ahead and write the client side extension that exposes the functionality to the user.
+Server-side parts of the plugin? Done. We will now go ahead and write the client-side extension that exposes the functionality to the user.
 
 
-The Client Side
----------------
+Client side
+-----------
 
-The client side part of a cockpit plugin consists of an extension to the cockpit webapp client application. It is served through the plugins server site extension as a static plugin asset.
+<div class="alert alert-info">
+  <strong>Note:</strong>
+  This section gives only a short overview on the client-side plugin mechanism in cockpit. 
+  Consider reading <a href="#how-client-side-plugins-work">how client-side plugins work</a> if you are interested in details.
+</div>
 
-### Static Plugin Assets
+The client-side part of a cockpit plugin consists of an extension to the cockpit webapp client application. It is served through the plugins server site extension as a static plugin asset.
 
-When using `AbstractPluginRootResource` as the plugin resources base class, serving static assets is already built in. The root resource accepts `GET` request under `/static` to serve plugin provided client side resources. Per convention, these resources must reside in a `/assets` directory relative to the plugin main class.
+
+### Static plugin assets
+
+When using `AbstractPluginRootResource` as the plugin resources base class, serving static assets is already built in. The root resource accepts `GET` request under `/static` to serve plugin provided client-side resources. Per convention, these resources must reside in a `/assets` directory relative to the plugin main class.
 
 So let's create a file `org/camunda/bpm/cockpit/plugin/assets/info.txt` in the `src/main/resources` directory of our project. We can give it the following content (optional):
 
     FOO BAR
 
 
-#### Test Case
+#### Test case
 
 To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plugin into the cockpit webapp.
 
@@ -404,48 +460,45 @@ You can navigate to [http://localhost:8080/cockpit/api/cockpit/plugin/sample-plu
 
 ### plugin.js main file
 
-Each plugin must contain a file `app/plugin.js` in the plugins assets directory. That file is used to bootstrap the client side plugin and registers it with cockpit. It must also declare an [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [ngDefine](https://github.com/Nikku/requirejs-angular-define).
+Each plugin must contain a file `app/plugin.js` in the plugins assets directory. That file bootstraps the client-side plugin and registers it with cockpit. To do so it must declare a [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [ngDefine](https://github.com/Nikku/requirejs-angular-define). 
 
 Without going in all the details here, our plugins `plugin.js` may look like this:
 
     ngDefine('cockpit.plugin.sample-plugin', function(module) {
-
+      
       var DashboardController = function($scope, $http, Uri) {
-
+      
         $http.get(Uri.appUri("plugin://sample-plugin/default/process-instance"))
           .success(function(data) {
             $scope.processInstanceCounts = data;
           });
       };
-
+      
       DashboardController.$inject = ["$scope", "$http", "Uri"];
-
-
+      
       var Configuration = function Configuration(ViewsProvider) {
-
+      
         ViewsProvider.registerDefaultView('cockpit.dashboard', {
           id: 'process-definitions',
           label: 'Deployed Processes',
           url: 'plugin://sample-plugin/static/app/dashboard.html',
           controller: DashboardController,
-
+      
           // make sure we have a higher priority than the default plugin
           priority: 12
         });
       };
-
+      
       Configuration.$inject = ['ViewsProvider'];
-
-
+      
       module.config(Configuration);
-
-      return module;
     });
 
 
-The file defines the angular module `cockpit.plugin.sample-plugin` and registers a plugin with the cockpit plugin service (`PluginsProvider#registerDefaultPlugin()`).
+The file defines the angular module `cockpit.plugin.sample-plugin` and registers a plugin with the cockpit plugin service (`ViewsProvider#registerDefaultView()`).
 
-### HTML View
+
+### HTML view
 
 To complete the example, we need to define the HTML file `app/dashboard.html` as a plugin asset:
 
@@ -475,10 +528,73 @@ When deploying the extended cockpit webapplication on the camunda BPM platform, 
 Summary
 -------
 
-You made it! In this how to we walked through all important steps required to build a cockpit plugin, from creating a plugin skeleton over defining server side plugin parts up to implementing the client side portions of the plugin.
+You made it! In this how to we walked through all important steps required to build a cockpit plugin, from creating a plugin skeleton over defining server-side plugin parts up to implementing the client-side portions of the plugin.
 
 
 Additional resources
 --------------------
 
 * [sample plugin sources](https://github.com/Nikku/cockpit-sample-plugin)
+
+
+Appendix
+========
+
+How client-side plugins work <a name="#how-client-side-plugins-work"></a>
+-----------------------------------------------------------------------
+
+<div class="alert alert-info">
+  <strong>Advanced Topic</strong>
+  Some experience in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> development as well as knowledge about <a href="http://angularjs.org/">AngularJS</a> and <a href="http://requirejs.org">RequireJS</a> is beneficial to understand this subsection.
+</div>
+
+The client-side plugin infrastructure provides extensions to the cockpit core application through views that expose data provided by a plugins' server-side API. We quickly expand on how the interaction between a plugin and the cockpit webapplication happeness.
+
+A plugin is defined in a `app/plugin.js` file that gets served as static plugin asset:
+
+    ngDefine('cockpit.plugin.myPlugin', [
+      'jquery', 
+      'angular', 
+      'http://some-url/some-library.js',
+      'module:some.other.angularModule:./someOtherModule.js'
+    ], function(module, $, angular) {
+
+      var ViewController = function($scope, Uri) {
+        // perform logic
+
+        // uris to plugin assets and apis may be resolved via Uri#appUri
+        // by prefixing those apis with 'plugin://'
+        var pluginServiceUrl = Uri.appUri('plugin://myPlugin/default/process-definition');
+
+      };
+
+      ViewController.$inject = ['$scope'];
+
+      // publish the plugin to cockpit
+      module.config(function(ViewsProvider) {
+
+        ViewsProvider.registerDefaultView('cockpit.some-view', {
+          id: 'some-view-special-plugin',
+          label: 'Very Special Plugin',
+          url: 'plugin://myPlugin/static/app/view.html',
+          controller: ViewController
+        });
+      });
+    });
+
+As the file is loaded as a RequireJS module (read more about the mechanism [here](https://github.com/Nikku/requirejs-angular-define#how-it-works)), dependencies (in terms of other RequireJS modules) may be specified. 
+
+The plugin must register itself with the `ViewsProvider` via a [module configuration hook](http://docs.angularjs.org/api/angular.Module). 
+
+From within cockpit, views are included using the [view directive](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-webapp/src/main/webapp/app/plugin/view.js):
+
+    <view provider="viewProvider" vars="viewProviderVars" />
+
+The actual provider that defines the view as well as the published variables are defined by the responsible controller in the surrounding scope: 
+
+    function SomeCockpitController($scope, Views) {
+      $scope.viewProvider = Views.getProvider({ component: 'cockpit.some-view'});
+
+      // variable 'foo' will be available in the view provider scope
+      $scope.viewProviderVars = { read: [ 'foo' ]};
+    }
