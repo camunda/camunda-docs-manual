@@ -59,6 +59,10 @@ layout: 'default'
       <h2><a href="was/">WebSphere 8.x</a></h2>
       <ul>
         <li><a href="was/#platform">BPM platform</a></li>
+        <li><a href="was/#rest">REST API</a></li>
+        <li><a href="was/#cycle">camunda cycle</a></li>
+        <li><a href="was/#cockpit">camunda cockpit</a></li>
+        <li><a href="was/#tasklist">camunda tasklist</a></li>
       </ul>
     </div>
   </div>
