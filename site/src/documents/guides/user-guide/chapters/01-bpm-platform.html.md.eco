@@ -704,6 +704,7 @@ The `<configuration>...</configuration>` property allows specifying the name of 
 
 </section>
 
+<section id="platform-runtime-container-integration"></section>
 ## Runtime Container Integration
 
 
@@ -762,6 +763,8 @@ In order to do a lookup for a Bpm Platform Service you have to use the resource 
 
 If you have declared another resource link names than we proposed, you have to use `java:comp/env/$YOUR_RESOURCE_LINK_NAME` to do a lookup to get the corresponding Bpm Platform Service.
 
+<section id="platform-configuration-extensions"></section>
 ## Configuration & Extensions
 
+<section id="platform-integration"></section>
 ## Integrating the camunda BPM platform into different Environments
