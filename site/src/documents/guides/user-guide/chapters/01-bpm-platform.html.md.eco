@@ -314,7 +314,7 @@ All process definition are cached (after they're parsed) to avoid hitting the da
 
 We use <a href="http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html">Java Logging</a> to avoid any third party logging requirements. 
 
-<section id="platform-process-application"></section>
+<section id="bpm-platform-process-engine-incidents"></section>
 
 ### Incidents
 
@@ -366,6 +366,8 @@ The `handleIncident` method is called when a new incident is created. The `resol
     org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(List<IncidentHandler>)
 
 An example of a custom inciddent handler could be a handler which, in addtion to the default behavior also sends an email to an administrator.
+
+<section id="platform-process-application"></section>
 
 ## Process Applications
 
