@@ -1,13 +1,13 @@
-Put Single Execution Variable
-=============================
+Delete Local Execution Variable
+===============================
 
-Sets a variable in the context of a given execution.
+Deletes a variable in the context of a given execution. Deletion does not propagate upwards in the execution hierarchy.
 
 
 Method
 ------
 
-PUT `/execution/{id}/variable/{varId}`
+DELETE `/execution/{id}/localVariables/{varId}`
 
 
 Parameters
@@ -22,26 +22,11 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the execution to set the variable for.</td>
+    <td>The id of the execution to delete the variable from.</td>
   </tr>
   <tr>
     <td>varId</td>
-    <td>The name of the variable to set.</td>
-  </tr>
-</table>
-
-#### Request Body
-
-A json object with the following properties:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>value</td>
-    <td>The value of the variable to set.</td>
+    <td>The name of the variable to delete.</td>
   </tr>
 </table>
 
@@ -74,9 +59,8 @@ Example
 
 #### Request
 
-PUT `/execution/anExecutionId/variable/aVarName`
-  
-    {"value" : "someValue"}
+DELETE `/execution/anExecutionId/localVariables/aVarName`
+
      
 #### Response
     
