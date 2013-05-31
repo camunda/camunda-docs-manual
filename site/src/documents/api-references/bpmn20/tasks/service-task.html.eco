@@ -143,7 +143,7 @@
 		which needs to contain the business logic. Process instance
 		information such as process variables and other can be accessed and
 		manipulated through the <a class="ulink"
-			href="http://www.camunda.org/javadocs/org/camunda/bpm/engine/delegate/DelegateExecution.html"
+			href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/delegate/DelegateExecution.html"
 			target="_top">DelegateExecution</a> interface (click on the link for
 		a detailed Javadoc of its operations).
   </p>
