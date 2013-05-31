@@ -1,13 +1,13 @@
-Get Single Execution Variable
-=============================
+Get Local Execution Variable
+============================
 
-Retrieves a variable from the context of a given execution.
+Retrieves a variable from the context of a given execution. Does not traverse the parent execution hierarchy.
 
 
 Method
 ------
 
-GET `/execution/{id}/variable/{varId}`
+GET `/execution/{id}/localVariables/{varId}`
 
 
 Parameters
@@ -87,7 +87,7 @@ Example
 
 #### Request
 
-GET `/execution/anExecutionId/variable/aVarName`
+GET `/execution/anExecutionId/localVariables/aVarName`
   
 #### Response
 

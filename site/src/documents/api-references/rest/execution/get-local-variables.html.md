@@ -1,5 +1,5 @@
-Get Execution Variables
-=======================
+Get Local Execution Variables
+=============================
 
 Retrieves all variables of a given execution.
 

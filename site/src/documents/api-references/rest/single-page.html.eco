@@ -150,24 +150,24 @@
   <%- @include("./execution/post-query-count.html.md") %>
 </section>
 
-<section id="get-single-execution-variable" name="Get Single Execution Variable">
-  <%- @include("./execution/get-single-variable.html.md") %>
+<section id="get-local-execution-variable" name="Get Local Execution Variable">
+  <%- @include("./execution/get-local-variable.html.md") %>
 </section>
 
-<section id="put-single-execution-variable" name="Put Single Execution Variable">
-  <%- @include("./execution/put-single-variable.html.md") %>
+<section id="put-local-execution-variable" name="Put Local Execution Variable">
+  <%- @include("./execution/put-local-variable.html.md") %>
 </section>
 
-<section id="delete-single-execution-variable" name="Delete Single Execution Variable">
-  <%- @include("./execution/delete-single-variable.html.md") %>
+<section id="delete-local-execution-variable" name="Delete Local Execution Variable">
+  <%- @include("./execution/delete-local-variable.html.md") %>
 </section>
 
-<section id="get-execution-variables" name="Get Execution Variables">
-  <%- @include("./execution/get-variables.html.md") %>
+<section id="get-local-execution-variables" name="Get Local Execution Variables">
+  <%- @include("./execution/get-local-variables.html.md") %>
 </section>
 
-<section id="post-execution-variables" name="Update/Delete Execution Variables">
-  <%- @include("./execution/post-variables.html.md") %>
+<section id="post-local-execution-variables" name="Update/Delete Local Execution Variables">
+  <%- @include("./execution/post-local-variables.html.md") %>
 </section>
 
 <section id="post-signal" name="Trigger Execution">

@@ -1,14 +1,14 @@
-Update/Delete Execution Variables
-=================================
+Update/Delete Local Execution Variables
+=======================================
 
-Updates or deletes the variables in the context of an execution.
+Updates or deletes the variables in the context of an execution. The updates do not propagate upwards in the execution hierarchy.
 Updates precede deletes. So if a variable is updated AND deleted, the deletion overrides the update.
 
 
 Method
 ------
 
-POST `/execution/{id}/variables`
+POST `/execution/{id}/localVariables`
 
 
 Parameters
@@ -82,7 +82,7 @@ Example
 
 #### Request
 
-POST `/execution/anExecutionId/variables`
+POST `/execution/anExecutionId/localVariables`
 
 Request body:
 
