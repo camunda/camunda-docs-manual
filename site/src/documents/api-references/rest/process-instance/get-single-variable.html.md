@@ -7,7 +7,7 @@ Retrieves a variable of a given process instance.
 Method
 ------
 
-GET `/process-instance/{id}/variable/{varId}`
+GET `/process-instance/{id}/variables/{varId}`
 
 
 Parameters
@@ -87,7 +87,7 @@ Example
 
 #### Request
 
-GET `/process-instance/aProcessInstanceId/variable/aVarName`
+GET `/process-instance/aProcessInstanceId/variables/aVarName`
   
 #### Response
 

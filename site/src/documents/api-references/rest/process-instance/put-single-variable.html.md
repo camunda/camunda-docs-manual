@@ -7,7 +7,7 @@ Sets a variable of a given process instance.
 Method
 ------
 
-PUT `/process-instance/{id}/variable/{varId}`
+PUT `/process-instance/{id}/variables/{varId}`
 
 
 Parameters
@@ -74,7 +74,7 @@ Example
 
 #### Request
 
-PUT `/process-instance/aProcessInstanceId/variable/aVarName`
+PUT `/process-instance/aProcessInstanceId/variables/aVarName`
   
     {"value" : "someValue"}
      

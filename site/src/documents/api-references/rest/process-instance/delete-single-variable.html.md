@@ -7,7 +7,7 @@ Deletes a variable of a given process instance.
 Method
 ------
 
-DELETE `/process-instance/{id}/variable/{varId}`
+DELETE `/process-instance/{id}/variables/{varId}`
 
 
 Parameters
@@ -59,7 +59,7 @@ Example
 
 #### Request
 
-DELETE `/process-instance/aProcessInstanceId/variable/aVarName`
+DELETE `/process-instance/aProcessInstanceId/variables/aVarName`
 
      
 #### Response
