@@ -1,13 +1,13 @@
-Put Single Process Variable
-===========================
+Put Local Execution Variable
+============================
 
-Sets a variable of a given process instance.
+Sets a variable in the context of a given execution. Update does not propagate upwards in the execution hierarchy.
 
 
 Method
 ------
 
-PUT `/process-instance/{id}/variables/{varId}`
+PUT `/execution/{id}/localVariables/{varId}`
 
 
 Parameters
@@ -22,7 +22,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process instance to set the variable for.</td>
+    <td>The id of the execution to set the variable for.</td>
   </tr>
   <tr>
     <td>varId</td>
@@ -74,7 +74,7 @@ Example
 
 #### Request
 
-PUT `/process-instance/aProcessInstanceId/variables/aVarName`
+PUT `/execution/anExecutionId/localVariables/aVarName`
   
     {"value" : "someValue"}
      
