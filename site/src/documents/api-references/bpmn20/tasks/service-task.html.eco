@@ -210,12 +210,18 @@ public class ToUppercase implements JavaDelegate {
 		your delegated class, following the Java Bean naming conventions (e.g.
 		field <code>fistName</code>	has setter <code>setFirstName(...)</code>).
     If no setter is available for that field, the value of private
-		member will be set on the delegate. SecurityManagers in some
-		environments don't allow modifying private fields, so it's safer to
-		expose a public setter-method for the fields you want to have
-		injected. <strong>Regardless of the type of value declared in the process-definition, the type of the
+		member will be set on the delegate (but using private fields is highly not recommended - see warning below). 
+
+    <strong>Regardless of the type of value declared in the process-definition, the type of the
     setter/private field on the injection target should always be <code>org.camunda.bpm.engine.delegate.Expression</code></strong>.		
 	</p>
+
+  <div class="alert alert-info"><p>
+  Private fields cannot always be modified! It is <strong>not working</strong> with e.g. 
+  CDI beans (because you have proxies instead of real objects) or with some SecurityManager configurations. 
+  Please always use a public setter-method for the fields you want to have injected!
+  </p></div>
+
 	<p>
 		The following code snippet shows how to inject a constant value into a field.
     Field injection is supported when using the <class>class</class> attribute. Note that we need
