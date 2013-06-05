@@ -799,6 +799,28 @@ angular.module('camundaorg.directives')
     }
   }
 })
+
+.directive('docsToc', function() {
+
+  return {
+    link: function(scope, element, attrs) {
+
+        $("h1, h2, h3, h4").each(function(i) {
+            var current = $(this);
+            current.attr("id", "title" + i);
+
+            $(element).append("<a class='toc-link toc-link-"+current.prop("tagName")+"' id='link" + i + "' href='#title" + i +
+                "' title='" + current.attr("tagName") + "'>" +
+                current.html() + "</a>");
+
+        });
+
+    }
+   }
+
+
+})
+
 .directive('bpmnTutorial', function($location) {
   return {
     link: function(scope, element, attrs) {

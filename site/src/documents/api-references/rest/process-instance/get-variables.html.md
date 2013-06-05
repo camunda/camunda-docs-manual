@@ -73,8 +73,8 @@ Response codes
   </tr>
   <tr>
     <td>500</td>
-    <td></td>
-    <td>Process instance with given id does not exist.</td>
+    <td>application/json</td>
+    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

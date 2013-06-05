@@ -69,8 +69,8 @@ Response codes
   </tr>
   <tr>
     <td>500</td>
-    <td></td>
-    <td>If the task does not exist or the corresponding process instance could not be resumed successfully.</td>
+    <td>application/json</td>
+    <td>If the task does not exist or the corresponding process instance could not be resumed successfully. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -62,17 +62,6 @@ Parameters
     `key` and `value` may not contain underscore characters.      
     </td>
   </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    `instanceId`, `definitionKey` and `definitionId`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
-  </tr>
 </table>
 
 
@@ -111,9 +100,9 @@ Response codes
   </tr>
   <tr>
     <td>400</td>
-    <td></td>
+    <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

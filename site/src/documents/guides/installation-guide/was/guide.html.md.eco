@@ -1,4 +1,4 @@
-
+<a id="platform"></a>
 camunda BPM Installation Guide (WebSphere)
 ==========================================
 
@@ -22,10 +22,14 @@ Please note, that this feature is included only in the enterprise edition of the
 </div>
 
 <div class="alert alert-info">
-  <p><strong>Reading the Guide</strong></p> Throughout this guide we will use a number of variables to denote common path names and constants.
-  <code>$WAS_HOME</code> points to the glassfish application server main directory (typically something like <code>/opt/IBM/WebSphere/AppServer</code>).
-  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to or have installed, e.g. <code>7.0.0</code>.
+  <p><strong>Reading the Guide</strong></p> Throughout this guide we will use a number of variables to denote common path names and constants.<br><br>
+  <code>$WAS_HOME</code> points to the WebSphere application server main directory (typically something like <code>/opt/IBM/WebSphere/AppServer</code>). <br>
+  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to or have installed, e.g. <code>7.0.0</code>. <br>
   <code>$WAS_DISTRIBUTION</code> represents the downloaded camunda BPM distribution for the WAS, e.g. <code>camunda-ee-ibm-was-$PLATFORM_VERSION.zip</code>.
+  <p style="margin-top:10px">
+    The distribution is available at the <a href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was">camunda enterprise release page</a>.
+    You will be asked to enter the credentials you received during the trial or subscription process.
+  </p>
 </div>
 
 ## Resource Configuration
@@ -33,7 +37,7 @@ The camunda platform requires a set of resources that need to be configured at t
 
 ##Defining resources in the cell scope</p></strong>
  In order to perform the steps listed in this guide, make sure you understand the concept of management scopes introduced by the websphere application server.
-We assume that resources are defined at the "Node" scope. ([show image](assets/img/scope-highlight.png))
+We assume that resources are defined at the "Node" scope. <a href="assets/img/scope-highlight.png" target="_blank"><img class="tile" src="assets/img/scope-highlight.png" alt=""/></a>
 
 ## JDBC / Datasource Configuration
 The camunda BPM engine uses one or multiple process engines. Use your application server management tooling for configuring the datasources.
@@ -42,7 +46,7 @@ The JNDI name of the datasource must be equal to the name used in the datasource
 ###Default JNDI Name
 The default JNDI name is <code>jdbc/ProcessEngine</code>
 
-The following screenshot shows the configuration of an XA datasource: ([show image](assets/img/jdbc.png))
+The following screenshot shows the configuration of an XA datasource: <a href="assets/img/jdbc.png" target="_blank"><img class="tile" src="assets/img/jdbc.png" alt=""/></a>
 Note that you may configure multiple datasources used by different process engine instances. See the <a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a> for details.
 
 ##Configuring a WorkManager to be used by the camunda platform jobexecutor
@@ -136,7 +140,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tbody>
 </table>
 
-The following screenshot shows an example configuration of the work manager and its thread pool properties. ([show image](assets/img/work-manager.png))
+The following screenshot shows an example configuration of the work manager and its thread pool properties. <a href="assets/img/work-manager.png" target="_blank"><img class="tile" src="assets/img/work-manager.png" alt=""/></a>
 
 ##Installing the camunda platform shared libraries
 
@@ -151,7 +155,7 @@ camunda-ee-ibm-was-$PLATFORM_VERSION.zip
            |-- mybatis-XX.jar
            |-- joda-time-XX.jar
       |-- camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear
-      |-- camunda-jobexecutor-rar-$PLATFORM_VERSION.rar
+      |-- camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar
 
 ```
 The shared libraries must be copied to the $WAS_HOME/lib/ext folder of the IBM WebSphere Server installation.
@@ -165,40 +169,38 @@ The camunda platform includes two modules in the modules folder of the distribut
 camunda-ee-ibm-was-$PLATFORM_VERSION.zip
 |-- modules/
       |-- camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear
-      |-- camunda-jobexecutor-rar-$PLATFORM_VERSION.rar
+      |-- camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar
 
 ```
 
-The camunda-jobexecutor-rar module is a JCA Resource Adapter providing the jobexecutor service to the camunda BPM platform.
+The camunda-ibm-websphere-rar module is a JCA Resource Adapter providing the jobexecutor service to the camunda BPM platform.
 The camunda-ibm-websphere-ear is a Java EE application providing the camunda BPM platform services.
 
-Both modules must be installed to your IBM WebSphere Application Server in the correct order. You must first install the camunda-jobexecutor-rar module and then install the camunda-ibm-websphere-ear module.
+Both modules must be installed to your IBM WebSphere Application Server in the correct order. You must first install the camunda-ibm-websphere-rar module and then install the camunda-ibm-websphere-ear module.
 
 ##Installing the camunda BPM platform jobexecutor Resource Adapter
 
-In this section, we explain how the camunda-jobexecutor-rar module can be installed using the WebShere Integrated Solutions Console.
+In this section, we explain how the camunda-ibm-websphere-rar module can be installed using the WebShere Integrated Solutions Console.
 
 <div class="alert alert-info">
-We assume all installation of the camunda-jobexecutor-rar is done in the "Node" scope.
+We assume all installation of the camunda-ibm-websphere-rar is done in the "Node" scope.
 </div>
 
 The installation process is composed of three steps:
 
-1. Install and configure the <code>camunda-jobexecutor-rar-$PLATFORM_VERSION.rar</code> RAR file.
+1. Install and configure the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file.
 2. Define a Managed Connection Facotry for accessing the jobexecutor.
 3. Define an Activation Policy for JobHandler MDBs.
 
 ###Installing and configuring the RAR file
-First, the <code>camunda-jobexecutor-rar-$PLATFORM_VERSION.rar</code> RAR file must be installed:
+First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file must be installed:
 
 1. Navigate to the **Resource Adapters** page located under **Resources** / **Resource Adapters** / **Resource Adapters**.
 2. Select as Scope **"Node"**.
 3. Select the **Install RAR** button.
-4. Select the <code>camunda-jobexecutor-rar-$PLATFORM_VERSION.rar</code> from the modules folder of the camunda BPM platform for IBM WebShpere Application Server distribution. Click Next to go to the Properties page.
-5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-bpm-platform-jobexecutor-RAR</code>.
-6. Click on the new entry <code>camunda-bpm-platform-jobexecutor-RAR</code>, if you choose the same name in the previous step.
-7. Select **"Advanced resource adapter properties"**.
-8. Check **"Restrict the JVM to allow only one instance of the resource adapter"**.
+4. Select the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> from the modules folder of the camunda BPM platform for IBM WebShpere Application Server distribution. Click Next to go to the Properties page.
+5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-ibm-websphere-rar</code>.
+6. Click on the new entry <code>camunda-ibm-websphere-rar</code>, if you choose the same name in the previous step.
 
 ###Defining a Managed Connection Factory
 1. Select **"J2C Connection Factories"**.
@@ -217,6 +219,11 @@ First, the <code>camunda-jobexecutor-rar-$PLATFORM_VERSION.rar</code> RAR file m
 
 Save your settings. This completes the installation of the resource adapter.
 
+<div class="alert alert-info">
+  There are several custom properties available for the resource adapter regarding the work manager. You can reach them by following the <strong>Custom Properties</strong> link on the configuration page of the resource adapter:
+  <a href="assets/img/ra-properties.png" target="_blank"><img class="tile" src="assets/img/ra-properties.png" alt=""/></a>
+</div>
+
 ##Installing the camunda BPM platform Application
 In this section, we explain how the camunda-ibm-websphere-ear module can be installed using the WebShere Integrated Solutions Console.
 
@@ -225,29 +232,28 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
 3. Select the <code>camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear</code> file from the modules folder of the camunda BPM platform for IBM WebShpere Application Server distribution. Click Next.
 4. Select the **"Detailed"** Path.
 5. In **Step 1**
-Under application-name, type "camunda-bpm-platform". This setting is mandatory.
 
-<div class="alert alert-info">
-  <p><strong>Manadatory Application Name</strong></p>
-  The camunda BPM platform application <strong>MUST</strong> be installed with the application name "camunda-bpm-platform".
-</div>
-
+  Under application-name, type **"camunda-bpm-platform"**. This setting is **mandatory**.
+  <div class="alert alert-info">
+    <p><strong>Manadatory Application Name</strong></p>
+    The camunda BPM platform application <strong>MUST</strong> be installed with the application name <strong>"camunda-bpm-platform"</strong>.
+  </div>
 6. Perform **Steps 2-4** according to your requirements.
 7. In **Step 5**,
   * Under **"Listener Bindings"** select the radio button **"Activation Specification"**.
   * Under **"Target Resource JNDI Name"**, provide the configured activation name for the jobexecutor (see Section "Defining an Activation Specification" above). The default is "eis/PlatformJobExecutorActivation".
   * Destination and authentication must be left blank.
+  <a href="assets/img/activation.png" target="_blank"><img class="tile" src="assets/img/activation.png" alt=""/></a>
 
-8. In **Step 6-7**,
+8. In **Step 6-8**,
   * Do not override the default JNDI Names
-9. In **Step 8**,
-  * Set the Target Resource JNDI Name to the name of the managed connection factory provided for the jobexecutor (see Section "Defining a Managed Connection Factory" above). The default setting is "eis/JcaExecutorServiceConnectionFactory".
-  * Set the WorkManager Reference of work manager to be used by the camunda-platform-jobexecutor. The default setting is **"wm/camunda-bpm-workmanager"**
-
-10. In **Steps 9-11**, go with the default settings.
+9. In **Step 9**,
+  * Set the Target Resource JNDI Name to the name of the managed connection factory provided for the jobexecutor (see Section "Defining a Managed Connection Factory" above). The default setting is **"eis/JcaExecutorServiceConnectionFactory"**.
+  <a href="assets/img/connection-factory.png" target="_blank"><img class="tile" src="assets/img/connection-factory.png" alt=""/></a>
+10. In **Steps 10-12**, go with the default settings.
 11. Click **"Finish"**.
 12. Save the configuration.
-13. Start the camunda-bpm-platform application.
+13. Start the camunda-bpm-platform application. If this fails initially, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.
 
 # Troubleshooting
 ## Warnings

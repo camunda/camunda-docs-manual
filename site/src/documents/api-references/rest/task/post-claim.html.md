@@ -64,8 +64,8 @@ Response codes
   </tr>
   <tr>
     <td>500</td>
-    <td></td>
-    <td>Task with given id does not exist or claiming was not successful.</td>
+    <td>application/json</td>
+    <td>Task with given id does not exist or claiming was not successful. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

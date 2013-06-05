@@ -67,8 +67,8 @@ Response codes
   </tr>
   <tr>
     <td>400</td>
-    <td></td>
-    <td>Process definition with given id does not exist.</td>
+    <td>application/json</td>
+    <td>Process definition with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

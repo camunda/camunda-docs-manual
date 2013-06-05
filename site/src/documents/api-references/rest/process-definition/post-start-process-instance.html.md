@@ -1,5 +1,5 @@
-Start Process
-=============
+Start Process Instance
+======================
 
 Instantiates a given process definition. Process variables may be supplied in the request body.
 
@@ -106,8 +106,8 @@ Response codes
   </tr>
   <tr>
     <td>500</td>
-    <td></td>
-    <td>The instance could not be created successfully.</td>
+    <td>application/json</td>
+    <td>The instance could not be created successfully. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
