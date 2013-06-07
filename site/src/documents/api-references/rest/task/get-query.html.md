@@ -146,7 +146,8 @@ Parameters
   </tr>
   <tr>
     <td>taskVariables</td>
-    <td>Only include tasks that have a variable with a certain value. <br/>
+    <td>Only include tasks that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
     __Note:__ Values are always treated as `String` objects on server side.<br/>
@@ -154,12 +155,13 @@ Parameters
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore characters.      
+    `key` and `value` may not contain underscore or comma characters.      
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>Only include tasks that belong to process instances that have a variable with a certain value. <br/>
+    <td>Only include tasks that belong to process instances that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
     __Note:__ Values are always treated as `String` objects on server side.<br/>
@@ -167,7 +169,7 @@ Parameters
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore characters.      
+    `key` and `value` may not contain underscore or comma characters.      
     </td>
   </tr>
   <tr>
