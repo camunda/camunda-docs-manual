@@ -65,13 +65,14 @@ Parameters
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>Only include executions that belong to a process instance with a variable with a certain value. <br/>
+    <td>Only include executions that belong to a process instance with variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
     __Note:__ Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
-    `key` and `value` may not contain underscore characters.      
+    `key` and `value` may not contain underscore or comma characters.      
     </td>
   </tr>
 </table>
