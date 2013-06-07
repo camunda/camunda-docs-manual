@@ -452,3 +452,25 @@ img.tile {
   width: 230px;
   display: block;
 }
+
+
+/** css toc links */
+
+.toc-link{
+    display: block;
+}
+.toc-link-H1{
+    padding-left:0px;
+    padding-top:20px;
+}
+.toc-link-H2{
+    padding-left:30px;
+    padding-top:10px;
+}
+.toc-link-H3{
+    padding-left:60px;
+}
+.toc-link-H4{
+     padding-left:90px;
+}
+

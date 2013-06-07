@@ -33,7 +33,7 @@ The camunda cycle WAR file resides under <code>webapps/cycle-was-$PLATFORM_VERSI
 In the following we explain how to install the WAR file using the Websphere enterprise application Wizard provided inside the Websphere Integrated Solutions Console:
 
 1. Open the Websphere Integrated Solutions Console.
-2. Navigate to the **Applications / Application Types / WebSphere** enterprise applications Page.
+2. Navigate to the **Applications / Application Types / WebSphere enterprise applications** Page.
 3. Click the **Install** Button
 4. The first page of the Wizard opens. Using the File Browser, select the <code>cycle-was-VERSION.war</code> file from the distribution and upload it.
 5. Continue to the next page.
@@ -46,3 +46,11 @@ In the following we explain how to install the WAR file using the Websphere ente
 
 After completing the wizard, cycle should be successfully installed on the application server. Don't forget to save your changes to the master configuration.
 In some situations, you also have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** Page.
+
+<div class="alert alert-note">
+  <p><strong>Note</strong></p>
+  <p>In some configurations, cycle might prevent other web applications to work properly due to classloading issues and the bundled JAX-RS implementation in cycle.</p>
+  <p>To fix this, go to <strong>Applications / Application Types / WebSphere enterprise applications</strong>. Click on the cycle application link and go the the <strong>Startup Behaviour</strong> view.</p>
+  <p>You should increase the startup order to a value higher than the one of the application(s) cycle is conflicting with. The default value is <code>1</code>, so you should be fine with <code>2</code> for cycle</p>
+  <p>You need to reboot the server after doing this.</p>
+</div>

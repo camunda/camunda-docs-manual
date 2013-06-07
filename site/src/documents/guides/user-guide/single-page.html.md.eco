@@ -1,7 +1,8 @@
 <section id="toc">
 
 <h1>Table of Contents</h1>
-<%- @include('./toc.html.md.eco') %>
+
+<div docs-toc></div>
 
 </section>
 
@@ -22,10 +23,10 @@
 
 <section id="testing">
 
-<%- @include('./chapters/04-testing.html.md.eco') %>
+<%- @include('./chapters/03-testing.html.md.eco') %>
 </section>
 
-<!--section id="tools">
+<section id="tools">
 
-<%- @include('./chapters/03-tools.md') %>
-</section -->
+<%- @include('./chapters/04-tools.md') %>
+</section>

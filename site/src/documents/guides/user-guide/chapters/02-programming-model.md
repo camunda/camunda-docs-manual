@@ -32,7 +32,7 @@ The ProcessEngine can be configured as a regular Spring bean. The starting point
     </bean>
 
   
-Note that the processEngineConfiguration bean uses the <a href="http://www.camunda.org/javadocs/org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class. 
+Note that the processEngineConfiguration bean uses the <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class. 
 
 #### Bootstrapping a container-managed Process Engine as a Spring Bean
 
@@ -248,7 +248,7 @@ When integrating with Spring, business processes can be tested very easily (in s
       }
     }      
     
-Note that for this to work, you need to define a <a href="http://www.camunda.org/javadocs/org/camunda/bpm/engine/test/ProcessEngineRule.html">ProcessEngineRule</a> bean in the Spring configuration (which is injected by auto-wiring in the example above).
+Note that for this to work, you need to define a <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/test/ProcessEngineRule.html">ProcessEngineRule</a> bean in the Spring configuration (which is injected by auto-wiring in the example above).
 
     <bean id="activitiRule" class="org.camunda.bpm.engine.test.ProcessEngineRule">
       <property name="processEngine" ref="processEngine" />

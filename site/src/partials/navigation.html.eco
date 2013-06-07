@@ -27,7 +27,7 @@
             <a href="<%= @docUrl("api-references/") %>">References</a>
             <ul class="dropdown-menu">
               <li ng-class="activeClass('api-references/java')">
-                <a target="_blank" href="http://camunda.org/javadocs/">Java API</a>
+                <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
               </li>
               <li ng-class="activeClass('api-references/rest')">
                 <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
