@@ -3,7 +3,7 @@ Get Executions
 
 Query for the number of executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
-The size of the result set can be retrieved by using the <a href="#!/execution/get-query-count" doc-location-highlight>get instances count</a> method.
+The size of the result set can be retrieved by using the <a href="#!/execution/get-query-count" doc-location-highlight>get executions count</a> method.
 
 
 Method

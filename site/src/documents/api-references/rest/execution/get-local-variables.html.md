@@ -7,7 +7,7 @@ Retrieves all variables of a given execution.
 Method
 ------
 
-GET `/execution/{id}/variables`
+GET `/execution/{id}/localVariables`
 
 
 Parameters
@@ -79,7 +79,7 @@ Example
 
 #### Request
 
-GET `/execution/anExecutionId/variables`
+GET `/execution/anExecutionId/localVariables`
   
 #### Response
 
