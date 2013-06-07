@@ -39,7 +39,7 @@ A json object with the following properties:
   <tr>
     <td>variables</td>
     <td>A json object containing the variables the process is to be initialized with.
-    Variable names are property keys of this object and variable values are property values.
+    Variable names are property keys of this object and variable values are json objects with a single <code>value</code> property (see example below).
     Valid variable values are Boolean, Integer and String values.</td>
   </tr>
 </table>
@@ -116,14 +116,13 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 POST `/process-definition/aProcessDefinitionId/start`
 
 Request body:
 
     {"variables": 
-        {"aVariable": "aStringValue",
-         "anotherVariable": true}}
+        {"aVariable" : {"value" : "aStringValue"},
+         "anotherVariable" : {"value" : true}}}
 
 #### Response
 

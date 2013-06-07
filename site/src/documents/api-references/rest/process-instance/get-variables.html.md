@@ -30,19 +30,14 @@ Parameters
 Result
 ------
 
-A json object with a single `variables` property, which holds an array of variable objects.
-Each variable object has the following properties:
+A json object with a single `variables` property, which holds a json object of variables key-value pairs.
+Each key is a variable name and each value a variable value object that has the following properties:
 
 <table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Value</th>
     <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The name of the process variable.</td>
   </tr>
   <tr>
     <td>value</td>
@@ -89,8 +84,8 @@ GET `/process-instance/aProcessInstanceId/variables`
 #### Response
 
     {"variables":
-      [{"name":"aProcessVariableKey",
-       "value":
-        {"property1":"aPropertyValue",
-        "property2":true},
-       "type":"ExampleVariableObject"}]}
+      {"aProcessVariableKey":
+        {"value":
+            {"property1":"aPropertyValue",
+            "property2":true},
+        "type":"ExampleVariableObject"}}}

@@ -30,19 +30,14 @@ Parameters
 Result
 ------
 
-A json object with a single `variables` property, which holds an array of variable objects.
-Each variable object has the following properties:
+A json object with a single `variables` property, which holds a json object of variables key-value pairs.
+Each key is a variable name and each value a variable value object that has the following properties:
 
 <table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Value</th>
     <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The name of the execution variable.</td>
   </tr>
   <tr>
     <td>value</td>
@@ -89,8 +84,9 @@ GET `/execution/anExecutionId/variables`
 #### Response
 
     {"variables":
-      [{"name":"anExecutionVariableKey",
-       "value":
-        {"property1":"aPropertyValue",
-        "property2":true},
-       "type":"ExampleVariableObject"}]}
+      {"anExecutionVariableKey":
+        {"value":
+            {"property1":"aPropertyValue",
+            "property2":true},
+        "type":"ExampleVariableObject"}}
+    }

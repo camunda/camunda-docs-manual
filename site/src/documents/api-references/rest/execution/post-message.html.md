@@ -46,8 +46,8 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array of json variable objects. A variable object has two fields: <code>name</code> as the variables name
-    and <code>value</code> as the variables value.</td>
+    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.</td>
   </tr>
 </table>
 
@@ -90,12 +90,10 @@ POST `/execution/anExecutionId/messageSubscriptions/someMessage/trigger`
 Request body:
 
     {"messageName" : "aMessage",
-    "variables" : [
-        {"name" : "aVariableName",
-        "value" : true},
-        {"name" : "anotherVariableName",
-        "value" : 42}
-    ]}
+    "variables" :
+        {"aVariableName" : {"value" : true},
+        "anotherVariableName" : {"value" : 42}}
+    }
 
 #### Response
 

@@ -36,12 +36,17 @@ A json object with the following properties:
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a json object containg key-value pairs that are matched against process instance variables during correlation.<br/>
+    Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.
+    
     <strong>Note:</strong> Process instance variables are the global variables of a process instance.
     Local variables of child executions (such as in subprocesses) are not considered!</td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.</td>
+    <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
+    Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.</td>
   </tr>
 </table>
 
@@ -85,11 +90,11 @@ Request body:
     {"messageName" : "aMessage",
     "businessKey" : "aBusinessKey",
     "correlationKeys" : {
-        "aVariable" : "aValue"
+        "aVariable" : {"value" : "aValue"}
     },
     "processVariables" : {
-        "aVariable" : "aNewValue",
-        "anotherVariable" : true
+        "aVariable" : {"value" : "aNewValue"},
+        "anotherVariable" : {"value" : true}
     }}
 
 #### Response

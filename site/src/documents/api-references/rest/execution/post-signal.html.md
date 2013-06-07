@@ -38,8 +38,8 @@ Parameters
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array containing variable objects. These variables are updated in the execution, if
-    signalling is successful. Each variable object may have the properties `name` and `value`.</td>
+    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.</td>
   </tr>
 </table>
 
@@ -77,11 +77,9 @@ POST `/execution/{id}/signal`
 Request body:
 
     {"variables": 
-        [{"name": "myVariable",
-         "value": "camunda"
-        },
-        {"name": "mySecondVariable",
-         "value": 124}]}
+        {"myVariable": {"value": "camunda"},
+        "mySecondVariable": {"value": 124}}
+    }
 
 #### Response
 

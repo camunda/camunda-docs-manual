@@ -37,9 +37,11 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json object consisting of key-value pairs. Each key is a variable name, each value the variable value that will be set in the process instance.
-    Variable types may be `String`, `Number` and `Boolean`.</td>
-    This parameter is optional and may be left out.
+    <td>A json object containing variable key-value pairs that will be set in the process instance.
+    Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.
+    Value types may be `String`, `Number` and `Boolean`.
+    This parameter is optional and may be left out.</td>
   </tr>
 </table>
 
@@ -81,9 +83,9 @@ POST `/task/anId/complete`
 Request body:
 
     {"variables":
-        {"aVariable": "aStringValue",
-        "anotherVariable": 42,
-        "aThirdVariable": true}
+        {"aVariable": {"value": "aStringValue"},
+        "anotherVariable": {"value": 42},
+        "aThirdVariable": {"value": true}}
     }
 
 #### Response

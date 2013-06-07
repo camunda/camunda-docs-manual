@@ -43,11 +43,6 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The name of the execution variable.</td>
-  </tr>
-  <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
     <td>Object serialization uses <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature.</td>
@@ -91,6 +86,5 @@ GET `/execution/anExecutionId/localVariables/aVarName`
   
 #### Response
 
-    {"name" : "aVarName,
-     "value" : "someValue",
+    {"value" : "someValue",
      "type" : "String"}

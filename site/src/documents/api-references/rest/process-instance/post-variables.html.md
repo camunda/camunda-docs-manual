@@ -40,8 +40,8 @@ Parameters
   </tr>
   <tr>
     <td>modifications</td>
-    <td>An array of json variable objects. A variable object has two properties: `name` as the variable's key in the process context
-    and `value` for the value to be updated.</td>
+    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    A variable value object has has the property `value`, which is the value to update.</td>
   </tr>
   <tr>
     <td>deletions</td>
@@ -86,12 +86,9 @@ POST `/process-instance/aProcessInstanceId/variables`
 
 Request body:
 
-    {"modifications": [
-        {"name": "aVariable",
-         "value": "aValue"},
-        {"name": "anotherVariable",
-         "value": 42}
-        ],
+    {"modifications": 
+        {"aVariable": {"value": "aValue"},
+        "anotherVariable": {"value": 42}},
     "deletions": [
         "aThirdVariable", "FourthVariable"
     ]}
