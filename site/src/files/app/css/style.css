@@ -456,21 +456,17 @@ img.tile {
 
 /** css toc links */
 
-.toc-link{
-    display: block;
+h1 .headerlink,
+h2 .headerlink,
+h3 .headerlink, 
+h4 .headerlink {
+  display: none;  
 }
-.toc-link-H1{
-    padding-left:0px;
-    padding-top:20px;
-}
-.toc-link-H2{
-    padding-left:30px;
-    padding-top:10px;
-}
-.toc-link-H3{
-    padding-left:60px;
-}
-.toc-link-H4{
-     padding-left:90px;
+
+h1:hover .headerlink,
+h2:hover .headerlink,
+h3:hover .headerlink,
+h4:hover .headerlink {
+  display: inline-block;  
 }
 

@@ -1,4 +1,4 @@
-# Testing
+# Testing<a id="testing"></a>
 
 When testing Process Applications you first have to be clear on what scope you want to test. Often Process Applications orchestrate various existing services meaning a Process Application tests quickly becomes an integration test. The following picture show the scopes we differntiate when testing Process Applications:
 
@@ -11,7 +11,7 @@ When testing Process Applications you first have to be clear on what scope you w
 
 [Get more information on this](https://app.camunda.com/confluence/display/foxUserGuide/Test+Types+and+Scopes).
 
-## Unit Testing
+## Unit Testing<a id="unit-testing"></a>
 
 Business processes are an integral part of software projects and they should be tested in the same way normal application logic is tested: with unit tests. Since the camunda engine is an embeddable Java engine, writing unit tests for business processes is as simple as writing regular unit tests.
 
@@ -59,7 +59,7 @@ The following code snippet shows an example of using the JUnit 4 style of testin
       }
     }
 
-## Debugging unit tests
+## Debugging unit tests<a id="debugging-unit-tests"></a>
 
 When using the in-memory H2 database for unit tests, the following instructions allow to easily inspect the data in the engine database during a debugging session. The screenshots here are taken in Eclipse, but the mechanism should be similar for other IDEs.
 
@@ -87,10 +87,10 @@ You can now see the engine database and use it to understand how and why your un
 
 <img src="assets/img/api-test-debug-h2-tables.png" />
 
-## Using Mocks to test your Process Application
+## Using Mocks to test your Process Application<a id="unit-tests-mocking"></a>
 
 [See Using Mocks to test your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Using+Mocks+to+test+your+Process+Application)
 
-## Using Arquillian to test your Process Applicaion
+## Using Arquillian to test your Process Application<a id="unit-tests-arquillian-to-test-your-process-application"></a>
 
 In Java EE environments we recently use JBoss Arquillian pretty often to test Process Applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
