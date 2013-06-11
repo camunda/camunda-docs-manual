@@ -1,6 +1,6 @@
 ## Introduction
 
-Migration an existing application from Activiti 5.x (or camunda fox 6.x - see below) is straight forward. 
+Migrating an existing application from Activiti 5.x (or camunda fox 6.x - see below) is straight forward.
 This page describes the necessary steps.
 
 **Getting Help:** If you have any trouble ask for assistance in the [Forum](http://camunda.org/community/forum.html).
@@ -13,7 +13,7 @@ The changes in short are:
 
 There are some things which have not changed yet:
 
-* Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existant in this version.
+* Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existent in this version.
 * The `activiti:` [Custom Extensions](<%= @docUrl('api-references/bpmn20/') %>#!/concepts/custom-extensions) are kept. 
-  A camunda bpm namespace will be introduced soon but backwards compatibility will be ensured.
-* The `activiti.cfg.xml` file is still read to configure of the Process Engine.
+  A camunda BPM namespace will be introduced soon but backwards compatibility will be ensured.
+* The `activiti.cfg.xml` file is still read to configure the process engine.

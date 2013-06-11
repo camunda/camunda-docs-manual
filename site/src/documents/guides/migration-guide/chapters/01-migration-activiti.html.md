@@ -13,7 +13,7 @@ Exchange the existing library (here shown as Maven dependency)
       <groupId>org.activiti</groupId>
       <artifactId>activiti</artifactId>
       <version>5.11</version>
-    </dependency
+    </dependency>
 
 to
 
@@ -27,13 +27,13 @@ Make sure that you have the camunda Maven Repostory set correctly:
 
     <repository>
       <id>camunda-bpm-nexus</id>
-      <name>camunda-bpm-nexus</name>
-      <url>https://app.camunda.com/nexus/content/groups/public </url>
+      <name>camunda Maven Repository</name>
+      <url>https://app.camunda.com/nexus/content/groups/public</url>
     </repository>
 
 ### Adjust package names
 
-Just do an **Organize Import** in your IDE, that should do the trick as API class names have not changed. 
+Just do an **Organize Imports** in your IDE, that should do the trick as API class names have not changed. 
 Your IDE should figure out the rest for you.
 For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
 
