@@ -805,20 +805,33 @@ angular.module('camundaorg.directives')
   return {
     link: function(scope, element, attrs) {
 
-        $("h1, h2, h3, h4").each(function(i) {
-            var current = $(this);
-            current.attr("id", "title" + i);
+      function generateTocMarkDown(title, link, indent) {
+        var space = "";
 
-            $(element).append("<a class='toc-link toc-link-"+current.prop("tagName")+"' id='link" + i + "' href='#title" + i +
-                "' title='" + current.attr("tagName") + "'>" +
-                current.html() + "</a>");
+        for (var i = 0; i < indent - 1; i++) {
+          space += "  ";
+        }
 
-        });
+        return space + "* [" + title+ "](#" + link + ")" + "\n";
+      }
 
+      $("h1, h2, h3, h4").each(function(i) {
+        var current = $(this);
+
+        var link = current.find("a");
+
+        if (link.length && link.attr("id")) {
+
+          // generate toc markdown from page structure
+          // var indent = parseInt($(current).prop("tagName").substring(1));
+          // $(element).append(generateTocMarkDown(current.text(), link.attr("id"), indent));
+          
+          // append copyable link
+          $(current).append('<a class="headerlink" href="#' + link.attr("id") + '" title="Link to current section">¶</a>')
+        }
+      });
     }
-   }
-
-
+  }; 
 })
 
 .directive('bpmnTutorial', function($location) {

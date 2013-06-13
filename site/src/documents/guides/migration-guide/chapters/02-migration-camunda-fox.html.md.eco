@@ -1,7 +1,7 @@
 ## Migrate from camunda fox
 
 As camunda fox included the Activiti engine you have to perform the [steps above](#migration-activiti) as well. 
-Note that **camunda fox EE 6.2** or **camunda fox CE 1.34** has the same database structure as camunda BPM 7.0.
+Note that **camunda fox EE 6.2** and **camunda fox CE 1.34** have the same database structure as camunda BPM 7.0.
 
 You have to follow these steps:
 

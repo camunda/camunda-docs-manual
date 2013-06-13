@@ -1,32 +1,11 @@
-<section id="toc">
-
-<h1>Table of Contents</h1>
-
-<div docs-toc></div>
-
-</section>
-
-<section id="introduction">
+<%- @include("./toc.md") %>
 
 <%- @include('./chapters/00-introduction.md') %>
-</section>
 
-<section id="platform">
-
-<%- @include('./chapters/01-bpm-platform.html.md.eco') %>
-</section>
-
-<section id="programming-model">
+<%- @include('./chapters/01-bpm-platform.md.eco') %>
 
 <%- @include('./chapters/02-programming-model.md') %>
-</section>
 
-<section id="testing">
-
-<%- @include('./chapters/03-testing.html.md.eco') %>
-</section>
-
-<section id="tools">
+<%- @include('./chapters/03-testing.md') %>
 
 <%- @include('./chapters/04-tools.md') %>
-</section>
