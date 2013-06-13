@@ -36,6 +36,7 @@
   * [Get Local Execution Variables](#get-local-execution-variables)
   * [Update/Delete Local Execution Variables](#post-local-execution-variables)
   * [Trigger Execution](#post-signal)
+  * [Get Message Event Subscription](#get-execution-message-subscription)
   * [Trigger Message Event Subscription](#post-execution-message)
 * [Task](#task)
   * [Get Single Task](#get-task)
