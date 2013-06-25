@@ -1,10 +1,9 @@
-docs.camunda.org
-================
+camunda BPM Documentation
+=========================
 
-The sources of the docs.camunda.org site.
+This reptository contains the sources of the [camunda BPM doumentation](http://docs.camunda.org).
 
-The page is built using [docpad.org](http://docpad.org).
-
+The page is built using the [DocPad web framework](http://docpad.org).
 
 Overview
 --------
@@ -15,13 +14,12 @@ The `site/src/` folder contains the sources for the website.
 Start hacking
 -------------
 
-In order to start hacking the docs.camunda.org site, you first need to setup docpad.
+In order to start hacking the docs.camunda.org site, you first need to setup DocPad.
 
-1. install [node.js](http://nodejs.org/) if you haven't already got it
-2. inside your terminal, navigate to the `site/` folder inside the repository. Type `npm update`
-3. run docpad using `./node_modules/.bin/docpad run` or install docpad via `npm install -g docpad` if you want to have it globally available in your path
-
-Go to [http://localhost:9779/](http://localhost:9779/).
+1. Install [node.js](http://nodejs.org/).
+2. Open a terminal, navigate to the `site/` folder and type `npm update`.
+3. Run docpad using `./node_modules/.bin/docpad run` or install docpad via `npm install -g docpad` if you want to have it globally available in your path.
+4. Go to [http://localhost:9779/](http://localhost:9779/).
 
 Have fun.
 
