@@ -31,7 +31,8 @@ Parameters
 </table>
 
 
-#### Request Body
+Result
+------
 
 A json object with the following properties:
 
@@ -69,12 +70,6 @@ A json object with the following properties:
     <td>The time the subscription was created by the engine. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
 </table>
-
-
-Result
-------
-
-This method returns no content.
 
 
 Response codes
