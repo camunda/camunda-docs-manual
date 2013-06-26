@@ -307,15 +307,17 @@ This page gives you an overview of BPMN 2.0 elements and the current coverage of
         <td></td><td></td>
         </tr> 
         <tr>
-          <td class="eventName"><b>Link</b></td>
+          <td class="eventName"><a href="#!/events/link-events"><b>Link</b></a></td>
           <td></td><td></td><td></td>       
           <td>
             <div class="bpmnContainer"  data-bpmn-symbol="intermediatecatchevent/link" >
+              <div id="1" title="since 7.0">
             </div>
           </td>
           <td></td><td></td>
           <td>
             <div class="bpmnContainer"  data-bpmn-symbol="intermediatethrowevent/link" >
+              <div id="1" title="since 7.0">
             </div>
           </td>
         <td></td>
