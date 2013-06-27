@@ -49,6 +49,7 @@ CAM_PAGES = [
   { module: "bpmn-impl-reference", category: "Events", id: "error-event", name: "Error Event", url: "events/error-events", keywords: "events error event" },
   { module: "bpmn-impl-reference", category: "Events", id: "signal-event", name: "Signal Event", url: "events/signal-events", keywords: "events signal event" },
   { module: "bpmn-impl-reference", category: "Events", id: "compensation-event", name: "Cancel and Compensation Event", url: "events/cancel-and-compensation-events", keywords: "events compensation event" },
+  { module: "bpmn-impl-reference", category: "Events", id: "link-event", name: "Link Event", url: "events/link-events", keywords: "events link event" },
 
   { module: "bpmn-impl-reference", category: "Subprocesses", id: "embedded-subprocess", name: "Embedded Subprocess", url: "subprocesses/embedded-subprocess", keywords: "subprocesses embedded subprocess" },
   { module: "bpmn-impl-reference", category: "Subprocesses", id: "call-activity", name: "Call Activity", url: "subprocesses/call-activity", keywords: "subprocesses call activity" },
