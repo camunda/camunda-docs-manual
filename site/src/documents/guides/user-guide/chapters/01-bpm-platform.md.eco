@@ -347,7 +347,7 @@ Currently activity instances can only be retrieved for a process instance:
 
     ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());
 
-You can <a href="">retrieve the activity instance tree using the REST API</a> as well.
+You can <a href="/api-references/rest/#!/process-instance/get-activity-instances">retrieve the activity instance tree using the REST API</a> as well.
 
 ##### Identity & Uniqueness:
 Each activity instance is assigned a unique Id. The id is persistent, if you invoke this method multiple times, the same activity instance ids will be returned for the same activity instances. (However, there might be different executions assigned, see below)
