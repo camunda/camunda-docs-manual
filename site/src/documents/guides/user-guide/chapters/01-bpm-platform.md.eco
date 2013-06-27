@@ -311,7 +311,7 @@ Executions are hierarchical and all executions inside a process instance span a 
 
 ##### Local Variables
 
-Executions can have local variables Local variables are only visible to the execution itself and its children but not to siblings of parents in the execution tree. Local variables are usually used if a part of the process works on some local data object or if an execution works of one item of a collection in case of multi instance. 
+Executions can have local variables. Local variables are only visible to the execution itself and its children but not to siblings of parents in the execution tree. Local variables are usually used if a part of the process works on some local data object or if an execution works on one item of a collection in case of multi instance. 
 
 In order to set a local variable on an execution, use the `setVariableLocal` method provided by the runtime service. 
 
