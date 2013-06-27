@@ -303,7 +303,7 @@ If your process uses User Task, you can also interact with the process instance 
 
 If your process instance contains multiple execution paths (like for instance after a [parallel gateway](/api-references/bpmn20/#!/gateways/parallel-gateway)), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
 
-<div id="bpmn" style="position:relative" data-bpmn-src="implement/parallel-gateway" > </div>
+<img src="<%= @docUrl('user-guide/assets/img/parallel-gw.png') %>">
 
 Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process](/api-references/bpmn20/#!/subprocesses/embedded-subprocess) or in case of [Multi Instance](/api-references/bpmn20/#!/tasks/task-markers).
 
@@ -347,6 +347,7 @@ Currently activity instances can only be retrieved for a process instance:
 
     ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());
 
+You can <a href="">retrieve the activity instance tree using the REST API</a> as well.
 
 ##### Identity & Uniqueness:
 Each activity instance is assigned a unique Id. The id is persistent, if you invoke this method multiple times, the same activity instance ids will be returned for the same activity instances. (However, there might be different executions assigned, see below)
