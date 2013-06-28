@@ -54,6 +54,14 @@ Parameters
     <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
+    <td>active</td>
+    <td>Only include active executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include suspended executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include executions that have variables with certain values. <br/>
     The array consists of objects with the three properties `key`, `operator` and `value`.
