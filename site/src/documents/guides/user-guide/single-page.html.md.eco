@@ -6,6 +6,8 @@
 
 <%- @include('./chapters/02-programming-model.md') %>
 
-<%- @include('./chapters/03-testing.md') %>
+<%- @include('./chapters/03-web-applications.md') %>
 
-<%- @include('./chapters/04-tools.md') %>
+<%- @include('./chapters/04-testing.md') %>
+
+<%- @include('./chapters/05-tools.md') %>
