@@ -1026,7 +1026,7 @@ Hit `Test` to check if the credentials are valid.
 
 ### BPMN 2.0 Roundtrip<a id="cycle-bpmn-20-rountrip"></a>
 
-When we are takling about Rountrips we are talking about the synchronisation of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modelled as well. This extraction mechanism is what we call pool extraction. With Cycle, you can do this synchronisation in both directions. 
+When we are takling about Rountrips we are talking about the synchronisation of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modelled as well. This extraction mechanism is what we call [pool extraction](#cycle-pool-extraction). With Cycle, you can do this synchronisation in both directions. 
 
 <h4>Step 1: Setup the Connector</h4>
 <div class="row-fluid">
