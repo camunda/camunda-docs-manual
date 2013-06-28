@@ -30,7 +30,7 @@ Parameters
 Result
 ------
 
-A json object with a single `variables` property, which holds a json object of variables key-value pairs.
+A json object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
 <table class="table table-striped">
@@ -83,10 +83,8 @@ GET `/execution/anExecutionId/localVariables`
   
 #### Response
 
-    {"variables":
-      {"anExecutionVariableKey":
-        {"value":
-            {"property1":"aPropertyValue",
-            "property2":true},
-        "type":"ExampleVariableObject"}}
-    }
+    {"anExecutionVariableKey":
+      {"value":
+        {"property1":"aPropertyValue",
+        "property2":true},
+      "type":"ExampleVariableObject"}}

@@ -30,7 +30,7 @@ Parameters
 Result
 ------
 
-A json object with a single `variables` property, which holds a json object of variables key-value pairs.
+A json object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
 <table class="table table-striped">
@@ -83,9 +83,8 @@ GET `/process-instance/aProcessInstanceId/variables`
   
 #### Response
 
-    {"variables":
-      {"aProcessVariableKey":
-        {"value":
-            {"property1":"aPropertyValue",
-            "property2":true},
-        "type":"ExampleVariableObject"}}}
+    {"aProcessVariableKey":
+      {"value":
+        {"property1":"aPropertyValue",
+        "property2":true},
+      "type":"ExampleVariableObject"}}}
