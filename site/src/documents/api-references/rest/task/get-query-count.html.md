@@ -145,6 +145,14 @@ Parameters
     <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.</td>
   </tr>
   <tr>
+    <td>active</td>
+    <td>Only include active tasks. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include suspended tasks. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>Only include tasks that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
