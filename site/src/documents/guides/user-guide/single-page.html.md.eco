@@ -1,13 +1,12 @@
 <%- @include("./toc.md") %>
 
-<%- @include('./chapters/00-introduction.md') %>
+<%- @include('./chapters/00-introduction.md.eco') %>
 
 <%- @include('./chapters/01-bpm-platform.md.eco') %>
 
-<%- @include('./chapters/02-programming-model.md') %>
+<%- @include('./chapters/02-programming-model.md.eco') %>
 
-<%- @include('./chapters/03-web-applications.md') %>
+<%- @include('./chapters/03-testing.md.eco') %>
 
-<%- @include('./chapters/04-testing.md') %>
+<%- @include('./chapters/04-tools.md.eco') %>
 
-<%- @include('./chapters/05-tools.md') %>

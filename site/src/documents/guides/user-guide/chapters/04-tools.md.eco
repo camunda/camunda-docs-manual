@@ -1,4 +1,4 @@
-# Web Applications<a id="web-applications"></a>
+# Tools<a id="tools"></a>
 
 ## Cycle<a id="cycle"></a>
 
@@ -65,7 +65,7 @@ Hit `Test` to check if the credentials are valid.
 
 ### BPMN 2.0 Roundtrip<a id="cycle-bpmn-20-roundtrip"></a>
 
-When we are takling about Rountrips we are talking about the synchronisation of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modelled as well. This extraction mechanism is what we call [pool extraction](#cycle-pool-extraction). With Cycle, you can do this synchronisation in both directions. 
+When we are takling about Rountrips we are talking about the synchronisation of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modelled as well. This extraction mechanism is what we call [Pool Extraction](#cycle-pool-extraction). With Cycle, you can do this synchronisation in both directions. 
 
 <h4>Step 1: Setup the Connector</h4>
 <div class="row-fluid">
@@ -90,14 +90,14 @@ When we are takling about Rountrips we are talking about the synchronisation of 
   <div id="cycle-create-executable" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-create-executable.png') %>" ></div>
     <div class="span8">
       <p>Hit `Create` and choose the location you want the BPMN 2.0 XML File to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting `Create`, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "In synch" now.</p>
-      <p><b>Heads up!</b>If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
+      <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
   </div>
 </div>
 <h4>Step 4: Edit BPMN File</h4>
 <div class="row-fluid">
   <div id="cycle-signavio-created" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/signavio-created.png') %>" ></div>
     <div class="span8">
-      <p>Cycle now shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 File stored in your file repository (right side). You can also see that the two process models are currently in synch, and the date and time since the last synch has been made.</p>
+      <p>Now Cycle shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 File stored in your file repository (right side). You can also see that the two process models are currently in synch, and the date and time since the last synch has been made.</p>
       <p>You can now either check out the BPMN 2.0 - XML from your Subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="<%= @docUrl('design/modeler.html') %>">camunda Modeler</a>.</p>      
     </div>
 </div>
@@ -105,7 +105,7 @@ When we are takling about Rountrips we are talking about the synchronisation of 
 <div class="row-fluid">
   <div id="cycle-reverse" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-reverse.png') %>" ></div>
     <div class="span8">
-      <p>After you have workes on the executable process moder the models are out of synch, indicated by the red label "change since last sync" on the site where the change happend.</p>
+      <p>After you have worked on the executable process model the models are out of synch, indicated by the red label "change since last sync" on the site where the change happend.</p>
       <p>You can now hit the sync button in the corresponding direction (in our case from right to left). Afterwards you will be prompt to confirm the syncronization with the possibility to add a commit message.</p>
       <p>Now both models are synchronized again, indicated by green labels "In sync" on both sites.</p> 
     </div>

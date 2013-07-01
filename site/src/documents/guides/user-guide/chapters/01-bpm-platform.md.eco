@@ -1,6 +1,6 @@
-## Process Engine<a id="process-engine"></a>
+# Process Engine<a id="process-engine"></a>
 
-### Process Engine Bootstrapping<a id="process-engine-bootstrapping"></a>
+## Process Engine Bootstrapping<a id="process-engine-bootstrapping"></a>
 
 There are two basic modes of the Process Engine:
 
@@ -17,7 +17,7 @@ In order to configure and create a Process Engine you have different options:
  * Create Process Engine using XML configuration: You can use an XML configuration (Spring) to configure and startup your Engine, more details below.
  * Create Process Engine using Spring: Spring can manage your Process Engine for you, see <a href="#programming-model-spring">Engine Startup via Spring</a> for details.
             
-#### ProcessEngineConfiguration bean<a id="process-engine-configuration-bean"></a>
+### ProcessEngineConfiguration bean<a id="process-engine-configuration-bean"></a>
 
 The camunda engine uses the <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/ProcessEngineConfiguration.html">ProcessEngineConfiguration bean</a> to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the processEngineConfiguration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class the matches (the most) your environment, to minimalise the number of properties needed to configure the engine. The following classes are currently available:
 
@@ -26,7 +26,7 @@ The camunda engine uses the <a href="http://docs.camunda.org/api-references/java
 * org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration: To be used when the process engine is used in a Spring environment. See the Spring integration section for more information.
 * org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration: To be used when the engine runs in standalone mode, with JTA transactions.
 
-#### Bootstrap a Process Engine using Java API<a id="bootstrap-a-process-engine-java-api"></a>
+### Bootstrap a Process Engine using Java API<a id="bootstrap-a-process-engine-java-api"></a>
 
 You can completly configure the engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
 
@@ -42,7 +42,7 @@ Now you can call the buildProcessEngine() operation to create a Process Engine:
       .setJobExecutorActivate(true)
       .buildProcessEngine();
 
-#### Configure Process Engine via XML<a id="configure-process-engine-via-xml"></a>
+### Configure Process Engine via XML<a id="configure-process-engine-via-xml"></a>
 
 The easiest way to configure your Process Engine is via through an XML file called activiti.cfg.xml. Using that you can simply do:
 
@@ -92,9 +92,9 @@ It is also possible not to use a configuration file, and create a configuration 
 
 All these `ProcessEngineConfiguration.createXXX()` methods return a ProcessEngineConfiguration that can further be tweaked if needed. After calling the `buildProcessEngine()` operation, a ProcessEngine is created as explained above.
 
-### Process Engine API<a id="process-engine-api"></a>
+## Process Engine API<a id="process-engine-api"></a>
 
-#### Services API<a id="services-api"></a>
+### Services API<a id="services-api"></a>
 
 The Java API is the most common way of interacting with the engine. The central starting point is the ProcessEngine, which can be created in several ways as described in the configuration section. From the ProcessEngine, you can obtain the various services that contain the workflow/BPM methods. ProcessEngine and the services objects are thread safe. So you can keep a reference to 1 of those for a whole server. 
     
@@ -148,7 +148,7 @@ The **ManagementService** is typically not needed when coding custom application
 </div>
 
     
-#### Query API<a id="query-api"></a>
+### Query API<a id="query-api"></a>
 
 To query data from the engine is possible in multiple ways:
 
@@ -170,11 +170,11 @@ The Java Query API allows to program completely typesafe queries with a fluent A
 
 You can find more information on this in the <a href="http://docs.camunda.org/api-references/java/">javadocs</a>.
 
-##### REST Query API
+#### REST Query API
 
 The Java Query API is exposed as REST service as well, see [REST documentation](<%= @docUrl('api-references/rest/') %>) for details.
 
-##### Native Queries
+#### Native Queries
  
 Sometimes you need more powerful queries, e.g. queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g. Task, ProcessInstance, Execution, etc.... Since the query will be fired at the database you have to use table and column names as they are defined in the database; this requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
 
@@ -188,23 +188,23 @@ Sometimes you need more powerful queries, e.g. queries using an OR operator or r
              + managementService.getTableName(VariableInstanceEntity.class) + " V1 WHERE V1.TASK_ID_ = T1.ID_")
       .count();
 
-##### Custom Queries
+#### Custom Queries
 
 For performance reasons it might sometimes be desirable not to query the engine objects but some own value or DTO objects collecting data from different tables - maybe including your own domain classes.
 
 See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Performance+Tuning+with+custom+Queries">Performance Tuning with custom Queries</a>.
 
-##### SQL Queries
+#### SQL Queries
 
 The table layout is pretty straightforward - we concentrated on making it easy to understand. Hence it is OK to do SQL queries for e.g. reporting use cases. Just make sure that you do not mess up the engine data by updating the tables without exactly knowing what you are doing.
 
 See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Reports+with+BIRT">Reports with BIRT</a> as example use case.
 
-### Process Engine Concepts<a id="process-engine/concepts"></a>
+## Process Engine Concepts<a id="process-engine/concepts"></a>
 
 This section explains some core process engine concepts that are used in both the process engine API and the internal process engine implementation. Understanding these fundamentals makes it easyier to use the process engine API. 
 
-#### Process Definitions<a id="process-engine/concepts/process-definitions"></a>
+### Process Definitions<a id="process-engine/concepts/process-definitions"></a>
 
 A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://www.camunda.org/design/tutorial.html) as its primary modeling language for modeling process definitions. 
 
@@ -219,7 +219,7 @@ A process definition defines the structure of a process. You could say that the 
 
 In camunda BPM you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine. 
 
-##### Querying for Process Definitions<a id="process-engine/concepts/process-definitions/query"></a> 
+#### Querying for Process Definitions<a id="process-engine/concepts/process-definitions/query"></a> 
 
 You can query for all deployed process definitions using the Java API and the `ProcessDefinitionQuery` made available through the `RepositoryService`. Example:
 
@@ -233,7 +233,7 @@ The above query returns all deployed process definitions for the key `invoice` o
 
 You can also [query for process definitions using the REST API](/api-references/rest/#!/process-definition/get-query).
 
-##### Keys and Versions <a id="process-engine/concepts/process-definitions/key-version"></a> 
+#### Keys and Versions <a id="process-engine/concepts/process-definitions/key-version"></a> 
 
 The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#process-engine/concepts/process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
 
@@ -243,17 +243,17 @@ The *key* of a process definition (`invoice` in the example above) is the logica
 
 If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine. 
 
-##### Suspending Process Definitions #####
+#### Suspending Process Definitions ####
 
 Suspending a process definition disables it temporarily in that it cannot be instantiated while it is suspended. The `RuntimeService` Java API can be used to suspend a process definition. Similarly, you can activate a process definition to undo this effect.
 
-#### Process Instances<a id="process-engine/concepts/process-instances"></a>
+### Process Instances<a id="process-engine/concepts/process-instances"></a>
 
 A process instance is an individual execution of a process definition. The relation of the process instance to the process definition is the same as the relation between *Object* and *Class* in Object Oriented Programming (the process instance playing the role of the object and the process definition playing the role of the class in this analogy).
 
 The process engine is responsible for creating process instances and managing their state. If you start a process instance which contains a wait state, for example a [user task](/api-references/bpmn20/#!/tasks/user-task), the process engine must make sure that the state of the process instance is captured and stored inside a database until the wait state is left (the user task is completed). 
 
-##### Starting a Process Instance<a id="process-engine/concepts/process-instances/start"></a> 
+#### Starting a Process Instance<a id="process-engine/concepts/process-instances/start"></a> 
 
 The simplest way to start a process instance is by using the `startProcessInstanceByKey(...)` method offered by the RuntimeService:
 
@@ -269,7 +269,7 @@ Process variables are available to all tasks in a process instance and are autom
 
 It is also possible to [start a process instance using the REST API](/api-references/rest/#!/process-definition/post-start-process-instance).
 
-##### Querying for Process Instances<a id="process-engine/concepts/process-instances/query"></a> 
+#### Querying for Process Instances<a id="process-engine/concepts/process-instances/query"></a> 
 
 You can query for all currently running process instances using the `ProcessInstanceQuery` offered by the `RuntimeService`: 
 
@@ -282,7 +282,7 @@ The above query would select all process instances for the `invoice` process whe
 
 You can also [query for process instances using the REST API](/api-references/rest/#!/process-instance/get-query).
 
-##### Interacting with a Process Instance<a id="process-engine/concepts/process-instances/interact"></a> 
+#### Interacting with a Process Instance<a id="process-engine/concepts/process-instances/interact"></a> 
 
 Once you have performed a query for a particular process instance (or a list of process instances), you may want to interact with it. There are multiple possibilities to interact with a process instance, most prominently: 
 
@@ -294,7 +294,7 @@ Once you have performed a query for a particular process instance (or a list of 
 
 If your process uses User Task, you can also interact with the process instance using the TaskService API.
 
-##### Suspending Process Instances #####
+#### Suspending Process Instances ####
 
 Suspending a process instance is helpful, if you want ensure that it is not executed any further. For example, if process variables are in an undesired state, you can suspend the instance and change the variables *safely*.
 
@@ -306,7 +306,7 @@ A process instance can be suspended by using the `suspendProcessInstanceById(...
 
 If you would like to suspend all process instances of a given process definition, you can use the method `suspendProcessDefinitionById(...)` of the`RepositoryService` and specify the `suspendProcessInstances` option.
 
-#### Executions<a id="process-engine/concepts/executions"></a>
+### Executions<a id="process-engine/concepts/executions"></a>
 
 If your process instance contains multiple execution paths (like for instance after a [parallel gateway](/api-references/bpmn20/#!/gateways/parallel-gateway)), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
 
@@ -316,7 +316,7 @@ Internally the process engine creates two concurrent executions inside the proce
 
 Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution.
 
-##### Local Variables
+#### Local Variables
 
 Executions can have local variables. Local variables are only visible to the execution itself and its children but not to siblings of parents in the execution tree. Local variables are usually used if a part of the process works on some local data object or if an execution works on one item of a collection in case of multi instance. 
 
@@ -324,7 +324,7 @@ In order to set a local variable on an execution, use the `setVariableLocal` met
 
     runtimeService.setVariableLocal(name, value);
 
-##### Querying for executions
+#### Querying for executions
 
 You can query for executions using the `ExecutionQuery` offered by the `RuntimeService`: 
 
@@ -336,7 +336,7 @@ The above query returns all executions for a given process instance.
 
 You can also [query for executions using the REST API](/api-references/rest/#!/execution/get-query).
 
-#### Activity Instances<a id="process-engine/concepts/activity-instances"></a>
+### Activity Instances<a id="process-engine/concepts/activity-instances"></a>
 
 The activity instance concept is similar to the execution concept but takes a different perspective. While an execution can be imagined as a *token* moving through the process, an activity instance represents an individual instance of an activity (task, subprocess, ...). The concept of the activity instance is thus more *state-oriented*.
 
@@ -348,7 +348,7 @@ Examples:
   * Process with two parallel Multi Instance user tasks after parallel Gateway: in the activity instance tree, all instances of both user tasks will be listed below the root activity instance. Reason: all activity instances are at the same level of subprocess. 
   * Usertask inside embedded subprocess: the activity instance three will have 3 levels: the root instance representing the process instance itself, below it an activity instance representing the instance of the embedded subprocess, and below this one, the activity instance representing the usertask. 
 
-##### Retrieving an Activity Instance 
+#### Retrieving an Activity Instance 
 
 Currently activity instances can only be retrieved for a process instance: 
 
@@ -356,15 +356,15 @@ Currently activity instances can only be retrieved for a process instance:
 
 You can <a href="/api-references/rest/#!/process-instance/get-activity-instances">retrieve the activity instance tree using the REST API</a> as well.
 
-##### Identity & Uniqueness:
+#### Identity & Uniqueness:
 Each activity instance is assigned a unique Id. The id is persistent, if you invoke this method multiple times, the same activity instance ids will be returned for the same activity instances. (However, there might be different executions assigned, see below)
 
-##### Relation to Executions
+#### Relation to Executions
 The Execution concept in the process engine is not completely aligned with the activity instance concept because the execution tree is in general not aligned with the activity / scope concept in BPMN. In general, there is a n-1 relationship between Executions and ActivityInstances, ie. at a given point in time, an activity instance can be linked to multiple executions. In addition, it is not guaranteed that the same execution that started a given activity instance will also end it. The process engine performs several internal optimizations concerning the compacting of the execution tree which might lead to executions being reordered and pruned. This can lead to situations where a given execution starts an activity instance but another execution ends it. Another special case is the process instance: if the process instance is executing a non-scope activity (for example a user task) below the process definition scope, it will be referenced by both the root activity instance and the user task activity instance. 
 
 Note: If you need to interpret the state of a process instance in terms of a BPMN process model, it is usually easier to use the activity instance tree as opposed to the execution tree.
 
-### Database configuration<a id="database-configuration"></a>
+## Database configuration<a id="database-configuration"></a>
 
 There are two ways to configure the database that the camunda engine will use. The first option is to define the JDBC properties of the database:
 
@@ -432,7 +432,7 @@ Here are some sample JDBC urls:
 
 For more information on the database setup please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup">Database Setup</a>
 
-### Database table names explained<a id="database-table-names"></a>
+## Database table names explained<a id="database-table-names"></a>
 
 The table names all start with ACT\_. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
 
@@ -442,7 +442,7 @@ The table names all start with ACT\_. The second part is a two-character identif
 * ACT_HI_*: 'HI' stands for history. These are the tables that contain historic data, such as past process instances, variables, tasks, etc.
 * ACT_GE_*: general data, which is used in various use cases.
 
-### Job executor activation<a id="job-executor-activation"></a>
+## Job executor activation<a id="job-executor-activation"></a>
 
 <a href="https://app.camunda.com/confluence/display/foxUserGuide/The+Job+Executor">The JobExecutor</a> is a component that manages a couple of threads to fire timers and asynchronous messages. For unit testing scenarios, it is cumbersome to work with multiple threads. Therefore the API allows to query for (ManagementService.createJobQuery) and execute jobs (ManagementService.executeJob) through the API so that job execution can be controlled from within a unit test. To avoid interference by the job executor, it can be turned off.
 
@@ -453,22 +453,22 @@ By default, the JobExecutor is activated when the process engine boots. Specify
 
 when you don't want the JobExecutor to be activated upon booting the process engine.
 
-### History configuration<a id="history-configuration"></a>
+## History configuration<a id="history-configuration"></a>
 
 Customizing the configuration of <a href="https://app.camunda.com/confluence/display/foxUserGuide/History">history</a> is optional. This allows you to tweak settings that influence the history capabilities of the engine. 
 
     <property name="history" value="audit" />
 
-### Process Definition Cache<a id="process-definition-cache"></a>
+## Process Definition Cache<a id="process-definition-cache"></a>
 
 All process definition are cached (after they're parsed) to avoid hitting the database every time a process definition is needed and because process definition data doesn't change.
 
-### Logging<a id="logging"></a>
+## Logging<a id="logging"></a>
 
 We use <a href="http://docs.oracle.com/javase/6/docs/api/java/util/logging/package-summary.html">Java Logging</a> to avoid any third party logging requirements. 
 
 
-### Incidents<a id="incidents"></a>
+## Incidents<a id="incidents"></a>
 
 Incidents are notable events that happen in the process engine. Such incidents usually indicate some kind of problem related to process execution. Examples of such incidents may be a failed job with elapsed retries (retries = 0), indicating that an execution is stuck and manual administrative action is necessary for repairing the process instance. Or the fact that a process instance has entered an error state which could be modelled as a BPMN Error Boundary event or a User Task explicitly marked as "error state". If such incidents arise, the process engine fires an internal event which can be handled by a configurable incident handler. 
 
@@ -482,14 +482,14 @@ Incidents are stored in the ACT_RU_INCIDENT database table.
 
 If you want to customize the incident handling behavior, it is possible to replace the default incident handlers in the process engine configuration and provide custom implementations (see below).
 
-#### Incident Types<a id="incident-types"></a>
+### Incident Types<a id="incident-types"></a>
 
 There are different types of incidents. Currently the process engine supports the following incidents:
 
   * **Failed Job**: this incident is raised when automatic retries for a Job (Timer or Asynchronous continuation) have elapsed. The incident indicates that the corresponding execution is stuck and will not continue automatically. Adminitrative action is necessary.
   The incident is resolved, when the job is executed manually or when the retries for the corresponding job are reset to a value > 0.
 
-#### (De-)Activating Incidents<a id="de-activating incidents"></a>
+### (De-)Activating Incidents<a id="de-activating-incidents"></a>
 
 The process engine allows you to configure on an incident type basis whether certain incidents should be raised or not. 
 
@@ -497,7 +497,7 @@ The following properties are available in the `org.camunda.bpm.engine.ProcessEng
 
   * `createIncidentOnFailedJobEnabled`: indicates whether Failed Job incidents should be raised.
 
-#### Implementing custom Incident Handlers<a id="implementing-custom-incident-handlers"></a>
+### Implementing custom Incident Handlers<a id="implementing-custom-incident-handlers"></a>
 
 Incident Handlers are responsible for handling incidents of a certain type (see Incident Types below). 
 
@@ -520,7 +520,7 @@ The `handleIncident` method is called when a new incident is created. The `resol
 An example of a custom inciddent handler could be a handler which, in addtion to the default behavior also sends an email to an administrator.
 
 
-## Process Applications<a id="process-applications"></a>
+# Process Applications<a id="process-applications"></a>
 
 A Process Application is an ordinary Java Application that uses the camunda process engine for BPM and Worklow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionaly into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootrap and configure the provided services.
 
@@ -542,7 +542,7 @@ Transforming an existing Java Application into a Process Application is easy and
   </p>
 </div>
 
-### The Process Application class<a id="the-process-application-class"></a>
+## The Process Application class<a id="the-process-application-class"></a>
 
 You can deleagte the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.camunda.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
 
@@ -553,7 +553,7 @@ You can deleagte the bootstrapping of the process engine and process deployment 
 
 In the following, we walk through the different implementations and discuss where and how they can be used. 
 
-#### The ServletProcessApplication<a id="the-servlet-process-application"></a>
+### The ServletProcessApplication<a id="the-servlet-process-application"></a>
 <div class="alert">
   <p>
     <strong>All Servlet Containers</strong>     
@@ -587,7 +587,7 @@ Notice the `@ProcessApplication` annotation. This annotation fulfills two purpos
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat 7) annotating your class with `@ProcessApplication` is sufficient. 
 
-##### Deploying to Apache Tomcat 6 or other Pre-Servlet 3.0 Containers
+#### Deploying to Apache Tomcat 6 or other Pre-Servlet 3.0 Containers
 
 In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Server 5 for that matter), you need manually register your ProcessApplication class as Servlet Context Listener in the Servlet Container. This can be achieved by adding a listener element to your `WEB-INF/web.xml` file:
 
@@ -604,7 +604,7 @@ In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Ser
     </web-app>    
 
 <a name="servlet-process-applicarion-inside-ejb-container"></a>
-##### Using the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss
+#### Using the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss
 
 You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates form your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Deleagte implementations form your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
 
@@ -614,7 +614,7 @@ You can use the ServletProcessApplication inside an EJB / Java EE Container such
 
 If your application does not use such features, it is perfectly fine using the ServletProcessApplication inside an EE container in that case you only get servlet specification guarantees.
 
-#### The EjbProcessApplication<a id="the-ejb-process-application"></a>
+### The EjbProcessApplication<a id="the-ejb-process-application"></a>
 <div class="alert ">
   <p>
     <strong>Java EE 6 Container only</strong>     
@@ -636,7 +636,7 @@ In order to add an Ejb Process Application to your Java Application, you have tw
 
 Both options are explained in greater detail below.
 
-##### Bundling the camunda-ejb-client Jar
+#### Bundling the camunda-ejb-client Jar
 
 The most convenient option for deploying a process application to an Ejb Container is adding the following maven dependency to you maven project:
 
@@ -654,7 +654,7 @@ This deployment option requires that your project is a composite deployment (suc
   We always recommend using the camunda-ejb-client over deploying a custom EjbProcessApplication class unless you want to customize the behavior of the EjbProcessApplication.
 </div>
 
-##### Deploying a custom EjbProcessApplication class
+#### Deploying a custom EjbProcessApplication class
 
 If you want to customize the behavior of the the EjbProcessApplication class you have to option of writing a custom EjbProcessApplication class. The following is an example of such an implementation:
 
@@ -678,7 +678,7 @@ If you want to customize the behavior of the the EjbProcessApplication class you
         
     }
 
-##### Invocation Semantics of  the EjbProcessApplication
+#### Invocation Semantics of  the EjbProcessApplication
 
 The fact that the EjbProcessApplication exposes itself as a Session Bean Component inside the EJB container 
 
@@ -704,7 +704,7 @@ When the process engine invokes the Ejb Process Application, it gets EJB invocat
 
 When the EjbProcessApplication registers with a process engine (see `ManagementService#registerProcessApplication(String, ProcessApplicationReference)`, the process application passes a reference to itself to the process engine. This reference allows the process engine to reference the process application. The EjbProcessApplication takes advantage of the Ejb Containers naming context and passes a reference containing the EJBProcessApplication's Component Name to the process engine. Whenever the process engine needs access to process application, the actual component instance is looked up and invoked.
 
-#### The EmbeddedProcessApplication<a id="the-embedded-process-application"></a>
+### The EmbeddedProcessApplication<a id="the-embedded-process-application"></a>
 <div class="alert ">
   <p>
     <strong>All containers</strong>     
@@ -747,7 +747,7 @@ Where the class `MyProcessApplication` could look like this:
 
     }
 
-#### The SpringProcessApplication<a id="the-spring-process-application"></a>
+### The SpringProcessApplication<a id="the-spring-process-application"></a>
 <div class="alert ">
   <p>
     <strong>Supported on</strong>     
@@ -771,7 +771,7 @@ If your application is a WebApplicaiton you should use `org.camunda.bpm.engine.s
   <code>org.springframework:spring-web</code> module to be on the classpath.</p>
 </div>
 
-##### Configuring a Spring Process Application
+#### Configuring a Spring Process Application
 
 The following shows an example of how to bootstrap a SpringProcessApplication inside a spring application context Xml file:
 
@@ -786,7 +786,7 @@ The following shows an example of how to bootstrap a SpringProcessApplication in
 
 (Remember that you need a `META-INF/processes.xml` file, additionally).
 
-##### Configuring a Managed Process Engine using Spring
+#### Configuring a Managed Process Engine using Spring
 
 If you use a Spring Process Application, you may want to configure your process engine inside the spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the BPM Platform infrastructure such that the process engine is returned by the `ProcessEngineService`. The following is an example of how to configure a managed process engine using Spring.
 
@@ -831,7 +831,7 @@ If you use a Spring Process Application, you may want to configure your process 
             
     </beans>
 
-### The processes.xml deployment descriptor<a id="the-processes-xml-deployment-descriptor"></a>
+## The processes.xml deployment descriptor<a id="the-processes-xml-deployment-descriptor"></a>
 
 The processes.xml deployment descriptor contains the deployment metadata for a process application. The following example is a simple example of a `processes.xml` deployment descriptor: 
 
@@ -854,13 +854,13 @@ A single deployment (process-archive) is declared. The process archive has the n
   * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) from the database. 
   * `isScanForProcessDefinitions`: if this property is set to true, the classpath of the process application is automatically scanned for process definition resources. Process definition resources must end in `.bpmn20.xml` or `.bpmn`.
 
-#### Location of the processes.xml file<a id="processes-xml-location"></a>
+### Location of the processes.xml file<a id="processes-xml-location"></a>
 
 The default location of the processes.xml file is `META-INF/processes.xml`. The camunda BPM platform will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
 
 In an apache maven based project, add the the processes.xml file to the `src/main/resources/META-INF` folder.
 
-#### Custom location for the processes.xml file<a id="processes-xml-custom-location"></a>
+### Custom location for the processes.xml file<a id="processes-xml-custom-location"></a>
 
 If you want to specify a custom location for the processes.xml file, you need to use the `deploymentDescriptors` property of the `@ProcessApplication` annotation:
 
@@ -876,7 +876,7 @@ The provided path(s) must be resolvable through the `ClassLoader#getResourceAsSt
 
 Multiple distinct locations are supported.
 
-#### Configuring process engines in the processes.xml file<a id="processes-xml-configuring-process-engines"></a>
+### Configuring process engines in the processes.xml file<a id="processes-xml-configuring-process-engines"></a>
 
 The processes.xml file can also be used for configuring one or multiple process engine(s). The following is an example of a configuration of a process engine inside a processes.xml file:
 
@@ -900,7 +900,7 @@ The processes.xml file can also be used for configuring one or multiple process 
 
 The `<configuration>...</configuration>` property allows specifying the name of a process engine configuration class to be used when building the process engine.
 
-### Migration from camunda fox 6.x<a id="migration-from-camunda-fox-6x"></a>
+## Migration from camunda fox 6.x<a id="migration-from-camunda-fox-6x"></a>
 
 <div class="alert">
     <strong>Note that the Process Application logic has slightly changed from camunda fox 6.x (the predecessor to camunda BPM 7.0), you need to migrate your applications.</strong>
@@ -908,10 +908,10 @@ The `<configuration>...</configuration>` property allows specifying the name of 
 </div>
 
 
-## Runtime Container Integration<a id="runtime-container-integration"></a>
+# Runtime Container Integration<a id="runtime-container-integration"></a>
 
 
-### JNDI Bindings for BPM Platform Services<a id="bpm-platform-service-jndi-bindings"></a>
+## JNDI Bindings for BPM Platform Services<a id="bpm-platform-service-jndi-bindings"></a>
 
 The BPM Platform Services (i.e. Process Engine Service and Process Application Service) are provided via JNDI Bindings with the following JNDI names:
 
@@ -920,7 +920,7 @@ The BPM Platform Services (i.e. Process Engine Service and Process Application S
 
 On Glassfish 3.1.1 and on JBoss AS 7 you can do a lookup with the JNDI names to get one of these BPM Platform Services. However, on Apache Tomcat 7 you have to do quite more to be able to do a lookup to get one of these BPM Platform Services.
 
-### JNDI Bindings on Apache Tomcat 7<a id="bpm-platform-service-jndi-bindings-tomcat-7"></a>
+## JNDI Bindings on Apache Tomcat 7<a id="bpm-platform-service-jndi-bindings-tomcat-7"></a>
 
 To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have to add in your process application the file `META-INF/context.xml` and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
 
@@ -964,6 +964,6 @@ In order to do a lookup for a Bpm Platform Service you have to use the resource 
 
 If you have declared another resource link names than we proposed, you have to use `java:comp/env/$YOUR_RESOURCE_LINK_NAME` to do a lookup to get the corresponding Bpm Platform Service.
 
-## Configuration & Extensions<a id="configuration-and-extensions"></a>
+# Configuration & Extensions<a id="configuration-and-extensions"></a>
 
-## Integrating the camunda BPM platform into different Environments<a id="camunda-bpm-platform-integration"></a>
+# Integrating the camunda BPM platform into different Environments<a id="camunda-bpm-platform-integration"></a>
