@@ -70,7 +70,7 @@ A json object with the following properties:
     <td>A json array to only include executions that belong to a process instance with variables with certain values. <br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
     `key` and `value` may not contain underscore characters.      
