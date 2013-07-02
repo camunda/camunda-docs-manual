@@ -55,3 +55,8 @@
   * [Deliver a Message](#post-message)
 * [Identity](#identity)
   * [Get a User's Groups](#get-group-info)
+* [Variable Instance](#variable-instance)
+  * [Get Variables Instances](#get-variable-instances)
+  * [Get Variables Instances Count](#get-variable-instances-count)
+  * [Get Variables Instances (POST)](#post-variable-instances)
+  * [Get Variables Instances Count (POST)](#post-variable-instances-count)
