@@ -44,16 +44,16 @@ layout: 'default'
       </ul>
     </div>
 
-    <!--
+
     <div class="span4">
-      <img src="<%= @docUrl('assets/img/welcome/best-practices.png') %>" />
-      <h2>Best Practices</h2>
+      <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
+      <h2>Incubation Space</h2>      
       <ul>
-        <li><a href="">Best Pracices</a></li>
-        <li><a href="">Tutorials</a></li>
-        <li><a href="">Patterns</a></li>
+        <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
+        <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
       </ul>
+      <p class="muted">camunda BPM incubation is a space for camunda BPM platform extensions and other projects around open source BPM.</p>
     </div>
-    -->
+    
   </div>
 </div>

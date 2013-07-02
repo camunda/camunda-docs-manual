@@ -51,6 +51,14 @@ Parameters
     <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
+    <td>active</td>
+    <td>Only include active executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include suspended executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

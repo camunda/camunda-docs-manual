@@ -39,9 +39,14 @@
               </li>
             </ul>
           </li>
-          <!--li ng-class="activeClass('/best-practices')">
-            <a href="<%= @docUrl("best-practices/") %>">Best Practices</a>
-          </li -->
+          <li class="dropdown">
+            <a >Incubation</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
+              </li>             
+            </ul>
+          </li>         
         </ul>
       </div>
       <a class="pull-right back-to-main ir" href="http://camunda.org">

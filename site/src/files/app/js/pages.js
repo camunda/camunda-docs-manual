@@ -49,6 +49,7 @@ CAM_PAGES = [
   { module: "bpmn-impl-reference", category: "Events", id: "error-event", name: "Error Event", url: "events/error-events", keywords: "events error event" },
   { module: "bpmn-impl-reference", category: "Events", id: "signal-event", name: "Signal Event", url: "events/signal-events", keywords: "events signal event" },
   { module: "bpmn-impl-reference", category: "Events", id: "compensation-event", name: "Cancel and Compensation Event", url: "events/cancel-and-compensation-events", keywords: "events compensation event" },
+  { module: "bpmn-impl-reference", category: "Events", id: "link-event", name: "Link Event", url: "events/link-events", keywords: "events link event" },
 
   { module: "bpmn-impl-reference", category: "Subprocesses", id: "embedded-subprocess", name: "Embedded Subprocess", url: "subprocesses/embedded-subprocess", keywords: "subprocesses embedded subprocess" },
   { module: "bpmn-impl-reference", category: "Subprocesses", id: "call-activity", name: "Call Activity", url: "subprocesses/call-activity", keywords: "subprocesses call activity" },
@@ -84,6 +85,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Process Instance", id: "get-instance-variables", name: "Get Process Variables", url: "process-instance/get-variables", keywords: "instances get process-instance variables" },
   { module: "rest-api", category: "Process Instance", id: "post-instance-variables", name: "Update/Delete Process Variables", url: "process-instance/post-variables", keywords: "instances post process-instance variables" },
   { module: "rest-api", category: "Process Instance", id: "delete-instance", name: "Delete Process Instance", url: "process-instance/delete", keywords: "instance delete process-instance reason" },
+  { module: "rest-api", category: "Process Instance", id: "get-activity-instances", name: "Get Activity Instances", url: "process-instance/get-activity-instances", keywords: "instance get activity activity-instance process-instance tree" },
 
   { module: "rest-api", category: "Execution", id: "get-execution", name: "Get Single Execution", url: "execution/get", keywords: "executions execution get" },
   { module: "rest-api", category: "Execution", id: "get-executions", name: "Get Executions", url: "execution/get-query", keywords: "executions execution get query filter" },
@@ -96,7 +98,8 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "get-local-execution-variables", name: "Get Local Execution Variables", url: "execution/get-local-variables", keywords: "executions get execution variables local" },
   { module: "rest-api", category: "Execution", id: "post-local-execution-variables", name: "Update/Delete Local Execution Variables", url: "execution/post-local-variables", keywords: "executions post execution variables local" },
   { module: "rest-api", category: "Execution", id: "signal-execution", name: "Trigger Execution", url: "execution/post-signal", keywords: "executions execution post signal trigger" },
-  //{ module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
+  { module: "rest-api", category: "Execution", id: "get-message-subscription", name: "Get Message Event Subscription", url: "execution/get-message-subscription", keywords: "executions execution get message event subscription" },
+  { module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
   
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
