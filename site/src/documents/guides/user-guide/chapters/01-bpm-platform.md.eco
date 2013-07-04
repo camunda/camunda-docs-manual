@@ -35,7 +35,6 @@ You can completly configure the engine programatically by creating the right Pro
 
 Now you can call the buildProcessEngine() operation to create a Process Engine:
 
-
     ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
       .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
       .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
@@ -60,7 +59,7 @@ This will look for an activiti.cfg.xml file on the classpath and construct an en
 
       <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
       
-        <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB\_CLOSE\_DELAY=1000" />
+        <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
         <property name="jdbcDriver" value="org.h2.Driver" />
         <property name="jdbcUsername" value="sa" />
         <property name="jdbcPassword" value="" />
@@ -179,12 +178,12 @@ The Java Query API is exposed as REST service as well, see [REST documentation](
 Sometimes you need more powerful queries, e.g. queries using an OR operator or restrictions you can not express using the Query API. For these cases, we introduced native queries, which allow you to write your own SQL queries. The return type is defined by the Query object you use and the data is mapped into the correct objects, e.g. Task, ProcessInstance, Execution, etc.... Since the query will be fired at the database you have to use table and column names as they are defined in the database; this requires some knowledge about the internal data structure and it is recommended to use native queries with care. The table names can be retrieved via the API to keep the dependency as small as possible.
 
     List<Task> tasks = taskService.createNativeTaskQuery()
-      .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
+      .sql("SELECT count(\*) FROM " + managementService.getTableName(Task.class) + " T WHERE T.NAME_ = #{taskName}")
       .parameter("taskName", "gonzoTask")
       .list();
 
     long count = taskService.createNativeTaskQuery()
-      .sql("SELECT count(*) FROM " + managementService.getTableName(Task.class) + " T1, "
+      .sql("SELECT count(\*) FROM " + managementService.getTableName(Task.class) + " T1, "
              + managementService.getTableName(VariableInstanceEntity.class) + " V1 WHERE V1.TASK_ID_ = T1.ID_")
       .count();
 
@@ -434,9 +433,9 @@ For more information on the database setup please refer to <a href="https://app.
 
 ## Database table names explained<a id="database-table-names"></a>
 
-The table names all start with ACT\_. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
+The table names all start with ACT. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
 
-* ACT_RE_\*: 'RE' stands for repository. Tables with this prefix contain 'static' information such as process definitions and process resources (images, rules, etc.).
+* ACT_RE_*: 'RE' stands for repository. Tables with this prefix contain 'static' information such as process definitions and process resources (images, rules, etc.).
 * ACT_RU_*: 'RU' stands for runtime. These are the runtime tables, that contain the runtime data of process instances, user tasks, variables, jobs, etc. The engine only stores the runtime data during process instance execution, and removes the records when a process instance ends. This keeps the runtime tables small and fast.
 * ACT_ID_*: 'ID' stands for identity. These tables contain identity information, such as users, groups, etc.
 * ACT_HI_*: 'HI' stands for history. These are the tables that contain historic data, such as past process instances, variables, tasks, etc.
@@ -478,7 +477,7 @@ In the default configuration, the process engine writes incidents to the process
       .processDefinitionId("someDefinition")
       .list();
 
-Incidents are stored in the ACT_RU_INCIDENT database table. 
+Incidents are stored in the AC_RU_INCIDENT database table. 
 
 If you want to customize the incident handling behavior, it is possible to replace the default incident handlers in the process engine configuration and provide custom implementations (see below).
 
