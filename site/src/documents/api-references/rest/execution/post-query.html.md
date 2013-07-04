@@ -54,6 +54,14 @@ Parameters
     <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
+    <td>active</td>
+    <td>Only include active executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include suspended executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include executions that have variables with certain values. <br/>
     The array consists of objects with the three properties `key`, `operator` and `value`.
@@ -71,7 +79,7 @@ Parameters
     <td>A json array to only include executions that belong to a process instance with variables with certain values. <br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
     `key` and `value` may not contain underscore characters.      
