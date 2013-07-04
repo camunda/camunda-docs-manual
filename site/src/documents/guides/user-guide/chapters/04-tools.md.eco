@@ -40,7 +40,7 @@ Furthermore you get information about how to configure [User Credentials](#tools
 For directly accessing your process models stored in Signavio, you must setup a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided [credentials](#tools/cycle/connector-configuration/user-credentials), meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
 
 <div class="row-fluid">
-  <div id="cycle-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-signavio-connector.png') %>"></div>
+  <div id="cycle-add-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-signavio-connector.png') %>"></div>
 </div>
 
 Hit `Test` to check if Cycle can find the folder you specified.
@@ -50,7 +50,7 @@ Hit `Test` to check if Cycle can find the folder you specified.
 Use the Subversion Plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the Subversion repository). If [user credentials](#tools/cycle/connector-configuration/user-credentials) are mandatory, you can provide them either globally, or individually for each Cycle user. In the picture below you see a connector setup for a Git Hub repository. The user credentials are provided globaly. 
 
 <div class="row-fluid">
-  <div id="cycle-subversion-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-svn-connector.png') %>"></div>
+  <div id="cycle-add-subversion-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-svn-connector.png') %>"></div>
 </div>
 
 Hit `Test` to check if Cycle can find the folder you specified.
@@ -60,7 +60,7 @@ Hit `Test` to check if Cycle can find the folder you specified.
 Use the File System Connector to use models stored on your local system. Select the File System Connector as connecotr plugin. The variable `${user.home}` points to the directory of your OS user Account. You can also choose an absolute path like `C:\MyFolder`. 
 
 <div class="row-fluid">
-  <div id="cycle-file-system-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-file-system-connector.png') %>"></div>
+  <div id="cycle-add-file-system-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-file-system-connector.png') %>"></div>
 </div>
 
 Hit `Test` to check if Cycle can find the folder you specified.
@@ -87,7 +87,7 @@ When we are takling about Rountrips we are talking about the synchronisation of 
 
 <h4>Step 1: Setup the Connector</h4>
 <div class="row-fluid">
-  <div id="signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-signavio-connector.png') %>" ></div>
+  <div id="cycle-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-signavio-connector.png') %>" ></div>
     <div class="span8">
       <p>
         Setup a suitable connector for your repository as described in the section [Connector Configuration](#tools/cycle/connector-configuration).
@@ -116,7 +116,7 @@ When we are takling about Rountrips we are talking about the synchronisation of 
   <div id="cycle-signavio-created" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/signavio-created.png') %>" ></div>
     <div class="span8">
       <p>Now Cycle shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 File stored in your file repository (right side). You can also see that the two process models are currently in synch, and the date and time since the last synch has been made.</p>
-      <p>You can now either check out the BPMN 2.0 - XML from your Subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="<%= @docUrl('design/modeler.html') %>">camunda Modeler</a>.</p>      
+      <p>You can now either check out the BPMN 2.0 - XML from your Subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>.</p>      
     </div>
 </div>
 <h4>Step 5: Reverse Engineering</h4>
@@ -146,7 +146,7 @@ The following example shows relevant xml tag:
 
 An executable process model usually contains engine specific attributes in the BPMN 2.0 XML. So we have to make sure, that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means, that a proper BPMN 2.0 import and export functionality must keep the engine attributes, event if they are added as an engine extension. 
 
-The camunda BPM Process Engine uses multitude attributes for configuration purpose which can be setup in the camunda modeler. Cycle retains these attributes during the roundtrip. Here is an example:
+The camunda BPM Process Engine uses multitude attributes for configuration purpose which can be setup in the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>. Cycle retains these attributes during the roundtrip. Here is an example:
 
 The xml export from Signavio modeler contains no engine attributes:
 
@@ -275,7 +275,7 @@ For bulk delegation you can select multiple tasks via `strg + click`.
   <div id="tasklist-task-forms" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-task-forms-eclipse.png') %>"></div>
   <div class="span8">
       <p>Tasks can be directly assigned to a user, to a canditate group (group) or to a candidate list (mutiple users). Compared to the direct assignment of tasks are the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Dependening on this affiliation the Tasklist displays tasks in different [folders](#tools/tasklist/human-workflow-management/user-and-group-task-overview).</p>
-      <p>In the properties panel in your camunda Modeler you can configure all relevant attributes.</p>
+      <p>In the properties panel in your <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> you can configure all relevant attributes.</p>
   </div>  
 </div>
 
@@ -320,7 +320,7 @@ Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NA
         </div>
       </form>
 
-To configure the form in your process open the process in your Eclipse IDE with the <a href="<%= @docUrl('design/modeler.html') %>">camunda Modeler</a> and select the desired [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>. Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+To configure the form in your process open the process in your Eclipse IDE with the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> and select the desired [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>. Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
 
       <userTask id="theTask" camundabpm:formKey="embedded:app:forms/FORM_NAME.html" 
                 camundabpm:candidateUsers="John, Mary" 
@@ -362,3 +362,4 @@ The generic form will be used whenever you have not added a dedicated form for a
 </div>
 
 ## Cockpit<a id="tools/cockpit"></a>
+
