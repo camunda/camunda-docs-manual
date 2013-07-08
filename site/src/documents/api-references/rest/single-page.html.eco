@@ -254,3 +254,25 @@
 </section>
 
 </section>
+
+<section id="variable-instance">
+
+<h1>Variable Instance</h1>
+
+<section id="get-variable-instances" name="Get Variable Instances">
+  <%- @include("./variable-instance/get-query.html.md") %>
+</section>
+
+<section id="get-variable-instances-count" name="Get Variable Instances Count">
+  <%- @include("./variable-instance/get-query-count.html.md") %>
+</section>
+
+<section id="post-variable-instances" name="Get Variable Instances (POST)">
+  <%- @include("./variable-instance/post-query.html.md") %>
+</section>
+
+<section id="post-variable-instances-count" name="Get Variable Instances Count (POST)">
+  <%- @include("./variable-instance/post-query-count.html.md") %>
+</section>
+
+</section>
