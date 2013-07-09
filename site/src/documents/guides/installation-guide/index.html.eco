@@ -11,6 +11,7 @@ layout: 'default'
   </div>
   
   <p>Learn how to install the camunda BPM platform and web applications on the different application servers.</p>
+  <p>Here you can find information about <a href="../user-guide/#introduction/supported-environments">supported environments</a> 
   
   <div class="row">
     <div class="span3">    

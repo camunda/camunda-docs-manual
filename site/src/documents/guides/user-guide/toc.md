@@ -3,6 +3,8 @@
 <div docs-toc></div>
 
 * [Introduction](#introduction)
+    * [BPM Platform](#introduction/bpm-platform)
+	* [Supported Environments](#introduction/supported-environments)
 * [Process Engine](#process-engine)
     * [Process Engine Bootstrapping](#process-engine-bootstrapping)
         * [ProcessEngineConfiguration bean](#process-engine-configuration-bean)
