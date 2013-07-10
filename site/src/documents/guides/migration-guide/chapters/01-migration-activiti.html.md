@@ -1,4 +1,4 @@
-## Migration from Activiti
+## Migrate from Activiti
 
 
 ### Migrate to Activiti 5.11
