@@ -1,7 +1,7 @@
 Update group
 ===========
 
-Created a new group.
+Create a new group.
 
 
 Method

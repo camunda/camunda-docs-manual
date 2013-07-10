@@ -67,6 +67,7 @@
   * [Get Users](#user/get-query)
   * [Get Users Count](#user/get-query-count)
   * [Update single User](#user/post-update)
+  * [Update a User's Password](#user/post-update-password)  
 * [Group](#group)
   * [Create single Group](#group/post-create)
   * [Delete single Group](#group/delete)

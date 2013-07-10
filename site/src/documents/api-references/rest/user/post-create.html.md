@@ -1,7 +1,7 @@
 Update user
 ===========
 
-Created a new user.
+Create a new user.
 
 
 Method

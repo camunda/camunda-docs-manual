@@ -295,6 +295,9 @@
 <section id="user/post-update" name="Update single User">
   <%- @include("./user/post-update.html.md") %>
 </section>
+<section id="user/post-update-password" name="Update a User's Password">
+  <%- @include("./user/post-update-password.html.md") %>
+</section>
 
 <h1>Groups</h1>
 
