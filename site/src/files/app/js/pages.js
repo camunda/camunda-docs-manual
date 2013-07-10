@@ -115,7 +115,22 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
   
-  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" }
+  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" },
+
+  { module: "rest-api", category: "User", id: "create-user", name: "Create single User", url: "user/post-create", keywords: "identity user create new post" },
+  { module: "rest-api", category: "User", id: "delete-user", name: "Delete single User", url: "user/delete", keywords: "identity user delete" },
+  { module: "rest-api", category: "User", id: "get-user", name: "Get single User", url: "user/get", keywords: "identity user get" },
+  { module: "rest-api", category: "User", id: "get-users", name: "Get Users", url: "user/get-query", keywords: "identity user get query" },
+  { module: "rest-api", category: "User", id: "get-users-count", name: "Get Users Count", url: "user/get-query-count", keywords: "identity user get query count" },
+  { module: "rest-api", category: "User", id: "post-user", name: "Update single User", url: "user/post-update", keywords: "identity user post update save" },
+
+  { module: "rest-api", category: "Group", id: "create-group", name: "Create single Group", url: "group/post-create", keywords: "identity group create new post" },
+  { module: "rest-api", category: "Group", id: "delete-group", name: "Delete single Group", url: "group/delete", keywords: "identity group delete" },
+  { module: "rest-api", category: "Group", id: "get-group", name: "Get single Group", url: "group/get", keywords: "identity group get" },
+  { module: "rest-api", category: "Group", id: "get-groups", name: "Get Groups", url: "group/get-query", keywords: "identity group get query" },
+  { module: "rest-api", category: "Group", id: "get-groups-count", name: "Get Groups Count", url: "group/get-query-count", keywords: "identity group get query count" },
+  { module: "rest-api", category: "Group", id: "post-group", name: "Update single Group", url: "group/post-update", keywords: "identity group post update save" },
+
 ];
 
 CAM_MODULES = {

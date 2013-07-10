@@ -55,3 +55,5 @@
   * [Deliver a Message](#post-message)
 * [Identity](#identity)
   * [Get a User's Groups](#get-group-info)
+* [User](#user)
+  * [Get Users](#user/get-query)

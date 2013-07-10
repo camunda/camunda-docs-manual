@@ -253,4 +253,10 @@
   <%- @include("./identity/get-group-info.html.md") %>
 </section>
 
+<h1>Users</h1>
+
+<section id="user/get-query" name="Get Users">
+  <%- @include("./user/get-query.html.md") %>
+</section>
+
 </section>
