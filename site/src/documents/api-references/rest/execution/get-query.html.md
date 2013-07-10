@@ -51,12 +51,20 @@ Parameters
     <td>Select only those executions that expect a message of the given name.</td>
   </tr>
   <tr>
+    <td>active</td>
+    <td>Only include active executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include suspended executions. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
@@ -70,7 +78,7 @@ Parameters
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
     `key` and `value` may not contain underscore or comma characters.      

@@ -429,7 +429,7 @@ The client-side part of a cockpit plugin consists of an extension to the cockpit
 
 When using `AbstractPluginRootResource` as the plugin resources base class, serving static assets is already built in. The root resource accepts `GET` request under `/static` to serve plugin provided client-side resources. Per convention, these resources must reside in a `/assets` directory relative to the plugin main class.
 
-So let's create a file `org/camunda/bpm/cockpit/plugin/assets/info.txt` in the `src/main/resources` directory of our project. We can give it the following content (optional):
+So let's create a file `org/camunda/bpm/cockpit/plugin/sample/assets/info.txt` in the `src/main/resources` directory of our project. We can give it the following content (optional):
 
     FOO BAR
 

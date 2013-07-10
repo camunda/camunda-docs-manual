@@ -117,6 +117,10 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" },
 
+  { module: "rest-api", category: "Variable Instance", id: "get-variable-instances", name: "Get Variable Instances", url: "variable-instance/get-query", keywords: "variable instances get variable-instance query filter" },
+  { module: "rest-api", category: "Variable Instance", id: "get-variable-instances-count", name: "Get Variable Instances Count", url: "variable-instance/get-query-count", keywords: "variable instances get variable-instance query filter count" },
+  { module: "rest-api", category: "Variable Instance", id: "post-variable-instances", name: "Get Variable Instances (POST)", url: "variable-instance/post-query", keywords: "variable instances post variable-instance query filter" },
+  { module: "rest-api", category: "Variable Instance", id: "post-variable-instances-count", name: "Get Variable Instances Count (POST)", url: "variable-instance/post-query-count", keywords: "variable instances post variable-instance query filter count" },
   { module: "rest-api", category: "User", id: "create-user", name: "Create single User", url: "user/post-create", keywords: "identity user create new post" },
   { module: "rest-api", category: "User", id: "delete-user", name: "Delete single User", url: "user/delete", keywords: "identity user delete" },
   { module: "rest-api", category: "User", id: "get-user", name: "Get single User", url: "user/get", keywords: "identity user get" },

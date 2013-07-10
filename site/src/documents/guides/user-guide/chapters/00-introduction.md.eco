@@ -1,0 +1,73 @@
+# Introduction <a id="introduction"></a>
+
+<div class="alert">
+  <p>
+  <strong>Under construction!</strong>
+</p>
+<p>
+We currently work on improving the whole documentation. While doing this we will merge a lot of content from the <a href="https://app.camunda.com/confluence/display/foxUserGuide/Home">camunda fox user guide</a> to camunda.org. Please be patient with us. In the meanwhile we will link the highlights from here.
+</p>
+
+</div>
+
+Basic concepts explained:
+<ul>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/History">History (Audit Data)</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management">Thread and Transaction Management</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Job+Execution">Job Execution</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling">Error Handling</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Process+Versioning">Process Versioning</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Process+Decomposition">Process Decomposition</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Multi-Tenancy">Multi-Tenancy</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Testing">Testing</a></li>
+</ul>
+
+Some other interessting links:
+<ul>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup">Database Setup</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Supported+environments">Supported Environments</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Installation+and+Administration">Installation and Administration</a></li>
+</ul>
+
+
+## BPM Platform<a id="introduction/bpm-platform"></a>
+
+The camunda BPM platform is a powerful yet lightweight framework for workflow and process execution. The functionality provided by the camunda BPM platform comprises three main aspects:
+
+* **[Process Engine](#process-engine)**: the process engine is the core component responsible for executing BPMN 2.0 Business Processes. The Process Engine API provides means for deploying, executing and monitoring business processes.
+* **[Process Applications](#process-applications)**: a process application is a Java application that interacts with the process engine. The process application uses the process engine API for interacting with business processes and provides the Java Code implementations for service tasks in the BPMN 2.0 processes.
+* **[Runtime Container Integration](#runtime-container-integration)**: the runtime container integration allows the BPM platform to use resources (such as Thread Pools) provided by the container in which it is deployed and expose management resources inside this container (such as JMX MBeans).
+
+## Supported Environments<a id="introduction/supported-environments"></a>
+
+camunda BPM is supported in the following environments. Here you can find more information about our <a href="http://www.camunda.com/fox/services/support/">enterprise support</a>.
+
+### Container / Application Server
+
+    * Apache Tomcat 6 / 7
+    * JBoss Application Server 7.1 / JBoss EAP 6.0
+    * Glassfish 3.1
+    * IBM Websphere Application Server 8.0 / 8.5
+	
+### Databases
+    
+	* MySQL 5.1
+    * Oracle 10g / 11g
+    * IBM DB2 9.7 
+    * Postgre SQL 9.1
+    * Microsoft SQL Server 2008 R2 / 2012
+    * H2 1.3
+	
+### Webbrowser
+
+    * Google Chrome latest
+	* Mozilla Firefox latest
+	* Internet Explorer 9 / 10
+	
+### Java Runtime
+
+    * Java 6 / 7
+	
+### Eclipse (for camunda modeler)
+
+    * Eclipse Indigo / Juno 
