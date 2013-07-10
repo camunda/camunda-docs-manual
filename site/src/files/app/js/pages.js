@@ -114,9 +114,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Task", id: "post-delegate", name: "Delegate Task", url: "task/post-delegate", keywords: "tasks post task delegate assignee" },
   
   { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
-  
-  { module: "rest-api", category: "Identity", id: "get-group-info", name: "Get a User's Groups", url: "identity/get-group-info", keywords: "identity get groups user" },
-
+    
   { module: "rest-api", category: "Variable Instance", id: "get-variable-instances", name: "Get Variable Instances", url: "variable-instance/get-query", keywords: "variable instances get variable-instance query filter" },
   { module: "rest-api", category: "Variable Instance", id: "get-variable-instances-count", name: "Get Variable Instances Count", url: "variable-instance/get-query-count", keywords: "variable instances get variable-instance query filter count" },
   { module: "rest-api", category: "Variable Instance", id: "post-variable-instances", name: "Get Variable Instances (POST)", url: "variable-instance/post-query", keywords: "variable instances post variable-instance query filter" },
@@ -131,7 +129,9 @@ CAM_PAGES = [
   { module: "rest-api", category: "User", id: "post-user", name: "Update a User's password", url: "user/post-update-password", keywords: "identity user post update save password" },
 
   { module: "rest-api", category: "Group", id: "create-group", name: "Create single Group", url: "group/post-create", keywords: "identity group create new post" },
+  { module: "rest-api", category: "Group", id: "create-group-member", name: "Create Group Member", url: "group/members/post-create", keywords: "identity group create add member membership post" },
   { module: "rest-api", category: "Group", id: "delete-group", name: "Delete single Group", url: "group/delete", keywords: "identity group delete" },
+  { module: "rest-api", category: "Group", id: "delete-group-member", name: "Delete Group Member", url: "group/members/delete", keywords: "identity group member membership remove delete" },
   { module: "rest-api", category: "Group", id: "get-group", name: "Get single Group", url: "group/get", keywords: "identity group get" },
   { module: "rest-api", category: "Group", id: "get-groups", name: "Get Groups", url: "group/get-query", keywords: "identity group get query" },
   { module: "rest-api", category: "Group", id: "get-groups-count", name: "Get Groups Count", url: "group/get-query-count", keywords: "identity group get query count" },
