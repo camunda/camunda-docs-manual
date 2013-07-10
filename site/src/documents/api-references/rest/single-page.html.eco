@@ -277,8 +277,44 @@
 
 <h1>Users</h1>
 
+<section id="user/post-create" name="Create single User">
+  <%- @include("./user/post-create.html.md") %>
+</section>
+<section id="user/delete" name="Delete single User">
+  <%- @include("./user/delete.html.md") %>
+</section>
+<section id="user/get" name="Get single User">
+  <%- @include("./user/get.html.md") %>
+</section>
 <section id="user/get-query" name="Get Users">
   <%- @include("./user/get-query.html.md") %>
+</section>
+<section id="user/get-query-count" name="Get Users Count">
+  <%- @include("./user/get-query-count.html.md") %>
+</section>
+<section id="user/post-update" name="Update single User">
+  <%- @include("./user/post-update.html.md") %>
+</section>
+
+<h1>Groups</h1>
+
+<section id="group/post-create" name="Create single Group">
+  <%- @include("./group/post-create.html.md") %>
+</section>
+<section id="group/delete" name="Delete single Group">
+  <%- @include("./group/delete.html.md") %>
+</section>
+<section id="group/get" name="Get single Group">
+  <%- @include("./group/get.html.md") %>
+</section>
+<section id="group/get-query" name="Get Groups">
+  <%- @include("./group/get-query.html.md") %>
+</section>
+<section id="group/get-query-count" name="Get Groups Count">
+  <%- @include("./group/get-query-count.html.md") %>
+</section>
+<section id="group/post-update" name="Update single Group">
+  <%- @include("./group/post-update.html.md") %>
 </section>
 
 </section>
