@@ -122,20 +122,20 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "User", id: "create-user", name: "Create single User", url: "user/post-create", keywords: "identity user create new post" },
   { module: "rest-api", category: "User", id: "delete-user", name: "Delete single User", url: "user/delete", keywords: "identity user delete" },
-  { module: "rest-api", category: "User", id: "get-user", name: "Get single User", url: "user/get", keywords: "identity user get" },
+  { module: "rest-api", category: "User", id: "get-user", name: "Get a User's Profile", url: "user/get", keywords: "identity user profile get" },
   { module: "rest-api", category: "User", id: "get-users", name: "Get Users", url: "user/get-query", keywords: "identity user get query" },
   { module: "rest-api", category: "User", id: "get-users-count", name: "Get Users Count", url: "user/get-query-count", keywords: "identity user get query count" },
-  { module: "rest-api", category: "User", id: "post-user", name: "Update single User", url: "user/post-update", keywords: "identity user post update save" },
-  { module: "rest-api", category: "User", id: "post-user", name: "Update a User's password", url: "user/post-update-password", keywords: "identity user post update save password" },
+  { module: "rest-api", category: "User", id: "put-user-profile", name: "Update a User's Profile", url: "user/put-update-profile", keywords: "identity user put update profile save" },
+  { module: "rest-api", category: "User", id: "put-user-credentials", name: "Update a User's Credentials", url: "user/put-update-credentials", keywords: "identity user post update save password credential credentials" },
 
   { module: "rest-api", category: "Group", id: "create-group", name: "Create single Group", url: "group/post-create", keywords: "identity group create new post" },
-  { module: "rest-api", category: "Group", id: "create-group-member", name: "Create Group Member", url: "group/members/post-create", keywords: "identity group create add member membership post" },
+  { module: "rest-api", category: "Group", id: "create-group-member", name: "Create Group Member", url: "group/members/put", keywords: "identity group create add member membership put" },
   { module: "rest-api", category: "Group", id: "delete-group", name: "Delete single Group", url: "group/delete", keywords: "identity group delete" },
   { module: "rest-api", category: "Group", id: "delete-group-member", name: "Delete Group Member", url: "group/members/delete", keywords: "identity group member membership remove delete" },
   { module: "rest-api", category: "Group", id: "get-group", name: "Get single Group", url: "group/get", keywords: "identity group get" },
   { module: "rest-api", category: "Group", id: "get-groups", name: "Get Groups", url: "group/get-query", keywords: "identity group get query" },
   { module: "rest-api", category: "Group", id: "get-groups-count", name: "Get Groups Count", url: "group/get-query-count", keywords: "identity group get query count" },
-  { module: "rest-api", category: "Group", id: "post-group", name: "Update single Group", url: "group/post-update", keywords: "identity group post update save" },
+  { module: "rest-api", category: "Group", id: "put-group", name: "Update single Group", url: "group/put-update", keywords: "identity group put update save" },
 
 ];
 

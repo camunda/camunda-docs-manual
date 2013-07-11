@@ -1,14 +1,12 @@
-Create Group Member
-===================
+Update a user's credentials
+===========================
 
-Add a member to a group.
-
+Updates a user's credentials (password).
 
 Method
 ------
 
-POST `/group/{id}/members/create`
-
+PUT `/user/{id}/credentials`
 
 Parameters
 ----------
@@ -24,9 +22,9 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>userId</td>
+    <td>password</td>
     <td>String</td>
-    <td>The id of the user to add to the group.</td>
+    <td>The user's new password.</td>
   </tr>  
 </table>
 
@@ -34,7 +32,7 @@ A json object with the following properties:
 Result
 ------
 
-None.
+Empty.
 
 Response codes
 --------------  
@@ -51,9 +49,14 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>If the corresponding user cannot be found</td>
+  </tr>
+  <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an internal error occurs. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The user could not be created due to an internal server error. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -62,11 +65,11 @@ Example
 
 #### Request
 
-POST `/group/sales/members/create`
+PUT `/user/jonny1/credentials`
 
 Request body:
 
-    {"userId":"jonny1"}
+    {"password":"s3cr3t"}
 
 #### Response
 

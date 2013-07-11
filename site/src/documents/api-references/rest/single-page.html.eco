@@ -282,11 +282,11 @@
 <section id="user/get-query-count" name="Get Users Count">
   <%- @include("./user/get-query-count.html.md") %>
 </section>
-<section id="user/post-update" name="Update single User">
-  <%- @include("./user/post-update.html.md") %>
+<section id="user/put-update-profile" name="Update a User's Profile">
+  <%- @include("./user/put-update-profile.html.md") %>
 </section>
-<section id="user/post-update-password" name="Update a User's Password">
-  <%- @include("./user/post-update-password.html.md") %>
+<section id="user/put-update-credentials" name="Update a User's Password">
+  <%- @include("./user/put-update-credentials.html.md") %>
 </section>
 
 <h1>Groups</h1>
@@ -294,8 +294,8 @@
 <section id="group/post-create" name="Create single Group">
   <%- @include("./group/post-create.html.md") %>
 </section>
-<section id="group/members/post-create" name="Create Group Member">
-  <%- @include("./group/members/post-create.html.md") %>
+<section id="group/members/put" name="Create Group Member">
+  <%- @include("./group/members/put.html.md") %>
 </section>
 <section id="group/delete" name="Delete single Group">
   <%- @include("./group/delete.html.md") %>
@@ -312,8 +312,8 @@
 <section id="group/get-query-count" name="Get Groups Count">
   <%- @include("./group/get-query-count.html.md") %>
 </section>
-<section id="group/post-update" name="Update single Group">
-  <%- @include("./group/post-update.html.md") %>
+<section id="group/put-update" name="Update single Group">
+  <%- @include("./group/put-update.html.md") %>
 </section>
 
 </section>

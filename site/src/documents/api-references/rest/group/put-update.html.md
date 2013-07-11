@@ -7,7 +7,7 @@ Updates a given group.
 Method
 ------
 
-POST `/group/{id}`
+PUT `/group/{id}`
 
 
 Parameters
@@ -60,32 +60,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object representing the updated group.
-Properties are:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the group.</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The name of the group.</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>The type of the group.</td>
-  </tr> 
-</table>
-
+Empty.
 
 Response codes
 --------------  
@@ -97,8 +72,8 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
-    <td>application/json</td>
+    <td>204</td>
+    <td>Empty.</td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -118,7 +93,7 @@ Example
 
 #### Request
 
-POST `/group/sales`
+PUT `/group/sales`
 
 Request body:
 
@@ -128,7 +103,4 @@ Request body:
 
 #### Response
 
-    {"id":"sales",
-     "name":"Sales",
-     "type":"Organizational Unit"}
-
+Empty.

@@ -1,13 +1,13 @@
-Get Single User by ID
-=====================
+Get a User's Profile by ID
+==========================
 
-Retrieves a single user.
+Retrieves a single user'S profile.
 
 
 Method
 ------
 
-GET `/user/{id}`
+GET `/user/{id}/profile`
 
 
 Parameters
@@ -88,7 +88,7 @@ Example
 
 #### Request
 
-GET `/user/jonny1`
+GET `/user/jonny1/profile`
   
 #### Response
 

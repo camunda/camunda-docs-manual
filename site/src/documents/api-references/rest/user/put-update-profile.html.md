@@ -1,13 +1,13 @@
-Update user
-===========
+Update User Profile
+===================
 
-Updates a given user.
+Updates the profile information of an already existing user.
 
 
 Method
 ------
 
-POST `/user/{id}`
+PUT `/user/{id}/profile`
 
 
 Parameters
@@ -65,37 +65,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object representing the updated user.
-Properties are:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the user.</td>
-  </tr>
-  <tr>
-    <td>firstName</td>
-    <td>String</td>
-    <td>The firstname of the user.</td>
-  </tr>
-  <tr>
-    <td>lastName</td>
-    <td>String</td>
-    <td>The lastname of the user.</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>String</td>
-    <td>The email of the user.</td>
-  </tr>   
-</table>
-
+Empty.
 
 Response codes
 --------------  
@@ -107,8 +77,8 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
-    <td>application/json</td>
+    <td>204</td>
+    <td>None</td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -128,7 +98,7 @@ Example
 
 #### Request
 
-POST `/user/jonny1`
+PUT `/user/jonny1/profile`
 
 Request body:
 
@@ -139,7 +109,4 @@ Request body:
 
 #### Response
 
-    {"id":"jonny1",
-      "firstName":"John",
-      "lastName":"Doe",
-      "email":"theNewEmailAddress"}
+Empty.
