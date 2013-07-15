@@ -41,7 +41,7 @@ Parameters
   <tr>
     <td>modifications</td>
     <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
-    A variable value object has has the property `value`, which is the value to update.</td>
+    A variable value object has has the property `value`, which is the value to update, and `type`, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>
     <td>deletions</td>
@@ -70,6 +70,11 @@ Response codes
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+  </tr>  
   <tr>
     <td>500</td>
     <td>application/json</td>

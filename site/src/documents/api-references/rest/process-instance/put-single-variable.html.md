@@ -43,6 +43,11 @@ A json object with the following properties:
     <td>value</td>
     <td>The value of the variable to set.</td>
   </tr>
+  <tr>
+    <td>type</td>
+    <td>The type of the variable to set. Valid types are Integer, Short, Long, Double, String, Boolean and Date.
+    </td>
+  </tr>  
 </table>
 
 
@@ -66,6 +71,11 @@ Response codes
     <td></td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+  </tr>    
 </table>
 
   
@@ -76,7 +86,7 @@ Example
 
 PUT `/process-instance/aProcessInstanceId/variables/aVarName`
   
-    {"value" : "someValue"}
+    {"value" : "someValue", "type": "String"}
      
 #### Response
     
