@@ -13,6 +13,23 @@ POST `/variable-instance`
 Parameters
 ----------  
 
+#### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+  </tr>
+</table> 
+
 #### Request Body
 
 <p>
@@ -69,14 +86,6 @@ Parameters
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
     Must be used in conjunction with the `sortBy` parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
   </tr>
 </table>
 
