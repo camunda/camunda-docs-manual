@@ -470,3 +470,8 @@ h4:hover .headerlink {
   display: inline-block;  
 }
 
+.fullpage-preview a img {
+  border: solid 1px #ccc;
+  padding: 2px;
+  max-width: 800px;
+}

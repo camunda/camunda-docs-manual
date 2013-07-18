@@ -14,6 +14,10 @@ All applications are part of our camunda BPM distribution and ready to use!
 
 With Cycle you can synchronize the BPMN diagrams in your business analysts’ BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their Modeler (e.g. in Eclipse). Depending on your tool we can realize a forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
 
+<div class="fullpage-preview">
+  <div id="cycle-start-page-view" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-start-page-view.png') %>"></div>
+</div>
+
 Although business and IT use different BPMN tools, the process models keep in synch: With camunda Cycle you can synchronize BPMN diagrams in the toolchain anytime, for forward engineering as well as reverse engineering. By connecting and continuously synchronizing the process models in both environments, we keep business and IT aligned. This is what we call a fully working BPM roundtrip.
 
 The typical use cases are: 
@@ -190,6 +194,10 @@ After synchronization back to Signavio the origin Signavio-information like comp
 
 The Tasklist is a demo web application to provide you the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/tasklist.
 
+<div class="fullpage-preview">
+  <div id="tasklist-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-start-page-view.png') %>"></div>
+</div>
+
 <div class="alert">
   <p>
     <strong>Please note!</strong>
@@ -201,7 +209,7 @@ Find additional information about how to use the Tasklist in our <a href="http:/
 
 ### Human Workflow Management<a id="tools/tasklist/human-workflow-management"></a>
 
-In the following example we walk through a typical humen worklow scenario. The Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_ and start a process instance.
+In the following example we walk through a typical humen workflow scenario. The Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_ and start a process instance.
 
 #### Start a Process<a id="tools/tasklist/human-workflow-management/start-a-process"></a>
 
@@ -354,12 +362,121 @@ The generic form will be used whenever you have not added a dedicated form for a
 
 ### Task Lifecycle<a id="tools/tasklist/task-lifecycle"></a>
 
-<div class="row-fluid">
-  <div class="span8">
-      For a better understanding of the different states and task operations check the state diagram of the task lifecycle. For the implementation you get detailed information in our <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
-  </div>  
-  <div id="tasklist-task-lifecylce-complete" class="span" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-user-task-state-complete.png') %>"></div>
+For a better understanding of the different states and task operations check the state diagram of the task lifecycle. For the implementation you get detailed information in our <a href="../../api-references/java/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
+
+<div class="fullpage-preview">
+  <div id="tasklist-task-lifecylce-complete" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-user-task-state-complete.png') %>"></div>
 </div>
 
 ## Cockpit<a id="tools/cockpit"></a>
 
+### What is Cockpit?<a id="tools/cockpit/what-is-cockpit"></a>
+
+With camunda BPM Cockpit you can monitor and administrate your running process instances. It has been optimized for the use in high-volume-scenarios, so that you won’t lose any performance when operating with massive numbers of process instances. The Cockpit architecture allows to use <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individualy adapt the tool to your personal requirements. 
+
+<div class="fullpage-preview">
+  <div id="cockpit-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-start-page-view.png') %>"></div>
+</div>
+
+
+### Start Page View<a id="tools/cockpit/start-page-view"></a>
+
+On the start page of Cockpit you get an overview of the installed plugins - at least you will see the two [pre-installed plugins](#tools/cockpit/start-page-view/default-plugins). Additionally installed plugins will be automatically added below the existing ones.
+
+#### Default Plugins<a id="tools/cockpit/start-page-view/default-plugins"></a>
+
+Cockpit comes with the following pre-configured plugins: 
+
+##### Process Definition State Overview<a id="tools/cockpit/start-page-view/default-plugins/process-definition-state-overview"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-plugin-process-definition-state-overview" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definition-state.png') %>"></div>
+  <div class="span8">        
+    With the Process Definition State Overview plugin you can easily observe the state of a processes definition. Green and red dots signalizing running and [failed jobs](#tools/cockpit/failed-jobs). At this observing level a red dot signifys that there is at least one process instance or a sub process instance which has an unresolved incident. You can localize the problem by using the [Process Definitions View](#tools/cockpit/process-definitions-view).
+  </div>  
+</div>
+
+##### Deployed Processes<a id="tools/cockpit/start-page-view/default-plugins/deployed"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-plugin-deployed-processes" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed processes.png') %>"></div>
+  <div class="span8">        
+    The Deployed Process plugin givs you an overview about all deployed processes on the engine and visualize them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#tools/cockpit/process-definitions-view)
+  </div>  
+</div>
+
+#### Multi Tenancy
+
+<div class="row-fluid">
+  <div id="cockpit-multi-engine" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-multi-engine.png') %>"></div>
+  <div class="span8">
+    If you are working with more than one engine you can select the desired engine via a dropdown selection. Cockpit provides all information of the selected engine.
+  </div>  
+</div>
+
+### Process Definitions View<a id="tools/cockpit/process-definitions-view"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-process-definitions-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definitions-view.png') %>"></div>
+  <div class="span8">
+    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. Also [failed jobs](#tools/cockpit/failed-jobs) can be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
+    Additionaly all running instances are listed in a tabel view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view).</p>
+  </div>
+</div>
+
+### Process Instance Detail View<a id="tools/cockpit/process-instance-detail-view"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-process-instances-detail-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-detail-view.png') %>"></div>
+  <div class="span8">
+    <p>Open the Process Instance Detail View by selecting a process instance from the [Proces Definitions View](#tools/cockpit/process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
+    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools/cockpit/process-instance-detail-view/activity-instance-tree). Variables that belong to the instance will be listet in a variables table of the [Detailed Information Panel](#tools/cockpit/process-instance-detail-view/detailed-information-panel). Now you can select single or multiple ('strg + click') flow nodes in the interactive bpmn diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table corresponds to each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
+  </div>  
+</div>
+
+#### Activity Instance Tree<a id="tools/cockpit/process-instance-detail-view/activity-instance-tree"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-activity-instance-tree-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-activity-instance-tree-view.png') %>"></div>
+  <div class="span8">
+    <p>The activity instance tree contains a node for each activity that is currently active in the process instance. It allows you to select activity instances to explore their details. Concurrently the selected instance will be marked in the rendered process diagram and the corresponding variables will be listed in the Detailed Information Panel.</p>
+  </div>
+</div>
+
+#### Detailed Information Panel<a id="tools/cockpit/process-instance-detail-view/detailed-information-panel"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-detailed-information-panel" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-detailed-information-view.png') %>"></div>
+  <div class="span8">
+    <p>Use the Detailed Information Panel to get an overview about the variables that the process instance contains. Depending on the selected activity instance the panel lists the corresponding variables. On the other way around you can focus on the activity instance via a scope link in the table. Furthermore you can edit varibles in this view.</p> 
+  </div>
+</div>
+
+
+#### Editing Variables<a id="tools/cockpit/process-instance-detail-view/editing-variables"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-editing-varaibles" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-edit-variables.png') %>"></div>
+  <div class="span8">
+    <p>Hit the <button class="btn btn-mini dropdown-toggle"><i class="icon-pencil"></i> </button> symbol in the Detailed Information Panel to edit variables. This feauture allows you to change the value of primitive data types like string, integer and boolean as well as the data type date. A validation of the date format and for the value of integers happens on client side. If you enter NULL the variable will be converted to string.</p>
+  </div>
+</div>
+
+#### Cancel a Process Instance<a id="tools/cockpit/process-instance-detail-view/cancel-process-instance"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-cancel-process-instance" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-cancel-process-instance.png') %>"></div>
+  <div class="span8">
+    When you select a single process instance you can cancel it in the Process Instance Detail View. After you have confirmed this step you get a confirm notification.
+  </div>
+</div>
+
+
+### Failed Jobs<a id="tools/cockpit/failed-jobs"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-failed-job-drill-down" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-drill-down.png') %>"></div>
+  <div class="span8">
+    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view)</p>
+  </div> 
+</div>

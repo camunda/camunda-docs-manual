@@ -96,4 +96,16 @@
             * [Referenced Task Forms](#tools/tasklist/task-forms/referenced-task-forms)
             * [Generic Task Forms](#tools/tasklist/task-forms/generic-task-forms)
         * [Task Lifecycle](#tools/tasklist/task-lifecycle)
-        
+    * [Cockpit](#tools/cockpit)
+        * [What is Cockpit](#tools/cockpit/what-is-cockpit)
+        * [Start Page View](#tools/cockpit/start-page-view)
+            * [Default Plugins](#tools/cockpit/start-page-view/default-plugins)
+        * [Process Definitions View](#tools/cockpit/process-definitions-view)           
+        * [Process Instance Detail View](#tools/cockpit/process-instance-detail-view)
+            * [Activity Instance Tree](#tools/cockpit/process-instance-detail-view/activity-instance-tree)
+            * [Detail Information Panel](#tools/cockpit/process-instance-detail-view/detailed-information-panel)
+            * [Editing Variables](#tools/cockpit/process-instance-detail-view/editing-variables)            
+            * [Cancel a Process Instance](#tools/cockpit/process-instance-detail-view/cancel-process-instance)     
+        * [Failed Jobs](#tools/cockpit/failed-jobs)
+
+            
