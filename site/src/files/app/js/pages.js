@@ -101,6 +101,14 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "get-message-subscription", name: "Get Message Event Subscription", url: "execution/get-message-subscription", keywords: "executions execution get message event subscription" },
   { module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
   
+  { module: "rest-api", category: "Job", id: "get-job", name: "Get Single Job", url: "job/get", keywords: "jobs job get" },
+  { module: "rest-api", category: "Job", id: "get-jobs", name: "Get Jobs", url: "job/get-query", keywords: "jobs job get query filter" },
+  { module: "rest-api", category: "Job", id: "get-jobs-count", name: "Get Jobs Count", url: "job/get-query-count", keywords: "jobs job get query filter count" },
+  { module: "rest-api", category: "Job", id: "post-jobs", name: "Get Jobs (POST)", url: "job/post-query", keywords: "jobs job post query filter" },
+  { module: "rest-api", category: "Job", id: "post-jobs-count", name: "Get Jobs Count (POST)", url: "job/post-query-count", keywords: "jobs job post query filter count" },
+  { module: "rest-api", category: "Job", id: "put-set-job-retries", name: "Set Job Retries", url: "job/put-set-job-retries", keywords: "jobs put job set retries" },
+  { module: "rest-api", category: "Job", id: "post-execute-job", name: "Execute Job", url: "job/post-execute-job", keywords: "jobs post job execute" },
+
   { module: "rest-api", category: "Task", id: "get-task", name: "Get Single Task", url: "task/get", keywords: "task get" },
   { module: "rest-api", category: "Task", id: "get-tasks", name: "Get Tasks", url: "task/get-query", keywords: "tasks get task filter query" },
   { module: "rest-api", category: "Task", id: "get-tasks-count", name: "Get Tasks Count", url: "task/get-query-count", keywords: "tasks get task filter query count" },

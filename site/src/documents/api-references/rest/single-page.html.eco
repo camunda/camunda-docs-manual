@@ -184,6 +184,39 @@
 
 </section>
 
+<section id="job">
+
+<h1>Task</h1>
+
+<section id="get-job" name="Get Single Job">
+  <%- @include("./job/get.html.md") %>
+</section>
+
+<section id="get-jobs" name="Get Jobs">
+  <%- @include("./job/get-query.html.md") %>
+</section>
+
+<section id="get-jobs-count" name="Get Jobs Count">
+  <%- @include("./job/get-query-count.html.md") %>
+</section>
+
+<section id="post-jobs" name="Get Jobs (POST)">
+  <%- @include("./job/post-query.html.md") %>
+</section>
+
+<section id="post-jobs-count" name="Get Jobs Count (POST)">
+  <%- @include("./job/post-query-count.html.md") %>
+</section>
+
+<section id="put-set-job-retries" name="Set Job Retries">
+  <%- @include("./job/put-set-job-retries.html.md") %>
+</section>
+
+<section id="post-execute-job" name="Execute Job">
+  <%- @include("./job/post-execute-job.html.md") %>
+</section>
+
+</section>
 
 <section id="task">
 
