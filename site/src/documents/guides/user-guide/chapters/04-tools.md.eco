@@ -200,8 +200,8 @@ The Tasklist is a demo web application to provide you with the possibility to wo
 
 <div class="alert">
   <p>
-    <strong>Please note!</strong>
-    The tasklist can serve as a basis to develop your own tasklist. Please note that we do not want to provide a tasklist usable in every environment. We think this is not a good idea because normally you face different UI's (JSF, Portals, Vaadin, Wicket, Struts, PHP, ...) in every project and you may want to embed the tasklist into your application or architecture standards. That is why we provide you with a demo tasklist, which you may want to copy and start off your own project, or you just use it as inspiration to write your own.
+    <strong>Notice</strong>
+    The tasklist is a demo application, only. You may use it as a basis for your own projects or as a simple inspiration to write your own.
   </p>
 </div>
 
@@ -264,7 +264,7 @@ When you complete a task by submitting the task form, the task is completed and 
   </div>
 </div>
 
-For bulk (un-)claim you can select multiple tasks via `strg + click`.
+You can bulk (un-)claim tasks after selecting multiple tasks via `strg + click`.
 
 #### Delegate a Task<a id="tools/tasklist/human-workflow-management/delegae-a-task"></a>
 
@@ -275,7 +275,7 @@ For bulk (un-)claim you can select multiple tasks via `strg + click`.
   </div>  
 </div>
 
-For bulk delegation you can select multiple tasks via `strg + click`.
+You can bulk delegate tasks after selecting multiple tasks via `strg + click`.
 
 ### User Assignment<a id="tools/tasklist/user-assignment"></a>
 
@@ -362,7 +362,8 @@ The generic form will be used whenever you have not added a dedicated form for a
 
 ### Task Lifecycle<a id="tools/tasklist/task-lifecycle"></a>
 
-For a better understanding of the different states and task operations check the state diagram of the task lifecycle. For the implementation you get detailed information in our <a href="../../api-references/java/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
+The diagram below shows the task lifecycle and supported transitions supported by camundaBPM. 
+To get to know how to programmatically work with the lifecycle in your application refer to the <a href="../../api-references/java/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
 
 <div class="fullpage-preview">
   <div id="tasklist-task-lifecylce-complete" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-user-task-state-complete.png') %>"></div>
@@ -372,7 +373,8 @@ For a better understanding of the different states and task operations check the
 
 ### What is Cockpit?<a id="tools/cockpit/what-is-cockpit"></a>
 
-With camunda BPM Cockpit you can monitor and administrate your running process instances. It has been optimized for the use in high-volume-scenarios, so that you won’t lose any performance when operating with massive numbers of process instances. The Cockpit architecture allows using <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individually adapt the tool to your personal requirements. 
+With camunda BPM Cockpit you can monitor and administrate your running process instances. 
+The Cockpit architecture allows using <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individually adapt the tool to your personal requirements. 
 
 <div class="fullpage-preview">
   <div id="cockpit-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-start-page-view.png') %>"></div>
@@ -483,11 +485,17 @@ Cockpit comes with the following pre-configured plugins:
 
 ## User Management<a id="tools/user-management"></a>
 
-The <a href="../../api-references/java/?org/camunda/bpm/engine/identity/User.html">Engine Identity Services</a> uses an own database for the user management.
+Cockpit uses the build in user management provided by camundaBPM.
+
+Along with cockpit we ship Admin, accessible via <a href="http://localhost:8080/camunda/admin/">http://localhost:8080/camunda/admin/</a>.
+Admin is a small application that allows you to configure users and groups.
 
 ### Initial User Setup<a id="tools/user-management/initial-user-setup"></a>
 
-The engine identity service checks if an admin user is allready set up. That's why at first start up you will be prompt to create an user account with administrator rights. Also if you work with multiple engines you have to set up an admin user for every single engine. 
+On first access of a process engine through Cockpit a setup screen will be shown. 
+That screen allows you to configure a initial user account with administrator rights. 
+
+Administrative users are not global but per engine. Thus, you will need to set up an admin user for every single engine. 
 
 ### User Administration<a id="tools/user-management/user-administration"></a>
 
