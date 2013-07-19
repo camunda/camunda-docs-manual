@@ -107,5 +107,11 @@
             * [Editing Variables](#tools/cockpit/process-instance-detail-view/editing-variables)            
             * [Cancel a Process Instance](#tools/cockpit/process-instance-detail-view/cancel-process-instance)     
         * [Failed Jobs](#tools/cockpit/failed-jobs)
+    * [User Management](#tools/user-management)
+        * [Initial User Setup](#tools/user-management/initial-user-setup)
+        * [User Administration](#tools/user-management/user-administration)
+            * [My Profile](#tools/user-management/user-administration/my-profile)
+        * [Groups Administration](#tools/user-management/groups-administration)
+
 
             

@@ -1,37 +1,37 @@
 # Tools<a id="tools"></a>
 
-The camunda bpm stacks currently includes three web apps build on a HTML 5 plus [REST](<%= @docUrl('api-references/rest/') %>) architectur:
+The camunda bpm stack currently includes three web apps built on a HTML 5 plus [REST](<%= @docUrl('api-references/rest/') %>) architecture:
 
-* [Cycle](#tools/cycle) for synchronization of process models in different repositorys.
-* [Tasklist](#tools/tasklist), a demo application for humen workflow management.
+* [Cycle](#tools/cycle) for synchronization of process models in different repositories.
+* [Tasklist](#tools/tasklist), a demo application for human workflow management.
 * [Cockpit](#tools/cockpit), a monitoring tool for process operations.
 
-All applications are part of our camunda BPM distribution and ready to use! 
+The [User Management](#tools/user-management) for Cockpit and Tasklist works with the engine identity service. All applications are part of our camunda BPM distribution and ready to use! 
 
 ## Cycle<a id="tools/cycle"></a>
 
 ### What is Cycle?<a id="tools/cycle/what-is-cycle"></a>
 
-With Cycle you can synchronize the BPMN diagrams in your business analysts’ BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their Modeler (e.g. in Eclipse). Depending on your tool we can realize a forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
+With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their modeler (e.g. in Eclipse). Depending on your tool we can realize a forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
 
 <div class="fullpage-preview">
   <div id="cycle-start-page-view" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-start-page-view.png') %>"></div>
 </div>
 
-Although business and IT use different BPMN tools, the process models keep in synch: With camunda Cycle you can synchronize BPMN diagrams in the toolchain anytime, for forward engineering as well as reverse engineering. By connecting and continuously synchronizing the process models in both environments, we keep business and IT aligned. This is what we call a fully working BPM roundtrip.
+Although business and IT use different BPMN tools, the process models keep in synch: With camunda Cycle you can synchronize BPMN diagrams in the tool chain anytime, for forward engineering as well as reverse engineering. By connecting and continuously synchronizing the process models in both environments, we keep business and IT aligned. This is what we call a full working BPM roundtrip.
 
 The typical use cases are: 
 
 * Synchronize a BPMN 2.0 diagram with an executable diagram (Forward Engineering)
 * Update the executable diagram and synchronize the changes with the origin BPMN 2.0 diagram (Reverse Engineering)
-* Create executable diagram out of BPMN 2.0 diagram (Forward Engineering)
+* Create executable diagrams out of BPMN 2.0 diagram (Forward Engineering)
 
-Cycle is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/cycle. At first time start up you will be prompt to create an Admin User.
+Cycle is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/cycle. At first start up you will be prompt to create an admin user.
 If you are new to Cycle have a look at our Hands-On <a href="http://www.camunda.org/design/cycle-tutorial.html">Cycle Tutorial</a>.
 
 ### Connector Configuration<a id="tools/cycle/connector-configuration"></a>
 
-To connect Cycle to a suitable repository you can setup one of the following connectors: 
+To connect Cycle to a suitable repository you can set up one of the following connectors: 
 
 * [Signavio Connector](#tools/cycle/connector-configuration/signavio-connector) 
 * [Subversion Connector](#tools/cycle/connector-configuration/subversion-connector)
@@ -41,7 +41,7 @@ Furthermore you get information about how to configure [User Credentials](#tools
 
 #### Signavio Connector<a id="tools/cycle/connector-configuration/signavio-connector"></a>
 
-For directly accessing your process models stored in Signavio, you must setup a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided [credentials](#tools/cycle/connector-configuration/user-credentials), meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
+For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided [credentials](#tools/cycle/connector-configuration/user-credentials), meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
 
 <div class="row-fluid">
   <div id="cycle-add-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-signavio-connector.png') %>"></div>
@@ -51,7 +51,7 @@ Hit `Test` to check if Cycle can find the folder you specified.
 
 #### Subversion Connector<a id="tools/cycle/connector-configuration/subversion-connector"></a>
 
-Use the Subversion Plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the Subversion repository). If [user credentials](#tools/cycle/connector-configuration/user-credentials) are mandatory, you can provide them either globally, or individually for each Cycle user. In the picture below you see a connector setup for a Git Hub repository. The user credentials are provided globaly. 
+Use the subversion plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If [user credentials](#tools/cycle/connector-configuration/user-credentials) are mandatory, you can provide them either globally or individually for each Cycle user. In the picture below you see a connector setup for a GitHub repository. The user credentials are provided globally. 
 
 <div class="row-fluid">
   <div id="cycle-add-subversion-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-svn-connector.png') %>"></div>
@@ -61,7 +61,7 @@ Hit `Test` to check if Cycle can find the folder you specified.
 
 #### File System Connector<a id="tools/cycle/connector-configuration/file-system-connector"></a>
 
-Use the File System Connector to use models stored on your local system. Select the File System Connector as connecotr plugin. The variable `${user.home}` points to the directory of your OS user Account. You can also choose an absolute path like `C:\MyFolder`. 
+Use the File System Connector to use models stored on your local system. Select the File System Connector as connector plugin. The variable `${user.home}` points to the directory of your OS user account. You can also choose an absolute path like `C:\MyFolder`. 
 
 <div class="row-fluid">
   <div id="cycle-add-file-system-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-file-system-connector.png') %>"></div>
@@ -71,13 +71,13 @@ Hit `Test` to check if Cycle can find the folder you specified.
 
 #### User Credentials<a id="tools/cycle/connector-configuration/user-credentials"></a>
 
-If your repository requires a login you can choose between credentials provided by user or globally provided ones. Globally provided credentials can be set directly in the connector set up menu and are valid for every cycle user.
+If your repository requires a login you can choose between credentials provided by user or globally provided ones. Globally provided credentials can be set directly in the connector setup menu and are valid for every cycle user.
 
 <div class="row-fluid">
   <div id="cycle-globally-credentials" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-globally-credentials.png') %>"></div>
 </div>
 
-To setup credentials provided by the user you need to enter the `My Profile` menue and select `add credentials` for your connector. 
+To set up credentials provided by the user you need to enter the `My Profile` menu and select `add credentials` for your connector. 
 
 <div class="row-fluid">
   <div id="cycle-user-credentials" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-user-credentials.png') %>"></div>
@@ -87,7 +87,7 @@ Hit `Test` to check if the credentials are valid.
 
 ### BPMN 2.0 Roundtrip<a id="tools/cycle/bpmn-20-roundtrip"></a>
 
-When we are takling about Rountrips we are talking about the synchronisation of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modelled as well. This extraction mechanism is what we call [Pool Extraction](#tools/cycle/bpmn-20-roundtrip/pool-extraction). With Cycle, you can do this synchronisation in both directions. 
+When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](#tools/cycle/bpmn-20-roundtrip/pool-extraction). With Cycle, you can do this synchronization in both directions. 
 
 <h4>Step 1: Setup the Connector</h4>
 <div class="row-fluid">
@@ -95,7 +95,7 @@ When we are takling about Rountrips we are talking about the synchronisation of 
     <div class="span8">
       <p>
         Setup a suitable connector for your repository as described in the section [Connector Configuration](#tools/cycle/connector-configuration).
-        In this walkthrough we use a Signavio connector with user provided credentials.</p>
+        In this walkthrough we use a Signavio Connector with user provided credentials.</p>
       <p> Hit `Test` to check if Cycle can access your Signavio account.</p>
     </div>
 </div>
@@ -103,15 +103,15 @@ When we are takling about Rountrips we are talking about the synchronisation of 
 <div class="row-fluid">
   <div id="signavio-choose-model" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/signavio-choose-model.png') %>" ></div>
     <div class="span8">
-       <p>In the left box of your roundtrip, click on `Add process Model`, pick a name for your modelling tool and choose the Signavio connector from the connectors dropdown. Cycle now connects with Signavio, so after a short time you can navigate through the choosen repository to select your process model.</p>
-       <p>After you hit `Add`, Cycle will save a link to the process model you selected, and offers you a preview image in the left box of your roundtrip. It also says that the process model has not yet been synchronized, which is true. Changes on the diagram in Signavio will be updated automaticaly by Cycle.</p>
+       <p>In the left box of your roundtrip, click on `Add process Model`, pick a name for your modeling tool and choose the Signavio connector from the connector's dropdown. Cycle now connects with Signavio, so after a short time you can navigate through the chosen repository to select your process model.</p>
+       <p>After you hit `Add`, Cycle will save a link to the process model you selected, and offer you a preview image in the left box of your roundtrip. It also says that the process model has not yet been synchronized, which is true. Changes on the diagram in Signavio will be updated automatically by Cycle.</p>
     </div>
 </div>
 <h4>Step 3: Create BPMN file for execution</h4>
 <div class="row-fluid">
   <div id="cycle-create-executable" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-create-executable.png') %>" ></div>
     <div class="span8">
-      <p>Hit `Create` and choose the location you want the BPMN 2.0 XML File to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting `Create`, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "In synch" now.</p>
+      <p>Hit `Create` and choose the location you want the BPMN 2.0 XML file to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting `Create`, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "in synch" now.</p>
       <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
   </div>
 </div>
@@ -120,27 +120,27 @@ When we are takling about Rountrips we are talking about the synchronisation of 
   <div id="cycle-signavio-created" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/signavio-created.png') %>" ></div>
     <div class="span8">
       <p>Now Cycle shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 File stored in your file repository (right side). You can also see that the two process models are currently in synch, and the date and time since the last synch has been made.</p>
-      <p>You can now either check out the BPMN 2.0 - XML from your Subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>.</p>      
+      <p>You can now either check out the BPMN 2.0 - XML from your subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>.</p>      
     </div>
 </div>
 <h4>Step 5: Reverse Engineering</h4>
 <div class="row-fluid">
   <div id="cycle-reverse" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-reverse.png') %>" ></div>
     <div class="span8">
-      <p>After you have worked on the executable process model the models are out of synch, indicated by the red label "change since last sync" on the site where the change happend.</p>
-      <p>You can now hit the sync button in the corresponding direction (in our case from right to left). Afterwards you will be prompt to confirm the syncronization with the possibility to add a commit message.</p>
-      <p>Now both models are synchronized again, indicated by green labels "In sync" on both sites.</p> 
+      <p>After you have worked on the executable process model the models are out of synch, indicated by the red label "change since last sync" on the site where the change happened.</p>
+      <p>You can now hit the sync button in the corresponding direction (in our case from right to left). Afterwards you will be prompt to confirm the synchronization with the possibility to add a commit message.</p>
+      <p>Now both models are synchronized again, indicated by green labels "in sync" on both sites.</p> 
     </div>
 </div>
 <div class="alert">
-    Please note! The BPMN 2.0 modelling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. 
+    Please note! The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. 
     For more detailed information about requirements and suitable tools check the section "Roundtrip with other Tools" in our <a href="http://www.camunda.org/design/cycle-tutorial.html">Cycle Tutorial</a>.
 </div>
 
 #### Pool Extraction<a id="tools/cycle/bpmn-20-roundtrip/pool-extraction"></a>
 
 During a roundtrip from business perspective to a technical process diagram Cycle checks which pools are flagged as "executable". Only those pools will actually be synchronized for the executable process model, so you don't have to bother with huge diagrams describing manual flows. We call this feature "Pool Extraction". 
-When you synchronize the executable diagram again with the origin diagram the "non executable" pools will be merged back into the diagram. No information gets lost. 
+When you synchronize the executable diagram again with the origin diagram the "non-executable" pools will be merged back into the diagram. No information gets lost. 
 
 The following example shows relevant xml tag:
 
@@ -148,9 +148,9 @@ The following example shows relevant xml tag:
 
 #### Engine Attributes<a id="tools/cycle/bpmn-20-roundtrip/engine-attributes"></a>
 
-An executable process model usually contains engine specific attributes in the BPMN 2.0 XML. So we have to make sure, that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means, that a proper BPMN 2.0 import and export functionality must keep the engine attributes, event if they are added as an engine extension. 
+An executable process model usually contains engine specific attributes in the BPMN 2.0 XML. So we have to make sure, that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means that a proper BPMN 2.0 import and export functionality must keep the engine attributes, even if they are added as an engine extension. 
 
-The camunda BPM Process Engine uses multitude attributes for configuration purpose which can be setup in the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>. Cycle retains these attributes during the roundtrip. Here is an example:
+The camunda BPM Process Engine uses multitude attributes for configuration purposes which can be set up in the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>. Cycle retains these attributes during the roundtrip. Here is an example:
 
 The xml export from Signavio modeler contains no engine attributes:
 
@@ -160,7 +160,7 @@ The xml export from Signavio modeler contains no engine attributes:
                    name="MyService"
                    startQuantity="1"/>
 
- After update with camunda modeler class and failedJobRetryTimeCycle where added as camunda specific engine attributes:
+ After update with camunda modeler class and failedJobRetryTimeCycle were added as camunda specific engine attributes:
 
       <serviceTask id="sid-01234" camundabpm:class="java.lang.Object" 
                    camundabpm:async="true" 
@@ -173,7 +173,7 @@ The xml export from Signavio modeler contains no engine attributes:
         <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
       </serviceTask>                   
 
-After synchronization back to Signavio the origin Signavio-information like completionQuantity, isForCompensation and startQuantity where merged back:
+After synchronization back to Signavio the original Signavio-information like completionQuantity, isForCompensation and startQuantity were merged back:
 
       <serviceTask camundabpm:async="true" camundabpm:class="java.lang.Object" 
                   completionQuantity="1" 
@@ -192,7 +192,7 @@ After synchronization back to Signavio the origin Signavio-information like comp
 
 ### What is Tasklist?<a id="tools/tasklist/what-is-tasklist"></a>
 
-The Tasklist is a demo web application to provide you the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/tasklist.
+The Tasklist is a demo web application to provide you with the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/tasklist.
 
 <div class="fullpage-preview">
   <div id="tasklist-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-start-page-view.png') %>"></div>
@@ -209,7 +209,7 @@ Find additional information about how to use the Tasklist in our <a href="http:/
 
 ### Human Workflow Management<a id="tools/tasklist/human-workflow-management"></a>
 
-In the following example we walk through a typical humen workflow scenario. The Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_ and start a process instance.
+In the following example we walk through a typical human workflow scenario. The Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_ and start a process instance.
 
 #### Start a Process<a id="tools/tasklist/human-workflow-management/start-a-process"></a>
 
@@ -218,7 +218,7 @@ In the following example we walk through a typical humen workflow scenario. The 
   </div>
   <div class="span8">
     <p>To start a process instance via the Tasklist hit the <button class="btn btn-mini"><i class="caret"></i> Start a Process </button> dropdown button and select a process. If there is no process listed please check that your process is deployed correctly.</p>
-    <p>Depending on whether you have defined a [start form](#tools/tasklist/task-forms) for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click on `Start process using generic form`. The [generic task form](#tools/tasklist/task-forms/generic-task-forms) allows you to enter variables for your process.</p>
+    <p>Depending on whether you have defined a [start form](#tools/tasklist/task-forms) for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click `Start process using generic form`. The [generic task form](#tools/tasklist/task-forms/generic-task-forms) allows you to enter variables for your process.</p>
     <p>In our example you have to enter the desired values and hit `Start Process` to step through</p>
   </div>
 </div>
@@ -229,17 +229,17 @@ Tasks that are assigned to you are listed on the Tasklist main page where you ca
 <div class="row-fluid">
   <div id="tasklist-form-assign-approver" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-form-assign-approver.png') %>"></div>
   <div class="span8">
-     <p>In our example [task form](#tools/tasklist/task-forms) you are asked to assign an approver for your invoice. Enter a colleagues name who should be assigned to approve the task. Have a look at the [Task Overview](#tools/tasklist/human-workflow-management/user-and-group-task-overview). The assigned task is now in the folder of your colleague.</p>
-     <p>If no task form is defined for a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> you will be forwarded to a [generic form](#tools/tasklist/task-forms/generic-task-forms). In a generic form you can define the input data by yourself.</p>
+     <p>In our example [task form](#tools/tasklist/task-forms) you are asked to assign an approver for your invoice. Enter a colleague's name who should be assigned to approve the task. Have a look at the [Task Overview](#tools/tasklist/human-workflow-management/user-and-group-task-overview). The assigned task is now in your colleague's folder.</p>
+     <p>If no task form is defined for a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> you will be forwarded to a [generic form](#tools/tasklist/task-forms/generic-task-forms). In a generic form you can define the input data yourself.</p>
   </div>
 </div>
 
-When you complete a task by submitting the Task Form, the task is completed and the process continues in the engine.
+When you complete a task by submitting the task form, the task is completed and the process continues in the engine.
 
 <div class="row-fluid">
   <div id="tasklist-diagram" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-diagram.png') %>"></div>
   <div class="span8">
-    Furthermore you can visualize the process model by clicking on the <button class="btn btn-mini" title="Display BPMN Diagram"><i class="icon-search"></i></button> symbol. By highlighting the current task the visualization gives you also information your task in the context of the whole process.
+    Furthermore you can visualize the process model by clicking on the <button class="btn btn-mini" title="Display BPMN Diagram"><i class="icon-search"></i></button> symbol. By highlighting the current task the visualization gives you also information your task on the context of the whole process.
   </div>
 </div>
 
@@ -248,8 +248,8 @@ When you complete a task by submitting the Task Form, the task is completed and 
 <div class="row-fluid">
   <div id="tasklist-main-info" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-main-info.png') %>"></div>
   <div class="span8">
-    <p>In the User and Group Task overview you can see how many tasks are assigned to you, to the different groups and to your colleagues. Have a look in your colleagues folder. You will see that you can visualize their tasks but you are not able to work on them.</p>
-    <p>The folder `Inbox` contains all tasks that are assigned to the groups of the user. Like tasks of a group they are ready to be [claimed](#tools/tasklist/human-workflow-management/un-claim-a-task).</p>
+    <p>In the User and Group Task overview you can see how many tasks are assigned to you, the different groups and your colleagues. Have a look in your colleagues' folder. You will see that you can see their tasks but you are not able to work on them.</p>
+    <p>The folder `Inbox` contains all tasks that are assigned to the user groups. Like tasks of a group they are ready to be [claimed](#tools/tasklist/human-workflow-management/un-claim-a-task).</p>
   </div>  
 </div>
 
@@ -271,7 +271,7 @@ For bulk (un-)claim you can select multiple tasks via `strg + click`.
 <div class="row-fluid">
   <div id="tasklist-delegate" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-delegate.png') %>"></div>
   <div class="span8">
-    When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task means not to assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the [(un-)claim function](#tools/tasklist/human-workflow-management/un-claim-a-task). 
+    When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task doesn’t mean that you assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the [(un-)claim function](#tools/tasklist/human-workflow-management/un-claim-a-task). 
   </div>  
 </div>
 
@@ -282,7 +282,7 @@ For bulk delegation you can select multiple tasks via `strg + click`.
 <div class="row-fluid">
   <div id="tasklist-task-forms" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-task-forms-eclipse.png') %>"></div>
   <div class="span8">
-      <p>Tasks can be directly assigned to a user, to a canditate group (group) or to a candidate list (mutiple users). Compared to the direct assignment of tasks are the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Dependening on this affiliation the Tasklist displays tasks in different [folders](#tools/tasklist/human-workflow-management/user-and-group-task-overview).</p>
+      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different [folders](#tools/tasklist/human-workflow-management/user-and-group-task-overview).</p>
       <p>In the properties panel in your <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> you can configure all relevant attributes.</p>
   </div>  
 </div>
@@ -310,7 +310,7 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 
 #### Embedded Task Forms<a id="tools/tasklist/task-forms/embedded-task-forms"></a>
 
-To add an embedded Task Form to your application simply create a html file and attach it to an [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> in your process model. 
+To add an embedded Task Form to your application simply create an html file and attach it to a [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> in your process model. 
 Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
 
       <form class="form-horizontal">
@@ -336,7 +336,7 @@ To configure the form in your process open the process in your Eclipse IDE with 
 
 #### Referenced Task Forms<a id="tools/tasklist/task-forms/referenced-task-forms"></a>
 
-If you want to call a Task From that is not part of your application you can add a reference to the desired form. The Referenced Task Form will be configured similar to the Embedded Task Form. Open the properties view and enter `FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+If you want to call a Task Form that is not part of your application you can add a reference to the desired form. The Referenced Task Form will be configured similar to the Embedded Task Form. Open the properties view and enter `FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
 
       <userTask id="theTask" camundabpm:formKey="FORM_NAME.html" 
                 camundabpm:candidateUsers="John, Mary" 
@@ -355,8 +355,8 @@ The generic form will be used whenever you have not added a dedicated form for a
 <div class="row-fluid">
   <div id="tasklist-generic-form" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-generic-form.png') %>"></div>
   <div class="span8">
-    Hit the <button class="btn btn-mini"><i class="icon-plus"></i> </button> button to add a variable that will be passed to the process instance upon task completion. State a variable name and select the type and you can enter the desired value. Enter as much variables as you need. 
-    After hitting the `Complete Task` button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing has this concept many benefits as well.
+    Hit the <button class="btn btn-mini"><i class="icon-plus"></i> </button> button to add a variable that will be passed to the process instance upon task completion. State a variable name and select the type and enter the desired value. Enter as much variables as you need. 
+    After hitting the `Complete Task` button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
   </div>  
 </div>
 
@@ -372,7 +372,7 @@ For a better understanding of the different states and task operations check the
 
 ### What is Cockpit?<a id="tools/cockpit/what-is-cockpit"></a>
 
-With camunda BPM Cockpit you can monitor and administrate your running process instances. It has been optimized for the use in high-volume-scenarios, so that you won’t lose any performance when operating with massive numbers of process instances. The Cockpit architecture allows to use <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individualy adapt the tool to your personal requirements. 
+With camunda BPM Cockpit you can monitor and administrate your running process instances. It has been optimized for the use in high-volume-scenarios, so that you won’t lose any performance when operating with massive numbers of process instances. The Cockpit architecture allows using <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individually adapt the tool to your personal requirements. 
 
 <div class="fullpage-preview">
   <div id="cockpit-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-start-page-view.png') %>"></div>
@@ -392,7 +392,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-plugin-process-definition-state-overview" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definition-state.png') %>"></div>
   <div class="span8">        
-    With the Process Definition State Overview plugin you can easily observe the state of a processes definition. Green and red dots signalizing running and [failed jobs](#tools/cockpit/failed-jobs). At this observing level a red dot signifys that there is at least one process instance or a sub process instance which has an unresolved incident. You can localize the problem by using the [Process Definitions View](#tools/cockpit/process-definitions-view).
+    With the Process Definition State Overview plugin you can easily observe the state of a processes definition. Green and red dots signalize running and [failed jobs](#tools/cockpit/failed-jobs). At this observing level a red dot signifies that there is at least one process instance or a sub process instance which has an unresolved incident. You can localize the problem by using the [Process Definitions View](#tools/cockpit/process-definitions-view).
   </div>  
 </div>
 
@@ -401,7 +401,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-plugin-deployed-processes" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed processes.png') %>"></div>
   <div class="span8">        
-    The Deployed Process plugin givs you an overview about all deployed processes on the engine and visualize them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#tools/cockpit/process-definitions-view)
+    The Deployed Process plugin gives you an overview of all deployed processes on the engine and picture them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#tools/cockpit/process-definitions-view)
   </div>  
 </div>
 
@@ -419,8 +419,8 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-process-definitions-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definitions-view.png') %>"></div>
   <div class="span8">
-    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. Also [failed jobs](#tools/cockpit/failed-jobs) can be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
-    Additionaly all running instances are listed in a tabel view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view).</p>
+    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. [Failed jobs](#tools/cockpit/failed-jobs) can also be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
+    Additionally all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view).</p>
   </div>
 </div>
 
@@ -429,8 +429,8 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-process-instances-detail-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-detail-view.png') %>"></div>
   <div class="span8">
-    <p>Open the Process Instance Detail View by selecting a process instance from the [Proces Definitions View](#tools/cockpit/process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
-    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools/cockpit/process-instance-detail-view/activity-instance-tree). Variables that belong to the instance will be listet in a variables table of the [Detailed Information Panel](#tools/cockpit/process-instance-detail-view/detailed-information-panel). Now you can select single or multiple ('strg + click') flow nodes in the interactive bpmn diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table corresponds to each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
+    <p>Open the Process Instance Detail View by selecting a process instance from the [Process Definitions View](#tools/cockpit/process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
+    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools/cockpit/process-instance-detail-view/activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools/cockpit/process-instance-detail-view/detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
   </div>  
 </div>
 
@@ -448,7 +448,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-detailed-information-panel" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-detailed-information-view.png') %>"></div>
   <div class="span8">
-    <p>Use the Detailed Information Panel to get an overview about the variables that the process instance contains. Depending on the selected activity instance the panel lists the corresponding variables. On the other way around you can focus on the activity instance via a scope link in the table. Furthermore you can edit varibles in this view.</p> 
+    <p>Use the Detailed Information Panel to get an overview about the variables that the process instance contains. Depending on the selected activity instance the panel lists the corresponding variables. On the other way around you can focus on the activity instance via a scope link in the table. Furthermore you can edit variables in this view.</p> 
   </div>
 </div>
 
@@ -478,5 +478,39 @@ Cockpit comes with the following pre-configured plugins:
   <div id="cockpit-failed-job-drill-down" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-drill-down.png') %>"></div>
   <div class="span8">
     <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view)</p>
+  </div> 
+</div>
+
+## User Management<a id="tools/user-management"></a>
+
+The <a href="../../api-references/java/?org/camunda/bpm/engine/identity/User.html">Engine Identity Services</a> uses an own database for the user management.
+
+### Initial User Setup<a id="tools/user-management/initial-user-setup"></a>
+
+The engine identity service checks if an admin user is allready set up. That's why at first start up you will be prompt to create an user account with administrator rights. Also if you work with multiple engines you have to set up an admin user for every single engine. 
+
+### User Administration<a id="tools/user-management/user-administration"></a>
+
+<div class="row-fluid">
+  <div id="user-management-user-administration" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-user-management/um-user-administration.png') %>"></div>
+  <div class="span8">
+    As user with administrator privilegs you can add, delete and edit user accounts. 
+  </div> 
+</div>
+
+#### My Profile<a id="tools/user-management/user-administration/my-profile"></a>
+
+In the My Profile menue you can set up your personal account settings like:
+
+  * Profile Administration: Change your name or email address. You cannot change the user account ID!
+  * Account Administration: Change your password or to delete your account. Be careful, deleting cannot be undone.
+  * Groups Administration: Assign your account to available groups.
+
+### Groups Administration<a id="tools/user-management/groups-administration"></a>
+
+<div class="row-fluid">
+  <div id="user-management-groups-administration" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-user-management/um-groups-administration.png') %>"></div>
+  <div class="span8">
+    The Groups administration menue allows you to add, delet and edit user groups.
   </div> 
 </div>
