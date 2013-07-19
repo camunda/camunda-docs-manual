@@ -473,7 +473,6 @@ Cockpit comes with the following pre-configured plugins:
   </div>
 </div>
 
-
 ### Failed Jobs<a id="tools/cockpit/failed-jobs"></a>
 
 <div class="row-fluid">
@@ -481,6 +480,15 @@ Cockpit comes with the following pre-configured plugins:
   <div class="span8">
     <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view)</p>
   </div> 
+</div>
+
+#### Retry a Failed Job<a id="tools/cockpit/failed-jobs/retry-failed-job"></a>
+
+<div class="row-fluid">
+  <div id="cockpit-retry-failed-job" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-retry.png') %>"></div>
+  <div class="span8">
+    To resolve a failed job you can use the retry function. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this jobs and incerement it's retry value in the database. 
+  </div>
 </div>
 
 ## User Management<a id="tools/user-management"></a>
