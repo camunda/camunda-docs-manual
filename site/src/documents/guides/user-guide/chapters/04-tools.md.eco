@@ -492,10 +492,13 @@ Admin is a small application that allows you to configure users and groups.
 
 ### Initial User Setup<a id="tools/user-management/initial-user-setup"></a>
 
-On first access of a process engine through Cockpit a setup screen will be shown. 
-That screen allows you to configure a initial user account with administrator rights. 
-
-Administrative users are not global but per engine. Thus, you will need to set up an admin user for every single engine. 
+<div class="row-fluid">
+  <div id="user-management-initial-setup" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-user-management/um-initial-setup.png') %>"></div>
+  <div class="span8">
+    <p>On first access of a process engine through Cockpit a setup screen will be shown. That screen allows you to configure a initial user account with administrator rights.</p> 
+    <p>Administrative users are not global but per engine. Thus, you will need to set up an admin user for every single engine.</p>
+  </div> 
+</div>
 
 ### User Administration<a id="tools/user-management/user-administration"></a>
 
