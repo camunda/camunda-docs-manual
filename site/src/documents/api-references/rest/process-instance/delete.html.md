@@ -26,22 +26,6 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
-
-A json object with the following property:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>deleteReason</td>
-    <td>A String describing why the process instance is deleted. Will be inserted into the engine's history. Optional parameter.</td>
-  </tr>
-</table>
-
-
 Result
 ------
 
@@ -58,7 +42,7 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
+    <td>204</td>
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
@@ -75,8 +59,6 @@ Example
 #### Request
 
 DELETE `/process-instance/aProcessInstanceId`
-
-    {"deleteReason" : "some reason"}
 
 #### Response
 
