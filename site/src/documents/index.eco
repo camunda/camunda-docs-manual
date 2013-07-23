@@ -46,8 +46,14 @@ layout: 'default'
 
 
     <div class="span4">
-      <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
-      <h2>Incubation Space</h2>      
+      <a href="<%= @docUrl("incubation/")%>">
+        <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
+      </a>
+      <h2>
+        <a href="<%= @docUrl("incubation/")%>">
+          Incubation Space
+        </a>
+      </h2>      
       <ul>
         <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
         <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>

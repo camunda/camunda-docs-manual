@@ -1,0 +1,19 @@
+---
+
+title: 'Incubation'
+layout: 'default'
+
+---
+
+<div class="span12">
+
+  <div class="page-header">
+    <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
+    <h1>camunda BPM Incubation Projects</h1>  
+  </div>
+
+  <ul>
+    <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
+    <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
+  </ul>
+</div>
