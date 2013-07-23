@@ -39,7 +39,7 @@ Parameters
   </tr>
   <tr>
     <td>member</td>
-    <td>Only retrieve groups where the given group id is a member of.</td>
+    <td>Only retrieve groups where the given user id is a member of.</td>
   </tr> 
   <tr>
     <td>sortBy</td>
