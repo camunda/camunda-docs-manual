@@ -39,7 +39,7 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown" ng-class="activeClass('/incubation')">
             <a href="<%= @docUrl("incubation/") %>">Incubation</a>
             <ul class="dropdown-menu">
               <li>
