@@ -44,31 +44,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object representing the created group.
-Properties are:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the group.</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The name of the group.</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>The type of the group.</td>
-  </tr> 
-</table>
+This method returns no content.
 
 
 Response codes
@@ -81,8 +57,8 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
-    <td>application/json</td>
+    <td>204</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -107,6 +83,4 @@ Request body:
 
 #### Response
 
-    {"id":"sales",
-     "name":"Sales",
-     "type":"Organizational Unit"}
+Status 204. No content.

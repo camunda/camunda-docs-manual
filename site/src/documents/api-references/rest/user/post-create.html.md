@@ -54,36 +54,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object representing the created user.
-Properties are:
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The id of the user.</td>
-  </tr>
-  <tr>
-    <td>firstName</td>
-    <td>String</td>
-    <td>The firstname of the user.</td>
-  </tr>
-  <tr>
-    <td>lastName</td>
-    <td>String</td>
-    <td>The lastname of the user.</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>String</td>
-    <td>The email of the user.</td>
-  </tr>   
-</table>
+This method returns no content.
 
 
 Response codes
@@ -96,8 +67,8 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
-    <td>application/json</td>
+    <td>204</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -124,7 +95,4 @@ Request body:
 
 #### Response
 
-    {"id":"jonny1",
-      "firstName":"John",
-      "lastName":"Doe",
-      "email":"theNewEmailAddress"}
+Status 204. No content.
