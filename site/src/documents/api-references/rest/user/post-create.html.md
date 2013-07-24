@@ -27,7 +27,7 @@ A json object with the following properties:
     <td>profile</td>
     <td>Array</td>
     <td>
-      A json array. The array contains the following properties: 
+      A json object containing variable key-value pairs. The object contains the following properties: 
       `id (String)`, `firstName (String)`, `lastName (String)` and `email (String)`.
     </td>
   </tr>
@@ -35,7 +35,7 @@ A json object with the following properties:
     <td>credentials</td>
     <td>Array</td>
     <td>
-      A json array. The array contains the following properties:
+      A json object containing variable key-value pairs. The object contains the following properties:
       `password (String)`.
     </td>
   </tr>
