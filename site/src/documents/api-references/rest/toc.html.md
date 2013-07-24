@@ -47,6 +47,7 @@
   * [Get Jobs Count (POST)](#post-jobs-count)
   * [Set Job Retries](#put-set-job-retries)
   * [Execute Job](#post-execute-job)
+  * [Get Job Stacktrace](#get-exception-stacktrace)
 * [Task](#task)
   * [Get Single Task](#get-task)
   * [Get Tasks](#get-tasks)

@@ -216,6 +216,10 @@
   <%- @include("./job/post-execute-job.html.md") %>
 </section>
 
+<section id="get-exception-stacktrace" name="Get Exception Stacktrace">
+  <%- @include("./job/get-exception-stacktrace.html.md") %>
+</section>
+
 </section>
 
 <section id="task">

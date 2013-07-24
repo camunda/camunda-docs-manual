@@ -7,7 +7,7 @@ Retrieves a single job according to the `Job` interface in the engine.
 Method
 ------
 
-GET `/job/{id}`
+GET <code>/job/{id}</code>
 
 
 Parameters
