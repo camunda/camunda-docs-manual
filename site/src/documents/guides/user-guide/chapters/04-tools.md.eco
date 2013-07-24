@@ -192,7 +192,7 @@ After synchronization back to Signavio the original Signavio-information like co
 
 ### What is Tasklist?<a id="tools/tasklist/what-is-tasklist"></a>
 
-The Tasklist is a demo web application to provide you with the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/tasklist.
+The Tasklist is a demo web application to provide you with the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/camunda/app/tasklist.
 
 <div class="fullpage-preview">
   <div id="tasklist-start-page" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-start-page-view.png') %>"></div>
