@@ -35,6 +35,19 @@ there are problems with database access. Any of these undocumented errors will b
 
 All errors also provide a JSON response body of the form `{"type" : "SomeExceptionClass", "message" : "a detailed message"}.`
 
+Authorization Exceptions
+------------------------
+
+If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set 
+to `403, Forbidden` and details about the unauthorized interaction are provided in the response body:
+
+    {"type" : "AuthorizationException", 
+     "message" : "The user with id 'jonny' does not have 'DELETE' permission on resource 'Mary' of type 'User'.",
+     "userId" : "jonny",
+     "permissionName" : "DELETE",
+     "resourceName" : "User",
+     "resourceId" : "Mary"}
+
 Authentication
 --------------
 
