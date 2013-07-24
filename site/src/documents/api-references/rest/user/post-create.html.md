@@ -24,30 +24,21 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The user's id.</td>
+    <td>profile</td>
+    <td>Array</td>
+    <td>
+      A json array. The array contains the following properties: 
+      `id (String)`, `firstName (String)`, `lastName (String)` and `email (String)`.
+    </td>
   </tr>
   <tr>
-    <td>firstName</td>
-    <td>String</td>
-    <td>The user's firstname.</td>
+    <td>credentials</td>
+    <td>Array</td>
+    <td>
+      A json array. The array contains the following properties:
+      `password (String)`.
+    </td>
   </tr>
-  <tr>
-    <td>lastName</td>
-    <td>String</td>
-    <td>The user's lastname.</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>String</td>
-    <td>The user's email.</td>
-  </tr>   
-  <tr>
-    <td>password</td>
-    <td>String</td>
-    <td>The user's password.</td>
-  </tr>  
 </table>
 
 
@@ -87,11 +78,14 @@ POST `/user/create`
 
 Request body:
 
-    {"id":"jonny1",
+    {"profile": 
+      {"id": "jonny1",
       "firstName":"John",
       "lastName":"Doe",
-      "email":"aNewEmailAddress",
-      "password":"s3cret",}
+      "email":"aNewEmailAddress"},
+    "credentials": 
+      {"password":"s3cret"}
+    }
 
 #### Response
 
