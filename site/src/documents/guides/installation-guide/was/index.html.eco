@@ -1,6 +1,6 @@
 ---
 
-title: 'camunda BPM Installation Guide (Glassfish)'
+title: 'camunda BPM Installation Guide (WAS)'
 layout: 'default'
 
 ---
@@ -10,8 +10,7 @@ layout: 'default'
     <li><a href="#platform"><i class="icon-chevron-right"></i>BPM platform</a></li>
     <li><a href="#rest"><i class="icon-chevron-right"></i>REST API</a></li>
     <li><a href="#cycle"><i class="icon-chevron-right"></i>camunda cycle</a></li>
-    <li><a href="#cockpit"><i class="icon-chevron-right"></i>camunda cockpit</a></li>
-    <li><a href="#tasklist"><i class="icon-chevron-right"></i>camunda tasklist</a></li>
+    <li><a href="#camunda"><i class="icon-chevron-right"></i>cockpit and tasklist</a></li>
   </ul>
 </div>
 
@@ -20,7 +19,6 @@ layout: 'default'
 <%- @include("./guide.html.md.eco") %>
 <%- @include("./restapi.html.md.eco") %>
 <%- @include("./cycle.html.md.eco") %>
-<%- @include("./cockpit.html.md.eco") %>
-<%- @include("./tasklist.html.md.eco") %>
+<%- @include("./camunda.html.md.eco") %>
 
 </div>
