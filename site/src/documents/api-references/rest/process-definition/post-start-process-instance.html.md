@@ -131,7 +131,7 @@ Request body:
 
 #### Response
 
-    {"links":[{"href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
+    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",
     "definitionId":"aProcessDefinitionId",
     "businessKey":null,

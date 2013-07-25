@@ -59,6 +59,11 @@ Each user object has the following properties:
     <td>String</td>
     <td>The email of the user.</td>
   </tr> 
+  <tr>
+    <td>links</td>
+    <td>Object</td>
+    <td>A json array containing links to interact with the instance. The links contain only operations that the currently authenticated user is authorized to perform.</td>
+  </tr>
 </table>
 
 
@@ -97,4 +102,9 @@ Status 200.
     {"id":"jonny1",
       "firstName":"John",
       "lastName":"Doe",
-      "email":"anEmailAddress"}
+      "email":"anEmailAddress",
+      "links":[
+        {"method": "GET", href":"http://localhost:8080/engine-rest/user/jonny1/profile", "rel":"self"},
+        {"method": "PUT", href":"http://localhost:8080/engine-rest/user/jonny1/profile", "rel":"update"},
+        {"method": "DELETE", href":"http://localhost:8080/engine-rest/user/jonny1", "rel":"delete"}
+      ]}
