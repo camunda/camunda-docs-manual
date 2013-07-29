@@ -48,6 +48,9 @@
               <li>
                 <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
               </li>             
+              <li>
+                <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
+              </li>
             </ul>
           </li>         
         </ul>
