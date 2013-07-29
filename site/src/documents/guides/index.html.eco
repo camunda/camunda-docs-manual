@@ -12,20 +12,9 @@ layout: 'default'
     <h1>camunda BPM Guides</h1>  
   </div>
 
-  <div class="row">
-    <div class="span4">
-      <h2><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></h2>
-
-    </div>
-
-    <div class="span4">          
-      <h2><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></h2>
-
-    </div>
-
-    <div class="span4">
-      <h2><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></h2>
-
-    </div>
-  </div>
+  <ul>
+    <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
+    <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
+    <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
+  </ul>
 </div>
