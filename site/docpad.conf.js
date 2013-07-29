@@ -191,7 +191,9 @@ var docpadConfig = {
 
   // render multiple times
   renderPasses: 2,
-
+  
+  // disable prompts
+  prompts: false,
   // Locale Code
   // The code we shall use for our locale (e.g. `en`, `fr`, etc)
   // If not set, we will attempt to detect the system's locale, if the locale can't be detected or if our locale file is not found for it, we will revert to `en`
