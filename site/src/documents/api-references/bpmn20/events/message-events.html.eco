@@ -47,6 +47,8 @@
           <li>Message Start Event</li>
           <li>Message Intermediate Catching Event</li>
           <li>Message Boundary Event</li>
+		  <li>Message Intermediate Throwing Event</li>
+		  <li>Message End Event</li>
       </ul>
       <h3>There's more...</h3>
       <ul>            
@@ -293,5 +295,29 @@
     <li>Interrupting boundary event: The activity is interrupted and the sequence flow going out of the event is followed.</li>
     <li>Non-interrupting boundary event: One token stays in the activity and an additional token is created which follows the sequence flow going out of the event.</li>
   </ul>
+  
+  <h1>Message Intermediate Throwing Event</h1>
+  <p>
+	Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a <a href="#!/tasks/service-task">Service Task</a>.  
+  </p>
+  <div id="event-message-throwing" style="position:relative" data-bpmn-src="implement/event-message-throwing" > </div>
+  
+  <div class="app-source" app-source-no-tabs="message-event10" ></div>
+  <script type="text/xml" id="message-event10"> 
+  <intermediateThrowEvent id="message">
+          <messageEventDefinition activiti:class="org.camunda.bpm.MyMessageServiceDelegate" />
+  </intermediateThrowEvent>
+  </script>  
+  
+  <h1>Message End Event</h1>
+  <p>
+	When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a <a href="#!/tasks/service-task">Service Task</a>.
+  </p>
+  <div class="app-source" app-source-no-tabs="message-event11" ></div>
+  <script type="text/xml" id="message-event11"> 
+  <endEvent id="end">
+          <messageEventDefinition activiti:class="org.camunda.bpm.MyMessageServiceDelegate" />
+  </endEvent>
+  </script>
 
 </section>
