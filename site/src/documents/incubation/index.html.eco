@@ -15,5 +15,8 @@ layout: 'default'
   <ul>
     <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
     <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
+    <li><a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a></li>
   </ul>
+
+  <p class="muted">camunda BPM incubation is a space for camunda BPM platform extensions and other projects around open source BPM.</p>
 </div>
