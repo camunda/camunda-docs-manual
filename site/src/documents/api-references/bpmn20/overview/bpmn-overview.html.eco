@@ -103,6 +103,9 @@ This page gives you an overview of BPMN 2.0 elements and the current coverage of
 			<div class="span2 bpmnContainer" data-bpmn-symbol="task"  data-bpmn-symbol-name="Undefined Task">
 			</div>
 			<div class="span2 bpmnContainer" data-bpmn-symbol="sendtask"  data-bpmn-symbol-name="Send Task">
+				<a href="#!/tasks/send-task">
+					<div class="bpmnSymbol" id="1"  title="since 7.0" ></div>
+				</a>
 			</div>
 			<div class="span2 bpmnContainer" data-bpmn-symbol="receivetask-instantiate"  data-bpmn-symbol-name="Receive Task (instantiated)">
 			</div>
@@ -239,10 +242,12 @@ This page gives you an overview of BPMN 2.0 elements and the current coverage of
           </td>
           <td>
             <div class="bpmnContainer"  data-bpmn-symbol="intermediatethrowevent/message" >
+			  <div id="1" title="since 7.0">
             </div>
           </td>
           <td>
             <div class="bpmnContainer"  data-bpmn-symbol="endevent/message" >
+			  <div id="1" title="since 7.0">
             </div>
           </td>
         </tr>
