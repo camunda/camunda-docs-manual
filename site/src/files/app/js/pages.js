@@ -59,7 +59,7 @@ CAM_PAGES = [
 
   // rest api documentation
 
-  { module: "rest-api", category: "Overview", id: "introduction", name: "Introduction", url: "overview/introduction", keywords: "rest overview" },
+  { module: "rest-api", category: "Overview", id: "introduction", name: "Introduction", url: "overview/introduction", keywords: "rest overview error exception authorization unauthorized" },
   { module: "rest-api", category: "Overview", id: "distro-use", name: "Use with a pre-built distro", url: "overview/distro-use", keywords: "rest usage distro distribution tomcat jboss glassfish" },
   { module: "rest-api", category: "Overview", id: "embeddability", name: "Embedding the API", url: "overview/embeddability", keywords: "rest usage embed embeddability application jaxrs" },
 
@@ -145,6 +145,14 @@ CAM_PAGES = [
   { module: "rest-api", category: "Group", id: "get-groups", name: "Get Groups", url: "group/get-query", keywords: "identity group get query" },
   { module: "rest-api", category: "Group", id: "get-groups-count", name: "Get Groups Count", url: "group/get-query-count", keywords: "identity group get query count" },
   { module: "rest-api", category: "Group", id: "put-group", name: "Update single Group", url: "group/put-update", keywords: "identity group put update save" },
+
+  { module: "rest-api", category: "Authorization", id: "check-authorization", name: "Check Authorization", url: "authorization/get-check", keywords: "authorization check get" },
+  { module: "rest-api", category: "Authorization", id: "create-authorization", name: "Create single Authorization", url: "authorization/post-create", keywords: "authorization create new post" },
+  { module: "rest-api", category: "Authorization", id: "delete-authorization", name: "Delete single Authorization", url: "authorization/delete", keywords: "authorization delete remove" },
+  { module: "rest-api", category: "Authorization", id: "get-authorization", name: "Get Authorizations", url: "authorization/get-query", keywords: "authorization get query search" },
+  { module: "rest-api", category: "Authorization", id: "get-authorizations", name: "Get Authorization Count", url: "authorization/get-query-count", keywords: "authorization get count query search" },
+  { module: "rest-api", category: "Authorization", id: "get-authorization-count", name: "Get single Authorization", url: "authorization/get", keywords: "authorization get search" },
+  { module: "rest-api", category: "Authorization", id: "put-authorization", name: "Update single Authorization", url: "authorization/put-update", keywords: "authorization put update" }
 
 ];
 

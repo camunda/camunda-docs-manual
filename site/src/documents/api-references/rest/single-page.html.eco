@@ -302,6 +302,10 @@
   <%- @include("./variable-instance/post-query-count.html.md") %>
 </section>
 
+</section>
+
+<section id="user">
+
 <h1>Users</h1>
 
 <section id="user/post-create" name="Create single User">
@@ -326,6 +330,9 @@
   <%- @include("./user/put-update-credentials.html.md") %>
 </section>
 
+</section>
+
+<section id="group">
 <h1>Groups</h1>
 
 <section id="group/post-create" name="Create single Group">
@@ -351,6 +358,34 @@
 </section>
 <section id="group/put-update" name="Update single Group">
   <%- @include("./group/put-update.html.md") %>
+</section>
+
+</section>
+
+<section id="authorization">
+
+<h1>Authorizations</h1>
+
+<section id="authorization/get-check" name="Check Authorization">
+  <%- @include("./authorization/get-check.html.md") %>
+</section>
+<section id="authorization/post-create" name="Create single Authorization">
+  <%- @include("./authorization/post-create.html.md") %>
+</section>
+<section id="authorization/delete" name="Delete single Authorization">
+  <%- @include("./authorization/delete.html.md") %>
+</section>
+<section id="authorization/get-query" name="Get Authorizations">
+  <%- @include("./authorization/get-query.html.md") %>
+</section>
+<section id="authorization/get-query-count" name="Get Authorization Count">
+  <%- @include("./authorization/get-query-count.html.md") %>
+</section>
+<section id="authorization/get" name="Get single Authorization">
+  <%- @include("./authorization/get.html.md") %>
+</section>
+<section id="authorization/put-update" name="Update single Authorization">
+  <%- @include("./authorization/put-update.html.md") %>
 </section>
 
 </section>
