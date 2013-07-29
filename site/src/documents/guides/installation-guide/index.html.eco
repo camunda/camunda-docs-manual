@@ -23,8 +23,7 @@ layout: 'default'
         <li><a href="tomcat/#platform">BPM platform</a></li>
         <li><a href="tomcat/#rest">REST API</a></li>
         <li><a href="tomcat/#cycle">camunda cycle</a></li>
-        <li><a href="tomcat/#cockpit">camunda cockpit</a></li>
-        <li><a href="tomcat/#tasklist">camunda tasklist</a></li>
+        <li><a href="tomcat/#camunda">camunda cockpit and tasklist</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -36,8 +35,7 @@ layout: 'default'
         <li><a href="jboss/#platform">BPM platform</a></li>
         <li><a href="jboss/#rest">REST API</a></li>
         <li><a href="jboss/#cycle">camunda cycle</a></li>
-        <li><a href="jboss/#cockpit">camunda cockpit</a></li>
-        <li><a href="jboss/#tasklist">camunda tasklist</a></li>
+        <li><a href="jboss/#camunda">camunda cockpit and tasklist</a></li>
       </ul>
     </div>
     <div class="span3">    
@@ -49,8 +47,7 @@ layout: 'default'
         <li><a href="glassfish/#platform">BPM platform</a></li>
         <li><a href="glassfish/#rest">REST API</a></li>
         <li><a href="glassfish/#cycle">camunda cycle</a></li>
-        <li><a href="glassfish/#cockpit">camunda cockpit</a></li>
-        <li><a href="glassfish/#tasklist">camunda tasklist</a></li>
+        <li><a href="glassfish/#camunda">camunda cockpit and tasklist</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -62,8 +59,7 @@ layout: 'default'
         <li><a href="was/#platform">BPM platform</a></li>
         <li><a href="was/#rest">REST API</a></li>
         <li><a href="was/#cycle">camunda cycle</a></li>
-        <li><a href="was/#cockpit">camunda cockpit</a></li>
-        <li><a href="was/#tasklist">camunda tasklist</a></li>
+        <li><a href="was/#camunda">camunda cockpit and tasklist</a></li>
       </ul>
     </div>
   </div>
