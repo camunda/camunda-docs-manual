@@ -42,7 +42,7 @@ Parameters
   </tr> 
   <tr>
     <td>resourceId</td>
-    <td>filter by resource Id.</td>
+    <td>Filter by resource Id.</td>
   </tr>   
 </table>
 

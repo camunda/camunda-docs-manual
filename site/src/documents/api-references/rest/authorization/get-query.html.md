@@ -43,7 +43,7 @@ Parameters
   </tr> 
   <tr>
     <td>resourceId</td>
-    <td>filter by resource Id.</td>
+    <td>Filter by resource Id.</td>
   </tr> 
   <tr>
     <td>sortBy</td>
@@ -110,7 +110,7 @@ Each group object has the following properties:
     <td>An integer representing the resource type.</td>
   </tr>
   <tr>
-    <td>resourceType</td>
+    <td>resourceId</td>
     <td>String</td>
     <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
