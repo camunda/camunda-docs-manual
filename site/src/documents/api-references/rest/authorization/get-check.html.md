@@ -71,7 +71,7 @@ A json array with the following properties:
   </tr>
   <tr>
     <td>resourceId</td>
-    <td>Integer</td>
+    <td>String</td>
     <td>The id of the resource for which the permission check was performed.</td>
   </tr> 
   <tr>

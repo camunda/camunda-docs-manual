@@ -35,6 +35,7 @@ CAM_PAGES = [
   { module: "bpmn-impl-reference", category: "Tasks", id: "business-rule-task", name: "Business Rule Task", url: "tasks/business-rule-task", keywords: "tasks business rule task" },
   { module: "bpmn-impl-reference", category: "Tasks", id: "manual-task", name: "Manual Task", url: "tasks/manual-task", keywords: "tasks manual task" },
   { module: "bpmn-impl-reference", category: "Tasks", id: "receive-task", name: "Receive Task", url: "tasks/receive-task", keywords: "tasks receive task" },
+  { module: "bpmn-impl-reference", category: "Tasks", id: "send-task", name: "Send Task", url: "tasks/send-task", keywords: "send task" },
   { module: "bpmn-impl-reference", category: "Tasks", id: "task-markers", name: "Task Markers (Multiple Instance, Loop and Compensation)", shortName: "Task Markers", url: "tasks/task-markers", keywords: "tasks markers multiple instance loop compensation parallel sequential" },
 
   { module: "bpmn-impl-reference", category: "Gateways and Sequence Flows", id: "exclusive-gateway", name: "Exclusive Gateway (XOR)", url: "gateways/exclusive-gateway", keywords: "exclusive gateways xor" },
