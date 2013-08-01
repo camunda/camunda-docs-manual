@@ -81,7 +81,7 @@
     * [Cycle](#tools/cycle)
         * [What is Cycle?](#tools/cycle/what-is-cycle)
         * [Connector Configuration](#tools/cycle/connector-configuration)
-            * [Siganvio Connector](#tools/cycle/connector-configuration/signavio-connector)
+            * [Signavio Connector](#tools/cycle/connector-configuration/signavio-connector)
             * [Subversion Connector](#tools/cycle/connector-configuration/subversion-connector)
             * [File System Connector](#tools/cycle/connector-configuration/file-system-connector) 
             * [User Credentials](#tools/cycle/connector-configuration/user-credentials)
