@@ -29,9 +29,8 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>permissions</td>
-    <td>Integer</td>
-    <td>An integer holding the permissions provided by this authorization.</td>
-  </tr> 
+    <td>String</td>
+    <td>An array of Strings holding the permissions provided by this authorization.</td>  </tr> 
   <tr>
     <td>userId</td>
     <td>String</td>
@@ -78,8 +77,8 @@ A json array with the following properties:
   </tr>
   <tr>
     <td>permissions</td>
-    <td>Integer</td>
-    <td>An integer holding the permissions provided by this authorization.</td>
+    <td>String</td>
+    <td>An array of Strings holding the permissions provided by this authorization.</td>
   </tr> 
   <tr>
     <td>userId</td>
@@ -144,7 +143,7 @@ POST `/authorization/create`
 Request body:
 
     {"type" : 0,
-     "permissions": 16,
+     "permissions": ["CREATE", "READ"],
      "userId": "*",
      "groupId": null,
      "resourceType": 1,
@@ -156,7 +155,7 @@ Status 200.
 
     {"id":"anAuthorizationId",
      "type": 0,
-     "permissions": 16,
+     "permissions": ["CREATE", "READ"],
      "userId": "*",
      "groupId": null,
      "resourceType": 1,

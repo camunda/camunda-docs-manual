@@ -91,8 +91,8 @@ Each group object has the following properties:
   </tr>
   <tr>
     <td>permissions</td>
-    <td>Integer</td>
-    <td>An integer holding the permissions provided by this authorization.</td>
+    <td>String</td>
+    <td>An array of Strings holding the permissions provided by this authorization.</td>
   </tr> 
   <tr>
     <td>userId</td>
@@ -152,14 +152,14 @@ Status 200.
 
     [{"id":"anAuthorizationId",
      "type": 0,
-     "permissions": 16,
+     "permissions": ["ALL"],
      "userId": "jonny1",
      "groupId": null,
      "resourceType": 1,
      "resourceId": "*"},
      {"id":"anotherAuthorizationId",
      "type": 0,
-     "permissions": 16,
+     "permissions": ["CREATE", "READ"],
      "userId": "jonny2",
      "groupId": null,
      "resourceType": 1,
