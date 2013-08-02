@@ -485,7 +485,7 @@ So behind the scenes, when we reach the *generate invoice* task, we are persisti
 
 A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#transaction-boundaries)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
 
-<img src="<%= @docUrl('guides/user-guide/assets/img/job-executor-parts.png') %>">
+<img src="<%= @docUrl('guides/user-guide/assets/img/job-executor-basic-architecture.png') %>">
 
 ### Job Executor Activation<a id="job-executor-activation"></a>
 
