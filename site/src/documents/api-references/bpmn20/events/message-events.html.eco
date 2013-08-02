@@ -10,7 +10,7 @@
       Message events are events which reference a named message. A message has a name and a payload. Unlike a signal, a message event is always directed at a single receiver.
     </p>
     <p>
-      A message event definition is declared using the messageEventDefinition element. The attribute messaageRef references a message element declared as a child element of the definitions root element. The following is an excerpt of a process where two message events is declared and referenced by a start event and an intermediate catching message event.
+      A message event definition is declared using the messageEventDefinition element. The attribute messageRef references a message element declared as a child element of the definitions root element. The following is an excerpt of a process where two message events is declared and referenced by a start event and an intermediate catching message event.
     </p>
   
     <div class="app-source" app-source-no-tabs="message-event1" ></div>
@@ -47,6 +47,8 @@
           <li>Message Start Event</li>
           <li>Message Intermediate Catching Event</li>
           <li>Message Boundary Event</li>
+		  <li>Message Intermediate Throwing Event</li>
+		  <li>Message End Event</li>
       </ul>
       <h3>There's more...</h3>
       <ul>            
@@ -63,7 +65,7 @@
   <h2>Triggering Message Events</h2>
 
   <p>
-    As an embeddable process engine, the camunda engine is not concerned with the receiving part of the message. This would be environment dependenent and entail platform-specific activities like connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
+    As an embeddable process engine, the camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entail platform-specific activities like connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
   </p>
   <p>
     After you have received a message, you can choose whether you employ the engine's in-built correlation or explicitly deliver the message to start a new process instance or trigger a waiting execution.
@@ -177,8 +179,9 @@
 
 
 
-
-  <h1>Message Start Event</h1>
+  <h1>Receiving Message Events</h1>	
+  
+  <h2>Message Start Event</h2>
   
   <p>
     A message start event can be used to start a process instance using a named message. This effectively allows us to select the right start event from a set of alternative start events using the message name.
@@ -259,7 +262,7 @@
 
 
 
-  <h1>Message Intermediate Catching Event</h1>
+  <h2>Message Intermediate Catching Event</h2>
   <p>
     When a token arrives at the message intermediate catching event it will wait there until a message with the proper name arrives. As already described the message must be handed into the engine via the appropriate API calls.
   </p>
@@ -284,7 +287,7 @@
 
 
 
-  <h1>Message Boundary Event</h1>
+  <h2>Message Boundary Event</h2>
   <p>
     Boundary events are catching events that are attached to an activity. This means that while the activity is running, the message boundary event is listening for named message. When this is caught, two things might happen depending on the configuration of the boundary event:
   </p>
@@ -293,5 +296,34 @@
     <li>Interrupting boundary event: The activity is interrupted and the sequence flow going out of the event is followed.</li>
     <li>Non-interrupting boundary event: One token stays in the activity and an additional token is created which follows the sequence flow going out of the event.</li>
   </ul>
+  
+  <h1>Sending Message Events</h1>
+  <h2>Message Intermediate Throwing Event</h2>
+  <p>
+	Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a <a href="#!/tasks/service-task">Service Task</a>.  
+  </p>
+  <div id="event-message-throwing" style="position:relative" data-bpmn-src="implement/event-message-throwing" > </div>
+  
+  <div class="app-source" app-source-no-tabs="message-event10" ></div>
+  <script type="text/xml" id="message-event10"> 
+  <intermediateThrowEvent id="message">
+          <messageEventDefinition activiti:class="org.camunda.bpm.MyMessageServiceDelegate" />
+  </intermediateThrowEvent>
+  </script>  
+
+
+
+
+
+  <h2>Message End Event</h2>
+  <p>
+	When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a <a href="#!/tasks/service-task">Service Task</a>.
+  </p>
+  <div class="app-source" app-source-no-tabs="message-event11" ></div>
+  <script type="text/xml" id="message-event11"> 
+  <endEvent id="end">
+          <messageEventDefinition activiti:class="org.camunda.bpm.MyMessageServiceDelegate" />
+  </endEvent>
+  </script>
 
 </section>
