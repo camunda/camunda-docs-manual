@@ -1203,6 +1203,44 @@ It should be easy to see that the configuration consists of a single process eng
 
 If you start up your JBoss AS 7 server with this configuration, it will automatically create the corresponding services and expose them through the management model. 
 
+### Providing a custom process engine configuration class<a id="bpmplatform/container/jboss/custom-config"></a>
+It is possible to provide a custom Process Engine Configuration class on JBoss AS 7. To this extend, provide the fully qualified classname of the class in the `standalone.xml` file:
+
+    <process-engine name="default" default="true">
+        <datasource>java:jboss/datasources/ProcessEngine</datasource>
+        <configuration>org.my.custom.ProcessEngineConfiguration</configuration>
+        <history-level>full</history-level>
+        <properties>
+            <property name="myCustomProperty">true</property>
+            <property name="lockTimeInMillis">300000</property>
+            <property name="waitTimeInMillis">5000</property>
+        </properties>
+    </process-engine>
+
+The class `org.my.custom.ProcessEngineConfiguration` must be a subclass of `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration`.
+
+The properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions. In the case of the example above, the
+class would provide a method named
+
+    public void setMyCustomProperty(boolean boolean) {
+      ...
+    }
+
+<div class="alert">
+  <p>
+    <strong>Module dependency of custom configuration class</strong>     
+  </p>
+   <p>If you configure the process engine in `standalone.xml` and provide a custom configuration class packaged inside an own module, the camunda-jboss-subsystem module needs to have a module dependency on the module providing the class.</p>
+   <p>If you fail to do this, you will see the following error log:</p>
+   <pre class="console">
+Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.bar': the class must be visible from the camunda-jboss-subsystem module.
+        at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
+        at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
+        at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
+</pre>
+
+</div>
+
 ### Looking up a Process Engine in JNDI<a id="bpmplatform/container/jboss/jndi"></a>
 The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#bpmplatform/container/jndi/platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly. 
 

@@ -52,6 +52,7 @@
     * [JNDI Bindings on Apache Tomcat 7](#bpmplatform/container/jndi/platform-services-tomcat-7)
     * [The camunda JBoss AS 7 Subsystem](#bpmplatform/container/jboss)
         * [Configuring a process engine](#bpmplatform/container/jboss/config)
+        * [Providing a custom process engine configuration class](#bpmplatform/container/jboss/custom-config)
         * [Looking up a Process Engine in JNDI](#bpmplatform/container/jboss/jndi)
         * [Managing the process engine through the JBoss Management System](#bpmplatform/container/jboss/management)
         * [Managing Classpath Dependencies](#bpmplatform/container/jboss/classpath)
