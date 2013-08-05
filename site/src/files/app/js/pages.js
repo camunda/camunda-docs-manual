@@ -108,6 +108,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Job", id: "post-jobs", name: "Get Jobs (POST)", url: "job/post-query", keywords: "jobs job post query filter" },
   { module: "rest-api", category: "Job", id: "post-jobs-count", name: "Get Jobs Count (POST)", url: "job/post-query-count", keywords: "jobs job post query filter count" },
   { module: "rest-api", category: "Job", id: "put-set-job-retries", name: "Set Job Retries", url: "job/put-set-job-retries", keywords: "jobs put job set retries" },
+  { module: "rest-api", category: "Job", id: "put-set-job-duedate", name: "Set Job Due Date", url: "job/put-set-job-duedate", keywords: "jobs put job set due date" },
   { module: "rest-api", category: "Job", id: "post-execute-job", name: "Execute Job", url: "job/post-execute-job", keywords: "jobs post job execute" },
   { module: "rest-api", category: "Job", id: "get-exception-stacktrace", name: "Get Exception Stacktrace", url: "job/get-exception-stacktrace", keywords: "jobs get job exception stacktrace" },
 
