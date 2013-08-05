@@ -45,6 +45,7 @@
   * [Get Jobs Count](#get-jobs-count)
   * [Get Jobs (POST)](#post-jobs)
   * [Get Jobs Count (POST)](#post-jobs-count)
+  * [Set Job Duedate](#put-set-job-duedate)
   * [Set Job Retries](#put-set-job-retries)
   * [Execute Job](#post-execute-job)
   * [Get Job Stacktrace](#get-exception-stacktrace)

@@ -210,6 +210,10 @@
   <%- @include("./job/post-query-count.html.md") %>
 </section>
 
+<section id="put-set-job-duedate" name="Set Job Due Date">
+  <%- @include("./job/put-set-job-duedate.html.md") %>
+</section>
+
 <section id="put-set-job-retries" name="Set Job Retries">
   <%- @include("./job/put-set-job-retries.html.md") %>
 </section>
