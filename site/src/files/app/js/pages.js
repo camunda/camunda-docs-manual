@@ -129,7 +129,8 @@ CAM_PAGES = [
   { module: "rest-api", category: "Variable Instance", id: "get-variable-instances-count", name: "Get Variable Instances Count", url: "variable-instance/get-query-count", keywords: "variable instances get variable-instance query filter count" },
   { module: "rest-api", category: "Variable Instance", id: "post-variable-instances", name: "Get Variable Instances (POST)", url: "variable-instance/post-query", keywords: "variable instances post variable-instance query filter" },
   { module: "rest-api", category: "Variable Instance", id: "post-variable-instances-count", name: "Get Variable Instances Count (POST)", url: "variable-instance/post-query-count", keywords: "variable instances post variable-instance query filter count" },
-  
+
+  { module: "rest-api", category: "User", id: "user-options", name: "OPTIONS", url: "user/options", keywords: "options user" }, 
   { module: "rest-api", category: "User", id: "create-user", name: "Create single User", url: "user/post-create", keywords: "identity user create new post" },
   { module: "rest-api", category: "User", id: "delete-user", name: "Delete single User", url: "user/delete", keywords: "identity user delete" },
   { module: "rest-api", category: "User", id: "get-user", name: "Get a User's Profile", url: "user/get", keywords: "identity user profile get" },
@@ -138,6 +139,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "User", id: "put-user-profile", name: "Update a User's Profile", url: "user/put-update-profile", keywords: "identity user put update profile save" },
   { module: "rest-api", category: "User", id: "put-user-credentials", name: "Update a User's Credentials", url: "user/put-update-credentials", keywords: "identity user post update save password credential credentials" },
 
+  { module: "rest-api", category: "Group", id: "group-options", name: "OPTIONS", url: "group/options", keywords: "options group" },
   { module: "rest-api", category: "Group", id: "create-group", name: "Create single Group", url: "group/post-create", keywords: "identity group create new post" },
   { module: "rest-api", category: "Group", id: "create-group-member", name: "Create Group Member", url: "group/members/put", keywords: "identity group create add member membership put" },
   { module: "rest-api", category: "Group", id: "delete-group", name: "Delete single Group", url: "group/delete", keywords: "identity group delete" },
@@ -147,6 +149,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Group", id: "get-groups-count", name: "Get Groups Count", url: "group/get-query-count", keywords: "identity group get query count" },
   { module: "rest-api", category: "Group", id: "put-group", name: "Update single Group", url: "group/put-update", keywords: "identity group put update save" },
 
+  { module: "rest-api", category: "Authorization", id: "authorization-options", name: "OPTIONS", url: "authorization/options", keywords: "options authorization" },
   { module: "rest-api", category: "Authorization", id: "check-authorization", name: "Check Authorization", url: "authorization/get-check", keywords: "authorization check get" },
   { module: "rest-api", category: "Authorization", id: "create-authorization", name: "Create single Authorization", url: "authorization/post-create", keywords: "authorization create new post" },
   { module: "rest-api", category: "Authorization", id: "delete-authorization", name: "Delete single Authorization", url: "authorization/delete", keywords: "authorization delete remove" },

@@ -1,3 +1,5 @@
+<h1>camunda BPM REST API Documentation</h1>
+
 <section id="toc">
 
 <h1>Table of Contents</h1>
@@ -307,7 +309,9 @@
 <section id="user">
 
 <h1>Users</h1>
-
+<section id="user/options" name="OPTIONS">
+  <%- @include("./user/options.html.md") %>
+</section>
 <section id="user/post-create" name="Create single User">
   <%- @include("./user/post-create.html.md") %>
 </section>
@@ -334,7 +338,9 @@
 
 <section id="group">
 <h1>Groups</h1>
-
+<section id="group/options" name="OPTIONS">
+  <%- @include("./group/options.html.md") %>
+</section>
 <section id="group/post-create" name="Create single Group">
   <%- @include("./group/post-create.html.md") %>
 </section>
@@ -365,7 +371,9 @@
 <section id="authorization">
 
 <h1>Authorizations</h1>
-
+<section id="authorization/options" name="OPTIONS">
+  <%- @include("./authorization/options.html.md") %>
+</section>
 <section id="authorization/get-check" name="Check Authorization">
   <%- @include("./authorization/get-check.html.md") %>
 </section>

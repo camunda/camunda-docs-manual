@@ -102,9 +102,4 @@ Status 200.
     {"id":"jonny1",
       "firstName":"John",
       "lastName":"Doe",
-      "email":"anEmailAddress",
-      "links":[
-        {"method": "GET", href":"http://localhost:8080/engine-rest/user/jonny1/profile", "rel":"self"},
-        {"method": "PUT", href":"http://localhost:8080/engine-rest/user/jonny1/profile", "rel":"update"},
-        {"method": "DELETE", href":"http://localhost:8080/engine-rest/user/jonny1", "rel":"delete"}
-      ]}
+      "email":"anEmailAddress"}

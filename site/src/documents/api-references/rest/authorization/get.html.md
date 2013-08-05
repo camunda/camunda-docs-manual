@@ -118,9 +118,4 @@ Status 200.
      "userId": "*",
      "groupId": null,
      "resourceType": 1,
-     "resourceId": "*",
-     "links":[
-        {"method": "GET", href":"http://localhost:8080/engine-rest/authorization/anAuthorizationId", "rel":"self"},
-        {"method": "PUT", href":"http://localhost:8080/engine-rest/authorization/anAuthorizationId", "rel":"update"},
-        {"method": "DELETE", href":"http://localhost:8080/engine-rest/authorization/anAuthorizationId", "rel":"delete"}
-      ]}
+     "resourceId": "*"}

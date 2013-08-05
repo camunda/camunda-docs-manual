@@ -54,11 +54,6 @@ Each group object has the following properties:
     <td>String</td>
     <td>The type of the group.</td>
   </tr> 
-  <tr>
-    <td>links</td>
-    <td>Object</td>
-    <td>A json array containing links to interact with the resource. The links contain only operations that the currently authenticated user would be authorized to perform.</td>
-  </tr>
 </table>
 
 
@@ -96,9 +91,4 @@ Status 200.
 
     {"id":"sales",
      "name":"Sales",
-     "type":"Organizational Unit",
-     "links":[
-        {"method": "GET", href":"http://localhost:8080/engine-rest/group/sales", "rel":"self"},
-        {"method": "PUT", href":"http://localhost:8080/engine-rest/group/sales", "rel":"update"},
-        {"method": "DELETE", href":"http://localhost:8080/engine-rest/group/sales", "rel":"delete"}
-      ]}
+     "type":"Organizational Unit"}
