@@ -69,6 +69,7 @@ This also configures the default process engine.
                 <properties>
                     <property name="jobExecutorAcquisitionName">default</property>
                     <property name="isAutoSchemaUpdate">true</property>
+                    <property name="authorizationEnabled">true</property>
                 </properties>
             </process-engine>
         </process-engines>
