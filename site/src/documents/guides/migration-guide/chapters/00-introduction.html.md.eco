@@ -9,6 +9,7 @@ The changes in short are:
 
 * Maven **Dependencies**, e.g. `activiti.jar` changed to `camunda-engine.jar`.
 * **Package Names** changed from `org.activiti` to `org.camunda.bpm` for all modules (including engine, cdi and spring).
+* The **configuration file** changed from `activiti.cfg.xml` to `camunda.cfg.xml`.
 * A couple of (internal) classes are renamed - see list below.
 
 There are some things which have not changed yet:
@@ -16,4 +17,3 @@ There are some things which have not changed yet:
 * Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existent in this version.
 * The `activiti:` [Custom Extensions](<%= @docUrl('api-references/bpmn20/') %>#!/concepts/custom-extensions) are kept. 
   A camunda BPM namespace will be introduced soon but backwards compatibility will be ensured.
-* The `activiti.cfg.xml` file is still read to configure the process engine.
