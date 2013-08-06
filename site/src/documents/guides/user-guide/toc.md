@@ -19,6 +19,7 @@
         * [Executions](#process-engine/concepts/executions)
         * [Activity Instances](#process-engine/concepts/activity-instances)            
     * [Database configuration](#database-configuration)
+        * [Additional database schema configuration](#additional-database-schema-configuration)
     * [Database table names explained](#database-table-names)
     * [Job executor activation](#job-executor-activation)
     * [History configuration](#history-configuration)

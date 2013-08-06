@@ -389,6 +389,8 @@ Example database configuration:
     <property name="jdbcPassword" value="" />
      
 
+
+
 Alternatively, a `javax.sql.DataSource` implementation can be used (e.g. DBCP from Apache Commons):
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
@@ -430,6 +432,48 @@ Here are some sample JDBC urls:
 * mssql: jdbc:sqlserver://localhost:1433/camunda
 
 For more information on the database setup please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup">Database Setup</a>
+
+### Additional database schema configuration<a id="additional-database-schema-configuration"></a>
+
+#### Business Key<a id="business-key"></a>
+
+Since the release of camunda-bpm Alpha 9, the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts.
+If you rely on the constraint, you can add it manually to your schema by issuing following sql statements:
+
+  db2
+
+    Runtime: create unique index ACT_UNIQ_RU_BUS_KEY on ACT_RU_EXECUTION(UNI_PROC_DEF_ID, UNI_BUSINESS_KEY);
+    History: create unique index ACT_UNIQ_HI_BUS_KEY on ACT_HI_PROCINST(UNI_PROC_DEF_ID, UNI_BUSINESS_KEY);
+
+  h2 
+
+    Runtime: alter table ACT_RU_EXECUTION add constraint ACT_UNIQ_RU_BUS_KEY unique(PROC_DEF_ID_, BUSINESS_KEY_);
+    History: alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY unique(PROC_DEF_ID_, BUSINESS_KEY_);
+
+  mssql
+
+    Runtime: create unique index ACT_UNIQ_RU_BUS_KEY on ACT_RU_EXECUTION (PROC_DEF_ID_, BUSINESS_KEY_) where BUSINESS_KEY_ is not null;
+    History: create unique index ACT_UNIQ_HI_BUS_KEY on ACT_HI_PROCINST (PROC_DEF_ID_, BUSINESS_KEY_) where BUSINESS_KEY_ is not null;
+
+  mysql 
+
+    Runtime: alter table ACT_RU_EXECUTION add constraint ACT_UNIQ_RU_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
+    History: alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
+
+  oracle 
+
+    Runtime: create unique index ACT_UNIQ_RU_BUS_KEY on ACT_RU_EXECUTION
+             (case when BUSINESS_KEY_ is null then null else PROC_DEF_ID_ end,
+             case when BUSINESS_KEY_ is null then null else BUSINESS_KEY_ end);
+    History: create unique index ACT_UNIQ_HI_BUS_KEY on ACT_HI_PROCINST
+             (case when BUSINESS_KEY_ is null then null else PROC_DEF_ID_ end,
+             case when BUSINESS_KEY_ is null then null else BUSINESS_KEY_ end);
+
+  postgres 
+
+    Runtime: alter table ACT_RU_EXECUTION add constraint ACT_UNIQ_RU_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
+    History: alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
+
 
 ## Database table names explained<a id="database-table-names"></a>
 
