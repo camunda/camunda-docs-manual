@@ -20,6 +20,9 @@ angular.module('camundaorg.controllers', [])
 .config(function($locationProvider) {
   $locationProvider.hashPrefix('!');
 })
+.controller("anchorController", function ($scope, $location, $anchorScroll) {
+  $anchorScroll();  
+})
 .controller("DefaultController", function ($scope, $location) {
 
   // Bread Crumb 

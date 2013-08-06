@@ -25,7 +25,7 @@
     <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <base app-base="<%= @pathSeparator() %>" />
+  <base app-base="<%= @pathSeparator() %>" ng-controller="anchorController" />
 
   <!-- styles -->
   <%- @getBlock('styles').add(@commonStyles()).toHTML() %>

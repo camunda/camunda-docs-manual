@@ -234,7 +234,7 @@ You can also [query for process definitions using the REST API](/api-references/
 
 #### Keys and Versions <a id="process-engine/concepts/process-definitions/key-version"></a> 
 
-The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#process-engine/concepts/process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
+The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#!/#process-engine/concepts/process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
 
     <process id="invoice" name="invoice receipt" isExecutable="true">
       ...
@@ -455,7 +455,7 @@ All process definition are cached (after they're parsed) to avoid hitting the da
 
 A process engine is a set of objects which are initialized and wait for threads that want to perform work in a particular process instance. It is essentially a passive component triggered only by these threads. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. 
 
-On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. More concretely speaking it performs a depth-first traversal through the process graph and returns if it has reached wait states on every branch of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#job-executor), which is able to fetch registered jobs and process them asynchronously.
+On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. More concretely speaking it performs a depth-first traversal through the process graph and returns if it has reached wait states on every branch of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#!/#job-executor), which is able to fetch registered jobs and process them asynchronously.
 
 ### Transaction Boundaries<a id="transaction-boundaries"></a>
 
@@ -473,7 +473,7 @@ In some cases this behavior is not desired. Sometimes we need custom control ove
 
 This time we are completing the user task, generating an invoice and then send that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to rollback the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return the control to the calling application (**2**). 
 
-Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](#job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime. 
+Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](#!/#job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime. 
 
 So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camundabpm:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
 
@@ -483,7 +483,7 @@ So behind the scenes, when we reach the *generate invoice* task, we are persisti
 
 ## The Job Executor<a id="job-executor"></a>
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#transaction-boundaries)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#!/#transaction-boundaries)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
 
 <img src="<%= @docUrl('guides/user-guide/assets/img/job-executor-basic-architecture.png') %>">
 
@@ -533,7 +533,7 @@ After having locked a job, the job executor instance has effectively reserved a 
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration](#runtime-container-integration) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration](#!/#runtime-container-integration) section on how this achieved.
 
 #### Failed Jobs
 
@@ -607,7 +607,7 @@ In larger deployments however, this quickly leads to a poorly manageable situati
 <img src="<%= @docUrl('guides/user-guide/assets/img/job-executor-multiple-engines.png') %>">
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration](#runtime-container-integration) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration](#!/#runtime-container-integration) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -618,7 +618,7 @@ To which job acquisition a process engine is assigned can be specified in the de
       ...
     </process-engine> 
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](#configuration-and-extensions).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](#!/#configuration-and-extensions).
 
 ### Cluster Setups<a id="cluster-setups"></a>
 
@@ -1243,7 +1243,7 @@ Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.ba
 </div>
 
 ### Looking up a Process Engine in JNDI<a id="bpmplatform/container/jboss/jndi"></a>
-The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#bpmplatform/container/jndi/platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly. 
+The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#!/#bpmplatform/container/jndi/platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly. 
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -1251,13 +1251,13 @@ The global JNDI bindings for process engines follow the pattern
 
 If a process engine is named "engine1", it will be available using the name `java:global/camunda-bpm-platform/process-engine/engine1`.
 
-Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](#bpmplatform/container/jboss/services/explicit).
+Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](#!/#bpmplatform/container/jboss/services/explicit).
 
 <div class="alert">
   <p>
     <strong>Looking up a Process Engine from JNDI using Spring</strong>     
   </p>
-   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](#bpmplatform/container/jboss/services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-quickstarts/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
+   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](#!/#bpmplatform/container/jboss/services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-quickstarts/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
 </div>
 
 ### Managing the process engine through the JBoss Management System<a id="bpmplatform/container/jboss/management"></a>

@@ -2,11 +2,11 @@
 
 The camunda bpm stack currently includes three web apps built on a HTML 5 plus [REST](<%= @docUrl('api-references/rest/') %>) architecture:
 
-* [Cycle](#tools/cycle) for synchronization of process models in different repositories.
-* [Tasklist](#tools/tasklist), a demo application for human workflow management.
-* [Cockpit](#tools/cockpit), a monitoring tool for process operations.
+* [Cycle](#!/#tools/cycle) for synchronization of process models in different repositories.
+* [Tasklist](#!/#tools/tasklist), a demo application for human workflow management.
+* [Cockpit](#!/#tools/cockpit), a monitoring tool for process operations.
 
-The [User Management](#tools/user-management) for Cockpit and Tasklist works with the engine identity service. All applications are part of our camunda BPM distribution and ready to use! 
+The [User Management](#!/#tools/user-management) for Cockpit and Tasklist works with the engine identity service. All applications are part of our camunda BPM distribution and ready to use! 
 
 ## Cycle<a id="tools/cycle"></a>
 
@@ -33,15 +33,15 @@ If you are new to Cycle have a look at our Hands-On <a href="http://www.camunda.
 
 To connect Cycle to a suitable repository you can set up one of the following connectors: 
 
-* [Signavio Connector](#tools/cycle/connector-configuration/signavio-connector) 
-* [Subversion Connector](#tools/cycle/connector-configuration/subversion-connector)
+* [Signavio Connector](#!/#tools/cycle/connector-configuration/signavio-connector) 
+* [Subversion Connector](#!/#tools/cycle/connector-configuration/subversion-connector)
 * [File System Connector]((#tools/cycle/connector-configuration/file-system-connector)
 
-Furthermore you get information about how to configure [User Credentials](#tools/cycle/connector-configuration/user-credentials) for your connector.
+Furthermore you get information about how to configure [User Credentials](#!/#tools/cycle/connector-configuration/user-credentials) for your connector.
 
 #### Signavio Connector<a id="tools/cycle/connector-configuration/signavio-connector"></a>
 
-For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided [credentials](#tools/cycle/connector-configuration/user-credentials), meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
+For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided [credentials](#!/#tools/cycle/connector-configuration/user-credentials), meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
 
 <div class="row-fluid">
   <div id="cycle-add-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-signavio-connector.png') %>"></div>
@@ -51,7 +51,7 @@ Hit `Test` to check if Cycle can find the folder you specified.
 
 #### Subversion Connector<a id="tools/cycle/connector-configuration/subversion-connector"></a>
 
-Use the subversion plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If [user credentials](#tools/cycle/connector-configuration/user-credentials) are mandatory, you can provide them either globally or individually for each Cycle user. In the picture below you see a connector setup for a GitHub repository. The user credentials are provided globally. 
+Use the subversion plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If [user credentials](#!/#tools/cycle/connector-configuration/user-credentials) are mandatory, you can provide them either globally or individually for each Cycle user. In the picture below you see a connector setup for a GitHub repository. The user credentials are provided globally. 
 
 <div class="row-fluid">
   <div id="cycle-add-subversion-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-add-svn-connector.png') %>"></div>
@@ -87,14 +87,14 @@ Hit `Test` to check if the credentials are valid.
 
 ### BPMN 2.0 Roundtrip<a id="tools/cycle/bpmn-20-roundtrip"></a>
 
-When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](#tools/cycle/bpmn-20-roundtrip/pool-extraction). With Cycle, you can do this synchronization in both directions. 
+When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](#!/#tools/cycle/bpmn-20-roundtrip/pool-extraction). With Cycle, you can do this synchronization in both directions. 
 
 <h4>Step 1: Setup the Connector</h4>
 <div class="row-fluid">
   <div id="cycle-signavio-connector" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-signavio-connector.png') %>" ></div>
     <div class="span8">
       <p>
-        Setup a suitable connector for your repository as described in the section [Connector Configuration](#tools/cycle/connector-configuration).
+        Setup a suitable connector for your repository as described in the section [Connector Configuration](#!/#tools/cycle/connector-configuration).
         In this walkthrough we use a Signavio Connector with user provided credentials.</p>
       <p> Hit `Test` to check if Cycle can access your Signavio account.</p>
     </div>
@@ -112,7 +112,7 @@ When we are talking about Rountrip we are talking about the synchronization of B
   <div id="cycle-create-executable" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-create-executable.png') %>" ></div>
     <div class="span8">
       <p>Hit `Create` and choose the location you want the BPMN 2.0 XML file to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting `Create`, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "in synch" now.</p>
-      <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
+      <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#!/#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
   </div>
 </div>
 <h4>Step 4: Edit BPMN File</h4>
@@ -218,7 +218,7 @@ In the following example we walk through a typical human workflow scenario. The 
   </div>
   <div class="span8">
     <p>To start a process instance via the Tasklist hit the <button class="btn btn-mini"><i class="caret"></i> Start a Process </button> dropdown button and select a process. If there is no process listed please check that your process is deployed correctly.</p>
-    <p>Depending on whether you have defined a [start form](#tools/tasklist/task-forms) for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click `Start process using generic form`. The [generic task form](#tools/tasklist/task-forms/generic-task-forms) allows you to enter variables for your process.</p>
+    <p>Depending on whether you have defined a [start form](#!/#tools/tasklist/task-forms) for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click `Start process using generic form`. The [generic task form](#!/#tools/tasklist/task-forms/generic-task-forms) allows you to enter variables for your process.</p>
     <p>In our example you have to enter the desired values and hit `Start Process` to step through</p>
   </div>
 </div>
@@ -229,8 +229,8 @@ Tasks that are assigned to you are listed on the Tasklist main page where you ca
 <div class="row-fluid">
   <div id="tasklist-form-assign-approver" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-form-assign-approver.png') %>"></div>
   <div class="span8">
-     <p>In our example [task form](#tools/tasklist/task-forms) you are asked to assign an approver for your invoice. Enter a colleague's name who should be assigned to approve the task. Have a look at the [Task Overview](#tools/tasklist/human-workflow-management/user-and-group-task-overview). The assigned task is now in your colleague's folder.</p>
-     <p>If no task form is defined for a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> you will be forwarded to a [generic form](#tools/tasklist/task-forms/generic-task-forms). In a generic form you can define the input data yourself.</p>
+     <p>In our example [task form](#!/#tools/tasklist/task-forms) you are asked to assign an approver for your invoice. Enter a colleague's name who should be assigned to approve the task. Have a look at the [Task Overview](#!/#tools/tasklist/human-workflow-management/user-and-group-task-overview). The assigned task is now in your colleague's folder.</p>
+     <p>If no task form is defined for a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> you will be forwarded to a [generic form](#!/#tools/tasklist/task-forms/generic-task-forms). In a generic form you can define the input data yourself.</p>
   </div>
 </div>
 
@@ -249,7 +249,7 @@ When you complete a task by submitting the task form, the task is completed and 
   <div id="tasklist-main-info" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-main-info.png') %>"></div>
   <div class="span8">
     <p>In the User and Group Task overview you can see how many tasks are assigned to you, the different groups and your colleagues. Have a look in your colleagues' folder. You will see that you can see their tasks but you are not able to work on them.</p>
-    <p>The folder `Inbox` contains all tasks that are assigned to the user groups. Like tasks of a group they are ready to be [claimed](#tools/tasklist/human-workflow-management/un-claim-a-task).</p>
+    <p>The folder `Inbox` contains all tasks that are assigned to the user groups. Like tasks of a group they are ready to be [claimed](#!/#tools/tasklist/human-workflow-management/un-claim-a-task).</p>
   </div>  
 </div>
 
@@ -271,7 +271,7 @@ You can bulk (un-)claim tasks after selecting multiple tasks via `strg + click`.
 <div class="row-fluid">
   <div id="tasklist-delegate" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-delegate.png') %>"></div>
   <div class="span8">
-    When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task doesn’t mean that you assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the [(un-)claim function](#tools/tasklist/human-workflow-management/un-claim-a-task). 
+    When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task doesn’t mean that you assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the [(un-)claim function](#!/#tools/tasklist/human-workflow-management/un-claim-a-task). 
   </div>  
 </div>
 
@@ -282,7 +282,7 @@ You can bulk delegate tasks after selecting multiple tasks via `strg + click`.
 <div class="row-fluid">
   <div id="tasklist-task-forms" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-task-forms-eclipse.png') %>"></div>
   <div class="span8">
-      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different [folders](#tools/tasklist/human-workflow-management/user-and-group-task-overview).</p>
+      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different [folders](#!/#tools/tasklist/human-workflow-management/user-and-group-task-overview).</p>
       <p>In the properties panel in your <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> you can configure all relevant attributes.</p>
   </div>  
 </div>
@@ -383,7 +383,7 @@ The Cockpit architecture allows using <a href="<%= @docUrl('how-tos/cockpit/deve
 
 ### Start Page View<a id="tools/cockpit/start-page-view"></a>
 
-On the start page of Cockpit you get an overview of the installed plugins - at least you will see the two [pre-installed plugins](#tools/cockpit/start-page-view/default-plugins). Additionally installed plugins will be automatically added below the existing ones.
+On the start page of Cockpit you get an overview of the installed plugins - at least you will see the two [pre-installed plugins](#!/#tools/cockpit/start-page-view/default-plugins). Additionally installed plugins will be automatically added below the existing ones.
 
 #### Default Plugins<a id="tools/cockpit/start-page-view/default-plugins"></a>
 
@@ -394,7 +394,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-plugin-process-definition-state-overview" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definition-state.png') %>"></div>
   <div class="span8">        
-    With the Process Definition State Overview plugin you can easily observe the state of a processes definition. Green and red dots signalize running and [failed jobs](#tools/cockpit/failed-jobs). At this observing level a red dot signifies that there is at least one process instance or a sub process instance which has an unresolved incident. You can localize the problem by using the [Process Definitions View](#tools/cockpit/process-definitions-view).
+    With the Process Definition State Overview plugin you can easily observe the state of a processes definition. Green and red dots signalize running and [failed jobs](#!/#tools/cockpit/failed-jobs). At this observing level a red dot signifies that there is at least one process instance or a sub process instance which has an unresolved incident. You can localize the problem by using the [Process Definitions View](#!/#tools/cockpit/process-definitions-view).
   </div>  
 </div>
 
@@ -403,7 +403,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-plugin-deployed-processes" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed processes.png') %>"></div>
   <div class="span8">        
-    The Deployed Process plugin gives you an overview of all deployed processes on the engine and picture them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#tools/cockpit/process-definitions-view)
+    The Deployed Process plugin gives you an overview of all deployed processes on the engine and picture them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#!/#tools/cockpit/process-definitions-view)
   </div>  
 </div>
 
@@ -421,8 +421,8 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-process-definitions-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definitions-view.png') %>"></div>
   <div class="span8">
-    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. [Failed jobs](#tools/cockpit/failed-jobs) can also be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
-    Additionally all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view).</p>
+    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. [Failed jobs](#!/#tools/cockpit/failed-jobs) can also be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
+    Additionally all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#!/#tools/cockpit/process-instance-detail-view).</p>
   </div>
 </div>
 
@@ -431,8 +431,8 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-process-instances-detail-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-detail-view.png') %>"></div>
   <div class="span8">
-    <p>Open the Process Instance Detail View by selecting a process instance from the [Process Definitions View](#tools/cockpit/process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
-    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools/cockpit/process-instance-detail-view/activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools/cockpit/process-instance-detail-view/detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
+    <p>Open the Process Instance Detail View by selecting a process instance from the [Process Definitions View](#!/#tools/cockpit/process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
+    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#!/#tools/cockpit/process-instance-detail-view/activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#!/#tools/cockpit/process-instance-detail-view/detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
   </div>  
 </div>
 
@@ -478,7 +478,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-failed-job-drill-down" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-drill-down.png') %>"></div>
   <div class="span8">
-    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#tools/cockpit/process-instance-detail-view)</p>
+    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#!/#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#!/#tools/cockpit/process-instance-detail-view)</p>
   </div> 
 </div>
 
