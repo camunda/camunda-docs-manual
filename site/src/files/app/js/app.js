@@ -583,7 +583,7 @@ angular.module('camundaorg.directives')
 
           tabs.push(
             '<li class="' + (!index ? ' active' : '') + '">' +
-              '<a href="#' + id(filename) + '" data-toggle="tab">' + filename  + '</a>' +
+              '<a href="#!/#' + id(filename) + '" data-toggle="tab">' + filename  + '</a>' +
             '</li>');
 
           
@@ -815,7 +815,7 @@ angular.module('camundaorg.directives')
           space += "  ";
         }
 
-        return space + "* [" + title+ "](#" + link + ")" + "\n";
+        return space + "* [" + title+ "](#!/#" + link + ")" + "\n";
       }
 
       $("h1, h2, h3, h4").each(function(i) {
@@ -830,7 +830,7 @@ angular.module('camundaorg.directives')
           // $(element).append(generateTocMarkDown(current.text(), link.attr("id"), indent));
           
           // append copyable link
-          $(current).append('<a class="headerlink" href="#' + link.attr("id") + '" title="Link to current section">¶</a>')
+          $(current).append('<a class="headerlink" href="#!/#' + link.attr("id") + '" title="Link to current section">¶</a>')
         }
       });
     }
@@ -848,19 +848,19 @@ angular.module('camundaorg.directives')
 
     // update active entry in Breadcrumb
 
-    var link = '#' + $location.path();
+    var link = '#!/#' + $location.path();
 
     // Remove any active entry marker from list
     $('.bpmnSymbolLink').parent().removeClass("active");
 
-    if (link == '#/design/reference') {
+    if (link == '#!/#/design/reference') {
       $('#breadcrumbOverview').text('Symbol Reference');
       $('#breadcrumbOverview').addClass('active');
       $('#breadcrumbSymbol').text('');
     } else {
 
       $('#breadcrumbOverview').removeClass('active');
-      $('#breadcrumbOverview').html('<a href="#/design/reference">Symbol Reference</a> <span class="divider">/</span>');
+      $('#breadcrumbOverview').html('<a href="#!/#/design/reference">Symbol Reference</a> <span class="divider">/</span>');
       // Highlight active entry in list
       $('a[href="' + link + '"]').parent().addClass("active");
       // update Breadcrumb active entry
