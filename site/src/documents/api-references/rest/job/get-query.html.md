@@ -69,6 +69,10 @@ Parameters
     <td>Only select jobs that failed due to an exception with the given message.</td>
   </tr>
   <tr>
+    <td>noRetriesLeft</td>
+    <td>Only select jobs which have no retries left.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.
