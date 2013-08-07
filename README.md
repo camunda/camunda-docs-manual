@@ -91,3 +91,9 @@ Use HTML markup with [twitter bootstrap flavour](http://twitter.github.io/bootst
     </tbody>
   </table>
   ```
+
+
+License
+-------
+![CC BY-SA](http://i.creativecommons.org/l/by-sa/3.0/80x15.png)
+The content on this site is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
