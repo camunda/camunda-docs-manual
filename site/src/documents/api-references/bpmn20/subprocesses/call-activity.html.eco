@@ -54,6 +54,34 @@ Note that the process definition of the subprocess is resolved at runtime. This 
 
 
 
+<h1>CalledElement Binding</h1>
+<p>
+In a call activity contains the calledElement attribute the process definition key as reference to the subprocess. This means that always the latest process definition version of the subprocess is called.
+To call another version of the subprocess it is possible to define the attribute calledElementBinding and calledElementVersion in the call activity. Both attributes are optional.
+</p>
+CalledElementBinding has three different values:
+<ul>
+	<li>
+		latest: always call latest process definition version (the same behaviour without this attribute)
+	</li>
+	<li>
+		deployment: if called process definition is part of the same deployment as the calling process definition use version from deployment
+	</li>
+	<li>
+		version: call fix version of process definition, calledElementVersion is required
+	</li>
+</ul>
+
+<div class="app-source" app-source-no-tabs="callactivityExtensions"></div>
+<script type="text/xml" id="callactivityExtensions">
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+	activiti:calledElementBinding="latest|deployment|version"
+	activiti:calledElementVersion="17">
+</callActivity>
+</script>
+
+
+
 <h1>Passing variables</h1>
 
 You can pass process variables to the sub process and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
@@ -87,7 +115,6 @@ It is possible to use expressions here as well:
 <p>
 So in the end z = y+5 = x+5+5
 </p>
-
 
 
 
