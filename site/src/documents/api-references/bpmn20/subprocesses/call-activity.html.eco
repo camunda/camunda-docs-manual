@@ -75,8 +75,8 @@ CalledElementBinding has three different values:
 <div class="app-source" app-source-no-tabs="callactivityExtensions"></div>
 <script type="text/xml" id="callactivityExtensions">
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
-	activiti:calledElementBinding="latest|deployment|version"
-	activiti:calledElementVersion="17">
+  camundabpm:calledElementBinding="latest|deployment|version"
+  camundabpm:calledElementVersion="17">
 </callActivity>
 </script>
 
