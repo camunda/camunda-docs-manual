@@ -25,7 +25,7 @@ An error event definition references an error element. The following is an examp
 
 <div class="app-source" app-source-no-tabs="error1"></div>
 <script type="text/xml" id="error1">
-<defnitions>
+<definitions>
 <error id="myError" errorCode="ERROR-OCCURED" name="ERROR-OCCURED"/>
 ...
 <process>
@@ -36,8 +36,32 @@ An error event definition references an error element. The following is an examp
 </process>
 </definitions>
 </script>
-         
+
+<p>
+A further possibility to define an error is the setting of an exception type as error code. The following is an example of an exception type as error code:
+</p>
+
+<div class="app-source" app-source-no-tabs="exception1"></div>
+<script type="text/xml" id="exception1">
+<definitions>
+<error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
+...
+<process>
+  ...
+  <endEvent id="myErrorEndEvent">
+    <errorEventDefinition errorRef="myException" />
+  </endEvent>
+</process>
+</definitions>
+</script>
+
+<p>
+The exception type should only used for business exceptions and not for technical exceptions in the process.
+</p>
+
+<p>         
 An error event handler references the same error element to declare that it catches the error. 
+</p>
 
     </div>
     <div class="span3">
@@ -103,7 +127,7 @@ A boundary error event is defined as a typical boundary event. As with the other
 
 <div class="app-source" app-source-no-tabs="error2"></div>
 <script type="text/xml" id="error2">
-<defnitions>
+<definitions>
 <error id="myError" errorCode="ERROR-OCCURED" name="name of error"/>
 ...
 <process>

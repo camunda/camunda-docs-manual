@@ -2,7 +2,7 @@ Get Form Key
 ============
 
 Retrieves the form key for a task. The form key corresponds to the `FormData#formKey` property in the engine.
-This key can be used to do task-specific form rendering in client applications.
+This key can be used to do task-specific form rendering in client applications. Additionally, the context path of the containing process application is returned.
 
 
 Method
@@ -44,6 +44,11 @@ A json object containing the form key.
     <td>String</td>
     <td>The for key for the task.</td>
   </tr>
+  <tr>
+    <td>contextPath</td>
+    <td>String</td>
+    <td>The process application's context path the task belongs to. If the task does not belong to a process application deployment or a process definition at all, this property is not set.</td>
+  </tr>
 </table>
 
 
@@ -78,4 +83,5 @@ GET `/task/anId/form`
 
 #### Response
 
-    {"key":"aFormKey"}
+    {"key":"aFormKey",
+    "contextPath":"http://localhost:8080/my-process-application/"}
