@@ -33,6 +33,7 @@ Note: it is important to understand that a signal event is broadcast to all acti
           <li>Signals in the API</li>
           <li>Catching Signal Events</li>
           <li>Signal Intermediate Throw Event</li>
+		  <li>Signal End Event</li>
       </ul>
       <h3>There's more...</h3>
       <ul>            
@@ -190,5 +191,22 @@ An asynchronous signal event would look like this:
 </intermediateThrowEvent>
 </script>
 
+
+
+
+<h1>Signal End Event</h1>
+
+<div class="bpmnContainer"  data-bpmn-symbol="endevent/signal" > </div>
+
+<p>
+A signal end event throws a signal event for a defined signal and the current path of execution is ended. It has the same behaviour like a signal intermediate throwing event.
+</p>
+
+<div class="app-source" app-source-no-tabs="signal-end"></div>
+<script type="text/xml" id="signal-end">
+<endEvent id="signal">
+        <signalEventDefinition signalRef="newCustomerSignal" />
+</endEvent>
+</script>
 	
 </section>
