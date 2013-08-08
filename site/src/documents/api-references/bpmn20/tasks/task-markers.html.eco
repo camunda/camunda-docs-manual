@@ -107,7 +107,7 @@ Another way to define the number of instances, is to specify the name of a proce
 
 <div class="app-source" app-source-no-tabs="mi4" ></div>
 <script type="text/xml" id="mi4">
-<userTask id="miTasks" name="My Task ${loopCounter}" activiti:assignee="${assignee}">
+<userTask id="miTasks" name="My Task ${loopCounter}" camundabpm:assignee="${assignee}">
   <multiInstanceLoopCharacteristics isSequential="false">
     <loopDataInputRef>assigneeList</loopDataInputRef>
     <inputDataItem name="assignee" />
@@ -124,9 +124,9 @@ The downside of the loopDataInputRef and inputDataItem is that 1) the names are 
 
 <div class="app-source" app-source-no-tabs="mi5" ></div>
 <script type="text/xml" id="mi5">
-<userTask id="miTasks" name="My Task" activiti:assignee="${assignee}">
+<userTask id="miTasks" name="My Task" camundabpm:assignee="${assignee}">
   <multiInstanceLoopCharacteristics isSequential="true" 
-     activiti:collection="${myService.resolveUsersForTask()}" activiti:elementVariable="assignee" >
+     camundabpm:collection="${myService.resolveUsersForTask()}" camundabpm:elementVariable="assignee" >
   </multiInstanceLoopCharacteristics>
 </userTask>
 </script>
@@ -137,9 +137,9 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 <div class="app-source" app-source-no-tabs="mi6" ></div>
 <script type="text/xml" id="mi6">
-<userTask id="miTasks" name="My Task" activiti:assignee="${assignee}">
+<userTask id="miTasks" name="My Task" camundabpm:assignee="${assignee}">
   <multiInstanceLoopCharacteristics isSequential="false" 
-     activiti:collection="assigneeList" activiti:elementVariable="assignee" >
+     camundabpm:collection="assigneeList" camundabpm:elementVariable="assignee" >
     <completionCondition>${nrOfCompletedInstances/nrOfInstances >= 0.6 }</completionCondition>
   </multiInstanceLoopCharacteristics>
 </userTask> 
@@ -217,7 +217,7 @@ In order to declare an activity to be a compensation handler, we need to set the
 
 <div class="app-source" app-source-no-tabs="compensation7"></div>
 <script type="text/xml" id="compensation7">
-<serviceTask id="undoBookHotel" isForCompensation="true" activiti:class="..." />
+<serviceTask id="undoBookHotel" isForCompensation="true" camundabpm:class="..." />
 </script>
 
 

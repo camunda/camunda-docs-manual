@@ -204,7 +204,7 @@ A compensation boundary event is defined as a typical boundary event:
 
 <association associationDirection="One" id="a1"  sourceRef="compensateBookHotelEvt" targetRef="undoBookHotel" />
 
-<serviceTask id="undoBookHotel" isForCompensation="true" activiti:class="..." />
+<serviceTask id="undoBookHotel" isForCompensation="true" camundabpm:class="..." />
 </script>
 
 <p>

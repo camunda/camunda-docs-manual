@@ -62,8 +62,8 @@ You can pass process variables to the sub process and vice versa. The data is co
 <script type="text/xml" id="callactivity2">    
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
   <extensionElements>
-          <activiti:in source="someVariableInMainProcess" target="nameOfVariableInSubProcess" />
-          <activiti:out source="someVariableInSubProcss" target="nameOfVariableInMainProcess" />
+          <camundabpm:in source="someVariableInMainProcess" target="nameOfVariableInSubProcess" />
+          <camundabpm:out source="someVariableInSubProcss" target="nameOfVariableInMainProcess" />
   </extensionElements>
 </callActivity>
 </script>
@@ -78,8 +78,8 @@ It is possible to use expressions here as well:
 <script type="text/xml" id="callactivity3">    
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
         <extensionElements>
-          <activiti:in sourceExpression="${x+5}" target="y" />
-          <activiti:out source="${y+5}" target="z" />
+          <camundabpm:in sourceExpression="${x+5}" target="y" />
+          <camundabpm:out source="${y+5}" target="z" />
         </extensionElements>
 </callActivity>
 </script>

@@ -43,14 +43,14 @@
   </div>
  
 <p>  
-  To specify a class that is called during process execution, the fully qualified classname needs to be provided by the <code>activiti:class</code> attribute.
+  To specify a class that is called during process execution, the fully qualified classname needs to be provided by the <code>camundabpm:class</code> attribute.
 </p>
 
 <div class="app-source" app-source-no-tabs="service-task-delegate" ></div>
 <script type="text/xml" id="service-task-delegate">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
-             activiti:class="org.camunda.bpm.MyJavaDelegate" />
+             camundabpm:class="org.camunda.bpm.MyJavaDelegate" />
 </script>
 
 	<p>
@@ -59,11 +59,11 @@
 	<p>
 		It is also possible to use an expression that resolves to an object.
 		This object must follow the same rules as objects that are created
-		when the <code>activiti:class</code> attribute is used.
+		when the <code>camundabpm:class</code> attribute is used.
 
     <div class="app-source" app-source-no-tabs="service-task-expression-delegate"></div>
     <script type="text/xml" id="service-task-expression-delegate">
-<serviceTask id="serviceTask" activiti:delegateExpression="${delegateExpressionBean}" />
+<serviceTask id="serviceTask" camundabpm:delegateExpression="${delegateExpressionBean}" />
     </script>
 
 
@@ -72,14 +72,14 @@
 		interface. Beans can be resolved for example via CDI or Spring (see below).
 	</p>
 	<p>
-		To specify an expression that should be evaluated, use attribute <class>activiti:expression</class>.
+		To specify an expression that should be evaluated, use attribute <class>camundabpm:expression</class>.
   </p>
 
     <div class="app-source" app-source-no-tabs="service-task-expression"></div>
     <script type="text/xml" id="service-task-expression">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
-             activiti:expression="#{printer.printMessage()}" />
+             camundabpm:expression="#{printer.printMessage()}" />
     </script>
 
   <p>
@@ -93,7 +93,7 @@
     <script type="text/xml" id="service-task-expression-params">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
-             activiti:expression="#{printer.printMessage(execution, myVar)}" />
+             camundabpm:expression="#{printer.printMessage(execution, myVar)}" />
     </script>
 
   <p>
@@ -104,15 +104,15 @@
 	</p>
 	<p>
 		To specify a UEL value expression that should be evaluated, use
-		attribute <span class="bold"><strong>activiti:expression</strong></span>.
+		attribute <span class="bold"><strong>camundabpm:expression</strong></span>.
   </p>
 
     <div class="app-source" app-source-no-tabs="service-task-expression-value"></div>
     <script type="text/xml" id="service-task-expression-value">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
-             activiti:expression="#{split.ready}"
-             activiti:resultVariable="myVar" />
+             camundabpm:expression="#{split.ready}"
+             camundabpm:resultVariable="myVar" />
     </script>
 
 	<p>
@@ -120,7 +120,7 @@
 		<code>split</code>. The named objects are resolved in the execution's process variables	and (if applicable) in the CDI or Spring context.
   </p>
   <p>
-    Note that you can store the return value of the method in a process variable by specifying the <code>activiti:resultVariable</code>
+    Note that you can store the return value of the method in a process variable by specifying the <code>camundabpm:resultVariable</code>
 	</p>
 
 
@@ -171,7 +171,7 @@ public class ToUppercase implements JavaDelegate {
 	</p>
 	<p>
 		The classes that are referenced in the process definition (i.e. by using
-		<code>activiti:class</code>	) are <strong>NOT instantiated
+		<code>camundabpm:class</code>	) are <strong>NOT instantiated
 		during deployment</strong>. Only when a process execution arrives for the
 		first time at the point in the process where the class is used, an
 		instance of that class will be created. If the class cannot be found,
@@ -233,9 +233,9 @@ public class ToUppercase implements JavaDelegate {
     <script type="text/xml" id="service-task-field-injection">
 <serviceTask id="javaService" 
              name="Java service invocation" 
-             activiti:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+             camundabpm:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
   <extensionElements>
-      <activiti:field name="text" stringValue="Hello World" />
+      <camundabpm:field name="text" stringValue="Hello World" />
   </extensionElements>           
 </serviceTask>          
     </script>
@@ -247,7 +247,7 @@ public class ToUppercase implements JavaDelegate {
 		<code>Hello World</code> will be returned.
 	</p>
 	<p>
-		Alternatively, for longs texts (e.g. an inline e-mail) the <cope>activiti:string</code> sub element can be
+		Alternatively, for longs texts (e.g. an inline e-mail) the <cope>camundabpm:string</code> sub element can be
 		used:
   </p>
 
@@ -255,13 +255,13 @@ public class ToUppercase implements JavaDelegate {
     <script type="text/xml" id="service-task-field-injection-2">
 <serviceTask id="javaService" 
              name="Java service invocation" 
-             activiti:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+             camundabpm:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
   <extensionElements>   
-    <activiti:field name="text">
-        <activiti:string>
+    <camundabpm:field name="text">
+        <camundabpm:string>
           Hello World
-      </activiti:string>
-    </activiti:field>
+      </camundabpm:string>
+    </camundabpm:field>
   </extensionElements>        
 </serviceTask>        
     </script>
@@ -281,15 +281,15 @@ public class ToUppercase implements JavaDelegate {
     <div class="app-source" app-source-no-tabs="service-task-field-injection-3"></div>
     <script type="text/xml" id="service-task-field-injection-3">
 <serviceTask id="javaService" name="Java service invocation" 
-             activiti:class="org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
+             camundabpm:class="org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
   
   <extensionElements>
-    <activiti:field name="text1">
-      <activiti:expression>${genderBean.getGenderString(gender)}</activiti:expression>
-    </activiti:field>
-    <activiti:field name="text2">
-       <activiti:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</activiti:expression>
-    </activiti:field>
+    <camundabpm:field name="text1">
+      <camundabpm:expression>${genderBean.getGenderString(gender)}</camundabpm:expression>
+    </camundabpm:field>
+    <camundabpm:field name="text2">
+       <camundabpm:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</camundabpm:expression>
+    </camundabpm:field>
   </ extensionElements>
 </ serviceTask>
     </script>
@@ -323,8 +323,8 @@ public class ReverseStringsFieldInjected implements JavaDelegate {
 
     <div class="app-source" app-source-no-tabs="service-task-field-injection-5"></div>
     <script type="text/xml" id="service-task-field-injection-5">
-<activiti:field name="text1" expression="${genderBean.getGenderString(gender)}" />
-<activiti:field name="text1" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
+<camundabpm:field name="text1" expression="${genderBean.getGenderString(gender)}" />
+<camundabpm:field name="text1" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
     </script>
 
 	<p>
@@ -344,7 +344,7 @@ public class ReverseStringsFieldInjected implements JavaDelegate {
 		The return value of a service execution (for service task using
 		expression only) can be assigned to an already existing or to a new
 		process variable by specifying the process variable name as a literal
-		value for the <code>'activiti:resultVariable'</code>
+		value for the <code>'camundabpm:resultVariable'</code>
 		attribute of a service task definition. Any existing value for a
 		specific process variable will be overwritten by the result value of
 		the service execution. When not specifying a result variable name, the
@@ -354,8 +354,8 @@ public class ReverseStringsFieldInjected implements JavaDelegate {
     <div class="app-source" app-source-no-tabs="service-task-results"></div>
     <script type="text/xml" id="service-task-results">
 <serviceTask id="aMethodExpressionServiceTask"
-             activiti:expression="#{myService.doSomething()}"
-             activiti:resultVariable="myVar" />
+             camundabpm:expression="#{myService.doSomething()}"
+             camundabpm:resultVariable="myVar" />
     </script>
 
   <p>

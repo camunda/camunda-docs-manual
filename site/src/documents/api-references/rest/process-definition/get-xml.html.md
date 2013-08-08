@@ -86,5 +86,5 @@ GET `/process-definition/aProcessDefinitionId/xml`
     {"id":"aProcessDefinitionId",
     "bpmn20Xml":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
     ...
-    <userTask id=\"approveInvoice\" activiti:expression=\"${true}\" name=\"approve invoice\">\r\n
+    <userTask id=\"approveInvoice\" camundabpm:expression=\"${true}\" name=\"approve invoice\">\r\n
     ..."}

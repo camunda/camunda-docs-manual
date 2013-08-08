@@ -180,7 +180,7 @@ Now the exposed beans can be used in expressions: for example, the SpringTransac
         <startEvent id="start" />
         <sequenceFlow id="flow1" sourceRef="start" targetRef="print" />
         
-        <serviceTask id="print" activiti:expression="#{printer.printMessage()}" />
+        <serviceTask id="print" camundabpm:expression="#{printer.printMessage()}" />
         <sequenceFlow id="flow2" sourceRef="print" targetRef="end" />
         
         <endEvent id="end" />
@@ -405,7 +405,7 @@ The `@CompleteTask` annotation offers the possibility to end the current convers
 The `camunda-engine-cdi` library exposes CDI beans via Expression Language, using a custom resolver. This makes it possible to reference beans from the process:
 
     <userTask id="authorizeBusinessTrip" name="Authorize Business Trip"                      
-                            activiti:assignee="#{authorizingManager.account.username}" />
+                            camundabpm:assignee="#{authorizingManager.account.username}" />
     </script>
 
 Where "authorizingManager" could be a bean provided by a producer method:
@@ -425,7 +425,7 @@ public Employee authorizingManager() {
 }
 ```
 
-We can use the same feature to call a business method of an EJB in a service task, using the `activiti:expression="myEjb.method()"`-extension. 
+We can use the same feature to call a business method of an EJB in a service task, using the `camundabpm:expression="myEjb.method()"`-extension.
 Note that this requires a `@Named`-annotation on the MyEjb-class.
 
 #### Working with @BusinessProcessScoped beans<a id="cdi-working-with-business-process-scoped-beans"></a>
