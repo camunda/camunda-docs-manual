@@ -279,22 +279,22 @@ Replace 'x' with your camunda BPM version.
 
 ### Looking up a Process Engine<a id="cdi-looking-up-a-process-engine"></a>
 
-The cdi extension needs to get access to a ProcessEngine. To achieve this, an implementation of the interface `org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup` is looked up at runtime. The cdi module ships with a default implementation named org.camunda.bpm.engine.cdi.impl.LocalProcessEngineLookup, which uses the ProcessEngines-Utility class for looking up the ProcessEngine. In the default configuration ProcessEngines#NAME_DEFAULT is used to lookup the ProcessEngine. This class might be subclassed to set a custom name. NOTE: needs an activiti.cfg.xml configuration on the classpath.
+The cdi extension needs to get access to a ProcessEngine. To achieve this, an implementation of the interface `org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup` is looked up at runtime. The cdi module ships with a default implementation named org.camunda.bpm.engine.cdi.impl.LocalProcessEngineLookup, which uses the ProcessEngines-Utility class for looking up the ProcessEngine. In the default configuration ProcessEngines#NAME_DEFAULT is used to lookup the ProcessEngine. This class might be subclassed to set a custom name. NOTE: needs an camunda.cfg.xml configuration on the classpath.
 
 camunda-engine-cdi uses a java.util.ServiceLoader SPI for resolving an instance of org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup. In order to provide a custom implementation of the interface, we need to add a plain text file named META-INF/services/org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup to our deployment, in which we specify the fully qualified classname of the implementation.
 
-*Note:* If you do not provide a custom org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup implementation, the engine will use the default LocalProcessEngineLookup implementation. In that case, all you need to do is providing a activiti.cfg.xml file on the classpath (see next section).
+*Note:* If you do not provide a custom org.camunda.bpm.engine.cdi.spi.ProcessEngineLookup implementation, the engine will use the default LocalProcessEngineLookup implementation. In that case, all you need to do is providing a camunda.cfg.xml file on the classpath (see next section).
 
 ### Configuring the Process Engine<a id="cdi-configuring-the-process-engine"></a>
 
-Configuration depends on the selected ProcessEngineLookup-Strategy (cf. previous section). Here, we focus on the configuration options available in combination with the LocalProcessEngineLookup, which requires us to provide a Spring activiti.cfg.xml file on the classpath.
+Configuration depends on the selected ProcessEngineLookup-Strategy (cf. previous section). Here, we focus on the configuration options available in combination with the LocalProcessEngineLookup, which requires us to provide a Spring camunda.cfg.xml file on the classpath.
 
 camunda offers different ProcessEngineConfiguration implementations mostly dependent on the underlying transaction management strategy. The camunda-engine-cdi module is not concerned with transactions, which means that potentially any transaction management strategy can be used (even the Spring transaction abstraction). As a convenience, the cdi-module provides two custom ProcessEngineConfiguration implementations:
 
 * org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration: a subclass of the JtaProcessEngineConfiguration, can be used if JTA-managed transactions should be used for the engine.
 * org.camunda.bpm.engine.cdi.CdiStandaloneProcessEngineConfiguration: a subclass of the StandaloneProcessEngineConfiguration, can be used if plain JDBC transactions should be used for engine.
 
-The following is an example activiti.cfg.xml file for JBoss 7:
+The following is an example camunda.cfg.xml file for JBoss 7:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns="http://www.springframework.org/schema/beans"
