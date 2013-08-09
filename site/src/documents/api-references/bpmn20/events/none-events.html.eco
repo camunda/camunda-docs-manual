@@ -56,7 +56,7 @@ This can be a good hook to monitor some KPI's, basically by adding an execution 
 <script type="text/xml" id="noneEvent3">
 <intermediateThrowEvent id="noneEvent">
   <extensionElements>
-    <camundabpm:executionListener class="org.camunda.bpm.engine.test.bpmn.event.IntermediateNoneEventTest$MyExecutionListener" event="start" />
+    <camunda:executionListener class="org.camunda.bpm.engine.test.bpmn.event.IntermediateNoneEventTest$MyExecutionListener" event="start" />
   </extensionElements>
 </intermediateThrowEvent>
 </script>

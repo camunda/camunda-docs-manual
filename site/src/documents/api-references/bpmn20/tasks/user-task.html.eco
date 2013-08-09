@@ -77,7 +77,7 @@ There is an activity extension which allows you to specify an expression in your
 
     <div class="app-source" app-source-no-tabs="usertask8"></div>
     <script type="text/xml" id="usertask8">
-<userTask id="theTask" name="Important task" camundabpm:dueDate="${dateVariable}"/>
+<userTask id="theTask" name="Important task" camunda:dueDate="${dateVariable}"/>
    </script>
 
 <p>
@@ -172,7 +172,7 @@ It is clear that user and group assignments are quite cumbersome for use cases w
 
     <div class="app-source" app-source-no-tabs="assignment1"></div>
     <script type="text/xml" id="assignment1">
-<userTask id="theTask" name="my task" camundabpm:assignee="kermit" />
+<userTask id="theTask" name="my task" camunda:assignee="kermit" />
     </script>
 
     This is exactly the same as using a humanPerformer construct as defined above.
@@ -182,7 +182,7 @@ It is clear that user and group assignments are quite cumbersome for use cases w
 
     <div class="app-source" app-source-no-tabs="assignment2"></div>
     <script type="text/xml" id="assignment2">
-<userTask id="theTask" name="my task" camundabpm:candidateUsers="kermit, gonzo" />
+<userTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
     </script>
 
 
@@ -192,7 +192,7 @@ It is clear that user and group assignments are quite cumbersome for use cases w
 
     <div class="app-source" app-source-no-tabs="assignment3"></div>
     <script type="text/xml" id="assignment3">
-<userTask id="theTask" name="my task" camundabpm:candidateGroups="management, accountancy" />
+<userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
     </script>
     
 
@@ -212,7 +212,7 @@ In case the previous approaches are not sufficient, it is possible to delegate t
     <script type="text/xml" id="assignment4">
 <userTask id="task1" name="My task" >
   <extensionElements>
-    <camundabpm:taskListener event="create" class="org.camunda.bpm.MyAssignmentHandler" />
+    <camunda:taskListener event="create" class="org.camunda.bpm.MyAssignmentHandler" />
   </extensionElements>
 </userTask>
     </script>
@@ -241,14 +241,14 @@ When using Spring or CDI it is possible to use the custom assignment attributes 
 
     <div class="app-source" app-source-no-tabs="assignment6"></div>
     <script type="text/xml" id="assignment6">
-<userTask id="task" name="My Task" camundabpm:assignee="${ldapService.findManagerForEmployee(emp)}"/>
+<userTask id="task" name="My Task" camunda:assignee="${ldapService.findManagerForEmployee(emp)}"/>
     </script>
 
 This also works similar for candidate users and groups:
 
     <div class="app-source" app-source-no-tabs="assignment7"></div>
     <script type="text/xml" id="assignment7">
-<userTask id="task" name="My Task" camundabpm:candidateUsers="${ldapService.findAllSales()}"/>
+<userTask id="task" name="My Task" camunda:candidateUsers="${ldapService.findAllSales()}"/>
     </script>
 
 Note that this will only work if the return type of the invoked methods is String or Collection<String> (for candidate users and groups):

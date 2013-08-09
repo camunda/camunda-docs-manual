@@ -18,7 +18,7 @@
         </p>
         <ul>
         	<li>The prerequisite of such a custom extension is that there always must be a simple transformation to the standard way of doing things. So when you decide to use a custom extension, you don't have to be afraid that there is no way back.</li>
-            <li>When using a custom extension, this is always clearly indicated by giving the new XML element, attribute, etc. the camundabpm: namespace prefix.</li>
+            <li>When using a custom extension, this is always clearly indicated by giving the new XML element, attribute, etc. the camunda: namespace prefix.</li>
             <li>The goal of these extensions is to eventually push them back into a next version of the BPMN specification, or at least trigger a discussion that can lead to a revision of that specific BPMN construct. </li>
         </ul>
 

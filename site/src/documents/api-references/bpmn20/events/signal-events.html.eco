@@ -186,7 +186,7 @@ An asynchronous signal event would look like this:
 <div class="app-source" app-source-no-tabs="signal-throw2"></div>
 <script type="text/xml" id="signal-throw2">   
 <intermediateThrowEvent id="signal">
-        <signalEventDefinition signalRef="newCustomerSignal" camundabpm:async="true" />
+        <signalEventDefinition signalRef="newCustomerSignal" camunda:async="true" />
 </intermediateThrowEvent>
 </script>
 

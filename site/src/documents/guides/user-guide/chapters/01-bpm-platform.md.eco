@@ -519,11 +519,11 @@ This time we are completing the user task, generating an invoice and then send t
 
 Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](#!/#job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime. 
 
-So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camundabpm:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
+So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
 
-    <serviceTask id="service1" name="Generate Invoice" camundabpm:class="my.custom.Delegate" camundabpm:async="true" /> 
+    <serviceTask id="service1" name="Generate Invoice" camunda:class="my.custom.Delegate" camunda:async="true" />
         
-`camundabpm:async` can be specified on the following bpmn task types: `task`, `serviceTask`, `scriptTask`, `businessRuleTask`, `sendTask`, `receiveTask`, `userTask`, `subProcess` and `callActivity`. On a user task, receive task or other wait states, the additional async continuation allows us to execute the start execution listeners in a separate thread/transaction. 
+`camunda:async` can be specified on the following bpmn task types: `task`, `serviceTask`, `scriptTask`, `businessRuleTask`, `sendTask`, `receiveTask`, `userTask`, `subProcess` and `callActivity`. On a user task, receive task or other wait states, the additional async continuation allows us to execute the start execution listeners in a separate thread/transaction.
 
 ## The Job Executor<a id="job-executor"></a>
 
@@ -587,7 +587,7 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
     
     <definitions ... xmlns:fox="http://www.camunda.com/fox">
       ...
-      <serviceTask id="failingServiceTask" camundabpm:async="true" camundabpm:class="org.camunda.engine.test.cmd.FailingDelegate">
+      <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
         <extensionElements>
          <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
         </extensionElements>
@@ -629,9 +629,9 @@ However, while this is a perfectly fine solution from the point of view of persi
 
 An exclusive job cannot be performed at the same time as another exclusive job from the same process instance. Consider the process shown in the section above: if the jobs correpsonding to the service tasks are treated as exclusive, the job executor will make sure that they are not executed concurrently. Instead, it will ensure that whenever it acquires an exclusive job from a certain process instance, it also acquires all other exclusive jobs from the same process instance and delegates them to the same worker thread. This enforces sequential execution of the jobs.
 
-**Exclusive Jobs are the default configuration**. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using `camundabpm:exclusive="false"`. For example, the following service task would be asynchronous but non-exclusive.
+**Exclusive Jobs are the default configuration**. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using `camunda:exclusive="false"`. For example, the following service task would be asynchronous but non-exclusive.
 
-	<serviceTask id="service" camundabpm:expression="${myService.performBooking(hotel, dates)}" camundabpm:async="true" camundabpm:exclusive="false" />
+	<serviceTask id="service" camunda:expression="${myService.performBooking(hotel, dates)}" camunda:async="true" camunda:exclusive="false" />
 	
 Is this a good solution? We had some people asking whether it was. Their concern was that it would prevent you from *doing things in parallel* and would thus be a performance problem. Again, two things have to be taken into consideration:
 

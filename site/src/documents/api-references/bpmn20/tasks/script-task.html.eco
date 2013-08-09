@@ -89,12 +89,12 @@ Note: the following names are reserved and cannot be used as variable names: out
 
 <h2>Script results</h2>
 <p>
-The return value of a script task can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the 'camundabpm:resultVariable' attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When not specifying a result variable name, the script result value gets ignored.
+The return value of a script task can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the 'camunda:resultVariable' attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When not specifying a result variable name, the script result value gets ignored.
 </p>
 
 <div class="app-source" app-source-no-tabs="script4"></div>
 <script type="text/xml" id="script4">
-<scriptTask id="theScriptTask" name="Execute script" scriptFormat="juel" camundabpm:resultVariable="myVar">
+<scriptTask id="theScriptTask" name="Execute script" scriptFormat="juel" camunda:resultVariable="myVar">
   <script>#{echo}</script>
 </scriptTask>    
 </script>

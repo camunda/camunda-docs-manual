@@ -307,7 +307,7 @@
   <div class="app-source" app-source-no-tabs="message-event10" ></div>
   <script type="text/xml" id="message-event10"> 
   <intermediateThrowEvent id="message">
-          <messageEventDefinition camundabpm:class="org.camunda.bpm.MyMessageServiceDelegate" />
+          <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />
   </intermediateThrowEvent>
   </script>  
 
@@ -322,7 +322,7 @@
   <div class="app-source" app-source-no-tabs="message-event11" ></div>
   <script type="text/xml" id="message-event11"> 
   <endEvent id="end">
-          <messageEventDefinition camundabpm:class="org.camunda.bpm.MyMessageServiceDelegate" />
+          <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />
   </endEvent>
   </script>
 

@@ -17,7 +17,7 @@
       
       <div class="app-source" app-source-no-tabs="xxxx" ></div>
       <script type="text/xml" id="xxxx">
-		<sendTask id="sendTask" camundabpm:class="org.camunda.bpm.MySendTaskDelegate" />
+		<sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
       </script>
     </div>
 

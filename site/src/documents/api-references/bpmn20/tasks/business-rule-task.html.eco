@@ -20,7 +20,7 @@
       </p>
       <div class="app-source" app-source-no-tabs="xxxx" ></div>
       <script type="text/xml" id="xxxx">
-<businessRuleTask id="businessRuleTask" camundabpm:class="${MyRuleServiceDelegate}" />
+<businessRuleTask id="businessRuleTask" camunda:class="${MyRuleServiceDelegate}" />
       </script>
 
 

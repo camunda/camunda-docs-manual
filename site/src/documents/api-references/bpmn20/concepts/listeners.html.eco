@@ -60,7 +60,7 @@
 <process id="executionListenersProcess">
 
   <extensionElements>
-    <camundabpm:executionListener event="start"
+    <camunda:executionListener event="start"
         class="org.camunda.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne"/>
   </extensionElements>
   
@@ -70,14 +70,14 @@
   <userTask id="firstTask" />
   <sequenceFlow sourceRef="firstTask" targetRef="secondTask">
   <extensionElements>
-    <camundabpm:executionListener
+    <camunda:executionListener
         class="org.camunda.bpm.examples.bpmn.executionListener.ExampleExecutionListenerTwo" />
   </extensionElements>
   </sequenceFlow>
   
   <userTask id="secondTask" >
   <extensionElements>
-    <camundabpm:executionListener expression="${myPojo.myMethod(execution.event)}" event="end" />
+    <camunda:executionListener expression="${myPojo.myMethod(execution.event)}" event="end" />
   </extensionElements>
   </userTask>
   <sequenceFlow sourceRef="secondTask" targetRef="thirdTask" />
@@ -114,7 +114,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
   </p>
   <div class="app-source" app-source-no-tabs="listeners3"></div>
   <script type="text/xml" id="listeners3">
-<camundabpm:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />
+<camunda:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />
   </script>
   <p>
   As with other expressions, execution variables are resolved and can be used. Because the execution implementation object has a property that exposes the event name, it's possible to pass the event-name to your methods using execution.eventName.
@@ -124,7 +124,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
   </p>
   <div class="app-source" app-source-no-tabs="listeners4"></div>
   <script type="text/xml" id="listeners4">
-<camundabpm:executionListener event="start" delegateExpression="${myExecutionListenerBean}" />
+<camunda:executionListener event="start" delegateExpression="${myExecutionListenerBean}" />
   </script>
 
 
@@ -140,7 +140,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
 <script type="text/xml" id="listeners8">
     <userTask id="myTask" name="My Task" >
       <extensionElements>
-        <camundabpm:taskListener event="create" class="org.camunda.bpm.MyTaskCreateListener" />
+        <camunda:taskListener event="create" class="org.camunda.bpm.MyTaskCreateListener" />
       </extensionElements>
     </userTask>    
 </script>
@@ -179,14 +179,14 @@ public class MyTaskCreateListener implements TaskListener {
 
         <div class="app-source" app-source-no-tabs="listeners10"></div>
         <script type="text/xml" id="listeners10">
-<camundabpm:taskListener event="create" expression="${myObject.callMethod(task, task.eventName)}" />
+<camunda:taskListener event="create" expression="${myObject.callMethod(task, task.eventName)}" />
         </script>
 
         <li><strong>delegateExpression</strong> allows to specify an expression that resolves to an object implementing the TaskListener interface, similar to a service task.
 
         <div class="app-source" app-source-no-tabs="listeners11"></div>
         <script type="text/xml" id="listeners11">
-<camundabpm:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
+<camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
         </script>
         </li>
       </ul>
@@ -204,10 +204,10 @@ The fragment below shows a simple example process with an execution listener wit
 <script type="text/xml" id="listeners5">
 <process id="executionListenersProcess">
   <extensionElements>
-    <camundabpm:executionListener class="org.camunda.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener" event="start">
-      <camundabpm:field name="fixedValue" stringValue="Yes, I am " />
-      <camundabpm:field name="dynamicValue" expression="${myVar}" />
-    </camundabpm:executionListener>
+    <camunda:executionListener class="org.camunda.bpm.examples.bpmn.executionListener.ExampleFieldInjectedExecutionListener" event="start">
+      <camunda:field name="fixedValue" stringValue="Yes, I am " />
+      <camunda:field name="dynamicValue" expression="${myVar}" />
+    </camunda:executionListener>
   </extensionElements>
   
   <startEvent id="theStart" />
