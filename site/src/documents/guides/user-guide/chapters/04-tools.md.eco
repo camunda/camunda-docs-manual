@@ -182,7 +182,7 @@ After synchronization back to Signavio the original Signavio-information like co
                   name="MyService" 
                   startQuantity="1">
          <extensionElements>
-            <camunda:failedJobRetryTimeCycle xmlns:camundabpm="http://www.camunda.com/camundabpm">R3/PT10M</camunda:failedJobRetryTimeCycle>
+            <camunda:failedJobRetryTimeCycle xmlns:camunda="http://camunda.org/bpmn">R3/PT10M</camunda:failedJobRetryTimeCycle>
          </extensionElements>
          <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
          <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>

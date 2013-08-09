@@ -175,7 +175,7 @@ public class ToUppercase implements JavaDelegate {
 		during deployment</strong>. Only when a process execution arrives for the
 		first time at the point in the process where the class is used, an
 		instance of that class will be created. If the class cannot be found,
-		an <code>ActivitiException</code> will be thrown. The reasoning for this is that the environment (and
+		an <code>ProcessEngineException</code> will be thrown. The reasoning for this is that the environment (and
 		more specifically the classpath) when you are deploying is often different from the actual runtime
 		environment. 
 	</p>

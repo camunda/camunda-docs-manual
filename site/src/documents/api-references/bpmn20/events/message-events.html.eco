@@ -17,7 +17,7 @@
     <script type="text/xml" id="message-event1"> 
       <definitions id="definitions" 
         xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-        xmlns:activiti="http://activiti.org/bpmn"
+        xmlns:camunda="http://camunda.org/bpmn"
         targetNamespace="Examples"
         xmlns:tns="Examples">
         
@@ -235,7 +235,7 @@
   <script type="text/xml" id="message-event8"> 
   <definitions id="definitions" 
     xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-    xmlns:activiti="http://activiti.org/bpmn"
+    xmlns:camunda="http://camunda.org/bpmn"
     targetNamespace="Examples"
     xmlns:tns="Examples">
     

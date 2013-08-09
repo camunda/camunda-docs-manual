@@ -585,11 +585,11 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
     
-    <definitions ... xmlns:fox="http://www.camunda.com/fox">
+    <definitions ... xmlns:camunda="http://camunda.org/bpmn">
       ...
       <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
         <extensionElements>
-         <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
+          <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
         </extensionElements>
       </serviceTask>
       ...
@@ -601,7 +601,7 @@ Similarly, the following example defines three retries after 5 seconds each for 
 
 	<boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
 		<extensionElements>
-			<fox:failedJobRetryTimeCycle>R3/PT5S</fox:failedJobRetryTimeCycle>
+			<camunda:failedJobRetryTimeCycle>R3/PT5S</camunda:failedJobRetryTimeCycle>
 		</extensionElements>
 		<outgoing>SequenceFlow_3</outgoing>
 		<timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
@@ -1029,7 +1029,7 @@ If you use a Spring Process Application, you may want to configure your process 
             <property name="targetDataSource">
                 <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
                     <property name="driverClass" value="org.h2.Driver"/>
-                    <property name="url" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000"/>
+                    <property name="url" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000"/>
                     <property name="username" value="sa"/>
                     <property name="password" value=""/>
                 </bean>

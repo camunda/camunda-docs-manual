@@ -53,7 +53,7 @@ The basic skeleton of a cockpit plugin looks as follows:
     |       |   └── org/my/plugin/
     |       |       └── MyPluginTest.java
     |       └── resources/
-    |           └── activiti.cfg.xml
+    |           └── camunda.cfg.xml
     └── pom.xml
 
 As runtime relevant resources it defines
@@ -184,7 +184,7 @@ A first test may look as follows:
 
 In the test `#testPluginDiscovery` we use the internal cockpit API to check whether the plugin was recognized.
 
-Before we can actually run the test, we need to create a `activiti.cfg.xml` to be present on the class path (usually under `src/test/resources`). That file configures the process engine to be bootstrapped.
+Before we can actually run the test, we need to create a `camunda.cfg.xml` to be present on the class path (usually under `src/test/resources`). That file configures the process engine to be bootstrapped.
 
 We go ahead and create the file.
 
@@ -196,7 +196,7 @@ We go ahead and create the file.
 
       <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 
-        <property name="jdbcUrl" value="jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000" />
+        <property name="jdbcUrl" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
         <property name="jdbcDriver" value="org.h2.Driver" />
         <property name="jdbcUsername" value="sa" />
         <property name="jdbcPassword" value="" />

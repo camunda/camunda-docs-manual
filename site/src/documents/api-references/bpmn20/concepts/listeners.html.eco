@@ -133,7 +133,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
     A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event.
   </p>
   <p>
-    A task listener can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the activiti namespace, since a task listener is a construct specific for the camunda engine.
+    A task listener can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the camunda namespace, since a task listener is a construct specific for the camunda engine.
   </p>
   
 <div class="app-source" app-source-no-tabs="listeners8"></div>

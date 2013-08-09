@@ -79,7 +79,7 @@ Select the line you've just typed and right-click on it. Now select 'Display' (o
 
 <img src="assets/img/api-test-debug-start-h2-server-2.png" />
 
-Now open up a browser and go to http://localhost:8082, and fill in the JDBC URL to the in-memory database (by default this is jdbc:h2:mem:activiti), and hit the connect button.
+Now open up a browser and go to http://localhost:8082, and fill in the JDBC URL to the in-memory database (by default this is jdbc:h2:mem:camunda), and hit the connect button.
 
 <img src="assets/img/api-test-debug-h2-login.png" />
 
