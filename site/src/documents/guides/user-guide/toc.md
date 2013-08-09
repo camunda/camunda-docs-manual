@@ -54,6 +54,7 @@
     * [The camunda JBoss AS 7 Subsystem](#!/#bpmplatform/container/jboss)
         * [Configuring a process engine](#!/#bpmplatform/container/jboss/config)
         * [Providing a custom process engine configuration class](#!/#bpmplatform/container/jboss/custom-config)
+        * [Extending a process engine with process engine plugins](#!/#bpmplatform/container/jboss/process-engine-plugins)
         * [Looking up a Process Engine in JNDI](#!/#bpmplatform/container/jboss/jndi)
         * [Managing the process engine through the JBoss Management System](#!/#bpmplatform/container/jboss/management)
         * [Managing Classpath Dependencies](#!/#bpmplatform/container/jboss/classpath)

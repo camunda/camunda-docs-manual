@@ -1286,6 +1286,39 @@ Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.ba
 
 </div>
 
+### Extending a process engine using process engine plugins<a id="bpmplatform/container/jboss/process-engine-plugins"></a>
+It is possible to extend a process engine using the process engine plugins concept.
+You specify the process engine plugins in `standalone.xml` / `domain.xml` for each process engine separately like shown below:
+
+    <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
+        <process-engines>
+            <process-engine name="default" default="true">
+                <datasource>java:jboss/datasources/ProcessEngine</datasource>
+                <history-level>full</history-level>
+                <properties>
+                    ...
+                </properties>
+                <plugins>
+                    <plugin>
+                        <class>org.camunda.bpm.engine.MyCustomProcessEnginePlugin</class>
+                        <properties>
+                            <property name="boost">10</property>
+                            <property name="maxPerformance">true</property>
+                            <property name="actors">akka</property>
+                        </properties>
+                    </plugin>
+                </plugins>
+            </process-engine>
+        </process-engines>
+        ...
+    </subsystem>
+
+You have to provide the fully qualified classname between the `<class>` tags. Additional properties can be specified using the `<properties>` element.
+The restrictions, which apply for [providing a custom process engine configuration class](#!/#bpmplatform/container/jboss/custom-config), are also valid for the process engine plugins:
+
+ * plugin class must be visible in the classpath for the camunda-subsystem.
+ * properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
+
 ### Looking up a Process Engine in JNDI<a id="bpmplatform/container/jboss/jndi"></a>
 The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#!/#bpmplatform/container/jndi/platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly. 
 
