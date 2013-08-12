@@ -28,6 +28,7 @@
       <ul>            
           <li>Call Activity</li>
           <li>Passing Variables</li>
+		  <li>Passing Business Key</li>
           <li>Example</li>
       </ul>
       <h3>There's more...</h3>
@@ -84,10 +85,10 @@ CalledElementBinding has three different values:
 
 <h1>Passing variables</h1>
 
-You can pass process variables to the sub process and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
+You can pass process variables to the subprocess and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
 
 <div class="app-source" app-source-no-tabs="callactivity2"></div>
-<script type="text/xml" id="callactivity2">    
+<script type="text/xml" id="callactivity2">
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
   <extensionElements>
           <camunda:in source="someVariableInMainProcess" target="nameOfVariableInSubProcess" />
@@ -95,6 +96,21 @@ You can pass process variables to the sub process and vice versa. The data is co
   </extensionElements>
 </callActivity>
 </script>
+
+<p>
+Furthermore, you can configure the call activity, that all process variables are passed to the subprocess and vice versa. The process variables have the same name in the parent process as in the subprocess.
+</p>
+
+<div class="app-source" app-source-no-tabs="callactivityVariables"></div>
+<script type="text/xml" id="callactivityVariables">
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+  <extensionElements>
+          <activiti:in variables="all" />
+          <activiti:out variables="all" />
+  </extensionElements>
+</callActivity>
+</script>
+
 <p>
 We use a Custom Extension as a shortcut for the BPMN standard elements called dataInputAssociation and dataOutputAssociation, which only work if you declare process variables in the BPMN 2.0 standard way.
 </p>
@@ -103,7 +119,7 @@ It is possible to use expressions here as well:
 </p>
 
 <div class="app-source" app-source-no-tabs="callactivity3"></div>
-<script type="text/xml" id="callactivity3">    
+<script type="text/xml" id="callactivity3">
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
         <extensionElements>
           <camunda:in sourceExpression="${x+5}" target="y" />
@@ -117,6 +133,20 @@ So in the end z = y+5 = x+5+5
 </p>
 
 
+
+<h1>Passing Business Key</h1>
+<p>
+You can pass the business key to the subprocess. The data is copied into the subprocess when it is started. You can not give back the business key to the parent process because the business key is not changeable.
+</p>
+
+<div class="app-source" app-source-no-tabs="callactivityBusinesskey"></div>
+<script type="text/xml" id="callactivityBusinesskey">
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+  <extensionElements>
+          <activiti:in businessKey="#{execution.processBusinessKey}" />
+  </extensionElements>
+</callActivity>
+</script>
 
 
 
