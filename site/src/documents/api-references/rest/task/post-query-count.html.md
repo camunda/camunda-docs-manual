@@ -51,6 +51,11 @@ A json object with the following properties:
   </tr>
   
   <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include tasks which belongs to one of the passed activity instance ids.</td>
+  </tr> 
+  
+  <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
   </tr>

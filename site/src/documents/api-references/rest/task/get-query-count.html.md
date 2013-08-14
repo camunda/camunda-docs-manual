@@ -47,6 +47,11 @@ Parameters
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
   </tr>
+
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
+  </tr>  
   
   <tr>
     <td>assignee</td>
