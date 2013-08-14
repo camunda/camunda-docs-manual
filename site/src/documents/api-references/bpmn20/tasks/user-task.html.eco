@@ -72,7 +72,7 @@ task.getDescription();
 Each task has a field, indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.
 </p>
 <p>
-There is an activity extension which allows you to specify an expression in your task-definition to set the initial due date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String (ISO8601 formatted) or null. For example, you could use a date that was entered in a previous form in the process or calculated in a previous Service Task.
+There is an activity extension which allows you to specify an expression in your task-definition to set the initial due date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String (ISO8601 formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created. For example, you could use a date that was entered in a previous form in the process or calculated in a previous Service Task.
 </p>
 
     <div class="app-source" app-source-no-tabs="usertask8"></div>
