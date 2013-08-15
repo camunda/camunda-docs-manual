@@ -24,6 +24,8 @@ You have to follow these steps:
         </dependency>
 
 * If you use `@Inject` with TaskForm, you have to add a @named("") to the Inject because of the backward-compatibility of fox.taskForm. There you have two choices: `@Named("camunda.taskForm")` or `@Named("fox.taskForm")`
+If you use fox.taskForm in your process application and don't want to update all your jsf pages and beans you should use **@Named("fox.taskForm")** else you should use **@Named("camunda.taskForm")**. Your application server
+should write an error or a warning if you use the wrong one. So be carefull!
 * If you rely on the unique constraint for the business key, see [Business Key](<%= @docUrl('guides/user-guide') %>#!/#business-key)
 * If you do a JNDI lookup to get one of the Platform Services (i.e. `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as following:
   * ProcessArchiveService:
