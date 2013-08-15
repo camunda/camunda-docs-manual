@@ -1,7 +1,7 @@
 ## Migrate from camunda fox
 
 As camunda fox included the Activiti engine you have to perform the [steps above](#!/#migration-activiti) as well.
-Be aware that there was a major change in our database structure. For migration from **camunda fox EE 6.2** and **camunda fox CE 1.34** we recommend a look at our [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/).
+Be aware that there were major changes in our database structure. For migration from **camunda fox EE 6.2** and **camunda fox CE 1.34** we recommend a look at our [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/).
 
 You have to follow these steps:
 
@@ -13,9 +13,7 @@ You have to follow these steps:
 * If you migrate completely to our new distro you have to adjust your `presistence.xml` from **FoxEngineDS** to **ProcessEngine**  
 * If you use the new camunda Tasklist component you have to adjust the `formKey`, 
   as described in the [Getting Started](http://camunda.org/implement/getting-started.html). We provide more information soon. For JSF-Formkeys your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g.: `/loan-approval/request-loan.jsf`
-* If you use the `fox.taskForm` bean as described in 
-  [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application) 
-  you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
+* If you use the `fox.taskForm` bean as described in [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application) you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
 
         <dependency>
           <groupId>com.camunda.bpm</groupId>
@@ -23,17 +21,16 @@ You have to follow these steps:
           <version>7.0.0-alpha1</version>
         </dependency>
 
-* If you use `@Inject` with TaskForm, you have to add a @named("") to the Inject because of the backward-compatibility of fox.taskForm. There you have two choices: `@Named("camunda.taskForm")` or `@Named("fox.taskForm")`
-If you use fox.taskForm in your process application and don't want to update all your jsf pages and beans you should use **@Named("fox.taskForm")** else you should use **@Named("camunda.taskForm")**. Your application server should write an error or a warning if you use the wrong one. So be carefull!
-* If you rely on the unique constraint for the business key, see [Business Key](<%= @docUrl('guides/user-guide') %>#!/#business-key)
+* If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `fox.taskForm`. There you have two choices: If you are using `fox.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("fox.taskForm")` else you should use `@Named("camunda.taskForm")`. Your application server should write an error or a warning if you use the wrong one. So be carefull! However, we recommend you to use the annotation `@Named("camunda.taskForm")`.
+* Since camunda BPM 7.0 the unique constraint for the business key is removed in the runtime and history tables and the database schema create and drop scripts. The [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/) does not include the drop statements of the unique constraint for the business key. So if you do not rely on the unique constraint for the business key, you are able to delete the unique constraint by your own. See the following documentation about the [Business Key](<%= @docUrl('guides/user-guide') %>#!/#business-key) to delete the unique constraint corresponding to your database.
 * If you do a JNDI lookup to get one of the Platform Services (i.e. `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as following:
-  * ProcessArchiveService:
-    * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessArchiveService`
-    * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
-    * **Note:** The name of `ProcessArchiveService` has changed to `ProcessApplicationService`.
-  * ProcessEngineService:
-    * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessEngineService`
-    * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
+    * ProcessArchiveService:
+      * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessArchiveService`
+      * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
+      * **Note:** The name of `ProcessArchiveService` has changed to `ProcessApplicationService`.
+    * ProcessEngineService:
+      * Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessEngineService`
+      * New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
 
 
 <div class="accordion" id="foxClasses">
