@@ -3,6 +3,7 @@ Claim Task
 
 Claim a task for a specific user.
 
+**Note:** The difference with <a href="#!/task/post-assignee" doc-location-highlight>set a assignee</a> is that here a check is done if the task already has a user assigned to it.
 
 Method
 ------

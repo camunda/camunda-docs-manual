@@ -276,6 +276,10 @@
   <%- @include("./task/post-delegate.html.md") %>
 </section>
 
+<section id="post-assignee" name="Set Assignee">
+  <%- @include("./task/post-assignee.html.md") %>
+</section>
+
 </section>
 
 <section id="message">
