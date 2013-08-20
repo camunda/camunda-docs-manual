@@ -567,6 +567,8 @@ So behind the scenes, when we reach the *generate invoice* task, we are persisti
 
 `camunda:async` can be specified on the following bpmn task types: `task`, `serviceTask`, `scriptTask`, `businessRuleTask`, `sendTask`, `receiveTask`, `userTask`, `subProcess` and `callActivity`. On a user task, receive task or other wait states, the additional async continuation allows us to execute the start execution listeners in a separate thread/transaction.
 
+A start event may also be declared as asynchronous in the same way as above by the attribute `camunda:async="true"`. On instantiation, the process instance will be created and persisted in the database, but execution will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful in various situations such as [heterogeneous clusters](#job-execution-heterogeneous-clusters), when the execution listener class is not available on the node that instantiates the process.
+
 ## The Job Executor<a id="job-executor"></a>
 
 A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#!/#transaction-boundaries)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
@@ -627,7 +629,7 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
-    <definitions ... xmlns:camunda="http://camunda.org/bpmn">
+    <definitions ... xmlns:camunda="http://activiti.org/bpmn">
       ...
       <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
         <extensionElements>
@@ -716,7 +718,7 @@ In the *heterogeneous* case, this is not given, meaning that some process applic
 
 <img src="<%= @docUrl('guides/user-guide/assets/img/heterogeneous-cluster.png') %>">
 
-#### Job Execution in Heterogeneous Clusters
+#### Job Execution in Heterogeneous Clusters<a id="job-execution-heterogeneous-clusters"></a>
 
 A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means, jobs created in the context of process application B (so on node 2), may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
 

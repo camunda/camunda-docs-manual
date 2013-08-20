@@ -23,6 +23,7 @@ CAM_PAGES = [
   { module: "bpmn-impl-reference", category: "Gateways and Sequence Flows", id: "inclusive-gateway", name: "Inclusive Gateway (OR)", url: "gateways/inclusive-gateway", keywords: "inclusive gateways or" },
   { module: "bpmn-impl-reference", category: "Gateways and Sequence Flows", id: "event-based-gateway", name: "Event Based Gateway", url: "gateways/event-based-gateway", keywords: "event based gateways" },
 
+  { module: "bpmn-impl-reference", category: "Events", id: "start-event", name: "Start Event", url: "events/start-events", keywords: "events start blank message timer event" },
   { module: "bpmn-impl-reference", category: "Events", id: "blank-event", name: "Blank Event", url: "events/none-events", keywords: "events blank event" },
   { module: "bpmn-impl-reference", category: "Events", id: "message-event", name: "Message Event", url: "events/message-events", keywords: "events message event" },
   { module: "bpmn-impl-reference", category: "Events", id: "timer-event", name: "Timer Event", url: "events/timer-events", keywords: "events timer event" },
