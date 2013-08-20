@@ -123,6 +123,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Task", id: "post-complete", name: "Complete Task", url: "task/post-complete", keywords: "tasks post task complete variables" },
   { module: "rest-api", category: "Task", id: "post-resolve", name: "Resolve Task", url: "task/post-resolve", keywords: "tasks post task resolve variables" },
   { module: "rest-api", category: "Task", id: "post-delegate", name: "Delegate Task", url: "task/post-delegate", keywords: "tasks post task delegate assignee" },
+  { module: "rest-api", category: "Task", id: "post-assignee", name: "Set Assignee", url: "task/post-assignee", keywords: "post task set assignee" },
   
   { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
     

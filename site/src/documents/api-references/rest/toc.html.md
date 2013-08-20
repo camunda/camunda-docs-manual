@@ -61,6 +61,7 @@
   * [Complete Task](#!/#post-complete)
   * [Resolve Task](#!/#post-resolve)
   * [Delegate Task](#!/#post-delegate)
+  * [Set Assignee](#!/#post-assignee)
 * [Message](#!/#message)
   * [Deliver a Message](#!/#post-message)
 * [Variable Instance](#!/#variable-instance)
