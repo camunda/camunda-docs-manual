@@ -27,7 +27,7 @@ This section will describe how you can install the camunda BPM platform on a [va
 
 ### <a id="database-camunda-bpm-platform"></a>Create the database schema for camunda BPM platform
 
-If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator. 
+If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts are reside in the `sql/create` folder:
 
@@ -48,12 +48,12 @@ The following example shows the configuration based on a H2 database.
       ...
       <resources>
         ...
-        <jdbc-resource pool-name="ProcessEnginePool" 
+        <jdbc-resource pool-name="ProcessEnginePool"
                        jndi-name="jdbc/ProcessEngine"
                        enabled="true">
         </jdbc-resource>
 
-        <jdbc-connection-pool is-isolation-level-guaranteed="false" 
+        <jdbc-connection-pool is-isolation-level-guaranteed="false"
                               datasource-classname="org.h2.jdbcx.JdbcDataSource"
                               res-type="javax.sql.DataSource"
                               non-transactional-connections="true"
@@ -85,22 +85,22 @@ Therefore you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/
       <resources>
         ...
         <resource-adapter-config
-          enabled="true" 
+          enabled="true"
           resource-adapter-name="camunda-jobexecutor-rar"
           thread-pool-ids="platform-jobexecutor-tp" >
         </resource-adapter-config>
 
         <connector-connection-pool
-            enabled="true" 
-            name="platformJobExecutorPool" 
-            resource-adapter-name="camunda-jobexecutor-rar" 
+            enabled="true"
+            name="platformJobExecutorPool"
+            resource-adapter-name="camunda-jobexecutor-rar"
             connection-definition-name=
-                "org.camunda.bpm.container.impl.threading.jca.outbound.JcaExecutorServiceConnectionFactory" 
+                "org.camunda.bpm.container.impl.threading.jca.outbound.JcaExecutorServiceConnectionFactory"
             transaction-support="NoTransaction" />
 
         <connector-resource
-            enabled="true" 
-            pool-name="platformJobExecutorPool" 
+            enabled="true"
+            pool-name="platformJobExecutorPool"
             jndi-name="eis/JcaExecutorServiceConnectionFactory" />
       </resources>
 
@@ -122,7 +122,7 @@ To configure a thread pool for the job executor you have to add it in the corres
           ...
           <thread-pools>
             ...
-            <thread-pool max-thread-pool-size="6" 
+            <thread-pool max-thread-pool-size="6"
                          name="platform-jobexecutor-tp"
                          min-thread-pool-size="3"
                          max-queue-size="10">
@@ -162,12 +162,12 @@ The following steps are required to deploy the REST API on a Glassfish instance:
 
 1. Download the REST API web application archive from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
-2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`). 
+2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`.
 4. Startup the Glassfish Application Server.
-5. Access the REST API on the context path you configured. 
-   For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform, 
+5. Access the REST API on the context path you configured.
+   For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    if you deployed the application in the context `/engine-rest`. For more information on how to use the REST API
 
 
@@ -181,7 +181,7 @@ Unless you are using the pre-packaged distribution and do not want to exchange t
 The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts reside in the `sql/create` folder:
-    
+
     camunda-bpm-glassfish-$PLATFORM_VERSION.zip/sql/create/*_cycle_$PLATFORM_VERSION.sql
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
@@ -224,7 +224,7 @@ To exchange the preconfigured H2 datasource with your own, e.g. Oracle, you have
    and edit the *Pool Name* from `H2CyclePool` to our new connection pool, `OracleCyclePool`. ([show image](assets/img/jdbc_edit_resource.png))
 10. **Save** the changes.
 11. Congratulations! Now cycle should connect to your database.
-   
+
 ### Install camunda cycle on vanilla Glassfish ###
 You can download the camunda cycle web application from [our sever](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-glassfish/).
 Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-glassfish-$PLATFORM_VERSION.war`.
@@ -244,14 +244,14 @@ In order to use a custom datasource name, you have to edit the file `WEB-INF/cla
 </div>
 
 Open the `default-web.xml` and comment out / remove the following lines at the end of the file.
-    
+
     <login-config>
       <auth-method>BASIC</auth-method>
     </login-config>
-    
+
 
 #### Install the web application ####
-1. Optionally, you may change the context path to which cycle will be deployed (default is `/cycle`). 
+1. Optionally, you may change the context path to which cycle will be deployed (default is `/cycle`).
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
 2. Startup Glassfish.
 3. Open the Glassfish Administration Console.
@@ -259,9 +259,9 @@ Open the `default-web.xml` and comment out / remove the following lines at the e
 5. On the next page, under *Location*, select the appropriate option and browse your files and select the `camunda-cycle-glassfish-$PLATFORM_VERSION.war` file.
    ([show image](assets/img/deploy_app.png))
 6. Leave the other settings unchanged and click **Ok**. Optionally, you can also change the context root for cycle here. We propose to use `/cycle`.
-7. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user. 
+7. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user.
    The initial user has administrator privileges and can be used to create more users once you have logged in.
-   
+
 ### Configuring cycle ###
 #### Configuring email ####
 **Note**: This step is optional and can be skipped if you do not require cycle to send a welcome email to newly created users.
@@ -282,17 +282,17 @@ For this you have to configure a new mail session in Glassfish Application Serve
 The name of the mail session looked up by cycle can be changed by editing the following file in the cycle web application:
 
     WEB-INF/classes/spring/configuration.xml
-    
+
 The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, set the JNDI name of the Mail Session to a custom name:
 
     <bean id="cycleConfiguration" class="org.camunda.bpm.cycle.configuration.CycleConfiguration">
-	  [...]   
+	  [...]
 	  <!-- cycle email service configuration -->
 	  <property name="emailFrom" value="cycle@localhost" />
 	  <property name="mailSessionName" value="my/mail/Session" />
-	  [...]        
+	  [...]
     </bean>
-    
+
 #### Configuring Connector Password Encryption ####
 Connector passwords are encrypted before they are stored in the cycle database using the PBEWithMD5AndDES algorithm implementation.
 <div class="alert alert-info">
@@ -314,8 +314,72 @@ The following steps are required to deploy the applications on a Glassfish insta
 
 1. Download the camunda web application that contains both applications from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
-2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`). 
+2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.
-2. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`. 
+2. Copy the war file to `$GLASSFISH_HOME/domains/domain1/autodeploy`.
 3. Startup Glassfish Application Server.
 4. Access cockpit and tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
+
+
+<a id="ldap"></a>Configuring LDAP for camunda cockpit and tasklist
+------------------------------------------------------------------
+
+In order to setup LDAP for the glassfish distribution, you have to perform the following steps:
+
+<strong>1. Add Ldap Library</strong>
+
+Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
+`GLASSFISH_HOME/glassfish/lib` folder.
+
+<strong>2. Adjust Process Engine Configuration</strong>
+Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+      ...
+      <process-engine name="default"> ...
+        <properties>...</properties>
+        <plugins>
+          <plugin>
+            <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+            <properties>
+
+              <property name="serverUrl">ldap://localhost:4334/</property>
+              <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
+              <property name="managerPassword">s3cr3t</property>
+
+              <property name="baseDn">o=camunda,c=org</property>
+
+              <property name="userSearchBase"></property>
+              <property name="userSearchFilter">(objectclass=person)</property>
+
+              <property name="userIdAttribute">uid</property>
+              <property name="userFirstnameAttribute">cn</property>
+              <property name="userLastnameAttribute">sn</property>
+              <property name="userEmailAttribute">mail</property>
+              <property name="userPasswordAttribute">userpassword</property>
+
+              <property name="groupSearchBase"></property>
+              <property name="groupSearchFilter">(objectclass=groupOfNames)</property>
+              <property name="groupIdAttribute">ou</property>
+              <property name="groupNameAttribute">cn</property>
+
+              <property name="groupMemberAttribute">member</property>
+
+            </properties>
+          </plugin>
+          <plugin>
+            <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+            <properties>
+              <property name="administratorUserName">admin</property>
+            </properties>
+          </plugin>
+        </plugins>
+      </process-engine>
+    </bpm-platform>
+
+The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+
+See userguide for complete documentation on the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

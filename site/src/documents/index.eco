@@ -41,6 +41,8 @@ layout: 'default'
         <li><a href="<%= @docUrl("api-references/java/")%>">Java API</a></li>
         <li><a href="<%= @docUrl("api-references/rest/")%>">REST API</a></li>
         <li><a href="<%= @docUrl("api-references/bpmn20/")%>">BPMN 2.0 (Implementation)</a></li>
+        <li><a href="<%= @docUrl("api-references/deployment-descriptors/")%>">Deployment Descriptors</a>
+            <p class="muted">processes.xml, bpm-platform.xml</p></li>
       </ul>
     </div>
 
@@ -53,7 +55,7 @@ layout: 'default'
         <a href="<%= @docUrl("incubation/")%>">
           Incubation Space
         </a>
-      </h2>      
+      </h2>
       <ul>
         <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
         <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
@@ -61,6 +63,6 @@ layout: 'default'
       </ul>
       <p class="muted">camunda BPM incubation is a space for camunda BPM platform extensions and other projects around open source BPM.</p>
     </div>
-    
+
   </div>
 </div>

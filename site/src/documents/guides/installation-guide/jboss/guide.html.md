@@ -45,7 +45,7 @@ Add the camunda subsystem as extension:
         <extensions>
             ...
             <extension module="org.camunda.bpm.jboss.camunda-jboss-subsystem"/>
-            
+
 Add the following elements in order to create a thread pool for the Job Executor in the `<subsystem xmlns="urn:jboss:domain:threads:1.1">` section:
 
     <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -57,7 +57,7 @@ Add the following elements in order to create a thread pool for the Job Executor
             <keepalive-time time="10" unit="seconds" />
         </bounded-queue-thread-pool>
     </subsystem>
-    
+
 The name of the thread pool is then referenced in the camunda bpm subsystem job executor configuration.
 This also configures the default process engine.
 
@@ -87,7 +87,7 @@ This also configures the default process engine.
             </job-acquisitions>
         </job-executor>
     </subsystem>
-    
+
 ### Creating a datasource ###
 You need to create a data-source named `java:jboss/datasources/ProcessEngine`.
 The following datasource shows an example of using the built in H2 database for this, using a file within the `./` folder,
@@ -101,9 +101,9 @@ typically `bin`.
         <security>
             <user-name>sa</user-name>
             <password>sa</password>
-        </security>                   
+        </security>
     </datasource>
-    
+
 <div class="alert alert-info">
   <strong>Cycle</strong><br/>
   Note that if you plan use camunda cycle, you need to configure an additional datasource. See the <a href="#cycle">cycle section</a> for a guide.
@@ -145,7 +145,7 @@ For h2 it could be done with this configuration:
             <share-prepared-statements>false</share-prepared-statements>
         </statement>
     </xa-datasource>
-    
+
 For other databases, confer the following resources:
 
 * [Oracle XA datasource](http://docs.jboss.org/ironjacamar/userguide/1.0/en-US/html_single/#ex_datasources_oracle_xa)
@@ -163,12 +163,12 @@ The following steps are required to deploy the REST API on a JBoss instance:
 
 1. Download the REST API web application archive from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
-2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`). 
+2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
 4. Startup JBoss AS.
-5. Access the REST API on the context path you configured. 
-   For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform, 
+5. Access the REST API on the context path you configured.
+   For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    if you deployed the application in the context `/engine-rest`.
 
 <a id="cycle"></a>Installing camunda cycle
@@ -181,7 +181,7 @@ Unless you are using the pre-packaged distribution and do not want to exchange t
 The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts reside in the `sql/create` folder:
-    
+
     camunda-bpm-jboss-$PLATFORM_VERSION.zip/sql/create/*_cycle_$PLATFORM_VERSION.sql
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
@@ -221,12 +221,12 @@ In order to use a custom datasource name, you have to edit the file `WEB-INF/cla
 
 #### Install the web application ####
 1. Copy the cycle war file to `$JBOSS_HOME/standalone/deployments`.
-   Optionally, you may change the context path to which cycle will be deployed (default is `/cycle`). 
+   Optionally, you may change the context path to which cycle will be deployed (default is `/cycle`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 2. Startup JBoss AS.
-3. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user. 
+3. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user.
    The initial user has administrator privileges and can be used to create more users once you have logged in.
-   
+
 ### Configuring cycle ###
 #### Configuring email ####
 **Note**: This step is optional and can be skipped if you do not require cycle to send a welcome email to newly created users.
@@ -245,17 +245,17 @@ By default, cycle will try to lookup this mail session.
 The name of the mail session to look up can be changed by editing the following file in the cycle web application:
 
     WEB-INF/classes/spring/configuration.xml
-    
+
 The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, set the JNDI name of the Mail Session to a custom name:
 
     <bean id="cycleConfiguration" class="org.camunda.bpm.cycle.configuration.CycleConfiguration">
-	  [...]   
+	  [...]
 	  <!-- cycle email service configuration -->
 	  <property name="emailFrom" value="cycle@localhost" />
 	  <property name="mailSessionName" value="my/mail/Session" />
-	  [...]        
+	  [...]
     </bean>
-    
+
 #### Configuring Connector Password Encryption ####
 Connector passwords are encrypted before they are stored in the cycle database using the PBEWithMD5AndDES algorithm implementation.
 <div class="alert alert-info">
@@ -278,8 +278,65 @@ The following steps are required to deploy the applications on a JBoss instance:
 
 1. Download the camunda web application that contains both applications from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
-2. Optionally, you may change the context path to which application will be deployed (default is `/camunda`). 
+2. Optionally, you may change the context path to which application will be deployed (default is `/camunda`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
-2. Copy the war file to `$JBOSS_HOME/standalone/deployments`. 
+2. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
 3. Startup JBoss AS.
 4. Access cockpit and tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
+
+<a id="ldap"></a>Configuring LDAP for camunda cockpit and tasklist
+------------------------------------------------------------------
+
+In order to setup LDAP for the JBoss Application Server distribution, you have to perform the following steps:
+
+<strong>Adjust Process Engine Configuration</strong>
+Edit the file `standalone.xml` (or `domain.xml`) provided by JBoss Application Server and add the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+
+    <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
+      <process-engines>
+        <process-engine name="default" default="true"> ...
+          <properties>...</properties>
+          <plugins>
+            <plugin>
+              <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+              <properties>
+
+                <property name="serverUrl">ldap://localhost:4334/</property>
+                <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
+                <property name="managerPassword">s3cr3t</property>
+
+                <property name="baseDn">o=camunda,c=org</property>
+
+                <property name="userSearchBase">ou=employees</property>
+                <property name="userSearchFilter">(objectclass=person)</property>
+
+                <property name="userIdAttribute">uid</property>
+                <property name="userFirstnameAttribute">cn</property>
+                <property name="userLastnameAttribute">sn</property>
+                <property name="userEmailAttribute">mail</property>
+                <property name="userPasswordAttribute">userpassword</property>
+
+                <property name="groupSearchBase">ou=roles</property>
+                <property name="groupSearchFilter">(objectclass=groupOfNames)</property>
+                <property name="groupIdAttribute">ou</property>
+                <property name="groupNameAttribute">cn</property>
+
+                <property name="groupMemberAttribute">member</property>
+
+              </properties>
+            </plugin>
+            <plugin>
+              <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+              <properties>
+                <property name="administratorUserName">admin</property>
+              </properties>
+            </plugin>
+          </plugins>
+        </process-engine>
+      </process-engines> ...
+    </subsystem>
+
+
+The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+
+See userguide for complete documentation on the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

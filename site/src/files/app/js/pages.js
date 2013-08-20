@@ -3,27 +3,6 @@
  */
 CAM_PAGES = [
 
-
-  // engine api documentation
-
-  { module: "implementation-java", category: "Introduction", id: "impl-java-engine-bootstrap", name: "Startup and Configuration Options", url: "engine/configuration-and-startup", keywords: "engine startup configuration bootstrap overview ProcessEngineConfiguration" },
-  { module: "implementation-java", category: "Introduction", id: "impl-pa", name: "Process Applications", url: "engine/process-application", keywords: "process application" },
-  { module: "implementation-java", category: "Introduction", id: "impl-concepts", name: "Important Concepts", url: "engine/concepts", keywords: "concepts" },
-  { module: "implementation-java", category: "Introduction", id: "impl-activiti-migration", name: "Activiti Migration Guide", url: "engine/activiti-migration-guide", keywords: "activiti migration fox" },
-
-  { module: "implementation-java", category: "Programming", id: "impl-java-services", name: "Services", url: "engine/services", keywords: "services api" },
-  { module: "implementation-java", category: "Programming", id: "impl-java-query-api", name: "Query API", url: "engine/query-api", keywords: "query api" },
-  { module: "implementation-java", category: "Programming", id: "impl-java-expressions", name: "Expression Language", url: "engine/expressions", keywords: "expression language el uel juel" },
-  { module: "implementation-java", category: "Programming", id: "impl-java-testing", name: "Testing", url: "engine/testing", keywords: "testing" },
-  { module: "implementation-java", category: "Programming", id: "impl-java-process-visualization", name: "Process Diagram API", url: "engine/process-diagram-api", keywords: "process diagram api visualization" },
-
-  { module: "implementation-java", category: "Spring Integration", id: "impl-spring-engine-bootstrap", name: "Engine Startup via Spring", url: "spring/configuration-and-startup", keywords: "spring engine startup bootstrap" },
-  { module: "implementation-java", category: "Spring Integration", id: "impl-spring-expressions", name: "Expression Language", url: "spring/expressions", keywords: "spring expression language el uel juel" },
-  { module: "implementation-java", category: "Spring Integration", id: "impl-spring-testing", name: "Testing", url: "spring/testing", keywords: "spring testing" },
-  { module: "implementation-java", category: "CDI Integration", id: "impl-cdi-engine-bootstrap", name: "Engine Startup in CDI", url: "cdi/configuration-and-startup", keywords: "cdi engine startup bootstrap" },
-  { module: "implementation-java", category: "CDI Integration", id: "impl-cdi-contextual", name: "Contextual Process Execution", url: "cdi/contextual-process-execution", keywords: "cdi Contextual Process Execution" },
-
-
   // bpmn 2.0 reference documentation
 
   { module: "bpmn-impl-reference", category: "Introduction", id: "bpmn-overview", name: "BPMN 2.0 Overview and Coverage", url: "overview/bpmn-overview", keywords: "concept bpmn 2.0 introduction overview coverage" },
@@ -101,7 +80,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Execution", id: "signal-execution", name: "Trigger Execution", url: "execution/post-signal", keywords: "executions execution post signal trigger" },
   { module: "rest-api", category: "Execution", id: "get-message-subscription", name: "Get Message Event Subscription", url: "execution/get-message-subscription", keywords: "executions execution get message event subscription" },
   { module: "rest-api", category: "Execution", id: "post-message", name: "Trigger Message Event Subscription", url: "execution/post-message", keywords: "executions execution post message event subscription trigger" },
-  
+
   { module: "rest-api", category: "Job", id: "get-job", name: "Get Single Job", url: "job/get", keywords: "jobs job get" },
   { module: "rest-api", category: "Job", id: "get-jobs", name: "Get Jobs", url: "job/get-query", keywords: "jobs job get query filter" },
   { module: "rest-api", category: "Job", id: "get-jobs-count", name: "Get Jobs Count", url: "job/get-query-count", keywords: "jobs job get query filter count" },
@@ -124,15 +103,15 @@ CAM_PAGES = [
   { module: "rest-api", category: "Task", id: "post-resolve", name: "Resolve Task", url: "task/post-resolve", keywords: "tasks post task resolve variables" },
   { module: "rest-api", category: "Task", id: "post-delegate", name: "Delegate Task", url: "task/post-delegate", keywords: "tasks post task delegate assignee" },
   { module: "rest-api", category: "Task", id: "post-assignee", name: "Set Assignee", url: "task/post-assignee", keywords: "post task set assignee" },
-  
+
   { module: "rest-api", category: "Message", id: "post-message", name: "Deliver a Message", url: "message/post-message", keywords: "message post correlation correlate intermediate start event" },
-    
+
   { module: "rest-api", category: "Variable Instance", id: "get-variable-instances", name: "Get Variable Instances", url: "variable-instance/get-query", keywords: "variable instances get variable-instance query filter" },
   { module: "rest-api", category: "Variable Instance", id: "get-variable-instances-count", name: "Get Variable Instances Count", url: "variable-instance/get-query-count", keywords: "variable instances get variable-instance query filter count" },
   { module: "rest-api", category: "Variable Instance", id: "post-variable-instances", name: "Get Variable Instances (POST)", url: "variable-instance/post-query", keywords: "variable instances post variable-instance query filter" },
   { module: "rest-api", category: "Variable Instance", id: "post-variable-instances-count", name: "Get Variable Instances Count (POST)", url: "variable-instance/post-query-count", keywords: "variable instances post variable-instance query filter count" },
 
-  { module: "rest-api", category: "User", id: "user-options", name: "OPTIONS", url: "user/options", keywords: "options user" }, 
+  { module: "rest-api", category: "User", id: "user-options", name: "OPTIONS", url: "user/options", keywords: "options user" },
   { module: "rest-api", category: "User", id: "create-user", name: "Create single User", url: "user/post-create", keywords: "identity user create new post" },
   { module: "rest-api", category: "User", id: "delete-user", name: "Delete single User", url: "user/delete", keywords: "identity user delete" },
   { module: "rest-api", category: "User", id: "get-user", name: "Get a User's Profile", url: "user/get", keywords: "identity user profile get" },
@@ -158,11 +137,23 @@ CAM_PAGES = [
   { module: "rest-api", category: "Authorization", id: "get-authorization", name: "Get Authorizations", url: "authorization/get-query", keywords: "authorization get query search" },
   { module: "rest-api", category: "Authorization", id: "get-authorizations", name: "Get Authorization Count", url: "authorization/get-query-count", keywords: "authorization get count query search" },
   { module: "rest-api", category: "Authorization", id: "get-authorization-count", name: "Get single Authorization", url: "authorization/get", keywords: "authorization get search" },
-  { module: "rest-api", category: "Authorization", id: "put-authorization", name: "Update single Authorization", url: "authorization/put-update", keywords: "authorization put update" }
+  { module: "rest-api", category: "Authorization", id: "put-authorization", name: "Update single Authorization", url: "authorization/put-update", keywords: "authorization put update" },
+
+  // deployment descriptor reference
+
+  { module: "deployment-descriptor-reference", category: "Overview", id: "overview", name: "Overview", url: "overview", keywords: "deployment descriptor introduction overview" },
+
+  { module: "deployment-descriptor-reference", category: "Descriptors", id: "descriptors/bpm-platform-xml", name: "bpm-platform.xml", url: "descriptors/bpm-platform-xml", keywords: "process engine" },
+  { module: "deployment-descriptor-reference", category: "Descriptors", id: "descriptors/processes-xml", name: "processes.xml", url: "descriptors/processes-xml", keywords: "process engine" },
+
+  { module: "deployment-descriptor-reference", category: "XMLTags", id: "tags/process-archive", name: "<process-archive>", url: "tags/process-archive", keywords: "process engine" },
+  { module: "deployment-descriptor-reference", category: "XMLTags", id: "tags/process-engine", name: "<process-engine>", url: "tags/process-engine", keywords: "process engine" },
+  { module: "deployment-descriptor-reference", category: "XMLTags", id: "tags/job-executor", name: "<job-executor>", url: "tags/job-executor", keywords: "process engine" }
 
 ];
 
 CAM_MODULES = {
   "bpmn-impl-reference": { baseUrl: "api-references/bpmn20/", mainPage: "bpmn-overview" },
-  "rest-api": { baseUrl: "api-references/rest/", mainPage: "introduction" }
+  "rest-api": { baseUrl: "api-references/rest/", mainPage: "introduction" },
+  "deployment-descriptor-reference": { baseUrl: "api-references/deployment-descriptors/", mainPage: "overview" },
 };

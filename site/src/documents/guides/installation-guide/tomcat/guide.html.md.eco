@@ -28,7 +28,7 @@ This section will describe how you can install the camunda BPM platform on a [va
 
 ### <a id="database-camunda-bpm-platform"></a>Create the database schema for camunda BPM platform
 
-If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator. 
+If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts are reside in the `sql/create` folder:
 
@@ -47,14 +47,14 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
         ...
         <Resource name="jdbc/ProcessEngine"
                   auth="Container"
-                  type="javax.sql.DataSource" 
+                  type="javax.sql.DataSource"
                   factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
                   uniqueResourceName="process-engine"
-                  driverClassName="org.h2.Driver" 
+                  driverClassName="org.h2.Driver"
                   url="jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0"
-                  username="sa"  
-                  password=""  
-                  maxPoolSize="20"  
+                  username="sa"
+                  password=""
+                  maxPoolSize="20"
                   minPoolSize="5" />
       </GlobalNamingResources>
     </Server>
@@ -64,6 +64,8 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
 First you have to copy the following libraries into your vanilla Tomcat library folder `$TOMCAT_HOME/lib`:
 
 `$TOMCAT_DISTRIBUTION/lib/camunda-engine-$PLATFORM_VERSION.jar`
+
+`$TOMCAT_DISTRIBUTION/lib/camunda-identity-ldap-$PLATFORM_VERSION.jar` (if you want to use LDAP)
 
 `$TOMCAT_DISTRIBUTION/lib/java-uuid-generator-VERSION.jar`
 
@@ -77,28 +79,29 @@ Furthermore you have to merge your corresponding JDBC driver into the folder `$T
 
 You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf`:
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
 
-        <job-executor>
-          <job-acquisition name="default" />
-        </job-executor>
+      <job-executor>
+        <job-acquisition name="default" />
+      </job-executor>
 
-        <process-engine name="default">
-          <job-acquisition>default</job-acquisition>
-          <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
-          <datasource>java:jdbc/ProcessEngine</datasource>
+      <process-engine name="default">
+        <job-acquisition>default</job-acquisition>
+        <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
+        <datasource>java:jdbc/ProcessEngine</datasource>
 
-          <properties>
-              <property name="history">full</property>
-              <property name="databaseSchemaUpdate">true</property>
-          </properties>
+        <properties>
+          <property name="history">full</property>
+          <property name="databaseSchemaUpdate">true</property>
+          <property name="authorizationEnabled">true</property>
+        </properties>
 
-        </process-engine>
+      </process-engine>
 
-      </bpm-platform>
+    </bpm-platform>
 
 ### Add listener to bootstrap camunda BPM platform
 
@@ -123,7 +126,7 @@ In order to use the [JNDI Bindings for Bpm Platform Services on Tomcat](<%= @doc
       		type="org.camunda.bpm.ProcessEngineService"
       		description="camunda BPM platform Process Engine Service"
       		factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
-      	          
+
       	<Resource name=
             "global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
       		auth="Container"
@@ -145,11 +148,11 @@ The following steps are required to deploy the REST API on a Tomcat instance:
 
 1. Download the REST API web application archive from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
-2. Copy the war file to `$CATALINA_HOME/webapps`. 
+2. Copy the war file to `$CATALINA_HOME/webapps`.
    Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/engine-rest`.
 3. Startup Tomcat.
-4. Access the REST API on the context you configured. 
-   For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, 
+4. Access the REST API on the context you configured.
+   For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform,
    if you deployed the application in the context `/engine-rest`.
 
 
@@ -164,7 +167,7 @@ Unless you are using the pre-packaged distribution and do not want to exchange t
 The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts reside in the `sql/create` folder:
-    
+
     camunda-bpm-tomcat-$PLATFORM_VERSION.zip/sql/create/*_cycle_$PLATFORM_VERSION.sql
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
@@ -211,9 +214,9 @@ For example, if you plan to use the h2 database, you would have to add the h2-VE
 1. Copy the cycle war file to `$CATALINA_HOME/webapps`.
    Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/cycle`.
 2. Startup Tomcat.
-3. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user. 
+3. Access camunda cycle on the context you configured. If cycle is installed correctly, a screen should appear that allows you to create an initial user.
    The initial user has administrator privileges and can be used to create more users once you have logged in.
-   
+
 ### Configuring cycle ###
 #### Configuring email ####
 **Note**: This step is optional and can be skipped if you do not require cycle to send a welcome email to newly created users.
@@ -229,17 +232,17 @@ By default, cycle looks up a mail session using the JNDI Name `mail/Session`.
 The name of the mail session to look up can be changed by editing the following file in the cycle web application:
 
     WEB-INF/classes/spring/configuration.xml
-    
+
 The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, set the JNDI name of the Mail Session to a custom name:
 
     <bean id="cycleConfiguration" class="org.camunda.bpm.cycle.configuration.CycleConfiguration">
-	  [...]   
+	  [...]
 	  <!-- cycle email service configuration -->
 	  <property name="emailFrom" value="cycle@localhost" />
 	  <property name="mailSessionName" value="my/mail/Session" />
-	  [...]        
+	  [...]
     </bean>
-    
+
 #### Configuring Connector Password Encryption ####
 Connector passwords are encrypted before they are stored in the cycle database using the PBEWithMD5AndDES algorithm implementation.
 <div class="alert alert-info">
@@ -266,3 +269,66 @@ The following steps are required to deploy the applications on a JBoss instance:
    Optionally you may name it differently or extract it to a folder to deploy it to a different context path.
 3. Startup Tomcat.
 4. Access cockpit and tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
+
+<a id="ldap"></a>Configuring LDAP for camunda cockpit and tasklist
+------------------------------------------------------------------
+
+In order to setup LDAP for the tomcat distribution, you have to perform the following steps:
+
+<strong>1. Add Ldap Library</strong>
+
+Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
+`$TOMCAT_DISTRIBUTION/lib/` folder.
+
+<strong>2. Adjust Process Engine Configuration</strong>
+Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+      ...
+      <process-engine name="default"> ...
+        <properties>...</properties>
+        <plugins>
+          <plugin>
+            <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+            <properties>
+
+              <property name="serverUrl">ldap://localhost:4334/</property>
+              <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
+              <property name="managerPassword">s3cr3t</property>
+
+              <property name="baseDn">o=camunda,c=org</property>
+
+              <property name="userSearchBase"></property>
+              <property name="userSearchFilter">(objectclass=person)</property>
+
+              <property name="userIdAttribute">uid</property>
+              <property name="userFirstnameAttribute">cn</property>
+              <property name="userLastnameAttribute">sn</property>
+              <property name="userEmailAttribute">mail</property>
+              <property name="userPasswordAttribute">userpassword</property>
+
+              <property name="groupSearchBase"></property>
+              <property name="groupSearchFilter">(objectclass=groupOfNames)</property>
+              <property name="groupIdAttribute">ou</property>
+              <property name="groupNameAttribute">cn</property>
+
+              <property name="groupMemberAttribute">member</property>
+
+            </properties>
+          </plugin>
+          <plugin>
+            <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+            <properties>
+              <property name="administratorUserName">admin</property>
+            </properties>
+          </plugin>
+        </plugins>
+      </process-engine>
+    </bpm-platform>
+
+The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+
+See userguide for complete documentation on the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

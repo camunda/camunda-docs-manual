@@ -11,6 +11,7 @@ layout: 'default'
     <li><a href="#!/#rest"><i class="icon-chevron-right"></i>REST API</a></li>
     <li><a href="#!/#cycle"><i class="icon-chevron-right"></i>camunda cycle</a></li>
     <li><a href="#!/#camunda"><i class="icon-chevron-right"></i>cockpit and tasklist</a></li>
+    <li><a href="#!/#ldap"><i class="icon-chevron-right"></i>Ldap Configuration</a></li>
   </ul>
 </div>
 
