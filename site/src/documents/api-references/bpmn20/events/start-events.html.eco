@@ -1,0 +1,19 @@
+<section id="start-events">
+
+  <div class="page-header">
+      <h1>Start Events</h1>
+  </div>
+  
+  <p>
+    A start event is a trigger for starting a process instance. It may be of different types as shown in the <a href="#!/overview/bpmn-overview">overview</a>.
+  </p>
+  
+  <h1>Asynchronous instantiation</h1>
+  <p>
+    A start event may be declared as asynchronous by the <code>camunda:async="true"</code> extension (see example below). This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead a job is created and asynchronously processed by the <a href="/guides/user-guide/#!/#job-executor">job executor</a>.
+  </p>
+  <div class="app-source" app-source-no-tabs="asyncStartEvent2"></div>
+  <script type="text/xml" id="asyncStartEvent2">
+<startEvent id="startEvent" camunda:async="true" />
+    </script>
+</section>
