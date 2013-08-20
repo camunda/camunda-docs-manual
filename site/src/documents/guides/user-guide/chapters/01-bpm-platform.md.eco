@@ -585,7 +585,7 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
     
-    <definitions ... xmlns:camunda="http://camunda.org/bpmn">
+    <definitions ... xmlns:camunda="http://activiti.org/bpmn">
       ...
       <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
         <extensionElements>
