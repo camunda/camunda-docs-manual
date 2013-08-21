@@ -55,6 +55,7 @@
         * [The EmbeddedProcessApplication](#!/#the-embedded-process-application)
         * [The SpringProcessApplication](#!/#the-spring-process-application)
     * [The processes.xml deployment descriptor](#!/#the-processes-xml-deployment-descriptor)
+        * [Empty processes.xml](#!/#/empty-processes-xml)
         * [Location of the processes.xml file](#!/#processes-xml-location)
         * [Custom location for the processes.xml file](#!/#processes-xml-custom-location)
         * [Configuring process engines in the processes.xml file](#!/#processes-xml-configuring-process-engines)

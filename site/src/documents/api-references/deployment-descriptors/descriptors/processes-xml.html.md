@@ -10,6 +10,11 @@ Xml Schema Namespace
 
 The namespace for the processes.xml file is `http://www.camunda.org/schema/1.0/ProcessApplication`. The XSD file can be found in the `camunda-engine.jar` file.
 
+Empty processes.xml
+-------------------
+
+The `processes.xml` may be left blank (can be empty). In this case, default values are used. [See userguide for more information](/guides/user-guide/#!/#empty-processes-xml).
+
 Example
 -------
 
