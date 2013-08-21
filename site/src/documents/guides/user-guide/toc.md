@@ -4,7 +4,7 @@
 
 * [Introduction](#!/#introduction)
     * [BPM Platform](#!/#introduction/bpm-platform)
-	* [Supported Environments](#!/#introduction/supported-environments)
+    * [Supported Environments](#!/#introduction/supported-environments)
 * [Process Engine](#!/#process-engine)
     * [Process Engine Bootstrapping & Configuration](#!/#process-engine-bootstrapping)
         * [ProcessEngineConfiguration bean](#!/#process-engine-configuration-bean)
@@ -141,6 +141,3 @@
         * [User Administration](#!/#tools/user-management/user-administration)
             * [My Profile](#!/#tools/user-management/user-administration/my-profile)
         * [Groups Administration](#!/#tools/user-management/groups-administration)
-
-
-

@@ -887,6 +887,42 @@ In order to use the LDAP identity service, the `camunda-identity-ldap.jar` libra
       <version>${camunda.version}</version>
     </dependency>
 
+
+The following is an example of how to configure the LDAP Identity Provider Plugin using Spring XML:
+
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+      <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+        ...
+        <property name="processEnginePlugins">
+          <list>
+            <ref bean="ldapIdentityProviderPlugin" />
+          </list>
+        </property>
+      </bean>
+      <bean id="ldapIdentityProviderPlugin" class="org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin">
+        <property name="serverUrl" value="ldap://localhost:3433/" />
+        <property name="managerDn" value="uid=daniel,ou=office-berlin,o=camunda,c=org" />
+        <property name="managerPassword" value="daniel" />
+        <property name="baseDn" value="o=camunda,c=org" />
+
+        <property name="userSearchBase" value="" />
+        <property name="userSearchFilter" value="(objectclass=person)" />
+        <property name="userIdAttribute" value="uid" />
+        <property name="userFirstnameAttribute" value="cn" />
+        <property name="userLastnameAttribute" value="sn" />
+        <property name="userEmailAttribute" value="mail" />
+        <property name="userPasswordAttribute" value="userpassword" />
+
+        <property name="groupSearchBase" value="" />
+        <property name="groupSearchFilter" value="(objectclass=groupOfNames)" />
+        <property name="groupIdAttribute" value="ou" />
+        <property name="groupNameAttribute" value="cn" />
+        <property name="groupMemberAttribute" value="member" />
+      </bean>
+    </beans>
+
 The following is an example of how to configure the LDAP Identity Provider Plugin in bpm-platform.xml / processes.xml:
 
     <process-engine name="default">
@@ -935,10 +971,6 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
     The LDAP Identity Provider Plugin is usually used in combination with the [Administrator Authorization Plugin](#bpmplatform/engine/authorization/plugin) which allows you to grant administrator authorizations for a particular LDAP User / Group.
   </p>
 </div>
-
-The following is an example of how to configure the LDAP Identity Provider Plugin using Spring XML:
-
-TODO
 
 The Ldap Identity Provider provides the following configuration properties:
 
