@@ -332,7 +332,7 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
-Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
 
     <?xml version="1.0" encoding="UTF-8"?>
     <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
@@ -382,4 +382,4 @@ Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glas
 
 The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
-See userguide for complete documentation on the [Ldap Identity Provider Plugin](http://localhost:9779/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+See userguide for complete documentation on the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

@@ -862,7 +862,7 @@ Example:
       .userId("demo")
       .singleResult();
 
-camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides only read only access to the underlying user / group database. A writable user repository allows write access to the user database which includes updating and deleting users and groups.
+camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user / group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
 
 In order to provide a custom identity provider implementation, the following interfaces can be implemented:
 
@@ -1153,7 +1153,7 @@ As a result, the given user or group will have permission to READ the referenced
 
 camunda BPM has no explicit concept of "administrator". An administrator in camunda BPM is a user who has been grated all authorizations on all resources.
 
-When downloading the camunda BPM distribution, the invoice Example application creates user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](#tools/user-management/initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Indentity Service](#bpmplatform/engine/identity/database) or a custom implementation providing READ / WRITE access to the user repository).
+When downloading the camunda BPM distribution, the invoice Example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](#tools/user-management/initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Indentity Service](#bpmplatform/engine/identity/database) or a custom implementation providing READ / WRITE access to the user repository).
 
 This is not the case when using the [Ldap Indentity Service](#bpmplatform/engine/identity/ldap). The Ldap idenitity service only has read/write access to the user repository and the "Create Initial User" dialog will not be displayed.
 
