@@ -1106,7 +1106,7 @@ The Ldap Identity Provider provides the following configuration properties:
 
 camunda BPM provides a resource oriented authorization framework.
 
-<div class="alert">
+<div class="alert alert-success">
   <p>
     <strong>EXPERIMENTAL</strong>
     The authorization framework is an experimental feature in camunda BPM 7.0 and subject to incompatible change in subsequent releases.
@@ -1491,11 +1491,15 @@ The following shows an example of how to bootstrap a SpringProcessApplication in
            xsi:schemaLocation="http://www.springframework.org/schema/beans
                                http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-      <bean class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+      <bean id="invoicePa" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
 
     </beans>
 
 (Remember that you need a `META-INF/processes.xml` file, additionally).
+
+##### Process Application Name
+
+The SpringProcessApplication will use the bean name (`id="invoicePa"` in the example above) as auto-detected name for the process application. Make sure to provide a unique process application name here (unique across all process applications deployed on a single application server instance.) As an alternative, you can provide a custom subclass of SpringProcessApplication (or SpringServletProcessApplication) and override the `getName()` method.
 
 #### Configuring a Managed Process Engine using Spring
 
