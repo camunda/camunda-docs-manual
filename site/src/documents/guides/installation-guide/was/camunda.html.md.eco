@@ -27,13 +27,13 @@ You can check whether everything went well by accessing cockpit and tasklist via
 
 In order to setup LDAP for the websphere distribution, you have to perform the following steps:
 
-<strong>1. Add Ldap Library</strong>
+<strong>1. Add LDAP Library</strong>
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$WAS_HOME/lib/ext` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
-Edit the file `bpm-platform.xml` located inside the folder `camunda-ibm-websphere-ear-$VERSION/camunda-ibm-websphere-service-$VERSION/META-INF/` and add the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+Edit the file `bpm-platform.xml` located inside the folder `camunda-ibm-websphere-ear-$VERSION/camunda-ibm-websphere-service-$VERSION/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
 
     <?xml version="1.0" encoding="UTF-8"?>
     <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
@@ -81,6 +81,6 @@ Edit the file `bpm-platform.xml` located inside the folder `camunda-ibm-webspher
       </process-engine>
     </bpm-platform>
 
-The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
-See userguide for complete documentation on the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+See userguide for complete documentation on the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

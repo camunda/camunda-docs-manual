@@ -25,7 +25,7 @@ layout: 'default'
         <li><a href="tomcat/#!/#cycle">camunda cycle</a></li>
         <li><a href="tomcat/#!/#camunda">camunda cockpit</a></li>
         <li><a href="tomcat/#!/#camunda">camunda tasklist</a></li>
-        <li><a href="tomcat/#!/#ldap">Ldap Configuration</a></li>
+        <li><a href="tomcat/#!/#ldap">LDAP Configuration</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -39,7 +39,7 @@ layout: 'default'
         <li><a href="jboss/#!/#cycle">camunda cycle</a></li>
         <li><a href="jboss/#!/#camunda">camunda cockpit</a></li>
         <li><a href="jboss/#!/#camunda">camunda tasklist</a></li>
-        <li><a href="jboss/#!/#ldap">Ldap Configuration</a></li>
+        <li><a href="jboss/#!/#ldap">LDAP Configuration</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -53,7 +53,7 @@ layout: 'default'
         <li><a href="glassfish/#!/#cycle">camunda cycle</a></li>
         <li><a href="glassfish/#!/#camunda">camunda cockpit</a></li>
         <li><a href="glassfish/#!/#camunda">camunda tasklist</a></li>
-        <li><a href="glassfish/#!/#ldap">Ldap Configuration</a></li>
+        <li><a href="glassfish/#!/#ldap">LDAP Configuration</a></li>
       </ul>
     </div>
     <div class="span3">
@@ -67,7 +67,7 @@ layout: 'default'
         <li><a href="was/#!/#cycle">camunda cycle</a></li>
         <li><a href="was/#!/#camunda">camunda cockpit</a></li>
         <li><a href="was/#!/#camunda">camunda tasklist</a></li>
-        <li><a href="was/#!/#ldap">Ldap Configuration</a></li>
+        <li><a href="was/#!/#ldap">LDAP Configuration</a></li>
       </ul>
     </div>
   </div>

@@ -326,13 +326,13 @@ The following steps are required to deploy the applications on a Glassfish insta
 
 In order to setup LDAP for the glassfish distribution, you have to perform the following steps:
 
-<strong>1. Add Ldap Library</strong>
+<strong>1. Add LDAP Library</strong>
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
-Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
 
     <?xml version="1.0" encoding="UTF-8"?>
     <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
@@ -380,6 +380,6 @@ Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glas
       </process-engine>
     </bpm-platform>
 
-The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
-See userguide for complete documentation on the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+See userguide for complete documentation on the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).

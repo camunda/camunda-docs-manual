@@ -44,7 +44,7 @@
         * [List of built-in Plugins](#!/#bpmplatform/engine/plugins/list)
     * [Identity Service](#!/#bpmplatform/engine/identity)
         * [The Database Indentity Service](#!/#bpmplatform/engine/identity/database)
-        * [The Ldap Indentity Service](#!/#bpmplatform/engine/identity/ldap)
+        * [The LDAP Indentity Service](#!/#bpmplatform/engine/identity/ldap)
     * [Authorization Service](#!/#bpmplatform/engine/authorization)
         * [Creating an Authorization](#!/#bpmplatform/engine/authorization/create)
         * [The Administrator Authorization Plugin](#!/#bpmplatform/engine/authorization/plugin)
