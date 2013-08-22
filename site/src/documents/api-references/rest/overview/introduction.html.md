@@ -47,28 +47,4 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 Authentication
 --------------
 
-The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off, but can be activated by adding a servlet filter as follows:
-
-    <filter>
-      <filter-name>camunda-auth</filter-name>
-      <filter-class>
-        org.camunda.bpm.engine.rest.security.auth.ProcessEngineAuthenticationFilter
-      </filter-class>
-      <init-param>
-        <param-name>authentication-provider</param-name>
-        <param-value>org.camunda.bpm.engine.rest.security.auth.impl.HttpBasicAuthenticationProvider</param-value>
-      </init-param>
-    </filter>
-        
-    <filter-mapping>
-      <filter-name>camunda-auth</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
-Any engine-specific request will then be authenticated against that engine's identity service. The GET `/engine` request that supplies a list of all avaialable process engines is the only request that does not require authentication. Any request that does not address a specific engine (i.e. it is not of the form `/engine/{name}/...`) will be authenticated against the default engine.
-
-In the pre-built distributions, the engine authentication is switched off by default. You may have a look at the distribution's `web.xml` file and remove the comment markers from the above mentioned filter declaration to activate authentication.
-
-Note that Http Basic Authentication *does not provide encryption* and should be secured by an SSL connection.
-
-The authentication provider is exchangeable. You can implement the interface `org.camunda.bpm.engine.rest.security.auth.AuthenticationProvider` to realize another authentication method and change the filter's initialization parameter accordingly.
+The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](#!/overview/authentication) section.
