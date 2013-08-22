@@ -175,7 +175,7 @@ Tasks that need to be performed by actual human users of the system are core to 
 * Manipulating to which user a task is assigned or which users are in some way involved with the task.
 * Claiming and completing a task. Claiming means that someone decided to be the assigee for the task, meaning that this user will complete the task. Completing means 'doing the work of the tasks'. Typically this is filling in a form of sorts.
 
-The **IdentityService** is pretty simple. It allows the management (creation, update, deletion, querying, ...) of groups and users. It is important to understand that the core engine actually doesn't do any checking on users at runtime. For example, a task could be assigned to any user, but the engine does not verify if that user is known to the system. This is because the engine can also used in conjunction with services such as ldap, active directory, etc.
+The **IdentityService** is pretty simple. It allows the management (creation, update, deletion, querying, ...) of groups and users. It is important to understand that the core engine actually doesn't do any checking on users at runtime. For example, a task could be assigned to any user, but the engine does not verify if that user is known to the system. This is because the engine can also used in conjunction with services such as LDAP, active directory, etc.
 
 The **FormService** is an optional service. Meaning that the camunda engine can perfectly be used without it, without sacrificing any functionality. This service introduces the concept of a start form and a task form. A start form is a form that is shown to the user before the process instance is started, while a task form is the form that is displayed when a user wants to complete a form. You can define these forms in the BPMN 2.0 process definition. This service exposes this data in an easy way to work with. But again, this is optional as forms don't need to be embedded in the process definition.
 
@@ -844,8 +844,8 @@ A process engine plugin class must be visible to the classloader which loads the
 
 The following is a list of built-in process engine plugins:
 
-* [Ldap Identity Service Plugin](#bpmplatform/engine/identity/ldap)
-* [AdministratorAuthorizationPlugin]()
+* [LDAP Identity Service Plugin](#bpmplatform/engine/identity/ldap)
+* [Administrator Authorization Plugin](#bpmplatform/engine/authorization/plugin)
 
 ### Identity Service<a id="bpmplatform/engine/identity"></a>
 
@@ -869,13 +869,13 @@ In order to provide a custom identity provider implementation, the following int
 * [org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider](http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html)
 * [org.camunda.bpm.engine.impl.identity.WritableIdentityProvider](http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html)
 
-#### The Database Indentity Service<a id="bpmplatform/engine/identity/database"></a>
+#### The Database Identity Service<a id="bpmplatform/engine/identity/database"></a>
 
 The database identity service uses the process engine database for managing users and groups. This is the default identity service implementation used if no alternative identity service implementation is provided.
 
 The Database Identity Service implements both `ReadOnlyIdentityProvider` and `WritableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
 
-#### The Ldap Indentity Service<a id="bpmplatform/engine/identity/ldap"></a>
+#### The LDAP Identity Service<a id="bpmplatform/engine/identity/ldap"></a>
 
 The LDAP identity service provides read-only access to an LDAP-based user / group repository. The identity service provider is implemented as a [Process Engine Plugin](#bpmplatform/engine/plugins) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
 
@@ -972,7 +972,7 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
   </p>
 </div>
 
-The Ldap Identity Provider provides the following configuration properties:
+The LDAP Identity Provider provides the following configuration properties:
 
 <table class="table table-striped">
   <tr>
@@ -981,7 +981,7 @@ The Ldap Identity Provider provides the following configuration properties:
   </tr>
   <tr>
     <td>`serverUrl`</td>
-    <td>The url of the ldap server to connect to</td>
+    <td>The url of the LDAP server to connect to.</td>
   </tr>
   <tr>
     <td>`managerDn`</td>
@@ -1008,7 +1008,7 @@ The Ldap Identity Provider provides the following configuration properties:
   <tr>
     <td>`userSearchFilter`</td>
     <td>
-      <p>Ldap query string used when searching for users. <em>Example:</em> `(objectclass=person)`</p>
+      <p>LDAP query string used when searching for users. <em>Example:</em> `(objectclass=person)`</p>
     </td>
   </tr>
   <tr>
@@ -1051,7 +1051,7 @@ The Ldap Identity Provider provides the following configuration properties:
   <tr>
     <td>`groupSearchFilter`</td>
     <td>
-      <p>Ldap query string used when searching for groups. <em>Example:</em> `(objectclass=groupOfNames)`</p>
+      <p>LDAP query string used when searching for groups. <em>Example:</em> `(objectclass=groupOfNames)`</p>
     </td>
   </tr>
   <tr>
@@ -1079,7 +1079,7 @@ The Ldap Identity Provider provides the following configuration properties:
   <tr>
     <td>`acceptUntrustedCertificates`</td>
     <td>
-      <p>Accept of untrusted certificates if Ldap server uses Ssl. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
+      <p>Accept of untrusted certificates if LDAP server uses Ssl. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
     </td>
   </tr>
   <tr>
@@ -1159,7 +1159,7 @@ Grant Authorizations (`AUTH_TYPE_GRANT`) range over users and groups and grant a
 Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
 
 <strong>Authorization Precedence</strong>
-Authorizations may range over all users, an individual user or a group of users or . They may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
+Authorizations may range over all users, an individual user or a group of users or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
 
 * An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
 * An authorization for an individual user precedes over an authorization for a group.
@@ -1193,11 +1193,11 @@ As a result, the given user or group will have permission to READ the referenced
 
 #### The Administrator Authorization Plugin<a id="bpmplatform/engine/authorization/plugin"></a>
 
-camunda BPM has no explicit concept of "administrator". An administrator in camunda BPM is a user who has been grated all authorizations on all resources.
+camunda BPM has no explicit concept of "administrator". An administrator in camunda BPM is a user who has been granted all authorizations on all resources.
 
-When downloading the camunda BPM distribution, the invoice Example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](#tools/user-management/initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Indentity Service](#bpmplatform/engine/identity/database) or a custom implementation providing READ / WRITE access to the user repository).
+When downloading the camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](#tools/user-management/initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service](#bpmplatform/engine/identity/database) or a custom implementation providing READ / WRITE access to the user repository).
 
-This is not the case when using the [Ldap Indentity Service](#bpmplatform/engine/identity/ldap). The Ldap idenitity service only has read/write access to the user repository and the "Create Initial User" dialog will not be displayed.
+This is not the case when using the [LDAP Identity Service](#bpmplatform/engine/identity/ldap). The LDAP idenitity service only has read access to the user repository and the "Create Initial User" dialog will not be displayed.
 
 In this case you can use the *Administrator Authorization Plugin* for making sure administrator authorizations are created for a particular LDAP User or Group.
 
@@ -1220,7 +1220,7 @@ The plugin will make sure that administrator authorizations (ALL permissions) ar
 <div class="alert alert-info">
   <p>
     <strong>Note</strong>
-    It is not necessary to configure all Ldap users and groups which should have administrator authorization. It is usually enough to configure a single user and use that user to log into the webapplication and create additional authorizations using the User Interface.
+    It is not necessary to configure all LDAP users and groups which should have administrator authorization. It is usually enough to configure a single user and use that user to log into the webapplication and create additional authorizations using the User Interface.
   </p>
 </div>
 

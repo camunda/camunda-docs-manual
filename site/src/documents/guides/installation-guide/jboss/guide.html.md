@@ -290,7 +290,7 @@ The following steps are required to deploy the applications on a JBoss instance:
 In order to setup LDAP for the JBoss Application Server distribution, you have to perform the following steps:
 
 <strong>Adjust Process Engine Configuration</strong>
-Edit the file `standalone.xml` (or `domain.xml`) provided by JBoss Application Server and add the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+Edit the file `standalone.xml` (or `domain.xml`) provided by JBoss Application Server and add the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
       <process-engines>
@@ -337,6 +337,6 @@ Edit the file `standalone.xml` (or `domain.xml`) provided by JBoss Application S
     </subsystem>
 
 
-The `administratorUserName` property should contain the user id of the Ldap user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
-See userguide for complete documentation on the [Ldap Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
+See userguide for complete documentation on the [LDAP Identity Provider Plugin](/guides/user-guide/#!/#bpmplatform/engine/identity/ldap) and the [Administrator Authorization Plugin](/guides/user-guide/#!/#bpmplatform/engine/authorization/plugin).
