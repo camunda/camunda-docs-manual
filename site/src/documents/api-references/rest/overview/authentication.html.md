@@ -19,7 +19,7 @@ The REST API ships with an implementation of [Http Basic Authentication](http://
       <url-pattern>/*</url-pattern>
     </filter-mapping>
     
-Any engine-specific request will then be authenticated against that engine's identity service. The GET `/engine` request that supplies a list of all avaialable process engines is the only request that does not require authentication. Any request that does not address a specific engine (i.e. it is not of the form `/engine/{name}/...`) will be authenticated against the default engine.
+Any engine-specific request will then be authenticated against that engine's identity service. The GET `/engine` request that supplies a list of all available process engines is the only request that does not require authentication. Any request that does not address a specific engine (i.e. it is not of the form `/engine/{name}/...`) will be authenticated against the default engine.
 
 In the pre-built distributions, the engine authentication is switched off by default. You may have a look at the distribution's `web.xml` file and remove the comment markers from the above mentioned filter declaration to activate authentication.
 

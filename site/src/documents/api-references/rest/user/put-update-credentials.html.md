@@ -79,7 +79,7 @@ PUT `/user/jonny1/credentials`
 
 Request body:
 
-    {"password":"s3cr3t"}
+    {"password":"s3cr3t", "authenticatedUserPassword": "demo"}
 
 #### Response
 
