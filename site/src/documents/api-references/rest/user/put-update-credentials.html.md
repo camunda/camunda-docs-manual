@@ -26,6 +26,11 @@ A json object with the following properties:
     <td>String</td>
     <td>The user's new password.</td>
   </tr>  
+  <tr>
+    <td>authenticatedUserPassword</td>
+    <td>String</td>
+    <td>The password of the authenticated user who changes the password of the user (ie. the user with passed id as path parameter).</td>
+  </tr>    
 </table>
 
 
@@ -48,6 +53,11 @@ Response codes
     <td>Empty</td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>400</td>
+    <td>Empty</td>
+    <td>If the authenticated user password does not match.</td>
+  </tr>  
   <tr>
     <td>404</td>
     <td>application/json</td>
