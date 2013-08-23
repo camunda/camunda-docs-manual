@@ -43,6 +43,7 @@ CAM_PAGES = [
   { module: "rest-api", category: "Overview", id: "introduction", name: "Introduction", url: "overview/introduction", keywords: "rest overview error exception authorization unauthorized" },
   { module: "rest-api", category: "Overview", id: "distro-use", name: "Use with a pre-built distro", url: "overview/distro-use", keywords: "rest usage distro distribution tomcat jboss glassfish" },
   { module: "rest-api", category: "Overview", id: "embeddability", name: "Embedding the API", url: "overview/embeddability", keywords: "rest usage embed embeddability application jaxrs" },
+  { module: "rest-api", category: "Overview", id: "authentication", name: "Configuring Authentication", url: "overview/authentication", keywords: "rest authentication http basic base64 filter" },
 
   { module: "rest-api", category: "Process Engine", id: "get-engine-names", name: "Get Engine Names", url: "engine/get-names", keywords: "get process engine processengine name list all" },
 

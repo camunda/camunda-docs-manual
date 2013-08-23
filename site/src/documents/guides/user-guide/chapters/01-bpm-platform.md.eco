@@ -1106,13 +1106,6 @@ The LDAP Identity Provider provides the following configuration properties:
 
 camunda BPM provides a resource oriented authorization framework.
 
-<div class="alert alert-success">
-  <p>
-    <strong>EXPERIMENTAL</strong>
-    The authorization framework is an experimental feature in camunda BPM 7.0 and subject to incompatible change in subsequent releases.
-  </p>
-</div>
-
 <strong>Authorizations</strong>
 An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
 
@@ -1138,7 +1131,25 @@ A single authorization object may assign multiple permissions to a single user a
 On top of the built-in permissions, camunda BPM allows using custom permission types.
 
 <strong>Resources</strong>
-Resources are the entities the user interacts with. Examples of resources are GROUPS, USERS, process-definitions, process-instances, tasks ... See Resources for a set of built-in resource. The camunda BPM framework supports custom resources.
+Resources are the entities the user interacts with. Examples of resources are GROUPS, USERS, process-definitions, process-instances, tasks ...
+
+<div class="alert alert-info">
+  <p>
+    <strong>Built-In Resources</strong>
+  </p>
+  <p>
+    The following resources are currently supported by the authorization framework:
+    <ul>
+      <li>Application (cockpit, tasklist, ...)</li>
+      <li>Authorization</li>
+      <li>Group</li>
+      <li>Group Membership</li>
+      <li>User</li>
+    </ul>
+  </p>
+</div>
+
+On top of the built-in resources, the camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
 
 <strong>Authorization Type</strong>
 There are three types of authorizations:
@@ -1154,7 +1165,6 @@ Authorizations may range over all users, an individual user or a group of users 
 * An authorization for an individual user precedes over an authorization for a group.
 * A Group authorization precedes over a GLOBAL authorization.
 * A Group REVOKE authorization precedes over a Group GRANT authorization.
-
 
 #### Creating an Authorization<a id="bpmplatform/engine/authorization/create"></a>
 An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, WRITE, DELETE the resource. (See Authorization for details).
