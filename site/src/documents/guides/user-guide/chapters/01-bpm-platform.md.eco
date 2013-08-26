@@ -846,6 +846,7 @@ The following is a list of built-in process engine plugins:
 
 * [LDAP Identity Service Plugin](#bpmplatform/engine/identity/ldap)
 * [Administrator Authorization Plugin](#bpmplatform/engine/authorization/plugin)
+* [Process Application Event Listener Plugin](#bpmplatform/application/events)
 
 ### Identity Service<a id="bpmplatform/engine/identity"></a>
 
@@ -1646,12 +1647,50 @@ The processes.xml file can also be used for configuring one or multiple process 
 
 The `<configuration>...</configuration>` property allows specifying the name of a process engine configuration class to be used when building the process engine.
 
-## Migration from camunda fox 6.x<a id="migration-from-camunda-fox-6x"></a>
+## Process Application Event Listeners<a id="bpmplatform/application/events"></a>
+The process engine supports defining two types of event listeners: [Task Event Listeners and Execution Event Listeners](/api-references/bpmn20/#!/concepts/listeners).
+Task Event listeners allow to react to Task Events (Task are Created, Assigned, Completed). Execution Listeners allow to react to events fired as execution progresses to the diagram: Activities are Started, Ended and Transitions are being taken.
 
-<div class="alert">
-    <strong>Note that the Process Application logic has slightly changed from camunda fox 6.x (the predecessor to camunda BPM 7.0), you need to migrate your applications.</strong>
-    Please follow the instructions in the <a href="<%= @docUrl('guides/migration-guide/index.html') %>">Activiti Migration Guide</a> which contains a section about camunda fox at the end.
-</div>
+When using the Process Application API, the process engine makes sure that Events are delegated to the right Process Application. For example, assume there is a Process Application deployed as "invoice.war" which deploys a process definition named "invoice". The invoice process has a task named "archive invoice". The application "invoice.war" further provides a Java Class implementing the [ExecutionListener](/api-references/java/org/camunda/bpm/engine/delegate/ExecutionListener.html) interface and is configured to be invoked whenever the END event is fired on the "archive invoice" activity. The process engine makes sure that the event is delegated to the listener class located inside the process application:
+
+<center><img src="assets/img/process-application-events.png"></img></center>
+
+On top of the Execution and Task Listeners which are [explicitly configured in the BPMN 2.0 Xml](/api-references/bpmn20/#!/concepts/listeners), the process application API supports defining a global ExecutionListener and a global TaskListener which are notified about *all events* happening in the processes deployed by a process application:
+
+    @ProcessApplication
+    public class InvoiceProcessApplication extends ServletProcessApplication {
+
+      public TaskListener getTaskListener() {
+        return new TaskListener() {
+          public void notify(DelegateTask delegateTask) {
+            // handle all Task Events from Invoice Process
+          }
+        };
+      }
+
+      public ExecutionListener getExecutionListener() {
+        return new ExecutionListener() {
+          public void notify(DelegateExecution execution) throws Exception {
+            // handle all Execution Events from Invoice Process
+          }
+        };
+      }
+    }
+
+In order to use the global Process Application Event Listeners, you need to activate the corresponding [Process Engine Plugin](#bpmplatform/engine/plugins):
+
+    <process-engine name="default">
+      ...
+      <plugins>
+        <plugin>
+          <class>org.camunda.bpm.application.impl.event.ProcessApplicationEventListenerPlugin</class>
+        </plugin>
+      </plugins>
+    </process-engine>
+
+Note that the plugin is activated by default in the pre-packaged camunda BPM distributions.
+
+The Process Application Event Listener interface is also a good place for adding the CdiEventListener bridge if you want to [use Cdi Events with in combination with the shared process engine](#cdi-receiving-process-events/process-application).
 
 
 # Runtime Container Integration<a id="bpmplatform/container"></a>

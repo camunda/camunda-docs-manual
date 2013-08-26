@@ -17,25 +17,25 @@ The camunda-engine spring framework integration is located inside the camunda-en
 You can use a Spring application context Xml file for bootstrapping the process engine. You can bootstrap both application-managed and container-managed process engines through Spring.
 
 #### Bootstrapping an application-managed Process Engine<a id="application-managed-process-engine-bootstrap"></a>
-  
+
 The ProcessEngine can be configured as a regular Spring bean. The starting point of the integration is the class `org.camunda.bpm.engine.spring.ProcessEngineFactoryBean`. That bean takes a process engine configuration and creates the process engine. This means that the creation and configuration of properties for Spring is the same as documented in the configuration section. For Spring integration the configuration and engine beans will look like this:
 
-    <bean id="processEngineConfiguration" 
+    <bean id="processEngineConfiguration"
           class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
         ...
     </bean>
-  
-    <bean id="processEngine" 
+
+    <bean id="processEngine"
           class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
       <property name="processEngineConfiguration" ref="processEngineConfiguration" />
     </bean>
 
-  
-Note that the processEngineConfiguration bean uses the <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class. 
+
+Note that the processEngineConfiguration bean uses the <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class.
 
 #### Bootstrapping a container-managed Process Engine as a Spring Bean<a id="container-managed-process-engine-as-a-spring-bean-bootstrap"></a>
 
-If you want the process enigne to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration. 
+If you want the process enigne to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration.
 
 ### Transactions<a id="transactions"></a>
 
@@ -45,7 +45,7 @@ When passing the DataSource to the `SpringProcessEngineConfiguration` (using pro
 
 Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g. `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
 
-    <beans xmlns="http://www.springframework.org/schema/beans" 
+    <beans xmlns="http://www.springframework.org/schema/beans"
            xmlns:context="http://www.springframework.org/schema/context"
            xmlns:tx="http://www.springframework.org/schema/tx"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -61,18 +61,18 @@ Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configura
       <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
       </bean>
-      
+
       <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
         <property name="dataSource" ref="dataSource" />
         <property name="transactionManager" ref="transactionManager" />
         <property name="databaseSchemaUpdate" value="true" />
         <property name="jobExecutorActivate" value="false" />
       </bean>
-      
+
       <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
         <property name="processEngineConfiguration" ref="processEngineConfiguration" />
       </bean>
-      
+
       <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
       <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
       <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
@@ -84,7 +84,7 @@ Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configura
 
 The remainder of that Spring configuration file contains the beans and configuration that we'll use in this particular example:
 
-    <beans>  
+    <beans>
       ...
       <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -98,12 +98,12 @@ The remainder of that Spring configuration file contains the beans and configura
 
 First the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
 
-    ClassPathXmlApplicationContext applicationContext = 
+    ClassPathXmlApplicationContext applicationContext =
         new ClassPathXmlApplicationContext("mytest/SpringTransactionIntegrationTest-context.xml");
 
 
 or, since it is a test:
-  
+
     @ContextConfiguration("classpath:mytest/SpringTransactionIntegrationTest-context.xml")
 
 Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies Propagation.REQUIRED transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:
@@ -113,7 +113,7 @@ Then we can get the service beans and invoke methods on them. The ProcessEngineF
       .createDeployment()
       .addClasspathResource("mytest/hello.bpmn20.xml")
       .deploy()
-      .getId();  
+      .getId();
 
 The other way around also works. In this case, the Spring transaction will be around the userBean.hello() method and the engine service method invocation will join that same transaction.
 
@@ -121,24 +121,24 @@ The other way around also works. In this case, the Spring transaction will be ar
     userBean.hello();
 
 The UserBean looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.
-    
+
     public class UserBean {
 
-      // injected by Spring 
+      // injected by Spring
       private RuntimeService runtimeService;
 
       @Transactional
       public void hello() {
         // here you can do transactional stuff in your domain model
-        // and it will be combined in the same transaction as 
+        // and it will be combined in the same transaction as
         // the startProcessInstanceByKey to the RuntimeService
         runtimeService.startProcessInstanceByKey("helloProcess");
       }
-      
+
       public void setRuntimeService(RuntimeService runtimeService) {
         this.runtimeService = runtimeService;
       }
-    }    
+    }
 
 ### Automatic resource deployment<a id="automatic-resource-deployment"></a>
 
@@ -150,7 +150,7 @@ Here's an example:
       ...
       <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20.xml" />
     </bean>
-      
+
     <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
       <property name="processEngineConfiguration" ref="processEngineConfiguration" />
     </bean>
@@ -158,8 +158,8 @@ Here's an example:
 ### Expression Language<a id="expression-language"></a>
 
 When using the ProcessEngineFactoryBean, by default, all expressions in the BPMN processes will also 'see' all the Spring beans. It's possible to limit the beans you want to expose in expressions or even exposing no beans at all using a map that you can configure. The example below exposes a single bean (printer), available to use under the key "printer". To have NO beans exposed at all, just pass an empty list as 'beans' property on the SpringProcessEngineConfiguration. When no 'beans' property is set, all Spring beans in the context will be available.
- 
-    <bean id="processEngineConfiguration" 
+
+    <bean id="processEngineConfiguration"
           class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
       ...
       <property name="beans">
@@ -168,29 +168,29 @@ When using the ProcessEngineFactoryBean, by default, all expressions in the BPMN
         </map>
       </property>
     </bean>
-  
+
     <bean id="printer" class="org.camunda.bpm.engine.spring.test.transaction.Printer" />
-  
+
 Now the exposed beans can be used in expressions: for example, the SpringTransactionIntegrationTest hello.bpmn20.xml shows how a method on a Spring bean can be invoked using a UEL method expression:
- 
+
     <definitions id="definitions" ...>
-      
+
       <process id="helloProcess">
-      
+
         <startEvent id="start" />
         <sequenceFlow id="flow1" sourceRef="start" targetRef="print" />
-        
+
         <serviceTask id="print" camunda:expression="#{printer.printMessage()}" />
         <sequenceFlow id="flow2" sourceRef="print" targetRef="end" />
-        
+
         <endEvent id="end" />
-        
+
       </process>
 
     </definitions>
 
 Where Printer looks like this:
- 
+
     public class Printer {
 
       public void printMessage() {
@@ -223,41 +223,41 @@ When integrating with Spring, business processes can be tested very easily (in s
     @RunWith(SpringJUnit4ClassRunner.class)
     @ContextConfiguration("classpath:org/camunda/bpm/engine/spring/test/junit4/springTypicalUsageTest-context.xml")
     public class MyBusinessProcessTest {
-      
+
       @Autowired
       private RuntimeService runtimeService;
-      
+
       @Autowired
       private TaskService taskService;
-      
+
       @Autowired
       @Rule
       public ProcessEngineRule processEngineRule;
-      
+
       @Test
       @Deployment
       public void simpleProcessTest() {
         runtimeService.startProcessInstanceByKey("simpleProcess");
         Task task = taskService.createTaskQuery().singleResult();
         assertEquals("My Task", task.getName());
-      
+
         taskService.complete(task.getId());
         assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-       
+
       }
-    }      
-    
+    }
+
 Note that for this to work, you need to define a <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/test/ProcessEngineRule.html">ProcessEngineRule</a> bean in the Spring configuration (which is injected by auto-wiring in the example above).
 
     <bean id="activitiRule" class="org.camunda.bpm.engine.test.ProcessEngineRule">
       <property name="processEngine" ref="processEngine" />
-    </bean>       
+    </bean>
 
 
 ## CDI Integration<a id="cdi-integration"></a>
 
 The camunda-engine-cdi module provides programming model integration with CDI (Context and Dependency Injection). CDI is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configurability of the camunda engine and the extensibility of CDI. The most prominent features are:
- 
+
  * A custom El-Resolver for resolving CDI beans (including EJBs) from the process,
  * Support for @BusinessProcessScoped beans (CDI beans the lifecycle of which is bound to a process instance),
  * Declarative control over a process instance using annotations,
@@ -343,7 +343,7 @@ And this is how it would look like for Glassfish 3.1.1 (assuming a datasource na
                     <property name="databaseSchemaUpdate" value="true" />
             </bean>
     </beans>
-        
+
 Note that the above configuration requires the "spring-context" module:
 
     <dependency>
@@ -356,7 +356,7 @@ The configuration in a Java SE environment looks exactly like the examples provi
 
 ### Contextual Process Execution with CDI<a id="cdi-contextual-process-execution"></a>
 
-In this section we briefly look at the contextual process execution model used by the camunda-engine-cdi extension. A BPMN business process is typically a long-running interaction, comprised of both user and system tasks. At runtime, a process is split-up into a set of individual units of work, performed by users and/or application logic. In camunda-engine-cdi, a process instance can be associated with a cdi scope, the association representing a unit of work. This is particularly useful, if a unit of work is complex, for instance if the implementation of a UserTask is a complex sequence of different forms and "non-process-scoped" state needs to be kept during this interaction. In the default configuration, process instances are associated with the "broadest" active scope, starting with the conversation and falling back to the request if the conversation context is not active. 
+In this section we briefly look at the contextual process execution model used by the camunda-engine-cdi extension. A BPMN business process is typically a long-running interaction, comprised of both user and system tasks. At runtime, a process is split-up into a set of individual units of work, performed by users and/or application logic. In camunda-engine-cdi, a process instance can be associated with a cdi scope, the association representing a unit of work. This is particularly useful, if a unit of work is complex, for instance if the implementation of a UserTask is a complex sequence of different forms and "non-process-scoped" state needs to be kept during this interaction. In the default configuration, process instances are associated with the "broadest" active scope, starting with the conversation and falling back to the request if the conversation context is not active.
 
 #### Associating a Conversation with a Process Instance<a id="cdi-associating-a-conversation-with-a-process-instance"></a>
 
@@ -404,15 +404,15 @@ The `@CompleteTask` annotation offers the possibility to end the current convers
 
 The `camunda-engine-cdi` library exposes CDI beans via Expression Language, using a custom resolver. This makes it possible to reference beans from the process:
 
-    <userTask id="authorizeBusinessTrip" name="Authorize Business Trip"                      
+    <userTask id="authorizeBusinessTrip" name="Authorize Business Trip"
                             camunda:assignee="#{authorizingManager.account.username}" />
     </script>
 
 Where "authorizingManager" could be a bean provided by a producer method:
 
 ```
-@Inject 
-@ProcessVariable 
+@Inject
+@ProcessVariable
 private Object businessTripRequesterUsername;
 
 @Produces
@@ -495,7 +495,7 @@ This observer would be notified of all events. If we want to restrict the set of
   private BusinessProcessEvent evt;
   ```
 
-* `@StartActivity`: restricts the set of events by a certain activity. For example: 
+* `@StartActivity`: restricts the set of events by a certain activity. For example:
 
   ```
   @Observes
@@ -505,7 +505,7 @@ This observer would be notified of all events. If we want to restrict the set of
 
   is invoked whenever an activity with the id "shipGoods" is entered.
 
-* `@EndActivity`: restricts the set of events by a certain activity. The following for example is invoked whenever an activity with the id "shipGoods" is left: 
+* `@EndActivity`: restricts the set of events by a certain activity. The following for example is invoked whenever an activity with the id "shipGoods" is left:
 
   ```java
   @Observes
@@ -528,10 +528,54 @@ In the default configuration, event listeners are invoked synchronously and in t
 ```
 public void onShipmentSuceeded(
   @Observes(during=TransactionPhase.AFTER_SUCCESS) @BusinessProcess("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
-  
+
   // send email to customer
 }
 ```
+
+#### The Cdi Event Bridge in a Process Application<a id="cdi-receiving-process-events/process-application"></a>
+
+In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](/api-references/java/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#bpmplatform/application/events).
+
+Example configuration for [Servlet Process Application](#the-servlet-process-application):
+
+    @ProcessApplication
+    public class InvoiceProcessApplication extends ServletProcessApplication {
+
+      protected ExecutionListener cdiExecutionListener = new CdiExecutionListener();
+
+      public ExecutionListener getExecutionListener() {
+        return cdiExecutionListener;
+      }
+    }
+
+Example configuration for [Ejb Process Application](#the-ejb-process-application):
+
+    @Singleton
+    @Startup
+    @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @ProcessApplication
+    @Local(ProcessApplicationInterface.class)
+    public class MyEjbProcessApplication extends EjbProcessApplication {
+
+      protected ExecutionListener cdiExecutionListener = new CdiExecutionListener();
+
+      @PostConstruct
+      public void start() {
+        deploy();
+      }
+
+      @PreDestroy
+      public void stop() {
+        undeploy();
+      }
+
+      public ExecutionListener getExecutionListener() {
+        return cdiExecutionListener;
+      }
+    }
+
 
 ### Additional Features<a id="cdi-additional-features"></a>
 
