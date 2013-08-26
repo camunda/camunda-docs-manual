@@ -487,11 +487,11 @@ public void onProcessEvent(@Observes BusinessProcessEvent businessProcessEvent) 
 
 This observer would be notified of all events. If we want to restrict the set of events the observer receives, we can add qualifier annotations:
 
-* `@BusinessProcess`: restricts the set of events to a certain process definition. Example:
+* `@BusinessProcessDefinition`: restricts the set of events to a certain process definition. Example:
 
   ```
   @Observes
-  @BusinessProcess("billingProcess")
+  @BusinessProcessDefinition("billingProcess")
   private BusinessProcessEvent evt;
   ```
 
@@ -518,7 +518,7 @@ This observer would be notified of all events. If we want to restrict the set of
 The qualifiers named above can be combined freely. For example, in order to receive all events generated when leaving the "shipGoods" activity in the "shipmentProcess", we could write the following observer method:
 
 ```
-public void beforeShippingGoods(@Observes @BusinessProcess("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
+public void beforeShippingGoods(@Observes @BusinessProcessDefinition("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
   // handle event
 }
 ```
@@ -527,7 +527,7 @@ In the default configuration, event listeners are invoked synchronously and in t
 
 ```
 public void onShipmentSuceeded(
-  @Observes(during=TransactionPhase.AFTER_SUCCESS) @BusinessProcess("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
+  @Observes(during=TransactionPhase.AFTER_SUCCESS) @BusinessProcessDefinition("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
 
   // send email to customer
 }
