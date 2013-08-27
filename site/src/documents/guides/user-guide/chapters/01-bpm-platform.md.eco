@@ -1647,6 +1647,11 @@ The processes.xml file can also be used for configuring one or multiple process 
 
 The `<configuration>...</configuration>` property allows specifying the name of a process engine configuration class to be used when building the process engine.
 
+### Resuming Previous Deployment Versions<a id="bpmplatform/application/deployment/resume"></a>
+
+When deploying a set of BPMN 2.0 files to the process engine, a Deployment is created. The deployment is performed to the process engine database such that when the process engine is stopped and restarted, the process definitions can be restored from the database and execution can be continued. When a process application performs a deployment to a process engine, it will create a Registration for this deployment. The registration makes sure that the process engine will use the process application for loading additional Java Classes and resources when execution the processes. In contrast to the database deployment which can be restored whenever the process engine is restarted, the registration of the process application is kept as in-memory state. It is also local state on an individual cluster node, which allows us to undeploy or redeploy a process application on a particular cluster node without affecting the other nodes and without having to restart the process engine. If the Job Executor is deployment aware, job execution will also stop for jobs created by this process application. However, as a consequence, the registration also needs to be re-created when the application server is restarted. This happens automatically because the process application will be installed and as part of the installation process it creates a deployment to the process engine. If the process definitions provided by the process application have not changed,
+
+
 ## Process Application Event Listeners<a id="bpmplatform/application/events"></a>
 The process engine supports defining two types of event listeners: [Task Event Listeners and Execution Event Listeners](/api-references/bpmn20/#!/concepts/listeners).
 Task Event listeners allow to react to Task Events (Task are Created, Assigned, Completed). Execution Listeners allow to react to events fired as execution progresses to the diagram: Activities are Started, Ended and Transitions are being taken.

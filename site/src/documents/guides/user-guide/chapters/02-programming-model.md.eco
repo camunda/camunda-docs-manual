@@ -469,7 +469,7 @@ In order to reference process variables using EL, we have similar options:
 
 #### Receiving Process Events<a id="cdi-receiving-process-events"></a>
 
-The Process engine can be hooked-up to the CDI event-bus. This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support, enable the corresponding parse listener in the configuration:
+The Process engine can be hooked-up to the CDI event-bus. We call this the "Cdi Event Bridge" This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded process engine, enable the corresponding parse listener in the configuration:
 
     <property name="postBpmnParseHandlers">
       <list>
@@ -477,7 +477,15 @@ The Process engine can be hooked-up to the CDI event-bus. This allows us to be n
       </list>
     </property>
 
-Now the engine is configured for publishing events using the CDI event bus. The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event observers using the @Observes-annotation. Event notification is type-safe. The type of process events is org.camunda.bpm.engine.cdi.BusinessProcessEvent. The following is an example of a simple event observer method:
+Now the engine is configured for publishing events using the CDI event bus.
+<div class="alert alert-info">
+  <p>
+    <strong>Note:</strong>
+    The above configuration can be used in combination with an embedded process engine. If you want to use this feature in combination with the shared process engine in a multi application environment, you need to add the CdiExecutionListener as Process Application event listener. [See next section](#cdi-receiving-process-events/process-application).
+  </p>
+</div>
+
+The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event observers using the @Observes-annotation. Event notification is type-safe. The type of process events is org.camunda.bpm.engine.cdi.BusinessProcessEvent. The following is an example of a simple event observer method:
 
 ```
 public void onProcessEvent(@Observes BusinessProcessEvent businessProcessEvent) {
@@ -536,6 +544,14 @@ public void onShipmentSuceeded(
 #### The Cdi Event Bridge in a Process Application<a id="cdi-receiving-process-events/process-application"></a>
 
 In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](/api-references/java/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#bpmplatform/application/events).
+
+
+<div class="alert alert-info">
+  <p>
+    <strong>Note:</strong>
+    This configuration is not necessary if you "just" want to [reference event listeners using expression language](/api-references/bpmn20/#!/concepts/listeners) in the process. It is only required if you want to use the Cdi Event Bridge with the shared process engine. [See previous section](#cdi-receiving-process-events).
+  </p>
+</div>
 
 Example configuration for [Servlet Process Application](#the-servlet-process-application):
 
