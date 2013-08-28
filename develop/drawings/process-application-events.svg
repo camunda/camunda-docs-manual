@@ -209,18 +209,18 @@
        id="rect2985-1-7-0"
        width="126.39584"
        height="30.436251"
-       x="273.13718"
+       x="277.13718"
        y="479.51727"
        rx="0.05392557" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="337.69962"
+       x="341.69962"
        y="499.26196"
        id="text4318"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="337.69962"
+         x="341.69962"
          y="499.26196"
          style="font-size:14px;text-align:center;text-anchor:middle"
          id="tspan4480">Process Engine</tspan></text>

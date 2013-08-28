@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="process-application-deployment.svg"
+   inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-events.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path5976"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutM"
+       style="overflow:visible">
+      <path
+         id="path6103"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective6414" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3899"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-2"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-21"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-7"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-9"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-27"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-6"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-27-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-6-2"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-22"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-1"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-5"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-5"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-95"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-55"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-56"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-42"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-59"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-0"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-7"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-92"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-4"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6833"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6835"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6837"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6839"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-6"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-2"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-75"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7132"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7134"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7136"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7138"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7140"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7142"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5976-3"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-42-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3899-59-1"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-1"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8208"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8210"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8212"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8214"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-00"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6103-9"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.4,0.4)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="554.96875"
+     inkscape:cy="653.30456"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.77755994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985"
+       width="186.07094"
+       height="203.7953"
+       x="132.36795"
+       y="31.996307"
+       rx="0.079385392"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.633093;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1"
+       width="126.38464"
+       height="101.57623"
+       x="170.6468"
+       y="43.459381"
+       rx="0.053920791"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <g
+       id="g5291"
+       transform="matrix(1.0157458,0,0,1,-112.04349,-288.93464)"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110">
+      <rect
+         rx="0.05392557"
+         y="479.51727"
+         x="277.13718"
+         height="30.436251"
+         width="126.39584"
+         id="rect2985-1-7-0"
+         style="fill:none;stroke:#000000;stroke-width:1.25;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4318"
+         y="499.26196"
+         x="341.69962"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4480"
+           style="font-size:14px;text-align:center;text-anchor:middle"
+           y="499.26196"
+           x="341.69962"
+           sodipodi:role="line">Process Engine</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="231.78503"
+       y="59.352448"
+       id="text4318-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="231.78503"
+         y="59.352448"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4391">invoice.war</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3982"
+       width="23.529411"
+       height="22.875816"
+       x="189.4379"
+       y="133.62366"
+       rx="0.04134959"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="277.12418"
+       y="598.11383"
+       id="text4002"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4004" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="215.61557"
+       y="125.41748"
+       id="text4014-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan4016-7"
+         x="215.61557"
+         y="125.41748"
+         style="font-size:10px">Process </tspan><tspan
+         sodipodi:role="line"
+         x="215.61557"
+         y="137.91748"
+         style="font-size:10px"
+         id="tspan4018-1">Application</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 192.2257,69.00987 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 190.20329,71.48166 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="219.73203"
+       y="93.950439"
+       id="text5316"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="219.73203"
+         y="93.950439"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902">invoice.bpmn</tspan></text>
+    <path
+       id="path6432"
+       style="fill:none;stroke:#000000;stroke-width:0.6921975px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 178.51603,262.79678 0,28.50225 c 7.60885,8.8039 33.86461,8.55058 42.20822,0 l 0,-27.70373 m 0.31894,-0.1199 c 0,3.12329 -9.52002,5.65522 -21.26357,5.65522 -11.74356,0 -21.26359,-2.53193 -21.26359,-5.65522 0,-3.12328 9.52003,-5.6552 21.26359,-5.6552 11.74355,0 21.26357,2.53192 21.26357,5.6552 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccsssss"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="227.16211"
+       y="280.10437"
+       id="text5316-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="227.16211"
+         y="280.10437"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-2">Database</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.57508218;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.15016454, 1.57508228;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 207.02921,189.68425 0,-28.64682"
+       id="path3872-6-4-5-69"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="140"
+       y="171.86218"
+       id="text6513"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515"
+         x="140"
+         y="171.86218"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">1. deploy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="216.17773"
+       y="166.89978"
+       id="text6513-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-9"
+         x="216.17773"
+         y="166.89978"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">3. registration for </tspan><tspan
+         sodipodi:role="line"
+         x="216.17773"
+         y="181.37292"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+         id="tspan6538">deployment-1</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.76011074;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.5202216, 1.76011081;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 200.5,221.01052 0,37.01491"
+       id="path3872-6-4-5-69-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.60143745;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.202875, 1.60143751;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 197,155.96423 0,29.87254"
+       id="path3872-6-4-5-69-3-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="206.53613"
+       y="251.41199"
+       id="text6513-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-7"
+         x="206.53613"
+         y="251.41199"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">2. create <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+   id="tspan7066">deployment-1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="128.5"
+       y="328.16974"
+       id="text6817"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="128.5"
+         y="328.16974"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7068">(a) Deploy Process Application</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.77755994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-4"
+       width="186.07094"
+       height="203.7953"
+       x="418.80853"
+       y="32.11145"
+       rx="0.079385392"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.633093;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1-0"
+       width="126.38464"
+       height="101.57623"
+       x="457.0874"
+       y="43.574524"
+       rx="0.053920791"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <g
+       id="g5291-2"
+       transform="matrix(1.0157458,0,0,1,174.3971,-288.81951)"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110">
+      <rect
+         rx="0.05392557"
+         y="479.51727"
+         x="277.13718"
+         height="30.436251"
+         width="126.39584"
+         id="rect2985-1-7-0-3"
+         style="fill:none;stroke:#000000;stroke-width:1.25;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4318-0"
+         y="499.26196"
+         x="341.69962"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4480-9"
+           style="font-size:14px;text-align:center;text-anchor:middle"
+           y="499.26196"
+           x="341.69962"
+           sodipodi:role="line">Process Engine</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="518.22559"
+       y="59.46759"
+       id="text4318-4-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="518.22559"
+         y="59.46759"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4391-4">invoice.war</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3982-1"
+       width="23.529411"
+       height="22.875816"
+       x="475.87848"
+       y="133.73877"
+       rx="0.04134959"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 478.66629,69.125 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-3-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 476.64388,71.59679 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="506.17261"
+       y="92.065552"
+       id="text5316-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="506.17261"
+         y="92.065552"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-5">invoice.bpmn</tspan></text>
+    <path
+       id="path6432-1"
+       style="fill:none;stroke:#000000;stroke-width:0.6921975px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 462.95662,262.91191 0,28.50225 c 7.60885,8.8039 33.86461,8.55058 42.20822,0 l 0,-27.70373 m 0.31894,-0.1199 c 0,3.12329 -9.52002,5.65522 -21.26357,5.65522 -11.74356,0 -21.26359,-2.53193 -21.26359,-5.65522 0,-3.12328 9.52003,-5.6552 21.26359,-5.6552 11.74355,0 21.26357,2.53192 21.26357,5.6552 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccsssss"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="498.61829"
+       y="167.01489"
+       id="text6513-8-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-9-6"
+         x="498.61829"
+         y="167.01489"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">unregister for </tspan><tspan
+         sodipodi:role="line"
+         x="498.61829"
+         y="181.48804"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+         id="tspan6538-3">deployment-1</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.60143745;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.202875, 1.60143751;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 487.44059,156.07936 0,29.87254"
+       id="path3872-6-4-5-69-3-6-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="557.97668"
+       y="689.0271"
+       id="text6513-0-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6515-7-3"
+         x="557.97668"
+         y="689.0271"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="407.94058"
+       y="328.16974"
+       id="text6817-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6819-5"
+         x="407.94058"
+         y="328.16974"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">(b) Un Deploy Process Application</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="514"
+       y="272.36218"
+       id="text7054"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan7056"
+         x="514"
+         y="272.36218"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas">deployment-1 </tspan><tspan
+         sodipodi:role="line"
+         x="514"
+         y="290.47687"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7058">is still in database</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="502.87158"
+       y="124.69763"
+       id="text4014-1-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan4016-7-1"
+         x="502.87158"
+         y="124.69763"
+         style="font-size:10px">Process </tspan><tspan
+         sodipodi:role="line"
+         x="502.87158"
+         y="137.19763"
+         style="font-size:10px"
+         id="tspan4018-1-2">Application</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.49289346;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.9857869, 1.49289346;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 201,103.72376 0,25.46712"
+       id="path3872-6-4-5-69-3-6-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-applicaiton-deployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.77755994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-9"
+       width="186.07094"
+       height="203.7953"
+       x="131.13406"
+       y="392.9967"
+       rx="0.079385392"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.633093;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1-8"
+       width="126.38464"
+       height="101.57623"
+       x="169.41292"
+       y="404.45978"
+       rx="0.053920791"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <g
+       id="g5291-7"
+       transform="matrix(1.0157458,0,0,1,-113.27738,72.06576)"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110">
+      <rect
+         rx="0.05392557"
+         y="479.51727"
+         x="277.13718"
+         height="30.436251"
+         width="126.39584"
+         id="rect2985-1-7-0-2"
+         style="fill:none;stroke:#000000;stroke-width:1.25;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4318-3"
+         y="499.26196"
+         x="341.69962"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4480-7"
+           style="font-size:14px;text-align:center;text-anchor:middle"
+           y="499.26196"
+           x="341.69962"
+           sodipodi:role="line">Process Engine</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="230.55115"
+       y="420.35284"
+       id="text4318-4-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="230.55115"
+         y="420.35284"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4391-8">invoice.war</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3982-6"
+       width="23.529411"
+       height="22.875816"
+       x="188.20401"
+       y="494.62405"
+       rx="0.04134959"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="214.38168"
+       y="486.41788"
+       id="text4014-1-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan4016-7-0"
+         x="214.38168"
+         y="486.41788"
+         style="font-size:10px">Process </tspan><tspan
+         sodipodi:role="line"
+         x="214.38168"
+         y="498.91788"
+         style="font-size:10px"
+         id="tspan4018-1-3">Application</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 190.99181,430.01027 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-3-04"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 188.9694,432.48206 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="218.49814"
+       y="454.95084"
+       id="text5316-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="218.49814"
+         y="454.95084"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-4">invoice.bpmn</tspan></text>
+    <path
+       id="path6432-8"
+       style="fill:none;stroke:#000000;stroke-width:0.6921975px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 175.28214,623.79718 0,28.50225 c 7.60885,8.8039 33.86461,8.55058 42.20822,0 l 0,-27.70373 m 0.31894,-0.1199 c 0,3.12329 -9.52002,5.65522 -21.26357,5.65522 -11.74356,0 -21.26359,-2.53193 -21.26359,-5.65522 0,-3.12328 9.52003,-5.6552 21.26359,-5.6552 11.74355,0 21.26357,2.53192 21.26357,5.6552 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccsssss"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="223.92822"
+       y="641.10474"
+       id="text5316-1-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="223.92822"
+         y="641.10474"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-2-0">Database</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.57508218;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.15016454, 1.57508228;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 205.79532,550.68465 0,-28.64682"
+       id="path3872-6-4-5-69-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="138.76611"
+       y="532.86255"
+       id="text6513-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-92"
+         x="138.76611"
+         y="532.86255"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">1. deploy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="214.94385"
+       y="527.90015"
+       id="text6513-8-74"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-9-3"
+         x="214.94385"
+         y="527.90015"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">3. registration for </tspan><tspan
+         sodipodi:role="line"
+         x="214.94385"
+         y="542.37329"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+         id="tspan6538-6">deployment-1</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.60143745;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.202875, 1.60143751;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 195.76611,516.96463 0,29.87254"
+       id="path3872-6-4-5-69-3-6-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="30.302246"
+       y="540.41235"
+       id="text6513-0-45"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-7-4"
+         x="30.302246"
+         y="540.41235"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">2. compare </tspan><tspan
+         sodipodi:role="line"
+         x="30.302246"
+         y="555.41235"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan8190">Process Xml</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="229.93506"
+       y="689.17017"
+       id="text6817-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="229.93506"
+         y="689.17017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7068-4">(a) Redeploy Process Application</tspan><tspan
+         sodipodi:role="line"
+         x="229.93506"
+         y="706.67017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7266">- Process Xml has not changed -</tspan><tspan
+         sodipodi:role="line"
+         x="229.93506"
+         y="724.17017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7264" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.49289346;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.9857869, 1.49289346;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 199.76611,464.72416 0,25.46712"
+       id="path3872-6-4-5-69-3-6-2-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4,2;marker-start:url(#Arrow2Lstart);marker-mid:none;marker-end:url(#Arrow2Lend-42);stroke-dashoffset:0"
+       d="m 169,639.36218 -65,0 0,-192 80,0"
+       id="path7268"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.77755994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-9-4"
+       width="186.07094"
+       height="203.7953"
+       x="462.53592"
+       y="392.2467"
+       rx="0.079385392"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.633093;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1-8-0"
+       width="126.38464"
+       height="101.57623"
+       x="500.81476"
+       y="403.70978"
+       rx="0.053920791"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <g
+       id="g5291-7-5"
+       transform="matrix(1.0157458,0,0,1,218.12447,71.31575)"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110">
+      <rect
+         rx="0.05392557"
+         y="479.51727"
+         x="277.13718"
+         height="30.436251"
+         width="126.39584"
+         id="rect2985-1-7-0-2-3"
+         style="fill:none;stroke:#000000;stroke-width:1.25;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4318-3-5"
+         y="499.26196"
+         x="341.69962"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4480-7-5"
+           style="font-size:14px;text-align:center;text-anchor:middle"
+           y="499.26196"
+           x="341.69962"
+           sodipodi:role="line">Process Engine</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="561.953"
+       y="419.60284"
+       id="text4318-4-9-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="561.953"
+         y="419.60284"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4391-8-5">invoice.war</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3982-6-9"
+       width="23.529411"
+       height="22.875816"
+       x="519.60583"
+       y="493.87402"
+       rx="0.04134959"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="545.78357"
+       y="485.66785"
+       id="text4014-1-4-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan4016-7-0-6"
+         x="545.78357"
+         y="485.66785"
+         style="font-size:10px">Process </tspan><tspan
+         sodipodi:role="line"
+         x="545.78357"
+         y="498.16785"
+         style="font-size:10px"
+         id="tspan4018-1-3-1">Application</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 522.39366,429.26026 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-3-04-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.68761742px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 520.37125,431.73205 0,32.80796 23.81942,0 0,-24.71827 -6.96606,-8.08969 z"
+       id="path5314-7-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="549.90002"
+       y="454.20081"
+       id="text5316-4-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="549.90002"
+         y="454.20081"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-4-6">invoice.bpmn</tspan></text>
+    <path
+       id="path6432-8-2"
+       style="fill:none;stroke:#000000;stroke-width:0.6921975px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 506.68399,623.04717 0,28.50225 c 7.60885,8.8039 33.86461,8.55058 42.20822,0 l 0,-27.70373 m 0.31894,-0.1199 c 0,3.12329 -9.52002,5.65522 -21.26357,5.65522 -11.74356,0 -21.26359,-2.53193 -21.26359,-5.65522 0,-3.12328 9.52003,-5.6552 21.26359,-5.6552 11.74355,0 21.26357,2.53192 21.26357,5.6552 z"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccsssss"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="555.33008"
+       y="640.35474"
+       id="text5316-1-3-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="555.33008"
+         y="640.35474"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan5902-2-0-7">Database</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.57508218;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.15016454, 1.57508228;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 537.19717,549.93464 0,-28.64682"
+       id="path3872-6-4-5-69-6-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="470.16797"
+       y="532.11255"
+       id="text6513-9-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-92-3"
+         x="470.16797"
+         y="532.11255"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">1. deploy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="546.3457"
+       y="527.15015"
+       id="text6513-8-74-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-9-3-6"
+         x="546.3457"
+         y="527.15015"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">4. registration for </tspan><tspan
+         sodipodi:role="line"
+         x="546.3457"
+         y="541.62329"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+         id="tspan6538-6-5">deployment-1,2</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.60143745;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.202875, 1.60143751;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 527.16796,516.21462 0,29.87254"
+       id="path3872-6-4-5-69-3-6-4-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="359.7041"
+       y="539.66235"
+       id="text6513-0-45-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-7-4-0"
+         x="359.7041"
+         y="539.66235"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">2. compare </tspan><tspan
+         sodipodi:role="line"
+         x="359.7041"
+         y="554.66235"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan8190-5">Process Xml</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="561.33691"
+       y="688.42017"
+       id="text6817-3-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         x="561.33691"
+         y="688.42017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7068-4-7">(b) Redeploy Process Application</tspan><tspan
+         sodipodi:role="line"
+         x="561.33691"
+         y="705.92017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7266-1">- Process Xml has Changed -</tspan><tspan
+         sodipodi:role="line"
+         x="561.33691"
+         y="723.42017"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+         id="tspan7264-0" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.49289346;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.9857869, 1.49289346;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 531.16796,463.97415 0,25.46712"
+       id="path3872-6-4-5-69-3-6-2-4-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4, 2;stroke-dashoffset:0;marker-start:url(#Arrow2Lstart);marker-mid:none;marker-end:url(#Arrow2Lend-42)"
+       d="m 500.40185,638.61217 -64.99999,0 0,-192 79.99999,0"
+       id="path7268-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.76011074;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.5202216, 1.76011081;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 529.67007,582.04357 0,37.01491"
+       id="path3872-6-4-5-69-3-5"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
+       x="535.70618"
+       y="612.44507"
+       id="text6513-0-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
+       inkscape:export-xdpi="110"
+       inkscape:export-ydpi="110"><tspan
+         sodipodi:role="line"
+         id="tspan6515-7-8"
+         x="535.70618"
+         y="612.44507"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">3. create new <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+   id="tspan7066-0">deployment-2</tspan></tspan></text>
+  </g>
+</svg>

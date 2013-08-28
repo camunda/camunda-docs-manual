@@ -59,7 +59,7 @@
         * [Location of the processes.xml file](#!/#processes-xml-location)
         * [Custom location for the processes.xml file](#!/#processes-xml-custom-location)
         * [Configuring process engines in the processes.xml file](#!/#processes-xml-configuring-process-engines)
-        * [Resuming Previous Deployment Versions](#!/#bpmplatform/application/deployment/resume)
+        * [Process Application Deployment](#!/#bpmplatform/application/deployment)
     * [Process Application Event Listeners](#!/#bpmplatform/application/events)
 * [Runtime Container Integration](#!/#bpmplatform/container)
     * [JNDI Bindings for BPM Platform Services](#!/#bpmplatform/container/jndi/platform-services)
