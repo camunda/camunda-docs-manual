@@ -473,7 +473,7 @@ The Process engine can be hooked-up to the CDI event-bus. We call this the "Cdi 
 
     <property name="postBpmnParseHandlers">
       <list>
-        <bean class="org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseHandler" />
+        <bean class="org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener" />
       </list>
     </property>
 
