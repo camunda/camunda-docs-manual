@@ -1214,7 +1214,7 @@
          x="229.93506"
          y="706.67017"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
-         id="tspan7266">- Process Xml has not changed -</tspan><tspan
+         id="tspan7266">- invoice.bpmn has not changed -</tspan><tspan
          sodipodi:role="line"
          x="229.93506"
          y="724.17017"
@@ -1239,13 +1239,13 @@
        inkscape:export-xdpi="110"
        inkscape:export-ydpi="110" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.77755994;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:0.80012345;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2985-9-4"
-       width="186.07094"
-       height="203.7953"
-       x="462.53592"
-       y="392.2467"
-       rx="0.079385392"
+       width="197.04837"
+       height="203.77274"
+       x="462.54721"
+       y="392.258"
+       rx="0.084068812"
        inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
        inkscape:export-xdpi="110"
        inkscape:export-ydpi="110" />
@@ -1255,14 +1255,14 @@
        width="126.38464"
        height="101.57623"
        x="500.81476"
-       y="403.70978"
+       y="401.70978"
        rx="0.053920791"
        inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
        inkscape:export-xdpi="110"
        inkscape:export-ydpi="110" />
     <g
        id="g5291-7-5"
-       transform="matrix(1.0157458,0,0,1,218.12447,71.31575)"
+       transform="matrix(1.0157458,0,0,1,218.12447,75.31575)"
        inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
        inkscape:export-xdpi="110"
        inkscape:export-ydpi="110">
@@ -1392,7 +1392,7 @@
          id="tspan5902-2-0-7">Database</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.57508218;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.15016454, 1.57508228;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
-       d="m 537.19717,549.93464 0,-28.64682"
+       d="m 537.19717,551.93464 0,-28.64682"
        id="path3872-6-4-5-69-6-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -1417,8 +1417,8 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Folks-Light;-inkscape-font-specification:Folks-Light Light"
-       x="546.3457"
-       y="527.15015"
+       x="548.3457"
+       y="517.15015"
        id="text6513-8-74-7"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-redeployment.png"
@@ -1426,17 +1426,24 @@
        inkscape:export-ydpi="110"><tspan
          sodipodi:role="line"
          id="tspan6515-9-3-6"
-         x="546.3457"
-         y="527.15015"
+         x="548.3457"
+         y="517.15015"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">4. registration for </tspan><tspan
          sodipodi:role="line"
-         x="546.3457"
-         y="541.62329"
+         x="548.3457"
+         y="531.62329"
          style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan6538-6-5">deployment-1,2</tspan></text>
+         id="tspan6538-6-5">deployment-2 <tspan
+   style="font-weight:bold;-inkscape-font-specification:Consolas Bold"
+   id="tspan8383">AND</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="548.3457"
+         y="546.62329"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Consolas;-inkscape-font-specification:Consolas"
+         id="tspan8379">deployment-1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.60143745;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.202875, 1.60143751;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
-       d="m 527.16796,516.21462 0,29.87254"
+       d="m 527.16796,518.21462 0,29.87254"
        id="path3872-6-4-5-69-3-6-4-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -1482,7 +1489,7 @@
          x="561.33691"
          y="705.92017"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
-         id="tspan7266-1">- Process Xml has Changed -</tspan><tspan
+         id="tspan7266-1">- invoice.bpmn has changed -</tspan><tspan
          sodipodi:role="line"
          x="561.33691"
          y="723.42017"
@@ -1507,8 +1514,8 @@
        inkscape:export-xdpi="110"
        inkscape:export-ydpi="110" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.76011074;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.5202216, 1.76011081;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
-       d="m 529.67007,582.04357 0,37.01491"
+       style="fill:none;stroke:#000000;stroke-width:1.70301759;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.4060352, 1.70301761;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
+       d="m 529.67007,585.01502 0,34.33433"
        id="path3872-6-4-5-69-3-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
