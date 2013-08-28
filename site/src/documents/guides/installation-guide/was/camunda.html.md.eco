@@ -1,4 +1,4 @@
-<a id="cockpit"></a>
+<a id="camunda"></a>
 camunda cockpit and tasklist Installation Guide (WebSphere)
 ===========================================================
 The web application archive that contains camunda cockpit and tasklist resides under <code>webapps/camunda-was-$PLATFORM_VERSION.war</code> in the WAS distribution archive.
