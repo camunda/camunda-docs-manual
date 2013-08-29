@@ -22,6 +22,10 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstanceIds</td>
+    <td>Filter by a comma-separated list of process instance ids.</td>
+  </tr>
+  <tr>
     <td>businessKey</td>
     <td>Filter by process instance business key.</td>
   </tr>

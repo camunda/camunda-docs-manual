@@ -25,6 +25,10 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstanceIds</td>
+    <td>Filter by a list of process instance ids. Must be a json array of Strings.</td>
+  </tr>
+  <tr>
     <td>businessKey</td>
     <td>Filter by process instance business key.</td>
   </tr>
