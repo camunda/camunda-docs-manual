@@ -5,10 +5,14 @@
   </div>
   
   <p>
-    A start event is a trigger for starting a process instance. It may be of different types as shown in the <a href="#!/overview/bpmn-overview">overview</a>.
+    A start event is a trigger for starting a process instance. 
+    The engine supports different types of start events: <a href="#!/events/none-events">Blank</a>, <a href="#!/events/timer-events">Timer</a> and <a href="#!/events/message-events">Message</a>. See the respective sections on how to configure a start event of these types. There can at most be one blank or timer event per process definition. This restriction does not apply to message events.
+  </p>
+  <p>
+    Although according to the BPMN 2.0 specification start events are not mandatory, the engine requires at least one start event to instantiate a process. 
   </p>
   
-  <h1>Asynchronous instantiation</h1>
+  <h2>Asynchronous instantiation</h2>
   <p>
     A start event may be declared as asynchronous by the <code>camunda:async="true"</code> extension (see example below). This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead a job is created and asynchronously processed by the <a href="/guides/user-guide/#!/#job-executor">job executor</a>.
   </p>
