@@ -88,17 +88,6 @@ A json object with the following properties:
     `like`.<br/>
     </td>
   </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are
-    `instanceId`, `definitionId`, `businessKey`, `startTime`, `endTime`, `duration`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
-  </tr>
 </table>
 
 
@@ -138,7 +127,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

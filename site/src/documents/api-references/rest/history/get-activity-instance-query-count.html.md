@@ -78,7 +78,7 @@ A json object that contains the count as the only property.
   <tr>
     <td>count</td>
     <td>Number</td>
-    <td>The number of matching process instances.</td>
+    <td>The number of matching historic activity instances.</td>
   </tr>
 </table>
 
@@ -100,7 +100,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

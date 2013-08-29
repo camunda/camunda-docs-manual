@@ -143,10 +143,14 @@ CAM_PAGES = [
   
   { module: "rest-api", category: "History", id: "get-process-historic-instances", name: "Get Historic Process Instances", url: "history/get-process-instance-query", keywords: "history get process-instance query filter" },
   { module: "rest-api", category: "History", id: "get-historic-process-instances-count", name: "Get Historic Process Instances Count", url: "history/get-process-instance-query-count", keywords: "history get process-instance count number size query filter" },
-  { module: "rest-api", category: "History", id: "post-historic-process-instances", name: "Get Historic Process Instances (Post)", url: "history/post-process-instance-query", keywords: "history post process-instance query filter" },
-  { module: "rest-api", category: "History", id: "post-historic-process-instances-count", name: "Get Historic Process Instances Count (Post)", url: "history/post-process-instance-query-count", keywords: "history post process-instance count number size query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-process-instances", name: "Get Historic Process Instances (POST)", url: "history/post-process-instance-query", keywords: "history post process-instance query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-process-instances-count", name: "Get Historic Process Instances Count (POST)", url: "history/post-process-instance-query-count", keywords: "history post process-instance count number size query filter" },
   { module: "rest-api", category: "History", id: "get-historic-activity-instances", name: "Get Historic Activity Instances", url: "history/get-activity-instance-query", keywords: "history get activity-instance query filter" },
   { module: "rest-api", category: "History", id: "get-historic-activity-instances-count", name: "Get Historic Activity Instances Count", url: "history/get-activity-instance-query-count", keywords: "history get activity-instance count number size query filter" },
+  { module: "rest-api", category: "History", id: "get-historic-variable-instances", name: "Get Historic Variable Instances", url: "history/get-variable-instance-query", keywords: "history get variable-instance query filter" },
+  { module: "rest-api", category: "History", id: "get-historic-variable-instances-count", name: "Get Historic Variable Instances Count", url: "history/get-variable-instance-query-count", keywords: "history get variable-instance count number size query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-variable-instances", name: "Get Historic Variable Instances (POST)", url: "history/post-variable-instance-query", keywords: "history post variable-instance query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-variable-instances-count", name: "Get Historic Variable Instances Count (POST)", url: "history/post-variable-instance-query-count", keywords: "history post variable-instance count number size query filter" },
 
   // deployment descriptor reference
 

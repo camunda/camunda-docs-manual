@@ -113,12 +113,12 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>activityName</td>
     <td>String</td>
-    <td>The name of the activity that this object is an instance of..</td>
+    <td>The name of the activity that this object is an instance of.</td>
   </tr>
   <tr>
     <td>activityType</td>
     <td>String</td>
-    <td>The type of the activity that this object is an instance of..</td>
+    <td>The type of the activity that this object is an instance of.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
