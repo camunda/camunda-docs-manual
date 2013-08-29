@@ -140,10 +140,16 @@ CAM_PAGES = [
   { module: "rest-api", category: "Authorization", id: "get-authorizations", name: "Get Authorization Count", url: "authorization/get-query-count", keywords: "authorization get count query search" },
   { module: "rest-api", category: "Authorization", id: "get-authorization-count", name: "Get single Authorization", url: "authorization/get", keywords: "authorization get search" },
   { module: "rest-api", category: "Authorization", id: "put-authorization", name: "Update single Authorization", url: "authorization/put-update", keywords: "authorization put update" },
+  
+  { module: "rest-api", category: "History", id: "get-historic-instances", name: "Get Historic Process Instances", url: "history/get-process-instance-query", keywords: "history get process-instance query filter" },
+  { module: "rest-api", category: "History", id: "get-historic-instances-count", name: "Get Historic Process Instances Count", url: "history/get-process-instance-query-count", keywords: "history get process-instance count number size query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-instances", name: "Get Historic Process Instances (Post)", url: "history/post-process-instance-query", keywords: "history post process-instance query filter" },
+  { module: "rest-api", category: "History", id: "post-historic-instances-count", name: "Get Historic Process Instances Count (Post)", url: "history/post-process-instance-query-count", keywords: "history post process-instance count number size query filter" },
 
   // deployment descriptor reference
 
   { module: "deployment-descriptor-reference", category: "Overview", id: "overview", name: "Overview", url: "overview", keywords: "deployment descriptor introduction overview" },
+  
 
   { module: "deployment-descriptor-reference", category: "Descriptors", id: "descriptors/bpm-platform-xml", name: "bpm-platform.xml", url: "descriptors/bpm-platform-xml", keywords: "process engine" },
   { module: "deployment-descriptor-reference", category: "Descriptors", id: "descriptors/processes-xml", name: "processes.xml", url: "descriptors/processes-xml", keywords: "process engine" },

@@ -1,7 +1,7 @@
 Get Instances Count (POST)
 ==========================
 
-Query for the number of process instances that fulfill given parameters.
+Query for the number of process instances that fulfill the given parameters.
 This method takes the same message body as the <a href="#!/process-instance/post-query" doc-location-highlight>POST query</a>
 and is thus slightly more powerful than the <a href="#!/process-instance/get-query-count" doc-location-highlight>GET query count</a>.
 
