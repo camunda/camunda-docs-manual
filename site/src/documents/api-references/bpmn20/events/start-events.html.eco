@@ -6,8 +6,18 @@
   
   <p>
     A start event is a trigger for starting a process instance. 
-    The engine supports different types of start events: <a href="#!/events/none-events">Blank</a>, <a href="#!/events/timer-events">Timer</a> and <a href="#!/events/message-events">Message</a>. See the respective sections on how to configure a start event of these types. There can at most be one blank or timer event per process definition. This restriction does not apply to message events.
+    The engine supports the following types of start events:
   </p>
+  <div class="row-fluid">
+    <div class="span1 offset3 pagination-centered" data-bpmn-symbol="startevent"><a href="#!/events/none-events">Blank</a></div>
+    <div class="span1 pagination-centered" data-bpmn-symbol="startevent/timer"><a href="#!/events/timer-events">Timer</a></div>
+    <div class="span1 pagination-centered" data-bpmn-symbol="startevent/message"><a href="#!/events/message-events">Message</a></div>
+  </div>
+  
+  <p>
+    See the respective sections on how to configure a start event of these types. There can at most be one blank or timer event per process definition. This restriction does not apply to message events.
+  </p>
+  
   <p>
     Although according to the BPMN 2.0 specification start events are not mandatory, the engine requires at least one start event to instantiate a process. 
   </p>
