@@ -1,7 +1,7 @@
 Get Instances Count (POST)
 ==========================
 
-Query for the number of process instances that fulfill given parameters.
+Query for the number of process instances that fulfill the given parameters.
 This method takes the same message body as the <a href="#!/process-instance/post-query" doc-location-highlight>POST query</a>
 and is thus slightly more powerful than the <a href="#!/process-instance/get-query-count" doc-location-highlight>GET query count</a>.
 
@@ -23,6 +23,10 @@ A json object with the following properties:
   <tr>
     <th>Name</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>processInstanceIds</td>
+    <td>Filter by a list of process instance ids. Must be a json array of Strings.</td>
   </tr>
   <tr>
     <td>businessKey</td>
