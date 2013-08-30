@@ -126,6 +126,10 @@
   <%- @include("./process-instance/delete.html.md") %>
 </section>
 
+<section id="activate-suspend-instance" name="Activate/Suspend Process Instance">
+  <%- @include("./process-instance/put-activate-suspend.html.md") %>
+</section>
+
 </section>
 
 <section id="execution">

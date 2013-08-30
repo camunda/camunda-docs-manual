@@ -56,7 +56,7 @@ to
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
 
-Add `authorizationEnabled` and `jobExecutorDeploymentAware` property to the configured process engines:
+Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the configured process engines:
 
     <process-engines>
       ...

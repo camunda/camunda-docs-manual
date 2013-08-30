@@ -25,6 +25,7 @@
   * [Update/Delete Process Variables](#!/#post-instance-variables)
   * [Delete Process Instance](#!/#delete-instance)
   * [Get Activity Instances](#!/#get-activity-instances)
+  * [Activate/Suspend Process Instance](#!/#put-activate-suspend)
 * [Execution](#!/#execution)
   * [Get Single Execution](#!/#get-execution)
   * [Get Executions](#!/#get-executions)
