@@ -6,7 +6,7 @@ Activate or suspend a given process instance.
 Method
 ------
 
-PUT `/process-instance/{id}/suspend`
+PUT `/process-instance/{id}/suspended`
 
 Parameters
 ----------
@@ -73,7 +73,7 @@ Example
 
 #### Request
 
-PUT `/process-instance/aProcessInstanceId/suspend`
+PUT `/process-instance/aProcessInstanceId/suspended`
   
     {"suspended" : true}
      
