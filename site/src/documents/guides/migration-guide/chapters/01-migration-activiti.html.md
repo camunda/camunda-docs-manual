@@ -20,7 +20,7 @@ to
     <dependency>
       <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine</artifactId>
-      <version>7.0.0-alpha1</version>
+      <version>7.0.0-Final</version>
     </dependency>
 
 Make sure that you have the camunda Maven Repostory set correctly:
@@ -33,7 +33,7 @@ Make sure that you have the camunda Maven Repostory set correctly:
 
 ### Adjust package names
 
-Just do an **Organize Imports** in your IDE, that should do the trick as API class names have not changed. 
+Just do an **Organize Imports** in your IDE, that should do the trick as API class names have not changed.
 Your IDE should figure out the rest for you.
 For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
 
@@ -41,7 +41,7 @@ For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accClassloading" href="#accClassloadingCollapsed">
-        <i class="icon-question-sign"></i> 
+        <i class="icon-question-sign"></i>
         Which Activiti class names have changed?
       </a>
     </div>
