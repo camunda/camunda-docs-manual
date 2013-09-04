@@ -401,9 +401,9 @@ Cockpit comes with the following pre-configured plugins:
 ##### Deployed Processes<a id="tools/cockpit/start-page-view/default-plugins/deployed"></a>
 
 <div class="row-fluid">
-  <div id="cockpit-plugin-deployed-processes" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed processes.png') %>"></div>
+  <div id="cockpit-plugin-deployed-processes" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed-processes.png') %>"></div>
   <div class="span8">        
-    The Deployed Process plugin gives you an overview of all deployed processes on the engine and picture them as rendered process models. In addition you get information about how many instances of the process are currently running. Click on the model to get a [Process Definition Overview](#!/#tools/cockpit/process-definitions-view)
+    The Deployed Process plugin gives you an overview of all deployed processes on the engine and displayes them as rendered process models. In addition you get information about how many instances of the process are currently running and about the process state. Click on the model to get a [Process Definition Overview](#!/#tools/cockpit/process-definitions-view)
   </div>  
 </div>
 
@@ -421,10 +421,15 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-process-definitions-view" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definitions-view.png') %>"></div>
   <div class="span8">
-    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed with an instances counter label in the corresponding rendered diagram. [Failed jobs](#!/#tools/cockpit/failed-jobs) can also be found in the diagram. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
-    Additionally all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#!/#tools/cockpit/process-instance-detail-view).</p>
+    <p>The Process Definitions View provides you information about the definition and the status of a process. On the left hand you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed together with an instances counter label in the corresponding rendered diagram. So it is easy to locate [failed activities](#!/#tools/cockpit/failed-jobs) in the process. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.<br>
+    In the tab `Process Instaces` all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#!/#tools/cockpit/process-instance-detail-view).<br>
+    The tab `Called Process Definitions` displays the called child processes. In the column Called Process Definition the name of the called sub process definitions is listed. Click on the name to display the process in the Process Definitions View. Please note that a filter called Parent is automaticaly set for the process so that you see only the instences that belongs to the parent process. In the column Activity you can select the instance that is calling the child process.</p>
   </div>
 </div>
+
+#### Filter<a id="tools/cockpit/process-definitions-view/filter"></a>
+The filter function on the left hand side of the Process Definitions View allows you to find certain instances by filtering for variables, business keys or by selecting the version of a process. Beyond that you can combine different filters as logical AND relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the OPERATOR my be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator the expressions does not have to be seperated by spaces.
+The `like` operator is for string variables only. You can use `%` as wildcard in the value expression. String values must be properly enclsoed in `""`.
 
 ### Process Instance Detail View<a id="tools/cockpit/process-instance-detail-view"></a>
 
@@ -450,26 +455,35 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-detailed-information-panel" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-detailed-information-view.png') %>"></div>
   <div class="span8">
-    <p>Use the Detailed Information Panel to get an overview about the variables that the process instance contains. Depending on the selected activity instance the panel lists the corresponding variables. On the other way around you can focus on the activity instance via a scope link in the table. Furthermore you can edit variables in this view.</p> 
+    <p>Use the Detailed Information Panel to get an overview about variables, incidents, called process instances and user tasks that the process instance contains. Depending on the selected activity instance in the rendered diagram the panel lists the corresponding information. On the other way around you can focus on the activity instance via a scope link in the table.<br>
+    In addition to the instance information you can [edit variables](#!/#tools/cockpit/process-instance-detail-view/editing-variables) or change the asignee of user tasks.</p> 
   </div>
 </div>
 
+#### Adding Variables<a id="">tools/cockpit/process-instance-detail-view/adding-variables</a>
+<div class="row-fluid">
+  <div id="cockpit-adding-variables" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-add-variables.png') %>"></div>
+  <div class="span8">
+    <p>Hit the <button class="btn btn-mini dropdown-toggle"><i class="icon-plus"></i> </button> button on the right hand side to add variables to a process instance. You can chosse between different data types. Please note that variable will be overwritten if you add a new variable with an existing name.</p>
+  </div>
+</div>
 
 #### Editing Variables<a id="tools/cockpit/process-instance-detail-view/editing-variables"></a>
 
 <div class="row-fluid">
   <div id="cockpit-editing-varaibles" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-edit-variables.png') %>"></div>
   <div class="span8">
-    <p>Hit the <button class="btn btn-mini dropdown-toggle"><i class="icon-pencil"></i> </button> symbol in the Detailed Information Panel to edit variables. This feauture allows you to change the value of primitive data types like string, integer and boolean as well as the data type date. A validation of the date format and for the value of integers happens on client side. If you enter NULL the variable will be converted to string.</p>
+    <p>Hit the <button class="btn btn-mini dropdown-toggle"><i class="icon-pencil"></i> </button> symbol in the Detailed Information Panel to edit variables. This feauture allows you to change the value of variables as well as the type. A validation of the date format and for the value of integers happens on client side. If you enter NULL the variable will be converted to string.</p>
   </div>
 </div>
+
 
 #### Cancel a Process Instance<a id="tools/cockpit/process-instance-detail-view/cancel-process-instance"></a>
 
 <div class="row-fluid">
   <div id="cockpit-cancel-process-instance" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-cancel-process-instance.png') %>"></div>
   <div class="span8">
-    When you select a single process instance you can cancel it in the Process Instance Detail View. After you have confirmed this step you get a confirm notification.
+    When you select a single process instance you can cancel it in the Process Instance Detail View. <p>Hit the <button class="btn btn-mini dropdown-toggle"><i class="icon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the [runtime data](#!/#database-table-names) of the canceld instance will be deleted.
   </div>
 </div>
 
@@ -478,7 +492,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-failed-job-drill-down" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-drill-down.png') %>"></div>
   <div class="span8">
-    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#!/#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the [Process Instance Detail View](#!/#tools/cockpit/process-instance-detail-view)</p>
+    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#!/#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the process status dots. Hit a red status dot of the affected instance in the Process Definitions View to get an overview about all incidents. The `incidents` tab in the [Detailed Information Panel](#!/#tools/cockpit/process-instance-detail-view/detailed-information-panel) lists the failed activities with additional information. Furthermore you have the chance to go down the failing instance of a sub process.</p>
   </div> 
 </div>
 
@@ -487,7 +501,7 @@ Cockpit comes with the following pre-configured plugins:
 <div class="row-fluid">
   <div id="cockpit-retry-failed-job" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-retry.png') %>"></div>
   <div class="span8">
-    To resolve a failed job you can use the retry function. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this jobs and incerement it's retry value in the database. 
+    To resolve a failed job you can use the <button class="btn btn-mini dropdown-toggle"><i class="icon-repeat"></i> </button> button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this jobs and incerement it's retry value in the database. 
   </div>
 </div>
 
