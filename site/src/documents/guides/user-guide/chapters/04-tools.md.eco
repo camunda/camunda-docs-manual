@@ -512,6 +512,8 @@ Cockpit comes with the following pre-configured plugins:
 
 ## Admin<a id="tools/admin"></a>
 
+### What is Admin?<a id="tools/admin/what-is-admin"></a>
+
 Along with the camunda webapplications we ship Admin, accessible via <a href="http://localhost:8080/camunda/app/admin/">http://localhost:8080/camunda/app/admin/</a>.
 Admin is a small application that allows you to configure users and groups via the engines [Identity Service](#!/#bpmplatform/engine/identity). Furthermore you can connect camunda Admin to your [LDAP system](#!/#bpmplatform/engine/identity/ldap). 
 
@@ -543,7 +545,7 @@ Users who belonge to the group _camunda-admin_ have administrator privilegs. At 
 
 In the following you will learn how to use an administrator account by the help of a simple use cases. You will create a group with two users who will be able to work together in Tasklist. 
 
-#### Users
+#### Users<a id="tools/admin/administrator-account/users"></a>
 
 <div class="row-fluid">
   <div id="admin-users-menue" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-users.png') %>"></div>
@@ -553,7 +555,7 @@ In the following you will learn how to use an administrator account by the help 
   </div> 
 </div>
 
-#### Groups
+#### Groups<a id="tools/admin/administrator-account/groups"></a>
 
 <div class="row-fluid">
   <div id="admin-groups-menue" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-groups.png') %>"></div>
@@ -563,7 +565,7 @@ In the following you will learn how to use an administrator account by the help 
   </div> 
 </div>
 
-#### Authorization
+#### Authorizations<a id="tools/admin/administrator-account/authorizations"></a>
 
 <div class="row-fluid">
   <div id="admin-authorization-menue" class="thumbnail span2" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-authorization.png') %>"></div>

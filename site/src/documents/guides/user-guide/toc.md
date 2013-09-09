@@ -142,9 +142,12 @@
         * [Failed Jobs](#!/#tools/cockpit/failed-jobs)
             * [Retry a Failed Job](#!/#tools/cockpit/failed-jobs/retry-failed-job)
     * [Admin](#!/#tools/admin)
+        * [What is Admin](#!/#tools/admin/what-is-admin)   
         * [Initial User Setup](#!/#tools/admin/initial-user-setup)
-        * [My Profilen](#!/#tools/admin/user-administration)
         * [My Profile](#!/#tools/admin/my-profile)
         * [Administrator Account](#!/#tools/admin/administrator-account)
+            * [Users](#!/#tools/admin/administrator-account/users)
+            * [Groups](#!/#tools/admin/administrator-account/groups)
+            * [Authorizations](#!/#tools/admin/administrator-account/authorizations)
         * [LDAP Connection](#!/#tools/admin/LDAP-Connection)
 
