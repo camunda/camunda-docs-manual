@@ -149,5 +149,5 @@
             * [Users](#!/#tools/admin/administrator-account/users)
             * [Groups](#!/#tools/admin/administrator-account/groups)
             * [Authorizations](#!/#tools/admin/administrator-account/authorizations)
-        * [LDAP Connection](#!/#tools/admin/LDAP-Connection)
+        * [LDAP Connection](#!/#tools/admin/ldap-connection)
 
