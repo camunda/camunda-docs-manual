@@ -5,13 +5,13 @@ layout: 'default'
 
 ---
 
-<div class="span12">
+<div class="col-md-12">
   <div class="page-header">
     <h1>camunda BPM Documentation</h1>
   </div>
   <div class="row">
 
-    <div class="span4">
+    <div class="col-md-4">
       <a href="<%= @docUrl("guides/")%>">
         <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
       </a>
@@ -28,7 +28,7 @@ layout: 'default'
       </ul>
     </div>
 
-    <div class="span4">
+    <div class="col-md-4">
       <a href="<%= @docUrl("api-references/")%>">
         <img src="<%= @docUrl('assets/img/welcome/reference.png') %>" />
       </a>
@@ -47,7 +47,7 @@ layout: 'default'
     </div>
 
 
-    <div class="span4">
+    <div class="col-md-4">
       <a href="<%= @docUrl("incubation/")%>">
         <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
       </a>

@@ -1,8 +1,8 @@
-# Testing<a id="testing"></a>
+<h1 id="testing">Testing</h1>
 
 When testing Process Applications you first have to be clear on what scope you want to test. Often Process Applications orchestrate various existing services meaning a Process Application tests quickly becomes an integration test. The following picture show the scopes we differntiate when testing Process Applications:
 
-<img src="assets/img/testing-scopes.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/testing-scopes.png') %>" /></center>
 
 * Testing process definitions only, as isolated as possible.
 * Testing your process application including e.g. CDI or EJB beans.
@@ -11,7 +11,7 @@ When testing Process Applications you first have to be clear on what scope you w
 
 [Get more information on this](https://app.camunda.com/confluence/display/foxUserGuide/Test+Types+and+Scopes).
 
-## Unit Testing<a id="unit-testing"></a>
+<h2 id="unit-testing">Unit Testing</h2>
 
 Business processes are an integral part of software projects and they should be tested in the same way normal application logic is tested: with unit tests. Since the camunda engine is an embeddable Java engine, writing unit tests for business processes is as simple as writing regular unit tests.
 
@@ -59,38 +59,38 @@ The following code snippet shows an example of using the JUnit 4 style of testin
       }
     }
 
-## Debugging unit tests<a id="debugging-unit-tests"></a>
+<h2 id="debugging-unit-tests">Debugging unit tests</h2>
 
 When using the in-memory H2 database for unit tests, the following instructions allow to easily inspect the data in the engine database during a debugging session. The screenshots here are taken in Eclipse, but the mechanism should be similar for other IDEs.
 
 Suppose we have put a breakpoint somewhere in our unit test. In Eclipse this is done by double-clicking in the left border next to the code:
 
-<img src="assets/img/api-test-debug-breakpoint.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-breakpoint.png') %>" /></center>
 
 If we now run the unit test in debug mode (right-click in test class, select 'Run as' and then 'JUnit test'), the test execution halts at our breakpoint, where we can now inspect the variables of our test as shown in the right upper panel.
 
-<img src="assets/img/api-test-debug-view.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-view.png') %>" /></center>
 
 To inspect the data, open up the 'Display' window (if this window isn't there, open Window->Show View->Other and select Display.) and type (code completion is available) org.h2.tools.Server.createWebServer("-web").start()
 
-<img src="assets/img/api-test-debug-start-h2-server.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-start-h2-server.png') %>" /></center>
 
 Select the line you've just typed and right-click on it. Now select 'Display' (or execute the shortcut instead of right-clicking)
 
-<img src="assets/img/api-test-debug-start-h2-server-2.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-start-h2-server-2.png') %>" /></center>
 
 Now open up a browser and go to http://localhost:8082, and fill in the JDBC URL to the in-memory database (by default this is jdbc:h2:mem:camunda), and hit the connect button.
 
-<img src="assets/img/api-test-debug-h2-login.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-h2-login.png') %>" /></center>
 
 You can now see the engine database and use it to understand how and why your unit test is executing your process in a certain way.
 
-<img src="assets/img/api-test-debug-h2-tables.png" />
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/api-test-debug-h2-tables.png') %>" /></center>
 
-## Using Mocks to test your Process Application<a id="unit-tests-mocking"></a>
+<h2 id="unit-tests-mocking">Using Mocks to test your Process Application</h2>
 
 [See Using Mocks to test your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Using+Mocks+to+test+your+Process+Application)
 
-## Using Arquillian to test your Process Application<a id="unit-tests-arquillian-to-test-your-process-application"></a>
+<h2 id="unit-tests-arquillian-to-test-your-process-application">Using Arquillian to test your Process Application</h2>
 
 In Java EE environments we recently use JBoss Arquillian pretty often to test Process Applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).

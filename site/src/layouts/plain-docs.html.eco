@@ -4,6 +4,6 @@ layout: 'default'
 
 ---
 
-<div class="span12">
+<div class="cal-md-12">
   <%- @content %>
 </div>

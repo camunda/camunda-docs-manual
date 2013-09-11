@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="camundaorg> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="camundaorg> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="camundaorg> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng-app="camundaorg"> <!--<![endif]-->
-<head ng-app="camundaorg">
+<html class="no-js">
+<head>
   <!-- meta -->
   <meta charset="utf-8" />
 
@@ -25,7 +22,7 @@
     <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <base app-base="<%= @pathSeparator() %>" ng-controller="anchorController" />
+  <base app-base="<%= @pathSeparator() %>" />
 
   <!-- styles -->
   <%- @getBlock('styles').add(@commonStyles()).toHTML() %>
@@ -33,7 +30,7 @@
   <!-- favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="<%= @docUrl('app/img/favicon.ico') %>" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".docs-sidebar" >
 
   <%- @partial('navigation.html.eco', @, {}) %>
 

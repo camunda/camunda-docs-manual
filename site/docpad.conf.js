@@ -14,7 +14,6 @@ var docpadConfig = {
 
       styles: [
         "assets/vendor/bootstrap/css/bootstrap.min.css",
-        "assets/vendor/bootstrap/css/bootstrap-responsive.min.css",
         "assets/vendor/google-code-prettify/prettify.css",
         "assets/vendor/camunda/cabpmn/cabpmn.css",
         "app/css/style.css"
@@ -30,17 +29,8 @@ var docpadConfig = {
         "assets/vendor/google-code-prettify/prettify.min.js",
 
         "assets/vendor/bootstrap/js/bootstrap.min.js",
-        "assets/vendor/angular/angular.min.js",
-        "assets/vendor/angular/angular-resource.min.js",
 
-        // with fix for menus
-        "assets/vendor/angular/angular-bootstrap.js",
-
-        "assets/vendor/angular/extensions/ngmif.js",
-
-        "app/js/pages.js",
-        "app/js/app.js",
-        "app/js/docs.js",
+        "app/js/application.js",
 
         // not important, load last
         "assets/vendor/analytics/analytics.js"

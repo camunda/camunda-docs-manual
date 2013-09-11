@@ -5,18 +5,14 @@ layout: 'default'
 
 ---
 
-<!-- customize modal for this page -->
-<style type="text/css">
-  .modal {
-    width: 800px; /* SET THE WIDTH OF THE MODAL */
-    margin: -250 auto; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
-  }
-</style>
+<div class="page-header">
+  <h1>User Guide</h1>
+</div>
 
-<div class="span12 docs-guide">
-  <div class="page-header">
-    <h1>User Guide</h1>
-  </div>
+<div class="col-md-3">
+  <%- @include('./toc.html') %>
+</div>
 
+<div class="col-md-8 docs-guide">
   <%- @include('./single-page.html.md.eco') %>
 </div>

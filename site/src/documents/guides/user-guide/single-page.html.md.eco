@@ -1,12 +1,39 @@
-<%- @include("./toc.md") %>
+<div class="docs-section">
+  <%- @include('./chapters/00-introduction.html.md.eco') %>
+</div>
 
-<%- @include('./chapters/00-introduction.md.eco') %>
+<div class="docs-section">
+  <%- @include('./chapters/01-process-engine.html.md.eco') %>
+</div>
 
-<%- @include('./chapters/01-bpm-platform.md.eco') %>
+<div class="docs-section">
+  <%- @include('./chapters/02-process-applications.html.md.eco') %>
+</div>
 
-<%- @include('./chapters/02-programming-model.md.eco') %>
+<div class="docs-section">
+  <%- @include('./chapters/03-runtime-container-integration.html.md.eco') %>
+</div>
 
-<%- @include('./chapters/03-testing.md.eco') %>
+<div class="docs-section">
+  <%- @include('./chapters/04-programming-model.html.md.eco') %>
+</div>
 
-<%- @include('./chapters/04-tools.md.eco') %>
+<div class="docs-section">
+  <%- @include('./chapters/05-testing.html.md.eco') %>
+</div>
 
+<div class="docs-section">
+  <%- @include('./chapters/06-cycle.html.md.eco') %>
+</div>
+
+<div class="docs-section">
+  <%- @include('./chapters/07-tasklist.html.md.eco') %>
+</div>
+
+<div class="docs-section">
+  <%- @include('./chapters/08-cockpit.html.md.eco') %>
+</div>
+
+<div class="docs-section">
+  <%- @include('./chapters/09-admin.html.md.eco') %>
+</div>

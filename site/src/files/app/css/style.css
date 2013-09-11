@@ -27,33 +27,46 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
     -webkit-transition: opacity .2s linear, none;
        -moz-transition: opacity .2s linear, none;
             transition: opacity .2s linear, none;
-    top: 10%;
 }
 
-@media (min-width: 980px) {
-  .navbar-inverse .nav > li:hover > a, .navbar-inverse .nav > li > a:hover {
-    color: white;
-    background-color: #111;
-    border-right: solid 1px #222;
-    border-left: solid 1px #1A1A1A;
-    margin-left: -1px;
-    margin-right: -1px;
-  }
+@media (min-width: 768px) {
 
-  .dropdown-menu li:hover .sub-menu {
-      visibility: visible;
-  }
-
-  .dropdown:hover .dropdown-menu {
+  .dropdown:hover > .dropdown-menu {
       display: block;
   }
 
-  .nav .dropdown-menu {
-    margin-top: 0;
+  .navbar-nav > li > .dropdown-menu {
+    border-radius: 4px;
   }
+
+  /* needed to show caret on dropdown-menu */
+  .navbar .nav > li > .dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 9px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0,0,0,0.2);
+    content: '';
+  }
+
+  /* needed to show caret on dropdown-menu */
+  .navbar .nav > li > .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid transparent;
+    content: '';
+  }
+
 }
 
-.headline h2 {
+/*.headline h2 {
    color: #333;
 }
 
@@ -61,7 +74,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   margin-top: 80px;
   margin-bottom: 60px;
   text-align: center;
-}
+}*/
 
 /**
  * fix for inline code popovers
@@ -112,6 +125,10 @@ html, body {
   min-height: 100%;
 }
 
+body {
+  padding-top: 50px;  /* Account for fixed navbar */
+}
+
 @media (max-width: 480px) {
   footer {
     padding-top: 20px;
@@ -158,56 +175,26 @@ footer {
   margin: 0px auto -117px;
 }
 
-@media (min-width: 980px) {
-  .wrapper .container:first-child .row {
-    margin-top: 60px;
-  }
-}
-
 .push-down {
   height: 147px;
-}
-
-.docs-navbar-inner {
-  min-height: 40px;
-  background-color: #FAFAFA;
-  border-bottom: 1px solid #D4D4D4;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-}
-
-.navbar-fixed-top .docs-navbar-inner, .navbar-fixed-bottom .docs-navbar-inner {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-@media (max-width: 979px) {
-  .navbar-fixed-top .docs-navbar-inner, .navbar-fixed-bottom .docs-navbar-inner {
-    padding: 5px;
-  }
 }
 
 /**
  * Logo styling
  */
-.navbar .brand {
+.navbar-brand {
   background: left center no-repeat scroll url(../img/logo.png);
   width: 164px;
+  margin-right: 15px;
 }
 
-.navbar .back-to-main {
+.navbar-brand.back-to-main {
   background: left center no-repeat scroll url(../img/back.png);
   width: 135px;
-  padding: 10px 0 10px 20px;
 }
 
 @media (max-width: 979px) {
-  .navbar .brand {
-    margin-left: -5px;
-  }
-
-  .navbar .back-to-main {
+  .navbar-brand.back-to-main {
     display: none;
   }
 }
@@ -437,13 +424,9 @@ footer {
 
 /** bootstrap overrides for improving readability */
 
-.docs-guide h1, .docs-guide h2, .docs-guide h3, .docs-guide h4 {
-  margin-top: 40px;
-}
-
-.docs-guide h4 {
+/*.docs-guide h4 {
   font-size: 20px;
-}
+}*/
 
 img.tile {
   margin-top:10px;
@@ -456,27 +439,114 @@ img.tile {
 
 /** css toc links */
 
-h1 .headerlink,
-h2 .headerlink,
-h3 .headerlink, 
-h4 .headerlink {
+h1 .anchor,
+h2 .anchor,
+h3 .anchor, 
+h4 .anchor {
   display: none;  
 }
 
-h1:hover .headerlink,
-h2:hover .headerlink,
-h3:hover .headerlink,
-h4:hover .headerlink {
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor {
   display: inline-block;  
-}
-
-.fullpage-preview a img {
-  border: solid 1px #ccc;
-  padding: 2px;
-  max-width: 800px;
 }
 
 pre.console {
   background-color: #333;
   color:white;
+}
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.docs-sidebar.affix {
+  position: static;
+}
+
+/* First level of nav */
+.docs-sidenav {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top:    10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 0 #fff;
+  background-color: #f7f5fa;
+  border-radius: 5px;
+}
+
+/* All levels of nav */
+.docs-sidebar .nav > li > a {
+  display: block;
+  color: #716b7a;
+  padding: 5px 20px;
+}
+.docs-sidebar .nav > li > a:hover,
+.docs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e5e3e9;
+  border-right: 1px solid #dbd8e0;
+}
+.docs-sidebar .nav > .active > a,
+.docs-sidebar .nav > .active:hover > a,
+.docs-sidebar .nav > .active:focus > a {
+  font-weight: bold;
+  color: #563d7c;
+  background-color: transparent;
+  border-right: 1px solid #563d7c;
+}
+
+/* Nav: second level (shown on .active) */
+.docs-sidebar .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  margin-bottom: 8px;
+}
+.docs-sidebar .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+
+/* Show and affix the side nav when space allows it */
+@media screen and (min-width: 992px) {
+  .docs-sidebar .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .docs-sidebar.affix,
+  .docs-sidebar.affix-bottom {
+    width: 213px;
+  }
+  .docs-sidebar.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 80px;
+  }
+  .docs-sidebar.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  .docs-sidebar.affix-bottom .docs-sidenav,
+  .docs-sidebar.affix .docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .docs-sidebar.affix-bottom,
+  .docs-sidebar.affix {
+    width: 263px;
+  }
+}
+
+/* Janky fix for preventing navbar from overlapping */
+h1[id], h2[id], h3[id], h4[id] {
+  padding-top: 80px;
+  margin-top: -45px;
 }

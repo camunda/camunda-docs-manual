@@ -1,0 +1,182 @@
+<h1 id="tools-tasklist">Tasklist</h1>
+
+<h2 id="tools-tasklist-what-is-tasklist">What is Tasklist?</h2>
+
+The Tasklist is a demo web application to provide you with the possibility to work on User Tasks. The Tasklist is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/camunda/app/tasklist.
+
+<center><img class="img-responsive" src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-start-page-view.png') %>" /></center>
+
+<div class="alert alert-warning">
+  <p>
+    <strong>Notice</strong>
+    The tasklist is a demo application, only. You may use it as a basis for your own projects or as a simple inspiration to write your own.
+  </p>
+</div>
+
+Find additional information about how to use the Tasklist in our <a href="http://www.camunda.org/get-started/developing-process-applications.html">Developing Process Applications</a> tutorial.
+
+<h2 id="tools-tasklist-human-workflow-management">Human Workflow Management</h2>
+
+In the following example we walk through a typical human workflow scenario. The Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_ and start a process instance.
+
+<h3 id="tools-tasklist-human-workflow-management-start-a-process">Start a Process</h3>
+
+<div class="row">
+  <div id="tasklist-start-process" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-start-process.png') %>">
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      To start a process instance via the Tasklist hit the <button class="btn btn-xs"><i class="caret"></i> Start a Process </button> dropdown button and select a process. If there is no process listed please check that your process is deployed correctly.
+    </p>
+    <p>
+      Depending on whether you have defined a [start form](#tools-tasklist-task-forms) for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click `Start process using generic form`. The [generic task form](#tools-tasklist-task-forms-generic-task-forms) allows you to enter variables for your process.
+    </p>
+    <p>
+      In our example you have to enter the desired values and hit `Start Process` to step through.
+    </p>
+  </div>
+</div>
+
+<h3 id="tools-tasklist-human-workflow-management-work-on-tasks">Working on Tasks / Task Completion</h3>
+
+Tasks that are assigned to you are listed on the Tasklist main page where you can hit the <button class="btn btn-xs"><i class="glyphicon glyphicon-play"></i> </button> button to start working on a task.
+
+<div class="row">
+  <div id="tasklist-form-assign-approver" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-form-assign-approver.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+     <p>In our example [task form](#tools-tasklist-task-forms) you are asked to assign an approver for your invoice. Enter a colleague's name who should be assigned to approve the task. Have a look at the [Task Overview](#tools-tasklist-human-workflow-management-user-and-group-task-overview). The assigned task is now in your colleague's folder.</p>
+     <p>If no task form is defined for a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> you will be forwarded to a [generic form](#tools-tasklist-task-forms-generic-task-forms). In a generic form you can define the input data yourself.</p>
+  </div>
+</div>
+
+When you complete a task by submitting the task form, the task is completed and the process continues in the engine.
+
+<div class="row">
+  <div id="tasklist-diagram" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-diagram.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    Furthermore you can visualize the process model by clicking on the <button class="btn btn-xs" title="Display BPMN Diagram"><i class="glyphicon glyphicon-search"></i></button> symbol. By highlighting the current task the visualization gives you also information your task on the context of the whole process.
+  </div>
+</div>
+
+<h3 id="tools-tasklist-human-workflow-management-user-and-group-task-overview">User and Group Task Overview</h3>
+
+<div class="row">
+  <div id="tasklist-main-info" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-main-info.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>In the User and Group Task overview you can see how many tasks are assigned to you, the different groups and your colleagues. Have a look in your colleagues' folder. You will see that you can see their tasks but you are not able to work on them.</p>
+    <p>The folder `Inbox` contains all tasks that are assigned to the user groups. Like tasks of a group they are ready to be [claimed](#tools-tasklist-human-workflow-management-un-claim-a-task).</p>
+  </div>  
+</div>
+
+
+<h3 id="tools-tasklist-human-workflow-management-un-claim-a-task">(Un-)Claim a Task</h3>
+
+<div class="row">
+  <div id="tasklist-claim" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-claim.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>If tasks are assigned to a group, more than one person sees it at once. In order to avoid different people working on it at the same time, the task needs to be claimed first. By claiming a task you become the assignee and the task is moved to your personal tasks folder ("My Tasks"). Hit the <button class="btn btn-xs dropdown-toggle"><i class="caret"></i> </button> button and select `claim`.</p>
+    <p>User can also unclaim a task by selecting `unclaim`. The task will go back to the associated user group.</p>
+  </div>
+</div>
+
+You can bulk (un-)claim tasks after selecting multiple tasks via `strg + click`.
+
+<h3 id="tools-tasklist-human-workflow-management-delegae-a-task">Delegate a Task</h3>
+
+<div class="row">
+  <div id="tasklist-delegate" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-delegate.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task doesn’t mean that you assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the [(un-)claim function](#tools-tasklist-human-workflow-management-un-claim-a-task). 
+  </div>  
+</div>
+
+You can bulk delegate tasks after selecting multiple tasks via `strg + click`.
+
+<h2 id="tools-tasklist-user-assignment">User Assignment</h2>
+
+<div class="row">
+  <div id="tasklist-task-forms" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-task-forms-eclipse.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different [folders](#tools-tasklist-human-workflow-management-user-and-group-task-overview).</p>
+      <p>In the properties panel in your <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> you can configure all relevant attributes.</p>
+  </div>  
+</div>
+
+To determine which user or user group is able to work with a task you can set the following extension attributes for your [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>:
+
+* Assignee: direct assign to a user
+  
+          <userTask id="theTask" name="my task" camunda:assignee="John" ></userTask>
+
+* Candidate User: makes user a candidate for a task
+
+        <userTask id="theTask" name="my task" camunda:candidateUsers="John, Mary" ></userTask>
+
+* Candidate Group: makes user groups a candidate for a task
+
+        <userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" ></userTask>
+
+You can define the Candidate User and the Candidate Group on the same task. Find more detailed information regarding extension attributes for [User Task here](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>.
+
+
+<h2 id="tools-tasklist-task-forms">Task Forms</h2>
+
+The Tasklist can work with different types of forms. To implement a Task Form in your application you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling Tasks Forms are the [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> and the [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>. 
+
+<h3 id="tools-tasklist-task-forms-embedded-task-forms">Embedded Task Forms</h3>
+
+To add an embedded Task Form to your application simply create an html file and attach it to a [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> in your process model. 
+Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
+
+      <form class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">Customer ID</label>
+          <div class="controls">
+            <input form-field type="string" name="customerId"></input>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Amount</label>
+          <div class="controls">
+            <input form-field type="number" name="amount"></input>
+          </div>
+        </div>
+      </form>
+
+To configure the form in your process open the process in your Eclipse IDE with the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> and select the desired [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>. Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+
+      <userTask id="theTask" camunda:formKey="embedded:app:forms/FORM_NAME.html"
+                camunda:candidateUsers="John, Mary"
+                name="my Task">                
+
+<h3 id="tools-tasklist-task-forms-referenced-task-forms">Referenced Task Forms</h3>
+
+If you want to call a Task Form that is not part of your application you can add a reference to the desired form. The Referenced Task Form will be configured similar to the Embedded Task Form. Open the properties view and enter `FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+
+      <userTask id="theTask" camunda:formKey="FORM_NAME.html"
+                camunda:candidateUsers="John, Mary"
+                name="my Task">                
+
+The tasklist creates the URL by the pattern:
+
+      "../.." + contextPath (of process application) + "/" + "app" + formKey (from BPMN 2.0 XML) + "processDefinitionKey=" + processDefinitionKey + "&callbackUrl=" + callbackUrl;
+
+When you have completed the task the call back URL will be called.
+
+<h3 id="tools-tasklist-task-forms-generic-task-forms">Generic Task Forms</h3>
+
+The generic form will be used whenever you have not added a dedicated form for a [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>.
+
+<div class="row">
+  <div id="tasklist-generic-form" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-generic-form.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    Hit the <button class="btn btn-xs"><i class="icon-plus"></i> </button> button to add a variable that will be passed to the process instance upon task completion. State a variable name and select the type and enter the desired value. Enter as much variables as you need. 
+    After hitting the `Complete Task` button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
+  </div>  
+</div>
+
+<h2 id="tools-tasklist-task-lifecycle">Task Lifecycle</h2>
+
+The diagram below shows the task lifecycle and supported transitions supported by camundaBPM. To get to know how to programmatically work with the lifecycle in your application refer to the <a href="../../api-references/java/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
+
+<center><img class="img-responsive" src="<%= @docUrl('assets/img/implementation-tasklist/tasklist-user-task-state-complete.png') %>" /></center>

@@ -1,68 +1,67 @@
-<div class="navbar navbar-fixed-top" ng-controller="NavigationController">
-  <div class="docs-navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".docs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="brand ir" href="./<%= @pathSeparator() %>">docs.camunda.org</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li class="dropdown" ng-class="activeClass('/guides')">
-            <a href="<%= @docUrl("guides/") %>">Guides</a>
+      <a class="navbar-brand ir" href="./<%= @pathSeparator() %>">docs.camunda.org</a>
+    </div>
+    <nav class="collapse navbar-collapse docs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li class="dropdown" data-active-link="/guides">
+          <a href="<%= @docUrl("guides/") %>">Guides</a>
+          <ul class="dropdown-menu">
+            <li data-active-link="/guides/user-guide">
+              <a href="<%= @docUrl("guides/user-guide/") %>">User Guide</a>
+            </li>
+            <li data-active-link="/guides/installation-guide">
+              <a href="<%= @docUrl("guides/installation-guide/") %>">Installation Guide</a>
+            </li>
+            <li data-active-link="/guides/migration-guide">
+              <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
+            </li>
+          </ul>          
+        </li>
+        <li class="dropdown" data-active-link="/api-references">
+          <a href="<%= @docUrl("api-references/") %>">References</a>
             <ul class="dropdown-menu">
-              <li ng-class="activeClass('/guides/user-guide')">
-                <a href="<%= @docUrl("guides/user-guide/") %>">User Guide</a>
-              </li>
-              <li ng-class="activeClass('/guides/installation-guide')">
-                <a href="<%= @docUrl("guides/installation-guide/") %>">Installation Guide</a>
-              </li>
-              <li ng-class="activeClass('/guides/migration-guide')">
-                <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown" ng-class="activeClass('/api-references')">
-            <a href="<%= @docUrl("api-references/") %>">References</a>
-            <ul class="dropdown-menu">
-              <li ng-class="activeClass('api-references/java')">
+              <li data-active-link="/api-references/java">
                 <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
               </li>
-              <li ng-class="activeClass('api-references/rest')">
+              <li data-active-link="/api-references/rest">
                 <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
               </li>
-              <li ng-class="activeClass('api-references/bpmn20')">
+              <li data-active-link="/api-references/bpmn20">
                 <a href="<%= @docUrl("api-references/bpmn20/") %>">
                   BPMN 2.0 (Implementation)
                 </a>
               </li>
-              <li ng-class="activeClass('api-references/deployment-descriptors/')">
+              <li data-active-link="/api-references/deployment-descriptors">
                 <a href="<%= @docUrl("api-references/deployment-descriptors/") %>">
                   Deployment Descriptors
                 </a>
               </li>
-            </ul>
-          </li>
-          <li class="dropdown" ng-class="activeClass('/incubation')">
-            <a href="<%= @docUrl("incubation/") %>">Incubation</a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a>
-              </li>
-              <li>
-                <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
-              </li>
-              <li>
-                <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <a class="pull-right back-to-main ir" href="http://camunda.org">
-        back to camunda.org
-      </a>
-    </div>
-  </div>
-</div>
+            </ul>          
+        </li>
+        <li class="dropdown" data-active-link="/incubation">
+          <a href="<%= @docUrl("incubation/") %>">Incubation</a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a>
+            </li>
+            <li>
+              <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
+            </li>
+            <li>
+              <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
+            </li>
+          </ul>          
+        </li>
+      </ul>
+      <a class="pull-right navbar-brand back-to-main ir" href="http://camunda.org">back to camunda.org</a>   
+    </nav>
+   </div>
+</header>
