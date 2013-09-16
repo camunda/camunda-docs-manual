@@ -51,6 +51,81 @@ var docpadConfig = {
 
     //// Helper Functions /////////////////////////////////////
 
+    /**
+     * Returns a description for a document part.
+     *
+     *   { 
+     *     name: 'partName', 
+     *     categories: [ { name: 'someName', pages: [ .. ] } ],
+     *     categoriesByName: { 'someName': { name: 'someName', pages: [ .. ] } }
+     *   }
+     */
+    getPages: function(part) {
+
+      var pages,
+          categories = [],
+          categoriesByName = {};
+
+      pages = this.getCollection('html')
+                       .findAllLive({ url: { $startsWith: '/' + part }}, [{ relativeBase: 1 }])
+                         .toJSON();
+
+      function getCategory(name) {
+        var category = categoriesByName[name];
+
+        if (!category) {
+          category = categoriesByName[name] = { name: name, pages: [] };
+          categories.push(category);
+        }
+
+        return category;
+      }
+
+      for (var i = 0, page; !!(page = pages[i]); i++) {
+        if (!page.category) {
+          continue;
+        }
+
+        getCategory(page.category).pages.push(page);
+      }
+
+      return {
+        name: part,
+        categories: categories,
+        categoriesByName: categoriesByName
+      };
+    },
+
+    linkify: function() {
+      var parts = Array.prototype.slice.apply(arguments);
+      var str = '';
+
+      if (this.document.category) {
+        parts.unshift(this.document.title);
+        parts.unshift(this.document.category);
+      }
+
+      for (var i = 0, part; !!(part = parts[i]); i++) {
+        if (i) {
+          str += ' ';
+        }
+        str += part;
+      }
+
+      return str.replace(/\s+/g, '-')
+                .replace(/[^\w-]+/g, '')
+                .toLowerCase();
+    },
+
+    heading: function(type, text) {
+      return '<' + type + ' id="' + this.linkify(text) + '">' + text + '</' + type + '>';
+    },
+
+    H1: function(text) { return this.heading('h1', text); },
+    H2: function(text) { return this.heading('h2', text); },
+    H3: function(text) { return this.heading('h3', text); },
+    H4: function(text) { return this.heading('h4', text); },
+
     getPreparedTitle: function() {
       var document = this.document,
           documentTitle = document.title,
