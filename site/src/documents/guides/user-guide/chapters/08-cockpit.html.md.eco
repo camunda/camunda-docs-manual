@@ -48,7 +48,7 @@ Cockpit comes with the following pre-configured plugins:
   <div id="cockpit-process-definitions-view" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definitions-view.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>The Process Definitions View provides you with information about the definition and the status of a process. On the left hand side you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed together with an instances counter label in the corresponding rendered diagram. So it is easy to locate [failed activities](#tools-cockpit-failed-jobs) in the process. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to slide the diagram in the desired direction.</p>    
-    <p>In the tab `Process Instaces` all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance Detail View](#tools-cockpit-process-instance-detail-view).<br>
+    <p>In the tab `Process Instaces` all running instances are listed in a table view. Beside information about start time, business key and state you can select an instance by ID and go down to the [Process Instance View](#tools-cockpit-process-instance-view).<br>
     The tab `Called Process Definitions` displays the called child processes. In the column <em>Called Process Definition</em> the name of the called sub processes is listed. Click on the name to display the process in the Process Definitions View. Please note that a filter called Parent is automaticaly set for the process so that you see only the instences that belongs to the parent process. In the column <em>Activity</em> you can select the instance that is calling the child process.</p>
   </div>
 </div>
@@ -57,17 +57,17 @@ Cockpit comes with the following pre-configured plugins:
 The filter function on the left hand side of the Process Definitions View allows you to find certain instances by filtering for variables, business keys or by selecting the version of a process. Beyond that you can combine different filters as logical _AND_ relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the _operator_ my be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator the operator expressions does not have to be seperated by spaces.
 The `like` operator is for string variables only. You can use `%` as wildcard in the _value_ expression. String values must be properly enclosed in `""`.
 
-<h2 id="tools-cockpit-process-instance-detail-view">Process Instance View</h2>
+<h2 id="tools-cockpit-process-instance-view">Process Instance View</h2>
 
 <div class="row">
-  <div id="cockpit-process-instances-detail-view" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-detail-view.png') %>"></div>
+  <div id="cockpit-process-instances-view" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-view.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>Open the Process Instance View by selecting a process instance from the [Process Definitions View](#tools-cockpit-process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
-    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools-cockpit-process-instance-detail-view-activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools-cockpit-process-instance-detail-view-detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
+    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools-cockpit-process-instance-view-activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools-cockpit-process-instance-view-detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
   </div>  
 </div>
 
-<h3 id="tools-cockpit-process-instance-detail-view-activity-instance-tree">Activity Instance Tree</h3>
+<h3 id="tools-cockpit-process-instance-view-activity-instance-tree">Activity Instance Tree</h3>
 
 <div class="row">
   <div id="cockpit-activity-instance-tree-view" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-activity-instance-tree-view.png') %>"></div>
@@ -76,17 +76,17 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
   </div>
 </div>
 
-<h3 id="tools-cockpit-process-instance-detail-view-detailed-information-panel">Detailed Information Panel</h3>
+<h3 id="tools-cockpit-process-instance-view-detailed-information-panel">Detailed Information Panel</h3>
 
 <div class="row">
   <div id="cockpit-detailed-information-panel" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-detailed-information-view.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>Use the Detailed Information Panel to get an overview about variables, incidents, called process instances and user tasks that the process instance contains. Depending on the selected activity instance in the rendered diagram the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.<br>
-    In addition to the instance information you can [edit variables](#tools-cockpit-process-instance-detail-view-editing-variables) or change the asignee of user tasks.</p> 
+    In addition to the instance information you can [edit variables](#tools-cockpit-process-instance-view-editing-variables) or change the asignee of user tasks.</p> 
   </div>
 </div>
 
-<h3 id="tools-cockpit-process-instance-detail-view-adding-variables">Adding Variables</h3>
+<h3 id="tools-cockpit-process-instance-view-adding-variables">Adding Variables</h3>
 <div class="row">
   <div id="cockpit-adding-variables" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-add-variables.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
@@ -94,7 +94,7 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
   </div>
 </div>
 
-<h3 id="tools-cockpit-process-instance-detail-view-editing-variables">Editing Variables</h3>
+<h3 id="tools-cockpit-process-instance-view-editing-variables">Editing Variables</h3>
 
 <div class="row">
   <div id="cockpit-editing-varaibles" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-edit-variables.png') %>"></div>
@@ -104,12 +104,12 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
 </div>
 
 
-<h3 id="tools-cockpit-process-instance-detail-view-cancel-process-instance">Cancel a Process Instance</h3>
+<h3 id="tools-cockpit-process-instance-view-cancel-process-instance">Cancel a Process Instance</h3>
 
 <div class="row">
   <div id="cockpit-cancel-process-instance" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-cancel-process-instance.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    When you select a single process instance you can cancel it in the Process Instance Detail View. <p>Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the [runtime data](#database-table-names) of the canceld instance will be deleted.
+    When you select a single process instance you can cancel it in the Process Instance View. <p>Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the [runtime data](#database-table-names) of the canceld instance will be deleted.
   </div>
 </div>
 
@@ -118,7 +118,7 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
 <div class="row">
   <div id="cockpit-failed-job-drill-down" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-failed-job-drill-down.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the process status dots. Hit a red status dot of the affected instance in the Process Definitions View to get an overview about all incidents. The `incidents` tab in the [Detailed Information Panel](#tools-cockpit-process-instance-detail-view-detailed-information-panel) lists the failed activities with additional information. Furthermore you have the chance to go down the failing instance of a sub process.</p>
+    <p>Unresolved incidents of a process instance or a sub process instance are indicated by Cockpit as [failed jobs](#incident-types). To localize which instance of a process failed cockpit allows you to drill down to the unresolved incident by using the process status dots. Hit a red status dot of the affected instance in the Process Definitions View to get an overview about all incidents. The `incidents` tab in the [Detailed Information Panel](#tools-cockpit-process-instance-view-detailed-information-panel) lists the failed activities with additional information. Furthermore you have the chance to go down the failing instance of a sub process.</p>
   </div> 
 </div>
 
