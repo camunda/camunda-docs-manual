@@ -1,5 +1,10 @@
-Get Local Execution Variable
-============================
+---
+
+title: 'Get Local Execution Variable'
+category: 'Execution'
+
+---
+
 
 Retrieves a variable from the context of a given execution. Does not traverse the parent execution hierarchy.
 
@@ -72,7 +77,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

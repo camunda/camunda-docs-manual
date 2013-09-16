@@ -1,5 +1,10 @@
-Put Local Execution Variable
-============================
+---
+
+title: 'Put Local Execution Variable'
+category: 'Execution'
+
+---
+
 
 Sets a variable in the context of a given execution. Update does not propagate upwards in the execution hierarchy.
 
@@ -74,7 +79,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>      
 </table>
 

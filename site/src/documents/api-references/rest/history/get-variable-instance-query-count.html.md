@@ -1,8 +1,15 @@
-Get Historic Variable Instances Count
-=============
+---
+
+title: 'Get Variable Instances Count'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for the number of historic variable instances that fulfill the given parameters. 
-Takes the same parameters as the <a href="#!/history/get-variable-instance-query" doc-location-highlight>get historic instances</a> method.
+Takes the same parameters as the [get historic variable instances](#history-get-variable-instances) method.
 
 
 Method
@@ -35,7 +42,7 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Filter by the process instance the variable belongs to. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Filter by the process instance the variable belongs to. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

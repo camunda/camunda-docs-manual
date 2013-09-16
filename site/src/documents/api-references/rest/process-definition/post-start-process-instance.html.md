@@ -1,5 +1,10 @@
-Start Process Instance
-======================
+---
+
+title: 'Start Process Instance'
+category: 'Process Definition'
+
+---
+
 
 Instantiates a given process definition. Process variables may be supplied in the request body.
 
@@ -107,12 +112,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>  
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The instance could not be created successfully. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The instance could not be created successfully. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

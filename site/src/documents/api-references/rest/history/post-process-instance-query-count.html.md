@@ -1,9 +1,16 @@
-Get Historic Process Instances Count (POST)
-=============
+---
+
+title: 'Get Process Instances Count (POST)'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for the number of historic process instances that fulfill the given parameters. 
-This method takes the same message body as the <a href="#!/history/post-process-instance-query" doc-location-highlight>POST query</a>
-and is thus slightly more powerful than the <a href="#!/history/get-process-instance-query-count" doc-location-highlight>GET query count</a>.
+This method takes the same message body as the [POST query](#history-get-process-instances-post)
+and is thus slightly more powerful than the [GET query count](#history-get-process-instances-count).
 
 
 Method
@@ -127,7 +134,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,8 +1,13 @@
-Get Instances Count
-==================
+---
+
+title: 'Get Instances Count'
+category: 'Process Instance'
+
+---
+
 
 Query for the number of process instances that fulfill given parameters.
-Takes the same parameters as the <a href="#!/process-instance/get-query" doc-location-highlight>get instances</a> method.
+Takes the same parameters as the [get instances](#process-instance-get-instances) method.
 
 
 Method
@@ -107,7 +112,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

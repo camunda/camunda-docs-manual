@@ -1,5 +1,10 @@
-Authorization Resource Options
-==============================
+---
+
+title: 'Authorization Resource Options'
+category: 'Authorization'
+
+---
+
 
 The `/authorization` resource supports two custom OPTIONS requests, one for the resource as such and one for individual authorization instances. The options request allows checking for the set of available operations that the currently authenticated user can perform on the `/authorization` resource. The fact whether the user can perform an operation may depend on various things, including the users authorizations to interact with this resource and the interal configuration of the process engine.
 

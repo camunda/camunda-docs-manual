@@ -1,5 +1,10 @@
-Set Job Retries
-===============
+---
+
+title: 'Set Job Retries'
+category: 'Job'
+
+---
+
 
 Sets the retries of the job to the given number of retries.
 
@@ -66,12 +71,12 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>  
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The retries could not be set successfully. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The retries could not be set successfully. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

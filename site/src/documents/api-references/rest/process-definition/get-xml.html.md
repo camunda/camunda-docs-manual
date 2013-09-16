@@ -1,5 +1,10 @@
-Get BPMN 2.0 XML
-================
+---
+
+title: 'Get BPMN 2.0 XML'
+category: 'Process Definition'
+
+---
+
 
 Retrieves the BPMN 2.0 XML of this process definition.
 
@@ -68,7 +73,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

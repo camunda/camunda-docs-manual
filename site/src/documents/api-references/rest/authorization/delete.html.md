@@ -1,5 +1,10 @@
-Delete Authorization
-====================
+---
+
+title: 'Delete Authorization'
+category: 'Authorization'
+
+---
+
 
 Deletes an authorization by id.
 
@@ -54,12 +59,12 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization cannot be found. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Authorization cannot be found. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

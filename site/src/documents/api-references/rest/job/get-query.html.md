@@ -1,8 +1,13 @@
-Get Jobs
-=============
+---
+
+title: 'Get Jobs'
+category: 'Job'
+
+---
+
 
 Query for jobs that fulfill given parameters. 
-The size of the result set can be retrieved by using the <a href="#!/job/get-query-count" doc-location-highlight>get jobs count</a> method.
+The size of the result set can be retrieved by using the [get jobs count](#job-get-jobs-count) method.
 
 
 Method
@@ -157,7 +162,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for due date comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for due date comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

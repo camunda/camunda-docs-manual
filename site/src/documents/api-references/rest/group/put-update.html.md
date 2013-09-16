@@ -1,5 +1,10 @@
-Update group
-===========
+---
+
+title: 'Update group'
+category: 'Group'
+
+---
+
 
 Updates a given group.
 
@@ -84,7 +89,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The group could not be updated due to an internal server error. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The group could not be updated due to an internal server error. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

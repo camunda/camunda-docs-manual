@@ -1,5 +1,10 @@
-Activate/Suspend Process Instance
-=================================
+---
+
+title: 'Activate/Suspend Process Instance'
+category: 'Process Instance'
+
+---
+
 
 Activate or suspend a given process instance.
 
@@ -63,7 +68,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>    
 </table>
 

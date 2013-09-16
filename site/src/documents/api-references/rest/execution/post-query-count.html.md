@@ -1,9 +1,12 @@
-Get Executions Count (POST)
-===========================
+---
 
-Query for the number of executions that fulfill given parameters.
-This method takes the same message body as the <a href="#!/execution/post-query" doc-location-highlight>POST query</a>
-and is thus slightly more powerful than the <a href="#!/execution/get-query-count" doc-location-highlight>GET query count</a>.
+title: 'Get Executions Count (POST)'
+category: 'Execution'
+
+---
+
+
+Query for the number of executions that fulfill given parameters. This method takes the same message body as the [POST query](#executions-get-executions-post) and is thus slightly more powerful than the [GET query count](#executions-get-executions) api.
 
 
 Method
@@ -124,7 +127,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,11 +1,16 @@
-Rest API Overview
-==================
+---
+
+title: 'Introduction'
+category: 'Overview'
+
+---
+
 
 The goal of the REST API is to provide access to all relevant interfaces of the engine.
 
 
 Structure
---------------
+---------
 
 These documents explain all existing methods in the REST API. For each method they provide:
 
@@ -30,7 +35,7 @@ Error Handling
 
 For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all possible error causes that may arise when the request is served. For example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
 
-All errors also provide a JSON response body of the form `{"type" : "SomeExceptionClass", "message" : "a detailed message"}.`
+All errors also provide a JSON response body of the form `{"type" : "SomeExceptionClass", "message" : "a detailed message"}`.
 
 Authorization Exceptions
 ------------------------
@@ -47,4 +52,4 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 Authentication
 --------------
 
-The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](#!/overview/authentication) section.
+The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](#overview-configuring-authentication) section.

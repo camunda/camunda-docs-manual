@@ -1,9 +1,14 @@
-Set Assignee
-============
+---
+
+title: 'Set Assignee'
+category: 'Task'
+
+---
+
 
 Change the assignee of a task to a specific user.
 
-**Note:** The difference with <a href="#!/task/post-claim" doc-location-highlight>claim a task</a> is that here a check is **not** done if the task already has a user assigned to it.
+**Note:** The difference with [claim a task](#task-claim-task) is that this method does not check whether the task does already have a user assigned to it.
 
 
 Method
@@ -67,7 +72,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or setting the assignee was not successful. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or setting the assignee was not successful. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

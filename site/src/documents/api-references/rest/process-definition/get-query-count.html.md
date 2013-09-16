@@ -1,8 +1,13 @@
-Get Definitions Count
-==================
+---
+
+title: 'Get Definitions Count'
+category: 'Process Definition'
+
+---
+
 
 Request the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-<a href="#!/process-definition/get-query" doc-location-highlight>GET query</a>.
+[GET query](#process-definition-get-definitions).
 
 
 Method
@@ -117,7 +122,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned of some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned of some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

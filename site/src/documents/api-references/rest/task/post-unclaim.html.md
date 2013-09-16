@@ -1,5 +1,10 @@
-Unclaim Task
-============
+---
+
+title: 'Unclaim Task'
+category: 'Task'
+
+---
+
 
 Resets a task's assignee. If successful, the task is not assigned to a user.
 
@@ -50,7 +55,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

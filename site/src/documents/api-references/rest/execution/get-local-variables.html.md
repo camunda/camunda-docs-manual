@@ -1,5 +1,10 @@
-Get Local Execution Variables
-=============================
+---
+
+title: 'Get Local Execution Variables'
+category: 'Execution'
+
+---
+
 
 Retrieves all variables of a given execution.
 
@@ -69,7 +74,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

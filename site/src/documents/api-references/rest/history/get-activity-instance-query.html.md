@@ -1,8 +1,15 @@
-Get Historic Activity Instances
-=============
+---
+
+title: 'Get Activity Instances'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for historic activity instances that fulfill the given parameters. 
-The size of the result set can be retrieved by using the <a href="#!/history/get-activity-instance-query-count" doc-location-highlight>count</a> method.
+The size of the result set can be retrieved by using the [count](#history-get-activity-instances-count) method.
 
 
 Method
@@ -185,7 +192,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

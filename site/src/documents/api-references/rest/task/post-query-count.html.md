@@ -1,8 +1,13 @@
-Get Tasks Count (POST)
-==================
+---
+
+title: 'Get Tasks Count (POST)'
+category: 'Task'
+
+---
+
 
 Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the <a href="#!/task/post-query" doc-location-highlight>get tasks (POST)</a> method and takes the same parameters.
+Corresponds to the size of the result set of the [get tasks (POST)](#task-get-tasks-post) method and takes the same parameters.
 
   
 Method
@@ -224,7 +229,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,5 +1,10 @@
-Create Group Member
-===================
+---
+
+title: 'Create Group Member'
+category: 'Group'
+
+---
+
 
 Add a member to a group.
 
@@ -37,7 +42,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an internal error occurs. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>In case an internal error occurs. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

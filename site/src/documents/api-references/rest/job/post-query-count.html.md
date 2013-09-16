@@ -1,7 +1,12 @@
-Get Jobs Count (POST)
-=====================
+---
 
-Query for jobs that fulfill given parameters. This method takes the same message body as the <a href="#!/job/post-query" doc-location-highlight>POST query</a> and is thus slightly more powerful than the <a href="#!/job/get-query-count" doc-location-highlight>GET query count</a>.
+title: 'Get Jobs Count (POST)'
+category: 'Job'
+
+---
+
+
+Query for jobs that fulfill given parameters. This method takes the same message body as the [POST query](#job-get-jobs-post) and is thus slightly more powerful than the [GET query count](#job-get-jobs-count).
 
 
 Method
@@ -120,7 +125,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for due date comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for due date comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

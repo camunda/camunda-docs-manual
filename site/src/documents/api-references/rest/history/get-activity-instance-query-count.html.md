@@ -1,8 +1,15 @@
-Get Historic Activity Instances Count
-==================
+---
+
+title: 'Get Activity Instances Count'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for the number of historic activity instances that fulfill the given parameters.
-Takes the same parameters as the <a href="#!/history/get-activity-instance-query" doc-location-highlight>get historic instances</a> method.
+Takes the same parameters as the [get historic activity instances](#history-get-activity-instances) method.
 
 
 Method
@@ -100,7 +107,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

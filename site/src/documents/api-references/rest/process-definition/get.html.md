@@ -1,5 +1,10 @@
-Get Single Definition
-=====================
+---
+
+title: 'Get Single Definition'
+category: 'Process Definition'
+
+---
+
 
 Retrieves a single process definition according to the ProcessDefinition interface in the engine.
 
@@ -109,7 +114,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist.  See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id does not exist.  See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

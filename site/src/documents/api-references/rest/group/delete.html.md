@@ -1,5 +1,10 @@
-Delete Group
-===========
+---
+
+title: 'Delete Group'
+category: 'Group'
+
+---
+
 
 Deletes a group by id.
 
@@ -54,7 +59,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Group cannot be found. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Group cannot be found. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

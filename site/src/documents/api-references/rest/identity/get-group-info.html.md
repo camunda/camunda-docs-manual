@@ -1,5 +1,10 @@
-Get a User's Groups
-===================
+---
+
+title: "Get a User's Groups"
+category: 'Identity'
+
+---
+
 
 Gets the groups of a user and all users that share a group with the given user.
 
@@ -72,7 +77,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If the `userId` query parameter is missing. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>If the `userId` query parameter is missing. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

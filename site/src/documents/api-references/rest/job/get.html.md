@@ -1,5 +1,10 @@
-Get Single Job
-===================
+---
+
+title: 'Get Single Job'
+category: 'Job'
+
+---
+
 
 Retrieves a single job according to the `Job` interface in the engine.
 
@@ -89,7 +94,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

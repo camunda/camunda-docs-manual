@@ -1,5 +1,10 @@
-Deliver a Message
-=================
+---
+
+title: 'Deliver a Message'
+category: 'Message'
+
+---
+
 
 Deliver a message to the process engine to either trigger a message start or intermediate message catching event.
 Internally, this maps to the engine's `RuntimeService#correlateMessage` methods.
@@ -72,12 +77,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition). Or the variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition). Or the variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 Example
---------------
+-------
 
 #### Request
 

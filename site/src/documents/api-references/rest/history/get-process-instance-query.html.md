@@ -1,8 +1,15 @@
-Get Historic Process Instances
-=============
+---
+
+title: 'Get Process Instances'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for historic process instances that fulfill the given parameters. 
-The size of the result set can be retrieved by using the <a href="#!/history/get-process-instance-query-count" doc-location-highlight>get instances count</a> method.
+The size of the result set can be retrieved by using the [get historic process instances count](#history-get-process-instances-count) method.
 
 
 Method
@@ -191,7 +198,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

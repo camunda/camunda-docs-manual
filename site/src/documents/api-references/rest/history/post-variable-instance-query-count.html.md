@@ -1,8 +1,15 @@
-Get Historic Variable Instances Count (POST)
-=============
+---
+
+title: 'Get Variable Instances Count (POST)'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for historic variable instances that fulfill the given parameters. 
-This method takes the same message body as the <a href="#!/history/post-variable-instance-query" doc-location-highlight>POST query</a> and is thus more powerful regarding variable values than the <a href="#!/history/get-variable-instance-query-count" doc-location-highlight>GET query count</a>.
+This method takes the same message body as the [POST query](#history-get-variable-instances-post) and is thus more powerful regarding variable values than the [GET query count](#history-get-variable-instances) method.
 
 
 Method
@@ -78,7 +85,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

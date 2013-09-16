@@ -1,5 +1,10 @@
-Get Start Form Key
-==================
+---
+
+title: 'Get Start Form Key'
+category: 'Process Definition'
+
+---
+
 
 Retrieves the key of the start form for a process definition. The form key corresponds to the `FormData#formKey` property in the engine.
 
@@ -63,7 +68,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist or has no start form defined. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id does not exist or has no start form defined. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,5 +1,10 @@
-Get Single Authorization by ID
-==============================
+---
+
+title: 'Get Single Authorization by ID'
+category: 'Authorization'
+
+---
+
 
 Retrieves a single authorization by Id.
 
@@ -97,7 +102,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Authorization with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

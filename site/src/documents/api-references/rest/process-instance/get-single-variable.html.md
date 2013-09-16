@@ -1,5 +1,10 @@
-Get Single Process Variable
-===========================
+---
+
+title: 'Get Single Process Variable'
+category: 'Process Instance'
+
+---
+
 
 Retrieves a variable of a given process instance.
 
@@ -72,7 +77,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

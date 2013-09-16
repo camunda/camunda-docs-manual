@@ -1,5 +1,10 @@
-Get Form Key
-============
+---
+
+title: 'Get Form Key'
+category: 'Task'
+
+---
+
 
 Retrieves the form key for a task. The form key corresponds to the `FormData#formKey` property in the engine.
 This key can be used to do task-specific form rendering in client applications. Additionally, the context path of the containing process application is returned.
@@ -69,7 +74,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

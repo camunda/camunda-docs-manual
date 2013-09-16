@@ -1,5 +1,10 @@
-Get Exception Stacktrace
-=======================
+---
+
+title: 'Get Exception Stacktrace'
+category: 'Job'
+
+---
+
 
 Retrieves the corresponding exception stacktrace to the passed job id.
 
@@ -49,7 +54,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

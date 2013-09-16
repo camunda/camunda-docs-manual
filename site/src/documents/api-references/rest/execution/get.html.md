@@ -1,5 +1,10 @@
-Get Single Execution
-====================
+---
+
+title: 'Get Single Execution'
+category: 'Execution'
+
+---
+
 
 Retrieves a single execution according to the `Execution` interface in the engine.
 
@@ -74,7 +79,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

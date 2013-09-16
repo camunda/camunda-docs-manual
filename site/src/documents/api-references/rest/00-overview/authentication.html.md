@@ -1,5 +1,10 @@
-Configuring Authentication
-==========================
+---
+
+title: 'Configuring Authentication'
+category: 'Overview'
+
+---
+
 
 The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off, but can be activated by adding a servlet filter as follows:
 

@@ -1,9 +1,14 @@
-Get Instances Count (POST)
-==========================
+---
+
+title: 'Get Instances Count (POST)'
+category: 'Process Instance'
+
+---
+
 
 Query for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the <a href="#!/process-instance/post-query" doc-location-highlight>POST query</a>
-and is thus slightly more powerful than the <a href="#!/process-instance/get-query-count" doc-location-highlight>GET query count</a>.
+This method takes the same message body as the [POST query](#process-instance-get-instances-post)
+and is thus slightly more powerful than the [GET query count](#process-instances-get-instances-count).
 
 
 Method
@@ -108,7 +113,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

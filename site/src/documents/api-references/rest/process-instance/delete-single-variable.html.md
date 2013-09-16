@@ -1,5 +1,10 @@
-Delete Single Process Variable
-==============================
+---
+
+title: 'Delete Single Process Variable'
+category: 'Process Instance'
+
+---
+
 
 Deletes a variable of a given process instance.
 

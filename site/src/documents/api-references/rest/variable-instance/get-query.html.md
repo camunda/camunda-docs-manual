@@ -1,7 +1,12 @@
-Get Variable Instances
-======================
+---
 
-Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the <a href="#!/variable-instance/get-query-count" doc-location-highlight>get variable instances count</a> method.
+title: 'Get Variable Instances'
+category: 'Variable'
+
+---
+
+
+Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [get variable instances count](#variable-get-variable-instances-count) method.
 
 
 Method
@@ -147,7 +152,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

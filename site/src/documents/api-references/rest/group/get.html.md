@@ -1,5 +1,10 @@
-Get Single Group by ID
-=====================
+---
+
+title: 'Get Single Group by ID'
+category: 'Group'
+
+---
+
 
 Retrieves a single group.
 
@@ -74,7 +79,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,5 +1,10 @@
-Delete User
-===========
+---
+
+title: 'Delete User'
+category: 'User'
+
+---
+
 
 Deletes a user by id.
 
@@ -54,7 +59,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>User cannot be found. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>User cannot be found. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,8 +1,13 @@
-Get Tasks
-=========
+---
+
+title: 'Get Tasks'
+category: 'Task'
+
+---
+
 
 Query for tasks that fulfill a given filter.
-The size of the result set can be retrieved by using <a href="#!/task/get-query-count">get tasks count</a> method.
+The size of the result set can be retrieved by using [get tasks count](#task-get-tasks-count) method.
 
 
 Method
@@ -311,7 +316,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

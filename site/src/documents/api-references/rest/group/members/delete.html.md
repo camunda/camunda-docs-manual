@@ -1,5 +1,10 @@
-Delete a Group Member
-=====================
+---
+
+title: 'Delete a Group Member'
+category: 'Group'
+
+---
+
 
 Removes a memeber from a group.
 
@@ -58,7 +63,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an error occurs. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>In case an error occurs. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -1,5 +1,10 @@
-Update a Single Authorization
-=============================
+---
+
+title: 'Update a Single Authorization'
+category: 'Authorization'
+
+---
+
 
 Updates a single authorization.
 
@@ -86,7 +91,7 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to update this resource. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>If the authenticated user is unauthorized to update this resource. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -96,7 +101,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The authorization could not be updated due to an internal server error. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The authorization could not be updated due to an internal server error. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

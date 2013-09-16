@@ -1,5 +1,10 @@
-Get Activity Instance Statistics
-==================
+---
+
+title: 'Get Activity Instance Statistics'
+category: 'Process Definition'
+
+---
+
 
 Retrieves runtime statistics of a given process definition grouped by activities.
 These statistics include the number of running activity instances, optionally the number of failed jobs and also optionally the number of incidents either grouped by incident types or for a specific incident type.<br/>
@@ -110,7 +115,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

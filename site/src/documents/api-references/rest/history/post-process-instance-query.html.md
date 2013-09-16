@@ -1,8 +1,15 @@
-Get Historic Process Instances (POST)
-=============
+---
+
+title: 'Get Process Instances (POST)'
+category: 'History'
+
+keywords: 'historic'
+
+---
+
 
 Query for historic process instances that fulfill the given parameters. 
-This method is slightly more powerful than the <a href="#!/history/get-process-instance-query" doc-location-highlight>GET query</a>, because it allows to filter by multiple process variables of types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query](#history-get-process-instances), because it allows to filter by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
 Method
@@ -197,7 +204,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

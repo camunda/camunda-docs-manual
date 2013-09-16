@@ -1,5 +1,10 @@
-Delete Local Execution Variable
-===============================
+---
+
+title: 'Delete Local Execution Variable'
+category: 'Execution'
+
+---
+
 
 Deletes a variable in the context of a given execution. Deletion does not propagate upwards in the execution hierarchy.
 

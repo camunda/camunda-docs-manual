@@ -1,5 +1,10 @@
-Trigger Message Event Subscription
-==================================
+---
+
+title: 'Trigger Message Event Subscription'
+category: 'Execution'
+
+---
+
 
 Deliver a message to a specific execution to trigger an existing message event subscription. Inject process variables as the message's payload.
 
@@ -75,13 +80,13 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>       
   <tr>
     <td>500</td>
     <td>application/json</td>
     <td>The addressed execution has no pending message subscriptions for the given message.
-    See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

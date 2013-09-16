@@ -1,5 +1,10 @@
-Update a user's credentials
-===========================
+---
+
+title: "Update a user's credentials"
+category: 'User'
+
+---
+
 
 Updates a user's credentials (password).
 
@@ -66,7 +71,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The user could not be created due to an internal server error. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>The user could not be created due to an internal server error. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

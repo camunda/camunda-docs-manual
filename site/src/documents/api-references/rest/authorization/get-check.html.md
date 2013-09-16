@@ -1,5 +1,10 @@
-Perform an Authorization Check
-==============================
+---
+
+title: 'Perform an Authorization Check'
+category: 'Authorization'
+
+---
+
 
 Performs an authorization check for the currently authenticated user.
 
@@ -99,7 +104,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization with given id does not exist. See the <a href="/api-references/rest/#!/overview/introduction">Introduction</a> for the error response format.</td>
+    <td>Authorization with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
