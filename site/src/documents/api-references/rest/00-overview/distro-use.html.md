@@ -12,4 +12,4 @@ It may be accessed via the context `/engine-rest` and uses the engines provided 
 The default process engine is available out of the box by accessing `/engine-rest/engine/default/{rest-methods}`
 or simply `/engine-rest/{rest-methods}`. Any other shared process engine, i.e. it is globally visible, that is created later is available through `/engine-rest/engine/{name}/{rest-methods}` without any further configuration.
 
-Authentication is deactivated by default, but can be activated as described in the [Introduction](#overview-introduction).
+Authentication is deactivated by default, but can be activated as described in the [authentication section](#overview-configuring-authentication).
