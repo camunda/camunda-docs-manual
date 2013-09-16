@@ -86,6 +86,8 @@ var docpadConfig = {
           continue;
         }
 
+        page.shortTitle = page.shortTitle || page.title;
+
         getCategory(page.category).pages.push(page);
       }
 

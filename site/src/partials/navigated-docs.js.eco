@@ -1,0 +1,70 @@
+(function() {
+
+  setTimeout(function() {
+    (function($) {
+      var pages = {
+        <% for category, i in @part.categories: %><% for page, j in category.pages: %>
+        <%= (',' if i || j) %>"<%= @linkify(category.name, page.shortTitle) %>": { title: "<%= page.title %>", keywords: '<%= category.name.toLowerCase() %> <%= page.title.replace(/[^\s\w-]/g, "").toLowerCase() %> <%= page.keywords || '' %>' } <% end %><% end %>
+      };
+
+      $(function() {
+
+        var input = $('.docs-sidebar .search input');
+
+        function clear(resetInput) {
+          console.log('clear', resetInput);
+
+          $('.docs-sidebar .nav li').show();
+          if (resetInput) {
+            input.val('');
+          }
+        }
+
+        $('.docs-sidebar > .nav > li').click(function() {
+          clear(true);
+        });
+
+        input.keypress(function() {
+          var scored = [];
+
+          var text = $(this).val().toLowerCase();
+          if (text.length < 2) {
+            clear(false);
+            return;
+          }
+
+          $('.docs-sidebar > .nav > li.active').removeClass('active');
+
+          var maxScore = 0;
+
+          $.each(pages, function(id, e) {
+            var parts = text.split(/\s/);
+            var score = 0;
+
+            $.each(parts, function(i, part) {
+              if (e.keywords.indexOf(part) != -1) {
+                score++;
+              }
+            });
+
+            scored.push({ score: score, id: id });
+
+            if (score > maxScore) {
+              maxScore = score;
+            }
+          });
+
+          $.each(scored, function(i, e) {
+            var element = $('.docs-sidebar .nav li[data-nav-id=' + e.id + ']');
+            if (e.score == maxScore) {
+              element.show();
+              element.parents('li').addClass('active');
+            } else {
+              element.hide();
+            }
+          });
+        });
+      });
+    })(window.jQuery);
+  }, 1000);
+})();
