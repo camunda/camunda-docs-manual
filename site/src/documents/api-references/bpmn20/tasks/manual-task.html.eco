@@ -1,34 +1,27 @@
-<section id="manual-task">
+---
 
-  <div class="page-header">
-      <h1>Manual Task</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>A Manual Task defines a task that is external to the BPM engine. It is used to model work that is done by somebody, which the engine does not need to know of, nor is there a system or UI interface. For the engine, a manual task is handled as a pass-through activity, automatically continuing the process from the moment process execution arrives into it. </p>
+title: 'Manual Task'
+category: 'Tasks'
 
-      <div data-bpmn-symbol="manualtask"  data-bpmn-symbol-name="Manual Task"> </div>
+keywords: ''
 
-  <div class="app-source" app-source-no-tabs="xxxx" ></div>
-  <script type="text/xml" id="xxxx">
+---
+
+
+<p>
+  A Manual Task defines a task that is external to the BPM engine. It is used to model work that is done by somebody, which the engine does not need to know of, nor is there a system or UI interface. For the engine, a manual task is handled as a pass-through activity, automatically continuing the process from the moment process execution arrives into it.
+</p>
+
+<div data-bpmn-symbol="manualtask"  data-bpmn-symbol-name="Manual Task"> </div>
+
+<div class="app-source" app-source-no-tabs="xxxx" ></div>
+<script type="text/xml" id="xxxx">
  <manualTask id="myManualTask" name="Manual Task" />
-	</script>
+</script>
 
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Manual Task</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial<a></li>
-      </ul>      
-    </div>
-  </div>
-  
-  
-	
-</section>
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial</a></li>
+</ul>

@@ -1,73 +1,50 @@
-<section id="user-task">
+---
 
-  <div class="page-header">
-      <h1>User Task</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
-        A 'user task' is used to model work that needs to be done by a human actor. When the process execution arrives at such a user task, a new task is created in the task list of the user(s) or group(s) assigned to that task.
-      </p>
+title: 'User Task'
+category: 'Tasks'
 
-      <div data-bpmn-symbol="usertask"  data-bpmn-symbol-name="User Task"> </div>
+keywords: 'user task due date assignment custom extensions'
 
-      <p>
-      A user task is defined in XML as follows. The id attribute is required, the name attribute is optional.
-      </p>
+---
 
-  <div class="app-source" app-source-no-tabs="usertask1" ></div>
-  <script type="text/xml" id="usertask1">
+
+<p>
+  A 'user task' is used to model work that needs to be done by a human actor. When the process execution arrives at such a user task, a new task is created in the task list of the user(s) or group(s) assigned to that task.
+</p>
+
+<div data-bpmn-symbol="usertask"  data-bpmn-symbol-name="User Task"> </div>
+
+<p>
+A user task is defined in XML as follows. The id attribute is required, the name attribute is optional.
+</p>
+
+<div class="app-source" app-source-no-tabs="usertask1" ></div>
+<script type="text/xml" id="usertask1">
 <userTask id="theTask" name="Important task" />                   
-  </script>
+</script>
                                   
+<h2>Description</h2>
+<p>
+  A user task can have also a description. In fact any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
+</p>
 
-      <h2>Description</h2>
-      <p>
-
-        A user task can have also a description. In fact any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
-      </p>
-
-  <div class="app-source" app-source-no-tabs="usertask2" ></div>
-  <script type="text/xml" id="usertask2">
+<div class="app-source" app-source-no-tabs="usertask2" ></div>
+<script type="text/xml" id="usertask2">
 <userTask id="theTask" name="Schedule meeting" >
   <documentation>
-          Schedule an engineering meeting for next week with the new hire.
+      Schedule an engineering meeting for next week with the new hire.
   </documentation>
-  </script>
+</script>
 
 The description text can be retrieved from the task in the standard Java way:
 
-    <div class="app-source" app-source-no-tabs="usertask9"></div>
-    <script type="text/xml" id="usertask9">
+<div class="app-source" app-source-no-tabs="usertask9"></div>
+<script type="text/xml" id="usertask9">
 task.getDescription();
-   </script>
+</script>
 
 
-
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>User Task</li>
-          <li>Description</li>
-          <li>Due Date</li>
-          <li>User Assignment</li>
-          <li>User Assignment using custom extensions</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>
-          <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial<a></li>
-          <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Human+Task+Management">Tutorials around Human Tasks Management</a></li>
-      </ul>      
-    </div>
-  </div>
-  
-
-
-
-
- <h2>Due Date</h2>
+<h2>Due Date</h2>
 <p>
 Each task has a field, indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.
 </p>
@@ -88,7 +65,7 @@ The due date of a task can also be altered using the TaskService or in TaskListe
 
 
 
-<h2>User assignment</h2>
+<h2>User Assignment</h2>
 <p>
 A user task can be directly assigned to a user. This is done by defining a humanPerformer sub element. Such a humanPerformer definition needs a resourceAssignmentExpression that actually defines the user. Currently, only formalExpressions are supported.
 </p>
@@ -267,4 +244,10 @@ public class FakeLdapService {
 }
     </script>
 
-</section>
+
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial<a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Human+Task+Management">Tutorials around Human Tasks Management</a></li>
+</ul>
