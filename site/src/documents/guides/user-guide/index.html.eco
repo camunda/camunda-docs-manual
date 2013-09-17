@@ -1,18 +1,8 @@
 ---
 
-title: 'User Guide'
-layout: 'default'
+layout: 'navigated-docs'
+part: 'guides/user-guide/chapters'
+
+searchable: true
 
 ---
-
-<div class="page-header">
-  <h1>User Guide</h1>
-</div>
-
-<div class="col-md-3">
-  <%- @include('./toc.html') %>
-</div>
-
-<div class="col-md-8 docs-guide">
-  <%- @include('./single-page.html.md.eco') %>
-</div>

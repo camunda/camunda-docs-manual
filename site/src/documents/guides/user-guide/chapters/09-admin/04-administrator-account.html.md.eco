@@ -1,37 +1,15 @@
-<h1 id="tools-admin">Admin</h1>
+---
 
-<h2 id="tools-admin-what-is-admin">What is Admin?</h2>
+title: 'Administrator Account'
+category: 'Admin'
 
-Along with the camunda webapplications we ship Admin, accessible via <a href="http://localhost:8080/camunda/app/admin/">http://localhost:8080/camunda/app/admin/</a>.
-Admin is a small application that allows you to configure users and groups via the engines [Identity Service](#bpmplatform-engine-identity). Furthermore you can connect camunda Admin to your [LDAP system](#bpmplatform-engine-identity-ldap). 
-
-<center><img class="img-responsive" src="<%= @docUrl('assets/img/implementation-admin/admin-start-page-view.png') %>" /></center>
-
-<h2 id="tools-admin-initial-user-setup">Initial User Setup</h2>
-
-<div class="row">
-  <div id="admin-initial-setup" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-initial-user-setup.png') %>"></div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>On first access of a process engine through Cockpit or Tasklist a setup screen will be shown. That screen allows you to configure an initial user account with administrator rights.</p> 
-    <p>Administrative users are not global but per engine. Thus, you will need to set up an admin user for every single engine.</p>
-  </div> 
-</div>
-
-<h2 id="tools-admin-my-profile">My Profile</h2>
-
-In the My Profile menue you can edit your personal account settings like:
-
-  * Profile: Change your name or email address. You cannot change the user account ID!
-  * Account: Change your password or to delete your account. Be careful, deleting cannot be undone.
-  * Groups: This menue lists all groups where you are member. With administrator right you can assign your account to available groups.
-
-<h2 id="tools-admin-administrator-account">Administrator Account</h2>
+---
 
 Users who belonge to the group _camunda-admin_ have administrator privilegs. At least there must be one member in this group otherwise the initial setup screen appears. Beside user and group mamagement as administrator you are able to define authorization rules for users and groups to control access permissions for applications and set the visibility of useres and groups. 
 
 In the following you will learn how to use an administrator account by the help of a simple use cases. You will create a group with two users who will be able to work together in Tasklist. 
 
-<h3 id="tools-admin-administrator-account-users">Users</h3>
+<%- @H2('Users') %>
 
 <div class="row">
   <div id="admin-users-menue" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-users.png') %>"></div>
@@ -41,7 +19,7 @@ In the following you will learn how to use an administrator account by the help 
   </div> 
 </div>
 
-<h3 id="tools-admin-administrator-account-groups">Groups</h3>
+<%- @H2('Groups') %>
 
 <div class="row">
   <div id="admin-groups-menue" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-groups.png') %>"></div>
@@ -51,7 +29,7 @@ In the following you will learn how to use an administrator account by the help 
   </div> 
 </div>
 
-<h3 id="tools-admin-administrator-account-authorizations">Authorizations</h3>
+<%- @H2('Authorizations') %>
 
 <div class="row">
   <div id="admin-authorization-menue" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-admin/admin-authorization.png') %>"></div>
@@ -60,7 +38,7 @@ In the following you will learn how to use an administrator account by the help 
   </div> 
 </div>
 
-#### Application Access
+<%- @H3('Application Access') %>
 
 Set the authorizations for the new group and the created users. First you have to define to which application the members of your new group have access to. Select the _Application_ menue and create a new `Application Authorization` rule. The group members should be able to access Tasklist, so add the following rule:
 
@@ -81,14 +59,10 @@ This specific rule is valid for the user _lemmy_ only and provides him additiona
   </div> 
 </div>
 
-#### Member Visibility
+<%- @H3('Member Visibility') %>
 
 Depending on the _users authorization_ [Tasklist](#tools-tasklist-human-workflow-management-user-and-group-task-overview) will show you information about your colleagues and groups. Currently you can only see the group folder _support_ but not your colleague. To change that login to the admin application as administrator, enter the _Users Authorization_ menue and create the following rules: 
 
 <center><img class="img-responsive" src="<%= @docUrl('assets/img/implementation-admin/admin-authorization-users.png') %>" /></center>
 
 Now every member of the group_ support_ is able to see the new users _lemmy_ and _ozzy_.
-
-<h2 id="tools-admin-ldap-connection">LDAP Connection</h2>
-
-If you connect the camunda BPM platform with the LDAP identity service you have read-only access to the users and groups. Changes can be down via the LDAP system but not via the admin application. Find more information about how to configure the process engine in order to use the LDAP identity service [here](#bpmplatform-engine-identity-ldap).
