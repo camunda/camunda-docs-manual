@@ -5,7 +5,7 @@ category: 'Admin'
 
 ---
 
-Users who belonge to the group _camunda-admin_ have administrator privilegs. At least there must be one member in this group otherwise the initial setup screen appears. Beside user and group mamagement as administrator you are able to define authorization rules for users and groups to control access permissions for applications and set the visibility of useres and groups. 
+Users who belong to the group _camunda-admin_ have administrator privileges. At least there must be one member in this group otherwise the initial setup screen appears. Beside user and group management as administrator you are able to define authorization rules for users and groups to control access permissions for applications and set the visibility of users and groups. 
 
 In the following you will learn how to use an administrator account by the help of a simple use cases. You will create a group with two users who will be able to work together in Tasklist. 
 
