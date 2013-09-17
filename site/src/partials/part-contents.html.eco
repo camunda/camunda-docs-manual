@@ -1,0 +1,10 @@
+<% for category in @part.categories: %>
+  <div class="page-header">
+    <h1 id="<%= @linkify(category.name) %>"><%= category.name %></h1>
+  </div>
+
+  <% for page in category.pages: %>
+    <h1 id="<%= @linkify(category.name, page.shortTitle) %>"><%= page.title %></h1>
+    <%- @include(page.relativeBase + '.html') %>
+  <% end %>
+<% end %>

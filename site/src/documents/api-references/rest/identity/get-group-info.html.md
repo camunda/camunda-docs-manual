@@ -3,6 +3,8 @@
 title: "Get a User's Groups"
 category: 'Identity'
 
+keywords: 'get query list'
+
 ---
 
 

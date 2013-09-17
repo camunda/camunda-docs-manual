@@ -1,7 +1,9 @@
 ---
 
-title: 'Get Single Group by ID'
+title: 'Get Single Group'
 category: 'Group'
+
+keywords: 'get'
 
 ---
 

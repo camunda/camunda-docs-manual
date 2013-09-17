@@ -3,6 +3,8 @@
 title: 'Get Authorizations Count'
 category: 'Authorization'
 
+keywords: 'get'
+
 ---
 
 

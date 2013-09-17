@@ -3,6 +3,8 @@
 title: 'Get Process Instance Statistics'
 category: 'Process Definition'
 
+keywords: 'get runtime'
+
 ---
 
 

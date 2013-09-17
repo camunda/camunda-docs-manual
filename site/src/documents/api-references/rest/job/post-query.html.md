@@ -3,6 +3,8 @@
 title: 'Get Jobs (POST)'
 category: 'Job'
 
+keywords: 'post query list'
+
 ---
 
 

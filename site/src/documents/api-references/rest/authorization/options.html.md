@@ -3,6 +3,8 @@
 title: 'Authorization Resource Options'
 category: 'Authorization'
 
+keywords: 'options'
+
 ---
 
 

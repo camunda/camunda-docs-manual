@@ -3,7 +3,7 @@
 title: 'Get Activity Instances'
 category: 'History'
 
-keywords: 'historic'
+keywords: 'historic get query list'
 
 ---
 

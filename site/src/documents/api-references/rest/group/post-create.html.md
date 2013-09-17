@@ -3,6 +3,8 @@
 title: 'Create group'
 category: 'Group'
 
+keywords: 'post'
+
 ---
 
 

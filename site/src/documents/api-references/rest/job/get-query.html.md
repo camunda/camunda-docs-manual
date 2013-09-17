@@ -3,6 +3,8 @@
 title: 'Get Jobs'
 category: 'Job'
 
+keywords: 'get query list'
+
 ---
 
 

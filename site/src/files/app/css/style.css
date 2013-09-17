@@ -486,6 +486,22 @@ h1[id], h2[id], h3[id], h4[id] {
   margin-top: -45px;
 }
 
+.chapter-header {
+  padding: 30px 0 20px 0;
+  border-color: #AAA;
+  border-top: solid 10px;
+  border-bottom: solid 2px;
+  margin: 100px 0 40px 0;
+}
+
+.chapter-header:first-child {
+  margin-top: 20px;  
+}
+
+.chapter-header h1 {
+  font-size: 64px;
+}
+
 code {
   white-space: normal;
   word-wrap: break-word;

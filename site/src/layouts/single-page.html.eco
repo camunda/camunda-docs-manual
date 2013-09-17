@@ -1,0 +1,17 @@
+---
+
+layout: 'plain-docs'
+
+---
+
+<div class="cal-md-12">
+  
+  <% for chapter in @document.chapters: %>
+    <div class="chapter-header">
+      <h1><%= chapter.title %></h1>
+    </div>
+
+    <% part = @getPages(chapter.part) %>
+    <%- @partial('part-contents', @, { part: part }) %>
+  <% end %>
+</div>

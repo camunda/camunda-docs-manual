@@ -3,6 +3,8 @@
 title: 'Group Resource Options'
 category: 'Group'
 
+keywords: 'options'
+
 ---
 
 

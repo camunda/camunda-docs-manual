@@ -3,7 +3,7 @@
 title: 'Get Process Instances (POST)'
 category: 'History'
 
-keywords: 'historic'
+keywords: 'historic post query list'
 
 ---
 

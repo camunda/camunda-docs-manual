@@ -1,0 +1,12 @@
+---
+
+layout: 'single-page'
+
+chapters:
+    - title: 'REST API'
+      part: 'api-references/rest'
+    
+    - title: 'User Guide'
+      part: 'guides/user-guide'
+
+---

@@ -3,6 +3,9 @@
 title: 'Create a new Authorization'
 category: 'Authorization'
 
+
+keywords: 'post'
+
 ---
 
 

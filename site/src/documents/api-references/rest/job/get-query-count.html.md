@@ -3,6 +3,8 @@
 title: 'Get Jobs Count'
 category: 'Job'
 
+keywords: 'get query list'
+
 ---
 
 

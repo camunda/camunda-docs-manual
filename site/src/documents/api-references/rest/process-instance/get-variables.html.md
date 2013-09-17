@@ -3,6 +3,8 @@
 title: 'Get Process Variables'
 category: 'Process Instance'
 
+keywords: 'get list'
+
 ---
 
 

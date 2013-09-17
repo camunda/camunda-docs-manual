@@ -3,6 +3,8 @@
 title: 'Perform an Authorization Check'
 category: 'Authorization'
 
+keywords: 'get'
+
 ---
 
 
