@@ -1,36 +1,21 @@
-<section id="sequence-flows">
+---
 
-  <div class="page-header">
-      <h1>Conditional and Default Sequence Flows</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
-        A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flow will be followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flow will create two separate, parallel paths of execution.</strong>
-      </p>
+title: 'Conditional and Default Sequence Flows'
+shortTitle: 'Sequence Flows'
+category: 'Gateways'
 
-      <div id="flow1" style="position:relative" data-bpmn-src="implement/sequence-flow-parallel" > </div>
+keywords: 'default condition sequence flow'
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Conditional Sequence Flows</li>
-          <li>Default Sequence Flows</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="<%= @docUrl('implement/java.html') %>#!/engine/expressions">Expression Language</a></li>
-      </ul>      
-    </div>
-  </div>
+---
+
+<p>
+  A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flow will be followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flow will create two separate, parallel paths of execution.</strong>
+</p>
+
+<div id="flow1" style="position:relative" data-bpmn-src="implement/sequence-flow-parallel" > </div>
 
 
-
-
-
-<h1>Conditional Sequence Flow</h1>  
+<h2>Conditional Sequence Flow</h2>  
 <p>
  A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flow. When a condition evaluates to true, that outgoing sequence flow is selected. When multiple sequence flow are selected that way, multiple executions will be generated and the process will be continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flow with conditions in specific ways, depending on the gateway type. 
 </p>
@@ -80,7 +65,7 @@ This example invokes a method that resolves to a boolean value.
 
 
 
-<h1>Default Sequence Flow</h1>  
+<h2>Default Sequence Flow</h2>  
   <p>
     All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is only selected as the outgoing sequence flow for that activity if and only if none of the other sequence flow could be selected. Conditions on a default sequence flow are always ignored. 
   </p>
@@ -108,6 +93,11 @@ This example invokes a method that resolves to a boolean value.
     
 <sequenceFlow id="flow4" sourceRef="exclusiveGw" targetRef="theTask3" name="else">
 </sequenceFlow>
-</script>          
-	
-</section>
+</script>
+
+
+<h2>Additional Resources</h2>
+
+<ul>            
+  <li><a href="<%= @docUrl('implement/java.html') %>#!/engine/expressions">Expression Language</a></li>
+</ul>

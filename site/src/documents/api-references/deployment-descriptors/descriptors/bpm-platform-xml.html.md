@@ -1,5 +1,12 @@
-bpm-platform.xml
-================
+---
+
+title: 'The bpm-platform.xml Descriptor'
+shortTitle: 'bpmn-platform.xml'
+
+category: 'Descriptors'
+
+---
+
 
 The `bpm-platform.xml` file is part of the camunda BPM platform distribution and can be used for configuring process engines and the job executor.
 

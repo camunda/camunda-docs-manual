@@ -1,5 +1,11 @@
-processes.xml
-=============
+---
+
+title: 'The processes.xml Descriptor'
+shortTitle: 'processes.xml'
+
+category: 'Descriptors'
+
+---
 
 The `processes.xml` file is deployed as part of a process application and is used for configuring the deployment of BPMN 2.0 resource files. Additionally, it can be used for configuring  process engines which are started / stopped with the deployment of the application.
 

@@ -1,37 +1,31 @@
-<section id="send-task">
+---
 
-  <div class="page-header">
-      <h1>Send Task</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
-        A send task is used to send a message. In camunda this is done by calling Java code.  
-      </p>
+title: 'Send Task'
+category: 'Tasks'
 
-	  <p>
-	    The send task has the same behaviour as for a service task.
-	  </p>
-      <div data-bpmn-symbol="sendtask"  data-bpmn-symbol-name="Send Task"> </div>
-      
-      <div class="app-source" app-source-no-tabs="xxxx" ></div>
-      <script type="text/xml" id="xxxx">
-		<sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
-      </script>
-    </div>
+keywords: 'service task send task'
 
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Send Task</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="<%= @docUrl('api-references/bpmn20/') %>#!/tasks/service-task">Service Task</a></li>
-      </ul>      
-    </div>
-  </div>
-  
-	
-</section>
+---
+
+
+<p>
+  A send task is used to send a message. In camunda this is done by calling Java code.  
+</p>
+
+<p>
+  The send task has the same behaviour as for a service task.
+</p>
+
+<div data-bpmn-symbol="sendtask"  data-bpmn-symbol-name="Send Task"> </div>
+
+<div class="app-source" app-source-no-tabs="xxxx" ></div>
+<script type="text/xml" id="xxxx">
+<sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
+</script>
+</div>
+
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="<%= @docUrl('api-references/bpmn20/') %>#!/tasks/service-task">Service Task</a></li>
+</ul>

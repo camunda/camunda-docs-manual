@@ -1,62 +1,45 @@
-<section id="task-markers">
+---
 
-  <div class="page-header">
-      <h1>Task Markers</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
-        In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types. 
-     </p>
+title: 'Task Markers'
+category: 'Tasks'
 
-     <h2>Multiple Instance</h2>
-      <p>
-           A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the for each construct: it allows to execute a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
-      </p>
+keywords: 'multi instance boundary event loop compensation'
 
-      A multi-instance is a regular activity that has extra properties defined (so-called 'multi-instance characteristics'') which will cause the activity to be executed multiple times at runtime. Following activities can become a multi-instance activity:
-      <ul>
-          <li>User Task</li>
-          <li>Script Task</li>
-          <li>Service Task</li>
-          <li>Business Rule Task</li>
-          <li>Manual Task</li>
-          <li>Receive Task</li>
-          <li>(Embedded) Sub-Process</li>
-          <li>Call Activity</li>
-      </ul>
-      A Gateway or Event can not become multi-instance.
-
-      <p>
-      If an activity is multi-instance, this is indicated by three short lines at the bottom of that activity. Three vertical lines indicates that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate <strong>sequential</strong> execution.
-      </p>
-
-      <div id="mulitpleinstance" style="position:relative" data-bpmn-src="implement/multiple-instance" > </div>
-
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Multi-instance</li>
-          <li>Boundary events and multi-instance</li>
-          <li>Loop</li>
-          <li>Compensation</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>
-          <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Task Markers in the BPMN Tutorial</a></li>
-          <li><a href="#!/subprocesses/transaction-subprocess">Transaction Subprocess</a></li>
-          <!--
-          Tutorials!
-      -->         
-      </ul>      
-    </div>
-  </div>
-  
+---
 
 
+<p>
+  In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types. 
+</p>
+
+<h2>Multiple Instance</h2>
+<p>
+     A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the for each construct: it allows to execute a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
+</p>
+
+A multi-instance is a regular activity that has extra properties defined (so-called 'multi-instance characteristics'') which will cause the activity to be executed multiple times at runtime. Following activities can become a multi-instance activity:
+<ul>
+    <li>User Task</li>
+    <li>Script Task</li>
+    <li>Service Task</li>
+    <li>Business Rule Task</li>
+    <li>Manual Task</li>
+    <li>Receive Task</li>
+    <li>(Embedded) Sub-Process</li>
+    <li>Call Activity</li>
+</ul>
+A Gateway or Event can not become multi-instance.
+
+<p>
+If an activity is multi-instance, this is indicated by three short lines at the bottom of that activity. Three vertical lines indicates that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate <strong>sequential</strong> execution.
+</p>
+
+<div id="mulitpleinstance" style="position:relative" data-bpmn-src="implement/multiple-instance" > </div>
+
+<p>
 As required by the spec, each parent execution of the created executions for each instance will have following variables:
+</p>
+
 <ul>
     <li><strong>nrOfInstances</strong>: the total number of instances.</li>
     <li><strong>nrOfActiveInstances</strong>: the number of currently active, i.e. not yet finished, instances. For a sequential multi-instance, this will always be 1.</li>
@@ -190,10 +173,6 @@ And be assured that we have the loop marker in our backlog to be added to the en
 </p>
 
 
-
-
-
-
 <h2>Compensation</h2>
 
 <p>
@@ -221,4 +200,9 @@ In order to declare an activity to be a compensation handler, we need to set the
 </script>
 
 
-</section>
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Task Markers in the BPMN Tutorial</a></li>
+  <li><a href="#!/subprocesses/transaction-subprocess">Transaction Subprocess</a></li>
+</ul>      

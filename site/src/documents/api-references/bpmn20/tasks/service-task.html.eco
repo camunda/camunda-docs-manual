@@ -1,46 +1,24 @@
-<section id="service-task-logic">
+---
 
-  <div class="page-header">
-      <h1>Service Task</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-    <p>A service task is used to invoke services. In camunda this is done by calling Java code.</p>
+title: 'Service Task'
+category: 'Tasks'
 
-    <div data-bpmn-symbol="servicetask"  data-bpmn-symbol-name="Service Task"> </div>
+keywords: 'service task implementation field injections results'
 
-    There are 4 ways of declaring how to invoke Java logic:
-    <ul >
-      <li>Specifying a class that implements JavaDelegate or ActivityBehavior</li>
-      <li>Evaluating an expression that resolves to a delegation object</li>
-      <li>Invoking a method expression</li>
-      <li>Evaluating a value expression</li>
-    </ul>
+---
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Service Tasks</li>
-          <li>Implementation</li>
-          <li>Field Injections</li>
-          <li>Service Results</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial<a></li>
-          <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling">Error Handling</a></li>
-          <!--<li><a href="<%= @docUrl('implement/concepts.html') %>#!/concepts/spring">Using Spring</a></li>-->
-          <!--<li><a href="<%= @docUrl('implement/concepts.html') %>#!/concepts/cdi">Using CDI</a></li>-->
-          <li><a href="http://www.bpm-guide.de/2010/12/09/how-to-call-a-webservice-from-bpmn/">How to call Web Services from BPMN</a></li>
-          <!--
-          <li><a href="">Asynchronous Service Tasks</a></li>
-          <li><a href="">Legacy Systems</a></li>
-        -->
-      </ul>      
-    </div>
-  </div>
+
+<p>A service task is used to invoke services. In camunda this is done by calling Java code.</p>
+
+<div data-bpmn-symbol="servicetask"  data-bpmn-symbol-name="Service Task"> </div>
+
+There are 4 ways of declaring how to invoke Java logic:
+<ul >
+  <li>Specifying a class that implements JavaDelegate or ActivityBehavior</li>
+  <li>Evaluating an expression that resolves to a delegation object</li>
+  <li>Invoking a method expression</li>
+  <li>Evaluating a value expression</li>
+</ul>
  
 <p>  
   To specify a class that is called during process execution, the fully qualified classname needs to be provided by the <code>camunda:class</code> attribute.
@@ -53,48 +31,50 @@
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 </script>
 
-	<p>
-		See the implementation section further down for more details on how to use such a class.
-	</p>
-	<p>
-		It is also possible to use an expression that resolves to an object.
-		This object must follow the same rules as objects that are created
-		when the <code>camunda:class</code> attribute is used.
+<p>
+	See the implementation section further down for more details on how to use such a class.
+</p>
 
-    <div class="app-source" app-source-no-tabs="service-task-expression-delegate"></div>
-    <script type="text/xml" id="service-task-expression-delegate">
+<p>
+	It is also possible to use an expression that resolves to an object.
+	This object must follow the same rules as objects that are created
+	when the <code>camunda:class</code> attribute is used.
+</p>
+
+<div class="app-source" app-source-no-tabs="service-task-expression-delegate"></div>
+<script type="text/xml" id="service-task-expression-delegate">
 <serviceTask id="serviceTask" camunda:delegateExpression="${delegateExpressionBean}" />
-    </script>
+</script>
 
 
-  <p>
-		Here, the	<code>delegateExpression</code> is an expression that resolves to a bean implementing the <code>JavaDelegate</code>
-		interface. Beans can be resolved for example via CDI or Spring (see below).
-	</p>
-	<p>
-		To specify an expression that should be evaluated, use attribute <class>camunda:expression</class>.
-  </p>
+<p>
+	Here, the	<code>delegateExpression</code> is an expression that resolves to a bean implementing the <code>JavaDelegate</code>
+	interface. Beans can be resolved for example via CDI or Spring (see below).
+</p>
+<p>
+	To specify an expression that should be evaluated, use attribute <class>camunda:expression</class>.
+</p>
 
-    <div class="app-source" app-source-no-tabs="service-task-expression"></div>
-    <script type="text/xml" id="service-task-expression">
+<div class="app-source" app-source-no-tabs="service-task-expression"></div>
+<script type="text/xml" id="service-task-expression">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
              camunda:expression="#{printer.printMessage()}" />
-    </script>
+</script>
 
-  <p>
-		Method <code>printMessage</code> (without parameters) will be called on the named bean called <code>printer</code>.
-	</p>
-	<p>
-    It's also possible to pass parameters with an method used in the expression.
-  </p>
+<p>
+	Method <code>printMessage</code> (without parameters) will be called on the named bean called <code>printer</code>.
+</p>
+<p>
+  It's also possible to pass parameters with an method used in the expression.
+</p>
 
-    <div class="app-source" app-source-no-tabs="service-task-expression-params"></div>
-    <script type="text/xml" id="service-task-expression-params">
+<div class="app-source" app-source-no-tabs="service-task-expression-params"></div>
+<script type="text/xml" id="service-task-expression-params">
 <serviceTask id="javaService" 
              name="My Java Service Task" 
              camunda:expression="#{printer.printMessage(execution, myVar)}" />
-    </script>
+</script>
 
   <p>
 		Method <code>printMessage</code> will be called on the object named <code>printer</code>. 
@@ -124,7 +104,7 @@
 	</p>
 
 
-  <h1>Implementation</h1>
+  <h2>Implementation</h2>
 
 	<p>
 		To implement a class that can be called during process execution, this
@@ -189,10 +169,6 @@ public class ToUppercase implements JavaDelegate {
 		interface only for advanced use cases and if you know exactly what
 		you're doing.
 	</p>
-
-
-
-
 
 
   <h2>Field Injection</h2>
@@ -338,30 +314,37 @@ public class ReverseStringsFieldInjected implements JavaDelegate {
 
 
 
-  <h2>Service task results</h2>
+<h2>Service task results</h2>
 
-	<p>
-		The return value of a service execution (for service task using
-		expression only) can be assigned to an already existing or to a new
-		process variable by specifying the process variable name as a literal
-		value for the <code>'camunda:resultVariable'</code>
-		attribute of a service task definition. Any existing value for a
-		specific process variable will be overwritten by the result value of
-		the service execution. When not specifying a result variable name, the
-		service execution result value gets ignored.
-  </p>
+<p>
+	The return value of a service execution (for service task using
+	expression only) can be assigned to an already existing or to a new
+	process variable by specifying the process variable name as a literal
+	value for the <code>'camunda:resultVariable'</code>
+	attribute of a service task definition. Any existing value for a
+	specific process variable will be overwritten by the result value of
+	the service execution. When not specifying a result variable name, the
+	service execution result value gets ignored.
+</p>
 
-    <div class="app-source" app-source-no-tabs="service-task-results"></div>
-    <script type="text/xml" id="service-task-results">
+  <div class="app-source" app-source-no-tabs="service-task-results"></div>
+  <script type="text/xml" id="service-task-results">
 <serviceTask id="aMethodExpressionServiceTask"
-             camunda:expression="#{myService.doSomething()}"
-             camunda:resultVariable="myVar" />
-    </script>
+           camunda:expression="#{myService.doSomething()}"
+           camunda:resultVariable="myVar" />
+  </script>
 
-  <p>
-		In the example above, the result of the service execution (the return
-		value of the <code>doSomething()</code> method invocation on object 'myService') is set to the process variable named
-    <code>myVar</code> after the service execution completes.
-	</p>
+<p>
+	In the example above, the result of the service execution (the return
+	value of the <code>doSomething()</code> method invocation on object 'myService') is set to the process variable named
+  <code>myVar</code> after the service execution completes.
+</p>
 
-</section>
+
+<h2>Additional Resources</h2>
+
+<ul>            
+  <li><a href="http://camunda.org/design/reference.html#!/activities/tasks">Tasks in the BPMN Tutorial<a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling">Error Handling</a></li>
+  <li><a href="http://www.bpm-guide.de/2010/12/09/how-to-call-a-webservice-from-bpmn/">How to call Web Services from BPMN</a></li>
+</ul>      

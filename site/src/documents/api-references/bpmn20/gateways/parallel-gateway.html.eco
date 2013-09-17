@@ -1,42 +1,30 @@
-<section id="parallel-gateway">
+---
 
-  <div class="page-header">
-      <h1>Parallel Gateway</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
-      Gateways can also be used to model concurrency in a process. The most straightforward gateway to introduce concurrency in a process model, is the Parallel Gateway, which allows to fork into multiple paths of execution or join multiple incoming paths of execution.
-      </p>
+title: 'Parallel Gateway'
+category: 'Gateways'
 
-      <div id="bpmn" style="position:relative" data-bpmn-src="implement/parallel-gateway" > </div>
+keywords: ''
 
-      The functionality of the parallel gateway is based on the incoming and outgoing sequence flow:
-      <ul>
-          <li>fork: all outgoing sequence flow are followed in parallel, creating one concurrent execution for each sequence flow.</li>
-          <li>join: all concurrent executions arriving at the parallel gateway wait in the gateway until an execution has arrived for each of the incoming sequence flow. Then the process continues past the joining gateway. </li>
-      </ul>
+---
 
-      <p>
-      Note that a parallel gateway can have both fork and join behavior, if there are multiple incoming and outgoing sequence flow for the same parallel gateway. In that case, the gateway will first join all incoming sequence flow, before splitting into multiple concurrent paths of executions.
-      </p>
-      <p>
-      An important difference with other gateway types is that the parallel gateway does not evaluate conditions. If conditions are defined on the sequence flow connected with the parallel gateway, they are simply ignored.
-      </p>
+<p>
+Gateways can also be used to model concurrency in a process. The most straightforward gateway to introduce concurrency in a process model, is the Parallel Gateway, which allows to fork into multiple paths of execution or join multiple incoming paths of execution.
+</p>
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Parallel Gateway</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="http://camunda.org/design/reference.html#!/gateways/and">Parallel Gateways in the BPMN Tutorial</a></li>          
-      </ul>      
-    </div>
-  </div>
+<div id="bpmn" style="position:relative" data-bpmn-src="implement/parallel-gateway" > </div>
+
+The functionality of the parallel gateway is based on the incoming and outgoing sequence flow:
+<ul>
+    <li>fork: all outgoing sequence flow are followed in parallel, creating one concurrent execution for each sequence flow.</li>
+    <li>join: all concurrent executions arriving at the parallel gateway wait in the gateway until an execution has arrived for each of the incoming sequence flow. Then the process continues past the joining gateway. </li>
+</ul>
+
+<p>
+Note that a parallel gateway can have both fork and join behavior, if there are multiple incoming and outgoing sequence flow for the same parallel gateway. In that case, the gateway will first join all incoming sequence flow, before splitting into multiple concurrent paths of executions.
+</p>
+<p>
+An important difference with other gateway types is that the parallel gateway does not evaluate conditions. If conditions are defined on the sequence flow connected with the parallel gateway, they are simply ignored.
+</p>
   
 <p>
 Defining a parallel gateway needs one line of XML:
@@ -107,5 +95,10 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
 </p>
 
 <div id="bpmn" style="position:relative" data-bpmn-src="implement/parallel-gateway-unbalanced"> </div>
-	
-</section>
+
+
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/gateways/and">Parallel Gateways in the BPMN Tutorial</a></li>          
+</ul>
