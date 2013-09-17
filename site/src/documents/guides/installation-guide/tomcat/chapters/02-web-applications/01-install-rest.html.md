@@ -2,7 +2,7 @@
 
 title: 'Install the REST API web application'
 shortTitle: 'Install the REST API'
-category: 'Components'
+category: 'Web Applications'
 
 ---
 
