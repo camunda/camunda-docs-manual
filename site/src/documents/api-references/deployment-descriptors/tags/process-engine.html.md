@@ -1,5 +1,10 @@
-Process Engine Configuration
-============================
+---
+
+title: 'Process Engine Configuration'
+category: 'Tags'
+
+---
+
 
 The process engine configuration can be placed in both [processes.xml](#!/descriptors/processes-xml) and the [bpm-platform.xml](#!/descriptors/bpm-platform-xml) files. If the process engine is configured in either of both files, it will be bootratrapped by the camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
 
