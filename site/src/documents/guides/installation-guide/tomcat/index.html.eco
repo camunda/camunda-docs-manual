@@ -1,7 +1,7 @@
 ---
 
 layout: 'navigated-docs'
-part: 'guides/installation-guide/tomcat'
+part: 'guides/installation-guide/tomcat/chapters'
 
 searchable: true
 

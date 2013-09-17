@@ -1,7 +1,7 @@
 ---
 
 title: 'Install camunda Cockpit and Tasklist'
-category: 'Components'
+category: 'Web Applications'
 
 ---
 
