@@ -1,0 +1,10 @@
+---
+
+title: 'History Configuration'
+category: 'Process Engine'
+
+---
+
+Customizing the configuration of <a href="https://app.camunda.com/confluence/display/foxUserGuide/History">history</a> is optional. This allows you to tweak settings that influence the history capabilities of the engine.
+
+    <property name="history" value="audit" />
