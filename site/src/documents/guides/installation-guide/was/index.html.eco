@@ -1,25 +1,9 @@
 ---
 
-title: 'camunda BPM Installation Guide (WAS)'
-layout: 'default'
+title: 'camunda BPM Installation Guide (IBM WebSphere)'
+layout: 'navigated-docs'
+part: 'guides/installation-guide/was/chapters'
+
+searchable: true
 
 ---
-
-<div id="navSide" class="span3 bs-docs-sidebar">
-  <ul class="nav nav-list bs-docs-sidenav" data-ca-affix>
-    <li><a href="#!/#platform"><i class="icon-chevron-right"></i>BPM platform</a></li>
-    <li><a href="#!/#rest"><i class="icon-chevron-right"></i>REST API</a></li>
-    <li><a href="#!/#cycle"><i class="icon-chevron-right"></i>camunda cycle</a></li>
-    <li><a href="#!/#camunda"><i class="icon-chevron-right"></i>cockpit and tasklist</a></li>
-    <li><a href="#!/#ldap"><i class="icon-chevron-right"></i>Ldap Configuration</a></li>
-  </ul>
-</div>
-
-<div class="span9 docs docs-guide">
-
-<%- @include("./guide.html.md.eco") %>
-<%- @include("./restapi.html.md.eco") %>
-<%- @include("./cycle.html.md.eco") %>
-<%- @include("./camunda.html.md.eco") %>
-
-</div>

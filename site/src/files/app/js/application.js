@@ -58,6 +58,10 @@
       var current = $(this),
           id = current.attr('id');
 
+      if (!current.text()) {
+        return;
+      }
+
       current.append(
         '<a class="anchor" href="#' + id + '" title="Link to current section">¶</a>'
       );

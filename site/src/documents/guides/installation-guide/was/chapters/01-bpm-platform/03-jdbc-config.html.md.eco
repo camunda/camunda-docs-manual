@@ -1,0 +1,16 @@
+---
+
+title: 'JDBC / Datasource Configuration'
+category: 'BPM Platform'
+
+---
+
+The camunda BPM engine uses one or multiple process engines. Use your application server management tooling for configuring the datasources.
+The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml file.
+
+## Default JNDI Name
+
+The default JNDI name is <code>jdbc/ProcessEngine</code>
+
+The following screenshot shows the configuration of an XA datasource: <a href="assets/img/jdbc.png" target="_blank"><img class="tile" src="assets/img/jdbc.png" alt=""/></a>
+Note that you may configure multiple datasources used by different process engine instances. See the <a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a> for details.
