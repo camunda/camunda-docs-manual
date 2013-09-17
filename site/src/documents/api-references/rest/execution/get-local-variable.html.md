@@ -3,6 +3,8 @@
 title: 'Get Local Execution Variable'
 category: 'Execution'
 
+keywords: 'get'
+
 ---
 
 

@@ -3,6 +3,8 @@
 title: 'Get Activity Instance Statistics'
 category: 'Process Definition'
 
+keywords: 'get'
+
 ---
 
 

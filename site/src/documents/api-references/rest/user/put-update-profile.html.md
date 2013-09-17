@@ -3,6 +3,8 @@
 title: 'Update User Profile'
 category: 'User'
 
+keywords: 'put'
+
 ---
 
 

@@ -3,6 +3,8 @@
 title: "Update a user's credentials"
 category: 'User'
 
+keywords: 'put password'
+
 ---
 
 

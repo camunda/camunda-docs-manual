@@ -3,6 +3,8 @@
 title: 'Get Variable Instances Count'
 category: 'Variable'
 
+keywords: 'get query list'
+
 ---
 
 

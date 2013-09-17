@@ -3,7 +3,7 @@
 title: 'Get Process Instances'
 category: 'History'
 
-keywords: 'historic'
+keywords: 'historic get query list'
 
 ---
 

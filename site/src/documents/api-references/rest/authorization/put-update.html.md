@@ -3,6 +3,8 @@
 title: 'Update a Single Authorization'
 category: 'Authorization'
 
+keywords: 'put'
+
 ---
 
 

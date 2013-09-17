@@ -3,6 +3,8 @@
 title: 'Delete Authorization'
 category: 'Authorization'
 
+keywords: 'delete'
+
 ---
 
 

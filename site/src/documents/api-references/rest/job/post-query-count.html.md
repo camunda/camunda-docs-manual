@@ -3,6 +3,8 @@
 title: 'Get Jobs Count (POST)'
 category: 'Job'
 
+keywords: 'post query list'
+
 ---
 
 

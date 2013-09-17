@@ -3,6 +3,8 @@
 title: 'Activate/Suspend Process Instance'
 category: 'Process Instance'
 
+keywords: 'put set suspension state'
+
 ---
 
 

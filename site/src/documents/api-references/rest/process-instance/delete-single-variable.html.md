@@ -3,6 +3,8 @@
 title: 'Delete Single Process Variable'
 category: 'Process Instance'
 
+keywords: 'delete'
+
 ---
 
 

@@ -3,6 +3,8 @@
 title: 'Get Authorizations'
 category: 'Authorization'
 
+keywords: 'get query list'
+
 ---
 
 Query for a list of authorizations using a list of parameters.

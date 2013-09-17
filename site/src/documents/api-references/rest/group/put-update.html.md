@@ -3,6 +3,8 @@
 title: 'Update group'
 category: 'Group'
 
+keywords: 'put'
+
 ---
 
 

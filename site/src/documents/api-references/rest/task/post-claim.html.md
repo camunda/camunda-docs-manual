@@ -3,6 +3,8 @@
 title: 'Claim Task'
 category: 'Task'
 
+keywords: 'post'
+
 ---
 
 

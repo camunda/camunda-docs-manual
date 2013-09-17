@@ -3,7 +3,7 @@
 title: 'Get Variable Instances (POST)'
 category: 'History'
 
-keywords: 'historic'
+keywords: 'historic post query list'
 
 ---
 

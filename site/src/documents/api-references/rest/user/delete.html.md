@@ -3,6 +3,8 @@
 title: 'Delete User'
 category: 'User'
 
+keywords: 'delete'
+
 ---
 
 

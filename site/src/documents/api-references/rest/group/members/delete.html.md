@@ -3,6 +3,8 @@
 title: 'Delete a Group Member'
 category: 'Group'
 
+keywords: 'delete'
+
 ---
 
 

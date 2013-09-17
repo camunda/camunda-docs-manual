@@ -3,6 +3,8 @@
 title: 'Delete Process Instance'
 category: 'Process Instance'
 
+keywords: 'delete'
+
 ---
 
 

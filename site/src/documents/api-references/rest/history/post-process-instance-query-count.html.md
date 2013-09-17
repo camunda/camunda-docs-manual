@@ -3,7 +3,7 @@
 title: 'Get Process Instances Count (POST)'
 category: 'History'
 
-keywords: 'historic'
+keywords: 'historic post query list'
 
 ---
 

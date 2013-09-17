@@ -1,14 +1,24 @@
-<h1>Set Job Due Date</h1>
+---
 
-<p>Sets the due date of the job to the given date.</p>
+title: 'Set Job Due Date'
+category: 'Job'
 
-<h2>Method</h2>
+keywords: 'put'
 
-<p>PUT <code>/job/{id}/duedate</code></p>
+---
 
-<h2>Parameters</h2>
 
-<h4>Path Parameters</h4>
+Updates the due date of a job.
+
+
+## Method
+
+PUT `/job/{id}/duedate`
+
+
+## Parameters
+
+#### Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -21,9 +31,9 @@
   </tr>
 </table>
 
-<h4>Request Body</h4>
+#### Request Body
 
-<p>A json object with the following properties:</p>
+A json object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -36,11 +46,13 @@
   </tr>
 </table>
 
-<h2>Result</h2>
 
-<p>This method returns no content.</p>
+## Result
 
-<h2>Response codes</h2>
+This method returns no content.
+
+
+## Response codes
 
 <table class="table table-striped">
   <tr>
@@ -65,17 +77,17 @@
   </tr>
 </table>
 
-<h2>Example</h2>
 
-<h4>Request</h4>
+## Example
 
-<p>PUT <code>/job/aJobId/duedate</code></p>
+#### Request
 
-<p>Request body:</p>
+PUT `/job/aJobId/duedate`
 
-<pre><code>{"duedate": "2013-08-13 18:43:28"}
-</code></pre>
+Request body:
 
-<h4>Response</h4>
+    {"duedate": "2013-08-13 18:43:28"}
 
-<p>Status 204. No content.</p>
+#### Response
+
+Status 204. No content.

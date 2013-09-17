@@ -3,6 +3,8 @@
 title: 'Get Single Task'
 category: 'Task'
 
+keywords: 'get'
+
 ---
 
 

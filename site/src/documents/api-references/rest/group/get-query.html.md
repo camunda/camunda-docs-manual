@@ -3,6 +3,8 @@
 title: 'Get Groups'
 category: 'Group'
 
+keywords: 'get query list'
+
 ---
 
 

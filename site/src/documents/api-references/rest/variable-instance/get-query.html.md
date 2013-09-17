@@ -3,6 +3,8 @@
 title: 'Get Variable Instances'
 category: 'Variable'
 
+keywords: 'get query list'
+
 ---
 
 

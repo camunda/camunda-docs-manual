@@ -1,7 +1,9 @@
 ---
 
-title: "Get a User's Profile by ID"
+title: "Get a User's Profile"
 category: 'User'
+
+keywords: 'get'
 
 ---
 

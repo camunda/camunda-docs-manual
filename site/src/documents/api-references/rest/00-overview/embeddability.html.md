@@ -3,8 +3,6 @@
 title: 'Embedding the API'
 category: 'Overview'
 
-pagePrecedence: 100
-
 ---
 
 

@@ -1,7 +1,9 @@
 ---
 
-title: 'Get Single Authorization by ID'
+title: 'Get Single Authorization'
 category: 'Authorization'
+
+keywords: 'get'
 
 ---
 
