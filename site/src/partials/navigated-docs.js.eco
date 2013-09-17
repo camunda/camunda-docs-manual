@@ -24,10 +24,28 @@
           clear(true);
         });
 
-        input.keypress(function() {
+        function debounce(fn, delay) {
+          var timer;
+
+          return function() {
+            var args = Array.prototype.slice.call(arguments);
+
+            if (timer) {
+              clearTimeout(timer);
+            }
+
+            timer = setTimeout(function() {
+              timer = null;
+
+              fn.apply(args);
+            }, delay);
+          };
+        }
+
+        function updateSearch() {
           var scored = [];
 
-          var text = $(this).val().toLowerCase();
+          var text = input.val().toLowerCase();
           if (text.length < 2) {
             clear(false);
             return;
@@ -63,7 +81,9 @@
               element.hide();
             }
           });
-        });
+        }
+
+        input.keypress(debounce(updateSearch, 400));
       });
     })(window.jQuery);
   }, 1000);
