@@ -63,6 +63,9 @@
             </li>
           </ul>          
         </li>
+          <li class="dropdown" data-active-link="/enterprise">
+            <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
+          </li>         
       </ul>
       <a class="pull-right navbar-brand back-to-main ir" href="http://camunda.org">back to camunda.org</a>   
     </nav>
