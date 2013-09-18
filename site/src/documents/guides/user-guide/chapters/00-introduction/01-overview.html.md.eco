@@ -5,28 +5,4 @@ category: 'Introduction'
 
 ---
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Under construction!</strong>
-  </p>
-  <p>
-    We currently work on improving the whole documentation. While doing this we will merge a lot of content from the <a href="https://app.camunda.com/confluence/display/foxUserGuide/Home">camunda fox user guide</a> to camunda.org. Please be patient with us. In the meanwhile we will link the highlights from here.
-  </p>
-</div>
-
-Basic concepts explained:
-
-* [History (Audit Data)](https://app.camunda.com/confluence/display/foxUserGuide/History)
-* [Thread and Transaction Management](https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management)
-* [Job Execution](https://app.camunda.com/confluence/display/foxUserGuide/Job+Execution)
-* [Error Handling](https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling)
-* [Process Versioning](https://app.camunda.com/confluence/display/foxUserGuide/Process+Versioning)
-* [Process Decomposition](https://app.camunda.com/confluence/display/foxUserGuide/Process+Decomposition)
-* [Multi-Tenancy](https://app.camunda.com/confluence/display/foxUserGuide/Multi-Tenancy)
-* [Testing](https://app.camunda.com/confluence/display/foxUserGuide/Testing)
-
-Some other interessting links:
-
-* [Database Setup](https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup)
-* [Supported Environments](https://app.camunda.com/confluence/display/foxUserGuide/Supported+environments)
-* [Installation and Administration](https://app.camunda.com/confluence/display/foxUserGuide/Installation+and+Administration)
+Welcome to the camunda BPM userguide! camunda BPM is a Java-based framework for process automation. This document provides information about the features provided by camunda BPM platform.
