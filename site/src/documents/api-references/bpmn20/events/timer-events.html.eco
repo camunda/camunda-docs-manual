@@ -1,12 +1,14 @@
-<section id="timer-events">
+---
 
-  <div class="page-header">
-      <h1>Timer Events</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      <p>
+title: 'Timer Events'
+category: 'Events'
+
+keywords: 'timer start intermediate boundary event definition'
+
+---
+
+
+<p>
 Timer events are events which are triggered by defined timer. They can be used as start event, intermediate event or boundary event. Boundary events can be interrupting or not.
 </p>
 
@@ -15,47 +17,47 @@ Timer events are events which are triggered by defined timer. They can be used a
 A timer definition must have exactly one element from the following:
 
 <ul>
-    <li><strong>timeDate</strong>. This format specifies fixed date in <a href="http://en.wikipedia.org/wiki/ISO_8601#Dates">ISO 8601</a> format, when trigger will be fired. Example:
+  <li><strong>timeDate</strong>. This format specifies fixed date in <a href="http://en.wikipedia.org/wiki/ISO_8601#Dates">ISO 8601</a> format, when trigger will be fired. Example:
 
-<div class="app-source" app-source-no-tabs="timer1" ></div>
-<script type="text/xml" id="timer1"> 
-<timerEventDefinition>
-  <timeDate>2011-03-11T12:13:14</timeDate>
-</timerEventDefinition>
-</script>
-    </li>
-    <li><strong>timeDuration</strong>. To specify how long the timer should run before it is fired, a timeDuration can be specified as sub-element of timerEventDefinition. The format used is the <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> format (as required by the BPMN 2.0 specification). Example (interval lasting 10 days):
+  <div class="app-source" app-source-no-tabs="timer1" ></div>
+  <script type="text/xml" id="timer1"> 
+  <timerEventDefinition>
+    <timeDate>2011-03-11T12:13:14</timeDate>
+  </timerEventDefinition>
+  </script>
+  </li>
+  <li><strong>timeDuration</strong>. To specify how long the timer should run before it is fired, a timeDuration can be specified as sub-element of timerEventDefinition. The format used is the <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> format (as required by the BPMN 2.0 specification). Example (interval lasting 10 days):
 
-<div class="app-source" app-source-no-tabs="timer2" ></div>
-<script type="text/xml" id="timer2"> 
-<timerEventDefinition>
+  <div class="app-source" app-source-no-tabs="timer2" ></div>
+  <script type="text/xml" id="timer2"> 
+  <timerEventDefinition>
   <timeDuration>P10D</timeDuration>
-</timerEventDefinition>
-</script>
+  </timerEventDefinition>
+  </script>
 
-    </li>
+  </li>
 
-    <li><strong>timeCycle</strong>. Specifies repeating interval, which can be useful for starting process periodically, or for sending multiple reminders for overdue user task. Time cycle element can be in two formats. First is the format of recurring time duration, as specified by <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO 8601</a> standard. Example (3 repeating intervals, each lasting 10 hours):
+  <li><strong>timeCycle</strong>. Specifies repeating interval, which can be useful for starting process periodically, or for sending multiple reminders for overdue user task. Time cycle element can be in two formats. First is the format of recurring time duration, as specified by <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO 8601</a> standard. Example (3 repeating intervals, each lasting 10 hours):
 
-<div class="app-source" app-source-no-tabs="timer3" ></div>
-<script type="text/xml" id="timer3"> 
-<timerEventDefinition>
+  <div class="app-source" app-source-no-tabs="timer3" ></div>
+  <script type="text/xml" id="timer3"> 
+  <timerEventDefinition>
   <timeCycle>R3/PT10H</timeCycle>
-</timerEventDefinition>
-</script>
+  </timerEventDefinition>
+  </script>
 
-    Additionally, you can specify time cycle using cron expressions, example below shows trigger firing every 5 minutes, starting at full hour:
+  Additionally, you can specify time cycle using cron expressions, example below shows trigger firing every 5 minutes, starting at full hour:
 
-<div class="app-source" app-source-no-tabs="timer4" ></div>
-<script type="text/xml" id="timer4"> 
-0 0/5 * * * ?
-</script>
+  <div class="app-source" app-source-no-tabs="timer4" ></div>
+  <script type="text/xml" id="timer4"> 
+  0 0/5 * * * ?
+  </script>
 
-    <p>Please see <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">tutorial</a> for using cron expressions.</p>
+  <p>Please see <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">tutorial</a> for using cron expressions.</p>
 
-    <p>Note: The first symbol denotes seconds, not minutes as in normal Unix cron.</p>
+  <p>Note: The first symbol denotes seconds, not minutes as in normal Unix cron.</p>
 
-    <p>The recurring time duration is better suited for handling relative timers, which are calculated with respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.</p></li>
+  <p>The recurring time duration is better suited for handling relative timers, which are calculated with respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.</p></li>
 </ul>
 
 <p>
@@ -76,31 +78,7 @@ Note: timers are only fired when the Job Executor is enabled.
   </p>
 
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Timer Event Definitions</li>
-          <li>Timer Start Event</li>
-          <li>Timer Intermediate Event</li>
-          <li>Timer Boundary Event</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="http://camunda.org/design/reference.html#!/events/timer">Timer Events in the BPMN Tutorial</a></li>
-          <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/The+Job+Executor">Details on the Job Executor (handling Timers)</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601 at Wikipedia</a></li>
-          <li><a href="http://xkcd.com/1179/">XKCD on ISO 8601</a></li>
-      </ul>      
-    </div>
-  </div>
-  
-
-
-
-
-
-<h1>Timer Start Event</h1>
+<h2>Timer Start Event</h2>
 
 <p>
    A timer start event is used to create process instance at given time. It can be used both for processes which should start only once and for processes that should start in specific time intervals.
@@ -144,7 +122,7 @@ and this process will start once, on a selected date:
 
 
 
-<h1>Timer Intermediate Catching Event</h1>
+<h2>Timer Intermediate Catching Event</h2>
 <p>
 A timer intermediate event acts as a stopwatch. When an execution arrives in catching event activity, a timer is started. When the timer fires (e.g. after a specified interval), the sequence flow going out of the timer intermediate event is followed.
 </p>
@@ -168,7 +146,7 @@ A timer intermediate event is defined as a intermediate catching event. The spec
 
 
 
-<h1>Timer Boundary Event</h1>
+<h2>Timer Boundary Event</h2>
 <p>
 A timer boundary event acts as a stopwatch and alarm clock. When an execution arrives in the activity where the boundary event is attached to, a timer is started. When the timer fires (e.g. after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
 </p>
@@ -196,4 +174,11 @@ Note: boundary timer events are only fired when the job executor is enabled.
 
 <div id="event-timer-issue" style="position:relative" data-bpmn-src="implement/event-timer-multiple-flows"> </div>
 
-</section>
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/events/timer">Timer Events in the BPMN Tutorial</a></li>
+  <li><a href="https://app.camunda.com/confluence/display/foxUserGuide/The+Job+Executor">Details on the Job Executor (handling Timers)</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601 at Wikipedia</a></li>
+  <li><a href="http://xkcd.com/1179/">XKCD on ISO 8601</a></li>
+</ul>

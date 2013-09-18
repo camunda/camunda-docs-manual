@@ -1,49 +1,34 @@
-<section id="signal-events">
+---
 
-  <div class="page-header">
-      <h1>Signal events</h1>
-  </div>
-  
-  <div class="row-fluid">
-  <div class="span9">
-      
-      <p>
- Signal events are events which reference a named signal. A signal is an event of global scope (broadcast semantics) and is delivered to all active handlers.
-      </p>
-      <p>
+title: 'Signal Events'
+category: 'Events'
+
+keywords: 'signal catching intermediate throw end event event definition'
+
+---
+
+
+<p>
+Signal events are events which reference a named signal. A signal is an event of global scope (broadcast semantics) and is delivered to all active handlers.
+</p>
+
+<p>
 The following is an example of two separate processes communicating using signals. The first process is started if an insurance policy is updated or changed. After the changes have been reviewed by a human participant, a signal event is thrown, signaling that a policy has changed:
-      </p>
+</p>
 
-      <div id="bpmn1" style="position:relative" data-bpmn-src="implement/event-signal-throwing" > </div>
+<div id="bpmn1" style="position:relative" data-bpmn-src="implement/event-signal-throwing" > </div>
 
 This event can now be caught by all process instances which are interested. The following is an example of a process subscribing to the event.
 
-      <div id="bpmn2" style="position:relative" data-bpmn-src="implement/event-signal-catching" > </div>
+<div id="bpmn2" style="position:relative" data-bpmn-src="implement/event-signal-catching" > </div>
 
-      <p>
+<p>
 Note: it is important to understand that a signal event is broadcast to all active handlers. This means in the case of the example given above, that all instances of the process catching the signal would receive the event. 
-      </p>
+</p>
 
 
-    </div>
-    <div class="span3">
-      <h3>On this page</h3>
-      <ul>            
-          <li>Signal Event Definition</li>
-          <li>Signals in the API</li>
-          <li>Catching Signal Events</li>
-          <li>Signal Intermediate Throw Event</li>
-		  <li>Signal End Event</li>
-      </ul>
-      <h3>There's more...</h3>
-      <ul>            
-          <li><a href="http://camunda.org/design/reference.html#!/events/signal">Signal Events in the BPMN Tutorial</a></li>
-      </ul>      
-    </div>
-  </div>
-  
+<h2>Signal Event Definition</h2>
 
-<h1>Signal Event Definition</h1>
 <p>
 A signal event definition is declared using the signalEventDefinition element. The attribute signalRef references a signal element declared as a child element of the definitions root element. The following is an excerpt of a process where a signal event is thrown and caught by intermediate events. The signalEventDefinitions reference the 'global' signal element.
 </p>
@@ -74,11 +59,8 @@ A signal event definition is declared using the signalEventDefinition element. T
 </p>
 
 
+<h2>Throwing Signal Events via API</h2>
 
-
-
-
-<h1>Throwing Signal Events via API</h1>
 <p>
 A signal can either be thrown by a process instance using a bpmn construct or programmatically using java API. The following methods on the org.camunda.bpm.engine.RuntimeService can be used to throw a signal programmatically:
 </p>
@@ -97,10 +79,7 @@ Note: the signal event does not perform any kind of correlation to a specific pr
 </p>
 
 
-
-
-
-<h1>Querying for Signal Event subscriptions</h1>
+<h2>Querying for Signal Event subscriptions</h2>
 <p>
 It is possible to query for all executions which have subscribed to a specific signal event:
 </p>
@@ -117,11 +96,7 @@ We could then use the signalEventReceived(String signalName, String executionId)
 </p>
 
 
-
-
-
-
-<h1>Catching Signal Events</h1>
+<h2>Catching Signal Events</h2>
 <p>
   A signal event can be caught by an intermediate catch signal event or a signal boundary event.
   <div class="bpmnContainer"  data-bpmn-symbol="intermediatecatchevent/signal" />
@@ -147,23 +122,19 @@ or
 </boundaryEvent>
 </script>
 
-                        
 
+<h2>Signal Intermediate Throwing Event</h2>
 
-
-
-
-
-
-<h1>Signal Intermediate Throwing Event</h1>
 <p>
 An intermediate throwing signal event throws a signal event for a defined signal.
 </p>
 
 <div class="bpmnContainer"  data-bpmn-symbol="intermediatethrowevent/signal" > </div>
 
-
+<p>
 The signal is a broadcast to all active handlers (i.e. all catching signal events). Signals can be published synchronous or asynchronous.
+</p>
+
 <ul>
     <li>In the default configuration, the signal is delivered synchronously. This means that the throwing process instance waits until the signal is delivered to all catching process instances. The catching process instances are also notified in the same transaction as the throwing process instance, which means that if one of the notified instances produces a technical error (throws an exception), all involved instances fail.</li>
 
@@ -192,9 +163,7 @@ An asynchronous signal event would look like this:
 </script>
 
 
-
-
-<h1>Signal End Event</h1>
+<h2>Signal End Event</h2>
 
 <div class="bpmnContainer"  data-bpmn-symbol="endevent/signal" > </div>
 
@@ -208,5 +177,10 @@ A signal end event throws a signal event for a defined signal and the current pa
         <signalEventDefinition signalRef="newCustomerSignal" />
 </endEvent>
 </script>
-	
-</section>
+
+
+<h2>Additional Resources</h2>
+
+<ul>
+  <li><a href="http://camunda.org/design/reference.html#!/events/signal">Signal Events in the BPMN Tutorial</a></li>
+</ul>

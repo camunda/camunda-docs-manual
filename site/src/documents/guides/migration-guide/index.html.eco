@@ -1,12 +1,9 @@
 ---
 
 title: 'Migration Guide'
-layout: 'default'
+layout: 'navigated-docs'
+part: 'guides/migration-guide/chapters'
+
+searchable: true
 
 ---
-
-<div class="span12 docs docs-guide">
-  <h1>Migration Guide</h1>
-
-  <%- @include('./single-page.html.md.eco') %>
-</div>
