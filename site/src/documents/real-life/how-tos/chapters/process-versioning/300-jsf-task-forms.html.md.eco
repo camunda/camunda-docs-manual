@@ -9,6 +9,8 @@ category: 'Process Engine'
 
 If you add JSF forms as decribed below you can easily use them as [Referenced Task Form](<%= @docUrl('guides/user-guide/#tasklist-task-forms-referenced-task-forms') %>). 
 
+Working examples can be found in [our examples](<%= @docUrl('real-life/examples/') %>).
+
 The BPMN process used for this example is shown in the following picture:
 
 <center><img src="<%= @docUrl('assets/img/real-life/jsf-task-forms/task-form-process.png') %>" class="img-responsive"/></center>
