@@ -322,6 +322,12 @@ footer {
 
 /* sitebar navigation end **/
 
+.container-small {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
 .container-tiny {
   display: inline-block;
   width: 50px;
@@ -346,6 +352,11 @@ footer {
 
 .glassfish {
   background: url("../../assets/img/glassfish-tile.png");
+  background-size: contain;
+}
+
+.was8 {
+  background: url("../../assets/img/was8-tile.png");
   background-size: contain;
 }
 
