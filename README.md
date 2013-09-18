@@ -21,7 +21,7 @@ In order to start hacking the docs.camunda.org site, you first need to setup Doc
 
 Once all tools are installed, you can build the site:
 
-1. Open a terminal, navigate to the `site/` folder and type `npm update`.
+1. Open a terminal, navigate to the `site/` folder and type `npm install`.
 2. Run DocPad using `./node_modules/.bin/docpad run` or just `docpad run` if you installed it globally.
 3. Go to [http://localhost:9779/](http://localhost:9779/).
 
