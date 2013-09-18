@@ -2,6 +2,15 @@
 
 var docpadConfig = {
 
+  plugins: {
+    marked: {
+      markedOptions: {
+        pedantic: true,
+        gfm: true
+      }
+    }
+  },
+
   // Use to define your own template data and helpers that will be accessible to your templates
   // Complete listing of default values can be found here: http://docpad.org/docs/template-data
   templateData: {
@@ -127,6 +136,10 @@ var docpadConfig = {
     H2: function(text) { return this.heading('h2', text); },
     H3: function(text) { return this.heading('h3', text); },
     H4: function(text) { return this.heading('h4', text); },
+
+    /*******************************
+     * layout helpers
+     *******************************/
 
     getPreparedTitle: function() {
       var document = this.document,

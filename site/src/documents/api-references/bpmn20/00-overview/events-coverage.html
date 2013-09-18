@@ -1,0 +1,360 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-bpmn-events">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th colspan="3">Start</th>
+        <th colspan="4">Intermediate</th>
+        <th>End</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Normal</th>
+        <th>Event Subprocess</th>
+        <th>Event Subprocess<br/>non-interrupt</th>
+        <th>catch</th>
+        <th>boundary</th>
+        <th>boundary<br/>non-interrupt</th>
+        <th>throw</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#events-none-events">None</a></td>
+        <td>
+          <div data-bpmn-symbol="startevent">
+            <div id="1" title="since 7.0"></div>    
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediateevent">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="#events-message-events">Message</a></td>
+        <td>
+          <div data-bpmn-symbol="startevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/message-non"></div>
+        </td>         
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/message-non">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent/message">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="#events-timer-events">Timer</a></td>
+        <td>
+          <div data-bpmn-symbol="startevent/timer">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/timer"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/timer-non"></div>
+        </td>         
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/timer">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/timer">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/timer-non">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Conditional</td>
+        <td>
+          <div data-bpmn-symbol="startevent/conditional"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/conditional"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/conditional-non"></div>
+        </td>         
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/conditional"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/conditional"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/conditional-non"></div>
+        </td>
+        <td></td>
+        <td></td>
+      </tr> 
+      <tr>
+        <td><a href="#events-link-events">Link</a></td>
+        <td></td>
+        <td></td>
+        <td></td>       
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/link">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/link">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+      </tr>   
+      <tr>
+        <td><a href="#events-signal-events">Signal</a></td>
+        <td>
+          <div data-bpmn-symbol="startevent/signal"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/signal"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/signal-non"></div>
+        </td>         
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/signal">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/signal">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/signal-non">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/signal">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent/signal">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="#events-error-events">Error</a></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="startevent/error">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>         
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/error">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="endevent/error">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Escalation</td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="startevent/escalation"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/escalation-non"></div>
+        </td>         
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/escalation"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/escalation-non"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/escalation"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent/escalation"></div>
+        </td>
+      </tr> 
+      <tr>
+        <td>Termination</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="endevent/terminate">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr> 
+      <tr>
+        <td><a href="#events-cancel-and-compensation-events">Compensation</a></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="startevent/compensate"></div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/compensate">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/compensate">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent/compensate"></div>
+        </td>
+      </tr>         
+      <tr>
+        <td><a href="#events-cancel-and-compensation-events">Cancel</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/cancel">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <div data-bpmn-symbol="endevent/cancel">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>         
+        <td>Multiple</td>
+        <td>
+          <div data-bpmn-symbol="startevent/multiple">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/multiple"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/multiple-non"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multiple">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multiple">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multiple-non">
+            <div id="1" title="since 7.0"></div>
+          </div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatethrowevent/multiple"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="endevent/multiple"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Multiple Parallel</td>
+        <td>
+          <div data-bpmn-symbol="startevent/multipleParallel"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/multipleParallel"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="startevent/multipleParallel-non"></div>
+        </td>         
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multipleParallel"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multipleParallel"></div>
+        </td>
+        <td>
+          <div data-bpmn-symbol="intermediatecatchevent/multipleParallel-non"></div>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

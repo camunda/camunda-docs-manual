@@ -4,19 +4,55 @@
 
 !function ($) {
 
-  $(function(){
+  $(function() {
+
+    var uid = 0;
 
     var $window = $(window),
+        $body = $(document.body),
         path = window.location.pathname,
-        $body = $(document.body);
+        base = $("base").attr('app-base');
 
-    $window.on('load', function () {
-      $body.scrollspy('refresh')
-    });        
+    $body.scrollspy('refresh');
+
+    $('[data-bpmn-diagram]').each(function() {
+      var e = $(this),
+          name = e.attr('data-bpmn-diagram'),
+          uri = base + "assets/bpmn/" + name;
+      
+      e.addClass('bpmn-diagram-container');
+
+      e.children().each(function() {
+        var c = $(this);
+        if (!c.attr('id')) {
+          c.attr('id', 'generated' + uid++);
+        }
+      });
+      
+      bpmn(uri, e);
+    });
+
+    $('[data-bpmn-symbol]').each(function() {
+
+      var e = $(this),
+          bpmnSymbol = e.attr('data-bpmn-symbol'),
+          bpmnSymbolName = e.attr('data-bpmn-symbol-name');
+
+      e.addClass('bpmn-symbol-container');
+
+      e.children().each(function() {
+        var c = $(this);
+        if (!c.attr('id')) {
+          c.attr('id', 'generated' + uid++);
+        }
+      });
+
+      drawBpmnSymbol (bpmnSymbol, bpmnSymbolName, e);
+    });
 
     /*
      * Append modal dialog to enlarge the image.
-     */    
+     */
     $('[data-img-thumb]').each(function () {
       var current = $(this),
           id = 'dialog_' + current.attr('id'),
