@@ -230,7 +230,6 @@ var endEventStyle = {
 function makeHoverEffect (container, element, paper, raphaelElementId) {
 	// Position DIV Element (if exists)
 	$(container).find('#' + element.id).each(function() {
-		//alert ($(this).text());
 		$(this).css({
 			"position": "absolute",
 			"width": element.width + "px",
