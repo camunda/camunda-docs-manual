@@ -1,0 +1,44 @@
+---
+
+title: 'Examples'
+layout: 'default'
+
+---
+
+<div class="row" style="margin-top: 25px; margin-bottom: 25px">
+  <div class="col-md-1">
+  	<img src="<%= @docUrl('assets/img/git-hub.png') %>" class="img-responsive"/>
+  </div>
+  <div class="col-md-8">
+      <h2>Examples using camunda BPM on GitHub</h2>
+
+      We host our examples in this GitHub repo: <a href="https://github.com/camunda/camunda-bpm-examples">https://github.com/camunda/camunda-bpm-examples</a>.
+  </div>
+</div>
+
+<h2>Highlighted Examples</h2>
+
+The following table gives you a quick overview of the most useful examples. Note that <a href="https://github.com/camunda/camunda-bpm-examples">in GitHub</a> you will find more examples waiting for you.
+
+<table class="table table-bordered" style="margin-top: 25px">
+  <tr>
+    <th>Name &amp; Link</th>
+    <th>What does it demonstrate?</th>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/invoice-en">Incoming Invoice Process</a></td>
+    <td>Process Application using JSF and CDI; Process Diagram API</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/twitter">Twitter QA Process</a></td>
+    <td>Simple Process Application using embedded HTML forms</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/order-confirmation-rules">Order Confirmation Rules</a></td>
+    <td>Drools rule generated from self-made web-based rule table</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit-plugin-reporting">Cockpit Plugin "Reporting"</a></td>
+    <td>Plugin for cockpit showing some statistics</td>
+  </tr>
+</table>
