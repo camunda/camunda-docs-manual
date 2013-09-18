@@ -23,6 +23,9 @@
             <li data-active-link="/guides/migration-guide">
               <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
             </li>
+            <li data-active-link="/how-tos">
+              <a href="<%= @docUrl("how-tos/")%>">How-tos</a>
+            </li>            
           </ul>          
         </li>
         <li class="dropdown" data-active-link="/api-references">
@@ -60,6 +63,9 @@
             </li>
           </ul>          
         </li>
+          <li class="dropdown" data-active-link="/enterprise">
+            <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
+          </li>         
       </ul>
       <a class="pull-right navbar-brand back-to-main ir" href="http://camunda.org">back to camunda.org</a>   
     </nav>
