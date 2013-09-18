@@ -124,22 +124,32 @@ A CDI bean looks up the currently active activities in the [RuntimeService](/api
         return list;
       }
 
-This bean is then invoked by a JSF page, which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-bpm-examples/blob/master/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)):
+This bean is then invoked by a JSF page, which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-bpm-examples/blob/master/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)).
 
-    <div style="position: relative">
-      <img src="processDiagram?processDefinitionId=#{task.processDefinitionId}" />
-     
-      <ui:repeat value="#{processDiagramController.getActiveActivityBoundsOfLatestProcessInstance()}" var="bounds">
-        <img src="token.png" style="
-          position: absolute;
-          left: #{bounds.x + bounds.width - 25}px;
-          top: #{bounds.y - 15}px;
-          z-index: 1;
-        "/>
-      </ui:repeat>
-    </div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-java/process-diagram-api-token.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+  <pre><code>&lt;div style="position: relative"&gt;  
+ &lt;img src="processDiagram?processDefinitionId=#{task.processDefinitionId}" /&gt;
+ 
+ &lt;ui:repeat 
+  value="#{processDiagramController.getActiveActivityBoundsOfLatestProcessInstance()}" 
+  var="bounds"&gt;
+  &lt;img src="token.png" style="
+    position: absolute;
+    left: #{bounds.x + bounds.width - 25}px;
+    top: #{bounds.y - 15}px;
+    z-index: 1;"/&gt;
+  &lt;/ui:repeat&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
 
-However, you can also draw a rectangle around a node:
+
+However, you can also draw a rectangle around a node.
+
+<img src="<%= @docUrl('assets/img/implementation-java/process-diagram-api-rectangle.png') %>" class="img-responsive">
+
 
     <div style="position: relative">
         <p:graphicImage

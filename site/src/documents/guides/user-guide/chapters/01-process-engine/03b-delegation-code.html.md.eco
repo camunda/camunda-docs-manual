@@ -1,0 +1,40 @@
+---
+
+title: 'Delegation Code'
+category: 'Process Engine'
+
+---
+
+<%- @H2('Java Delegate') %>
+
+
+<%- @H2('Field Injection') %>
+
+
+<%- @H2('Execution Listener') %>
+
+
+<%- @H2('Task Listener') %>
+
+
+
+<%- @H2('Throwing Errors from Delegation Code') %>
+
+In the above example the error event is attached to a Service Task. In order to get this to work the Service Task has to throw the corresponding error. This is done by using a provided Java exception class from within your Java code (e.g. in the JavaDelegate):
+
+    public class BookOutGoodsDelegate implements JavaDelegate {
+      public void execute(DelegateExecution execution) throws Exception {
+        try {
+            ...
+        } catch (NotOnStockException ex) {
+            throw new BpmnError(NOT_ON_STOCK_ERROR);
+        }
+      }
+    }
+
+
+You can catch all exceptions as well
+
+    TODO Example
+
+<%- @H2('Activity Behavior') %>
