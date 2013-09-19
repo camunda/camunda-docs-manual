@@ -10,7 +10,7 @@ In order to configure and create a Process Engine you have different options:
 * *Application managed Process Engine:*
  * Programmatic Process Engine bootstrapping using the Java API: You can startup a Process Engine completely by plain Java code, more details below.
  * Create Process Engine using XML configuration: You can use an XML configuration (Spring) to configure and startup your Process Engine, more details below.
- * Create Process Engine using Spring: Spring can manage your Process Engine for you, see[Section on Spring Framework Integration](#programming-model-spring-framework-integration) for details.
+ * Create Process Engine using Spring: Spring can manage your Process Engine for you, see [Section on Spring Framework Integration](#spring-framework-integration) for details.
 
 <%- @H2('ProcessEngineConfiguration bean') %>
 
@@ -88,7 +88,7 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a ProcessEngin
 
 <%- @H2('Configure Process Engine in bpm-platform.xml') %>
 
-The [bpm-platform.xml](/api-references/deployment-descriptors/#!/descriptors/bpm-platform-xml) file is used to configure camunda BPM platform in the following distributions:
+The [bpm-platform.xml](<%= @docUrl('api-references/deployment-descriptors/#descriptors-bpm-platformxml') %>) file is used to configure camunda BPM platform in the following distributions:
 
 * Apache Tomcat
 * Glassfish Application Server
@@ -119,10 +119,10 @@ The `<process-engine ... />` xml tag allows defining a process engine:
 
     </bpm-platform>
 
-See [Deployment Descriptor Reference](/api-references/deployment-descriptors/#!/descriptors/bpm-platform-xml) for complete documentation of the syntax of the `bpm-platform.xml` file.
+See [Deployment Descriptor Reference](<%= @docUrl('api-references/deployment-descriptors/#descriptors-bpm-platformxml') %>) for complete documentation of the syntax of the `bpm-platform.xml` file.
 
 <%- @H2('Configure Process Engine in processes.xml') %>
 
-The process engine can also be configured and bootstrapped using the META-INF/processes.xml file. See [Section on processes.xml file](#processes-xml-configuring-process-engines) for details.
+The process engine can also be configured and bootstrapped using the META-INF/processes.xml file. See [Section on processes.xml file](#process-applications-the-processesxml-deployment-descriptor) for details.
 
-See [Deployment Descriptor Reference](/api-references/deployment-descriptors/#!/descriptors/processes-xml) for complete documentation of the syntax of the `processes.xml` file.
+See [Deployment Descriptor Reference](<%= @docUrl('api-references/deployment-descriptors/#descriptors-processesxml') %>) for complete documentation of the syntax of the `processes.xml` file.
