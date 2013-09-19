@@ -16,7 +16,7 @@ A process definition defines the structure of a process. You could say that the 
   <p>camunda BPM comes with two BPMN 2.0 References:
   <ul>
     <li>The <a href="http://www.camunda.org/design/reference.html#!/reference">BPMN 2.0 Modeling Reference</a> introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the <a href="http://www.camunda.org/design/tutorial.html">Tutorial</a> as well.)</li>
-    <li>The <a href="/api-references/bpmn20/">BPMN 2.0 Implementation Reference</a> covers the implementation of the individual BPMN 2.0 constructs in camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.</li>
+    <li>The <a href="<%= @docUrl('api-references/bpmn20/') %>">BPMN 2.0 Implementation Reference</a> covers the implementation of the individual BPMN 2.0 constructs in camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.</li>
   </p>
 </div>
 
@@ -34,11 +34,11 @@ You can query for all deployed process definitions using the Java API and the `P
 
 The above query returns all deployed process definitions for the key `invoice` ordered by their `version` property.
 
-You can also [query for process definitions using the REST API](/api-references/rest/#!/process-definition/get-query).
+You can also [query for process definitions using the REST API](<%= @docUrl('api-references/rest/#process-definition-get-definitions') %> ).
 
 <%- @H3('Keys and Versions') %>
 
-The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#process-engine-concepts-process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
+The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#process-engine-process-engine-concepts-process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
 
     <process id="invoice" name="invoice receipt" isExecutable="true">
       ...
@@ -54,7 +54,7 @@ Suspending a process definition disables it temporarily in that it cannot be ins
 
 A process instance is an individual execution of a process definition. The relation of the process instance to the process definition is the same as the relation between *Object* and *Class* in Object Oriented Programming (the process instance playing the role of the object and the process definition playing the role of the class in this analogy).
 
-The process engine is responsible for creating process instances and managing their state. If you start a process instance which contains a wait state, for example a [user task](/api-references/bpmn20/#!/tasks/user-task), the process engine must make sure that the state of the process instance is captured and stored inside a database until the wait state is left (the user task is completed).
+The process engine is responsible for creating process instances and managing their state. If you start a process instance which contains a wait state, for example a [user task](<%= @docUrl('api-references/bpmn20/#tasks-user-task') %>), the process engine must make sure that the state of the process instance is captured and stored inside a database until the wait state is left (the user task is completed).
 
 <%- @H3('Starting a Process Instance') %>
 
@@ -70,7 +70,7 @@ You may optionally pass in a couple of variables:
 
 Process variables are available to all tasks in a process instance and are automatically persisted to the database in case the process instance reaches a wait state.
 
-It is also possible to [start a process instance using the REST API](/api-references/rest/#!/process-definition/post-start-process-instance).
+It is also possible to [start a process instance using the REST API](<%= @docUrl('api-references/rest/#process-definition-start-process-instance') %>).
 
 <%- @H3('Querying for Process Instances') %>
 
@@ -83,15 +83,15 @@ You can query for all currently running process instances using the `ProcessInst
 
 The above query would select all process instances for the `invoice` process where the `creditor` is `Nice Pizza Inc.`.
 
-You can also [query for process instances using the REST API](/api-references/rest/#!/process-instance/get-query).
+You can also [query for process instances using the REST API](<%= @docUrl('api-references/rest/#process-instance-get-instances') %>).
 
 <%- @H3('Interacting with a Process Instance') %>
 
 Once you have performed a query for a particular process instance (or a list of process instances), you may want to interact with it. There are multiple possibilities to interact with a process instance, most prominently:
 
   * Triggering it (make it continue execution):
-      * Through a [Message Event](/api-references/bpmn20/#!/events/message-events)
-      * Through a [Signal Event](/api-references/bpmn20/#!/events/signal-events)
+      * Through a [Message Event](<%= @docUrl('api-references/bpmn20/#events-message-events') %>)
+      * Through a [Signal Event](<%= @docUrl('api-references/bpmn20/#events-signal-events') %>)
   * Canceling it:
       * Using the `RuntimeService.deleteProcessInstance(...)` method.
 
@@ -111,11 +111,11 @@ If you would like to suspend all process instances of a given process definition
 
 <%- @H2('Executions') %>
 
-If your process instance contains multiple execution paths (like for instance after a [parallel gateway](/api-references/bpmn20/#!/gateways/parallel-gateway)), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
+If your process instance contains multiple execution paths (like for instance after a [parallel gateway](<%= @docUrl('api-references/bpmn20/#-gateways-parallel-gateway') %>)), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
 
 <center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/parallel-gw.png') %>"/></center>
 
-Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process](/api-references/bpmn20/#!/subprocesses/embedded-subprocess) or in case of [Multi Instance](/api-references/bpmn20/#!/tasks/task-markers).
+Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process](<%= @docUrl('api-references/bpmn20/#subprocesses-embedded-subprocess') %> ) or in case of [Multi Instance](<%= @docUrl('api-references/bpmn20/#tasks-task-markers') %>).
 
 Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution.
 

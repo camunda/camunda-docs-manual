@@ -22,8 +22,8 @@ camunda BPM distinguishes between read-only and writable user repositories. A re
 
 In order to provide a custom identity provider implementation, the following interfaces can be implemented:
 
-* [org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider](http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html)
-* [org.camunda.bpm.engine.impl.identity.WritableIdentityProvider](http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html)
+* [org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider](http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html)
+* [org.camunda.bpm.engine.impl.identity.WritableIdentityProvider](http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html)
 
 <%- @H2('The Database Identity Service') %>
 
