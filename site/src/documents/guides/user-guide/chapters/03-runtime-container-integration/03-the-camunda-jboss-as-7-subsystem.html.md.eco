@@ -10,7 +10,7 @@ category: 'Runtime Container Integration'
     <strong>Distribution & Installation Guide</strong>
   </p>
    <p>If you <a href="http://www.camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss Subsystem is readily installed into the application server</p>
-   <p><a href="/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the camunda JBoss subsystem into your JBoss Server.</p>
+   <p><a href="<%= @docUrl('guides/installation-guide/jboss/') %>">Read the installation guide</a> in order to learn how to install the camunda JBoss subsystem into your JBoss Server.</p>
 </div>
 
 camunda BPM provides advanced integration for JBoss Application Server 7 in the form of a custom <a href="https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7">JBoss AS 7 Subsystem</a>.
@@ -126,14 +126,14 @@ You specify the process engine plugins in `standalone.xml` / `domain.xml` for ea
     </subsystem>
 
 You have to provide the fully qualified classname between the `<class>` tags. Additional properties can be specified using the `<properties>` element.
-The restrictions, which apply for [providing a custom process engine configuration class](#bpmplatform-container-jboss-custom-config), are also valid for the process engine plugins:
+The restrictions, which apply for [providing a custom process engine configuration class](#runtime-container-integration-the-camunda-jboss-as-7-subsystem-providing-a-custom-process-engine-configuration-class), are also valid for the process engine plugins:
 
  * plugin class must be visible in the classpath for the camunda-subsystem.
  * properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
 
 <%- @H2('Looking up a Process Engine in JNDI') %>
 
-The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#bpmplatform-container-jndi-platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -141,7 +141,7 @@ The global JNDI bindings for process engines follow the pattern
 
 If a process engine is named "engine1", it will be available using the name `java:global/camunda-bpm-platform/process-engine/engine1`.
 
-Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](#bpmplatform-container-jboss-services-explicit).
+Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](#runtime-container-integration-the-camunda-jboss-as-7-subsystem-explicit-service-dependencies).
 
 <div class="alert alert-warning">
   <p>
@@ -249,7 +249,7 @@ By default, the Application server will not add this module to the classpath of 
 
 <%- @H3('Implicit module dependencies with the Process Application API') %>
 
-When using the Process Application API (ie. when deploying either a <a href="#the-servlet-process-application">ServletProcessApplication</a> or an <a href="#the-ejb-process-application">EjbProcessApplication</a>), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+When using the Process Application API (ie. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
 
 <%- @H3('Explicit module dependencies') %>
 
@@ -292,7 +292,7 @@ There are three applications deployed and two process engine services exist. App
 
 <%- @H3('Implicit Service Dependencies') %>
 
-When using the Process Application API (ie. when deploying either a <a href="#the-servlet-process-application">ServletProcessApplication</a> or an <a href="#the-ejb-process-application">EjbProcessApplication</a>), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
+When using the Process Application API (ie. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
 
 <%- @H3('Explicit Service Dependencies') %>
 
