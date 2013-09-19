@@ -20,4 +20,4 @@ You might use the rule engine of your choice, on the open source side we made go
 
 * [Service Task](<%= @docUrl('api-references/bpmn20/') %>#tasks-service-task)
 * [Tasks in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)
-* [Demo using Drools on the Business Rule Task](https://app.camunda.com/confluence/display/foxUserGuide/Order+Confirmation+Rules)
+* [Demo using Drools on the Business Rule Task](https://github.com/camunda/camunda-bpm-examples/tree/master/order-confirmation-rules)

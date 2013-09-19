@@ -68,4 +68,4 @@ Consideristency on top of ACID transactions and optimistic concurrency: A bpmn t
 
 ## Additional Resources
 
-*   [Thread and Transaction Management](https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management)
+*   [Thread and Transaction Management](<%= @docUrl('guides/user-guide/#process-engine-transactions-in-processes') %>)

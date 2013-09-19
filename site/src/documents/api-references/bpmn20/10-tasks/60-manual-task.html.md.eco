@@ -14,7 +14,3 @@ A Manual Task defines a task that is external to the BPM engine. It is used to m
 ```xml
 <manualTask id="myManualTask" name="Manual Task" />
 ```
-
-## Additional Resources
-
-* [Tasks in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)

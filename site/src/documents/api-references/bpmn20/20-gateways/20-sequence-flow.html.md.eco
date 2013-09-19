@@ -73,7 +73,3 @@ Note the 'slash' marker at the beginning of the default sequence flow. The corre
 <sequenceFlow id="flow4" sourceRef="exclusiveGw" targetRef="theTask3" name="else">
 </sequenceFlow>
 ```
-
-## Additional Resources
-
-*   [Expression Language DEAD LINK?](#engine-expressions)
