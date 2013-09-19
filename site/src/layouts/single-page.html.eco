@@ -4,14 +4,32 @@ layout: 'plain-docs'
 
 ---
 
+
 <div class="cal-md-12">
   
-  <% for chapter in @document.chapters: %>
+  <% for chapter, i in @document.chapters: %>
     <div class="chapter-header">
-      <h1><%= chapter.title %></h1>
+      <h1>Chapter <%= i + 1 %>: <%= chapter.title %></h1>
     </div>
 
+
     <% part = @getPages(chapter.part) %>
+
+    <ol>
+      <% for category, j in part.categories: %>
+      <li>
+        <a href="#<%= @linkify(category.name) %>"><%= category.name %></a>
+        <ol style="list-style: lower-roman">
+          <% for page, k in category.pages: %>
+          <li>
+            <a href="#<%= @linkify(category.name, page.shortTitle) %>"><%= page.title %></a>
+          </li>
+          <% end %>
+        </ol>
+      </li>
+      <% end %>
+    </ol>
+
     <%- @partial('part-contents', @, { part: part }) %>
   <% end %>
 </div>

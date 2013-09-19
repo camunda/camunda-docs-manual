@@ -8,9 +8,9 @@ category: 'Cockpit'
 <div class="row">
   <div id="cockpit-process-instances-view" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-instances-view.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>Open the Process Instance View by selecting a process instance from the [Process Definitions View](#tools-cockpit-process-definitions-view) instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
-    <p>Beside the diagram view the process will be displayed as an [Activity Instance Tree View](#tools-cockpit-process-instance-view-activity-instance-tree). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools-cockpit-process-instance-view-detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
-  </div>  
+    <p>Open the Process Instance View by selecting a process instance from the <a href="#cockpit-process-definitions-view">Process Definitions View</a> instance list. This view allows you to drill down into a single process instance and explore it's running activities as well as the variables, tasks, jobs, etc.</p>
+    <p>Beside the diagram view the process will be displayed as an <a href="#cockpit-process-instance-detail-view-activity-instance-tree">Activity Instance Tree View</a>. Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel](#tools-cockpit-process-instance-view-detailed-information-panel). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree as well as the associated variables will be shown and vice versa.</p>
+  </div>
 </div>
 
 <%- @H2('Activity Instance Tree') %>
@@ -28,7 +28,7 @@ category: 'Cockpit'
   <div id="cockpit-detailed-information-panel" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-detailed-information-view.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>Use the Detailed Information Panel to get an overview about variables, incidents, called process instances and user tasks that the process instance contains. Depending on the selected activity instance in the rendered diagram the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.<br>
-    In addition to the instance information you can [edit variables](#tools-cockpit-process-instance-view-editing-variables) or change the asignee of user tasks.</p> 
+    In addition to the instance information you can <a href="#cockpit-process-instance-detail-view-editing-variables">edit variables</a> or change the asignee of user tasks.</p>
   </div>
 </div>
 
@@ -55,6 +55,6 @@ category: 'Cockpit'
 <div class="row">
   <div id="cockpit-cancel-process-instance" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-cancel-process-instance.png') %>"></div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    When you select a single process instance you can cancel it in the Process Instance View. <p>Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the [runtime data](#database-table-names) of the canceld instance will be deleted.
+    When you select a single process instance you can cancel it in the Process Instance View. <p>Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the runtime data of the canceld instance will be deleted.
   </div>
 </div>

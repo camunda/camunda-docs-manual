@@ -78,7 +78,7 @@
 
       <a class="navbar-brand navbar-right back-to-main ir" href="http://camunda.org">back to camunda.org</a>
 
-      <form class="navbar-form navbar-right" role="switch-docs-version">
+      <form class="navbar-form navbar-version navbar-right" role="switch-docs-version">
         <div class="form-group">
           <select onchange="window.location.href = this.value" style="margin: 6px">
           <% for version in @site.versions.all: %>

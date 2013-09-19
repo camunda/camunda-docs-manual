@@ -194,8 +194,14 @@ footer {
 }
 
 @media (max-width: 979px) {
-  .navbar-brand.back-to-main {
-    display: none;
+  .navbar-right {
+    display: none;  
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-version {
+    display: block;
   }
 }
 
@@ -516,6 +522,16 @@ h1[id], h2[id], h3[id], h4[id] {
 
 .chapter-header h1 {
   font-size: 64px;
+}
+
+@media print {
+  .chapter-header, .page-header {
+    page-break-before: always;
+  }
+
+  .chapter-header:first-child {
+    page-break-before: auto;
+  }
 }
 
 /** code fix for responsive ui */
