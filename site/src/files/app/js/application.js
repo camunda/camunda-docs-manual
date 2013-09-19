@@ -15,7 +15,6 @@
 
     // refresh scrollspy on load
     $window.on('load', function () {
-<<<<<<< HEAD
       $body.scrollspy('refresh');
     });
 
@@ -24,9 +23,6 @@
       $body.scrollspy('refresh');
       $body.scrollspy('process');
     });        
-=======
-      $body.scrollspy('refresh')
-    });
 
     $('[data-bpmn-diagram]').each(function() {
       var e = $(this),
@@ -62,7 +58,6 @@
 
       drawBpmnSymbol (bpmnSymbol, bpmnSymbolName, e);
     });
->>>>>>> f4419af59857b7a98efa65149e38d9e37ac66217
 
     /*
      * Append modal dialog to enlarge the image.

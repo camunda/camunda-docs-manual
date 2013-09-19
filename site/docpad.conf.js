@@ -37,7 +37,7 @@ var docpadConfig = {
 
         "assets/vendor/google-code-prettify/prettify.min.js",
 
-        "assets/vendor/bootstrap/js/bootstrap.js",
+        "assets/vendor/bootstrap/js/bootstrap.min.js",
 
         "app/js/application.js",
 
