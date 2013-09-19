@@ -8,7 +8,7 @@ keywords: 'historic get query list'
 ---
 
 
-Query for historic process instances that fulfill the given parameters. 
+Query for historic process instances that fulfill the given parameters.
 The size of the result set can be retrieved by using the [get historic process instances count](#history-get-process-instances-count) method.
 
 
@@ -19,8 +19,8 @@ GET `/history/process-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -86,12 +86,12 @@ Parameters
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.      
+    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -182,7 +182,7 @@ Each historic process instance object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -209,7 +209,7 @@ Example
 #### Request
 
 GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=2013-04-01T23:59:59`
-  
+
 #### Response
 
     [{"id": "aProcInstId",
