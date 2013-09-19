@@ -55,7 +55,7 @@ The following properties can be set, regardless of whether you are using the JDB
 
 <div class="alert alert-warning">
   <strong>Supported Databases: </strong>
-  <p>For information on supported databases please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Supported+environments">Supported Environments</a>.</p>
+  <p>For information on supported databases please refer to <a href="#introduction-supported-environments">Supported Environments</a>.</p>
 </div>
 
 Here are some sample JDBC urls:
@@ -67,7 +67,15 @@ Here are some sample JDBC urls:
 * db2: jdbc:db2://localhost:50000/camunda
 * mssql: jdbc:sqlserver://localhost:1433/camunda
 
-For more information on the database setup please refer to <a href="https://app.camunda.com/confluence/display/foxUserGuide/Database+Setup">Database Setup</a>
+<%- @H2('Database Table Names Explained') %>
+
+The table names all start with ACT. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
+
+* ACT\_RE\_*: 'RE' stands for repository. Tables with this prefix contain 'static' information such as process definitions and process resources (images, rules, etc.).
+* ACT\_RU\_*: 'RU' stands for runtime. These are the runtime tables, that contain the runtime data of process instances, user tasks, variables, jobs, etc. The engine only stores the runtime data during process instance execution, and removes the records when a process instance ends. This keeps the runtime tables small and fast.
+* ACT\_ID\_*: 'ID' stands for identity. These tables contain identity information, such as users, groups, etc.
+* ACT\_HI\_*: 'HI' stands for history. These are the tables that contain historic data, such as past process instances, variables, tasks, etc.
+* ACT\_GE\_*: general data, which is used in various use cases.
 
 <%- @H2('Additional database schema configuration') %>
 

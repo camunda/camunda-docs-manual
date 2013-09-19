@@ -5,16 +5,16 @@ category: 'Process Engine'
 
 ---
 
-The process engine configuration can be extended through process engine plugins. A process engine plugin is an extension to the [process engine configuration](#process-engine-configuration-bean).
+The process engine configuration can be extended through process engine plugins. A process engine plugin is an extension to the [process engine configuration](#process-engine-process-engine-bootstrapping).
 
-A plugin must provide an implementation of the <a href="http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a> interface.
+A plugin must provide an implementation of the <a href="<%= @docUrl('api-references/javadoc/org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html') %>">ProcessEnginePlugin</a> interface.
 
 <%- @H2('Configuring Process Engine Plugins') %>
 
 Process engine plugins can be configured
 
-* in the [BPM Platform Deployment Descriptors](/api-references/deployment-descriptors/) (bpm-platform.xml / processes.xml),
-* in [JBoss Application Server 7 configuration file](#bpmplatform-container-jboss-process-engine-plugins) (standalone.xml / domain.xml)
+* in the [BPM Platform Deployment Descriptors](<%= @docUrl('api-references/deployment-descriptors/')%>) (bpm-platform.xml / processes.xml),
+* in [JBoss Application Server 7 configuration file](#runtime-container-integration-the-camunda-jboss-as-7-subsystem) (standalone.xml / domain.xml)
 * using Spring Beans XML,
 * programatically.
 
@@ -54,6 +54,6 @@ A process engine plugin class must be visible to the classloader which loads the
 
 The following is a list of built-in process engine plugins:
 
-* [LDAP Identity Service Plugin](#bpmplatform-engine-identity-ldap)
-* [Administrator Authorization Plugin](#bpmplatform-engine-authorization-plugin)
-* [Process Application Event Listener Plugin](#bpmplatform-application-events)
+* [LDAP Identity Service Plugin](#process-engine-identity-service-the-ldap-identity-service)
+* [Administrator Authorization Plugin](#process-engine-authorization-service-the-administrator-authorization-plugin)
+* [Process Application Event Listener Plugin](#process-applications-process-application-event-listeners)

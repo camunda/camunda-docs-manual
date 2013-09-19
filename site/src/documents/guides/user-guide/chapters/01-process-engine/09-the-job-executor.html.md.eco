@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#transaction-boundaries)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#process-engine-transactions-in-processes)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
 
 <center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/job-executor-basic-architecture.png') %>"/></center>
 
@@ -23,11 +23,11 @@ in the process engine configuration when you don't want the JobExecutor to be ac
 
 Job acquisition is the process of retrieving jobs from the database that are to be executed next. Therefore jobs must be persisted to the database together with properties determining whether a job can be executed. For example, a job created for a timer event may not be executed before the defined time span has passed.
 
-<%- @H3('Persistency') %>
+<%- @H3('Persistence') %>
 
-Jobs are persisted to the database, in the ACT_RU_JOB table. This database table has the following columns (among others):
+Jobs are persisted to the database, in the `ACT_RU_JOB` table. This database table has the following columns (among others):
 
-  ID_ | REV_ | LOCK_EXP_TIME_ | LOCK_OWNER_ | RETRIES_ | DUEDATE_
+    ID_ | REV_ | LOCK_EXP_TIME_ | LOCK_OWNER_ | RETRIES_ | DUEDATE_
 
 Job acquisition is concerned with polling this database table and locking jobs.
 
@@ -35,9 +35,9 @@ Job acquisition is concerned with polling this database table and locking jobs.
 
 A job is acquirable, i.e. a candidate for execution, if
 
-* it is due, meaning that the value in the DUEDATE&#95; column is in the past
-* it is not locked, meaning that the value in the LOCK&#95;EXP&#95;TIME&#95; column is in the past
-* its retries have not elapsed, meaning that the value in the RETRIES&#95; column is greater than zero.
+* it is due, meaning that the value in the DUEDATE_ column is in the past
+* it is not locked, meaning that the value in the LOCK_EXP_TIME_ column is in the past
+* its retries have not elapsed, meaning that the value in the RETRIES_ column is greater than zero.
 
 In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
 
