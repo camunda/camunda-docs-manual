@@ -111,11 +111,11 @@ If you would like to suspend all process instances of a given process definition
 
 <%- @H2('Executions') %>
 
-If your process instance contains multiple execution paths (like for instance after a [parallel gateway](<%= @docUrl('api-references/bpmn20/#-gateways-parallel-gateway') %>)), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
+If your process instance contains multiple execution paths (like for instance after a <a href="<%= @docUrl('api-references/bpmn20/#gateways-parallel-gateway') %>">parallel gateway</a>), you must be able to differentiate the currently active paths inside the process instance. In the following example, two user tasks *receive payment* and *ship order* can be active at the same time.
 
 <center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/parallel-gw.png') %>"/></center>
 
-Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process](<%= @docUrl('api-references/bpmn20/#subprocesses-embedded-subprocess') %> ) or in case of [Multi Instance](<%= @docUrl('api-references/bpmn20/#tasks-task-markers') %>).
+Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a <a href="<%= @docUrl('api-references/bpmn20/#subprocesses-subprocess-embedded') %>">Embedded Sub Process</a> or in case of <a href="<%= @docUrl('api-references/bpmn20/#tasks-task-markers') %>">Multi Instance</a>.
 
 Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution.
 
@@ -137,7 +137,7 @@ You can query for executions using the `ExecutionQuery` offered by the `RuntimeS
 
 The above query returns all executions for a given process instance.
 
-You can also [query for executions using the REST API](/api-references/rest/#!/execution/get-query).
+You can also [query for executions using the REST API](<%= @docUrl('api-references/rest/#execution-get-executions') %>).
 
 <%- @H2('Activity Instances') %>
 
@@ -157,7 +157,7 @@ Currently activity instances can only be retrieved for a process instance:
 
     ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());
 
-You can <a href="/api-references/rest/#!/process-instance/get-activity-instances">retrieve the activity instance tree using the REST API</a> as well.
+You can <a href="<%= @docUrl('api-references/rest/#process-instance-get-activity-instance') %>">retrieve the activity instance tree using the REST API</a> as well.
 
 <%- @H3('Identity & Uniqueness') %>
 
