@@ -580,7 +580,8 @@ code {
   right: 0;
   left: 0;
   z-index: 1000;
-  min-height: 49px;
+  min-height: 47px;
+  box-shadow: 0 0 4px #FFF;
 }
 
 .breadcrumb>li {
