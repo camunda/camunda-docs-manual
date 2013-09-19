@@ -107,4 +107,4 @@ The errorCode is used to match the errors that are caught:
 ## Additional Resources
 
 *   [Error Events in the BPMN Tutorial](http://camunda.org/design/reference.html#!/events/error)
-*   [Error Handling](https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling)
+*   [Error Handling](<%= @docUrl('guides/user-guide/#process-engine-transactions-in-processes ') %>)

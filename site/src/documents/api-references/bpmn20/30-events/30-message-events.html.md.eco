@@ -7,61 +7,58 @@ keywords: 'message start intermediate catching boundary intermediate throwing en
 
 ---
 
-
 Message events are events which reference a named message. A message has a name and a payload. Unlike a signal, a message event is always directed at a single receiver.
 
 A message event definition is declared using the messageEventDefinition element. The attribute messageRef references a message element declared as a child element of the definitions root element. The following is an excerpt of a process where two message events is declared and referenced by a start event and an intermediate catching message event.
   
-<div class="app-source" app-source-no-tabs="message-event1" ></div>
+```xml
+<definitions id="definitions" 
+  xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:camunda="http://activiti.org/bpmn"
+  targetNamespace="Examples"
+  xmlns:tns="Examples">
+  
+  <message id="newInvoice" name="newInvoiceMessage" />
+  <message id="payment" name="paymentMessage" />
+  
+  <process id="invoiceProcess">  
+  
+    <startEvent id="messageStart" >
+        <messageEventDefinition messageRef="newInvoice" />
+    </startEvent>
+    ...    
+    <intermediateCatchEvent id="paymentEvt" >
+        <messageEventDefinition messageRef="payment" />
+    </intermediateCatchEvent>
+    ...
+  </process>
+</definitions>
+```
 
-<script type="text/xml" id="message-event1"> 
-  <definitions id="definitions" 
-    xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-    xmlns:camunda="http://activiti.org/bpmn"
-    targetNamespace="Examples"
-    xmlns:tns="Examples">
-    
-    <message id="newInvoice" name="newInvoiceMessage" />
-    <message id="payment" name="paymentMessage" />
-    
-    <process id="invoiceProcess">  
-    
-      <startEvent id="messageStart" >
-          <messageEventDefinition messageRef="newInvoice" />
-      </startEvent>
-      ...    
-      <intermediateCatchEvent id="paymentEvt" >
-          <messageEventDefinition messageRef="payment" />
-      </intermediateCatchEvent>
-      ...
-    </process>
-  </definitions>
-</script>
-
-## Triggering Message Events
+<%- @H2('Triggering Message Events') %>
 
 As an embeddable process engine, the camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entail platform-specific activities like connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
 
 After you have received a message, you can choose whether you employ the engine's in-built correlation or explicitly deliver the message to start a new process instance or trigger a waiting execution.
 
-### Using the runtime service's correlation methods
+
+
+<%- @H3('Using the runtime service\'s correlation methods') %>
 
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. You can choose from these methods in the runtime service:
 
-<div class="app-source" app-source-no-tabs="message-event2"></div>
+```java
+void correlateMessage(String messageName);
+void correlateMessage(String messageName, String businessKey);
+void correlateMessage(String messageName, Map<String, Object> correlationKeys);
+void correlateMessage(String messageName, String businessKey, Map<String, Object> processVariables);
+void correlateMessage(String messageName, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
+void correlateMessage(String messageName, String businessKey, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
+```
 
-<script type="text/xml" id="message-event2"> 
-  void correlateMessage(String messageName);
-  void correlateMessage(String messageName, String businessKey);
-  void correlateMessage(String messageName, Map<String, Object> correlationKeys);
-  void correlateMessage(String messageName, String businessKey, Map<String, Object> processVariables);
-  void correlateMessage(String messageName, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
-  void correlateMessage(String messageName, String businessKey, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
-</script>
+The `messageName` identifies the message as defined in the message name attribute in the process definition xml.
 
-The <code>messageName</code> identifies the message as defined in the message name attribute in the process definition xml.
 Correlation is successful, if there exists a single matching entity among the following:
-
 
 * __Process Definition__: A process definition matches, if it can be started by a message named `messageName`.
 * __Execution (Process Instance)__: An execution matches, if it is waiting for a message named `messageName` and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables.
@@ -70,7 +67,7 @@ Correlation is successful, if there exists a single matching entity among the fo
 <div class="alert alert-warning">
   <strong>Current limitation:</strong>
   
-  <code>correlationKeys</code> is matched against process instance variables only. These are variables that are globally visible throughout the process instance.
+  `correlationKeys` is matched against process instance variables only. These are variables that are globally visible throughout the process instance.
 
   Accordingly, variables that are defined in the scope of a child execution (e.g. in a subprocess) are not considered for correlation.
 </div>
@@ -78,63 +75,59 @@ Correlation is successful, if there exists a single matching entity among the fo
 In case of successful correlation, the correlated or newly created process instance is updated with the variables from the `processVariables` map.
 
 
-### Explicitly delivering a message
+<%- @H3('Explicitly delivering a message') %>
 
 Alternatively, you can explicitly deliver a message to start a process instance or trigger a waiting execution.
 
 If the message should trigger the start of a new process instance, choose between the following methods offered by the runtime service:
 
-<div class="app-source" app-source-no-tabs="message-event3"></div>
-
-<script type="text/xml" id="message-event3"> 
-  ProcessInstance startProcessInstanceByMessage(String messageName);
-  ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
-  ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object> processVariables);
-</script>
+```java
+ProcessInstance startProcessInstanceByMessage(String messageName);
+ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
+ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object> processVariables);
+```
 
 These methods allow starting a process instance using the referenced message.
 
 If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the wating execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
   
-<div class="app-source" app-source-no-tabs="message-event4" ></div>
-
-<script type="text/xml" id="message-event4"> 
-  void messageEventReceived(String messageName, String executionId);
-  void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);    
-</script>
+```java
+void messageEventReceived(String messageName, String executionId);
+void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);    
+```
 
 
-### Querying for Message Event subscriptions
+
+<%- @H3('Querying for Message Event subscriptions') %>
 
 The engine supports message start events and intermediate message events.
 
 In the case of a message start event, the message event subscription is associated with a particular process definition. Such message subscriptions can be queried using a ProcessDefinitionQuery:
 
-<div class="app-source" app-source-no-tabs="message-event5" ></div>
-<script type="text/xml" id="message-event5"> 
-  ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
-          .messageEventSubscription("newCallCenterBooking")
-          .singleResult();
-</script>
+```java
+ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
+        .messageEventSubscription("newCallCenterBooking")
+        .singleResult();
+```
 
 Since there can only be one process definition for a specific message subscription, the query always returns zero or one results. If a process definition is updated, only the newest version of the process definition has a subscription to the message event.
 
 In the case of an intermediate catch message event, the message event subscription is associated with a particular execution. Such message event subscriptions can be queried using a ExecutionQuery:
 
-<div class="app-source" app-source-no-tabs="message-event6" ></div>
-<script type="text/xml" id="message-event6"> 
+```java
 Execution execution = runtimeService.createExecutionQuery()
       .messageEventSubscriptionName("paymentReceived")
       .processVariableValueEquals("orderId", message.getOrderId())
       .singleResult();
-</script>
+```
 
 Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be at most one process instance for a given orderId). 
 
 
-## Receiving Message Events</h1>	
+
+<%- @H2('Receiving Message Events') %>
   
-### Message Start Event
+<%- @H3('Message Start Event') %>
 
 A message start event can be used to start a process instance using a named message. This effectively allows us to select the right start event from a set of alternative start events using the message name.
 
@@ -146,13 +139,11 @@ When deploying a process definition with one or more message start events, the f
 
 When starting a process instance, a message start event can be triggered using the following methods on the RuntimeService:
 
-<div class="app-source" app-source-no-tabs="message-event7" ></div>
-
-<script type="text/xml" id="message-event7"> 
-  ProcessInstance startProcessInstanceByMessage(String messageName);
-  ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
-  ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object< processVariables); 
-</script>
+```java
+ProcessInstance startProcessInstanceByMessage(String messageName);
+ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
+ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object< processVariables); 
+```
 
 The messageName is the name given in the name attribute of the message element referenced by the messageRef attribute of the messageEventDefinition. The following considerations apply when starting a process instance:
 
@@ -167,9 +158,7 @@ The messageName is the name given in the name attribute of the message element r
 
 The XML representation of a message start event is the normal start event declaration with a messageEventDefinition child-element:
 
-<div class="app-source" app-source-no-tabs="message-event8"></div>
-
-<script type="text/xml" id="message-event8"> 
+```xml
 <definitions id="definitions" 
   xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
   xmlns:camunda="http://activiti.org/bpmn"
@@ -187,33 +176,32 @@ The XML representation of a message start event is the normal start event declar
   </process>
 
 </definitions>
-</script>
+```
 
 A process can be started using one of two different messages, this is useful if the process needs alternative ways to react to different start events but eventually continues in a uniform way. 
 
-<div id="event-message-start-alternative" style="position:relative" data-bpmn-src="implement/event-message-start-alternative" > </div>
+<div data-bpmn-diagram="implement/event-message-start-alternative" > </div>
 
 
-### Message Intermediate Catching Event
+<%- @H3('Message Intermediate Catching Event') %>
+
 
 When a token arrives at the message intermediate catching event it will wait there until a message with the proper name arrives. As already described the message must be handed into the engine via the appropriate API calls.
 
 The following example shows different message events in a process model:
 
-<div id="event-message" style="position:relative" data-bpmn-src="implement/event-message"></div>
+<div data-bpmn-diagram="implement/event-message"></div>
 
-<div class="app-source" app-source-no-tabs="message-event9" ></div>
-
-<script type="text/xml" id="message-event9"> 
+```xml
 <intermediateCatchEvent id="message">
         <messageEventDefinition signalRef="newCustomerMessage" />
 </intermediateCatchEvent>
-</script>
+```
  
-Instead of the message intermediate catching event you might want to think about a <a href="#!/tasks/receive-task">Receive Task</a> instead which can serve similar purposes, but is able to be used in combination with boundary events. Together with the  message intermediate catching event you might want to use the <a href="#!/gateways/event-based-gateway">Event-based Gateway</a>.
+Instead of the message intermediate catching event you might want to think about a <a href="#tasks-receive-task">Receive Task</a> instead which can serve similar purposes, but is able to be used in combination with boundary events. Together with the  message intermediate catching event you might want to use the <a href="#gateways-event-based-gateway">Event-based Gateway</a>.
 
 
-### Message Boundary Event
+<%- @H3('Message Boundary Event') %>
 
 Boundary events are catching events that are attached to an activity. This means that while the activity is running, the message boundary event is listening for named message. When this is caught, two things might happen depending on the configuration of the boundary event:
   
@@ -221,35 +209,29 @@ Boundary events are catching events that are attached to an activity. This means
 * Non-interrupting boundary event: One token stays in the activity and an additional token is created which follows the sequence flow going out of the event.
 
 
-## Sending Message Events
+<%- @H2('Sending Message Events') %>
 
-### Message Intermediate Throwing Event
+
+
+<%- @H3('Message Intermediate Throwing Event') %>
 
 Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a [service task](#tasks-service-task).
 
-<div id="event-message-throwing" style="position:relative" data-bpmn-src="implement/event-message-throwing" > </div>
+<div data-bpmn-diagram="implement/event-message-throwing" > </div>
   
-<div class="app-source" app-source-no-tabs="message-event10" ></div>
-<script type="text/xml" id="message-event10"> 
+```xml
 <intermediateThrowEvent id="message">
   <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />
 </intermediateThrowEvent>
-</script>  
+```
 
 
-### Message End Event
+<%- @H2('Message End Event') %>
 
 When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a [service task](#tasks-service-task).
 
-<div class="app-source" app-source-no-tabs="message-event11" ></div>
-
-<script type="text/xml" id="message-event11"> 
+```xml
 <endEvent id="end">
   <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />
 </endEvent>
-</script>
-
-
-## Additional Resources
-
-* [Message Events in the BPMN Tutorial](http://camunda.org/design/reference.html#!/events/message)
+```

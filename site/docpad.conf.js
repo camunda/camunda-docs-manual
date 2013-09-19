@@ -18,6 +18,14 @@ var docpadConfig = {
     //// Site Properties /////////////////////////////////////
     site: {
 
+      versions: {
+        current: '7.0',
+        all: [
+          { id: 'latest', name: 'Latest' },
+          { id: '7.0', name: '7.0 (stable)' }
+        ]
+      },
+
       // The production url of our website
       url: "http://docs.camunda.org",
 
