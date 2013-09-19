@@ -1,74 +1,19 @@
-How to develop a cockpit plugin
-===============================
+---
 
-In this how to we will walk through the steps needed to develop a cockpit plugin. In the course we will develop a simple plugin that displays the number of process instances per deployed process definition on the dashboard page of cockpit.
+title: 'How to develop a cockpit plugin'
+category: 'Cockpit'
 
-The result will look similar to the screenshot shown below.
+---
 
-<img src="./cockpit-plugin.png" style=" margin-bottom: 30px; border: solid 1px #666;" alt="Cockpit architecture with plugins" title="Cockpit architecture with plugins" />
+In this how to we will walk through the steps needed to develop a cockpit plugin. In the course we will develop a simple plugin that displays the number of process instances per deployed process definition on the dashboard page of cockpit:
 
-
-The nature of a cockpit plugin
-------------------------------
-
-A cockpit plugin is a maven jar project that is included in the cockpit webapplication as a library dependency. It provides a server-side and a client-side extension to cockpit.
-
-The integration of a plugin into the overall cockpit architecture is depicted in the following figure.
-
-![Cockpit architecture with plugins](architecture.png "Cockpit architecture with plugins")
-
-On the server-side, it can extend cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the cockpit API and expose data to the client-side part of the plugin.
-
-On the client-side a plugin may include [AngularJS](http://angularjs.org/) modules to extend the cockpit webapplication. Via those modules a plugin provides custom views and services.
+<center><img src="<%= @docUrl('assets/img/real-life/cockpit-plugins/cockpit-plugin.png') %>" class="img-responsive"/></center>
 
 
-### File structure
-
-The basic skeleton of a cockpit plugin looks as follows:
-
-    cockpit-plugin/
-    ├── src/
-    |   ├── main/
-    |   |   ├── java/
-    |   |   |   └── org/my/plugin/
-    |   |   |       ├── db/
-    |   |   |       |   └── MyDto.java                                    (5)
-    |   |   |       ├── resource/
-    |   |   |       |   ├── MyPluginRootResource.java                     (3)
-    |   |   |       |   └── ...                                           (4)
-    |   |   |       └── MyPlugin.java                                     (1)
-    |   |   └── resources/
-    |   |       ├── META-INF/services/
-    |   |       |   └── org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
-    |   |       └── org/my/plugin/
-    |   |           ├── queries/
-    |   |           |   └── sample.xml                                    (6)
-    |   |           └── assets/app/                                       (7)
-    |   |               └── app/
-    |   |                   ├── plugin.js                                 (8)
-    |   |                   ├── view.html
-    |   |                   └── ...
-    |   └── test/
-    |       ├── java/
-    |       |   └── org/my/plugin/
-    |       |       └── MyPluginTest.java
-    |       └── resources/
-    |           └── camunda.cfg.xml
-    └── pom.xml
-
-As runtime relevant resources it defines
-
-1. a plugin main class
-2. a `META-INF/services` entry that publishes the plugin to cockpit
-3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API
-4. other resources that are part in the server-side API
-5. data transfer objects used by the resources
-6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
-7. resource directory from which client-side plugin assets are served as static files
-8. a main file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment
-
-The following sections will expand on the specific files and their purpose.
-
+<div class="alert alert-warning">
+      <strong>Heads-Up</strong>
+      <p>Please have a look at [Cockpit Plugins](<%= @docUrl('guides/user-guide/#cockpit-plugins') %>) for the basics first.</p>
+</div>
 
 Server side
 -----------
