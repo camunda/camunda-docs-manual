@@ -12,9 +12,15 @@ A start event is a trigger for starting a process instance.
 
 The engine supports the following types of start events:<br>
 
-<div data-bpmn-symbol="startevent"><a href="#events-none-events">Blank</a></div><br>
-<div data-bpmn-symbol="startevent/timer"><a href="#events-timer-events">Timer</a></div><br>
-<div data-bpmn-symbol="startevent/message"><a href="#events-message-events">Message</a></div><br>
+<p>
+	<div data-bpmn-symbol="startevent"><a href="#events-none-events">Blank</a></div>
+</p
+<p>
+	<div data-bpmn-symbol="startevent/timer"><a href="#events-timer-events">Timer</a></div>
+</p>
+<p>
+	<div data-bpmn-symbol="startevent/message"><a href="#events-message-events">Message</a></div>
+</p>
 
 
 There can be at most one blank or timer start event per process definition. There can be multiple message start events.

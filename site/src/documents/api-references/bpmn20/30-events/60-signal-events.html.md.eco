@@ -79,7 +79,9 @@ We could then use the signalEventReceived(String signalName, String executionId)
 
 A signal event can be caught by an intermediate catch signal event or a signal boundary event.
 
+<p>
 <div data-bpmn-symbol="intermediatecatchevent/signal" />
+</p>
 
 Note: contrary to other events like the boundary error event, a boundary signal event does not only catch signal events thrown from the scope it is attached to. On the contrary, a signal event has global scope (broadcast semantics) meaning that the signal can be thrown from any place, even from a different process instance.
 
