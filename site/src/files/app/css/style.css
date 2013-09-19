@@ -524,6 +524,16 @@ h1[id], h2[id], h3[id], h4[id] {
   font-size: 64px;
 }
 
+@media print {
+  .chapter-header, .page-header {
+    page-break-before: always;
+  }
+
+  .chapter-header:first-child {
+    page-break-before: auto;
+  }
+}
+
 /** code fix for responsive ui */
 code {
   white-space: normal;
