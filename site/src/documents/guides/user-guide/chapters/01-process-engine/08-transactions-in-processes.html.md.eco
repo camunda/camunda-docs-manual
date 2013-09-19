@@ -5,9 +5,17 @@ category: 'Process Engine'
 
 ---
 
-A process engine is a set of objects which are initialized and wait for threads that want to perform work in a particular process instance. It is essentially a passive component triggered only by these threads. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance.
+The process engine is a piece of passive Java Code, which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
 
-On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. More concretely speaking it performs a depth-first traversal through the process graph and returns if it has reached wait states on every branch of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#job-executor), which is able to fetch registered jobs and process them asynchronously.
+
+On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#job-executor), which is able to fetch registered jobs and process them asynchronously.
+
+
+<%- @H2('Wait States') %>
+
+ We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are wait states:
+
+     TODO Merge list from https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management#ThreadandTransactionManagement-PersistentWaitStates
 
 <%- @H2('Transaction Boundaries') %>
 
@@ -35,3 +43,27 @@ So behind the scenes, when we reach the *generate invoice* task, we are persisti
 
 A start event may also be declared as asynchronous in the same way as above by the attribute `camunda:async="true"`. On instantiation, the process instance will be created and persisted in the database, but execution will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful in various situations such as [heterogeneous clusters](#job-execution-heterogeneous-clusters), when the execution listener class is not available on the node that instantiates the process.
 
+<%- @H2('Rollback on Exception') %>
+
+We want to emphasis that in case of a non handled exception the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
+
+<center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/transactions-3.png') %>"/></center>
+
+If an exception occurs when calling `startProcessInstanceByKey` the process instance will not be saved to the database at all.
+
+<%- @H2('Reasoning for this design') %>
+
+The above sketched solution normally leads to discussion as people expect the process engine to stop in the task caused an exception. Also other BPM suites often implement every task as wait state. But the approach has a couple of **advantages**:
+
+ * In Testcases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
+ * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the Tutorial "UI Mediator".
+ * The execution is plain Java computing which is very efficient and performant.
+ * You can always switch to 'async=true' if you need different behavior.
+
+But there are consequences which you should keep in mind:
+
+ * In case of Exceptions the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client. 
+ * Parallel process paths are not executed parallelly in terms of Java Threads, the different paths are executed sequentially, since we only have and use one Thread.
+ * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. But in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
+
+<img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/NotWorkingTimerOnServiceTimeout.png') %>"/>

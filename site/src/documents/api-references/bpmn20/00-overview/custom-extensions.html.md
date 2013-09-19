@@ -1,7 +1,7 @@
 ---
 
-title: 'Custom Extensions'
-category: 'Concepts'
+title: 'BPMN 2.0 Custom Extensions'
+category: 'Overview'
 
 ---
 

@@ -11,7 +11,7 @@ layout: 'default'
   </div>
   <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="<%= @docUrl("guides/")%>">
         <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
       </a>
@@ -28,7 +28,7 @@ layout: 'default'
       </ul>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <a href="<%= @docUrl("api-references/")%>">
         <img src="<%= @docUrl('assets/img/welcome/reference.png') %>" />
       </a>
@@ -46,8 +46,23 @@ layout: 'default'
       </ul>
     </div>
 
+    <div class="col-md-3">
+      <a href="<%= @docUrl("real-life/")%>">
+        <img src="<%= @docUrl('assets/img/welcome/real-life.png') %>" />
+      </a>
+      <h2>
+        <a href="<%= @docUrl("real-life/")%>">
+          Real-Life
+        </a>
+      </h2>
+      <ul>
+        <li><a href="<%= @docUrl("real-life/examples/")%>">Examples</a></li>
+        <li><a href="<%= @docUrl("real-life/how-to/")%>">Tutorials &amp; How-tos</a></li> 
+      </ul>
+    </div>
 
-    <div class="col-md-4">
+
+    <div class="col-md-3">
       <a href="<%= @docUrl("incubation/")%>">
         <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
       </a>

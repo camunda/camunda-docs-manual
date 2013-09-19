@@ -16,5 +16,6 @@ layout: 'default'
     <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
     <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
     <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
+    <li><a href="<%= @docUrl("how-tos/")%>">How-tos</a></li>
   </ul>
 </div>
