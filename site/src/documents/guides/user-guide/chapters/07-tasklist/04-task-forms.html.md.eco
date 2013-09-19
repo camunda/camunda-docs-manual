@@ -47,6 +47,18 @@ The tasklist creates the URL by the pattern:
 
 When you have completed the task the call back URL will be called.
 
+<div class="alert alert-info">
+  <div class="row">
+    <div class="col-md-1">
+      <img src="<%= @docUrl('assets/img/welcome/real-life.png') %>" height="50" />
+    </div>
+    <div class="col-md-8">
+      <strong>How-To</strong>
+      <p>[How to add JSF Forms to your process application](<%= @docUrl('real-life/how-to/#process-engine-jsf-task-forms') %>)</p>
+    </div>
+  </div>
+</div>
+
 <%- @H2('Generic Task Forms') %>
 
 The generic form will be used whenever you have not added a dedicated form for a [User Task](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %> or a [Start Event](<%= @docUrl('api-references/bpmn20/#!/tasks/user-task)') %>.

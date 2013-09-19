@@ -17,11 +17,12 @@ Start hacking
 In order to start hacking the docs.camunda.org site, you first need to setup DocPad:
 
 1. Install [node.js](http://nodejs.org/).
-2. Optional: Install docpad via `npm install -g docpad` if you want to have it globally available in your path.
+2. Open a terminal, navigate to the `site/` folder and type `npm install`.
+3. Optional: Install docpad via `npm install -g docpad` if you want to have it globally available in your path.
 
 Once all tools are installed, you can build the site:
 
-1. Open a terminal, navigate to the `site/` folder and type `npm install`.
+1. Open a terminal, navigate to the `site/` folder and type `npm update`.
 2. Run DocPad using `./node_modules/.bin/docpad run` or just `docpad run` if you installed it globally.
 3. Go to [http://localhost:9779/](http://localhost:9779/).
 

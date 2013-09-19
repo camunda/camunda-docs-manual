@@ -1,0 +1,36 @@
+---
+
+shortTitle: 'BPMN 2.0 Coverage'
+title: 'BPMN 2.0 Overview and Coverage'
+category: 'Overview'
+
+keywords: 'overview symbols engine coverage'
+
+---
+
+
+This page gives you an overview of BPMN 2.0 elements and the current coverage of the process engine. 
+
+<div class="alert alert-warning">
+  <strong>Heads up!</strong>
+  
+  If you are unfamilliar with BPMN 2.0 you might want to check out our <a href="http://camunda.org/design/tutorial.html">BPMN Tutorial</a> first.
+</div>
+
+The elements marked in <span class="label label-warning">orange</span> are supported. 
+Hover over the element to see from which version on they are supported.
+
+<%- @include('./non-events-coverage.html') %>
+
+
+## Events
+
+In BPMN there are Start events, intermediate events, and end events. Those three event types can be catching and/or throwing. Intermediate events might be used as boundary events on tasks, then they can be interrupting or non-interrupting. This gives you a lot of flexibility to use events in your processes.
+
+<div class="alert alert-warning">
+  <strong>Heads up!</strong>
+  For understanding the principle behavior of events in BPMN we recommend to check out
+  <a href="http://camunda.org/design/reference.html#!/events/basics">Events: Basic Concepts</a>.
+</div>
+
+<%- @include('./events-coverage.html') %>
