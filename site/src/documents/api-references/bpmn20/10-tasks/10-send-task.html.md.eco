@@ -11,7 +11,8 @@ A send task is used to send a message. In camunda this is done by calling Java c
 
 The send task has the same behaviour as a service task.
 
+<div data-bpmn-symbol="sendtask" data-bpmn-symbol-name="Send Task"></div>
 
-<div data-bpmn-symbol="sendtask"  data-bpmn-symbol-name="Send Task"> </div>
-
-    <sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
+```xml
+<sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
+```

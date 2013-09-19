@@ -2,6 +2,15 @@
 
 var docpadConfig = {
 
+  plugins: {
+    marked: {
+      markedOptions: {
+        pedantic: true,
+        gfm: true
+      }
+    }
+  },
+
   // Use to define your own template data and helpers that will be accessible to your templates
   // Complete listing of default values can be found here: http://docpad.org/docs/template-data
   templateData: {

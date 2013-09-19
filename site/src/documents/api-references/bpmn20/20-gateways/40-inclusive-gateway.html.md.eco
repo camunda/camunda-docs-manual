@@ -8,38 +8,26 @@ keywords: ''
 ---
 
 
-<p> 
 The Inclusive Gateway can be seen as a combination of an exclusive and a parallel gateway. Like an exclusive gateway you can define conditions on outgoing sequence flows and the inclusive gateway will evaluate them. But the main difference is that the inclusive gateway can take more than one sequence flow, like the parallel gateway.
-</p>
 
 The functionality of the inclusive gateway is based on the incoming and outgoing sequence flow:
-<ul>
-  <li><strong>fork:</strong> all outgoing sequence flow conditions are evaluated and for the sequence flow conditions that evaluate to true the flows are followed in parallel, creating one concurrent execution for each sequence flow.</li>
 
-  <li><strong>join:</strong> all concurrent executions arriving at the inclusive gateway wait in the gateway until an execution has arrived for each of the incoming sequence flows that have a process token. This is an important difference with the parallel gateway. So in other words, the inclusive gateway will only wait for the incoming sequence flows that will be executed. After the join, the process continues past the joining inclusive gateway. </li>
-</ul>
+*   __fork__: all outgoing sequence flow conditions are evaluated and for the sequence flow conditions that evaluate to true the flows are followed in parallel, creating one concurrent execution for each sequence flow.
+*   __join__: all concurrent executions arriving at the inclusive gateway wait in the gateway until an execution has arrived for each of the incoming sequence flows that have a process token. This is an important difference with the parallel gateway. So in other words, the inclusive gateway will only wait for the incoming sequence flows that will be executed. After the join, the process continues past the joining inclusive gateway.
 
-<p>
-Note that an inclusive gateway can have <strong>both fork and join behavior</strong>, if there are multiple incoming and outgoing sequence flow for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to true. 
-</p>
+Note that an inclusive gateway can have _both_ fork _and_ join behavior, if there are multiple incoming and outgoing sequence flow for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to true. 
 
-<div id="inclusive-gateway" style="position:relative" data-bpmn-src="implement/inclusive-gateway" > </div>
-  
-<p>  
- Defining an inclusive gateway needs one line of XML:
-</p>
+<div data-bpmn-diagram="implement/inclusive-gateway"></div>
 
-<div class="app-source" app-source-no-tabs="or1" ></div>
-<script type="text/xml" id="or1">
+Defining an inclusive gateway needs one line of XML:
+
+```xml
 <inclusiveGateway id="myInclusiveGateway" />
-</script>
+```
 
-<p>
 The actual behavior (fork, join or both), is defined by the sequence flows connected to the inclusive gateway. For example, the model above comes down to the following XML:
-</p>
 
-  <div class="app-source" app-source-no-tabs="or2" ></div>
-  <script type="text/xml" id="or2">
+```xml
 <startEvent id="theStart" />
 <sequenceFlow id="flow1" sourceRef="theStart" targetRef="fork" />
 
@@ -64,18 +52,17 @@ The actual behavior (fork, join or both), is defined by the sequence flows conne
 <sequenceFlow sourceRef="archiveOrder" targetRef="theEnd" />
 
 <endEvent id="theEnd" />
-  </script>
+```
 
-<p>
 In the above example, after the process is started, two tasks will be created if the process variables paymentReceived == false and shipOrder == true. In case only one of these process variables equals to true only one task will be created. If no condition evaluates to true and exception is thrown. This can be prevented by specifying a default outgoing sequence flow. In the following example one task will be created, the ship order task:
-</p>
 
-<div class="app-source" app-source-no-tabs="or3" ></div>
-<script type="text/xml" id="or3">
+```java
 HashMap<String, Object> variableMap = new HashMap<String, Object>();
-          variableMap.put("receivedPayment", true);
-          variableMap.put("shipOrder", true);
-          ProcessInstance pi = runtimeService.startProcessInstanceByKey("forkJoin");
+variableMap.put("receivedPayment", true);
+variableMap.put("shipOrder", true);
+
+ProcessInstance pi = runtimeService.startProcessInstanceByKey("forkJoin");
+
 TaskQuery query = taskService.createTaskQuery()
                          .processInstanceId(pi.getId())
                          .orderByTaskName()
@@ -86,20 +73,15 @@ assertEquals(1, tasks.size());
 
 Task task = tasks.get(0);
 assertEquals("Ship Order", task.getName());
-</script>
+```
 
-<p>
 When this task is completed, the second inclusive gateway will join the two executions and since there is only one outgoing sequence flow, no concurrent paths of execution will be created, and only the Archive Order task will be active.
-</p>
-<p>
+
 Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flow for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flow and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.   	
-</p>
 
 
-<h2>Additional Resources</h2>
+## Additional Resources
 
-<ul>
-  <li><a href="http://camunda.org/design/reference.html#!/gateways/or">Inclusive Gateways in the BPMN Tutorial</a></li>
-  <li><a href="<%= @docUrl('api-references/bpmn20/') %>#!/gateways/sequence-flow">Conditional and Default Sequence Flows</a></li>
-  <li><a href="<%= @docUrl('implement/java.html') %>#!/engine/expressions">Expression Language</a></li>
-</ul>
+*   [Inclusive Gateways in the BPMN Tutorial](http://camunda.org/design/reference.html#!/gateways/or")
+*   [Conditional and Default Sequence Flows](#gateways-sequence-flow)
+*   [Expression Language DEAD LINK?](#engine-expressions)
