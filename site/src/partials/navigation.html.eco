@@ -49,6 +49,17 @@
               </li>
             </ul>          
         </li>
+        <li class="dropdown" data-active-link="/real-life">
+          <a href="<%= @docUrl("real-life/") %>">Real-Life</a>
+            <ul class="dropdown-menu">
+              <li data-active-link="/real-life/examples">
+                <a href="<%= @docUrl("api-references/examples/") %>">Examples</a>
+              </li>
+              <li data-active-link="/real-life/how-to">
+                <a href="<%= @docUrl("real-life/how-to/") %>">Tutorials &amp; How-Tos</a>
+              </li>
+            </ul>          
+        </li>
         <li class="dropdown" data-active-link="/incubation">
           <a href="<%= @docUrl("incubation/") %>">Incubation</a>
           <ul class="dropdown-menu">

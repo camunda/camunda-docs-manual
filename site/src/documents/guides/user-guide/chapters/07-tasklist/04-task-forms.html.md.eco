@@ -54,7 +54,7 @@ When you have completed the task the call back URL will be called.
     </div>
     <div class="col-md-8">
       <strong>How-To</strong>
-      <p>[How to add JSF Forms to your process application](<%= @docUrl('real-life/how-tos/#process-engine-jsf-task-forms') %>)</p>
+      <p>[How to add JSF Forms to your process application](<%= @docUrl('real-life/how-to/#process-engine-jsf-task-forms') %>)</p>
     </div>
   </div>
 </div>

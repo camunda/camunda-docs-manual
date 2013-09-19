@@ -57,7 +57,7 @@ layout: 'default'
       </h2>
       <ul>
         <li><a href="<%= @docUrl("real-life/examples/")%>">Examples</a></li>
-        <li><a href="<%= @docUrl("real-life/how-tos/")%>">How-tos</a></li> 
+        <li><a href="<%= @docUrl("real-life/how-to/")%>">Tutorials &amp; How-tos</a></li> 
       </ul>
     </div>
 
