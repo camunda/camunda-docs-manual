@@ -6,6 +6,8 @@ layout: 'default'
 
 <% part = @getPages(@document.part) %>
 
+<%- @partial('breadcrumb.html.eco', @, {}) %>
+
 <div class="col-md-3">
   <div class="docs-sidebar affix" data-spy="affix">
 
