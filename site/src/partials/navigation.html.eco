@@ -53,7 +53,7 @@
           <a href="<%= @docUrl("real-life/") %>">Real-Life</a>
             <ul class="dropdown-menu">
               <li data-active-link="/real-life/examples">
-                <a href="<%= @docUrl("api-references/examples/") %>">Examples</a>
+                <a href="<%= @docUrl("real-life/examples/") %>">Examples</a>
               </li>
               <li data-active-link="/real-life/how-to">
                 <a href="<%= @docUrl("real-life/how-to/") %>">Tutorials &amp; How-Tos</a>
