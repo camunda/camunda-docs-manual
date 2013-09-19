@@ -1,0 +1,17 @@
+<div class="breadcrumb-fixed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="./<%= @pathSeparator() %>">Home</a></li>
+          <% if @document.parents: %>
+            <% for parent, index in @document.parents: %>
+              <li><a href="./<%= @pathToParent(index) %>"><%= parent %></a></li>
+            <% end %>
+          <% end %>
+          <li><a href="."><%= @document.title %></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

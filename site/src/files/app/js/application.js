@@ -10,8 +10,15 @@
         path = window.location.pathname,
         $body = $(document.body);
 
+    // refresh scrollspy on load
     $window.on('load', function () {
-      $body.scrollspy('refresh')
+      $body.scrollspy('refresh');
+    });
+
+    // refresh scrollspy on resize
+    $window.resize(function() {
+      $body.scrollspy('refresh');
+      $body.scrollspy('process');
     });        
 
     /*
@@ -82,6 +89,51 @@
 
       }
 
+    });
+
+
+    /*
+     * Listen to the event 'activate', which will be triggered
+     * from bootstrap scrollspy, and append the active sections
+     * to the breadcrumb. 
+     */
+    $(document).on('activate', function (e) {
+
+      var categoryElement = $('.nav.docs-sidenav > li.active'),
+          category = categoryElement.find('> a'),
+          categoryLabel = category.text(),
+          categoryHref = category.attr('href'),
+
+          sectionElement = categoryElement.find('> ul > li.active'),
+          section = sectionElement.find('> a'),
+          sectionLabel = section.text(),
+          sectionHref = section.attr('href'),
+
+          breadcrumb = $('.breadcrumb');
+
+      // if there does not exist a breadcrumb, then do nothing
+      if (!breadcrumb) {
+        return;
+      }
+
+      // remove all breadcrumb with the class 'breadcrumb-section'
+      breadcrumb.find('> li.breadcrumb-section').remove();
+
+      if (categoryElement.length) {
+        breadcrumb.append(
+          '<li class="breadcrumb-section">' + 
+          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' + 
+          '</li>'
+        );
+
+        if (sectionElement.length) {
+          breadcrumb.append(
+            '<li class="breadcrumb-section">' + 
+            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' + 
+            '</li>'
+          );
+        }
+      }
     });
 
 });

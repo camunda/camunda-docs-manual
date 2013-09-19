@@ -398,9 +398,12 @@ pre.console {
 }
 
 /* First level of nav */
+.docs-sidenav:first-child {
+  margin-top: 49px;
+  margin-bottom: 5px;
+}
+
 .docs-sidenav {
-  margin-top: 30px;
-  margin-bottom: 30px;
   padding-top:    10px;
   padding-bottom: 10px;
   text-shadow: 0 1px 0 #fff;
@@ -458,7 +461,7 @@ pre.console {
   }
   .docs-sidebar.affix {
     position: fixed; /* Undo the static from mobile first approach */
-    top: 80px;
+    top: 100px;
   }
   .docs-sidebar.affix-bottom {
     position: absolute; /* Undo the static from mobile first approach */
@@ -482,7 +485,7 @@ pre.console {
 
 /* Janky fix for preventing navbar from overlapping */
 h1[id], h2[id], h3[id], h4[id] {
-  padding-top: 80px;
+  padding-top: 100px;
   margin-top: -45px;
 }
 
@@ -505,4 +508,38 @@ h1[id], h2[id], h3[id], h4[id] {
 code {
   white-space: normal;
   word-wrap: break-word;
+}
+
+.breadcrumb {
+  margin: 10px 0 0;
+  background-color: inherit;
+  line-height: 29px;
+  padding: 0 10px 0 10px;
+  font-size: 0.85em;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
+.breadcrumb-fixed-top {
+  background-color: white;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  min-height: 49px;
+}
+
+.breadcrumb>li {
+  display: inline;
+}
+
+@media screen and (min-width: 992px) {
+
+  .breadcrumb > li.breadcrumb-section {
+    display: none;
+  }
 }

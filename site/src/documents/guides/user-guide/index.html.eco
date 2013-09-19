@@ -1,8 +1,10 @@
 ---
 
+title: 'User Guide'
 layout: 'navigated-docs'
 part: 'guides/user-guide/chapters'
 
 searchable: true
+parents: [ 'Guides' ]
 
 ---
