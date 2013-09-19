@@ -20,35 +20,32 @@ __Important note:__ a BPMN error is NOT the same as a Java exception. In fact, t
 
 An error event definition references an error element. The following is an example of an error end event, referencing an error declaration:
 
-<div class="app-source" app-source-no-tabs="error1"></div>
-<script type="text/xml" id="error1">
-<definitions>
-<error id="myError" errorCode="ERROR-OCCURED" name="ERROR-OCCURED"/>
-...
-<process>
-  ...
-  <endEvent id="myErrorEndEvent">
-    <errorEventDefinition errorRef="myError" />
-  </endEvent>
-</process>
-</definitions>
-</script>
+    <definitions>
+    <error id="myError" errorCode="ERROR-OCCURED" name="ERROR-OCCURED"/>
+    ...
+    <process>
+      ...
+      <endEvent id="myErrorEndEvent">
+        <errorEventDefinition errorRef="myError" />
+      </endEvent>
+    </process>
+    </definitions>
 
-Another possibility to define an error is the setting of an exception type as error code. The following is an example of an exception type as error code:
+You can trigger this error event either by a throwing error event within your process definition or from Delegation Code, see 
+[Throwing BPMN Errors from Delegation Code](<%= @docUrl('guides/user-guide/#process-engine-delegation-code-throwing-errors-from-delegation-code') %>).
 
-<div class="app-source" app-source-no-tabs="exception1"></div>
-<script type="text/xml" id="exception1">
-<definitions>
-<error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
-...
-<process>
-  ...
-  <endEvent id="myErrorEndEvent">
-    <errorEventDefinition errorRef="myException" />
-  </endEvent>
-</process>
-</definitions>
-</script>
+Another possibility to define an error is the setting the type (class name) of any Java Exception as error code. Example:
+
+    <definitions>
+    <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
+    ...
+    <process>
+      ...
+      <endEvent id="myErrorEndEvent">
+        <errorEventDefinition errorRef="myException" />
+      </endEvent>
+    </process>
+    </definitions>
 
 The exception type should only used for business exceptions and not for technical exceptions in the process.
 

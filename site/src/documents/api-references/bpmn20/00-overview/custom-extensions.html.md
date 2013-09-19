@@ -1,7 +1,7 @@
 ---
 
 title: 'Custom Extensions'
-category: 'Concepts'
+category: 'Overview'
 
 ---
 
