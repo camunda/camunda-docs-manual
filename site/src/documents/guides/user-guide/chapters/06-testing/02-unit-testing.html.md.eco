@@ -14,40 +14,44 @@ By extending ProcessEngineTestCase, you can annotate test methods with [Deployme
 
 Taking all that in account, a JUnit 3 style test looks as follows:
 
-    public class MyBusinessProcessTest extends ProcessEngineTestCase {
+```java
+public class MyBusinessProcessTest extends ProcessEngineTestCase {
 
-      @Deployment
-      public void testSimpleProcess() {
-      runtimeService.startProcessInstanceByKey("simpleProcess");
+  @Deployment
+  public void testSimpleProcess() {
+  runtimeService.startProcessInstanceByKey("simpleProcess");
 
-      Task task = taskService.createTaskQuery().singleResult();
-      assertEquals("My Task", task.getName());
+  Task task = taskService.createTaskQuery().singleResult();
+  assertEquals("My Task", task.getName());
 
-      taskService.complete(task.getId());
-      assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-      }
-    }
+  taskService.complete(task.getId());
+  assertEquals(0, runtimeService.createProcessInstanceQuery().count());
+  }
+}
+```
 
-To get the same functionality when using the JUnit 4 style of writing unit tests, the [ProcessEngineRule](<%= @docUrl('api-references/javadoc/?org/camunda/bpm/engine/test/ProcessEngineRule.html')%>) Rule must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this Rule will enable the use of the Deployment annotation (see above for an explanation of its use and configuration) and it will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
+To get the same functionality when using the JUnit 4 style of writing unit tests, the [ProcessEngineRule](<%= @docUrl('api-references/javadoc/?org/camunda/bpm/engine/test/ProcessEngineRule.html') %>) Rule must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this Rule will enable the use of the Deployment annotation (see above for an explanation of its use and configuration) and it will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
 
 The following code snippet shows an example of using the JUnit 4 style of testing and the usage of the ProcessEngineRule.
 
-    public class MyBusinessProcessTest {
+```java
+public class MyBusinessProcessTest {
 
-      @Rule
-      public ProcessEngineRule processEngineRule = new ProcessEngineRule();
+  @Rule
+  public ProcessEngineRule processEngineRule = new ProcessEngineRule();
 
-      @Test
-      @Deployment
-      public void ruleUsageExample() {
-        RuntimeService runtimeService = processEngineRule.getRuntimeService();
-        runtimeService.startProcessInstanceByKey("ruleUsage");
+  @Test
+  @Deployment
+  public void ruleUsageExample() {
+    RuntimeService runtimeService = processEngineRule.getRuntimeService();
+    runtimeService.startProcessInstanceByKey("ruleUsage");
 
-        TaskService taskService = processEngineRule.getTaskService();
-        Task task = taskService.createTaskQuery().singleResult();
-        assertEquals("My Task", task.getName());
+    TaskService taskService = processEngineRule.getTaskService();
+    Task task = taskService.createTaskQuery().singleResult();
+    assertEquals("My Task", task.getName());
 
-        taskService.complete(task.getId());
-        assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-      }
-    }
+    taskService.complete(task.getId());
+    assertEquals(0, runtimeService.createProcessInstanceQuery().count());
+  }
+}
+```

@@ -18,4 +18,4 @@ The typical use cases are:
 * Create executable diagrams out of BPMN 2.0 diagram (Forward Engineering)
 
 Cycle is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/cycle. At first start up you will be prompt to create an admin user.
-If you are new to Cycle have a look at our Hands-On <a href="http://www.camunda.org/design/cycle-tutorial.html">Cycle Tutorial</a>.
+If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](http://www.camunda.org/design/cycle-tutorial.html).
