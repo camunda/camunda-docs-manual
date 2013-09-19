@@ -6,27 +6,27 @@ category: 'Tags'
 ---
 
 
-The process archive tag allows configuring a process engine deployment and can be used in the [processes.xml](#!/descriptors/processes-xml) file.
+The process archive tag allows configuring a process engine deployment and can be used in the [processes.xml](#descriptors-processesxml) file.
 
-See user guide section on [processes.xml](/guides/user-guide/#!/#the-processes-xml-deployment-descriptor).
+See user guide section on [processes.xml](<%= @docUrl('guides/user-guide/') %>#process-applications-the-processesxml-deployment-descriptor).
 
-Example
--------
+## Example
 
 The following example shows a process-archive XML snippet:
 
-    <process-archive name="loan-approval">
-      <process-engine>my-engine</process-engine>
-      <process>bpmn/invoice.bpmn</process>
-      <process>bpmn/order-process.bpmn</process>
-      <properties>
-        <property name="isDeleteUponUndeploy">false</property>
-        <property name="isScanForProcessDefinitions">true</property>
-      </properties>
-    </process-archive>
+```xml
+<process-archive name="loan-approval">
+  <process-engine>my-engine</process-engine>
+  <process>bpmn/invoice.bpmn</process>
+  <process>bpmn/order-process.bpmn</process>
+  <properties>
+    <property name="isDeleteUponUndeploy">false</property>
+    <property name="isScanForProcessDefinitions">true</property>
+  </properties>
+</process-archive>
+```
 
-Syntax Reference
-----------------
+## Syntax Reference
 
 <table class="table table-striped">
   <tr>
@@ -46,7 +46,7 @@ Syntax Reference
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li>`name`: allows defining the name of the process archive (Required). The name will be used for the
+          <li><code>name</code>: allows defining the name of the process archive (Required). The name will be used for the
             process engine deployment.</li>
         </ul>
       </p>
@@ -121,7 +121,7 @@ Syntax Reference
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li>`name`: the name of the property.</li>
+          <li><code>name</code>: the name of the property.</li>
         </ul>
       </p>
       <p>
@@ -132,8 +132,7 @@ Syntax Reference
   </tr>
 </table>
 
-Configuration Properties
-------------------------
+## Configuration Properties
 
 The following is a list with all supported configuration properties.
 
@@ -144,7 +143,7 @@ The following is a list with all supported configuration properties.
     <th>Description</th>
   </tr>
   <tr>
-    <td>`isDeleteUponUndeploy`</td>
+    <td><code>isDeleteUponUndeploy</code></td>
     <td>boolean</td>
     <td>
       <p>
@@ -157,7 +156,7 @@ The following is a list with all supported configuration properties.
     </td>
   </tr>
   <tr>
-    <td>`isScanForProcessDefinitions`</td>
+    <td><code>isScanForProcessDefinitions</code></td>
     <td>boolean</td>
     <td>
       <p>
@@ -170,11 +169,11 @@ The following is a list with all supported configuration properties.
     </td>
   </tr>
   <tr>
-    <td>`isResumePreviousVersions`</td>
+    <td><code>isResumePreviousVersions</code></td>
     <td>boolean</td>
     <td>
       <p>
-        If true, previous versions of the deployment are automatically resumed. See [Process Application Deployment](/guides/user-guide/#!/#bpmplatform/application/deployment).
+        If true, previous versions of the deployment are automatically resumed. See <a href="<%= @docUrl('guides/user-guide/') %>#process-applications-the-processesxml-deployment-descriptor-process-application-deployment">Process Application Deployment</a>.
       </p>
       <p>
         <strong>Default value:</strong>
@@ -183,12 +182,12 @@ The following is a list with all supported configuration properties.
     </td>
   </tr>
   <tr>
-    <td>`resourceRootPath`</td>
+    <td><code>resourceRootPath</code></td>
     <td>boolean</td>
     <td>
      <p>
       The resource root of the proccess archive. This property is used when scanning for process definitions
-      (if `isScanForProcessDefinitions` is set to true).</p>
+      (if <code>isScanForProcessDefinitions</code> is set to true).</p>
 
       <p> The path is interpreted as
       <ul>
@@ -217,8 +216,8 @@ The following is a list with all supported configuration properties.
                       |-- Invoice-Processes.jar
                           |-- META-INF/processes.xml  (2)
          </pre>
-         If the process archive(s) defined in (1) uses a path prefixed with `pa:`, like for instance `pa:opps/`,
-         only the `opps/`-folder of sales-processes.jar is scanned. More precisely, a "pa-local path", is resolved
+         If the process archive(s) defined in (1) uses a path prefixed with <code>pa:</code>, like for instance <code>pa:opps/</code>,
+         only the <code>opps/</code>-folder of sales-processes.jar is scanned. More precisely, a "pa-local path", is resolved
          relative to the the parent directory of the META-INF-directory containing the defining processes.xml file.
          This implies, that using a pa-local path in (1), no processes from (2) are visible.
          <p />

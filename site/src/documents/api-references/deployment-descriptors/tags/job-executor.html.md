@@ -1,2 +1,0 @@
-Job Executor Configuration
-==========================
