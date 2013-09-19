@@ -13,10 +13,10 @@ camunda BPM can be used both as a standalone process engine server or embedded i
 
 <center><img class="img-responsive" src="<%= @docUrl('assets/img/user-guide/process-engine-architecture.png') %>"></img></center>
 
-* [Process Engine Public API](#process-engine-process-engine-api): Service-oriented API allowing Java Applications to interact with the process engine. The different responsibilities of the process engine (ie. Process Repository, Runtime Process Interaction, Task Management, ...) are separated out into individual services. The public API features a [command-style access pattern]http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
+* [Process Engine Public API](#process-engine-process-engine-api): Service-oriented API allowing Java Applications to interact with the process engine. The different responsibilities of the process engine (ie. Process Repository, Runtime Process Interaction, Task Management, ...) are separated out into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
+* **BPMN 2.0 Core Engine**: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 Xml files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs usch as Gateways or Service Tasks).
 * [Job Executor](#process-engine-the-job-executor): the Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
-* *BPMN 2.0 Core Engine*: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 Xml files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs usch as Gateways or Service Tasks).
-* *The persistence layer*: the process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
+* **The Persistence Layer**: the process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
 
 <strong>Required thrid-party libraries</strong>
 
@@ -28,13 +28,13 @@ The process engine depends on the following third party libraries:
 
 <%- @H2('camunda BPM platform architecture')  %>
 
-camunda BPM platform is a flexible framework which can be deployed in different scenarios. The most common scenarios are:
+camunda BPM platform is a flexible framework which can be deployed in different scenarios. This section provides an overview over the most common deployment scenarios.
 
 <%- @H3('Embedded Process Engine')  %>
 
 <center><img class="img-responsive" src="<%= @docUrl('assets/img/user-guide/embedded-process-engine.png') %>"></img></center>
 
-In this case the process engine is added as an application library to a custom application. This way the process engine can esily be started and stopped with the application lifecycle. It is possible to run multiple embedded process engines on top of a shared database.
+In this case the process engine is added as an application library to a custom application. This way the process engine can easily be started and stopped with the application lifecycle. It is possible to run multiple embedded process engines on top of a shared database.
 
 <%- @H3('Shared, container-managed Process Engine')  %>
 
