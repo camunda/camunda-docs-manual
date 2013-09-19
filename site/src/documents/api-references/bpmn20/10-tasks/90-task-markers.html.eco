@@ -34,7 +34,7 @@ A Gateway or Event can not become multi-instance.
 If an activity is multi-instance, this is indicated by three short lines at the bottom of that activity. Three vertical lines indicates that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate <strong>sequential</strong> execution.
 </p>
 
-<div id="mulitpleinstance" style="position:relative" data-bpmn-src="implement/multiple-instance" > </div>
+<div id="mulitpleinstance" style="position:relative" data-bpmn-diagram="implement/multiple-instance" > </div>
 
 <p>
 As required by the spec, each parent execution of the created executions for each instance will have following variables:
@@ -144,7 +144,7 @@ In this example, there will be parallel instances created for each element of th
 Since a multi-instance is a regular activity, it is possible to define a boundary event on its boundary. In case of an interrupting boundary event, when the event is caught, all instances that are still active will be destroyed. Take for example following multi-instance subprocess:
 </p>
 
-      <div id="mulitpleinstance" style="position:relative" data-bpmn-src="implement/multiple-instance-boundary" > </div>
+      <div id="mulitpleinstance" style="position:relative" data-bpmn-diagram="implement/multiple-instance-boundary" > </div>
 
 <p>
 Here, all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not yet completed. 
@@ -166,7 +166,7 @@ To get around this limitation the solution is to explicitely model the loop in y
 </p>
 
 
-<div id="loop" style="position:relative" data-bpmn-src="implement/loop-alternative" >  </div>
+<div id="loop" style="position:relative" data-bpmn-diagram="implement/loop-alternative" >  </div>
 
 <p>
 And be assured that we have the loop marker in our backlog to be added to the engine.
@@ -179,7 +179,7 @@ And be assured that we have the loop marker in our backlog to be added to the en
  If an activity is used for compensating the effects of another activity, it can be declared to be a compensation handler. Compensation handlers are not contained in normal flow and are only executed when a compensation event is thrown.
 </p>
 
- <div id="compensation-marker" style="position:relative" data-bpmn-src="implement/compensation-marker" > </div>
+ <div id="compensation-marker" style="position:relative" data-bpmn-diagram="implement/compensation-marker" > </div>
 
 <p>
  Notice the compensation handler icon in the bottom canter area of the "cancel hotel reservation" service task

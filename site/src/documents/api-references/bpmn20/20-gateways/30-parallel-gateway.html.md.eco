@@ -10,7 +10,7 @@ keywords: ''
 
 Gateways can also be used to model concurrency in a process. The most straightforward gateway to introduce concurrency in a process model, is the Parallel Gateway, which allows to fork into multiple paths of execution or join multiple incoming paths of execution.
 
-<div data-bpmn-src="implement/parallel-gateway"></div>
+<div data-bpmn-diagram="implement/parallel-gateway"></div>
 
 The functionality of the parallel gateway is based on the incoming and outgoing sequence flow:
 
