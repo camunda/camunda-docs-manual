@@ -2,12 +2,29 @@
 
 var docpadConfig = {
 
+  plugins: {
+    marked: {
+      markedOptions: {
+        pedantic: true,
+        gfm: true
+      }
+    }
+  },
+
   // Use to define your own template data and helpers that will be accessible to your templates
   // Complete listing of default values can be found here: http://docpad.org/docs/template-data
   templateData: {
 
     //// Site Properties /////////////////////////////////////
     site: {
+
+      versions: {
+        current: '7.0',
+        all: [
+          { id: 'latest', name: 'Latest' },
+          { id: '7.0', name: '7.0 (stable)' }
+        ]
+      },
 
       // The production url of our website
       url: "http://docs.camunda.org",
