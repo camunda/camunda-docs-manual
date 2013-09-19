@@ -13,7 +13,9 @@
         path = window.location.pathname,
         base = $("base").attr('app-base');
 
-    $body.scrollspy('refresh');
+    $window.on('load', function () {
+      $body.scrollspy('refresh')
+    });
 
     $('[data-bpmn-diagram]').each(function() {
       var e = $(this),
