@@ -6,8 +6,6 @@
 
   $(function() {
 
-    var uid = 0;
-
     var $window = $(window),
         $body = $(document.body),
         path = window.location.pathname,
@@ -30,13 +28,6 @@
           uri = base + "assets/bpmn/" + name;
       
       e.addClass('bpmn-diagram-container');
-
-      e.children().each(function() {
-        var c = $(this);
-        if (!c.attr('id')) {
-          c.attr('id', 'generated' + uid++);
-        }
-      });
       
       bpmn(uri, e);
     });
@@ -49,14 +40,7 @@
 
       e.addClass('bpmn-symbol-container');
 
-      e.children().each(function() {
-        var c = $(this);
-        if (!c.attr('id')) {
-          c.attr('id', 'generated' + uid++);
-        }
-      });
-
-      drawBpmnSymbol (bpmnSymbol, bpmnSymbolName, e);
+      drawBpmnSymbol(bpmnSymbol, bpmnSymbolName, e);
     });
 
     /*

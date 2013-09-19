@@ -1,7 +1,7 @@
 ---
 
 title: 'The bpm-platform.xml Descriptor'
-shortTitle: 'bpmn-platform.xml'
+shortTitle: 'bpm-platform.xml'
 
 category: 'Descriptors'
 
