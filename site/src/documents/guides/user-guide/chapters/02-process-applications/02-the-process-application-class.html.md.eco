@@ -16,7 +16,7 @@ In the following, we walk through the different implementations and discuss wher
 
 <%- @H2('The ServletProcessApplication') %>
 
-<div class="alert">
+<div class="alert alert-warning">
   <p>
     <strong>All Servlet Containers</strong>
   </p>
@@ -24,7 +24,7 @@ In the following, we walk through the different implementations and discuss wher
     <span class="container-tiny as7"></span>
     <span class="container-tiny glassfish"></span>
 
-  <p>The Servlet Process Application is supported on all containers. Read the <a href="#servlet-process-applicarion-inside-ejb-container">note about Servlet Process Application and EJB / Java EE containers</a>.</p>
+  <p>The Servlet Process Application is supported on all containers. Read the <a href="http://localhost:9779/guides/user-guide/#process-applications-the-process-application-class-using-the-servletprocessapplication-inside-an-ejb--java-ee-container-such-as-glassfish-or-jboss">note about Servlet Process Application and EJB / Java EE containers</a>.</p>
   <p><strong>Packaging</strong>: WAR (or embedded WAR inside EAR)</p>
 </div>
 
@@ -79,7 +79,7 @@ If your application does not use such features, it is perfectly fine using the S
 
 <%- @H2('The EjbProcessApplication') %>
 
-<div class="alert ">
+<div class="alert alert-warning">
   <p>
     <strong>Java EE 6 Container only</strong>
   </p>
@@ -170,7 +170,7 @@ When the EjbProcessApplication registers with a process engine (see `ManagementS
 
 <%- @H2('The EmbeddedProcessApplication') %>
 
-<div class="alert ">
+<div class="alert alert-warning">
   <p>
     <strong>All containers</strong>
   </p>
@@ -214,7 +214,7 @@ Where the class `MyProcessApplication` could look like this:
 
 <%- @H2('The SpringProcessApplication') %>
 
-<div class="alert ">
+<div class="alert alert-warning">
   <p>
     <strong>Supported on</strong>
   </p>
