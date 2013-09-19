@@ -92,11 +92,11 @@ Syntax Reference
       </p>
       <p>
         <strong>Text Content:</strong>
-        the fully qualified classname of the Process Engine Configuration class to use for this process engine. The class must be a subclass of <a href="http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
+        the fully qualified classname of the Process Engine Configuration class to use for this process engine. The class must be a subclass of <a href="http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
       </p>
       <p>
         <strong>Default Value:</strong>
-        <a href="http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html">StandaloneProcessEngineConfiguration</a>.
+        <a href="http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html">StandaloneProcessEngineConfiguration</a>.
       </p>
       <p>
         <strong>Example:</strong>
@@ -222,7 +222,7 @@ Syntax Reference
       </p>
       <p>
         <strong>Text Content:</strong>
-        The fully qualified classname of a process engine plugin. Must be an implementation of <a href="http://docs.camunda.org/api-references/java/org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
+        The fully qualified classname of a process engine plugin. Must be an implementation of <a href="http://docs.camunda.org/api-references/javadoc/org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
       </p>
     </td>
   </tr>

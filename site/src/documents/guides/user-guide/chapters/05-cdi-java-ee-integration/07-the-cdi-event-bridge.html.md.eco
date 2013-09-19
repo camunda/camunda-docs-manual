@@ -1,7 +1,7 @@
 ---
 
 title: 'Cdi Event Bridge'
-category: 'CDI & Java EE Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
@@ -80,7 +80,7 @@ public void onShipmentSuceeded(
 
 <%- @H3('The Cdi Event Bridge in a Process Application') %>
 
-In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](/api-references/java/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#bpmplatform-application-events).
+In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](/api-references/javadoc/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#bpmplatform-application-events).
 
 
 <div class="alert alert-info">

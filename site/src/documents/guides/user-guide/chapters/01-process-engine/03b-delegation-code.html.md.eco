@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-Delegation Code allows you to execute external Java code or evaluate expressions when certain events occur during process execution. 
+Delegation Code allows you to execute external Java code or evaluate expressions when certain events occur during process execution.
 
 There are different types of Delegation Code:
 
@@ -31,7 +31,7 @@ interface, which requires us to implement the <code>execute(DelegateExecution)</
 method. It's this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other can be accessed and
-manipulated through the <a href="<%= @docUrl('api-references/java/?org/camunda/bpm/engine/delegate/DelegateExecution.html') %>">DelegateExecution</a> interface (click on the link for
+manipulated through the <a href="<%= @docUrl('api-references/javadoc/?org/camunda/bpm/engine/delegate/DelegateExecution.html') %>">DelegateExecution</a> interface (click on the link for
 a detailed Javadoc of its operations).
 
 
@@ -41,7 +41,7 @@ a detailed Javadoc of its operations).
         String var = (String) execution.getVariable("input");
         var = var.toUpperCase();
         execution.setVariable("input", var);
-      }  
+      }
 
     }
 
@@ -59,7 +59,7 @@ first time at the point in the process where the class is used, an
 instance of that class will be created. If the class cannot be found,
 an <code>ProcessEngineException</code> will be thrown. The reasoning for this is that the environment (and
 more specifically the classpath) when you are deploying is often different from the actual runtime
-environment. 
+environment.
 
 
 
@@ -87,14 +87,14 @@ If available, the value is injected through a public setter method on
 your delegated class, following the Java Bean naming conventions (e.g.
 field <code>fistName</code> has setter <code>setFirstName(...)</code>).
 If no setter is available for that field, the value of private
-member will be set on the delegate (but using private fields is highly not recommended - see warning below). 
+member will be set on the delegate (but using private fields is highly not recommended - see warning below).
 
 <strong>Regardless of the type of value declared in the process-definition, the type of the
-setter/private field on the injection target should always be <code>org.camunda.bpm.engine.delegate.Expression</code></strong>.   
+setter/private field on the injection target should always be <code>org.camunda.bpm.engine.delegate.Expression</code></strong>.
 
 <div class="alert alert-info"><p>
-  Private fields cannot always be modified! It is <strong>not working</strong> with e.g. 
-  CDI beans (because you have proxies instead of real objects) or with some SecurityManager configurations. 
+  Private fields cannot always be modified! It is <strong>not working</strong> with e.g.
+  CDI beans (because you have proxies instead of real objects) or with some SecurityManager configurations.
   Please always use a public setter-method for the fields you want to have injected!
 </p></div>
 
@@ -103,13 +103,13 @@ Field injection is supported when using the <class>class</class> attribute. Note
 to declare a <code>extensionElements</code> XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.
 
-    <serviceTask id="javaService" 
-                 name="Java service invocation" 
+    <serviceTask id="javaService"
+                 name="Java service invocation"
                  camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
       <extensionElements>
           <camunda:field name="text" stringValue="Hello World" />
-      </extensionElements>           
-    </serviceTask>          
+      </extensionElements>
+    </serviceTask>
 The class <code>ToUpperCaseFieldInjected</code> has a field
 <code>text</code> which is of type <code>org.camunda.bpm.engine.delegate.Expression</code>.
 When calling <code>text.getValue(execution)</code>, the configured string value
@@ -118,16 +118,16 @@ When calling <code>text.getValue(execution)</code>, the configured string value
 Alternatively, for longs texts (e.g. an inline e-mail) the <cope>camunda:string</code> sub element can be
 used:
 
-    <serviceTask id="javaService" 
-                 name="Java service invocation" 
+    <serviceTask id="javaService"
+                 name="Java service invocation"
                  camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
-      <extensionElements>   
+      <extensionElements>
         <camunda:field name="text">
             <camunda:string>
               Hello World
           </camunda:string>
         </camunda:field>
-      </extensionElements>        
+      </extensionElements>
     </serviceTask>
 To inject values that are dynamically resolved at runtime, expressions
 can be used. Those expressions can use process variables, CDI or Spring
@@ -138,9 +138,9 @@ values in fields, you can inject value and method expressions in a
 which can be evaluated/invoked using the <code>DelegateExecution</code>
 passed in the <code>execute</code> method.
 
-    <serviceTask id="javaService" name="Java service invocation" 
+    <serviceTask id="javaService" name="Java service invocation"
                  camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
-      
+
       <extensionElements>
         <camunda:field name="text1">
           <camunda:expression>${genderBean.getGenderString(gender)}</camunda:expression>
@@ -198,11 +198,11 @@ The following process definition contains 3 execution listeners:
         event="start"
         class="org.camunda.bpm.examples.bpmn.executionlistener.ExampleExecutionListenerOne" />
   </extensionElements>
-  
+
   <startEvent id="theStart" />
 
   <sequenceFlow sourceRef="theStart" targetRef="firstTask" />
-  
+
   <userTask id="firstTask" />
 
   <sequenceFlow sourceRef="firstTask" targetRef="secondTask">
@@ -211,7 +211,7 @@ The following process definition contains 3 execution listeners:
           class="org.camunda.bpm.examples.bpmn.executionListener.ExampleExecutionListenerTwo" />
     </extensionElements>
   </sequenceFlow>
-  
+
   <userTask id="secondTask">
     <extensionElements>
       <camunda:executionListener expression="${myPojo.myMethod(execution.event)}" event="end" />
@@ -219,7 +219,7 @@ The following process definition contains 3 execution listeners:
   </userTask>
 
   <sequenceFlow sourceRef="secondTask" targetRef="thirdTask" />
-     
+
   <userTask id="thirdTask" />
 
   <sequenceFlow sourceRef="thirdTask" targetRef="theEnd" />
@@ -277,7 +277,7 @@ A task listener supports following attributes:
 *   __event (required)__: the type of task event on which the task listener will be invoked. Possible events are:
     *    __create__: occurs when the task has been created an all task properties are set.
     *    __assignment__: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, first an assignment event will be fired, before the create event is fired. This might seem an unnatural order, but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task including the assignee.
-    *    __complete__: occurs when the task is completed and just before the task is deleted from the runtime data.</li> 
+    *    __complete__: occurs when the task is completed and just before the task is deleted from the runtime data.</li>
 
 
 *   __class__: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
@@ -292,7 +292,7 @@ A task listener supports following attributes:
     }```
 
     It is also possible to use field injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
-    
+
 *   __expression__: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
 
     ```xml
@@ -325,13 +325,13 @@ The fragment below shows a simple example process with an execution listener wit
       <camunda:field name="dynamicValue" expression="${myVar}" />
     </camunda:executionListener>
   </extensionElements>
-  
+
   <startEvent id="theStart" />
   <sequenceFlow sourceRef="theStart" targetRef="firstTask" />
-  
+
   <userTask id="firstTask" />
   <sequenceFlow sourceRef="firstTask" targetRef="theEnd" />
-  
+
   <endEvent id="theEnd" />
 </process>```
 
@@ -345,8 +345,8 @@ public class ExampleFieldInjectedExecutionListener implements ExecutionListener 
   private Expression dynamicValue;
 
   public void notify(ExecutionListenerExecution execution) throws Exception {
-    String value = 
-      fixedValue.getValue(execution).toString() + 
+    String value =
+      fixedValue.getValue(execution).toString() +
       dynamicValue.getValue(execution).toString();
 
     execution.setVariable("var", value);
@@ -362,13 +362,13 @@ The class `ExampleFieldInjectedExecutionListener` concatenates the 2 injected fi
 public void testExecutionListenerFieldInjection() {
   Map<String, Object> variables = new HashMap<String, Object>();
   variables.put("myVar", "listening!");
-    
+
   ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("executionListenersProcess", variables);
-    
+
   Object varSetByListener = runtimeService.getVariable(processInstance.getId(), "var");
   assertNotNull(varSetByListener);
   assertTrue(varSetByListener instanceof String);
-    
+
   // Result is a concatenation of fixed injected field and injected expression
   assertEquals("Yes, I am listening!", varSetByListener);
 }```
