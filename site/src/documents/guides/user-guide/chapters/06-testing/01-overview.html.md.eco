@@ -13,5 +13,3 @@ When testing Process Applications you first have to be clear on what scope you w
 * Testing your process application including e.g. CDI or EJB beans.
 * Integration testing of your applications with other deployments or services (maybe deployed as mock services) on your application server.
 * End-to-end integration test including all external systems.
-
-[Get more information on this](https://app.camunda.com/confluence/display/foxUserGuide/Test+Types+and+Scopes).

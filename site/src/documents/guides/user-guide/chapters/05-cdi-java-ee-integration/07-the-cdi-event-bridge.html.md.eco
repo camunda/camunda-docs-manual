@@ -18,7 +18,7 @@ Now the engine is configured for publishing events using the CDI event bus.
 <div class="alert alert-info">
   <p>
     <strong>Note:</strong>
-    The above configuration can be used in combination with an embedded process engine. If you want to use this feature in combination with the shared process engine in a multi application environment, you need to add the CdiExecutionListener as Process Application event listener. [See next section](#cdi-receiving-process-events-process-application).
+    The above configuration can be used in combination with an embedded process engine. If you want to use this feature in combination with the shared process engine in a multi application environment, you need to add the CdiExecutionListener as Process Application event listener. <a href="#cdi-and-java-ee-integration-cdi-event-bridge-the-cdi-event-bridge-in-a-process-application">See next section</a>.
   </p>
 </div>
 
@@ -80,17 +80,9 @@ public void onShipmentSuceeded(
 
 <%- @H3('The Cdi Event Bridge in a Process Application') %>
 
-In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](/api-references/javadoc/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#bpmplatform-application-events).
+In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](<%= @docUrl('api-references/javadoc/org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html') %>) needs to be added as a [Process Application Execution Event Listener](#process-applications-process-application-event-listeners).
 
-
-<div class="alert alert-info">
-  <p>
-    <strong>Note:</strong>
-    This configuration is not necessary if you "just" want to [reference event listeners using expression language](/api-references/bpmn20/#!/concepts/listeners) in the process. It is only required if you want to use the Cdi Event Bridge with the shared process engine. [See previous section](#cdi-receiving-process-events).
-  </p>
-</div>
-
-Example configuration for [Servlet Process Application](#the-servlet-process-application):
+Example configuration for [Servlet Process Application](#process-applications-the-process-application-class-the-servletprocessapplication):
 
     @ProcessApplication
     public class InvoiceProcessApplication extends ServletProcessApplication {
@@ -102,7 +94,7 @@ Example configuration for [Servlet Process Application](#the-servlet-process-app
       }
     }
 
-Example configuration for [Ejb Process Application](#the-ejb-process-application):
+Example configuration for [Ejb Process Application](#process-applications-the-process-application-class-the-ejbprocessapplication):
 
     @Singleton
     @Startup
