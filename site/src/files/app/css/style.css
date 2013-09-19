@@ -194,8 +194,14 @@ footer {
 }
 
 @media (max-width: 979px) {
-  .navbar-brand.back-to-main {
-    display: none;
+  .navbar-right {
+    display: none;  
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-version {
+    display: block;
   }
 }
 
