@@ -10,10 +10,10 @@ keywords: 'error start end boundary event definition'
 
 Error events are events which are triggered by a defined error.
 
-__Important note:__ a BPMN error is NOT the same as a Java exception. In fact, the two have nothing in common. BPMN error events are a way of modeling business exceptions. Java exceptions are handled in their own specific way.
+__Important note:__ a BPMN error is meant for business errors - which is pretty different to technical exceptions. So this is different to Java exceptions - which are by default handled in their own way.
 
 <div class="alert alert-warning">
-   <strong>Heads up!</strong> You might want to check out the basics of <a href="https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling">error handling</a> first.
+   <strong>Heads up!</strong> You might want to check out the basics of <a href="<%= @docUrl('guides/user-guide/#process-engine-transactions-in-processes-transaction-boundaries') %>">Threading and Transactions</a> first.   
 </div>
 
 <div id="errorEvent" style="position:relative" data-bpmn-src="implement/event-error"></div>
