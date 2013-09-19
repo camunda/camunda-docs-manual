@@ -7,11 +7,7 @@ category: 'Cockpit'
 
 On the start page of Cockpit you get an overview of the installed plugins - at least you will see the two [pre-installed plugins](#tools-cockpit-start-page-view-default-plugins). Additionally installed plugins will be automatically added below the existing ones.
 
-<%- @H2('Default Plugins') %>
-
-Cockpit comes with the following pre-configured plugins: 
-
-<%- @H3('Deployed Processes (List)') %>
+<%- @H2('Deployed Processes (List)') %>
 
 <div class="row">
   <div id="cockpit-plugin-process-definition-state-overview" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-process-definition-state.png') %>"></div>
@@ -20,7 +16,7 @@ Cockpit comes with the following pre-configured plugins:
   </div>  
 </div>
 
-<%- @H3('Deployed Processes (Icons)') %>
+<%- @H2('Deployed Processes (Icons)') %>
 
 <div class="row">
   <div id="cockpit-plugin-deployed-processes" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-deployed-processes.png') %>"></div>

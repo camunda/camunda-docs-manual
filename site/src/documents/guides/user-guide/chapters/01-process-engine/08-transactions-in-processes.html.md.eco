@@ -13,9 +13,30 @@ On any such *external* trigger (i.e. start a process, complete a task, signal an
 
 <%- @H2('Wait States') %>
 
- We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are wait states:
+ We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are always wait states:
 
-     TODO Merge list from https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management#ThreadandTransactionManagement-PersistentWaitStates
+<div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task">
+	<a href="<%= @docUrl('api-references/bpmn20/#tasks-receive-task') %>">
+	  <div id="1" title="go to Receive Task"></div>
+	</a>
+</div>
+<br>
+<div data-bpmn-symbol="usertask" data-bpmn-symbol-name="User Task">
+	<a href="<%= @docUrl('api-references/bpmn20/#tasks-user-task') %>">
+	  <div id="1" title="go to User Task"></div>
+	</a>
+</div>
+<br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-message-events') %>"><div data-bpmn-symbol="intermediatecatchevent/message"  data-bpmn-symbol-name="Message"></div> Message Event</a><br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-timer-events') %>"><div data-bpmn-symbol="intermediatecatchevent/timer"  data-bpmn-symbol-name="Timer"></div> Timer Event</a><br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-signal-events') %>"><div data-bpmn-symbol="intermediatecatchevent/signal"  data-bpmn-symbol-name="Signal"></div> Signal Event</a><br><br>
+
+
+The <a href="<%= @docUrl('api-references/bpmn20/#gateways-event-based-gateway') %>">Event Based Gatewy</a>:
+
+<div data-bpmn-diagram="implement/event-based-gateway" > </div>
+
+And keep in mind that [Asynchronous Continuations](<%= @docUrl('guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continutaions') %>) can add transaction boundaries to other tasks as well.
 
 <%- @H2('Transaction Boundaries') %>
 
@@ -26,6 +47,11 @@ The transition from one such stable state to another stable state is always part
 We see a segment of a BPMN process with a user task, a service task and a timer event. The timer event marks the next wait state. Completing the user task and validating the address is therefore part of the same unit of work, so it should succeed or fail atomically. That means that if the service task throws an exception we want to rollback the current transaction, such that the execution tracks back to the user task and the user task is still present in the database. This is also the default behavior of the process engine.
 
 In **1**, an application or client thread completes the task. In that same thread the engine runtime is now executing the service task and advances until it reaches the wait state at the timer event (**2**). Then it returns the control to the caller (**3**) potentially committing the transaction (if it was started by the engine).
+
+
+
+<%- @H2('Asynchronous Continutaions') %>
+
 
 In some cases this behavior is not desired. Sometimes we need custom control over transaction boundaries in a process, in order to be able to scope logical units of work. Consider the following process fragment:
 
