@@ -5,7 +5,7 @@ category: 'Cockpit'
 
 ---
 
-With camunda BPM Cockpit you can monitor and administrate your running process instances. 
-The Cockpit architecture allows using <a href="<%= @docUrl('how-tos/cockpit/develop-a-plugin/') %>">plugins</a> to extend the functionality, so you can individually adapt the tool to your personal requirements. 
+With camunda BPM Cockpit you can monitor and administrate your running process instances.
+The Cockpit architecture allows using <a href="<%= @docUrl('real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin') %>">plugins</a> to extend the functionality, so you can individually adapt the tool to your personal requirements.
 
 <center><img class="img-responsive" src="<%= @docUrl('assets/img/implementation-cockpit/cockpit-start-page-view.png') %>" /></center>

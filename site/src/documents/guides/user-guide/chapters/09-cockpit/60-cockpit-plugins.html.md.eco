@@ -75,7 +75,7 @@ As runtime relevant resources it defines
     </div>
     <div class="col-md-8">
       <strong>Related How-To</strong>
-      <p>[How to develop a cockpit plugin](<%= @docUrl('real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin') %>)</p>
+      <p><a href="<%= @docUrl('real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin') %>">How to develop a cockpit plugin</a></p>
     </div>
   </div>
 </div>
