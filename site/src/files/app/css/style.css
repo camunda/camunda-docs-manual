@@ -14,7 +14,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   text-decoration: none;
 }
 
-/** 
+/**
  * loaded to remove angular template flicker on site load
  * @see http://docs.angularjs.org/api/ng.directive:ngCloak
  */
@@ -99,7 +99,7 @@ div.popover {
 /** loading icon integration */
 .icon-loading {
   background-image: url(../img/ajax-loader.gif);
-  width: 16px; 
+  width: 16px;
   height: 16px;
   line-height: 16px;
   background-position: 0 0;
@@ -195,7 +195,7 @@ footer {
 
 @media (max-width: 979px) {
   .navbar-right {
-    display: none;  
+    display: none;
   }
 }
 
@@ -385,16 +385,16 @@ img.tile {
 
 h1 .anchor,
 h2 .anchor,
-h3 .anchor, 
+h3 .anchor,
 h4 .anchor {
-  display: none;  
+  display: none;
 }
 
 h1:hover .anchor,
 h2:hover .anchor,
 h3:hover .anchor,
 h4:hover .anchor {
-  display: inline-block;  
+  display: inline-block;
 }
 
 pre.console {
@@ -424,7 +424,7 @@ pre.console {
   padding-top:    10px;
   padding-bottom: 10px;
   text-shadow: 0 1px 0 #fff;
-  background-color: #f7f5fa;
+  background-color: #f1f1f1;
   border-radius: 5px;
 }
 
@@ -436,22 +436,22 @@ pre.console {
 /* All levels of nav */
 .docs-sidebar .nav > li > a {
   display: block;
-  color: #716b7a;
+  color: #777;
   padding: 5px 20px;
 }
 .docs-sidebar .nav > li > a:hover,
 .docs-sidebar .nav > li > a:focus {
   text-decoration: none;
-  background-color: #e5e3e9;
+  background-color: #e0e0e0;
   border-right: 1px solid #dbd8e0;
 }
 .docs-sidebar .nav > .active > a,
 .docs-sidebar .nav > .active:hover > a,
 .docs-sidebar .nav > .active:focus > a {
   font-weight: bold;
-  color: #563d7c;
+  color: #555;
   background-color: transparent;
-  border-right: 1px solid #563d7c;
+  border-right: 1px solid #555;
 }
 
 /* Nav: second level (shown on .active) */
@@ -517,7 +517,7 @@ h1[id], h2[id], h3[id], h4[id] {
 }
 
 .chapter-header:first-child {
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
 .chapter-header h1 {
@@ -587,7 +587,7 @@ code {
   border-radius: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .breadcrumb-fixed-top {
@@ -609,4 +609,16 @@ code {
   .breadcrumb > li.breadcrumb-section {
     display: none;
   }
+}
+
+.jumbotron {
+  background-color: #f9f9f9;
+}
+
+.document-header {
+  margin-top: 50px;
+}
+
+.document-header h1 {
+  font-size: 50px;
 }

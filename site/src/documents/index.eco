@@ -1,82 +1,97 @@
 ---
 
 title: 'docs index'
-layout: 'default'
+layout: 'base'
 
 ---
 
-<div class="col-md-12">
-  <div class="page-header">
-    <h1>camunda BPM Documentation</h1>
-  </div>
-  <div class="row">
-
-    <div class="col-md-3">
-      <a href="<%= @docUrl("guides/")%>">
-        <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
-      </a>
-      <h2>
-        <a href="<%= @docUrl("guides/")%>">
-          Guides
-        </a>
-      </h2>
-      <ul>
-        <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
-        <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
-        <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
-      </ul>
-    </div>
-
-    <div class="col-md-3">
-      <a href="<%= @docUrl("api-references/")%>">
-        <img src="<%= @docUrl('assets/img/welcome/reference.png') %>" />
-      </a>
-      <h2>
-        <a href="<%= @docUrl("api-references/")%>">
-          References
-        </a>
-      </h2>
-      <ul>
-        <li><a href="<%= @docUrl("api-references/javadoc/")%>">Javadoc</a></li>
-        <li><a href="<%= @docUrl("api-references/rest/")%>">REST API</a></li>
-        <li><a href="<%= @docUrl("api-references/bpmn20/")%>">BPMN 2.0 (Implementation)</a></li>
-        <li><a href="<%= @docUrl("api-references/deployment-descriptors/")%>">Deployment Descriptors</a>
-            <p class="muted">processes.xml, bpm-platform.xml</p></li>
-      </ul>
-    </div>
-
-    <div class="col-md-3">
-      <a href="<%= @docUrl("real-life/")%>">
-        <img src="<%= @docUrl('assets/img/welcome/real-life.png') %>" />
-      </a>
-      <h2>
-        <a href="<%= @docUrl("real-life/")%>">
-          Real-Life
-        </a>
-      </h2>
-      <ul>
-        <li><a href="<%= @docUrl("real-life/examples/")%>">Examples</a></li>
-        <li><a href="<%= @docUrl("real-life/how-to/")%>">Tutorials &amp; How-tos</a></li>
-      </ul>
-    </div>
-
-
-    <div class="col-md-3">
-      <a href="<%= @docUrl("incubation/")%>">
-        <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
-      </a>
-      <h2>
-        <a href="<%= @docUrl("incubation/")%>">
-          Incubation Space
-        </a>
-      </h2>
-      <ul>
-        <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
-        <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
-        <li><a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a></li>
-      </ul>
-      <p class="muted">camunda BPM incubation is a space for camunda BPM platform extensions and other projects around open source BPM.</p>
-    </div>
-
+<div class="jumbotron">
+  <div class="container">
+    <h1>camunda BPM documentation</h1>
+    <p>Welcome to the documentation on camunda BPM. Learn how to automate BPMN 2.0 processes with the open source BPM platform. Start reading the user guide or check out an example application.</p>
+    <p>
+      <a class="btn btn-lg btn-primary" href="<%= @docUrl("guides/user-guide/")%>">User Guide »</a>
+      <a class="btn btn-lg btn-default" href="http://camunda.org/get-started/">Get Started »</a>
+    </p>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <a href="<%= @docUrl("guides/")%>">
+            <img src="<%= @docUrl('assets/img/welcome/guides.png') %>" />
+          </a>
+          <h2>
+            <a href="<%= @docUrl("guides/")%>">
+              Guides
+            </a>
+          </h2>
+          <ul>
+            <li><a href="<%= @docUrl("guides/user-guide/")%>">User Guide</a></li>
+            <li><a href="<%= @docUrl("guides/installation-guide/")%>">Installation Guide</a></li>
+            <li><a href="<%= @docUrl("guides/migration-guide/")%>">Migration Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <a href="<%= @docUrl("api-references/")%>">
+            <img src="<%= @docUrl('assets/img/welcome/reference.png') %>" />
+          </a>
+          <h2>
+            <a href="<%= @docUrl("api-references/")%>">
+              References
+            </a>
+          </h2>
+          <ul>
+            <li><a href="<%= @docUrl("api-references/bpmn20/")%>">BPMN 2.0 (Implementation)</a></li>
+            <li><a href="<%= @docUrl("api-references/rest/")%>">REST API</a></li>
+            <li><a href="<%= @docUrl("api-references/javadoc/")%>">Javadoc</a></li>
+            <li><a href="<%= @docUrl("api-references/deployment-descriptors/")%>">Deployment Descriptors</a>
+                <p class="muted">processes.xml, bpm-platform.xml</p></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <a href="<%= @docUrl("real-life/")%>">
+            <img src="<%= @docUrl('assets/img/welcome/real-life.png') %>" />
+          </a>
+          <h2>
+            <a href="<%= @docUrl("real-life/")%>">
+              Real-Life
+            </a>
+          </h2>
+          <ul>
+            <li><a href="<%= @docUrl("real-life/examples/")%>">Examples</a></li>
+            <li><a href="<%= @docUrl("real-life/how-to/")%>">Tutorials &amp; How-tos</a></li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-3">
+          <a href="<%= @docUrl("incubation/")%>">
+            <img src="<%= @docUrl('assets/img/welcome/incubation.png') %>" />
+          </a>
+          <h2>
+            <a href="<%= @docUrl("incubation/")%>">
+              Incubation Space
+            </a>
+          </h2>
+          <ul>
+            <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
+            <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
+            <li><a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a></li>
+          </ul>
+          <p class="muted">camunda BPM incubation is a space for camunda BPM platform extensions and other projects around open source BPM.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="push-down"></div>
