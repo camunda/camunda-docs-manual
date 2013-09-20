@@ -28,23 +28,23 @@
         <li class="dropdown" data-active-link="/api-references">
           <a href="<%= @docUrl("api-references/") %>">References</a>
             <ul class="dropdown-menu">
-              <li data-active-link="/api-references/java">
-                <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
-              </li>
-              <li data-active-link="/api-references/rest">
-                <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
-              </li>
               <li data-active-link="/api-references/bpmn20">
                 <a href="<%= @docUrl("api-references/bpmn20/") %>">
                   BPMN 2.0 (Implementation)
                 </a>
+              </li>
+              <li data-active-link="/api-references/rest">
+                <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
+              </li>
+              <li data-active-link="/api-references/java">
+                <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
               </li>
               <li data-active-link="/api-references/deployment-descriptors">
                 <a href="<%= @docUrl("api-references/deployment-descriptors/") %>">
                   Deployment Descriptors
                 </a>
               </li>
-            </ul>          
+            </ul>
         </li>
         <li class="dropdown" data-active-link="/real-life">
           <a href="<%= @docUrl("real-life/") %>">Real-Life</a>
@@ -69,7 +69,7 @@
             <li>
               <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
             </li>
-          </ul>          
+          </ul>
         </li>
         <li class="dropdown" data-active-link="/enterprise">
           <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>

@@ -5,7 +5,7 @@ category: 'Cycle'
 
 ---
 
-When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](#tools-cycle-bpmn-20-roundtrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
+When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](#cycle-bpmn-20-rountrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
 
 <%- @H2('Step 1: Setup the Connector') %>
 
@@ -13,9 +13,9 @@ When we are talking about Rountrip we are talking about the synchronization of B
   <div id="cycle-signavio-connector" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-signavio-connector.png') %>" ></div>
     <div class="col-xs-6 col-sm-6 col-md-9">
       <p>
-        Setup a suitable connector for your repository as described in the section [Connector Configuration](#tools-cycle-connector-configuration).
+        Setup a suitable connector for your repository as described in the section <a href="#cycle-connector-configuration">Connector Configuration</a>.
         In this walkthrough we use a Signavio Connector with user provided credentials.</p>
-      <p> Hit `Test` to check if Cycle can access your Signavio account.</p>
+      <p> Hit <code>Test</code> to check if Cycle can access your Signavio account.</p>
     </div>
 </div>
 
@@ -24,8 +24,8 @@ When we are talking about Rountrip we are talking about the synchronization of B
 <div class="row">
   <div id="signavio-choose-model" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/signavio-choose-model.png') %>" ></div>
     <div class="col-xs-6 col-sm-6 col-md-9">
-       <p>In the left box of your roundtrip, click on `Add process Model`, pick a name for your modeling tool and choose the Signavio connector from the connector's dropdown. Cycle now connects with Signavio, so after a short time you can navigate through the chosen repository to select your process model.</p>
-       <p>After you hit `Add`, Cycle will save a link to the process model you selected, and offer you a preview image in the left box of your roundtrip. It also says that the process model has not yet been synchronized, which is true. Changes on the diagram in Signavio will be updated automatically by Cycle.</p>
+       <p>In the left box of your roundtrip, click on <code>Add Process Model</code>, pick a name for your modeling tool and choose the Signavio connector from the connector's dropdown. Cycle now connects with Signavio, so after a short time you can navigate through the chosen repository to select your process model.</p>
+       <p>After you hit <code>Add</code>, Cycle will save a link to the process model you selected, and offer you a preview image in the left box of your roundtrip. It also says that the process model has not yet been synchronized, which is true. Changes on the diagram in Signavio will be updated automatically by Cycle.</p>
     </div>
 </div>
 
@@ -34,8 +34,8 @@ When we are talking about Rountrip we are talking about the synchronization of B
 <div class="row">
   <div id="cycle-create-executable" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/cycle/cycle-create-executable.png') %>" ></div>
     <div class="col-xs-6 col-sm-6 col-md-9">
-      <p>Hit `Create` and choose the location you want the BPMN 2.0 XML file to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting `Create`, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "in synch" now.</p>
-      <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a [Pool Extraction](#cycle-pool-extraction) which means that only pools will be regarded that are executable.</p>
+      <p>Hit <code>Create</code> and choose the location you want the BPMN 2.0 XML file to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting <code>Create</code>, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "in synch" now.</p>
+      <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a <a href="#cycle-bpmn-20-rountrip-pool-extraction">Pool Extraction</a> which means that only pools will be regarded that are executable.</p>
   </div>
 </div>
 
@@ -80,36 +80,42 @@ The camunda BPM Process Engine uses multitude attributes for configuration purpo
 
 The xml export from Signavio modeler contains no engine attributes:
 
-      <serviceTask completionQuantity="1" id="sid-01234"
+```xml
+<serviceTask completionQuantity="1" id="sid-01234"
                    implementation="webService"
                    isForCompensation="false"
                    name="MyService"
                    startQuantity="1"/>
+```
 
  After update with camunda modeler class and failedJobRetryTimeCycle were added as camunda specific engine attributes:
 
-      <serviceTask id="sid-01234" camunda:class="java.lang.Object"
-                   camunda:async="true"
-                   name="MyService" 
-                   implementation="webService">
-        <extensionElements>
-          <camunda:failedJobRetryTimeCycle>R3/PT10M</camunda:failedJobRetryTimeCycle>
-        </extensionElements>
-        <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
-        <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
-      </serviceTask>                   
+```xml
+<serviceTask id="sid-01234" camunda:class="java.lang.Object"
+             camunda:async="true"
+             name="MyService" 
+             implementation="webService">
+  <extensionElements>
+    <camunda:failedJobRetryTimeCycle>R3/PT10M</camunda:failedJobRetryTimeCycle>
+  </extensionElements>
+  <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
+  <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
+</serviceTask>
+```             
 
 After synchronization back to Signavio the original Signavio-information like completionQuantity, isForCompensation and startQuantity were merged back:
 
-      <serviceTask camunda:async="true" camunda:class="java.lang.Object"
-                  completionQuantity="1" 
-                  id="sid-01234" 
-                  isForCompensation="false" 
-                  name="MyService" 
-                  startQuantity="1">
-         <extensionElements>
-            <camunda:failedJobRetryTimeCycle xmlns:camunda="http://activiti.org/bpmn">R3/PT10M</camunda:failedJobRetryTimeCycle>
-         </extensionElements>
-         <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
-         <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
-      </serviceTask>
+```xml
+<serviceTask camunda:async="true" camunda:class="java.lang.Object"
+            completionQuantity="1" 
+            id="sid-01234" 
+            isForCompensation="false" 
+            name="MyService" 
+            startQuantity="1">
+   <extensionElements>
+      <camunda:failedJobRetryTimeCycle xmlns:camunda="http://activiti.org/bpmn">R3/PT10M</camunda:failedJobRetryTimeCycle>
+   </extensionElements>
+   <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
+   <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
+</serviceTask>
+```

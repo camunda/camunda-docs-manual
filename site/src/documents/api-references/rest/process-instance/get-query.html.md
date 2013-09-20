@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for process instances that fulfill given parameters. 
+Query for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
 The size of the result set can be retrieved by using the [get instances count](#process-instance-get-instances-count) method.
 
@@ -20,8 +20,8 @@ GET `/process-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -67,12 +67,12 @@ Parameters
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.      
+    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -138,7 +138,7 @@ Each process instance object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -167,7 +167,7 @@ Example
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadValue`
-  
+
 #### Response
 
     [{"links":[],
