@@ -26,7 +26,7 @@ A single deployment (process-archive) is declared. The process archive has the n
   * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) from the database.
   * `isScanForProcessDefinitions`: if this property is set to true, the classpath of the process application is automatically scanned for process definition resources. Process definition resources must end in `.bpmn20.xml` or `.bpmn`.
 
-See [Deployment Descriptor Reference](/api-references/deployment-descriptors/#!/descriptors/processes-xml) for complete documentation of the syntax of the `processes.xml` file.
+See [Deployment Descriptor Reference](<%= @docUrl('api-references/deployment-descriptors/#descriptors-processesxml')%>) for complete documentation of the syntax of the `processes.xml` file.
 
 <%- @H2('Empty processes.xml') %>
 

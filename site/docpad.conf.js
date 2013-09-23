@@ -2,12 +2,29 @@
 
 var docpadConfig = {
 
+  plugins: {
+    marked: {
+      markedOptions: {
+        pedantic: true,
+        gfm: true
+      }
+    }
+  },
+
   // Use to define your own template data and helpers that will be accessible to your templates
   // Complete listing of default values can be found here: http://docpad.org/docs/template-data
   templateData: {
 
     //// Site Properties /////////////////////////////////////
     site: {
+
+      versions: {
+        current: process.env.DOCS_VERSION || 'latest',
+        all: [
+          { id: 'latest', name: 'Latest' },
+          { id: '7.0', name: '7.0 (stable)' }
+        ]
+      },
 
       // The production url of our website
       url: "http://docs.camunda.org",
@@ -191,6 +208,24 @@ var docpadConfig = {
       }
 
       return repeat('../', depth);
+    },
+
+    pathToParent: function (index) {
+
+      var document = this.document,
+          parent = '../',
+          depth = document.parents.length - index;
+
+      if (!depth || depth === 0) {
+        return this.pathSeparator();
+      }
+
+       for (var i = depth-1; i > 0; i--) {
+        parent = parent + parent;
+      }
+
+      return this.pathSeparator(parent);
+
     },
 
     docUrl: function(url) {

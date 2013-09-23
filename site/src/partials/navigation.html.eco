@@ -23,31 +23,39 @@
             <li data-active-link="/guides/migration-guide">
               <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
             </li>
-            <li data-active-link="/how-tos">
-              <a href="<%= @docUrl("how-tos/")%>">How-tos</a>
-            </li>            
-          </ul>          
+          </ul>
         </li>
         <li class="dropdown" data-active-link="/api-references">
           <a href="<%= @docUrl("api-references/") %>">References</a>
             <ul class="dropdown-menu">
-              <li data-active-link="/api-references/java">
-                <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
-              </li>
-              <li data-active-link="/api-references/rest">
-                <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
-              </li>
               <li data-active-link="/api-references/bpmn20">
                 <a href="<%= @docUrl("api-references/bpmn20/") %>">
                   BPMN 2.0 (Implementation)
                 </a>
+              </li>
+              <li data-active-link="/api-references/rest">
+                <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
+              </li>
+              <li data-active-link="/api-references/java">
+                <a href="<%= @docUrl("api-references/java/") %>">Java API</a>
               </li>
               <li data-active-link="/api-references/deployment-descriptors">
                 <a href="<%= @docUrl("api-references/deployment-descriptors/") %>">
                   Deployment Descriptors
                 </a>
               </li>
-            </ul>          
+            </ul>
+        </li>
+        <li class="dropdown" data-active-link="/real-life">
+          <a href="<%= @docUrl("real-life/") %>">Real-Life</a>
+          <ul class="dropdown-menu">
+            <li data-active-link="/real-life/examples">
+              <a href="<%= @docUrl("real-life/examples/") %>">Examples</a>
+            </li>
+            <li data-active-link="/real-life/how-to">
+              <a href="<%= @docUrl("real-life/how-to/") %>">Tutorials &amp; How-Tos</a>
+            </li>
+          </ul>
         </li>
         <li class="dropdown" data-active-link="/incubation">
           <a href="<%= @docUrl("incubation/") %>">Incubation</a>
@@ -61,10 +69,24 @@
             <li>
               <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
             </li>
-          </ul>          
+          </ul>
+        </li>
+        <li class="dropdown" data-active-link="/enterprise">
+          <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
         </li>
       </ul>
-      <a class="pull-right navbar-brand back-to-main ir" href="http://camunda.org">back to camunda.org</a>   
+
+      <a class="navbar-brand navbar-right back-to-main ir" href="http://camunda.org">back to camunda.org</a>
+
+      <form class="navbar-form navbar-version navbar-right" role="switch-docs-version">
+        <div class="form-group">
+          <select onchange="window.location.href = this.value" style="margin: 6px">
+          <% for version in @site.versions.all: %>
+            <option value="../<%= @pathSeparator() %><%= version.id %>" <%=('selected="selected"' if version.id == @site.versions.current) %>><%=version.name %></option>
+          <% end %>
+          </select>
+        </div>
+      </form>
     </nav>
    </div>
 </header>

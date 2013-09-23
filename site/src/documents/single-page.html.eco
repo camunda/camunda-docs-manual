@@ -3,10 +3,22 @@
 layout: 'single-page'
 
 chapters:
-    - title: 'REST API'
-      part: 'api-references/rest'
-    
     - title: 'User Guide'
       part: 'guides/user-guide'
+
+    - title: 'Installation Guide'
+      part: 'guides/installation-guide'
+
+    - title: 'Migration Guide'
+      part: 'guides/migration-guide'
+
+    - title: 'BPMN 2.0 (Implementation)'
+      part: 'api-references/bpmn20'
+
+    - title: 'REST API'
+      part: 'api-references/rest'
+
+    - title: 'Deployment Descriptors'
+      part: 'api-references/deployment-descriptors'
 
 ---

@@ -14,7 +14,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   text-decoration: none;
 }
 
-/** 
+/**
  * loaded to remove angular template flicker on site load
  * @see http://docs.angularjs.org/api/ng.directive:ngCloak
  */
@@ -99,7 +99,7 @@ div.popover {
 /** loading icon integration */
 .icon-loading {
   background-image: url(../img/ajax-loader.gif);
-  width: 16px; 
+  width: 16px;
   height: 16px;
   line-height: 16px;
   background-position: 0 0;
@@ -194,8 +194,14 @@ footer {
 }
 
 @media (max-width: 979px) {
-  .navbar-brand.back-to-main {
+  .navbar-right {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-version {
+    display: block;
   }
 }
 
@@ -322,6 +328,12 @@ footer {
 
 /* sitebar navigation end **/
 
+.container-small {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
 .container-tiny {
   display: inline-block;
   width: 50px;
@@ -349,6 +361,11 @@ footer {
   background-size: contain;
 }
 
+.was8 {
+  background: url("../../assets/img/was8-tile.png");
+  background-size: contain;
+}
+
 /** bootstrap overrides for improving readability */
 
 /*.docs-guide h4 {
@@ -368,16 +385,16 @@ img.tile {
 
 h1 .anchor,
 h2 .anchor,
-h3 .anchor, 
+h3 .anchor,
 h4 .anchor {
-  display: none;  
+  display: none;
 }
 
 h1:hover .anchor,
 h2:hover .anchor,
 h3:hover .anchor,
 h4:hover .anchor {
-  display: inline-block;  
+  display: inline-block;
 }
 
 pre.console {
@@ -398,13 +415,16 @@ pre.console {
 }
 
 /* First level of nav */
+.docs-sidenav:first-child {
+  margin-top: 49px;
+  margin-bottom: 5px;
+}
+
 .docs-sidenav {
-  margin-top: 30px;
-  margin-bottom: 30px;
   padding-top:    10px;
   padding-bottom: 10px;
   text-shadow: 0 1px 0 #fff;
-  background-color: #f7f5fa;
+  background-color: #f1f1f1;
   border-radius: 5px;
 }
 
@@ -416,22 +436,22 @@ pre.console {
 /* All levels of nav */
 .docs-sidebar .nav > li > a {
   display: block;
-  color: #716b7a;
+  color: #777;
   padding: 5px 20px;
 }
 .docs-sidebar .nav > li > a:hover,
 .docs-sidebar .nav > li > a:focus {
   text-decoration: none;
-  background-color: #e5e3e9;
+  background-color: #e0e0e0;
   border-right: 1px solid #dbd8e0;
 }
 .docs-sidebar .nav > .active > a,
 .docs-sidebar .nav > .active:hover > a,
 .docs-sidebar .nav > .active:focus > a {
   font-weight: bold;
-  color: #563d7c;
+  color: #555;
   background-color: transparent;
-  border-right: 1px solid #563d7c;
+  border-right: 1px solid #555;
 }
 
 /* Nav: second level (shown on .active) */
@@ -458,7 +478,7 @@ pre.console {
   }
   .docs-sidebar.affix {
     position: fixed; /* Undo the static from mobile first approach */
-    top: 80px;
+    top: 100px;
   }
   .docs-sidebar.affix-bottom {
     position: absolute; /* Undo the static from mobile first approach */
@@ -482,9 +502,11 @@ pre.console {
 
 /* Janky fix for preventing navbar from overlapping */
 h1[id], h2[id], h3[id], h4[id] {
-  padding-top: 80px;
+  padding-top: 100px;
   margin-top: -45px;
 }
+
+/** chapter header (for book style) */
 
 .chapter-header {
   padding: 30px 0 20px 0;
@@ -495,14 +517,108 @@ h1[id], h2[id], h3[id], h4[id] {
 }
 
 .chapter-header:first-child {
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
 .chapter-header h1 {
   font-size: 64px;
 }
 
+@media print {
+  .chapter-header, .page-header {
+    page-break-before: always;
+  }
+
+  .chapter-header:first-child {
+    page-break-before: auto;
+  }
+}
+
+/** code fix for responsive ui */
 code {
   white-space: normal;
   word-wrap: break-word;
+}
+
+/** bpmn diagram styling */
+
+.bpmn-diagram-container {
+  width: 100%;
+  overflow: auto;
+  padding: 5px;
+  margin-bottom: 5px;
+
+  border: solid 1px #DDD;
+  border-radius: 5px;
+}
+
+.bpmn-symbol-container {
+  display: inline-block;
+  position: relative;
+}
+
+.table-bpmn-events .bpmn-symbol-container {
+  margin:auto;
+  width: 40px;
+}
+
+.table-bpmn-events td, .table-bpmn-events th {
+  width: 10%;
+  text-align: center;
+}
+
+.table-bpmn-events td {
+  vertical-align: middle !important;
+}
+
+.table-bpmn-events td:first-child {
+  font-weight: bold;
+  text-align: right;
+}
+
+.breadcrumb {
+  margin: 10px 0 0;
+  background-color: inherit;
+  line-height: 29px;
+  padding: 0 10px 0 10px;
+  font-size: 0.85em;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.breadcrumb-fixed-top {
+  background-color: white;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  min-height: 47px;
+  box-shadow: 0 0 4px #FFF;
+}
+
+.breadcrumb>li {
+  display: inline;
+}
+
+@media screen and (min-width: 992px) {
+
+  .breadcrumb > li.breadcrumb-section {
+    display: none;
+  }
+}
+
+.jumbotron {
+  background-color: #f9f9f9;
+}
+
+.document-header {
+  margin-top: 50px;
+}
+
+.document-header h1 {
+  font-size: 50px;
 }

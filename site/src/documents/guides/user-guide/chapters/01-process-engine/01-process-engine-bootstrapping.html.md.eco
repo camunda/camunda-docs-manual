@@ -5,24 +5,16 @@ category: 'Process Engine'
 
 ---
 
-There are two basic modes of the Process Engine:
-
-* *Shared Process Engine:* A process engine that is provided by the bpm platform and may be shared between multiple process applications.
-* *Embedded Process Engine:* A process engine that runs embedded in the application and is only used by that particular application.
-
-See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Architecture+Overview">Architecture Overview</a> for more details on the differences on this.
-
 In order to configure and create a Process Engine you have different options:
 
-* *Container managed Process Engine:* The container of your choice (e.g. Tomcat, JBoss, Glassfish or WebSphere) completly manages the Process Engine for you. Configuration is done in a container specific way, see Container Integration for details.
 * *Application managed Process Engine:*
- * Create Process Engine via Java API: You can startup a Process Engine (shared or embedded) completly by plain Java code, more details below.
- * Create Process Engine using XML configuration: You can use an XML configuration (Spring) to configure and startup your Engine, more details below.
- * Create Process Engine using Spring: Spring can manage your Process Engine for you, see <a href="#programming-model-spring">Engine Startup via Spring</a> for details.
+ * Programmatic Process Engine bootstrapping using the Java API: You can startup a Process Engine completely by plain Java code, more details below.
+ * Create Process Engine using XML configuration: You can use an XML configuration (Spring) to configure and startup your Process Engine, more details below.
+ * Create Process Engine using Spring: Spring can manage your Process Engine for you, see [Section on Spring Framework Integration](#spring-framework-integration) for details.
 
 <%- @H2('ProcessEngineConfiguration bean') %>
 
-The camunda engine uses the <a href="http://docs.camunda.org/api-references/java/?org/camunda/bpm/engine/ProcessEngineConfiguration.html">ProcessEngineConfiguration bean</a> to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the processEngineConfiguration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class the matches (the most) your environment, to minimalise the number of properties needed to configure the engine. The following classes are currently available:
+The camunda engine uses the [ProcessEngineConfiguration bean](<%= @docUrl('api-references/javadoc/?org/camunda/bpm/engine/ProcessEngineConfiguration.html') %>) to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the processEngineConfiguration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class the matches (the most) your environment, to minimize the number of properties needed to configure the engine. The following classes are currently available:
 
 * org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration: the process engine is used in a standalone way. The engine itself will take care of the transactions. By default, the database will only be checked when the engine boots (and an exception is thrown if there is no database schema or the schema version is incorrect).
 * org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration: this is a convenience class for unit testing purposes. The engine itself will take care of the transactions. An H2 in-memory database is used by default. The database will be created and dropped when the engine boots and shuts down. When using this, probably no additional configuration is needed (except when using for example the job executor or mail capabilities).
@@ -31,7 +23,7 @@ The camunda engine uses the <a href="http://docs.camunda.org/api-references/java
 
 <%- @H2('Bootstrap a Process Engine using Java API') %>
 
-You can completly configure the engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
+You can configure the process engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
 
     ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
     ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration();
@@ -44,9 +36,9 @@ Now you can call the buildProcessEngine() operation to create a Process Engine:
       .setJobExecutorActivate(true)
       .buildProcessEngine();
 
-<%- @H2('Configure Process Engine via Spring XML') %>
+<%- @H2('Configure Process Engine using Spring XML') %>
 
-The easiest way to configure your Process Engine is via through an XML file called camunda.cfg.xml. Using that you can simply do:
+The easiest way to configure your Process Engine is via through an XML file called `camunda.cfg.xml`. Using that you can simply do:
 
     ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine()
 
@@ -96,7 +88,7 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a ProcessEngin
 
 <%- @H2('Configure Process Engine in bpm-platform.xml') %>
 
-The [bpm-platform.xml](/api-references/deployment-descriptors/#!/descriptors/bpm-platform-xml) file is used to configure camunda BPM platform in the following distributions:
+The [bpm-platform.xml](<%= @docUrl('api-references/deployment-descriptors/#descriptors-bpm-platformxml') %>) file is used to configure camunda BPM platform in the following distributions:
 
 * Apache Tomcat
 * Glassfish Application Server
@@ -127,10 +119,10 @@ The `<process-engine ... />` xml tag allows defining a process engine:
 
     </bpm-platform>
 
-See [Deployment Descriptor Reference](/api-references/deployment-descriptors/#!/descriptors/bpm-platform-xml) for complete documentation of the syntax of the `bpm-platform.xml` file.
+See [Deployment Descriptor Reference](<%= @docUrl('api-references/deployment-descriptors/#descriptors-bpm-platformxml') %>) for complete documentation of the syntax of the `bpm-platform.xml` file.
 
 <%- @H2('Configure Process Engine in processes.xml') %>
 
-The process engine can also be configured and bootstrapped using the META-INF/processes.xml file. See [Section on processes.xml file](#processes-xml-configuring-process-engines) for details.
+The process engine can also be configured and bootstrapped using the META-INF/processes.xml file. See [Section on processes.xml file](#process-applications-the-processesxml-deployment-descriptor) for details.
 
-See [Deployment Descriptor Reference](/api-references/deployment-descriptors/#!/descriptors/processes-xml) for complete documentation of the syntax of the `processes.xml` file.
+See [Deployment Descriptor Reference](<%= @docUrl('api-references/deployment-descriptors/#descriptors-processesxml') %>) for complete documentation of the syntax of the `processes.xml` file.

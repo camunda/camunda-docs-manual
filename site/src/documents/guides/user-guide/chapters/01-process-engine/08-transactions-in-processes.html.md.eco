@@ -8,14 +8,35 @@ category: 'Process Engine'
 The process engine is a piece of passive Java Code, which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
 
 
-On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#job-executor), which is able to fetch registered jobs and process them asynchronously.
+On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](#process-engine-the-job-executor), which is able to fetch registered jobs and process them asynchronously.
 
 
 <%- @H2('Wait States') %>
 
- We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are wait states:
+ We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are always wait states:
 
-     TODO Merge list from https://app.camunda.com/confluence/display/foxUserGuide/Thread+and+Transaction+Management#ThreadandTransactionManagement-PersistentWaitStates
+<div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task">
+	<a href="<%= @docUrl('api-references/bpmn20/#tasks-receive-task') %>">
+	  <div id="1" title="go to Receive Task"></div>
+	</a>
+</div>
+<br>
+<div data-bpmn-symbol="usertask" data-bpmn-symbol-name="User Task">
+	<a href="<%= @docUrl('api-references/bpmn20/#tasks-user-task') %>">
+	  <div id="1" title="go to User Task"></div>
+	</a>
+</div>
+<br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-message-events') %>"><div data-bpmn-symbol="intermediatecatchevent/message"  data-bpmn-symbol-name="Message"></div> Message Event</a><br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-timer-events') %>"><div data-bpmn-symbol="intermediatecatchevent/timer"  data-bpmn-symbol-name="Timer"></div> Timer Event</a><br>
+<a href="<%= @docUrl('api-references/bpmn20/#events-signal-events') %>"><div data-bpmn-symbol="intermediatecatchevent/signal"  data-bpmn-symbol-name="Signal"></div> Signal Event</a><br><br>
+
+
+The <a href="<%= @docUrl('api-references/bpmn20/#gateways-event-based-gateway') %>">Event Based Gatewy</a>:
+
+<div data-bpmn-diagram="implement/event-based-gateway" > </div>
+
+And keep in mind that [Asynchronous Continuations](<%= @docUrl('guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continutaions') %>) can add transaction boundaries to other tasks as well.
 
 <%- @H2('Transaction Boundaries') %>
 
@@ -27,13 +48,18 @@ We see a segment of a BPMN process with a user task, a service task and a timer 
 
 In **1**, an application or client thread completes the task. In that same thread the engine runtime is now executing the service task and advances until it reaches the wait state at the timer event (**2**). Then it returns the control to the caller (**3**) potentially committing the transaction (if it was started by the engine).
 
+
+
+<%- @H2('Asynchronous Continutaions') %>
+
+
 In some cases this behavior is not desired. Sometimes we need custom control over transaction boundaries in a process, in order to be able to scope logical units of work. Consider the following process fragment:
 
 <center><img class="img-responsive" src="<%= @docUrl('guides/user-guide/assets/img/transactions-2.png') %>"/></center>
 
 This time we are completing the user task, generating an invoice and then send that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to rollback the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return the control to the calling application (**2**).
 
-Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](#job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
+Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
 
 So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
 
@@ -41,7 +67,7 @@ So behind the scenes, when we reach the *generate invoice* task, we are persisti
 
 `camunda:async` can be specified on the following bpmn task types: `task`, `serviceTask`, `scriptTask`, `businessRuleTask`, `sendTask`, `receiveTask`, `userTask`, `subProcess` and `callActivity`. On a user task, receive task or other wait states, the additional async continuation allows us to execute the start execution listeners in a separate thread/transaction.
 
-A start event may also be declared as asynchronous in the same way as above by the attribute `camunda:async="true"`. On instantiation, the process instance will be created and persisted in the database, but execution will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful in various situations such as [heterogeneous clusters](#job-execution-heterogeneous-clusters), when the execution listener class is not available on the node that instantiates the process.
+A start event may also be declared as asynchronous in the same way as above by the attribute `camunda:async="true"`. On instantiation, the process instance will be created and persisted in the database, but execution will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful in various situations such as [heterogeneous clusters](#process-engine-the-job-executor-cluster-setups), when the execution listener class is not available on the node that instantiates the process.
 
 <%- @H2('Rollback on Exception') %>
 
@@ -62,7 +88,7 @@ The above sketched solution normally leads to discussion as people expect the pr
 
 But there are consequences which you should keep in mind:
 
- * In case of Exceptions the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client. 
+ * In case of Exceptions the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client.
  * Parallel process paths are not executed parallelly in terms of Java Threads, the different paths are executed sequentially, since we only have and use one Thread.
  * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. But in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
 

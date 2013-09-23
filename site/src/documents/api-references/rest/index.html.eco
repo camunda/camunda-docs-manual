@@ -5,5 +5,6 @@ layout: 'navigated-docs'
 
 part: 'api-references/rest'
 searchable: true
+parents: [ 'References' ]
 
 ---

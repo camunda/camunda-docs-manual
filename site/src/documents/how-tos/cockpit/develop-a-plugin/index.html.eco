@@ -1,8 +1,0 @@
----
-
-title: 'User Guide'
-layout: 'default'
-
----
-
-<%- @include('./howto.md') %>

@@ -6,13 +6,15 @@ layout: 'default'
 
 <% part = @getPages(@document.part) %>
 
+<%- @partial('breadcrumb.html.eco', @, {}) %>
+
 <div class="col-md-3">
   <div class="docs-sidebar affix" data-spy="affix">
 
     <% if @document.searchable: %>
     <div class="search docs-sidenav">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search API" />
+        <input type="text" class="form-control" placeholder="Search Docs" />
         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
       </div>
     </div>
@@ -36,6 +38,9 @@ layout: 'default'
 </div>
 
 <div class="col-md-9">
+  <div class="document-header">
+    <h1><%= @document.title %></h1>
+  </div>
   <%- @partial('part-contents', @, { part: part }) %>
 </div>
 

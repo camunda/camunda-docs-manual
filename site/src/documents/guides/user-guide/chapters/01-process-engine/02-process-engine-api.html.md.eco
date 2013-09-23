@@ -55,7 +55,7 @@ The **ManagementService** is typically not needed when coding custom application
 
 <div class="alert alert-warning">
   <strong>Javadocs: </strong>
-  <p>For more detailed information on the service operations and the engine API, see the <a href="http://docs.camunda.org/api-references/java/">javadocs</a>.</p>
+  <p>For more detailed information on the service operations and the engine API, see the <a href="<%= @docUrl('api-references/javadoc/') %>">javadocs</a>.</p>
 </div>
 
 <%- @H2('Query API') %>
@@ -78,7 +78,7 @@ The Java Query API allows to program completely typesafe queries with a fluent A
       .orderByDueDate().asc()
       .list();
 
-You can find more information on this in the <a href="http://docs.camunda.org/api-references/java/">javadocs</a>.
+You can find more information on this in the [Javadocs](<%= @docUrl('api-references/javadoc/') %>).
 
 <%- @H3('REST Query API') %>
 
@@ -102,7 +102,17 @@ Sometimes you need more powerful queries, e.g. queries using an OR operator or r
 
 For performance reasons it might sometimes be desirable not to query the engine objects but some own value or DTO objects collecting data from different tables - maybe including your own domain classes.
 
-See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Performance+Tuning+with+custom+Queries">Performance Tuning with custom Queries</a>.
+<div class="alert alert-info">
+  <div class="row">
+    <div class="col-md-1">
+      <img src="<%= @docUrl('assets/img/welcome/real-life.png') %>" height="50" />
+    </div>
+    <div class="col-md-8">
+      <strong>Related How-To</strong>
+      <p>[Performance Tuning with custom Queries](<%= @docUrl('real-life/how-to/#process-engine-custom-queries') %>)</p>
+    </div>
+  </div>
+</div>
 
 <%- @H3('SQL Queries') %>
 

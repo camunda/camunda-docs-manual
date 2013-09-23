@@ -4,19 +4,48 @@
 
 !function ($) {
 
-  $(function(){
+  $(function() {
 
     var $window = $(window),
+        $body = $(document.body),
         path = window.location.pathname,
-        $body = $(document.body);
+        base = $("base").attr('app-base');
 
+    // refresh scrollspy on load
     $window.on('load', function () {
-      $body.scrollspy('refresh')
+      $body.scrollspy('refresh');
+    });
+
+    // refresh scrollspy on resize
+    $window.resize(function() {
+      $body.scrollspy('refresh');
+      $body.scrollspy('process');
     });        
+
+    $('[data-bpmn-diagram]').each(function() {
+      var e = $(this),
+          name = e.attr('data-bpmn-diagram'),
+          uri = base + "assets/bpmn/" + name;
+      
+      e.addClass('bpmn-diagram-container');
+      
+      bpmn(uri, e);
+    });
+
+    $('[data-bpmn-symbol]').each(function() {
+
+      var e = $(this),
+          bpmnSymbol = e.attr('data-bpmn-symbol'),
+          bpmnSymbolName = e.attr('data-bpmn-symbol-name');
+
+      e.addClass('bpmn-symbol-container');
+
+      drawBpmnSymbol(bpmnSymbol, bpmnSymbolName, e);
+    });
 
     /*
      * Append modal dialog to enlarge the image.
-     */    
+     */
     $('[data-img-thumb]').each(function () {
       var current = $(this),
           id = 'dialog_' + current.attr('id'),
@@ -82,6 +111,51 @@
 
       }
 
+    });
+
+
+    /*
+     * Listen to the event 'activate', which will be triggered
+     * from bootstrap scrollspy, and append the active sections
+     * to the breadcrumb. 
+     */
+    $(document).on('activate', function (e) {
+
+      var categoryElement = $('.nav.docs-sidenav > li.active'),
+          category = categoryElement.find('> a'),
+          categoryLabel = category.text(),
+          categoryHref = category.attr('href'),
+
+          sectionElement = categoryElement.find('> ul > li.active'),
+          section = sectionElement.find('> a'),
+          sectionLabel = section.text(),
+          sectionHref = section.attr('href'),
+
+          breadcrumb = $('.breadcrumb');
+
+      // if there does not exist a breadcrumb, then do nothing
+      if (!breadcrumb) {
+        return;
+      }
+
+      // remove all breadcrumb with the class 'breadcrumb-section'
+      breadcrumb.find('> li.breadcrumb-section').remove();
+
+      if (categoryElement.length) {
+        breadcrumb.append(
+          '<li class="breadcrumb-section">' + 
+          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' + 
+          '</li>'
+        );
+
+        if (sectionElement.length) {
+          breadcrumb.append(
+            '<li class="breadcrumb-section">' + 
+            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' + 
+            '</li>'
+          );
+        }
+      }
     });
 
 });

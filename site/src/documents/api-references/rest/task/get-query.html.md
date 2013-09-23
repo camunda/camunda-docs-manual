@@ -36,7 +36,7 @@ Parameters
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
-  
+
   <tr>
     <td>processDefinitionId</td>
     <td>Restrict to tasks that belong to a process definition with the given id.</td>
@@ -49,12 +49,12 @@ Parameters
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
   </tr>
-  
+
   <tr>
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
   </tr>
-  
+
   <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
@@ -85,7 +85,7 @@ Parameters
     <td>unassigned</td>
     <td>If set to `true`, restricts the query to all tasks that are unassigned.</td>
   </tr>
-  
+
   <tr>
     <td>taskDefinitionKey</td>
     <td>Restrict to tasks that have the given key.</td>
@@ -110,7 +110,7 @@ Parameters
     <td>descriptionLike</td>
     <td>Restrict to tasks that have a description that has the parameter value as a substring.</td>
   </tr>
-  
+
   <tr>
     <td>priority</td>
     <td>Restrict to tasks that have the given priority.</td>
@@ -123,7 +123,7 @@ Parameters
     <td>minPriority</td>
     <td>Restrict to tasks that have a higher or equal priority.</td>
   </tr>
-  
+
   <tr>
     <td>due</td>
     <td>Restrict to tasks that are due on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
@@ -170,12 +170,12 @@ Parameters
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.      
+    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -184,12 +184,12 @@ Parameters
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form `key_operator_value`.
     `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    __Note:__ Values are always treated as `String` objects on server side.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.      
+    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -298,7 +298,7 @@ Each task object has the following properties:
     <td>The task's key.</td>
   </tr>
 </table>
-  
+
 
 Response codes
 --------------
@@ -322,7 +322,7 @@ Response codes
   </tr>
 </table>
 
-  
+
 Example
 -------
 
