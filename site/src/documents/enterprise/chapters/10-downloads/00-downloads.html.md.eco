@@ -1,7 +1,7 @@
 ---
 
 category: 'Downloads'
-title: 'Current Version'
+title: 'Latest Version'
 
 ---
 
@@ -59,21 +59,21 @@ title: 'Current Version'
   </tbody>
 </table>    
 
-<a class="pull-right" href="<%= @docUrl('enterprise/previous-downloads') %>">download previous version</a><br>
-<a class="pull-right" href="http://camunda.org/download">download the community edition</a><br>
-
-
-<div class="col-md-6">
-  <h3>Download instructions</h3>
-  <ol>
-    <li><strong>Download</strong> the prepacked distribution</li>
-    <li><strong>Unzip</strong> to a folder of choice</li>
-    <li><strong>Start</strong> the platform using "start-camunda.bat"</li>
-  </ol>
+<div class="row">
+  <a class="pull-right" href="<%= @docUrl('enterprise/previous-downloads') %>">download previous version</a><br> 
+  <a class="pull-right" href="http://camunda.org/download">download the community edition</a>
 </div>
-<div class="col-md-6">
-  <h3>Additional Information</h3>
+<div class="row">
   <div class="col-md-6">
+    <h3>Download instructions</h3>
+    <ol>
+      <li><strong>Download</strong> the prepacked distribution</li>
+      <li><strong>Unzip</strong> to a folder of choice</li>
+      <li><strong>Start</strong> the platform using "start-camunda.bat"</li>
+    </ol>
+  </div>
+  <div class="col-md-6">
+    <h3>Additional Information</h3>
     <a href="http://camunda.org/get-started/">Read getting started guide</a><br />
     <a href="https://github.com/camunda/camunda-bpm-examples" id="githubExamples">Examples on GitHub</a><br />
     <a href="https://github.com/camunda/camunda-quickstarts" id="githubQuickstarts">Quickstarts on GitHub</a><br />
