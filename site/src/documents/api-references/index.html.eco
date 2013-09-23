@@ -13,9 +13,9 @@ layout: 'default'
   </div>
 
   <ul>
-    <li><a href="./java/">Java API</a></li>
-    <li><a href="./rest/">REST API</a></li>
     <li><a href="./bpmn20/">BPMN 2.0 (Implementation)</a></li>
+	<li><a href="./rest/">REST API</a></li>
+    <li><a href="./javadoc/">Javadoc</a></li>
     <li><a href="./deployment-descriptors/">Deployment Descriptors</a>
     	<p class="muted">processes.xml, bpm-platform.xml</p></li>
   </ul>
