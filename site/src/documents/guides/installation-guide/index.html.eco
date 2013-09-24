@@ -71,4 +71,15 @@ layout: 'default'
       </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+      <h2><a href="camunda-modeler/">camunda Modeler</a></h2>
+      <ul>
+        <li><a href="camunda-modeler/#installation-requirements">Requirements</a></li>
+        <li><a href="camunda-modeler/#installation-downloads">Downloads</a></li>
+        <li><a href="camunda-modeler/#installation-step-by-step">Installation</a></li>
+        <li><a href="camunda-modeler/#troubleshooting">Troubleshooting</a></li>       
+      </ul>
+    </div>
+  </div>
 </div>
