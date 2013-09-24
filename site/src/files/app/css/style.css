@@ -622,3 +622,15 @@ code {
 .document-header h1 {
   font-size: 50px;
 }
+
+/*
+  Fixes some IE and Firefox issues with our examples
+*/
+.example {
+  width: 250px;
+}
+
+/* needed to space real-life examples headline and table */
+.real-life-spacer {
+  margin: 25px 0;
+}

@@ -5,7 +5,7 @@ layout: 'default'
 
 ---
 
-<div class="row" style="margin-top: 25px; margin-bottom: 25px">
+<div class="row real-life-spacer">
   <div class="col-md-1">
   	<img src="<%= @docUrl('assets/img/git-hub.png') %>" class="img-responsive"/>
   </div>
@@ -20,36 +20,36 @@ layout: 'default'
 
 The following table gives you a quick overview of the most useful examples. Note that <a href="https://github.com/camunda/camunda-bpm-examples">in GitHub</a> you will find more examples waiting for you.
 
-<table class="table table-bordered" style="margin-top: 25px">
+<table class="table table-bordered real-life-spacer">
   <tr>
-    <th style="width:250px"></th>
+    <th class="example"></th>
     <th>Name &amp; Link</th>
     <th>What does it demonstrate?</th>
   </tr>
   <tr>
     <td>
-        <div style="width:250px" id="invoice" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/invoice.png') %>"></div>
+        <div class="example" id="invoice" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/invoice.png') %>"></div>
     </td>
     <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/invoice-en">Incoming Invoice Process</a> <br>(<a href="http://camunda.org/share/#/process/56372952-dfc5-4357-b5dd-1b79f493a4f6">discuss on camunda share</a>)</td>
     <td>Complete Demo Process Application using JSF and CDI, leveraging the <a href="<%= @docUrl('guides/user-guide/#process-engine-process-diagram-visualization') %>">Process Diagram API</a> to viualize current state in process model.</td>
   </tr>
   <tr>
     <td>
-        <div id="twitter" style="width:250px" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/TwitterDemoProcess.png') %>"></div>
+        <div id="twitter" class="example" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/TwitterDemoProcess.png') %>"></div>
     </td>
     <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/twitter">Twitter QA Process</a> <br>(<a href="http://camunda.org/share/#/process/a8253fd8-7018-4821-9ca7-898b3c50b2d2">discuss on camunda share</a>)</td>
     <td>Very Simple Process Application using embedded HTML forms.</td>
   </tr>
   <tr>
     <td>
-        <div style="width:250px" id="orderConfirmation" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/OrderConfirmationRules.png') %>"></div>
+        <div class="example" id="orderConfirmation" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/OrderConfirmationRules.png') %>"></div>
     </td>
     <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/order-confirmation-rules">Order Confirmation Rules</a> <br>(<a href="http://camunda.org/share/#/process/94b638a8-f129-4eeb-8152-3d01a5cf4460">discuss on camunda share</a>)</td>
     <td>Drools rule generated from self-made web-based rule table.</td>
   </tr>
   <tr>
     <td>
-        <div style="width:250px" id="cockpitPluginReporting" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/cockpit-plugin-screenshot.png') %>"></div>
+        <div class="example" id="cockpitPluginReporting" data-img-thumb img-src="<%= @docUrl('assets/img/real-life/examples/cockpit-plugin-screenshot.png') %>"></div>
     </td>
     <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit-plugin-reporting">Cockpit Plugin "Reporting"</a></td>
     <td>Plugin for cockpit showing some statistics.</td>
