@@ -5,7 +5,9 @@ category: 'Web Applications'
 
 ---
 
+<div class="alert alert-warning">
 **Note**: We do not recommend to install camunda Cycle together with the other platform components (webapps, engine, REST Api) on the same runtime environment. Such a combined installation is not supported.
+</div>
 
 ## Create the database schema for camunda Cycle
 
