@@ -320,7 +320,7 @@ The following is a list with the most commonly used process engine configuration
 
   <tr>
     <td><code>jobExecutorDeploymentAware</code></td>
-    <td>String</td>
+    <td>Boolean</td>
     <td>
       <p>
         Controls whether the job executor is deployment aware
