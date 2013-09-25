@@ -5,7 +5,9 @@ layout: 'default'
 
 ---
 
-<div class="row real-life-spacer">
+<%- @partial('breadcrumb.html.eco', @, {}) %>
+
+<div class="row document-header">
   <div class="col-md-1">
   	<img src="<%= @docUrl('assets/img/git-hub.png') %>" class="img-responsive"/>
   </div>
@@ -18,9 +20,9 @@ layout: 'default'
 
 <h2>Highlighted Examples</h2>
 
-The following table gives you a quick overview of the most useful examples. Note that <a href="https://github.com/camunda/camunda-bpm-examples">in GitHub</a> you will find more examples waiting for you.
+<p>The following table gives you a quick overview of the most useful examples. Note that <a href="https://github.com/camunda/camunda-bpm-examples">in GitHub</a> you will find more examples waiting for you.</p>
 
-<table class="table table-bordered real-life-spacer">
+<table class="table table-bordered">
   <tr>
     <th class="example"></th>
     <th>Name &amp; Link</th>

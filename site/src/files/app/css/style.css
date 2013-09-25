@@ -629,8 +629,3 @@ code {
 .example {
   width: 250px;
 }
-
-/* needed to space real-life examples headline and table */
-.real-life-spacer {
-  margin: 25px 0;
-}
