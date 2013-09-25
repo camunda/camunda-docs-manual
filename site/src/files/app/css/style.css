@@ -622,3 +622,10 @@ code {
 .document-header h1 {
   font-size: 50px;
 }
+
+/*
+  Fixes some IE and Firefox issues with our examples
+*/
+.example {
+  width: 250px;
+}
