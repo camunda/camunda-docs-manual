@@ -322,7 +322,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -333,11 +333,11 @@
     <rect
        style="fill:#686868;fill-opacity:1;stroke:none"
        id="rect7137"
-       width="254.44446"
-       height="135.11111"
+       width="249.96684"
+       height="81.379768"
        x="237.44444"
        y="228.80663"
-       rx="0.19858202" />
+       rx="0.19508746" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.89987135;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5.69961419, 1.8998714;stroke-dashoffset:0;marker-end:url(#TriangleOutM)"
        d="m 451.49254,298.87892 0,207.45032"
