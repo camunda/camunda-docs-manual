@@ -317,4 +317,18 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
+
+  <tr>
+    <td><code>jobExecutorDeploymentAware</code></td>
+    <td>String</td>
+    <td>
+      <p>
+        Controls whether the job executor is deployment aware
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
 </table>
