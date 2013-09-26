@@ -13,7 +13,7 @@ layout: 'default'
   </div>
 
   <ul>
-    <li><a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a></li>
+    <li><a href="https://github.com/camunda/camunda-bpm-testing">Testing</a></li>
     <li><a href="http://camunda.github.io/camunda-bpm-php-sdk/">PHP SDK</a></li>
     <li><a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a></li>
   </ul>
