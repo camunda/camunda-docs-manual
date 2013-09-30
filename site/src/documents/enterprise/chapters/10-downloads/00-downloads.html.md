@@ -5,6 +5,7 @@ title: 'Latest Version'
 
 ---
 
+
 #### Download the camunda BPM enterprise edition
 
 
@@ -61,7 +62,7 @@ title: 'Latest Version'
 
 <div class="row">
   <div class="col-md-12">
-    <a class="pull-right" href="<%= @docUrl('enterprise/previous-downloads') %>">download previous version</a><br> 
+    <a class="pull-right" href="ref:/enterprise/previous-downloads.html">download previous version</a><br> 
     <a class="pull-right" href="http://camunda.org/download">download the community edition</a>
   </div>
 </div>
@@ -76,10 +77,19 @@ title: 'Latest Version'
   </div>
   <div class="col-md-6">
     <h3>Additional Information</h3>
-    <a href="http://camunda.org/get-started/">Read getting started guide</a><br />
-    <a href="https://github.com/camunda/camunda-bpm-examples" id="githubExamples">Examples on GitHub</a><br />
-    <a href="https://github.com/camunda/camunda-quickstarts" id="githubQuickstarts">Quickstarts on GitHub</a><br />
-    <a href="http://docs.camunda.org/guides/user-guide/#!/#introduction%2Fsupported-environments">Supported Environments</a><br /><br />
+    <ul>
+      <li>
+        <a href="http://camunda.org/get-started/">Read getting started guide</a>
+      </li>
+      <li>
+        <a href="https://github.com/camunda/camunda-bpm-examples" id="githubExamples">Examples on GitHub</a>
+      </li>
+      <li>
+        <a href="https://github.com/camunda/camunda-quickstarts" id="githubQuickstarts">Quickstarts on GitHub</a>
+      </li>
+      <li>
+        <a href="ref:/guides/user-guide/#introduction-supported-environments">Supported Environments</a>
+      </li>
   </div>
 </div>
 

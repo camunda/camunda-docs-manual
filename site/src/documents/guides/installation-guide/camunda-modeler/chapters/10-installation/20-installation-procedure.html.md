@@ -6,10 +6,12 @@ category: 'Installation'
 ---
 
 
-<%- @H2('Step 1 - Add the update site') %>
+## Step 1 - Add the update site
 
 <div class="row">
-  <div id="modeler-installation-01" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_01.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_01.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       Add the update site URL <a href="http://camunda.org/release/camunda-modeler/update-sites/latest/site">http://camunda.org/release/camunda-modeler/update-sites/latest/site/</a> to the Eclipse download site.
@@ -18,10 +20,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 2 - Select item') %>
+## Step 2 - Select item
 
 <div class="row">
-  <div id="modeler-installation-02" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_02.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_02.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       The item <strong>camunda Modeler</strong> appears. Select it and click <em>Next</em>.
@@ -30,10 +34,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 3 - Installation details') %>
+## Step 3 - Installation details
 
 <div class="row">
-  <div id="modeler-installation-03" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_03.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_03.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       Wait for the installation details. Click <em>Next</em>.
@@ -42,10 +48,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 4 - User Agreement') %>
+## Step 4 - User Agreement
 
 <div class="row">
-  <div id="modeler-installation-04" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_04.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_04.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       Before you can download the plugin you will be prompt to accept the User Agreement. Click <em>Next</em>.
@@ -54,10 +62,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 5 - Installation in progress') %>
+## Step 5 - Installation in progress
 
 <div class="row">
-  <div id="modeler-installation-05" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_05.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_05.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       The installation progress window appears. Wait.
@@ -66,10 +76,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 6 - Security warning') %>
+## Step 6 - Security warning
 
 <div class="row">
-  <div id="modeler-installation-06" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_06.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_06.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       You will get a security warning message during the installation. Click <em>OK</em>.
@@ -78,10 +90,12 @@ category: 'Installation'
 </div>
 
 
-<%- @H2('Step 7 - Restart') %>
+## Step 7 - Restart
 
 <div class="row">
-  <div id="modeler-installation-07" class="col-xs-6 col-sm-6 col-md-3" data-img-thumb img-src="<%= @docUrl('assets/img/modeler/modeler_plugin_07.png') %>"></div>
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_07.png" />
+  </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
       After the installation has finished you will be prompted to restart your Eclipse. Click <em>Restart Now</em>. After the restart the camunda modeler is ready to use.

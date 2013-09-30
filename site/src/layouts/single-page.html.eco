@@ -18,11 +18,11 @@ layout: 'plain-docs'
       <ol>
         <% for category, j in part.categories: %>
         <li>
-          <a href="#<%= @linkify(category.name) %>"><%= category.name %></a>
+          <a href="#<%= @linkify('ch-' + (i + 1), category.name) %>"><%= category.name %></a>
           <ol style="list-style: lower-roman">
             <% for page, k in category.pages: %>
             <li>
-              <a href="#<%= @linkify(category.name, page.title) %>"><%= page.shortTitle %></a>
+              <a href="#<%= @linkify('ch-' + (i + 1), category.name, page.title) %>"><%= page.shortTitle %></a>
             </li>
             <% end %>
           </ol>

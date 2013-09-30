@@ -17,13 +17,13 @@ In the context of the fox engine, errors are normally raised as Java excepions y
 
 ### Transaction Rollbacks
 
-The standard handling strategy is that exceptions are thrown to the client, meaning the current transaction is rolled back. This means the process state is rolled back to the last wait state. This behavior is described in detail in [Transactions in Processes](@docUrl('guides/user-guide/#process-engine-transactions-in-processes')). The error handling is delegated to the client of the engine.
+The standard handling strategy is that exceptions are thrown to the client, meaning the current transaction is rolled back. This means the process state is rolled back to the last wait state. This behavior is described in detail in [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes). The error handling is delegated to the client of the engine.
 
 As a concrete example this would mean, that the user gets an error dialog on the fronted, that the stock management software is currently not reachable due to network errors. To retry the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
 
 ### Async and Failed Jobs
 
-If you don't want the exception being show to the user one option is to make service calls which might cause an error async as described in [Transactions in Processes](@docUrl('guides/user-guide/#process-engine-transactions-in-processes')). In this case the exception is stored in the process engine database and [The Job](guides/user-guide/#process-engine-the-job-executor) in the background is marked as failed (to be more precise, the exception is stored and some retry counter is decremented).
+If you don't want the exception being show to the user one option is to make service calls which might cause an error async as described in [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes). In this case the exception is stored in the process engine database and [The Job](guides/user-guide/#process-engine-the-job-executor) in the background is marked as failed (to be more precise, the exception is stored and some retry counter is decremented).
 
 In the example above this means that the user will not see an error but an "everything successful" dialog. The exception is stored on the job. Now either a clever retry strategy will automatically re-trigger the job later on (when the network is available again) or some operator needs to have a look at the error and trigger an additional retry. This is shown later in more details.
 
