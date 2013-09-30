@@ -80,33 +80,3 @@ The generic form will be used whenever you have not added a dedicated form for a
     After hitting the <code>Complete Task</code> button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
   </div>  
 </div>
-
-## Creating Embedded Taskforms
-
-Embedded task forms are plain HTML documents that contain input fields that map to process variables. These inputs must be annotated with a `form-field` attribute. Additionally they must declare the type and name of the mapped variable. A simple process variable mapping input is shown below:
-
-```html
-<input form-field type="boolean" name="myBoolean" />
-```
-
-As variable types supported are `boolean`, `string`, `number` and `date`. The mapping between variable types and rendered input is as follows:
-
-<table>
-  <thead>
-    <tr>
-      <th>Variable Type</th><th>Input Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>boolean</td><td>checkbox</td>
-      <td>string</td><td>text</td>
-      <td>number</td><td>number</td>
-      <td>date</td><td>datetime</td>
-    </tr>
-  </tbody>
-</table>
-
-### Adding validation
-
-Form validation may be added via 
