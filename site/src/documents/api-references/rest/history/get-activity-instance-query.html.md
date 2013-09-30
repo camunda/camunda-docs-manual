@@ -1,6 +1,7 @@
 ---
 
-title: 'Get Activity Instances'
+title: 'Get Activity Instances (Historic)'
+shortTitle: 'Get Activity Instances'
 category: 'History'
 
 keywords: 'historic get query list'
@@ -192,7 +193,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

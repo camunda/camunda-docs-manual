@@ -8,6 +8,10 @@ var docpadConfig = {
         pedantic: true,
         gfm: true
       }
+    },
+    links: {
+      validateLinks: 'report',
+      processFlaggedOnly: 'links'
     }
   },
 
@@ -135,15 +139,6 @@ var docpadConfig = {
                 .replace(/[^\w-]+/g, '')
                 .toLowerCase();
     },
-
-    heading: function(type, text) {
-      return '<' + type + ' id="' + this.linkify(text) + '">' + text + '</' + type + '>';
-    },
-
-    H1: function(text) { return this.heading('h1', text); },
-    H2: function(text) { return this.heading('h2', text); },
-    H3: function(text) { return this.heading('h3', text); },
-    H4: function(text) { return this.heading('h4', text); },
 
     getPreparedTitle: function() {
       var document = this.document,

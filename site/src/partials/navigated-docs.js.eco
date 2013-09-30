@@ -12,8 +12,6 @@
         var input = $('.docs-sidebar .search input');
 
         function clear(resetInput) {
-          console.log('clear', resetInput);
-
           $('.docs-sidebar .nav li').show();
           if (resetInput) {
             input.val('');

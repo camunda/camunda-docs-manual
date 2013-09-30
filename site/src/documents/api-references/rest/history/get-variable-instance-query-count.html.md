@@ -42,7 +42,7 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Filter by the process instance the variable belongs to. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Filter by the process instance the variable belongs to. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

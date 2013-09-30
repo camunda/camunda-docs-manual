@@ -117,7 +117,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

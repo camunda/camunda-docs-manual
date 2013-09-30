@@ -6,11 +6,13 @@ category: 'BPM Platform'
 
 ---
 
+
 This section explains how you can use the WebShere Integrated Solutions Console for configuring a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server for additional details](http://www-01.ibm.com/software/webservers/appserv/was/library/).
 
 Select the appropriate server under **Resources** / **Asynchronous Beans** / **Work Managers** and open the configuration page. Example: <code>server1</code>
 Create a new work manager using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
+
 
 ## General Properties
 
@@ -59,6 +61,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tbody>
 </table>
 
+
 ## Thread Pool Properties
 
 <table class="table">
@@ -96,4 +99,8 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tbody>
 </table>
 
-The following screenshot shows an example configuration of the work manager and its thread pool properties. <a href="assets/img/work-manager.png" target="_blank"><img class="tile" src="assets/img/work-manager.png" alt=""/></a>
+The following screenshot shows an example configuration of the work manager and its thread pool properties.
+
+<a href="ref:asset:/guides/installation-guide/was/assets/img/work-manager.png" target="_blank">
+  <img class="tile" src="ref:asset:/guides/installation-guide/was/assets/img/work-manager.png" alt=""/>
+</a>

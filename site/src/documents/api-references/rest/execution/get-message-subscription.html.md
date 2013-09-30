@@ -98,7 +98,7 @@ Response codes
     <td>application/json</td>
     <td>A message subscription for the given name and execution does not exist.
     This may either mean that the execution does not exist, or that it is not subscribed on such a message.
-    See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

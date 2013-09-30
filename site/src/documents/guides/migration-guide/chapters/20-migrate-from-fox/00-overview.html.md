@@ -5,6 +5,7 @@ category: 'Migrate from camunda fox'
 
 ---
 
+
 <div class="alert alert-info">
   <strong>Reading the Guide</strong> Throughout this guide we will use a number of variables to denote common path names and constants:
   <ul>
