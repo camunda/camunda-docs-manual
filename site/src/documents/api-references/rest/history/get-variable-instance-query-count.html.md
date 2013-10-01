@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for the number of historic variable instances that fulfill the given parameters. 
-Takes the same parameters as the [get historic variable instances](#history-get-variable-instances) method.
+Takes the same parameters as the [get historic variable instances](ref:#history-get-variable-instances) method.
 
 
 Method
@@ -42,7 +42,7 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Filter by the process instance the variable belongs to. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Filter by the process instance the variable belongs to. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

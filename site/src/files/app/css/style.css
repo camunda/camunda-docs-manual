@@ -629,3 +629,8 @@ code {
 .example {
   width: 250px;
 }
+
+.link-img-thumb-enlarge {
+  font-size: 0.85em;
+  margin: 5px 5px 20px 5px;
+}

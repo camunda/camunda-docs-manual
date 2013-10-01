@@ -6,6 +6,7 @@ category: 'BPM Platform'
 
 ---
 
+
 In this section, we explain how the camunda-ibm-websphere-rar module can be installed using the WebShere Integrated Solutions Console.
 
 <div class="alert alert-info">
@@ -18,7 +19,8 @@ The installation process is composed of three steps:
 2. Define a Managed Connection Facotry for accessing the jobexecutor.
 3. Define an Activation Policy for JobHandler MDBs.
 
-##Installing and configuring the RAR file
+
+## Installing and configuring the RAR file
 
 First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file must be installed:
 
@@ -29,7 +31,8 @@ First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file
 5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-ibm-websphere-rar</code>.
 6. Click on the new entry <code>camunda-ibm-websphere-rar</code>, if you choose the same name in the previous step.
 
-##Defining a Managed Connection Factory
+
+## Defining a Managed Connection Factory
 
 1. Select **"J2C Connection Factories"**.
 2. Select **"New"**
@@ -38,7 +41,8 @@ First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file
   * As a JNDI Name we propose **"eis/JcaExecutorServiceConnectionFactory"**
   * No authentication is necessary.
 
-##Defining an Activation Specification
+
+## Defining an Activation Specification
 
 1. Select **"J2C activation specifications"**.
 2. Select **"New"**
@@ -50,5 +54,8 @@ Save your settings. This completes the installation of the resource adapter.
 
 <div class="alert alert-info">
   There are several custom properties available for the resource adapter regarding the work manager. You can reach them by following the <strong>Custom Properties</strong> link on the configuration page of the resource adapter:
-  <a href="assets/img/ra-properties.png" target="_blank"><img class="tile" src="assets/img/ra-properties.png" alt=""/></a>
+
+  <a href="ref:asset:/guides/installation-guide/was/assets/img/ra-properties.png" target="_blank">
+    <img class="tile" src="ref:asset:/guides/installation-guide/was/assets/img/ra-properties.png" alt=""/>
+  </a>
 </div>

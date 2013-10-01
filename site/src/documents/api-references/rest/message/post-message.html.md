@@ -10,7 +10,7 @@ keywords: 'post'
 
 Deliver a message to the process engine to either trigger a message start or intermediate message catching event.
 Internally, this maps to the engine's `RuntimeService#correlateMessage` methods.
-See more on the correlation behavior in the [message event documentation](/api-references/bpmn20/#!/events/message-events).
+See more on the correlation behavior in the [message event documentation](ref:/api-references/bpmn20/#events-message-events).
 
 
 Method
@@ -79,7 +79,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition). Or the variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No `messageName` was supplied or the message has not been correlated to exactly one entity (execution or process definition). Or the variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

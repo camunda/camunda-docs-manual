@@ -9,8 +9,8 @@ keywords: 'historic post query list'
 
 
 Query for the number of historic process instances that fulfill the given parameters. 
-This method takes the same message body as the [POST query](#history-get-process-instances-post)
-and is thus slightly more powerful than the [GET query count](#history-get-process-instances-count).
+This method takes the same message body as the [POST query](ref:#history-get-process-instances-post)
+and is thus slightly more powerful than the [GET query count](ref:#history-get-process-instances-count).
 
 
 Method
@@ -134,7 +134,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

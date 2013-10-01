@@ -10,7 +10,7 @@ keywords: 'post'
 
 Claim a task for a specific user.
 
-**Note:** The difference with [set a assignee](#task-set-assignee) is that here a check is done if the task already has a user assigned to it.
+**Note:** The difference with [set a assignee](ref:#task-set-assignee) is that here a check is done if the task already has a user assigned to it.
 
 Method
 ------
@@ -73,7 +73,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or claiming was not successful. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or claiming was not successful. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

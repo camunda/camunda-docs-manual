@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for the number of historic process instances that fulfill the given parameters.
-Takes the same parameters as the [Get Activity Instances](#history-get-activity-instances) method.
+Takes the same parameters as the [Get Activity Instances](ref:#history-get-activity-instances-historic) method.
 
 
 Method
@@ -133,7 +133,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

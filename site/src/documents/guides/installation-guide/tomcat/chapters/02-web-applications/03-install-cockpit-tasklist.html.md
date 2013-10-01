@@ -6,7 +6,7 @@ category: 'Web Applications'
 ---
 
 To install camunda Cockpit and Tasklist, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
-See above, how to [install the pre-built distro](#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Tomcat](#bpm-platform-install-on-a-vanilla-tomcat).
+See above, how to [install the pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Tomcat](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
 
 **Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
 

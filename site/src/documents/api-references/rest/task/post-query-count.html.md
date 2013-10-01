@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the [get tasks (POST)](#task-get-tasks-post) method and takes the same parameters.
+Corresponds to the size of the result set of the [get tasks (POST)](ref:#task-get-tasks-post) method and takes the same parameters.
 
   
 Method
@@ -231,7 +231,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

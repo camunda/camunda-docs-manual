@@ -6,6 +6,8 @@
 
   $(function() {
 
+    var running = 0;
+
     var $window = $(window),
         $body = $(document.body),
         path = window.location.pathname,
@@ -47,25 +49,29 @@
      * Append modal dialog to enlarge the image.
      */
     $('[data-img-thumb]').each(function () {
-      var current = $(this),
-          id = 'dialog_' + current.attr('id'),
+      var element = $(this),
+          id = 'dialog-' + (element.attr('id') || ('generated-id-' + (running++))),
           selector = '#' + id,
-          image = current.attr('img-src');
+          image = element.attr('src');
 
-      current.append(
-        '<a data-toggle="modal" href="' + selector + '" class="thumbnail">' + 
-        '  <img src="' + image + '"/>' + 
-        '</a>' +
-        '<div class="center">' + 
-        '  <p style="padding-top: 5px; font-size: 90%">' +
+      var container = element.parent();
+
+      element.wrap('<a data-toggle="modal" href="' + selector + '" class="thumbnail"></a>');
+
+      var parent = element.parent();
+
+      parent.appendTo(container);
+      
+      container.append(
+        '<div class="link-img-thumb-enlarge">' +
+        '  <a data-toggle="modal" href="' + selector + '">' +
         '    <i class="glyphicon glyphicon-zoom-in"></i> click to enlarge' +
-        '  </p>' +
-        '</div>'
-      );
+        '  </a>' +
+        '</div>');
 
-      current.append(
+      container.append(
         '<div class="modal" id="' + id +'" tabindex="-1" role="dialog" aria-hidden="true">' +
-        '  <div class="modal-dialog">' + 
+        '  <div class="modal-dialog">' +
         '    <div class="modal-content">' +
         '      <div class="modal-body">' +
         '        <img class="img-responsive" src="' + image + '" />' +
@@ -75,14 +81,12 @@
         '      </div>' +
         '    </div>' +
         '  </div>' +
-        '</div>'
-      );
-
+        '</div>');
     });
 
     /*
      * Append a anchor to be able to get a link to current section.
-     */   
+     */
     $("h1[id], h2[id], h3[id], h4[id]").each(function() {
       var current = $(this),
           id = current.attr('id');

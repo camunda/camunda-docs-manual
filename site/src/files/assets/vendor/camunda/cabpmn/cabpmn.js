@@ -59,7 +59,7 @@ var eventStyle = {
 };
 
 var endEventStyle = {
-    "stroke-width": 3,
+    "stroke-width": 3
 };
 
   var activityStyle = {
@@ -90,7 +90,7 @@ var endEventStyle = {
   };
 
   var defaultFlowStyle = {
-    stroke: highlightStroke
+    "stroke-width": 2
   };
 
    var messageFlowStyle = {
@@ -113,7 +113,8 @@ var endEventStyle = {
   };
   
   var caBpmnPapers = {};
-  var defaultFlows = new Array();
+  var defaultFlows = [];
+  var rand = Math.floor(Math.random() * 100000);
   
   function bpmn (diagram, container) {
 
@@ -852,8 +853,24 @@ function drawFlow (flow, pathSpec, paper) {
 		drawnFlow = paper.path(pathString).attr(generalStyle).attr(sequenceFlowStyle),
 			l = drawnFlow.getTotalLength(),
 		   to = 1;
-		if ($.inArray(flow.id, defaultFlows) > -1) {
-      drawnFlow.attr(defaultFlowStyle);
+		if ($.inArray(flow.id + "_" + rand, defaultFlows) > -1) {
+      var defaultPathString;
+      var floatedX0 = parseFloat(pathSpec[0].x);
+      var floatedX1 = parseFloat(pathSpec[1].x);
+      var floatedY0 = parseFloat(pathSpec[0].y);
+      var floatedY1 = parseFloat(pathSpec[1].y);
+
+      if(floatedX0 == floatedX1) {
+        if(floatedY0 < floatedY1) {
+          defaultPathString = "M"+(floatedX0 - 4)+","+(floatedY1 * 0.70)+"l8, 3";
+        } else {
+          defaultPathString = "M"+(floatedX1 - 4)+","+(floatedY0 - (floatedY0 * 0.05))+"l8, 3";
+        }
+      } else {
+        defaultPathString = "M"+(floatedX0 + (floatedX0 * 0.05))+","+(floatedY0 - 3.5)+"l8, 7";
+      }
+
+      drawnFlow = paper.path(defaultPathString).attr(generalStyle).attr(defaultFlowStyle);
     }
 	}
 	
@@ -1109,10 +1126,9 @@ function parseBpmnXml (data, paper, container) {
 					
 					drawFlow(element, pathSpec, paper);
 					});
-				} else if(element.type == "exclusivegateway") {
-          var defaultFlow = elem.attr("default");
-          defaultFlows.push(defaultFlow);
-
+        } else if(element.type == "exclusivegateway") {
+          // default flow
+          defaultFlows.push(elem.attr("default") + "_" + rand);
           drawElement(element, $(this), paper, container, xmlJQuery);
         } else {
 					drawElement(element, $(this), paper, container, xmlJQuery);
