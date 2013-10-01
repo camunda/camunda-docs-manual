@@ -44,14 +44,16 @@ Authorization Exceptions
 
 If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to `403, Forbidden` and details about the unauthorized interaction are provided in the response body:
 
-    {"type" : "AuthorizationException", 
-     "message" : "The user with id 'jonny' does not have 'DELETE' permission on resource 'Mary' of type 'User'.",
-     "userId" : "jonny",
-     "permissionName" : "DELETE",
-     "resourceName" : "User",
-     "resourceId" : "Mary"}
+```json
+{"type" : "AuthorizationException", 
+ "message" : "The user with id 'jonny' does not have 'DELETE' permission on resource 'Mary' of type 'User'.",
+ "userId" : "jonny",
+ "permissionName" : "DELETE",
+ "resourceName" : "User",
+ "resourceId" : "Mary"}
+```
 
 Authentication
 --------------
 
-The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](#overview-configuring-authentication) section.
+The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](ref:#overview-configuring-authentication) section.

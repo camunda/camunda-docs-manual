@@ -76,7 +76,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

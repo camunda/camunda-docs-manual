@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](#job-get-jobs), because it allows to filter by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-get-jobs), because it allows to filter by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 Method
@@ -170,7 +170,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for due date comparison is used. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    or if an invalid operator for due date comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [GET query count](#process-definition-get-definitions-count).
+The size of the result set can be retrieved by using the [GET query count](ref:#process-definition-get-definitions-count).
 
 
 Method
@@ -188,7 +188,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

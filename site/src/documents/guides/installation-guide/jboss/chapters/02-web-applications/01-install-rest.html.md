@@ -7,7 +7,7 @@ category: 'Web Applications'
 ---
 
 To install the REST API, a JBoss installation with the `org.camunda.bpm.camunda-engine` module is required.
-See above, how to [install the pre-built distro](#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla JBoss](#bpm-platform-install-on-a-vanilla-jboss).
+See above, how to [install the pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla JBoss](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss).
 
 **Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
 

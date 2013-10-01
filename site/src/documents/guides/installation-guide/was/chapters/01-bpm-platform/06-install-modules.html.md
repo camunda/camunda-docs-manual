@@ -5,6 +5,7 @@ category: 'BPM Platform'
 
 ---
 
+
 The camunda platform includes two modules in the modules folder of the distribution:
 
 ```

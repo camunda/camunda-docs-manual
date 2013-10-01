@@ -1,9 +1,11 @@
 ---
 
 title: 'BPMN 2.0 Custom Extensions'
+shortTitle: 'Custom Extensions'
 category: 'Overview'
 
 ---
+
 
 The BPMN 2.0 standard is a good thing for all parties involved. End-users don't suffer from a vendor lock-in that comes by depending on a proprietary solution. Frameworks, and particularly open-source frameworks such as camunda BPM, can implement a solution that has the same (and often better implemented ;-)) features as those of a big vendor. Due to the BPMN 2.0 standard, the transition from one tool to the other works.
 

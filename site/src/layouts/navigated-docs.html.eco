@@ -26,8 +26,8 @@ layout: 'default'
           <a href="#<%= @linkify(category.name) %>"><%= category.name %></a>
           <ul class="nav">
             <% for page in category.pages: %>
-              <li data-nav-id="<%= @linkify(category.name, page.shortTitle) %>">
-                <a href="#<%= @linkify(category.name, page.shortTitle) %>"><%= page.shortTitle %></a>
+              <li data-nav-id="<%= @linkify(category.name, page.title) %>">
+                <a href="#<%= @linkify(category.name, page.title) %>"><%= page.shortTitle %></a>
               </li>
             <% end %>
           </ul>

@@ -76,7 +76,7 @@ Each object has the following properties:
   <tr>
     <td>definition</td>
     <td>Object</td>
-    <td>The process definition with the properties as described in the [get single definition](#process-definition-get-single-definition) method.</td>
+    <td>The process definition with the properties as described in the [get single definition](ref:#process-definition-get-single-definition) method.</td>
   </tr>
   <tr>
     <td>incidents</td>
@@ -109,7 +109,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>  
 </table>
 
