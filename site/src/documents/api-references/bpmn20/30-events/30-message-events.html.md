@@ -215,7 +215,7 @@ Boundary events are catching events that are attached to an activity. This means
 
 ### Message Intermediate Throwing Event
 
-Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a [service task](#tasks-service-task).
+Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a [service task](ref:#tasks-service-task).
 
 <div data-bpmn-diagram="implement/event-message-throwing" > </div>
   
@@ -228,7 +228,7 @@ Message intermediate throwing event sends a message to an external service. This
 
 ## Message End Event
 
-When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a [service task](#tasks-service-task).
+When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a [service task](ref:#tasks-service-task).
 
 ```xml
 <endEvent id="end">

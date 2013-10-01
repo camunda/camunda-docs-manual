@@ -7,7 +7,7 @@ category: 'Web Applications'
 ---
 
 To install the REST API, a Glassfish installation with the `org.camunda.bpm.camunda-engine` module is required.
-See above, how to [install the pre-built distro](#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Glassfish](#bpm-platform-install-on-a-vanilla-glassfish).
+See above, how to [install the pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Glassfish](ref:#bpm-platform-install-the-platform-on-a-vanilla-glassfish).
 
 **Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
 

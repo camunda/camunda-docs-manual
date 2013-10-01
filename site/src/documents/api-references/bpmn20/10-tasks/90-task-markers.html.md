@@ -144,4 +144,4 @@ In order to declare an activity to be a compensation handler, we need to set the
 ## Additional Resources
 
 * [Task Markers in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)
-* [Transaction Subprocess](#subprocesses-transaction-subprocess)
+* [Transaction Subprocess](ref:#subprocesses-transaction-subprocess)

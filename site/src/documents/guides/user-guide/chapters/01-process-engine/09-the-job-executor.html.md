@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](#process-engine-transactions-in-processes)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](ref:#process-engine-transactions-in-processes)) is approached. The job executor has two responsibilities: job acquisition and job execution. The following diagram illustrates this:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-basic-architecture.png"/></center>
 
@@ -55,7 +55,7 @@ After having locked a job, the job executor instance has effectively reserved a 
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration](#runtime-container-integration) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration](ref:#runtime-container-integration) section on how this achieved.
 
 ### Failed Jobs
 
@@ -129,7 +129,7 @@ In larger deployments however, this quickly leads to a poorly manageable situati
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-multiple-engines.png"/></center>
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration](#runtime-container-integration) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration](ref:#runtime-container-integration) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -140,7 +140,7 @@ To which job acquisition a process engine is assigned can be specified in the de
       ...
     </process-engine>
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](#runtime-container-configuration).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](ref:#runtime-container-integration).
 
 ## Cluster Setups
 

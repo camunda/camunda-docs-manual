@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Query for process instances that fulfill given parameters through a json object.
-This method is slightly more powerful than the [GET query](#process-instance-get-instances), because it allows
+This method is slightly more powerful than the [GET query](ref:#process-instance-get-instances), because it allows
 to filter by multiple process variables of types `String`, `Number` or `Boolean`.
 
 

@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [get variable instances count](#variable-get-variable-instances-count) method.
+Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [get variable instances count](ref:#variable-get-variable-instances-count) method.
 
 
 Method

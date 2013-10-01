@@ -9,8 +9,8 @@ keywords: 'post query list'
 
 
 Query for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [POST query](#process-instance-get-instances-post)
-and is thus slightly more powerful than the [GET query count](#process-instances-get-instances-count).
+This method takes the same message body as the [POST query](ref:#process-instance-get-instances-post)
+and is thus slightly more powerful than the [GET query count](ref:#process-instance-get-instances-count).
 
 
 Method

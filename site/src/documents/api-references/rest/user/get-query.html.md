@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for a list of users using a list of parameters.
-The size of the result set can be retrieved by using the [get users count](#user-get-users-count) method.
+The size of the result set can be retrieved by using the [get users count](ref:#user-get-users-count) method.
 
 
 Method

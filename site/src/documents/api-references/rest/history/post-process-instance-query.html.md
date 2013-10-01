@@ -9,7 +9,7 @@ keywords: 'historic post query list'
 
 
 Query for historic process instances that fulfill the given parameters. 
-This method is slightly more powerful than the [GET query](#history-get-process-instances), because it allows to filter by multiple process variables of types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query](ref:#history-get-process-instances), because it allows to filter by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
 Method

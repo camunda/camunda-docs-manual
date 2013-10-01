@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Query for variable instances that fulfill given parameters through a json object. This method is slightly more powerful than the 
-[GET query](#variable-get-variable-instances), because it allows to filter by multiple variable instances of types `String`, `Number` or `Boolean`.
+[GET query](ref:#variable-get-variable-instances), because it allows to filter by multiple variable instances of types `String`, `Number` or `Boolean`.
 
 
 Method

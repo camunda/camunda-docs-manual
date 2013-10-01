@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for the number of process instances that fulfill given parameters.
-Takes the same parameters as the [get instances](#process-instance-get-instances) method.
+Takes the same parameters as the [get instances](ref:#process-instance-get-instances) method.
 
 
 Method

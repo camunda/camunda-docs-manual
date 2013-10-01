@@ -10,7 +10,7 @@ keywords: 'post'
 
 Change the assignee of a task to a specific user.
 
-**Note:** The difference with [claim a task](#task-claim-task) is that this method does not check whether the task does already have a user assigned to it.
+**Note:** The difference with [claim a task](ref:#task-claim-task) is that this method does not check whether the task does already have a user assigned to it.
 
 
 Method

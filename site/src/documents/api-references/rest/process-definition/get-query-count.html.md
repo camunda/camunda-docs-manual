@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Request the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[GET query](#process-definition-get-definitions).
+[GET query](ref:#process-definition-get-definitions).
 
 
 Method

@@ -7,11 +7,11 @@ category: 'Cycle'
 
 To connect Cycle to a suitable repository you can set up one of the following connectors: 
 
-* [Signavio Connector](#cycle-connector-configuration-signavio-connector) 
-* [Subversion Connector](#cycle-connector-configuration-subversion-connector)
-* [File System Connector](#cycle-connector-configuration-file-system-connector)
+* [Signavio Connector](ref:#cycle-connector-configuration-signavio-connector) 
+* [Subversion Connector](ref:#cycle-connector-configuration-subversion-connector)
+* [File System Connector](ref:#cycle-connector-configuration-file-system-connector)
 
-Furthermore you get information about how to configure [User Credentials](#cycle-connector-configuration-user-credentials) for your connector.
+Furthermore you get information about how to configure [User Credentials](ref:#cycle-connector-configuration-user-credentials) for your connector.
 
 ## Signavio Connector
 

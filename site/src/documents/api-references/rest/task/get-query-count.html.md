@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Get the number of tasks that fulfill a provided filter.
-Corresponds to the size of the result set when using the [get tasks](#task-get-tasks) method.
+Corresponds to the size of the result set when using the [get tasks](ref:#task-get-tasks) method.
 
 
 Method

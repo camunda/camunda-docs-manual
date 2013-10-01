@@ -9,7 +9,7 @@ keywords: 'historic post query list'
 
 
 Query for historic variable instances that fulfill the given parameters. 
-This method takes the same message body as the [POST query](#history-get-variable-instances-post) and is thus more powerful regarding variable values than the [GET query count](#history-get-variable-instances) method.
+This method takes the same message body as the [POST query](ref:#history-get-variable-instances-post) and is thus more powerful regarding variable values than the [GET query count](ref:#history-get-variable-instances) method.
 
 
 Method

@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for jobs that fulfill given parameters. This method takes the same message body as the [POST query](#job-get-jobs-post) and is thus slightly more powerful than the [GET query count](#job-get-jobs-count).
+Query for jobs that fulfill given parameters. This method takes the same message body as the [POST query](ref:#job-get-jobs-post) and is thus slightly more powerful than the [GET query count](ref:#job-get-jobs-count).
 
 
 Method

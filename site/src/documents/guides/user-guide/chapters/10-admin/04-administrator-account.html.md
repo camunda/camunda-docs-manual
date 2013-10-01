@@ -69,7 +69,7 @@ This specific rule is valid for the user lemmy only and provides him additional 
 
 ### Member Visibility
 
-Depending on the users authorization [Tasklist](#tasklist) will show you information about your colleagues and groups. Currently you can only see the group folder support but not your colleague. To change that login to the admin application as administrator, enter the Users Authorization menue and create the following rules:
+Depending on the users authorization [Tasklist](ref:#tasklist) will show you information about your colleagues and groups. Currently you can only see the group folder support but not your colleague. To change that login to the admin application as administrator, enter the Users Authorization menue and create the following rules:
 
 <center><img class="img-responsive" src="ref:asset:/assets/img/implementation-admin/admin-authorization-users.png" /></center>
 

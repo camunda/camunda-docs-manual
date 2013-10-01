@@ -80,9 +80,9 @@ public void onShipmentSuceeded(
 
 ### The Cdi Event Bridge in a Process Application
 
-In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](ref:/api-references/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](#process-applications-process-application-event-listeners).
+In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiExecutionListener](ref:/api-references/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiExecutionListener.html) needs to be added as a [Process Application Execution Event Listener](ref:#process-applications-process-application-event-listeners).
 
-Example configuration for [Servlet Process Application](#process-applications-the-process-application-class-the-servletprocessapplication):
+Example configuration for [Servlet Process Application](ref:#process-applications-the-process-application-class-the-servletprocessapplication):
 
     @ProcessApplication
     public class InvoiceProcessApplication extends ServletProcessApplication {
@@ -94,7 +94,7 @@ Example configuration for [Servlet Process Application](#process-applications-th
       }
     }
 
-Example configuration for [Ejb Process Application](#process-applications-the-process-application-class-the-ejbprocessapplication):
+Example configuration for [Ejb Process Application](ref:#process-applications-the-process-application-class-the-ejbprocessapplication):
 
     @Singleton
     @Startup

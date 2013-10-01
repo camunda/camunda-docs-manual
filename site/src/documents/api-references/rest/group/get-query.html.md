@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for a list of groups using a list of parameters.
-The size of the result set can be retrieved by using the [get groups count](#group-get-groups-count) method.
+The size of the result set can be retrieved by using the [get groups count](ref:#group-get-groups-count) method.
 
 
 Method

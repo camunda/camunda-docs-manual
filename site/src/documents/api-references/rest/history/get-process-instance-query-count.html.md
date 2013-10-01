@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for the number of historic process instances that fulfill the given parameters.
-Takes the same parameters as the [Get Activity Instances](#history-get-activity-instances) method.
+Takes the same parameters as the [Get Activity Instances](ref:#history-get-activity-instances-historic) method.
 
 
 Method

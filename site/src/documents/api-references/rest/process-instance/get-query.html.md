@@ -10,7 +10,7 @@ keywords: 'get query list'
 
 Query for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
-The size of the result set can be retrieved by using the [get instances count](#process-instance-get-instances-count) method.
+The size of the result set can be retrieved by using the [get instances count](ref:#process-instance-get-instances-count) method.
 
 
 Method

@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Query for the number of variable instances that fulfill given parameters. This method takes the same message body as the 
-[POST query](#variable-get-variable-instances-post) and is thus slightly more powerful than the [GET query count](#variable-get-variable-instances-count).
+[POST query](ref:#variable-get-variable-instances-post) and is thus slightly more powerful than the [GET query count](ref:#variable-get-variable-instances-count).
 
 Method
 ------

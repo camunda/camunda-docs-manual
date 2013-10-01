@@ -71,7 +71,7 @@ Required steps
     Depending on the runtime environment, this may not be necessary. 
     On JBoss AS 7 these should be automatically added as an implicit module dependency.
   
-    For proper exception responses of the format as described in the [Introduction](#overview-introduction),
+    For proper exception responses of the format as described in the [Introduction](ref:#overview-introduction),
     it is required to include `RestExceptionHandler`. `ProcessEngineExceptionHandler` is used to translate any exception thrown by the
     engine that is not explicitly handled by the REST API classes to a generic HTTP 500 error with the same response body format.
     If you would like to have all kinds of exceptions translated to this format, you can use `org.camunda.bpm.engine.rest.exception.ExceptionHandler` instead of `ProcessEngineExceptionHandler`.

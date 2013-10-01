@@ -6,7 +6,7 @@ category: 'Tags'
 ---
 
 
-The process archive tag allows configuring a process engine deployment and can be used in the [processes.xml](#descriptors-processesxml) file.
+The process archive tag allows configuring a process engine deployment and can be used in the [processes.xml](ref:#descriptors-processesxml) file.
 
 See user guide section on [processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
 

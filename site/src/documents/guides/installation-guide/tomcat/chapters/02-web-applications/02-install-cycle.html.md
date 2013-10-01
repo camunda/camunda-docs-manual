@@ -6,7 +6,7 @@ category: 'Web Applications'
 ---
 
 
-**Note**: The distro already ships camunda Cycle. It may be accessed on the context path `/cycle`. See [here](#web-applications-install-camunda-cycle-configuring-the-pre-packaged-distribution), how to configure the distro.</br>We do not recommend to install camunda Cycle together with the other platform components (webapps, engine, REST Api) on the same runtime environment. Such a combined installation is not supported. 
+**Note**: The distro already ships camunda Cycle. It may be accessed on the context path `/cycle`. See [here](ref:#web-applications-install-camunda-cycle-configuring-the-pre-packaged-distribution), how to configure the distro.</br>We do not recommend to install camunda Cycle together with the other platform components (webapps, engine, REST Api) on the same runtime environment. Such a combined installation is not supported. 
 
 
 ## Create the database schema for camunda cycle

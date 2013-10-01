@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for jobs that fulfill given parameters. 
-The size of the result set can be retrieved by using the [get jobs count](#job-get-jobs-count) method.
+The size of the result set can be retrieved by using the [get jobs count](ref:#job-get-jobs-count) method.
 
 
 Method

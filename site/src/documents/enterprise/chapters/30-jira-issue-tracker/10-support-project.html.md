@@ -12,6 +12,7 @@ On base of our Service Level Agreement you have the chance to address your quest
 ## Create a support ticket
 
 We distinguish three types of issues:
+
 <table class="table table-bordered">
   <thead>
   <tr class="success">
@@ -43,7 +44,7 @@ To create a new support ticket follow the instructions below. To shorten the pro
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:assets:/assets/img/jira-support/jira-support-create-support-issue.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-support-create-support-issue.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>

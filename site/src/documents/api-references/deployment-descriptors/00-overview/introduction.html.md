@@ -10,8 +10,8 @@ This reference explains the syntax of the camunda BPM deployment descriptors. Th
 
 camunda BPM provides the following deployment descriptors:
 
-* [bpm-platform.xml](#descriptors-bpm-platformxml): packaged as part of the camunda BPM platform and allows configuring shared process engines and the job executor.
-* [processes.xml](#descriptors-processesxml): packaged as part of a process application and allows configuring additional process engines and BPMN 2.0 process deployments.
+* [bpm-platform.xml](ref:#descriptors-bpm-platformxml): packaged as part of the camunda BPM platform and allows configuring shared process engines and the job executor.
+* [processes.xml](ref:#descriptors-processesxml): packaged as part of a process application and allows configuring additional process engines and BPMN 2.0 process deployments.
 
 <div class="alert alert-warning">
   <p>

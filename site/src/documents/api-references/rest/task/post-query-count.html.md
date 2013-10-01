@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the [get tasks (POST)](#task-get-tasks-post) method and takes the same parameters.
+Corresponds to the size of the result set of the [get tasks (POST)](ref:#task-get-tasks-post) method and takes the same parameters.
 
   
 Method
