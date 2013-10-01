@@ -82,7 +82,7 @@ class would provide a method named
       ...
     }
 
-<div class="alert">
+<div class="alert alert-warning">
   <p>
     <strong>Module dependency of custom configuration class</strong>
   </p>

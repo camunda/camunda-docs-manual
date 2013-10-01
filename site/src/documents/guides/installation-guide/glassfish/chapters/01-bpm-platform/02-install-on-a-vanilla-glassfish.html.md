@@ -115,7 +115,7 @@ To configure a thread pool for the job executor you have to add it in the corres
       </configs>
     </domain>
 
-### <a id="deploy"></a>Installing camunda BPM platform
+### Installing camunda BPM platform
 
 The following steps are required to deploy the camunda BPM platform on a Glassfish instance:
 
@@ -126,8 +126,3 @@ The following steps are required to deploy the camunda BPM platform on a Glassfi
 5. After a successful startup the camunda BPM platform is installed.
 
 As next step you can install for example the [REST API](#web-applications-install-the-rest-api) on Glassfish.
-
-
-<!--### <a id="configuring-admin-console"></a>Configuration via Administration Console
-
-The Glassfish Administration Console is by default available under <a href="http://localhost:4848">http://localhost:4848</a>.-->

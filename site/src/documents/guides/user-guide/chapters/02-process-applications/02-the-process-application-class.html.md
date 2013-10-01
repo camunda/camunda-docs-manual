@@ -24,7 +24,7 @@ In the following, we walk through the different implementations and discuss wher
     <span class="container-tiny as7"></span>
     <span class="container-tiny glassfish"></span>
 
-  <p>The Servlet Process Application is supported on all containers. Read the <a href="http://localhost:9779/guides/user-guide/#process-applications-the-process-application-class-using-the-servletprocessapplication-inside-an-ejb--java-ee-container-such-as-glassfish-or-jboss">note about Servlet Process Application and EJB / Java EE containers</a>.</p>
+  <p>The Servlet Process Application is supported on all containers. Read the <a href="ref:/guides/user-guide/#process-applications-the-process-application-class-using-the-servletprocessapplication-inside-an-ejb--java-ee-container-such-as-glassfish-or-jboss">note about Servlet Process Application and EJB / Java EE containers</a>.</p>
   <p><strong>Packaging</strong>: WAR (or embedded WAR inside EAR)</p>
 </div>
 
