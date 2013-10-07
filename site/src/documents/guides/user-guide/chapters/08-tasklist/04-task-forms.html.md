@@ -9,7 +9,7 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 
 ## Embedded Task Forms
 
-To add an embedded Task Form to your application simply create an html file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
+To add an embedded Task Form to your application simply create an HTML file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
 Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
 
 ```html
@@ -36,6 +36,8 @@ To configure the form in your process open the process in your Eclipse IDE with 
           camunda:candidateUsers="John, Mary"
           name="my Task">                
 ```
+
+To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-taskforms).
 
 ## External Task Forms
 
@@ -81,9 +83,7 @@ The generic form will be used whenever you have not added a dedicated form for a
   </div>  
 </div>
 
-
-
-## Creating Embedded Taskforms
+## Creating Embedded Task Forms
 
 Embedded task forms are plain HTML documents that contain input fields that map to process variables. These inputs must be annotated with a `form-field` attribute. Additionally they must declare the type and name of the mapped variable. A simple process variable mapping input is shown below:
 
