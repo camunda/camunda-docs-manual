@@ -38,23 +38,23 @@ title: 'Latest Version'
   </thead>
 	<tbody>
     <tr class="well">
-      <td>7.0.1 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12996">Release Notes</a>)</td>
+      <td>7.0.2 (<a target="_blank" href=": https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12999">Release Notes</a>)</td>
       <td>17.09.2013</td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.1/camunda-bpm-tomcat-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.1/camunda-bpm-tomcat-7.0.1-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.2/camunda-bpm-tomcat-7.0.2-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.2/camunda-bpm-tomcat-7.0.2-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.1/camunda-bpm-jboss-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.1/camunda-bpm-jboss-7.0.1-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.2/camunda-bpm-jboss-7.0.2-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.2/camunda-bpm-jboss-7.0.2-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.1/camunda-bpm-glassfish-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.1/camunda-bpm-glassfish-7.0.1-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.2/camunda-bpm-glassfish-7.0.2-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.2/camunda-bpm-glassfish-7.0.2-ee.tar.gz">tar.gz</a><br>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.1/camunda-ee-ibm-was-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.1/camunda-ee-ibm-was-7.0.1-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.2/camunda-ee-ibm-was-7.0.2-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.2/camunda-ee-ibm-was-7.0.2-ee.tar.gz">tar.gz</a><br>
       </td>
     </tr>
   </tbody>
