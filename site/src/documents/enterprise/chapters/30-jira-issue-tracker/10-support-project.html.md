@@ -59,7 +59,7 @@ For further information please have a look at the Atlassian tutorial <a href="ht
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-authorize-support-contact.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-authorize-support-contacts.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
