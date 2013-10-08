@@ -68,7 +68,7 @@ There are five History entities, which - in contrast to the runtime data - will 
 
 ### Querying History
 
-The HistoryService exposes the the methods `createHistoricProcessInstanceQuery()`, createHistoricProcessVariableQuery()`, `createHistoricActivityInstanceQuery()`, `createHistoricDetailQuery()` and `createHistoricTaskInstanceQuery()` which can be used for querying history.
+The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`, `createHistoricProcessVariableQuery()`, `createHistoricActivityInstanceQuery()`, `createHistoricDetailQuery()` and `createHistoricTaskInstanceQuery()` which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the the javadocs, in the `org.camunda.bpm.engine.history` package.
 
