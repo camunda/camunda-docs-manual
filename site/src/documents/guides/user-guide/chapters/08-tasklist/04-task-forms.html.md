@@ -37,7 +37,7 @@ To configure the form in your process open the process in your Eclipse IDE with 
           name="my Task">                
 ```
 
-To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-taskforms).
+To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms).
 
 ## External Task Forms
 
