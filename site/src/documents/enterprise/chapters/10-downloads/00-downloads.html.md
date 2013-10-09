@@ -62,8 +62,10 @@ title: 'Latest Version'
 
 <div class="row">
   <div class="col-md-12">
-    <a class="pull-right" href="ref:/enterprise/previous-downloads.html">download previous version</a><br> 
-    <a class="pull-right" href="http://camunda.org/download">download the community edition</a>
+    <p class="pull-right">
+      <a href="ref:/enterprise/previous-downloads.html">previous versions</a> | 
+      <a href="http://camunda.org/download">community edition</a><br><br><br>  
+    </p>
   </div>
 </div>
 <div class="row">
