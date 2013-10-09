@@ -38,7 +38,7 @@ title: 'Latest Version'
   </thead>
 	<tbody>
     <tr class="well">
-      <td>7.0.2 (<a target="_blank" href=": https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12999">Release Notes</a>)</td>
+      <td>7.0.2 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12999">Release Notes</a>)</td>
       <td>17.09.2013</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.2/camunda-bpm-tomcat-7.0.2-ee.zip">zip</a>&nbsp;
