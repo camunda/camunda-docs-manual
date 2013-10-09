@@ -48,12 +48,34 @@ To create a new support ticket follow the instructions below. To shorten the pro
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA support system</a> and select `Create Issue`. Select `Support` as project and choose the desired issue type. Give the ticket a meaningful `Summary`. You can give your ticket a `Priority` depending on how urgent the issue is for you. Provide us a date in terms of important `deadlines`. Enter a detailed `description` of your issue. In case of _Bug Reports_ please use the template (_Reproduce steps_, _Problem_, _Expected behavior_, etc.). `Attachments` like screenshots, log files or bpmn files help us to find your bug faster. You can add `Authorized support contacts` if you want to share the tickets with your colleagues.
+      Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA support system</a> and select <code>Create Issue</code>. Select <code>Support</code> as project and choose the desired issue type. Give the ticket a meaningful <code>Summary</code>. You can give your ticket a <code>Priority</code> depending on how urgent the issue is for you. Provide us a date in terms of important <code>deadlines</code>. Enter a detailed <code>description</code> of your issue. In case of <b>Bug Reports</b> please use the template (<b>Reproduce steps</b>, <b>Problem</b>, <b>Expected behavior</b>, etc.). <code>Attachments</code> like screenshots, log files or bpmn files help us to find your bug faster. You can add <code>Authorized support contacts</code> if you want to share the tickets with your colleagues.
     </p>
   </div>
 </div>
 
 For further information please have a look at the Atlassian tutorial <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a>
+
+## Authorize other support contacts of the company for a support case
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-authorize-support-contacts.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      Due to privacy reasons you cannot see support cases which weren't created by yourself. It is often handy that your colleague may see the issue, at least if you go to vacation. This is easily possible, you have to add the email address of your colleague to the field <b>Authorized support contacts</b> as shown in the screenshot.
+    </p>
+  </div>
+</div>    
+
+Please note:
+
+* You cannot search for users, you have to know the exact email address.
+* You have to add the authorized support contacts for all issues you want to share.
+* You can only add users which have are entitled camunda fox enterprise support contacts to the authorized support contacts, otherwiese you will get an error message that the user with that email address is not found.
+* You can remove authorized support contacts any time, then they will not be able to see this issue any longer.
+
+If you are interessted why we did it that way please refer to the <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a> Tutorial.    
 
 
 ## The camunda support process

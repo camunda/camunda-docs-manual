@@ -38,8 +38,8 @@ title: 'Latest Version'
   </thead>
 	<tbody>
     <tr class="well">
-      <td>7.0.2 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12996">Release Notes</a>)</td>
-      <td>07.10.2013</td>
+      <td>7.0.2 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12999">Release Notes</a>)</td>
+      <td>04.10.2013</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.2/camunda-bpm-tomcat-7.0.2-ee.zip">zip</a>&nbsp;
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.2/camunda-bpm-tomcat-7.0.2-ee.tar.gz">tar.gz</a>
@@ -62,8 +62,10 @@ title: 'Latest Version'
 
 <div class="row">
   <div class="col-md-12">
-    <a class="pull-right" href="ref:/enterprise/previous-downloads.html">download previous version</a><br> 
-    <a class="pull-right" href="http://camunda.org/download">download the community edition</a>
+    <p class="pull-right">
+      <a href="ref:/enterprise/previous-downloads.html">previous versions</a> | 
+      <a href="http://camunda.org/download">community edition</a><br><br><br>  
+    </p>
   </div>
 </div>
 <div class="row">
