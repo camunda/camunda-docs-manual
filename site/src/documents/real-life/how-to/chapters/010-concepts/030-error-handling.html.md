@@ -11,15 +11,15 @@ category: 'Concepts'
 There are a couple of basic strategies to handle errors and exceptions within processes. The decision which strategy to use depends on:
 
  *   Technical vs. Business Errors: Does the error have some business meaning and causes an alternative process flow (like item not on stock) or is it some technical malfunction (like network currently down)?
- *   Explicit error handling or generic approach: For some situations you want to explicitly model what should happen in case of an error (typcially for business errors). For a lot of situations you don't want to do that but have some generic mechanism which applies for errors, simplyfying your process models (typical for technical errors, imagine you would have to model network outtage on every task were it might possibly occur? You woldn't recognize your business process any more).
+ *   Explicit error handling or generic approach: For some situations you want to explicitly model what should happen in case of an error (typically for business errors). For a lot of situations you don't want to do that but have some generic mechanism which applies for errors, simplyfying your process models (typical for technical errors, imagine you would have to model network outtage on every task were it might possibly occur? You woldn't recognize your business process any more).
 
-In the context of the fox engine, errors are normally raised as Java excepions you have to handle. Let's have a look on how to handle them.
+In the context of the fox engine, errors are normally raised as Java exceptions you have to handle. Let's have a look on how to handle them.
 
 ### Transaction Rollbacks
 
 The standard handling strategy is that exceptions are thrown to the client, meaning the current transaction is rolled back. This means the process state is rolled back to the last wait state. This behavior is described in detail in [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes). The error handling is delegated to the client of the engine.
 
-As a concrete example this would mean, that the user gets an error dialog on the fronted, that the stock management software is currently not reachable due to network errors. To retry the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
+As a concrete example this would mean, that the user gets an error dialog on the frontend, that the stock management software is currently not reachable due to network errors. To retry the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
 
 ### Async and Failed Jobs
 

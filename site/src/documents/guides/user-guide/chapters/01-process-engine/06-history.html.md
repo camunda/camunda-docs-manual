@@ -27,7 +27,7 @@ The history level controls the amount of data the process engine provides via th
     * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (ie. re-assigned, delegated etc.), completed or deleted.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
     * Variable Instance CREATE, UPDATE, DELETE, as process variables are created, updated and deleted. The default hsitory backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
-* `FULL`: in addiditon to the events provided by hisrtory level `AUDIT`, the following additional events are fired:
+* `FULL`: in addition to the events provided by history level `AUDIT`, the following additional events are fired:
     * Form property UPDATE: fired are form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
 
@@ -153,7 +153,7 @@ historyService.createHistoricTaskInstanceQuery()
 
 ## Providing a custom History Backend
 
-In order to unserstand how to provide a custom history backend, it is useful to first look at a more in-detail view on the history architecture:
+In order to understand how to provide a custom history backend, it is useful to first look at a more in-detail view on the history architecture:
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-history-architecture.png" />
