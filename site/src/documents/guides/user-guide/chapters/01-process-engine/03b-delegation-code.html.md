@@ -85,7 +85,7 @@ It's possible to inject values into the fields of the delegated classes. The fol
 
 If available, the value is injected through a public setter method on
 your delegated class, following the Java Bean naming conventions (e.g.
-field <code>fistName</code> has setter <code>setFirstName(...)</code>).
+field <code>firstName</code> has setter <code>setFirstName(...)</code>).
 If no setter is available for that field, the value of private
 member will be set on the delegate (but using private fields is highly not recommended - see warning below).
 
