@@ -9,8 +9,13 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 
 ## Embedded Task Forms
 
+<<<<<<< HEAD
 To add an embedded Task Form to your application simply create an html file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
 Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
+=======
+To add an embedded Task Form to your application simply create an HTML file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
+Add a folder `src/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
+>>>>>>> 7b69c8f... fix(typo): Fix some typos
 
 ```html
 <form class="form-horizontal">

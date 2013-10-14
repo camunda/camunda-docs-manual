@@ -32,7 +32,7 @@ On any such *external* trigger (i.e. start a process, complete a task, signal an
 <a href="ref:/api-references/bpmn20/#events-signal-events"><div data-bpmn-symbol="intermediatecatchevent/signal"  data-bpmn-symbol-name="Signal"></div> Signal Event</a><br><br>
 
 
-The <a href="ref:/api-references/bpmn20/#gateways-event-based-gateway">Event Based Gatewy</a>:
+The <a href="ref:/api-references/bpmn20/#gateways-event-based-gateway">Event Based Gateway</a>:
 
 <div data-bpmn-diagram="implement/event-based-gateway" > </div>
 
@@ -50,7 +50,7 @@ In **1**, an application or client thread completes the task. In that same threa
 
 
 
-## Asynchronous Continutaions
+## Asynchronous Continuations
 
 
 In some cases this behavior is not desired. Sometimes we need custom control over transaction boundaries in a process, in order to be able to scope logical units of work. Consider the following process fragment:
@@ -59,7 +59,7 @@ In some cases this behavior is not desired. Sometimes we need custom control ove
 
 This time we are completing the user task, generating an invoice and then send that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to rollback the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return the control to the calling application (**2**).
 
-Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is manged by the [job executor](ref:#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
+Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is managed by the [job executor](ref:#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
 
 So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
 
