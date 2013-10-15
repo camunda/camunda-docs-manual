@@ -36,7 +36,7 @@ The <a href="ref:/api-references/bpmn20/#gateways-event-based-gateway">Event Bas
 
 <div data-bpmn-diagram="implement/event-based-gateway" > </div>
 
-And keep in mind that [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continutaions) can add transaction boundaries to other tasks as well.
+And keep in mind that [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations) can add transaction boundaries to other tasks as well.
 
 ## Transaction Boundaries
 
