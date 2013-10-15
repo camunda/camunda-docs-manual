@@ -5,7 +5,7 @@ category: 'Cycle'
 
 ---
 
-When we are talking about Roundtrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](ref:#cycle-bpmn-20-rountrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
+When we are talking about Roundtrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](ref:#cycle-bpmn-20-roundtrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
 
 ## Step 1: Setup the Connector
 
@@ -41,7 +41,7 @@ When we are talking about Roundtrip we are talking about the synchronization of 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>Hit <code>Create</code> and choose the location you want the BPMN 2.0 XML file to be stored to. In our example, we want to store it on our local file system, in a workspace we use with our Eclipse IDE. After hitting <code>Create</code>, Cycle will connect to Signavio, request the BPMN 2.0 XML and save it to the location you specified. Please note that no diagram picture will be displayed until an image file of the diagram is stored in the folder. Cycle indicates that both models are in "in synch" now.</p>
-    <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a <a href="ref:#cycle-bpmn-20-rountrip-pool-extraction">Pool Extraction</a> which means that only pools will be regarded that are executable.</p>
+    <p><b>Heads up!</b> If your process model is a collaboration diagram, Cycle will do a <a href="ref:#cycle-bpmn-20-roundtrip-pool-extraction">Pool Extraction</a> which means that only pools will be regarded that are executable.</p>
   </div>
 </div>
 
