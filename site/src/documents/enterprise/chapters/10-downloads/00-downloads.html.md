@@ -81,7 +81,7 @@ title: 'Latest Version'
     <h3>Additional Information</h3>
     <ul>
       <li>
-        <a href="ref:enterprise/#maven-coordinates-maven-coordinates">Maven Coordinates</a>
+        <a href="ref:#maven-coordinates-maven-coordinates">Maven Coordinates</a>
       </li>    
       <li>
         <a href="http://camunda.org/get-started/">Read getting started guide</a>
