@@ -1,11 +1,11 @@
 ---
 
-title: 'BPMN 2.0 Rountrip'
+title: 'BPMN 2.0 Roundtrip'
 category: 'Cycle'
 
 ---
 
-When we are talking about Rountrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](ref:#cycle-bpmn-20-rountrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
+When we are talking about Roundtrip we are talking about the synchronization of BPMN 2.0 diagrams between the business perspective and the technical perspective. This synchronization is based on the standard BPMN 2.0 XML format. As on the technical site only executable processes matter Cycle provides the functionality to extract these processes out of models from the business side where manual processes (not executable) can be modeled as well. This extraction mechanism is what we call [Pool Extraction](ref:#cycle-bpmn-20-rountrip-pool-extraction). With Cycle, you can do this synchronization in both directions. 
 
 ## Step 1: Setup the Connector
 
