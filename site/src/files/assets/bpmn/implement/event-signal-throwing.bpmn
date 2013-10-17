@@ -28,7 +28,7 @@
     <bpmn2:intermediateThrowEvent id="IntermediateThrowEvent_1" name="policy&#xD;&#xA;conditions&#xD;&#xA;changed">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
-      <bpmn2:escalationEventDefinition id="EscalationEventDefinition_1"/>
+      <bpmn2:signalEventDefinition id="EscalationEventDefinition_1"/>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="IntermediateThrowEvent_1" targetRef="EndEvent_1"/>
   </bpmn2:process>

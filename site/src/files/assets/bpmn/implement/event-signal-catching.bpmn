@@ -26,7 +26,7 @@
     <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="ServiceTask_1" targetRef="EndEvent_1"/>
     <bpmn2:boundaryEvent id="BoundaryEvent_2" name="policy&#xD;&#xA;conditions&#xD;&#xA;changed" attachedToRef="UserTask_1">
       <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
-      <bpmn2:escalationEventDefinition id="EscalationEventDefinition_1"/>
+      <bpmn2:signalEventDefinition id="EscalationEventDefinition_1"/>
     </bpmn2:boundaryEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="BoundaryEvent_2" targetRef="ExclusiveGateway_1"/>
     <bpmn2:callActivity id="CallActivity_1" name="calculate contract">
