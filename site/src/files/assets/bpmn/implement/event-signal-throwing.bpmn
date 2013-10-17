@@ -37,7 +37,7 @@
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_31" bpmnElement="StartEvent_1">
         <dc:Bounds height="36.0" width="36.0" x="42.0" y="50.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="22.0" width="70.0" x="25.0" y="91.0"/>
+          <dc:Bounds height="70.0" width="75.0" x="23.0" y="92.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_23" bpmnElement="UserTask_1">
@@ -67,13 +67,13 @@
         <di:waypoint xsi:type="dc:Point" x="328.0" y="68.0"/>
         <di:waypoint xsi:type="dc:Point" x="397.0" y="68.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="22.0" width="27.0" x="340.0" y="68.0"/>
+          <dc:Bounds height="22.0" width="27.0" x="348.0" y="72.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_52" bpmnElement="EndEvent_1">
         <dc:Bounds height="36.0" width="36.0" x="499.0" y="50.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="54.0" width="75.0" x="480.0" y="91.0"/>
+          <dc:Bounds height="54.0" width="75.0" x="475.0" y="91.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_IntermediateThrowEvent_3" targetElement="_BPMNShape_EndEvent_52">
@@ -86,7 +86,7 @@
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_53" bpmnElement="EndEvent_2">
         <dc:Bounds height="36.0" width="36.0" x="499.0" y="159.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="22.0" width="65.0" x="485.0" y="200.0"/>
+          <dc:Bounds height="22.0" width="65.0" x="485.0" y="204.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ExclusiveGateway_20" targetElement="_BPMNShape_EndEvent_53">
@@ -94,7 +94,7 @@
         <di:waypoint xsi:type="dc:Point" x="303.0" y="177.0"/>
         <di:waypoint xsi:type="dc:Point" x="499.0" y="177.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="22.0" width="20.0" x="278.0" y="100.0"/>
+          <dc:Bounds height="22.0" width="20.0" x="278.0" y="116.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
