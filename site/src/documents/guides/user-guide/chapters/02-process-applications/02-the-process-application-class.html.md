@@ -49,6 +49,12 @@ Notice the `@ProcessApplication` annotation. This annotation fulfills two purpos
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat 7) annotating your class with `@ProcessApplication` is sufficient.
 
+<div class="alert alert-info">
+  <p>
+    There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called `camunda-archetype-servlet-war`, which gives you a complete running project based on a ServletProcessApplication.
+  </p>
+</div>
+
 ### Deploying to Apache Tomcat 6 or other Pre-Servlet 3.0 Containers
 
 In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Server 5 for that matter), you need manually register your ProcessApplication class as Servlet Context Listener in the Servlet Container. This can be achieved by adding a listener element to your `WEB-INF/web.xml` file:
@@ -116,7 +122,9 @@ This deployment option requires that your project is a composite deployment (suc
 
 <div class="alert alert-info">
   We always recommend using the camunda-ejb-client over deploying a custom EjbProcessApplication class unless you want to customize the behavior of the EjbProcessApplication.
+  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called `camunda-archetype-ejb-war`, which gives you a complete running project based on the camunda-ejb-client.
 </div>
+
 
 ### Deploying a custom EjbProcessApplication class
 

@@ -55,3 +55,7 @@ public class MyBusinessProcessTest {
   }
 }
 ```
+
+<div class="alert alert-info">
+  Our <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a> give you a complete running project including a JUnit test out of the box.
+</div>

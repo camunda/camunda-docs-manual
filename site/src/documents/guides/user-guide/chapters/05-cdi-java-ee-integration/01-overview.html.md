@@ -25,3 +25,8 @@ In order to use the camunda-engine-cdi module inside your application, you must 
     </dependency>
 
 Replace 'x' with your camunda BPM version.
+
+<div class="alert alert-info">
+  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called `camunda-archetype-ejb-war`, which gives you a complete running project including the CDI integration.
+</div>
+

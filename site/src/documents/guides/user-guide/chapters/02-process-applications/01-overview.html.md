@@ -18,9 +18,9 @@ Transforming an existing Java Application into a Process Application is easy and
 * A Process Application class: The Process Application class constitutes the interface between your application and the process engine. There are different base classes you can extent to reflect different environments (e.g. Servlet vs. EJB Container).
 * A processes.xml file to META-INF: The deployment descriptor file allows  to provide a declarative configuration of the deployment(s) this process application makes to the process engine. It can be empty and serve as simple marker file - but it must be present.
 
-<div class="alert">
+<div class="alert alert-info">
   <p>
     <strong>Heads-up!</strong>
-    You might want to checkout the <a href="http://www.camunda.org/get-started">Getting Started Tutorial</a> first as it explaines the creation of a process application step by step.
+    You might want to checkout the <a href="http://www.camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explaines the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which give you a complete running process application out of the box.
   </p>
 </div>
