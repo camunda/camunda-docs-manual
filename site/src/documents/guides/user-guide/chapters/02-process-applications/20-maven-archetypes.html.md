@@ -8,6 +8,30 @@ category: 'Process Applications'
 We provide several project templates for Maven, which are also called Archetypes.
 They enable a quickstart for developing process applications using the camunda-BPM-platform.
 
+## Overview of available Maven Archetypes
+
+The following archetypes are currently provided. They are distributed via our Maven repository: https://app.camunda.com/nexus/content/repositories/camunda-bpm/
+
+<table class="table table-bordered">
+  <thead>
+    <tr><th>Archetype</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
+      <td>Process application that uses a shared camunda BPM engine in a Java EE Container, e.g. JBoss AS7.
+          Contains: camunda EJB client, camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, JSF-based start and task forms,
+          configuration for JPA (Hibernate), JUnit Test with in-memory engine, Arquillian Test for JBoss AS7, Ant build script for one-click deployment in Eclipse</td>
+    </tr>
+    <tr>
+      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
+      <td>Process application that uses a shared camunda BPM engine in a Servlet Container, e.g. Apache Tomcat.
+          Contains: Servlet Process Application, BPMN Process, Java Delegate, HTML5-based start and task forms,
+          JUnit Test with in-memory engine, Arquillian Test for JBoss AS7, Ant build script for one-click deployment in Eclipse</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Usage in Eclipse IDE
 
 ### Summary
