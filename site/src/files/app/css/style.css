@@ -634,3 +634,14 @@ code {
   font-size: 0.85em;
   margin: 5px 5px 20px 5px;
 }
+
+/*
+  fixes modal dialog
+*/
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 1000px;
+    width: auto;
+    min-width: 600px;
+  }
+}
