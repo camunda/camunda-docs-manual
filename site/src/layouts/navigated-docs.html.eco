@@ -39,7 +39,7 @@ layout: 'default'
 
 <div class="col-md-9">
   <div class="document-header">
-    <h1><%= @document.title %></h1>
+    <h1><%= @getPreparedHeadline() %></h1>
   </div>
   <%- @partial('part-contents', @, { part: part }) %>
 </div>

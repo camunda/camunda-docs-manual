@@ -140,6 +140,14 @@ var docpadConfig = {
                 .toLowerCase();
     },
 
+    getPreparedHeadline: function() {
+      var document = this.document,
+          documentTitle = document.title,
+          documentHeadline = document.h1;
+
+      return documentHeadline || documentTitle;
+    },
+
     getPreparedTitle: function() {
       var document = this.document,
           documentTitle = document.title,
