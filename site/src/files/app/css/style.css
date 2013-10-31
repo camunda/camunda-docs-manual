@@ -1,7 +1,7 @@
 
 @font-face { font-family: VolkswagenTS-Regular; src: url('VolkswagenTS-Regular.otf'); }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .h1 {
     font-family: 'VolkswagenTS-Regular', 'Helvetica', 'Sans';
     font-weight: normal;
 }
