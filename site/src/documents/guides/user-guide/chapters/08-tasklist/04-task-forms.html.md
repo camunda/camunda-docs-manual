@@ -7,6 +7,15 @@ category: 'Tasklist'
 
 The Tasklist can work with different types of forms. To implement a Task Form in your application you have to connect the form resource with the BPMN 2.0 element in your process diagram. Suitable BPMN 2.0 elements for calling Tasks Forms are the [Start Event](ref:/api-references/bpmn20/#events-start-events) and the [User Task](ref:/api-references/bpmn20/#tasks-user-task). 
 
+Out of the box, camunda Tasklist supports four different kinds of task forms: 
+
+* [Embedded Task Forms](ref:#embedded-task-forms): HTML-based task forms displayed embedded inside the tasklist.
+* [Generated Task Forms](ref:#generated-task-forms): Like embedded task forms but generated from XML Metadata inside BPMN 2.0 Xml. 
+* [External Task Forms](ref:#external-task-forms): The user is directed to another application to complete the task.
+* [Generic Task Forms](ref:#generic-task-forms): If no task form exists, a generic form is displayed for editing the process variables.
+
+When embedding the process engine into a custom application, you can integrate the process engine with any form technology such as [Java Server Faces](ref:/real-life/how-to/#user-interface-jsf-task-forms), Java Swing and Java FX, Rest-based Javascript web applications and many more.
+
 ## Embedded Task Forms
 
 To add an embedded Task Form to your application simply create an HTML file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
@@ -37,7 +46,200 @@ To configure the form in your process open the process in your Eclipse IDE with 
           name="my Task">                
 ```
 
-To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms).
+To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#creating-embedded-task-forms).
+
+## Generated Task Forms
+
+The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 Xml. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda allowing you to define form fields directly in BPMN 2.0 Xml:
+
+```xml
+<userTask id="usertask" name="Task">
+  <extensionElements>
+    <camunda:formData>
+        <camunda:formField 
+            id="firstname" label="Firstname" type="string">
+            <camunda:validation>
+               <camunda:constraint name="maxlength" config="25" />
+               <camunda:constraint name="required" />
+            </camunda:validation>
+        </camunda:formField>
+        <camunda:formField 
+            id="lastname" label="Lastname" type="string">
+            <camunda:validation>               
+               <camunda:constraint name="maxlength" config="25" />
+               <camunda:constraint name="required" />
+            </camunda:validation>
+        </camunda:formField>
+        <camunda:formField 
+            id="dateOfBirth" label="Date of Birth" type="date" />        
+    </camunda:formData>
+  </extensionElements>
+</userTask>
+```
+
+<p class="alert alert-info">
+  <strong>camunda Modeler:</strong> Form Metadata can be edited graphically using camunda Modeler
+</p>
+
+This form would look as follows in camunda tasklist:
+
+<center>
+  <img class="img-responsive" src="ref:asset:/assets/img/user-guide/generated-forms-example.png" />
+</center>
+
+As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form Meta Data consists of multiple Form Fields which represent individual input fields where a user has to provide some value or selection.
+
+### Form Fields
+
+A form field can have the following attributes: 
+
+<table class="table table-bordered" style="max-width: 300px">
+  <thead>
+    <tr>
+      <th>Attribute</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td><td>unique id of the form field, corresponding to the name of the process variable to which the value of the form field is added when the form is submitted.</td>
+    </tr>
+    <tr>
+      <td>label</td><td>The label to be displayed next to the form field.</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>The type of the form field. The following types are supported out of the box: 
+        <ul>
+          <li>string</li>
+          <li>long</li>
+          <li>date</li>
+          <li>boolean</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>defaultValue</td><td>Value to be used as a default (pre-selection) for the field.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Form Field Validation
+
+Validation can be used for specifying frontend and backend validation of form fields. camunda BPM provides a set of built-in form field validators and an extension point for plugging in custom validators.
+
+Validation can be configured for each form field in BPMN 2.0 XML:
+
+```xml
+<camunda:formField 
+    id="firstname" name="Firstname" type="string">
+    <camunda:validation>
+       <camunda:constraint name="maxlength" config="25" />
+       <camunda:constraint name="required" />
+    </camunda:validation>
+</camunda:formField>    
+```
+
+As you can see, you can provide a list of validation constraints for each Form Field.
+
+The following built-in validators are supported out of the box:
+
+<table class="table table-bordered" style="max-width: 300px">
+  <thead>
+    <tr>
+      <th>Validator</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>
+        <p>Applicable to all types. Validates that a value is provided for the form field. Rejects 'null' values and empty strings.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;required&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>minlength</td>
+      <td>
+        <p>Applicable to string fields. Validates minlength of text content. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;minlength&quot; config=&quot;4&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>
+        <p>Applicable to string fields. Validates maxlength of text content. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;maxlength&quot; config=&quot;25&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>
+        <p>Applicable to numeric fields. Validates the min value of a number. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;min&quot; config=&quot;1000&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>
+        <p>Applicable to numeric fields. Validates the max value of a number. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;max&quot; config=&quot;10000&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+camunda BPM supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans: 
+
+```xml
+<camunda:formField 
+    id="firstname" name="Firstname" type="string">
+    <camunda:validation>
+       <camunda:constraint name="validator" config="com.asdf.MyCustomValidator" />
+       <camunda:constraint name="validator" config="${validatorBean}" />
+    </camunda:validation>
+</camunda:formField>    
+```
+A custom validator implements the `org.camunda.bpm.engine.impl.form.validator.FormFieldValidator` interface:
+
+```java
+public class CustomValidator implements FormFieldValidator {
+
+  public boolean validate(Object submittedValue, FormFieldValidatorContext validatorContext) {
+
+    // ... do some custom validation of the submittedValue
+
+    // get access to the current execution 
+    DelegateExecution e = validatorContext.getExecution();
+    
+    // get access to all form fields submitted in the form submit
+    Map<String,Object> completeSubmit = validatorContext.getSubmittedValues();
+
+  }
+
+}
+```
+
+If the process definition is deployed as part of a ProcessApplication deployment, the validator instance is resolved using the process application classloader and / or the process application Spring Application Context / CDI Bean Manager in case of an expression.
 
 ## External Task Forms
 
