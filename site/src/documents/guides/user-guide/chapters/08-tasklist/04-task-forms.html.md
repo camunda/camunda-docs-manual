@@ -93,7 +93,7 @@ As you can see, the `<camunda:formData ... />` element is provided as a child el
 
 A form field can have the following attributes: 
 
-<table class="table table-bordered" style="max-width: 300px">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Attribute</th><th>Explanation</th>
@@ -143,7 +143,7 @@ As you can see, you can provide a list of validation constraints for each Form F
 
 The following built-in validators are supported out of the box:
 
-<table class="table table-bordered" style="max-width: 300px">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Validator</th><th>Explanation</th>
