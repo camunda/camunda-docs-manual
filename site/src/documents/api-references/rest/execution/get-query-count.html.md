@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for the number of executions that fulfill given parameters.
-Takes the same parameters as the [get executions](#execution-get-executions) method.
+Takes the same parameters as the [get executions](ref:#execution-get-executions) method.
 
 
 Method

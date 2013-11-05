@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Query for executions that fulfill given parameters through a json object.
-This method is slightly more powerful than the [GET query](#execution-get-executions), because it allows
+This method is slightly more powerful than the [GET query](ref:#execution-get-executions), because it allows
 to filter by multiple instance and execution variables of types `String`, `Number` or `Boolean`.
 
 

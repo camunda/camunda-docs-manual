@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances](#variable-get-variable-instances) method.
+Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances](ref:#variable-get-variable-instances) method.
 
 Method
 ------

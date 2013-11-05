@@ -12,13 +12,13 @@ You have a number of options to configure and create a process engine  depending
 
 You manage the process engine as part of your application. The following ways exist to configure it:
 
-*   [Programmatically via Java API](#process-engine-process-engine-bootstrapping-bootstrap-a-process-engine-using-java-api)
-*   [Via XML configuration](#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml)
-*   [Via Spring](#spring-framework-integration)
+*   [Programmatically via Java API](ref:#process-engine-process-engine-bootstrapping-bootstrap-a-process-engine-using-java-api)
+*   [Via XML configuration](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml)
+*   [Via Spring](ref:#spring-framework-integration)
 
 #### Shared, Container Managed Process Engine
 
-A container of your choice (e.g. Tomcat, JBoss, Glassfish or WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration](#runtime-container-integration) for details.
+A container of your choice (e.g. Tomcat, JBoss, Glassfish or WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration](ref:#runtime-container-integration) for details.
 
 
 ## ProcessEngineConfiguration bean
@@ -152,6 +152,6 @@ See [Deployment Descriptor Reference](ref:/api-references/deployment-descriptors
 
 ## Configure Process Engine in processes.xml
 
-The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file](#process-applications-the-processesxml-deployment-descriptor) for details.
+The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file](ref:#process-applications-the-processesxml-deployment-descriptor) for details.
 
 See [Deployment Descriptor Reference](ref:/api-references/deployment-descriptors/#descriptors-processesxml) for complete documentation of the syntax of the `processes.xml` file.

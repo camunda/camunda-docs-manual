@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for historic variable instances that fulfill the given parameters. 
-The size of the result set can be retrieved by using the [count](#history-get-variable-instances-count) method.
+The size of the result set can be retrieved by using the [count](ref:#history-get-variable-instances-count) method.
 
 
 Method

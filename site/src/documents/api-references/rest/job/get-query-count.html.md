@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for the number of jobs that fulfill given parameters.
-Takes the same parameters as the [get jobs](#job-get-jobs) method.
+Takes the same parameters as the [get jobs](ref:#job-get-jobs) method.
 
 
 Method

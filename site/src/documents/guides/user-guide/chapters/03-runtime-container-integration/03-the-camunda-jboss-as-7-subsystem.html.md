@@ -126,14 +126,14 @@ You specify the process engine plugins in `standalone.xml` / `domain.xml` for ea
     </subsystem>
 
 You have to provide the fully qualified classname between the `<class>` tags. Additional properties can be specified using the `<properties>` element.
-The restrictions, which apply for [providing a custom process engine configuration class](#runtime-container-integration-the-camunda-jboss-as-7-subsystem-providing-a-custom-process-engine-configuration-class), are also valid for the process engine plugins:
+The restrictions, which apply for [providing a custom process engine configuration class](ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem-providing-a-custom-process-engine-configuration-class), are also valid for the process engine plugins:
 
  * plugin class must be visible in the classpath for the camunda-subsystem.
  * properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
 
 ## Looking up a Process Engine in JNDI
 
-The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](ref:#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -141,13 +141,13 @@ The global JNDI bindings for process engines follow the pattern
 
 If a process engine is named "engine1", it will be available using the name `java:global/camunda-bpm-platform/process-engine/engine1`.
 
-Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](#runtime-container-integration-the-camunda-jboss-as-7-subsystem-explicit-service-dependencies).
+Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem-explicit-service-dependencies).
 
 <div class="alert alert-warning">
   <p>
     <strong>Looking up a Process Engine from JNDI using Spring</strong>
   </p>
-   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](#bpmplatform-container-jboss-services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-quickstarts/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
+   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](ref:#bpmplatform-container-jboss-services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-quickstarts/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
 </div>
 
 ## Managing the process engine through the JBoss Management System

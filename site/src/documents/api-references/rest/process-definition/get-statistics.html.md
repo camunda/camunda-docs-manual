@@ -76,7 +76,7 @@ Each object has the following properties:
   <tr>
     <td>definition</td>
     <td>Object</td>
-    <td>The process definition with the properties as described in the [get single definition](#process-definition-get-single-definition) method.</td>
+    <td>The process definition with the properties as described in the [get single definition](ref:#process-definition-get-single-definition) method.</td>
   </tr>
   <tr>
     <td>incidents</td>

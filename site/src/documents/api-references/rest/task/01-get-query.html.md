@@ -1,29 +1,27 @@
 ---
 
-title: 'Get Tasks Count (POST)'
+title: 'Get Tasks'
 category: 'Task'
 
-keywords: 'post query list'
+keywords: 'get query list'
 
 ---
 
 
-Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the [get tasks (POST)](#task-get-tasks-post) method and takes the same parameters.
+Query for tasks that fulfill a given filter.
+The size of the result set can be retrieved by using [get tasks count](ref:#task-get-tasks-count) method.
 
-  
+
 Method
 ------
 
-POST `/task/count`
+GET `/task`
 
 
 Parameters
 ----------
-  
-#### Request Body
 
-A json object with the following properties:
+#### Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +36,7 @@ A json object with the following properties:
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
-  
+
   <tr>
     <td>processDefinitionId</td>
     <td>Restrict to tasks that belong to a process definition with the given id.</td>
@@ -51,17 +49,17 @@ A json object with the following properties:
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
   </tr>
-  
+
   <tr>
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
   </tr>
-  
+
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belongs to one of the passed activity instance ids.</td>
-  </tr> 
-  
+    <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
+
   <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
@@ -87,7 +85,7 @@ A json object with the following properties:
     <td>unassigned</td>
     <td>If set to `true`, restricts the query to all tasks that are unassigned.</td>
   </tr>
-  
+
   <tr>
     <td>taskDefinitionKey</td>
     <td>Restrict to tasks that have the given key.</td>
@@ -112,7 +110,7 @@ A json object with the following properties:
     <td>descriptionLike</td>
     <td>Restrict to tasks that have a description that has the parameter value as a substring.</td>
   </tr>
-  
+
   <tr>
     <td>priority</td>
     <td>Restrict to tasks that have the given priority.</td>
@@ -125,7 +123,7 @@ A json object with the following properties:
     <td>minPriority</td>
     <td>Restrict to tasks that have a higher or equal priority.</td>
   </tr>
-  
+
   <tr>
     <td>due</td>
     <td>Restrict to tasks that are due on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
@@ -156,7 +154,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>candidateGroups</td>
-    <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a json array of group names, so for example `["developers", "support", "sales"]`.</td>
+    <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -168,28 +166,51 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>taskVariables</td>
-    <td>A json array to only include tasks that have variables with certain values. <br/>
-    
-    The array consists of json objects with three properties `name`, `operator` and `value`.
-    `name` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    `value` may be of type `String`, `Number` or `Boolean`.<br/>
+    <td>Only include tasks that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
+    A valid parameter value has the form `key_operator_value`.
+    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
+    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>A json array to only include tasks that belong to a process instance with variables with certain values.<br/>
-    The array consists of json objects with three properties `name`, `operator` and `value`.
-    `name` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    `value` may be of type `String`, `Number` or `Boolean`.<br/>
+    <td>Only include tasks that belong to process instances that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
+    A valid parameter value has the form `key_operator_value`.
+    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
+    `key` and `value` may not contain underscore or comma characters.
     </td>
+  </tr>
+  <tr>
+    <td>sortBy</td>
+    <td>Sort the results lexicographically by a given criterion. Valid values are
+    `instanceId`, `dueDate`, `executionId`, `assignee`, `created`,
+    `description`, `id`, `name` and `priority`.
+    Must be used in conjunction with the `sortOrder` parameter.</td>
+  </tr>
+  <tr>
+    <td>sortOrder</td>
+    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
+    Must be used in conjunction with the `sortBy` parameter.</td>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
   </tr>
 </table>
 
@@ -197,7 +218,8 @@ A json object with the following properties:
 Result
 ------
 
-A json object with a single count property.
+A json array of task objects.
+Each task object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -206,15 +228,80 @@ A json object with a single count property.
     <th>Description</th>
   </tr>
   <tr>
-    <td>count</td>
+    <td>id</td>
+    <td>String</td>
+    <td>The task id.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>String</td>
+    <td>The task name.</td>
+  </tr>
+  <tr>
+    <td>assignee</td>
+    <td>String</td>
+    <td>The assignee's id.</td>
+  </tr>
+  <tr>
+    <td>owner</td>
+    <td>String</td>
+    <td>The owner's id.</td>
+  </tr>
+  <tr>
+    <td>created</td>
+    <td>String</td>
+    <td>The date the task was created on. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+  </tr>
+  <tr>
+    <td>due</td>
+    <td>String</td>
+    <td>The task's due date. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+  </tr>
+  <tr>
+    <td>delegationState</td>
+    <td>String</td>
+    <td>The task's delegation state. Possible values are `PENDING` and `RESOLVED`.</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td>String</td>
+    <td>The task's description.</td>
+  </tr>
+  <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>The id of the execution the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>parentTaskId</td>
+    <td>String</td>
+    <td>The id the parent task, if this task is a subtask.</td>
+  </tr>
+  <tr>
+    <td>priority</td>
     <td>Number</td>
-    <td>The number of tasks that fulfill the query criteria.</td>
+    <td>The task's priority.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>taskDefinitionKey</td>
+    <td>String</td>
+    <td>The task's key.</td>
   </tr>
 </table>
 
 
 Response codes
--------------- 
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -238,23 +325,24 @@ Response codes
 
 Example
 -------
-  
+
 #### Request
 
-POST `/task/count`
+GET `/task?assignee=anAssignee&delegationState=RESOLVED&maxPriority=50`
 
-Request body:
+Response
 
-    {"taskVariables":
-        [{"name": "varName",
-        "value": "varValue",
-        "operator": "eq"
-        },
-        {"name": "anotherVarName",
-        "value": 30,
-        "operator": "neq"}],
-    "priority":10}
-  
-#### Response
-
-    {"count":1}
+    [{"id":"anId",
+     "name":"aName",
+     "assignee":"anAssignee",
+     "created":"2013-01-23T13:42:42",
+     "due":"2013-01-23T13:42:43",
+     "delegationState":"RESOLVED",
+     "description":"aDescription",
+     "executionId":"anExecution",
+     "owner":"anOwner",
+     "parentTaskId":"aParentId",
+     "priority":42,
+     "processDefinitionId":"aProcDefId",
+     "processInstanceId":"aProcInstId",
+     "taskDefinitionKey":"aTaskDefinitionKey"}]

@@ -38,23 +38,23 @@ title: 'Latest Version'
   </thead>
 	<tbody>
     <tr class="well">
-      <td>7.0.1 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=12996">Release Notes</a>)</td>
-      <td>17.09.2013</td>
+      <td>7.0.3 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13000">Release Notes</a>)</td>
+      <td>22.10.2013</td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.1/camunda-bpm-tomcat-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.1/camunda-bpm-tomcat-7.0.1-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.3/camunda-bpm-tomcat-7.0.3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.3/camunda-bpm-tomcat-7.0.3-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.1/camunda-bpm-jboss-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.1/camunda-bpm-jboss-7.0.1-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.3/camunda-bpm-jboss-7.0.3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/7.0/7.0.3/camunda-bpm-jboss-7.0.3-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.1/camunda-bpm-glassfish-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.1/camunda-bpm-glassfish-7.0.1-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.3/camunda-bpm-glassfish-7.0.3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/7.0/7.0.3/camunda-bpm-glassfish-7.0.3-ee.tar.gz">tar.gz</a><br>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.1/camunda-ee-ibm-was-7.0.1-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.1/camunda-ee-ibm-was-7.0.1-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.3/camunda-ee-ibm-was-7.0.3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.3/camunda-ee-ibm-was-7.0.3-ee.tar.gz">tar.gz</a><br>
       </td>
     </tr>
   </tbody>
@@ -62,8 +62,10 @@ title: 'Latest Version'
 
 <div class="row">
   <div class="col-md-12">
-    <a class="pull-right" href="ref:/enterprise/previous-downloads.html">download previous version</a><br> 
-    <a class="pull-right" href="http://camunda.org/download">download the community edition</a>
+    <p class="pull-right">
+      <a href="ref:/enterprise/previous-downloads.html">previous versions</a> | 
+      <a href="http://camunda.org/download">community edition</a><br><br><br>  
+    </p>
   </div>
 </div>
 <div class="row">
@@ -78,6 +80,9 @@ title: 'Latest Version'
   <div class="col-md-6">
     <h3>Additional Information</h3>
     <ul>
+      <li>
+        <a href="ref:#maven-coordinates-maven-coordinates">Maven Coordinates</a>
+      </li>    
       <li>
         <a href="http://camunda.org/get-started/">Read getting started guide</a>
       </li>

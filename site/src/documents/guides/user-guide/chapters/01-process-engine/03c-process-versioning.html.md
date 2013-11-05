@@ -13,7 +13,7 @@ This is supported by the process engine:
 
 * If you redeploy a changed process definition you get a new version in the database.
 * Running process instance will keep running in the version they were started with.
-* New process instances will run in the new version - unless specified explicitley. 
+* New process instances will run in the new version - unless specified explicitly. 
 * Support for migrating process instances to new a version is supported within certain limits. 
 
 So you can see different version in the process definition table and the process instaces are linked to this:

@@ -1,6 +1,6 @@
 ---
 
-title: 'Claim Task'
+title: 'Set Assignee'
 category: 'Task'
 
 keywords: 'post'
@@ -8,14 +8,15 @@ keywords: 'post'
 ---
 
 
-Claim a task for a specific user.
+Change the assignee of a task to a specific user.
 
-**Note:** The difference with [set a assignee](#task-set-assignee) is that here a check is done if the task already has a user assigned to it.
+**Note:** The difference with [claim a task](ref:#task-claim-task) is that this method does not check whether the task does already have a user assigned to it.
+
 
 Method
 ------
 
-POST `/task/{id}/claim`
+POST `/task/{id}/assignee`
 
 
 Parameters
@@ -30,7 +31,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to claim.</td>
+    <td>The id of the task to set the assignee.</td>
   </tr>
 </table>
   
@@ -45,7 +46,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of the user that claims the task.</td>
+    <td>The id of the user that will be the assignee of the task.</td>
   </tr>
 </table>
 
@@ -73,7 +74,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or claiming was not successful. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or setting the assignee was not successful. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -82,7 +83,7 @@ Example
 
 #### Request
 
-POST `/task/anId/claim`
+POST `/task/anId/assignee`
 
 Request body:
 

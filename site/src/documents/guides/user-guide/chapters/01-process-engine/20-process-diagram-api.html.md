@@ -5,14 +5,14 @@ category: 'Process Engine'
 
 ---
 
-A BPMN process diagram is a formidable place to visualize information around your process. You have to options to do this:
+A BPMN process diagram is a formidable place to visualize information around your process. You have two options to do this:
 
  * **BPMN JavaScript libraries** for rendering BPMN 2.0 with directly in the browser
  * Java **Process Diagram API** using deployed PNG images
 
 We generally recommend the JavaScript libraries, but using the Process Diagram API can be considered if
 
- * You use browsers not capable of the Java Script rendering (see [Supported Environments](#introduction-supported-environments))
+ * You use browsers not capable of the Java Script rendering (see [Supported Environments](ref:#introduction-supported-environments))
  * You want to use the exact visualization of your business modeler to improve Business IT Alignment
 
 ## BPMN JavaScript libraries
@@ -28,7 +28,7 @@ Go to [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js) for librarie
 
 ## Process Diagram API
 
-When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With these informations you can easily visulize anything on the process model. The following image shows an example using an BPMN 2.0 model from Adonis (see <a href="http://camunda.org/design/cycle-tutorial.html#!/#otherSect">Roundtrip with other BPMN 2.0 Modelers</a>):
+When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With these informations you can easily visualize anything on the process model. The following image shows an example using an BPMN 2.0 model from Adonis (see <a href="http://camunda.org/design/cycle-tutorial.html#!/#otherSect">Roundtrip with other BPMN 2.0 Modelers</a>):
 
 <img src="ref:asset:/assets/img/implementation-java/process-diagram-api-adonis.png" class="img-responsive">
 

@@ -1,6 +1,6 @@
 ---
 
-title: 'Testing'
+title: 'Spring-based Testing'
 category: 'Spring Framework Integration'
 
 ---

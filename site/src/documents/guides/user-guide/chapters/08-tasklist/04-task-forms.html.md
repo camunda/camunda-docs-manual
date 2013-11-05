@@ -9,8 +9,8 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 
 ## Embedded Task Forms
 
-To add an embedded Task Form to your application simply create an html file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
-Add a folder `scr/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
+To add an embedded Task Form to your application simply create an HTML file and attach it to a [User Task](ref:/api-references/bpmn20/#tasks-user-task) or a [Start Event](ref:/api-references/bpmn20/#events-start-events) in your process model. 
+Add a folder `src/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
 
 ```html
 <form class="form-horizontal">
@@ -36,6 +36,8 @@ To configure the form in your process open the process in your Eclipse IDE with 
           camunda:candidateUsers="John, Mary"
           name="my Task">                
 ```
+
+To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms).
 
 ## External Task Forms
 
@@ -80,3 +82,118 @@ The generic form will be used whenever you have not added a dedicated form for a
     After hitting the <code>Complete Task</code> button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
   </div>  
 </div>
+
+## Creating Embedded Task Forms
+
+Embedded task forms are plain HTML documents that contain input fields that map to process variables. These inputs must be annotated with a `form-field` attribute. Additionally they must declare the type and name of the mapped variable. A simple process variable mapping input is shown below:
+
+```html
+<input form-field type="boolean" name="myBoolean" />
+```
+
+As variable types supported are `boolean`, `string`, `number` and `date`. The mapping between variable types and rendered input is as follows:
+
+<table class="table table-bordered" style="max-width: 300px">
+  <thead>
+    <tr>
+      <th>Variable Type</th><th>Input Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>boolean</td><td>checkbox</td>
+    </tr>
+    <tr>
+      <td>string</td><td>text</td>
+    </tr>
+    <tr>
+      <td>number</td><td>number</td>
+    </tr>
+    <tr>
+      <td>date</td><td>datetime</td>
+    </tr>
+  </tbody>
+</table>
+
+### Adding validation
+
+Form validation may be added via [AngularJS](http://angularjs.org) [validation directives](http://docs.angularjs.org/api/ng.directive:input) that are available for [text input](http://docs.angularjs.org/api/ng.directive:input.text), [checkbox](http://docs.angularjs.org/api/ng.directive:input.checkbox) and [number input](http://docs.angularjs.org/api/ng.directive:input.number).
+
+For example, the following snipped validates the form input against the pattern `00-00`:
+
+```html
+<input form-field type="string" name="myString" ng-pattern="/\d{2}-\d{2}/" />
+```
+
+To query the validation state of a form, you may use the `variablesForm` variable that is available in the scope of embedded task form:
+
+```html
+<input form-field type="string" name="myString" ng-pattern="/\d{2}-\d{2}/" />
+<p ng-if="variablesForm.$invalid">
+  Your form contains errors!
+</p>
+<p ng-if="variablesForm.myString.$invalid">
+  The form input <em>myString</em> is not valid. Allowed pattern: <code>00-00</code>.
+</p>
+```
+
+Based on the validation state of a form, a forms submit button will either be disabled (form has errors) or enabled (form is ok).
+
+### Extending the Task Form Scope with Custom Behavior
+
+It is possible to inject custom JavaScript code into the scope of an embedded form. To do that, the script must be wrapped into a
+`<script form-script type="text/form-script"></script>` block. 
+
+Inside the script the variable `$scope` is provided to bind functions such as form input change listeners to it. 
+Given these change listeners advanced validation may be carried out. 
+
+Check out the [AngularJS documentation on ngModel](http://docs.angularjs.org/api/ng.directive:ngModel.NgModelController) to learn more about how to interact with form elements.
+
+```html
+<input form-field type="string" name="myString" ng-change="myStringChanged()" />
+
+<script form-script type="text/form-script">
+  $scope.myStringChanged = function(e) {
+    var formField = $scope.variablesForm.myString, 
+        value = formField.$modelValue;
+
+    // value must equal 'cat'
+    if (value != 'cat') {
+      value.$setValidity('catEntered', false);
+    } else {
+      value.$setValidity('catEntered', true);
+    }
+  };
+</script>
+```
+
+The above example binds a change listener to the input named `myString`. Inside the change listener the form fields value is retrieved.
+Using the value, a validation is performed (must equal `cat`) and the form fields validation state is updated accordingly.
+
+In case you would like to have access to internal services such as [$http](http://docs.angularjs.org/api/ng.$http) to perform validation against a backend you may use the `inject` hook provided inside a form script:
+
+```html
+<script form-script type="text/form-script">
+
+  inject([ '$scope', '$http', function($scope, $http) {
+
+    $scope.myStringChanged = function(e) {
+      var formField = $scope.variablesForm.myString, 
+          value = formField.$modelValue;
+
+      $http.get("...?myString=" + value).success(function(data) {
+        if (data == "ok") {
+          value.$setValidity('backendOk', true);
+        } else {
+          value.$setValidity('backendOk', false);
+        }
+      });
+    };
+  }]);
+</script>
+```
+
+The example performs backend validation of the form field value using the `$http` service.
+
+Note that you may want to [debounce](http://www.neerajkumar.net/blog/2013/07/07/function-debouncing-using-javascript/) 
+the backend validation rather than firing one query per user interaction. 

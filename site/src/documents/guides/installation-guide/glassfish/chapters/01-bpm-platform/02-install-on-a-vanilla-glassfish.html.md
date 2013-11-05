@@ -19,7 +19,7 @@ The database creation scripts are reside in the `sql/create` folder:
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
-<!--The next sections describe how to configure the Glassfish and to install the camunda BPM platfrom on Glassfish. If you prefer you can do the following [configurations via Glassfish Administration Console](#configuring-admin-console) and [skip](#configuring-admin-console) the next sections.-->
+<!--The next sections describe how to configure the Glassfish and to install the camunda BPM platfrom on Glassfish. If you prefer you can do the following [configurations via Glassfish Administration Console](ref:#configuring-admin-console) and [skip](ref:#configuring-admin-console) the next sections.-->
 
 ### <a id="configuring-jdbc"></a>Configuring JDBC Connection Pool and JDBC Resource
 
@@ -125,4 +125,4 @@ The following steps are required to deploy the camunda BPM platform on a Glassfi
 4. Startup the Glassfish.
 5. After a successful startup the camunda BPM platform is installed.
 
-As next step you can install for example the [REST API](#web-applications-install-the-rest-api) on Glassfish.
+As next step you can install for example the [REST API](ref:#web-applications-install-the-rest-api-web-application) on Glassfish.

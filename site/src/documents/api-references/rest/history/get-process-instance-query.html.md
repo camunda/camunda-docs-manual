@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for historic process instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [get historic process instances count](#history-get-process-instances-count) method.
+The size of the result set can be retrieved by using the [get historic process instances count](ref:#history-get-process-instances-count) method.
 
 
 Method

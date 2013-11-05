@@ -1,7 +1,7 @@
 
 @font-face { font-family: VolkswagenTS-Regular; src: url('VolkswagenTS-Regular.otf'); }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .h1 {
     font-family: 'VolkswagenTS-Regular', 'Helvetica', 'Sans';
     font-weight: normal;
 }
@@ -633,4 +633,15 @@ code {
 .link-img-thumb-enlarge {
   font-size: 0.85em;
   margin: 5px 5px 20px 5px;
+}
+
+/*
+  fixes modal dialog
+*/
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 1000px;
+    width: auto;
+    min-width: 600px;
+  }
 }

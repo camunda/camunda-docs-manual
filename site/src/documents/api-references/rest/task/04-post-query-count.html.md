@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Tasks (POST)'
+title: 'Get Tasks Count (POST)'
 category: 'Task'
 
 keywords: 'post query list'
@@ -8,38 +8,19 @@ keywords: 'post query list'
 ---
 
 
-Query for tasks that fulfill a given filter.
-This method is slightly more powerful than the [GET query](#task-get-tasks), because it allows
-to filter by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)](#task-get-tasks-post) method.
+Get the number of tasks that fulfill the given filter.
+Corresponds to the size of the result set of the [get tasks (POST)](ref:#task-get-tasks-post) method and takes the same parameters.
 
-
+  
 Method
 ------
 
-POST `/task`
+POST `/task/count`
 
 
 Parameters
----------- 
-
-#### Query Parameters
-
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
-  </tr>
-</table> 
-
+----------
+  
 #### Request Body
 
 A json object with the following properties:
@@ -79,8 +60,8 @@ A json object with the following properties:
   <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include tasks which belongs to one of the passed activity instance ids.</td>
-  </tr>  
-
+  </tr> 
+  
   <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
@@ -210,26 +191,13 @@ A json object with the following properties:
     `like`.<br/>
     </td>
   </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    `instanceId`, `dueDate`, `executionId`, `assignee`, `created`,
-    `description`, `id`, `name` and `priority`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
-  </tr>
 </table>
 
 
 Result
 ------
 
-A json array of task objects.
-Each task object has the following properties:
+A json object with a single count property.
 
 <table class="table table-striped">
   <tr>
@@ -238,80 +206,15 @@ Each task object has the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>id</td>
-    <td>String</td>
-    <td>The task id.</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>String</td>
-    <td>The task name.</td>
-  </tr>
-  <tr>
-    <td>assignee</td>
-    <td>String</td>
-    <td>The assignee's id.</td>
-  </tr>
-  <tr>
-    <td>owner</td>
-    <td>String</td>
-    <td>The owner's id.</td>
-  </tr>
-  <tr>
-    <td>created</td>
-    <td>String</td>
-    <td>The date the task was created on. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
-  </tr>
-  <tr>
-    <td>due</td>
-    <td>String</td>
-    <td>The task's due date. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
-  </tr>
-  <tr>
-    <td>delegationState</td>
-    <td>String</td>
-    <td>The task's delegation state. Possible values are `PENDING` and `RESOLVED`</td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td>String</td>
-    <td>The task's description.</td>
-  </tr>
-  <tr>
-    <td>executionId</td>
-    <td>String</td>
-    <td>The id of the execution the task belongs to.</td>
-  </tr>
-  <tr>
-    <td>parentTaskId</td>
-    <td>String</td>
-    <td>The id the parent task, if this task is a subtask.</td>
-  </tr>
-  <tr>
-    <td>priority</td>
+    <td>count</td>
     <td>Number</td>
-    <td>The task's priority.</td>
-  </tr>
-  <tr>
-    <td>processDefinitionId</td>
-    <td>String</td>
-    <td>The id of the process definition the task belongs to.</td>
-  </tr>
-  <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance the task belongs to.</td>
-  </tr>
-  <tr>
-    <td>taskDefinitionKey</td>
-    <td>String</td>
-    <td>The task's key.</td>
+    <td>The number of tasks that fulfill the query criteria.</td>
   </tr>
 </table>
 
 
 Response codes
---------------
+-------------- 
 
 <table class="table table-striped">
   <tr>
@@ -327,19 +230,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>
-      Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, 
-      but no `sortBy` or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
-    </td>
+    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
+    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
---------------
 
+Example
+-------
+  
 #### Request
 
-POST `/task`
+POST `/task/count`
 
 Request body:
 
@@ -352,20 +254,7 @@ Request body:
         "value": 30,
         "operator": "neq"}],
     "priority":10}
-
+  
 #### Response
 
-    [{"id":"anId",
-     "name":"aName",
-     "assignee":"anAssignee",
-     "created":"2013-01-23T13:42:42",
-     "due":"2013-01-23T13:42:43",
-     "delegationState":"RESOLVED",
-     "description":"aDescription",
-     "executionId":"anExecution",
-     "owner":"anOwner",
-     "parentTaskId":"aParentId",
-     "priority":10,
-     "processDefinitionId":"aProcDefId",
-     "processInstanceId":"aProcInstId",
-     "taskDefinitionKey":"aTaskDefinitionKey"}]
+    {"count":1}

@@ -9,8 +9,8 @@ keywords: 'historic post query list'
 
 
 Query for the number of historic process instances that fulfill the given parameters. 
-This method takes the same message body as the [POST query](#history-get-process-instances-post)
-and is thus slightly more powerful than the [GET query count](#history-get-process-instances-count).
+This method takes the same message body as the [POST query](ref:#history-get-process-instances-post)
+and is thus slightly more powerful than the [GET query count](ref:#history-get-process-instances-count).
 
 
 Method

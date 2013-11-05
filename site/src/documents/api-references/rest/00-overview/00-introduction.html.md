@@ -56,4 +56,4 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 Authentication
 --------------
 
-The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](#overview-configuring-authentication) section.
+The REST API ships with an implementation of [Http Basic Authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). By default it is switched off (in the rest-api web application and therefore also in the pre-built camunda BPM distributions). You can activate it by adding a servlet filter as described in the [Authentication](ref:#overview-configuring-authentication) section.

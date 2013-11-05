@@ -83,4 +83,4 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching n
 ## Additional Resources
 
 *   [Inclusive Gateways in the BPMN Tutorial](http://camunda.org/design/reference.html#!/gateways/or")
-*   [Conditional and Default Sequence Flows](#gateways-sequence-flow)
+*   [Conditional and Default Sequence Flows](ref:#gateways-conditional-and-default-sequence-flows)

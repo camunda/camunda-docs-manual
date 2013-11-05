@@ -42,7 +42,7 @@ You can also <a href="ref:/api-references/rest/#process-definition-get-definitio
 
 ### Keys and Versions
 
-The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](#process-engine-process-engine-concepts-process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
+The *key* of a process definition (`invoice` in the example above) is the logical identifier of the process. It is used throughout the API, most prominently for starting process instances ([see section on process instances](ref:#process-engine-process-engine-concepts-process-instances)). The key of a process definition is defined using the `id` property of the corresponding `<process ... >` element in the BPMN 2.0 XML file:
 
 ```xml
 <process id="invoice" name="invoice receipt" isExecutable="true">

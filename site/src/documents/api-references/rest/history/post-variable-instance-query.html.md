@@ -9,7 +9,7 @@ keywords: 'historic post query list'
 
 
 Query for historic variable instances that fulfill the given parameters. 
-This method is slightly more powerful than the [GET query](#history-get-variable-instances), because it allows to filter by variable values of the different types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query](ref:#history-get-variable-instances), because it allows to filter by variable values of the different types `String`, `Number` or `Boolean`.
 
 
 Method

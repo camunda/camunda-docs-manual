@@ -1,5 +1,6 @@
 ---
 
+title: 'Maven Coordinates'
 category: 'Maven Coordinates'
 
 ---

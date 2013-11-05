@@ -33,7 +33,7 @@ The Database Identity Service implements both `ReadOnlyIdentityProvider` and `Wr
 
 ## The LDAP Identity Service
 
-The LDAP identity service provides read-only access to an LDAP-based user / group repository. The identity service provider is implemented as a [Process Engine Plugin](#process-engine-process-engine-plugins) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
+The LDAP identity service provides read-only access to an LDAP-based user / group repository. The identity service provider is implemented as a [Process Engine Plugin](ref:#process-engine-process-engine-plugins) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
 
 In order to use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
 

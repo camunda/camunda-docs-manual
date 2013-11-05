@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 Query for a list of authorizations using a list of parameters.
-The size of the result set can be retrieved by using the [get authorization count](#authorization-get-authorizations-count) method.
+The size of the result set can be retrieved by using the [get authorization count](ref:#authorization-get-authorizations-count) method.
 
 
 Method

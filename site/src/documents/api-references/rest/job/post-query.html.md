@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](#job-get-jobs), because it allows to filter by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-get-jobs), because it allows to filter by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 Method

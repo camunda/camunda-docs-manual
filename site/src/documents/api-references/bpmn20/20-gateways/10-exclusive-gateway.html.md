@@ -42,5 +42,5 @@ The XML representation of an exclusive gateway is straight-forward: one line def
 
 ## Additional Resources
 
-*   [Conditional and Default Sequence Flows](#gateways-sequence-flow)
+*   [Conditional and Default Sequence Flows](ref:#gateways-conditional-and-default-sequence-flows)
 *   [Exclusive Gateway in the BPMN 2.0 Tutorial](http://camunda.org/design/reference.html#!/gateways/xor)

@@ -30,4 +30,4 @@ runtimeService.signal(execution.getId());
 ## Additional Resources
 
 * [Tasks in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)
-* [Message Receive Event](#events-message-events)
+* [Message Receive Event](ref:#events-message-events)

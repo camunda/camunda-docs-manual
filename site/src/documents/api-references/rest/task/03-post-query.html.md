@@ -1,27 +1,48 @@
 ---
 
-title: 'Get Tasks'
+title: 'Get Tasks (POST)'
 category: 'Task'
 
-keywords: 'get query list'
+keywords: 'post query list'
 
 ---
 
 
 Query for tasks that fulfill a given filter.
-The size of the result set can be retrieved by using [get tasks count](#task-get-tasks-count) method.
+This method is slightly more powerful than the [GET query](ref:#task-get-tasks), because it allows
+to filter by multiple process or task variables of types `String`, `Number` or `Boolean`.
+The size of the result set can be retrieved by using [get tasks count (POST)](ref:#task-get-tasks-post) method.
 
 
 Method
 ------
 
-GET `/task`
+POST `/task`
 
 
 Parameters
-----------
+---------- 
 
 #### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+  </tr>
+</table> 
+
+#### Request Body
+
+A json object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +57,7 @@ Parameters
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
-
+  
   <tr>
     <td>processDefinitionId</td>
     <td>Restrict to tasks that belong to a process definition with the given id.</td>
@@ -49,16 +70,16 @@ Parameters
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
   </tr>
-
+  
   <tr>
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
   </tr>
-
+  
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
-  </tr>
+    <td>Only include tasks which belongs to one of the passed activity instance ids.</td>
+  </tr>  
 
   <tr>
     <td>assignee</td>
@@ -85,7 +106,7 @@ Parameters
     <td>unassigned</td>
     <td>If set to `true`, restricts the query to all tasks that are unassigned.</td>
   </tr>
-
+  
   <tr>
     <td>taskDefinitionKey</td>
     <td>Restrict to tasks that have the given key.</td>
@@ -110,7 +131,7 @@ Parameters
     <td>descriptionLike</td>
     <td>Restrict to tasks that have a description that has the parameter value as a substring.</td>
   </tr>
-
+  
   <tr>
     <td>priority</td>
     <td>Restrict to tasks that have the given priority.</td>
@@ -123,7 +144,7 @@ Parameters
     <td>minPriority</td>
     <td>Restrict to tasks that have a higher or equal priority.</td>
   </tr>
-
+  
   <tr>
     <td>due</td>
     <td>Restrict to tasks that are due on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
@@ -154,7 +175,7 @@ Parameters
   </tr>
   <tr>
     <td>candidateGroups</td>
-    <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.</td>
+    <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a json array of group names, so for example `["developers", "support", "sales"]`.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -166,30 +187,27 @@ Parameters
   </tr>
   <tr>
     <td>taskVariables</td>
-    <td>Only include tasks that have variables with certain values.
-    Variable filtering expressions are comma-separated and are structured as follows:<br/>
-    A valid parameter value has the form `key_operator_value`.
-    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
+    <td>A json array to only include tasks that have variables with certain values. <br/>
+    
+    The array consists of json objects with three properties `name`, `operator` and `value`.
+    `name` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    `value` may be of type `String`, `Number` or `Boolean`.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>Only include tasks that belong to process instances that have variables with certain values.
-    Variable filtering expressions are comma-separated and are structured as follows:<br/>
-    A valid parameter value has the form `key_operator_value`.
-    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
+    <td>A json array to only include tasks that belong to a process instance with variables with certain values.<br/>
+    The array consists of json objects with three properties `name`, `operator` and `value`.
+    `name` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
+    `value` may be of type `String`, `Number` or `Boolean`.<br/>
     <br/>
     Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
     `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
     `like`.<br/>
-    `key` and `value` may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -203,14 +221,6 @@ Parameters
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
     Must be used in conjunction with the `sortBy` parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
   </tr>
 </table>
 
@@ -260,7 +270,7 @@ Each task object has the following properties:
   <tr>
     <td>delegationState</td>
     <td>String</td>
-    <td>The task's delegation state. Possible values are `PENDING` and `RESOLVED`.</td>
+    <td>The task's delegation state. Possible values are `PENDING` and `RESOLVED`</td>
   </tr>
   <tr>
     <td>description</td>
@@ -317,20 +327,33 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
-    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>
+      Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, 
+      but no `sortBy` or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+    </td>
   </tr>
 </table>
 
-
 Example
--------
+--------------
 
 #### Request
 
-GET `/task?assignee=anAssignee&delegationState=RESOLVED&maxPriority=50`
+POST `/task`
 
-Response
+Request body:
+
+    {"taskVariables":
+        [{"name": "varName",
+        "value": "varValue",
+        "operator": "eq"
+        },
+        {"name": "anotherVarName",
+        "value": 30,
+        "operator": "neq"}],
+    "priority":10}
+
+#### Response
 
     [{"id":"anId",
      "name":"aName",
@@ -342,7 +365,7 @@ Response
      "executionId":"anExecution",
      "owner":"anOwner",
      "parentTaskId":"aParentId",
-     "priority":42,
+     "priority":10,
      "processDefinitionId":"aProcDefId",
      "processInstanceId":"aProcInstId",
      "taskDefinitionKey":"aTaskDefinitionKey"}]

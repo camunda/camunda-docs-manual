@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-The process engine configuration can be extended through process engine plugins. A process engine plugin is an extension to the [process engine configuration](#process-engine-process-engine-bootstrapping).
+The process engine configuration can be extended through process engine plugins. A process engine plugin is an extension to the [process engine configuration](ref:#process-engine-process-engine-bootstrapping).
 
 A plugin must provide an implementation of the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a> interface.
 
@@ -14,7 +14,7 @@ A plugin must provide an implementation of the <a href="ref:/api-references/java
 Process engine plugins can be configured
 
 * in the [BPM Platform Deployment Descriptors](ref:/api-references/deployment-descriptors/) (bpm-platform.xml / processes.xml),
-* in [JBoss Application Server 7 configuration file](#runtime-container-integration-the-camunda-jboss-as-7-subsystem) (standalone.xml / domain.xml)
+* in [JBoss Application Server 7 configuration file](ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem) (standalone.xml / domain.xml)
 * using Spring Beans XML,
 * programatically.
 
@@ -54,6 +54,6 @@ A process engine plugin class must be visible to the classloader which loads the
 
 The following is a list of built-in process engine plugins:
 
-* [LDAP Identity Service Plugin](#process-engine-identity-service-the-ldap-identity-service)
-* [Administrator Authorization Plugin](#process-engine-authorization-service-the-administrator-authorization-plugin)
-* [Process Application Event Listener Plugin](#process-applications-process-application-event-listeners)
+* [LDAP Identity Service Plugin](ref:#process-engine-identity-service-the-ldap-identity-service)
+* [Administrator Authorization Plugin](ref:#process-engine-authorization-service-the-administrator-authorization-plugin)
+* [Process Application Event Listener Plugin](ref:#process-applications-process-application-event-listeners)

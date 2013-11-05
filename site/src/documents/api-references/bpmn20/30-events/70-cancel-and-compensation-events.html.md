@@ -8,12 +8,12 @@ keywords: 'cancel end boundary compensation intermediate throwing boundary event
 ---
 
 
-Cancel and compensation events occur in the context of the [transaction subprocess](#subprocesses-transaction-subprocess). Please read that part first to understand the overall idea.
+Cancel and compensation events occur in the context of the [transaction subprocess](ref:#subprocesses-transaction-subprocess). Please read that part first to understand the overall idea.
 
 
 ## Cancel End Event
 
-The cancel end event can only be used in combination with a [transaction subprocess](#subprocesses-transaction-subprocess). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
+The cancel end event can only be used in combination with a [transaction subprocess](ref:#subprocesses-transaction-subprocess). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
 
 
 ## Cancel Boundary Event
@@ -122,5 +122,5 @@ Since the compensation boundary event is activated after the activity has comple
 
 ## Additional Resources
 
-* [Transaction subprocess](#subprocesses-transaction-subprocess)
+* [Transaction subprocess](ref:#subprocesses-transaction-subprocess)
 * [Compensation Events in the BPMN Turorial](http://camunda.org/design/reference.html#!/events/compensation)
