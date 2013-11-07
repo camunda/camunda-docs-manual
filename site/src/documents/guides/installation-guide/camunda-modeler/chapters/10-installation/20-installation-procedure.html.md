@@ -14,7 +14,7 @@ category: 'Installation'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Add the update site URL <a href="http://camunda.org/release/camunda-modeler/update-sites/latest/site">http://camunda.org/release/camunda-modeler/update-sites/latest/site/</a> to the Eclipse download site.
+      Add the update site URL (see above) to the Eclipse download site.
     </p>
   </div>
 </div>
