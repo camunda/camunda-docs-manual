@@ -5,7 +5,7 @@ category: 'Introduction'
 
 ---
 
-This document will guide you through the installation of camunda BPM and its components on a <a href="http://www.jboss.org/jbossas">JBoss Application Server 7.1.3</a>.
+This document will guide you through the installation of camunda BPM and its components on a <a href="http://www.jboss.org/jbossas">JBoss Application Server 7 / JBoss EAP 6</a>.
 
 <div class="alert alert-info">
   <strong>Reading the Guide</strong> Throughout this guide we will use a number of variables to denote common path names and constants.
