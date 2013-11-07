@@ -21,6 +21,16 @@ The database creation scripts are reside in the `sql/create` folder:
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
+## Add BPM Bootstrap Server Listener
+
+Add the `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener`. This class is responsible for starting / stopping the camunda BPM platform as Tomcat is started / stopped.
+
+```xml
+<Server port="8005" shutdown="SHUTDOWN">
+  ...
+  <Listener className="org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap" />
+  ...
+```
 
 ## Configuring JDBC Resource
 
