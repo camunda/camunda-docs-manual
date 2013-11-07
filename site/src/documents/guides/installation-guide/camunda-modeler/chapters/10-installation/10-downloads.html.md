@@ -14,12 +14,12 @@ category: 'Installation'
       <div class="panel-body">
         <p>
           You can download a prepackaged <strong>camunda Modeler</strong> (Windows only).
-        </p>
+        </p><br /><br />
         <p>
-          <a class="btn btn-primary btn-lg" href="<%= @docUrl('release/camunda-modeler/kepler/camunda-modeler-kepler-latest.zip') %>">
+          <a class="btn btn-primary btn-lg" href="http://camunda.org/release/camunda-modeler/kepler/camunda-modeler-kepler-latest.zip">
             <i class="glyphicon glyphicon-download-alt glyphicon-white"></i> Download
           </a>
-        </p>
+        </p><br /><br />
         <p>
           This distribution includes <strong>camunda Modeler</strong> installed inside eclipse Kepler (32bit, Windows).
         </p>
@@ -34,11 +34,11 @@ category: 'Installation'
       <div class="panel-body">
         <p>
           Find <strong>camunda Modeler</strong> on the following update sites: 
-          <br />Kepler<br />
+          <br /><strong>Kepler</strong><br />
           <a href="http://camunda.org/release/camunda-modeler/update-sites/kepler/latest/site/">
             http://camunda.org/release/camunda-modeler/update-sites/kepler/latest/site/
           </a>
-          <br /><br />Indigo & Juno<br />
+          <br /><br /><strong>Indigo & Juno</strong><br />
           <a href="http://camunda.org/release/camunda-modeler/update-sites/latest/site/">
             http://camunda.org/release/camunda-modeler/update-sites/latest/site/
           </a>
