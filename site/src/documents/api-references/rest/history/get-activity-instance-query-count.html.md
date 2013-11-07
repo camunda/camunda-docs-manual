@@ -68,6 +68,22 @@ Parameters
     <td>unfinished</td>
     <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
   </tr>
+  <tr>
+  <td>startedBefore</td>
+    <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>startedAfter</td>
+    <td>Restrict to instances that were started after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>finishedBefore</td>
+    <td>Restrict to instances that were finished before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>finishedAfter</td>
+    <td>Restrict to instances that were finished after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>  
 </table>
 
 
