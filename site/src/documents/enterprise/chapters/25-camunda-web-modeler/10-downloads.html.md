@@ -10,7 +10,7 @@ title: 'Downloads'
 	  <tr>
 	    <th class="col-md-2">Version</th>
 	    <th class="col-md-2">Release Date</th>
-	    <th class="col-md-3">Download</th>
+	    <th class="col-md-3">Download Modeler</th>
       <th class="col-md-3">Installation Guide</th>
 	  </tr>
   </thead>
