@@ -77,7 +77,8 @@ Then we can get the service beans and invoke methods on them. The ProcessEngineF
     RepositoryService repositoryService = (RepositoryService) applicationContext.getBean("repositoryService");
     String deploymentId = repositoryService
       .createDeployment()
-      .addClasspathResource("mytest/hello.bpmn20.xml")
+      .addClasspathResource("mytest/hello.bpmn20")
+      .addClasspathResource("mytest/hello.png")
       .deploy()
       .getId();
 

@@ -11,7 +11,13 @@ Here's an example:
 
     <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
       ...
-      <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20.xml" />
+      <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20" />
+      <property name="deploymentResources">
+        <list>
+          <value>classpath*:/mytest/autodeploy.*.bpmn20</value>
+          <value>classpath*:/mytest/autodeploy.*.png</value>
+        </list>
+      </property>
     </bean>
 
     <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
