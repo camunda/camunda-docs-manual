@@ -104,31 +104,40 @@ The xml export from Signavio modeler contains no engine attributes:
  After update with camunda modeler class and failedJobRetryTimeCycle were added as camunda specific engine attributes:
 
 ```xml
-<serviceTask id="sid-01234" camunda:class="java.lang.Object"
-             camunda:async="true"
-             name="MyService" 
-             implementation="webService">
-  <extensionElements>
-    <camunda:failedJobRetryTimeCycle>R3/PT10M</camunda:failedJobRetryTimeCycle>
-  </extensionElements>
-  <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
-  <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
-</serviceTask>
+<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+  ...
+  <serviceTask id="sid-01234" camunda:class="java.lang.Object"
+               camunda:async="true"
+               name="MyService" 
+               implementation="webService">
+    <extensionElements>
+      <fox:failedJobRetryTimeCycle>R3/PT10M</fox:failedJobRetryTimeCycle>
+    </extensionElements>
+    <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
+    <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
+  </serviceTask>
+  ...
+</definitions>
 ```             
 
 After synchronization back to Signavio the original Signavio-information like completionQuantity, isForCompensation and startQuantity were merged back:
 
 ```xml
-<serviceTask camunda:async="true" camunda:class="java.lang.Object"
-            completionQuantity="1" 
-            id="sid-01234" 
-            isForCompensation="false" 
-            name="MyService" 
-            startQuantity="1">
-   <extensionElements>
-      <camunda:failedJobRetryTimeCycle xmlns:camunda="http://activiti.org/bpmn">R3/PT10M</camunda:failedJobRetryTimeCycle>
-   </extensionElements>
-   <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
-   <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
-</serviceTask>
+<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+  ...
+  <serviceTask camunda:async="true" camunda:class="java.lang.Object"
+              completionQuantity="1" 
+              id="sid-01234" 
+              isForCompensation="false" 
+              name="MyService" 
+              startQuantity="1">
+     <extensionElements>
+        <fox:failedJobRetryTimeCycle>R3/PT10M</fox:failedJobRetryTimeCycle>
+     </extensionElements>
+     <incoming>sid-3DED1BA0-77FC-4768-AA3E-0B60A81850EA</incoming>
+     <outgoing>sid-E6D3AB73-386C-4260-82B9-CB740B82001F</outgoing>
+  </serviceTask>
+  ...
+</definitions>
+
 ```

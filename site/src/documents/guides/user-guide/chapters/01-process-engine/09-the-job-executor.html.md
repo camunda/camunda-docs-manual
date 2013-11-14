@@ -63,11 +63,11 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
-    <definitions ... xmlns:camunda="http://activiti.org/bpmn">
+    <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
       ...
       <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
         <extensionElements>
-          <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
+          <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
         </extensionElements>
       </serviceTask>
       ...
@@ -76,16 +76,20 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
 Similarly, the following example defines three retries after 5 seconds each for a boundary timer event:
-
-    <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
-      <extensionElements>
-        <camunda:failedJobRetryTimeCycle>R3/PT5S</camunda:failedJobRetryTimeCycle>
-      </extensionElements>
-      <outgoing>SequenceFlow_3</outgoing>
-      <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
-        <timeDuration xsi:type="tFormalExpression" id="sid-772d5012-17c2-4ae4-a044-252006933a1a">PT10S</timeDuration>
-      </timerEventDefinition>
-    </boundaryEvent>
+    
+    <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+      ...
+      <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
+        <extensionElements>
+          <fox:failedJobRetryTimeCycle>R3/PT5S</fox:failedJobRetryTimeCycle>
+        </extensionElements>
+        <outgoing>SequenceFlow_3</outgoing>
+        <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
+          <timeDuration xsi:type="tFormalExpression" id="sid-772d5012-17c2-4ae4-a044-252006933a1a">PT10S</timeDuration>
+        </timerEventDefinition>
+      </boundaryEvent>
+      ...
+    </definitions>
 
 Recap: a retry may be required, if there are any failures during the transaction which follows the timer.
 
