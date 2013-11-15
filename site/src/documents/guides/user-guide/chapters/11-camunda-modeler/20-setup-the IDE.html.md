@@ -37,7 +37,7 @@ After you have <a href="ref:/guides/installation-guide/camunda-modeler">installe
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-modeler/diagram-canvas.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-modeler/modeler-diagram-canvas.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
