@@ -28,7 +28,7 @@ After you have <a href="ref:/guides/installation-guide/camunda-modeler">installe
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      The Properties Panel allows you to maintain BPMN and camunda BPM / Activiti specific attributes in your diagrams. To open this view click <code>Window / Show View / Other... / General / Properties</code>. 
+      The Properties Panel allows you to maintain BPMN and camunda BPM vendor extensions in your diagrams. To open this view click <code>Window / Show View / Other... / General / Properties</code>. 
     </p>
   </div>
 </div>
