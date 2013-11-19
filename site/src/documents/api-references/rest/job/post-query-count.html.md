@@ -158,7 +158,7 @@ Example
 #### Request
 
 <!-- TODO: Insert a 'real' example -->
-POST <code>/job</code>
+POST <code>/job/count</code>
 
 Request body:
 

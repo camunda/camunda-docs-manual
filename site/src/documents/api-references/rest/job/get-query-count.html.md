@@ -154,7 +154,7 @@ Example
 #### Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
+GET <code>/job/count?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
   
 #### Response
 
