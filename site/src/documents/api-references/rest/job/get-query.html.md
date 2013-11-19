@@ -41,6 +41,14 @@ Parameters
     <td>Only select jobs which exist for the given execution.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the id of the process definition the jobs run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>Filter by the key of the process definition the jobs run on.</td>
+  </tr>    
+  <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left.</td>
   </tr>
@@ -79,6 +87,14 @@ Parameters
     <td>noRetriesLeft</td>
     <td>Only select jobs which have no retries left.</td>
   </tr>
+  <tr>
+    <td>active</td>
+    <td>Only include active jobs.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include active jobs.</td>
+  </tr>    
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
@@ -134,6 +150,16 @@ Each job object has the following properties:
     <td>The specific execution id on which the job was created.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition which this job belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition which this job belongs to.</td>
+  </tr>    
+  <tr>
     <td>retries</td>
     <td>Number</td>
     <td>The number of retries this job has left.</td>
@@ -142,6 +168,11 @@ Each job object has the following properties:
     <td>exceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
+  </tr>  
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>A flag indicating whether the job is suspended.</td>
   </tr>  
 </table>
 

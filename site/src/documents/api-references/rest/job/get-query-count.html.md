@@ -41,6 +41,14 @@ Parameters
     <td>Only select jobs which exist for the given execution.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the id of the process definition the jobs run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>Filter by the key of the process definition the jobs run on.</td>
+  </tr>   
+  <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left.</td>
   </tr>
@@ -78,6 +86,14 @@ Parameters
     <td>noRetriesLeft</td>
     <td>Only select jobs which have no retries left.</td>
   </tr>
+  <tr>
+    <td>active</td>
+    <td>Only include active jobs.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Only include active jobs.</td>
+  </tr>  
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are

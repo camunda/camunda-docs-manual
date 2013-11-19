@@ -67,6 +67,16 @@ Its properties are as follows:
     <td>The specific execution id on which the job was created.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition which this job belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition which this job belongs to.</td>
+  </tr>    
+  <tr>
     <td>retries</td>
     <td>Number</td>
     <td>The number of retries this job has left.</td>
@@ -75,6 +85,11 @@ Its properties are as follows:
     <td>exceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
+  </tr>  
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>A flag indicating whether the job is suspended.</td>
   </tr>  
 </table>
 
