@@ -1,6 +1,6 @@
 ---
 
-title: 'Activate/Suspend Process Instance'
+title: 'Activate/Suspend Process Instance By Id'
 category: 'Process Instance'
 
 keywords: 'put set suspension state'
@@ -42,7 +42,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>suspended</td>
-    <td>A `Boolean` value which indicates whether to activate or suspend a given process instance. When the value is set to `true`, then the given process instance will be suspended and when the value is set to `false`, then the given process instance will be activated.</td>
+    <td>A <code>Boolean</code> value which indicates whether to activate or suspend a given process instance. When the value is set to <code>true</code>, then the given process instance will be suspended and when the value is set to <code>false</code>, then the given process instance will be activated.</td>
   </tr>
 </table>
 
@@ -67,11 +67,6 @@ Response codes
     <td></td>
     <td>Request successful.</td>
   </tr>
-  <tr>
-    <td>404</td>
-    <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>    
 </table>
 
   
@@ -82,7 +77,9 @@ Example
 
 PUT `/process-instance/aProcessInstanceId/suspended`
   
-    {"suspended" : true}
+    {
+      "suspended" : true
+    }
      
 #### Response
     
