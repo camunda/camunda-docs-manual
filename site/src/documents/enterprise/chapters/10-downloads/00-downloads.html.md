@@ -38,6 +38,26 @@ title: 'Latest Version'
   </thead>
 	<tbody>
     <tr class="well">
+      <td>7.1.0-alpha1 (<a target="_blank" href="http://camundabpm.blogspot.com/2013/08/camunda-BPM-7.1.0-alpha1-released.html">Release Notes</a>)</td>
+      <td>28.11.2013</td>
+      <td>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha1/camunda-bpm-tomcat-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha1/camunda-bpm-tomcat-7.1.0-alpha1-ee.tar.gz">tar.gz</a>
+      </td>
+      <td>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha1/camunda-bpm-jboss-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha1/camunda-bpm-jboss-7.1.0-alpha1-ee.tar.gz">tar.gz</a>
+      </td>
+      <td>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha1/camunda-bpm-glassfish-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha1/camunda-bpm-glassfish-7.1.0-alpha1-ee.tar.gz">tar.gz</a><br>
+      </td>
+      <td>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha1/camunda-ee-ibm-was-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha1/camunda-ee-ibm-was-7.1.0-alpha1-ee.tar.gz">tar.gz</a><br>
+      </td>
+    </tr>
+    <tr class="well">
       <td>7.0.4 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13002">Release Notes</a>)</td>
       <td>13.11.2013</td>
       <td>
