@@ -351,7 +351,7 @@ The following parameters are supported:
       <td>
         <p>The datatype of the select box. The following types are supported:</p>
         <p>
-          <code>string, number, boolean</code>.
+          <code>string</code>, <code>number</code>, <code>boolean</code>.
         </p>
       </td>
     </tr>
@@ -364,7 +364,7 @@ The following parameters are supported:
     <tr>
       <td>optionsVarName</td>
       <td>
-        <p>Process variable providing the select options. Process variable can be of type `java.util.Map` or `java.util.List`. The process variable can be of type `java.util.Map` or `java.util.List`. In case of a Map, the keys in the map are used as values of the select option and the values in the map are used as labels.</p>
+        <p>Process variable providing the select options. Process variable can be of type <code>java.util.Map</code> or <code>java.util.List</code>. The process variable can be of type <code>java.util.Map</code> or <code>java.util.List</code>. In case of a Map, the keys in the map are used as values of the select option and the values in the map are used as labels.</p>
       </td>
     </tr>
     <tr>

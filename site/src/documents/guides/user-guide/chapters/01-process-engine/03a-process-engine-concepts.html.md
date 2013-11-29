@@ -175,3 +175,28 @@ The Execution concept in the process engine is not completely aligned with the a
 
 Note: If you need to interpret the state of a process instance in terms of a BPMN process model, it is usually easier to use the activity instance tree as opposed to the execution tree.
 
+## Jobs and Job Definitions
+
+The camunda process engine includes a component named the *Job Executor*. The Job Executor is scheduling component responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reached the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a duedate which is calculated using the timer expression provided in BPMN Xml.
+
+### Querying for jobs
+
+Using the management service, you can query for jobs. The following selects all jobs which are due after a certain date:
+
+```java
+managementService
+  .createJobQuery()
+  .duedateHigherThan(someDate)
+  .list()
+```
+
+It is possible to query for jobs using the REST Api.
+
+### Suspending and Activating Job Execution
+
+Job suspension prevents jobs from being executed. Suspension of job execution can be controlled on different levels:
+
+* Job Instance Level: individual Jobs can be suspended either directly through the `managementService.suspendJob(...)` API or transitively when suspending a Process Instance or a Job Definition.
+* Job Definition Level: all instances of a certain Timer or Activity can be suspended.
+
+Job suspension by Job definition allows you to suspend all instances of a certain timer or an asynchronous continuation.

@@ -76,7 +76,7 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
 Similarly, the following example defines three retries after 5 seconds each for a boundary timer event:
-    
+
     <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
       ...
       <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
