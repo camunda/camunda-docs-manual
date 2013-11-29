@@ -179,16 +179,30 @@ Note: If you need to interpret the state of a process instance in terms of a BPM
 
 The camunda process engine includes a component named the *Job Executor*. The Job Executor is scheduling component responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reached the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a duedate which is calculated using the timer expression provided in BPMN Xml.
 
+When a process is deployed, the process engine creates a Job Definition for each activity in the process which will create jobs at runtime. This allows you to query information about timers and asynchronous continuations in your processes.
+
 ### Querying for jobs
 
 Using the management service, you can query for jobs. The following selects all jobs which are due after a certain date:
 
 ```java
-managementService
-  .createJobQuery()
+managementService.createJobQuery()
   .duedateHigherThan(someDate)
   .list()
 ```
+
+It is possible to query for jobs using the REST Api.
+
+### Querying for Job Definitions
+
+Using the management service, you can also query for job definitions. The following selects all job definitions form a specific process definition:
+
+```java
+managementService.createJobDefinitionQuery()
+  .processDefinitionKey("orderProcess")
+  .list()
+```
+The result will contain information about all timers and asynchornous continuations in the order process.
 
 It is possible to query for jobs using the REST Api.
 
@@ -199,4 +213,17 @@ Job suspension prevents jobs from being executed. Suspension of job execution ca
 * Job Instance Level: individual Jobs can be suspended either directly through the `managementService.suspendJob(...)` API or transitively when suspending a Process Instance or a Job Definition.
 * Job Definition Level: all instances of a certain Timer or Activity can be suspended.
 
-Job suspension by Job definition allows you to suspend all instances of a certain timer or an asynchronous continuation.
+Job suspension by Job definition allows you to suspend all instances of a certain timer or an asynchronous continuation. Intuitively, this allows you to suspend a certain activity in a process in a way that all process instances will advance until they have reached this activity and then not continue since the activity is suspended.
+
+Let's assume there is a process deployed with key `orderProcess` which contains a service task named `processPayment`. The service task has an asynchronous continuation configured which causes it to be executed by the job executor. The following example shows how you can prevent the `processPayment` service from being executed:
+
+```java
+List<JobDefinition> jobDefinitions = managementService.createJobDefinitionQuery()
+        .processDefinitionKey("orderProcess")
+        .activityIdIn("processPayment")
+        .list();
+
+for (JobDefinition jobDefinition : jobDefinitions) {
+  managementService.suspendJobDefinitionById(jobDefinition.getId(), true);
+}
+```
