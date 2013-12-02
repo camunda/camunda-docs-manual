@@ -58,7 +58,7 @@ title: 'Latest Version'
       </td>
     </tr>
     <tr>
-      <td>7.1.0-alpha1 (<a target="_blank" href="http://camundabpm.blogspot.com/2013/08/camunda-BPM-7.1.0-alpha1-released.html">Release Notes</a>)</td>
+      <td>7.1.0-alpha1 (<a target="_blank" href="http://camundabpm.blogspot.com/2013/11/camunda-BPM-7.1.0-alpha1-released.html">Release Notes</a>)</td>
       <td>28.11.2013</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha1/camunda-bpm-tomcat-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
