@@ -18,7 +18,7 @@ You have to follow these steps:
 
     ```xml
     <dependency>
-      <groupId>com.camunda.bpm</groupId>
+      <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine-cdi</artifactId>
       <version>$PLATFORM_VERSION</version>
     </dependency>
