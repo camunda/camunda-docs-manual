@@ -61,6 +61,14 @@ A json object with the following properties:
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
   <tr>
+    <td>executionIdIn</td>
+    <td>Only include historic variable instances which belongs to one of the passed and comma-separated execution ids.</td>
+  </tr>
+  <tr>
+    <td>taskIdIn</td>
+    <td>Only include historic variable instances which belongs to one of the passed and comma-separated task ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are `instanceId`, `variableName`.
     Must be used in conjunction with the `sortOrder` parameter.</td>
