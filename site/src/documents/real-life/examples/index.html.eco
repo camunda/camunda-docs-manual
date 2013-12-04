@@ -57,4 +57,11 @@ links: 'process'
     <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit-plugin-reporting">Cockpit Plugin "Reporting"</a></td>
     <td>Plugin for cockpit showing some statistics.</td>
   </tr>
+  <tr>
+    <td>
+      <img class="example" data-img-thumb src="ref:asset:/assets/img/real-life/examples/modeler-custom-task.png" />
+    </td>
+    <td><a href="https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-advanced">camunda Modeler Custom Task Extension</a></td>
+    <td>An extension for the camunda Modeler that show cases all of the available custom task features, including custom actions, custom color, palette and property panel integration and custom task images.</td>
+  </tr>
 </table>
