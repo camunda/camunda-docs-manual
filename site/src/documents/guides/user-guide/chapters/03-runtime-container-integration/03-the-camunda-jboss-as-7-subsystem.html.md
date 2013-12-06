@@ -142,6 +142,9 @@ The global JNDI bindings for process engines follow the pattern
 If a process engine is named "engine1", it will be available using the name `java:global/camunda-bpm-platform/process-engine/engine1`.
 
 Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem-explicit-service-dependencies).
+A declarative mechanism like `@Resource` could be
+
+    @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
 
 <div class="alert alert-warning">
   <p>
