@@ -12,7 +12,7 @@ You can run the camunda BPM platform in every java-runable environment. camunda 
 ## Container / Application Server
 
 *   Apache Tomcat 6 / 7
-*   JBoss Application Server 7.2 / JBoss EAP 6.1
+*   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2
 *   Glassfish 3.1
 *   IBM Websphere Application Server 8.0 / 8.5
 
