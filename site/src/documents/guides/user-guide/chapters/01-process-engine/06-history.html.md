@@ -50,7 +50,7 @@ Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, 
 <property name="history">audit</property>
 ```
 
-Note that when using the dafault history backend, the history level is stored in the database and cannot be changed later.
+Note that when using the default history backend, the history level is stored in the database and cannot be changed later.
 
 ## The default History Implementation
 

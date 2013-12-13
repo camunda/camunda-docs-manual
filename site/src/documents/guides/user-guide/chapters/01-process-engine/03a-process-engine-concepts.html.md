@@ -103,7 +103,7 @@ Once you have performed a query for a particular process instance (or a list of 
 
 If your process uses User Task, you can also interact with the process instance using the TaskService API.
 
-### Suspending Process Instances'
+### Suspending Process Instances
 
 Suspending a process instance is helpful, if you want ensure that it is not executed any further. For example, if process variables are in an undesired state, you can suspend the instance and change the variables *safely*.
 
