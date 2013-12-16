@@ -82,7 +82,7 @@ By inheriting from `org.camunda.bpm.cockpit.plugin.spi.impl.AbstractCockpitPlugi
 To register the plugin with cockpit, we must put its class name into a file called `org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin` that resides in the directory `META-INF/services`. That will publish the plugin via the Java [ServiceLoader facilities](http://docs.oracle.com/javase/6/docs/api/java/util/ServiceLoader.html).
 
 
-#### Test case
+#### Testing Plugin Discovery
 
 We will go ahead and write a test case that makes sure the plugin gets properly discovered.
 Before we do so, we need to add test dependencies to our project `pom.xml`.
@@ -242,7 +242,7 @@ public class SamplePlugin extends AbstractCockpitPlugin {
 ```
 
 
-#### Test case
+#### Testing Queries
 
 To test that the plugin defined query actually works, we extend our testcase. By using the cockpit provided service `QueryService` we can verify that the query can be executed:
 
@@ -376,13 +376,11 @@ Given the above setup the resource class extends the cockpit API with the follow
 GET $cockpit_api_root/plugin/sample/$engine/process-instance
 ```
 
-#### Test case
+#### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plugin test case. Alternatively you can write a real API test using [arquillian](http://arquillian.org/).
 See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
-
-### Summary
 
 Server-side parts of the plugin? Done. We will now go ahead and write the client-side extension that exposes the functionality to the user.
 
@@ -408,7 +406,7 @@ So let's create a file `org/camunda/bpm/cockpit/plugin/sample/assets/info.txt` i
 FOO BAR
 ```
 
-#### Test case
+#### Testing Assets
 
 To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plugin into the cockpit webapp.
 

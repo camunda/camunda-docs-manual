@@ -9,10 +9,10 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 
 Out of the box, camunda Tasklist supports four different kinds of task forms:
 
-* [Embedded Task Forms](ref:#embedded-task-forms): HTML-based task forms displayed embedded inside the tasklist.
-* [Generated Task Forms](ref:#generated-task-forms): Like embedded task forms but generated from XML Metadata inside BPMN 2.0 Xml.
-* [External Task Forms](ref:#external-task-forms): The user is directed to another application to complete the task.
-* [Generic Task Forms](ref:#generic-task-forms): If no task form exists, a generic form is displayed for editing the process variables.
+* [Embedded Task Forms](ref:#tasklist-task-forms-embedded-task-forms): HTML-based task forms displayed embedded inside the tasklist.
+* [Generated Task Forms](ref:#tasklist-task-forms-generated-task-forms): Like embedded task forms but generated from XML Metadata inside BPMN 2.0 Xml.
+* [External Task Forms](ref:#tasklist-task-forms-external-task-forms): The user is directed to another application to complete the task.
+* [Generic Task Forms](ref:#tasklist-task-forms-generic-task-forms): If no task form exists, a generic form is displayed for editing the process variables.
 
 When embedding the process engine into a custom application, you can integrate the process engine with any form technology such as [Java Server Faces](ref:/real-life/how-to/#user-interface-jsf-task-forms), Java Swing and Java FX, Rest-based Javascript web applications and many more.
 
@@ -46,7 +46,7 @@ To configure the form in your process open the process in your Eclipse IDE with 
           name="my Task">
 ```
 
-To create an embedded task form read the following section [Creating Embedded Task Forms](ref:#creating-embedded-task-forms).
+To create an embedded task form read the section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms).
 
 ## Generated Task Forms
 

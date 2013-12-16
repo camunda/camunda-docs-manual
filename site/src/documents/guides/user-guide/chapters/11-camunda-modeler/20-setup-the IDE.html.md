@@ -5,7 +5,7 @@ category: 'camunda Modeler'
 
 ---
 
-After you have <a href="ref:/guides/installation-guide/camunda-modeler">installed the camunda Modeler</a> in Eclipse you can start to setup your environment. The modeler IDE is split into the following three parts:
+After you have <a href="ref:/guides/installation-guide/camunda-modeler/">installed the camunda Modeler</a> in Eclipse you can start to setup your environment. The modeler IDE is split into the following three parts:
 
 ## Project Explorer
 

@@ -7,7 +7,7 @@ keywords: 'get'
 
 ---
 
-Retrieves the rendered form for a process definition. This method can be used for getting the html rendering of a [Generated Task Form](ref:/guides/user-guide/#generated-task-forms).
+Retrieves the rendered form for a process definition. This method can be used for getting the html rendering of a [Generated Task Form](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms).
 
 Method
 --------------  

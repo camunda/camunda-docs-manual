@@ -11,7 +11,7 @@ keywords: 'post'
 Complete a task and update process variables using a form submit. The difference between this method and the `complete` method is twofold:
 
 * If the task is in state `PENDING` - ie. has been delegated before, it is not completed but resolved. It will be completed otherwise.
-* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have Validators defined. See [Documentation on Generated Task Forms](ref:/guides/user-guide/#generated-task-forms). 
+* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have Validators defined. See [Documentation on Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms). 
 
 
 Method

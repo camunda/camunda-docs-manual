@@ -5,6 +5,8 @@ category: 'Migrate from camunda fox'
 
 ---
 
+<section id="jbossas">
+
 ## JBoss AS 7.1.3
 
 ### Upgrade the application server modules
@@ -71,7 +73,11 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 
 For further details about installing the camunda BPM webapps read the [installation guide](ref:/guides/installation-guide/jboss/).
 
-## GlassFish 3.1<a id="migration-server-glassfish"></a>
+</section>
+
+<section id="glassfish">
+
+## GlassFish 3.1
 
 ### Cleanup the `$FOX_HOME/glassfish/domains/<domain>/config/domain.xml`
 
@@ -232,7 +238,11 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
   * `camunda-webapp-glassfish-$PLATFORM_VERSION.war`
 * You are able to delete the corresponding Cockpit tables, because they are not needed anymore.
 
-## IBM WebSphere Application Server<a id="migration-server-was"></a>
+</section>
+
+<section id="websphere">
+
+## IBM WebSphere Application Server
 
 ### Undeploy camunda fox webapps
 
@@ -264,3 +274,5 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 
 * Follow the installation instructions to deploy camunda BPM webapps (like Cycle, Cockpit etc.).
 * Furthermore, you are able to delete the corresponding Cockpit tables, because they are not needed anymore.
+
+</section>
