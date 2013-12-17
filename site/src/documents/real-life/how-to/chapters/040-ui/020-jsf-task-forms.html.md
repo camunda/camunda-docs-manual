@@ -155,7 +155,7 @@ The same mechanism can be used to start a new process instance.
   </h:form>
 </h:body>
 </ui:composition>
-```xml
+```
 
 <center>
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/startFormExample.png" class="img-responsive"/>

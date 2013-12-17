@@ -15,7 +15,7 @@ In this how to we will walk through the steps needed to develop a cockpit plugin
 
 <div class="alert alert-warning">
   <strong>Heads-Up</strong>
-  <p>Please have a look at [Cockpit Plugins](ref:/guides/user-guide/#cockpit-plugins) for the basics first.</p>
+  <p>Please have a look at <a href="ref:/guides/user-guide/#cockpit-plugins">Cockpit Plugins</a> for the basics first.</p>
 </div>
 
 
@@ -26,7 +26,7 @@ We will walk through the important aspects of developing the server-side parts o
 
 ### Plugin archive
 
-As a first step we create a maven jar project that represents our plugin library. Inside the projects `pom.xml` we must declare a dependency to the cockpit core with the maven coordinates `org.camunda.bpm.cockpit:camunda-cockpit-core`. The project contains all the infrastructure to create and test the server-side parts of a plugin.
+As a first step we create a maven jar project that represents our plugin library. Inside the projects `pom.xml` we must declare a dependency to the camunda webapp core with the maven coordinates `org.camunda.bpm.webapp:camunda-webapp-core`. The project contains all the infrastructure to create and test the server-side parts of a plugin.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -46,6 +46,7 @@ As a first step we create a maven jar project that represents our plugin library
       <artifactId>camunda-webapp-core</artifactId>
       <version>7.0.0-Final</version>
     </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -112,6 +113,14 @@ Before we do so, we need to add test dependencies to our project `pom.xml`.
   </dependency>
   ...
 ```
+
+Next is the wiring of the camunda webapp and the process engine. This requires to create a Service Provider that implements the interface `ProcessEngineProvider` and declare it in a file called `org.camunda.bpm.engine.rest.spi.ProcessEngineProvider` that resides in the directory `src/test/resources/META-INF/services/`. The file should contain the following content:
+
+```java
+org.camunda.bpm.cockpit.plugin.test.application.TestProcessEngineProvider
+```
+
+The `TestProcessEngineProvider` comes with the camunda webapp core and uses the methods of the class `org.camunda.bpm.BpmPlatform` and exposes the default process engine.
 
 The class `org.camunda.bpm.cockpit.plugin.test.AbstractCockpitPluginTest` can work as a basis for cockpit plugin tests. It initializes the cockpit environment around each test and bootstraps a single process engine that is made available to cockpit and the plugin.
 
@@ -379,7 +388,7 @@ GET $cockpit_api_root/plugin/sample/$engine/process-instance
 #### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plugin test case. Alternatively you can write a real API test using [arquillian](http://arquillian.org/).
-See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
+See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
 
 Server-side parts of the plugin? Done. We will now go ahead and write the client-side extension that exposes the functionality to the user.
@@ -398,9 +407,9 @@ The client-side part of a cockpit plugin consists of an extension to the cockpit
 
 ### Static plugin assets
 
-When using `AbstractPluginRootResource` as the plugin resources base class, serving static assets is already built in. The root resource accepts `GET` request under `/static` to serve plugin provided client-side resources. Per convention, these resources must reside in a `/assets` directory relative to the plugin main class.
+When using `AbstractPluginRootResource` as the plugin resources base class, serving static assets is already built in. The root resource accepts `GET` request under `/static` to serve plugin provided client-side resources. Per convention, these resources must reside in a `/plugin-webapp/$plugin_id` directory absolute to the classpath root.
 
-So let's create a file `org/camunda/bpm/cockpit/plugin/sample/assets/info.txt` in the `src/main/resources` directory of our project. We can give it the following content (optional):
+So let's create a file `plugin-webapp/$plugin_id/info.txt` in the `src/main/resources` directory of our project. We can give it the following content (optional):
 
 ```
 FOO BAR
@@ -408,7 +417,7 @@ FOO BAR
 
 #### Testing Assets
 
-To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plugin into the cockpit webapp.
+To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plugin into the cockpit webapp.
 
 
 ### Integration into cockpit
@@ -427,14 +436,14 @@ To integrate the plugin, we need to add it to the dependencies of the cockpit we
   </dependency>
 ```
 
-Now run the cockpit application using `mvn clean tomcat:run -Pdev`. It will boot an embedded tomcat and make the webapplication available at [http://localhost:8080/cockpit](http://localhost:8080/cockpit).
+Now run the cockpit application using `mvn clean tomcat:run -Pdev`. It will boot an embedded tomcat and make the webapplication available at [http://localhost:8080/camunda](http://localhost:8080/camunda).
 
-You can navigate to [http://localhost:8080/cockpit/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/cockpit/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets is correctly loaded.
+You can navigate to [http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets is correctly loaded.
 
 
 ### plugin.js main file
 
-Each plugin must contain a file `app/plugin.js` in the plugins assets directory. That file bootstraps the client-side plugin and registers it with cockpit. To do so it must declare a [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [ngDefine](https://github.com/Nikku/requirejs-angular-define). 
+Each plugin must contain a file `app/plugin.js` in the plugins assets directory (ie. `plugin-webapp/$plugin_id`). That file bootstraps the client-side plugin and registers it with cockpit. To do so it must declare a [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [ngDefine](https://github.com/Nikku/requirejs-angular-define). 
 
 Without going in all the details here, our plugins `plugin.js` may look like this:
 
@@ -499,7 +508,7 @@ To complete the example, we need to define the HTML file `app/dashboard.html` as
 
 That file provides the actual view to the user.
 
-When deploying the extended cockpit webapplication on the camunda BPM platform, we can see the plugin in action.
+When deploying the extended camunda webapplication on the camunda BPM platform, we can see the plugin in action.
 
 
 ## Summary
@@ -509,7 +518,7 @@ You made it! In this how to we walked through all important steps required to bu
 
 ## Additional resources
 
-* [sample plugin sources](https://github.com/Nikku/cockpit-sample-plugin)
+* [sample plugin sources](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit-sample-plugin)
 
 
 # Appendix
@@ -521,7 +530,7 @@ You made it! In this how to we walked through all important steps required to bu
   Some experience in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> development as well as knowledge about <a href="http://angularjs.org/">AngularJS</a> and <a href="http://requirejs.org">RequireJS</a> is beneficial to understand this subsection.
 </div>
 
-The client-side plugin infrastructure provides extensions to the cockpit core application through views that expose data provided by a plugins' server-side API. We quickly expand on how the interaction between a plugin and the cockpit webapplication happeness.
+The client-side plugin infrastructure provides extensions to the cockpit core application through views that expose data provided by a plugins' server-side API. We quickly expand on how the interaction between a plugin and the camunda webapplication happeness.
 
 A plugin is defined in a `app/plugin.js` file that gets served as static plugin asset:
 
@@ -561,7 +570,7 @@ As the file is loaded as a RequireJS module (read more about the mechanism [here
 
 The plugin must register itself with the `ViewsProvider` via a [module configuration hook](http://docs.angularjs.org/api/angular.Module). 
 
-From within cockpit, views are included using the [view directive](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-webapp/src/main/webapp/app/plugin/view.js):
+From within cockpit, views are included using the [view directive](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/webapp/src/main/webapp/app/plugin/view.js):
 
 ```html
 <view provider="viewProvider" vars="viewProviderVars" />
