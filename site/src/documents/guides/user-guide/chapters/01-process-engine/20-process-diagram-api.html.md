@@ -12,7 +12,7 @@ A BPMN process diagram is a formidable place to visualize information around you
 
 We generally recommend the JavaScript libraries, but using the Process Diagram API can be considered if
 
- * You use browsers not capable of the Java Script rendering (see [Supported Environments](ref:#introduction-supported-environments))
+ * You use browsers not capable of the Java Script rendering (see [Supported Environments](ref:#introduction-supported-environments-for-version-71))
  * You want to use the exact visualization of your business modeler to improve Business IT Alignment
 
 ## BPMN JavaScript libraries

@@ -113,7 +113,7 @@ title: 'Latest Version'
         <a href="https://github.com/camunda/camunda-quickstarts" id="githubQuickstarts">Quickstarts on GitHub</a>
       </li>
       <li>
-        <a href="ref:/guides/user-guide/#introduction-supported-environments">Supported Environments</a>
+        <a href="ref:/guides/user-guide/#introduction-supported-environments-for-version-71">Supported Environments</a>
       </li>
   </div>
 </div>
