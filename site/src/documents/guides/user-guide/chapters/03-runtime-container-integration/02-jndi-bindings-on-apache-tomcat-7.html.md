@@ -7,36 +7,39 @@ category: 'Runtime Container Integration'
 
 To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have to add in your process application the file `META-INF/context.xml` and add the following [ResourceLinks](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Resource_Links):
 
-  <Context>
-    <ResourceLink name="ProcessEngineService"
-            global="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
-            type="org.camunda.bpm.ProcessEngineService" />
+```xml
+<Context>
+  <ResourceLink name="ProcessEngineService"
+    global="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
+    type="org.camunda.bpm.ProcessEngineService" />
 
-    <ResourceLink name="ProcessApplicationService"
-            global="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
-            type="org.camunda.bpm.ProcessApplicationService" />
-  </Context>
+  <ResourceLink name="ProcessApplicationService"
+    global="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
+    type="org.camunda.bpm.ProcessApplicationService" />
+</Context>
+```
 
 These elements are used to create a link to the global JNDI Resources definied in `$CATALINA_HOME/conf/server.xml`.
 
 Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.xml` deployment descriptor.
 
-  <web-app>
-    <resource-ref>
-      <description>Process Engine Service</description>
-      <res-ref-name>ProcessEngineService</res-ref-name>
-      <res-type>org.camunda.bpm.ProcessEngineService</res-type>
-      <res-auth>Container</res-auth>
-      </resource-ref>
-
-    <resource-ref>
-      <description>Process Application Service</description>
-      <res-ref-name>ProcessApplicationService</res-ref-name>
-      <res-type>org.camunda.bpm.ProcessApplicationService</res-type>
-      <res-auth>Container</res-auth>
-    </resource-ref>
-    ...
-  </web-app>
+```xml
+<web-app>
+  <resource-ref>
+    <description>Process Engine Service</description>
+    <res-ref-name>ProcessEngineService</res-ref-name>
+    <res-type>org.camunda.bpm.ProcessEngineService</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <resource-ref>
+    <description>Process Application Service</description>
+    <res-ref-name>ProcessApplicationService</res-ref-name>
+    <res-type>org.camunda.bpm.ProcessApplicationService</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  ...
+</web-app>
+```
 
 **Note**: You can choose different resource link names for the Process Engine Service and Process Application Service. The resource link name has to match with the value inside the `<res-ref-name>`-element inside the correspondig `<resource-ref>`-element in `WEB-INF/web.xml`. We propose the name `ProcessEngineService` for the Process Engine Service and `ProcessApplicationService` for the Process Application Service.
 
