@@ -45,9 +45,7 @@ Create a normal JSF page in `src/main/webapp/WEB_INF` representing a form used f
   xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
   <f:metadata>
-    <f:viewParam id="taskId" name="taskId" />
-    <f:viewParam id="callbackUrl" name="callbackUrl" />
-    <f:event type="preRenderView" listener="#{camunda.taskForm.startTask(taskId, callbackUrl)}" />
+    <f:event type="preRenderView" listener="#{camunda.taskForm.startTaskForm()}" />
   </f:metadata>
   <title>Task Form: #{task.name}</title>
 </h:head>
@@ -76,9 +74,7 @@ Therefor you just need this code block:
 
 ```xml
 <f:metadata>
-  <f:viewParam id="taskId" name="taskId" />
-  <f:viewParam id="callbackUrl" name="callbackUrl" />
-  <f:event type="preRenderView" listener="#{camunda.taskForm.startTask(taskId, callbackUrl)}" />
+  <f:event type="preRenderView" listener="#{camunda.taskForm.startTaskForm()}" />
 </f:metadata>
 ```
 
@@ -133,9 +129,7 @@ The same mechanism can be used to start a new process instance.
  
 <h:head>
   <f:metadata>
-    <f:viewParam id="processDefinitionKey" name="processDefinitionKey" />
-    <f:viewParam id="callbackUrl" name="callbackUrl" />
-    <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByKeyForm(processDefinitionKey, callbackUrl)}" />
+    <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByKeyForm()}" />
   </f:metadata>
   <title>Start Process: #{camunda.taskForm.processDefinition.name}</title>
 </h:head>
@@ -170,9 +164,7 @@ You need this code block in your JSF page:
 
 ```xml
 <f:metadata>
-  <f:viewParam id="processDefinitionId" name="processDefinitionId" />
-  <f:viewParam id="callbackUrl" name="callbackUrl" />
-  <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByIdForm(processDefinitionId, callbackUrl)}" />
+  <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByIdForm()}" />
 </f:metadata>
 ```
 
