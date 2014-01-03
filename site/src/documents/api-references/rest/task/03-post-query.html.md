@@ -158,6 +158,18 @@ A json object with the following properties:
     <td>Restrict to tasks that are due before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
   <tr>
+    <td>followUp</td>
+    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>followUpAfter</td>
+    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>followUpBefore</td>
+    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>  
+  <tr>
     <td>created</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
@@ -268,6 +280,11 @@ Each task object has the following properties:
     <td>The task's due date. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
   </tr>
   <tr>
+    <td>followUp</td>
+    <td>String</td>
+    <td>The follow-up date for the task. Format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+  </tr>  
+  <tr>
     <td>delegationState</td>
     <td>String</td>
     <td>The task's delegation state. Possible values are `PENDING` and `RESOLVED`</td>
@@ -360,6 +377,7 @@ Request body:
      "assignee":"anAssignee",
      "created":"2013-01-23T13:42:42",
      "due":"2013-01-23T13:42:43",
+     "followUp:":"2013-01-23T13:44:42",
      "delegationState":"RESOLVED",
      "description":"aDescription",
      "executionId":"anExecution",
