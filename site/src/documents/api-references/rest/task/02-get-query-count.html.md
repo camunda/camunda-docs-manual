@@ -137,6 +137,18 @@ Parameters
     <td>Restrict to tasks that are due before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
   <tr>
+    <td>followUp</td>
+    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>followUpAfter</td>
+    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
+    <td>followUpBefore</td>
+    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+  </tr>
+  <tr>
     <td>created</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
