@@ -72,6 +72,11 @@ Its properties are as follows:
     <td>The due date for the task. Format `yyyy-MM-dd'T'HH:mm:ss`.</td>
   </tr>
   <tr>
+    <td>followUp</td>
+    <td>String</td>
+    <td>The follow-up date for the task. Format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+  </tr>
+  <tr>
     <td>delegationState</td>
     <td>String</td>
     <td>The delegation state of the task. Corresponds to the `DelegationState` enum in the engine.
@@ -155,7 +160,8 @@ GET `/task/anId`
     "name":"aName",
     "assignee":"anAssignee",
     "created":"2013-01-23T13:42:42",
-    "due":"2013-01-23T13:42:43",
+    "due":"2013-01-23T13:49:42",
+    "followUp:":"2013-01-23T13:44:42",
     "delegationState":"RESOLVED",
     "description":"aDescription",
     "executionId":"anExecution",
