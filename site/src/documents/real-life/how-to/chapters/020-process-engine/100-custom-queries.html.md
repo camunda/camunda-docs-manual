@@ -24,7 +24,7 @@ Easy as it is, there are basically two catches:
 *   can only build queries the API supports.
 *   You cannot add constraints on your domain objects.
 
-Let me give you a simple use case example, which we implemented in the [custom-queries example](https://github.com/camunda/camunda-bpm-examples/tree/master/custom-queries):
+Let me give you a simple use case example, which we implemented in the [custom-queries example](https://github.com/camunda/camunda-consulting/tree/master/snippets/custom-queries):
 
 *   You have a process variable "customer" holding the customerId
 *   You have your own entity "Customer" with all the details
@@ -125,7 +125,7 @@ In order to solve the requirements stated in the introduction, we can think of a
 
 **Warning:** Writing your own MyBatis Queries means you rely on the internal entity / database structure of the process engine. This is considered quite stable (since otherwise we have to provide extensive migration scripts), but there is no guarantee. Therefore, please check your MyBatis queries on any version migration you do. This can be skipped if you have a good test coverage from automated unit tests.
 
-The following solution is implemented in the [custom-queries example](https://github.com/camunda/camunda-bpm-examples/tree/master/custom-queries), where you will find a complete working example. The code snippets in this article are taken from this example.
+The following solution is implemented in the [custom-queries example](https://github.com/camunda/camunda-consulting/tree/master/snippets/custom-queries), where you will find a complete working example. The code snippets in this article are taken from this example.
 
 In order to add your own MyBatis Queries, you have to provide a MyBatis XML configuration file. This file can not only contain SQL commands but also mappings from relational data to Java Objects. The question is how to make MyBatis use our own configuration file, when MyBatis is already set up during the process engine startup? The easiest solution is described here. This approach leverages the existing infrastructure to access MyBatis, including connection and transaction handling, but starts up a completely separate MyBatis Session within the Process Application. This has two big advantages (and not a real disadvantage):
 
@@ -175,7 +175,7 @@ myBatisExtendedSessionFactory.initFromProcessEngineConfiguration(processEngineCo
 myBatisExtendedSessionFactory.getCommandExecutorTxRequired().execute(command);
 ```
 
-This is already everything you need, see a fully working solution in [MyBatisExtendedSessionFactory.java](https://github.com/camunda/camunda-bpm-examples/blob/master/custom-queries/src/main/java/org/camunda/demo/custom/query/MyBatisExtendedSessionFactory.java), [MyBatisQueryCommandExecutor.java](https://github.com/camunda/camunda-bpm-examples/blob/master/custom-queries/src/main/java/org/camunda/demo/custom/query/MyBatisQueryCommandExecutor.java) and the example usage in [TasklistService.java](https://github.com/camunda/camunda-bpm-examples/blob/master/custom-queries/src/main/java/org/camunda/demo/custom/query/TasklistService.java).
+This is already everything you need, see a fully working solution in [MyBatisExtendedSessionFactory.java](https://github.com/camunda/camunda-consulting/blob/master/snippets/custom-queries/src/main/java/org/camunda/demo/custom/query/MyBatisExtendedSessionFactory.java), [MyBatisQueryCommandExecutor.java](https://github.com/camunda/camunda-consulting/blob/master/snippets/custom-queries/src/main/java/org/camunda/demo/custom/query/MyBatisQueryCommandExecutor.java) and the example usage in [TasklistService.java](https://github.com/camunda/camunda-consulting/blob/master/snippets/custom-queries/src/main/java/org/camunda/demo/custom/query/TasklistService.java).
 
 Now let's get back to the example from the beginning. We want to query all tasks of customers for a certain region. First of all we have to write a SQL for this. Let's assume that we have the following Entity stored in the same Data-Source as the fox engine:
 
@@ -191,7 +191,7 @@ public class Customer {
   ...
 ```
 
-Now the SQL has to join the CUSTOMER with the VARIABLES table from the fox engine. Here we do an additional trick as once used for another standard problem: We join in ALL process variables to receive them together with the Tasks in one query. Maybe this is not your use case, but it might show you how powerful this approach can be. The full MyBastis Mapping can be found in [customTaskMappings.xml](https://github.com/camunda/camunda-bpm-examples/blob/master/custom-queries/src/main/resources/customTaskMappings.xml).
+Now the SQL has to join the CUSTOMER with the VARIABLES table from the fox engine. Here we do an additional trick as once used for another standard problem: We join in ALL process variables to receive them together with the Tasks in one query. Maybe this is not your use case, but it might show you how powerful this approach can be. The full MyBastis Mapping can be found in [customTaskMappings.xml](https://github.com/camunda/camunda-consulting/blob/master/snippets/custom-queries/src/main/resources/customTaskMappings.xml).
 
 ```xml
 <select id="selectTasksForRegion" resultMap="customTaskResultMap" parameterType="org.camunda.bpm.engine.impl.db.ListQueryParameterObject">
