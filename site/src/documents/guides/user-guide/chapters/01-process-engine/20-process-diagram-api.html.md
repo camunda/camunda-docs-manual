@@ -33,7 +33,7 @@ When using the Process Diagram API you can deploy a PNG image together with your
 <img src="ref:asset:/assets/img/implementation-java/process-diagram-api-adonis.png" class="img-responsive">
 
 
-Our [Invoice Showcase](https://github.com/camunda/camunda-bpm-examples/tree/master/invoice-en) is a process application that also uses the Process Diagram API showing details of the current process instance to end users working on user tasks.
+Our [Invoice Showcase](https://github.com/camunda/camunda-consulting/tree/master/showcases/invoice-en) is a process application that also uses the Process Diagram API showing details of the current process instance to end users working on user tasks.
 
 ### Preconditions
 
@@ -66,7 +66,7 @@ The BPMN 2.0 XML file of your process must contain Diagram Interchange data. Thi
 
 If you have deployed a process diagram into the engine, you can retrieve it using the method `getProcessDiagram()` of the [RepositoryService](/api-references/javadoc/?org/camunda/bpm/engine/RepositoryService.html), which takes a process definition id as an argument and returns an `InputStream` with the content of the process diagram image.
 
-In a Web application you can, e.g., write a Servlet to provide process diagrams (this code is taken from the Invoice Showcase, see [ProcessDiagramServlet.java](https://github.com/camunda/camunda-bpm-examples/blob/master/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/servlet/ProcessDiagramServlet.java)):
+In a Web application you can, e.g., write a Servlet to provide process diagrams (this code is taken from the Invoice Showcase, see [ProcessDiagramServlet.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/servlet/ProcessDiagramServlet.java)):
 
     @WebServlet(value = "/processDiagram", loadOnStartup = 1)
     public class ProcessDiagramServlet extends HttpServlet {
@@ -104,9 +104,9 @@ These coordinates are given as pixels relative to the upper left corner of the i
 
 ### Creating an Overlay on top of a Process Diagram
 
-To give you some inspiration of what you can do with the Process Diagram API, we have another look at the code of the [Invoice Showcase](https://github.com/camunda/camunda-bpm-examples/tree/master/invoice-en) . It uses JSF, HTML and CSS to highlight the current activity of a given process instance.
+To give you some inspiration of what you can do with the Process Diagram API, we have another look at the code of the [Invoice Showcase](https://github.com/camunda/camunda-consulting/tree/master/showcases/invoice-en) . It uses JSF, HTML and CSS to highlight the current activity of a given process instance.
 
-A CDI bean looks up the currently active activities in the [RuntimeService](/api-references/javadoc/?org/camunda/bpm/engine/RuntimeService.html) and gets position and dimension of these activities using `DiagramLayout.getNode()` (see [ProcessDiagramController.java](https://github.com/camunda/camunda-bpm-examples/blob/master/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/diagram/ProcessDiagramController.java)):
+A CDI bean looks up the currently active activities in the [RuntimeService](/api-references/javadoc/?org/camunda/bpm/engine/RuntimeService.html) and gets position and dimension of these activities using `DiagramLayout.getNode()` (see [ProcessDiagramController.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/diagram/ProcessDiagramController.java)):
 
     @Named
     public class ProcessDiagramController {
@@ -124,7 +124,7 @@ A CDI bean looks up the currently active activities in the [RuntimeService](/api
         return list;
       }
 
-This bean is then invoked by a JSF page, which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-bpm-examples/blob/master/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)).
+This bean is then invoked by a JSF page, which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)).
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">

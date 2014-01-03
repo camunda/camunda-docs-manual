@@ -87,7 +87,7 @@ title: 'Latest Version'
         <a href="http://camunda.org/get-started/">Read getting started guide</a>
       </li>
       <li>
-        <a href="https://github.com/camunda/camunda-bpm-examples" id="githubExamples">Examples on GitHub</a>
+        <a href="https://github.com/camunda/camunda-consulting" id="githubExamples">Examples on GitHub</a>
       </li>
       <li>
         <a href="https://github.com/camunda/camunda-quickstarts" id="githubQuickstarts">Quickstarts on GitHub</a>
