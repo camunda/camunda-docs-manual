@@ -8,7 +8,7 @@ keywords: 'post'
 ---
 
 
-Start a process instance using a set of process variables. If the start event has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have Validators defined. See [Documentation on Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms). 
+Start a process instance using a set of process variables and the business key. If the start event has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have Validators defined. See [Documentation on Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms). 
 
 
 Method
@@ -47,6 +47,11 @@ A json object with the following properties:
     <td>A json object containing the variables the process is to be initialized with.
     Variable names are property keys of this object and variable values are json objects with a <code>value</code> and a <code>type</code> property (see example below).
     Valid variable values are Boolean, Number, String and Date values.</td>
+  </tr>
+  <tr>
+    <td>business key</td>
+    <td>A json object containing the business key the process is to be initialized with.
+	The business key uniquely identifies the process instance in the context of the given process definition.</td>
   </tr>
 </table>
 
@@ -94,13 +99,15 @@ Request body:
 
     {"variables": 
         {"aVariable" : {"value" : "aStringValue", "type": "String"},
-         "anotherVariable" : {"value" : true, "type": "Boolean"}}}
+         "anotherVariable" : {"value" : true, "type": "Boolean"}},
+     "businessKey" : "myBusinessKey"
+	}
 
 #### Response
 
     {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",
     "definitionId":"aProcessDefinitionId",
-    "businessKey":null,
+    "businessKey":"myBusinessKey",
     "ended":false,
     "suspended":false}
