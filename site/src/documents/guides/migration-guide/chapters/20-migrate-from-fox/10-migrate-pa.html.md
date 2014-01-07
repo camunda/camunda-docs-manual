@@ -37,7 +37,7 @@ You have to follow these steps:
 <div class="panel-group" >
   <div class="panel panel-default" id="foxClasses">
     <div class="panel-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#foxClasses" href="ref:#foxClassesCollapsed">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#foxClasses" href="#foxClassesCollapsed">
         <i class="glyphicon glyphicon-question-sign"></i>
         Which camunda fox class names have changed?
       </a>

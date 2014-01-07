@@ -10,8 +10,15 @@ var docpadConfig = {
       }
     },
     links: {
-      validateLinks: 'report',
-      processFlaggedOnly: 'links'
+      validate: {
+        failOnError: process.env.FAIL_ON_ERROR || false,
+        ignoreTargetPattern: /\/api-references\/javadoc\/.*/,
+        ignoreDocumentPattern: /\/single-page.*/
+      },
+      process: {
+        headings: [ 'h1', 'h2', 'h3' ],
+        include: [ 'links' ]
+      }
     }
   },
 

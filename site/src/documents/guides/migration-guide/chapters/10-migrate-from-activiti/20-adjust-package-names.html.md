@@ -13,7 +13,7 @@ For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
 <div class="panel-group" >
   <div class="panel panel-default" id="accClassloading">
     <div class="panel-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accClassloading" href="ref:#accClassloadingCollapsed">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accClassloading" href="#accClassloadingCollapsed">
         <i class="glyphicon glyphicon-question-sign"></i>
         Which Activiti class names have changed?
       </a>
