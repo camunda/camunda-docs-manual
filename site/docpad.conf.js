@@ -1,12 +1,20 @@
 // DocPad Configuration
+var hljs = require('highlight.js');
 
-var docpadConfig = {
+module.exports = {
 
   plugins: {
     marked: {
       markedOptions: {
         pedantic: true,
-        gfm: true
+        gfm: true,
+        highlight: function (code, lang) {
+          if (lang === undefined) {
+            return code;
+          } else {
+            return hljs.highlight(lang, code).value;
+          }
+        }
       }
     },
     links: {
@@ -44,6 +52,7 @@ var docpadConfig = {
         "assets/vendor/bootstrap/css/bootstrap.min.css",
         "assets/vendor/google-code-prettify/prettify.css",
         "assets/vendor/camunda/cabpmn/cabpmn.css",
+        "assets/vendor/highlight.js/github.css",
         "app/css/style.css"
       ],
 
@@ -327,5 +336,3 @@ var docpadConfig = {
   maxAge: false // default
 
 };
-
-module.exports = docpadConfig;
