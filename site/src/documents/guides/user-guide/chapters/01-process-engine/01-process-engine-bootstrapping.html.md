@@ -6,7 +6,7 @@ category: 'Process Engine'
 ---
 
 
-You have a number of options to configure and create a process engine  depending on whether you use a application managed or a shared, container managed process engine.
+You have a number of options to configure and create a process engine depending on whether you use a application managed or a shared, container managed process engine.
 
 #### Application Managed Process Engine
 
@@ -18,7 +18,7 @@ You manage the process engine as part of your application. The following ways ex
 
 #### Shared, Container Managed Process Engine
 
-A container of your choice (e.g. Tomcat, JBoss, Glassfish or WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration](ref:#runtime-container-integration) for details.
+A container of your choice (e.g. Tomcat, JBoss, GlassFish or WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration](ref:#runtime-container-integration) for details.
 
 
 ## ProcessEngineConfiguration bean
@@ -33,7 +33,7 @@ The camunda engine uses the [ProcessEngineConfiguration bean](ref:/api-reference
 
 ## Bootstrap a Process Engine using Java API
 
-You can configure the process engine programatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
+You can configure the process engine programmatically by creating the right ProcessEngineConfiguration object or use some pre-defined one:
 
 ```java
 ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
@@ -55,7 +55,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemPr
 
 The easiest way to configure your Process Engine is via through an XML file called `camunda.cfg.xml`. Using that you can simply do:
 
-```
+```java
 ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine()
 ```
 
@@ -117,8 +117,8 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a `ProcessEngi
 The `bpm-platform.xml` file is used to configure camunda BPM platform in the following distributions:
 
 *   Apache Tomcat
-*   Glassfish Application Server
-*   IBM Websphere Application Server
+*   GlassFish Application Server
+*   IBM WebSphere Application Server
 
 The `<process-engine ... />` xml tag allows defining a process engine:
 

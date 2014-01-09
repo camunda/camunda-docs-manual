@@ -6,7 +6,7 @@ category: 'Introduction'
 ---
 
 
-You can run the camunda BPM platform in every java-runable environment. camunda BPM is supported with our QA infrastructure in the following environments. Here you can find more information about our <a href="http://www.camunda.com/fox/services/support/">enterprise support</a>.
+You can run the camunda BPM platform in every Java-runnable environment. camunda BPM is supported with our QA infrastructure in the following environments. Here you can find more information about our <a href="http://www.camunda.com/fox/services/support/">enterprise support</a>.
 
 Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introduction-supported-environments">supported environments for version 7.0</a> here.
 
@@ -15,8 +15,8 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 
 *   Apache Tomcat 6 / 7
 *   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2
-*   Glassfish 3.1
-*   IBM Websphere Application Server 8.0 / 8.5
+*   GlassFish 3.1
+*   IBM WebSphere Application Server 8.0 / 8.5
 
 
 ## Databases
@@ -24,7 +24,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   MySQL 5.1
 *   Oracle 10g / 11g
 *   IBM DB2 9.7 
-*   Postgre SQL 9.1
+*   PostgreSQL 9.1
 *   Microsoft SQL Server 2008 R2 / 2012
 *   H2 1.3
 

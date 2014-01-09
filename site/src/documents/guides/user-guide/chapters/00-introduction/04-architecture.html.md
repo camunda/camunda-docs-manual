@@ -6,7 +6,7 @@ category: 'Introduction'
 ---
 
 
-camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why camunda BPM also provides a REST Api which allows to build applications connecting to a remote process engine.
+camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why camunda BPM also provides a REST API which allows to build applications connecting to a remote process engine.
 
 camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on third-party libraries as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model](ref:#process-engine-transactions-in-processes).
 
@@ -16,7 +16,7 @@ camunda BPM can be used both as a standalone process engine server or embedded i
 <center><img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-architecture.png"></img></center>
 
 * [Process Engine Public API](ref:#process-engine-process-engine-api): Service-oriented API allowing Java Applications to interact with the process engine. The different responsibilities of the process engine (ie. Process Repository, Runtime Process Interaction, Task Management, ...) are separated out into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
-* **BPMN 2.0 Core Engine**: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 Xml files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs usch as Gateways or Service Tasks).
+* **BPMN 2.0 Core Engine**: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 Xml files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs such as Gateways or Service Tasks).
 * [Job Executor](ref:#process-engine-the-job-executor): the Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
 * **The Persistence Layer**: the process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
 
@@ -65,11 +65,11 @@ The process engine [job executor](ref:#process-engine-the-job-executor) is also 
 
 ## Web Application Architecture
 
-The camunda BPM webapplications are based on a RESTful architecture.
+The camunda BPM web applications are based on a RESTful architecture.
 
 Frameworks used:
 
-*   [Jax-RS](https://jax-rs-spec.java.net/) for Rest Api
+*   [JAX-RS](https://jax-rs-spec.java.net) based Rest API
 *   [AngularJS](http://angularjs.org)
 *   [RequireJS](http://requirejs.org)
 *   [jQuery](http://jquery.com)
@@ -77,7 +77,7 @@ Frameworks used:
 
 Additional custom frameworks developed by camunda hackers:
 
-*   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): camunda BPMN 2.0 Javascript libraries
+*   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): camunda BPMN 2.0 JavaScript libraries
 *   [ngDefine](https://github.com/Nikku/requirejs-angular-define): integration of AngularJS into RequireJS powered applications
 *   [angular-data-depend](https://github.com/Nikku/angular-data-depend): toolkit for implementing complex, data heavy AngularJS applications
 

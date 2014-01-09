@@ -80,10 +80,10 @@ module.exports = {
       // website keywords (separated by commas)
       keywords: "camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation",
 
-      author: "camunda bpm community",
+      author: "camunda BPM community",
       email: "community@camunda.org",
 
-      copyright: "© camunda services GmbH 2013"
+      copyright: "© camunda services GmbH 2014"
     },
 
     //// Helper Functions /////////////////////////////////////
