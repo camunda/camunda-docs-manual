@@ -16,6 +16,8 @@ Method
 
 GET `/process-definition/{id}/xml`
 
+GET `/process-definition/key/{key}/xml`
+
 
 Parameters
 ----------
@@ -30,6 +32,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version.</td>
   </tr>
 </table>
 
@@ -75,7 +81,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -87,6 +98,8 @@ Example
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/xml`
+
+GET `/process-definition/key/aProcessDefinitionKey/xml`
 
 #### Response
 

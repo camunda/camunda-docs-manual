@@ -16,6 +16,8 @@ Method
 
 POST `/process-definition/{id}/start`
 
+POST `/process-definition/key/{key}/start`
+
 
 Parameters
 ----------
@@ -30,6 +32,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version.</td>
   </tr>
 </table>
   
@@ -119,8 +125,13 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>  
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+	<td>The instance could not be created due to a non existing process definition key. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
@@ -134,6 +145,8 @@ Example
 #### Request
 
 POST `/process-definition/aProcessDefinitionId/start`
+
+POST `/process-definition/key/aProcessDefinitionKey/start`
 
 Request body:
 

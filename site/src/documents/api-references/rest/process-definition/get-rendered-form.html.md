@@ -14,6 +14,8 @@ Method
 
 GET `/process-definition/{id}/rendered-form`
 
+GET `/process-definition/key/{key}/rendered-form`
+
 
 Parameters
 --------------  
@@ -28,6 +30,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition to get the rendered start form for.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version to get the rendered start form for.</td>
   </tr>
 </table>
 
@@ -54,7 +60,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist or has no form field metadata defined. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist or has no form field metadata defined. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -65,6 +76,8 @@ Example
 #### Request
 
 GET `/process-definition/anId/rendered-form`
+
+GET `/process-definition/key/aKey/rendered-form`
 
 #### Response
 

@@ -16,6 +16,8 @@ Method
 
 GET `/process-definition/{id}`
 
+GET `/process-definition/key/{key}`
+
 
 Parameters
 ---------- 
@@ -30,6 +32,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version.</td>
   </tr>
 </table>
 
@@ -114,9 +120,14 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>400</td>
+    <td>application/json</td>
+	<td>The path parameter "key" has no value. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist.  See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id or key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -129,10 +140,12 @@ Example
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId`
 
+GET `/process-definition/aProcessDefinitionKey`
+
 #### Response
 
     {"id":"aProcessDefinitionId",
-    "key":"aKey",
+    "key":"aProcessDefinitionKey",
     "category":"aCategory",
     "description":"aDescription",
     "name":"aName",

@@ -16,6 +16,8 @@ Method
 
 POST `/process-definition/{id}/submit-form`
 
+POST `/process-definition/key/{key}/submit-form`
+
 
 Parameters
 ----------
@@ -30,6 +32,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition to submit the form for.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version to submit the form for.</td>
   </tr>
 </table>
   
@@ -79,8 +85,13 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>      
+    <td>The path parameter "key" has no value.<br/>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
@@ -94,6 +105,8 @@ Example
 #### Request
 
 POST `/process-definition/aProcessDefinitionId/submit-form`
+
+POST `/process-definition/key/aProcessDefinitionKey/submit-form`
 
 Request body:
 

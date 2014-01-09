@@ -18,6 +18,8 @@ Method
 
 GET `/process-definition/{id}/statistics`
 
+GET `/process-definition/key/{key}/statistics`
+
 
 Parameters
 --------------
@@ -32,6 +34,10 @@ Parameters
   <tr>
     <td>id</td>
     <td>The id of the process definition.</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>The key of the process definition to be retrieved the latest version.</td>
   </tr>
 </table>
 
@@ -117,7 +123,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -129,6 +140,8 @@ Examples
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?failedJobs=true`
+
+GET `/process-definition/key/aProcessDefinitionKey/statistics?failedJobs=true`
 
 #### Response
 
@@ -146,6 +159,8 @@ GET `/process-definition/aProcessDefinitionId/statistics?failedJobs=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?incidents=true`
+
+GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
 
 #### Response
 
@@ -173,6 +188,8 @@ GET `/process-definition/aProcessDefinitionId/statistics?incidents=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?incidentsForType=aIncident`
+
+GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=aIncident`
 
 #### Response
 
