@@ -140,7 +140,7 @@ Example
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId`
 
-GET `/process-definition/aProcessDefinitionKey`
+GET `/process-definition/key/aProcessDefinitionKey`
 
 #### Response
 
