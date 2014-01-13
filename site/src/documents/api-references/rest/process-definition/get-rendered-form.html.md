@@ -14,7 +14,7 @@ Method
 
 GET `/process-definition/{id}/rendered-form`
 
-GET `/process-definition/key/{key}/rendered-form`
+GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition)
 
 
 Parameters

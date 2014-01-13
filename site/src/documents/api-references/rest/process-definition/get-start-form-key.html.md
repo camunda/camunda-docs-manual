@@ -16,7 +16,7 @@ Method
 
 GET `/process-definition/{id}/startForm`
 
-GET `/process-definition/key/{key}/startForm`
+GET `/process-definition/key/{key}/startForm` (returns the key of the start form for the latest version of process definition)
 
 
 Parameters

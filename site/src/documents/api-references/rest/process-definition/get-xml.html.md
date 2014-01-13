@@ -16,7 +16,7 @@ Method
 
 GET `/process-definition/{id}/xml`
 
-GET `/process-definition/key/{key}/xml`
+GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition)
 
 
 Parameters

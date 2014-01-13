@@ -16,7 +16,7 @@ Method
 
 GET `/process-definition/{id}`
 
-GET `/process-definition/key/{key}`
+GET `/process-definition/key/{key}` (returns the latest version of process definition)
 
 
 Parameters

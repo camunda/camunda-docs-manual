@@ -15,7 +15,7 @@ Method
 
 PUT `/process-definition/{id}/suspended`
 
-PUT `/process-definition/key/{key}/suspended`
+PUT `/process-definition/key/{key}/suspended` (suspend latest version of process definition)
 
 
 Parameters

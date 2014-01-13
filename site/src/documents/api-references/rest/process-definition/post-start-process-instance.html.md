@@ -16,7 +16,7 @@ Method
 
 POST `/process-definition/{id}/start`
 
-POST `/process-definition/key/{key}/start`
+POST `/process-definition/key/{key}/start` (starts the latest version of process definition)
 
 
 Parameters

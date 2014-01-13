@@ -18,7 +18,7 @@ Method
 
 GET `/process-definition/{id}/statistics`
 
-GET `/process-definition/key/{key}/statistics`
+GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition)
 
 
 Parameters
