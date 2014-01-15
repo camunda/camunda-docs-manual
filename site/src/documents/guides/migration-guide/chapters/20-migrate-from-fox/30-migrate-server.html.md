@@ -5,11 +5,9 @@ category: 'Migrate from camunda fox'
 
 ---
 
-<section id="jbossas">
-
 ## JBoss AS 7.1.3
 
-### Upgrade the application server modules
+### Upgrade the application server modules (JBoss)
 
 * Delete the following folders:
   * `$FOX_HOME/modules/com/camunda/`
@@ -59,7 +57,7 @@ Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the co
 
 Since camunda BPM 7.0 you are able to configure built-in process engine plugins, for more details [see here](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
 
-### Replace the camunda fox webapps with camunda BPM webapps
+### Replace the camunda fox webapps with camunda BPM webapps (JBoss)
 
 * Undeploy the following camunda fox webapps which are in the folder `$FOX_HOME/standalone/deployments`:
   * `fox-cockpit-$FOX_VERSION.war`
@@ -72,10 +70,6 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 * You are able to delete the corresponding Cockpit tables, because they are not needed anymore.
 
 For further details about installing the camunda BPM webapps read the [installation guide](ref:/guides/installation-guide/jboss/).
-
-</section>
-
-<section id="glassfish">
 
 ## GlassFish 3.1
 
@@ -208,7 +202,7 @@ to
       </server>
     </servers>
 
-### Upgrade the application server modules
+### Upgrade the application server modules (GlassFish)
 
 * Delete the following modules form the folder `$FOX_HOME/glassfish/lib/`:
   * `fox-engine-$FOX_VERSION.jar`
@@ -226,7 +220,7 @@ to
 
 Since camunda BPM 7.0 you are able to configure built-in process engine plugins, for more details [see here](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
 
-### Replace the camunda fox webapps with camunda BPM webapps
+### Replace the camunda fox webapps with camunda BPM webapps (GlassFish)
 
 * The camunda fox webapps has been already deleted in the previous steps. So you can additionally cleanup the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artificats:
   * `fox-cockpit-glassfish-$FOX_VERSION.war`
@@ -238,10 +232,6 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
   * `camunda-webapp-glassfish-$PLATFORM_VERSION.war`
 * You are able to delete the corresponding Cockpit tables, because they are not needed anymore.
 
-</section>
-
-<section id="websphere">
-
 ## IBM WebSphere Application Server
 
 ### Undeploy camunda fox webapps
@@ -250,7 +240,7 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`
 * Select `fox-cockpit-was-$FOX_VERSION.war` and `fox-cycle-was-$FOX_VERSION.war` and uninstall them.
 
-### Upgrade the application server modules
+### Upgrade the application server modules (WebSphere)
 
 * Open the Websphere Integrated Solutions Console.
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`
@@ -274,5 +264,3 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 
 * Follow the installation instructions to deploy camunda BPM webapps (like Cycle, Cockpit etc.).
 * Furthermore, you are able to delete the corresponding Cockpit tables, because they are not needed anymore.
-
-</section>
