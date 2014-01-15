@@ -11,7 +11,7 @@ The camunda REST API WAR file resides under <code>webapps/camunda-engine-rest-$P
 In the following we explain how to install the WAR file using the WebLogic Server Administration Console:
 
 1.  Open the WebLogic Server Administration Console.
-2.  Navigate to the **Domain Structure / <Your_Domain> / Deployments** page.
+2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
 3.  Click the **Install** Button
 4.  The first page of the Wizard opens. Using the File Browser, select the <code>camunda-engine-rest-VERSION-wls.war</code> file from the distribution and upload it.
 5.  Continue to the next page.
@@ -21,4 +21,4 @@ In the following we explain how to install the WAR file using the WebLogic Serve
 9.  Click **Finish** Button to complete the installation.
 
 After completing the wizard, REST API should be successfully installed on the application server.
-In some situations, you also have to start the web application manually from the **Domain Structure / <Your_Domain> / Deployments** page.
+In some situations, you also have to start the web application manually from the **Domain Structure / YOUR_DOMAIN / Deployments** page.
