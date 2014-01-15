@@ -11,7 +11,7 @@ The web application archive that contains camunda Cockpit and Tasklist resides u
 In the following we explain how to install the WAR file using the WebLogic Server Administration Console:
 
 1.  Open the WebLogic Server Administration Console.
-2.  Navigate to the **Domain Structure / <Your_Domain> / Deployments** page.
+2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
 3.  Click the **Install** Button
 4.  The first page of the Wizard opens. Using the File Browser, select the <code>camunda-webapp-ee-wls-$PLATFORM_VERSION.war</code> file from the distribution and upload it.
 5.  Continue to the next page.
@@ -21,6 +21,6 @@ In the following we explain how to install the WAR file using the WebLogic Serve
 9.  Click **Finish** Button to complete the installation.
 
 After completing the wizard, REST API should be successfully installed on the application server.
-In some situations, you also have to start the web application manually from the **Domain Structure / <Your_Domain> / Deployments** page.
+In some situations, you also have to start the web application manually from the **Domain Structure / YOUR_DOMAIN / Deployments** page.
 
 You can check whether everything went well by accessing Cockpit, Tasklist and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin` or under the context path you configured.
