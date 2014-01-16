@@ -16,7 +16,8 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   Apache Tomcat 6 / 7
 *   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2
 *   GlassFish 3.1
-*   IBM WebSphere Application Server 8.0 / 8.5
+*   IBM WebSphere Application Server 8.0 / 8.5 (<a href="http://www.camunda.com/bpm/features/">Enterprise Edition</a>)
+*	Oracle WebLogic Server 12c (<a href="http://www.camunda.com/bpm/features/">Enterprise Edition</a>)
 
 
 ## Databases
