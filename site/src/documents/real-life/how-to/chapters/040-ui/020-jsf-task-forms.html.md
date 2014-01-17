@@ -26,16 +26,16 @@ In this process model we added so called form keys to
 This is how it looks like in the BPMN 2.0 XML: 
 
 ```xml
-<startEvent id="start" camunda:formKey="sample-start-form" name="invoice received" />
-<userTask id="file-invoice" camunda:assignee="kermit" camunda:formKey="sample-task-form-2" name="File Invoice" />
-<userTask id="categorize-invoice" camunda:assignee="kermit" camunda:formKey="sample-task-form-1" name="Categorize Invoice" />
+<startEvent id="start" camunda:formKey="app:sample-start-form.jsf" name="invoice received" />
+<userTask id="file-invoice" camunda:assignee="kermit" camunda:formKey="app:sample-task-form-2.jsf" name="File Invoice" />
+<userTask id="categorize-invoice" camunda:assignee="kermit" camunda:formKey="app:sample-task-form-1.jsf" name="Categorize Invoice" />
 <endEvent id="end" name="invoice categorized" />
 ...
 ```
 
 ## Creating Simple User Task Form
 
-Create a normal JSF page in `src/main/webapp/WEB_INF` representing a form used for User Tasks. Shown below is a very simple task form:
+Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User Tasks. Shown below is a very simple task form:
 
 ```xml
 <!DOCTYPE HTML>
@@ -84,9 +84,9 @@ Submit the form by calling the `camunda.taskForm` bean again which
 *   ends the conversation,
 *   triggers a redirect to the callback URL of the tasklist.
 
-    ```xml
-    <h:commandButton id="submit_button" value="task completed" action="#{camunda.taskForm.completeTask()}" />
-    ```
+```xml
+<h:commandButton id="submit_button" value="task completed" action="#{camunda.taskForm.completeTask()}" />
+```
 
 Note that the command button doesn't have to be contained on the same form, you might have a whole wizard containing multiple forms in a row before having the completeTask button. This will work because of the conversation running in the background.
 
