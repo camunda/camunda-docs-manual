@@ -104,6 +104,9 @@ title: 'Latest Version'
         <a href="ref:#maven-coordinates-maven-coordinates">Maven Coordinates</a>
       </li>    
       <li>
+        <a href="ref:/guides/migration-guide/#patch-level-upgrade">Migration and Upgrade Guide</a>
+      </li>       
+      <li>
         <a href="http://camunda.org/get-started/">Read getting started guide</a>
       </li>
       <li>
