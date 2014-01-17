@@ -366,6 +366,11 @@ footer {
   background-size: contain;
 }
 
+.wls12 {
+  background: url("../../assets/img/wls12-tile.png");
+  background-size: contain;
+}
+
 /** bootstrap overrides for improving readability */
 
 /*.docs-guide h4 {
