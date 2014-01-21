@@ -40,7 +40,7 @@ Add the following elements in order to create a thread pool for the Job Executor
     <keepalive-time time="10" unit="seconds" />
   </bounded-queue-thread-pool>
 </subsystem>
-```xml
+```
 
 The name of the thread pool is then referenced in the camunda bpm subsystem job executor configuration.
 This also configures the default process engine.

@@ -247,7 +247,7 @@ If the process definition is deployed as part of a ProcessApplication deployment
 If you want to call a Task Form that is not part of your application you can add a reference to the desired form. The Referenced Task Form will be configured similar to the Embedded Task Form. Open the properties view and enter `FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
 
 ```xml
-<userTask id="theTask" camunda:formKey="FORM_NAME.html"
+<userTask id="theTask" camunda:formKey="app:FORM_NAME.html"
           camunda:candidateUsers="John, Mary"
           name="my Task">
 ```

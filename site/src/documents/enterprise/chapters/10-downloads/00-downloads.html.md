@@ -34,11 +34,18 @@ title: 'Latest Version'
       <!--[if (lt IE 9)]><span class="was8-ie8 container-small"></span><![endif]-->
       <br>WebSphere 8.x
     </th>
+    <th>
+      <!--[if (gt IE 8) | (!IE)]>--><span class="wls12 container-small"></span><!--<![endif]-->
+      <!--[if (lt IE 9)]><span class="wls12-ie8 container-small"></span><![endif]-->
+      <br>WebLogic 12.x
+    </th>
   </tr>
   </thead>
 	<tbody>
     <tr class="well">
-      <td>7.0.5 (<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13005">Release Notes</a>)</td>
+      <td>7.0.5 
+        <br>(<a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13005">Release Notes</a>)
+      </td>
       <td>13.01.2014</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.5/camunda-bpm-tomcat-7.0.5-ee.zip">zip</a>&nbsp;
@@ -55,10 +62,12 @@ title: 'Latest Version'
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.5/camunda-ee-ibm-was-7.0.5-ee.zip">zip</a>&nbsp;
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.5/camunda-ee-ibm-was-7.0.3-ee.tar.gz">tar.gz</a><br>
-      </td>
+      </td> 
     </tr>
     <tr>
-      <td>7.1.0-alpha1 (<a target="_blank" href="http://camundabpm.blogspot.com/2013/11/camunda-BPM-7.1.0-alpha1-released.html">Release Notes</a>)</td>
+      <td>7.1.0-alpha1 
+        <br>(<a target="_blank" href="http://camundabpm.blogspot.com/2013/11/camunda-BPM-7.1.0-alpha1-released.html">Release Notes</a>)
+      </td>
       <td>28.11.2013</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha1/camunda-bpm-tomcat-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
@@ -75,7 +84,7 @@ title: 'Latest Version'
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha1/camunda-ee-ibm-was-7.1.0-alpha1-ee.zip">zip</a>&nbsp;
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha1/camunda-ee-ibm-was-7.1.0-alpha1-ee.tar.gz">tar.gz</a><br>
-      </td>
+      </td>     
     </tr>
   </tbody>
 </table>    
@@ -104,7 +113,10 @@ title: 'Latest Version'
         <a href="ref:#maven-coordinates-maven-coordinates">Maven Coordinates</a>
       </li>    
       <li>
-        <a href="http://camunda.org/get-started/">Read getting started guide</a>
+        <a href="ref:/guides/migration-guide/#patch-level-upgrade">Migration and Upgrade Guide</a>
+      </li>       
+      <li>
+        <a href="http://camunda.org/get-started/">Read getting started Guide</a>
       </li>
       <li>
         <a href="https://github.com/camunda/camunda-consulting" id="githubExamples">Examples on GitHub</a>
