@@ -8,7 +8,7 @@ category: 'BPM Platform'
 
 
 1. Download the camunda jboss distro from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-jboss-modules-$PLATFORM_VERSION.jar`.
+   Choose the correct version named `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.zip` or `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.tar.gz`.
 2. Unpack the `modules` folder of the archive.
 3. Merge all content into your $JBOSS_HOME/modules/ directory.
 4. Adjust your `$JBOSS_HOME/standalone/configuration/standalone.xml` (or the JBoss configuration applicable for your installation) as described below
