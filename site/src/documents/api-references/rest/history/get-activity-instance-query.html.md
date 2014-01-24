@@ -69,7 +69,15 @@ Parameters
     <td>unfinished</td>
     <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
   </tr>
-    <tr>
+  <tr>
+    <td>canceled</td>
+    <td>Only include canceled activity instances. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>completeScope</td>
+    <td>Only include activity instances which completed a scope. Values may be `true` or `false`.</td>
+  </tr>    
+  <tr>
     <td>startedBefore</td>
     <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
@@ -189,6 +197,14 @@ Each historic activity instance object has the following properties:
     <td>Number</td>
     <td>The time the instance took to finish (in milliseconds).</td>
   </tr>
+  <tr>
+    <td>canceled</td>
+    <td>If true, this activity instances is canceled.</td>
+  </tr>
+  <tr>
+    <td>completeScope</td>
+    <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
+  </tr>   
 </table>
 
 
@@ -236,4 +252,6 @@ GET `/history/activity-instance?activityType=userTask&taskAssignee=peter`
     "assignee": "peter",
     "startTime": "2013-04-23T11:20:43",
     "endTime": "2013-04-23T18:42:43",
-    "durationInMillis": 2000}]
+    "durationInMillis": 2000
+    "canceled": true,
+    "completeScope": false}]

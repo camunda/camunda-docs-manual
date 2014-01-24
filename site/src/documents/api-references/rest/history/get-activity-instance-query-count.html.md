@@ -69,6 +69,14 @@ Parameters
     <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
   </tr>
   <tr>
+    <td>canceled</td>
+    <td>Only include canceled activity instances. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
+    <td>completeScope</td>
+    <td>Only include activity instances which completed a scope. Values may be `true` or `false`.</td>
+  </tr>
+  <tr>
   <td>startedBefore</td>
     <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
   </tr>
