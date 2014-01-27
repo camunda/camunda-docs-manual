@@ -199,10 +199,12 @@ Each historic activity instance object has the following properties:
   </tr>
   <tr>
     <td>canceled</td>
-    <td>If true, this activity instances is canceled.</td>
+    <td>Boolean</td>
+    <td>If true, this activity instance is canceled.</td>
   </tr>
   <tr>
     <td>completeScope</td>
+    <td>Boolean</td>
     <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
   </tr>   
 </table>
