@@ -48,10 +48,6 @@ A json object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>messageName</td>
-    <td>The name of the message to deliver.</td>
-  </tr>
-  <tr>
     <td>variables</td>
     <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
     A variable value object has has the property `value`, which is the value to update, and `type`, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
@@ -101,10 +97,9 @@ POST `/execution/anExecutionId/messageSubscriptions/someMessage/trigger`
 
 Request body:
 
-    {"messageName" : "aMessage",
-    "variables" :
-        {"aVariableName" : {"value" : true, "type": "Boolean"},
-        "anotherVariableName" : {"value" : 42, "type": "Integer"}}
+    {"variables" :
+        {"aVariable" : {"value" : true, "type": "Boolean"},
+         "anotherVariable" : {"value" : 42, "type": "Integer"}}
     }
 
 #### Response
