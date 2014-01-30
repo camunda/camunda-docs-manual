@@ -14,8 +14,11 @@ A Receive Task is a simple task that waits for the arrival of a certain message.
 A Receive Task with a message reference can be triggered like an ordinary event:
 
 ```xml
-<message id="newInvoice" name="newInvoiceMessage"/>
-<receiveTask id="waitState" name="wait" messageRef="newInvoice">
+<definitions ...>
+  <message id="newInvoice" name="newInvoiceMessage"/>
+  <process ...>
+    <receiveTask id="waitState" name="wait" messageRef="newInvoice">
+  ...
 ```
 
 ```java
@@ -30,7 +33,7 @@ runtimeService.messageEventReceived(subscription.getEventName(), subscription.ge
 ```
 
 <div class="alert alert-warning">
-  Correlation of a parallel multi instance task depends on additional process variables to identify it unambiguous.
+  Correlation of a parallel multi instance isn't possible because the subscription can't unambiguous identified.
 </div>
 
 To continue a process instance that is currently waiting at a Receive Task without a message reference, the `runtimeService.signal(executionId)` can be called using the id of the execution that arrived in the Receive Task.
