@@ -66,7 +66,7 @@ title: 'Latest Version'
     </tr>
     <tr>
       <td>7.1.0-alpha2
-        <br>(<a target="_blank" href="http://blog.camunda.org/2014/01/camunda-BPM-7.1.0-alpha2-released.html">Release Notes</a>)
+        <br>(<a target="_blank" href="http://blog.camunda.org/2014/01/camunda-bpm-710-alpha2-released.html">Release Notes</a>)
       </td>
       <td>31.01.2014</td>
       <td>                                                
