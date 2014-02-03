@@ -12,12 +12,12 @@ BpmnModelInstance modelInstance = Bpmn.createEmptyModel();
 ```
 
 The next step is to create a BPMN definitions element, set the target namespace on it and add it
-to the newly created empty model instance as the document root element.
+to the newly created empty model instance.
 
 ```java
 Definitions definitions = modelInstance.newInstance(Definitions.class);
 definitions.setTargetNamespace("http://camunda.org/examples");
-modelInstance.setDocumentElement(definitions);
+modelInstance.setDefinitions(definitions);
 ```
 
 After that you usually want to add a process to your model. This also follows
@@ -94,7 +94,7 @@ The following code creates this process using the helper methods from above (wit
 BpmnModelInstance modelInstance = Bpmn.createEmptyModel();
 Definitions definitions = modelInstance.newInstance(Definitions.class);
 definitions.setTargetNamespace("http://camunda.org/examples");
-modelInstance.setDocumentElement(definitions);
+modelInstance.setDefinitions(definitions);
 
 // create the process
 Process process = createElement(definitions, "process-with-one-task", Process.class);
@@ -126,7 +126,7 @@ Even complexer processes can be create with few lines of code with the standard 
 BpmnModelInstance modelInstance = Bpmn.createEmptyModel();
 Definitions definitions = modelInstance.newInstance(Definitions.class);
 definitions.setTargetNamespace("http://camunda.org/examples");
-modelInstance.setDocumentElement(definitions);
+modelInstance.setDefinitions(definitions);
 
 // create elements
 StartEvent startEvent = createElement(process, "start", StartEvent.class);
