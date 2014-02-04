@@ -61,7 +61,7 @@ title: 'Latest Version'
       </td>
       <td colspan="2">
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.5/camunda-ee-ibm-was-7.0.5-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.5/camunda-ee-ibm-was-7.0.3-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/7.0/7.0.5/camunda-ee-ibm-was-7.0.5-ee.tar.gz">tar.gz</a><br>
       </td> 
     </tr>
     <tr>
@@ -83,7 +83,7 @@ title: 'Latest Version'
       </td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha2/camunda-ee-ibm-was-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha2/camunda-ee-ibm-was-7.1.0-alpha1-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha2/camunda-ee-ibm-was-7.1.0-alpha2-ee.tar.gz">tar.gz</a><br>
       </td>
       <td>
         <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/oracle-wls/nightly/7.1.0-alpha2/camunda-ee-oracle-wls-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
