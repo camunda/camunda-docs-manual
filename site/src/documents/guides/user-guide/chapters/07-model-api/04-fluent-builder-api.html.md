@@ -54,7 +54,7 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 As you can see a sequential process is really simple and straightforward to model but often you want
 branches and parallel execution path. Which is also possible with the fluent builder API. Just add
 a parallel or exclusive gateway and model the first path till an end event or another gateway. After that
-call the `parallel()` method and you return to the last gateway and can model the next path.
+call the `moveToLastGateway()` method and you return to the last gateway and can model the next path.
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createProcess()
@@ -63,7 +63,7 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
   .parallelGateway()
     .scriptTask()
     .endEvent()
-  .parallel()
+  .moveToLastGateway()
     .serviceTask()
     .endEvent()
   .done();
@@ -84,40 +84,40 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
     .condition("Call an agent", "#{action = 'call'}")
     .scriptTask()
     .endEvent()
-  .parallel()
+  .moveToLastGateway()
     .condition("Create a task", "#{action = 'task'}")
     .serviceTask()
     .endEvent()
   .done();
 ```
 
-If you want to use the `parallel()` method but have multiple incoming sequence flows at your current
-position you have to add the id of the gateway to the `parallel(gatewayId)` method call. This could
-for example happen if you add a join gateway to your process. For this purpose and for loops we added
-the `connectTo(elementId)` method.
+If you want to use the `moveToLastGateway()` method but have multiple incoming
+sequence flows at your current position you have to use the generic
+`moveToNode` method with the id of the gateway. This could for example happen
+if you add a join gateway to your process. For this purpose and for loops we
+added the `connectTo(elementId)` method.
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createProcess()
   .startEvent()
   .userTask()
-  .parallelGateway()
-  .id("fork")
+  .parallelGateway("fork")
     .serviceTask()
-    .parallelGateway()
-    .id("join")
-  .parallel("fork")
+    .parallelGateway("join")
+  .moveToNode("fork")
     .userTask()
     .connectTo("join")
-  .parallel("fork")
+  .moveToNode("fork")
     .scriptTask()
     .connectTo("join")
   .endEvent()
   .done()
 ```
 
-This example creates a process with three parallel execution paths which all joins in the second
-gateway. Notice that the first call of `parallel()` does not need the gateway id cause at this point
-the joining gateway has only one incoming sequence flow.
+This example creates a process with three parallel execution paths which all
+joins in the second gateway. Notice that the first call of `moveToNode` is not
+needed cause at this point the joining gateway has only one incoming sequence
+flow but was used for consistency.
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createProcess()
@@ -130,7 +130,7 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
     .serviceTask()
     .userTask()
     .endEvent()
-  .parallel()
+  .moveToLastGateway()
     .condition("no", "#{!fine}")
     .userTask()
     .connectTo("question")
