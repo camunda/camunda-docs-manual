@@ -32,6 +32,12 @@ Remove the global modules:
         <module name="com.camunda.fox.engine.fox-engine" />
     </global-modules>
 
+and add the global module for camunda BPM
+
+    <global-modules>
+        <module name="org.camunda.bpm.camunda-engine" slot="main"/>
+    </global-modules>
+
 Adjust the camunda jboss subsystem configuration from:
 
     <subsystem xmlns="urn:com.camunda.fox.fox-platform:1.1">
