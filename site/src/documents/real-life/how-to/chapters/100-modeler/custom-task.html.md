@@ -360,7 +360,7 @@ There exist a number of further topics we did not yet touch. These include
 
 
   [1]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/overview.png
-  [2]: https://github.com/camunda/camunda-consulting/tree/master/snippets/modeler/custom-task-simple
+  [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-simple
   [3]: http://www.vogella.com/articles/EclipsePlugIn/article.html
   [4]: http://www.vogella.com/articles/EclipseExtensionPoint/article.html
   [5]: https://github.com/camunda/camunda-modeler/blob/master/CONTRIBUTING.md
@@ -382,4 +382,4 @@ There exist a number of further topics we did not yet touch. These include
   [21]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/palette-integration-02.png "Palette integration with custom name"
   [22]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-01.png
   [23]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-02.png
-  [24]: https://github.com/camunda/camunda-consulting/tree/master/snippets/modeler/custom-task-advanced
+  [24]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-advanced

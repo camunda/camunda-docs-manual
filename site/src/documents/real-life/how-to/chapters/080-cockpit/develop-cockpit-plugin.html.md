@@ -518,7 +518,7 @@ You made it! In this how to we walked through all important steps required to bu
 
 ## Additional resources
 
-* [sample plugin sources](https://github.com/camunda/camunda-consulting/tree/master/snippets/cockpit-sample-plugin)
+* [sample plugin sources](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/cockpit-sample-plugin)
 
 
 # Appendix
