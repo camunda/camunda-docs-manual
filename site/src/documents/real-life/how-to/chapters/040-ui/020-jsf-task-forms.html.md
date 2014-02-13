@@ -10,7 +10,7 @@ category: 'User Interface'
 
 If you add JSF forms as decribed below you can easily use them as [external task forms](ref:/guides/user-guide/#tasklist-task-forms-external-task-forms). 
 
-Working examples can be found in [our examples](ref:/real-life/examples/).
+A working example can be found in the [examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-external-jsf).
 
 The BPMN process used for this example is shown in the following picture:
 
