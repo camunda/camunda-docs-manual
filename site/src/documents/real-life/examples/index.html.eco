@@ -8,19 +8,64 @@ links: 'process'
 
 <%- @partial('breadcrumb.html.eco', @, {}) %>
 
-<div class="row document-header">
-  <div class="col-md-1">
-  	<img src="ref:asset:/assets/img/git-hub.png" class="img-responsive"/>
+<div class="row">  
+
+  <div class="page-header">
+    <h1>camunda BPM usage examples on GitHub</h1>
   </div>
-  <div class="col-md-8">
-    <h2>camunda BPM usage examples on GitHub</h2>
-    camunda BPM usage examples can be found on GitHub:<a href="https://github.com/camunda/camunda-bpm-examples">https://github.com/camunda/camunda-bpm-examples</a>.
-  </div>
+
 </div>
 
-<h2>Consulting Examples</h2>
+<div class="row">
+  <p class="lead">Completed the <a href="http://camunda.org/get-started">Getting Stated Tutorials</a>? Now discover what you can build with camunda BPM:</p>
+</div>
 
-<p>
-  An additional set of examples is provided by camunda consulting: 
-  <a href="https://github.com/camunda/camunda-consulting">https://github.com/camunda/camunda-consulting</a>.
-</p>
+<div class="row">
+
+  <div class="col-lg-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">camunda BPM examples</h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>See how you can use camunda BPM.</strong> 
+        </p>
+
+        <p>
+          Checkout our example repository on GitHub and discover how you can use camunda BPM.
+        </p>
+        
+        <p class="links">
+          <a class="btn btn-lg btn-primary" href="https://github.com/camunda/camunda-bpm-examples">
+           camunda BPM examples »
+          </a>         
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Consulting Space</h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>Want to become an expert?</strong> 
+        </p>
+
+        <p>
+          Checkout the examples and show cases provided by the camunda consulting team.
+        </p>
+        
+        <p class="links">
+          <a class="btn btn-lg btn-default" href="https://github.com/camunda/camunda-consulting">
+            consulting space »
+          </a>         
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
