@@ -123,7 +123,7 @@ title: 'Latest Version'
         <a href="http://camunda.org/get-started/">Read getting started Guide</a>
       </li>
       <li>
-        <a href="ref:/real-life/examples" id="githubExamples">Examples</a>
+        <a href="ref:/real-life/examples/" id="githubExamples">Examples</a>
       </li>
       <li>
         <a href="ref:/guides/user-guide/#introduction-supported-environments">Supported Environments</a>
