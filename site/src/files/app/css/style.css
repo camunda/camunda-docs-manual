@@ -650,3 +650,16 @@ code {
     min-width: 600px;
   }
 }
+
+/*
+  adjust header padding for pages without navigation and deep links
+*/
+.overview-page h2 {
+  padding-top: 50px;
+}
+
+.panel h2 {
+  padding-top: 0px;
+  margin-top: 2px;
+}
+
