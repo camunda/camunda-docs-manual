@@ -174,4 +174,4 @@ userTask.builder()
 ```
 
 
-[1]: https://github.com/camunda/camunda-quickstarts/tree/master/bpmn-model-api/generate-invoice-process
+[1]: https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-invoice-process

@@ -150,7 +150,7 @@ A declarative mechanism like `@Resource` could be
   <p>
     <strong>Looking up a Process Engine from JNDI using Spring</strong>
   </p>
-   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](ref:#bpmplatform-container-jboss-services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-quickstarts/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
+   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](ref:#bpmplatform-container-jboss-services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
 </div>
 
 ## Managing the process engine through the JBoss Management System
