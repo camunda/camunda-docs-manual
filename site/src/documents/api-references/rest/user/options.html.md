@@ -41,7 +41,7 @@ A Json object with a single property named `links`, providing a list of resource
   <tr>
     <td>rel</td>
     <td>String</td>
-    <td>The relation of the interaction (ie. a symbolic name representing the nature of the interaction). Examples: `create`, `delete` ...</td>
+    <td>The relation of the interaction (ie. a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
   </tr>  
 </table>
 

@@ -62,35 +62,35 @@ Parameters
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include finished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include unfinished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Only include canceled activity instances. Values may be `true` or `false`.</td>
+    <td>Only include canceled activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>completeScope</td>
-    <td>Only include activity instances which completed a scope. Values may be `true` or `false`.</td>
+    <td>Only include activity instances which completed a scope. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
   <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>  
 </table>
 

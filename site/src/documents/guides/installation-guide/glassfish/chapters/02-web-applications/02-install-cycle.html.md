@@ -26,7 +26,7 @@ We recommend to create a separate database or database schema for camunda Cycle.
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these
   scripts from <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/">our server</a>.
-  Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-sql-scripts-$PLATFORM_VERSION.war`.
+  Choose the correct version named <code>$PLATFORM_VERSION/camunda-cycle-sql-scripts-$PLATFORM_VERSION.war</code>.
 </div>
 
 
@@ -81,7 +81,7 @@ In order to use a custom datasource name, you have to edit the file `WEB-INF/cla
 ### Modify default-web.xml
 
 <div class="alert alert-info">
-    In order for Cycle to work, you **MUST** modify the file `$GLASSFISH_HOME/glassfish/domains/domain1/config/default-web.xml`,
+    In order for Cycle to work, you <strong>MUST</strong> modify the file <code>$GLASSFISH_HOME/glassfish/domains/domain1/config/default-web.xml</code>,
     otherwise you will get a BASIC AUTH window popping up, when you try to log into Cycle.
 </div>
 
@@ -152,6 +152,6 @@ Connector passwords are encrypted before they are stored in the Cycle database u
   <strong>Encryption key</strong>
   <br/>
   Cycle uses a default key to encrypt passwords (contained in the source code and hence not really secure).
-  If you want to improve security you can exchange the encryption password by creating a file `$USER_HOME/cycle.password`
+  If you want to improve security you can exchange the encryption password by creating a file <code>$USER_HOME/cycle.password</code>
   containing a self chosen plain ASCII password.
 </div>

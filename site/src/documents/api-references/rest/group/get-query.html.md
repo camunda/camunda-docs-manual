@@ -51,13 +51,13 @@ Parameters
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    `id`, `name` and `type`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
+    <code>id</code>, <code>name</code> and <code>type</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
   <tr>
     <td>firstResult</td>
@@ -117,7 +117,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy` is specified. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

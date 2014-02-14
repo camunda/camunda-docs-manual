@@ -136,124 +136,124 @@ The LDAP Identity Provider provides the following configuration properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>`serverUrl`</td>
+    <td><code>serverUrl</code></td>
     <td>The url of the LDAP server to connect to.</td>
   </tr>
   <tr>
-    <td>`managerDn`</td>
+    <td><code>managerDn</code></td>
     <td>The absolute DN of the manager user of the LDAP directory.</td>
   </tr>
   <tr>
-    <td>`managerPassword`</td>
+    <td><code>managerPassword</code></td>
     <td>The password of the manager user of the LDAP directory</td>
   </tr>
   <tr>
-    <td>`baseDn`</td>
+    <td><code>baseDn</code></td>
     <td>
       <p>The base DN: identifies the root of the LDAP directory. Is appended to all DN names composed for searching for users or groups.</p>
-      <p><em>Example:</em> `o=camunda,c=org`</p>
+      <p><em>Example:</em> <code>o=camunda,c=org</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userSearchBase`</td>
+    <td><code>userSearchBase</code></td>
     <td>
-      <p>Identifies the node in the LDAP tree under which the plugin should search for users. Must be relative to `baseDn`.</p>
-      <p><em>Example:</em> `ou=employees`</p>
+      <p>Identifies the node in the LDAP tree under which the plugin should search for users. Must be relative to <code>baseDn</code>.</p>
+      <p><em>Example:</em> <code>ou=employees</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userSearchFilter`</td>
+    <td><code>userSearchFilter</code></td>
     <td>
-      <p>LDAP query string used when searching for users. <em>Example:</em> `(objectclass=person)`</p>
+      <p>LDAP query string used when searching for users. <em>Example:</em> <code>(objectclass=person)</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userIdAttribute`</td>
+    <td><code>userIdAttribute</code></td>
     <td>
-      <p>Name of the user Id property. <em>Example:</em> `uid`</p>
+      <p>Name of the user Id property. <em>Example:</em> <code>uid</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userFirstnameAttribute`</td>
+    <td><code>userFirstnameAttribute</code></td>
     <td>
-      <p>Name of the firstname property. <em>Example:</em> `cn`</p>
+      <p>Name of the firstname property. <em>Example:</em> <code>cn</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userLastnameAttribute`</td>
+    <td><code>userLastnameAttribute</code></td>
     <td>
-      <p>Name of the lastname property. <em>Example:</em> `sn`</p>
+      <p>Name of the lastname property. <em>Example:</em> <code>sn</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userEmailAttribute`</td>
+    <td><code>userEmailAttribute</code></td>
     <td>
-      <p>Name of the email property. <em>Example:</em> `mail`</p>
+      <p>Name of the email property. <em>Example:</em> <code>mail</code></p>
     </td>
   </tr>
   <tr>
-    <td>`userPasswordAttribute`</td>
+    <td><code>userPasswordAttribute</code></td>
     <td>
-      <p>Name of the password property. <em>Example:</em> `userpassword`</p>
+      <p>Name of the password property. <em>Example:</em> <code>userpassword</code></p>
     </td>
   </tr>
   <tr>
-    <td>`groupSearchBase`</td>
+    <td><code>groupSearchBase</code></td>
     <td>
-      <p>Identifies the node in the LDAP tree under which the plugin should search for groups. Must be relative to `baseDn`.</p>
-      <p><em>Example:</em> `ou=roles`</p>
+      <p>Identifies the node in the LDAP tree under which the plugin should search for groups. Must be relative to <code>baseDn</code>.</p>
+      <p><em>Example:</em> <code>ou=roles</code></p>
     </td>
   </tr>
   <tr>
-    <td>`groupSearchFilter`</td>
+    <td><code>groupSearchFilter</code></td>
     <td>
-      <p>LDAP query string used when searching for groups. <em>Example:</em> `(objectclass=groupOfNames)`</p>
+      <p>LDAP query string used when searching for groups. <em>Example:</em> <code>(objectclass=groupOfNames)</code></p>
     </td>
   </tr>
   <tr>
-    <td>`groupIdAttribute`</td>
+    <td><code>groupIdAttribute</code></td>
     <td>
-      <p>Name of the group Id property. <em>Example:</em> `ou`</p>
+      <p>Name of the group Id property. <em>Example:</em> <code>ou</code></p>
     </td>
   </tr>
   <tr>
-    <td>`groupNameAttribute`</td>
+    <td><code>groupNameAttribute</code></td>
     <td>
-      <p>Name of the group Name property. <em>Example:</em> `cn`</p>
+      <p>Name of the group Name property. <em>Example:</em> <code>cn</code></p>
     </td>
   </tr>
   <tr>
-    <td>`groupTypeAttribute`</td>
-    <td><p>Name of the group Type property. <em>Example:</em> `cn`</p></td>
+    <td><code>groupTypeAttribute</code></td>
+    <td><p>Name of the group Type property. <em>Example:</em> <code>cn</code></p></td>
   </tr>
   <tr>
-    <td>`groupMemberAttribute`</td>
+    <td><code>groupMemberAttribute</code></td>
     <td>
-      <p>Name of the member attribute. <em>Example:</em> `member`</p>
+      <p>Name of the member attribute. <em>Example:</em> <code>member</code></p>
     </td>
   </tr>
   <tr>
-    <td>`acceptUntrustedCertificates`</td>
+    <td><code>acceptUntrustedCertificates</code></td>
     <td>
       <p>Accept of untrusted certificates if LDAP server uses Ssl. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
     </td>
   </tr>
   <tr>
-    <td>`useSsl`</td>
+    <td><code>useSsl</code></td>
     <td>
-      <p>Set to true if LDAP connection uses SSL. <em>Default:</em> `false`</p>
+      <p>Set to true if LDAP connection uses SSL. <em>Default:</em> <code>false</code></p>
     </td>
   </tr>
   <tr>
-    <td>`initialContextFactory`</td>
+    <td><code>initialContextFactory</code></td>
     <td>
-      <p>Value for the `java.naming.factory.initial` property. <em>Default:</em> `com.sun.jndi.ldap.LdapCtxFactory`</p>
+      <p>Value for the <code>java.naming.factory.initial</code> property. <em>Default:</em> <code>com.sun.jndi.ldap.LdapCtxFactory</code></p>
     </td>
   </tr>
   <tr>
-    <td>`securityAuthentication`</td>
+    <td><code>securityAuthentication</code></td>
     <td>
-      <p>Value for the `java.naming.security.authentication` property. <em>Default:</em> `simple`</p>
+      <p>Value for the <code>java.naming.security.authentication</code> property. <em>Default:</em> <code>simple</code></p>
     </td>
   </tr>
 </table>

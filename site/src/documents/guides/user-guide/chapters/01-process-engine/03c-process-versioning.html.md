@@ -76,7 +76,7 @@ Please not that migration can only be applied if a process instance is currently
 
 <div class="alert alert-warning">
       <strong>Heads-Up</strong>
-      Due to the risks and limitations mentioned above this is considered an **advanced use case**. It is not available over the public API - but you can use an internal command.
+      Due to the risks and limitations mentioned above this is considered an <strong>advanced use case</strong>. It is not available over the public API - but you can use an internal command.
 </div>
 
     public void migrateVersion() {

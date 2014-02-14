@@ -27,7 +27,7 @@ We recommend to create a separate database or database schema for camunda cycle.
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these
   scripts from <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/">our server</a>.
-  Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-sql-scripts-$PLATFORM_VERSION.war`.
+  Choose the correct version named <code>$PLATFORM_VERSION/camunda-cycle-sql-scripts-$PLATFORM_VERSION.war</code>.
 </div>
 
 
@@ -63,7 +63,7 @@ For example, if you plan to use the h2 database, you would have to add the h2-VE
   <strong>Tomcat 6.x</strong>
   <br/>
   On Tomcat 6, you will also have to add the tomcat-jdbc.jar, which ships with Tomcat 7 and the pre-packaged camunda BPM distribution, to
-  `$CATALINA_HOME/lib`.
+  <code>$CATALINA_HOME/lib</code>.
 </div>
 
 ### Install the web application
@@ -83,7 +83,7 @@ For example, if you plan to use the h2 database, you would have to add the h2-VE
 
 <div class="alert alert-info">
   You need to install the java mail library when NOT using the prepackaged distribution.
-  Download version 1.4.x manually from http://mvnrepository.com/artifact/javax.mail/mail and copy it into your `$CATALINA_HOME/lib` folder.
+  Download version 1.4.x manually from http://mvnrepository.com/artifact/javax.mail/mail and copy it into your <code>$CATALINA_HOME/lib</code> folder.
 </div>
 
 In order to use the cycle email service, you have to configure a mail session in the `META-INF/context.xml` file in the cycle web application.
@@ -115,6 +115,6 @@ Connector passwords are encrypted before they are stored in the cycle database u
   <strong>Encryption key</strong>
   <br/>
   Cycle uses a default key to encrypt passwords (contained in the source code and hence not really secure).
-  If you want to improve security you can exchange the encryption password by creating a file `$USER_HOME/cycle.password`
+  If you want to improve security you can exchange the encryption password by creating a file <code>$USER_HOME/cycle.password</code>
   containing a self chosen plain ASCII password.
 </div>

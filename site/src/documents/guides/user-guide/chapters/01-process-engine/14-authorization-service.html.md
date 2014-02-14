@@ -133,11 +133,11 @@ Complete list of configuration properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>`administratorUserName`</td>
+    <td><code>administratorUserName</code></td>
     <td>The name of the administrator user. If this name is set to a non-null and non-empty value, the plugin will create user-level Administrator authorizations on all built-in resources.</td>
   </tr>
   <tr>
-    <td>`administratorGroupName`</td>
+    <td><code>administratorGroupName</code></td>
     <td>The name of the administrator group. If this name is set to a non-null and non-empty value, the plugin will create group-level Administrator authorizations on all built-in resources.</td>
   </tr>
 </table>

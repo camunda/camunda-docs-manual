@@ -67,7 +67,7 @@ Correlation is successful, if there exists a single matching entity among the fo
 <div class="alert alert-warning">
   <strong>Current limitation:</strong>
   
-  `correlationKeys` is matched against process instance variables only. These are variables that are globally visible throughout the process instance.
+  <code>correlationKeys</code> is matched against process instance variables only. These are variables that are globally visible throughout the process instance.
 
   Accordingly, variables that are defined in the scope of a child execution (e.g. in a subprocess) are not considered for correlation.
 </div>

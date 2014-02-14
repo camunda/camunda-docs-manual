@@ -86,7 +86,7 @@ class would provide a method named
   <p>
     <strong>Module dependency of custom configuration class</strong>
   </p>
-   <p>If you configure the process engine in `standalone.xml` and provide a custom configuration class packaged inside an own module, the camunda-jboss-subsystem module needs to have a module dependency on the module providing the class.</p>
+   <p>If you configure the process engine in <code>standalone.xml</code> and provide a custom configuration class packaged inside an own module, the camunda-jboss-subsystem module needs to have a module dependency on the module providing the class.</p>
    <p>If you fail to do this, you will see the following error log:</p>
    <pre class="console">
 Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.bar': the class must be visible from the camunda-jboss-subsystem module.
@@ -150,7 +150,7 @@ A declarative mechanism like `@Resource` could be
   <p>
     <strong>Looking up a Process Engine from JNDI using Spring</strong>
   </p>
-   <p>On JBoss AS 7, spring users should always [create a resource-ref for the process engine in web.xml](ref:#bpmplatform-container-jboss-services) and then lookup the local name in the `java:comp/env/` namespace. <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
+   <p>On JBoss AS 7, spring users should always <a href="ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem-managing-service-dependencies">create a resource-ref for the process engine in web.xml</a> and then lookup the local name in the <code>java:comp/env/</code> namespace. <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
 </div>
 
 ## Managing the process engine through the JBoss Management System

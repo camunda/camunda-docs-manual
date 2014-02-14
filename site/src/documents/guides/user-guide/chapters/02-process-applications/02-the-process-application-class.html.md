@@ -51,7 +51,7 @@ This means that in case you deploy to a Servlet 3.0 compliant container (such as
 
 <div class="alert alert-info">
   <p>
-    There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called `camunda-archetype-servlet-war`, which gives you a complete running project based on a ServletProcessApplication.
+    There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called <code>camunda-archetype-servlet-war</code>, which gives you a complete running project based on a ServletProcessApplication.
   </p>
 </div>
 
@@ -122,7 +122,7 @@ This deployment option requires that your project is a composite deployment (suc
 
 <div class="alert alert-info">
   We always recommend using the camunda-ejb-client over deploying a custom EjbProcessApplication class unless you want to customize the behavior of the EjbProcessApplication.
-  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called `camunda-archetype-ejb-war`, which gives you a complete running project based on the camunda-ejb-client.
+  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called <code>camunda-archetype-ejb-war</code>, which gives you a complete running project based on the camunda-ejb-client.
 </div>
 
 

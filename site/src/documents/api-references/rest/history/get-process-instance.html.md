@@ -68,12 +68,12 @@ Its properties are as follows:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the instance was started. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The time the instance was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>

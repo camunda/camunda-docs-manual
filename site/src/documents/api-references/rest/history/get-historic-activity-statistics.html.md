@@ -44,22 +44,22 @@ Parameters
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Whether to include the number of canceled activity instances in the result or not. Valid values are `true` or `false`.</td>
+    <td>Whether to include the number of canceled activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>finished</td>
-    <td>Whether to include the number of finished activity instances in the result or not. Valid values are `true` or `false`.</td>
+    <td>Whether to include the number of finished activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
   <tr>
     <td>completeScope</td>
-    <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are `true` or `false`.</td>
+    <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
   </tr> 
   <td>sortBy</td>
-    <td>Sort the results by a given criterion. A valid value is `activityId`. Must be used in conjunction with the `sortOrder` parameter.</td>
+    <td>Sort the results by a given criterion. A valid value is <code>activityId</code>. Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr> 
 </table>
 
@@ -89,17 +89,17 @@ Each object has the following properties:
   <tr>
     <td>canceled</td>
     <td>Number</td>
-    <td>The total number of all canceled instances of the activity. <strong>Note:</strong> Will be `0` (not `null`), if canceled activity instances were excluded.</td>
+    <td>The total number of all canceled instances of the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if canceled activity instances were excluded.</td>
   </tr>
   <tr>
     <td>finished</td>
     <td>Number</td>
-    <td>The total number of all finished instances of the activity. <strong>Note:</strong> Will be `0` (not `null`), if finished activity instances were excluded.</td>
+    <td>The total number of all finished instances of the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if finished activity instances were excluded.</td>
   </tr>
   <tr>
     <td>completeScope</td>
     <td>Number</td>
-    <td>The total number of all instances which completed a scope of the activity. <strong>Note:</strong> Will be `0` (not `null`), if activity instances which completed a scope were excluded.</td>
+    <td>The total number of all instances which completed a scope of the activity. <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if activity instances which completed a scope were excluded.</td>
   </tr>
 </table>
 

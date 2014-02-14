@@ -43,7 +43,7 @@ The `processes.xml` may be left blank (can be empty). In this case, default valu
 ## Syntax Reference
 
 <table class="table table-striped">
-  <tr>
+  <tr>  
     <th>Tag name</th>
     <th>Parent tag name</th>
     <th>Required?</th>

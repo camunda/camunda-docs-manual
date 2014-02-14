@@ -65,12 +65,12 @@ A json object containing the a list of identity links.
   <tr>
     <td>groupId</td>
     <td>String</td>
-    <td>The id of the group participating in this link. Either `groupId` or `userId` is set.</td>
+    <td>The id of the group participating in this link. Either <code>groupId</code> or <code>userId</code> is set.</td>
   </tr>
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the identity link. Can be any defined type. `assignee` and `owner` are reserved types for the task assignee and owner.</td>
+    <td>The type of the identity link. Can be any defined type. <code>assignee</code> and <code>owner</code> are reserved types for the task assignee and owner.</td>
   </tr>
 </table>
 

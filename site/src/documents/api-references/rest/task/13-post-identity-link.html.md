@@ -45,11 +45,11 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of the user to link to the task. If you set this parameter, you have to omit `groupId`.</td>
+    <td>The id of the user to link to the task. If you set this parameter, you have to omit <code>groupId</code>.</td>
   </tr>
   <tr>
     <td>groupId</td>
-    <td>The id of the group to link to the task. If you set this parameter, you have to omit `userId`.</td>
+    <td>The id of the group to link to the task. If you set this parameter, you have to omit <code>userId</code>.</td>
   </tr>
   <tr>
     <td>type</td>

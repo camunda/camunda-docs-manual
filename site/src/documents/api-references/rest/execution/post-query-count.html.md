@@ -59,34 +59,34 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active executions. Values may be `true` or `false`.</td>
+    <td>Only include active executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended executions. Values may be `true` or `false`.</td>
+    <td>Only include suspended executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>variables</td>
     <td>A json array to only include executions that have variables with certain values. <br/>
-    The array consists of objects with the three properties `key`, `operator` and `value`.
-    `key (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
-    `value` may be `String`, `Number` or `Boolean`.
+    The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
+    <code>key (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
-    `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
-    `like`.<br/>
-    `key` and `value` may not contain underscore characters.      
+    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    <code>like</code>.<br/>
+    <code>key</code> and <code>value</code> may not contain underscore characters.      
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
     <td>A json array to only include executions that belong to a process instance with variables with certain values. <br/>
-    A valid parameter value has the form `key_operator_value`.
-    `key` is the variable name, `op` is the comparison operator to be used and `value` the variable value.<br/>
-    <strong>Note:</strong> Values are always treated as `String` objects on server side.<br/>
+    A valid parameter value has the form <code>key_operator_value</code>.
+    <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: `eq` - equals; `neq` - not equals.<br/>
-    `key` and `value` may not contain underscore characters.      
+    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals.<br/>
+    <code>key</code> and <code>value</code> may not contain underscore characters.      
     </td>
   </tr>
 </table>
@@ -128,7 +128,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
     or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>

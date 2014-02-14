@@ -63,46 +63,46 @@ Parameters
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include finished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include unfinished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Only include canceled activity instances. Values may be `true` or `false`.</td>
+    <td>Only include canceled activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>completeScope</td>
-    <td>Only include activity instances which completed a scope. Values may be `true` or `false`.</td>
+    <td>Only include activity instances which completed a scope. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>    
   <tr>
     <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    `activityInstanceID`, `instanceId`, `executionId`, `activityId`, `activityName`, `activityType`, `startTime`, `endTime`, `duration`, `definitionId`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
+    <code>activityInstanceID</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
   <tr>
     <td>firstResult</td>
@@ -185,12 +185,12 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the instance was started. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The time the instance was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -227,7 +227,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

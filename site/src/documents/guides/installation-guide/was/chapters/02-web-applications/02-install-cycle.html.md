@@ -73,7 +73,7 @@ In some situations, you also have to start the web application manually from the
 
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
-  <p>When you want to use the SaaS offer by Signavio or internally using the camunda webmodeler over the HTTPS protocol and Cycle is deployed on WAS, then you have to install the `IBM Unrestricted JCE policy` files provided by IBM.</p>
+  <p>When you want to use the SaaS offer by Signavio or internally using the camunda webmodeler over the HTTPS protocol and Cycle is deployed on WAS, then you have to install the <code>IBM Unrestricted JCE policy</code> files provided by IBM.</p>
   <p>You can download them <a href="https://www14.software.ibm.com/webapp/iwm/web/reg/pick.do?source=jcesdk">here</a> with an valid IBM ID account. Just choose the version which fits your JDK Version + Service Release your WAS is running on.</p>
-  <p>After you have downloaded them, drop the extracted jar files into your `$WAS_HOME/AppServer/java/jre/lib/security` folder and restart the server afterwards.</p>
+  <p>After you have downloaded them, drop the extracted jar files into your <code>$WAS_HOME/AppServer/java/jre/lib/security</code> folder and restart the server afterwards.</p>
 </div>
