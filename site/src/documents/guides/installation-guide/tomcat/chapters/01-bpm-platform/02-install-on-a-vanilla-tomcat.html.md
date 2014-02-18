@@ -65,6 +65,10 @@ First you have to copy the following libraries into your vanilla Tomcat library 
 
 `$TOMCAT_DISTRIBUTION/lib/camunda-identity-ldap-$PLATFORM_VERSION.jar` (if you want to use LDAP)
 
+`$TOMCAT_DISTRIBUTION/lib/camunda-bpmn-model-$PLATFORM_VERSION.jar`
+
+`$TOMCAT_DISTRIBUTION/lib/camunda-xml-model-$PLATFORM_VERSION.jar`
+
 `$TOMCAT_DISTRIBUTION/lib/java-uuid-generator-VERSION.jar`
 
 `$TOMCAT_DISTRIBUTION/lib/joda-time-VERSION.jar`
