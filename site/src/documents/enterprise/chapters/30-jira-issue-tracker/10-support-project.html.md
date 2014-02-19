@@ -23,19 +23,48 @@ We distinguish three types of issues:
   </thead>
   <tbody>
   <tr>
-    <td>Bug Report</td>
+    <td>Bug Report<img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-bug.png"/></td>
     <td>File a bug report if a feature of the system doesn't work properly.</td>
     <td>Do not file missing features as bug request, even if you think that is a really vital feature that makes the product unusable without it.</td>
   </tr>
   <tr>
-    <td>Feature Request</td>
+    <td>Feature Request<img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-newfeature.png"/></td>
     <td>Any missing features can be filed here.</td>
     <td>A feature request might be declined with some reasoning why this will not be part of the product. Otherwise it is usually pulled on the road-map and we inform you about status changes. Please add some information about your use case and why this feature is important to you.</td>
   </tr>
   <tr>
-    <td>Help Request</td>
+    <td>Help Request<img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-help.png"/></td>
     <td>File any questions you have as help requests that are unrelated to any bug or feature request.</td>
     <td></td>
+  </tr>
+  </tbody>
+</table>
+
+You can prioritize issues. Please note according to your SLA's a prioritization is possible for bug tickets only. Feature Requests and Help Requests are always prioritized as default.
+
+<table class="table table-bordered">
+  <thead>
+  <tr class="success">
+    <th>Priority Level</th>
+    <th>Description</th>
+    <th>Important Notes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>L1 <img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-blocker.png"/>blocker</td>
+    <td>Core components (i.e. process engine) of camunda BPM do not work at all / produce critical errors that prevent usage in production mode.</td>
+    <td>Bug Tickets only! Production mode only!</td>
+  </tr>
+  <tr>
+    <td>L2 <img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-major.png"/>critical</td>
+    <td>Usage of camunda BPM seriously affected, a workaround is urgently needed. </td>
+    <td>Bug Tickets only!</td>
+  </tr>
+  <tr>
+    <td>L3 <img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-minor.png"/>default</td>
+    <td>Non-critical errors, help requests, feature requests</td>
+    <td>Bug Tickets, Feature Requests, Help Requests</td>
   </tr>
   </tbody>
 </table>
@@ -55,28 +84,20 @@ To create a new support ticket follow the instructions below. To shorten the pro
 
 For further information please have a look at the Atlassian tutorial <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a>
 
-## Authorize other support contacts of the company for a support case
+## Visibility of JIRA tickets
+
+JIRA tickets will be shared with all your support contacts automatically. 
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-authorize-support-contacts.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-watcher.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Due to privacy reasons you cannot see support cases which weren't created by yourself. It is often handy that your colleague may see the issue, at least if you go to vacation. This is easily possible, you have to add the email address of your colleague to the field <b>Authorized support contacts</b> as shown in the screenshot.
+      By clicking the watcher bubble you can see who is following the ticket. Here you can add or remove watchers. Please note you can only add users which are entitled camunda enterprise support contacts, otherwiese you will get an error message that the user with that email address is not found.
     </p>
   </div>
 </div>    
-
-Please note:
-
-* You cannot search for users, you have to know the exact email address.
-* You have to add the authorized support contacts for all issues you want to share.
-* You can only add users which have are entitled camunda fox enterprise support contacts to the authorized support contacts, otherwiese you will get an error message that the user with that email address is not found.
-* You can remove authorized support contacts any time, then they will not be able to see this issue any longer.
-
-If you are interessted why we did it that way please refer to the <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a> Tutorial.    
-
 
 ## The camunda support process
 
