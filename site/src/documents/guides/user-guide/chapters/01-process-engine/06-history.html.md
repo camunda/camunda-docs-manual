@@ -30,6 +30,7 @@ The history level controls the amount of data the process engine provides via th
 * `FULL`: in addition to the events provided by history level `AUDIT`, the following additional events are fired:
     * Form property UPDATE: fired are form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
+    * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, deleagting a user task etc.
 
 If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
@@ -65,6 +66,8 @@ There are five History entities, which - in contrast to the runtime data - will 
 * `HistoricActivityInstances` containing information about a single execution of an activity.
 * `HistoricTaskInstances` containing information about current and past (completed and deleted) task instances.
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
+* `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, ...
+
 
 ### Querying History
 
@@ -148,6 +151,16 @@ historyService.createHistoricTaskInstanceQuery()
   .finished()
   .taskDeleteReasonLike("%invalid%")
   .taskAssignee("jonny")
+  .listPage(0, 10);
+```
+
+** UserOperationLogQuery **
+
+Query for all operations performed by user "jonny":
+
+```java
+historyService.createUserOperationLogQuery()
+  .userId("jonny")  
   .listPage(0, 10);
 ```
 
