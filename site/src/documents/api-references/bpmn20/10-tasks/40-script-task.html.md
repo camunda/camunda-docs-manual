@@ -26,6 +26,11 @@ A script task is defined by specifying the script and the scriptFormat.
 
 The value of the scriptFormat attribute must be a name that is compatible with the JSR-223 (scripting for the Java platform). If you want to use a (JSR-223 compatible) scripting engine, it is necessary to add the corresponding jar to the classpath and use the appropriate name.
 
+<div class="alert alert-info">
+  <strong>Supported Script Languages:</strong>
+  <p>Currently the camunda BPM platform supports Groovy scripts only. We are working on making it compatible with JSR-223!</p>  
+</div>
+
 ## Variables in scripts
 
 All process variables that are accessible through the execution that arrives in the script task, can be used within the script. In the example, the script variable `inputArray` is in fact a process variable (an array of integers).
