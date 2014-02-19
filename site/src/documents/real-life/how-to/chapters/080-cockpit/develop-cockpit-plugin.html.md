@@ -382,8 +382,6 @@ To test your JAX-RS resources you can instantiate them directly during a plugin 
 See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/cockpit/cockpit-core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
 
-### Summary
-
 Server-side parts of the plugin? Done. We will now go ahead and write the client-side extension that exposes the functionality to the user.
 
 
