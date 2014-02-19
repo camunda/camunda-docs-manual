@@ -56,21 +56,7 @@
               <a href="<%= @docUrl("real-life/how-to/") %>">Tutorials &amp; How-Tos</a>
             </li>
           </ul>
-        </li>
-        <li class="dropdown" data-active-link="/community">
-          <a href="<%= @docUrl("community/") %>">Community</a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="https://github.com/camunda/camunda-bpm-assert">AssertJ Testing Library</a>
-            </li>
-            <li>
-              <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
-            </li>
-            <li>
-              <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
-            </li>
-          </ul>
-        </li>
+        </li>       
         <li class="dropdown" data-active-link="/enterprise">
           <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
         </li>
