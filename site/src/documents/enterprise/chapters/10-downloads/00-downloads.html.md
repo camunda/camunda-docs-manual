@@ -65,29 +65,29 @@ title: 'Latest Version'
       </td> 
     </tr>
     <tr>
-      <td>7.1.0-alpha2
-        <br>(<a target="_blank" href="http://blog.camunda.org/2014/01/camunda-bpm-710-alpha2-released.html">Release Notes</a>)
+      <td>7.1.0-alpha3
+        <br>(<a target="_blank" href="http://blog.camunda.org/2014/02/camunda-bpm-710-alpha3-released.html">Release Notes</a>)
       </td>
-      <td>31.01.2014</td>
+      <td>20.02.2014</td>
       <td>                                                
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha2/camunda-bpm-ee-tomcat-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha2/camunda-bpm-ee-tomcat-7.1.0-alpha2-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha3/camunda-bpm-ee-tomcat-7.1.0-alpha3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.1.0-alpha3/camunda-bpm-ee-tomcat-7.1.0-alpha3-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha2/camunda-bpm-ee-jboss-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha2/camunda-bpm-ee-jboss-7.1.0-alpha2-ee.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha3/camunda-bpm-ee-jboss-7.1.0-alpha3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/jboss/nightly/7.1.0-alpha3/camunda-bpm-ee-jboss-7.1.0-alpha3-ee.tar.gz">tar.gz</a>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha2/camunda-bpm-ee-glassfish-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha2/camunda-bpm-ee-glassfish-7.1.0-alpha2-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha3/camunda-bpm-ee-glassfish-7.1.0-alpha3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/glassfish/nightly/7.1.0-alpha3/camunda-bpm-ee-glassfish-7.1.0-alpha3-ee.tar.gz">tar.gz</a><br>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha2/camunda-ee-ibm-was-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha2/camunda-ee-ibm-was-7.1.0-alpha2-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha3/camunda-ee-ibm-was-7.1.0-alpha3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/ibm-was/nightly/7.1.0-alpha3/camunda-ee-ibm-was-7.1.0-alpha3-ee.tar.gz">tar.gz</a><br>
       </td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/oracle-wls/nightly/7.1.0-alpha2/camunda-ee-oracle-wls-7.1.0-alpha2-ee.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/oracle-wls/nightly/7.1.0-alpha2/camunda-ee-oracle-wls-7.1.0-alpha2-ee.tar.gz">tar.gz</a><br>
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/oracle-wls/nightly/7.1.0-alpha3/camunda-ee-oracle-wls-7.1.0-alpha3-ee.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://www.camunda.org/enterprise-release/camunda-bpm/oracle-wls/nightly/7.1.0-alpha3/camunda-ee-oracle-wls-7.1.0-alpha3-ee.tar.gz">tar.gz</a><br>
       </td>       
     </tr>
   </tbody>
