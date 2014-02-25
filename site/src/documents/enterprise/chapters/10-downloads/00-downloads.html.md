@@ -12,32 +12,26 @@ title: 'Latest Version'
 <table class="table">
   <thead>
   <tr>
-    <th>Version</th>
-    <th>Release Date</th>
     <th>
-      <!--[if (gt IE 8) | (!IE)]>--><span class="tomcat container-small"></span><!--<![endif]-->
-      <!--[if (lt IE 9)]><span class="tomcat-ie8 container-small"></span><![endif]-->
-      <br>Apache Tomcat 7
+      Version
     </th>
     <th>
-      <!--[if (gt IE 8) | (!IE)]>--><span class="as7 container-small"></span><!--<![endif]-->
-      <!--[if (lt IE 9)]><span class="as7-ie8 container-small"></span><![endif]-->
-      <br>JBoss AS 7
+      Release Date
     </th>
     <th>
-      <!--[if (gt IE 8) | (!IE)]>--><span class="glassfish container-small"></span><!--<![endif]-->
-      <!--[if (lt IE 9)]><span class="glassfish-ie8 container-small"></span><![endif]-->
-      <br>GlassFish 3.1.x
+      Apache Tomcat 7
     </th>
     <th>
-      <!--[if (gt IE 8) | (!IE)]>--><span class="was8 container-small"></span><!--<![endif]-->
-      <!--[if (lt IE 9)]><span class="was8-ie8 container-small"></span><![endif]-->
-      <br>WebSphere 8.x
+      JBoss AS 7
     </th>
     <th>
-      <!--[if (gt IE 8) | (!IE)]>--><span class="wls12 container-small"></span><!--<![endif]-->
-      <!--[if (lt IE 9)]><span class="wls12-ie8 container-small"></span><![endif]-->
-      <br>WebLogic 12.x
+      GlassFish 3.1.x
+    </th>
+    <th>
+      WebSphere 8.x
+    </th>
+    <th>
+      WebLogic 12.x
     </th>
   </tr>
   </thead>
