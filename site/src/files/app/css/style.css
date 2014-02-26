@@ -346,31 +346,6 @@ footer {
   background-size: contain;
 }
 
-.tomcat {
-  background: url("../../assets/img/tomcat-tile.png");
-  background-size: contain;
-}
-
-.as7 {
-  background: url("../../assets/img/as7-tile.png");
-  background-size: contain;
-}
-
-.glassfish {
-  background: url("../../assets/img/glassfish-tile.png");
-  background-size: contain;
-}
-
-.was8 {
-  background: url("../../assets/img/was8-tile.png");
-  background-size: contain;
-}
-
-.wls12 {
-  background: url("../../assets/img/wls12-tile.png");
-  background-size: contain;
-}
-
 /** bootstrap overrides for improving readability */
 
 /*.docs-guide h4 {
