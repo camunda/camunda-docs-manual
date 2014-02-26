@@ -27,18 +27,37 @@ The XML representation of an exclusive gateway is straight-forward: one line def
 
 ```xml
 <exclusiveGateway id="exclusiveGw" name="Exclusive Gateway" default="flow4" />
-    
+
 <sequenceFlow id="flow2" sourceRef="exclusiveGw" targetRef="theTask1" name="${x==1}">
   <conditionExpression xsi:type="tFormalExpression">${x == 1}</conditionExpression>
 </sequenceFlow>
-    
+
 <sequenceFlow id="flow3" sourceRef="exclusiveGw" targetRef="theTask2" name="${x==2}">
   <conditionExpression xsi:type="tFormalExpression">${x == 2}</conditionExpression>
 </sequenceFlow>
-    
+
 <sequenceFlow id="flow4" sourceRef="exclusiveGw" targetRef="theTask3" name="else">
 </sequenceFlow>
 ```
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaexecutionlistener">camunda:executionListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 ## Additional Resources
 

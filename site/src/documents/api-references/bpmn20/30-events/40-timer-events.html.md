@@ -60,9 +60,28 @@ You can use expressions for the timer event definitions, by doing so you can inf
 </boundaryEvent>
 ```
 
-Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled. 
+Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled.
 
+## Camunda Extensions
 
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 
 ## Timer Start Event
@@ -95,7 +114,7 @@ and this process will start once, on a selected date:
 </startEvent>
 ```
 
-	
+
 
 
 ## Timer Intermediate Catching Event
@@ -128,10 +147,10 @@ There is the difference between the interrupting and non interrupting timer even
    <timerEventDefinition>
     <timeDuration>PT4H</timeDuration>
   </timerEventDefinition>
-</boundaryEvent>          
+</boundaryEvent>
 ```
 
-Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled. 
+Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled.
 
 
 <div class="alert alert-warning">

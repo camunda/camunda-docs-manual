@@ -7,7 +7,7 @@ keywords: 'service task send task'
 
 ---
 
-A send task is used to send a message. In camunda this is done by calling Java code.  
+A send task is used to send a message. In camunda this is done by calling Java code.
 
 The send task has the same behaviour as a service task.
 
@@ -16,3 +16,48 @@ The send task has the same behaviour as a service task.
 ```xml
 <sendTask id="sendTask" camunda:class="org.camunda.bpm.MySendTaskDelegate" />
 ```
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundatype">camunda:type</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>,
+      <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the
+      <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>

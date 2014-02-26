@@ -10,23 +10,23 @@ keywords: 'message start intermediate catching boundary intermediate throwing en
 Message events are events which reference a named message. A message has a name and a payload. Unlike a signal, a message event is always directed at a single receiver.
 
 A message event definition is declared using the messageEventDefinition element. The attribute messageRef references a message element declared as a child element of the definitions root element. The following is an excerpt of a process where two message events is declared and referenced by a start event and an intermediate catching message event.
-  
+
 ```xml
-<definitions id="definitions" 
+<definitions id="definitions"
   xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
   xmlns:camunda="http://activiti.org/bpmn"
   targetNamespace="Examples"
   xmlns:tns="Examples">
-  
+
   <message id="newInvoice" name="newInvoiceMessage" />
   <message id="payment" name="paymentMessage" />
-  
-  <process id="invoiceProcess">  
-  
+
+  <process id="invoiceProcess">
+
     <startEvent id="messageStart" >
         <messageEventDefinition messageRef="newInvoice" />
     </startEvent>
-    ...    
+    ...
     <intermediateCatchEvent id="paymentEvt" >
         <messageEventDefinition messageRef="payment" />
     </intermediateCatchEvent>
@@ -66,7 +66,7 @@ Correlation is successful, if there exists a single matching entity among the fo
 
 <div class="alert alert-warning">
   <strong>Current limitation:</strong>
-  
+
   <code>correlationKeys</code> is matched against process instance variables only. These are variables that are globally visible throughout the process instance.
 
   Accordingly, variables that are defined in the scope of a child execution (e.g. in a subprocess) are not considered for correlation.
@@ -90,10 +90,10 @@ ProcessInstance startProcessInstanceByMessage(String messageName, String busines
 These methods allow starting a process instance using the referenced message.
 
 If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the wating execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
-  
+
 ```java
 void messageEventReceived(String messageName, String executionId);
-void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);    
+void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);
 ```
 
 
@@ -121,12 +121,12 @@ Execution execution = runtimeService.createExecutionQuery()
       .singleResult();
 ```
 
-Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be at most one process instance for a given orderId). 
+Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be at most one process instance for a given orderId).
 
 
 
 ## Receiving Message Events
-  
+
 ### Message Start Event
 
 A message start event can be used to start a process instance using a named message. This effectively allows us to select the right start event from a set of alternative start events using the message name.
@@ -142,7 +142,7 @@ When starting a process instance, a message start event can be triggered using t
 ```java
 ProcessInstance startProcessInstanceByMessage(String messageName);
 ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Object> processVariables);
-ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object< processVariables); 
+ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object< processVariables);
 ```
 
 The messageName is the name given in the name attribute of the message element referenced by the messageRef attribute of the messageEventDefinition. The following considerations apply when starting a process instance:
@@ -159,26 +159,26 @@ The messageName is the name given in the name attribute of the message element r
 The XML representation of a message start event is the normal start event declaration with a messageEventDefinition child-element:
 
 ```xml
-<definitions id="definitions" 
+<definitions id="definitions"
   xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
   xmlns:camunda="http://activiti.org/bpmn"
   targetNamespace="Examples"
   xmlns:tns="Examples">
-  
+
   <message id="newInvoice" name="newInvoiceMessage" />
-  
-  <process id="invoiceProcess">  
-  
+
+  <process id="invoiceProcess">
+
     <startEvent id="messageStart" >
         <messageEventDefinition messageRef="tns:newInvoice" />
     </startEvent>
-    ...    
+    ...
   </process>
 
 </definitions>
 ```
 
-A process can be started using one of two different messages, this is useful if the process needs alternative ways to react to different start events but eventually continues in a uniform way. 
+A process can be started using one of two different messages, this is useful if the process needs alternative ways to react to different start events but eventually continues in a uniform way.
 
 <div data-bpmn-diagram="implement/event-message-start-alternative" > </div>
 
@@ -197,14 +197,14 @@ The following example shows different message events in a process model:
         <messageEventDefinition signalRef="newCustomerMessage" />
 </intermediateCatchEvent>
 ```
- 
+
 Instead of the message intermediate catching event you might want to think about a <a href="ref:#tasks-receive-task">Receive Task</a> instead which can serve similar purposes, but is able to be used in combination with boundary events. Together with the  message intermediate catching event you might want to use the <a href="ref:#gateways-event-based-gateway">Event-based Gateway</a>.
 
 
 ### Message Boundary Event
 
 Boundary events are catching events that are attached to an activity. This means that while the activity is running, the message boundary event is listening for named message. When this is caught, two things might happen depending on the configuration of the boundary event:
-  
+
 * Interrupting boundary event: The activity is interrupted and the sequence flow going out of the event is followed.
 * Non-interrupting boundary event: One token stays in the activity and an additional token is created which follows the sequence flow going out of the event.
 
@@ -218,7 +218,7 @@ Boundary events are catching events that are attached to an activity. This means
 Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a [service task](ref:#tasks-service-task).
 
 <div data-bpmn-diagram="implement/event-message-throwing" > </div>
-  
+
 ```xml
 <intermediateThrowEvent id="message">
   <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />

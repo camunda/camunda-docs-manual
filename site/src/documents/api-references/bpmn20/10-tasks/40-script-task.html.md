@@ -28,7 +28,7 @@ The value of the scriptFormat attribute must be a name that is compatible with t
 
 <div class="alert alert-info">
   <strong>Supported Script Languages:</strong>
-  <p>Currently the camunda BPM platform supports Groovy scripts only. We are working on making it compatible with JSR-223!</p>  
+  <p>Currently the camunda BPM platform supports Groovy scripts only. We are working on making it compatible with JSR-223!</p>
 </div>
 
 ## Variables in scripts
@@ -52,9 +52,9 @@ An alternative is to set variables through the current execution, which is avail
 <script>
     def scriptVar = "test123"
     execution.setVariable("myVar", scriptVar)
-</script>    
+</script>
 ```
-  
+
 Note: the following names are reserved and cannot be used as variable names: out, out:print, lang:import, context, elcontext.
 
 ## Script results
@@ -64,7 +64,34 @@ The return value of a script task can be assigned to an already existing or to a
 ```xml
 <scriptTask id="theScriptTask" name="Execute script" scriptFormat="juel" camunda:resultVariable="myVar">
   <script>#{echo}</script>
-</scriptTask>    
+</scriptTask>
 ```
-   
-In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes. 
+
+In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
+

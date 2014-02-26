@@ -20,11 +20,11 @@ Possible outcomes of a transaction: A transaction can have three different outco
 
 *   A transaction is ended by a hazard, if an error event is thrown, that is not caught within the scope of the transaction subprocess. (This also applies if the error is caught on the boundary of the transaction subprocess.) In this case, compensation is not performed.
 
-The following diagram illustrates the three different outcomes: 
+The following diagram illustrates the three different outcomes:
 
 <div data-bpmn-diagram="implement/business-transaction"></div>
 
-A transaction subprocess is represented using xml using the transaction element: 
+A transaction subprocess is represented using xml using the transaction element:
 
 ```xml
 <transaction id="myTransaction" >
@@ -60,11 +60,35 @@ To sum it up: while ACID transactions offer a generic solution to such problems 
 <div class="alert alert-warning">
   <strong>Current limitations:</strong>
 
-  The bpmn specification requires that the process engine reacts to events issued by the underlying transaction protocol and for instance that a transaction is cancelled, if a cancel event occurs in the underlying protocol. As an embeddable engine, the camunda engine does currently not support this. (For some ramifications of this, see paragraph on consistency below.) 
+  The bpmn specification requires that the process engine reacts to events issued by the underlying transaction protocol and for instance that a transaction is cancelled, if a cancel event occurs in the underlying protocol. As an embeddable engine, the camunda engine does currently not support this. (For some ramifications of this, see paragraph on consistency below.)
 </div>
 
 Consideristency on top of ACID transactions and optimistic concurrency: A bpmn transaction guarantees consistency in the sense that either all activities compete successfully, or if some activity cannot be performed, the effects of all other successful activities are compensated. So either way we end up in a consistent state. However, it is important to recognize that in camundaBPM, the consistency model for bpmn transactions is superposed on top of the consistency model for process execution. The camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine, bpmn error, cancel and compensation events are built on top of the same acid transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. Or, the effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Or, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing bpmn transactions in the core engine, the same set of rules apply as when implementing "ordinary" processes and subprocesses. So to effectively guarantee consistency, it is important to implement processes in a way that does take the optimistic, transactional execution model into consideration.
 
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 
 ## Additional Resources
 

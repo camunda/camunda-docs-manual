@@ -21,7 +21,7 @@ A call activity is visualized the same as a collapsed embedded subprocess, howev
 A call activity is a regular activity, that requires a calledElement that references a process definition by its key. In practice, this means that the id of the process is used in the calledElement:
 
 ```xml
-<callActivity id="callCheckCreditProcess" name="Check credit" calledElement="checkCreditProcess" />    
+<callActivity id="callCheckCreditProcess" name="Check credit" calledElement="checkCreditProcess" />
 ```
 
 Note that the process definition of the subprocess is resolved at runtime. This means that the subprocess can be deployed independently from the calling process, if needed.
@@ -113,15 +113,50 @@ The XML looks as follows:
 
 <callActivity id="shipping" name="Shipping" calledElement="shippingProcess" />
 <sequenceFlow id="flow2" sourceRef="shipping" targetRef="billing" />
-    
+
 <callActivity id="billing" name="Billing" calledElement="billingProcess" />
 <sequenceFlow id="flow3" sourceRef="billing" targetRef="end" />
-       
+
 <endEvent id="end" />
 ```
 
-There is nothing special to the process definition of the subprocess. It could as well be used without being called from another process. 	
+There is nothing special to the process definition of the subprocess. It could as well be used without being called from another process.
 
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementbinding">camunda:calledElementBinding</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementversion">camunda:calledElementVersion</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:calledElementVersion</code> should only be set if
+      the attribute <code>camunda:calledElementBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+</table>
 
 ## Additional Resources
 

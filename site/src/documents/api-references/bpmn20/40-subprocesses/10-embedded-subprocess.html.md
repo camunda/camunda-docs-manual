@@ -41,8 +41,33 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
    <startEvent id="subProcessStart" />
    <!-- ... other subprocess elements ... -->
    <endEvent id="subProcessEnd" />
-</subProcess>           
+</subProcess>
 ```
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 
 
 ## Additional Resources

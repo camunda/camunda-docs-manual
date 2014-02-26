@@ -14,9 +14,9 @@ A `user task` is used to model work that needs to be done by a human actor. When
 A user task is defined in XML as follows. The id attribute is required, the name attribute is optional.
 
 ```xml
-<userTask id="theTask" name="Important task" />                   
+<userTask id="theTask" name="Important task" />
 ```
-                                  
+
 ## Description
 
 A user task can have also a description. In fact any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
@@ -62,7 +62,7 @@ A user task can be directly assigned to a user. This is done by defining a human
 
 ```xml
 <process ... >
-  ...  
+  ...
   <userTask id='theTask' name='important task' >
     <humanPerformer>
       <resourceAssignmentExpression>
@@ -132,7 +132,7 @@ It is clear that user and group assignments are quite cumbersome for use cases w
   <userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
   ```
   This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the group(management) declaration as is the case with the potential owner construct, since the attribute can only be used for groups.
-  
+
 * candidateUsers and candidateGroups can both be defined on the same user task.
 
 Note: Although the camunda engine provides an identity management component, which is exposed through the IdentityService, no check is done whether a provided user is known by the identity component. This allows to integrate the engine with existing identity management solutions when it is embedded into an application.
@@ -151,14 +151,14 @@ The DelegateTask that is passed to the TaskListener implementation, allows to se
 ```java
 public class MyAssignmentHandler implements TaskListener {
   public void notify(DelegateTask delegateTask) {
-    // Execute custom identity lookups here    
+    // Execute custom identity lookups here
     // and then for example call following methods:
     delegateTask.setAssignee("kermit");
     delegateTask.addCandidateUser("fozzie");
     delegateTask.addCandidateGroup("management");
     ...
-  } 
-}    
+  }
+}
 ```
 
 When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above, and delegate to a bean using a task listener with an expression that listens to task create events. In the following example, the assignee will be set by calling the findManagerOfEmployee on the ldapService Spring/CDI bean. The emp parameter that is passed, is a process variable>.
@@ -177,13 +177,61 @@ Note that this will only work if the return type of the invoked methods is Strin
 
 ```java
 public class FakeLdapService {
-  
+
   public String findManagerForEmployee(String employee) {
     return "Kermit The Frog";
   }
-  
+
   public List<String> findAllSales() {
     return Arrays.asList("kermit", "gonzo", "fozzie");
   }
 }
 ```
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaassignee">camunda:assignee</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacandidategroups">camunda:candidateGroups</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacandidateusers">camunda:candidateUsers</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaduedate">camunda:dueDate</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformhandlerclass">camunda:fromHandlerClass</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:fromKey</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundapriority">camunda:priority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaformdata">camunda:formData</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaformproperty">camunda:formProperty</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundatasklistener">camunda:taskListener</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The attribute <code>camunda:assignee</code> cannot be used simultaneously with the <code>humanPerformer</code>
+      element
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      Only one <code>camunda:formData</code> extension element is allowed
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>

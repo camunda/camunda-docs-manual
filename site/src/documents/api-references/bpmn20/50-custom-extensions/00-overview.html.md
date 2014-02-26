@@ -1,8 +1,7 @@
 ---
 
 title: 'BPMN 2.0 Custom Extensions'
-shortTitle: 'Custom Extensions'
-category: 'Overview'
+category: 'Custom Extensions'
 
 ---
 
@@ -20,4 +19,4 @@ Although the BPMN 2.0 specification clearly states that it was made for custom e
 So whether you want to use a custom extension or not, is completely up to you. Several factors will influence this decision (graphical editor usage, company policy, etc.). We only provide them since we believe that some points in the standard can be done simpler or more efficient. Feel free to give us (positive and/or negative) feedback on our extensions, or to post new ideas for custom extensions. Who knows, some day your idea might pop up in the specification.
 
 
- 
+

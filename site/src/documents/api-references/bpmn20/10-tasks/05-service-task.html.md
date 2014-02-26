@@ -22,8 +22,8 @@ There are 4 ways of declaring how to invoke Java logic:
 To specify a class that is called during process execution, the fully qualified classname needs to be provided by the `camunda:class` attribute.
 
 ```xml
-<serviceTask id="javaService" 
-             name="My Java Service Task" 
+<serviceTask id="javaService"
+             name="My Java Service Task"
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 ```
 
@@ -39,8 +39,8 @@ Here, the	`delegateExpression` is an expression that resolves to a bean implemen
 To specify an expression that should be evaluated, use attribute <class>camunda:expression</class>.
 
 ```xml
-<serviceTask id="javaService" 
-             name="My Java Service Task" 
+<serviceTask id="javaService"
+             name="My Java Service Task"
              camunda:expression="#{printer.printMessage()}" />
 ```
 
@@ -49,8 +49,8 @@ Method `printMessage` (without parameters) will be called on the named bean call
 It's also possible to pass parameters with an method used in the expression.
 
 ```xml
-<serviceTask id="javaService" 
-             name="My Java Service Task" 
+<serviceTask id="javaService"
+             name="My Java Service Task"
              camunda:expression="#{printer.printMessage(execution, myVar)}" />
 ```
 
@@ -59,8 +59,8 @@ Method `printMessage` will be called on the object named `printer`. The first pa
 To specify a UEL value expression that should be evaluated, use attribute `camunda:expression`.
 
 ```xml
-<serviceTask id="javaService" 
-             name="My Java Service Task" 
+<serviceTask id="javaService"
+             name="My Java Service Task"
              camunda:expression="#{split.ready}"
              camunda:resultVariable="myVar" />
 ```
@@ -87,6 +87,51 @@ The return value of a service execution (for service task using expression only)
 ```
 
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundatype">camunda:type</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>,
+      <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the
+      <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:async</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 
 
 ## Additional Resources

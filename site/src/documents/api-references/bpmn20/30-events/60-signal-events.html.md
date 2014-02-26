@@ -18,7 +18,7 @@ This event can now be caught by all process instances which are interested. The 
 
 <div data-bpmn-diagram="implement/event-signal-catching"></div>
 
-Note: it is important to understand that a signal event is broadcast to all active handlers. This means in the case of the example given above, that all instances of the process catching the signal would receive the event. 
+Note: it is important to understand that a signal event is broadcast to all active handlers. This means in the case of the example given above, that all instances of the process catching the signal would receive the event.
 
 
 ## Signal Event Definition
@@ -30,7 +30,7 @@ A signal event definition is declared using the signalEventDefinition element. T
 <definitions>
   <!-- declaration of the signal -->
   <signal id="alertSignal" name="alert" />
-  
+
   <process id="catchSignal">
     <intermediateThrowEvent id="throwSignalEvent" name="Alert">
       <!-- signal event definition -->
@@ -41,10 +41,29 @@ A signal event definition is declared using the signalEventDefinition element. T
       <!-- signal event definition -->
       <signalEventDefinition signalRef="alertSignal" />
     </intermediateCatchEvent>
-    <!-- ... -->          
+    <!-- ... -->
   </process>
 </definitions>
 ```
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 __Note__: Contrary to other events like an error event, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, event if they are part of different process instances.
 
@@ -54,12 +73,12 @@ A signal can either be thrown by a process instance using a bpmn construct or pr
 
 ```java
 RuntimeService.signalEventReceived(String signalName);
-RuntimeService.signalEventReceived(String signalName, String executionId);  
+RuntimeService.signalEventReceived(String signalName, String executionId);
 ```
 
 The difference between `signalEventReceived(String signalName)` and `signalEventReceived(String signalName, String executionId)` is that the first method throws the signal globally to all subscribed handlers (broadcast semantics) and the second method delivers the signal to a specific execution only.
 
-Note: the signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to deliver a signal to a specific process instance only, do not use the throwing signal event but perform correlation manually and use `signalEventReceived(String signalName, String executionId)` using the appropriate query mechanisms.   
+Note: the signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to deliver a signal to a specific process instance only, do not use the throwing signal event but perform correlation manually and use `signalEventReceived(String signalName, String executionId)` using the appropriate query mechanisms.
 
 
 ## Querying for Signal Event subscriptions
@@ -96,7 +115,7 @@ This is straightforward in the XML:
 or alternatively
 
 ```xml
-<boundaryEvent id="boundary" attachedToRef="task" cancelActivity="true">       
+<boundaryEvent id="boundary" attachedToRef="task" cancelActivity="true">
   <signalEventDefinition signalRef="alertSignal"/>
 </boundaryEvent>
 ```

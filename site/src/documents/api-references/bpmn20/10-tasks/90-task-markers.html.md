@@ -7,7 +7,7 @@ keywords: 'multi instance boundary event loop compensation'
 
 ---
 
-In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types. 
+In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types.
 
 ## Multiple Instance
 
@@ -15,14 +15,16 @@ A multi-instance activity is a way of defining repetition for a certain step in 
 
 A multi-instance is a regular activity that has extra properties defined (so-called `multi-instance characteristics`) which will cause the activity to be executed multiple times at runtime. Following activities can become a multi-instance activity:
 
-* User Task
-* Script Task
 * Service Task
+* Send Task
+* User Task
 * Business Rule Task
-* Manual Task
+* Script Task
 * Receive Task
+* Manual Task
 * (Embedded) Sub-Process
 * Call Activity
+* Transaction Subprocess
 
 A Gateway or Event can not become multi-instance.
 
@@ -47,7 +49,7 @@ To make an activity multi-instance, the activity xml element must have a `multiI
 ```xml
 <multiInstanceLoopCharacteristics isSequential="false|true">
  ...
-</multiInstanceLoopCharacteristics> 
+</multiInstanceLoopCharacteristics>
 ```
 
 The isSequential attribute indicates if the instances of that activity are executed sequentially or parallel.
@@ -58,7 +60,7 @@ The number of instances are calculated once, when entering the activity. There a
 ```xml
 <multiInstanceLoopCharacteristics isSequential="false|true">
   <loopCardinality>5</loopCardinality>
-</multiInstanceLoopCharacteristics> 
+</multiInstanceLoopCharacteristics>
 ```
 
 Expressions that resolve to a positive number are also possible:
@@ -77,7 +79,7 @@ Another way to define the number of instances, is to specify the name of a proce
     <loopDataInputRef>assigneeList</loopDataInputRef>
     <inputDataItem name="assignee" />
   </multiInstanceLoopCharacteristics>
-</userTask> 
+</userTask>
 ```
 
 Suppose the variable assigneeList contains the values [kermit, gonzo, foziee]. In the snippet above, three user tasks will be created in parallel. Each of the executions will have a process variable named assignee containing one value of the collection, which is used to assign the user task in this example.
@@ -86,7 +88,7 @@ The downside of the `loopDataInputRef` and `inputDataItem` is that 1) the names 
 
 ```xml
 <userTask id="miTasks" name="My Task" camunda:assignee="${assignee}">
-  <multiInstanceLoopCharacteristics isSequential="true" 
+  <multiInstanceLoopCharacteristics isSequential="true"
      camunda:collection="${myService.resolveUsersForTask()}" camunda:elementVariable="assignee" >
   </multiInstanceLoopCharacteristics>
 </userTask>
@@ -96,14 +98,36 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 ```xml
 <userTask id="miTasks" name="My Task" camunda:assignee="${assignee}">
-  <multiInstanceLoopCharacteristics isSequential="false" 
+  <multiInstanceLoopCharacteristics isSequential="false"
      camunda:collection="assigneeList" camunda:elementVariable="assignee" >
     <completionCondition>${nrOfCompletedInstances/nrOfInstances >= 0.6 }</completionCondition>
   </multiInstanceLoopCharacteristics>
-</userTask> 
+</userTask>
 ```
 
 In this example, there will be parallel instances created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
+
+## Camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacollection">camunda:collection</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaelementvariable">camunda:elementVariable</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      &ndash;
+    </td>
+  </tr>
+</table>
 
 ## Boundary events and multi-instance
 
@@ -111,7 +135,7 @@ Since a multi-instance is a regular activity, it is possible to define a boundar
 
 <div data-bpmn-diagram="implement/multiple-instance-boundary"></div>
 
-Here, all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not yet completed. 
+Here, all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not yet completed.
 
 ## Loops
 
