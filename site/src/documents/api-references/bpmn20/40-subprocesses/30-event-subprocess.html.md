@@ -29,7 +29,6 @@ It is represented using XML in the same way as a an embedded subprocess. In addi
 <div class="alert alert-warning">
   <strong>Current limitations:</strong>
   <ul>
-    <li>Only interrupting Event subprocesses are supported.</li>
     <li>Only Event subprocess triggered using an Error Start Event or Message Start Event are supported.</li>
   </ul>
 </div>
