@@ -436,7 +436,7 @@ To integrate the plugin, we need to add it to the dependencies of the cockpit we
   </dependency>
 ```
 
-Now run the cockpit application using `mvn clean tomcat:run -Pdev`. It will boot an embedded tomcat and make the webapplication available at [http://localhost:8080/camunda](http://localhost:8080/camunda).
+Now run the cockpit application using `mvn clean jetty:run -Pdevelop`. It will boot an embedded jetty server and make the webapplication available at [http://localhost:8080/camunda](http://localhost:8080/camunda).
 
 You can navigate to [http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets is correctly loaded.
 
