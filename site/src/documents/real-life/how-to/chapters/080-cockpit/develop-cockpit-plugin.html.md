@@ -424,7 +424,7 @@ To test that the assets are served, we can either [implement a test case](https:
 
 Before integrating the plugin into cockpit, make sure you have built the plugin at least once using `mvn clean install` (or however your IDE calls it). Furthermore, make sure that you have the [camunda BPM platform](https://github.com/camunda/camunda-bpm-platform) checked out on your local file system.
 
-To integrate the plugin, we need to add it to the dependencies of the cockpit web project (located in the `webapps/cockpit/cockpit-webapp`).
+To integrate the plugin, we need to add it to the dependencies of the cockpit web project (located in the `/webapps/camunda-webapp/webapp`).
 
 ```xml
 <dependencies>
