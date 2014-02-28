@@ -52,6 +52,10 @@ Parameters
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belongs to one of the passed and comma-separated task ids.</td>
   </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include historic variable instances which belongs to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
 </table>
 
 

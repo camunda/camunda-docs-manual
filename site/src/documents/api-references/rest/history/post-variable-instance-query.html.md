@@ -62,11 +62,15 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated execution ids.</td>
+    <td>Only include historic variable instances which belongs to one of the passed execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated task ids.</td>
+    <td>Only include historic variable instances which belongs to one of the passed task ids.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include historic variable instances which belongs to one of the passed activity instance ids.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -94,6 +98,11 @@ Each historic activity instance object has the following properties:
     <th>Description</th>
   </tr>
   <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the variable instance.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>String</td>
     <td>The name of the variable instance.</td>
@@ -112,6 +121,11 @@ Each historic activity instance object has the following properties:
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id the process instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceId</td>
+    <td>String</td>
+    <td>The id of the activity instance in which the variable is valid.</td>
   </tr>
 </table>
 

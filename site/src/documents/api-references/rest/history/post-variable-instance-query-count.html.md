@@ -48,11 +48,15 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated execution ids.</td>
+    <td>Only include historic variable instances which belongs to one of the passed execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated task ids.</td>
+    <td>Only include historic variable instances which belongs to one of the passed task ids.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include historic variable instances which belongs to one of the passed activity instance ids.</td>
   </tr>
 </table>
 
