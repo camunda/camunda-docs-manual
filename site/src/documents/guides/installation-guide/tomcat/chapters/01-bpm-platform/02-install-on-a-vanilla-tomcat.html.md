@@ -80,7 +80,7 @@ Furthermore you have to merge your corresponding JDBC driver into the folder `$T
 
 ## Add bpm-platform.xml
 
-You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf`:
+You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf` or optionally you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

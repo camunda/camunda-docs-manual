@@ -40,4 +40,5 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
 10. In **Steps 10-12**, go with the default settings.
 11. Click **"Finish"**.
 12. Save the configuration.
-13. Start the camunda-bpm-platform application. If this fails initially, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.
+13. (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
+14. Start the camunda-bpm-platform application. If this fails initially, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.

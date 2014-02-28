@@ -13,6 +13,7 @@ It is used to configure camunda BPM platform in the following distributions:
 *   [Apache Tomcat](ref:/guides/installation-guide/tomcat/#bpm-platform)
 *   [Glassfish Application Server](ref:/guides/installation-guide/glassfish/#bpm-platform)
 *   [IBM Websphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
+*   [Oracle WebLogic Application Server](ref:/guides/installation-guide/wls/#bpm-platform)
 
 <div class="alert alert-warning">
   <p>
@@ -85,3 +86,29 @@ The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/
     <td>See <a href="ref:#tags-process-engine-configuration">process-engine Reference</a></td>
   </tr>
 </table>
+
+
+## Configure location of the bpm-platform.xml file
+
+You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy upgrade path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
+
+This feature is available for:  
+
+*   [Apache Tomcat](ref:/guides/installation-guide/tomcat/#bpm-platform)
+*   [Glassfish Application Server](ref:/guides/installation-guide/glassfish/#bpm-platform)
+*   [IBM Websphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
+*   [Oracle WebLogic Application Server](ref:/guides/installation-guide/wls/#bpm-platform)
+
+It is not available for the JBoss AS 7 subsystem implementation, because it uses the JBoss specific `standalone.xml` to configure the platform.
+
+To specify the location you have to provide an absolute path or a http/https url pointing to the `bpm-platform.xml` file, e.g '/home/camunda/.camunda/bpm-platform.xml' or 'http://camunda.org/bpm-platform.xml'.
+
+During the startup of camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from following sources in the listed order:
+
+1. JNDI entry is available at `java:/comp/env/bpmPlatformXmlLocation`
+2. environment variable `BPM_PLATFORM_XML_LOCATION` is set
+3. system property `bpm.platform.xml.location` is set, e.g when starting the server JVM it is appended as `-Dbpm.platform.xml.location` on the command line
+4. `META-INF/bpm-platform.xml` exists on the classpath
+5. (For Tomcat only): checks if there is a `bpm-platform.xml` inside `${CATALINA_BASE} / ${CATALINA_HOME} + conf/`
+
+The discovery stops when one of the above mentioned sources is found or in case none is found, it falls back to the `bpm-platform.xml` on the classpath, respectively `${CATALINA_BASE} / ${CATALINA_HOME} + conf/` for Tomcat. We always ship a default `bpm-platform.xml` file inside the camunda-bpm-platform.ear. (except when you use the Tomcat or JBoss version of the platform).

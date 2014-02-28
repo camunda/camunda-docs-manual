@@ -122,7 +122,8 @@ The following steps are required to deploy the camunda BPM platform on a Glassfi
 1. Merge the shared libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` into `GLASSFISH_HOME/glassfish/lib` directory (i.e. copy the content into the Glassfish library directory).
 2. Copy the jobexecutor resource adapter `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor recource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot deployed succesfully without the resource adapter. If you try to deploy both compoments with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this we propose to startup the Glassfish to deploy initially the jobexecutor resource adapter. After a successful startup shutdown the Glassfish.
 3. Copy the artifact `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`.
-4. Startup the Glassfish.
-5. After a successful startup the camunda BPM platform is installed.
+4. (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
+5. Startup the Glassfish.
+6. After a successful startup the camunda BPM platform is installed.
 
 As next step you can install for example the [REST API](ref:#web-applications-install-the-rest-api-web-application) on Glassfish.

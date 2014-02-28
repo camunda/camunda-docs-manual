@@ -31,7 +31,7 @@ First, the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR fi
 
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
-
+9. (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
 
 ## Configure the deployment order
 
