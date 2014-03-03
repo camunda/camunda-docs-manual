@@ -15,7 +15,9 @@ By default, the JobExecutor is activated when the process engine boots. For unit
 
 Specify
 
-    <property name="jobExecutorActivate" value="false" />
+```xml
+<property name="jobExecutorActivate" value="false" />
+```
 
 in the process engine configuration when you don't want the JobExecutor to be activated upon booting the process engine.
 
@@ -27,7 +29,9 @@ Job acquisition is the process of retrieving jobs from the database that are to 
 
 Jobs are persisted to the database, in the `ACT_RU_JOB` table. This database table has the following columns (among others):
 
-    ID_ | REV_ | LOCK_EXP_TIME_ | LOCK_OWNER_ | RETRIES_ | DUEDATE_
+```
+ID_ | REV_ | LOCK_EXP_TIME_ | LOCK_OWNER_ | RETRIES_ | DUEDATE_
+```
 
 Job acquisition is concerned with polling this database table and locking jobs.
 
@@ -63,33 +67,37 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
-    <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
-      ...
-      <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
-        <extensionElements>
-          <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
-        </extensionElements>
-      </serviceTask>
-      ...
-    </definitions>
+```xml
+<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+  ...
+  <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
+    <extensionElements>
+      <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
+    </extensionElements>
+  </serviceTask>
+  ...
+</definitions>
+```
 
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
 Similarly, the following example defines three retries after 5 seconds each for a boundary timer event:
 
-    <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
-      ...
-      <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
-        <extensionElements>
-          <fox:failedJobRetryTimeCycle>R3/PT5S</fox:failedJobRetryTimeCycle>
-        </extensionElements>
-        <outgoing>SequenceFlow_3</outgoing>
-        <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
-          <timeDuration xsi:type="tFormalExpression" id="sid-772d5012-17c2-4ae4-a044-252006933a1a">PT10S</timeDuration>
-        </timerEventDefinition>
-      </boundaryEvent>
-      ...
-    </definitions>
+```xml
+<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+  ...
+  <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
+    <extensionElements>
+      <fox:failedJobRetryTimeCycle>R3/PT5S</fox:failedJobRetryTimeCycle>
+    </extensionElements>
+    <outgoing>SequenceFlow_3</outgoing>
+    <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
+      <timeDuration xsi:type="tFormalExpression" id="sid-772d5012-17c2-4ae4-a044-252006933a1a">PT10S</timeDuration>
+    </timerEventDefinition>
+  </boundaryEvent>
+  ...
+</definitions>
+```
 
 Recap: a retry may be required, if there are any failures during the transaction which follows the timer.
 
@@ -113,7 +121,9 @@ An exclusive job cannot be performed at the same time as another exclusive job f
 
 **Exclusive Jobs are the default configuration**. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using `camunda:exclusive="false"`. For example, the following service task would be asynchronous but non-exclusive.
 
-  <serviceTask id="service" camunda:expression="${myService.performBooking(hotel, dates)}" camunda:async="true" camunda:exclusive="false" />
+```xml
+<serviceTask id="service" camunda:expression="${myService.performBooking(hotel, dates)}" camunda:async="true" camunda:exclusive="false" />
+```
 
 Is this a good solution? We had some people asking whether it was. Their concern was that it would prevent you from *doing things in parallel* and would thus be a performance problem. Again, two things have to be taken into consideration:
 
@@ -139,10 +149,12 @@ Different job acquisitions can also be configured differently, e.g. to meet busi
 
 To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the `processes.xml` deployment descriptor of a process application or in the camunda BPM platform descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named `default`, which is created when the platform is bootstrapped.
 
-    <process-engine name="newEngine">
-      <job-acquisition>default</job-acquisition>
-      ...
-    </process-engine>
+```xml
+<process-engine name="newEngine">
+  <job-acquisition>default</job-acquisition>
+  ...
+</process-engine>
+```
 
 Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](ref:#runtime-container-integration).
 
@@ -162,13 +174,15 @@ A heterogeneous cluster setup as described above poses additional challenges to 
 
 To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware*, by the setting following property in the process engine configuration:
 
-    <process-engine name="default">
-      ...
-      <properties>
-        <property name="jobExecutorDeploymentAware">true</property>
-        ...
-      </properties>
-    </process-engine>
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    <property name="jobExecutorDeploymentAware">true</property>
+    ...
+  </properties>
+</process-engine>
+```
 
 Now, the job acquisition thread on node 1 will only pick up jobs that belong to deployments made on that node, which solves the problem. Digging a little deeper, the acquisition will only pick up those jobs that belong to deployments that were *registered* with the engines it serves. Every deployment gets automatically registered. Additionally, one can explicitly register and unregister single deployments with an engine by using the `ManagementService` methods `registerDeploymentForJobExecutor(deploymentId)` and `unregisterDeploymentForJobExecutor(deploymentId)`. It also offers a method `getRegisteredDeployments()` to inspect the currently registered deployments.
 
