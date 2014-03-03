@@ -46,6 +46,16 @@ There is an activity extension which allows you to specify an expression in your
 
 The due date of a task can also be altered using the TaskService or in TaskListeners using the passed DelegateTask.
 
+## Follow Up Date
+
+Each task has a field, indicating the follow up date of that task. The Query API can be used to query for tasks that are follow up on, before or after a certain date.
+
+There is an activity extension which allows you to specify an expression in your task-definition to set the initial follow up date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created. For example, you could use a date that was entered in a previous form in the process or calculated in a previous Service Task.
+
+```xml
+<userTask id="theTask" name="Important task" camunda:followUpDate="${dateVariable}"/>
+```
+
 ## User Assignment
 
 A user task can be directly assigned to a user. This is done by defining a humanPerformer sub element. Such a humanPerformer definition needs a resourceAssignmentExpression that actually defines the user. Currently, only formalExpressions are supported.
