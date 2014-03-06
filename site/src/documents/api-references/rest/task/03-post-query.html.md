@@ -11,7 +11,7 @@ keywords: 'post query list'
 Query for tasks that fulfill a given filter.
 This method is slightly more powerful than the [GET query](ref:#task-get-tasks), because it allows
 to filter by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)](ref:#task-get-tasks-post) method.
+The size of the result set can be retrieved by using [get tasks count (POST)](ref:#task-get-tasks-count-post) method.
 
 
 Method
