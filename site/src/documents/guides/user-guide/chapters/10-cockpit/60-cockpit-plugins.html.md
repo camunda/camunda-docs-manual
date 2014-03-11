@@ -79,3 +79,31 @@ As runtime relevant resources it defines
     </div>
   </div>
 </div>
+
+
+### Plugin exclusion (Client Side)
+
+You can exclude some plugins from the interface by adding a `cam-exclude-plugins`
+attribute to the HTML `base` tag of the page loading the interface.
+The content of the attribute is a comma separated list formatted like: `<plugin.key>:<feature.id>`.
+If the feature ID is not provided, the whole plugin will be excluded.
+
+#### Excluding a complete plugin
+
+This example will completely deactivate the action buttons on the right side of the process instance view.
+
+```html
+<base href="/"
+      cam-exclude-plugins="cockpit.processInstance.live.action" />
+```
+
+#### Excluding a plugin feature
+
+In this example, we deactivate the definition list in the cockpit dashboard
+but keep the diagram previews and disable the job retry action button:
+
+```html
+<base href="/"
+      cam-exclude-plugins="cockpit.dashboard:process-definition-tiles,
+                           cockpit.processInstance.live.action:job-retry-action" />
+```
