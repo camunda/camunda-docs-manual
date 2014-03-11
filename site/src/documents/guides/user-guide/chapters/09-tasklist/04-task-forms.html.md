@@ -364,7 +364,7 @@ The following parameters are supported:
     <tr>
       <td>optionsVarName</td>
       <td>
-        <p>Process variable providing the select options. Process variable can be of type <code>java.util.Map</code> or <code>java.util.List</code>. The process variable can be of type <code>java.util.Map</code> or <code>java.util.List</code>. In case of a Map, the keys in the map are used as values of the select option and the values in the map are used as labels.</p>
+        <p>Process variable providing the select options. The process variable can be of type <code>java.util.Map</code> or <code>java.util.List</code>. In case of a Map, the keys in the map are used as values of the select option and the values in the map are used as labels.</p>
       </td>
     </tr>
     <tr>
