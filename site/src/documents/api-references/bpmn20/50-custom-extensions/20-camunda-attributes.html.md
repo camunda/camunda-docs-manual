@@ -275,7 +275,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which Java class will be executed at runtitme. The stated class must implement a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java delegate</a> interface.
+      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java delegate</a> interface.
     </td>
   </tr>
   <tr>
