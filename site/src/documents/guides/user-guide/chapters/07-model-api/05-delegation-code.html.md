@@ -11,8 +11,8 @@ a BPMN model is accessed it will be cached to avoid redundant database queries.
 ## Java Delegate
 
 If your class implements the `org.camunda.bpm.engine.delegate.JavaDelegate` interface you can access the BPMN model instance
-and the current flow element. However a Java Delegate can only be added to a service task so the return flow element
-will always be a service task.
+and the current flow element. In the following example the `JavaDelegate` was added to a service task in the BPMN model.
+Therefore the returned flow element can be casted to a `ServiceTask`.
 
 ```java
 public class ExampleServiceTask implements JavaDelegate {

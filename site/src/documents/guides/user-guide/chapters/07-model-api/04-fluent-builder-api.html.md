@@ -6,7 +6,7 @@ category: 'BPMN model API'
 ---
 
 To create simple BPMN processes we provide a fluent builder API. With this API you can easily create basic
-processes in few lines of code. In the [generate invoice process][1] quickstart we demonstrate how to
+processes in few lines of code. In the [generate process fluent api][1] quickstart we demonstrate how to
 create a rather complex process with 5 tasks and 2 gateways within less then 50 lines of code.
 
 The fluent builder API is not nearly complete but provide you the following basic elements:
@@ -174,4 +174,4 @@ userTask.builder()
 ```
 
 
-[1]: https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-invoice-process
+[1]: https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api
