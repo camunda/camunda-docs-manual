@@ -19,6 +19,7 @@ The fluent builder API is not nearly complete but provide you the following basi
 * service task
 * user task
 * end event
+* subprocess
 
 ## Create a process with the fluent builder API
 
@@ -139,6 +140,41 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 
 This examples create an parallel gateway with a feedback loop in the second execution path.
 
+To create an embedded subprocess with the fluent builder you can directly add it to your
+process building or you could detach it and create flow elements of the subprocess later on.
+
+```java
+// Directly define the subprocess
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .subProcess()
+    .camundaAsync()
+    .embeddedSubProcess()
+      .startEvent()
+      .userTask()
+      .endEvent()
+    .subProcessDone()
+  .serviceTask()
+  .endEvent()
+  .done();
+
+// Detach the subprocess building
+modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .subProcess("subProcess")
+  .serviceTask()
+  .endEvent()
+  .done();
+
+SubProcess subProcess = (SubProcess) modelInstance.getModelElementById("subProcess");
+subProcess.builder()
+  .camundaAsync()
+  .embeddedSubProcess()
+    .startEvent()
+    .userTask()
+    .endEvent();
+```
+
 ## Extend a process with the fluent builder API
 
 With the fluent builder API you not only can create processes you can also extend existing processes.
@@ -172,6 +208,5 @@ userTask.builder()
   .userTask()
   .connectTo(serviceTask.getId());
 ```
-
 
 [1]: https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api
