@@ -36,7 +36,10 @@ Parameters
     <td>processInstanceBusinessKey</td>
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
-
+  <tr>
+    <td>processInstanceBusinessKeyLike</td>
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring.</td>
+  </tr> 
   <tr>
     <td>processDefinitionId</td>
     <td>Restrict to tasks that belong to a process definition with the given id.</td>
@@ -49,7 +52,10 @@ Parameters
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
   </tr>
-
+  <tr>
+    <td>processDefinitionNameLike</td>
+    <td>Restrict to tasks that have a process definition name that has the parameter value as a substring.</td>
+  </tr>
   <tr>
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
@@ -64,6 +70,10 @@ Parameters
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
   </tr>
+  <tr>
+    <td>assigneeLike</td>
+    <td>Restrict to tasks that have an assignee that has the parameter value as a substring.</td>
+  </tr> 
   <tr>
     <td>owner</td>
     <td>Restrict to tasks that the given user owns.</td>
