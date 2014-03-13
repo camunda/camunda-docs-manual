@@ -37,9 +37,15 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   Internet Explorer 9 / 10
 
   
-## Java Runtime
+## Java 
 
 *   Java 6 / 7
+
+
+## Java Runtime
+
+* Sun / Oracle Hot Spot 6 / 7
+* IBM® J9 virtual machine (JVM) 6 / 7
 
 
 ## Eclipse (for camunda modeler)
