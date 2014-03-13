@@ -8,7 +8,7 @@ category: 'CDI and Java EE Integration'
 
 The Process engine can be hooked-up to the CDI event-bus. We call this the "Cdi Event Bridge" This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded process engine, enable the corresponding parse listener in the configuration:
 
-    <property name="postBpmnParseHandlers">
+    <property name="postParseListeners">
       <list>
         <bean class="org.camunda.bpm.engine.cdi.impl.event.CdiEventSupportBpmnParseListener" />
       </list>
