@@ -37,6 +37,10 @@ Parameters
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKeyLike</td>
+    <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>  
+  <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
@@ -51,6 +55,14 @@ Parameters
   <tr>
     <td>processDefinitionKeyNotIn</td>
     <td>Exclude instances that belong to a set of process definitions. Must be a comma-separated list of process definition keys.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionName</td>
+    <td>Filter by the name of the process definition the instances run on.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionNameLike</td>
+    <td>Filter by process definition names that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>finished</td>
