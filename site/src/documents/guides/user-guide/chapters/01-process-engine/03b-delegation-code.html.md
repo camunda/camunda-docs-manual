@@ -277,7 +277,8 @@ A task listener supports following attributes:
 *   __event (required)__: the type of task event on which the task listener will be invoked. Possible events are:
     *    __create__: occurs when the task has been created an all task properties are set.
     *    __assignment__: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, first an assignment event will be fired, before the create event is fired. This might seem an unnatural order, but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task including the assignee.
-    *    __complete__: occurs when the task is completed and just before the task is deleted from the runtime data.</li>
+    *    __complete__: occurs when the task is completed and just before the task is deleted from the runtime data.
+    *    __delete__: occurs when the task is delete and just before the task is deleted from the runtime data.
 
 
 *   __class__: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.

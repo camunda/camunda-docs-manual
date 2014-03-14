@@ -860,7 +860,7 @@ The following attributes are extension elements for the <code>camunda</code> nam
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code> or <code>complete</code>
+      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code>, <code>complete</code> or <code>delete</code>
     </td>
   </tr>
   <tr>
