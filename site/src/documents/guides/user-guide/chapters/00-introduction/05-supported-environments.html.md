@@ -46,6 +46,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 
 * Sun / Oracle Hot Spot 6 / 7
 * IBM® J9 virtual machine (JVM) 6 / 7
+* Oracle JRockit 6 - R28.2.7
 
 
 ## Eclipse (for camunda modeler)
