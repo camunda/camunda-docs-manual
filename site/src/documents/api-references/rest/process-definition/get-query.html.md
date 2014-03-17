@@ -85,6 +85,22 @@ Parameters
     <td>Only include suspended process definitions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>incidentId</td>
+    <td>Filter by the incident id.</td>
+  </tr>
+  <tr>
+    <td>incidentType</td>
+    <td>Filter by the incident type.</td>
+  </tr>
+  <tr>
+    <td>incidentMessage</td>
+    <td>Filter by the incident message. Exact match.</td>
+  </tr>
+  <tr>
+    <td>incidentMessageLike</td>
+    <td>Filter by the incident message that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code> and <code>deploymentId</code>.

@@ -62,6 +62,22 @@ Parameters
     <td>Only include suspended process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>incidentId</td>
+    <td>Filter by the incident id.</td>
+  </tr>
+  <tr>
+    <td>incidentType</td>
+    <td>Filter by the incident type.</td>
+  </tr>
+  <tr>
+    <td>incidentMessage</td>
+    <td>Filter by the incident message. Exact match.</td>
+  </tr>
+  <tr>
+    <td>incidentMessageLike</td>
+    <td>Filter by the incident message that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
