@@ -45,7 +45,7 @@ Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User
   xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
   <f:metadata>
-    <f:event type="preRenderView" listener="#{camunda.taskForm.startTaskForm()}" />
+    <f:event type="preRenderView" listener="#{camundaTaskForm.startTaskForm()}" />
   </f:metadata>
   <title>Task Form: #{task.name}</title>
 </h:head>
@@ -53,18 +53,18 @@ Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User
   <h1>#{task.name}</h1>
   <h:form id="someForm">
     <p>Here you would see the actual form to work on the task in some design normally either matching you task list or your business application (or both in the best case).</p>
-    <h:commandButton id="submit_button" value="task completed" action="#{camunda.taskForm.completeTask()}" />
+    <h:commandButton id="submit_button" value="task completed" action="#{camundaTaskForm.completeTask()}" />
   </h:form>
 </h:body>
 </ui:composition>
 ```
 
-Note that you need `camunda-engine-cdi` in order to have the `camunda.taskForm` bean available.
+Note that you need `camunda-engine-cdi` in order to have the `camundaTaskForm` bean available.
 
 
 ## How does this work?
 
-If the user clicks on "work on task" in the tasklist, he will follow a link to this form, including the taskId and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean `camunda.taskForm` which
+If the user clicks on "work on task" in the tasklist, he will follow a link to this form, including the taskId and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean `camundaTaskForm` which
 
  *   starts a conversation,
  *   remembers the callback URL 
@@ -74,18 +74,18 @@ Therefor you just need this code block:
 
 ```xml
 <f:metadata>
-  <f:event type="preRenderView" listener="#{camunda.taskForm.startTaskForm()}" />
+  <f:event type="preRenderView" listener="#{camundaTaskForm.startTaskForm()}" />
 </f:metadata>
 ```
 
-Submit the form by calling the `camunda.taskForm` bean again which
+Submit the form by calling the `camundaTaskForm` bean again which
 
 *   completes the task in the process engine, causing the current token to advance in the process,
 *   ends the conversation,
 *   triggers a redirect to the callback URL of the tasklist.
 
 ```xml
-<h:commandButton id="submit_button" value="task completed" action="#{camunda.taskForm.completeTask()}" />
+<h:commandButton id="submit_button" value="task completed" action="#{camundaTaskForm.completeTask()}" />
 ```
 
 Note that the command button doesn't have to be contained on the same form, you might have a whole wizard containing multiple forms in a row before having the completeTask button. This will work because of the conversation running in the background.
@@ -106,7 +106,7 @@ In the forms you can access your own CDI beans as usual and also access the camu
       <td>Process variable <strong>y</strong> (added in this task form):</td><td><h:inputText value="#{processVariables['y']}" /></td>
     </tr>
     <tr>
-      <td></td><td><h:commandButton id="submit_button" value="task completed" action="#{camunda.taskForm.completeTask()}" /></td>
+      <td></td><td><h:commandButton id="submit_button" value="task completed" action="#{camundaTaskForm.completeTask()}" /></td>
     </tr>
   </table>
 </h:form>
@@ -129,13 +129,13 @@ The same mechanism can be used to start a new process instance.
  
 <h:head>
   <f:metadata>
-    <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByKeyForm()}" />
+    <f:event type="preRenderView" listener="#{camundaTaskForm.startProcessInstanceByKeyForm()}" />
   </f:metadata>
-  <title>Start Process: #{camunda.taskForm.processDefinition.name}</title>
+  <title>Start Process: #{camundaTaskForm.processDefinition.name}</title>
 </h:head>
 <h:body>
-  <h1>#{camunda.taskForm.processDefinition.name}</h1>
-  <p>Start a new process instance in version: #{camunda.taskForm.processDefinition.version}</p>
+  <h1>#{camundaTaskForm.processDefinition.name}</h1>
+  <p>Start a new process instance in version: #{camundaTaskForm.processDefinition.version}</p>
   <h:form id="someForm">
     <p>Here you see the actual form to start a new process instance, normally this would be in some design  either matching you task list or your business application (or both in the best case).</p>
     <table>
@@ -143,7 +143,7 @@ The same mechanism can be used to start a new process instance.
         <td>Process variable <strong>x</strong>:</td><td><h:inputText value="#{processVariables['x']}" /></td>
       </tr>
       <tr>
-        <td></td><td><h:commandButton id="submit_button" value="start process instance" action="#{camunda.taskForm.completeProcessInstanceForm()}" /></td>
+        <td></td><td><h:commandButton id="submit_button" value="start process instance" action="#{camundaTaskForm.completeProcessInstanceForm()}" /></td>
       </tr>
     </table>
   </h:form>
@@ -155,7 +155,7 @@ The same mechanism can be used to start a new process instance.
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/startFormExample.png" class="img-responsive"/>
 </center>
 
-If the user clicks on "Start Process" in the tasklist and chooses the process your start form is assigned to, he will follow a link to this form, including the processDefinitionKey and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean "camunda.taskForm" which
+If the user clicks on "Start Process" in the tasklist and chooses the process your start form is assigned to, he will follow a link to this form, including the processDefinitionKey and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean "camundaTaskForm" which
 
 *   starts a conversation,
 *   remembers the callback URL to the centralized tasklist.
@@ -164,7 +164,7 @@ You need this code block in your JSF page:
 
 ```xml
 <f:metadata>
-  <f:event type="preRenderView" listener="#{camunda.taskForm.startProcessInstanceByIdForm()}" />
+  <f:event type="preRenderView" listener="#{camundaTaskForm.startProcessInstanceByIdForm()}" />
 </f:metadata>
 ```
 
@@ -175,7 +175,7 @@ Submiting the start form now
  * triggers a redirect to the callback URL of the tasklist.
 
 ```xml
-<h:commandButton id="submit_button" value="start process instance" action="#{camunda.taskForm.completeProcessInstanceForm()}" />
+<h:commandButton id="submit_button" value="start process instance" action="#{camundaTaskForm.completeProcessInstanceForm()}" />
 ```
 
 Note that the command button doesn't have to be contained on the same form, you might have a whole wizard containing multiple forms in a row before having the completeProcessInstanceForm button. This will work because of the conversation running in the background.
