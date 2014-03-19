@@ -189,7 +189,7 @@ The following is a list with all supported configuration properties.
     <td>boolean</td>
     <td>
      <p>
-      The resource root of the proccess archive. This property is used when scanning for process definitions
+      The resource root of the process archive. This property is used when scanning for process definitions
       (if <code>isScanForProcessDefinitions</code> is set to true).</p>
 
       <p> The path is interpreted as
