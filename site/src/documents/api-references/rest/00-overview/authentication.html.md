@@ -36,7 +36,7 @@ The authentication provider is exchangeable. You can implement the interface `or
 Resteasy Specifics
 ------------------
 
-The authentication filter works fine whenever the JAX-RS application containing the REST API is deployed as a servlet. This is not neccessarily the case. One such case we are aware of is with some types of Resteasy deployments:
+The authentication filter works fine whenever the JAX-RS application containing the REST API is deployed as a servlet. This is not necessarily the case. One such case we are aware of is with some types of Resteasy deployments:
 
 Resteasy allows to deploy a JAX-RS application as a servlet filter (see the [Resteasy docs](http://docs.jboss.org/resteasy/docs/2.3.5.Final/userguide/html/Installation_Configuration.html#filter)). If you choose this method to deploy the REST API application, which we also do in the Tomcat distro, the authentication filter requires an extra init-param named `rest-url-pattern-prefix`. The value has to correspond to the servlet path (see [HttpServletRequest#getServletPath()](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html#getServletPath%28%29)) as in the case that the JAX-RS application are deployed as a servlet.
 

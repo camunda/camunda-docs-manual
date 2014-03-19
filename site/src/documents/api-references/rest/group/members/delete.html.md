@@ -8,7 +8,7 @@ keywords: 'delete'
 ---
 
 
-Removes a memeber from a group.
+Removes a member from a group.
 
 
 Method

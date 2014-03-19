@@ -114,7 +114,7 @@ Each job definition object has the following properties:
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs wicht will be created. For timer jobs it is for example the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created. For timer jobs it is for example the timer configuration.</td>
   </tr>
   <tr>
     <td>suspended</td>

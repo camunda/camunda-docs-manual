@@ -42,7 +42,7 @@ A json object with the following properties:
   <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
-    Has to be a json object containg key-value pairs that are matched against process instance variables during correlation.<br/>
+    Has to be a json object containing key-value pairs that are matched against process instance variables during correlation.<br/>
     Each key is a variable name and each value a json variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.
     
     <strong>Note:</strong> Process instance variables are the global variables of a process instance.

@@ -8,7 +8,7 @@ keywords: 'options'
 ---
 
 
-The `/user` resource supports two custom OPTIONS requests, one for the resource as such and one for individual user instances. The options request allows checking for the set of available operations that the currently authenticated user can perform on the `/user` resource. The fact whether the user can perform an operation may depend on various things, including the users authorizations to interact with this resource and the interal configuration of the process engine.
+The `/user` resource supports two custom OPTIONS requests, one for the resource as such and one for individual user instances. The options request allows checking for the set of available operations that the currently authenticated user can perform on the `/user` resource. The fact whether the user can perform an operation may depend on various things, including the users authorizations to interact with this resource and the internal configuration of the process engine.
 
 Method
 ------
@@ -20,7 +20,7 @@ OPTIONS `/user/{id}` for available interactions on resource instance
 Result
 ------
 
-A Json object with a single property named `links`, providing a list of resource links. Each link has the following properties
+A json object with a single property named `links`, providing a list of resource links. Each link has the following properties
 
 <table class="table table-striped">
   <tr>

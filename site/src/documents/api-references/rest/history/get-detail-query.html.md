@@ -112,7 +112,7 @@ Each historic detail object has the following properties:
   <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when this historic detail occured.Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when this historic detail occurred has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
 </table>
 

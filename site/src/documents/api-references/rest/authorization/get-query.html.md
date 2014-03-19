@@ -37,11 +37,11 @@ Parameters
   </tr>
   <tr>
     <td>userIdIn</td>
-    <td>Filter by a comma-seperated list of userIds</td>
+    <td>Filter by a comma-separated list of userIds</td>
   </tr>
   <tr>
     <td>groupIdIn</td>
-    <td>Filter by a comma-seperated list of groupIds</td>
+    <td>Filter by a comma-separated list of groupIds</td>
   </tr>
   <tr>
     <td>resourceType</td>

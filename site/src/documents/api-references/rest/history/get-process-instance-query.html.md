@@ -188,7 +188,7 @@ Each historic process instance object has the following properties:
   <tr>
     <td>deleteReason</td>
     <td>String</td>
-    <td>The provided delete reason in case the process instance was cancelled during execution.</td>
+    <td>The provided delete reason in case the process instance was canceled during execution.</td>
   </tr>
 </table>
 
