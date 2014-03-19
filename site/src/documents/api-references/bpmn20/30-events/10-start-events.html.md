@@ -38,7 +38,7 @@ A start event may be declared as asynchronous by `camunda:async="true"`
 
 This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead a job is created and asynchronously processed by the [job executor](ref:/guides/user-guide/#process-engine-the-job-executor) see [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations) for some background.
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

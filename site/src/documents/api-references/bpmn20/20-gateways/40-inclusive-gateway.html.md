@@ -79,7 +79,7 @@ When this task is completed, the second inclusive gateway will join the two exec
 
 Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flow for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flow and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

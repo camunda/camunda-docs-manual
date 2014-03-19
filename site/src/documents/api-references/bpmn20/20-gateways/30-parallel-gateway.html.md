@@ -78,7 +78,7 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
 
 <div data-bpmn-diagram="implement/parallel-gateway-unbalanced"></div>
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

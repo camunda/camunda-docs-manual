@@ -52,7 +52,7 @@ Execution execution = runtimeService.createExecutionQuery()
 runtimeService.signal(execution.getId());
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

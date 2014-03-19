@@ -13,7 +13,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 
 <div data-bpmn-diagram="implement/sequence-flow-parallel"></div>
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

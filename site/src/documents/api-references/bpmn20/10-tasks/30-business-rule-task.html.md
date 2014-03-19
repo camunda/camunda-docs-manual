@@ -17,7 +17,7 @@ You might use the rule engine of your choice, on the open source side we made go
 <businessRuleTask id="businessRuleTask" camunda:delegateExpression="${MyRuleServiceDelegate}" />
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

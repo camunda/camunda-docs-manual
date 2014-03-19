@@ -40,7 +40,7 @@ The XML representation of an exclusive gateway is straight-forward: one line def
 </sequenceFlow>
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

@@ -69,7 +69,7 @@ The return value of a script task can be assigned to an already existing or to a
 
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

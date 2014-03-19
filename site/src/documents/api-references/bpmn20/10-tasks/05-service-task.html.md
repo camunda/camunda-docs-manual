@@ -137,5 +137,4 @@ In the example above, the result of the service execution (the return value of t
 ## Additional Resources
 
 * [Tasks in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)
-* [Error Handling](https://app.camunda.com/confluence/display/foxUserGuide/Error+Handling)
 * [How to call Web Services from BPMN](http://www.bpm-guide.de/2010/12/09/how-to-call-a-webservice-from-bpmn/)

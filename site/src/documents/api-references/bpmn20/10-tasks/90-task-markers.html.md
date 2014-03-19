@@ -107,7 +107,7 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 In this example, there will be parallel instances created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -139,9 +139,9 @@ Here, all instances of the subprocess will be destroyed when the timer fires, re
 
 ## Loops
 
-The loop marker is not yet natively supported by the engine. For Multiple Instance the number of repitions is known in advance - which makes it a bad candidate for loops (anyway - since it defines a completion condition that may be already sufficient for some cases).
+The loop marker is not yet natively supported by the engine. For Multiple Instance the number of repetitions is known in advance - which makes it a bad candidate for loops (anyway - since it defines a completion condition that may be already sufficient for some cases).
 
-To get around this limitation the solution is to explicitely model the loop in your bpmn process:
+To get around this limitation the solution is to explicitly model the loop in your BPMN process:
 
 <div data-bpmn-diagram="implement/loop-alternative"></div>
 

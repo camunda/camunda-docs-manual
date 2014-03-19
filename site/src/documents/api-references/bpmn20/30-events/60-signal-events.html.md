@@ -46,7 +46,7 @@ A signal event definition is declared using the signalEventDefinition element. T
 </definitions>
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -69,7 +69,7 @@ __Note__: Contrary to other events like an error event, a signal is not consumed
 
 ## Throwing Signal Events via API
 
-A signal can either be thrown by a process instance using a bpmn construct or programmatically using java API. The following methods on the org.camunda.bpm.engine.RuntimeService can be used to throw a signal programmatically:
+A signal can either be thrown by a process instance using a BPMN construct or programmatically using java API. The following methods on the org.camunda.bpm.engine.RuntimeService can be used to throw a signal programmatically:
 
 ```java
 RuntimeService.signalEventReceived(String signalName);
@@ -153,7 +153,7 @@ An asynchronous signal event would look like this:
 
 <div data-bpmn-symbol="endevent/signal"></div>
 
-A signal end event throws a signal event for a defined signal and the current path of execution is ended. It has the same behaviour like a signal intermediate throwing event.
+A signal end event throws a signal event for a defined signal and the current path of execution is ended. It has the same behavior like a signal intermediate throwing event.
 
 ```xml
 <endEvent id="signal">

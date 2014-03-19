@@ -44,7 +44,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 </subProcess>
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

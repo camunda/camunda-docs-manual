@@ -188,7 +188,7 @@ public class FakeLdapService {
 }
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

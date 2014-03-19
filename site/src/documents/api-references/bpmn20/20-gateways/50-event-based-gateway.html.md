@@ -17,11 +17,11 @@ Note the sequence flows running out of an event-based Gateway are different from
     (Receive Tasks after an event-based Gateway are not yet supported by the engine.)
 *   An intermediateCatchEvent connected to an event-based Gateway must have a single incoming sequence flow.
 
-The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. In addition, the process instance subscribes to the alert signal event and created a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal occurs within 10 minutes, the timer is cancelled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is cancelled.
+The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. In addition, the process instance subscribes to the alert signal event and created a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal occurs within 10 minutes, the timer is canceled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is canceled.
 
 <div data-bpmn-diagram="implement/event-based-gateway"></div>
 
-The correspondig xml looks like this:
+The corresponding xml looks like this:
 
 ```xml
 <definitions>
@@ -61,7 +61,7 @@ The correspondig xml looks like this:
 </definitions>
 ```
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

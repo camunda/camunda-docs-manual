@@ -93,7 +93,7 @@ Note: a subprocess cannot have a timer start event.
 
 Note: start timer event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more starting of the process at the time of `startProcessInstanceBy...` Invocation.
 
-The XML representation of a timer start event is the normal start event declaration, with timer definition sub-element. The following ecample process will start 4 times, in 5 minute intervals, starting on 11th march 2011, 12:13:
+The XML representation of a timer start event is the normal start event declaration, with timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th march 2011, 12:13:
 
 
 ```xml

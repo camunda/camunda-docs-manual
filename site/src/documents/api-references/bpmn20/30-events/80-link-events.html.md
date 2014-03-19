@@ -9,7 +9,7 @@ keywords: 'link event definition'
 
 
 Link events are special cases - it has no special execution semantics but serves as a "GoTo" to another point
-in the same process model (to be precise: in the same sub process). Hence you can use two mathcing links as an 
+in the same process model (to be precise: in the same sub process). Hence you can use two matching links as an 
 alternative to a sequence flow as shown in the following example.
 
 <div data-bpmn-diagram="implement/event-link"></div>

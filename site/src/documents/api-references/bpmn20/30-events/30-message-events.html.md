@@ -89,7 +89,7 @@ ProcessInstance startProcessInstanceByMessage(String messageName, String busines
 
 These methods allow starting a process instance using the referenced message.
 
-If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the wating execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
+If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
 
 ```java
 void messageEventReceived(String messageName, String executionId);
@@ -135,7 +135,7 @@ When deploying a process definition with one or more message start events, the f
 
 * The name of the message start event must be unique across a given process definition. A process definition must not have multiple message start events with the same name. The engine throws an exception upon deployment of a process definition such that two or more message start events reference the same message of if two or more message start events reference messages with the same message name.
 * The name of the message start event must be unique across all deployed process definitions. The engine throws an exception upon deployment of a process definition such that one or more message start events reference a message with the same name as a message start event already deployed by a different process definition.
-* Process versioning: Upon deployment of a new version of a process definition, the message subscriptions of the previous version are cancelled. This is also true for message events that are not present in the new version.
+* Process versioning: Upon deployment of a new version of a process definition, the message subscriptions of the previous version are canceled. This is also true for message events that are not present in the new version.
 
 When starting a process instance, a message start event can be triggered using the following methods on the RuntimeService:
 
@@ -215,7 +215,7 @@ Boundary events are catching events that are attached to an activity. This means
 
 ### Message Intermediate Throwing Event
 
-Message intermediate throwing event sends a message to an external service. This event has the same behaviour as a [service task](ref:#tasks-service-task).
+Message intermediate throwing event sends a message to an external service. This event has the same behavior as a [service task](ref:#tasks-service-task).
 
 <div data-bpmn-diagram="implement/event-message-throwing" > </div>
 
@@ -228,7 +228,7 @@ Message intermediate throwing event sends a message to an external service. This
 
 ## Message End Event
 
-When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behaviour as a [service task](ref:#tasks-service-task).
+When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behavior as a [service task](ref:#tasks-service-task).
 
 ```xml
 <endEvent id="end">

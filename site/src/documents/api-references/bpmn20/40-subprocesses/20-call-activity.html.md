@@ -34,7 +34,7 @@ To call another version of the subprocess it is possible to define the attribute
 
 CalledElementBinding has three different values:
 
-*   latest: always call latest process definition version (the same behaviour without this attribute)
+*   latest: always call latest process definition version (the same behavior without this attribute)
 * 	deployment: if called process definition is part of the same deployment as the calling process definition use version from deployment
 *   version: call fix version of process definition, calledElementVersion is required
 
@@ -122,7 +122,7 @@ The XML looks as follows:
 
 There is nothing special to the process definition of the subprocess. It could as well be used without being called from another process.
 
-## Camunda Extensions
+## camunda Extensions
 
 <table class="table table-striped">
   <tr>

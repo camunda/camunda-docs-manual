@@ -18,7 +18,7 @@ The cancel end event can only be used in combination with a [transaction subproc
 
 ## Cancel Boundary Event
 
-An attached intermediate catching cancel on the boundary of a transaction subprocess, or boundary cancel event for short, is triggered when a transaction is cancelled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
+An attached intermediate catching cancel on the boundary of a transaction subprocess, or boundary cancel event for short, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
 
 <div data-bpmn-symbol="intermediatecatchevent/cancel"></div>
 
@@ -96,12 +96,12 @@ An attached intermediate catching compensation on the boundary of an activity or
 
 The compensation boundary event must reference a single compensation handler using a directed association.
 
-A compensation boundary event has a different activation policy from other boundary events. Other boundary events like for instance the signal boundary event are activated when the activity they are attached to is started. When the activity is left, they are deactivated and the corresponding event subscription is cancelled. The compensation boundary event is different. The compensation boundary is activated when the activity is attached to completes successfully. At this point, the corresponding subscription to compensation events is created. The subscription is removed either when a compensation event is triggered or when the corresponding process instance ends. From this, it follows:
+A compensation boundary event has a different activation policy from other boundary events. Other boundary events like for instance the signal boundary event are activated when the activity they are attached to is started. When the activity is left, they are deactivated and the corresponding event subscription is canceled. The compensation boundary event is different. The compensation boundary is activated when the activity is attached to completes successfully. At this point, the corresponding subscription to compensation events is created. The subscription is removed either when a compensation event is triggered or when the corresponding process instance ends. From this, it follows:
 
 *   When compensation is triggered, the compensation handler associated with the compensation boundary event is invoked the same number of times the activity it is attached to completed successfully.
 *   If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.
 *   If a compensation boundary event is attached to an activity which is contained inside a loop, a compensation event subscription is created for each time the activity is executed.
-*   If the process instance ends, the subscriptions to compensation events are cancelled.
+*   If the process instance ends, the subscriptions to compensation events are canceled.
 
 Note: the compensation boundary event is not supported on embedded subprocesses.
 
