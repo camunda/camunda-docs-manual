@@ -5,7 +5,7 @@ title: 'What is camunda web Modeler?'
 
 ---
 
-The camunda web Modeler is an OEM version of the Signavio Process Editor. It allows you to edit BPMN 2.0 process models with your web browser. In comparsion to the camunda Modeler it is targeted at less technical people, e.g. business analysts or requirements engineers. 
+The camunda web Modeler is an OEM version of the Signavio Process Editor. It allows you to edit BPMN 2.0 process models with your web browser. In comparison to the camunda Modeler it is targeted at less technical people, e.g. business analysts or requirements engineers. 
 
 The camunda web Modeler is stripped down to fulfill all necessary tasks in process automation projects and is perfectly aligned with the camunda BPM platform.
 

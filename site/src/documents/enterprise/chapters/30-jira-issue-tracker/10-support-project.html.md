@@ -77,7 +77,7 @@ To create a new support ticket follow the instructions below. To shorten the pro
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA support system</a> and select <code>Create Issue</code>. Select <code>Support</code> as project and choose the desired issue type. Give the ticket a meaningful <code>Summary</code>. You can give your ticket a <code>Priority</code> depending on how urgent the issue is for you. Provide us a date in terms of important <code>deadlines</code>. Enter a detailed <code>description</code> of your issue. In case of <b>Bug Reports</b> please use the template (<b>Reproduce steps</b>, <b>Problem</b>, <b>Expected behavior</b>, etc.). <code>Attachments</code> like screenshots, log files or bpmn files help us to find your bug faster. You can add <code>Authorized support contacts</code> if you want to share the tickets with your colleagues.
+      Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA support system</a> and select <code>Create Issue</code>. Select <code>Support</code> as project and choose the desired issue type. Give the ticket a meaningful <code>Summary</code>. You can give your ticket a <code>Priority</code> depending on how urgent the issue is for you. Provide us a date in terms of important <code>deadlines</code>. Enter a detailed <code>description</code> of your issue. In case of <b>Bug Reports</b> please use the template (<b>Reproduce steps</b>, <b>Problem</b>, <b>Expected behavior</b>, etc.). <code>Attachments</code> like screenshots, log files or BPMN files help us to find your bug faster. You can add <code>Authorized support contacts</code> if you want to share the tickets with your colleagues.
     </p>
   </div>
 </div>
@@ -94,7 +94,7 @@ JIRA tickets will be shared with all your support contacts automatically.
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      By clicking the watcher bubble you can see who is following the ticket. Here you can add or remove watchers. Please note you can only add users which are entitled camunda enterprise support contacts, otherwiese you will get an error message that the user with that email address is not found.
+      By clicking the watcher bubble you can see who is following the ticket. Here you can add or remove watchers. Please note you can only add users which are entitled camunda enterprise support contacts, otherwise you will get an error message that the user with that email address is not found.
     </p>
   </div>
 </div>    

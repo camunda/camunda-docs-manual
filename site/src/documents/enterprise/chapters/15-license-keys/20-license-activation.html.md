@@ -11,7 +11,7 @@ title: 'License Activation'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
       <p>Copy the license key string into the input box. The following message appears (screenshot on the left) when the license key is valid. Furthermore you get information about your Customer ID and the expiration date.</p>
-      <p>The Admin system setting menue offers the possibility to enter additional licenses, for instance when your existing license is running out and you want to enter a new license.</p>
+      <p>The Admin system setting menu offers the possibility to enter additional licenses, for instance when your existing license is running out and you want to enter a new license.</p>
       <p>The license key is stored in the database table `ACT_GE_PROPERTY` as *camunda-license-key*. Instead of using the UI input you can put the key directly in your data base.</p>
   </div>  
 </div>
