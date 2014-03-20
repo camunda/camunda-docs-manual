@@ -37,7 +37,7 @@ The distribution comes with a preconfigured H2 database used by Cycle.
 
 The H2 JDBC driver is located at `camunda-bpm-jboss-$PLATFORM_VERSION.zip/server/jboss-as-VERSION/modules/com/h2database/h2`.
 
-There is a pre-configured datasource named `java:jboss/datasources/CycleDS`.
+There is a preconfigured datasource named `java:jboss/datasources/CycleDS`.
 
 ### Exchange the database
 

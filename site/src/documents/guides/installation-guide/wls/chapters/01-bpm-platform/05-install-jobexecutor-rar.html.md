@@ -49,8 +49,8 @@ Example: Deployment order set to **"80"**.
 2. Now select the newly available **"Workload"** tab.
 3. Here, you should see a preconfigured JCA Work Manager named **"wm/camunda-bpm-workmanager"**. Click on it.
 4. Select for **"Minimum Threads Constraint"** the preconfigured **"camunda-bpm-workmanager-min-threads"** option. Per default, we configure 2 threads as a minimum. **At least 2 threads are required**, but you can increase them when you think you do alot of asynchronous work.
-5. Select for **"Maximum Threads Constraint"** the preconfigured **"camunda-bpm-workmanager-max-threads"** option. Per default, we configure 5 threads, but you can increase them when you think you do alot of asynchronous work.
-6. For the **"Stuck Thread Action"**, select **"Ignore stuck threads"**, because we have a long running daemon thread which aquires the jobs to execute. This forces WebLogic to skip the Stuck Thread Warning every ten minutes in the server log.
+5. Select for **"Maximum Threads Constraint"** the preconfigured **"camunda-bpm-workmanager-max-threads"** option. Per default, we configure 5 threads, but you can increase them when you think you do a lot of asynchronous work.
+6. For the **"Stuck Thread Action"**, select **"Ignore stuck threads"**, because we have a long running daemon thread which acquires the jobs to execute. This forces WebLogic to skip the Stuck Thread Warning every ten minutes in the server log.
 7. Click **"Save"** to persist your changes.  
 
 

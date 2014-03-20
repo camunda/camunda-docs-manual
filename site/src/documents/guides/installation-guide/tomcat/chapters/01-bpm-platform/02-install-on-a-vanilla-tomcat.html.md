@@ -7,7 +7,7 @@ category: 'BPM Platform'
 ---
 
 
-This section will describe how you can install the camunda BPM platform on a [vanilla Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless we recommand you to [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
+This section will describe how you can install the camunda BPM platform on a [vanilla Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless we recommend you to [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
 
 
 ## Create the database schema for camunda BPM platform

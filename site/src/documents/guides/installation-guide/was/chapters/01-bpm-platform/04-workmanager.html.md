@@ -94,7 +94,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   <tr>
     <td>Growable</td>
     <td>False</td>
-    <td>Specifies whether the number of threads in this work manager can be increased automaically when maximum number of threads is reached.The default value is true, but should be changed to "False"</td>
+    <td>Specifies whether the number of threads in this work manager can be increased automatically when maximum number of threads is reached.The default value is true, but should be changed to "False"</td>
   </tr>
   </tbody>
 </table>
