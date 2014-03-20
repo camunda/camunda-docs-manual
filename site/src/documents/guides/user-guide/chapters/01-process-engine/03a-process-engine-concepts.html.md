@@ -6,7 +6,7 @@ category: 'Process Engine'
 ---
 
 
-This section explains some core process engine concepts that are used in both the process engine API and the internal process engine implementation. Understanding these fundamentals makes it easyier to use the process engine API.
+This section explains some core process engine concepts that are used in both the process engine API and the internal process engine implementation. Understanding these fundamentals makes it easier to use the process engine API.
 
 
 ## Process Definitions
@@ -66,13 +66,13 @@ The process engine is responsible for creating process instances and managing th
 
 The simplest way to start a process instance is by using the `startProcessInstanceByKey(...)` method offered by the RuntimeService:
 
-    ProcessInstance instance = runtimeService.startProcessInstanceByKey("invoce");
+    ProcessInstance instance = runtimeService.startProcessInstanceByKey("invoice");
 
 You may optionally pass in a couple of variables:
 
     Map<String, Object> variables = new HashMap<String,Object>();
     variables.put("creditor", "Nice Pizza Inc.");
-    ProcessInstance instance = runtimeService.startProcessInstanceByKey("invoce", variables);
+    ProcessInstance instance = runtimeService.startProcessInstanceByKey("invoice", variables);
 
 Process variables are available to all tasks in a process instance and are automatically persisted to the database in case the process instance reaches a wait state.
 
@@ -177,7 +177,7 @@ Note: If you need to interpret the state of a process instance in terms of a BPM
 
 ## Jobs and Job Definitions
 
-The camunda process engine includes a component named the *Job Executor*. The Job Executor is scheduling component responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reached the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a duedate which is calculated using the timer expression provided in BPMN Xml.
+The camunda process engine includes a component named the *Job Executor*. The Job Executor is scheduling component responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reached the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a duedate which is calculated using the timer expression provided in BPMN XML.
 
 When a process is deployed, the process engine creates a Job Definition for each activity in the process which will create jobs at runtime. This allows you to query information about timers and asynchronous continuations in your processes.
 
@@ -202,7 +202,7 @@ managementService.createJobDefinitionQuery()
   .processDefinitionKey("orderProcess")
   .list()
 ```
-The result will contain information about all timers and asynchornous continuations in the order process.
+The result will contain information about all timers and asynchronous continuations in the order process.
 
 It is possible to query for jobs using the REST Api.
 

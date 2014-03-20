@@ -10,7 +10,7 @@ The Tasklist can work with different types of forms. To implement a Task Form in
 Out of the box, camunda Tasklist supports four different kinds of task forms:
 
 * [Embedded Task Forms](ref:#tasklist-task-forms-embedded-task-forms): HTML-based task forms displayed embedded inside the tasklist.
-* [Generated Task Forms](ref:#tasklist-task-forms-generated-task-forms): Like embedded task forms but generated from XML Metadata inside BPMN 2.0 Xml.
+* [Generated Task Forms](ref:#tasklist-task-forms-generated-task-forms): Like embedded task forms but generated from XML Metadata inside BPMN 2.0 XML.
 * [External Task Forms](ref:#tasklist-task-forms-external-task-forms): The user is directed to another application to complete the task.
 * [Generic Task Forms](ref:#tasklist-task-forms-generic-task-forms): If no task form exists, a generic form is displayed for editing the process variables.
 
@@ -50,7 +50,7 @@ To create an embedded task form read the section [Creating Embedded Task Forms](
 
 ## Generated Task Forms
 
-The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 Xml. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda allowing you to define form fields directly in BPMN 2.0 Xml:
+The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda allowing you to define form fields directly in BPMN 2.0 XML:
 
 ```xml
 <userTask id="usertask" name="Task">

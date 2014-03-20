@@ -20,7 +20,7 @@ camunda BPM can be used both as a standalone process engine server or embedded i
 * [Job Executor](ref:#process-engine-the-job-executor): the Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
 * **The Persistence Layer**: the process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
 
-__Required thrid-party libraries__
+__Required third-party libraries__
 
 The process engine depends on the following third party libraries:
 

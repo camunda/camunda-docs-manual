@@ -99,6 +99,11 @@ A json array of variable instance objects. Each variable instance object has the
     <th>Description</th>
   </tr>
   <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the variable instance.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>String</td>
     <td>The name of the variable instance.</td>
@@ -171,6 +176,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
 
     [
       {
+        "id": "someId",
         "name": "amount",
         "type": "integer",
         "value": 5,
@@ -180,6 +186,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726"
       },
       {
+        "id": "someOtherId",
         "name": "amount",
         "type": "integer",
         "value": 15,
@@ -189,6 +196,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726"
       },
       {
+        "id": "yetAnotherId",
         "name": "amount",
         "type": "integer",
         "value": 150,

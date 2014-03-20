@@ -15,7 +15,7 @@ After you have <a href="ref:/guides/installation-guide/camunda-modeler/">install
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      This view provides a hierachical view of the resources in your workspace. Projects and files are displayed here. To open the Project Explorer click <code>Window / Show View / Other... / General / Project Explorer</code>. In the Project Explorer you can add, delete and rename files. Furthermore you can copy files from or to the explorer.
+      This view provides a hierarchical view of the resources in your workspace. Projects and files are displayed here. To open the Project Explorer click <code>Window / Show View / Other... / General / Project Explorer</code>. In the Project Explorer you can add, delete and rename files. Furthermore you can copy files from or to the explorer.
     </p>
   </div>
 </div>

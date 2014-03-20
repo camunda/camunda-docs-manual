@@ -40,10 +40,10 @@ category: 'camunda Modeler'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
-       Now you can start to create a BPMN 2.0 model. Add the desired elements from the palette on the right hand side via drag and drop to the diagram canvas. Alternatively you can add new elements by using the context menu that appears when you hover over an element in the diagram. The type of an element can easily be changed by the morph function in the context menue.  
+       Now you can start to create a BPMN 2.0 model. Add the desired elements from the palette on the right hand side via drag and drop to the diagram canvas. Alternatively you can add new elements by using the context menu that appears when you hover over an element in the diagram. The type of an element can easily be changed by the morph function in the context menu.  
      </p>
      <p>
-       In the properties panel you get information about the element specifc attributes grouped in different tabs. Select the desired element and start to edit the properties.
+       In the properties panel you get information about the element specific attributes grouped in different tabs. Select the desired element and start to edit the properties.
      </p>
   </div>
 </div>
