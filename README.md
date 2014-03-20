@@ -34,6 +34,8 @@ Writing documentation
 
 Whenever possible, documentation should be written in [Markdown](http://daringfireball.net/projects/markdown/)
 
+Please use US English and perform a spell check before committing.
+
 Some special notes on how to write it (view the source of this document for the actual markdown source code): 
 
 
