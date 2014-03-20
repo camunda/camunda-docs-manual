@@ -61,7 +61,7 @@ This time we are completing the user task, generating an invoice and then send t
 
 Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is managed by the [job executor](ref:#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
 
-So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queueing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
+So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queuing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
 
     <serviceTask id="service1" name="Generate Invoice" camunda:class="my.custom.Delegate" camunda:async="true" />
 
@@ -83,13 +83,13 @@ The above sketched solution normally leads to discussion as people expect the pr
 
  * In Testcases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
  * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the Tutorial "UI Mediator".
- * The execution is plain Java computing which is very efficient and performant.
+ * The execution is plain Java computing which is very efficient in terms of performance.
  * You can always switch to 'async=true' if you need different behavior.
 
 But there are consequences which you should keep in mind:
 
  * In case of Exceptions the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client.
- * Parallel process paths are not executed parallelly in terms of Java Threads, the different paths are executed sequentially, since we only have and use one Thread.
+ * Parallel process paths are not executed in parallel in terms of Java Threads, the different paths are executed sequentially, since we only have and use one Thread.
  * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. But in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
 
 <img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/NotWorkingTimerOnServiceTimeout.png"/>

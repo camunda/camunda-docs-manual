@@ -16,7 +16,7 @@ This is supported by the process engine:
 * New process instances will run in the new version - unless specified explicitly. 
 * Support for migrating process instances to new a version is supported within certain limits. 
 
-So you can see different version in the process definition table and the process instaces are linked to this:
+So you can see different version in the process definition table and the process instances are linked to this:
 
 <center><img src="ref:asset:/assets/img/implementation-java/versioning.png" class="img-responsive"/></center>
 

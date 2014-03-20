@@ -16,7 +16,7 @@ In the following you will learn how to use an administrator account by the help 
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-users.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>The Users administration menue allows you to add, edit and delete user profiles.</p>
+    <p>The Users administration menu allows you to add, edit and delete user profiles.</p>
     <p>Login with your admin account and add two new users. Give them an unique ID and a password you can remember.</p>
   </div>
 </div>
@@ -28,8 +28,8 @@ In the following you will learn how to use an administrator account by the help 
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-groups.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>The Groups administration menue allows you to add, edit and delete user groups.</p>
-    <p>Create a new group called <em>support</em> and add the new users to the group. Therefore go back to the Users menue and edit the new accounts. In the menue Groups you can add the user to the support group.</p>
+    <p>The Groups administration menu allows you to add, edit and delete user groups.</p>
+    <p>Create a new group called <em>support</em> and add the new users to the group. Therefore go back to the Users menu and edit the new accounts. In the menu Groups you can add the user to the support group.</p>
   </div>
 </div>
 
@@ -46,7 +46,7 @@ In the following you will learn how to use an administrator account by the help 
 
 ### Application Access
 
-Set the authorizations for the new group and the created users. First you have to define to which application the members of your new group have access to. Select the _Application_ menue and create a new `Application Authorization` rule. The group members should be able to access Tasklist, so add the following rule:
+Set the authorizations for the new group and the created users. First you have to define to which application the members of your new group have access to. Select the _Application_ menu and create a new `Application Authorization` rule. The group members should be able to access Tasklist, so add the following rule:
 
 <center><img class="img-responsive" src="ref:asset:/assets/img/implementation-admin/admin-authorization-application-new-group.png" /></center>
 
@@ -69,7 +69,7 @@ This specific rule is valid for the user lemmy only and provides him additional 
 
 ### Member Visibility
 
-Depending on the users authorization [Tasklist](ref:#tasklist) will show you information about your colleagues and groups. Currently you can only see the group folder support but not your colleague. To change that login to the admin application as administrator, enter the Users Authorization menue and create the following rules:
+Depending on the users authorization [Tasklist](ref:#tasklist) will show you information about your colleagues and groups. Currently you can only see the group folder support but not your colleague. To change that login to the admin application as administrator, enter the Users Authorization menu and create the following rules:
 
 <center><img class="img-responsive" src="ref:asset:/assets/img/implementation-admin/admin-authorization-users.png" /></center>
 

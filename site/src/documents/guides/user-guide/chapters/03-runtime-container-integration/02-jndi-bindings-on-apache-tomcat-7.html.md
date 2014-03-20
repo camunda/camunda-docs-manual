@@ -19,7 +19,7 @@ To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have t
 </Context>
 ```
 
-These elements are used to create a link to the global JNDI Resources definied in `$CATALINA_HOME/conf/server.xml`.
+These elements are used to create a link to the global JNDI Resources defined in `$CATALINA_HOME/conf/server.xml`.
 
 Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.xml` deployment descriptor.
 
@@ -41,7 +41,7 @@ Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.
 </web-app>
 ```
 
-**Note**: You can choose different resource link names for the Process Engine Service and Process Application Service. The resource link name has to match with the value inside the `<res-ref-name>`-element inside the correspondig `<resource-ref>`-element in `WEB-INF/web.xml`. We propose the name `ProcessEngineService` for the Process Engine Service and `ProcessApplicationService` for the Process Application Service.
+**Note**: You can choose different resource link names for the Process Engine Service and Process Application Service. The resource link name has to match with the value inside the `<res-ref-name>`-element inside the corresponding `<resource-ref>`-element in `WEB-INF/web.xml`. We propose the name `ProcessEngineService` for the Process Engine Service and `ProcessApplicationService` for the Process Application Service.
 
 In order to do a lookup for a Bpm Platform Service you have to use the resource link name to get the linked global resource. For example:
 

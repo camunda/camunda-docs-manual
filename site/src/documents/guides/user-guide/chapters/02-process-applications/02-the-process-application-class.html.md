@@ -5,7 +5,7 @@ category: 'Process Applications'
 
 ---
 
-You can deleagte the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.camunda.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
+You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.camunda.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
 
 * **ServletProcessApplication**: To be used for Process Applications is a Servlet Container like Apache Tomcat.
 * **EjbProcessApplication**: To be used in a Java EE application server like JBoss, Glassfish or WebSphere Application Server.
@@ -75,7 +75,7 @@ In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Ser
 
 ### Using the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss
 
-You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates form your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Deleagte implementations form your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
+You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates form your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations form your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
 
   * using CDI beans and EJBs as JavaDelegate Implementations in combination with the Job Executor,
   * using @RequestScoped CDI Beans with the Job Executor,
@@ -116,7 +116,7 @@ The most convenient option for deploying a process application to an Ejb Contain
       <version>${camunda.version}</version>
     </dependency>
 
-The camunda-ejb-client contains a reusable default implemenation of the EjbProcessApplicaiton as a Singleton Session Bean with auto-activation.
+The camunda-ejb-client contains a reusable default implementation of the EjbProcessApplicaiton as a Singleton Session Bean with auto-activation.
 
 This deployment option requires that your project is a composite deployment (such as a WAR or EAR) deployment since you need to add a library JAR file. You could of course use something like the maven shade plugin for adding the class contained in the camunda-ejb-client artifact to a JAR-based deployment.
 

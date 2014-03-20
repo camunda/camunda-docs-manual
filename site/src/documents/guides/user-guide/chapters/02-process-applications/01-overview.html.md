@@ -5,7 +5,7 @@ category: 'Process Applications'
 
 ---
 
-A Process Application is an ordinary Java Application that uses the camunda process engine for BPM and Worklow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionaly into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootrap and configure the provided services.
+A Process Application is an ordinary Java Application that uses the camunda process engine for BPM and Worklow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionality into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootstrap and configure the provided services.
 
 Adding a `ProcessApplication` class to your Java Application provides your applications with the following services:
 
@@ -21,6 +21,6 @@ Transforming an existing Java Application into a Process Application is easy and
 <div class="alert alert-info">
   <p>
     <strong>Heads-up!</strong>
-    You might want to checkout the <a href="http://www.camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explaines the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which give you a complete running process application out of the box.
+    You might want to checkout the <a href="http://www.camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explains the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which give you a complete running process application out of the box.
   </p>
 </div>

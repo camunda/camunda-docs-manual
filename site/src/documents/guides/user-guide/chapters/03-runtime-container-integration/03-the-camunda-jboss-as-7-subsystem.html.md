@@ -248,7 +248,7 @@ The JConsole plugin allows you to inspect the management model graphically and b
 When using the camunda BPM JBoss AS subsystem, the process engine classes are deployed as jboss module. The module is named
 `org.camunda.bpm.process-engine` and is deployed in the folder `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine`.
 
-By default, the Application server will not add this module to the classpath of applicaitons.If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.
+By default, the Application server will not add this module to the classpath of applications.If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.
 
 ### Implicit module dependencies with the Process Application API
 
