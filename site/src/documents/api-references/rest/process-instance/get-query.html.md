@@ -143,7 +143,10 @@ Each process instance object has the following properties:
   <tr>
     <td>ended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the process instance has ended.</td>
+    <td>
+      A flag indicating whether the process instance has ended.
+      <em>Deprecated: will always be false!</em>
+    </td>
   </tr>
   <tr>
     <td>suspended</td>
