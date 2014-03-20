@@ -26,7 +26,7 @@ to
 </dependency>
 ```
 
-Make sure that you have the camunda Maven Repostory set correctly:
+Make sure that you have the camunda Maven Repository set correctly:
 
 ```xml
 <repository>

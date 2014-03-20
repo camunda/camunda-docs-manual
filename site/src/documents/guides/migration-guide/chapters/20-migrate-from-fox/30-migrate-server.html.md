@@ -220,7 +220,7 @@ to
   * `fox-cycle-glassfish-$FOX_VERSION`
   * `fox-platform-jobexecutor-rar`
   * `fox-tasklist-$FOX_VERSION`
-* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor recource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot deployed succesfully without the resource adapter. If you try to deploy both compoments with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this we propose to startup the Glassfish to deploy initially the jobexecutor resource adapter. After a successful startup shutdown the Glassfish.
+* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor recourse adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this we propose to startup the Glassfish to deploy initially the jobexecutor resource adapter. After a successful startup shutdown the Glassfish.
 * Copy the artifact `$DISTRIBUTION_PATH/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` into `$FOX_HOME/glassfish/domains/<domain>/autodeploy`.
 * After a successful startup the camunda BPM platform is installed.
 
@@ -228,7 +228,7 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 
 ### Replace the camunda fox webapps with camunda BPM webapps (GlassFish)
 
-* The camunda fox webapps has been already deleted in the previous steps. So you can additionally cleanup the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artificats:
+* The camunda fox webapps has been already deleted in the previous steps. So you can additionally cleanup the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artifacts:
   * `fox-cockpit-glassfish-$FOX_VERSION.war`
   * `fox-cycle-glassfish-$FOX_VERSION.war`
   * `fox-tasklist-$FOX_VERSION.war`
@@ -256,10 +256,10 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 * Navigate to `Resources / Asynchronous Beans / Work Managers`
 * Delete the `camunda-fox-platform-jobexecutor-WM` work manager
 * Navigate to `Resources / JDBC / Datasources`
-* Select the definied data sources for the fox engine
+* Select the defined data sources for the fox engine
 * Change the JNDI-Name from `jdbc/FoxEngine` to `jdbc/ProcessEngine`
 * Shutdown the IBM WebSphere Application Server
-* Open the folder `$FOX_HOME/lib/ext/` and delete the following artificats:
+* Open the folder `$FOX_HOME/lib/ext/` and delete the following artifacts:
   * `fox-engine-$FOX_VERSION.jar`
   * `fox-platform-api-$FOX_VERSION.jar`
 * Now you are able to install camunda BPM 7.0, therefore you have to look in the [installation guide](ref:/guides/installation-guide/was/) and follow the instructions.
