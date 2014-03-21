@@ -23,7 +23,7 @@ There is an individual SQL script for each supported database. Select the script
 
 ## Add BPM Bootstrap Server Listener
 
-Add the `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener`. This class is responsible for starting / stopping the camunda BPM platform as Tomcat is started / stopped.
+Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener` in your `$TOMCAT_HOME/conf/server.xml`. This class is responsible for starting / stopping the camunda BPM platform as Tomcat is started / stopped.
 
 ```xml
 <Server port="8005" shutdown="SHUTDOWN">
