@@ -26,10 +26,9 @@ It is represented using XML in the same way as a an embedded subprocess. In addi
 </subProcess>      
 ```
 
-<div class="alert alert-warning">
-  <strong>Current limitations:</strong>
+<div class="alert alert-info">
   <ul>
-    <li>Only Event subprocess triggered using an Error Start Event, Signal Start Event or Message Start Event are supported.</li>
+    <li>Event subprocess triggered using an Error Start Event, Signal Start Event, Timer Start Event and Message Start Event are supported.</li>
   </ul>
 </div>
 
