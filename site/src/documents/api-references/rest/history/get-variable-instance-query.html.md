@@ -106,8 +106,8 @@ Each historic activity instance object has the following properties:
   </tr>
   <tr>
     <td>value</td>
-    <td>String</td>
-    <td>The value of the variable instance.</td>
+    <td>String/Number/Boolean/Object</td>
+    <td>Object serialization uses <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -119,11 +119,15 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
   </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
+  </tr>
 </table>
 
-
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -143,17 +147,18 @@ Response codes
   </tr>
 </table>
 
-
 Example
 -------
 
 #### Request
 
 GET `/history/variable-instance?variableName=my_variable`
-  
+
 #### Response
 
-    [{"name": "my_variable",
-    "type": "String",
-    "value": "my_value",
-    "processInstanceId": "aVariableInstanceProcInstId"}]
+    [{"id": "someId"
+      "name": "my_variable",
+      "type": "String",
+      "value": "my_value",
+      "processInstanceId": "aVariableInstanceProcInstId",
+      "errorMessage": null}]
