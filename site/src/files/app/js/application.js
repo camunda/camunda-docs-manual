@@ -3,8 +3,8 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 (function ($) {
-/* global bpmn: false, drawBpmnSymbol: false, console: false */
-/* jshint unused: false */
+/* global bpmn: false, drawBpmnSymbol: false */
+
 'use strict';
   $(function() {
 
@@ -18,6 +18,14 @@
         _winHeight;
 
 
+    // function setRefs() {
+    //   /* jshint validthis: true */
+    //   var $img = $(this);
+    //   var src = $img.attr('src');
+    //   var newSrc = (src || '')
+    //                 .replace('ref:asset:', '');
+    //   $img.attr('src', newSrc);
+    // }
 
 
     function scrollToNavSection() {
@@ -36,10 +44,62 @@
       }
     }
 
+    function substringMatcher(objs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substringRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(objs, function(i, obj) {
+          if (substringRegex.test(obj.label)) {
+            // the typeahead jQuery plugin expects suggestions to a
+            // JavaScript object, refer to typeahead docs for more info
+            matches.push(obj);
+          }
+        });
+
+        cb(matches);
+      };
+    }
+
     // refresh scrollspy on load
     $window.on('load', function () {
       $body.scrollspy('refresh');
+    });
+
+    $(document).ready(function() {
       setNavHeight();
+      // $('[src^="ref:asset:"]').each(setRefs);
+      var sideNavLabels = [];
+      $('a', $sideNav).each(function() {
+        sideNavLabels.push({
+          label: $(this).text(),
+          hash: $(this).attr('href')
+        });
+      });
+
+      var $searchInput = $('.docs-sidenav.search input');
+
+      $searchInput.typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        displayKey: 'label',
+        source: substringMatcher(sideNavLabels)
+      });
+
+      $searchInput.on('typeahead:selected', function(ev, obj) {
+        window.location.hash = obj.hash;
+        $searchInput.val('');
+      });
     });
 
     // refresh scrollspy on resize
@@ -147,9 +207,7 @@
      * from bootstrap scrollspy, and append the active sections
      * to the breadcrumb.
      */
-    $(document).on('activate', function (e) {
-      console.info('activating', e.target);
-
+    $(document).on('activate', function () {
       var categoryElement = $('.nav.docs-sidenav > li.active'),
           category = categoryElement.find('> a'),
           categoryLabel = category.text(),

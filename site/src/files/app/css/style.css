@@ -446,6 +446,20 @@ pre.console {
   font-size: 90%;
 }
 
+/*
+*/
+.tt-dropdown-menu {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 4px #aaa;
+}
+.tt-cursor {
+  background-color: #eee;
+}
+.tt-suggestion {
+  padding: 0 10px;
+}
+
 /* Show and affix the side nav when space allows it */
 @media screen and (min-width: 992px) {
   .docs-sidebar .nav > .active > ul {

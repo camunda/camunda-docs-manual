@@ -68,6 +68,7 @@ module.exports = {
         "assets/vendor/bootstrap/js/bootstrap.min.js",
 
         "assets/vendor/jquery/scrollTo/jquery.scrollTo.js",
+        "assets/vendor/jquery/typeahead/typeahead.jquery.js",
 
         "app/js/application.js",
 
