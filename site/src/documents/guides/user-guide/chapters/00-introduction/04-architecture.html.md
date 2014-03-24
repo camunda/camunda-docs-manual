@@ -8,7 +8,7 @@ category: 'Introduction'
 
 camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why camunda BPM also provides a REST API which allows to build applications connecting to a remote process engine.
 
-camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on third-party libraries as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model](ref:#process-engine-transactions-in-processes).
+camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries](ref:#introduction-third-party-libraries) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model](ref:#process-engine-transactions-in-processes).
 
 
 ## Process Engine Architecture
@@ -22,11 +22,7 @@ camunda BPM can be used both as a standalone process engine server or embedded i
 
 __Required third-party libraries__
 
-The process engine depends on the following third party libraries:
-
-*   [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) for object-relational mapping.
-*   [Joda Time](http://www.joda.org/joda-time/) for parsing date formats.
-*   [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome) Id Generator. See documentation on Id-Generators.
+See section on [third-party libraries](ref:#introduction-third-party-libraries).
 
 
 ## camunda BPM platform architecture
