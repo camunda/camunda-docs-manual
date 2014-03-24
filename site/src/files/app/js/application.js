@@ -2,35 +2,60 @@
 // IT'S ALL JUST JUNK FOR OUR DOCS!
 // ++++++++++++++++++++++++++++++++++++++++++
 
-!function ($) {
-
+(function ($) {
+/* global bpmn: false, drawBpmnSymbol: false, console: false */
+/* jshint unused: false */
+'use strict';
   $(function() {
 
     var running = 0;
 
     var $window = $(window),
         $body = $(document.body),
+        $sideNav = $('.docs-sidenav.nav').css('overflow', 'auto'),
         path = window.location.pathname,
-        base = $("base").attr('app-base');
+        base = $('base').attr('app-base'),
+        _winHeight;
+
+
+
+
+    function scrollToNavSection() {
+      var $target = $('li.active', $sideNav);
+      $sideNav.scrollTo($target, window._navScrollSpeed || 0, {offset: {left: 0, top: -10}});
+    }
+
+    function setNavHeight() {
+      var winHeight = parseInt($window.height(), 10);
+      if (_winHeight !== winHeight) {
+        _winHeight = winHeight;
+        var sideNavTop = $sideNav.position().top;
+        var available = winHeight - (sideNavTop + 100);
+        $sideNav.css('max-height', available +'px');
+        scrollToNavSection();
+      }
+    }
 
     // refresh scrollspy on load
     $window.on('load', function () {
       $body.scrollspy('refresh');
+      setNavHeight();
     });
 
     // refresh scrollspy on resize
     $window.resize(function() {
       $body.scrollspy('refresh');
       $body.scrollspy('process');
-    });        
+      setNavHeight();
+    });
 
     $('[data-bpmn-diagram]').each(function() {
       var e = $(this),
           name = e.attr('data-bpmn-diagram'),
-          uri = base + "assets/bpmn/" + name;
-      
+          uri = base + 'assets/bpmn/' + name;
+
       e.addClass('bpmn-diagram-container');
-      
+
       bpmn(uri, e);
     });
 
@@ -61,7 +86,7 @@
       var parent = element.parent();
 
       parent.appendTo(container);
-      
+
       container.append(
         '<div class="link-img-thumb-enlarge">' +
         '  <a data-toggle="modal" href="' + selector + '">' +
@@ -87,7 +112,7 @@
     /*
      * Append a anchor to be able to get a link to current section.
      */
-    $("h1[id], h2[id], h3[id], h4[id]").each(function() {
+    $('h1[id], h2[id], h3[id], h4[id]').each(function() {
       var current = $(this),
           id = current.attr('id');
 
@@ -117,13 +142,13 @@
 
     });
 
-
     /*
      * Listen to the event 'activate', which will be triggered
      * from bootstrap scrollspy, and append the active sections
-     * to the breadcrumb. 
+     * to the breadcrumb.
      */
     $(document).on('activate', function (e) {
+      console.info('activating', e.target);
 
       var categoryElement = $('.nav.docs-sidenav > li.active'),
           category = categoryElement.find('> a'),
@@ -137,6 +162,8 @@
 
           breadcrumb = $('.breadcrumb');
 
+      scrollToNavSection();
+
       // if there does not exist a breadcrumb, then do nothing
       if (!breadcrumb) {
         return;
@@ -147,15 +174,15 @@
 
       if (categoryElement.length) {
         breadcrumb.append(
-          '<li class="breadcrumb-section">' + 
-          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' + 
+          '<li class="breadcrumb-section">' +
+          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' +
           '</li>'
         );
 
         if (sectionElement.length) {
           breadcrumb.append(
-            '<li class="breadcrumb-section">' + 
-            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' + 
+            '<li class="breadcrumb-section">' +
+            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' +
             '</li>'
           );
         }
@@ -164,4 +191,4 @@
 
 });
 
-}(window.jQuery)
+}(window.jQuery));

@@ -67,7 +67,10 @@ module.exports = {
 
         "assets/vendor/bootstrap/js/bootstrap.min.js",
 
+        "assets/vendor/jquery/scrollTo/jquery.scrollTo.js",
+
         "app/js/application.js",
+
 
         // not important, load last
         "assets/vendor/analytics/analytics.js"
@@ -91,8 +94,8 @@ module.exports = {
     /**
      * Returns a description for a document part.
      *
-     *   { 
-     *     name: 'partName', 
+     *   {
+     *     name: 'partName',
      *     categories: [ { name: 'someName', pages: [ .. ] } ],
      *     categoriesByName: { 'someName': { name: 'someName', pages: [ .. ] } }
      *   }
@@ -312,7 +315,7 @@ module.exports = {
 
   // render multiple times
   renderPasses: 2,
-  
+
   // disable prompts
   prompts: false,
   // Locale Code
