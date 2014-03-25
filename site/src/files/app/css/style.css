@@ -446,12 +446,24 @@ pre.console {
   font-size: 90%;
 }
 
+
+
+
+/* Search suggestions */
+.twitter-typeahead {
+  display: block !important;
+}
 /*
+.input-group .twitter-typeahead .form-control:not(:first-child) {
+  border-radius: 4px 0 0 4px;
+}
 */
+
 .tt-dropdown-menu {
   background-color: #fff;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 0 4px #aaa;
+  width: 100%;
 }
 .tt-cursor {
   background-color: #eee;
@@ -459,6 +471,9 @@ pre.console {
 .tt-suggestion {
   padding: 0 10px;
 }
+
+
+
 
 /* Show and affix the side nav when space allows it */
 @media screen and (min-width: 992px) {
