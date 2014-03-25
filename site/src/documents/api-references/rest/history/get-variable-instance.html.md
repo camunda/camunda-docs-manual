@@ -1,20 +1,20 @@
 ---
 
-title: "Get a single variable"
-category: 'Variable'
+title: "Get Single Variable Instance"
+category: 'History'
 
 keywords: 'get'
 
 ---
 
 
-Retrieves a single variable by id.
+Retrieves a single historic variable by id.
 
 
 Method
 ------
 
-GET `/variable-instance/{id}`
+GET `/history/variable-instance/{id}`
 
 
 Parameters
@@ -58,7 +58,7 @@ A user object with the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The simple class name of the variable instance.</td>
+    <td>The type of the variable instance.</td>
   </tr>
   <tr>
     <td>value</td>
@@ -68,23 +68,13 @@ A user object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>String</td>
-    <td>The id of the process instance that this variable instance belongs to.</td>
-  </tr>
-  <tr>
-    <td>executionId</td>
-    <td>String</td>
-    <td>The id of the execution that this variable instance belongs to.</td>
-  </tr>
-  <tr>
-    <td>taskId</td>
-    <td>String</td>
-    <td>The id of the task that this variable instance belongs to.</td>
+    <td>The id the process instance belongs to.</td>
   </tr>
   <tr>
     <td>activityInstanceId</td>
     <td>String</td>
-    <td>The id of the activity instance that this variable instance belongs to.</td>
-  </tr>  
+    <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
   <tr>
     <td>errorMessage</td>
     <td>String</td>
@@ -118,7 +108,7 @@ Example
 
 #### Request
 
-GET `/variable-instance/someId`
+GET `/history/variable-instance/someId`
   
 #### Response
 
@@ -130,8 +120,6 @@ Status 200.
       "type": "integer",
       "value": 5,
       "processInstanceId": "aProcessInstanceId",
-      "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
-      "taskId": null,
       "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
       "errorMessage": null
     }

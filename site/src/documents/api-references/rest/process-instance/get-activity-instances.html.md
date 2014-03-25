@@ -58,6 +58,11 @@ The properties of an activity instance are as follows:
     <td>The id of activity.</td>
   </tr>
   <tr>
+    <td>activityType</td>
+    <td>String</td>
+    <td>The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g. 'userTask').</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id of the process instance this activity instance is part of.</td>
@@ -161,6 +166,7 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
               "id": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
               "parentActivityInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
               "activityId": "SubProcess_1",
+              "activityType": "subProcess",
               "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
               "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
               "childActivityInstances": [],

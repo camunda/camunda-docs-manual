@@ -144,6 +144,11 @@ Depending on the concrete instance of the historic detail it contains further pr
     <td>number</td>
     <td>The revision of the historic variable update.</td>
   </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
+  </tr>
 </table>
 
 In case of an <code>HistoricFormField</code> the following properties are also provided:
@@ -207,7 +212,8 @@ GET `/history/detail?processInstanceId=aProcInstId`
         "variableName": "myProcessVariable",
         "variableTypeName": "String",
         "value": "aVariableValue",
-        "revision": 1
+        "revision": 1,
+        "errorMessage": null
       },
       {
         "id": "12345",

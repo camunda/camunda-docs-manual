@@ -2,35 +2,120 @@
 // IT'S ALL JUST JUNK FOR OUR DOCS!
 // ++++++++++++++++++++++++++++++++++++++++++
 
-!function ($) {
+(function ($) {
+/* global bpmn: false, drawBpmnSymbol: false */
 
+'use strict';
   $(function() {
 
     var running = 0;
 
     var $window = $(window),
         $body = $(document.body),
+        $sideNav = $('.docs-sidenav.nav').css('overflow', 'auto'),
         path = window.location.pathname,
-        base = $("base").attr('app-base');
+        base = $('base').attr('app-base'),
+        _winHeight;
+
+
+    // function setRefs() {
+    //   /* jshint validthis: true */
+    //   var $img = $(this);
+    //   var src = $img.attr('src');
+    //   var newSrc = (src || '')
+    //                 .replace('ref:asset:', '');
+    //   $img.attr('src', newSrc);
+    // }
+
+
+    function scrollToNavSection() {
+      var $target = $('li.active', $sideNav);
+      $sideNav.scrollTo($target, window._navScrollSpeed || 0, {offset: {left: 0, top: -10}});
+    }
+
+    function setNavHeight() {
+      var winHeight = parseInt($window.height(), 10);
+      if (_winHeight !== winHeight) {
+        _winHeight = winHeight;
+        var sideNavTop = $sideNav.position().top;
+        var available = winHeight - (sideNavTop + 100);
+        $sideNav.css('max-height', available +'px');
+        scrollToNavSection();
+      }
+    }
+
+    function substringMatcher(objs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substringRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(objs, function(i, obj) {
+          if (substringRegex.test(obj.label)) {
+            // the typeahead jQuery plugin expects suggestions to a
+            // JavaScript object, refer to typeahead docs for more info
+            matches.push(obj);
+          }
+        });
+
+        cb(matches);
+      };
+    }
 
     // refresh scrollspy on load
     $window.on('load', function () {
       $body.scrollspy('refresh');
     });
 
+    $(document).ready(function() {
+      setNavHeight();
+      // $('[src^="ref:asset:"]').each(setRefs);
+      var sideNavLabels = [];
+      $('a', $sideNav).each(function() {
+        sideNavLabels.push({
+          label: $(this).text(),
+          hash: $(this).attr('href')
+        });
+      });
+
+      var $searchInput = $('.docs-sidenav.search input');
+
+      $searchInput.typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        displayKey: 'label',
+        source: substringMatcher(sideNavLabels)
+      });
+
+      $searchInput.on('typeahead:selected', function(ev, obj) {
+        window.location.hash = obj.hash;
+        $searchInput.val('');
+      });
+    });
+
     // refresh scrollspy on resize
     $window.resize(function() {
       $body.scrollspy('refresh');
       $body.scrollspy('process');
-    });        
+      setNavHeight();
+    });
 
     $('[data-bpmn-diagram]').each(function() {
       var e = $(this),
           name = e.attr('data-bpmn-diagram'),
-          uri = base + "assets/bpmn/" + name;
-      
+          uri = base + 'assets/bpmn/' + name;
+
       e.addClass('bpmn-diagram-container');
-      
+
       bpmn(uri, e);
     });
 
@@ -61,7 +146,7 @@
       var parent = element.parent();
 
       parent.appendTo(container);
-      
+
       container.append(
         '<div class="link-img-thumb-enlarge">' +
         '  <a data-toggle="modal" href="' + selector + '">' +
@@ -87,7 +172,7 @@
     /*
      * Append a anchor to be able to get a link to current section.
      */
-    $("h1[id], h2[id], h3[id], h4[id]").each(function() {
+    $('h1[id], h2[id], h3[id], h4[id]').each(function() {
       var current = $(this),
           id = current.attr('id');
 
@@ -117,45 +202,46 @@
 
     });
 
-
     /*
      * Listen to the event 'activate', which will be triggered
      * from bootstrap scrollspy, and append the active sections
-     * to the breadcrumb. 
+     * to the breadcrumb.
      */
-    $(document).on('activate', function (e) {
+    $(document).on('activate', function () {
+      scrollToNavSection();
 
-      var categoryElement = $('.nav.docs-sidenav > li.active'),
-          category = categoryElement.find('> a'),
-          categoryLabel = category.text(),
-          categoryHref = category.attr('href'),
 
-          sectionElement = categoryElement.find('> ul > li.active'),
-          section = sectionElement.find('> a'),
-          sectionLabel = section.text(),
-          sectionHref = section.attr('href'),
-
-          breadcrumb = $('.breadcrumb');
-
+      var $breadcrumb = $('.breadcrumb');
       // if there does not exist a breadcrumb, then do nothing
-      if (!breadcrumb) {
+      if (!$breadcrumb.length) {
         return;
       }
 
-      // remove all breadcrumb with the class 'breadcrumb-section'
-      breadcrumb.find('> li.breadcrumb-section').remove();
 
-      if (categoryElement.length) {
-        breadcrumb.append(
-          '<li class="breadcrumb-section">' + 
-          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' + 
+      var $categoryElement = $('.nav.docs-sidenav > li.active'),
+          $category = $categoryElement.find('> a'),
+          categoryLabel = $category.text(),
+          categoryHref = $category.attr('href'),
+
+          $sectionElement = $categoryElement.find('> ul > li.active'),
+          $section = $sectionElement.find('> a'),
+          sectionLabel = $section.text(),
+          sectionHref = $section.attr('href');
+
+      // remove all breadcrumb with the class 'breadcrumb-section'
+      $breadcrumb.find('> li.breadcrumb-section').remove();
+
+      if ($categoryElement.length) {
+        $breadcrumb.append(
+          '<li class="breadcrumb-section">' +
+          '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' +
           '</li>'
         );
 
-        if (sectionElement.length) {
-          breadcrumb.append(
-            '<li class="breadcrumb-section">' + 
-            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' + 
+        if ($sectionElement.length) {
+          $breadcrumb.append(
+            '<li class="breadcrumb-section">' +
+            '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' +
             '</li>'
           );
         }
@@ -164,4 +250,4 @@
 
 });
 
-}(window.jQuery)
+}(window.jQuery));
