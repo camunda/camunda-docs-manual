@@ -6,7 +6,7 @@
   <section id="<%= @linkify(category.name) %>">
   <% for page, j in category.pages: %>
     <h2 class="h1"><%= page.title %></h2>
-    <section id="<%= @linkify(category.name, page.title) %>">
+    <section id="<%= @linkify(page.title) %>">
       <%- @include(page.relativeBase + '.html') %>
     </section>
   <% end %>
