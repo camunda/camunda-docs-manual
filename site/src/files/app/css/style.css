@@ -613,12 +613,13 @@ code {
   display: inline;
 }
 
+/*
 @media screen and (min-width: 992px) {
-
   .breadcrumb > li.breadcrumb-section {
     display: none;
   }
 }
+*/
 
 .jumbotron {
   background-color: #f9f9f9;

@@ -208,37 +208,38 @@
      * to the breadcrumb.
      */
     $(document).on('activate', function () {
-      var categoryElement = $('.nav.docs-sidenav > li.active'),
-          category = categoryElement.find('> a'),
-          categoryLabel = category.text(),
-          categoryHref = category.attr('href'),
-
-          sectionElement = categoryElement.find('> ul > li.active'),
-          section = sectionElement.find('> a'),
-          sectionLabel = section.text(),
-          sectionHref = section.attr('href'),
-
-          breadcrumb = $('.breadcrumb');
-
       scrollToNavSection();
 
+
+      var $breadcrumb = $('.breadcrumb');
       // if there does not exist a breadcrumb, then do nothing
-      if (!breadcrumb) {
+      if (!$breadcrumb.length) {
         return;
       }
 
-      // remove all breadcrumb with the class 'breadcrumb-section'
-      breadcrumb.find('> li.breadcrumb-section').remove();
 
-      if (categoryElement.length) {
-        breadcrumb.append(
+      var $categoryElement = $('.nav.docs-sidenav > li.active'),
+          $category = $categoryElement.find('> a'),
+          categoryLabel = $category.text(),
+          categoryHref = $category.attr('href'),
+
+          $sectionElement = $categoryElement.find('> ul > li.active'),
+          $section = $sectionElement.find('> a'),
+          sectionLabel = $section.text(),
+          sectionHref = $section.attr('href');
+
+      // remove all breadcrumb with the class 'breadcrumb-section'
+      $breadcrumb.find('> li.breadcrumb-section').remove();
+
+      if ($categoryElement.length) {
+        $breadcrumb.append(
           '<li class="breadcrumb-section">' +
           '  <a href="' + categoryHref + '">' + categoryLabel + '</a>' +
           '</li>'
         );
 
-        if (sectionElement.length) {
-          breadcrumb.append(
+        if ($sectionElement.length) {
+          $breadcrumb.append(
             '<li class="breadcrumb-section">' +
             '  <a href="' + sectionHref + '">' + sectionLabel + '</a>' +
             '</li>'
