@@ -38,24 +38,12 @@ Required steps
         Set<Class<?>> classes = new HashSet<Class<?>>();
         // add your own classes 
         ...
-        // add camunda engine rest classes that you need
-        classes.add(org.camunda.bpm.engine.rest.impl.ProcessEngineRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.ProcessDefinitionRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.ProcessInstanceRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.TaskRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.IdentityRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.MessageRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.JobRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.ExecutionRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.VariableInstanceRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.UserRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.GroupRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.AuthorizationRestServiceImpl.class);
-        classes.add(org.camunda.bpm.engine.rest.impl.history.HistoryRestServiceImpl.class);
+        // add all camunda engine rest resources (Or just add those that you actually need).
+        classes.addAll(CamundaRestResources.getResourceClasses());
+
         // mandatory
-        classes.add(org.camunda.bpm.engine.rest.mapper.JacksonConfigurator.class);
-        classes.add(org.camunda.bpm.engine.rest.exception.RestExceptionHandler.class);
-        classes.add(org.camunda.bpm.engine.rest.exception.ProcessEngineExceptionHandler.class);
+        classes.addAll(CamundaRestResources.getConfigurationClasses());
+        
         return classes;
       }
     }
