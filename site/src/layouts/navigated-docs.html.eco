@@ -43,11 +43,3 @@ layout: 'default'
   </div>
   <%- @partial('part-contents', @, { part: part }) %>
 </div>
-
-<% if @document.searchable: %>
-
-<script type="text/javascript">
-<%- @partial('navigated-docs.js', @, { part: part }) %>
-</script>
-
-<% end %>
