@@ -1,7 +1,7 @@
 ---
 
 title: 'Contextual Programming Model'
-category: 'CDI and Java EE Integration'
+category: 'Cdi and Java EE Integration'
 
 ---
 

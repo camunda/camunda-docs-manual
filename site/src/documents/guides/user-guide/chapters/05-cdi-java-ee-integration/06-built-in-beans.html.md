@@ -1,7 +1,7 @@
 ---
 
 title: 'Built-In Beans'
-category: 'CDI and Java EE Integration'
+category: 'Cdi and Java EE Integration'
 
 ---
 
