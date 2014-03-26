@@ -372,23 +372,41 @@ public void testExecutionListenerFieldInjection() {
 
   // Result is a concatenation of fixed injected field and injected expression
   assertEquals("Yes, I am listening!", varSetByListener);
-}```
+}
+```
 
 
+## Accessing process engine services
 
+It is possible to access the public API services (`RuntimeService`, `TaskService`, `RepositoryService` ...) from delegation code. The following is an example showing
+how to access the `TaskService` from a `JavaDelegate` implementation.
 
+```java
+public class DelegateExample implements JavaDelegate {
+
+  public void execute(DelegateExecution execution) throws Exception {
+    TaskService taskService = execution.getProcessEngineServices().taskService();
+    taskService.createTaskQuery()...;
+  }
+
+}
+```
 
 
 ## Throwing BPMN Errors from Delegation Code
 
 In the above example the error event is attached to a Service Task. In order to get this to work the Service Task has to throw the corresponding error. This is done by using a provided Java exception class from within your Java code (e.g. in the JavaDelegate):
 
-    public class BookOutGoodsDelegate implements JavaDelegate {
-      public void execute(DelegateExecution execution) throws Exception {
-        try {
-            ...
-        } catch (NotOnStockException ex) {
-            throw new BpmnError(NOT_ON_STOCK_ERROR);
-        }
-      }
+```java
+public class BookOutGoodsDelegate implements JavaDelegate {
+
+  public void execute(DelegateExecution execution) throws Exception {
+    try {
+        ...
+    } catch (NotOnStockException ex) {
+        throw new BpmnError(NOT_ON_STOCK_ERROR);
     }
+  }
+
+}
+```
