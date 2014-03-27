@@ -206,6 +206,17 @@ The following built-in validators are supported out of the box:
         </p>
       </td>
     </tr>
+    <tr>
+      <td>readonly</td>
+      <td>
+        <p>Applicable to all type. Makes sure no input is submitted for given form field.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;readonly&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 

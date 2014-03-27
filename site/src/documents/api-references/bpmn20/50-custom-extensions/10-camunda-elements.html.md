@@ -34,7 +34,7 @@ The following attributes are extension elements for the <code>camunda</code> nam
     <th>Constraints</th>
     <td colspan="2">
       The <code>name</code> attribute must be one of the known validators (<code>required</code>, <code>minlength</code>,
-      <code>maxlength</code>, <code>min</code>, <code>max</code> or <code>validator</code>)
+      <code>maxlength</code>, <code>min</code>, <code>max</code>, <code>readonly</code> or <code>validator</code>)
     </td>
   </tr>
   <tr>
