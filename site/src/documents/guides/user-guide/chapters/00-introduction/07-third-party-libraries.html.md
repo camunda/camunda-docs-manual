@@ -55,11 +55,16 @@ The Spring support depends on the following third-party libraries:
 The camunda Webapp (Cockpit, Tasklist, Admin) depends on the following third-party libraries:
 
 - [AngularJS](http://angularjs.org/) [(MIT)][mit]
+- [AngularUI](http://angular-ui.github.io/) [(MIT)][mit]
 - [Better DOM](http://chemerisuk.github.io/better-dom/) [(MIT)][mit]
 - [Better Placeholder Polyfill](https://github.com/chemerisuk/better-placeholder-polyfill) [(MIT)][mit]
 - [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) [(Apache License 2.0)][apache]
+- [Bootstrap Slider](http://www.eyecon.ro/bootstrap-slider) [(Apache License 2.0)][apache]
 - [Dojo](http://dojotoolkit.org/) [(Academic Free License 2.1)][dojo]
 - [jQuery](http://jquery.com/) [(MIT)][mit]
+- [jQuery Mousewheel](https://github.com/brandonaaron/jquery-mousewheel) [(MIT)][mit]
+- [jQuery Overscroll Fixed](https://github.com/azoff/overscroll) [(MIT)][mit]
+- [jQuery UI](https://jqueryui.com/) [(MIT)][mit]
 - [RequireJS](http://requirejs.org/) [(MIT)][mit]
 
 ## camunda Cycle
