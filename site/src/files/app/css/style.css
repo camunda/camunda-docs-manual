@@ -661,6 +661,10 @@ code {
 */
 .overview-page h2 {
   padding-top: 50px;
+  margin: 0;
+}
+.overview-page h2 .anchor {
+  display: none;
 }
 
 .panel h2 {
