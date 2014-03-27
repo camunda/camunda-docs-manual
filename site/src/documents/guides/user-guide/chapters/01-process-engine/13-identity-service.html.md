@@ -43,6 +43,7 @@ In order to use the LDAP identity service, the `camunda-identity-ldap.jar` libra
       <version>${camunda.version}</version>
     </dependency>
 
+### Activating the LDAP Plugin
 
 The following is an example of how to configure the LDAP Identity Provider Plugin using Spring XML:
 
@@ -127,6 +128,8 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
     The LDAP Identity Provider Plugin is usually used in combination with the <a href="ref:#process-engine-authorization-service-the-administrator-authorization-plugin">Administrator Authorization Plugin</a> which allows you to grant administrator authorizations for a particular LDAP User / Group.
   </p>
 </div>
+
+### Configuration Properties of the LDAP Plugin
 
 The LDAP Identity Provider provides the following configuration properties:
 

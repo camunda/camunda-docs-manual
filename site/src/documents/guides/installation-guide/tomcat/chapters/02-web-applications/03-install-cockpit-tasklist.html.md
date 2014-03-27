@@ -10,7 +10,7 @@ See above, how to [install the pre-built distro](ref:#bpm-platform-install-the-p
 
 **Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
 
-The following steps are required to deploy the applications on a JBoss instance:
+The following steps are required to deploy the applications on a Tomcat instance:
 
 1. Download the camunda web application that contains both applications from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
