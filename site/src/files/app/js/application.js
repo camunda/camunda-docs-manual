@@ -38,7 +38,7 @@
       if (_winHeight !== winHeight) {
         _winHeight = winHeight;
         var sideNavTop = $sideNav.position().top;
-        var available = winHeight - (sideNavTop + 100);
+        var available = winHeight - (sideNavTop + 100 + 50);
         $sideNav.css('max-height', available +'px');
         scrollToNavSection();
       }
@@ -97,8 +97,10 @@
       });
 
       $searchInput.on('typeahead:selected', function(ev, obj) {
+        // go to the thing
         window.location.hash = obj.hash;
-        $searchInput.val('');
+        // clear the field
+        $searchInput.typeahead('val', '');
       });
     });
 
