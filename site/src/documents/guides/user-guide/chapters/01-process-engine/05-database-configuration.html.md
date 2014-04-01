@@ -67,16 +67,6 @@ Here are some sample JDBC urls:
 * db2: jdbc:db2://localhost:50000/camunda
 * mssql: jdbc:sqlserver://localhost:1433/camunda
 
-## Database Table Names Explained
-
-The table names all start with ACT. The second part is a two-character identification of the use case of the table. This use case will also roughly match the service API.
-
-* ACT\_RE\_*: 'RE' stands for repository. Tables with this prefix contain 'static' information such as process definitions and process resources (images, rules, etc.).
-* ACT\_RU\_*: 'RU' stands for runtime. These are the runtime tables, that contain the runtime data of process instances, user tasks, variables, jobs, etc. The engine only stores the runtime data during process instance execution, and removes the records when a process instance ends. This keeps the runtime tables small and fast.
-* ACT\_ID\_*: 'ID' stands for identity. These tables contain identity information, such as users, groups, etc.
-* ACT\_HI\_*: 'HI' stands for history. These are the tables that contain historic data, such as past process instances, variables, tasks, etc.
-* ACT\_GE\_*: general data, which is used in various use cases.
-
 ## Additional database schema configuration
 
 ### Business Key
@@ -90,7 +80,7 @@ If you rely on the constraint, you can add it manually to your schema by issuing
     alter table ACT_RU_EXECUTION add UNI_BUSINESS_KEY varchar (255) not null generated always as (case when "BUSINESS_KEY_" is null then "ID_" else "BUSINESS_KEY_" end);
     alter table ACT_RU_EXECUTION add UNI_PROC_DEF_ID varchar (64) not null generated always as (case when "PROC_DEF_ID_" is null then "ID_" else "PROC_DEF_ID_" end);
     create unique index ACT_UNIQ_RU_BUS_KEY on ACT_RU_EXECUTION(UNI_PROC_DEF_ID, UNI_BUSINESS_KEY);
-    
+
     History:
     alter table ACT_HI_PROCINST add UNI_BUSINESS_KEY varchar (255) not null generated always as (case when "BUSINESS_KEY_" is null then "ID_" else "BUSINESS_KEY_" end);
     alter table ACT_HI_PROCINST add UNI_PROC_DEF_ID varchar (64) not null generated always as (case when "PROC_DEF_ID_" is null then "ID_" else "PROC_DEF_ID_" end);
@@ -136,6 +126,6 @@ If you rely on the constraint, you can add it manually to your schema by issuing
 
     Runtime:
     alter table ACT_RU_EXECUTION add constraint ACT_UNIQ_RU_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
-    
+
     History:
     alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
