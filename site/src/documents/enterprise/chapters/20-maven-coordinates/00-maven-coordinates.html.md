@@ -15,7 +15,7 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine</artifactId>
-  <version>7.0.1-ee</version>
+  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -26,7 +26,7 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine-spring</artifactId>
-  <version>7.0.1-ee</version>
+  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -37,7 +37,7 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine-cdi</artifactId>
-  <version>7.0.1-ee</version>
+  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -48,7 +48,7 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm.javaee</groupId>
   <artifactId>camunda-ejb-client</artifactId>
-  <version>7.0.1-ee</version>
+  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
