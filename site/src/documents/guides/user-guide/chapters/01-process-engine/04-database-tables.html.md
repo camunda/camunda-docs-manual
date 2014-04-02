@@ -17,7 +17,7 @@ match the service API.
 * `ACT_GE_*`: general data, which is used in various use cases.
 
 The main tables of the process engines are the entities of process definitions, executions, tasks, variables and
-event subscriptions. Their relationship is show in the following ER model.
+event subscriptions. Their relationship is show in the following UML model.
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/database-scheme.png"/></center>
 
