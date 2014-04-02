@@ -1,11 +1,11 @@
 ---
 
-title: 'Database Scheme'
+title: 'Database Schema'
 category: 'Process Engine'
 
 ---
 
-The database scheme of the process engine consists of multiple tables.
+The database schema of the process engine consists of multiple tables.
 The table names all start with ACT. The second part is a two-character
 identification of the use case of the table. This use case will also roughly
 match the service API.
@@ -19,7 +19,7 @@ match the service API.
 The main tables of the process engines are the entities of process definitions, executions, tasks, variables and
 event subscriptions. Their relationship is show in the following UML model.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/database-scheme.png"/></center>
+<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/database-schema.png"/></center>
 
 ### Process Definitions (`ACT_RE_PROCDEF`)
 
