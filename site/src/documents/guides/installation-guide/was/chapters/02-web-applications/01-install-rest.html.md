@@ -8,9 +8,9 @@ category: 'Web Applications'
 
 The camunda REST API WAR file resides under <code>webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war</code> in the WAS distribution archive.
 
-In the following we explain how to install the WAR file using the Websphere enterprise application Wizard provided inside the Websphere Integrated Solutions Console:
+In the following we explain how to install the WAR file using the WebSphere enterprise application Wizard provided inside the WebSphere Integrated Solutions Console:
 
-1.  Open the Websphere Integrated Solutions Console.
+1.  Open the WebSphere Integrated Solutions Console.
 2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications Page.
 3.  Click the **Install** Button
 4.  The first page of the Wizard opens. Using the File Browser, select the <code>camunda-engine-rest-VERSION-was.war</code> file from the distribution and upload it.

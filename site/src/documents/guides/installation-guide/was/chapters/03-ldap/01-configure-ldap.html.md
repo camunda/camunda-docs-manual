@@ -5,7 +5,7 @@ category: 'LDAP Configuration'
 
 ---
 
-In order to setup LDAP for the websphere distribution, you have to perform the following steps:
+In order to setup LDAP for the WebSphere distribution, you have to perform the following steps:
 
 <strong>1. Add LDAP Library</strong>
 

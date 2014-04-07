@@ -24,7 +24,7 @@ We recommend to create a separate database or database schema for camunda Cycle.
 
 ## Create a datasource
 
-Now you must define a datasource in IBM Websphere Application Server. We assume here that you are familiar with the procedure. If in doubt, check the appropriate sections in the manual of your application server.
+Now you must define a datasource in IBM WebSphere Application Server. We assume here that you are familiar with the procedure. If in doubt, check the appropriate sections in the manual of your application server.
 
 <div class="alert alert-info">
   <p><strong>Note</strong></p>
@@ -43,9 +43,9 @@ Cycle-was-VERSION.war/WEB-INF/classes/META-INF/cycle-persistence.xml
 
 The camunda Cycle WAR file resides under <code>webapps/cycle-was-$PLATFORM_VERSION.war</code> in the WAS distribution archive.
 
-In the following we explain how to install the WAR file using the Websphere enterprise application Wizard provided inside the Websphere Integrated Solutions Console:
+In the following we explain how to install the WAR file using the WebSphere enterprise application Wizard provided inside the WebSphere Integrated Solutions Console:
 
-1.  Open the Websphere Integrated Solutions Console.
+1.  Open the WebSphere Integrated Solutions Console.
 2.  Navigate to the **Applications / Application Types / WebSphere enterprise applications** Page.
 3.  Click the **Install** Button
 4.  The first page of the Wizard opens. Using the File Browser, select the <code>cycle-was-VERSION.war</code> file from the distribution and upload it.

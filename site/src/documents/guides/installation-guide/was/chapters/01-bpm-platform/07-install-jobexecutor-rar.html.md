@@ -16,7 +16,7 @@ We assume all installation of the camunda-ibm-websphere-rar is done in the "Node
 The installation process is composed of three steps:
 
 1. Install and configure the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file.
-2. Define a Managed Connection Facotry for accessing the jobexecutor.
+2. Define a Managed Connection Factory for accessing the jobexecutor.
 3. Define an Activation Policy for JobHandler MDBs.
 
 
