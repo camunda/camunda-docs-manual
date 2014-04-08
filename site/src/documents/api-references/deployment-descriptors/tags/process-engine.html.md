@@ -333,5 +333,19 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
+  
+  <tr>
+    <td><code>autoStoreScriptVariables</code></td>
+    <td>Boolean</td>
+    <td>
+      <p>
+        Controls whether all global script variables should be automatically stored as process variables. 
+        ult value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
 
 </table>
