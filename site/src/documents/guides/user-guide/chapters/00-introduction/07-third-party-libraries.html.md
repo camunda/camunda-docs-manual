@@ -23,6 +23,8 @@ Additional __optional__ dependencies:
 - [Spring Framework Spring-Core](http://projects.spring.io/spring-framework/) [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml).
 - [Spring Framework Spring-ASM](http://projects.spring.io/spring-framework/) [(Apache License 3.0)][apache] for configuration using [camunda.cfg.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml).
 - [Groovy](http://groovy.codehaus.org/) [(Apache License 2.0)][apache] for groovy script task support.
+- [Jython](http://www.jython.org) [(Python License)][python] for Python script task support.
+- [JRuby](http://jruby.org/) [(Ruby License or GPL)][jruby] for Ruby script task support.
 
 ## REST API
 
@@ -119,3 +121,6 @@ The camunda Modeler depends on the following third-party libraries:
 [mpl]: https://www.mozilla.org/MPL/1.0/
 [epl]: http://www.eclipse.org/legal/epl-v10.html
 [tmate]: http://svnkit.com/license.html
+[python]: http://www.jython.org/license.html
+[jruby]: https://github.com/jruby/jruby/blob/master/LICENSE.RUBY
+
