@@ -18,5 +18,5 @@ category: 'Patch Level Upgrade'
 <div class="alert alert-warning">
   <p><strong>Enterprise Feature</strong></p>
   Please note, that Patch Level Upgrades will be provided for enterprise customers only, it is not available in the community edition.
-  <p style="margin-top:10px">Check the <a href="http://www.camunda.com">camunda</a> product homepage for more information or to get your free trial version.</p>
+  <p style="margin-top:10px">Check the <a href="http://camunda.com">camunda</a> product homepage for more information or to get your free trial version.</p>
 </div>
