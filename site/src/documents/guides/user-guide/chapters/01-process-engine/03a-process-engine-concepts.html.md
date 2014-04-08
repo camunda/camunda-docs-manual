@@ -11,13 +11,13 @@ This section explains some core process engine concepts that are used in both th
 
 ## Process Definitions
 
-A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://www.camunda.org/design/tutorial.html) as its primary modeling language for modeling process definitions.
+A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://camunda.org/design/tutorial.html) as its primary modeling language for modeling process definitions.
 
 <div class="alert alert-info">
   <strong>BPMN 2.0 Reference </strong>
   <p>camunda BPM comes with two BPMN 2.0 References:</p>
   <ul>
-    <li>The <a href="http://www.camunda.org/design/reference.html#!/reference">BPMN 2.0 Modeling Reference</a> introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the <a href="http://www.camunda.org/design/tutorial.html">Tutorial</a> as well.)</li>
+    <li>The <a href="http://camunda.org/bpmn/reference.html#!/reference">BPMN 2.0 Modeling Reference</a> introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the <a href="http://camunda.org/bpmn/tutorial.html">Tutorial</a> as well.)</li>
     <li>The <a href="ref:/api-references/bpmn20/">BPMN 2.0 Implementation Reference</a> covers the implementation of the individual BPMN 2.0 constructs in camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.</li>
   </ul>
 </div>

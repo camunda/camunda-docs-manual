@@ -9,7 +9,7 @@ category: 'Runtime Container Integration'
   <p>
     <strong>Distribution & Installation Guide</strong>
   </p>
-   <p>If you <a href="http://www.camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss Subsystem is readily installed into the application server</p>
+   <p>If you <a href="http://camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss Subsystem is readily installed into the application server</p>
    <p><a href="ref:/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the camunda JBoss subsystem into your JBoss Server.</p>
 </div>
 

@@ -19,4 +19,4 @@ category: 'Migrate from camunda fox'
 
 As camunda fox included the Activiti engine you have to perform the [steps above](ref:#migrate-from-activiti) as well.
 
-Before you can start with the migration from camunda fox to camunda BPM we recommend you to [download](http://www.camunda.org/download) the pre-packaged distribution corresponding to your camunda fox server.
+Before you can start with the migration from camunda fox to camunda BPM we recommend you to [download](http://camunda.org/download) the pre-packaged distribution corresponding to your camunda fox server.

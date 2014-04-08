@@ -67,7 +67,7 @@ The resulting project should look like this:
 
 ### Troubleshooting
 
-Sometimes, the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, <a href="http://www.camunda.org/community/forum.html">contact us</a>.
+Sometimes, the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, <a href="http://camunda.org/community/forum.html">contact us</a>.
 
 ## Usage on Commandline
 

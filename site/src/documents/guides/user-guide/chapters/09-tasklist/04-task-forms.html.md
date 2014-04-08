@@ -38,7 +38,7 @@ Add a folder `src/main/webapp/forms` to your project folder and create a FORM_NA
 </form>
 ```
 
-To configure the form in your process open the process in your Eclipse IDE with the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a> and select the desired [User Task](ref:/api-references/bpmn20/#tasks-user-task) or [Start Event](ref:/api-references/bpmn20/#events-start-events). Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+To configure the form in your process open the process in your Eclipse IDE with the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a> and select the desired [User Task](ref:/api-references/bpmn20/#tasks-user-task) or [Start Event](ref:/api-references/bpmn20/#events-start-events). Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
 
 ```xml
 <userTask id="theTask" camunda:formKey="embedded:app:forms/FORM_NAME.html"

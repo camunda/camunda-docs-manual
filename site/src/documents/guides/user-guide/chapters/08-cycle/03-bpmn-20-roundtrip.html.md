@@ -53,7 +53,7 @@ When we are talking about Roundtrip we are talking about the synchronization of 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>Now Cycle shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 File stored in your file repository (right side). You can also see that the two process models are currently in synch, and the date and time since the last synch has been made.</p>
-    <p>You can now either check out the BPMN 2.0 - XML from your subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>.</p>      
+    <p>You can now either check out the BPMN 2.0 - XML from your subversion or open it directly in your local drive. In both cases, you can now edit inside your Eclipse IDE it using <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a>.</p>      
   </div>
 </div>
 
@@ -71,7 +71,7 @@ When we are talking about Roundtrip we are talking about the synchronization of 
 </div>
 
 <div class="alert alert-warning">
-  <strong>Please note!</strong> The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section "Roundtrip with other Tools" in our <a href="http://www.camunda.org/design/cycle-tutorial.html">Cycle Tutorial</a>.
+  <strong>Please note!</strong> The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section "Roundtrip with other Tools" in our <a href="http://camunda.org/bpmn/cycle-tutorial.html#roundtrip-roundtrip-with-other-tools">Cycle Tutorial</a>.
 </div>
 
 ## Pool Extraction
@@ -89,7 +89,7 @@ The following example shows relevant xml tag:
 
 An executable process model usually contains engine specific attributes in the BPMN 2.0 XML. So we have to make sure, that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means that a proper BPMN 2.0 import and export functionality must keep the engine attributes, even if they are added as an engine extension. 
 
-The camunda BPM Process Engine uses multitude attributes for configuration purposes which can be set up in the <a href="http://www.camunda.org/design/modeler.html">camunda Modeler</a>. Cycle retains these attributes during the roundtrip. Here is an example:
+The camunda BPM Process Engine uses multitude attributes for configuration purposes which can be set up in the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a>. Cycle retains these attributes during the roundtrip. Here is an example:
 
 The xml export from Signavio modeler contains no engine attributes:
 

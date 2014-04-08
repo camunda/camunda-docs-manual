@@ -16,4 +16,4 @@ The Tasklist is a demo web application to provide you with the possibility to wo
   </p>
 </div>
 
-Find additional information about how to use the Tasklist in our [Developing Process Applications](http://www.camunda.org/get-started/developing-process-applications.html) tutorial.
+Find additional information about how to use the Tasklist in our [Developing Process Applications](http://camunda.org/get-started/developing-process-applications.html) tutorial.

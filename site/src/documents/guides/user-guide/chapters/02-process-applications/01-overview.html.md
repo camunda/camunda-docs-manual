@@ -21,6 +21,6 @@ Transforming an existing Java Application into a Process Application is easy and
 <div class="alert alert-info">
   <p>
     <strong>Heads-up!</strong>
-    You might want to checkout the <a href="http://www.camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explains the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which give you a complete running process application out of the box.
+    You might want to checkout the <a href="http://camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explains the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which give you a complete running process application out of the box.
   </p>
 </div>
