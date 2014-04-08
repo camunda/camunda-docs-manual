@@ -340,7 +340,20 @@ The following is a list with the most commonly used process engine configuration
     <td>
       <p>
         Controls whether all global script variables should be automatically stored as process variables. 
-        ult value is <code>false</code>.
+        Default value is <code>false</code>.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+  
+  <tr>
+    <td><code>enableScriptCompilation</code></td>
+    <td>Boolean</td>
+    <td>
+      <p>
+        Controls whether the process engine should attempt to compile script sources and cache the compilation result. Default value is <code>true</code>.
       </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).

@@ -102,6 +102,21 @@ The return value of a script task can be assigned to an already existing or to a
 
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
+## Script Compilation
+
+Most script engines will compile the script sourcecode either to a Java class
+or to a different intermediary format prior to executing the script. Script
+engines implementing the Java `Compilable` interface allow programs to retrieve
+and cache the script compilation. The default setting of the process engine is
+to check whether a Script Engine supports the compile feature and if true have
+the script engine compile the script and then cache the compilation result.
+This allows the process engine to keep from compiling a script source each time
+the same script task is executed. 
+
+By default compilation of scripts is enabled. If you need to disable script
+compilation, you can set the process engine configuration flag named
+`enableScriptCompilation` to false.
+
 ## camunda Extensions
 
 <table class="table table-striped">
