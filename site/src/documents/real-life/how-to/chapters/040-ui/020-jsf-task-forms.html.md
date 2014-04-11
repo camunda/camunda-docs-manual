@@ -89,7 +89,7 @@ Accessing this form will trigger the special CDI bean `camundaTaskForm` which
  *   starts the User Task in the process engine, meaning the bean sets the start date and assigns the task to the
      CDI business process scope (see [CDI Integration](ref:/guides/user-guide/#cdi-and-java-ee-integration) for details).
 
-Therefor you just need this code block add the beginning of your JSF view:
+Therefore you just need this code block add the beginning of your JSF view:
 
 ```xml
 <f:metadata>
