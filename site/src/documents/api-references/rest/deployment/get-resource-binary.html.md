@@ -14,7 +14,7 @@ Retrieves the binary content of a single deployment resource for the given deplo
 Method
 ------
 
-GET `/deployments/{id}/{resourceId}/data`
+GET `/deployment/{id}/resources/{resourceId}/data`
 
 
 Parameters
@@ -33,7 +33,7 @@ Parameters
   </tr>
   <tr>
     <td>resourceId</td>
-    <td>The id of the deployment resource that this deployment belongs to.</td>
+    <td>The id of the deployment resource.</td>
   </tr>
 </table>
 
@@ -69,8 +69,8 @@ Example
 
 #### Request
 
-GET `/deployments/someDeploymentId/someResourceId/data`
-  
+GET `/deployments/someDeploymentId/resources/someResourceId/data`
+
 #### Response
 
 Status 200.

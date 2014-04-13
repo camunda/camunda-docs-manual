@@ -8,13 +8,13 @@ keywords: 'get'
 ---
 
 
-Retrieves all deployment resources for a deployment by id.
+Retrieves a single deployment by id.
 
 
 Method
 ------
 
-GET `/deployments/{id}`
+GET `/deployment/{id}`
 
 
 Parameters
@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json array of deployment resource objects. Each deployment resource object has the following properties:
+A json object corresponding to the `Deployment` interface of the engine. Its properties are as follows:
 
 <table class="table table-striped">
   <tr>
@@ -48,19 +48,20 @@ A json array of deployment resource objects. Each deployment resource object has
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The id of the deployment resource that this deployment belongs to.</td>
+    <td>The id of the deployment.</td>
   </tr>
   <tr>
     <td>name</td>
     <td>String</td>
-    <td>The name of the deployment resource that this deployment belongs to.</td>
+    <td>The name of the deployment.</td>
   </tr>
   <tr>
-    <td>deploymentId</td>
-    <td>String</td>
-    <td>The id of the deployment.</td>
+    <td>deploymentTime</td>
+    <td>Date</td>
+    <td>The date time of the deployment.</td>
   </tr>
 </table>
+
 
 Response codes
 --------------
@@ -79,7 +80,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>No deployment resources for given deployment id exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -89,25 +90,15 @@ Example
 #### Request
 
 GET `/deployments/someDeploymentId`
-  
+
 #### Response
 
 Status 200.
 
-    [
-		{
-		  "id": "resourceId"
-		  "name": "resourceName",
-		  "deploymentId": "someDeploymentId",
-		}
-		{
-		  "id": "otherResourceId"
-		  "name": "otherResourceName",
-		  "deploymentId": "someDeploymentId",
-		}
-		{
-		  "id": "yetAnotherResourceId"
-		  "name": "yetAnotherResourceName",
-		  "deploymentId": "someDeploymentId",
-		}
-	]
+```json
+{
+  "id": "someDeploymentId",
+  "name": "deploymentName",
+  "deploymentTime": "2013-04-23T13:42:43"
+}
+```

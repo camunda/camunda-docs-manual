@@ -13,12 +13,12 @@ Query for the number of deployments that fulfill given parameters. Takes the sam
 Method
 ------
 
-GET `/deployments/count`
+GET `/deployment/count`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -80,7 +80,7 @@ A json object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -106,8 +106,10 @@ Example
 
 #### Request
 
-GET `/deployments/count`
+GET `/deployment/count?name=deploymentName`
 
 #### Response
 
-    {"count": 3}   
+```json
+{"count": 1}
+```

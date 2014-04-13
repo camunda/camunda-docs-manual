@@ -8,18 +8,20 @@ keywords: 'get query list'
 ---
 
 
-Query for deployments that fulfill given parameters. Parameters may be the properties of deployments, such as the name or deploymentTime. The size of the result set can be retrieved by using the [get deployments count](ref:#deployment-get-deployments-count) method.
+Query for deployments that fulfill given parameters. Parameters may be the
+properties of deployments, such as the id or name. The size of the result set
+can be retrieved by using the [get deployments count](ref:#deployment-get-deployments-count) method.
 
 
 Method
 ------
 
-GET `/deployments`
+GET `/deployment`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -91,7 +93,7 @@ A json array of deployment objects. Each deployment object has the following pro
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -118,24 +120,16 @@ Example
 
 #### Request
 
-GET `/deployments`
-  
+GET `/deployment?name=deploymentName`
+
 #### Response
 
-    [
-      {
-        "id": "someId",
-        "name": "deploymentName",
-        "deploymentTime": "2013-04-23T13:42:43"
-      },
-      {
-        "id": "someOtherId",
-        "name": "otherDeploymentName",
-        "deploymentTime": "2013-04-25T13:42:43"
-      },
-      {
-        "id": "yetAnotherId",
-        "name": "yetAnotherDeploymentName",
-        "deploymentTime": "2013-04-27T11:20:01",
-      }      
-    ]
+```json
+[
+  {
+    "id": "someId",
+    "name": "deploymentName",
+    "deploymentTime": "2013-04-23T13:42:43"
+  }
+]
+```

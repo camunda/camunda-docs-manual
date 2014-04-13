@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Deployment Resource"
+title: 'Get Deployment Resources'
 category: 'Deployment'
 
 keywords: 'get'
@@ -8,13 +8,13 @@ keywords: 'get'
 ---
 
 
-Retrieves a single deployment resource by resource id for the given deployment.
+Retrieves all deployment resources of a given deployment.
 
 
 Method
 ------
 
-GET `/deployment/{id}/resources/{resourceId}`
+GET `/deployment/{id}/resources`
 
 
 Parameters
@@ -29,11 +29,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the deployment.</td>
-  </tr>
-  <tr>
-    <td>resourceId</td>
-    <td>The id of the deployment resource.</td>
+    <td>The id of the deployment to retrieve the deployment resources for.</td>
   </tr>
 </table>
 
@@ -41,8 +37,8 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `Resource` interface in the engine.
-Its properties are as follows:
+A json array containing all deployment resources of the given deployment. Each
+object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -79,31 +75,37 @@ Response codes
   </tr>
   <tr>
     <td>200</td>
-    <td>application/octet-stream</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment resources for the given deployment do not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
+
 
 Example
 -------
 
 #### Request
 
-GET `/deployments/someDeploymentId/resources/someResourceId`
+GET `/deployment/anDeploymentId/resources`
 
 #### Response
 
-Status 200.
-
 ```json
-{
-  "id": "someResourceId",
-  "name": "someResourceName",
-  "deploymentId": "someDeploymentId"
-}
+[
+  {
+    "id": "anResourceId",
+    "name": "anResourceName",
+    "deploymentId": "anDeploymentId"
+  },
+  {
+    "id": "anotherResourceId",
+    "name": "anotherResourceName",
+    "deploymentId": "anDeploymentId"
+  }
+]
 ```
