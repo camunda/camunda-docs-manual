@@ -139,3 +139,23 @@ If you rely on the constraint, you can add it manually to your schema by issuing
     
     History:
     alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
+
+### Custom Configuration for Microsoft SQL Server
+
+Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
+from most databases and does not play together well with the process engine's
+optimistic locking scheme. As a result you may suffer from deadlocks when
+putting the process engine under high load. 
+
+If you experience deadlocks in your MSSQL installation, you must execute the
+following statements in order to enable SNAPSHOT isolation:
+
+```sql
+ALTER DATABASE [process-engine]
+SET ALLOW_SNAPSHOT_ISOLATION ON
+
+ALTER DATABASE [process-engine]
+SET READ_COMMITTED_SNAPSHOT ON
+```
+
+where `[process-engine]` contains the name of your database.
