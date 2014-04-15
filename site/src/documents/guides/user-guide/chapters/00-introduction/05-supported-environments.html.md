@@ -22,8 +22,8 @@ You can run the camunda BPM platform in every java-runable environment. camunda 
 *   MySQL 5.1
 *   Oracle 10g / 11g
 *   IBM DB2 9.7 
-*   Postgre SQL 9.1
-*   Microsoft SQL Server 2008 R2 / 2012
+*   PostgreSQL 9.1
+*   Microsoft SQL Server 2008 R2 / 2012 (see [Configuration Note](ref:#process-engine-database-configuration-custom-configuration-for-microsoft-sql-server))
 *   H2 1.3
 
 
@@ -42,3 +42,4 @@ You can run the camunda BPM platform in every java-runable environment. camunda 
 ## Eclipse (for camunda modeler)
 
 *   Eclipse Indigo / Juno
+
