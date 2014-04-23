@@ -39,15 +39,15 @@ Job acquisition is concerned with polling this database table and locking jobs.
 
 A job is acquirable, i.e. a candidate for execution, if
 
-* it is due, meaning that the value in the DUEDATE_ column is in the past
-* it is not locked, meaning that the value in the LOCK_EXP_TIME_ column is in the past
-* its retries have not elapsed, meaning that the value in the RETRIES_ column is greater than zero.
+* it is due, meaning that the value in the `DUEDATE_` column is in the past
+* it is not locked, meaning that the value in the `LOCK_EXP_TIME_` column is in the past
+* its retries have not elapsed, meaning that the value in the `RETRIES_` column is greater than zero.
 
 In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
 
 ### The two Phases of Job Acquisition
 
-Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is accustom to operate multiple job executor instances (one for each node) that all poll the same ACT&#95;RU&#95;JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK&#95;EXP&#95;TIME&#95; and LOCK&#95;OWNER_ columns. The LOCK&#95;EXP&#95;TIME&#95; column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK&#95;OWNER&#95; column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.
+Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is accustom to operate multiple job executor instances (one for each node) that all poll the same ACT&#95;RU&#95;JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK&#95;EXP&#95;TIME&#95; and LOCK&#95;OWNER&#95; columns. The LOCK&#95;EXP&#95;TIME&#95; column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK&#95;OWNER&#95; column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.
 
 The situation where multiple job executor instances attempt to lock the same job concurrently is accounted for by using optimistic locking (see REV&#95; column).
 
@@ -68,11 +68,11 @@ Upon failure of job execution, e.g. if a service task invocation throws an excep
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
 ```xml
-<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+<definitions ... xmlns:camunda="http://activiti.org/bpmn">
   ...
   <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
     <extensionElements>
-      <fox:failedJobRetryTimeCycle>R5/PT5M</fox:failedJobRetryTimeCycle>
+      <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
     </extensionElements>
   </serviceTask>
   ...
@@ -84,11 +84,11 @@ The configuration follows the [ISO_8601 standard for repeating time intervals](h
 Similarly, the following example defines three retries after 5 seconds each for a boundary timer event:
 
 ```xml
-<definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
+<definitions ... xmlns:camunda="http://activiti.org/bpmn">
   ...
   <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
     <extensionElements>
-      <fox:failedJobRetryTimeCycle>R3/PT5S</fox:failedJobRetryTimeCycle>
+      <camunda:failedJobRetryTimeCycle>R3/PT5S</camunda:failedJobRetryTimeCycle>
     </extensionElements>
     <outgoing>SequenceFlow_3</outgoing>
     <timerEventDefinition id="sid-ac5dcb4b-58e5-4c0c-b30a-a7009623769d">
