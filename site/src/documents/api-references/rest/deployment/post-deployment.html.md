@@ -12,7 +12,7 @@ Create a deployment.
 Method
 ------
 
-POST `/deployment`
+POST `/deployment/create`
 
 
 Parameters
@@ -107,7 +107,7 @@ Example
 
 Post data for a new deployment:
 
-POST `/deployment`
+POST `/deployment/create`
 
 ```
 --28319d96a8c54b529aa9159ad75edef9
