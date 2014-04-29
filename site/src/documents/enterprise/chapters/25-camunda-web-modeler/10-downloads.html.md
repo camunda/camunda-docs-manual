@@ -16,7 +16,7 @@ title: 'Downloads'
 	<tbody>
 	<tr class="well">
       <td>7.8.0.1</td>
-      <td>29.04.2015</td>
+      <td>29.04.2014</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-web-modeler/7.8.0/camunda-web-modeler-7.8.0.1.zip">download zip file</a>
       </td> 
