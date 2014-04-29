@@ -44,7 +44,7 @@ As a first step we create a maven jar project that represents our plugin library
     <dependency>
       <groupId>org.camunda.bpm.webapp</groupId>
       <artifactId>camunda-webapp-core</artifactId>
-      <version>7.0.0-Final</version>
+      <version>7.1.0-Final</version>
     </dependency>
 
     <dependency>
@@ -96,7 +96,7 @@ Before we do so, we need to add test dependencies to our project `pom.xml`.
   <dependency>
     <groupId>org.camunda.bpm</groupId>
     <artifactId>camunda-engine</artifactId>
-    <version>7.0.0-Final</version>
+    <version>7.1.0-Final</version>
     <scope>test</scope>
   </dependency>
   <dependency>
