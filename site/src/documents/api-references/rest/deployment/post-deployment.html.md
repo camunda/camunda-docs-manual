@@ -125,6 +125,7 @@ Content-Disposition: form-data; name="data"; filename="test.bpmn"
 <bpmn2:definitions ...>
   <!-- BPMN 2.0 XML omitted -->
 </bpmn2:definitions>
+--28319d96a8c54b529aa9159ad75edef9--
 ```
 
 

@@ -18,7 +18,7 @@ GET `/task/{id}/comment`
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -52,7 +52,7 @@ A json object containing a list of task comments.
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user which has created the comment.</td>
+    <td>The id of the user who has created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -60,17 +60,12 @@ A json object containing a list of task comments.
     <td>The id of the task to which the comment belongs.</td>
   </tr>
   <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance this task belongs to.</td>
-  </tr>
-  <tr>
     <td>time</td>
     <td>Date</td>
     <td>The time when the comment was created.</td>
   </tr>
   <tr>
-    <td>fullMessage</td>
+    <td>message</td>
     <td>String</td>
     <td>The content of the comment.</td>
   </tr>
@@ -92,9 +87,9 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>400</td>
+    <td>404</td>
     <td>application/json</td>
-    <td>No comments exist for given task id. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -104,33 +99,32 @@ Example
 
 #### Request
 
-GET `/task/anId/comment`
+GET `/task/aTaskId/comment`
 
 #### Response
 
 ```json
-    [{
-        "id": "commentId",
-        "userId": userId,
-        "taskId": "anId",
-		"processInstanceId": "processInstanceId",
-		"time": "2013-01-02T21:37:03",
-		"message": "message"
-    },
-    {
-        "id": "anotherCommentId",
-        "userId": anotherUserId,
-        "taskId": "anId",
-		"processInstanceId": "processInstanceId",
-		"time": "2013-02-23T20:37:43",
-		"message": "anotherMessage"
-    },
-    {
-        "id": "yetAnotherCommentId",
-        "userId": yetAnotherUserId,
-        "taskId": "anId",
-		"processInstanceId": "processInstanceId",
-		"time": "2013-04-21T10:15:23",
-		"message": "yetAnothermMssage"
-    }]
+[
+  {
+    "id": "commentId",
+    "userId": "userId",
+    "taskId": "aTaskId",
+    "time": "2013-01-02T21:37:03",
+    "message": "message"
+  },
+  {
+    "id": "anotherCommentId",
+    "userId": "anotherUserId",
+    "taskId": "aTaskId",
+    "time": "2013-02-23T20:37:43",
+    "message": "anotherMessage"
+  },
+  {
+    "id": "yetAnotherCommentId",
+    "userId": "yetAnotherUserId",
+    "taskId": "aTaskId",
+    "time": "2013-04-21T10:15:23",
+    "message": "yetAnotherMessage"
+  }
+]
 ```

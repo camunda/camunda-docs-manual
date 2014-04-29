@@ -7,7 +7,7 @@ keywords: 'post add task comment'
 
 ---
 
-Create a comment to a task.
+Create a comment for a task.
 
 Method
 ------
@@ -42,11 +42,6 @@ A multipart form submit with the following parts:
     <th>Description</th>
   </tr>
   <tr>
-    <td>process-instance-id</td>
-    <td>text/plain</td>
-    <td>The id of the process instance this task belongs to.</td>
-  </tr>
-  <tr>
     <td>message</td>
     <td>text/plain</td>
     <td>The content of the comment.</td>
@@ -74,7 +69,7 @@ Its properties are as follows:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user which has created the comment.</td>
+    <td>The id of the user who has created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -82,20 +77,15 @@ Its properties are as follows:
     <td>The id of the task to which the comment belongs.</td>
   </tr>
   <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance this task belongs to.</td>
-  </tr>
-  <tr>
     <td>time</td>
     <td>Date</td>
     <td>The time when the comment was created.</td>
   </tr>
   <tr>
-    <td>fullMessage</td>
+    <td>message</td>
     <td>String</td>
     <td>The content of the comment.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>links</td>
     <td>List</td>
@@ -118,6 +108,16 @@ Response codes
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>The task does not exists or no comment message form part was submitted. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>The history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
 </table>
 
 
@@ -128,7 +128,15 @@ Example
 
 Post data for a new task comment:
 
-POST `/task/anId/comment/create`
+POST `/task/aTaskId/comment/create`
+
+```
+--6e2248ad165e47e1b8d7138df64835b7
+Content-Disposition: form-data; name="message"
+
+comment message
+--6e2248ad165e47e1b8d7138df64835b7--
+```
 
 #### Response
 
@@ -139,15 +147,14 @@ Status 200.
   "links": [
     {
       "method": "GET",
-      "href": "http://localhost:38080/rest-test/task/anId/comment/aTaskCommentId",
+      "href": "http://localhost:38080/rest-test/task/aTaskId/comment/aTaskCommentId",
       "rel": "self"
     }
   ],
   "id": "aTaskCommentId",
-  "userId": userId,
-  "taskId": "anId",
-  "processInstanceId": "processInstanceId",
+  "userId": "userId",
+  "taskId": "aTaskId",
   "time": "2013-01-02T21:37:03",
-  "message": "message"
+  "message": "comment message"
 }
 ```

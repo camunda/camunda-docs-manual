@@ -58,7 +58,7 @@ Its properties are as follows:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user which has created the comment.</td>
+    <td>The id of the user who has created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -66,17 +66,12 @@ Its properties are as follows:
     <td>The id of the task to which the comment belongs.</td>
   </tr>
   <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>The id of the process instance this task belongs to.</td>
-  </tr>
-  <tr>
     <td>time</td>
     <td>Date</td>
     <td>The time when the comment was created.</td>
   </tr>
   <tr>
-    <td>fullMessage</td>
+    <td>message</td>
     <td>String</td>
     <td>The content of the comment.</td>
   </tr>
@@ -100,7 +95,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Task comment with given comment id does not exist to given task. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task or comment with given task and comment id do not exist. Or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -110,17 +105,16 @@ Example
 
 #### Request
 
-GET `/task/anId/comment/aTaskCommentId`
+GET `/task/aTaskId/comment/aTaskCommentId`
 
 #### Response
 
 ```json
-	{
-        "id": "aTaskCommentId",
-        "userId": userId,
-        "taskId": "anId",
-		"processInstanceId": "processInstanceId",
-		"time": "2013-01-02T21:37:03",
-		"message": "message"
-    }
-```	
+{
+  "id": "aTaskCommentId",
+  "userId": "userId",
+  "taskId": "aTaskId",
+  "time": "2013-01-02T21:37:03",
+  "message": "comment content"
+}
+```
