@@ -440,6 +440,8 @@ Now run the cockpit application using `mvn clean jetty:run -Pdevelop`. It will b
 
 You can navigate to [http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets is correctly loaded.
 
+Note: If you run cockpit on Apache Tomcat you have to adjust the context path.
+
 
 ### plugin.js main file
 
