@@ -725,6 +725,7 @@ The following attributes are extension elements for the <code>camunda</code> nam
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
+      Base Element,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaformfield">camunda:formField</a>
     </td>
   </tr>
@@ -754,15 +755,31 @@ The following attributes are extension elements for the <code>camunda</code> nam
   </tr>
   <tr>
     <td></td>
+    <td><code>name</code></td>
+    <td>
+      The name of the property
+    </td>
+  </tr>
+  <tr>
+    <td></td>
     <td><code>value</code></td>
     <td>
-      The value of the form field property
+      The value of the property
     </td>
   </tr>
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      &ndash;
+      If the property belongs to a <code>camunda:formField</code> extension element only
+      the attributes <code>id</code> and <code>value</code> are used.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      If the parent <code>camunda:properties</code> element is directly added as an extension element,
+      for example by the camunda modeler, only the attributes <code>name</code> and <code>value</code>
+      are used.
     </td>
   </tr>
   <tr>
