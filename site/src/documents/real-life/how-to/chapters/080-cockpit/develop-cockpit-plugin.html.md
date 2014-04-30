@@ -440,6 +440,12 @@ Now run the cockpit application using `mvn clean jetty:run -Pdevelop`. It will b
 
 You can navigate to [http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets is correctly loaded.
 
+<div class="alert alert-warning">
+  <strong>Note:</strong> If you deploy the <code>camunda-webapp.war</code> on
+  Apache Tomcat you have to adjust the context path or rename the war file to
+  <code>camunda.war</code> in order to access the webapp under
+  <a href="http://localhost:8080/camunda">http://localhost:8080/camunda</a>.
+</div>
 
 ### plugin.js main file
 
