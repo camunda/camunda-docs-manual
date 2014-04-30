@@ -59,6 +59,11 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>Identity service is read-only (Cannot modify users / groups / memberships).</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
     <td>User cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>

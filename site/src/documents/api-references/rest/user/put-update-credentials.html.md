@@ -56,6 +56,11 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>Identity service is read-only (Cannot modify users / groups / memberships).</td>
+  </tr>
+  <tr>
     <td>204</td>
     <td>Empty</td>
     <td>Request successful.</td>
