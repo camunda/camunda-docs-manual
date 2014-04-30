@@ -15,6 +15,7 @@ The following is a list of current (unsupported) community extensions:
 
 * [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
 * [AssertJ Testing Library](https://github.com/camunda/camunda-bpm-assert)
+* [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
 * [Needle Testing Library](https://github.com/camunda/camunda-bpm-needle)
 * [OSGi Integration](https://github.com/camunda/camunda-bpm-platform-osgi)
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
