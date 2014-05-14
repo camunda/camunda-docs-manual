@@ -137,7 +137,7 @@ In order to set a local variable on an execution, use the `setVariableLocal` met
 
 You can query for executions using the `ExecutionQuery` offered by the `RuntimeService`:
 
-    runtimeService.createProcessInstanceQuery()
+    runtimeService.createExecutionQuery()
         .processInstanceId(someId)
         .list();
 
