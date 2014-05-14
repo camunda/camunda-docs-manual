@@ -58,7 +58,7 @@ Each key is a variable name and each value a variable value object that has the 
   </tr>
 </table>
 
-  
+
 Response codes
 --------------  
 
@@ -80,14 +80,14 @@ Response codes
   </tr>
 </table>
 
-  
+
 Example
 -------
 
 #### Request
 
 GET `/task/aTaskId/localVariables`
-  
+
 #### Response
 
 ```json
@@ -96,10 +96,11 @@ GET `/task/aTaskId/localVariables`
    {
    "value":
    {
-		"property1":"aPropertyValue",
-		"property2":true
+    "property1":"aPropertyValue",
+    "property2":true
    },
    "type":"ExampleVariableObject"
    }
 }
-```	  
+```
+

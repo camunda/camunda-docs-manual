@@ -100,25 +100,15 @@ Request body:
 
 ```json
 {
-"modifications": 
-   {
-   "aVariable": 
-	  {
-		"value": "aValue", 
-		"type": "String"
-	  },
-   "anotherVariable": 
-	  {
-		"value": 42, 
-		"type": "Integer"
-	  }
-	},
-    "deletions": 
-	[
-        "aThirdVariable", "FourthVariable"
-    ]
+  "modifications": [ 
+    "aVariable": { "value": "aValue", "type": "String" },
+    "anotherVariable": { "value": 42, "type": "Integer" }
+  ],
+  "deletions": [
+    "aThirdVariable", "FourthVariable"
+  ]
 }
-```	
+```
 
 #### Response
 
