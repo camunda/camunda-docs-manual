@@ -76,6 +76,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>
+      <a href="ref:#gateways-parallel-gateways">Parallel Gateway</a>
     </td>
   </tr>
 </table>
@@ -480,6 +481,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>
+      <a href="ref:#gateways-parallel-gateways">Parallel Gateway</a>
     </td>
   </tr>
 </table>
