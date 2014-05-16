@@ -75,8 +75,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#events-signal-events-signal-intermediate-throwing-event">Signal Intermediate Throwing Event</a>,
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
-      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>
-      <a href="ref:#gateways-parallel-gateways">Parallel Gateway</a>
+      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
+      <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>
     </td>
   </tr>
 </table>
@@ -480,8 +480,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#events-timer-events">Timer Event</a>,
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
-      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>
-      <a href="ref:#gateways-parallel-gateways">Parallel Gateway</a>
+      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
+      <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>
     </td>
   </tr>
 </table>

@@ -96,10 +96,6 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
   </tr>
   <tr>
     <th>Constraints</th>
-    <td>&ndash;</td>
-  </tr>
-  <tr>
-    <td></td>
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
       <code>camunda:async</code> is set to <code>true</code>
