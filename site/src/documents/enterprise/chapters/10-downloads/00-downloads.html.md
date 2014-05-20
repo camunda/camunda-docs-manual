@@ -103,7 +103,7 @@ title: 'Latest Version'
   <div class="col-md-12">
     <h3>7.2.0-alpha1</h3>
     <p>
-      Current development version, released on 16.05.2014, <a target="_blank" href="http://camundabpm.blogspot.com/2014/05/camunda-bpm-720-alpha1-released.html">Release Notes</a>
+      Current development version, released on 20.05.2014, <a target="_blank" href="http://camundabpm.blogspot.com/2014/05/camunda-bpm-720-alpha1-released.html">Release Notes</a>
     </p>
     <table class="table table-responsive">
       <thead>
