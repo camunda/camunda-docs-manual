@@ -13,5 +13,5 @@ general XML model API which is useful for general XML processing.
 
 Note: Currently the BPMN model API does not fully support the whole BPMN 2.0 specification.
 The list of already supported BPMN 2.0 elements can be found in the source code package
-[org.camunda.bpm.model.bpmn.instance](https://github.com/camunda/camunda-bpmn-model/tree/master/bpmn-model/src/main/java/org/camunda/bpm/model/bpmn/instance).
+[org.camunda.bpm.model.bpmn.instance](ref:/api-references/javadoc/index.html?org/camunda/bpm/model/bpmn/instance/package-summary.html).
 
