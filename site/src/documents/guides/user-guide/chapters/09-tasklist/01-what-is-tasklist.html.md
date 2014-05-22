@@ -12,7 +12,7 @@ The Tasklist is a demo web application to provide you with the possibility to wo
 <div class="alert alert-warning">
   <p>
     <strong>Notice</strong>
-    The tasklist is a demo application, only. You may use it as a basis for your own projects or as a simple inspiration to write your own.
+    The tasklist is only a demo application. You may use it as a basis for your own projects or as a simple inspiration to write your own.
   </p>
 </div>
 

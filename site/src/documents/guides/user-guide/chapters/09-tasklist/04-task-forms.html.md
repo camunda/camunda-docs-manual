@@ -38,7 +38,7 @@ Add a folder `src/main/webapp/forms` to your project folder and create a FORM_NA
 </form>
 ```
 
-To configure the form in your process open the process in your Eclipse IDE with the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a> and select the desired [User Task](ref:/api-references/bpmn20/#tasks-user-task) or [Start Event](ref:/api-references/bpmn20/#events-start-events). Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+To configure the form in your process, open the process in your Eclipse IDE with the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a> and select the desired [User Task](ref:/api-references/bpmn20/#tasks-user-task) or [Start Event](ref:/api-references/bpmn20/#events-start-events). Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
 
 ```xml
 <userTask id="theTask" camunda:formKey="embedded:app:forms/FORM_NAME.html"
@@ -46,11 +46,11 @@ To configure the form in your process open the process in your Eclipse IDE with 
           name="my Task">
 ```
 
-To create an embedded task form read the section [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms).
+To create an embedded task form read the [Creating Embedded Task Forms](ref:#tasklist-task-forms-creating-embedded-task-forms) section.
 
 ## Generated Task Forms
 
-The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda allowing you to define form fields directly in BPMN 2.0 XML:
+The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda, allowing you to define form fields directly in BPMN 2.0 XML:
 
 ```xml
 <userTask id="usertask" name="Task">
@@ -78,16 +78,16 @@ The camunda process engine supports generating Html Task Forms based on Form Dat
 ```
 
 <p class="alert alert-info">
-  <strong>camunda Modeler:</strong> Form Metadata can be edited graphically using camunda Modeler
+  <strong>camunda Modeler:</strong> Form Metadata can be graphically edited using the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a>.
 </p>
 
-This form would look as follows in camunda tasklist:
+This form would look like this in the camunda Tasklist:
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/generated-forms-example.png" />
 </center>
 
-As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form Meta Data consists of multiple Form Fields which represent individual input fields where a user has to provide some value or selection.
+As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form Metadata consists of multiple Form Fields which represent individual input fields where a user has to provide some value or selection.
 
 ### Form Fields
 
@@ -108,7 +108,7 @@ A form field can have the following attributes:
     </tr>
     <tr>
       <td>type</td>
-      <td>The type of the form field. The following types are supported out of the box:
+      <td>The data type of the form field. The following types are supported out of the box:
         <ul>
           <li>string</li>
           <li>long</li>
@@ -292,14 +292,14 @@ The generic form will be used whenever you have not added a dedicated form for a
     <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-generic-form.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    Hit the <button class="btn btn-xs"><i class="glyphicon glyphicon-plus"></i> </button> button to add a variable that will be passed to the process instance upon task completion. State a variable name and select the type and enter the desired value. Enter as much variables as you need.
+    Hit the <button class="btn btn-xs"><i class="glyphicon glyphicon-plus"></i> </button> button to add a variable that will be passed to the process instance upon task completion. State a variable name, select the type and enter the desired value. Enter as many variables as you need.
     After hitting the <code>Complete Task</code> button the process instance contains the entered values. Generic Task Forms can be very helpful during the development stage, so you do not need to implement all Task Forms before you can run a workflow. For debugging and testing this concept has many benefits as well.
   </div>
 </div>
 
 ## Creating Embedded Task Forms
 
-Embedded task forms are plain HTML documents that contain input fields that map to process variables. These inputs must be annotated with a `form-field` attribute. Additionally they must declare the type and name of the mapped variable. A simple process variable mapping input is shown below:
+Embedded task forms are plain HTML documents which contain input fields that map to process variables. This input must be annotated with a `form-field` attribute. Additionally they must declare the type and name of the mapped variable. A simple process variable mapping input is shown below:
 
 ```html
 <input form-field type="boolean" name="myBoolean" />
@@ -381,13 +381,13 @@ The following parameters are supported:
     <tr>
       <td>value</td>
       <td>
-        <p>The value is used as value when submitting the sect box.</p>
+        <p>This value is used as value when submitting the select box.</p>
       </td>
     </tr>
     <tr>
       <td>label</td>
       <td>
-        <p>The label is displayed to the user.</p>
+        <p>This label is displayed to the user.</p>
       </td>
     </tr>
   </tbody>
@@ -493,13 +493,13 @@ The user {{formVariable('selectedName')}} should approve this request!
 
 Form validation may be added via [AngularJS](http://angularjs.org) [validation directives](http://docs.angularjs.org/api/ng.directive:input) that are available for [text input](http://docs.angularjs.org/api/ng.directive:input.text), [checkbox](http://docs.angularjs.org/api/ng.directive:input.checkbox) and [number input](http://docs.angularjs.org/api/ng.directive:input.number).
 
-For example, the following snipped validates the form input against the pattern `00-00`:
+For example, the following snippet validates the form input against the pattern `00-00`:
 
 ```html
 <input form-field type="string" name="myString" ng-pattern="/\d{2}-\d{2}/" />
 ```
 
-To query the validation state of a form, you may use the `variablesForm` variable that is available in the scope of embedded task form:
+To query the validation state of a form, you may use the `variablesForm` variable that is available in the scope of the embedded task form:
 
 ```html
 <input form-field type="string" name="myString" ng-pattern="/\d{2}-\d{2}/" />
@@ -511,7 +511,7 @@ To query the validation state of a form, you may use the `variablesForm` variabl
 </p>
 ```
 
-Based on the validation state of a form, a forms submit button will either be disabled (form has errors) or enabled (form is ok).
+Based on the validation state of a form, a form submit button will either be disabled (form has errors) or enabled (form is ok).
 
 ### Extending the Task Form Scope with Custom Behavior
 
@@ -519,7 +519,7 @@ It is possible to inject custom JavaScript code into the scope of an embedded fo
 `<script form-script type="text/form-script"></script>` block.
 
 Inside the script the variable `$scope` is provided to bind functions such as form input change listeners to it.
-Given these change listeners advanced validation may be carried out.
+With these change listeners advanced validation may be carried out.
 
 Check out the [AngularJS documentation on ngModel](http://docs.angularjs.org/api/ng.directive:ngModel.NgModelController) to learn more about how to interact with form elements.
 
@@ -541,7 +541,7 @@ Check out the [AngularJS documentation on ngModel](http://docs.angularjs.org/api
 </script>
 ```
 
-The above example binds a change listener to the input named `myString`. Inside the change listener the form fields value is retrieved.
+This above example binds a change listener to the input named `myString`. Inside the change listener the form fields value is retrieved.
 Using the value, a validation is performed (must equal `cat`) and the form fields validation state is updated accordingly.
 
 In case you would like to have access to internal services such as [$http](http://docs.angularjs.org/api/ng.$http) to perform validation against a backend you may use the `inject` hook provided inside a form script:
