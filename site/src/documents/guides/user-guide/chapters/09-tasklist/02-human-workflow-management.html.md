@@ -15,13 +15,13 @@ In the following example we walk through a typical human workflow scenario. The 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      To start a process instance via the Tasklist hit the <button class="btn btn-xs"><i class="caret"></i> Start a Process </button> dropdown button and select a process. If there is no process listed please check that your process is deployed correctly.
+      To start a process instance via the Tasklist hit the <button class="btn btn-xs"><i class="caret"></i> Start a Process </button> dropdown button and select a process. If there is no process listed please verify that your process is deployed correctly.
     </p>
     <p>
       Depending on whether you have defined a <a href="ref:#tasklist-task-forms">start form</a> for your process it will be displayed now. Otherwise you get the notification that no form has been defined for starting the process. In this case click <code>Start process using generic form</code>. The <a href="ref:#tasklist-task-forms-generic-task-forms">generic task form</a> allows you to enter variables for your process.
     </p>
     <p>
-      In our example you have to enter the desired values and hit <code>Start Process</code> to step through.
+      In our example you have to insert the desired values and hit <code>Start Process</code> to continue to the next step.
     </p>
   </div>
 </div>
@@ -47,7 +47,7 @@ When you complete a task by submitting the task form, the task is completed and 
     <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-diagram.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    Furthermore you can visualize the process model by clicking on the <button class="btn btn-xs" title="Display BPMN Diagram"><i class="glyphicon glyphicon-search"></i></button> symbol. By highlighting the current task the visualization gives you also information your task on the context of the whole process.
+    Furthermore, you can visualize the process model by clicking on the <button class="btn btn-xs" title="Display BPMN Diagram"><i class="glyphicon glyphicon-search"></i></button> symbol. By highlighting the current task the visualization gives you also information your task on the context of the whole process.
   </div>
 </div>
 
@@ -70,12 +70,12 @@ When you complete a task by submitting the task form, the task is completed and 
     <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-claim.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>If tasks are assigned to a group, more than one person sees it at once. In order to avoid different people working on it at the same time, the task needs to be claimed first. By claiming a task you become the assignee and the task is moved to your personal tasks folder ("My Tasks"). Hit the <button class="btn btn-xs dropdown-toggle"><i class="caret"></i> </button> button and select <code>claim</code>.</p>
+    <p>If tasks are assigned to a group, they are visible to more than one person. In order to avoid different people working on it at the same time, the task first needs to be claimed. By claiming a task you become the assignee and the task is moved to your personal tasks folder ("My Tasks"). Hit the <button class="btn btn-xs dropdown-toggle"><i class="caret"></i> </button> button and select <code>claim</code>.</p>
     <p>User can also unclaim a task by selecting <code>unclaim</code>. The task will go back to the associated user group.</p>
   </div>
 </div>
 
-You can bulk (un-)claim tasks after selecting multiple tasks via `strg + click`.
+You can bulk (un-)claim tasks after selecting multiple tasks via `Ctrl + click`.
 
 ## Delegate a Task
 
@@ -88,4 +88,4 @@ You can bulk (un-)claim tasks after selecting multiple tasks via `strg + click`.
   </div>  
 </div>
 
-You can bulk delegate tasks after selecting multiple tasks via `strg + click`.
+You can bulk delegate tasks after selecting multiple tasks via `Ctrl + click`.

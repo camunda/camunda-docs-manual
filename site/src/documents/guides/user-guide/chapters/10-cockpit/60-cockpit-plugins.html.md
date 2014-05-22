@@ -57,12 +57,12 @@ The basic skeleton of a cockpit plugin looks as follows:
     |           └── camunda.cfg.xml
     └── pom.xml
 
-As runtime relevant resources it defines
+As runtime relevant resource it defines
 
 1. a plugin main class
-2. a `META-INF/services` entry that publishes the plugin to cockpit
+2. a `META-INF/services` entry that publishes the plugin to Cockpit
 3. a plugin root [JAX-RS](https://jax-rs-spec.java.net/) resource that wires the server-side API
-4. other resources that are part in the server-side API
+4. other resources that are part of the server-side API
 5. data transfer objects used by the resources
 6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
 7. resource directory from which client-side plugin assets are served as static files
@@ -99,7 +99,7 @@ This example will completely deactivate the action buttons on the right side of 
 
 #### Excluding a plugin feature
 
-In this example, we deactivate the definition list in the cockpit dashboard
+In this example we deactivate the definition list in the cockpit dashboard
 but keep the diagram previews and disable the job retry action button:
 
 ```html

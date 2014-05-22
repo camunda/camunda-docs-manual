@@ -15,22 +15,22 @@ category: 'Tasklist'
   </div>  
 </div>
 
-To determine which user or user group is able to work with a task you can set the following extension attributes for your [User Task](ref:/api-references/bpmn20/#tasks-user-task):
+To determine which user or user group is able to work on a task you can set the following extension attributes for your [User Task](ref:/api-references/bpmn20/#tasks-user-task):
 
-* Assignee: direct assign to a user
+* Assignee: directly assign a task to a user
   
   ```xml
   <userTask id="theTask" name="my task" camunda:assignee="John" ></userTask>
   ```
 
-* Candidate User: makes user a candidate for a task
+* Candidate User: makes a user a candidate for a task
   ```xml
   <userTask id="theTask" name="my task" camunda:candidateUsers="John, Mary" ></userTask>
   ```
 
-* Candidate Group: makes user groups a candidate for a task
+* Candidate Group: makes a user group a candidate for a task
   ```xml
   <userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" ></userTask>
   ```
 
-You can define the Candidate User and the Candidate Group on the same task. Find more detailed information regarding extension attributes for [User Task here](ref:/api-references/bpmn20/#tasks-user-task).
+You can define the Candidate User and the Candidate Group on the same task. Find more detailed information regarding extension attributes for [User Tasks here](ref:/api-references/bpmn20/#tasks-user-task).

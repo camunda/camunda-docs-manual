@@ -21,7 +21,7 @@ Furthermore you get information about how to configure [User Credentials](ref:#c
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture below shows a connector setup for Signavio's SaaS edition with globally provided <a href="ref:#cycle-connector-configuration-user-credentials">credentials</a>, meaning that every Cycle user connects with the same credentials to the repository. If you are behind a proxy, you could configure that here as well.
+      For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture to the left shows a connector setup for Signavio's SaaS edition with globally provided <a href="ref:#cycle-connector-configuration-user-credentials">credentials</a>, meaning that every Cycle user connects to the repository with the same credentials. If you are behind a proxy, you could configure that here as well.
     </p>
     <p>
       Hit <code>Test</code> to check if Cycle can find the folder you specified.
@@ -37,7 +37,7 @@ Furthermore you get information about how to configure [User Credentials](ref:#c
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Use the subversion plugin to connect to a subversion repository like SVN or Git Hub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If <a href="ref:#cycle-connector-configuration-user-credentials">user credentials</a> are mandatory, you can provide them either globally or individually for each Cycle user. In the picture below you see a connector setup for a GitHub repository. The user credentials are provided globally. 
+      Use the subversion plugin to connect to a subversion repository like SVN or GitHub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If <a href="ref:#cycle-connector-configuration-user-credentials">user credentials</a> are mandatory, you can provide them either globally or individually for each Cycle user. In the picture to the left you see a connector setup for a GitHub repository. The user credentials are provided globally. 
     </p>
     <p>
       Hit <code>Test</code> to check if Cycle can find the folder you specified.
