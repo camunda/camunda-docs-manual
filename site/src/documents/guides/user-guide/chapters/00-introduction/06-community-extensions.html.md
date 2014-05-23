@@ -5,7 +5,7 @@ category: 'Introduction'
 
 ---
 
-camunda BPM is developed by camunda as open source project in collaboration with the community. The "core project" (namely "camunda BPM platform") is the basis for the camunda BPM product which is provided by camunda as a commercial offering. The commercial [camunda BPM product](http://camunda.com/bpm/features/) contains additional (non-open source) features and is provided to camunda BPM customers with service offerings such as enterprise support and [bug fix releases](ref:/enterprise/#downloads-community-vs-enterprise-releases).
+camunda BPM is developed by camunda as an open source project in collaboration with the community. The "core project" (namely "camunda BPM platform") is the basis for the camunda BPM product which is provided by camunda as a commercial offering. The commercial [camunda BPM product](http://camunda.com/bpm/features/) contains additional (non-open source) features and is provided to camunda BPM customers with service offerings such as enterprise support and [bug fix releases](ref:/enterprise/#downloads-community-vs-enterprise-releases).
 
 camunda supports the community in its effort to build additional community extensions under the camunda BPM umbrella. Such community extensions are maintained by the community and are not part of the commercial camunda BPM product. **camunda does not support community extensions as part of its commercial services to enterprise subscription customers**. 
 
