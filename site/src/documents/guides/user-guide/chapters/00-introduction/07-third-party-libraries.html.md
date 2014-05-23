@@ -5,7 +5,7 @@ category: 'Introduction'
 
 ---
 
-In the following all third-party libraries are listed on which components of the
+In the following section all third-party libraries are listed on which components of the
 camunda platform depend.
 
 ## Process Engine
