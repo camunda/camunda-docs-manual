@@ -259,5 +259,14 @@ The LDAP Identity Provider provides the following configuration properties:
       <p>Value for the <code>java.naming.security.authentication</code> property. <em>Default:</em> <code>simple</code></p>
     </td>
   </tr>
+  <tr>
+    <td><code>usePosixGroups</code></td>
+    <td>
+      <p>Indicates whether posix groups are used. If true, the connector will use a simple
+         (unqualified) user id when querying for groups by group member instead of the full DN.
+         <em>Default:</em> <code>false</code>
+      </p>
+    </td>
+  </tr>
 </table>
 
