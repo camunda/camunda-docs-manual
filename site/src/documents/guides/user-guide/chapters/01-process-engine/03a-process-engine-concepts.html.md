@@ -11,7 +11,7 @@ This section explains some core process engine concepts that are used in both th
 
 ## Process Definitions
 
-A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://camunda.org/design/tutorial.html) as its primary modeling language for modeling process definitions.
+A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://camunda.org/bpmn/tutorial.html) as its primary modeling language for modeling process definitions.
 
 <div class="alert alert-info">
   <strong>BPMN 2.0 Reference </strong>
@@ -101,7 +101,7 @@ Once you have performed a query for a particular process instance (or a list of 
   * Canceling it:
       * Using the `RuntimeService.deleteProcessInstance(...)` method.
 
-If your process uses User Task, you can also interact with the process instance using the TaskService API.
+If your process uses at least one User Task, you can also interact with the process instance using the TaskService API.
 
 ### Suspending Process Instances
 
@@ -155,7 +155,7 @@ Examples:
 
   * Process with two parallel user tasks after parallel Gateway: in the activity instance tree you will see two activity instances below the root instance, one for each user task.
   * Process with two parallel Multi Instance user tasks after parallel Gateway: in the activity instance tree, all instances of both user tasks will be listed below the root activity instance. Reason: all activity instances are at the same level of subprocess.
-  * Usertask inside embedded subprocess: the activity instance three will have 3 levels: the root instance representing the process instance itself, below it an activity instance representing the instance of the embedded subprocess, and below this one, the activity instance representing the usertask.
+  * Usertask inside embedded subprocess: the activity instance tree will have 3 levels: the root instance representing the process instance itself, below it an activity instance representing the instance of the embedded subprocess, and below this one, the activity instance representing the usertask.
 
 ### Retrieving an Activity Instance
 
@@ -191,11 +191,11 @@ managementService.createJobQuery()
   .list()
 ```
 
-It is possible to query for jobs using the REST Api.
+It is possible to query for jobs using the REST API.
 
 ### Querying for Job Definitions
 
-Using the management service, you can also query for job definitions. The following selects all job definitions form a specific process definition:
+Using the management service, you can also query for job definitions. The following selects all job definitions from a specific process definition:
 
 ```java
 managementService.createJobDefinitionQuery()
@@ -204,7 +204,7 @@ managementService.createJobDefinitionQuery()
 ```
 The result will contain information about all timers and asynchronous continuations in the order process.
 
-It is possible to query for jobs using the REST Api.
+It is possible to query for job definitions using the REST API.
 
 ### Suspending and Activating Job Execution
 
@@ -213,7 +213,7 @@ Job suspension prevents jobs from being executed. Suspension of job execution ca
 * Job Instance Level: individual Jobs can be suspended either directly through the `managementService.suspendJob(...)` API or transitively when suspending a Process Instance or a Job Definition.
 * Job Definition Level: all instances of a certain Timer or Activity can be suspended.
 
-Job suspension by Job definition allows you to suspend all instances of a certain timer or an asynchronous continuation. Intuitively, this allows you to suspend a certain activity in a process in a way that all process instances will advance until they have reached this activity and then not continue since the activity is suspended.
+Job suspension by Job Definition allows you to suspend all instances of a certain timer or an asynchronous continuation. Intuitively, this allows you to suspend a certain activity in a process in a way that all process instances will advance until they have reached this activity and then not continue since the activity is suspended.
 
 Let's assume there is a process deployed with key `orderProcess` which contains a service task named `processPayment`. The service task has an asynchronous continuation configured which causes it to be executed by the job executor. The following example shows how you can prevent the `processPayment` service from being executed:
 

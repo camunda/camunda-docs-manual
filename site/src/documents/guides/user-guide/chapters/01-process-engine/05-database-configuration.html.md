@@ -16,10 +16,10 @@ Note that internally the engine uses <a href="http://www.mybatis.org/">Apache My
 
 The data source that is constructed based on the provided JDBC properties will have the default MyBatis connection pool settings. The following attributes can optionally be set to tweak that connection pool (taken from the MyBatis documentation):
 
-* `jdbcMaxActiveConnections`: The number of active connections that the connection pool at maximum at any time can contain. Default is 10.
-* `jdbcMaxIdleConnections`: The number of idle connections that the connection pool at maximum at any time can contain.
-* `jdbcMaxCheckoutTime`: The amount of time in milliseconds a connection can be 'checked out' from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
-* `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it's taking unusually long (to avoid failing silently forever if the pool is mis-configured) Default is 20000 (20 seconds).
+* `jdbcMaxActiveConnections`: The maximum number of active connections that the connection pool can contain at any given time. Default is 10.
+* `jdbcMaxIdleConnections`: The maximum number of idle connections that the connection pool can contain at any given time.
+* `jdbcMaxCheckoutTime`: The amount of time in milliseconds that a connection can be 'checked out' for from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
+* `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it takes unusually long (to avoid failing silently forever if the pool is mis-configured) Default is 20000 (20 seconds).
 
 Example database configuration:
 
@@ -50,7 +50,7 @@ The following properties can be set, regardless of whether you are using the JDB
 * `databaseType`: it's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2}. This property is required when not using the default H2 database. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
 * `databaseSchemaUpdate`: allows to set the strategy to handle the database schema on process engine boot and shutdown.
   * `false` (default): Checks the version of the DB schema against the library when the process engine is being created and throws an exception if the versions don't match.
-  * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if it is necessary. If the schema doesn't exist, it is created.
+  * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if necessary. If the schema doesn't exist, it is created.
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
 <div class="alert alert-warning">
@@ -133,8 +133,8 @@ If you rely on the constraint, you can add it manually to your schema by issuing
 ### Custom Configuration for Microsoft SQL Server
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
-from most databases and does not play together well with the process engine's
-optimistic locking scheme. As a result you may suffer from deadlocks when
+than most databases and does not play together well with the process engine's
+optimistic locking scheme. As a result you may suffer deadlocks when
 putting the process engine under high load. 
 
 If you experience deadlocks in your MSSQL installation, you must execute the

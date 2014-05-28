@@ -7,12 +7,12 @@ category: 'Process Engine'
 
 A BPMN process diagram is a formidable place to visualize information around your process. You have two options to do this:
 
- * **BPMN JavaScript libraries** for rendering BPMN 2.0 with directly in the browser
+ * **BPMN JavaScript libraries** for rendering BPMN 2.0 process models directly in the browser
  * Java **Process Diagram API** using deployed PNG images
 
 We generally recommend the JavaScript libraries, but using the Process Diagram API can be considered if
 
- * You use browsers not capable of the Java Script rendering (see [Supported Environments](ref:#introduction-supported-environments-for-version-71))
+ * You use browsers not capable of JavaScript rendering (see [Supported Environments](ref:#introduction-supported-environments-for-version-71))
  * You want to use the exact visualization of your business modeler to improve Business IT Alignment
 
 ## BPMN JavaScript libraries
@@ -28,7 +28,7 @@ Go to [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js) for librarie
 
 ## Process Diagram API
 
-When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With these informations you can easily visualize anything on the process model. The following image shows an example using an BPMN 2.0 model from Adonis (see <a href="http://camunda.org/design/cycle-tutorial.html#!/#otherSect">Roundtrip with other BPMN 2.0 Modelers</a>):
+When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With this information you can easily visualize anything on the process model. The following image shows an example using a BPMN 2.0 model from Adonis (see <a href="http://camunda.org/design/cycle-tutorial.html#!/#otherSect">Roundtrip with other BPMN 2.0 Modelers</a>):
 
 <img src="ref:asset:/assets/img/implementation-java/process-diagram-api-adonis.png" class="img-responsive">
 
@@ -42,14 +42,14 @@ In order to use the Process Diagram API you need to deploy a process diagram tog
  * PNG or
  * JPEG format.
 
-The deployment can be done by any deployment mechanism camunda BPM offers. For instance if you use WAR deployment, you just need to place the image right next to the BPMN 2.0 XML file of your process (meaning in the same folder). The camunda Modeler automatically creates an image and saves it to the right direction each time you save if. It is important that both files have the same name, e.g.,
+The deployment can be done by any deployment mechanism camunda BPM offers. For instance if you use WAR deployment, you just need to place the image right next to the BPMN 2.0 XML file of your process (meaning in the same folder). The camunda Modeler automatically creates an image and saves it to the right path each time you save it. It is important that both files have the same name, e.g.,
 
     camunda-invoice.bpmn and
     camunda-invoice.png.
 
 Maven will add them to the built artifact and the platform will take care of deploying it to the process engine. The deployer (only) looks for files with the extensions *.png or *.jpg to identify process diagrams.
 
-The BPMN 2.0 XML file of your process must contain Diagram Interchange data. This is a special section containing positions and dimensions of the elements in the process diagram. Any modeling tool that conforms to BPMN 2.0 should be able to export this as part of its regular BPMN 2.0 XML export. Here is an example of how it looks like:
+The BPMN 2.0 XML file of your process must contain Diagram Interchange data. This is a special section containing positions and dimensions of the elements in the process diagram. Any modeling tool that conforms to BPMN 2.0 should be able to export this as part of its regular BPMN 2.0 XML export. Here is an example of what it looks like:
 
     ...
     <bpmndi:BPMNDiagram id="sid-02bd9186-9a09-4ef7-b17d-95bc9385c7ab">
@@ -66,7 +66,7 @@ The BPMN 2.0 XML file of your process must contain Diagram Interchange data. Thi
 
 If you have deployed a process diagram into the engine, you can retrieve it using the method `getProcessDiagram()` of the [RepositoryService](/api-references/javadoc/?org/camunda/bpm/engine/RepositoryService.html), which takes a process definition id as an argument and returns an `InputStream` with the content of the process diagram image.
 
-In a Web application you can, e.g., write a Servlet to provide process diagrams (this code is taken from the Invoice Showcase, see [ProcessDiagramServlet.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/servlet/ProcessDiagramServlet.java)):
+In a Web application you can for example write a Servlet to provide process diagrams (this code is taken from the Invoice Showcase, see [ProcessDiagramServlet.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/servlet/ProcessDiagramServlet.java)):
 
     @WebServlet(value = "/processDiagram", loadOnStartup = 1)
     public class ProcessDiagramServlet extends HttpServlet {
@@ -100,11 +100,15 @@ The method `getProcessDiagramLayout()` of the [RepositoryService](/api-reference
 
 These coordinates are given as pixels relative to the upper left corner of the image returned by `getProcessDiagram()`, i.e., you can take them directly and draw or render something on top the image. Be creative!
 
-**Hint:** If you have problems with the positions not fitting exactly try to add a pool around your process.
+<div class="alert alert-info">
+  <p>
+    <strong>Hint:</strong> If you have problems with the positions not fitting precisely, try to add a pool around your process.
+  </p>
+</div>
 
 ### Creating an Overlay on top of a Process Diagram
 
-To give you some inspiration of what you can do with the Process Diagram API, we have another look at the code of the [Invoice Showcase](https://github.com/camunda/camunda-consulting/tree/master/showcases/invoice-en) . It uses JSF, HTML and CSS to highlight the current activity of a given process instance.
+To give you some inspiration of what you can do with the Process Diagram API, we'll take another look at the code of the [Invoice Showcase](https://github.com/camunda/camunda-consulting/tree/master/showcases/invoice-en) . It uses JSF, HTML and CSS to highlight the current activity of a given process instance.
 
 A CDI bean looks up the currently active activities in the [RuntimeService](/api-references/javadoc/?org/camunda/bpm/engine/RuntimeService.html) and gets position and dimension of these activities using `DiagramLayout.getNode()` (see [ProcessDiagramController.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/diagram/ProcessDiagramController.java)):
 
@@ -124,7 +128,7 @@ A CDI bean looks up the currently active activities in the [RuntimeService](/api
         return list;
       }
 
-This bean is then invoked by a JSF page, which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)).
+This bean is then invoked by a JSF page which displays the process diagram from the Servlet shown above and places tokens on top of it (see [taskTemplate.xhtml](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/webapp/WEB-INF/templates/template.xhtml)).
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">

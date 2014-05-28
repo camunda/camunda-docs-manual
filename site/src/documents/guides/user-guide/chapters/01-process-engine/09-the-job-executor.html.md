@@ -99,7 +99,7 @@ Similarly, the following example defines three retries after 5 seconds each for 
 </definitions>
 ```
 
-Recap: a retry may be required, if there are any failures during the transaction which follows the timer.
+Recap: a retry may be required if there are any failures during the transaction which follows the timer.
 
 ## Concurrent Job Execution
 
@@ -127,8 +127,8 @@ An exclusive job cannot be performed at the same time as another exclusive job f
 
 Is this a good solution? We had some people asking whether it was. Their concern was that it would prevent you from *doing things in parallel* and would thus be a performance problem. Again, two things have to be taken into consideration:
 
-* It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used for retrying the gateway until the exception resolves.
-* It is actually not a performance issue. Performance is an issue under heavy load. Heavy load means that all worker threads of the job executor are busy all the time. With exclusive jobs, the engine will simply distribute the load differently. Exclusive jobs means that jobs from a single process instance are performed by the same thread sequentially. But consider: you have more than one single process instance. And jobs from other process instances are delegated to other threads and executed concurrently. This means that with exclusive jobs the engine will not execute jobs from the same process instance concurrently but it will still execute multiple instances concurrently. From an overall throughput perspective this is desirable in most scenarios as it usually leads to individual instances being done more quickly.
+* It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used to retry the gateway until the exception resolves.
+* It is actually not a performance issue. Performance is an issue under heavy load. Heavy load means that all worker threads of the job executor are busy all the time. With exclusive jobs the engine will simply distribute the load differently. Exclusive jobs means that jobs from a single process instance are performed by the same thread sequentially. But consider: you have more than one single process instance. Jobs from other process instances are delegated to other threads and executed concurrently. This means that with exclusive jobs the engine will not execute jobs from the same process instance concurrently but it will still execute multiple instances concurrently. From an overall throughput perspective this is desirable in most scenarios as it usually leads to individual instances being done more quickly.
 
 ## The Job Executor and Multiple Process Engines
 
@@ -136,7 +136,7 @@ In the case of a single, application-embedded process engine, the job executor s
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-single-engine.png" /></center>
 
-There exists a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
+There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
 
 In larger deployments however, this quickly leads to a poorly manageable situation. When running camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
 
@@ -164,13 +164,13 @@ When running the camunda platform in a cluster, there is a distinction between *
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/homogeneous-cluster.png"/></center>
 
-In the *heterogeneous* case, this is not given, meaning that some process applications are deployed to only part of the nodes.
+In the *heterogeneous* case, this is not given, meaning that some process applications areonly  deployed to a part of the nodes.
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/heterogeneous-cluster.png"/></center>
 
 ### Job Execution in Heterogeneous Clusters
 
-A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means, jobs created in the context of process application B (so on node 2), may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
+A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means that jobs created in the context of process application B (so on node 2) may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
 
 To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware*, by the setting following property in the process engine configuration:
 

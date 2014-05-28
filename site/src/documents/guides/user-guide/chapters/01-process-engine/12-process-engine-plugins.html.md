@@ -18,7 +18,7 @@ Process engine plugins can be configured
 * using Spring Beans XML,
 * programatically.
 
-The following is an example of how to configure a process engine plugin in bpm-platform.xml file:
+The following is an example of how to configure a process engine plugin in a bpm-platform.xml file:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"

@@ -12,7 +12,7 @@ The History Event Stream provides audit information about executed process insta
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-history.png" />
 </center>
 
-The process engine maintains the state of running process instances inside the database. This includes *writing* (1.) the state of a process instance to the database as it reaches a wait state and *reading* (2.) the state as process execution continues. We call this database the *runtime database*. In addition, to maintaining the runtime state, the process engine creates an audit log providing audit information about executed process instances. We call this event stream the *history event stream* (3.). The individual events which make up this event stream are called *History Events* and contain data about executed process instances, activity instances, changed process variables and so forth. In the default configuration, the process engine will simply write (4.) this event stream to the *history database*. The `HistoryService` API allows querying this database (5.). The history database and the history service are optional components; if the history event stream is not logged to the history database or if the user chooses to log events to a different database, the process engine is still able to work and it is still able to populate the history event stream. This is possible because the BPMN 2.0 Core Engine component does not read state from the history database. It is also possible to configure the amount of data logged, using the `historyLevel` setting in the process engine configuration.
+The process engine maintains the state of running process instances inside the database. This includes *writing* (1.) the state of a process instance to the database as it reaches a wait state and *reading* (2.) the state as process execution continues. We call this database the *runtime database*. In addition to maintaining the runtime state, the process engine creates an audit log providing audit information about executed process instances. We call this event stream the *history event stream* (3.). The individual events which make up this event stream are called *History Events* and contain data about executed process instances, activity instances, changed process variables and so forth. In the default configuration, the process engine will simply write (4.) this event stream to the *history database*. The `HistoryService` API allows querying this database (5.). The history database and the history service are optional components; if the history event stream is not logged to the history database or if the user chooses to log events to a different database, the process engine is still able to work and it is still able to populate the history event stream. This is possible because the BPMN 2.0 Core Engine component does not read state from the history database. It is also possible to configure the amount of data logged, using the `historyLevel` setting in the process engine configuration.
 
 Since the process engine does not rely on the presence of the history database for generating the history event stream, it is possible to provide different backends for storing the history event stream. The default backend is the `DbHistoryEventHandler` which logs the event stream to the history database. It is possible to exchange the backend and provide a custom storage mechanism for the history event log.
 
@@ -22,13 +22,13 @@ The history level controls the amount of data the process engine provides via th
 
 * `NONE`: no history events are fired.
 * `ACTIVITY`: the following events are fired:
-    * Process Instance START, UPDATE, END: fired as process instances are being started, updated, ended
-    * Activity Instance START, UPDATE, END: fired as activity instances are being started, updated, ended
-    * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (ie. re-assigned, delegated etc.), completed or deleted.
+    * Process Instance START, UPDATE, END: fired as process instances are being started, updated and ended
+    * Activity Instance START, UPDATE, END: fired as activity instances are being started, updated and ended
+    * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (ie. re-assigned, delegated etc.), completed and deleted.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
     * Variable Instance CREATE, UPDATE, DELETE, as process variables are created, updated and deleted. The default history backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
 * `FULL`: in addition to the events provided by history level `AUDIT`, the following additional events are fired:
-    * Form property UPDATE: fired are form properties are being created and/or updated.
+    * Form property UPDATE: fired as form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
@@ -46,7 +46,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration
   .buildProcessEngine();
 ```
 
-Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, processes.xml). When using the camunda BPM jboss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
+Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, processes.xml). When using the camunda BPM jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
 
 ```xml
 <property name="history">audit</property>
@@ -68,7 +68,7 @@ There are five History entities, which - in contrast to the runtime data - will 
 * `HistoricTaskInstances` containing information about current and past (completed and deleted) task instances.
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
 * `HistoricIncidents` containing information about current and past (ie. deleted or resolved) incidents.
-* `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, ...
+* `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, etc.
 
 
 ### Querying History
@@ -79,7 +79,7 @@ Below are a few examples which show some of the possibilities of the query API f
 
 ** HistoricProcessInstanceQuery **
 
-Get the first ten `HistoricProcessInstances` that are finished and which took the most time to complete (the longest duration) of all finished processes with definition 'XXX'.
+Get the ten `HistoricProcessInstances` that are finished and which took the most time to complete (the longest duration) of all finished processes with definition 'XXX'.
 
 ```java
 historyService.createHistoricProcessInstanceQuery()
@@ -137,7 +137,7 @@ historyService.createHistoricDetailQuery()
 
 ** HistoricTaskInstanceQuery **
 
-Get ten HistoricTaskInstances that are finished and which took the most time to complete (the longest duration) of all tasks.
+Get the ten HistoricTaskInstances that are finished and which took the most time to complete (the longest duration) of all tasks.
 
 ```java
 historyService.createHistoricTaskInstanceQuery()
@@ -178,7 +178,7 @@ historyService.createUserOperationLogQuery()
 
 ## Providing a custom History Backend
 
-In order to understand how to provide a custom history backend, it is useful to first look at a more in-detail view on the history architecture:
+In order to understand how to provide a custom history backend, it is useful to first look at a more detailed view of the history architecture:
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-history-architecture.png" />
@@ -188,7 +188,7 @@ Whenever the state of a runtime entity is changed, the core execution component 
 
 The event is next delivered to the History Event Handler which constitutes the *History Backend*. The drawing above contains a logical component named *event transport*. This is supposed to represent the channel between the process engine core component producing the events and the History Event Handler. In the default implementation, events are delivered to the History Event Handler synchronously and inside the same JVM. It is however conceptually possible to send the event stream to a different JVM (maybe running on a different machine) and making delivery asynchronous. A good fit might be a transactional message Queue (JMS).
 
-Once the event has reached the History Event Handler, it can be processed and stored in some kind of datastore. The default implementation writes events to the History Database such that they can be queried using the History Service.
+Once the event has reached the History Event Handler, it can be processed and stored in some kind of datastore. The default implementation writes events to the History Database so that they can be queried using the History Service.
 
 Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. In order to do so, two main steps are required:
 

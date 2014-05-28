@@ -238,7 +238,7 @@ The LDAP Identity Provider provides the following configuration properties:
   <tr>
     <td><code>acceptUntrustedCertificates</code></td>
     <td>
-      <p>Accept of untrusted certificates if LDAP server uses Ssl. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
+      <p>Accept of untrusted certificates if LDAP server uses SSL. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
     </td>
   </tr>
   <tr>

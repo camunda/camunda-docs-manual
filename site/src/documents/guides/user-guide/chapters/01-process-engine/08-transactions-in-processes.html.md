@@ -5,10 +5,10 @@ category: 'Process Engine'
 
 ---
 
-The process engine is a piece of passive Java Code, which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
+The process engine is a piece of passive Java Code which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
 
 
-On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime is going to advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](ref:#process-engine-the-job-executor), which is able to fetch registered jobs and process them asynchronously.
+On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime will advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor](ref:#process-engine-the-job-executor), which is able to fetch registered jobs and process them asynchronously.
 
 
 ## Wait States
@@ -36,7 +36,7 @@ The <a href="ref:/api-references/bpmn20/#gateways-event-based-gateway">Event Bas
 
 <div data-bpmn-diagram="implement/event-based-gateway" > </div>
 
-And keep in mind that [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations) can add transaction boundaries to other tasks as well.
+Keep in mind that [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations) can add transaction boundaries to other tasks as well.
 
 ## Transaction Boundaries
 
@@ -44,7 +44,7 @@ The transition from one such stable state to another stable state is always part
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/transactions-1.png"/></center>
 
-We see a segment of a BPMN process with a user task, a service task and a timer event. The timer event marks the next wait state. Completing the user task and validating the address is therefore part of the same unit of work, so it should succeed or fail atomically. That means that if the service task throws an exception we want to rollback the current transaction, such that the execution tracks back to the user task and the user task is still present in the database. This is also the default behavior of the process engine.
+We see a segment of a BPMN process with a user task, a service task and a timer event. The timer event marks the next wait state. Completing the user task and validating the address is therefore part of the same unit of work, so it should succeed or fail atomically. That means that if the service task throws an exception we want to roll back the current transaction, so that the execution tracks back to the user task and the user task is still present in the database. This is also the default behavior of the process engine.
 
 In **1**, an application or client thread completes the task. In that same thread the engine runtime is now executing the service task and advances until it reaches the wait state at the timer event (**2**). Then it returns the control to the caller (**3**) potentially committing the transaction (if it was started by the engine).
 
@@ -57,7 +57,7 @@ In some cases this behavior is not desired. Sometimes we need custom control ove
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/transactions-2.png"/></center>
 
-This time we are completing the user task, generating an invoice and then send that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to rollback the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return the control to the calling application (**2**).
+This time we are completing the user task, generating an invoice and then sending that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to roll back the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return control to the calling application (**2**).
 
 Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is managed by the [job executor](ref:#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
 
@@ -71,7 +71,7 @@ A start event may also be declared as asynchronous in the same way as above by t
 
 ## Rollback on Exception
 
-We want to emphasis that in case of a non handled exception the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
+We want to emphasize that in case of a non handled exception the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/transactions-3.png"/></center>
 
@@ -79,10 +79,10 @@ If an exception occurs when calling `startProcessInstanceByKey` the process inst
 
 ## Reasoning for this design
 
-The above sketched solution normally leads to discussion as people expect the process engine to stop in the task caused an exception. Also other BPM suites often implement every task as wait state. But the approach has a couple of **advantages**:
+The above sketched solution normally leads to discussion as people expect the process engine to stop in case the task caused an exception. Also, other BPM suites often implement every task as a wait state. But this approach has a couple of **advantages**:
 
  * In Testcases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
- * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the Tutorial "UI Mediator".
+ * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the tutorial "UI Mediator".
  * The execution is plain Java computing which is very efficient in terms of performance.
  * You can always switch to 'async=true' if you need different behavior.
 
