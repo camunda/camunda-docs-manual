@@ -10,9 +10,9 @@ Business processes are an integral part of software projects and they should be 
 
 camunda supports both JUnit versions 3 and 4 styles of unit testing. In the JUnit 3 style, the [ProcessEngineTestCase](ref:/api-references/javadoc/?org/camunda/bpm/engine/test/ProcessEngineTestCase.html) must be extended. This will make the ProcessEngine and the services available through protected member fields. In the setup() of the test, the processEngine will be initialized by default with the camunda.cfg.xml resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
 
-By extending ProcessEngineTestCase, you can annotate test methods with [Deployment](ref:/api-references/javadoc/?org/camunda/bpm/engine/test/Deployment.html). Before the test is run, a resource file of the form testClassName.testMethod.bpmn20.xml in the same package as the test class, will be deployed. At the end of the test, the deployment will be deleted, including all related process instances, tasks, etc. The Deployment annotation also supports setting the resource location explicitly. See the Javadocs for more details.
+By extending ProcessEngineTestCase, you can annotate test methods with [Deployment](ref:/api-references/javadoc/?org/camunda/bpm/engine/test/Deployment.html). Before the test is run, a resource file of the form testClassName.testMethod.bpmn20.xml, in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The Deployment annotation also supports setting the resource location explicitly. See the Javadocs for more details.
 
-Taking all that in account, a JUnit 3 style test looks as follows:
+Taking all that into account, a JUnit 3 style test looks as follows:
 
 ```java
 public class MyBusinessProcessTest extends ProcessEngineTestCase {
