@@ -31,7 +31,7 @@ Collection<ModelElementInstance> taskInstances = modelInstance.getModelElementsB
 ```
 
 
-For every element instance you can now read and edit the attribute values. Either by using the provided
+For every element instance you can now read and edit the attribute values. You can do this by either using the provided
 helper methods or the generic XML model API. If you added custom attributes to the BPMN elements you can
 always access them with the generic XML model API.
 
@@ -55,11 +55,11 @@ start.setAttributeValue("custom-attribute", "new value");
 start.setAttributeValueNs("custom-attribute", "http://camunda.org/custom", "new value");
 ```
 
-Also you can access the child elements of an element or references to other elements. For example a sequence flow
-references a source and a target element. While a flow node (like start event, tasks etc.) have child elements
+Uou can also access the child elements of an element or references to other elements. For example a sequence flow
+references a source and a target element while a flow node (like start event, tasks etc.) has child elements
 for incoming and outgoing sequence flows.
 
-For example the following BPMN model was create by the BPMN model API as an example for a simple process.
+For example the following BPMN model was created by the BPMN model API as an example for a simple process.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -100,7 +100,7 @@ assert(outgoing.contains(sequenceFlow));
 ```
 
 With these references you can easily create helper methods for different use cases. For example if you want to
-find the following flow nodes of an task or a gateway you can use helper method like the following.
+find the following flow nodes of an task or a gateway you can use a helper method like the following.
 
 ```java
 public Collection<FlowNode> getFlowingFlowNodes(FlowNode node) {

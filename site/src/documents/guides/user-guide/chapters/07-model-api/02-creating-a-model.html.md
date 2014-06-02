@@ -20,8 +20,8 @@ definitions.setTargetNamespace("http://camunda.org/examples");
 modelInstance.setDefinitions(definitions);
 ```
 
-After that you usually want to add a process to your model. This also follows
-the 3 steps as the creation of the BPMN definitions element:
+After that you usually want to add a process to your model. This follows
+the same 3 steps as the creation of the BPMN definitions element:
 
 1. create a new instance of the BPMN element
 2. set attributes and  child elements of the element instance
@@ -45,7 +45,7 @@ protected <T extends BpmnModelElementInstance> T createElement(BpmnModelElementI
 ```
 
 After you created the elements of your process like start event, tasks, gateways and end event you have to connect
-the elements by sequence flows. This follows again the 3 steps of element creation and can be simplified by the
+the elements with sequence flows. Again, this follows the same 3 steps of element creation and can be simplified by the
 following helper method.
 
 ```java
@@ -117,7 +117,7 @@ Bpmn.writeModelToFile(file, modelInstance);
 
 ### Example 2: Create a simple process with two parallel tasks
 
-Even complexer processes can be create with few lines of code with the standard BPMN model API.
+Even complexer processes can be created with a few lines of code with the standard BPMN model API.
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/bpmn-model-api-parallel-gateway.png" /></center>
 

@@ -27,8 +27,8 @@ public class ExampleServiceTask implements JavaDelegate {
 ## Execution Listener
 
 If your class implements the `org.camunda.bpm.engine.delegate.ExecutionListener` interface you can access the BPMN model instance
-and the current flow element. As a Execution Listener can be added to several elements like process, events, tasks, gateways
-and sequence flows it can not be guaranteed of which type the flow element will be.
+and the current flow element. As an Execution Listener can be added to several elements like process, events, tasks, gateways
+and sequence flows it can not be guaranteed which type the flow element will be.
 
 ```java
 public class ExampleExecutionListener implements ExecutionListener {
