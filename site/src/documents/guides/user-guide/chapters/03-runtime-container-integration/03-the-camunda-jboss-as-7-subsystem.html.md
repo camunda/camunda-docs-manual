@@ -9,7 +9,7 @@ category: 'Runtime Container Integration'
   <p>
     <strong>Distribution & Installation Guide</strong>
   </p>
-   <p>If you <a href="http://www.camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss Subsystem is readily installed into the application server</p>
+   <p>If you <a href="http://camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss subsystem is readily installed into the application server</p>
    <p><a href="ref:/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the camunda JBoss subsystem into your JBoss Server.</p>
 </div>
 
@@ -25,7 +25,7 @@ The most prominent features are:
 
 ## Configuring a process engine in standalone.xml / domain.xml
 
-Using the camunda JBoss AS 7 Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straight forward way is to add the process engine configuration to the `standalone.xml` file of the JBoss Server:
+Using the camunda JBoss AS 7 Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss Server:
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
         <process-engines>
@@ -60,7 +60,7 @@ If you start up your JBoss AS 7 server with this configuration, it will automati
 
 ## Providing a custom process engine configuration class
 
-It is possible to provide a custom Process Engine Configuration class on JBoss AS 7. To this extend, provide the fully qualified classname of the class in the `standalone.xml` file:
+It is possible to provide a custom Process Engine Configuration class on JBoss AS 7. To this extent, provide the fully qualified classname of the class in the `standalone.xml` file:
 
     <process-engine name="default" default="true">
         <datasource>java:jboss/datasources/ProcessEngine</datasource>
@@ -100,7 +100,7 @@ Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.ba
 ## Extending a process engine using process engine plugins
 
 It is possible to extend a process engine using the process engine plugins concept.
-You specify the process engine plugins in `standalone.xml` / `domain.xml` for each process engine separately like shown below:
+You specify the process engine plugins in `standalone.xml` / `domain.xml` for each process engine separately as shown below:
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
         <process-engines>

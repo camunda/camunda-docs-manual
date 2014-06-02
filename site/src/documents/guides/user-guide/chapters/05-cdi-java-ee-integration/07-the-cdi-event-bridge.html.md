@@ -73,7 +73,7 @@ This observer would be notified of all events. If we want to restrict the set of
 * `@AssignTask`: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) "approveRegistration" is assigned:
 
   ```java
-  public void onTaskEvent(@Observes @AssginTask("approveRegistration") BusinessProcessEvent businessProcessEvent) {
+  public void onTaskEvent(@Observes @AssignTask("approveRegistration") BusinessProcessEvent businessProcessEvent) {
   // handle event
   }
   ```
@@ -86,7 +86,7 @@ This observer would be notified of all events. If we want to restrict the set of
   }
   ```
 
-* `@DeleteTask`: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) "approveRegistration" is delete:
+* `@DeleteTask`: restricts the set of events by a certain task. The following is invoked whenever a task with the definition key (id in BPMN XML) "approveRegistration" is deleted:
 
   ```java
   public void onTaskEvent(@Observes @DeleteTask("approveRegistration") BusinessProcessEvent businessProcessEvent) {
