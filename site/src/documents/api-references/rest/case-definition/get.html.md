@@ -20,7 +20,7 @@ GET `/case-definition/key/{key}` (returns the latest version of case definition)
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -85,13 +85,13 @@ Its properties are as follows:
   <tr>
     <td>deploymentId</td>
     <td>String</td>
-    <td>The id of the case definition.</td>
+    <td>The deployment id of the case definition.</td>
   </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -103,11 +103,6 @@ Response codes
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-	<td>The path parameter "key" has no value. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

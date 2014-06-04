@@ -19,7 +19,7 @@ GET `/case-definition`
 
 
 Parameters
---------------  
+--------------
 
 #### Query Parameters
 
@@ -99,7 +99,7 @@ Parameters
 
 
 Result
---------------  
+--------------
 
 A json array of case definition objects.
 Each case definition object has the following properties:
@@ -143,13 +143,13 @@ Each case definition object has the following properties:
   <tr>
     <td>deploymentId</td>
     <td>String</td>
-    <td>The id of the case definition.</td>
+    <td>The deployment id of the case definition.</td>
   </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -176,7 +176,7 @@ Example
 #### Request
 
 <!-- TODO: Insert a 'real' example -->
-GET `/pcase-definition?keyLike=Key&sortBy=category&sortOrder=asc`
+GET `/case-definition?keyLike=Key&sortBy=category&sortOrder=asc`
 
 #### Response
 

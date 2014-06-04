@@ -19,7 +19,7 @@ GET `/process-definition`
 
 
 Parameters
---------------  
+--------------
 
 #### Query Parameters
 
@@ -123,7 +123,7 @@ Parameters
 
 
 Result
---------------  
+--------------
 
 A json array of process definition objects.
 Each process definition object has the following properties:
@@ -172,7 +172,7 @@ Each process definition object has the following properties:
   <tr>
     <td>deploymentId</td>
     <td>String</td>
-    <td>The id of the process definition.</td>
+    <td>The deployment id of the process definition.</td>
   </tr>
   <tr>
     <td>diagram</td>
@@ -188,7 +188,7 @@ Each process definition object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>

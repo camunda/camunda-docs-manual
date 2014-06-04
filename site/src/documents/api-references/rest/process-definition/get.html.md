@@ -20,7 +20,7 @@ GET `/process-definition/key/{key}` (returns the latest version of process defin
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -90,7 +90,7 @@ Its properties are as follows:
   <tr>
     <td>deploymentId</td>
     <td>String</td>
-    <td>The id of the process definition.</td>
+    <td>The deployment id of the process definition.</td>
   </tr>
   <tr>
     <td>diagram</td>
@@ -106,7 +106,7 @@ Its properties are as follows:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
