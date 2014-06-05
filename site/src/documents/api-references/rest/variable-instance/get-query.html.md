@@ -44,6 +44,14 @@ Parameters
     <td>Only include variable instances which belongs to one of the passed and comma-separated execution ids.</td>
   </tr>
   <tr>
+    <td>caseInstanceIdIn</td>
+    <td>Only include variable instances which belongs to one of the passed case instance ids.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include variable instances which belongs to one of the passed case execution ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include variable instances which belongs to one of the passed and comma-separated task ids.</td>
   </tr>
@@ -127,6 +135,16 @@ A json array of variable instance objects. Each variable instance object has the
     <td>executionId</td>
     <td>String</td>
     <td>The id of the execution that this variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance that this variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution that this variable instance belongs to.</td>
   </tr>
   <tr>
     <td>taskId</td>

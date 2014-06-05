@@ -76,6 +76,16 @@ A user object with the following properties:
     <td>The id of the execution that this variable instance belongs to.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance that this variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution that this variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>taskId</td>
     <td>String</td>
     <td>The id of the task that this variable instance belongs to.</td>

@@ -43,6 +43,14 @@ Parameters
     <td>Only include variable instances which belongs to one of the passed and comma-separated execution ids.</td>
   </tr>
   <tr>
+    <td>caseInstanceIdIn</td>
+    <td>Only include variable instances which belongs to one of the passed case instance ids.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include variable instances which belongs to one of the passed case execution ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include variable instances which belongs to one of the passed and comma-separated task ids.</td>
   </tr>
