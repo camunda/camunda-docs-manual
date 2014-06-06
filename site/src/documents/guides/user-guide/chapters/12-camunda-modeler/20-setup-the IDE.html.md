@@ -41,7 +41,7 @@ After you have <a href="ref:/guides/installation-guide/camunda-modeler/">install
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
-       To open the diagram canvas right-click on a *.bpmn file in the Project Explorer and select <code>Open With / Bpmn2 Diagram Editor</code>. Right hand side the Palette offers you all BPMN 2.0 elements grouped in different sections. Via drag and drop you can add the elements to your diagram.
+       To open the diagram canvas right-click on a *.bpmn file in the Project Explorer and select <code>Open With / Bpmn2 Diagram Editor</code>. On the right hand side of the screen, the Palette offers you all BPMN 2.0 elements grouped into different sections. You can add elements to your diagram by dragging and dropping them onto the Diagram Canvas.
      </p>
   </div>
 </div>
