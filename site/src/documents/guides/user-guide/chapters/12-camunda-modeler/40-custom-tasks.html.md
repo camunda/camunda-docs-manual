@@ -23,4 +23,4 @@ The following functionality is exposed to custom task providers and thus usable 
 
 
 Head over to the custom task tutorial to learn more about [how to provide custom tasks](ref:/real-life/how-to/#modeler). 
-You may also check out the [advanced custom task example](https://github.com/camunda/camunda-consulting/tree/master/snippets/modeler/custom-task-advanced) that show cases most of the options.
+You may also check out the [advanced custom task example](https://github.com/camunda/camunda-consulting/tree/master/snippets/modeler/custom-task-advanced) that showcases most of the options.
