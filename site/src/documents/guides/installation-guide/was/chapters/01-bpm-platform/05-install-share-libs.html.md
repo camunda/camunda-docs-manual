@@ -19,9 +19,7 @@ camunda-ee-ibm-was-$PLATFORM_VERSION.zip
            |-- java-uuid-generator-XX.jar
            |-- mybatis-XX.jar
            |-- joda-time-XX.jar
-           |-- camunda-identity-ldap-$PLATFORM_VERSION.jar
-           |-- camunda-bpmn-model-$PLATFORM_VERSION.jar
-           |-- camunda-xml-model-$PLATFORM_VERSION.jar
+           |-- ...
       |-- camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear
       |-- camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar
 

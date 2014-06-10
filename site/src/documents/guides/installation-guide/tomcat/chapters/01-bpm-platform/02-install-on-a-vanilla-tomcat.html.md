@@ -59,23 +59,8 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
 
 ## Add necessary libraries to vanilla Tomcat 7
 
-First you have to copy the following libraries into your vanilla Tomcat library folder `$TOMCAT_HOME/lib`:
-
-`$TOMCAT_DISTRIBUTION/lib/camunda-engine-$PLATFORM_VERSION.jar`
-
-`$TOMCAT_DISTRIBUTION/lib/camunda-identity-ldap-$PLATFORM_VERSION.jar` (if you want to use LDAP)
-
-`$TOMCAT_DISTRIBUTION/lib/camunda-bpmn-model-$PLATFORM_VERSION.jar`
-
-`$TOMCAT_DISTRIBUTION/lib/camunda-xml-model-$PLATFORM_VERSION.jar`
-
-`$TOMCAT_DISTRIBUTION/lib/java-uuid-generator-VERSION.jar`
-
-`$TOMCAT_DISTRIBUTION/lib/joda-time-VERSION.jar`
-
-`$TOMCAT_DISTRIBUTION/lib/mybatis-VERSION.jar`
-
-Furthermore you have to merge your corresponding JDBC driver into the folder `$TOMCAT_HOME/lib`.
+Copy all libraries from the `$TOMCAT_DISTRIBUTION/lib/` folder to the Tomcat library folder 
+(`$TOMCAT_HOME/lib`):
 
 
 ## Add bpm-platform.xml

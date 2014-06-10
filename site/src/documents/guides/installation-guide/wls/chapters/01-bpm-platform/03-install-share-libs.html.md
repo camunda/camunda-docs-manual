@@ -18,9 +18,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
            |-- camunda-engine-$PLATFORM_VERSION.jar
            |-- java-uuid-generator-XX.jar
            |-- mybatis-XX.jar
-           |-- camunda-identity-ldap-$PLATFORM_VERSION.jar
-           |-- camunda-bpmn-model-$PLATFORM_VERSION.jar
-           |-- camunda-xml-model-$PLATFORM_VERSION.jar
+           |-- ...
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
       |-- camunda-oracle-weblogic-rar-$PLATFORM_VERSION.rar
 
