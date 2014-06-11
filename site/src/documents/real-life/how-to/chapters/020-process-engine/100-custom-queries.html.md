@@ -136,10 +136,13 @@ In order to this we start up a very special Process Engine which only does the M
 
 ```java
 public class MyBatisExtendedSessionFactory extends StandaloneProcessEngineConfiguration {
+
   private String resourceName;
+
   protected void init() {
     throw new IllegalArgumentException("Normal 'init' on process engine only used for extended MyBatis mappings is not allowed.");
   }
+
   public void initFromProcessEngineConfiguration(ProcessEngineConfigurationImpl processEngineConfiguration, String resourceName) {
     this.resourceName = resourceName;
     setDataSource(processEngineConfiguration.getDataSource());
@@ -154,6 +157,22 @@ public class MyBatisExtendedSessionFactory extends StandaloneProcessEngineConfig
     initIdentityProviderSessionFactory();        
     initSessionFactories();
   }
+
+  /**
+   * In order to always open a new command context set the property
+   * "alwaysOpenNew" to true inside the CommandContextInterceptor.
+   *
+   * If you execute the custom queries inside the process engine
+   * (for example in a service task), you have to do this.
+   */
+  @Override
+  protected Collection<? extends CommandInterceptor> getDefaultCommandInterceptorsTxRequired() {
+    List<CommandInterceptor> defaultCommandInterceptorsTxRequired = new ArrayList<CommandInterceptor>();
+    defaultCommandInterceptorsTxRequired.add(new LogInterceptor());
+    defaultCommandInterceptorsTxRequired.add(new CommandContextInterceptor(commandContextFactory, this, true));
+    return defaultCommandInterceptorsTxRequired;
+  }
+
   @Override
   protected InputStream getMyBatisXmlConfigurationSteam() {
     return ReflectUtil.getResourceAsStream(resourceName);
@@ -165,11 +184,14 @@ This allows us to access our own queries (we will show this in a minute) from ou
 
 ```java
 Command<List<TaskDTO>> command = new Command<List<TaskDTO>>() {
+
   public List<TaskDTO> execute(CommandContext commandContext) {
     // select the first 100 elements for this query
     return (List<TaskDTO>) commandContext.getDbSqlSession().selectList("selectTasksForRegion", "Berlin", 0, 100);
   }
+
 };
+
 MyBatisExtendedSessionFactory myBatisExtendedSessionFactory = new MyBatisExtendedSessionFactory();
 myBatisExtendedSessionFactory.initFromProcessEngineConfiguration(processEngineConfiguration, "/ourOwnMappingFile.xml");
 myBatisExtendedSessionFactory.getCommandExecutorTxRequired().execute(command);
