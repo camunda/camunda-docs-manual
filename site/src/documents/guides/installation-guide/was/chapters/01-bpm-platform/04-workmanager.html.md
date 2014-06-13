@@ -32,13 +32,15 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tr>
   <tr>
     <td >JNDI name</td>
-    <td >
+    <td>
       <div>
-        <p><code>wm/camunda-bpm-workmanager</code></p>
-      </div></td>
-      <td><p>Default JNDI name for WorkManager.</p>
-      <p><strong>This setting value is mandatory.</strong></p></td>
-       <td></td>
+        <p>wm/camunda-bpm-workmanager</p>
+      </div>
+    </td>
+    <td>
+      <p>Default JNDI name for WorkManager.</p>
+      <p><strong>This setting value is mandatory.</strong></p>
+    </td>
   </tr>
   <tr>
     <td >Description</td>
@@ -53,7 +55,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tr>
   <tr>
     <td ><span>Work request queue full action</span></td>
-    <td ><span>FAIL</span></td>
+    <td ><span>Fail</span></td>
     <td ><span>Specifies the action that is taken when the thread pool is exhausted, and the work request queue is full. This action starts when you submit non-daemon work to the work manager. The default value is block but should be changed to "<strong>Fail</strong>".</span>
     </td>
   </tr>
