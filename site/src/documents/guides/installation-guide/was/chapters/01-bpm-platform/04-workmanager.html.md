@@ -1,13 +1,13 @@
 ---
 
-title: 'Configure a WorkManager to be used by the camunda platform jobexecutor'
+title: 'Configure a WorkManager to be used by the camunda BPM platform jobexecutor'
 shortTitle: 'Configure a WorkManager'
 category: 'BPM Platform'
 
 ---
 
 
-This section explains how you can use the WebShere Integrated Solutions Console for configuring a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server for additional details](http://www-01.ibm.com/software/webservers/appserv/was/library/).
+This section explains how you can use the WebShere Integrated Solutions Console to configure a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
 Select the appropriate server under **Resources** / **Asynchronous Beans** / **Work Managers** and open the configuration page. Example: <code>server1</code>
 Create a new work manager using the Button **New...**.
@@ -27,19 +27,18 @@ Configure the new Work Manager. The following is a selection of sensible default
     <td >Name</td>
     <td >camunda-platform-jobexecutor-WM</td>
     <td >The name of the Work Manager. You can choose a different name if you reference
-      it when installing the camunda platform jobexecutor resource adapter (see below).
+      it when installing the camunda BPM platform jobexecutor resource adapter (see below).
     </td>
   </tr>
   <tr>
     <td >JNDI name</td>
     <td >
       <div>
-        <p>Default JNDI name for WorkManager:</p>
         <p><code>wm/camunda-bpm-workmanager</code></p>
-      </div>
-      <p><strong>This setting value is mandatory.</strong></p>
-    </td>
-    <td></td>
+      </div></td>
+      <td><p>Default JNDI name for WorkManager.</p>
+      <p><strong>This setting value is mandatory.</strong></p></td>
+       <td></td>
   </tr>
   <tr>
     <td >Description</td>
@@ -94,7 +93,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   <tr>
     <td>Growable</td>
     <td>False</td>
-    <td>Specifies whether the number of threads in this work manager can be increased automatically when maximum number of threads is reached.The default value is true, but should be changed to "False"</td>
+    <td>Specifies whether the number of threads in this work manager can be increased automatically when the maximum number of threads is reached.The default value is true, but should be changed to "False"</td>
   </tr>
   </tbody>
 </table>

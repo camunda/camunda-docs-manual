@@ -14,7 +14,7 @@ category: 'Installation'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Add the update site URL (see above) to the Eclipse download site.
+      Add the update site URL (see above) as an Eclipse Repository.
     </p>
   </div>
 </div>
@@ -56,7 +56,7 @@ category: 'Installation'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Before you can download the plugin you will be prompt to accept the User Agreement. Click <em>Next</em>.
+      Before you can download the plugin you will be prompted to accept the User Agreement. Click <em>Next</em>.
     </p>
   </div>
 </div>

@@ -11,7 +11,7 @@ category: 'Troubleshooting'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
   	<p>
-    	If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the <strong>camunda Modeler</strong>. This rarely happens when you had some other plug-ins using different versions of graphiti installed before the camunda modeler (one common example would be the Activiti Designer).
+    	If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the <strong>camunda Modeler</strong>. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the camunda Modeler (one common example would be the Activiti Designer).
     </p>
   </div>
 </div>

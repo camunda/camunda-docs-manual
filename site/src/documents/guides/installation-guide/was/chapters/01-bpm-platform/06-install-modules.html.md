@@ -1,12 +1,12 @@
 ---
 
-title: 'Install the camunda platform modules'
+title: 'Install the camunda BPM platform modules'
 category: 'BPM Platform'
 
 ---
 
 
-The camunda platform includes two modules in the modules folder of the distribution:
+The camunda BPM platform includes two modules in the modules folder of the distribution:
 
 ```
 camunda-ee-ibm-was-$PLATFORM_VERSION.zip

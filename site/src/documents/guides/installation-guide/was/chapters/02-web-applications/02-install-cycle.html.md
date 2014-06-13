@@ -14,17 +14,17 @@ category: 'Web Applications'
 
 ## Create the database schema for camunda Cycle
 
-The next step consists in creating a database schema for camunda Cycle. The camunda platform distribution ships with a set of SQL create scripts that can be executed by a database administrator.
-The SQL create scripts reside in the camunda platform distribution in the sql/create folder, like <code>sql/create/*_cycle_VERSION.sql</code>.
+The next step consists of creating a database schema for camunda Cycle. The camunda platform distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+The SQL create scripts reside in the camunda platform distribution in the sql/create folder, eg. <code>sql/create/*_cycle_VERSION.sql</code>.
 
-There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
 We recommend to create a separate database or database schema for camunda Cycle.
 
 
 ## Create a datasource
 
-Now you must define a datasource in IBM WebSphere Application Server. We assume here that you are familiar with the procedure. If in doubt, check the appropriate sections in the manual of your application server.
+Now you must define a datasource in the IBM WebSphere Application Server. Here we assume that you are familiar with the procedure. If in doubt, check the appropriate sections in the manual of your application server.
 
 <div class="alert alert-info">
   <p><strong>Note</strong></p>
@@ -43,22 +43,22 @@ Cycle-was-VERSION.war/WEB-INF/classes/META-INF/cycle-persistence.xml
 
 The camunda Cycle WAR file resides under <code>webapps/cycle-was-$PLATFORM_VERSION.war</code> in the WAS distribution archive.
 
-In the following we explain how to install the WAR file using the WebSphere enterprise application Wizard provided inside the WebSphere Integrated Solutions Console:
+In this section we explain how to install the WAR file using the WebSphere enterprise application Wizard provided inside the WebSphere Integrated Solutions Console:
 
 1.  Open the WebSphere Integrated Solutions Console.
-2.  Navigate to the **Applications / Application Types / WebSphere enterprise applications** Page.
+2.  Navigate to the **Applications / Application Types / WebSphere enterprise applications** page.
 3.  Click the **Install** Button
 4.  The first page of the Wizard opens. Using the File Browser, select the <code>cycle-was-VERSION.war</code> file from the distribution and upload it.
 5.  Continue to the next page.
 6.  Select the **"Fast Path"** on the next page.
-7.  Step 1. Usually, no changes are required.
-8.  Step 2. Usually, no changes are required.
-9.  Step 3. Usually, no changes are required.
+7.  Step 1. Usually no changes are required.
+8.  Step 2. Usually no changes are required.
+9.  Step 3. Usually no changes are required.
 10. Step 4. Define a context root for Cycle. We propose to use **/cycle**
-11. Step 5. Usually, no changes are required.
+11. Step 5. Usually no changes are required.
 
 After completing the wizard, Cycle should be successfully installed on the application server. Don't forget to save your changes to the master configuration.
-In some situations, you also have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** Page.
+In some situations, you also have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
 
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
@@ -73,7 +73,7 @@ In some situations, you also have to start the web application manually from the
 
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
-  <p>When you want to use the SaaS offer by Signavio or internally using the camunda webmodeler over the HTTPS protocol and Cycle is deployed on WAS, then you have to install the <code>IBM Unrestricted JCE policy</code> files provided by IBM.</p>
+  <p>When you want to use the SaaS offer by Signavio or internally use the camunda webmodeler over the HTTPS protocol and Cycle is deployed on WAS, then you have to install the <code>IBM Unrestricted JCE policy</code> files provided by IBM.</p>
   <p>You can download them <a href="https://www14.software.ibm.com/webapp/iwm/web/reg/pick.do?source=jcesdk">here</a> with an valid IBM ID account. Just choose the version which fits your JDK Version + Service Release your WAS is running on.</p>
   <p>After you have downloaded them, drop the extracted jar files into your <code>$WAS_HOME/AppServer/java/jre/lib/security</code> folder and restart the server afterwards.</p>
 </div>

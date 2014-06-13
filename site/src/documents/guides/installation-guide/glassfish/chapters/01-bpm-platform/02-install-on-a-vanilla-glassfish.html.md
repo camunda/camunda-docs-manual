@@ -6,18 +6,18 @@ category: 'BPM Platform'
 
 ---
 
-This section will describe how you can install the camunda BPM platform on a [vanilla Glassfish 3.1](http://glassfish.java.net/), if you are not able to use the pre-packaged Glassfish distribution. Regardless we recommend you to [download a Glassfish 3.1 distribution](http://camunda.org/download/) to use the required modules.
+This section will describe how you can install the camunda BPM platform on a vanilla [Glassfish 3.1](http://glassfish.java.net/), if you are not able to use the pre-packaged Glassfish distribution. Regardless, we recommend that you [download a Glassfish 3.1 distribution](http://camunda.org/download/) to use the required modules.
 
-### <a id="database-camunda-bpm-platform"></a>Create the database schema for camunda BPM platform
+### <a id="database-camunda-bpm-platform"></a>Create the database schema for the camunda BPM platform
 
-If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+If you do not want to use the H2 database, you first have to create a database schema for the camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts are reside in the `sql/create` folder:
 
 `$GLASSFISH_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$GLASSFISH_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
 <!--The next sections describe how to configure the Glassfish and to install the camunda BPM platfrom on Glassfish. If you prefer you can do the following [configurations via Glassfish Administration Console](ref:#configuring-admin-console) and [skip](ref:#configuring-admin-console) the next sections.-->
 
@@ -25,7 +25,7 @@ There is an individual SQL script for each supported database. Select the script
 
 The JDBC Connection Pool and the JDBC Resource can be configured by editing the file `domain.xml` inside the folder `$GLASSFISH_HOME/glassfish/domains/<domain>/config/`.
 
-The following example shows the configuration based on a H2 database.
+This could look like the following example for an H2 database:
 
     <domain>
       ...
@@ -57,11 +57,11 @@ The following example shows the configuration based on a H2 database.
       </servers>
     </domain>
 
-In case of using another database (i.e. DB2, MySQL etc.) than H2 you have to adjust the `datasource-classname` and the `res-type` attributes with the corresponding database classes and set the database specific properties (like the url etc.) inside the JDBC Connection Pool. Furthermore you have to add the corresponding JDBC driver at `$GLASSFISH_HOME/glassfish/lib/`. For example you can add the H2 JDBC driver which is located at `$GLASSFISH_DISTRIBUTION/server/glassfish3/glassfish/lib/h2-VERSION.jar` to run with the H2 database.
+In case another database than H2 is used (i.e. DB2, MySQL etc.), you have to adjust the `datasource-classname` and the `res-type` attributes with the corresponding database classes and set the database specific properties (such as the url, etc.) inside the JDBC Connection Pool. Furthermore, you have to add the corresponding JDBC driver to `$GLASSFISH_HOME/glassfish/lib/`. For example, you can add the H2 JDBC driver which is located at `$GLASSFISH_DISTRIBUTION/server/glassfish3/glassfish/lib/h2-VERSION.jar` to run with the H2 database.
 
-### <a id="configuring-thread-pool"></a>Configuring Thread Pool for Job Executor
+### <a id="configuring-thread-pool"></a>Configuring a Thread Pool for the Job Executor
 
-Therefore you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/config/domain.xml` and add the following elements to `resources` section.
+To do so, you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/config/domain.xml` and add the following elements to the `resources` section.
 
     <domain>
       ...
@@ -95,7 +95,7 @@ Therefore you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/
       </servers>
     </domain>
 
-To configure a thread pool for the job executor you have to add it in the corresponding `config` elements of `domain.xml`.
+To configure a thread pool for the job executor you have to add it to the corresponding `config` elements of `domain.xml`.
 
     <domain>
       ...
@@ -115,15 +115,15 @@ To configure a thread pool for the job executor you have to add it in the corres
       </configs>
     </domain>
 
-### Installing camunda BPM platform
+### Installing the camunda BPM platform
 
 The following steps are required to deploy the camunda BPM platform on a Glassfish instance:
 
-1. Merge the shared libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` into `GLASSFISH_HOME/glassfish/lib` directory (i.e. copy the content into the Glassfish library directory).
-2. Copy the jobexecutor resource adapter `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor resource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this we propose to startup the Glassfish to deploy initially the jobexecutor resource adapter. After a successful startup shutdown the Glassfish.
+1. Merge the shared libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` into the `GLASSFISH_HOME/glassfish/lib` directory (i.e. copy the content into the Glassfish library directory).
+2. Copy the job executor resource adapter `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`. The job executor resource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this, we propose to startup the Glassfish application server to initially deploy the job executor resource adapter. After a successful startup, shutdown the Glassfish application server.
 3. Copy the artifact `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`.
-4. (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
-5. Startup the Glassfish.
-6. After a successful startup the camunda BPM platform is installed.
+4. (optional) [Configure the location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
+5. Startup the Glassfish application server.
+6. After a successful startup, the camunda BPM platform is installed.
 
-As next step you can install for example the [REST API](ref:#web-applications-install-the-rest-api-web-application) on Glassfish.
+As next step you can, for example, install the [REST API](ref:#web-applications-install-the-rest-api-web-application) on Glassfish.

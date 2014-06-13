@@ -13,6 +13,7 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$WAS_HOME/lib/ext` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
+
 Edit the file `bpm-platform.xml` located inside the folder `camunda-ibm-websphere-ear-$VERSION/camunda-ibm-websphere-service-$VERSION/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml

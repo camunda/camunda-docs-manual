@@ -8,7 +8,7 @@ category: 'Web Applications'
 
 The camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` in the WLS distribution archive.
 
-In the following we explain how to install the WAR file using the WebLogic Server Administration Console:
+In this section we explain how to install the WAR file using the WebLogic Server Administration Console:
 
 1.  Open the WebLogic Server Administration Console.
 2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
