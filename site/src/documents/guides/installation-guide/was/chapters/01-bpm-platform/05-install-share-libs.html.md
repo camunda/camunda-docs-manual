@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the camunda platform shared libraries'
+title: 'Install the camunda BPM platform shared libraries'
 shortTitle: 'Install shared libraries'
 category: 'BPM Platform'
 

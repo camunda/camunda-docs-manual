@@ -7,23 +7,23 @@ category: 'BPM Platform'
 ---
 
 
-This section will describe how you can install the camunda BPM platform on a [vanilla Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless we recommend you to [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
+This section will describe how you can install the camunda BPM platform on a vanilla [Tomcat 7](http://tomcat.apache.org/) server if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
 
 
-## Create the database schema for camunda BPM platform
+## Create the database schema for the camunda BPM platform
 
-If you do not want to use the H2 database, you first have to create a database schema for camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+If you do not want to use the H2 database, you first have to create a database schema for the camunda BPM platform. The camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
-The database creation scripts are reside in the `sql/create` folder:
+The database creation scripts reside in the `sql/create` folder:
 
 `$TOMCAT_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$TOMCAT_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+There is an individual SQL script for each supported database. Select the appropriate script for your database type and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
 
 ## Add BPM Bootstrap Server Listener
 
-Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener` in your `$TOMCAT_HOME/conf/server.xml`. This class is responsible for starting / stopping the camunda BPM platform as Tomcat is started / stopped.
+Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap` as Listener before the `GlobalResourcesLifecycleListener` in your `$TOMCAT_HOME/conf/server.xml`. This class is responsible for starting and stopping the camunda BPM platform as Tomcat is started and stopped.
 
 ```xml
 <Server port="8005" shutdown="SHUTDOWN">
@@ -34,7 +34,7 @@ Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap`
 
 ## Configuring JDBC Resource
 
-To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server.xml`. This could like the following example for H2 database:
+To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server.xml`. This could look like the following example for an H2 database:
 
 ```xml
 <Server>
@@ -66,7 +66,7 @@ Furthermore, you have to merge your corresponding JDBC driver into the folder `$
 
 ## Add bpm-platform.xml
 
-You have to add the file `bpm-platform.xml` into the folder `$TOMCAT_HOME/conf` or optionally you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file):
+You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -6,7 +6,7 @@ category: 'BPM Platform'
 ---
 
 
-The camunda platform includes two modules in the modules folder of the distribution:
+The camunda BPM platform includes two modules in the modules folder of the distribution:
 
 ```
 camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
@@ -19,4 +19,4 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 The camunda-oracle-weblogic-rar module is a JCA Resource Adapter providing the jobexecutor service to the camunda BPM platform.
 The camunda-oracle-weblogic-ear is a Java EE application providing the camunda BPM platform services.
 
-Both modules must be installed to your Oracle Weblogic Application Server in the correct order. You must first install the camunda-oracle-weblogic-rar module and then install the camunda-oracle-weblogic-ear module. The startup order is also important. It is required that the Resource Adapter starts before the EAR module.
+Both modules must be installed to your Oracle Weblogic Application Server in the correct order. You must first install the camunda-oracle-weblogic-rar module and then install the camunda-oracle-weblogic-ear module. The startup order is also important. It is necessary that the Resource Adapter starts before the EAR module.

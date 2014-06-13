@@ -12,6 +12,7 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$TOMCAT_DISTRIBUTION/lib/` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
+
 Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
@@ -62,6 +63,6 @@ Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` a
 </bpm-platform>
 ```
 
-The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
+The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log in to the web application and grant authorizations to additional users.
 
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).

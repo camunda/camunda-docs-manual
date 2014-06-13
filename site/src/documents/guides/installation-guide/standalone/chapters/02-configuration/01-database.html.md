@@ -5,15 +5,12 @@ category: 'Configuration'
 
 ---
 
-camunda standalone webapp is initially configured using a file-based `h2` database
+The camunda standalone webapp is initially configured using a file-based `H2` database
 and an Apache Commons DBCP datasource. The `h2` database is only useful for demo purposes.
-If you want to use the standalone webapp in production we recommend
-using a different database.
+If you want to use the standalone webapp in production we recommend using a different database.
 
-In order to configure another database edit the file named
-`WEB-INF/applicationContext.xml` inside the
-`camunda-webapp-SERVER-standalone-VERSION.war`. Edit the following
-section with configuration values appropriate for your database.
+In order to configure another database, edit the file named `WEB-INF/applicationContext.xml` inside the
+`camunda-webapp-SERVER-standalone-VERSION.war`. Edit the following section with the appropriate configuration values for your database.
 
 ```xml
 <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">

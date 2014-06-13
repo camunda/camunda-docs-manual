@@ -10,13 +10,13 @@ category: 'BPM Platform'
 In this section, we explain how the camunda-ibm-websphere-rar module can be installed using the WebShere Integrated Solutions Console.
 
 <div class="alert alert-info">
-We assume all installation of the camunda-ibm-websphere-rar is done in the "Node" scope.
+We assume that the entire installation of the camunda-ibm-websphere-rar is done in the "Node" scope.
 </div>
 
 The installation process is composed of three steps:
 
 1. Install and configure the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file.
-2. Define a Managed Connection Facotry for accessing the jobexecutor.
+2. Define a Managed Connection Factory for access to the jobexecutor.
 3. Define an Activation Policy for JobHandler MDBs.
 
 
@@ -27,18 +27,18 @@ First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file
 1. Navigate to the **Resource Adapters** page located under **Resources** / **Resource Adapters** / **Resource Adapters**.
 2. Select as Scope **"Node"**.
 3. Select the **Install RAR** button.
-4. Select the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> from the modules folder of the camunda BPM platform for IBM WebShpere Application Server distribution. Click Next to go to the Properties page.
+4. Select the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> from the modules folder of the camunda BPM platform for IBM WebSphere Application Server distribution. Click Next to go to the Properties page.
 5. Fill in the properties form. As a name for the resource adapter, we propose <code>camunda-ibm-websphere-rar</code>.
-6. Click on the new entry <code>camunda-ibm-websphere-rar</code>, if you choose the same name in the previous step.
+6. Click on the new entry <code>camunda-ibm-websphere-rar</code>, if you chose the same name in the previous step.
 
 
 ## Defining a Managed Connection Factory
 
 1. Select **"J2C Connection Factories"**.
 2. Select **"New"**
-3. Fill in the **"General Properties"** Form.
+3. Fill in the **"General Properties"** form.
   * As the Name property, we propose **"camunda BPM platform jobexecutor CF"**.
-  * As a JNDI Name we propose **"eis/JcaExecutorServiceConnectionFactory"**
+  * As a JNDI Name, we propose **"eis/JcaExecutorServiceConnectionFactory"**
   * No authentication is necessary.
 
 
@@ -48,7 +48,7 @@ First, the <code>camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar</code> RAR file
 2. Select **"New"**
 3. Fill in the **"General Properties"** Form.
   * As the Name property, we propose **"camunda BPM platform jobexecutor SPEC"**.
-  * As a JNDI Name we propose **"eis/PlatformJobExecutorActivation"**
+  * As a JNDI Name, we propose **"eis/PlatformJobExecutorActivation"**
 
 Save your settings. This completes the installation of the resource adapter.
 

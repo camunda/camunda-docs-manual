@@ -6,7 +6,12 @@ category: 'Web Applications'
 ---
 
 
-**Note**: The distro already ships camunda Cycle. It may be accessed on the context path `/cycle`. See [here](ref:#web-applications-install-camunda-cycle-configuring-the-pre-packaged-distribution), how to configure the distro.</br>We do not recommend to install camunda Cycle together with the other platform components (webapps, engine, REST Api) on the same runtime environment. Such a combined installation is not supported.
+The distro already ships camunda Cycle. It may be accessed on the context path `/cycle`. [Here](ref:#web-applications-install-camunda-cycle-configuring-the-pre-packaged-distribution) you can see how to configure the distro.</br>
+
+<div class="alert alert-warning">
+  <p><strong>Note</strong></p>
+  <p>We do not recommend to install camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. Such a combined installation is not supported.</p>
+</div>
 
 
 ## Create the database schema for camunda Cycle
@@ -26,7 +31,7 @@ We recommend to create a separate database or database schema for camunda Cycle.
 
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these
-  scripts from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/).
+  scripts from our <a href = "https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts">server</a>.
   Choose the correct version named <code>$PLATFORM_VERSION/camunda-cycle-sql-scripts-$PLATFORM_VERSION.war</code>.
 </div>
 
@@ -43,18 +48,18 @@ There is a preconfigured datasource named `java:jboss/datasources/CycleDS`.
 
 To exchange the preconfigured H2 database with your own, e.g. Oracle, you have to do the following:
 
-1. Deploy your database driver. (Check the JBoss Application Server Manual for Guidance).
-2. Define a datasource named `java:jboss/datasources/CycleDS` for your database. (Remove the existing h2 datasource).
+1. Deploy your database driver. (Check the <a href = http://jbossas.jboss.org/docs/>JBoss Application Server Manual</a> for guidance).
+2. Define a datasource named `java:jboss/datasources/CycleDS` for your database. (Remove the existing H2 datasource).
 
 
 ## Install camunda Cycle on vanilla JBoss AS 7
 
-You can download the camunda Cycle web application from [our sever](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-jboss/).
+You can download the camunda Cycle web application from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-jboss/).
 Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-jboss-$PLATFORM_VERSION.war`.
 
 ### Create a datasource
 
-First, you must define a datasource in JBoss Application Server. We assume here that you are familiar with the procedure.
+First, you must define a datasource in JBoss Application Server. Here we assume that you are familiar with the procedure.
 If in doubt, check the appropriate sections in the manual of your application server.
 
 Cycle expects a datasource named `java:jboss/datasources/CycleDS`.

@@ -16,14 +16,14 @@ The installation process is composed of two steps:
 
 ## Installing the EAR file
 
-First, the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR file must be installed:
+First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR file must be installed:
 
 1. Open the WebLogic Server Administration Console.
 2. Navigate to the **"Domain structure / YOUR_DOMAIN / Deployments"** page.
 3. Select the **"Install"** button.
 4. Using the File Browser, select the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> from the modules folder of the camunda BPM platform for Oracle Weblogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
-6. Fill in <code>camunda-bpm-platform</code> as name for the enterprise application deployment. This setting is **mandatory** and MUST NOT be changed.
+6. Fill in <code>camunda-bpm-platform</code> as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
     
   <a href="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-name.png" target="_blank">
     <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-name.png" alt=""/>
@@ -37,7 +37,7 @@ First, the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR fi
 
 1. In the deployment's configuration screen, change the value of the **"Deployment Order"** from **"100"** to **"90"**, so the Enterprise Application starts after the Resource Adapter but before the process application deployments.
 2. Click **"Save"** to persist the change.
-3. Start the camunda-bpm-platform application if it is not already. If this fails initially, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.
+3. Start the camunda-bpm-platform application if it is not already running. If this initially fails, try to restart the server. The resource adapter references are not always resolved properly. It will be fine after a restart.
 
 
 

@@ -9,4 +9,4 @@ category: 'BPM Platform'
     Replace VERSION with the current camunda BPM version.
 2.  Unpack the distro to a directory.
 3.  Adjust the datasource according to your needs (see below).
-4.  Startup the server by running `camunda-welcome.bat` or using the `$TOMCAT_HOME/bin/startup.{bat/sh}` script.
+4.  Startup the server by running `camunda-welcome.bat` or by using the `$TOMCAT_HOME/bin/startup.{bat/sh}` script.

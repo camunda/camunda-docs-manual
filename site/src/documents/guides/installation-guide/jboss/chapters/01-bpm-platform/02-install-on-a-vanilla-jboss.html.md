@@ -7,12 +7,12 @@ category: 'BPM Platform'
 ---
 
 
-1. Download the camunda jboss distro from [our server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+1. Download the camunda jboss distro from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
    Choose the correct version named `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.zip` or `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.tar.gz`.
 2. Unpack the `modules` folder of the archive.
 3. Merge all content into your $JBOSS_HOME/modules/ directory.
 4. Adjust your `$JBOSS_HOME/standalone/configuration/standalone.xml` (or the JBoss configuration applicable for your installation) as described below
-5. Adjust datasources to your needs (see below), by default it uses the built in H2 database
+5. Adjust the datasource to your needs (see below), by default it uses the built in H2 database
 6. Startup the server
 
 
@@ -77,11 +77,11 @@ This also configures the default process engine.
 
 ## Creating a datasource
 
-You need to create a data-source named `java:jboss/datasources/ProcessEngine`.
+You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
 The following datasource shows an example of using the built in H2 database for this, using a file within the `./` folder,
 typically `bin`.
 
-**Note**: if you start the script from a different location the database is stored there!
+**Note**: If you start the script from a different location the database is stored there!
 
 ```xml
 <datasource jta="true" enabled="true" use-java-context="true" use-ccm="true"
@@ -98,22 +98,22 @@ typically `bin`.
 
 <div class="alert alert-info">
   <strong>Cycle</strong><br/>
-  Note that if you plan use camunda cycle, you need to configure an additional datasource. See the <a href="ref:#web-applications-install-camunda-cycle">cycle section</a> for a guide.
+  Note that if you plan to use camunda Cycle, you need to configure an additional datasource. See the <a href="ref:#web-applications-install-camunda-cycle">Cycle section</a> for a guide.
 </div>
 
-Using h2 is ideal for development purposes, but is not recommended for production usage.
+Using H2 as a database is ideal for development purposes but is not recommended for usage in a productive environment.
 These links point you to resources for other databases:
 
-*   [How-to configure Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
-*   [How-to configure MySQL database](http://javathreads.de/2011/09/jboss-as-7-mysql-datasource-konfigurieren/)
-*   **Important**: For DB2 check [Installation Troubleshooting and FAQ](https://app.camunda.com/confluence/display/foxUserGuide/Installation+Troubleshooting+and+FAQ) for known issues
+*   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
+*   [How to configure a MySQL database](http://javathreads.de/2011/09/jboss-as-7-mysql-datasource-konfigurieren/)
+*   **Important**: For DB2, check [Installation Troubleshooting and FAQ](https://app.camunda.com/confluence/display/foxUserGuide/Installation+Troubleshooting+and+FAQ) for known issues
 
 
 ## Using an XA datasource
 
 We **strongly recommend** to use an XA data-source in production environments.
 Since you normally access other transactional resources from within your process, the risk of having inconsistencies is otherwise high.
-For h2 it could be done with this configuration:
+For H2 it could be done with this configuration:
 
 ```xml
 <xa-datasource jndi-name="java:jboss/datasource/ProcessEngine" pool-name="ProcessEngine" enabled="true" use-ccm="false">
