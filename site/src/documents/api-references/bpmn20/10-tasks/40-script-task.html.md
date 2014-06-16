@@ -24,12 +24,17 @@ A script task is defined by specifying the script and the scriptFormat.
 </scriptTask>
 ```
 
-The value of the scriptFormat attribute must be a name that is compatible with the JSR-223 (scripting for the Java platform). If you want to use a (JSR-223 compatible) scripting engine, it is necessary to add the corresponding jar to the classpath and use the appropriate name.
+The value of the scriptFormat attribute must be a name that is compatible with the JSR-223
+(scripting for the Java platform). If you want to use a (JSR-223 compatible) scripting engine, it is
+necessary to add the corresponding jar to the classpath and use the appropriate name.
+
+For general information about scripting in the process engine please see the [user
+guide](ref:/guides/user-guide/#process-engine-scripting).
 
 <div class="alert alert-info">
   <strong>Supported Script Languages:</strong>
   <p>
-    camunda BPM should work with most of the JSR-223 compatible script engine implementations. 
+    camunda BPM should work with most of the JSR-223 compatible script engine implementations.
     We test integration for Groovy, Java Script, JRuby and Jython. See also: <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a>
   </p>
 </div>
@@ -49,8 +54,8 @@ variable `inputArray` is in fact a process variable (an array of integers).
 </script>
 ```
 
-It's also possible to set process variables in a script. Variables can be set by the 
-`setVariable(...)` methods provided by the `VariableScope` interface: 
+It's also possible to set process variables in a script. Variables can be set by the
+`setVariable(...)` methods provided by the `VariableScope` interface:
 
 
 ```xml
@@ -68,12 +73,12 @@ It's also possible to set process variables in a script. Variables can be set by
 By setting the propery `autoStoreScriptVariables` to true in the process engine
 configuration, the process engine will automatically store all _global_ script
 variables as process variables.
- 
+
 This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for
-for the groovy scripting language 
+for the groovy scripting language
 (see the [Note in the Migration Guide for camunda BPM 7.2](ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72-migrate-process-engine-configuration-set-autostorescriptvariables)).
 
-In order to use this feature, you have to 
+In order to use this feature, you have to
 
 * set `autoStoreScriptVariables` to true in the process engine configuration,
 * prefix all script variables that should not be stored as script variables using the `def`
@@ -102,20 +107,6 @@ The return value of a script task can be assigned to an already existing or to a
 
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
-## Script Compilation
-
-Most script engines will compile the script sourcecode either to a Java class
-or to a different intermediary format prior to executing the script. Script
-engines implementing the Java `Compilable` interface allow programs to retrieve
-and cache the script compilation. The default setting of the process engine is
-to check whether a Script Engine supports the compile feature and if true have
-the script engine compile the script and then cache the compilation result.
-This allows the process engine to keep from compiling a script source each time
-the same script task is executed. 
-
-By default compilation of scripts is enabled. If you need to disable script
-compilation, you can set the process engine configuration flag named
-`enableScriptCompilation` to false.
 
 ## camunda Extensions
 
