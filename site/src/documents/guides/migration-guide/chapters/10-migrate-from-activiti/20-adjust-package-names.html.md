@@ -6,9 +6,9 @@ category: 'Migrate from Activiti'
 ---
 
 
-Just do an **Organize Imports** in your IDE, that should do the trick as API class names have not changed.
+Just do an **Organize Imports** in your IDE, that should do the trick as the API class names have not changed.
 Your IDE should figure out the rest for you.
-For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
+For Eclipse this can be done by clicking on the project and hitting `Ctrl-Shift-O`.
 
 <div class="panel-group" >
   <div class="panel panel-default" id="accClassloading">
@@ -111,4 +111,4 @@ For Eclipse this can be done by clicking on the project and hit `Ctrl-Shift-O`.
   </div>
 </div>
 
-That's it - your application should run again.
+That's it - now your application should run again.
