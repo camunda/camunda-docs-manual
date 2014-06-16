@@ -107,7 +107,7 @@ The xml export from Signavio modeler contains no engine attributes:
 <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
   ...
   <serviceTask id="sid-01234" camunda:class="java.lang.Object"
-               camunda:async="true"
+               camunda:asyncBefore="true"
                name="MyService" 
                implementation="webService">
     <extensionElements>
@@ -125,7 +125,7 @@ After synchronization back to Signavio the original Signavio-information like co
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
   ...
-  <serviceTask camunda:async="true" camunda:class="java.lang.Object"
+  <serviceTask camunda:asyncBefore="true" camunda:class="java.lang.Object"
               completionQuantity="1" 
               id="sid-01234" 
               isForCompensation="false" 

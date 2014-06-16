@@ -70,7 +70,7 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn">
   ...
-  <serviceTask id="failingServiceTask" camunda:async="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
+  <serviceTask id="failingServiceTask" camunda:asyncBefore="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
     <extensionElements>
       <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
     </extensionElements>
@@ -122,7 +122,7 @@ An exclusive job cannot be performed at the same time as another exclusive job f
 **Exclusive Jobs are the default configuration**. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using `camunda:exclusive="false"`. For example, the following service task would be asynchronous but non-exclusive.
 
 ```xml
-<serviceTask id="service" camunda:expression="${myService.performBooking(hotel, dates)}" camunda:async="true" camunda:exclusive="false" />
+<serviceTask id="service" camunda:expression="${myService.performBooking(hotel, dates)}" camunda:asyncBefore="true" camunda:exclusive="false" />
 ```
 
 Is this a good solution? We had some people asking whether it was. Their concern was that it would prevent you from *doing things in parallel* and would thus be a performance problem. Again, two things have to be taken into consideration:

@@ -30,10 +30,10 @@ Although according to the BPMN 2.0 specification start events are not mandatory,
 
 ## Asynchronous Instantiation
 
-A start event may be declared as asynchronous by `camunda:async="true"`
+A start event may be declared as asynchronous by `camunda:asyncBefore="true"`
 
 ```xml
-<startEvent id="startEvent" camunda:async="true" />
+<startEvent id="startEvent" camunda:asyncBefore="true" />
 ```
 
 This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead a job is created and asynchronously processed by the [job executor](ref:/guides/user-guide/#process-engine-the-job-executor) see [Asynchronous Continuations](ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations) for some background.
@@ -44,7 +44,7 @@ This will ensure that the process engine creates a process instance when the pro
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformhandlerclass">camunda:formHandlerClass</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:formKey</a>,
@@ -62,13 +62,13 @@ This will ensure that the process engine creates a process instance when the pro
     <th>Constraints</th>
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
-      <code>camunda:async</code> is set to <code>true</code>
+      <code>camunda:asyncBefore</code> is set to <code>true</code>
     </td>
   </tr>
   <tr>
     <td></td>
     <td>
-      The attributes <code>camunda:async</code>, <code>camunda:exclusive</code> and
+      The attributes <code>camunda:asyncBefore</code>, <code>camunda:exclusive</code> and
       <code>camunda:initiator</code> are only available for start events of a Process
     </td>
   </tr>

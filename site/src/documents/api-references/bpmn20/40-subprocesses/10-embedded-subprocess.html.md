@@ -50,7 +50,8 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasync">camunda:async</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
     </td>
   </tr>
@@ -64,7 +65,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
     <th>Constraints</th>
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
-      <code>camunda:async</code> is set to <code>true</code>
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
     </td>
   </tr>
 </table>

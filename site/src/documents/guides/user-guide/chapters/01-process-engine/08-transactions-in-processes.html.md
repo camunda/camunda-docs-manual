@@ -52,22 +52,90 @@ In **1**, an application or client thread completes the task. In that same threa
 
 ## Asynchronous Continuations
 
+### Why Asynchronous Continuations?
 
-In some cases this behavior is not desired. Sometimes we need custom control over transaction boundaries in a process, in order to be able to scope logical units of work. Consider the following process fragment:
+In some cases the synchronous behavior is not desired. Sometimes it is useful to have custom control over transaction boundaries in a process.
+The most common motivation is the requirement to scope *logical units of work*. Consider the following process fragment:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/transactions-2.png"/></center>
 
-This time we are completing the user task, generating an invoice and then sending that invoice to the customer. This time the generation of the invoice is not part of the same unit of work so we do not want to roll back the completion of the usertask if generating an invoice fails. So what we want the engine to do is complete the user task (**1**), commit the transaction and return control to the calling application (**2**).
+We are completing the user task, generating an invoice and then sending that invoice to the customer. It can be argued that the generation of the invoice is not part of the same unit of work: we do not want to roll back the completion of the usertask if generating an invoice fails.
+Ideally, the process engine would complete the user task (**1**), commit the transaction and return 
+control to the calling application (**2**). In a background thread (**3**), it would generate the invoice. 
+This is the exact behavior offered by asynchronous continuations: they allow us to scope transaction
+boundaries in the process.
 
-Then we want to generate the invoice asynchronously, in a background thread. A pool of background threads is managed by the [job executor](ref:#process-engine-the-job-executor). It periodically checks the database for asynchronous *jobs*, i.e. units of work in the process runtime.
+### Configuring Asynchronous Continuations
 
-So behind the scenes, when we reach the *generate invoice* task, we are persisting a job in the database, queuing it for later execution. This job is then picked up by the job executor and executed (**3**). We are also giving the local job executor a little hint that there is a new job, to improve performance. In order to use this feature, we can use the `camunda:async="true"` extension in the BPMN 2.0 XML. So for example, the service task would look like this:
+Asynchronous Continuations can be configured *before* and *after* an activity. Additionally, a 
+process instance itself may be configured to be started asynchronously.
 
-    <serviceTask id="service1" name="Generate Invoice" camunda:class="my.custom.Delegate" camunda:async="true" />
+An asynchronous continuation before an activity is enabled using the `camunda:asyncBefore` extension
+attribute:
 
-`camunda:async` can be specified on the following bpmn task types: `task`, `serviceTask`, `scriptTask`, `businessRuleTask`, `sendTask`, `receiveTask`, `userTask`, `subProcess` and `callActivity`. On a user task, receive task or other wait states, the additional async continuation allows us to execute the start execution listeners in a separate thread/transaction.
+```xml
+<serviceTask id="service1" name="Generate Invoice" camunda:asyncBefore="true" camunda:class="my.custom.Delegate" />
+```
 
-A start event may also be declared as asynchronous in the same way as above by the attribute `camunda:async="true"`. On instantiation, the process instance will be created and persisted in the database, but execution will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful in various situations such as [heterogeneous clusters](ref:#process-engine-the-job-executor-cluster-setups), when the execution listener class is not available on the node that instantiates the process.
+An asynchronous continuation after an activity is enabled using the `camunda:asyncAfter` extension
+attribute:
+
+```xml
+<serviceTask id="service1" name="Generate Invoice" camunda:asyncAfter="true" camunda:class="my.custom.Delegate" />
+```
+
+Asynchronous instantiation of a process instance is enabled using the `camunda:asyncBefore`
+extension attribute on a process-level start event.
+On instantiation, the process instance will be created and persisted in the database, but execution 
+will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful 
+in various situations such as [heterogeneous clusters](ref:#process-engine-the-job-executor-cluster-setups), 
+when the execution listener class is not available on the node that instantiates the process.
+
+```xml
+<startEvent id="theStart" name="Invoice Received" camunda:asyncBefore="true" />
+```
+
+
+### Understanding Asynchronous Continuations
+
+In order to understand how asynchronous continuations work, we first need to understand how an activity is
+executed: 
+
+<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/process-engine-activity-execution.png"/></center>
+
+The above illustration shows how a regular activity which is entered and left by a sequence flow is
+executed:
+
+1. the "TAKE" listeners are invoked on the sequence flow entering the activity.
+2. the "START" listeners are invoked on the activity itself.
+3. the behavior of the activity is executed: the actual behavior depends on the type of the
+   activity: in case of a `Service Task` the behavior consists in invoking [Delegation Code](ref:#process-engine-delegation-code), in
+case of a `User Task`, the behavior consists in creating a `Task` instance in the task list etc...
+4. the "END" listeners are invoked on the activity.
+5. The "TAKE" listeners of the outgoing sequence flow are invoked.
+
+Asynchronous Continuations allow putting break points between the execution of the sequence flows
+and the execution of the activity:
+
+<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/process-engine-async.png"/></center>
+
+The above illustration shows where the different types of asynchronous continuations break the
+execution flow:
+
+* an asynchronous continuation BEFORE an activity breaks the execution flow between the invocation
+  of the incoming sequence flow's TAKE listeners and the execution of the activity's START
+listeners.
+* an asynchronous continuation AFTER an activity breaks the execution flow after the invocation of
+  the activity's END listeners and the outgoing sequence flow's TAKE listeners.
+
+Asynchronous continuations directly relate to transaction boundaries: putting an asynchronous 
+continuation before or after an activity creates a transaction boundary before or after an activity:
+
+<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/process-engine-async-transactions.png"/></center>
+
+What's more, asynchronous continuations are always executed by the [Job
+Executor](ref:#process-engine-the-job-executor).
+
 
 ## Rollback on Exception
 

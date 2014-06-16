@@ -38,13 +38,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:async
+### camunda:asyncBefore
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies that activities are processed asynchronously see <a href="ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations">Asynchronous Continuations</a> for more information.
+      Specifies an asynchronous continuation before an activity, see <a href="ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations">Asynchronous Continuations</a> for more information.
     </td>
   </tr>
   <tr>
@@ -81,6 +81,47 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+### camunda:asyncAfter
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      Specifies an asynchronous contiuation after an activity, see <a href="ref:/guides/user-guide/#process-engine-transactions-in-processes-asynchronous-continuations">Asynchronous Continuations</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Boolean</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>true</code>, <code>false</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Task,
+      <a href="ref:#tasks-service-task">Service Task</a>,
+      <a href="ref:#tasks-send-task">Send Task</a>,
+      <a href="ref:#tasks-user-task">User Task</a>,
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
+      <a href="ref:#tasks-script-task">Script Task</a>,
+      <a href="ref:#tasks-receive-task">Receive Task</a>,
+      <a href="ref:#events-signal-events-signal-intermediate-throwing-event">Signal Intermediate Throwing Event</a>,
+      <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
+      <a href="ref:#subprocesses-call-activity">Call Activity</a>,
+      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
+      <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>
+    </td>
+  </tr>
+</table>
 ### camunda:calledElementBinding
 
 <table class="table table-striped">

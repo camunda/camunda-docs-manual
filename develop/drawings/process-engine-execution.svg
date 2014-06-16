@@ -1,0 +1,1918 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="process-engine-execution.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path3903"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path3776"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3782"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-9"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5157"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5159"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5161"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5163"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-2"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-7"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-91"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-0"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5378"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5380"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-6"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-4"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6384"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6386"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-31"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-5"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6390"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6392"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6394"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6396"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6398"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6400"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6402"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6404"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6406"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6408"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-9"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-7"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-2"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-3"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-06"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-8"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-83"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-67"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6771"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6773"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6775"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6777"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6779"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6781"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6783"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6785"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6787"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6789"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-20"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-21"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-8"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker6998"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7000"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7002"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7004"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7006"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7008"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7010"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7012"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7014"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7016"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-96"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-25"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-1"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5449-67"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5451-48"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-74"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7571"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7573"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7575"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7577"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7579"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7581"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-5"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-39"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8130"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8132"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8130-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8132-5"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3903-2"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.8,0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3903-4"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.8,0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-3-95"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3782-0-20"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10010"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10012"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.23"
+     inkscape:cx="1121.8331"
+     inkscape:cy="910.57204"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="877"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="37.259857"
+       y="176.44193"
+       id="text4556"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4558"
+         x="37.259857"
+         y="176.44193"
+         style="font-size:14px">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="80.285744"
+       y="176.6265"
+       id="text4556-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3"
+         x="80.285744"
+         y="176.6265"
+         style="font-size:14px">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="145.51933"
+       y="176.6265"
+       id="text4556-4-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-9"
+         x="145.51933"
+         y="176.6265"
+         style="font-size:14px">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="213.47339"
+       y="176.44193"
+       id="text4556-4-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-94"
+         x="213.47339"
+         y="176.44193"
+         style="font-size:14px">4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="40.900154"
+       y="191.45084"
+       id="text5081"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5083"
+         x="40.900154"
+         y="191.45084"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="40.900154"
+         y="203.95084"
+         id="tspan5085"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">TAKE</tspan><tspan
+         sodipodi:role="line"
+         x="40.900154"
+         y="216.45084"
+         id="tspan5087"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="218.96698"
+       y="191.45084"
+       id="text5081-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3"
+         x="218.96698"
+         y="191.45084"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="218.96698"
+         y="203.95084"
+         id="tspan5085-9"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">End</tspan><tspan
+         sodipodi:role="line"
+         x="218.96698"
+         y="216.45084"
+         id="tspan5087-9"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="149.19281"
+       y="191.45084"
+       id="text5081-9-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3-5"
+         x="149.19281"
+         y="191.45084"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="149.19281"
+         y="203.95084"
+         id="tspan5087-9-9"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Behavior</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="429.74838"
+       y="197.84607"
+       id="text5311"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5313"
+         x="429.74838"
+         y="197.84607"
+         style="font-size:10px;text-align:center;text-anchor:middle">Asynchronous</tspan><tspan
+         sodipodi:role="line"
+         x="429.74838"
+         y="210.34607"
+         id="tspan5315"
+         style="font-size:10px;text-align:center;text-anchor:middle">Continuation</tspan><tspan
+         sodipodi:role="line"
+         x="429.74838"
+         y="222.84607"
+         id="tspan5317"
+         style="font-size:10px;text-align:center;text-anchor:middle">BEFORE</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6"
+       width="131.14844"
+       height="91.711823"
+       x="86.631966"
+       y="48.529457"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05499995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.055, 2.11;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 86.532788,27.5195 0,132.85818"
+       id="path4440-8-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05499995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.055, 2.11;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 149.92701,27.5195 0,132.85818"
+       id="path4440-6-4-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05499995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.055, 2.11;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 217.85715,27.5195 0,132.85818"
+       id="path4440-60-3-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 15.717112,94.40579 69.64359,0"
+       id="path4669-5-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="86.354118"
+       y="191.45084"
+       id="text5081-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5083-7"
+         x="86.354118"
+         y="191.45084"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="86.354118"
+         y="203.95084"
+         id="tspan5085-0"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">START</tspan><tspan
+         sodipodi:role="line"
+         x="86.354118"
+         y="216.45084"
+         id="tspan5087-7"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path5346-6-9"
+       sodipodi:cx="307.25806"
+       sodipodi:cy="346.71701"
+       sodipodi:rx="4.8387098"
+       sodipodi:ry="4.8387098"
+       d="m 312.09677,346.71701 a 4.8387098,4.8387098 0 1 1 -9.67742,0 4.8387098,4.8387098 0 1 1 9.67742,0 z"
+       transform="translate(122.27426,-255.83805)"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="262.79602"
+       y="176.44193"
+       id="text4556-4-2-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-94-6"
+         x="262.79602"
+         y="176.44193"
+         style="font-size:14px">5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="266.28961"
+       y="191.45084"
+       id="text5081-9-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3-4"
+         x="266.28961"
+         y="191.45084"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="266.28961"
+         y="203.95084"
+         id="tspan5085-9-6"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">TAKE</tspan><tspan
+         sodipodi:role="line"
+         x="266.28961"
+         y="216.45084"
+         id="tspan5087-9-3"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05499995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.055, 2.11;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 267.17977,27.5195 0,132.85818"
+       id="path4440-60-3-1-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 217.53691,94.40579 69.64359,0"
+       id="path4669-5-3-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05499995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.055, 2.11;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 39.400768,27.5195 0,132.85818"
+       id="path4440-60-3-1-9-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-activity-execution.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-4"
+       width="131.14844"
+       height="91.711823"
+       x="453.25153"
+       y="45.734947"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01609755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.01609755, 2.03219509;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 453.14096,33.11516 0,123.21966"
+       id="path4440-8-6-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01609755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.01609755, 2.03219509;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 516.54601,33.11516 0,123.21966"
+       id="path4440-6-4-9-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01609755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.01609755, 2.03219509;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 584.48775,33.11516 0,123.21966"
+       id="path4440-60-3-1-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 382.33669,91.61127 69.64359,0"
+       id="path4669-5-3-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01609755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.01609755, 2.03219509;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 633.81879,33.11516 0,123.21966"
+       id="path4440-60-3-1-9-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 584.15648,91.61127 69.64359,0"
+       id="path4669-5-3-9-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01609755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.01609755, 2.03219509;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 406.00089,33.11516 0,123.21966"
+       id="path4440-60-3-1-9-9-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.90829307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 428.90223,92.17546 0,90.4177"
+       id="path6878"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="609.88495"
+       y="198.03305"
+       id="text5311-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5313-4"
+         x="609.88495"
+         y="198.03305"
+         style="font-size:10px;text-align:center;text-anchor:middle">Asynchronous</tspan><tspan
+         sodipodi:role="line"
+         x="609.88495"
+         y="210.53305"
+         id="tspan5315-5"
+         style="font-size:10px;text-align:center;text-anchor:middle">Continuation</tspan><tspan
+         sodipodi:role="line"
+         x="609.88495"
+         y="223.03305"
+         id="tspan5317-6"
+         style="font-size:10px;text-align:center;text-anchor:middle">AFTER</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path5346-6-9-9"
+       sodipodi:cx="307.25806"
+       sodipodi:cy="346.71701"
+       sodipodi:rx="4.8387098"
+       sodipodi:ry="4.8387098"
+       d="m 312.09677,346.71701 a 4.8387098,4.8387098 0 1 1 -9.67742,0 4.8387098,4.8387098 0 1 1 9.67742,0 z"
+       transform="translate(302.41083,-255.65111)"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.90829307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 609.16982,92.31814 0,90.4177"
+       id="path6878-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="204.97762"
+       y="517.18616"
+       id="text4556-4-9-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-9-2"
+         x="204.97762"
+         y="517.18616"
+         style="font-size:14px">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="272.93167"
+       y="517.00159"
+       id="text4556-4-2-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-94-7"
+         x="272.93167"
+         y="517.00159"
+         style="font-size:14px">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="278.42526"
+       y="532.0105"
+       id="text5081-9-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3-7"
+         x="278.42526"
+         y="532.0105"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="278.42526"
+         y="544.5105"
+         id="tspan5085-9-2"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">End</tspan><tspan
+         sodipodi:role="line"
+         x="278.42526"
+         y="557.0105"
+         id="tspan5087-9-7"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="208.65111"
+       y="532.0105"
+       id="text5081-9-7-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3-5-6"
+         x="208.65111"
+         y="532.0105"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="208.65111"
+         y="544.5105"
+         id="tspan5087-9-9-2"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Behavior</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-8"
+       width="131.14844"
+       height="91.711823"
+       x="146.8967"
+       y="330.87305"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.95120406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.95120404, 1.90240809;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 210.28698,314.26476 0,188.76597"
+       id="path4440-6-4-9-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.95120406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.95120404, 1.90240809;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 278.00606,314.26476 0,188.76597"
+       id="path4440-60-3-1-80"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 75.98185,376.74939 69.64359,0"
+       id="path4669-5-3-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.78994167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1-6-8-6"
+       width="306.61499"
+       height="167.98483"
+       x="27.740885"
+       y="295.46652"
+       ry="18.088215"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 334.85949,376.25358 69.64359,0"
+       id="path4669-5-3-1-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="329.31213"
+       y="518.22742"
+       id="text4556-4-2-64"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan4558-3-94-9"
+         x="329.31213"
+         y="518.22742"
+         style="font-size:14px">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="334.80573"
+       y="533.23633"
+       id="text5081-9-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan5083-3-49"
+         x="334.80573"
+         y="533.23633"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Invoke</tspan><tspan
+         sodipodi:role="line"
+         x="334.80573"
+         y="545.73633"
+         id="tspan5085-9-3"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">End</tspan><tspan
+         sodipodi:role="line"
+         x="334.80573"
+         y="558.23633"
+         id="tspan5087-9-93"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Droid Sans;-inkscape-font-specification:Droid Sans">Listeners</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.95120406;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.95120404, 1.90240809;stroke-dashoffset:0;marker-start:none;marker-end:url(#marker5449)"
+       d="m 333.71965,275.30189 0,227.80612"
+       id="path4440-60-3-1-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="36.290321"
+       y="308.49121"
+       id="text7524"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan7526"
+         x="36.290321"
+         y="308.49121"
+         style="font-size:10px">embedded subprocess</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="67.594429"
+       y="590.60486"
+       id="text7524-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7526-2"
+         x="67.594429"
+         y="590.60486"
+         style="font-size:10px" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="211.99353"
+       y="368.2009"
+       id="text7549"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan7551"
+         x="211.99353"
+         y="368.2009"
+         style="font-size:10px;text-align:center;text-anchor:middle">Activity without</tspan><tspan
+         sodipodi:role="line"
+         x="211.99353"
+         y="380.7009"
+         id="tspan7553"
+         style="font-size:10px;text-align:center;text-anchor:middle">outgoing Sequence</tspan><tspan
+         sodipodi:role="line"
+         x="211.99353"
+         y="393.2009"
+         id="tspan7555"
+         style="font-size:10px;text-align:center;text-anchor:middle">Flow</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-8-66"
+       width="131.14844"
+       height="91.711823"
+       x="153.45306"
+       y="670.97766"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 216.82284,651.92269 0,172.76209"
+       id="path4440-6-4-9-1-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 284.56445,651.92269 0,172.76209"
+       id="path4440-60-3-1-80-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 82.538226,716.85402 69.643604,0"
+       id="path4669-5-3-1-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.78994167;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1-6-8-6-3"
+       width="306.61499"
+       height="167.98483"
+       x="34.297264"
+       y="635.57111"
+       ry="18.088215"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 341.41588,716.35821 69.64359,0"
+       id="path4669-5-3-1-4-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-start:none;marker-end:none"
+       d="m 340.80723,616.19244 0,208.49234"
+       id="path4440-60-3-1-5-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="42.846703"
+       y="648.59583"
+       id="text7524-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan7526-7"
+         x="42.846703"
+         y="648.59583"
+         style="font-size:10px">embedded subprocess</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="218.5499"
+       y="708.30548"
+       id="text7549-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan7551-4"
+         x="218.5499"
+         y="708.30548"
+         style="font-size:10px;text-align:center;text-anchor:middle">Activity without</tspan><tspan
+         sodipodi:role="line"
+         x="218.5499"
+         y="720.80548"
+         id="tspan7553-3"
+         style="font-size:10px;text-align:center;text-anchor:middle">outgoing Sequence</tspan><tspan
+         sodipodi:role="line"
+         x="218.5499"
+         y="733.30548"
+         id="tspan7555-7"
+         style="font-size:10px;text-align:center;text-anchor:middle">Flow</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="307.88495"
+       y="856.89417"
+       id="text5311-2-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan5313-4-8"
+         x="307.88495"
+         y="856.89417"
+         style="font-size:10px;text-align:center;text-anchor:middle">Asynchronous</tspan><tspan
+         sodipodi:role="line"
+         x="307.88495"
+         y="869.39417"
+         id="tspan5315-5-4"
+         style="font-size:10px;text-align:center;text-anchor:middle">Continuation</tspan><tspan
+         sodipodi:role="line"
+         x="307.88495"
+         y="881.89417"
+         id="tspan5317-6-3"
+         style="font-size:10px;text-align:center;text-anchor:middle">AFTER</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path5346-6-9-9-8"
+       sodipodi:cx="307.25806"
+       sodipodi:cy="346.71701"
+       sodipodi:rx="4.8387098"
+       sodipodi:ry="4.8387098"
+       d="m 312.09677,346.71701 a 4.8387098,4.8387098 0 1 1 -9.67742,0 4.8387098,4.8387098 0 1 1 9.67742,0 z"
+       transform="translate(0.79791839,368.17772)"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.07681227px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 307.55691,717.8152 0,127.08124"
+       id="path6878-9-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="410.48389"
+       y="376.55576"
+       id="text8093"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan8095"
+         x="410.48389"
+         y="376.55576"
+         style="font-size:14px">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="416.71179"
+       y="716.13354"
+       id="text8093-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Desktop/async-explained2.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan8095-0"
+         x="416.71179"
+         y="716.13354"
+         style="font-size:14px">...</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-4-5"
+       width="131.14844"
+       height="91.711823"
+       x="1051.8512"
+       y="65.941505"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 980.93639,111.81784 69.64351,0"
+       id="path4669-5-3-4-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.15940344;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend-3)"
+       d="m 1182.7561,111.81784 69.6436,0"
+       id="path4669-5-3-9-6-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-4-5-2"
+       width="131.14844"
+       height="91.711823"
+       x="848.39777"
+       y="65.941505"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.8374716;stroke-opacity:1"
+       id="rect2985-1-6-4-5-2-5"
+       width="131.14844"
+       height="91.711823"
+       x="1252.9091"
+       y="65.941505"
+       ry="9.8753157"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1112.96"
+       y="220.60048"
+       id="text8287"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8289"
+         x="1112.96"
+         y="220.60048"
+         style="font-size:12px;text-align:center;text-anchor:middle">Async Continuations</tspan><tspan
+         sodipodi:role="line"
+         x="1114.8701"
+         y="235.60048"
+         id="tspan8291"
+         style="font-size:12px;text-align:center;text-anchor:middle">create transaction </tspan><tspan
+         sodipodi:role="line"
+         x="1112.96"
+         y="250.60048"
+         id="tspan8293"
+         style="font-size:12px;text-align:center;text-anchor:middle">boundaries</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.84019864px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker8130)"
+       d="m 1049.4899,226.48789 c -22.2546,0.1245 -18.999,-11.35793 -18.999,-44.08019"
+       id="path8849"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.84019864px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker8130)"
+       d="m 1177.0371,226.94264 c 22.2546,0.1245 18.9989,-11.35793 18.9989,-44.08019"
+       id="path8849-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.98017579px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 850.45772,32.916744 173.45148,0"
+       id="path9171"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1030.479,26.089434 0,13.65462"
+       id="path9733"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94293064px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 1030.8538,32.916744 159.7612,0"
+       id="path9171-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1196.645,26.089434 0,13.65462"
+       id="path9733-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.94293064px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 1197.075,32.916744 159.7613,0"
+       id="path9171-6-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="900.25391"
+       y="27.310833"
+       id="text9786"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan9788"
+         x="900.25391"
+         y="27.310833"
+         style="font-size:12px">Transaction 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1073.8253"
+       y="27.310833"
+       id="text9786-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan9788-8"
+         x="1073.8253"
+         y="27.310833"
+         style="font-size:12px">Transaction 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1245.8348"
+       y="27.310833"
+       id="text9786-7-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan9788-8-1"
+         x="1245.8348"
+         y="27.310833"
+         style="font-size:12px">Transaction 3</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path5346-6-9-8"
+       sodipodi:cx="307.25806"
+       sodipodi:cy="346.71701"
+       sodipodi:rx="4.8387098"
+       sodipodi:ry="4.8387098"
+       d="m 312.09677,346.71701 a 4.8387098,4.8387098 0 1 1 -9.67742,0 4.8387098,4.8387098 0 1 1 9.67742,0 z"
+       transform="translate(723.03324,-235.35644)"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0"
+       d="m 1030.479,45.059734 0,129.797926"
+       id="path9733-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path5346-6-9-8-7"
+       sodipodi:cx="307.25806"
+       sodipodi:cy="346.71701"
+       sodipodi:rx="4.8387098"
+       sodipodi:ry="4.8387098"
+       d="m 312.09677,346.71701 a 4.8387098,4.8387098 0 1 1 -9.67742,0 4.8387098,4.8387098 0 1 1 9.67742,0 z"
+       transform="translate(889.11335,-235.02266)"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0"
+       d="m 1196.5591,45.393504 0,129.797936"
+       id="path9733-4-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="830.93079"
+       y="33.784908"
+       id="text8093-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8095-8"
+         x="830.93079"
+         y="33.784908"
+         style="font-size:14px">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1365.2944"
+       y="33.784908"
+       id="text8093-8-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8095-8-0"
+         x="1365.2944"
+         y="33.784908"
+         style="font-size:14px">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1390.2944"
+       y="111.50307"
+       id="text8093-8-8-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8095-8-0-3"
+         x="1390.2944"
+         y="111.50307"
+         style="font-size:14px">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="830.44586"
+       y="110.80611"
+       id="text8093-8-8-3-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/meyerd/Documents/Workspace/docs.camunda.org/site/src/documents/guides/user-guide/assets/img/process-engine-async-transactions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8095-8-0-3-1"
+         x="830.44586"
+         y="110.80611"
+         style="font-size:14px">...</tspan></text>
+  </g>
+</svg>
