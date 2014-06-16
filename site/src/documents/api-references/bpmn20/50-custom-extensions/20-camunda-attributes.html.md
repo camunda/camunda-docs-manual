@@ -122,6 +122,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     </td>
   </tr>
 </table>
+
 ### camunda:calledElementBinding
 
 <table class="table table-striped">
