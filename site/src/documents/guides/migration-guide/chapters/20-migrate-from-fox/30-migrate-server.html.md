@@ -21,7 +21,7 @@ Change the camunda jboss subsystem as extension from:
 
     <extension module="com.camunda.fox.platform.fox-platform-jboss-subsystem"/>
 
-to
+to:
 
     <extension module="org.camunda.bpm.jboss.camunda-jboss-subsystem"/>
 
@@ -32,7 +32,7 @@ Remove the global modules:
         <module name="com.camunda.fox.engine.fox-engine" />
     </global-modules>
 
-and add the global module for camunda BPM
+and add the global module for camunda BPM:
 
     <global-modules>
         <module name="org.camunda.bpm.camunda-engine" slot="main"/>
@@ -42,7 +42,7 @@ Adjust the camunda jboss subsystem configuration from:
 
     <subsystem xmlns="urn:com.camunda.fox.fox-platform:1.1">
 
-to
+to:
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
 
@@ -61,7 +61,7 @@ Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the co
       ...
     </process-engines>
 
-Since camunda BPM 7.0 you are able to configure built-in process engine plugins, for more details [see here](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
 
 ### Replace the camunda fox webapps with camunda BPM webapps (JBoss)
 
@@ -73,13 +73,13 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
   * `camunda-cycle-jboss-$PLATFORM_VERSION.war`
   * `camunda-engine-rest-$PLATFORM_VERSION.war`
   * `camunda-webapp-jboss-$PLATFORM_VERSION.war`
-* You are able to delete the corresponding Cockpit tables, because they are not needed anymore.
+* You can delete the corresponding Cockpit tables because they are not needed anymore.
 
-For further details about installing the camunda BPM webapps read the [installation guide](ref:/guides/installation-guide/jboss/).
+For more details about installing the camunda BPM webapps read the [installation guide](ref:/guides/installation-guide/jboss/).
 
 ## GlassFish 3.1
 
-### Cleanup the `$FOX_HOME/glassfish/domains/<domain>/config/domain.xml`
+### Clean up the `$FOX_HOME/glassfish/domains/<domain>/config/domain.xml`
 
 Remove the following applications:
 
@@ -122,29 +122,29 @@ and the corresponding application references:
 
     <application-ref ref="fox-tasklist-$FOX_VERSION" virtual-servers="server"></application-ref>
 
-To adjust the JDBC Connection Pool and JDBC Resource replace the following JDBC resource
+To adjust the JDBC Connection Pool and JDBC Resource replace the following JDBC resource:
 
     <jdbc-resource pool-name="FoxEnginePool"
                    jndi-name="jdbc/FoxEngine"
                    enabled="true">
     </jdbc-resource>
 
-with
+with:
 
     <jdbc-resource pool-name="FoxEnginePool"
                    jndi-name="jdbc/ProcessEngine"
                    enabled="true">
     </jdbc-resource>
 
-and
+and:
 
     <resource-ref ref="jdbc/FoxEngine"></resource-ref>
 
-with
+with:
 
     <resource-ref ref="jdbc/ProcessEngine"></resource-ref>
 
-Configure the Thread Pool for the Job Executor from
+Adjust the configuration of the Thread Pool for the Job Executor from:
 
     <resources>
       ...
@@ -175,7 +175,7 @@ Configure the Thread Pool for the Job Executor from
       </server>
     </servers>
 
-to
+to:
 
     <resources>
       ...
@@ -210,7 +210,7 @@ to
 
 ### Upgrade the application server modules (GlassFish)
 
-* Delete the following modules form the folder `$FOX_HOME/glassfish/lib/`:
+* Delete the following modules from the folder `$FOX_HOME/glassfish/lib/`:
   * `fox-engine-$FOX_VERSION.jar`
   * `fox-platform-api-$FOX_VERSION.jar`
 * Merge all content from `$DISTRIBUTION_PATH/modules/lib` into `$FOX_HOME/glassfish/lib/`
@@ -220,15 +220,15 @@ to
   * `fox-cycle-glassfish-$FOX_VERSION`
   * `fox-platform-jobexecutor-rar`
   * `fox-tasklist-$FOX_VERSION`
-* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor recourse adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this we propose to startup the GlassFish to deploy initially the jobexecutor resource adapter. After a successful startup shutdown the GlassFish.
-* Copy the artifact `$DISTRIBUTION_PATH/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` into `$FOX_HOME/glassfish/domains/<domain>/autodeploy`.
+* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor resourse adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that in that case the deployment order is not defined. Due to this we propose to startup the GlassFish to initially deploy the jobexecutor resource adapter. After a successful startup shutdown the GlassFish.
+* Copy the artifact `$DISTRIBUTION_PATH/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`.
 * After a successful startup the camunda BPM platform is installed.
 
-Since camunda BPM 7.0 you are able to configure built-in process engine plugins, for more details [see here](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
 
 ### Replace the camunda fox webapps with camunda BPM webapps (GlassFish)
 
-* The camunda fox webapps has been already deleted in the previous steps. So you can additionally cleanup the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artifacts:
+* The camunda fox webapps have been already deleted in the previous steps. So you can additionally clean up the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artifacts:
   * `fox-cockpit-glassfish-$FOX_VERSION.war`
   * `fox-cycle-glassfish-$FOX_VERSION.war`
   * `fox-tasklist-$FOX_VERSION.war`
@@ -236,7 +236,7 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
   * `camunda-cycle-glassfish-$PLATFORM_VERSION.war`
   * `camunda-engine-rest-$PLATFORM_VERSION.war`
   * `camunda-webapp-glassfish-$PLATFORM_VERSION.war`
-* You are able to delete the corresponding Cockpit tables, because they are not needed anymore.
+* You can delete the corresponding Cockpit tables because they are not needed anymore.
 
 ## IBM WebSphere Application Server
 
@@ -262,11 +262,11 @@ Since camunda BPM 7.0 you are able to configure built-in process engine plugins,
 * Open the folder `$FOX_HOME/lib/ext/` and delete the following artifacts:
   * `fox-engine-$FOX_VERSION.jar`
   * `fox-platform-api-$FOX_VERSION.jar`
-* Now you are able to install camunda BPM 7.0, therefore you have to look in the [installation guide](ref:/guides/installation-guide/was/) and follow the instructions.
+* Now you can install camunda BPM 7.0, to do so, see the [installation guide](ref:/guides/installation-guide/was/) and follow the instructions.
 
-Since camunda BPM 7.0 you are able to configure built-in process engine plugins, for more details [see here](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
 
 ### Deploy camunda BPM webapps
 
 * Follow the installation instructions to deploy camunda BPM webapps (like Cycle, Cockpit etc.).
-* Furthermore, you are able to delete the corresponding Cockpit tables, because they are not needed anymore.
+* Furthermore, you can delete the corresponding Cockpit tables because they are not needed anymore.

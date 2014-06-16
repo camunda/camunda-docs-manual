@@ -4,14 +4,14 @@ category: 'Migrate from camunda bpm 7.1 to 7.2'
 
 ----
 
-In the 7.2 version updated (and unpatched) versions of angular (1.2.16) and bootstrap (3.1.1) are used.    
-But those updates are bringing some breaking changes in some heavily used features like JS promises, modal windows and a few more things described in detail below.    
+In the 7.2 version, updated (and unpatched) versions of angular (1.2.16) and bootstrap (3.1.1) are used.    
+However, those updates bring some breaking changes in some heavily used features, such as JS promises, modal windows and a few more things described in detail below.    
 You might want to have a look at the [angular changelog](https://github.com/angular/angular.js/blob/master/CHANGELOG.md) and the [bootstrap migration guide](http://getbootstrap.com/getting-started/#migration).    
-First of all, __bootstrap.js is not used anymore__ (it has been replaced by the angular-ui/bootstrap project) only the CSS parts are kept (and they are being rewritten in order to leverage less compilation and avoid unneeded declarations).
+First of all, __bootstrap.js is not used anymore__ (it has been replaced by the angular-ui/bootstrap project), only the CSS parts are kept (and they are being rewritten in order to leverage less compilation and avoid unnecessary declarations).
 
 ### JS promises
 
-The most critical change is probably the way JS promises are implemented/used. If you had something like that in the 7.1 realease:
+The most critical change is probably the way JS promises are implemented/used. If you had something like this in the 7.1 release:
 
 ````javascript
 SomeResource.$then(function(response) {
@@ -19,19 +19,19 @@ SomeResource.$then(function(response) {
 });
 ````
 
-in the 7.2, it should look like:
+in the 7.2 release, it should look like:
 
 ````javascript
-// the resource returns an object having "$promise" (which have a method "then")
+// the resource returns an object having "$promise" (which has a method "then")
 SomeResource.$promise.then(function(response) {
-  // and the response does not have any "data" property
+  // and the response does not have a "data" property
   var bar = response.something;
 });
 ````
 
 ### Dialogs / modal windows
 
-Also widely used in the web interfaces, the dialogs (a.k.a. modal windows) were completely rewritten, in the 7.1 you might have had something like:
+Also widely used in the web interfaces, the dialogs (a.k.a. modal windows) were completely rewritten, in the 7.1 release you might have had something like:
 
 ````javascript
 // a controller to open the dialog
@@ -49,7 +49,7 @@ function(BimBamBum,   $dialog,   $scope) {
       }
     },
     // for the example, I wrote the dialog controller here
-    // but it was generally found in separate file (could have been "BimBamBum" for instance)
+    // but it was generally found in a separate file (could have been "BimBamBum" for instance)
     controller: [
     // here "dialog" is the dialogInstance and "foo" and "bar" are _resolved_ (see above)
             'dialog', 'foo', 'bar',
@@ -65,7 +65,7 @@ function(BimBamBum,   $dialog,   $scope) {
 }]; 
 ````
 
-now, in the 7.2 - using the angular-ui/bootstrap thingy - you will have something like that:
+now, in the 7.2 release - using the angular-ui/bootstrap thingy - you will have something like this:
 
 ````javascript
 // a controller to open the dialog
@@ -92,7 +92,7 @@ Now.. the bad news is: in some cases, I had to "rewire" the scopes (kind of) but
 
 ### Tooltips
 
-Less complicated than the others changes (but still needing some work), in the 7.1, you could have add tooltips using a "help" attribute like that:
+Less complicated than the others changes (but still needing some work), in the 7.1 release, you could add tooltips using a "help" attribute like this:
 
 ````html
 <div class="yada-yada"
@@ -103,7 +103,7 @@ Less complicated than the others changes (but still needing some work), in the 7
 </div>
 ````
 
-in the 7.2, the attributes would be:
+in the 7.2 release, the attributes would be:
 
 ````html
 <div class="yada-yada"
@@ -118,7 +118,7 @@ Note the "tooltip-placement" value is not wrapped between single quotes anymore.
 
 ### Pagers
 
-Pagers need special attention because you might need to adapt some setup and change your HTML. But generally speaking if you have something like that in your 7.1:
+Pagers need special attention because you might need to adapt some setup and change your HTML. But generally speaking if you have something like this in your 7.1 release:
 
 ````javascript
 $scope.pages = {
@@ -136,7 +136,7 @@ $http.post(Uri.appUri('plugin://base/:engine/incident/count'), params).success(f
 <div paginator total-pages="pages.total" current-page="pages.current"></div>
 ````
 
-Then you will have something like that in 7.2:
+Then you will have something like this in the 7.2 release:
 
 ````javascript
 $scope.pages = {
