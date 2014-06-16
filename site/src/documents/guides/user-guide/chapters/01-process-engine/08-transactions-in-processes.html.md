@@ -60,14 +60,14 @@ The most common motivation is the requirement to scope *logical units of work*. 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/transactions-2.png"/></center>
 
 We are completing the user task, generating an invoice and then sending that invoice to the customer. It can be argued that the generation of the invoice is not part of the same unit of work: we do not want to roll back the completion of the usertask if generating an invoice fails.
-Ideally, the process engine would complete the user task (**1**), commit the transaction and return 
-control to the calling application (**2**). In a background thread (**3**), it would generate the invoice. 
+Ideally, the process engine would complete the user task (**1**), commit the transaction and return
+control to the calling application (**2**). In a background thread (**3**), it would generate the invoice.
 This is the exact behavior offered by asynchronous continuations: they allow us to scope transaction
 boundaries in the process.
 
 ### Configuring Asynchronous Continuations
 
-Asynchronous Continuations can be configured *before* and *after* an activity. Additionally, a 
+Asynchronous Continuations can be configured *before* and *after* an activity. Additionally, a
 process instance itself may be configured to be started asynchronously.
 
 An asynchronous continuation before an activity is enabled using the `camunda:asyncBefore` extension
@@ -86,9 +86,9 @@ attribute:
 
 Asynchronous instantiation of a process instance is enabled using the `camunda:asyncBefore`
 extension attribute on a process-level start event.
-On instantiation, the process instance will be created and persisted in the database, but execution 
-will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful 
-in various situations such as [heterogeneous clusters](ref:#process-engine-the-job-executor-cluster-setups), 
+On instantiation, the process instance will be created and persisted in the database, but execution
+will be deferred. Also, execution listeners will not be invoked synchronously. This can be helpful
+in various situations such as [heterogeneous clusters](ref:#process-engine-the-job-executor-cluster-setups),
 when the execution listener class is not available on the node that instantiates the process.
 
 ```xml
@@ -99,7 +99,7 @@ when the execution listener class is not available on the node that instantiates
 ### Understanding Asynchronous Continuations
 
 In order to understand how asynchronous continuations work, we first need to understand how an activity is
-executed: 
+executed:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/process-engine-activity-execution.png"/></center>
 
@@ -128,7 +128,7 @@ listeners.
 * an asynchronous continuation AFTER an activity breaks the execution flow after the invocation of
   the activity's END listeners and the outgoing sequence flow's TAKE listeners.
 
-Asynchronous continuations directly relate to transaction boundaries: putting an asynchronous 
+Asynchronous continuations directly relate to transaction boundaries: putting an asynchronous
 continuation before or after an activity creates a transaction boundary before or after an activity:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/process-engine-async-transactions.png"/></center>
@@ -152,7 +152,7 @@ The above sketched solution normally leads to discussion as people expect the pr
  * In Testcases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
  * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the tutorial "UI Mediator".
  * The execution is plain Java computing which is very efficient in terms of performance.
- * You can always switch to 'async=true' if you need different behavior.
+ * You can always switch to 'asyncBefore/asyncAfter=true' if you need different behavior.
 
 But there are consequences which you should keep in mind:
 
