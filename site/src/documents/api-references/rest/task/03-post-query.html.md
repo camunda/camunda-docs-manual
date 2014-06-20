@@ -81,7 +81,38 @@ A json object with the following properties:
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
   </tr>
-  
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Restrict to tasks that belong to case instances with the given id.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceBusinessKey</td>
+    <td>Restrict to tasks that belong to case instances with the given business key.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceBusinessKeyLike</td>
+    <td>Restrict to tasks that have a case instance business key that has the parameter value as a substring.</td>
+  </tr> 
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>Restrict to tasks that belong to a case definition with the given id.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>Restrict to tasks that belong to a case definition with the given key.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionName</td>
+    <td>Restrict to tasks that belong to a case definition with the given name.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionNameLike</td>
+    <td>Restrict to tasks that have a case definition name that has the parameter value as a substring.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Restrict to tasks that belong to a case execution with the given id.</td>
+  </tr>
   <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include tasks which belongs to one of the passed activity instance ids.</td>
@@ -233,9 +264,23 @@ A json object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>caseInstanceVariables</td>
+    <td>Only include tasks that belong to case instances that have variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
+    A valid parameter value has the form <code>key_operator_value</code>.
+    <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
+    <br/>
+    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    <code>like</code>.<br/>
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>assignee</code>, <code>created</code>,
+    <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>,
     <code>description</code>, <code>id</code>, <code>name</code> and <code>priority</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
@@ -330,6 +375,21 @@ Each task object has the following properties:
     <td>The id of the process instance the task belongs to.</td>
   </tr>
   <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance the task belongs to.</td>
+  </tr>
+  <tr>
     <td>taskDefinitionKey</td>
     <td>String</td>
     <td>The task's key.</td>
@@ -396,4 +456,7 @@ Request body:
      "priority":10,
      "processDefinitionId":"aProcDefId",
      "processInstanceId":"aProcInstId",
+     "caseDefinitionId":"aCaseDefId",
+     "caseInstanceId":"aCaseInstId",
+     "caseExecutionId":"aCaseExecution",
      "taskDefinitionKey":"aTaskDefinitionKey"}]

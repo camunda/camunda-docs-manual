@@ -70,6 +70,13 @@ Its properties are as follows:
       A flag indicating whether the case execution is enabled.
     </td>
   </tr>
+  <tr>
+    <td>disabled</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is disabled.
+    </td>
+  </tr>
 </table>
 
 
@@ -107,5 +114,6 @@ GET `/case-execution/aCaseExecutionId`
       "id"               : "aCaseExecutionId",
       "caseInstanceId"   : "aCaseInstId",
       "active"           : true,
-      "enabled"          : true
+      "enabled"          : true,
+      "disabled"          : true
     }

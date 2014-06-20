@@ -118,6 +118,21 @@ Its properties are as follows:
     <td>The id of the process instance this task belongs to.</td>
   </tr>
   <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance the task belongs to.</td>
+  </tr>
+  <tr>
     <td>taskDefinitionKey</td>
     <td>String</td>
     <td>The task definition key.</td>
@@ -170,4 +185,7 @@ GET `/task/anId`
     "priority":42,
     "processDefinitionId":"aProcDefId",
     "processInstanceId":"aProcInstId",
+    "caseDefinitionId":"aCaseDefId",
+    "caseInstanceId":"aCaseInstId",
+    "caseExecutionId":"aCaseExecution",
     "taskDefinitionKey":"aTaskDefinitionKey"}

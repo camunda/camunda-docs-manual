@@ -62,6 +62,10 @@ Parameters
     <td>Only include enabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>Only include disabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -147,6 +151,13 @@ Each case execution object has the following properties:
       A flag indicating whether the case execution is enabled.
     </td>
   </tr>
+  <tr>
+    <td>disabled</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is disabled.
+    </td>
+  </tr>
 </table>
 
 
@@ -189,6 +200,7 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
         "id"               : "aCaseExecutionId",
         "caseInstanceId"   : "aCaseInstId",
         "active"           : true,
-        "enabled"          : true
+        "enabled"          : true,
+        "disabled"          : true
       }
     ]

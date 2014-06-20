@@ -82,6 +82,10 @@ Parameters
     <td>Only include enabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>Only include disabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include case instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -155,6 +159,13 @@ Each case execution object has the following properties:
       A flag indicating whether the case execution is enabled.
     </td>
   </tr>
+  <tr>
+    <td>disabled</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is disabled.
+    </td>
+  </tr>
 </table>
 
 
@@ -215,6 +226,7 @@ Request body:
         "id"               : "aCaseExecutionId",
         "caseInstanceId"   : "aCaseInstId",
         "active"           : true,
-        "enabled"          : true
+        "enabled"          : true,
+        "disabled"          : true
       }
     ]

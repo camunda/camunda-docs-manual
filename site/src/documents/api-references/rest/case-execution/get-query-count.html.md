@@ -61,6 +61,10 @@ Parameters
     <td>Only include enabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>disabled</td>
+    <td>Only include disabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
