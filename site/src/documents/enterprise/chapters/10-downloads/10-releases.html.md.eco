@@ -6,10 +6,10 @@ title: 'Community vs. Enterprise Releases'
 ---
 
 
-There is both a community and an enterprise edition of camunda BPM. Among these, we distinguish between three different kinds of releases:
+There is both a community and an enterprise edition of camunda BPM. Among these, we distinguish between three different types of releases:
 
-1. __GA Release__: The __G__eneral __A__vailability release containes features and bugfixes. GA releases are fully tested. The release is done in parallel for community edition and for enterprise edition. 
-2. __Development Release__: On the community branch and on the enterprise branch we release _ALPHA_ releases in short iteration cycles. Development releases contain the latest features and bug fixes. The Development release is not fully tested and just a snapshot of the current development.
+1. __GA Release__: The __G__eneral __A__vailability release contains features and bugfixes. GA releases are fully tested. The release is done in parallel for the community edition and for the enterprise edition. 
+2. __Development Release__: On the community branch and on the enterprise branch we release _ALPHA_ releases in short iteration cycles. Development releases contain the latest features and bug fixes. The Development release is not fully tested and is a snapshot of the current development state.
 3. __Maintenance Release__: On the enterprise branch we perform Maintenance releases in which we backport the latest bug fixes. Maintenance releases do not contain new features and are meant to be used for production systems. Maintenance releases are fully tested and are only available to enterprise customers. 
 
 The following drawing illustrates the different release types for the community edition and the enterprise edition.
