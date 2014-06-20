@@ -93,7 +93,49 @@ In order to use this feature, you have to
   </p>
 </div>
 
-Note: the following names are reserved and cannot be used as variable names: out, out:print, lang:import, context, elcontext.
+Note: the following names are reserved and cannot be used as variable names:
+`out`, `out:print`, `lang:import`, `context`, `elcontext`.
+
+
+## Script source
+
+The standard way to specify the script source code in the BPMN XML model is to add it as a `script`
+child element to the script task. Nevertheless camunda BPM provide additional ways to specify the
+script source.
+
+If you use another scripting language then expression language you can specify the script source
+also as an expression which returns the source code to execute. In this way the source code can for
+example be contained in a process variable.
+
+In the following example snippet the process engine will evaluate the expression `${sourceCode}` in
+the current context every time the script task is executed.
+
+```xml
+<scriptTask scriptFormat="python">
+  <script>${sourceCode}</script>
+</scriptTask>
+```
+
+Also you can specify the attribute
+[`camunda:resource`](ref:#custom-extensions-camunda-extension-attributes-camundaresource) on the
+script task element. This extension attribute specifies the location of an external resource which
+should be used as script source code. Optional the resource path can be prefixed with a URL like
+scheme to specify if the resource is contained in the deployment or the classpath.  The default
+behaviour is that the resource is part of the classpath. This means the first two script task
+elements in the following examples are the same.
+
+```xml
+<scriptTask scriptFormat="python" camunda:resource="org/camunda/bpm/task.py"/>
+<scriptTask scriptFormat="python" camunda:resource="classpath://org/camunda/bpm/task.py"/>
+<scriptTask scriptFormat="python" camunda:resource="deployment://org/camunda/bpm/task.py"/>
+```
+
+The resource path can also be specified as an expression which is evaluated on the invocation of the
+script task.
+
+```xml
+<scriptTask scriptFormat="python" camunda:resource="${scriptPath}"/>
+```
 
 ## Script results
 
@@ -117,13 +159,15 @@ In the above example, the result of the script execution (the value of the resol
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresource">camunda:resource</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

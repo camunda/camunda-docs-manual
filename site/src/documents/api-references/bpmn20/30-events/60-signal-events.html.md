@@ -56,7 +56,10 @@ A signal event definition is declared using the signalEventDefinition element. T
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

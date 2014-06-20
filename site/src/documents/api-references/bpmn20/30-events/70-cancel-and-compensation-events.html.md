@@ -11,6 +11,26 @@ keywords: 'cancel end boundary compensation intermediate throwing boundary event
 Cancel and compensation events occur in the context of the [transaction subprocess](ref:#subprocesses-transaction-subprocess). Please read that part first to understand the overall idea.
 
 
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
 ## Cancel End Event
 
 The cancel end event can only be used in combination with a [transaction subprocess](ref:#subprocesses-transaction-subprocess). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
@@ -31,12 +51,12 @@ Note: If a cancel boundary event is placed on a transaction subprocess with mult
 A cancel boundary event is defined as a typical boundary event:
 
 ```xml
-<boundaryEvent id="boundary" attachedToRef="transaction" >       
+<boundaryEvent id="boundary" attachedToRef="transaction" >
   <cancelEventDefinition />
 </boundaryEvent>
 ```
 
-Since the cancel boundary event is always interrupting, the cancelActivity attribute is not required. 
+Since the cancel boundary event is always interrupting, the cancelActivity attribute is not required.
 
 
 ## Compensation Intermediate Throwing Event
@@ -108,7 +128,7 @@ Note: the compensation boundary event is not supported on embedded subprocesses.
 A compensation boundary event is defined as a typical boundary event:
 
 ```xml
-<boundaryEvent id="compensateBookHotelEvt" attachedToRef="bookHotel" >       
+<boundaryEvent id="compensateBookHotelEvt" attachedToRef="bookHotel" >
   <compensateEventDefinition />
 </boundaryEvent>
 

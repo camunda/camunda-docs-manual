@@ -35,6 +35,28 @@ A message event definition is declared using the messageEventDefinition element.
 </definitions>
 ```
 
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
+
 ## Triggering Message Events
 
 As an embeddable process engine, the camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entail platform-specific activities like connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
@@ -226,7 +248,43 @@ Message intermediate throwing event sends a message to an external service. This
 ```
 
 
-## Message End Event
+#### Camunda Extensions for `messageEventDefinition`
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>,
+      <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the
+      <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+</table>
+
+
+### Message End Event
 
 When process execution arrives in a message end event, the current path of execution is ended and a message is sent. The message end event has the same behavior as a [service task](ref:#tasks-service-task).
 
@@ -235,3 +293,39 @@ When process execution arrives in a message end event, the current path of execu
   <messageEventDefinition camunda:class="org.camunda.bpm.MyMessageServiceDelegate" />
 </endEvent>
 ```
+
+
+#### Camunda Extensions for `messageEventDefinition`
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>,
+      <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the
+      <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+</table>

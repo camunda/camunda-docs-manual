@@ -139,6 +139,17 @@ public class SumDelegate implements JavaDelegate {
 }
 ```
 
+The script source code can also be loaded from an external resource in the same way as described
+for [script tasks](ref:/api-references/bpmn20/#tasks-script-task-script-source).
+
+```xml
+<camunda:inputOutput>
+  <camunda:inputParameter name="x">
+     <camunda:script scriptFormat="python" resource="org/camunda/bpm/example/sum.py"/>
+  </camunda:inputParameter>
+</camunda:inputOutput>
+```
+
 
 ## Script compilation
 

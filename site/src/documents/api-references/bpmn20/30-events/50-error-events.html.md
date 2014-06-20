@@ -35,7 +35,7 @@ An error event definition references an error element. The following is an examp
 </definitions>
 ```
 
-You can trigger this error event either by a throwing error event within your process definition or from Delegation Code, see 
+You can trigger this error event either by a throwing error event within your process definition or from Delegation Code, see
 [Throwing BPMN Errors from Delegation Code](ref:/guides/user-guide/#process-engine-delegation-code-throwing-bpmn-errors-from-delegation-code).
 
 Another possibility to define an error is the setting the type (class name) of any Java Exception as error code. Example:
@@ -55,7 +55,28 @@ Another possibility to define an error is the setting the type (class name) of a
 
 The exception type should only used for business exceptions and not for technical exceptions in the process.
 
-An error event handler references the same error element to declare that it catches the error. 
+An error event handler references the same error element to declare that it catches the error.
+
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 
 ## Error Start Event

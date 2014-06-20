@@ -55,7 +55,8 @@ This will ensure that the process engine creates a process instance when the pro
     <th>Extension Elements</th>
     <td>
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaformdata">camunda:formData</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaformproperty">camunda:formProperty</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaformproperty">camunda:formProperty</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

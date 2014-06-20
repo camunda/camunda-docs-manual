@@ -37,7 +37,9 @@ You might use the rule engine of your choice, on the open source side we made go
     <th>Extension Elements</th>
     <td>
       <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

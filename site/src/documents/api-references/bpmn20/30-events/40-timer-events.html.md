@@ -74,7 +74,10 @@ Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#proc
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

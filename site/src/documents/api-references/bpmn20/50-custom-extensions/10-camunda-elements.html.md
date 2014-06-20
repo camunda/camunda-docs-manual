@@ -5,7 +5,87 @@ category: 'Custom Extensions'
 
 ---
 
-The following attributes are extension elements for the <code>camunda</code> namespace <code>http://activiti.org/bpmn</code>.
+The following elements are extension elements for the <code>camunda</code> namespace
+<code>http://activiti.org/bpmn</code>.
+
+
+## camunda:connector
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      The configuration of a camunda connector.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td colspan="2">&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnectorid">
+      camunda:connectorId</a> child element is required and must identify a connector implementation
+      known to the process engine
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#tasks-service-task">Service Task</a>,
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
+      <a href="ref:#tasks-send-task">Send Task</a>,
+      Message Event Definition of
+      <a href="ref:#events-message-events-message-intermediate-throwing-event">
+      Message Intermediate Throwing Event</a> or
+      <a href="ref:#events-message-events-message-end-event">Message End Event</a>,
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+      camunda:inputOutput</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnectorid">
+      camunda:connectorId</a>
+    </td>
+  </tr>
+</table>
+
+
+## camunda:connectorId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      The unique identifier of the connector type to instantiate.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td colspan="2">&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The connector type has to be known to the process engine
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">
+      camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">&ndash;</td>
+  </tr>
+</table>
+
 
 ## camunda:constraint
 
@@ -50,6 +130,47 @@ The following attributes are extension elements for the <code>camunda</code> nam
     </td>
   </tr>
 </table>
+
+
+## camunda:entry
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      A single entry of a map structure. Can contain a constant, expression, script, list or
+      another map.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>key</code></td>
+    <td>
+      The key of the entry in the map
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>key</code> attribute is required
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundamap">camunda:map</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundamap">camunda:map</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+    </td>
+  </tr>
+</table>
+
 
 ## camunda:executionListener
 
@@ -603,6 +724,202 @@ The following attributes are extension elements for the <code>camunda</code> nam
   </tr>
 </table>
 
+
+## camunda:inputParameter
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      An single input mapping for the activity. If the element has no child element the text
+      content of this element is mapped into the activity. The text content can be a constant
+      string value or an expression. If no child element or text content exists the variable
+      inside the activity is set to the special value <code>null</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>name</code></td>
+    <td>
+      The name of the variable inside the activity.
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>name</code> attribute is required.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      The element can have one child element, a constant string or an expression as text content.
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">
+        camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundamap">
+        camunda:map</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">
+        camunda:script</a>
+    </td>
+  </tr>
+</table>
+
+
+## camunda:inputOutput
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      The element describes an input/output mapping for the activity.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#tasks">All Tasks</a>,
+      <a href="ref:#events">All Events</a>,
+      <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
+      <a href="ref:#subprocesses-event-subprocess">Event Subprocess</a>,
+      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">
+        camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputparameter">
+        camunda:inputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaoutputparameter">
+        camunda:outputParameter</a>
+    </td>
+  </tr>
+</table>
+
+
+## camunda:list
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      A list structure. If the list contains multiple values they should be added as
+      text content of child elements. Which child elements are use is arbitrary, i.e.
+      <code><br/>
+        &lt;camunda:list&gt;<br/>
+        &nbsp;&nbsp;&lt;value&gt;one&lt;/value&gt;<br/>
+        &nbsp;&nbsp;&lt;entry&gt;two&lt;/entry&gt;<br/>
+        &nbsp;&nbsp;&lt;property&gt;three&lt;/property&gt;<br/>
+        &lt;/camunda:list&gt;
+      </code><br/>
+      Also a <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">
+      camunda:script</a> element can be used as a list element. The return value of the
+      script is added to the list. Lists furthermore contain nested lists and maps.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      Multiple values have to be encapsulated in child elements.
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputparameter">
+        camunda:inputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaoutputparameter">
+        camunda:outputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaentry">camunda:entry</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      Any child element,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">
+        camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundamap">
+        camunda:map</a>
+    </td>
+  </tr>
+</table>
+
+
+## camunda:map
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      A map structure. The entries can be constants, expressions, scripts, nested maps and lists.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputparameter">
+        camunda:inputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaoutputparameter">
+        camunda:outputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaentry">camunda:entry</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaentry">camunda:entry</a>
+    </td>
+  </tr>
+</table>
+
+
+
 ## camunda:out
 
 <table class="table table-striped">
@@ -665,6 +982,59 @@ The following attributes are extension elements for the <code>camunda</code> nam
     </td>
   </tr>
 </table>
+
+
+## camunda:outputParameter
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      An single output mapping for the activity. If the element has no child element the text
+      content of this element is mapped out the activity. The text content can be a constant
+      string value or an expression. If no child element or text content exists the variable
+      outside the activity is set to the special value <code>null</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>name</code></td>
+    <td>
+      The name of the variable outside the activity.
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>name</code> attribute is required.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      The element can have one child element, a constant string or an expression as text content.
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">
+        camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundamap">
+        camunda:map</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">
+        camunda:script</a>
+    </td>
+  </tr>
+</table>
+
 
 ## camunda:potentialStarter
 
@@ -795,6 +1165,63 @@ The following attributes are extension elements for the <code>camunda</code> nam
     </td>
   </tr>
 </table>
+
+
+## camunda:script
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      A script element. The script is executed and the return value is used as mapping value.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>scriptFormat</code></td>
+    <td>
+      The format identifier, normally the language, of the script source code
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>resource</code></td>
+    <td>
+      equivalent to <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresource">
+      camunda:resource</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>scriptFormat</code> attribute is required
+    </td>
+  </tr>
+    <td></td>
+    <td colspan="2">
+      If the <code>resource</code> attribute is used no source code text content is allowed
+    </td>
+  <tr>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputparameter">
+        camunda:inputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaoutputparameter">
+        camunda:outputParameter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaentry">camunda:entry</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+</table>
+
 
 ## camunda:string
 

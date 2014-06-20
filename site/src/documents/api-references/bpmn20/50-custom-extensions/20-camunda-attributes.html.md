@@ -691,6 +691,44 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+### camunda:resource
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies an external resource. The resource can be part of the deployment or
+      exists in the classpath. To specify the type of resource a URL scheme like prefix
+      <code>deployment://</code> resp. <code>classpath://</code> can be supplied. If the scheme is
+      omitted it is assumed that the resource exists in the classpath.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The path to a resource or an expression which returns the path. Optional the path can
+      start with an URL like scheme <code>classpath://</code> or <code>deployment://</code> to
+      specify where to find the resource. If omitted the resource is assumed to exists in the
+      classpath.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#tasks-script-task">Script Task</a>
+    </td>
+  </tr>
+</table>
+
+
 ### camunda:resultVariable
 
 <table class="table table-striped">
@@ -728,9 +766,6 @@ The following attributes are extension attributes for the `camunda` namespace `h
 
 
 ### camunda:type
-
-The attribute specifies which built-in task implementation to use. Currently an email and a shell service task
-exists.
 
 <table class="table table-striped">
   <tr>

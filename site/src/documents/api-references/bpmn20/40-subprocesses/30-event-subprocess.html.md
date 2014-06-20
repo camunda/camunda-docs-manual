@@ -23,7 +23,7 @@ It is represented using XML in the same way as a an embedded subprocess. In addi
 ```xml
 <subProcess id="eventSubProcess" triggeredByEvent="true">
   <!-- ... -->
-</subProcess>      
+</subProcess>
 ```
 
 <div class="alert alert-info">
@@ -44,11 +44,11 @@ This is how the Event subprocess looks like in XML:
 ```xml
 <subProcess id="eventSubProcess" triggeredByEvent="true">
   <startEvent id="catchError">
-    <errorEventDefinition errorRef="error" /> 
+    <errorEventDefinition errorRef="error" />
   </startEvent>
   <sequenceFlow id="flow2" sourceRef="catchError" targetRef="taskAfterErrorCatch" />
   <userTask id="taskAfterErrorCatch" name="Provide additional data" />
-</subProcess>    
+</subProcess>
 ```
 
 As already stated, an Event subprocess can also be added to an embedded subprocess. If it is added to an embedded subprocess, it becomes an alternative to a boundary event. Consider the two following process diagrams. In both cases the embedded subprocess throws an error event. Both times the error is caught and handled using a user task.
@@ -66,6 +66,25 @@ In both cases the same tasks are executed. However, there are differences betwee
 
 These two differences can help you decide whether a boundary event or an embedded subprocess is better suited for solving a particular process modeling / implementation problem.
 
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 ## Additional Resources
 
