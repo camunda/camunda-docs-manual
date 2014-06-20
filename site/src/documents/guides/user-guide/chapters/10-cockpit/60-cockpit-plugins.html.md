@@ -107,3 +107,113 @@ but keep the diagram previews and disable the job retry action button:
       cam-exclude-plugins="cockpit.dashboard:process-definition-tiles,
                            cockpit.processInstance.runtime.action:job-retry-action" />
 ```
+
+
+### Plugin points
+
+Here you can see the various points at which you are able to add your own plugins.
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-cockpit-dashboard.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.dashboard</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-process-definition-details.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processDefinition.runtime.tab</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-process-instance-details.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processInstance.runtime.tab</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-process-definition-runtime-action.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processDefinition.runtime.action</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-process-instance-runtime-action.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processInstance.runtime.action</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-cockpit-process-definition-view.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processDefinition.view</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-cockpit-process-instance-view.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processInstance.view</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-definition-diagram-overlay.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processDefinition.diagram.overlay</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-instance-diagram-overlay.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.processInstance.diagram.overlay</code>.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/plugin-points/plugin-point-job-definition-action.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>cockpit.jobDefinition.action</code>.
+  </div>
+</div>
+
+
+Here is an example of how to configure where you place your plugin:
+
+```html
+var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
+    ViewsProvider.registerDefaultView('cockpit.processDefinition.view', {
+      id: 'runtime',
+      priority: 20,
+      label: 'Runtime'
+    });
+  }];
+```
+
+For more information on creating and configuring your own plugin, please see <a href="ref:/real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin">How to develop a Cockpit plugin</a>.
