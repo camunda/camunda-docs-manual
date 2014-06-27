@@ -9,7 +9,7 @@ keywords: 'post'
 
 
 Deliver a message to the process engine to either trigger a message start or intermediate message catching event.
-Internally, this maps to the engine's `RuntimeService#correlateMessage` methods.
+Internally, this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
 See more on the correlation behavior in the [message event documentation](ref:/api-references/bpmn20/#events-message-events).
 
 
@@ -52,6 +52,10 @@ A json object with the following properties:
     <td>processVariables</td>
     <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
     Each key is a variable name and each value a json variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
+  </tr>
+  <tr>
+    <td>all</td>
+    <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code> the message will be correlated to exactly one entity (execution or process definition). And if the value is set to <code>true</code> the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
   </tr>
 </table>
 
@@ -100,7 +104,8 @@ Request body:
     "processVariables" : {
         "aVariable" : {"value" : "aNewValue", "type": "String"},
         "anotherVariable" : {"value" : true, "type": "Boolean"}
-    }}
+    }
+    }
 
 #### Response
 

@@ -65,7 +65,7 @@ After you have received a message, you can choose whether you employ the engine'
 
 
 
-### Using the runtime service\'s correlation methods
+### Using the runtime service's correlation methods
 
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. You can choose from these methods in the runtime service:
 
@@ -85,6 +85,13 @@ Correlation is successful, if there exists a single matching entity among the fo
 * __Process Definition__: A process definition matches, if it can be started by a message named `messageName`.
 * __Execution (Process Instance)__: An execution matches, if it is waiting for a message named `messageName` and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables.
 
+As an alternative it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. Therefore you can correlate a message by using the message correlation builder as follows:
+
+```java
+runtimeService
+  .createMessageCorrelation("aMessageName")
+  .correlateAll();
+```
 
 <div class="alert alert-warning">
   <strong>Current limitation:</strong>
