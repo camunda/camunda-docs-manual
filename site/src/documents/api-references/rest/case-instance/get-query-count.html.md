@@ -49,6 +49,10 @@ Parameters
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>completed</td>
+    <td>Only include completed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

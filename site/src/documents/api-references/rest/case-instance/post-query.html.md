@@ -70,6 +70,10 @@ Parameters
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>completed</td>
+    <td>Only include completed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include case instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -127,6 +131,13 @@ Each case instance object has the following properties:
     <td>Boolean</td>
     <td>
       A flag indicating whether the case instance is active.
+    </td>
+  </tr>
+  <tr>
+    <td>completed</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case instance is completed.
     </td>
   </tr>
 </table>
@@ -189,6 +200,7 @@ Request body:
         "id" : "anId",
         "caseDefinitionId" : "aCaseDefinitionId",
         "businessKey" : "aKey",
-        "active" : false
+        "active" : false,
+        "completed"        : false
       }
     ]

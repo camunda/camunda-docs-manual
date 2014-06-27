@@ -52,6 +52,10 @@ A json object with the following properties:
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>completed</td>
+    <td>Only include completed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include case instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.

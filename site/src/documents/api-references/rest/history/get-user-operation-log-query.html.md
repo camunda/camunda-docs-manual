@@ -42,6 +42,18 @@ Parameters
     <td>Filter by execution id.</td>
   </tr>
   <tr>
+    <td>caseDefinitionId</td>
+    <td>Filter by case definition id.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Filter by case execution id.</td>
+  </tr>
+  <tr>
     <td>taskId</td>
     <td>Only include operations on this task.</td>
   </tr>
@@ -124,6 +136,21 @@ Each log entry has the following properties:
     <td>executionId</td>
     <td>String</td>
     <td>Execution reference.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>Case definition reference.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>Case instance reference.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>Case execution reference.</td>
   </tr>
   <tr>
     <td>taskId</td>
