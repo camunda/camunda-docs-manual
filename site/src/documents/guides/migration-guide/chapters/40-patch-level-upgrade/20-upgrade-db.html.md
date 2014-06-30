@@ -5,4 +5,4 @@ category: 'Patch Level Upgrade'
 
 ---
 
-Within a major version we will not change anything on our database structure. The database structure of all patch releases is backward compatible to its major version.
+Within a minor version we will not change anything in our database structure. The database structure of all patch releases is backwards compatible to the corresponding minor version.
