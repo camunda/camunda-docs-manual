@@ -8,13 +8,13 @@ keywords: 'timer start intermediate boundary event definition'
 ---
 
 
-Timer events are events which are triggered by defined timer. They can be used as start event, intermediate event or boundary event. Boundary events can be interrupting or not.
+Timer events are events which are triggered by a defined timer. They can be used as start event, intermediate event or boundary event. Boundary events can be interrupting or not.
 
 <div data-bpmn-diagram="implement/event-timer" ></div>
 
-A timer definition must have exactly one element from the following:
+A timer definition must have exactly one of the following elements:
 
-* **timeDate**: This format specifies fixed date in <a href="http://en.wikipedia.org/wiki/ISO_8601#Dates">ISO 8601</a> format, when trigger will be fired. Example:
+* **timeDate**: This format specifies a fixed time and date in adhering to the <a href="http://en.wikipedia.org/wiki/ISO_8601#Dates">ISO 8601</a> format, when the trigger will be fired. Example:
 
     ```xml
     <timerEventDefinition>
@@ -22,7 +22,7 @@ A timer definition must have exactly one element from the following:
     </timerEventDefinition>
     ```
 
-* **timeDuration**: To specify how long the timer should run before it is fired, a timeDuration can be specified as sub-element of timerEventDefinition. The format used is the <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> format (as required by the BPMN 2.0 specification). Example (interval lasting 10 days):
+* **timeDuration**: To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. The format used is the <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> format (as required by the BPMN 2.0 specification). Example (interval lasting 10 days):
 
     ```xml
     <timerEventDefinition>
@@ -30,27 +30,27 @@ A timer definition must have exactly one element from the following:
     </timerEventDefinition>
     ```
 
-* **timeCycle**: Specifies repeating interval, which can be useful for starting process periodically, or for sending multiple reminders for overdue user task. Time cycle element can be in two formats. First is the format of recurring time duration, as specified by <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO 8601</a> standard. Example (3 repeating intervals, each lasting 10 hours):
+* **timeCycle**: Specifies repeating intervals, which can be useful for starting process periodically, or for sending multiple reminders for overdue user tasks. A time cycle element can be in two formats. One option is the format of recurring time duration, as specified by the <a href="http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals">ISO 8601</a> standard. Example (3 repeating intervals, each lasting 10 hours):
 
     ```xml
     <timerEventDefinition>
     <timeCycle>R3/PT10H</timeCycle>
     </timerEventDefinition>
     ```
-    Additionally, you can specify time cycle using cron expressions, example below shows trigger firing every 5 minutes, starting at full hour:
+    Additionally, you can specify a time cycle using cron expressions, the example below shows a trigger firing every 5 minutes, starting at full hour:
 
     ```
     0 0/5 * * * ?
     ```
 
-    Please see <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">tutorial</a> for using cron expressions.
+    Please see the <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">CronTrigger Tutorial</a> for additional information about using cron expressions.
 
     Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
-    The recurring time duration is better suited for handling relative timers, which are calculated with respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
+    The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
 
 
-You can use expressions for the timer event definitions, by doing so you can influence the timer definition based on process variables. The process variables must contain the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> (or cron for cycle type) string for appropriate timer type.
+You can use expressions for the timer event definitions. By doing so you can influence the timer definition based on process variables. The process variables must contain the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> (or cron for cycle type) string for the appropriate timer type.
 
 ```xml
 <boundaryEvent id="escalationTimer" cancelActivity="true" attachedToRef="firstLineSupport">
@@ -90,19 +90,19 @@ Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#proc
 ## Timer Start Event
 
 
-A timer start event is used to create process instance at given time. It can be used both for processes which should start only once and for processes that should start in specific time intervals.
+A timer start event is used to create process instance at a given time. It can be used both for processes which should start only once and for processes that should start in specific time intervals.
 
-Note: a subprocess cannot have a timer start event.
+Note: A subprocess cannot have a timer start event.
 
-Note: start timer event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more starting of the process at the time of `startProcessInstanceBy...` Invocation.
+Note: A start timer event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more starting of the process at the time of the `startProcessInstanceBy...` invocation.
 
-The XML representation of a timer start event is the normal start event declaration, with timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th march 2011, 12:13:
+The XML representation of a timer start event is the normal start event declaration, with a timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th of March 2016, at 12:13 (24 hour clock system):
 
 
 ```xml
 <startEvent id="theStart">
     <timerEventDefinition>
-        <timeCycle>R4/2011-03-11T12:13/PT5M</timeCycle>
+        <timeCycle>R4/2016-03-11T12:13/PT5M</timeCycle>
     </timerEventDefinition>
 </startEvent>
 ```
@@ -112,7 +112,7 @@ and this process will start once, on a selected date:
 ```xml
 <startEvent id="theStart">
     <timerEventDefinition>
-        <timeDate>2011-03-11T12:13:14</timeDate>
+        <timeDate>2016-03-11T12:13:14</timeDate>
     </timerEventDefinition>
 </startEvent>
 ```
@@ -124,7 +124,7 @@ and this process will start once, on a selected date:
 
 A timer intermediate event acts as a stopwatch. When an execution arrives in catching event activity, a timer is started. When the timer fires (e.g. after a specified interval), the sequence flow going out of the timer intermediate event is followed.
 
-A timer intermediate event is defined as a intermediate catching event. The specific type sub-element is in this case a timerEventDefinition element.
+A timer intermediate event is defined as a intermediate catching event. The specific type sub-element in this case is a timerEventDefinition element.
 
 ```xml
 <intermediateCatchEvent id="timer">
@@ -141,9 +141,9 @@ A timer intermediate event is defined as a intermediate catching event. The spec
 
 ## Timer Boundary Event
 
-A timer boundary event acts as a stopwatch and alarm clock. When an execution arrives in the activity where the boundary event is attached to, a timer is started. When the timer fires (e.g. after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
+A timer boundary event acts as a stopwatch and as an alarm clock. When an execution arrives in the activity to which the boundary event is attached, a timer is started. When the timer fires (e.g. after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
 
-There is the difference between the interrupting and non interrupting timer event. The interrupting is the default. The non-interrupting leads to the original activity is not interrupted but the activity stays there. Instead an additional executions is created and send over the outgoing transition of the event. In the XML representation, the cancelActivity attribute is set to false:
+There is the difference between an interrupting and a non interrupting timer event. The interrupting event is the default. The non-interruptingevent leads to the original activity not being interrupted, the activity stays there. Instead, an additional execution is created and sent over the outgoing transition of the event. In the XML representation, the cancelActivity attribute is set to false:
 
 ```xml
 <boundaryEvent id="escalationTimer" cancelActivity="false" attachedToRef="firstLineSupport"/>
@@ -153,7 +153,7 @@ There is the difference between the interrupting and non interrupting timer even
 </boundaryEvent>
 ```
 
-Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled.
+Note: Timers are only fired when the [Job Executor](ref:/guides/user-guide/#process-engine-the-job-executor) is enabled.
 
 
 <div class="alert alert-warning">

@@ -7,7 +7,7 @@ keywords: 'variables scripts results'
 
 ---
 
-A script task is an automatic activity. When a process execution arrives at the script task, the corresponding script is executed.
+A script task is an automated activity. When a process execution arrives at the script task, the corresponding script is executed.
 
 <div data-bpmn-symbol="scripttask" data-bpmn-symbol-name="Script Task"></div>
 
@@ -24,26 +24,20 @@ A script task is defined by specifying the script and the scriptFormat.
 </scriptTask>
 ```
 
-The value of the scriptFormat attribute must be a name that is compatible with the JSR-223
-(scripting for the Java platform). If you want to use a (JSR-223 compatible) scripting engine, it is
-necessary to add the corresponding jar to the classpath and use the appropriate name.
+The value of the scriptFormat attribute must be a name that is compatible with JSR-223 (Scripting for the Java Platform). If you want to use a (JSR-223 compatible) scripting engine, you need to to add the corresponding jar to the classpath and use the appropriate name.
 
-For general information about scripting in the process engine please see the [user
-guide](ref:/guides/user-guide/#process-engine-scripting).
+For general information about scripting in the process engine, please see the [Scripting](ref:/guides/user-guide/#process-engine-scripting) section of the [User Guide](ref:/guides/user-guide/).
 
 <div class="alert alert-info">
   <strong>Supported Script Languages:</strong>
   <p>
-    camunda BPM should work with most of the JSR-223 compatible script engine implementations.
-    We test integration for Groovy, Java Script, JRuby and Jython. See also: <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a>
+    camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
   </p>
 </div>
 
 ## Variables in scripts
 
-All process variables that are accessible through the execution that arrives in
-the script task can be used within the script. In the example, the script
-variable `inputArray` is in fact a process variable (an array of integers).
+All process variables that are accessible through the execution that arrives in the script task can be used within the script. In the example below, the script variable `inputArray` is in fact a process variable (an array of integers).
 
 ```xml
 <script>
@@ -54,8 +48,7 @@ variable `inputArray` is in fact a process variable (an array of integers).
 </script>
 ```
 
-It's also possible to set process variables in a script. Variables can be set by the
-`setVariable(...)` methods provided by the `VariableScope` interface:
+It's also possible to set process variables in a script. Variables can be set by using the `setVariable(...)` methods provided by the `VariableScope` interface:
 
 
 ```xml
@@ -70,20 +63,12 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ### Enabling auto-storing of script variables
 
-By setting the propery `autoStoreScriptVariables` to true in the process engine
-configuration, the process engine will automatically store all _global_ script
-variables as process variables.
-
-This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for
-for the groovy scripting language
-(see the [Note in the Migration Guide for camunda BPM 7.2](ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72-migrate-process-engine-configuration-set-autostorescriptvariables)).
+By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for for the Groovy scripting language (see the [Set autoStoreScriptVariables](ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72-migrate-process-engine-configuration-set-autostorescriptvariables) section of the [Migration Guide](ref:/guides/migration-guide/) for more information).
 
 In order to use this feature, you have to
 
-* set `autoStoreScriptVariables` to true in the process engine configuration,
-* prefix all script variables that should not be stored as script variables using the `def`
-  keyword: `def sum = 0`. In that case the variable `sum` will not
-  be stored as process variable.
+* set `autoStoreScriptVariables` to `true` in the process engine configuration,
+* prefix all script variables that should not be stored as script variables using the `def` keyword: `def sum = 0`. In this case the variable `sum` will not be stored as process variable.
 
 
 <div class="alert alert-info">
@@ -99,16 +84,11 @@ Note: the following names are reserved and cannot be used as variable names:
 
 ## Script source
 
-The standard way to specify the script source code in the BPMN XML model is to add it as a `script`
-child element to the script task. Nevertheless camunda BPM provide additional ways to specify the
-script source.
+The standard way to specify the script source code in the BPMN XML model is to add it as a `script` child element to the script task. Nonetheless, camunda BPM provides additional ways to specify the script source.
 
-If you use another scripting language then expression language you can specify the script source
-also as an expression which returns the source code to execute. In this way the source code can for
-example be contained in a process variable.
+If you use another scripting language than Expression Language you can also specify the script source as an expression which returns the source code to be executed. This way, the source code can, for example, be contained in a process variable.
 
-In the following example snippet the process engine will evaluate the expression `${sourceCode}` in
-the current context every time the script task is executed.
+In the following example snippet the process engine will evaluate the expression `${sourceCode}` in the current context every time the script task is executed.
 
 ```xml
 <scriptTask scriptFormat="python">
@@ -116,13 +96,7 @@ the current context every time the script task is executed.
 </scriptTask>
 ```
 
-Also you can specify the attribute
-[`camunda:resource`](ref:#custom-extensions-camunda-extension-attributes-camundaresource) on the
-script task element. This extension attribute specifies the location of an external resource which
-should be used as script source code. Optional the resource path can be prefixed with a URL like
-scheme to specify if the resource is contained in the deployment or the classpath.  The default
-behaviour is that the resource is part of the classpath. This means the first two script task
-elements in the following examples are the same.
+You can also specify the attribute `camunda:resource` on the script task element. This extension attribute specifies the location of an external resource which should be used as script source code. Optionally, the resource path can be prefixed with an URL-like scheme to specify if the resource is contained in the deployment or the classpath. The default behaviour is that the resource is part of the classpath. This means that the first two script task elements in the following examples are the same.
 
 ```xml
 <scriptTask scriptFormat="python" camunda:resource="org/camunda/bpm/task.py"/>
@@ -130,16 +104,18 @@ elements in the following examples are the same.
 <scriptTask scriptFormat="python" camunda:resource="deployment://org/camunda/bpm/task.py"/>
 ```
 
-The resource path can also be specified as an expression which is evaluated on the invocation of the
-script task.
+The resource path can also be specified as an expression which is evaluated on the invocation of the script task.
 
 ```xml
 <scriptTask scriptFormat="python" camunda:resource="${scriptPath}"/>
 ```
 
+For more information, see the [camunda:resource](ref:#custom-extensions-camunda-extension-attributes-camundaresource) section of the [Custom Extensions](ref:#custom-extensions) chapter.
+
+
 ## Script results
 
-The return value of a script task can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When not specifying a result variable name, the script result value gets ignored.
+The return value of a script task can be assigned to a previously existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When a result variable name is not specified, the script result value gets ignored.
 
 ```xml
 <scriptTask id="theScriptTask" name="Execute script" scriptFormat="juel" camunda:resultVariable="myVar">
@@ -178,4 +154,3 @@ In the above example, the result of the script execution (the value of the resol
     </td>
   </tr>
 </table>
-

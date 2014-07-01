@@ -11,7 +11,7 @@ In addition to those various types of tasks, we can mark tasks as loops, multipl
 
 ## Multiple Instance
 
-A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the for each construct: it allows to execute a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
+A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the `for each` construct: it allows execution of a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
 
 A multi-instance is a regular activity that has extra properties defined (so-called `multi-instance characteristics`) which will cause the activity to be executed multiple times at runtime. Following activities can become a multi-instance activity:
 
@@ -42,7 +42,7 @@ These values can be retrieved by calling the `execution.getVariable(x)` method.
 
 Additionally, each of the created executions will have an execution-local variable (i.e. not visible for the other executions, and not stored on process instance level) :
 
-* **loopCounter**: indicates the index in the for-each loop of that particular instance
+* **loopCounter**: indicates the index in the `for each` loop of that particular instance
 
 To make an activity multi-instance, the activity xml element must have a `multiInstanceLoopCharacteristics` child element.
 
@@ -55,7 +55,7 @@ To make an activity multi-instance, the activity xml element must have a `multiI
 The isSequential attribute indicates if the instances of that activity are executed sequentially or parallel.
 
 
-The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. On way is directly specifying a number, by using the `loopCardinality` child element.
+The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. On way is directly specifying a number by using the `loopCardinality` child element.
 
 ```xml
 <multiInstanceLoopCharacteristics isSequential="false|true">
@@ -71,7 +71,7 @@ Expressions that resolve to a positive number are also possible:
 </multiInstanceLoopCharacteristics>
 ```
 
-Another way to define the number of instances, is to specify the name of a process variable which is a collection using the `loopDataInputRef` child element. For each item in the collection, an instance will be created. Optionally, it is possible to set that specific item of the collection for the instance using the inputDataItem child element. This is shown in the following XML example:
+Another way to define the number of instances is to specify the name of a process variable which is a collection using the `loopDataInputRef` child element. For each item in the collection, an instance will be created. Optionally, it is possible to set that specific item of the collection for the instance using the inputDataItem child element. This is shown in the following XML example:
 
 ```xml
 <userTask id="miTasks" name="My Task ${loopCounter}" camunda:assignee="${assignee}">
@@ -105,7 +105,7 @@ A multi-instance activity ends when all instances are finished. However, it is p
 </userTask>
 ```
 
-In this example, there will be parallel instances created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
+In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
 ## camunda Extensions
 
@@ -131,31 +131,31 @@ In this example, there will be parallel instances created for each element of th
 
 ## Boundary events and multi-instance
 
-Since a multi-instance is a regular activity, it is possible to define a boundary event on its boundary. In case of an interrupting boundary event, when the event is caught, all instances that are still active will be destroyed. Take for example following multi-instance subprocess:
+Since a multi-instance is a regular activity, it is possible to define a boundary event on its boundary. In case of an interrupting boundary event, when the event is caught, all instances that are still active will be destroyed. For example, take the following multi-instance subprocess:
 
 <div data-bpmn-diagram="implement/multiple-instance-boundary"></div>
 
-Here, all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not yet completed.
+Here all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not completed yet.
 
 ## Loops
 
-The loop marker is not yet natively supported by the engine. For Multiple Instance the number of repetitions is known in advance - which makes it a bad candidate for loops (anyway - since it defines a completion condition that may be already sufficient for some cases).
+The loop marker is not natively supported yet by the engine. For Multiple Instance the number of repetitions is known in advance - which makes it a bad candidate for loops (anyway - as it defines a completion condition that may already be sufficient in some cases).
 
 To get around this limitation the solution is to explicitly model the loop in your BPMN process:
 
 <div data-bpmn-diagram="implement/loop-alternative"></div>
 
-And be assured that we have the loop marker in our backlog to be added to the engine.
+Be assured that we have the loop marker in our backlog to be added to the engine.
 
 ## Compensation
 
-If an activity is used for compensating the effects of another activity, it can be declared to be a compensation handler. Compensation handlers are not contained in normal flow and are only executed when a compensation event is thrown.
+If an activity is used for compensating the effects of another activity it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.
 
 <div data-bpmn-diagram="implement/compensation-marker"></div>
 
-Notice the compensation handler icon in the bottom canter area of the "cancel hotel reservation" service task
+Notice the compensation handler icon in the bottom center area of the "cancel hotel reservation" service task.
 
-Compensation handlers must not have incoming or outgoing sequence flows.
+Compensation handlers may not have incoming or outgoing sequence flows.
 
 A compensation handler must be associated with a compensation boundary event using a directed association.
 
@@ -167,5 +167,5 @@ In order to declare an activity to be a compensation handler, we need to set the
 
 ## Additional Resources
 
-* [Task Markers in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/tasks)
+* [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 * [Transaction Subprocess](ref:#subprocesses-transaction-subprocess)

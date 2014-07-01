@@ -13,7 +13,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a human performer of an <a href="ref:#tasks-user-task">user task</a>.
+      The attribute specifies a human performer of a <a href="ref:#tasks-user-task">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -194,7 +194,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which group(s) will be candidate for performing the <a href="ref:#tasks-user-task">user task</a>.
+      The attribute specifies which group(s) will be candidate for performing the <a href="ref:#tasks-user-task">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -287,7 +287,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which user(s) will be candidate for performing the <a href="ref:#tasks-user-task">user task</a>.
+      The attribute specifies which user(s) will be candidate for performing the <a href="ref:#tasks-user-task">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -354,7 +354,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a collection where for each element an instance will created, see <a href="ref:#tasks-task-markers-multiple-instance">Multiple Instance</a> for more information.
+      The attribute specifies a collection, where for each element, an instance will be created. See <a href="ref:#tasks-task-markers-multiple-instance">Multiple Instance</a> for more information.
     </td>
   </tr>
   <tr>
@@ -364,7 +364,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      The name of a <code>java.util.Collection</code> process variable as <code>java.lang.String</code> or a Expression which evaluates to the name of a collection
+      The name of a <code>java.util.Collection</code> process variable as <code>java.lang.String</code> or an Expression which evaluates to the name of a collection
     </td>
   </tr>
   <tr>
@@ -388,7 +388,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute allows to specify an expression which must resolve to an object that implements the corresponding interface (see <a href="/guides/user-guide/#process-engine-delegation-code">delegation code</a>).
+      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="/guides/user-guide/#process-engine-delegation-code">delegation code</a>).
     </td>
   </tr>
   <tr>
@@ -424,7 +424,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial due date of an <a href="ref:#tasks-user-task">user task</a> when it is created.
+      The attribute specifies the initial due date of a <a href="ref:#tasks-user-task">User Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -491,7 +491,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies that jobs should be execute exclusively see <a href="ref:/guides/user-guide/#process-engine-the-job-executor-exclusive-jobs">Exclusive Jobs</a> for more information.
+      The attribute specifies that jobs should be executed exclusively. See <a href="ref:/guides/user-guide/#process-engine-the-job-executor-exclusive-jobs">Exclusive Jobs</a> for more information.
     </td>
   </tr>
   <tr>
@@ -570,7 +570,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies class that will be called during the parsing of the form information of a <a href="ref:#events-start-events">Start Event</a> or <a href="ref:#tasks-user-task">User Task</a>.
+      The attribute specifies the class that will be called during the parsing of the form information of a <a href="ref:#events-start-events">Start Event</a> or <a href="ref:#tasks-user-task">User Task</a>.
     </td>
   </tr>
   <tr>
@@ -603,7 +603,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a form resource see <a href="ref:/guides/user-guide/#tasklist-task-forms">task forms</a> for more information.
+      The attribute specifies a form resource. See <a href="ref:/guides/user-guide/#tasklist-task-forms">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -613,7 +613,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="ref:/guides/user-guide/#tasklist">tasklist</a>
+      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="ref:/guides/user-guide/#tasklist">Tasklist</a>
     </td>
   </tr>
   <tr>
@@ -666,7 +666,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial priority of an <a href="ref:#tasks-user-task">user task</a> when it is created.
+      The attribute specifies the initial priority of a <a href="ref:#tasks-user-task">User Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -676,7 +676,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression which evaluates to a <code>java.lang.Number</code>, <code>java.lang.String</code> which represents a number or <code>null</code>, e.g. <code>${dateVariable}</code>
+      An expression which evaluates to a <code>java.lang.Number</code> or a <code>java.lang.String</code> which represents a number or <code>null</code>, e.g. <code>${dateVariable}</code>
     </td>
   </tr>
   <tr>
@@ -698,9 +698,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies an external resource. The resource can be part of the deployment or
-      exists in the classpath. To specify the type of resource a URL scheme like prefix
+      exists in the classpath. To specify the type of resource, a URL scheme like prefix
       <code>deployment://</code> resp. <code>classpath://</code> can be supplied. If the scheme is
-      omitted it is assumed that the resource exists in the classpath.
+      omitted, it is assumed that the resource exists in the classpath.
     </td>
   </tr>
   <tr>

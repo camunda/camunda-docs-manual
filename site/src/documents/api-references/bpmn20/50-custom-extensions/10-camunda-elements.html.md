@@ -5,8 +5,7 @@ category: 'Custom Extensions'
 
 ---
 
-The following elements are extension elements for the <code>camunda</code> namespace
-<code>http://activiti.org/bpmn</code>.
+The following elements are extension elements for the `camunda` namespace `http://activiti.org/bpmn`.
 
 
 ## camunda:connector
@@ -93,7 +92,7 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata of a individual validation constraint for a form field (see <a href="ref:/guides/user-guide/#tasklist-task-forms-form-field-validation">Form Field Validation</a>).
+      Metadata of an individual validation constraint for a form field (see <a href="ref:/guides/user-guide/#tasklist-task-forms-form-field-validation">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -178,7 +177,7 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Add a execution listener to an event.
+      Add an execution listener to an event.
     </td>
   </tr>
   <tr>
@@ -238,7 +237,7 @@ The following elements are extension elements for the <code>camunda</code> names
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
-      <a href="ref:#events">Start Event</a>,
+      <a href="ref:#events-start-events">Start Event</a>,
       <a href="ref:#events">Intermediate Catch Event</a>,
       <a href="ref:#events">Intermediate Throw Event</a>,
       <a href="ref:#events">End Events</a>,
@@ -358,7 +357,7 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -487,13 +486,13 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      The attribute <code>id</code> is required to be not empty
+      The attribute <code>id</code> may not be empty
     </td>
   </tr>
   <tr>
     <td></td>
     <td colspan="2">
-      The attribute <code>type</code> can be one of a known form field type (<code>string</code>, <code>long</code>, <code>boolean</code>, <code>date</code> or <code>enum</code>) or a custom one
+      The attribute <code>type</code> can be one of the known form field types (<code>string</code>, <code>long</code>, <code>boolean</code>, <code>date</code> or <code>enum</code>) or a custom one
     </td>
   </tr>
   <tr>
@@ -829,7 +828,7 @@ The following elements are extension elements for the <code>camunda</code> names
     <th>Description</th>
     <td colspan="2">
       A list structure. If the list contains multiple values they should be added as
-      text content of child elements. Which child elements are use is arbitrary, i.e.
+      text content of child elements. Which child elements are use is arbitrary, e.g..:
       <code><br/>
         &lt;camunda:list&gt;<br/>
         &nbsp;&nbsp;&lt;value&gt;one&lt;/value&gt;<br/>
@@ -839,7 +838,7 @@ The following elements are extension elements for the <code>camunda</code> names
       </code><br/>
       Also a <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">
       camunda:script</a> element can be used as a list element. The return value of the
-      script is added to the list. Lists furthermore contain nested lists and maps.
+      script is added to the list. Furthermore, lists can contain nested lists and maps.
     </td>
   </tr>
   <tr>
@@ -990,17 +989,17 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Description</th>
     <td colspan="2">
-      An single output mapping for the activity. If the element has no child element the text
-      content of this element is mapped out the activity. The text content can be a constant
-      string value or an expression. If no child element or text content exists the variable
-      outside the activity is set to the special value <code>null</code>.
+      An single output mapping for the activity. If the element has no child element, the text
+      content of this element is mapped out of the activity. The text content can be a constant
+      string value or an expression. If no child element or text content exists, the variable
+      outside of the activity is set to the special value <code>null</code>.
     </td>
   </tr>
   <tr>
     <th>Attributes</th>
     <td><code>name</code></td>
     <td>
-      The name of the variable outside the activity.
+      The name of the variable outside of the activity.
     </td>
   </tr>
   <tr>
@@ -1140,7 +1139,7 @@ The following elements are extension elements for the <code>camunda</code> names
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the property belongs to a <code>camunda:formField</code> extension element only
+      If the property belongs to a <code>camunda:formField</code> extension element, only
       the attributes <code>id</code> and <code>value</code> are used.
     </td>
   </tr>
@@ -1148,7 +1147,7 @@ The following elements are extension elements for the <code>camunda</code> names
     <td></td>
     <td colspan="2">
       If the parent <code>camunda:properties</code> element is directly added as an extension element,
-      for example by the camunda modeler, only the attributes <code>name</code> and <code>value</code>
+      for example by the camunda Modeler, only the attributes <code>name</code> and <code>value</code>
       are used.
     </td>
   </tr>
@@ -1180,7 +1179,7 @@ The following elements are extension elements for the <code>camunda</code> names
     <th>Attributes</th>
     <td><code>scriptFormat</code></td>
     <td>
-      The format identifier, normally the language, of the script source code
+      The format identifier, normally the language of the script source code
     </td>
   </tr>
   <tr>
@@ -1199,7 +1198,7 @@ The following elements are extension elements for the <code>camunda</code> names
   </tr>
     <td></td>
     <td colspan="2">
-      If the <code>resource</code> attribute is used no source code text content is allowed
+      If the <code>resource</code> attribute is used, no source code text content is allowed
     </td>
   <tr>
   </tr>

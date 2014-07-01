@@ -7,7 +7,7 @@ keywords: 'message receive task'
 
 ---
 
-A Receive Task is a simple task that waits for the arrival of a certain message. When process execution arrives at a Receive Task, the process state is committed to the persistence store. This means that the process will stay in this wait state, until a specific message is received by the engine, which triggers the continuation of the process past the Receive Task.
+A Receive Task is a simple task that waits for the arrival of a certain message. When the process execution arrives at a Receive Task, the process state is committed to the persistence storage. This means that the process will stay in this wait state until a specific message is received by the engine, which triggers the continuation of the process beyond the Receive Task.
 
 <div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task"></div>
 
@@ -33,10 +33,10 @@ runtimeService.messageEventReceived(subscription.getEventName(), subscription.ge
 ```
 
 <div class="alert alert-warning">
-  Correlation of a parallel multi instance isn't possible because the subscription can't unambiguous identified.
+  Correlation of a parallel multi instance isn't possible because the subscription can't be identified unambiguously.
 </div>
 
-To continue a process instance that is currently waiting at a Receive Task without a message reference, the `runtimeService.signal(executionId)` can be called using the id of the execution that arrived in the Receive Task.
+To continue a process instance that is currently waiting at a Receive Task without a message reference, the `runtimeService.signal(executionId)` can be called, using the id of the execution that arrived in the Receive Task.
 
 ```xml
 <receiveTask id="waitState" name="wait" />
@@ -81,6 +81,6 @@ runtimeService.signal(execution.getId());
 
 ## Additional Resources
 
-* [Tasks in the BPMN Tutorial](http://camunda.org/bpmn/reference.html#activities-task)
-* [Message Receive Event](ref:#events-message-events)
-* [Trigger a subscription over REST](ref:/api-references/rest/#execution-trigger-message-event-subscription)
+* [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+* [Message Receive Events](ref:#events-message-events)
+* [Trigger a subscription via REST](ref:/api-references/rest/#execution-trigger-message-event-subscription)
