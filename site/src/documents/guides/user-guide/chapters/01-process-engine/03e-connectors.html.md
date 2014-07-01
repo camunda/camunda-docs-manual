@@ -5,16 +5,16 @@ category: 'Process Engine'
 
 ---
 
-With the optional dependency [camunda-connect][github] the process engine supports simple
-connectors. Currently only a SOAP connector implementation exists but more are planed.
+With the optional dependency [camunda-connect][github], the process engine supports simple
+connectors. Currently only a SOAP connector implementation exists, but more are planned.
 
 To use a connector you have to add the camunda extension element [connector][]. The connector is
-configured by an unique [connectorId][] which specifies the used connector implementation.
-Additionally an [input/output mapping][iomapping] is used to configure the connector. The required
-input parameters and the available output parameters are depending on the connector implementation.
-Also additional input parameters can be provided to be used inside the connector.
+configured by a unique [connectorId][] which specifies the used connector implementation.
+Additionally, an [input/output mapping][iomapping] is used to configure the connector. The required
+input parameters and the available output parameters depend upon the connector implementation.
+Additional input parameters can also be provided to be used inside the connector.
 
-As an example an shortened configuration of the camunda SOAP connector implementation is shown. A
+As an example, an shortened configuration of the camunda SOAP connector implementation is shown. A
 complete [example][] can be found in the [camunda examples repository][examples] on GitHub.
 
 ```xml

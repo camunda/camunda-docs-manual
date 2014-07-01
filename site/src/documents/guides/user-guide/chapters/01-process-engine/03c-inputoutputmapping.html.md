@@ -5,13 +5,13 @@ category: 'Process Engine'
 
 ---
 
-To improve the reusability of source code and business logic camunda BPM supports input/output
-mappings of process variables. This can be used for tasks, events and subprocesses.
+To improve the reusability of source code and business logic, camunda BPM supports input/output
+mapping of process variables. This can be used for tasks, events and subprocesses.
 
-In order to use the variable mapping you have to add the camunda extension element [inputOutput][]
+In order to use the variable mapping, you have to add the camunda extension element [inputOutput][]
 to the element. It can contain multiple [inputParameter][] and [outputParameter][] elements which
 specify which variables should be mapped. The `name` attribute of an [inputParameter][] denotes
-the variable name inside the activity. Whereas the `name` attribute of an [outputParameter][]
+the variable name inside the activity, whereas the `name` attribute of an [outputParameter][]
 denotes the variable name outside of the activity.
 
 The content of an input/outputParameter specifies the value which is mapped to the corresponding
@@ -27,7 +27,7 @@ to the special value `null`.
 </camunda:inputOutput>
 ```
 
-Furthermore even complexer structures like [lists][list] and [maps][map] can be used. Both can also
+Furthermore, even complexer structures like [lists][list] and [maps][map] can be used. Both can also
 be nested.
 
 ```xml
@@ -57,22 +57,20 @@ be nested.
 </camunda:inputOutput>
 ```
 
-Also a script can be used to calculate the variable value. Please see the corresponding
+A script can also be used to calculate the variable value. Please see the corresponding
 [section][script-io] in the scripting chapter.
 
-A simple example for the benefit of input/output mappings would be a complex calculation which
+A simple example for the benefit of input/output mapping would be a complex calculation which
 should be part of multiple processes definitions. This calculation can be developed as isolated
-delegation code or script task and be reused in every process. Even though the processes operate on
+delegation code or script task and be reused in every process, even though the processes operate on
 different data sources. The input/output mapping is then used to map the varying process data to
 the required input parameter of the complex calculation implementation and also to utilize the
 calculation result in the further process execution.
 
-To explain this further we assume the calculation requires a `userId` and a `costSum` as input
-parameter. It then calculates three values `a`, `b` and `c` which are different forecasts for the
-future costs of the user. In a first process both input parameter are already as process variables
-available but with different names (`id`, `sum`). From the three results the process only uses `b`
-which it needs as process variable `forecast`. The resulting input/output mapping would look like
-the following.
+To further explain, this we assume the calculation requires a `userId` and a `costSum` as input
+parameters. It then calculates three values, `a`, `b` and `c`, which are different forecasts for the
+future costs of the user. In a first process both input parameters are already available as process variables, but with different names (`id`, `sum`). From the three results, the process only uses `b`
+which it needs as process variable `forecast`. The resulting input/output mapping would look as follows:
 
 ```xml
 <serviceTask camunda:class="org.camunda.bpm.example.ComplexCalculation">
@@ -86,7 +84,7 @@ the following.
 </serviceTask>
 ```
 
-In a second process you have to a calculate the `costSum` from different maps. And the process
+In a second process you have to a calculate the `costSum` from different maps. Also, the process
 needs the average `avgForecast` of the calculated values `a` and `c`.
 
 ```xml
