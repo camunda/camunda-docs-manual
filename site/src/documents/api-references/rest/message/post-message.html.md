@@ -8,9 +8,9 @@ keywords: 'post'
 ---
 
 
-Deliver a message to the process engine to either trigger a message start or intermediate message catching event.
-Internally, this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
-See more on the correlation behavior in the [message event documentation](ref:/api-references/bpmn20/#events-message-events).
+Deliver a message to the process engine to either trigger a message start event or an intermediate message catching event.
+Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
+For more information about the correlation behavior, see the [Message Events](ref:/api-references/bpmn20/#events-message-events) section of the [BPMN 2.0 Implementation Reference](ref:/api-references/bpmn20/).
 
 
 Method
@@ -55,7 +55,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>all</td>
-    <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code> the message will be correlated to exactly one entity (execution or process definition). And if the value is set to <code>true</code> the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
+    <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code> the message will be correlated to exactly one entity (execution or process definition). If the value is set to <code>true</code> the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
   </tr>
 </table>
 

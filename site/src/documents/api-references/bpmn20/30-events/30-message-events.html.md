@@ -82,10 +82,10 @@ The `messageName` identifies the message as defined in the message name attribut
 
 Correlation is successful if a single matching entity exists among the following:
 
-* __Process Definition__: A process definition matches, if it can be started by a message named `messageName`.
-* __Execution (Process Instance)__: An execution matches, if it is waiting for a message named `messageName` and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables.
+* __Process Definition__: A process definition matches if it can be started by a message named `messageName`.
+* __Execution (Process Instance)__: An execution matches if it is waiting for a message named `messageName` and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables.
 
-As an alternative it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. Therefore you can correlate a message by using the message correlation builder as follows:
+Alternatively, it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. Therefore you can correlate a message by using the message correlation builder as follows:
 
 ```java
 runtimeService
@@ -98,7 +98,7 @@ runtimeService
 
   <code>correlationKeys</code> is only matched against process instance variables. These are variables that are globally visible throughout the process instance.
 
-  Accordingly, variables that are defined in the scope of a child execution (e.g. in a subprocess) are not considered for correlation.
+  Accordingly, variables that are defined in the scope of a child execution (e.g., in a subprocess) are not considered for correlation.
 </div>
 
 In case of successful correlation, the correlated or newly created process instance is updated with the variables from the `processVariables` map.
