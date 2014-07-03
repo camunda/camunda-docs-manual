@@ -8,7 +8,7 @@ category: 'Introduction'
 
 You can run the camunda BPM platform in every Java-runnable environment. camunda BPM is supported with our QA infrastructure in the following environments. Here you can find more information about our <a href="http://camunda.com/bpm/enterprise/">enterprise support</a>.
 
-Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introduction-supported-environments">supported environments for version 7.0</a> here.
+Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introduction-supported-environments">supported environments for version 7.0</a> and the <a href="http://docs.camunda.org/7.1/guides/user-guide/#introduction-supported-environments">supported environments for version 7.1</a>  here.
 
 
 ## Container / Application Server
