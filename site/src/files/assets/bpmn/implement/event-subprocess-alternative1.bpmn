@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_l8RBYIPvEeKz0a9S9nXFLQ" targetNamespace="http://activiti.org/bpmn">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_l8RBYIPvEeKz0a9S9nXFLQ" exporter="camunda modeler" exporterVersion="2.5.0" targetNamespace="http://activiti.org/bpmn">
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:subProcess id="SubProcess_1">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
@@ -67,11 +67,11 @@
       <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:textAnnotation id="TextAnnotation_1">
-      <bpmn2:text>the error is completly handled by the subprocess.</bpmn2:text>
+      <bpmn2:text>The error is completely handled by the subprocess.</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_2" sourceRef="TextAnnotation_1" targetRef="SubProcess_1"/>
     <bpmn2:textAnnotation id="TextAnnotation_2">
-      <bpmn2:text>the task still has access to all variables of the failed subprocess</bpmn2:text>
+      <bpmn2:text>The task still has access to all variables of the failed subprocess</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_3" sourceRef="TextAnnotation_2" targetRef="Task_3"/>
   </bpmn2:process>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions targetNamespace="http://activiti.org/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_DJpwgIQPEeKz0a9S9nXFLQ">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_DJpwgIQPEeKz0a9S9nXFLQ" exporter="camunda modeler" exporterVersion="2.5.0" targetNamespace="http://activiti.org/bpmn">
   <bpmn2:process id="Process_1" isExecutable="false">
-    <bpmn2:startEvent id="StartEvent_1" name="first day of&#xD;&#xA;the month">
+    <bpmn2:startEvent id="StartEvent_1" name="First day of&#xD;&#xA;the month">
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_1"/>
     </bpmn2:startEvent>
-    <bpmn2:task id="Task_1" name="collect sales data">
+    <bpmn2:task id="Task_1" name="Collect sales data">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="Task_1" targetRef="IntermediateCatchEvent_1"/>
-    <bpmn2:userTask id="UserTask_1" name="prepare sales report">
+    <bpmn2:userTask id="UserTask_1" name="Prepare sales report">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
     </bpmn2:userTask>
@@ -21,38 +21,38 @@
     </bpmn2:intermediateCatchEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="IntermediateCatchEvent_1" targetRef="UserTask_1"/>
     <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="StartEvent_1" targetRef="Task_1"/>
-    <bpmn2:boundaryEvent id="BoundaryEvent_1" name="every&#xD;&#xA;24 hours" attachedToRef="UserTask_1" cancelActivity="false">
+    <bpmn2:boundaryEvent id="BoundaryEvent_1" name="Every&#xD;&#xA;24 hours" attachedToRef="UserTask_1" cancelActivity="false">
       <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_3"/>
     </bpmn2:boundaryEvent>
-    <bpmn2:serviceTask id="ServiceTask_1" name="send reminder email">
+    <bpmn2:serviceTask id="ServiceTask_1" name="Send reminder email">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
     </bpmn2:serviceTask>
     <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="BoundaryEvent_1" targetRef="ServiceTask_1"/>
-    <bpmn2:endEvent id="EndEvent_1" name="reminded">
+    <bpmn2:endEvent id="EndEvent_1" name="Reminded">
       <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="ServiceTask_1" targetRef="EndEvent_1"/>
     <bpmn2:sequenceFlow id="SequenceFlow_7" sourceRef="UserTask_1" targetRef="UserTask_3"/>
-    <bpmn2:userTask id="UserTask_3" name="adjust forecast">
+    <bpmn2:userTask id="UserTask_3" name="Adjust forecast">
       <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
     </bpmn2:userTask>
-    <bpmn2:endEvent id="EndEvent_2" name="monthly sales&#xD;&#xA;figures processed">
+    <bpmn2:endEvent id="EndEvent_2" name="Monthly sales&#xD;&#xA;figures processed">
       <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="UserTask_3" targetRef="EndEvent_2"/>
-    <bpmn2:boundaryEvent id="BoundaryEvent_2" name="one week" attachedToRef="UserTask_3">
+    <bpmn2:boundaryEvent id="BoundaryEvent_2" name="One week" attachedToRef="UserTask_3">
       <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_4"/>
     </bpmn2:boundaryEvent>
-    <bpmn2:endEvent id="EndEvent_3" name="sales figures&#xD;&#xA;processed without&#xD;&#xA;forecast adjustment">
+    <bpmn2:endEvent id="EndEvent_3" name="Sales figures&#xD;&#xA;processed without&#xD;&#xA;forecast adjustment">
       <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="BoundaryEvent_2" targetRef="EndEvent_3"/>
     <bpmn2:textAnnotation id="TextAnnotation_1">
-      <bpmn2:text>note that this event has a dotted line and is non-interrupting</bpmn2:text>
+      <bpmn2:text>Note that this event has a dotted line and is non-interrupting</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1" sourceRef="TextAnnotation_1" targetRef="BoundaryEvent_1"/>
   </bpmn2:process>
@@ -132,7 +132,7 @@
       <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_7" bpmnElement="BoundaryEvent_2">
         <dc:Bounds height="36.0" width="36.0" x="766.0" y="120.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="6.0" width="6.0" x="781.0" y="161.0"/>
+          <dc:Bounds height="22.0" width="61.0" x="720.0" y="158.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_46" bpmnElement="EndEvent_3">
