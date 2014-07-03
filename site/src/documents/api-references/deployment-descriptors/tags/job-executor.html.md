@@ -5,4 +5,4 @@ category: 'Tags'
 
 ---
 
-The configuration is used to configure the job executor.
+The job executor tag is used to configure the job executor.

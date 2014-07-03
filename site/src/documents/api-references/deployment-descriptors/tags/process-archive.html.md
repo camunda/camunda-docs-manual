@@ -6,9 +6,9 @@ category: 'Tags'
 ---
 
 
-The process archive tag allows configuring a process engine deployment and can be used in the [processes.xml](ref:#descriptors-processesxml) file.
+The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml](ref:#descriptors-processesxml) file.
 
-See user guide section on [processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
+See the [processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor) section of the [User Guide](ref:/guides/user-guide/) for more details.
 
 
 ## Example
@@ -48,7 +48,7 @@ The following example shows a process-archive XML snippet:
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: allows defining the name of the process archive (Required). The name will be used for the
+          <li><code>name</code>: Allows you to define the name of the process archive (Required). The name will be used for the
             process engine deployment.</li>
         </ul>
       </p>
@@ -72,7 +72,7 @@ The following example shows a process-archive XML snippet:
       </p>
       <p>
         <strong>Text Content:</strong>
-        the name of the process engine which the deployment should be performed to.
+        The name of the process engine to which the deployment should be performed.
       </p>
     </td>
   </tr>
@@ -82,7 +82,7 @@ The following example shows a process-archive XML snippet:
     <td>false</td>
     <td>
       <p>
-        Can be used for explicitly listing the paths to process definitions that are part of this deployment.
+        Can be used to explicitly list the paths to process definitions that are part of this deployment.
       </p>
       <p>
         <strong>Attributes:</strong>
@@ -90,7 +90,7 @@ The following example shows a process-archive XML snippet:
       </p>
       <p>
         <strong>Text Content:</strong>
-        the path to a process definition that is part of this deployment. The resource is loaded with the classloader of the process process application and must thus be relative to the process application classloader root(s).
+        The path to a process definition that is part of this deployment. The resource is loaded with the classloader of the process application and must thus be relative to the process application classloader root(s).
       </p>
     </td>
   </tr>
@@ -123,7 +123,7 @@ The following example shows a process-archive XML snippet:
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: the name of the property.</li>
+          <li><code>name</code>: The name of the property.</li>
         </ul>
       </p>
       <p>
@@ -137,7 +137,7 @@ The following example shows a process-archive XML snippet:
 
 ## Configuration Properties
 
-The following is a list with all supported configuration properties.
+The following is a list of all supported configuration properties.
 
 <table class="table table-striped">
   <tr>
@@ -176,7 +176,7 @@ The following is a list with all supported configuration properties.
     <td>boolean</td>
     <td>
       <p>
-        If true, previous versions of the deployment are automatically resumed. See <a href="ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-process-application-deployment">Process Application Deployment</a>.
+        If true, previous versions of the deployment are automatically resumed. See the <a href="ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-process-application-deployment">Process Application Deployment</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
       </p>
       <p>
         <strong>Default value:</strong>
@@ -222,7 +222,7 @@ The following is a list with all supported configuration properties.
          If the process archive(s) defined in (1) uses a path prefixed with <code>pa:</code>, like for instance <code>pa:opps/</code>,
          only the <code>opps/</code>-folder of sales-processes.jar is scanned. More precisely, a "pa-local path", is resolved
          relative to the the parent directory of the META-INF-directory containing the defining processes.xml file.
-         This implies, that using a pa-local path in (1), no processes from (2) are visible.
+         This implies that when using a pa-local path in (1), no processes from (2) are visible.
          <p />
         </li>
       </ul>

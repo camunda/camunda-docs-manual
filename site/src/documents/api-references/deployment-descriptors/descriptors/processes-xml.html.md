@@ -6,9 +6,9 @@ category: 'Descriptors'
 ---
 
 
-The `processes.xml` file is deployed as part of a process application and is used for configuring the deployment of BPMN 2.0 resource files. Additionally, it can be used for configuring  process engines which are started / stopped with the deployment of the application.
+The `processes.xml` file is deployed as part of a process application and is used for configuration of the deployment of BPMN 2.0 resource files. Additionally, it can be used to configure process engines which are started / stopped with the deployment of the application.
 
-See [User Guide Section on processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
+See the [processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor) section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details..
 
 
 ## Xml Schema Namespace
@@ -18,7 +18,7 @@ The namespace for the processes.xml file is `http://www.camunda.org/schema/1.0/P
 
 ## Empty processes.xml
 
-The `processes.xml` may be left blank (can be empty). In this case, default values are used. [See userguide for more information](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-empty-processesxml).
+The `processes.xml` may be left blank (can be empty). In this case, default values are used. See the [Empty processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-empty-processesxml) section of the [User Guide](ref:/guides/user-guide/) for more details.
 
 
 ## Example

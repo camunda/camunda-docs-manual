@@ -6,12 +6,12 @@ category: 'Tags'
 ---
 
 
-The process engine configuration can be placed in both [processes.xml](ref:#descriptors-processesxml) and the [bpm-platform.xml](ref:#descriptors-bpm-platformxml) files. If the process engine is configured in either of both files, it will be bootstrapped by the camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
+The process engine configuration can be placed in both [processes.xml](ref:#descriptors-processesxml) and the [bpm-platform.xml](ref:#descriptors-bpm-platformxml) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
 
 
 ## Example
 
-The following example shows an XML snippet which can be placed in both [processes.xml](ref:#descriptors-processesxml) and [bpm-platform.xml](ref:#descriptors-bpm-platformxml).
+The following example shows an XML snippet which can be placed in both [processes.xml](ref:#descriptors-processesxml) and/or [bpm-platform.xml](ref:#descriptors-bpm-platformxml).
 
 ```xml
 <process-engine name="default">
@@ -49,7 +49,7 @@ The following example shows an XML snippet which can be placed in both [processe
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: allows defining the name of the process engine (Required).</li>
+          <li><code>name</code>: allows you to define the name of the process engine (Required).</li>
         </ul>
       </p>
       <p>
@@ -72,7 +72,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        the name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="ref:#descriptors-bpm-platformxml">bpm-platform.xml</a> file.
+        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="ref:#descriptors-bpm-platformxml">bpm-platform.xml</a> file.
       </p>
       <p>
         <strong>Example:</strong>
@@ -94,7 +94,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        the fully qualified classname of the Process Engine Configuration class to use for this process engine. The class must be a subclass of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
+        The fully qualified classname of the Process Engine Configuration class to be used for this process engine. The class must be a subclass of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
       </p>
       <p>
         <strong>Default Value:</strong>
@@ -120,7 +120,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        Jdbc name of the datasource to use for this process engine.
+        JDBC name of the datasource to use for this process engine.
       </p>
       <p>
         <strong>Default Value:</strong>
@@ -161,12 +161,12 @@ The following example shows an XML snippet which can be placed in both [processe
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: the name of the property to be set (Required). The process engine configuration (or plugin) class must provide a setter method setXXX() for the property name.</li>
+          <li><code>name</code>: The name of the property to be set (Required). The process engine configuration (or plugin) class must provide a setter method setXXX() for the property name.</li>
         </ul>
       </p>
       <p>
         <strong>Text Content:</strong>
-        The value of the property to be set. Property values are converted into String, Integer, Boolean depending on the type of the setter in the process engine configuration (or plugin) class.
+        The value of the property to be set. Property values are converted into String, Integer or Boolean values, depending on the type of the setter in the process engine configuration (or plugin) class.
       </p>
       <p>
         <strong>Example:</strong> <br>
@@ -233,7 +233,7 @@ The following example shows an XML snippet which can be placed in both [processe
 
 ## Configuration Properties
 
-The following is a list with the most commonly used process engine configuration properties along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
+The following is a list with the most commonly used process engine configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
 <table class="table table-striped">
   <tr>
@@ -264,10 +264,10 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       <p>
-        Sets the fully qualified classname of the jdbc driver to use.
+        Sets the fully qualified classname of the JDBC driver to use.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool.
+        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -276,10 +276,10 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       <p>
-        Sets the jdbc url for the database connection.
+        Sets the JDBC url for the database connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool.
+        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -288,10 +288,10 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       <p>
-        Sets the username of the jdbc connection.
+        Sets the username of the JDBC connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool.
+        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -300,10 +300,10 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td>
       <p>
-        Sets the password of the jdbc connection.
+        Sets the password of the JDBC connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool.
+        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -326,7 +326,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
       <p>
-        Controls whether the job executor is deployment aware
+        Controls whether the job executor is deployment aware or not.
       </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
@@ -339,7 +339,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
       <p>
-        Controls whether all global script variables should be automatically stored as process variables. 
+        Controls whether all global script variables should be automatically stored as process variables or not. 
         Default value is <code>false</code>.
       </p>
       <p>
@@ -353,7 +353,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
       <p>
-        Controls whether the process engine should attempt to compile script sources and cache the compilation result. Default value is <code>true</code>.
+        Controls whether the process engine should attempt to compile script sources and cache the compilation result or not. Default value is <code>true</code>.
       </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).

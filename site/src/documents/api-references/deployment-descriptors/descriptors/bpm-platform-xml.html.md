@@ -6,9 +6,9 @@ category: 'Descriptors'
 ---
 
 
-The `bpm-platform.xml` file is part of the camunda BPM platform distribution and can be used for configuring process engines and the job executor.
+The `bpm-platform.xml` file is part of the camunda BPM platform distribution and can be used for configuration of process engines and the job executor.
 
-It is used to configure camunda BPM platform in the following distributions:
+It is used to configure the camunda BPM platform in the following distributions:
 
 *   [Apache Tomcat](ref:/guides/installation-guide/tomcat/#bpm-platform)
 *   [Glassfish Application Server](ref:/guides/installation-guide/glassfish/#bpm-platform)
@@ -19,7 +19,7 @@ It is used to configure camunda BPM platform in the following distributions:
   <p>
     <strong>JBoss Application Server 7</strong>
   </p>
-  <p>The <code>bpm-platform.xml</code> file is not used in the camunda BPM distribution for JBoss Application Server 7. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e. the same elements and properties can be used). See the <a href="ref:/guides/user-guide/#runtime-container-integration-the-camunda-jboss-as-7-subsystem">section on the camunda BPM subsystem</a> for details.
+  <p>The <code>bpm-platform.xml</code> file is not used in the camunda BPM distribution for JBoss Application Server 7. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e. the same elements and properties can be used). See the <a href="ref:/guides/user-guide/#runtime-container-integration-the-camunda-jboss-as-7-subsystem">The camunda JBoss AS 7 Subsystem</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
   </p>
 </div>
 
@@ -101,14 +101,14 @@ This feature is available for:
 
 It is not available for the JBoss AS 7 subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
 
-To specify the location you have to provide an absolute path or a http/https url pointing to the `bpm-platform.xml` file, e.g '/home/camunda/.camunda/bpm-platform.xml' or 'http://camunda.org/bpm-platform.xml'.
+To specify the location you have to provide an absolute path or an http/https url pointing to the `bpm-platform.xml` file, e.g '/home/camunda/.camunda/bpm-platform.xml' or 'http://camunda.org/bpm-platform.xml'.
 
-During the startup of camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from following sources in the listed order:
+During startup of the camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from the following sources in the listed order:
 
 1. JNDI entry is available at `java:/comp/env/bpm-platform-xml`
-2. environment variable `BPM_PLATFORM_XML` is set
-3. system property `bpm.platform.xml` is set, e.g when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
+2. Environment variable `BPM_PLATFORM_XML` is set
+3. System property `bpm.platform.xml` is set, e.g when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
 4. `META-INF/bpm-platform.xml` exists on the classpath
 5. (For Tomcat only): checks if there is a `bpm-platform.xml` inside the folder specified by `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/`
 
-The discovery stops when one of the above mentioned sources is found or in case none is found, it falls back to the `bpm-platform.xml` on the classpath, respectively `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/` for Tomcat. We ship a default `bpm-platform.xml` file inside the camunda-bpm-platform.ear, except when you use the Tomcat or JBoss version of the platform.
+The discovery stops when one of the above mentioned sources is found or, in case none is found, it falls back to the `bpm-platform.xml` on the classpath, respectively `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/` for Tomcat. We ship a default `bpm-platform.xml` file inside the camunda-bpm-platform.ear, except when you use the Tomcat or JBoss version of the platform.
