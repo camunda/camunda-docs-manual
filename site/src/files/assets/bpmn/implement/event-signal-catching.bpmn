@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_PIqcAIQWEeKz0a9S9nXFLQ" targetNamespace="http://activiti.org/bpmn">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_PIqcAIQWEeKz0a9S9nXFLQ" exporter="camunda modeler" exporterVersion="2.5.0" targetNamespace="http://activiti.org/bpmn">
   <bpmn2:process id="Process_1" isExecutable="false">
-    <bpmn2:startEvent id="StartEvent_1" name="insurance&#xD;&#xA;application&#xD;&#xA;received">
+    <bpmn2:startEvent id="StartEvent_1" name="Insurance&#xD;&#xA;application&#xD;&#xA;received">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
     <bpmn2:exclusiveGateway id="ExclusiveGateway_1">
@@ -11,25 +11,25 @@
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_1"/>
     <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="ExclusiveGateway_1" targetRef="CallActivity_1"/>
-    <bpmn2:userTask id="UserTask_1" name="review and adjust contract">
+    <bpmn2:userTask id="UserTask_1" name="Review and adjust contract">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
     </bpmn2:userTask>
-    <bpmn2:serviceTask id="ServiceTask_1" name="send contract">
+    <bpmn2:serviceTask id="ServiceTask_1" name="Send contract">
       <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
     </bpmn2:serviceTask>
     <bpmn2:sequenceFlow id="SequenceFlow_4" sourceRef="UserTask_1" targetRef="ServiceTask_1"/>
-    <bpmn2:endEvent id="EndEvent_1" name="insurance&#xD;&#xA;contract&#xD;&#xA;issued">
+    <bpmn2:endEvent id="EndEvent_1" name="Insurance&#xD;&#xA;contract&#xD;&#xA;issued">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="ServiceTask_1" targetRef="EndEvent_1"/>
-    <bpmn2:boundaryEvent id="BoundaryEvent_2" name="policy&#xD;&#xA;conditions&#xD;&#xA;changed" attachedToRef="UserTask_1">
+    <bpmn2:boundaryEvent id="BoundaryEvent_2" name="Policy&#xD;&#xA;conditions&#xD;&#xA;changed" attachedToRef="UserTask_1">
       <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
       <bpmn2:escalationEventDefinition id="EscalationEventDefinition_1"/>
     </bpmn2:boundaryEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="BoundaryEvent_2" targetRef="ExclusiveGateway_1"/>
-    <bpmn2:callActivity id="CallActivity_1" name="calculate contract">
+    <bpmn2:callActivity id="CallActivity_1" name="Calculate contract">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:callActivity>
