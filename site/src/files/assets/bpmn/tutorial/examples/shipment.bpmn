@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions targetNamespace="http://activiti.org/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_h-oGkIrTEeKmwbixafxEnw">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_h-oGkIrTEeKmwbixafxEnw" exporter="camunda modeler" exporterVersion="2.5.0" targetNamespace="http://activiti.org/bpmn">
   <bpmn2:collaboration id="_Collaboration_3">
     <bpmn2:participant id="_Participant_3" name="Hardware Retailer" processRef="Process_1"/>
   </bpmn2:collaboration>
@@ -42,15 +42,15 @@
       <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:sequenceFlow id="SequenceFlow_9" name="always" sourceRef="InclusiveGateway_1" targetRef="Task_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="Always" sourceRef="InclusiveGateway_1" targetRef="Task_5"/>
     <bpmn2:inclusiveGateway id="InclusiveGateway_2">
       <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
       <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
     </bpmn2:inclusiveGateway>
     <bpmn2:sequenceFlow id="SequenceFlow_10" sourceRef="Task_5" targetRef="InclusiveGateway_2"/>
-    <bpmn2:sequenceFlow id="SequenceFlow_11" name="extra insurance&#xD;&#xA;required" sourceRef="InclusiveGateway_1" targetRef="Task_6"/>
-    <bpmn2:task id="Task_6" name="Take out extra insurance">
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="Extra insurance&#xD;&#xA;required" sourceRef="InclusiveGateway_1" targetRef="Task_6"/>
+    <bpmn2:task id="Task_6" name="Add extra insurance">
       <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
     </bpmn2:task>
@@ -61,29 +61,29 @@
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_1" targetRef="ExclusiveGateway_1"/>
-    <bpmn2:task id="Task_3" name="Request quotes from Carriers">
+    <bpmn2:task id="Task_3" name="Request quotes from carriers">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="SequenceFlow_6" sourceRef="Task_3" targetRef="Task_4"/>
-    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" name="Mode of&#xD;&#xA;Delivery">
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" name="Mode of&#xD;&#xA;delivery">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
       <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:sequenceFlow id="SequenceFlow_4" name="Normal Post" sourceRef="ExclusiveGateway_1" targetRef="Task_2"/>
-    <bpmn2:sequenceFlow id="SequenceFlow_5" name="Special Carrier" sourceRef="ExclusiveGateway_1" targetRef="Task_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="Normal post" sourceRef="ExclusiveGateway_1" targetRef="Task_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="Special carrier" sourceRef="ExclusiveGateway_1" targetRef="Task_3"/>
     <bpmn2:parallelGateway id="ParallelGateway_1">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
       <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
     </bpmn2:parallelGateway>
     <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="ParallelGateway_1" targetRef="Task_1"/>
-    <bpmn2:startEvent id="StartEvent_1" name="Goods to Ship">
+    <bpmn2:startEvent id="StartEvent_1" name="Goods to ship">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="ParallelGateway_1"/>
-    <bpmn2:task id="Task_4" name="Assign Carrier and prepare Paperwork">
+    <bpmn2:task id="Task_4" name="Assign carrier and prepare paperwork">
       <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
     </bpmn2:task>
@@ -100,7 +100,7 @@
       <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
     </bpmn2:parallelGateway>
     <bpmn2:sequenceFlow id="SequenceFlow_15" sourceRef="ParallelGateway_1" targetRef="Task_7"/>
-    <bpmn2:task id="Task_7" name="Package Goods">
+    <bpmn2:task id="Task_7" name="Package goods">
       <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
     </bpmn2:task>

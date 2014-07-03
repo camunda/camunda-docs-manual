@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions targetNamespace="http://activiti.org/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_eew0YIP3EeKz0a9S9nXFLQ">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_eew0YIP3EeKz0a9S9nXFLQ" exporter="camunda modeler" exporterVersion="2.5.0" targetNamespace="http://activiti.org/bpmn">
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
@@ -8,12 +8,12 @@
     <bpmn2:endEvent id="EndEvent_2">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:task id="Task_2" name="do b">
+    <bpmn2:task id="Task_2" name="Do b">
       <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="Task_2" targetRef="EndEvent_2"/>
-    <bpmn2:task id="Task_1" name="do a">
+    <bpmn2:task id="Task_1" name="Do a">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:task>
@@ -30,7 +30,7 @@
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_else" name="else" sourceRef="ExclusiveGateway_1" targetRef="Task_4"/>
-    <bpmn2:task id="Task_4" name="do something different">
+    <bpmn2:task id="Task_4" name="Do something different">
       <bpmn2:incoming>SequenceFlow_else</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
     </bpmn2:task>
@@ -88,7 +88,7 @@
         <di:waypoint xsi:type="dc:Point" x="150.0" y="160.0"/>
         <di:waypoint xsi:type="dc:Point" x="200.0" y="160.0"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds height="22.0" width="51.0" x="150.0" y="160.0"/>
+          <dc:Bounds height="22.0" width="51.0" x="142.0" y="165.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_30" bpmnElement="EndEvent_2">
