@@ -32,9 +32,9 @@ Parameters
     <td>id</td>
     <td>String</td>
     <td>The id of the user.</td>
-  </tr> 
+  </tr>
 </table>
-  
+
 
 #### Request Body
 
@@ -65,7 +65,7 @@ A json object with the following properties:
     <td>email</td>
     <td>String</td>
     <td>The email of the user.</td>
-  </tr>   
+  </tr>
 </table>
 
 
@@ -75,7 +75,7 @@ Result
 Empty.
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -85,7 +85,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>None</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>

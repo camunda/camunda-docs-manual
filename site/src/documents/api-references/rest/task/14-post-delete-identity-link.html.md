@@ -18,7 +18,7 @@ POST `/task/{id}/identity-links/delete`
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -33,7 +33,7 @@ Parameters
   </tr>
 </table>
 
-  
+
 #### Request Body
 
 A json object with the following properties:
@@ -74,7 +74,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>

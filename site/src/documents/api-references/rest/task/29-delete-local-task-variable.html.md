@@ -18,7 +18,7 @@ DELETE `/task/{id}/localVariables/{varId}`
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -37,7 +37,7 @@ Parameters
   </tr>
 </table>
 
-  
+
 Result
 ------
 
@@ -55,14 +55,14 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
     <td>Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>  
+  </tr>
 </table>
 
 

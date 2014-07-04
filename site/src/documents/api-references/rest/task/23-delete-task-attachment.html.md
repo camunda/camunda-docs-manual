@@ -18,7 +18,7 @@ DELETE `/task/{id}/attachment/{attachmentId}`
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -37,7 +37,7 @@ Parameters
   </tr>
 </table>
 
-  
+
 Result
 ------
 
@@ -55,7 +55,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -67,7 +67,7 @@ Response codes
     <td>404</td>
     <td>application/json</td>
     <td>Task attachment for given task id and attachment id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>  
+  </tr>
 </table>
 
 

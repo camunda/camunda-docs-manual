@@ -28,7 +28,7 @@ Result
 None.
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +38,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>Empty</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>

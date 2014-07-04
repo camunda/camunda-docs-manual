@@ -33,7 +33,7 @@ Parameters
     <td>The id of the task to set variables for.</td>
   </tr>
 </table>
-  
+
 
 #### Request Body
 
@@ -64,7 +64,7 @@ This method returns no content.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -74,14 +74,14 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>   
+  </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
@@ -100,7 +100,7 @@ Request body:
 
 ```json
 {
-  "modifications": [ 
+  "modifications": [
     "aVariable": { "value": "aValue", "type": "String" },
     "anotherVariable": { "value": 42, "type": "Integer" }
   ],

@@ -50,7 +50,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>

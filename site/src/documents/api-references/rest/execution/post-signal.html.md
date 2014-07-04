@@ -68,14 +68,14 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>application/json</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>     
+  </tr>
 </table>
 
 
@@ -88,7 +88,7 @@ POST `/execution/{id}/signal`
 
 Request body:
 
-    {"variables": 
+    {"variables":
         {"myVariable": {"value": "camunda", "type": "String"},
         "mySecondVariable": {"value": 124, "type": "Integer"}}
     }

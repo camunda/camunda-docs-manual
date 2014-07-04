@@ -48,7 +48,7 @@ A json object with the following properties:
     <td>permissions</td>
     <td>Integer</td>
     <td>An integer holding the permissions provided by this authorization.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>userId</td>
     <td>String</td>
@@ -68,7 +68,7 @@ A json object with the following properties:
     <td>resourceId</td>
     <td>String</td>
     <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
-  </tr> 
+  </tr>
 </table>
 
 Result
@@ -87,7 +87,7 @@ Response codes
   </tr>
   <tr>
     <td>204</td>
-    <td>Empty.</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -113,7 +113,7 @@ Example
 #### Request
 
 PUT `/authorization/anAuthorizationId`
-  
+
 Request body:
 
     {"permissions": 16,
