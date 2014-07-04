@@ -38,7 +38,7 @@ Parameters
     <td>The key of the case definition to be retrieved the latest version.</td>
   </tr>
 </table>
-  
+
 
 #### Request Body
 
@@ -76,11 +76,6 @@ Properties are:
     <th>Description</th>
   </tr>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
     <td>id</td>
     <td>String</td>
     <td>The id of the case instance.</td>
@@ -106,7 +101,7 @@ Properties are:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -123,7 +118,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
 	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
@@ -148,7 +143,7 @@ POST `/case-definition/key/aCaseDefinitionKey/create`
 Request body:
 
     {
-      "variables": 
+      "variables":
         {
           "aVariable" : {"value" : "aStringValue", "type": "String"},
           "anotherVariable" : {"value" : true, "type": "Boolean"}

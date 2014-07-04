@@ -31,7 +31,7 @@ Parameters
     <td>The id of the case execution to start manually.</td>
   </tr>
 </table>
-  
+
 
 #### Request Body
 
@@ -61,7 +61,7 @@ This method returns no content.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -70,8 +70,8 @@ Response codes
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
-    <td>application/json</td>
+    <td>204</td>
+    <td></td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ Response codes
     <td>application/json</td>
     <!-- At the moment it is not possible to distinguish between case execution not found, transition not allowed etc. Because it is always thrown a ProcessEngineException. -->
     <td>The case execution could not be found or the state transition is not allowed to be performed. For example when the case execution is disabled or is already active. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>  
+  </tr>
 </table>
 
 Example
@@ -92,7 +92,7 @@ POST `/case-execution/aCaseExecutionId/manual-start`
 Request body:
 
     {
-      "variables": 
+      "variables":
         {
           "aVariable" : { "value" : "aStringValue", "type": "String" },
           "anotherVariable" : { "value" : true, "type": "Boolean", "local" : true }

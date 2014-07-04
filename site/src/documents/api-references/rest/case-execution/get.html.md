@@ -114,6 +114,6 @@ GET `/case-execution/aCaseExecutionId`
       "id"               : "aCaseExecutionId",
       "caseInstanceId"   : "aCaseInstId",
       "active"           : true,
-      "enabled"          : true,
-      "disabled"          : true
+      "enabled"          : false,
+      "disabled"         : false
     }
