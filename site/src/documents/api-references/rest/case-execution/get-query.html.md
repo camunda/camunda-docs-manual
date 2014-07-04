@@ -81,7 +81,7 @@ Parameters
   </tr>
   <tr>
     <td>caseInstanceVariables</td>
-    <td>Only include case executions that belong to a case instance with variables with certain values. 
+    <td>Only include case executions that belong to a case instance with variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form <code>key_operator_value</code>.
     <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
@@ -200,7 +200,7 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
         "id"               : "aCaseExecutionId",
         "caseInstanceId"   : "aCaseInstId",
         "active"           : true,
-        "enabled"          : true,
-        "disabled"          : true
+        "enabled"          : false,
+        "disabled"         : false
       }
     ]
