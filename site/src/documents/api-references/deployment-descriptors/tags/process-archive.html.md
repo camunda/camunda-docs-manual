@@ -18,11 +18,12 @@ The following example shows a process-archive XML snippet:
 ```xml
 <process-archive name="loan-approval">
   <process-engine>my-engine</process-engine>
-  <process>bpmn/invoice.bpmn</process>
-  <process>bpmn/order-process.bpmn</process>
+  <resource>bpmn/invoice.bpmn</resource>
+  <resource>bpmn/order-resource.bpmn</resource>
   <properties>
     <property name="isDeleteUponUndeploy">false</property>
     <property name="isScanForProcessDefinitions">true</property>
+    <property name="additionalResourceSuffixes">groovy,py</property>
   </properties>
 </process-archive>
 ```
@@ -77,12 +78,13 @@ The following example shows a process-archive XML snippet:
     </td>
   </tr>
   <tr>
-    <td><code>&lt;process&gt;</code></td>
+    <td><code>&lt;resource&gt;</code></td>
     <td><code>&lt;process-archive&gt;</code></td>
     <td>false</td>
     <td>
       <p>
-        Can be used to explicitly list the paths to process definitions that are part of this deployment.
+        Can be used to explicitly list the paths to resources that are part of this deployment. This
+        can be process or case definitions but also additional files like script files.
       </p>
       <p>
         <strong>Attributes:</strong>
@@ -90,7 +92,7 @@ The following example shows a process-archive XML snippet:
       </p>
       <p>
         <strong>Text Content:</strong>
-        The path to a process definition that is part of this deployment. The resource is loaded with the classloader of the process application and must thus be relative to the process application classloader root(s).
+        The path to the resource that is part of this deployment. The resource is loaded with the classloader of the process application and must thus be relative to the process application classloader root(s).
       </p>
     </td>
   </tr>
@@ -186,7 +188,7 @@ The following is a list of all supported configuration properties.
   </tr>
   <tr>
     <td><code>resourceRootPath</code></td>
-    <td>boolean</td>
+    <td>string</td>
     <td>
      <p>
       The resource root of the process archive. This property is used when scanning for process definitions
@@ -227,6 +229,20 @@ The following is a list of all supported configuration properties.
         </li>
       </ul>
       </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>additionalResourceSuffixes</code></td>
+    <td>comma-seperated list</td>
+    <td>
+      Specifies a list of additional suffixes which are considered as deployment resource if the
+      <code>isScanForProcessDefinitions</code> property is set to <code>true</code>. It can be used
+      to deploy additional resources beside process and case definitions. For example to add a
+      script to the deployment and reference it as an external source of a
+      <a href="ref:/api-references/bpmn20/#tasks-script-task-script-source">script task</a> or an
+      <a href="ref:/guides/user-guide/#process-engine-scripting-use-scripts-as-inputoutput-parameter">
+      inputOutput</a> mapping. To specify multiple suffixes a comma is used as seperator,
+      ie. <code>py,groovy,rb</code>.
     </td>
   </tr>
 </table>
