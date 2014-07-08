@@ -141,21 +141,21 @@ Each case execution object has the following properties:
     <td>active</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case execution is active.
+      A flag indicating whether the case execution is active or not.
     </td>
   </tr>
   <tr>
     <td>enabled</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case execution is enabled.
+      A flag indicating whether the case execution is enabled or not.
     </td>
   </tr>
   <tr>
     <td>disabled</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case execution is disabled.
+      A flag indicating whether the case execution is disabled or not.
     </td>
   </tr>
 </table>

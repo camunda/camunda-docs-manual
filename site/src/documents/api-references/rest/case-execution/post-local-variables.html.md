@@ -9,7 +9,7 @@ keywords: 'post'
 
 
 Updates or deletes the variables in the context of an case execution. The updates do not propagate upwards in the case execution hierarchy.
-Deletes precede updates.
+Please note: deletion precedes update.
 
 
 Method
@@ -48,7 +48,7 @@ Parameters
   <tr>
     <td>modifications</td>
     <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
-    A variable value object has has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
+    A variable value object has has the properties <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>
     <td>deletions</td>
@@ -80,12 +80,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Update or delete could not be executed, for example because the case execution does not exist.</td>
+    <td>Update or deletion could not be executed, for example because the case execution does not exist.</td>
   </tr>
 </table>
 

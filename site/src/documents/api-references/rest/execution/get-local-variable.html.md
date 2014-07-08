@@ -29,7 +29,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the execution to retrieve the variable for.</td>
+    <td>The id of the execution to retrieve the variable from.</td>
   </tr>
   <tr>
     <td>varId</td>

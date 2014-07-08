@@ -65,14 +65,14 @@ Its properties are as follows:
     <td>active</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case instance is active.
+      A flag indicating whether the case instance is active or not.
     </td>
   </tr>
   <tr>
     <td>completed</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case instance is completed.
+      A flag indicating whether the case instance is completed or not.
     </td>
   </tr>
 </table>
