@@ -38,6 +38,10 @@ Parameters
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances run on.</td>
   </tr>
@@ -141,6 +145,11 @@ Each process instance object has the following properties:
     <td>The business key of the process instance.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance associated with the process instance.</td>
+  </tr>
+  <tr>
     <td>ended</td>
     <td>Boolean</td>
     <td>
@@ -193,5 +202,6 @@ GET `/process-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBad
      "id":"anId",
      "definitionId":"aProcDefId",
      "businessKey":"aKey",
+     "caseInstanceId":"aCaseInstanceId",
      "ended":false,
      "suspended":false}]

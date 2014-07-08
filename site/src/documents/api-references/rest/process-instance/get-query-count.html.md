@@ -37,6 +37,10 @@ Parameters
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances run on.</td>
   </tr>

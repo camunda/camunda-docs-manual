@@ -62,6 +62,11 @@ Its properties are as follows:
     <td>The business key of the process instance.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance associated with the process instance.</td>
+  </tr>
+  <tr>
     <td>ended</td>
     <td>Boolean</td>
     <td>
@@ -110,5 +115,6 @@ GET `/process-instance/aProcessInstanceId`
     {"id":"aProcessInstanceId",
     "definitionId":"aProcDefId",
     "businessKey":"aKey",
+    "caseInstanceId":"aCaseInstanceId",
     "ended":false,
     "suspended":false}
