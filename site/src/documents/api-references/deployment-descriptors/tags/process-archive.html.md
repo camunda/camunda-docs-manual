@@ -83,7 +83,7 @@ The following example shows a process-archive XML snippet:
     <td>false</td>
     <td>
       <p>
-        Can be used to explicitly list the paths to resources that are part of this deployment. This
+        Can be used to explicitly list the paths to resources that are part of this deployment. These
         can be process or case definitions but also additional files like script files.
       </p>
       <p>
@@ -92,7 +92,7 @@ The following example shows a process-archive XML snippet:
       </p>
       <p>
         <strong>Text Content:</strong>
-        The path to the resource that is part of this deployment. The resource is loaded with the classloader of the process application and must thus be relative to the process application classloader root(s).
+        The path to the resource that is part of this deployment. The resource is loaded with the classloader of the process application and therefore must be relative to the process application classloader root(s).
       </p>
     </td>
   </tr>
@@ -237,12 +237,12 @@ The following is a list of all supported configuration properties.
     <td>
       Specifies a list of additional suffixes which are considered as deployment resource if the
       <code>isScanForProcessDefinitions</code> property is set to <code>true</code>. It can be used
-      to deploy additional resources beside process and case definitions. For example to add a
+      to deploy additional resources beside process and case definitions, for example to add a
       script to the deployment and reference it as an external source of a
       <a href="ref:/api-references/bpmn20/#tasks-script-task-script-source">script task</a> or an
       <a href="ref:/guides/user-guide/#process-engine-scripting-use-scripts-as-inputoutput-parameter">
-      inputOutput</a> mapping. To specify multiple suffixes a comma is used as seperator,
-      ie. <code>py,groovy,rb</code>.
+      inputOutput</a> mapping. To specify multiple suffixes, a comma is used as seperator,
+      ie., <code>py,groovy,rb</code>.
     </td>
   </tr>
 </table>
