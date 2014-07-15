@@ -172,6 +172,115 @@
     });
 
     /*
+     =======================================
+     Display source code and popover explanations
+     =======================================
+     */
+    (function() {
+
+      var indent = function(text, spaces) {
+        if (!text) return text;
+        var lines = text.split(/\r?\n/);
+        var prefix = '      '.substr(0, spaces || 0);
+        var i;
+
+        // remove any leading blank lines
+        while (lines.length && lines[0].match(/^\s*$/)) lines.shift();
+        // remove any trailing blank lines
+        while (lines.length && lines[lines.length - 1].match(/^\s*$/)) lines.pop();
+        var minIndent = 999;
+        for (i = 0; i < lines.length; i++) {
+          var line = lines[0];
+          var indent = line.match(/^\s*/)[0];
+          if (indent !== line && indent.length < minIndent) {
+            minIndent = indent.length;
+          }
+        }
+
+        for (i = 0; i < lines.length; i++) {
+          lines[i] = prefix + lines[i].substring(minIndent);
+        }
+        lines.push('');
+        return lines.join('\n');
+      };
+
+      var escape = function(text) {
+        return text.replace(/\&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace(/"/g, '&quot;');
+      };
+
+      var fetchCode = function(elementId) {
+        var escapedElementId = elementId.replace(/\./, '\\\.');
+        return indent($('#' + escapedElementId).html(), 0);
+      };
+
+      $('[data-source-code]').each(function() {
+        var element = $(this),
+            filename = element.attr('data-source-code'),
+            content = fetchCode(filename),
+            annotation = element.attr('annotate') && JSON.parse(fetchCode(element.attr('annotate'))) || {};
+
+
+        // hack around incorrect tokenization
+        content = content.replace('.done-true', 'doneTrue');
+        if(filename.indexOf('Project-Layout')==-1) {
+          content = prettyPrintOne(escape(content), undefined, true);
+        }
+
+        // hack around incorrect tokenization
+        content = content.replace('doneTrue', '.done-true');
+
+        var popovers = {},
+            counter = 0;
+
+        //Object length check with alternative for IE8 and below
+        var annotationObjectLength = 0;
+        if(typeof Object.keys == 'function') {
+          if(Object.keys(annotation).length > 0) {
+            if(typeof annotation[filename] != "undefined") {
+              annotationObjectLength = Object.keys(annotation[filename]).length;
+            }
+          }
+        } else {
+          var count = 0;
+          var i;
+          for (i in annotation) {
+            if (annotation.hasOwnProperty(i)) {
+              count++;
+            }
+          }
+          if(count > 0) {
+            for(i in annotation[filename]) {
+              if(annotation[filename].hasOwnProperty(i)) {
+                annotationObjectLength++
+              }
+            }
+          }
+        }
+
+        if(annotationObjectLength > 0) {
+          $.each(annotation[filename], function(key, text) {
+            // search for key-words and add explanation popover
+            var regexp = new RegExp('(\\W|^)(' + key.replace(/([\W\-])/g, '\\$1') + ')(\\W|$)');
+            content = content.replace(regexp, function(_, before, token, after) {
+              token = "__" + (counter++) + "__";
+              popovers[token] =
+                  '<code class="nocode" rel="popover" data-trigger="hover" title="' + escape('<code>' + key + '</code>') +
+                      '" data-content="' + escape(text) + '" data-html=\"true\">' + escape(key) + '</code>';
+              return before + token + after;
+            });
+          });
+        }
+
+        $.each(popovers, function(token, text) {
+          content = content.replace(token, text);
+        });
+
+        element.html('<pre class="linenums nocode">' + content +'</pre>');
+        element.find('[rel=popover]').popover();
+      });
+    })();
+
+    /*
      * Append a anchor to be able to get a link to current section.
      */
     $('h1[id], h2[id], h3[id], h4[id]').each(function() {
