@@ -1,7 +1,9 @@
 <% for category, i in @part.categories: %>
+  <% if @part.categories.length != 1: %>
   <div class="page-header">
     <h2 class="h1"><%= category.name %></h2>
   </div>
+  <% end %>
 
   <section id="<%= @linkify(category.name) %>">
   <% for page, j in category.pages: %>

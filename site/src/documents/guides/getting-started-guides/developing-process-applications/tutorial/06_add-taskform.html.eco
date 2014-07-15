@@ -1,0 +1,67 @@
+---
+title: 'Add Task Forms'
+category: 'Tutorial'
+---
+
+<p>
+  As a next step, we want to add an actual Task Form.
+</p>
+
+<h3>Add a Start Form</h3>
+<p>
+  Back to eclipse, add a folder named <code>src/main/webapp/forms</code>. Inside this folder add a file named
+  <code>request-loan.html</code>. Add the following content:
+</p>
+<div class="app-source" data-source-code="RequestLoan.html" annotate="code-annotations"></div>
+
+<h3>Configure the Start Form in the Process</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-configure-start-form.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      Open the process with the modeler plugin. Click on the start event. In the properties view, put in
+      <code>embedded:app:forms/request-loan.html</code> in the <code>Form Key</code> property.
+      This means that we want to use an <code>embedded</code> form inside the Tasklist and that
+      the form is loaded from the <code>app</code>lication.
+    </p>
+  </div>
+</div>
+
+<h3>Add a Task Form</h3>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/tasklist-loan-approval-start-form.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      The Task Form can be added and configured in the same way. Add a file named <code>approve-loan.html</code>
+      in the <code>src/main/webapp/forms</code> directory and add the following content
+    </p>
+
+    <div class="app-source" data-source-code="ReviewLoan.html" annotate="code-annotations"></div>
+
+    <p>
+      After that open the process again with the modeler plugin. Click on the user task. In the properties view, put in
+      <code>embedded:app:forms/approve-loan.html</code> in the <code>Form Key</code> property.
+    </p>
+
+    <p>
+      When you are done, save all resources and perform a Maven build and redeploy the process application.
+    </p>
+    <p class="alert">
+      <i class="glyphicon glyphicon-info-sign"></i> <strong>Maven:</strong> It is best to perform a
+      <code>clean install</code> build to make sure all resources are replaced with their newest version.
+    </p>
+
+    <p>
+      If you open the Tasklist and start a new process instance for the loan approval process, the custom form us
+      displayed.
+    </p>
+  </div>
+</div>
+
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started", tag: "Step-4"}) %>

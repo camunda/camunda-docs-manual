@@ -5,6 +5,6 @@ category: 'Introduction'
 
 ---
 
-<a class="btn btn-success btn-lg" href="http://camunda.org/get-started/">Getting started Tutorials »</a>
+<a class="btn btn-success btn-lg" href="/guides/getting-started-guides/">Getting started Tutorials »</a>
 
-The getting started tutorials can be found at <a href="http://camunda.org/get-started/">http://camunda.org/get-started/</a>.
+The getting started tutorials can be found at <a href="/guides/getting-started-guides/">http://docs.camunda.org/guides/getting-started-guides/</a>.
