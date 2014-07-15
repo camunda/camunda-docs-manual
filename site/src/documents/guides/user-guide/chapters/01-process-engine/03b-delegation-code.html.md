@@ -5,7 +5,8 @@ category: 'Process Engine'
 
 ---
 
-Delegation Code allows you to execute external Java code or evaluate expressions when certain events occur during process execution.
+Delegation Code allows you to execute external Java code, evaluate expressions or scripts when
+certain events occur during process execution.
 
 There are different types of Delegation Code:
 
@@ -204,14 +205,17 @@ The following process definition contains 3 execution listeners:
 
   <sequenceFlow sourceRef="firstTask" targetRef="secondTask">
     <extensionElements>
-      <camunda:executionListener
-          class="org.camunda.bpm.examples.bpmn.executionListener.ExampleExecutionListenerTwo" />
+      <camunda:executionListener>
+        <camunda:script scriptFormat="groovy">
+          println execution.eventName
+        </camunda:script>
+      </camunda:executionListener>
     </extensionElements>
   </sequenceFlow>
 
   <userTask id="secondTask">
     <extensionElements>
-      <camunda:executionListener expression="${myPojo.myMethod(execution.event)}" event="end" />
+      <camunda:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />
     </extensionElements>
   </userTask>
 
@@ -237,7 +241,13 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
 
 It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
 
-The second execution listener is called when the transition is taken. Note that the listener element doesn't define an event, since only take events are fired on transitions. Values in the event attribute are ignored when a listener is defined on a transition.
+The second execution listener is called when the transition is taken. Note that the listener element
+doesn't define an event, since only take events are fired on transitions. Values in the event
+attribute are ignored when a listener is defined on a transition. Also it contains a
+[camunda:script][camunda-script] child element which defines a script which
+will be executed as execution listener. Alternatively it is possible to specify the script source
+code as external resources (see the documenation about [script sources][script-sources] of script
+tasks).
 
 The last execution listener is called when activity secondTask ends. Instead of using the class on the listener declaration, a expression is defined instead which is evaluated/invoked when the event is fired.
 
@@ -407,3 +417,6 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 }
 ```
+
+[script-sources]: ref:/api-references/bpmn20/#tasks-script-task-script-source
+[camunda-script]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundascript
