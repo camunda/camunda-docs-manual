@@ -49,7 +49,8 @@ A conditional sequence flow is represented in XML as a regular sequence flow, co
 </sequenceFlow>
 ```
 
-Currently conditionalExpressions can only be used with UEL. The expression used should resolve to a boolean value, otherwise an exception is thrown while evaluating the condition.
+Currently conditionalExpressions can be used with UEL and scripts. The expression or script used
+should resolve to a boolean value, otherwise an exception is thrown while evaluating the condition.
 
 The example below references data of a process variable, in the typical JavaBean style through getters.
 
@@ -66,6 +67,42 @@ This example invokes a method that resolves to a boolean value.
   <![CDATA[${order.isStandardOrder()}]]>
 </conditionExpression>
 ```
+
+In this example a simple groovy script is used to evaluate a process variable `status`.
+
+```xml
+<conditionExpression xsi:type="tFormalExpression" language="groovy">
+  <![CDATA[status == 'complete']]>
+</conditionExpression>
+```
+
+Similar to a script task also an external script resource can be specified (see documentation
+on [script source][script-source] for more information).
+
+```xml
+<conditionExpression xsi:type="tFormalExpression" language="groovy"
+  camunda:resource="org/camunda/bpm/exampe/condition.groovy" />
+```
+
+### camunda Extensions for conditionExpression
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresource">camunda:resource</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
 
 
 ## Default Sequence Flow
@@ -92,3 +129,5 @@ Note the 'slash' marker at the beginning of the default sequence flow. The corre
 <sequenceFlow id="flow4" sourceRef="exclusiveGw" targetRef="theTask3" name="else">
 </sequenceFlow>
 ```
+
+[script-source]: ref:#tasks-script-task-script-source

@@ -255,7 +255,7 @@ A Message Intermediate Throwing event sends a message to an external service. Th
 ```
 
 
-#### Camunda Extensions for `messageEventDefinition`
+#### camunda Extensions for `messageEventDefinition`
 
 <table class="table table-striped">
   <tr>
@@ -300,7 +300,7 @@ When process execution arrives at a Message End Event, the current path of execu
 ```
 
 
-#### Camunda Extensions for `messageEventDefinition`
+#### camunda Extensions for `messageEventDefinition`
 
 <table class="table table-striped">
   <tr>
