@@ -311,7 +311,23 @@ A task listener supports following attributes:
     ```java
     <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />```
 
+Besides the `class`, `expression` and `delegateExpression` attribute a
+[camunda:script][camunda-script] child element can be used to specify a script as task listener.
+Also an external script resource can be declared with the resource attribute of the
+`camunda:script` element (see the documenation about [script sources][script-sources] of script
+tasks).
 
+```xml
+<userTask id="task">
+  <extensionElements>
+    <camunda:taskListener event="create">
+      <camunda:script scriptFormat="groovy">
+        println task.eventName
+      </camunda:script>
+    </camunda:taskListener>
+  </extensionElements>
+</userTask>
+```
 
 
 
