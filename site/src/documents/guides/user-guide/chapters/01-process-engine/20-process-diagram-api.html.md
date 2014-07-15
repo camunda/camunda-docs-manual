@@ -28,7 +28,7 @@ Go to [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js) for librarie
 
 ## Process Diagram API
 
-When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With this information you can easily visualize anything on the process model. The following image shows an example using a BPMN 2.0 model from Adonis (see <a href="http://camunda.org/design/cycle-tutorial.html#!/#otherSect">Roundtrip with other BPMN 2.0 Modelers</a>):
+When using the Process Diagram API you can deploy a PNG image together with your BPMN 2.0 Process Model. Then you have an API to query the image and normalized coordinates for the process model. With this information you can easily visualize anything on the process model. The following image shows an example using a BPMN 2.0 model from Adonis (see <a href="ref:/guides/getting-started-guides/roundtrip-with-cycle/#roundtrip-roundtrip-with-other-tools">Roundtrip with other BPMN 2.0 Modelers</a>):
 
 <img src="ref:asset:/assets/img/implementation-java/process-diagram-api-adonis.png" class="img-responsive">
 
