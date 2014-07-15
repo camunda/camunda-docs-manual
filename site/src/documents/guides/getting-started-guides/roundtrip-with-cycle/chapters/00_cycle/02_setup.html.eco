@@ -1,0 +1,47 @@
+---
+title: 'Setup'
+category: 'Cycle'
+---
+
+<p>Cycle is already included in the camunda BPM distributions (<a href="http://camunda.org/download/">Download Area</a>).
+  Just open <a href="http://localhost:8080/cycle">http://localhost:8080/cycle</a> and create a new Admin User.
+</p>
+<p>
+  Since your process models will be stored in certain repositories, you should setup the respective connectors.
+  In the upper right menu, navigate to "Connectors". Hit the "New"-Button, and follow the steps below depending
+  on what kind of connector you want to setup.
+</p>
+<h3>File Connector</h3>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img id="cycle-file" data-img-thumb src="ref:asset:/assets/img/getting-started/cycle/file.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      Here is a typical configuration for setting up a connector to your local File System. The variable
+      "${user.home}" in this example points to the directory of your user in your Operating System, so if your user
+      is "horst" and you are a Windows-User, this would mean "C:\Users\horst". You can also choose an absolute path
+      like "C:\MyFolder".
+    </p>
+    <p>
+      Hit "Test" to check if Cycle can find the folder you specified.
+    </p>
+  </div>
+</div>
+<h3>Subversion (SVN) Connector</h3>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img id="cycle-svn" data-img-thumb src="ref:asset:/assets/img/getting-started/cycle/svn.png"/>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-8">
+    <p>
+      When connecting to a Subversion repository, you must specify the URL (including subfolders, if you want to
+      directly point to a certain folder in the Subversion repository). If user credentials are mandatory, you can
+      provide them either globally, or individually for each Cycle user. In this example, we assume that every Cycle
+      user will use the same credentials when using this connector, which is why we provide them in this dialog.
+    </p>
+    <p>
+      Hit "Test" to check if Cycle can connect to the SVN repository with the credentials you provided.
+    </p>
+  </div>
+</div>

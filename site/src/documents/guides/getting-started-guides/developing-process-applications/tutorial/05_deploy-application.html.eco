@@ -1,0 +1,99 @@
+---
+title: 'Deploy the Process Application'
+category: 'Tutorial'
+---
+
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      A Process Application is an ordinary Java Web Application and is deployed in exactly the same way.
+    </p>
+
+    <p>
+      Select the <code>pom.xml</code> in the Package Explorer, perform a Right Click and select
+      <code>Run AS / Maven Install</code>. This will generate a WAR file named
+      <code>loan-approval-0.0.1-SNAPSHOT.war</code> In the <code>target/</code> folder of your Maven project.
+    </p>
+
+    <p class="alert alert-info">
+      If the <code>loan-approval-0.0.1-SNAPSHOT.war</code> file is not visible after having performed the Maven build,
+      you need to refresh the project (F5) in eclipse.
+    </p>
+
+    <h3>Deploy to Apache Tomcat</h3>
+    <p>
+      In order to deploy the process application, copy-paste the <code>loan-approval-0.0.1-SNAPSHOT.war</code> from
+      your Maven project to the <code>$CAMUNDA_HOME/server/apache-tomcat/webapps</code> folder.
+    </p>
+
+    <p>
+      Check the log file of the Apache Tomcat server. If you see the following log message, the deployment was successful:
+    </p>
+
+    <pre class="console">
+16.03.2013 22:42:11 org.camunda.bpm.application.impl.ServletProcessApplicationDeployer onStartup
+INFO: Detected @ProcessApplication class org.camunda.bpm.getstarted.loanapproval.LoanApprovalApplication
+16.03.2013 22:42:11 org.camunda.bpm.container.impl.jmx.deployment.ParseProcessesXmlStep performOperationStep
+INFO: Found META-INF/processes.xml file at ...webapps/loan-approval-0.0.1-SNAPSHOT/WEB-INF/classes/META-INF/processes.xml
+16.03.2013 22:42:11 org.camunda.bpm.container.impl.jmx.deployment.DeployProcessArchiveStep logDeploymentSummary
+INFO: Deployment summary for process archive 'loan-approval':
+
+loan-approval.bpmn
+
+16.03.2013 22:42:11 org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer deploy
+INFO: Processing resource loan-approval.bpmn
+16.03.2013 22:42:11 org.camunda.bpm.container.impl.jmx.JmxRuntimeContainerDelegate deployProcessApplication
+INFO: Process Application Loan Approval App successfully deployed.
+    </pre>
+  </div>
+</div>
+
+<h3>Check with camunda Cockpit and Tasklist</h3>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/cockpit-loan-approval.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      Now use cockpit to check whether the process is successfully deployed.
+      Go to <a href="http://localhost:8080/camunda/app/cockpit" target="_blank">http://localhost:8080/camunda/app/cockpit</a>.
+      Your process is visible on the start screen.
+    </p>
+    <p>
+      Next, go to camunda Tasklist (<a href="http://localhost:8080/camunda/app/tasklist" target="_blank">http://localhost:8080/camunda/app/tasklist</a>).
+      Log in with demo / demo. After you have logged in, click on the
+      <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-th-list"> </i></button> button to start a
+      process instance. Select <em>Loan Approval</em> from the list. This opens a page which explains that no form has
+      been defined for starting the process. Click on <em>Start process using generic form</em>.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/tasklist-loan-approval.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      The generic form can be used whenever you have not added a dedicated form for a User Task or a Start Event.
+      Click on the <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-plus"> </i></button> button
+      to get a new row. Fill in the form as shown in the screenshot. When you are done, click
+      <button class="btn btn-xs btn-primary" type="submit">Start Process</button>.
+    </p>
+    <p>
+      If you now go back to <a href="http://localhost:8080/camunda/app/cockpit" target="_blank">camunda Cockpit</a>,
+      you see the newly created process instance that is waiting in the User Task.
+    </p>
+    <p>
+      Log out of the Tasklist and log back in with the user credentials "john / john". Now you see the <em>Approve
+      Loan</em> task in your inbox. Click on the
+      <button class="btn btn-default btn-xs" title="Display BPMN Diagram"><i class="glyphicon glyphicon-search"></i></button>
+      button. This displays the process diagram highlighting the User Task that is waiting for you to work on it.
+    </p>
+    <p>
+      To work on the task, click the <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-play"></i> </button>
+      button. Again, there is no task form associated with the process. Click on <em>Work on task using generic form</em>.
+      This displays the variables you have put in in the first step.
+    </p>
+  </div>
+</div>

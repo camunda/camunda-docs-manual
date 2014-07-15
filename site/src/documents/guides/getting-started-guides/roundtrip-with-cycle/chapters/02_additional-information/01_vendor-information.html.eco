@@ -1,0 +1,12 @@
+---
+title: 'Information for Tool Vendors'
+category: 'Additional Information'
+---
+
+<p>
+  If you are a tool vendor and would like to integrate (better) with camunda Cycle, just
+  <a href="https://github.com/camunda/camunda-bpm-platform/tree/master/webapps/cycle">check out the sources on GitHub</a>,
+  have a look at how we integrated with Signavio and let us know if you would either provide the
+  features we need to do the same with your product, or if you would implement that integration yourself and
+  contribute it back to our project.
+</p>

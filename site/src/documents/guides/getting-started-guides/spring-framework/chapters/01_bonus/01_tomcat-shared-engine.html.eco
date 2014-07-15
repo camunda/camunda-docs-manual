@@ -1,0 +1,381 @@
+---
+title: 'Use shared Process Engine on Apache Tomcat'
+shortTitle: 'Shared Process Engine'
+category: 'Bonus Chapter'
+---
+
+<p>
+  In this tutorial we explored how to setup an embedded process engine inside a Web application using the Spring
+  Framework. You can also use the Spring Framework for developing applications that use a Shared Process engine.
+  As opposed to the Embedded Process engine, the Shared Process engine is controlled independently from an application
+  and is started / stopped by the runtime container (like Apache Tomcat). This allows multiple applications (or a single
+  modular application) to use the same process engine. You can also re-deploy individual applications independently
+  from the process engine.
+</p>
+<p>
+  In order to configure the loanapproval-spring example to work with an embedded process engine, you have to change
+  three things:
+</p>
+
+<p>
+  First, we need to set the scope of the Maven dependency of the camunda-engine dependency to <code>provided</code>.
+  On the camunda BPM platform the process engine library is provided as a shared library and does not need to be
+  bundled with the application:
+</p>
+<div class="app-source" data-source-code="provided-engine" annotate="code-annotations" ></div>
+
+<p>
+  Furthermore, you can delete the dependencies <code>org.springframework:spring-jdbc</code> and
+  <code>com.h2database:h2</code>.
+</p>
+<p>
+  Second, you need to add a <code>META-INF/processes.xml</code> file to your application.
+</p>
+<div class="app-source" data-source-code="platform-processes.xml" annotate="code-annotations" ></div>
+
+<p>
+  And third, the <code>applicationContext.xml</code> file is adjusted such that the shared process engine is looked up
+  and a <code>SpringServletProcessApplication</code> is bootstrapped:
+</p>
+
+<div class="app-source" data-source-code="managed-engine-lookup" annotate="code-annotations" ></div>
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Bonus"}) %>
+
+<section class="placeholder"></section>
+<div class="bootstrap-code">
+<script type="text/xml" id="pom.xml">
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.camunda.bpm.getstarted</groupId>
+    <artifactId>loanapproval-spring</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+      <camunda.version>7.1.0-Final</camunda.version>
+      <spring.version>3.1.2.RELEASE</spring.version>
+    </properties>
+
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-engine</artifactId>
+        <version>${camunda.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-engine-spring</artifactId>
+        <version>${camunda.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.3.171</version>
+      </dependency>
+    </dependencies>
+
+  </project>
+</script>
+
+<script type="text/xml" id="web.xml">
+  <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+
+    <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+  </web-app>
+</script>
+
+<script type="text/xml" id="applicationContext.xml">
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  </beans>
+</script>
+
+<script type="text/xml" id="embeddedEngine.xml">
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+    <property name="targetDataSource">
+      <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="url"
+                  value="jdbc:h2:mem:process-engine;DB_CLOSE_DELAY=1000" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
+      </bean>
+    </property>
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
+
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    <property name="processEngineName" value="engine" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="transactionManager" ref="transactionManager" />
+    <property name="databaseSchemaUpdate" value="true" />
+    <property name="jobExecutorActivate" value="false" />
+  </bean>
+
+  <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+  </bean>
+
+  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+</script>
+
+<script type="text/xml" id="autodeployment">
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    <property name="processEngineName" value="engine" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="transactionManager" ref="transactionManager" />
+    <property name="databaseSchemaUpdate" value="true" />
+    <property name="jobExecutorActivate" value="false" />
+    <property name="deploymentResources" value="classpath*:*.bpmn" />
+  </bean>
+</script>
+
+<script type="text/xml" id="applicationContext-withSpringPa">
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    <property name="processEngineName" value="engine" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="transactionManager" ref="transactionManager" />
+    <property name="databaseSchemaUpdate" value="true" />
+    <property name="jobExecutorActivate" value="false" />
+  </bean>
+
+  <bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
+    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+  </bean>
+
+  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+
+  <bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" depends-on="processEngine" />
+</script>
+
+<script type="text/xml" id="processes.xml">
+  <?xml version="1.0" encoding="UTF-8" ?>
+
+  <process-application
+      xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <process-archive name="loan-approval">
+      <process-engine>engine</process-engine>
+      <properties>
+        <property name="isDeleteUponUndeploy">false</property>
+        <property name="isScanForProcessDefinitions">true</property>
+      </properties>
+    </process-archive>
+
+  </process-application>
+</script>
+
+<script type="text/xml" id="starter-java">
+  public class Starter implements InitializingBean {
+
+    @Autowired
+    private RuntimeService runtimeService;
+
+    public void afterPropertiesSet() throws Exception {
+      runtimeService.startProcessInstanceByKey("loanApproval");
+    }
+
+    public void setRuntimeService(RuntimeService runtimeService) {
+      this.runtimeService = runtimeService;
+    }
+  }
+
+</script>
+
+<script type="text/xml" id="starter-xml">
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+
+    ...
+
+    <context:annotation-config />
+
+    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+
+    ...
+
+  </beans>
+</script>
+
+<script type="text/xml" id="starter-xml">
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+    ...
+    <context:annotation-config />
+    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+    ...
+  </beans>
+</script>
+
+<script type="text/xml" id="service-java">
+  public class CalculateInterestService implements JavaDelegate {
+
+    public void execute(DelegateExecution delegate) throws Exception {
+
+      System.out.println("Spring Bean invoked.");
+
+    }
+
+  }
+</script>
+
+<script type="text/xml" id="service-xml">
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+    ...
+    <context:annotation-config />
+
+    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+    <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
+    ...
+  </beans>
+</script>
+
+<script type="text/xml" id="provided-engine">
+  <dependency>
+    <groupId>org.camunda.bpm</groupId>
+    <artifactId>camunda-engine</artifactId>
+    <version>${camunda.version}</version>
+    <scope>provided</scope>
+  </dependency>
+</script>
+
+<script type="text/xml" id="managed-engine-lookup">
+  <beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+
+    <!-- bind the process engine service as Spring Bean -->
+    <bean name="processEngineService" class="org.camunda.bpm.BpmPlatform" factory-method="getProcessEngineService" />
+
+    <!-- bind the default process engine as Spring Bean -->
+    <bean name="processEngine" factory-bean="processEngineService" factory-method="getDefaultProcessEngine" />
+
+    <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
+    <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
+    <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
+    <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
+    <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
+
+    <!-- bootstrap the process application -->
+    <bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+
+    <context:annotation-config />
+
+    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+    <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
+
+  </beans>
+</script>
+
+<script type="text/xml" id="platform-processes.xml">
+  <?xml version="1.0" encoding="UTF-8" ?>
+
+  <process-application
+      xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <process-archive name="loan-approval">
+      <process-engine>default</process-engine>
+      <properties>
+        <property name="isDeleteUponUndeploy">false</property>
+        <property name="isScanForProcessDefinitions">true</property>
+      </properties>
+    </process-archive>
+
+  </process-application>
+</script>
+
+<script type="text/ng-template" id="code-annotations">
+  {
+  "pom.xml":
+  {
+  "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
+  "camunda-engine-spring": "Spring framework integration module for the process engine.",
+  "spring-web": "The Spring Web artifact declaratively pulls in the Spring core libraries.",
+  "com.h2database": "we use an embedded H2 database for the process engine",
+  "springsource-repo": "repository for Spring artifacts.",
+  "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
+
+  },
+  "web.xml":
+  {
+  "contextConfigLocation": "location of Spring XML files",
+  "ContextLoaderListener": "the listener that kick-starts Spring"
+  },
+  "embeddedEngine.xml":
+  {
+  "dataSource": "Configuration of the dataSource to be used by the process engine. In this case we use an in-memory H2 database.",
+  "processEngineConfiguration": "The process engine configuration bean allows configuration the process engine. In this case, the datasource and transaction manager properties are configured.",
+  "ProcessEngineFactoryBean": "the Process Engine is created by a factory bean."
+  },
+  "autodeployment":
+  {
+  "classpath*:*.bpmn": "picks up all BPMN 2.0 files on the classpath and deploys them to the process engine."
+  },
+  "applicationContext-withSpringPa":
+  {
+  "processApplication": "Defining a SpringServletProcessApplication makes sure the META-INF/processes.xml file is picked up.",
+  "ManagedProcessEngineFactoryBean": "Alternative Process Engine Factory Bean which registers the process engine with the ProcessEngineService.",
+  "\"engine\"": "the name of the process engine. Must be referenced in the META-INF/processes.xml file."
+  }
+  }
+</script>
+</div>

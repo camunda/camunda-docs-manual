@@ -89,8 +89,10 @@ var docpadConfig = {
      *     categoriesByName: { 'someName': { name: 'someName', pages: [ .. ] } }
      *   }
      */
-    getPages: function(part) {
+    getPages: function(doc) {
 
+      var part = doc.part;
+      
       var pages,
           categories = [],
           categoriesByName = {};
@@ -111,13 +113,12 @@ var docpadConfig = {
       }
 
       for (var i = 0, page; !!(page = pages[i]); i++) {
-        if (!page.category) {
+        if (page.layout || !page.title) {
           continue;
         }
 
         page.shortTitle = page.shortTitle || page.title;
-
-        getCategory(page.category).pages.push(page);
+        getCategory(page.category || 'main').pages.push(page);
       }
 
       return {

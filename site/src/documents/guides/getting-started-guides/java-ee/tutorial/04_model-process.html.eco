@@ -1,0 +1,71 @@
+---
+title: 'Model a Process'
+category: 'Tutorial'
+---
+
+<p>
+  In this section we model our sample process with the camunda Modeler.
+</p>
+
+<section id="model/create">
+  <h3>Create a new BPMN 2.0 Diagram</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img id="eclipse-new-bpmn-diagram" data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-new-bpmn-diagram.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        In the eclipse <em>Package Explorer</em> select the <code>src/main/resources</code> folder. Right-click and
+        select <code>New &gt; Other ...</code>. Go to the folder <code>Other</code> and select
+        <em>BPMN 2.0 Diagram</em>. Click Next.
+      </p>
+      <p>
+        On the second page, you must specify the file name of the process. Put in <em>pizza-order.bpmn</em>.
+        Click Finish.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="model/create">
+  <h3>Create the Sample Pizza Order Process</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img id="pizza-order-process" data-img-thumb src="ref:asset:/assets/img/getting-started/javaee/pizza-order-process.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        The sample process models a pizza order approval. In the first service task the order should be
+        persisted in our database. The next step is the approval of the order by an user. Based on
+        his decision the pizza will be prepared or a rejection email is send.
+      </p>
+      <p>
+        Since we model an executable process, we should give it an ID, name and set the <code>isExecutable</code> property
+        to <code>true</code>. Open the properties view and click on a free spot of the modeling canvas. This displays
+        the properties of the process itself.
+      </p>
+    </div>
+  </div>
+
+  <h3>Configure Placeholder Expressions</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img id="expression-placeholder" data-img-thumb src="ref:asset:/assets/img/getting-started/javaee/pizza-order-expression-true.png"/>
+      <img id="conditional-placeholder" data-img-thumb src="ref:asset:/assets/img/getting-started/javaee/pizza-order-process-conditional-expression.png" />
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        Additionally you have to configure some placeholder expressions for the services tasks and the conditional
+        sequence flows. Otherwise you would not be able to deploy this process on the process engine. Please
+        set the <code>Expression</code> property of both service tasks to <code>${true}</code>. Also set
+        the <code>Condition</code> property of the sequence flows after the exclusive gateway to
+        <code>${true}</code>, respectively <code>${false}</code>.
+      </p>
+      <p>
+        After you are done, save your changes.
+      </p>
+    </div>
+  </div>
+
+  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-3"}) %>
+</section>
