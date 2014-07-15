@@ -268,7 +268,7 @@ title: 'Latest Version'
         <a href="ref:#maven-coordinates-maven-coordinates">Maven Coordinates</a>
       </li>    
       <li>
-        <a href="ref:/guides/migration-guide">Migration</a> and <a href="ref:/guides/migration-guide/#patch-level-upgrade">Upgrade Guide</a>
+        <a href="ref:/guides/migration-guide/">Migration</a> and <a href="ref:/guides/migration-guide/#patch-level-upgrade">Upgrade Guide</a>
       </li>       
       <li>
         <a href="http://camunda.org/get-started/">Read getting started Guide</a>
@@ -277,8 +277,9 @@ title: 'Latest Version'
         <a href="ref:/real-life/examples/" id="githubExamples">Examples</a>
       </li>
       <li>
-        <a href="ref:/guides/user-guide/#introduction-supported-environments-for-version-71">Supported Environments</a>
+        <a href="ref:/guides/user-guide/#introduction-supported-environments">Supported Environments</a>
       </li>
+    </ul>
   </div>
 </div>
 

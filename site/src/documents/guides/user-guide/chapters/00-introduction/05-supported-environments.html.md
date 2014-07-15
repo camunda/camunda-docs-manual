@@ -1,6 +1,6 @@
 ---
 
-title: 'Supported Environments for Version 7.2'
+title: 'Supported Environments'
 category: 'Introduction'
 
 ---

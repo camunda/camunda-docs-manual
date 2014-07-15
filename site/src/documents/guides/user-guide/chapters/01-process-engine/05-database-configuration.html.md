@@ -55,7 +55,7 @@ The following properties can be set, regardless of whether you are using the JDB
 
 <div class="alert alert-warning">
   <strong>Supported Databases: </strong>
-  <p>For information on supported databases please refer to <a href="ref:#introduction-supported-environments-for-version-71">Supported Environments</a>.</p>
+  <p>For information on supported databases please refer to <a href="ref:#introduction-supported-environments">Supported Environments</a>.</p>
 </div>
 
 Here are some sample JDBC urls:
