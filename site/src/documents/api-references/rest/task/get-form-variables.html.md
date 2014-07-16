@@ -115,6 +115,7 @@ value is a json object with the following properties:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
+    <td></td>
   </tr>
 </table>
 
@@ -135,7 +136,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -168,7 +169,7 @@ GET `/task/anId/form-variables?variableNames=a,b,c`
       "caseInstanceId": null
   },
   "firstName": {
-      "id": "someId",
+      "id": "anotherId",
       "name": "firstName",
       "type": "String",
       "value": "Jonny",

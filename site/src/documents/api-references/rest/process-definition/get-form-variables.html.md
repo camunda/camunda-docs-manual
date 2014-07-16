@@ -123,6 +123,7 @@ value is a json object with the following properties:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
+    <td></td>
   </tr>
 </table>
 
@@ -177,7 +178,7 @@ GET `/process-definition/key/aKey/form-variables`
       "caseInstanceId": null
   },
   "firstName": {
-      "id": "someId",
+      "id": "anotherId",
       "name": "firstName",
       "type": "String",
       "value": "Jonny",
