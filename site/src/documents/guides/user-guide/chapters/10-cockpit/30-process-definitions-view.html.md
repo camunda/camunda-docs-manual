@@ -18,7 +18,7 @@ category: 'Cockpit'
 </div>
 
 ## Filter
-The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical _AND_ relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the _operator_ my be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
+The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical _AND_ relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the _operator_ may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
  The `like` operator is for string variables only. You can use `%` as wildcard in the _value_ expression. String and date values must be properly enclosed in `" "`.
 <br>
 <br>
@@ -57,7 +57,7 @@ The filter function on the left hand side of the Process Definition View allows 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
-       <strong>Start Date</strong><br>
+       <strong>Start Date and Time</strong><br>
        Here you can filter for process instances by start date. Please note that the date must be set in accordance to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard.
      </p>
   </div>
@@ -101,48 +101,12 @@ The filter function on the left hand side of the Process Definition View allows 
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/filter-examples/var-double.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/filter-examples/var-numeric.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
-       <strong>Double variable</strong><br>
-       Here you can filter for process instances by filtering for a 'double' value.
-     </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/filter-examples/var-integer.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-     <p>
-       <strong>Integer variable</strong><br>
-       Here you can filter for process instances by filtering for an 'integer' value.
-     </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/filter-examples/var-long.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-     <p>
-       <strong>Long variable</strong><br>
-       Here you can filter for process instances by filtering for a 'long' value.
-     </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/filter-examples/var-short.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-     <p>
-       <strong>Short variable</strong><br>
-       Here you can filter for process instances by filtering for a 'short' value.
+       <strong>Numeric variable</strong><br>
+       Here you can filter for process instances by filtering for a 'numeric' (double, integer, long or short) value.
      </p>
   </div>
 </div>
@@ -171,7 +135,7 @@ The filter function on the left hand side of the Process Definition View allows 
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
      <p>
-       <strong>End Date</strong><br>
+       <strong>End Date and Time</strong><br>
        Here you can filter for process instances by end date. Please note that the date must be set in accordance to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard and that this option is only available in the <a href="#cockpit-history-view-process-definition-historical-view">Process Definition Historical View</a>.
      </p>
   </div>
