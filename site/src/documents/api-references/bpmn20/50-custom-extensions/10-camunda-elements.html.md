@@ -251,7 +251,8 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
     </td>
   </tr>
 </table>
@@ -1210,7 +1211,11 @@ The following elements are extension elements for the `camunda` namespace `http:
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaoutputparameter">
         camunda:outputParameter</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaentry">camunda:entry</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundalist">camunda:list</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaexecutionlistener">
+        camunda:executionListener</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundatasklistener">
+        camunda:taskListener</a>
     </td>
   </tr>
   <tr>
@@ -1321,7 +1326,8 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
     </td>
   </tr>
 </table>
