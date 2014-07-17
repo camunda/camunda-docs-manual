@@ -238,11 +238,12 @@ The following is a list of all supported configuration properties.
       Specifies a list of additional suffixes which are considered as deployment resource if the
       <code>isScanForProcessDefinitions</code> property is set to <code>true</code>. It can be used
       to deploy additional resources beside process and case definitions, for example to add a
-      script to the deployment and reference it as an external source of a
-      <a href="ref:/api-references/bpmn20/#tasks-script-task-script-source">script task</a> or an
-      <a href="ref:/guides/user-guide/#process-engine-scripting-use-scripts-as-inputoutput-parameter">
-      inputOutput</a> mapping. To specify multiple suffixes, a comma is used as seperator,
-      ie., <code>py,groovy,rb</code>.
+      script to the deployment and reference it as an external source (see the documentation about
+      [script source][script-source] for more information). To specify multiple suffixes, a comma is
+      used as seperator, ie. <code>py,groovy,rb</code>.
     </td>
   </tr>
 </table>
+
+
+[script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source

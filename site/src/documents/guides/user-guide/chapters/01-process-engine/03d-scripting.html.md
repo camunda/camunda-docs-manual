@@ -140,7 +140,7 @@ public class SumDelegate implements JavaDelegate {
 ```
 
 The script source code can also be loaded from an external resource in the same way as described
-for [script tasks](ref:/api-references/bpmn20/#tasks-script-task-script-source).
+for [script tasks](ref:#process-engine-scripting-script-source).
 
 ```xml
 <camunda:inputOutput>
@@ -188,4 +188,82 @@ task = execution.getProcessEngineServices().getTaskService()
   .taskDefinitionKey("task")
   .singleResult()
 ```
+
+
+## Script source
+
+The standard way to specify the script source code in the BPMN XML model is to add it directly to
+the XML file. Nonetheless, camunda BPM provides additional ways to specify the script source.
+
+If you use another scripting language than Expression Language you can also specify the script
+source as an expression which returns the source code to be executed. This way, the source code can,
+for example, be contained in a process variable.
+
+In the following example snippet the process engine will evaluate the expression `${sourceCode}` in
+the current context every time the element is executed.
+
+```xml
+<!-- inside a script task -->
+<scriptTask scriptFormat="groovy">
+  <script>${sourceCode}</script>
+</scriptTask>
+
+<!-- as an execution listener -->
+<camunda:executionListener>
+  <camunda:script scriptFormat="groovy">${sourceCode}</camunda:script>
+</camunda:executionListener>
+
+<!-- as a condition expression -->
+<sequenceFlow id="flow" sourceRef="theStart" targetRef="theTask">
+  <conditionExpression xsi:type="tFormalExpression" language="groovy">
+    ${sourceCode}
+  </conditionExpression>
+</sequenceFlow>
+
+<!-- as an inputOutput mapping -->
+<camunda:inputOutput>
+  <camunda:inputParameter name="x">
+    <camunda:script scriptFormat="groovy">${sourceCode}</camunda:script>
+  </camunda:inputParameter>
+</camunda:inputOutput>
+```
+
+You can also specify the attribute `camunda:resource` on the `scriptTask` and `conditionExpression`
+element respectively the `resource` attribute on the `camunda:script` element. This extension
+attribute specifies the location of an external resource which should be used as script source code.
+Optionally, the resource path can be prefixed with an URL-like scheme to specify if the resource is
+contained in the deployment or classpath. The default behaviour is that the resource is part of the
+classpath. This means that the first two script task elements in the following examples are equal.
+
+```xml
+<!-- on a script task -->
+<scriptTask scriptFormat="groovy" camunda:resource="org/camunda/bpm/task.groovy"/>
+<scriptTask scriptFormat="groovy" camunda:resource="classpath://org/camunda/bpm/task.groovy"/>
+<scriptTask scriptFormat="groovy" camunda:resource="deployment://org/camunda/bpm/task.groovy"/>
+
+<!-- in a execution listener -->
+<camunda:executionListener>
+  <camunda:script scriptFormat="groovy" resource="deployment://org/camunda/bpm/listener.groovy"/>
+</camunda:executionListener>
+
+<!-- on a conditionExpresion -->
+<conditionExpression xsi:type="tFormalExpression" language="groovy"
+    camunda:resource="org/camunda/bpm/condition.groovy" />
+
+<!-- in a inputParameter -->
+<camunda:inputParameter name="x">
+  <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/mapX.groovy" />
+</camunda:inputParameter>
+```
+
+The resource path can also be specified as an expression which is evaluated on the invocation of the
+script task.
+
+```xml
+<scriptTask scriptFormat="groovy" camunda:resource="${scriptPath}"/>
+```
+
+For more information, see the
+[camunda:resource](ref:/api-references/bpmn20/#custom-extensions-camunda-extension-attributes-camundaresource)
+section of the [Custom Extensions](ref:/api-references/bpmn20/#custom-extensions) chapter.
 

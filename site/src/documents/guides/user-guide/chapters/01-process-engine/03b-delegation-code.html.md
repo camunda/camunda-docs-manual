@@ -434,5 +434,5 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 }
 ```
 
-[script-sources]: ref:/api-references/bpmn20/#tasks-script-task-script-source
+[script-sources]: ref:#process-engine-scripting-script-source
 [camunda-script]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundascript

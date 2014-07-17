@@ -130,4 +130,4 @@ Note the 'slash' marker at the beginning of the default sequence flow. The corre
 </sequenceFlow>
 ```
 
-[script-source]: ref:#tasks-script-task-script-source
+[script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source
