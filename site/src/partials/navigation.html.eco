@@ -36,6 +36,11 @@
                   BPMN 2.0 (Implementation)
                 </a>
               </li>
+              <li data-active-link="/api-references/cmmn10">
+                <a href="<%= @docUrl("api-references/cmmn10/") %>">
+                  CMMN 1.0 (Implementation)
+                </a>
+              </li>
               <li data-active-link="/api-references/rest">
                 <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
               </li>
