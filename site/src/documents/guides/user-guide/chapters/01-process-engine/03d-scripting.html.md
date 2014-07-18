@@ -56,22 +56,22 @@ scripts.
 </table>
 
 
-### Use script tasks
+### Use Script Tasks
 
 With a BPMN 2.0 script task you can add a script to your BPM process (see for more information the
 [BPMN 2.0 reference](ref:/api-references/bpmn20/#tasks-script-task)).
 
-The following process is a simple example with a groovy script task.
+The following process is a simple example with a groovy script task that sums up the elements of an array.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
                    targetNamespace="http://camunda.org/example">
-  <bpmn2:process id="process" isExecutable="true">
-    <bpmn2:startEvent id="start"/>
-    <bpmn2:sequenceFlow id="sequenceFlow1" sourceRef="start" targetRef="task"/>
-    <bpmn2:scriptTask id="task" name="Groovy Script" scriptFormat="groovy">
-      <bpmn2:script>
+  <process id="process" isExecutable="true">
+    <startEvent id="start"/>
+    <sequenceFlow id="sequenceFlow1" sourceRef="start" targetRef="task"/>
+    <scriptTask id="task" name="Groovy Script" scriptFormat="groovy">
+      <script>
         <![CDATA[
         sum = 0
 
@@ -81,12 +81,12 @@ The following process is a simple example with a groovy script task.
 
         println "Sum: " + sum
         ]]>
-      </bpmn2:script>
-    </bpmn2:scriptTask>
-    <bpmn2:sequenceFlow id="sequenceFlow2" sourceRef="task" targetRef="end"/>
-    <bpmn2:endEvent id="end"/>
-  </bpmn2:process>
-</bpmn2:definitions>
+      </script>
+    </scriptTask>
+    <sequenceFlow id="sequenceFlow2" sourceRef="task" targetRef="end"/>
+    <endEvent id="end"/>
+  </process>
+</definitions>
 ```
 
 To start the process a variable `inputArray` is necessary.
@@ -98,10 +98,10 @@ runtimeService.startProcessInstanceByKey("process", variables);
 ```
 
 
-### Use scripts as inputOutput parameter
+### Use Scripts as inputOutput Parameters
 
-With the camunda `inputOutput` extension element you can map a `inputParameter` or `outputParameter`
-with a script. The following example process uses the groovy script from the previous example assign
+With the camunda `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
+with a script. The following example process uses the groovy script from the previous example to assign
 the groovy variable `sum` to the process variable `x` for a Java delegate.
 
 
@@ -118,14 +118,14 @@ the groovy variable `sum` to the process variable `x` for a Java delegate.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
                    xmlns:camunda="http://activiti.org/bpmn"
                    targetNamespace="http://camunda.org/example">
-  <bpmn2:process id="process" isExecutable="true">
-    <bpmn2:startEvent id="start"/>
-    <bpmn2:sequenceFlow id="sequenceFlow1" sourceRef="start" targetRef="task"/>
-    <bpmn2:serviceTask id="task" camunda:class="org.camunda.bpm.example.SumDelegate">
-      <bpmn2:extensionElements>
+  <process id="process" isExecutable="true">
+    <startEvent id="start"/>
+    <sequenceFlow id="sequenceFlow1" sourceRef="start" targetRef="task"/>
+    <serviceTask id="task" camunda:class="org.camunda.bpm.example.SumDelegate">
+      <extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="x">
              <camunda:script scriptFormat="groovy">
@@ -142,15 +142,15 @@ the groovy variable `sum` to the process variable `x` for a Java delegate.
             </camunda:script>
           </camunda:inputParameter>
         </camunda:inputOutput>
-      </bpmn2:extensionElements>
-    </bpmn2:serviceTask>
-    <bpmn2:sequenceFlow id="sequenceFlow2" sourceRef="task" targetRef="end"/>
-    <bpmn2:endEvent id="end"/>
-  </bpmn2:process>
-</bpmn2:definitions>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sequenceFlow2" sourceRef="task" targetRef="end"/>
+    <endEvent id="end"/>
+  </process>
+</definitions>
 ```
 
-After the script assigned a value to the `sum` variable it can be used inside the Java delegate
+After the script assigned a value to the `sum` variable, `x` can be used inside the Java delegate
 code.
 
 ```java
@@ -171,23 +171,23 @@ for [script tasks](ref:#process-engine-scripting-script-source).
 ```xml
 <camunda:inputOutput>
   <camunda:inputParameter name="x">
-     <camunda:script scriptFormat="python" resource="org/camunda/bpm/example/sum.py"/>
+     <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/example/sum.groovy"/>
   </camunda:inputParameter>
 </camunda:inputOutput>
 ```
 
 
-## Use scripts as execution listener
+## Use Scripts as Execution Listeners
 
 Besides Java code and expression language camunda BPM also supports the execution of a script
-as an execution listener. For general information about execution listener see the corresponding
+as an execution listener. For general information about execution listeners see the corresponding
 [section](ref:#process-engine-delegation-code-execution-listener).
 
-To use a script as an execution listener a `camunda:script` element has to be added as a child
-element of the `camunda:executionListener`. Inside the script the variable `execution` is
+To use a script as an execution listener, a `camunda:script` element has to be added as a child
+element of the `camunda:executionListener` element. During script evaluation, the variable `execution` is
 available which corresponds to the `DelegateExecution` interface.
 
-The following example shows some usages of scripts as execution listener.
+The following example shows some usages of scripts as execution listeners.
 
 ```xml
 <process id="process" isExecutable="true">
@@ -223,17 +223,17 @@ The following example shows some usages of scripts as execution listener.
 ```
 
 
-## Use scripts as task listener
+## Use Scripts as Task Listeners
 
-Similar to execution listeners also task listener can be implemented as a script. For general
-information about execution listener see the corresponding
+Similar to execution listeners, also task listeners can be implemented as scripts. For general
+information about execution listeners see the corresponding
 [section](ref:#process-engine-delegation-code-task-listener).
 
-To use a script as a task listener a `camunda:script` element has to be added as a child element of
-the `camunda:taskListener`. Inside the script the variable `task` is available which corresponds to
+To use a script as a task listener, a `camunda:script` element has to be added as a child element of
+the `camunda:taskListener`. Inside the script, the variable `task` is available which corresponds to
 the `DelegateTask` interface.
 
-The following example shows some usages of scripts as task listener.
+The following example shows some usages of scripts as task listeners.
 
 ```xml
 <userTask id="userTask">
@@ -248,13 +248,13 @@ The following example shows some usages of scripts as task listener.
 </userTask>
 ```
 
-## Use scripts as condition
+## Use Scripts as Conditions
 
-As an alternative to expression language camunda BPM allows you to use scripts as
+As an alternative to expression language, camunda BPM allows you to use scripts as
 `conditionExpression` of conditional sequence flows. Therefore the `language` attribute  of the
-`conditionExpression` element has to be set to the scripting language to use. The script source code
+`conditionExpression` element has to be set to the desired scripting language. The script source code
 is the text content of the element as with expression language. Another way to specify the script
-source code is to define a external source like described in the [script source
+source code is to define an external source like described in the [script source
 section](ref:#process-engine-scripting-script-source).
 
 The following example shows some usages of scripts as conditions. The groovy variable `status` is a
@@ -274,20 +274,20 @@ process variable which is available inside the script.
 ```
 
 
-## Script compilation
+## Script Compilation
 
-Most script engines will compile the script source code either to a Java class or to a different
+Most script engines compile script source code either to a Java class or to a different
 intermediary format prior to executing the script. Script engines implementing the Java `Compilable`
 interface allow programs to retrieve and cache the script compilation. The default setting of the
 process engine is to check whether a Script Engine supports the compile feature and if true have the
-script engine compile the script and then cache the compilation result.  This allows the process
-engine to keep from compiling a script source each time the same script task is executed.
+script engine compile the script and then cache the compilation result.  This prevents the process
+engine from compiling a script source each time the same script task is executed.
 
-By default compilation of scripts is enabled. If you need to disable script compilation, you can set
+By default, compilation of scripts is enabled. If you need to disable script compilation, you can set
 the process engine configuration flag named `enableScriptCompilation` to false.
 
 
-## Variables available during script execution
+## Variables available during Script Execution
 
 During the execution of script all process variables visible in the current scope are available.
 They can be accessed directly by the name of the variable (i.e. `sum`). This does not apply for
@@ -295,8 +295,8 @@ JRuby where you have to access the variable as a ruby global variable (prepend w
 i.e. `$sum`)
 
 There is also the special variable `execution` which is always available if the script is executed
-in a execution scope (e.g. in a script task). This variable corresponds to the `DelegateExecution`
-interface. Which means it can be used to get and set variables or access process engine services.
+in an execution scope (e.g. in a script task). This variable corresponds to the `DelegateExecution`
+interface which means it can be used to get and set variables or access process engine services.
 
 ```java
 // get process variable
@@ -313,7 +313,7 @@ task = execution.getProcessEngineServices().getTaskService()
 ```
 
 
-## Script source
+## Script Source
 
 The standard way to specify the script source code in the BPMN XML model is to add it directly to
 the XML file. Nonetheless, camunda BPM provides additional ways to specify the script source.
@@ -364,7 +364,7 @@ classpath. This means that the first two script task elements in the following e
 <scriptTask scriptFormat="groovy" camunda:resource="classpath://org/camunda/bpm/task.groovy"/>
 <scriptTask scriptFormat="groovy" camunda:resource="deployment://org/camunda/bpm/task.groovy"/>
 
-<!-- in a execution listener -->
+<!-- in an execution listener -->
 <camunda:executionListener>
   <camunda:script scriptFormat="groovy" resource="deployment://org/camunda/bpm/listener.groovy"/>
 </camunda:executionListener>
@@ -373,7 +373,7 @@ classpath. This means that the first two script task elements in the following e
 <conditionExpression xsi:type="tFormalExpression" language="groovy"
     camunda:resource="org/camunda/bpm/condition.groovy" />
 
-<!-- in a inputParameter -->
+<!-- in an inputParameter -->
 <camunda:inputParameter name="x">
   <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/mapX.groovy" />
 </camunda:inputParameter>
