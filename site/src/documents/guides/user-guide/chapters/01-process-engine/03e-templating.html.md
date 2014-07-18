@@ -6,20 +6,20 @@ category: 'Process Engine'
 ---
 
 camunda BPM supports template engines which are implemented as script engines compatible with
-JSR-223. Currently there exists implementations for the [FreeMarker][freemarker] and [Apache
+JSR-223. Currently there are implementations for the [FreeMarker][freemarker] and [Apache
 Velocity][velocity] template engines in the [camunda-template-engines][camunda-template-engines]
 project.
 
-If the template engine library is in the classpath you can use templates everywhere in the BPMN
-process where you can [use scripts][use-scripts]. For example as script task or inputOutput mapping.
+If the template engine library is in the classpath, you can use templates everywhere in the BPMN
+process where you can [use scripts][use-scripts], for example as a script task or inputOutput mapping.
 The FreeMarker template engine is part of the camunda BPM distribution. If you want to use Velocity
 you have to add it manually to the classpath of your process engine.
 
-Inside the template all process variables of the BPMN element scope are available. Also the
-template can be loaded from an external resource as describe in the [script source
+Inside the template, all process variables of the BPMN element scope are available. The
+template can also be loaded from an external resource as described in the [script source
 section][script-source].
 
-The following example shows a FreeMarker template which result is saved in the process variable
+The following example shows a FreeMarker template, of which the result is saved in the process variable
 `text`.
 
 ```xml
