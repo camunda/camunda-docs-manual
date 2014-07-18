@@ -41,14 +41,14 @@ Note: The default value for the attribute `isBlocking` is `true`. To define a `n
 
 ## Transactional Behavior
 
-The activation of the process task, the call and the execution of a process instance will be performed in the same transaction. The transaction is executed until a wait state or a asynchronous continuation is reached inside the called process instance (for further details read the section [Transaction in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes)). To launch a process instance asynchronously it is possible to declare a start event asynchronous with `asyncBefore="true"` inside the process (see [Asynchronous Instantiation](ref:/api-references/bpmn20/#events-start-events-asynchronous-instantiation)).
+The activation of the process task, the call and the execution of a process instance will be performed in the same transaction. The transaction is executed until a wait state or an asynchronous continuation is reached inside the called process instance (for further details read the [Transaction in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes) section). To launch a process instance asynchronously it is possible to declare a start event asynchronous with `asyncBefore="true"` inside the process (see [Asynchronous Instantiation](ref:/api-references/bpmn20/#events-start-events-asynchronous-instantiation)).
 
 ## Process Binding
 
-As per default it will always launched a new process instance of the latest process definition. In order to call another version of a process it is possible to define a binding to specify of which process definition version a new process instance must be started. Therefore there exists a camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
+By default it will always launch a new process instance of the latest process definition. In order to call another version of a process it is possible to define a binding to specify of which process definition version a new process instance must be started. For that there is a camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
 
 *   latest: always call the latest process definition version (which is also the default behavior if the attribute is not defined)
-* 	deployment: if the process associated with the process task is part of the same deployment as the calling case, use the version from deployment
+* 	deployment: if the process associated with the process task is part of the same deployment as the calling case, use the version from the deployment
 *   version: call a fixed version of the process definition, in this case `processVersion` is required
 
 ```xml
@@ -58,11 +58,11 @@ As per default it will always launched a new process instance of the latest proc
 </processTask>
 ```
 
-Note: It is also possible to use an expression for the attribute `processVersion`, which will be resolved at runtime to an integer.
+Note: It is also possible to use an expression for the attribute `processVersion`, which will be resolved to an integer at runtime.
 
 ## Exchange variables
 
-The camunda custom extensions elements `in` and `out` offers the possibility to exchange variables between the process task (in a case instance) and the process instance to which it refers: `in` elements of the process task are mapped to input variables of the launched process instance, and `out` mappings of the process task are mapped to output variables of the process instance, e.g.
+The camunda custom extensions elements `in` and `out` offer the possibility to exchange variables between the process task (in a case instance) and the process instance to which it refers: `in` elements of the process task are mapped to input variables of the launched process instance and `out` mappings of the process task are mapped to output variables of the process instance, e.g.
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -73,9 +73,9 @@ The camunda custom extensions elements `in` and `out` offers the possibility to 
 </processTask>
 ```
 
-In the above example the value of the input variable `aCaseVariable` will be passed to the launched process instance. Inside the process instance the value of the input variable `aCaseVariable` is available as `aProcessVariable`. After a successful completion of the called process instance the value of the output variable `aProcessVariable` will be passed back to the calling process task, and there it is available as `anotherCaseVariable`.
+In the above example, the value of the input variable `aCaseVariable` will be passed to the launched process instance. Inside the process instance the value of the input variable `aCaseVariable` is available as `aProcessVariable`. After successful completion of the called process instanc, the value of the output variable `aProcessVariable` will be passed back to the calling process task, and there it will be available as `anotherCaseVariable`.
 
-Additionally it is possible to use expressions as well:
+Additionally, it is also possible to use expressions:
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -88,7 +88,7 @@ Additionally it is possible to use expressions as well:
 
 So, in the end `z = y+5 = x+5+5`
 
-Furthermore, the process task can be configured to pass all variables into the called process instance, and to pass all variables of the process instance back to the associated process task:
+Furthermore, the process task can be configured to pass all variables into the called process instance and to pass all variables of the process instance back to the associated process task:
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -99,14 +99,14 @@ Furthermore, the process task can be configured to pass all variables into the c
 </processTask>
 ```
 
-Note: The variables keeps their name.
+Note: The variables keep their names.
 
 
 ## Pass Business Key
 
-In addition to [exchange variables](#tasks-process-task-exchange-variables) it is possible to pass a business key to the called process instance as well. But be aware that a business key cannot be changed, so that it is not possible to return back a business key from a called process instance to the calling case instance.
+In addition to [exchange variables](#tasks-process-task-exchange-variables) it is possible to pass a business key to the called process instance as well. But be aware that a business key cannot be changed, so it is not possible to return a business key back from a called process instance to the calling case instance.
 
-The following example shows how the business key of the calling case instance can be passed to the called process instance. In that case the calling case instance and the called process instance would have the same business key.
+The following example shows how the business key of the calling case instance can be passed to the called process instance. In this case the calling case instance and the called process instance would have the same business key.
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -116,7 +116,7 @@ The following example shows how the business key of the calling case instance ca
 </processTask>
 ```
 
-If the business key of the called process instance should be different than the business key of the calling case instance, it is also possible to use an expression which for example references to a variable:
+If the business key of the called process instance should be different than the business key of the calling case instance, it is also possible to use an expression which, for example, references to a variable:
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
@@ -147,7 +147,7 @@ If the business key of the called process instance should be different than the 
     <th>Constraints</th>
     <td>
       The attribute <code>camunda:processVersion</code> should only be set if
-      the attribute <code>camunda:processBinding</code> equals <code>version</code>
+      the attribute <code>camunda:processBinding</code> is equal to <code>version</code>
     </td>
   </tr>
 </table>

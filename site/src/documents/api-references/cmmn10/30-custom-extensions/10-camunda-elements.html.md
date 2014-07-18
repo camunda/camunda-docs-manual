@@ -13,7 +13,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      The element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      The element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>

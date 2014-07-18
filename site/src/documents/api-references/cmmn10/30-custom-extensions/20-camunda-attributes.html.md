@@ -13,7 +13,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a performer of a <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies a performer of a <a href="ref:#tasks-human-task">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which group(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies which group(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -76,7 +76,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which user(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies which user(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -107,7 +107,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which case definition version should be called inside the case task.
+      This attribute specifies which case definition version should be called inside the case task.
     </td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute <strong>explicitly</strong> defines which case definition version should be called inside the case task.
+      This attribute <strong>explicitly</strong> defines which case definition version should be called inside the case task.
     </td>
   </tr>
   <tr>
@@ -175,7 +175,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial due date of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
+      This attribute specifies the initial due date of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -206,7 +206,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a form resource. See <a href="ref:/guides/user-guide/#tasklist-task-forms">task forms</a> for more information.
+      This attribute specifies a form resource. See <a href="ref:/guides/user-guide/#tasklist-task-forms">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -237,7 +237,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial priority of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
+      This attribute specifies the initial priority of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -268,7 +268,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which process definition version should be called inside the process task.
+      This attribute specifies which process definition version should be called inside the process task.
     </td>
   </tr>
   <tr>
@@ -305,7 +305,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute <strong>explicitly</strong> defines which process definition version should be called inside the process task.
+      This attribute <strong>explicitly</strong> defines which process definition version should be called inside the process task.
     </td>
   </tr>
   <tr>

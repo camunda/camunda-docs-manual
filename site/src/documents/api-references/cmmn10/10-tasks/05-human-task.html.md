@@ -11,7 +11,7 @@ A `human task` is used to model work that needs to be done by a human actor.
 
 <img class="img-responsive" src="ref:asset:/assets/cmmn/human-task.png"/>
 
-A human task is defined in XML as follows.
+A human task is defined in XML as follows:
 
 ```xml
 <humanTask id="theHumanTask" name="A Human Task" />
@@ -37,7 +37,7 @@ caseService
 
 This will complete the created task as well.
 
-Instead using the `CaseService` it is also possible to use the `TaskService` to complete a human task:
+Instead of using the `CaseService` it is also possible to use the `TaskService` to complete a human task:
 
 ```java
 taskService.complete("aTaskId");
