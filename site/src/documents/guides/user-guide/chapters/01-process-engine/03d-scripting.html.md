@@ -289,13 +289,16 @@ the process engine configuration flag named `enableScriptCompilation` to false.
 
 ## Variables available during Script Execution
 
-During the execution of script all process variables visible in the current scope are available.
+During the execution of a script all process variables visible in the current scope are available.
 They can be accessed directly by the name of the variable (i.e. `sum`). This does not apply for
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
 i.e. `$sum`)
 
-There is also the special variable `execution` which is always available if the script is executed
-in an execution scope (e.g. in a script task). This variable corresponds to the `DelegateExecution`
+There are also special variables like `execution` which is always available if the script is
+executed in an execution scope (e.g. in a script task), `task` which is available if the script is
+executed in a task scope (e.g. a task listener) and `connector` which is available if the script is
+executed in a connector variable scope (e.g. outputParameter of a camunda:connector). These
+variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means it can be used to get and set variables or access process engine services.
 
 ```java
