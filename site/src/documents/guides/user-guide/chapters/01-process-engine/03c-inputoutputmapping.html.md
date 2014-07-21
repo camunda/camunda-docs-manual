@@ -109,4 +109,4 @@ needs the average `avgForecast` of the calculated values `a` and `c`.
 [outputParameter]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundaoutputparameter
 [list]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundalist
 [map]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundamap
-[script-io]: ref:#process-engine-scripting-use-scripts-as-inputoutput-parameter
+[script-io]: ref:#process-engine-scripting-use-scripts-as-inputoutput-parameters

@@ -23,7 +23,7 @@ scripts.
   </tr>
   <tr>
     <td>
-        <a href="#process-engine-scripting-use-scripts-as-inputoutput-parameter">
+        <a href="#process-engine-scripting-use-scripts-as-inputoutput-parameters">
           All Tasks, All Events, Transaction and Subprocess
         </a>
     </td>
@@ -61,7 +61,7 @@ scripts.
 With a BPMN 2.0 script task you can add a script to your BPM process (see for more information the
 [BPMN 2.0 reference](ref:/api-references/bpmn20/#tasks-script-task)).
 
-The following process is a simple example with a groovy script task that sums up the elements of an array.
+The following process is a simple example with a Groovy script task that sums up the elements of an array.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,15 +101,15 @@ runtimeService.startProcessInstanceByKey("process", variables);
 ### Use Scripts as inputOutput Parameters
 
 With the camunda `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
-with a script. The following example process uses the groovy script from the previous example to assign
-the groovy variable `sum` to the process variable `x` for a Java delegate.
+with a script. The following example process uses the Groovy script from the previous example to assign
+the Groovy variable `sum` to the process variable `x` for a Java delegate.
 
 
 <div class="alert alert-info">
   <strong>Script Return Value:</strong>
   <p>
-    Please notice that the last statement of the script is returned. This applies to groovy,
-    Javascript and JRuby but not to Jython. If you want to use Jython your script has to be a
+    Please notice that the last statement of the script is returned. This applies to Groovy,
+    Javascript and JRuby but not to Jython. If you want to use Jython, your script has to be a
     single expression like <code>a + b</code> or <code>a > b</code> where <code>a</code> and
     <code>b</code> are already process variables. Otherwise the Jython scripting engine will
     not return a value.
@@ -179,15 +179,15 @@ for [script tasks](ref:#process-engine-scripting-script-source).
 
 ## Use Scripts as Execution Listeners
 
-Besides Java code and expression language camunda BPM also supports the execution of a script
+Besides Java code and expression language, camunda BPM also supports the execution of a script
 as an execution listener. For general information about execution listeners see the corresponding
 [section](ref:#process-engine-delegation-code-execution-listener).
 
 To use a script as an execution listener, a `camunda:script` element has to be added as a child
 element of the `camunda:executionListener` element. During script evaluation, the variable `execution` is
-available which corresponds to the `DelegateExecution` interface.
+available, which corresponds to the `DelegateExecution` interface.
 
-The following example shows some usages of scripts as execution listeners.
+The following example shows usage of scripts as execution listeners.
 
 ```xml
 <process id="process" isExecutable="true">
@@ -225,15 +225,15 @@ The following example shows some usages of scripts as execution listeners.
 
 ## Use Scripts as Task Listeners
 
-Similar to execution listeners, also task listeners can be implemented as scripts. For general
+Similar to execution listeners, task listeners can also be implemented as scripts. For general
 information about execution listeners see the corresponding
 [section](ref:#process-engine-delegation-code-task-listener).
 
 To use a script as a task listener, a `camunda:script` element has to be added as a child element of
-the `camunda:taskListener`. Inside the script, the variable `task` is available which corresponds to
+the `camunda:taskListener`. Inside the script, the variable `task` is available, which corresponds to
 the `DelegateTask` interface.
 
-The following example shows some usages of scripts as task listeners.
+The following example shows usage of scripts as task listeners.
 
 ```xml
 <userTask id="userTask">
@@ -251,13 +251,12 @@ The following example shows some usages of scripts as task listeners.
 ## Use Scripts as Conditions
 
 As an alternative to expression language, camunda BPM allows you to use scripts as
-`conditionExpression` of conditional sequence flows. Therefore the `language` attribute  of the
+`conditionExpression` of conditional sequence flows. To do that, the `language` attribute of the
 `conditionExpression` element has to be set to the desired scripting language. The script source code
-is the text content of the element as with expression language. Another way to specify the script
-source code is to define an external source like described in the [script source
-section](ref:#process-engine-scripting-script-source).
+is the text content of the element, as with expression language. Another way to specify the script
+source code is to define an external source as described in the [script source section](ref:#process-engine-scripting-script-source).
 
-The following example shows some usages of scripts as conditions. The groovy variable `status` is a
+The following example shows usage of scripts as conditions. The Groovy variable `status` is a
 process variable which is available inside the script.
 
 ```xml
@@ -279,7 +278,7 @@ process variable which is available inside the script.
 Most script engines compile script source code either to a Java class or to a different
 intermediary format prior to executing the script. Script engines implementing the Java `Compilable`
 interface allow programs to retrieve and cache the script compilation. The default setting of the
-process engine is to check whether a Script Engine supports the compile feature and if true have the
+process engine is to check if a Script Engine supports the compile feature and, if true, have the
 script engine compile the script and then cache the compilation result.  This prevents the process
 engine from compiling a script source each time the same script task is executed.
 
@@ -289,7 +288,7 @@ the process engine configuration flag named `enableScriptCompilation` to false.
 
 ## Variables available during Script Execution
 
-During the execution of a script all process variables visible in the current scope are available.
+During the execution of scripts, all process variables visible in the current scope are available.
 They can be accessed directly by the name of the variable (i.e. `sum`). This does not apply for
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
 i.e. `$sum`)
@@ -299,7 +298,7 @@ executed in an execution scope (e.g. in a script task), `task` which is availabl
 executed in a task scope (e.g. a task listener) and `connector` which is available if the script is
 executed in a connector variable scope (e.g. outputParameter of a camunda:connector). These
 variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
-interface which means it can be used to get and set variables or access process engine services.
+interface which means that it can be used to get and set variables or access process engine services.
 
 ```java
 // get process variable
@@ -321,7 +320,7 @@ task = execution.getProcessEngineServices().getTaskService()
 The standard way to specify the script source code in the BPMN XML model is to add it directly to
 the XML file. Nonetheless, camunda BPM provides additional ways to specify the script source.
 
-If you use another scripting language than Expression Language you can also specify the script
+If you use another scripting language than Expression Language, you can also specify the script
 source as an expression which returns the source code to be executed. This way, the source code can,
 for example, be contained in a process variable.
 
@@ -355,7 +354,7 @@ the current context every time the element is executed.
 ```
 
 You can also specify the attribute `camunda:resource` on the `scriptTask` and `conditionExpression`
-element respectively the `resource` attribute on the `camunda:script` element. This extension
+element, respectively the `resource` attribute on the `camunda:script` element. This extension
 attribute specifies the location of an external resource which should be used as script source code.
 Optionally, the resource path can be prefixed with an URL-like scheme to specify if the resource is
 contained in the deployment or classpath. The default behaviour is that the resource is part of the

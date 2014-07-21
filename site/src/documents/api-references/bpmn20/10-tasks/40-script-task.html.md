@@ -29,11 +29,11 @@ for the Java Platform). If you want to use a (JSR-223 compatible) scripting engi
 add the corresponding jar to the classpath and use the appropriate name.
 
 The script source code has to be added as the text content of the `script` child element.
-Alternatively the source code can be specified as expression or external resource. For more
-information of the possible ways to provide the script source code please see the corresponding
-user guide [section][script-source].
+Alternatively, the source code can be specified as an expression or external resource. For more
+information on the possible ways of providing the script source code please see the corresponding
+ [section][script-source] of the [User Guide][user-guide].
 
-For general information about scripting in the process engine, please see the [Scripting](ref:/guides/user-guide/#process-engine-scripting) section of the [User Guide](ref:/guides/user-guide/).
+For general information about scripting in the process engine, please see the [Scripting](ref:/guides/user-guide/#process-engine-scripting) section of the [User Guide][user-guide].
 
 <div class="alert alert-info">
   <strong>Supported Script Languages:</strong>
@@ -133,3 +133,4 @@ In the above example, the result of the script execution (the value of the resol
 
 
 [script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source
+[user-guide]: ref:/guides/user-guide/
