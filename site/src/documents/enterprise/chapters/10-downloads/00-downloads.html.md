@@ -10,9 +10,9 @@ title: 'Latest Version'
 
 <section class="row">
   <div class="col-md-12">
-    <h3>7.1.3</h3>
+    <h3>7.1.4</h3>
     <p>
-      Current stable version, released on 20.06.2014, <a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13294">Release Notes</a>
+      Current stable version, released on 23.07.2014, <a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13295">Release Notes</a>
     </p>
     <table class="table table-responsive">
       <thead>
@@ -43,24 +43,24 @@ title: 'Latest Version'
             camunda BPM platform
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.3/camunda-bpm-ee-tomcat-7.1.3-ee.zip">zip</a>&nbsp;
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.3/camunda-bpm-ee-tomcat-7.1.3-ee.tar.gz">tar.gz</a>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.4/camunda-bpm-ee-tomcat-7.1.4-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.4/camunda-bpm-ee-tomcat-7.1.4-ee.tar.gz">tar.gz</a>
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.3/camunda-bpm-ee-jboss-7.1.3-ee.zip">zip</a>&nbsp;
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.3/camunda-bpm-ee-jboss-7.1.3-ee.tar.gz">tar.gz</a>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.4/camunda-bpm-ee-jboss-7.1.4-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.4/camunda-bpm-ee-jboss-7.1.4-ee.tar.gz">tar.gz</a>
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.3/camunda-bpm-ee-glassfish-7.1.3-ee.zip">zip</a>&nbsp;
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.3/camunda-bpm-ee-glassfish-7.1.3-ee.tar.gz">tar.gz</a>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.4/camunda-bpm-ee-glassfish-7.1.4-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.4/camunda-bpm-ee-glassfish-7.1.4-ee.tar.gz">tar.gz</a>
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.3/camunda-ee-ibm-was-7.1.3-ee.zip">zip</a>&nbsp;
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.3/camunda-ee-ibm-was-7.1.3-ee.tar.gz">tar.gz</a>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.4/camunda-ee-ibm-was-7.1.4-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.4/camunda-ee-ibm-was-7.1.4-ee.tar.gz">tar.gz</a>
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.3/camunda-ee-oracle-wls-7.1.3-ee.zip">zip</a>&nbsp;
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.3/camunda-ee-oracle-wls-7.1.3-ee.tar.gz">tar.gz</a>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.4/camunda-ee-oracle-wls-7.1.4-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.4/camunda-ee-oracle-wls-7.1.4-ee.tar.gz">tar.gz</a>
           </td>
         </tr>
         <tr>
@@ -70,19 +70,19 @@ title: 'Latest Version'
             <br> process engine)</div>
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.3/camunda-webapp-ee-tomcat-standalone-7.1.3-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.4/camunda-webapp-ee-tomcat-standalone-7.1.4-ee.war">war</a>&nbsp;
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.3/camunda-webapp-ee-jboss-standalone-7.1.3-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.1/7.1.4/camunda-webapp-ee-jboss-standalone-7.1.4-ee.war">war</a>&nbsp;
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.3/camunda-webapp-ee-glassfish-standalone-7.1.3-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.1/7.1.4/camunda-webapp-ee-glassfish-standalone-7.1.4-ee.war">war</a>&nbsp;
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.3/camunda-webapp-ee-was-standalone-7.1.3-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.1/7.1.4/camunda-webapp-ee-was-standalone-7.1.4-ee.war">war</a>&nbsp;
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.3/camunda-webapp-ee-wls-standalone-7.1.3-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.1/7.1.4/camunda-webapp-ee-wls-standalone-7.1.4-ee.war">war</a>&nbsp;
           </td>
         </tr>
       </tbody>
