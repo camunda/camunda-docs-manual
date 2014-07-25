@@ -10,7 +10,7 @@ keywords: 'post query list'
 
 Query for the number of process instances that fulfill the given parameters.
 This method takes the same message body as the [POST query](ref:#process-instance-get-instances-post)
-and is thus slightly more powerful than the [GET query count](ref:#process-instance-get-instances-count).
+and therefore it is slightly more powerful than the [GET query count](ref:#process-instance-get-instances-count).
 
 
 Method
@@ -24,7 +24,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -33,7 +33,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>Filter by a list of process instance ids. Must be a json array of Strings.</td>
+    <td>Filter by a list of process instance ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>businessKey</td>
@@ -85,13 +85,13 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have variables with certain values. <br/>
+    <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
     <code>key (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     </td>
   </tr>
@@ -101,7 +101,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>
@@ -134,8 +134,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

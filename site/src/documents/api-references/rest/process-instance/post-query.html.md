@@ -8,9 +8,9 @@ keywords: 'post query list'
 ---
 
 
-Query for process instances that fulfill given parameters through a json object.
-This method is slightly more powerful than the [GET query](ref:#process-instance-get-instances), because it allows
-to filter by multiple process variables of types `String`, `Number` or `Boolean`.
+Query for process instances that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [GET query](ref:#process-instance-get-instances) because it allows
+filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
 Method
@@ -41,9 +41,8 @@ Parameters
 
 #### Request Body
 
-<p>
-  A json object with the following properties:
-</p>
+A JSON object with the following properties:
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
@@ -51,7 +50,7 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>Filter by a list of process instance ids. Must be a json array of Strings.</td>
+    <td>Filter by a list of process instance ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>businessKey</td>
@@ -103,13 +102,13 @@ Parameters
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have variables with certain values. <br/>
+    <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     </td>
   </tr>
@@ -130,7 +129,7 @@ Parameters
 Result
 ------
 
-A json array of process instance objects.
+A JSON array of process instance objects.
 Each process instance object has the following properties:
 
 <table class="table table-striped">
@@ -163,14 +162,14 @@ Each process instance object has the following properties:
     <td>ended</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the process instance has ended.
+      A flag indicating whether the process instance has ended or not.
       <em>Deprecated: will always be false!</em>
     </td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the process instance is suspended.</td>
+    <td>A flag indicating whether the process instance is suspended or not.</td>
   </tr>
 </table>
 
@@ -192,8 +191,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -37,7 +37,7 @@ A multipart form submit with the following parts:
     <td>enable-duplicate-filtering</td>
     <td>text/plain</td>
     <td>
-      A flag indicating whether the process engine should perform duplicate checking for the deployment. This allows you to check whether a deployment with the same name and the same resouces already exists and if true, not create a new deployment but instead return the existing deployment. The default value is <code>false</code>.
+      A flag indicating whether the process engine should perform duplicate checking for the deployment or not. This allows you to check if a deployment with the same name and the same resouces already exists and if true, not create a new deployment but instead return the existing deployment. The default value is <code>false</code>.
     </td>
   </tr>
   <tr>
@@ -51,7 +51,7 @@ A multipart form submit with the following parts:
 Result
 ------
 
-A json object corresponding to the `Deployment` interface in the engine.
+A JSON object corresponding to the `Deployment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -63,7 +63,7 @@ Its properties are as follows:
   <tr>
     <td>links</td>
     <td>List</td>
-    <td>Link to the new created deployment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
+    <td>Link to the newly created deployment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
   </tr>
   <tr>
     <td>id</td>

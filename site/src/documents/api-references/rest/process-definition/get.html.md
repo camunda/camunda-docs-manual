@@ -35,15 +35,14 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition to be retrieved the latest version.</td>
-  </tr>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.
 </table>
 
 
 Result
 ------
 
-A json object corresponding to the ProcessDefinition interface in the engine.
+A JSON object corresponding to the ProcessDefinition interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -95,12 +94,12 @@ Its properties are as follows:
   <tr>
     <td>diagram</td>
     <td>String</td>
-    <td>The file name of the process definition diagram, if exists.</td>
+    <td>The file name of the process definition diagram, if it exists.</td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the definition is suspended.</td>
+    <td>A flag indicating whether the definition is suspended or not.</td>
   </tr>
 </table>
 

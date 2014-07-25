@@ -38,7 +38,7 @@ Parameters
 Result
 ------
 
-A json object containing the form key.
+A JSON object containing the form key.
 
 <table class="table table-striped">
   <tr>
@@ -49,7 +49,7 @@ A json object containing the form key.
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The for key for the task.</td>
+    <td>The form key for the task.</td>
   </tr>
   <tr>
     <td>contextPath</td>

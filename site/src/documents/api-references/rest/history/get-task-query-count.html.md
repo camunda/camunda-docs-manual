@@ -46,7 +46,7 @@ Parameters
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
+    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -126,38 +126,38 @@ Parameters
   </tr>
   <tr>
     <td>taskDueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskVariables</td>
     <td>Only include tasks that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form <code>key_operator_value</code>.
-    <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
@@ -167,11 +167,11 @@ Parameters
     <td>Only include tasks that belong to process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form <code>key_operator_value</code>.
-    <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
@@ -182,7 +182,7 @@ Parameters
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

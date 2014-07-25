@@ -77,7 +77,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -85,7 +85,7 @@ Parameters
 Result
 ------
 
-A json array of user objects.
+A JSON array of user objects.
 Each user object has the following properties:
 
 <table class="table table-striped">

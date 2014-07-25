@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the Job interface in the engine.
+A JSON object corresponding to the Job interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -89,7 +89,7 @@ Its properties are as follows:
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the job is suspended.</td>
+    <td>A flag indicating whether the job is suspended or not.</td>
   </tr>  
 </table>
 

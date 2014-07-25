@@ -41,7 +41,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `Attachment` interface in the engine.
+A JSON object corresponding to the `Attachment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -73,7 +73,7 @@ Its properties are as follows:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>Indication of the type of content that this attachment refers to. Can be mime type or any other indication.</td>
+    <td>Indication of the type of content that this attachment refers to. Can be MIME type or any other indication.</td>
   </tr>
   <tr>
     <td>url</td>
@@ -100,7 +100,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The attachment for given task and attachment id does not exist. Or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The attachment for given task and attachment id does not exist or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

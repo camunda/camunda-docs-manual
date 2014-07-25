@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `Deployment` interface of the engine. Its properties are as follows:
+A JSON object corresponding to the `Deployment` interface of the engine. Its properties are as follows:
 
 <table class="table table-striped">
   <tr>

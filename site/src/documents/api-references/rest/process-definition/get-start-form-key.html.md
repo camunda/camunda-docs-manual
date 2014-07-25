@@ -35,7 +35,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition to be retrieved the latest version to get the start form for.</td>
+    <td>The key of the process definition (the latest version thereof) to get the start form for.</td>
   </tr>
 </table>
 
@@ -43,7 +43,7 @@ Parameters
 Result
 --------------  
 
-A json object containing the form key.
+A JSON object containing the form key.
 
 <table class="table table-striped">
   <tr>
@@ -54,7 +54,7 @@ A json object containing the form key.
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The for key for the task.</td>
+    <td>The form key for the process definition.</td>
   </tr>
 </table>
 

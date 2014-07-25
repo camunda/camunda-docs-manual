@@ -37,10 +37,6 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
-
-Empty.
-
 
 Result
 ------

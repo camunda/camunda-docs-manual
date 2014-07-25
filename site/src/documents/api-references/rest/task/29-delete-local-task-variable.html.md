@@ -33,7 +33,7 @@ Parameters
   </tr>
   <tr>
     <td>varId</td>
-    <td>The name of the variable to be retrieved.</td>
+    <td>The name of the variable to be removed.</td>
   </tr>
 </table>
 

@@ -86,11 +86,11 @@ Parameters
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
     A valid parameter value has the form <code>key_operator_value</code>.
-    <code>key</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
@@ -112,7 +112,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -120,7 +120,7 @@ Parameters
 Result
 ------
 
-A json array of process instance objects.
+A JSON array of process instance objects.
 Each process instance object has the following properties:
 
 <table class="table table-striped">
@@ -153,14 +153,14 @@ Each process instance object has the following properties:
     <td>ended</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the process instance has ended.
+      A flag indicating whether the process instance has ended or not.
       <em>Deprecated: will always be false!</em>
     </td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the process instance is suspended.</td>
+    <td>A flag indicating whether the process instance is suspended or not.</td>
   </tr>
 </table>
 
@@ -182,8 +182,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

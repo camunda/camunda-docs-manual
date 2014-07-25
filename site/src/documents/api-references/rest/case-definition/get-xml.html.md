@@ -35,7 +35,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the case definition to be retrieved the latest version.</td>
+    <td>The key of the case definition (the latest version thereof) to be retrieved.</td>
   </tr>
 </table>
 
@@ -43,7 +43,7 @@ Parameters
 Result
 ------
 
-A json object containing the id of the case definition and the CMMN 1.0 XML.
+A JSON object containing the id of the case definition and the CMMN 1.0 XML.
 
 <table class="table table-striped">
   <tr>

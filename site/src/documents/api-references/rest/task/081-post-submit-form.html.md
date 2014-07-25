@@ -8,10 +8,10 @@ keywords: 'post'
 ---
 
 
-Complete a task and update process variables using a form submit. The difference between this method and the `complete` method is twofold:
+Complete a task and update process variables using a form submit. There are two difference between this method and the `complete` method:
 
-* If the task is in state `PENDING` - ie. has been delegated before, it is not completed but resolved. It will be completed otherwise.
-* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See [Documentation on Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms). 
+* If the task is in state `PENDING` - ie. has been delegated before, it is not completed but resolved. Otherwise it will be completed.
+* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms) section of the [User Guide](ref:/guides/user-guide/) for more information. 
 
 
 Method
@@ -38,7 +38,7 @@ Parameters
   
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -47,7 +47,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
     A variable value object has has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date. This parameter is optional and may be left out.</td>
   </tr>
 </table>
@@ -76,7 +76,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>      
   <tr>
     <td>500</td>

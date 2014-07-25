@@ -49,12 +49,12 @@ Parameters
   </tr> 
   <tr>
     <td>resourceId</td>
-    <td>Filter by resource Id.</td>
+    <td>Filter by resource id.</td>
   </tr> 
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>resourceType</code>, and <code>resourceId</code>.
+    <code>resourceType</code> and <code>resourceId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -68,7 +68,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -76,7 +76,7 @@ Parameters
 Result
 ------
 
-A json array of authorization objects.
+A JSON array of authorization objects.
 Each group object has the following properties:
 
 <table class="table table-striped">

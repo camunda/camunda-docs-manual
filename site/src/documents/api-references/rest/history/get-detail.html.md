@@ -68,11 +68,11 @@ An object having the following properties:
   <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when this historic detail occurred has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when this historic detail occurred, has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
 </table>
 
-Depending on the concrete instance of the historic detail it contains further properties. In case of an <code>HistoricVariableUpdate</code> the following properties are also provided:
+Depending on the concrete instance of the historic detail it contains further properties. In case of a <code>HistoricVariableUpdate</code> the following properties are also provided:
 
 <table class="table table-striped">
   <tr>

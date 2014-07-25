@@ -9,7 +9,7 @@ keywords: 'historic post query list'
 
 
 Query for historic variable instances that fulfill the given parameters. 
-This method is slightly more powerful than the [GET query](ref:#history-get-variable-instances), because it allows to filter by variable values of the different types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query](ref:#history-get-variable-instances) because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
 
 
 Method
@@ -30,14 +30,14 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
 
 #### Request body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -62,15 +62,15 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed execution ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed task ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed task ids.</td>
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed activity instance ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -88,7 +88,7 @@ A json object with the following properties:
 Result
 ------
 
-A json array of historic variable instance objects.
+A JSON array of historic variable instance objects.
 Each historic activity instance object has the following properties:
 
 <table class="table table-striped">

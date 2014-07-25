@@ -18,14 +18,30 @@ PUT `/group/{id}/members/{userId}`
 Parameters
 ----------
 
-#### Request Body
+#### Path Parameters
 
-None.
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>The id of the group</td>
+  </tr>
+  <tr>
+    <td>userId</td>
+    <td>The id of user to add to the group</td>
+  </tr>
+</table>
+
+
 
 Result
 ------
 
-None.
+This method returns no content.
+
 
 Response codes
 --------------
@@ -60,10 +76,7 @@ Example
 
 PUT `/group/sales/members/jonny1`
 
-Request body:
-
-Empty.
 
 #### Response
 
-None.
+Status 204. No content.

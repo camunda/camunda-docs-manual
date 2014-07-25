@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json array of group objects.
+A JSON array of group objects.
 Each group object has the following properties:
 
 <table class="table table-striped">

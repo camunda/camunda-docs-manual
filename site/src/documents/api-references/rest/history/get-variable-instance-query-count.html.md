@@ -46,15 +46,15 @@ Parameters
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated execution ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated task ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated task ids.</td>
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed and comma-separated activity instance ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
 </table>
 
@@ -62,7 +62,7 @@ Parameters
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

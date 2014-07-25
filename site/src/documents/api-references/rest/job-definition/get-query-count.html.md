@@ -34,7 +34,7 @@ Parameters
   </tr>
   <tr>
     <td>activityIdIn</td>
-    <td>Only include job definitions which belongs to one of the passed and comma-separated activity ids.</td>
+    <td>Only include job definitions which belong to one of the passed and comma-separated activity ids.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -76,7 +76,7 @@ Parameters
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

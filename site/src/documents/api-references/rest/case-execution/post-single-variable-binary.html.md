@@ -53,7 +53,7 @@ A multipart form submit with the following parts:
   <tr>
     <td>data</td>
     <td>application/json</td>
-    <td>A json representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
+    <td>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
   </tr>
   <tr>
     <td>type</td>
@@ -96,7 +96,7 @@ Example
 
 #### Request
 
-(1) Post the json serialization of a Java Class:
+(1) Post the JSON serialization of a Java Class:
 
 POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
 

@@ -9,7 +9,7 @@ keywords: 'post query list'
 
 
 Query for the number of variable instances that fulfill given parameters. This method takes the same message body as the 
-[POST query](ref:#variable-get-variable-instances-post) and is thus slightly more powerful than the [GET query count](ref:#variable-get-variable-instances-count).
+[POST query](ref:#variable-get-variable-instances-post) and therefore it is slightly more powerful than the [GET query count](ref:#variable-get-variable-instances-count).
 
 Method
 ------
@@ -22,9 +22,8 @@ Parameters
 
 #### Request Body
 
-<p>
-  A json object with the following properties:
-</p>
+A JSON object with the following properties:
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
@@ -40,37 +39,37 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed process instance ids.</td>
+    <td>Only include variable instances which belong to one of the passed process instance ids.</td>
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed execution ids.</td>
+    <td>Only include variable instances which belong to one of the passed execution ids.</td>
   </tr>
   <tr>
     <td>caseInstanceIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed case instance ids.</td>
+    <td>Only include variable instances which belong to one of the passed case instance ids.</td>
   </tr>
   <tr>
     <td>caseExecutionIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed case execution ids.</td>
+    <td>Only include variable instances which belong to one of the passed case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed task ids.</td>
+    <td>Only include variable instances which belong to one of the passed task ids.</td>
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include variable instances which belongs to one of the passed activity instance ids.</td>
+    <td>Only include variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
   <tr>
     <td>variableValues</td>
-    <td>A json array to only include variable instances that have the certain values.<br/>
+    <td>A JSON array to only include variable instances that have the certain values.<br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     </td>
   </tr>
@@ -91,7 +90,7 @@ Parameters
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>
@@ -124,8 +123,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

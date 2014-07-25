@@ -33,7 +33,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -42,7 +42,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>suspended</td>
-    <td>A <code>Boolean</code> value which indicates whether to activate or suspend a given process instance. When the value is set to <code>true</code>, then the given process instance will be suspended and when the value is set to <code>false</code>, then the given process instance will be activated.</td>
+    <td>A <code>Boolean</code> value which indicates whether to activate or suspend a given process instance. When the value is set to <code>true</code>, the given process instance will be suspended and when the value is set to <code>false</code>, the given process instance will be activated.</td>
   </tr>
 </table>
 

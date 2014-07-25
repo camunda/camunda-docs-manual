@@ -10,7 +10,7 @@ keywords: 'post'
 
 Change the assignee of a task to a specific user.
 
-**Note:** The difference with [claim a task](ref:#task-claim-task) is that this method does not check whether the task does already have a user assigned to it.
+**Note:** The difference with [claim a task](ref:#task-claim-task) is that this method does not check if the task already has a user assigned to it.
 
 
 Method
@@ -31,13 +31,13 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to set the assignee.</td>
+    <td>The id of the task to set the assignee for.</td>
   </tr>
 </table>
   
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>

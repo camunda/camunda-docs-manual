@@ -7,8 +7,8 @@ keywords: 'get'
 
 ---
 
-Retrieves the form variables for a task. The form variables take into
-account form data specified on the task. If form fields are defined, the variable types and
+Retrieves the form variables for a task. The form variables take form data specified on the task into
+account. If form fields are defined, the variable types and
 default values of the form fields are taken into account.
 
 Method
@@ -43,18 +43,18 @@ Parameters
   <tr>
     <td>variableNames</td>
     <td>A comma-separated list of variable names. Allows restricting the list of requested 
-        variables to the variable names in the list. It is best practice restricting the list of 
+        variables to the variable names in the list. It is best practice to restrict the list of 
         variables to the variables actually required by the form in order to minimize fetching of
         data. If the query parameter is ommitted all variables are fetched. If the query parameter
-        contains unexisting variable names, the variable names are ignored.</td>
+        contains non-existent variable names, the variable names are ignored.</td>
   </tr>
 </table>
 
 Result
 --------------  
 
-A json object containing a property for each variable returned. The key is the variable name, the
-value is a json object with the following properties:
+A JSON object containing a property for each variable returned. The key is the variable name, the
+value is a JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -115,7 +115,7 @@ value is a json object with the following properties:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
-    <td></td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
 </table>
 

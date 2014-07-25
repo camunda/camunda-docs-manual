@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-definition-get-job-definitions), because it allows to filter by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-definition-get-job-definitions) because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 Method
@@ -33,13 +33,13 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -52,7 +52,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>activityIdIn</td>
-    <td>Only include job definitions which belongs to one of the passed activity ids.</td>
+    <td>Only include job definitions which belong to one of the passed activity ids.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -95,7 +95,7 @@ A json object with the following properties:
 Result
 ------
 
-A json array of job definition objects.
+A JSON array of job definition objects.
 Each job definition object has the following properties:
 
 <table class="table table-striped">
@@ -127,17 +127,17 @@ Each job definition object has the following properties:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which are running for this job definition. For example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs which will be created. For timer jobs it is for example the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates whether this job definition is suspended.</td>
+    <td>Indicates whether this job definition is suspended or not.</td>
   </tr>
 </table>
 

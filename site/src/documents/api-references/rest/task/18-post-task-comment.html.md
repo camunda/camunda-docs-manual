@@ -27,7 +27,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to add the comment.</td>
+    <td>The id of the task to add the comment to.</td>
   </tr>
 </table>
 
@@ -52,7 +52,7 @@ A multipart form submit with the following parts:
 Result
 ------
 
-A json object corresponding to the `Comment` interface in the engine.
+A JSON object corresponding to the `Comment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -69,7 +69,7 @@ Its properties are as follows:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user who has created the comment.</td>
+    <td>The id of the user who created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -89,7 +89,7 @@ Its properties are as follows:
   <tr>
     <td>links</td>
     <td>List</td>
-    <td>Link to the new created task comment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
+    <td>Link to the newly created task comment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
   </tr>
 </table>
 

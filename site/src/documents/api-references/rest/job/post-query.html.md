@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-get-jobs), because it allows to filter by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-get-jobs) because it allows filtering by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 Method
@@ -33,13 +33,13 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -72,7 +72,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and duedate is <code>null</code> or duedate is in the past. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Valid value is a <code>boolean</code>.</td>
   </tr>
   <tr>
     <td>timers</td>
@@ -84,10 +84,10 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>dueDates</td>
-    <td>Only select jobs where the duedate is lower or higher than the given date.
+    <td>Only select jobs where the due date is lower or higher than the given date.
     Due date expressions are comma-separated and are structured as follows:<br/>
     A valid condition value has the form <code>operator_value</code>.
-    <code>op</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
+    <code>operator</code> is the comparison operator to be used and <code>value</code> the date value as string.<br/>
     <br/>
     Valid operator values are: <code>gt</code> - greater than; <code>lt</code> - lower than.<br/>
     <code>value</code> may not contain underscore or comma characters.
@@ -130,7 +130,7 @@ A json object with the following properties:
 Result
 ------
 
-A json array of job objects.
+A JSON array of job objects.
 Each job object has the following properties:
 
 <table class="table table-striped">
@@ -182,7 +182,7 @@ Each job object has the following properties:
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the job is suspended.</td>
+    <td>A flag indicating whether the job is suspended or not.</td>
   </tr>  
 </table>
 
@@ -204,8 +204,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
-    or if an invalid operator for due date comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -9,7 +9,7 @@ keywords: 'post update delete local task variables'
 
 
 Updates or deletes the variables in the context of a task.
-Updates precede deletes. So if a variable is updated AND deleted, the deletion overrides the update.
+Updates precede deletions. So, if a variable is updated AND deleted, the deletion overrides the update.
 
 
 Method
@@ -37,9 +37,8 @@ Parameters
 
 #### Request Body
 
-<p>
-  A json object with the following properties:
-</p>
+A JSON object with the following properties:
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
@@ -85,7 +84,7 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Update or delete could not be executed, because the task is null or does not exist.</td>
+    <td>Update or delete could not be executed because the task is null or does not exist.</td>
   </tr>
 </table>
 

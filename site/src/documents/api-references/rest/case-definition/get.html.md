@@ -35,7 +35,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the case definition to be retrieved the latest version.</td>
+    <td>The key of the case definition (the latest version thereof) to be retrieved.</td>
   </tr>
 </table>
 
@@ -43,7 +43,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the CaseDefinition interface in the engine.
+A JSON object corresponding to the CaseDefinition interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

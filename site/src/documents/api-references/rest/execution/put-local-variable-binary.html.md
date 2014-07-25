@@ -53,7 +53,7 @@ A multipart form submit with the following parts:
   <tr>
     <td>data</td>
     <td>application/json</td>
-    <td>A json representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
+    <td>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
   </tr>
   <tr>
     <td>type</td>
@@ -86,7 +86,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>    
 </table>
 
@@ -96,7 +96,7 @@ Example
 
 #### Request
 
-(1) Post the json serialization of a Java Class:
+(1) Post the JSON serialization of a Java Class:
 
 POST `/execution/anExecutionId/localVariables/aVarName/data`
 

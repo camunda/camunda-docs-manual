@@ -63,7 +63,7 @@ Parameters
   </tr>
   <tr>
     <td>operationId</td>
-    <td>Filter by the id of the operation. This allows fetching multiple entries which are part of a composite operation.</td>
+    <td>Filter by the id of the operation. This allows fetching of multiple entries which are part of a composite operation.</td>
   </tr>
   <tr>
     <td>operationType</td>
@@ -87,7 +87,7 @@ Parameters
   </tr>
   <tr>
     <td>sortBy</td>
-    <td>Sort the results by a given criterion. At the moment the query only supports a sorting based on the <code>timestamp</code>.
+    <td>Sort the results by a given criterion. At the moment the query only supports sorting based on the <code>timestamp</code>.
   </tr>
   <tr>
     <td>sortOrder</td>
@@ -100,7 +100,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -108,7 +108,7 @@ Parameters
 Result
 ------
 
-An JSON array of user operation log entries.
+A JSON array of user operation log entries.
 Each log entry has the following properties:
 
 <table class="table table-striped">

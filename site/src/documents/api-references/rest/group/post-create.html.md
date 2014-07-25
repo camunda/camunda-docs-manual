@@ -20,9 +20,12 @@ POST `/group/create`
 Parameters
 ----------
 
+This method takes no parameters.
+
+
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>

@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object containing groups, the number of members and other users.
+A JSON object containing groups, the number of members and other users.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -49,12 +49,12 @@ Its properties are as follows:
   <tr>
     <td>groups</td>
     <td>Array</td>
-    <td>A json array of group object. Every group object has a <code>id</code> property and a <code>name</code> property.</td>
+    <td>A JSON array of group object. Every group object has a <code>id</code> property and a <code>name</code> property.</td>
   </tr>
   <tr>
     <td>groupUsers</td>
     <td>Array</td>
-    <td>A json array that contains all users that are member in one of the groups.<br/>
+    <td>A JSON array that contains all users that are member in one of the groups.<br/>
     Every user object has four properties: <code>id</code>, <code>firstName</code>, <code>lastName</code> and <code>displayName</code>.
     The <code>displayName</code> is the <code>id</code>, if <code>firstName</code> and <code>lastName</code> are <code>null</code>
     and <code>firstName lastName</code> otherwise.</td>

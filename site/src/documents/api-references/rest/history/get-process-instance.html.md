@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `HistoricProcessInstance` interface in the engine.
+A JSON object corresponding to the `HistoricProcessInstance` interface in the engine.
 Its properties are as follows:
 <table class="table table-striped">
   <tr>
@@ -53,7 +53,7 @@ Its properties are as follows:
   <tr>
     <td>superProcessInstanceId</td>
     <td>String</td>
-    <td>The id of the parent process instance if exists.</td>
+    <td>The id of the parent process instance, if it exists.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>

@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for the number of job definitions that fulfill given parameters. This method takes the same message body as the [POST query](ref:#job-definition-get-job-definitions-post) and is thus slightly more powerful than the [GET query count](ref:#job-definition-get-job-definitions-count).
+Query for the number of job definitions that fulfill given parameters. This method takes the same message body as the [POST query](ref:#job-definition-get-job-definitions-post) and therefore it is slightly more powerful than the [GET query count](ref:#job-definition-get-job-definitions-count).
 
 
 Method
@@ -22,7 +22,7 @@ Parameters
   
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -35,7 +35,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>activityIdIn</td>
-    <td>Only include job definitions which belongs to one of the passed activity ids.</td>
+    <td>Only include job definitions which belong to one of the passed activity ids.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -78,7 +78,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

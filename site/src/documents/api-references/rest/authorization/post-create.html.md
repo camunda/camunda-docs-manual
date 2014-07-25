@@ -23,7 +23,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -65,7 +65,6 @@ A json object with the following properties:
 
 Result
 ------
-
 
 A json array with the following properties:
 
@@ -113,7 +112,7 @@ A json array with the following properties:
   <tr>
     <td>links</td>
     <td>Object</td>
-    <td>A json array containing links to interact with the resource. The links contain only operations that the currently authenticated user would be authorized to perform.</td>
+    <td>A JSON array containing links to interact with the resource. The links contain only operations that the currently authenticated user would be authorized to perform.</td>
   </tr>
 </table>
 
@@ -135,7 +134,7 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to create an instance of this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>

@@ -37,7 +37,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition to be retrieved the latest version.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
   </tr>
 </table>
 
@@ -54,7 +54,7 @@ Parameters
   </tr>
   <tr>
     <td>incidents</td>
-    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include for each occurred incident type the corresponding number of incidents. In the case of <code>false</code> the incidents will not be included in the result.</td>
+    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result.</td>
   </tr>
   <tr>
     <td>incidentsForType</td>
@@ -67,7 +67,7 @@ __Note:__ The query parameters `incidents` and `incidentsForType` are exclusive.
 Result
 --------------  
 
-A json array containing statistics results per activity.
+A JSON array containing statistics results per activity.
 Each object has the following properties:
 
 <table class="table table-striped">
@@ -100,7 +100,7 @@ Each object has the following properties:
           <li>incidentType: The type of the incident the number of incidents is aggregated for.</li>
           <li>incidentCount: The total number of incidents for the corresponding incident type.</li>
         </ul>
-        <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty, if no incidents were found.
+        <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty if no incidents were found.
     </td>
   </tr>
 </table>
@@ -170,7 +170,7 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
      "incidents":
       [
         {"incidentType":"failedJob", "incidentCount": 42 },
-        {"incidentType":"aIncident", "incidentCount": 20 }        
+        {"incidentType":"anIncident", "incidentCount": 20 }        
       ]
      },
      {"id":"anotherActivity",
@@ -179,17 +179,17 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
      "incidents":
       [
         { "incidentType":"failedJob", "incidentCount": 43 },
-        { "incidentType":"aIncident", "incidentCount": 22 }
+        { "incidentType":"anIncident", "incidentCount": 22 }
         { "incidentType":"anotherIncident", "incidentCount": 15 }
       ]
     }]
 
-#### Request with query parameter `incidentsForType=aIncident`
+#### Request with query parameter `incidentsForType=anIncident`
 
 <!-- TODO: Insert a 'real' example -->
-GET `/process-definition/aProcessDefinitionId/statistics?incidentsForType=aIncident`
+GET `/process-definition/aProcessDefinitionId/statistics?incidentsForType=anIncident`
 
-GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=aIncident`
+GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=anIncident`
 
 #### Response
 
@@ -198,7 +198,7 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=a
      "failedJobs":0,
      "incidents":
       [
-        {"incidentType":"aIncident", "incidentCount": 20 }        
+        {"incidentType":"anIncident", "incidentCount": 20 }        
       ]        
      },
      {"id":"anotherActivity",

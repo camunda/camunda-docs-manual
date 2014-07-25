@@ -49,7 +49,7 @@ Parameters
 Result
 ------
 
-A json object containing the a list of identity links.
+A JSON object containing the a list of identity links.
 
 <table class="table table-striped">
   <tr>

@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the JobDefinition interface in the engine.
+A JSON object corresponding to the JobDefinition interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -69,17 +69,17 @@ Its properties are as follows:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which are running for this job definition. For example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs which will be created. For timer jobs it is for example the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates whether this job definition is suspended.</td>
+    <td>Indicates whether this job definition is suspended or not.</td>
   </tr>
 </table>
 

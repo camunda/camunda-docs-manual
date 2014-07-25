@@ -35,7 +35,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 
 <table class="table table-striped">
@@ -74,7 +74,8 @@ A json object with the following properties:
 Result
 ------
 
-Empty.
+This method returns no content.
+
 
 Response codes
 --------------
@@ -93,12 +94,12 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to update this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to update this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>If the authorization with the requested Id cannot be found.</td>
+    <td>The authorization with the requested Id cannot be found.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -124,4 +125,4 @@ Request body:
 
 #### Response
 
-Empty.
+Status 204. No content.

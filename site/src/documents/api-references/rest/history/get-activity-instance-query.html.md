@@ -79,19 +79,19 @@ Parameters
   </tr>    
   <tr>
     <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -110,7 +110,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -118,7 +118,7 @@ Parameters
 Result
 ------
 
-A json array of historic activity instance objects.
+A JSON array of historic activity instance objects.
 Each historic activity instance object has the following properties:
 
 <table class="table table-striped">
@@ -170,17 +170,17 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>taskId</td>
     <td>String</td>
-    <td>The id of the task that is associated to this activity instance. Is only set, if the activity is a user task.</td>
+    <td>The id of the task that is associated to this activity instance. Is only set if the activity is a user task.</td>
   </tr>
   <tr>
     <td>assignee</td>
     <td>String</td>
-    <td>The assignee of the task that is associated to this activity instance. Is only set, if the activity is a user task.</td>
+    <td>The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task.</td>
   </tr>
   <tr>
     <td>calledProcessInstanceId</td>
     <td>String</td>
-    <td>The id of the called process instance. Is only set, if the activity is a call activity.</td>
+    <td>The id of the called process instance. Is only set if the activity is a call activity.</td>
   </tr>
   <tr>
     <td>startTime</td>

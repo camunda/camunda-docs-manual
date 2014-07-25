@@ -35,7 +35,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -44,12 +44,12 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
     A variable value object has the property <code>value</code>, which is the value to create or update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>
     <td>deletions</td>
-    <td>An array containing json objects. Each json object has a property <code>name</code>, which is the name of the variable to delete.</td>
+    <td>An array containing JSON objects. Each JSON object has a property <code>name</code>, which is the name of the variable to delete.</td>
   </tr>
 </table>
 

@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json array of user objects.
+A JSON array of user objects.
 Each user object has the following properties:
 
 <table class="table table-striped">
@@ -69,7 +69,7 @@ Each user object has the following properties:
   <tr>
     <td>links</td>
     <td>Object</td>
-    <td>A json array containing links to interact with the instance. The links contain only operations that the currently authenticated user is authorized to perform.</td>
+    <td>A JSON array containing links to interact with the instance. The links contain only operations that the currently authenticated user is authorized to perform.</td>
   </tr>
 </table>
 

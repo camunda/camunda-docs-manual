@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the Activity Instance tree of the given process instance.
+A JSON object corresponding to the Activity Instance tree of the given process instance.
 
 The properties of an activity instance are as follows: 
 
@@ -55,7 +55,7 @@ The properties of an activity instance are as follows:
   <tr>
     <td>activityId</td>
     <td>String</td>
-    <td>The id of activity.</td>
+    <td>The id of the activity.</td>
   </tr>
   <tr>
     <td>activityType</td>
@@ -105,7 +105,7 @@ The properties of a transition instance are as follows:
   <tr>
     <td>activityId</td>
     <td>String</td>
-    <td>The id of activity that is about to be entered</td>
+    <td>The id of the activity that is about to be entered</td>
   </tr>
   <tr>
     <td>processInstanceId</td>

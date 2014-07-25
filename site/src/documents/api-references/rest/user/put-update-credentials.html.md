@@ -20,7 +20,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -44,7 +44,8 @@ A json object with the following properties:
 Result
 ------
 
-Empty.
+This method returns no content.
+
 
 Response codes
 --------------
@@ -95,4 +96,4 @@ Request body:
 
 #### Response
 
-None.
+Status 204. No content.

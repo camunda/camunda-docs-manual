@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the ProcessInstance interface in the engine.
+A JSON object corresponding to the ProcessInstance interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -70,14 +70,14 @@ Its properties are as follows:
     <td>ended</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the process instance has ended.
+      A flag indicating whether the process instance has ended or not.
       <em>Deprecated: will always be false!</em>
     </td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the process instance is suspended.</td>
+    <td>A flag indicating whether the process instance is suspended or not.</td>
   </tr>
 </table>
 

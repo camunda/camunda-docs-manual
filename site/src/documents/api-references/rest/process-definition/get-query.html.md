@@ -117,7 +117,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -125,7 +125,7 @@ Parameters
 Result
 --------------
 
-A json array of process definition objects.
+A JSON array of process definition objects.
 Each process definition object has the following properties:
 
 <table class="table table-striped">
@@ -177,12 +177,12 @@ Each process definition object has the following properties:
   <tr>
     <td>diagram</td>
     <td>String</td>
-    <td>The file name of the process definition diagram, if exists.</td>
+    <td>The file name of the process definition diagram, if it exists.</td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the definition is suspended.</td>
+    <td>A flag indicating whether the definition is suspended or not.</td>
   </tr>
 </table>
 

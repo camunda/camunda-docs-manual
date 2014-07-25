@@ -41,7 +41,7 @@ Parameters
 Result
 ------
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>

@@ -35,7 +35,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition to be retrieved the latest version.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
   </tr>
 </table>
 
@@ -62,7 +62,7 @@ Response codes
   <tr>
     <td>204</td>
     <td></td>
-    <td>The process definition has not associated a diagram.</td>
+    <td>The process definition doesn't have an associated diagram.</td>
   </tr>
   <tr>
     <td>400</td>

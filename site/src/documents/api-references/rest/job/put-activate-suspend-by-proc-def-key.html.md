@@ -20,7 +20,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -33,7 +33,7 @@ A json object with the following properties:
   </tr>  
   <tr>
     <td>suspended</td>
-    <td>A <code>Boolean</code> value which indicates whether to activate or suspend all jobs with the given process definition key. When the value is set to <code>true</code>, then all jobs with the given process definition key will be suspended and when the value is set to <code>false</code>, then all jobs with the given process definition key will be activated.</td>
+    <td>A <code>Boolean</code> value which indicates whether to activate or suspend all jobs with the given process definition key. When the value is set to <code>true</code>, all jobs with the given process definition key will be suspended and when the value is set to <code>false</code>, all jobs with the given process definition key will be activated.</td>
   </tr>
 </table>
 

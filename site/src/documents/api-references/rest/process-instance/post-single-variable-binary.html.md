@@ -53,7 +53,7 @@ A multipart form submit with the following parts:
   <tr>
     <td>data</td>
     <td>application/json</td>
-    <td>A json representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
+    <td>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
   </tr>
   <tr>
     <td>type</td>
@@ -86,7 +86,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>    
 </table>
 
@@ -96,9 +96,11 @@ Example
 
 #### Request
 
-(1) Post the json serialization of a Java Class:
+(1) Post the JSON serialization of a Java Class:
 
 POST `/process-instance/aProcessInstanceId/variables/aVarName/data`
+
+Request body:
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -116,9 +118,13 @@ java.util.ArrayList<java.lang.Object>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
 
+#### Request
+
 (2) Post binary content of a byte array variable:
 
 POST `/process-instance/aProcessInstanceId/variables/aVarName/data`
+
+Request body:
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -129,3 +135,7 @@ Content-Transfer-Encoding: binary
 <<Byte Stream ommitted>>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
+
+#### Response
+    
+Status 204. No content.

@@ -10,8 +10,8 @@ keywords: 'historic post query list'
 
 
 Query for historic tasks that fulfill the given parameters.
-This method is slightly more powerful than the [GET query](ref:#history-get-task-historic), because it allows
-to filter by multiple process or task variables of types `String`, `Number` or `Boolean`.
+This method is slightly more powerful than the [GET query](ref:#history-get-task-historic) because it allows
+filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
 The size of the result set can be retrieved by using [get tasks count (POST)](ref:#history-get-task-count-post) method.
 
 
@@ -43,7 +43,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -68,7 +68,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belongs to one of the passed and comma-separated activity instance ids.</td>
+    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -148,50 +148,50 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>taskDueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskDueDateAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskFollowUpDateAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>taskVariables</td>
-    <td>A json array to only include tasks that have variables with certain values. <br/>
+    <td>A JSON array to only include tasks that have variables with certain values. <br/>
 
-    The array consists of json objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
-    <code>name</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td>A json array to only include tasks that belong to a process instance with variables with certain values.<br/>
-    The array consists of json objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
-    <code>name</code> is the variable name, <code>op</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <td>A JSON array to only include tasks that belong to a process instance with variables with certain values.<br/>
+    The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
     <br/>
-    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
     </td>
   </tr>
@@ -214,7 +214,7 @@ A json object with the following properties:
 Result
 ------
 
-A json array of historic task objects.
+A JSON array of historic task objects.
 Each historic task object has the following properties:
 
 <table class="table table-striped">

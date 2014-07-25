@@ -7,17 +7,15 @@ keywords: 'get'
 
 ---
 
-Retrieves the start form variables for a process definition. The start form variables take into
-account form data specified on the start event. If form fields are defined, the variable types and
-default values of the form fields are taken into account.
+Retrieves the start form variables for a process definition. The start form variables take form data specified on the start event into
+account. If form fields are defined, the variable types and default values of the form fields are taken into account.
 
 Method
 --------------  
 
 GET `/process-definition/{id}/form-variables`
 
-GET `/process-definition/key/{key}/form-variables` (returns the form variables for the latest 
-process definition by key).
+GET `/process-definition/key/{key}/form-variables` (returns the form variables for the latest process definition by key).
 
 
 Parameters
@@ -51,18 +49,18 @@ version of the process definition by key.</td>
   <tr>
     <td>variableNames</td>
     <td>A comma-separated list of variable names. Allows restricting the list of requested 
-        variables to the variable names in the list. It is best practice restricting the list of 
+        variables to the variable names in the list. It is best practice to restrict the list of 
         variables to the variables actually required by the form in order to minimize fetching of
         data. If the query parameter is ommitted all variables are fetched. If the query parameter
-        contains unexisting variable names, the variable names are ignored.</td>
+        contains non-existent variable names, the variable names are ignored.</td>
   </tr>
 </table>
 
 Result
 --------------  
 
-A json object containing a property for each variable returned. The key is the variable name, the
-value is a json object with the following properties:
+A JSON object containing a property for each variable returned. The key is the variable name, the
+value is a JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -123,7 +121,7 @@ value is a json object with the following properties:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
-    <td></td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
 </table>
 

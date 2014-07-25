@@ -8,7 +8,7 @@ keywords: 'get'
 ---
 
 
-Query for authorizations using a list of parameters and retrieves the count.
+Query for authorizations using a list of parameters and retrieve the count.
 
 
 Method
@@ -57,7 +57,7 @@ Parameters
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

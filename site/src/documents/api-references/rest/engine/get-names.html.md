@@ -27,7 +27,7 @@ This method takes no parameters.
 
 Result
 -----------------
-A json array consisting of engine objects.
+A JSON array consisting of engine objects.
 Each engine object has the following properties:
 
 <table class="table table-striped">

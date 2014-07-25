@@ -33,7 +33,7 @@ PUT `/job/{id}/duedate`
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -73,7 +73,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The duedate could not be set successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The due date could not be set successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

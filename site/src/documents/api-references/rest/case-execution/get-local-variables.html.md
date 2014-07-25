@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object of variables key-value pairs.
+A JSON object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
 <table class="table table-striped">

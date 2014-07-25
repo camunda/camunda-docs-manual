@@ -22,7 +22,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ A json object with the following properties:
     <td>profile</td>
     <td>Array</td>
     <td>
-      A json object containing variable key-value pairs. The object contains the following properties: 
+      A JSON object containing variable key-value pairs. The object contains the following properties: 
       <code>id (String)</code>, <code>firstName (String)</code>, <code>lastName (String)</code> and <code>email (String)</code>.
     </td>
   </tr>
@@ -42,7 +42,7 @@ A json object with the following properties:
     <td>credentials</td>
     <td>Array</td>
     <td>
-      A json object containing variable key-value pairs. The object contains the following properties:
+      A JSON object containing variable key-value pairs. The object contains the following property:
       <code>password (String)</code>.
     </td>
   </tr>

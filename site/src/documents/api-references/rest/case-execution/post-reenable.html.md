@@ -34,7 +34,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -43,12 +43,12 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
     A variable value object has the properties <code>value</code>, which is the value to create or update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date. A flag <code>local</code> must also be set, indicating whether the variable must be created and/or updated locally or not. If <code>local</code> is set to <code>true</code> the creation or update happens local and will be not propagated upwards in the case execution hierarchy.</td>
   </tr>
   <tr>
     <td>deletions</td>
-    <td>An array containg json objects. Each json object has a property <code>name</code>, which is the name of the variable to delete, and a property <code>local</code>, to indicate whether the variable must be deleted locally or not. If <code>local</code> is set to <code>true</code> the deletion does not propagate upwards in the case execution hierarchy.</td>
+    <td>An array containg JSON objects. Each JSON object has a property <code>name</code>, which is the name of the variable to delete, and a property <code>local</code>, to indicate whether the variable must be deleted locally or not. If <code>local</code> is set to <code>true</code> the deletion does not propagate upwards in the case execution hierarchy.</td>
   </tr>
 </table>
 

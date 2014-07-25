@@ -8,7 +8,7 @@ keywords: 'post'
 ---
 
 
-Executes the job. <strong>Note:</strong> The execution of the job happens in synchronously in the same thread.</code>
+Executes the job. <strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
 
 
 Method

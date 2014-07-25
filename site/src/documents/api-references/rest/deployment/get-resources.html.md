@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json array containing all deployment resources of the given deployment. Each
+A JSON array containing all deployment resources of the given deployment. Each
 object has the following properties:
 
 <table class="table table-striped">

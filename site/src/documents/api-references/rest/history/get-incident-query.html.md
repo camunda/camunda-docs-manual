@@ -30,7 +30,7 @@ Parameters
   </tr>
   <tr>
     <td>incidentId</td>
-    <td>Restricts to incidents that has the given id.</td>
+    <td>Restricts to incidents that have the given id.</td>
   </tr>
   <tr>
     <td>incidentType</td>
@@ -97,7 +97,7 @@ Parameters
 Result
 ------
 
-A json array of historic incident objects.
+A JSON array of historic incident objects.
 Each historic incident object has the following properties:
 
 <table class="table table-striped">
@@ -139,7 +139,7 @@ Each historic incident object has the following properties:
   <tr>
     <td>incidentType</td>
     <td>String</td>
-    <td>The type of this incident to identify the kind of incident. For example: <code>failedJobs</code> will be returned in the case of an incident, which identify a failed job during the execution of a process instance.</td>
+    <td>The type of incident, for example: <code>failedJobs</code> will be returned in case of an incident which identified a failed job during the execution of a process instance.</td>
   </tr>
   <tr>
     <td>activityId</td>

@@ -24,7 +24,7 @@ Parameters
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -42,8 +42,8 @@ A json object with the following properties:
   <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
-    Has to be a json object containing key-value pairs that are matched against process instance variables during correlation.<br/>
-    Each key is a variable name and each value a json variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.
+    Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.<br/>
+    Each key is a variable name and each value a JSON variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.
     
     <strong>Note:</strong> Process instance variables are the global variables of a process instance.
     Local variables of child executions (such as in subprocesses) are not considered!</td>
@@ -51,7 +51,7 @@ A json object with the following properties:
   <tr>
     <td>processVariables</td>
     <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
-    Each key is a variable name and each value a json variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
+    Each key is a variable name and each value a JSON variable value object. A variable value object has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>
     <td>all</td>
@@ -83,7 +83,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>No <code>messageName</code> was supplied or the message has not been correlated to exactly one entity (execution or process definition). Or the variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No <code>messageName</code> was supplied or the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

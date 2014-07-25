@@ -33,7 +33,7 @@ Parameters
   </tr>
   <tr>
     <td>attachmentId</td>
-    <td>The id of the attachment to be retrieved.</td>
+    <td>The id of the attachment to be removed.</td>
   </tr>
 </table>
 

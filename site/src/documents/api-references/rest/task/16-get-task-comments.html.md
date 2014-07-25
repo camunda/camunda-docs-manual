@@ -36,7 +36,7 @@ Parameters
 Result
 ------
 
-A json object containing a list of task comments.
+A JSON object containing a list of task comments.
 
 <table class="table table-striped">
   <tr>
@@ -52,7 +52,7 @@ A json object containing a list of task comments.
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user who has created the comment.</td>
+    <td>The id of the user who created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>

@@ -93,7 +93,7 @@ Parameters
   </tr>
   <tr>
     <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results, if there are no more results left.</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -101,7 +101,7 @@ Parameters
 Result
 --------------
 
-A json array of case definition objects.
+A JSON array of case definition objects.
 Each case definition object has the following properties:
 
 <table class="table table-striped">

@@ -58,7 +58,7 @@ Parameters
 Result
 ------
 
-A json array with the following properties:
+A JSON array with the following properties:
 
 <table class="table table-striped">
   <tr>

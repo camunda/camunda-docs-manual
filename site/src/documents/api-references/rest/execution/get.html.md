@@ -37,7 +37,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `Execution` interface in the engine.
+A JSON object corresponding to the `Execution` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -59,7 +59,7 @@ Its properties are as follows:
   <tr>
     <td>ended</td>
     <td>Boolean</td>
-    <td>A flag indicating whether the execution has ended.</td>
+    <td>A flag indicating whether the execution has ended or not.</td>
   </tr>
 </table>
 

@@ -36,9 +36,8 @@ Parameters
 
 #### Request Body
 
-<p>
-  A json object with the following properties:
-</p>
+A JSON object with the following properties:
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
@@ -46,7 +45,7 @@ Parameters
   </tr>
   <tr>
     <td>modifications</td>
-    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
     A variable value object has has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>

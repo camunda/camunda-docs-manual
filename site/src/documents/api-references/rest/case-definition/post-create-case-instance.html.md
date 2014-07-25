@@ -16,7 +16,7 @@ Method
 
 POST `/case-definition/{id}/create`
 
-POST `/case-definition/key/{key}/create` (creates the latest version of case definition)
+POST `/case-definition/key/{key}/create` (creates the latest version of the case definition)
 
 
 Parameters
@@ -35,14 +35,14 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the case definition to be retrieved the latest version.</td>
+    <td>The key of the case definition (the latest version thereof) to be retrieved.</td>
   </tr>
 </table>
 
 
 #### Request Body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -52,7 +52,7 @@ A json object with the following properties:
   <tr>
     <td>variables</td>
     <td>A json object containing the variables the case instance is to be initialized with.
-    Variable names are property keys of this object and variable values are json objects with a <code>value</code> and a <code>type</code> property (see example below).
+    Variable names are property keys of this object and variable values are JSON objects with a <code>value</code> and a <code>type</code> property (see example below).
     Valid variable values are Boolean, Number, String and Date values.</td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object representing the newly created case instance.
+A JSON object representing the newly created case instance.
 Properties are:
 
 <table class="table table-striped">
@@ -94,7 +94,7 @@ Properties are:
     <td>active</td>
     <td>Boolean</td>
     <td>
-      A flag indicating whether the case instance is active.
+      A flag indicating whether the case instance is active or not.
     </td>
   </tr>
 </table>
@@ -117,12 +117,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The case instance could not be created due to a non existing case definition key. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The case instance could not be created due to a nonexistent case definition key. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>

@@ -41,7 +41,7 @@ Parameters
 Result
 ------
 
-A json object corresponding to the `Comment` interface in the engine.
+A JSON object corresponding to the `Comment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -58,7 +58,7 @@ Its properties are as follows:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user who has created the comment.</td>
+    <td>The id of the user who created the comment.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -95,7 +95,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The task or comment with given task and comment id do not exist. Or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task or comment with given task and comment id do not exist, or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

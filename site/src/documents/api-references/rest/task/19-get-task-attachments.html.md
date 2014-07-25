@@ -36,7 +36,7 @@ Parameters
 Result
 ------
 
-A json object containing a list of task attachments.
+A JSON object containing a list of task attachments.
 
 <table class="table table-striped">
   <tr>
@@ -67,7 +67,7 @@ A json object containing a list of task attachments.
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>Indication of the type of content that this attachment refers to. Can be mime type or any other indication.</td>
+    <td>Indication of the type of content that this attachment refers to. Can be MIME type or any other indication.</td>
   </tr>
   <tr>
     <td>url</td>

@@ -9,7 +9,7 @@ keywords: 'historic post query list'
 
 
 Query for historic variable instances that fulfill the given parameters. 
-This method takes the same message body as the [POST query](ref:#history-get-variable-instances-post) and is thus more powerful regarding variable values than the [GET query count](ref:#history-get-variable-instances) method.
+This method takes the same message body as the [POST query](ref:#history-get-variable-instances-post) and therefore it is more powerful regarding variable values than the [GET query count](ref:#history-get-variable-instances) method.
 
 
 Method
@@ -23,7 +23,7 @@ Parameters
   
 #### Request body
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -48,15 +48,15 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>executionIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed execution ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed task ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed task ids.</td>
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
-    <td>Only include historic variable instances which belongs to one of the passed activity instance ids.</td>
+    <td>Only include historic variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
 </table>
 
@@ -64,7 +64,7 @@ A json object with the following properties:
 Result
 ------
 
-A json object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>

@@ -27,7 +27,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task to add the attachment.</td>
+    <td>The id of the task to add the attachment to.</td>
   </tr>
 </table>
 
@@ -72,7 +72,7 @@ A multipart form submit with the following parts:
 Result
 ------
 
-A json object corresponding to the `Attachment` interface in the engine.
+A JSON object corresponding to the `Attachment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -104,7 +104,7 @@ Its properties are as follows:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>Indication of the type of content that this attachment refers to. Can be mime type or any other indication.</td>
+    <td>Indication of the type of content that this attachment refers to. Can be MIME type or any other indication.</td>
   </tr>
   <tr>
     <td>url</td>

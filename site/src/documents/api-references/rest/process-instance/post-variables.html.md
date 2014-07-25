@@ -9,7 +9,7 @@ keywords: 'post'
 
 
 Updates or deletes the variables of a process instance.
-Updates precede deletes. So if a variable is updated AND deleted, the deletion overrides the update.
+Updates precede deletions. So, if a variable is updated AND deleted, the deletion overrides the update.
 
 
 Method
@@ -37,9 +37,8 @@ Parameters
 
 #### Request Body
 
-<p>
-  A json object with the following properties:
-</p>
+A JSON object with the following properties:
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
@@ -47,7 +46,7 @@ Parameters
   </tr>
   <tr>
     <td>modifications</td>
-    <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
     A variable value object has has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date.</td>
   </tr>
   <tr>
@@ -80,7 +79,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid. For example the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>

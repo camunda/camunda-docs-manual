@@ -62,7 +62,7 @@ Parameters
   </tr>
   <tr>
     <td>operationId</td>
-    <td>Filter by the id of the operation. This allows fetching multiple entries which are part of a composite operation.</td>
+    <td>Filter by the id of the operation. This allows fetching of multiple entries which are part of a composite operation.</td>
   </tr>
   <tr>
     <td>operationType</td>
@@ -90,7 +90,7 @@ Parameters
 Result
 ------
 
-An JSON object that contains the count as the only property.
+A JSON object that contains the count as the only property.
 
 <table class="table table-striped">
   <tr>
