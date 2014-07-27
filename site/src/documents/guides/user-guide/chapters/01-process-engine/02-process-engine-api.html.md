@@ -25,7 +25,7 @@ FormService formService = processEngine.getFormService();
 
 `ProcessEngines.getDefaultProcessEngine()` will initialize and build a process engine the first time it is called and afterwards always returns the same process engine. Proper creation and closing of all process engines can be done with `ProcessEngines.init()` and `ProcessEngines.destroy()`.
 
-The ProcessEngines class will scan for all camunda.cfg.xml and activiti-context.xml files. For all `camunda.cfg.xml` files, the process engine will be built in the typical way: `ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(inputStream).buildProcessEngine()`. For all `activiti-context.xml` files, the process engine will be built in the Spring way: First the Spring application context is created and then the process engine is obtained from that application context.
+The ProcessEngines class will scan for all camunda.cfg.xml and activiti.cfg.xml files. For all `camunda.cfg.xml` files, the process engine will be built in the typical way: `ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(inputStream).buildProcessEngine()`. For all `activiti.cfg.xml` files, the process engine will be built in the Spring way: First the Spring application context is created and then the process engine is obtained from that application context.
 
 All services are stateless. This means that you can easily run camunda BPM on multiple nodes in a cluster, each going to the same database, without having to worry about which machine actually executed previous calls. Any call to any service is idempotent regardless of where it is executed.
 

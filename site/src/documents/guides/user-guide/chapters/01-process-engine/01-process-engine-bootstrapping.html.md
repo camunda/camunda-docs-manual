@@ -119,6 +119,7 @@ The `bpm-platform.xml` file is used to configure the camunda BPM platform in the
 *   Apache Tomcat
 *   GlassFish Application Server
 *   IBM WebSphere Application Server
+*   Oracle WebLogic Application Server
 
 The `<process-engine ... />` xml tag allows you to define a process engine:
 
