@@ -12,7 +12,8 @@ See the above section on how to [install the pre-built distro](ref:#bpm-platform
 
 The following steps are required to deploy the applications on a Glassfish instance:
 
-1. Download the camunda web application that contains both applications from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/).
+1. Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/).
+   Or switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
    Edit the file `WEB-INF/sun-web.xml` in the war file and update the `context-root` element accordingly.

@@ -70,7 +70,8 @@ To exchange the preconfigured H2 datasource with your own, e.g. Oracle, you have
 
 ## Install camunda Cycle on vanilla GlassFish
 
-You can download the camunda Cycle web application from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-glassfish/).
+You can download the camunda Cycle web application from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-glassfish/).
+Or switch to the private repository for the enterprise version (User and password from license required).
 Choose the correct version named `$PLATFORM_VERSION/camunda-cycle-glassfish-$PLATFORM_VERSION.war`.
 
 ### Create a datasource
