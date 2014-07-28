@@ -167,7 +167,7 @@ them using the current <code>DelegateExecution</code>.
 Alternatively, you can also set the expressions as an attribute instead of a child-element, to make the XML less verbose.
 
     <camunda:field name="text1" expression="${genderBean.getGenderString(gender)}" />
-    <camunda:field name="text1" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
+    <camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
 <strong> Since the Java class instance is reused, the injection only happens once, when the
 serviceTask is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them
 as immutable and not make any changes to them.</strong>
