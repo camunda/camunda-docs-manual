@@ -14,19 +14,19 @@
         or checkout the corresponding tag with Git.
     </div>
     <div class="panel-body">
-      Additionally to this guide is the source code of the example project also available on
+      In addition to this guide, the source code of the example project is also available on
       <a href="https://github.com/camunda/<%= @repo %>">GitHub</a>.
       You can directly <a href="https://github.com/camunda/<%= @repo %>/archive/master.zip">download</a>
       the whole project or clone it with git:
       <pre class="console">git clone https://github.com/camunda/<%= @repo %>.git</pre>
-      To follow this guide <a href="https://github.com/camunda/<%= @repo %>/archive/Start.zip">download</a>
+      To follow this guide, <a href="https://github.com/camunda/<%= @repo %>/archive/Start.zip">download</a>
       the initial state or checkout the tag in the git repositiory:
       <pre class="console">git checkout -f Start</pre>
       or every step in between:
       <pre class="console">git checkout -f Step-X</pre>
 
       After every section in this guide you will find a box which contains a download link to the current
-      state of the project and git instructions to checkout the current version of the repositiory.
+      state of the project and git instructions to checkout the current version of the repository.
     </div>
   </div>
 </div>

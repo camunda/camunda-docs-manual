@@ -8,32 +8,23 @@ category: 'Roundtrip'
     <p>
       If you want to use an other BPMN 2.0 modeler, that modeler <b>must</b> comply with the following requirements:
     <ul>
-      <li>Complete Support of BPMN 2.0 notation</li>
+      <li>Complete support of the BPMN 2.0 notation</li>
       <li>Export/Serialization of Process Diagrams in valid BPMN 2.0 XML</li>
     </ul>
     <p>
-      These are the minimum requirements for Forward Engineering. If you want to use that modeler for a complete
-      roundtrip, it <b>must</b> further allow:
+      These are the minimum requirements for Forward Engineering. If you want to use the same modeler for a complete roundtrip, it <b>must</b> also allow:
     </p>
     <ul>
       <li>Import/Deserialization of BPMN 2.0 XML into Process Diagrams</li>
       <li>Import and Storage of BPMN 2.0 execution attributes</li>
-      <li>
-        Import and Storage of additional execution attributes (according to the
-        <a href="http://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 Specification</a>, you are allowed to extend the BPMN
-        2.0 XML with additional attributes, which camunda BPM does for simplifying process application development)
+      <li>Import and Storage of additional execution attributes (according to the <a href="http://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 Specification</a>, you are allowed to extend the BPMN 2.0 XML with additional attributes, which camunda BPM does to simplify process application development)
       </li>
     </ul>
     <p>
-      These are the minimum requirements for Roundtrip Engineering. If your modeler complies with them, you can use
-      it on a simple file base, meaning you would just use the File or Subversion Connector in camunda Cycle to add
-      the BPMN 2.0 Files exported from your modeler to the roundtrip. This is if course less convenient than what we
-      have just described using Signavio. Unfortunately, none of the other BPMN 2.0 tools we know currently offers
-      an API that Cycle could connect with (if you are a Tool Vendor, please <a href="#vendorSect">see below</a>.)
+      These are the minimum requirements for Roundtrip Engineering. If your modeler complies with them, you can use it on a simple file base, meaning that you would just use the File or Subversion Connector in camunda Cycle to add the BPMN 2.0 Files exported from your modeler to the roundtrip. This is of course less convenient than what we have just described using Signavio. Unfortunately, none of the other BPMN 2.0 tools we know currently offer an API that Cycle could connect with (if you are a Tool Vendor, please see <a href="#vendorSect">this section</a>).
     </p>
     <p>
-      Here is an overview about BPMN 2.0 modelers we know, and the requirements they comply with (information given
-      without any warranty):
+      Here is an overview of BPMN 2.0 modelers we know, and the requirements they comply with (information given without any warranty):
     </p>
     <table class="table table-responsive table-striped table-hover">
       <tr>
@@ -145,6 +136,8 @@ category: 'Roundtrip'
         <td class="center">yes</td>
       </tr>
     </table>
-    <p>If this overview is in any way not correct or out-dated, please <a href="mailto:community@camunda.org">let us know</a>!</p>
+    <p>
+      If this overview is in any way incorrect or outdated, please <a href="mailto:community@camunda.org">let us know</a>!
+    </p>
   </div>
 </div>

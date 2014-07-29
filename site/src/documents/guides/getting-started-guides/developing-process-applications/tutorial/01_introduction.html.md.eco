@@ -3,22 +3,20 @@ title: 'What will you learn'
 category: 'Tutorial'
 ---
 
-<p>
-  This tutorial guides you through setting up camunda BPM and developing your first process application.
-  You will learn to
-</p>
+This tutorial guides you through setting up camunda BPM and developing your first process application. You will learn to  
+
 <dl class="dl-horizontal">
   <dt>
     <a href="ref:#tutorial-download-and-installation">Install</a>
   </dt>
   <dd>
-    camunda BPM platform and camunda Modeler on your machine. In this tutorial we use the Apache Tomcat based distribution.
+     the camunda BPM platform and camunda Modeler on your machine. In this tutorial we use the Apache Tomcat based distribution.
   </dd>
   <dt>
-    <a href="ref:#tutorial-setup-your-project">Setup</a>
+    <a href="ref:#tutorial-set-up-your-project">Set up</a>
   </dt>
   <dd>
-    An Apache Maven-based process application inside eclipse and deploy it to the camunda BPM platform.
+    an Apache Maven-based process application inside eclipse and deploy it to the camunda BPM platform.
   </dd>
   <dt>
     <a href="ref:#tutorial-model-a-process">Model</a>
