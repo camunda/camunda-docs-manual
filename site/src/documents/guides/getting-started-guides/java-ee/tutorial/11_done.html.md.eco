@@ -139,7 +139,6 @@ category: 'Tutorial'
     </faces-config>
   </script>
 
-
   <script type="text/xml" id="persistence.xml">
     <?xml version="1.0" encoding="UTF-8"?>
     <persistence version="2.0"
@@ -185,7 +184,7 @@ category: 'Tutorial'
 
     <f:view>
       <f:metadata>
-        <!-- Start a new process instance. Process Definition Key is read internally from
+        <!-- Start a new process instance. The Process Definition Key is read internally from
              request parameters and cached in the CDI conversation scope.
         -->
         <f:event type="preRenderView" listener="#{camundaTaskForm.startProcessInstanceByKeyForm()}" />
@@ -306,7 +305,6 @@ category: 'Tutorial'
       }
     }
   </script>
-
 
   <script type="text/html" id="OrderBusinessLogic">
     package org.camunda.bpm.getstarted.pizza;
@@ -535,24 +533,23 @@ category: 'Tutorial'
     }
   </script>
 
-
   <script type="text/ng-template" id="code-annotations">
     {
     "pom.xml":
-    { "war": "Process Applications are most commonly packaged as Java Web Applications (WAR files). Other deployment options are available. On the Java EE 6 platform, you can use plain JAR or advanced EAR deployments as well." ,
-    "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
-    "javax.servlet-api": "The servlet API is required for compilation",
-    "false" : "With Servlet 3.0 we do not need a web.xml file. Maven needs to catch up.",
-    "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
+      { "war": "Process Applications are most commonly packaged as Java Web Application Archives (WAR files). Other deployment options are available. On the Java EE 6 platform, you can use plain JAR or advanced EAR deployments as well." ,
+      "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
+      "javax.servlet-api": "The servlet API is required for compilation",
+      "false" : "With Servlet 3.0 we do not need a web.xml file. Maven needs to catch up.",
+      "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
 
-    },
-    "processes.xml":
-    {
-    "loan-approval": "The name of the process engine deployment to be constructed.",
-    "default": "The name of the process engine we want to use (you can start multiple process engines).",
-    "isDeleteUponUndeploy": "Controls whether the process engine deployment should be removed when the process application is undeployed. If set to true, all process instances are deleted in the database when the WAR file is removed from the server.",
-    "isScanForProcessDefinitions": "If set to true, the WAR file is automatically scanned for process definitions. All files ending in <code>.bpmn20.xml</code> or <code>.bpm</code> are automatically picked up."
-    }
+      },
+      "processes.xml":
+      {
+      "loan-approval": "The name of the process engine deployment to be constructed.",
+      "default": "The name of the process engine we want to use (you can start multiple process engines).",
+      "isDeleteUponUndeploy": "Controls if the process engine deployment should be removed when the process application is undeployed. If set to true, all process instances are deleted in the database when the WAR file is removed from the server.",
+      "isScanForProcessDefinitions": "If set to true, the WAR file is automatically scanned for process definitions. All files ending in <code>.bpmn20.xml</code> or <code>.bpm</code> are automatically picked up."
+      }
     }
   </script>
 </div>

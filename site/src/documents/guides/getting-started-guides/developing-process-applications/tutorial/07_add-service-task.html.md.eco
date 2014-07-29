@@ -2,49 +2,45 @@
 title: 'Add a Service Task'
 category: 'Tutorial'
 ---
-<p>
-  In the last section of the tutorial we add some code to the process.
-</p>
-<h3>Add a Service Task to the Process</h3>
+
+In the last section of this tutorial we add some code to the process.
+
+###Add a Service Task to the Process
+
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
     <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-add-service-task.png"/>
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
-      Use the camunda modeler plugin in eclipse to add a service task after the user task. The service task can be
-      dropped on a sequence flow (see screenshot).
+      Use the camunda modeler plugin in eclipse to add a service task after the user task. The service task can be dropped on a sequence flow (see screenshot).
     </p>
   </div>
 </div>
 
-<h3>Add a JavaDelegate Implementation</h3>
-<p>
-  Now we need to add the actual service task implementation.
-  Add a class named <code>ProcessRequestDelegate</code> implementing the <code>JavaDelegate</code> interface:
-</p>
+###Add a JavaDelegate Implementation
+
+Now we need to add the actual service task implementation. Add a class named `ProcessRequestDelegate` implementing the `JavaDelegate` interface:
 
 <div class="app-source" data-source-code="ProcessRequestDelegate" annotate="code-annotations"></div>
 
-<h3>Configure the Class in the Process</h3>
+###Configure the Class in the Process
+
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
     <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-configure-service.png"/>
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
-      Use the properties view for referencing the Service Task in the process (See Screenshot). You need to provide the
-      fully qualified classname of you class in the <code>class</code> property field.
+      Use the properties view to reference the Service Task in the process (see screenshot). You need to provide the fully qualified classname of your class in the <code>class</code> property field.
     </p>
     <p>
-      Build, deploy and execute the process. After completing the <em>Approve Application</em> step, check the logfile
-      of the Apache Tomcat server:
+      Build, deploy and execute the process. After completing the <em>Approve Application</em> step, check the logfile of the Apache Tomcat server:
     </p>
     <pre class="console">
 17.03.2013 08:42:14 org.camunda.bpm.getstarted.loanapproval.ProcessRequestDelegate execute
 INFO: Processing request by 'AC-343422'...
     </pre>
-
     <div class="panel-group" id="accClassloading">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -56,13 +52,18 @@ INFO: Processing request by 'AC-343422'...
         <div id="accClassloadingCollapsed" class="panel-collapse collapse">
           <div class="panel-body">
             <p>
-              The process engine resolves the ProcessRequestDelegate class from the process application classloader.
-              This allows you to
+              The process engine resolves the ProcessRequestDelegate class from the process application classloader. This allows you to
             </p>
             <ul>
-              <li>have a different Classloader for each Process Application,</li>
-              <li>bundle libraries inside your application,</li>
-              <li>(re-)deploy the application at runtime (without stopping / restarting the process engine).</li>
+              <li>
+                have a different classloader for each Process Application,
+              </li>
+              <li>
+                bundle libraries inside your application,
+              </li>
+              <li>
+                (re-)deploy the application at runtime (without stopping / restarting the process engine).
+              </li>
             </ul>
           </div>
         </div>

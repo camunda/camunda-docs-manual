@@ -4,39 +4,21 @@ shortTitle: 'Shared Process Engine'
 category: 'Bonus Chapter'
 ---
 
-<p>
-  In this tutorial we explored how to setup an embedded process engine inside a Web application using the Spring
-  Framework. You can also use the Spring Framework for developing applications that use a Shared Process engine.
-  As opposed to the Embedded Process engine, the Shared Process engine is controlled independently from an application
-  and is started / stopped by the runtime container (like Apache Tomcat). This allows multiple applications (or a single
-  modular application) to use the same process engine. You can also re-deploy individual applications independently
-  from the process engine.
-</p>
-<p>
-  In order to configure the loanapproval-spring example to work with an embedded process engine, you have to change
-  three things:
-</p>
+In this tutorial we explore how to set up an embedded process engine inside a web application using the Spring Framework. You can also use the Spring Framework to develop applications that use a shared process engine. As opposed to the embedded process engine, the shared process engine is controlled independently from an application and is started / stopped by the runtime container (like Apache Tomcat). This allows multiple applications (or a single modular application) to use the same process engine. You can also re-deploy individual applications independently from the process engine.
 
-<p>
-  First, we need to set the scope of the Maven dependency of the camunda-engine dependency to <code>provided</code>.
-  On the camunda BPM platform the process engine library is provided as a shared library and does not need to be
-  bundled with the application:
-</p>
+In order to configure the loanapproval-spring example to work with an embedded process engine, you have to change three things:
+
+First, we need to set the scope of the Maven dependency of the camunda-engine dependency to `provided`. On the camunda BPM platform the process engine library is provided as a shared library and does not need to be bundled with the application:
+
 <div class="app-source" data-source-code="provided-engine" annotate="code-annotations" ></div>
 
-<p>
-  Furthermore, you can delete the dependencies <code>org.springframework:spring-jdbc</code> and
-  <code>com.h2database:h2</code>.
-</p>
-<p>
-  Second, you need to add a <code>META-INF/processes.xml</code> file to your application.
-</p>
+Furthermore, you can delete the dependencies `org.springframework:spring-jdbc` and `com.h2database:h2`.
+
+Second, you need to add a `META-INF/processes.xml` file to your application.
+
 <div class="app-source" data-source-code="platform-processes.xml" annotate="code-annotations" ></div>
 
-<p>
-  And third, the <code>applicationContext.xml</code> file is adjusted such that the shared process engine is looked up
-  and a <code>SpringServletProcessApplication</code> is bootstrapped:
-</p>
+And third, the `applicationContext.xml` file is adjusted so that the shared process engine is looked up and a `SpringServletProcessApplication` is bootstrapped:
 
 <div class="app-source" data-source-code="managed-engine-lookup" annotate="code-annotations" ></div>
 
@@ -111,8 +93,6 @@ category: 'Bonus Chapter'
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-
   </beans>
 </script>
 
@@ -345,37 +325,37 @@ category: 'Bonus Chapter'
 
 <script type="text/ng-template" id="code-annotations">
   {
-  "pom.xml":
-  {
-  "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
-  "camunda-engine-spring": "Spring framework integration module for the process engine.",
-  "spring-web": "The Spring Web artifact declaratively pulls in the Spring core libraries.",
-  "com.h2database": "we use an embedded H2 database for the process engine",
-  "springsource-repo": "repository for Spring artifacts.",
-  "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
+    "pom.xml":
+    {
+    "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
+    "camunda-engine-spring": "Spring framework integration module for the process engine.",
+    "spring-web": "The Spring web artifact declaratively pulls in the Spring core libraries.",
+    "com.h2database": "We use an embedded H2 database for the process engine",
+    "springsource-repo": "Repository for Spring artifacts.",
+    "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
 
-  },
-  "web.xml":
-  {
-  "contextConfigLocation": "location of Spring XML files",
-  "ContextLoaderListener": "the listener that kick-starts Spring"
-  },
-  "embeddedEngine.xml":
-  {
-  "dataSource": "Configuration of the dataSource to be used by the process engine. In this case we use an in-memory H2 database.",
-  "processEngineConfiguration": "The process engine configuration bean allows configuration the process engine. In this case, the datasource and transaction manager properties are configured.",
-  "ProcessEngineFactoryBean": "the Process Engine is created by a factory bean."
-  },
-  "autodeployment":
-  {
-  "classpath*:*.bpmn": "picks up all BPMN 2.0 files on the classpath and deploys them to the process engine."
-  },
-  "applicationContext-withSpringPa":
-  {
-  "processApplication": "Defining a SpringServletProcessApplication makes sure the META-INF/processes.xml file is picked up.",
-  "ManagedProcessEngineFactoryBean": "Alternative Process Engine Factory Bean which registers the process engine with the ProcessEngineService.",
-  "\"engine\"": "the name of the process engine. Must be referenced in the META-INF/processes.xml file."
-  }
+    },
+    "web.xml":
+    {
+    "contextConfigLocation": "Location of Spring XML files",
+    "ContextLoaderListener": "The listener that kick-starts Spring"
+    },
+    "embeddedEngine.xml":
+    {
+    "dataSource": "Configuration of the dataSource to be used by the process engine. In this case we use an in-memory H2 database.",
+    "processEngineConfiguration": "The process engine configuration bean allows configuration of the process engine. In this case, the datasource and transaction manager properties are configured.",
+    "ProcessEngineFactoryBean": "The Process Engine is created by a factory bean."
+    },
+    "autodeployment":
+    {
+    "classpath*:*.bpmn": "picks up all BPMN 2.0 files on the classpath and deploys them to the process engine."
+    },
+    "applicationContext-withSpringPa":
+    {
+    "processApplication": "Defining a SpringServletProcessApplication makes sure the META-INF/processes.xml file is picked up.",
+    "ManagedProcessEngineFactoryBean": "Alternative Process Engine Factory Bean which registers the process engine with the ProcessEngineService.",
+    "\"engine\"": "the name of the process engine. Must be referenced in the META-INF/processes.xml file."
+    }
   }
 </script>
 </div>

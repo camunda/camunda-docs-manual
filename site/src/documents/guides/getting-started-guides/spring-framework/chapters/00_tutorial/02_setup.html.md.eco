@@ -1,0 +1,108 @@
+---
+title: 'Set up your Project'
+category: 'Tutorial'
+---
+
+We will start by setting up a Spring web application as an Apache Maven Project inside eclipse. This consists of four steps:
+
+1. [Create a new Maven Project in Eclipse](#set-up/eclipse)
+2. [Add the camunda & Spring framework dependencies](#set-up/maven)
+3. [Add the web.xml file for bootstrapping the Spring container](#set-up/web.xml)
+4. [Add a Spring application context XML configuration file](#set-up/application-context)
+
+In the following sections, we go through this process step by step.
+
+<section id="set-up/eclipse">
+  <h3>Create a new Maven Project in Eclipse</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img data-img-thumb src="ref:asset:/assets/img/getting-started/spring-framework/eclipse-new-project.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        First, we set up a new Apache Maven based project in eclipse. Let's call it <em>loanapproval-spring</em>. The screenshot to the left illustrates the settings we choose. As we are deploying a web application, make sure to select <code>Packaging: war</code>.
+      </p>
+      <div class="alert alert-info">
+        If you are unfamiliar with setting up a Maven project, read the <a href ="ref:/guides/getting-started-guides/developing-process-applications/#tutorial-set-up-your-project"><em>Set up your Project</em></a> section of the
+        <a href="ref:/guides/getting-started-guides/developing-process-applications/">Developing Process Applications</a> tutorial.
+      </div>
+      <p>
+        When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> view.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/maven">
+  <h3>Add camunda BPM &amp; Spring Framework dependencies</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        The next step consists of setting up the Maven dependencies for the new project. Maven dependencies need to be added to the <code>pom.xml</code> file of the project. We add both the camunda BPM and the Spring Framework dependencies:
+      </p>
+
+      <div class="app-source" data-source-code="pom.xml" annotate="code-annotations" ></div>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/web.xml">
+  <h3>Add web.xml file for bootstrapping the Spring container</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        Next, we add a <code>web.xml</code> file for bootstrapping the spring container. In order to do so, first add a folder named <code>WEB-INF</code> to the (preexisting) <code>src/main/webapp</code> folder of your Maven project. Inside this folder, add a file named <code>web.xml</code>:
+      </p>
+      <div class="app-source" data-source-code="web.xml" annotate="code-annotations" ></div>
+      <p>
+        Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/application-context">
+  <h3>Add a Spring application context XML configuration file</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        Next, we add a Spring ApplicationContext XML file to the same <code>src/main/webapp/WEB-INF</code> folder. The file must be named <code>applicationContext.xml</code>. We start with an empty file:
+      </p>
+      <div class="app-source" data-source-code="applicationContext.xml" annotate="code-annotations" ></div>
+    </div>
+  </div>
+</section>
+
+###Set up complete!
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/spring-framework/project-layout-after-setup.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    <p>
+      Congratulations, you have completed the project setup. Your project should now look as depicted in the screenshot to the left.
+    </p>
+    <p>
+      You can now perform a full Maven build and deploy the project to a vanilla Apache Tomcat server. You should see the following log output:
+    </p>
+    <pre class="console">
+      28.04.2013 15:11:02 org.apache.catalina.startup.HostConfig deployWAR
+      INFO: Deploying web application archive C:\demo\apache-tomcat-7.0.39\webapps\loanapproval-spring-0.0.1-SNAPSHOT.war
+      28.04.2013 15:11:03 org.springframework.web.context.ContextLoader initWebApplicationContext
+      INFO: Root WebApplicationContext: initialization started
+      28.04.2013 15:11:03 org.springframework.context.support.AbstractApplicationContext prepareRefresh
+      INFO: Refreshing Root WebApplicationContext: startup date [Sun Apr 28 15:11:03 CEST 2013]; root of context hierarchy
+      28.04.2013 15:11:03 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+      INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+      28.04.2013 15:11:03 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+      INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1a8dfb3: defining beans []; root of factory hierarchy
+      28.04.2013 15:11:03 org.springframework.web.context.ContextLoader initWebApplicationContext
+      INFO: Root WebApplicationContext: initialization completed in 170 ms
+    </pre>
+    <p>
+      This means that you have set up your Spring web application correctly.
+    </p>
+  </div>
+</div>
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-1"}) %>

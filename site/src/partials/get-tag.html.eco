@@ -19,7 +19,7 @@
     <div id="git<%= @tag %>Collapsed" class="panel-collapse collapse">
       <div class="panel-body">
         <p>You can checkout the current state from the <a href="https://github.com/camunda/<%= @repo %>">GitHub repository</a>.</p>
-        <p>If you have not already cloned the repository please execute the following command:
+        <p>If you have not cloned the repository yet, please execute the following command:
         <pre class="console">git clone https://github.com/camunda/<%= @repo %>.git</pre>
         </p>
         <p>
