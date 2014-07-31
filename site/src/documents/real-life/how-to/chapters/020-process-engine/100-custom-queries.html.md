@@ -117,6 +117,7 @@ In order to solve the requirements stated in the introduction, we can think of a
  *   Add **redundant information**, an easy, but often sufficient, approach to improve queries, which doesn't need a lot of understanding of the persistence implementation:
      *   Add process variables for all query parameters. In our example that would mean to add the region as its own process variable. This approach is **recommend**.
      *   Add process information to the domain mode. In our example this could mean to add an seperate entity task which is synchronized with the process engine task management. This is possible but requires some work which must be done carefully to make sure that the process engine and your domain objects are always in sync.
+ * Add a materialized view that joins the required database tables into one flat table.
 
 
 ## Custom MyBatis Queries
