@@ -271,7 +271,7 @@ title: 'Latest Version'
         <a href="ref:/guides/migration-guide">Migration</a> and <a href="ref:/guides/migration-guide/#patch-level-upgrade">Upgrade Guide</a>
       </li>       
       <li>
-        <a href="http://camunda.org/get-started/">Read getting started Guide</a>
+        <a href="ref:/guides/getting-started-guides/">Read getting started Guide</a>
       </li>
       <li>
         <a href="ref:/real-life/examples/" id="githubExamples">Examples</a>
@@ -281,6 +281,3 @@ title: 'Latest Version'
       </li>
   </div>
 </div>
-
-
-
