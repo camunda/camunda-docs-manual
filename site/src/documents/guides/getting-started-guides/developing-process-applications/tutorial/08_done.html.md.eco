@@ -18,7 +18,7 @@ shortTitle: 'Done!'
         <a href="ref:/api-references/bpmn20/">Explore the BPMN 2.0 Implementation Reference</a>
       </li>
       <li>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://camunda.org/get-started/"
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://docs.camunda.org/latest/guides/getting-started-guides/"
            data-text="Whohoo! I just developed my first #BPMN Process Application." data-size="large" data-hashtags="camunda">Tweet</a>
       </li>
     </ul>
