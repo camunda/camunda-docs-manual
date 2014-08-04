@@ -5,14 +5,13 @@ category: 'User Interface'
 
 ---
 
-
 ## Adding JSF Forms to your process application
 
-If you add JSF forms as described below you can easily use them as [external task forms](ref:/guides/user-guide/#tasklist-task-forms-external-task-forms).
+If you add JSF forms as described below, you can easily use them as [external task forms](ref:/guides/user-guide/#tasklist-task-forms-external-task-forms).
 
 A working example can be found in the [examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-external-jsf).
 
-The BPMN process used for this example is shown in the following picture:
+The BPMN process used for this example is shown in the image below:
 
 <center>
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/task-form-process.png" class="img-responsive"/>
@@ -20,7 +19,7 @@ The BPMN process used for this example is shown in the following picture:
 
 In this process model we added so called form keys to
 
- * the Start Event "invoice received". This is the form the user has to complete for starting a new process instance.
+ * the Start Event "invoice received". This is the form the user has to complete to start a new process instance.
  * the User Tasks. These are the forms the user has to complete when completing user tasks that are assigned to him.
 
 This is how the forms are referenced in the BPMN 2.0 XML with the `camunda:formKey` attribute:
@@ -39,9 +38,9 @@ This is how the forms are referenced in the BPMN 2.0 XML with the `camunda:formK
     camunda:formKey="app:acknowledge-form.jsf" />
 ```
 
-## Creating Simple User Task Form
+## Creating Simple User Task Forms
 
-Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User Tasks. Shown below is a very simple task form:
+Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User Tasks. A very simple task form is shown below:
 
 ```xml
 <!DOCTYPE HTML>
@@ -61,8 +60,8 @@ Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User
     <h1>#{task.name}</h1>
     <h:form id="someForm">
       <p>
-        Here you would see the actual form to work on the task in some design
-        normally either matching you task list or your business application
+        Here you would see the actual form to work on the task in a design
+        normally either matching your task list or your business application
         (or both in the best case).
       </p>
 
@@ -76,20 +75,15 @@ Create a JSF page in `src/main/webapp/WEB-INF` representing a form used for User
 
 Note that you need `camunda-engine-cdi` in order to have the `camundaTaskForm` bean available.
 
-
 ## How does this work?
 
-If the user clicks on "Start to work on task" (![start task button in tasklist][start-task])
-in the tasklist, he will follow a link to this form, including the taskId and
-the callback URL (the URL to access the central tasklist) as GET-Parameters.
-Accessing this form will trigger the special CDI bean `camundaTaskForm` which
+If the user clicks on "Start to work on task" (![start task button in tasklist][start-task]) in the tasklist, he will follow a link to this form, including the taskId and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean `camundaTaskForm` which
 
  *   starts a conversation,
  *   remembers the callback URL
- *   starts the User Task in the process engine, meaning the bean sets the start date and assigns the task to the
-     CDI business process scope (see [CDI Integration](ref:/guides/user-guide/#cdi-and-java-ee-integration) for details).
+ *   starts the User Task in the process engine, meaning the bean sets the start date and assigns the task to the CDI business process scope (see [CDI Integration](ref:/guides/user-guide/#cdi-and-java-ee-integration) for details).
 
-Therefore you just need this code block add the beginning of your JSF view:
+For that, you just need to add this code block to the beginning of your JSF view:
 
 ```xml
 <f:metadata>
@@ -97,27 +91,21 @@ Therefore you just need this code block add the beginning of your JSF view:
 </f:metadata>
 ```
 
-Submit the form by calling the `camundaTaskForm` bean again which
+Submit the form by calling the `camundaTaskForm` bean again, which:
 
-*   completes the task in the process engine, causing the current token to advance in the process,
-*   ends the conversation,
-*   triggers a redirect to the callback URL of the tasklist.
+*   Completes the task in the process engine, causing the current token to advance in the process
+*   Ends the conversation
+*   Triggers a redirect to the callback URL of the tasklist
 
 ```xml
 <h:commandButton id="complete" value="task completed" action="#{camundaTaskForm.completeTask()}" />
 ```
 
-Note that the command button doesn't have to be on the same form, you might
-have a whole wizard containing multiple forms in a row before having the
-`completeTask` button. This will work because of the conversation running in
-the background.
-
+Note that the command button doesn't have to be on the same form, you might have a whole wizard containing multiple forms in a row before having the `completeTask` button. This will work because of the conversation running in the background.
 
 ## Access process variables
 
-In the forms you can access your own CDI beans as usual and also access the
-camunda CDI beans. This makes it easy to access process variables, e.g. via the
-`processVariables` CDI bean:
+In the forms you can access your own CDI beans as usual and also access the camunda CDI beans. This makes it easy to access process variables, e.g., via the `processVariables` CDI bean:
 
 ```xml
 <h:form id="someForm">
@@ -150,13 +138,13 @@ camunda CDI beans. This makes it easy to access process variables, e.g. via the
 </h:form>
 ```
 
-This is rendered to a simple form
+This is rendered to a simple form:
 
 <center>
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/variablesTaskFormExample.png" class="img-responsive"/>
 </center>
 
-The same mechanism can be used to start a new process instance.
+The same mechanism can be used to start a new process instance:
 
 ```xml
 <!DOCTYPE HTML>
@@ -209,16 +197,12 @@ The same mechanism can be used to start a new process instance.
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/startFormExample.png" class="img-responsive"/>
 </center>
 
-If the user clicks on "Start a process instance" (![start process button][start-process])
-in the tasklist and chooses the process your start form is assigned to, he
-will follow a link to this form, including the processDefinitionKey and the
-callback URL (the URL to access the central tasklist) as GET-Parameters.
-Accessing this form will trigger the special CDI bean `camundaTaskForm` which
+If the user clicks on "Start a process instance" (![start process button][start-process]) in the tasklist and chooses the process your start form is assigned to, he will follow a link to this form, including the processDefinitionKey and the callback URL (the URL to access the central tasklist) as GET-Parameters. Accessing this form will trigger the special CDI bean `camundaTaskForm` which:
 
-*   starts a conversation,
-*   remembers the callback URL to the centralized tasklist.
+*   Starts a conversation
+*   Remembers the callback URL to the centralized tasklist
 
-You need this code block in your add the beginning of your JSF view:
+You need to add this code block to the beginning of your JSF view:
 
 ```xml
 <f:metadata>
@@ -226,21 +210,17 @@ You need this code block in your add the beginning of your JSF view:
 </f:metadata>
 ```
 
-Submitting the start form now
+Submitting the start form now:
 
- * starts the process instance in the process engine,
- * ends the conversation,
- * triggers a redirect to the callback URL of the tasklist.
+ * Starts the process instance in the process engine
+ * Ends the conversation
+ * Triggers a redirect to the callback URL of the tasklist
 
 ```xml
 <h:commandButton id="start" value="Start Process Instance" action="#{camundaTaskForm.completeProcessInstanceForm()}" />
 ```
 
-Note that the command button doesn't have to be on the same form, you might
-have a whole wizard containing multiple forms in a row before having the
-`completeProcessInstanceForm` button. This will work because of the
-conversation running in the background.
-
+Note that the command button doesn't have to be on the same form, you might have a whole wizard containing multiple forms in a row before having the `completeProcessInstanceForm` button. This will work because of the conversation running in the background.
 
 ## Styling your task forms
 
@@ -250,8 +230,7 @@ We use [Twitter Bootstrap](http://getbootstrap.com/) in our tasklist - so best a
   <img src="ref:asset:/assets/img/real-life/jsf-task-forms/tasklist-forms-layouted-start.png" class="img-responsive"/>
 </center>
 
-To include CSS and Javascript libraries in your project you can add them as
-dependencies to your maven project.
+To include CSS and Javascript libraries in your project you can add them to your maven project as dependencies.
 
 ```xml
 <dependencies>
@@ -267,9 +246,7 @@ dependencies to your maven project.
 </dependencies>
 ```
 
-To use them add tags like the following to your JSF page. If you have several
-forms, it may be helpful to create a template you can refer to from your forms
-to avoid redundancies..
+To use them, add tags like the following ones to your JSF page. If you have several forms, it may be helpful to create a template that you can refer to from your forms to avoid redundancies..
 
 ```xml
 <h:head>

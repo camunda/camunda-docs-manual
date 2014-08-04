@@ -5,9 +5,7 @@ category: 'Calling Services'
 
 ---
 
-
-Let's assume you have two processes running on different Process Engines on different servers. This could e.g. be a system with a central process engine that orchestrates several application-specific process engines:
-
+Let's assume that you have two processes running on different Process Engines on different servers. This could for example be a system with a central process engine that orchestrates several application-specific process engines:
 
 <center>
   <img src="ref:asset:/assets/img/real-life/inter-process-communication-ws.png" class="img-responsive"/>
@@ -15,29 +13,27 @@ Let's assume you have two processes running on different Process Engines on diff
 
 The collaboration above contains two processes: The parent and the child.
 
-The communication is done conceptually via messages, technologically by SOAP Messages via Web Services. This means
+The communication is done conceptually via messages, technologically by SOAP Messages via Web Services. This means that:
 
- *   The parent process uses a Service Task to invoke a Web Service that starts the child process.
- *   The parent waits for completion of the child using a Receive Task.
- *   At the end of the child process a Service Task performs the callback to the parent by calling another Web Service provided by the parent. The callback URL can be a parameter of the communication.
- *   A unique id is generated for this communication and sent to and returned by the child as a correlation key that identifies the process instance that is to be called back.
+ *   The parent process uses a Service Task to invoke a Web Service that starts the child process
+ *   The parent waits for completion of the child by using a Receive Task
+ *   At the end of the child process, a Service Task performs the callback to the parent by calling another Web Service provided by the parent. The callback URL can be a parameter of the communication
+ *   A unique id is generated for this communication and sent to and returned by the child as a correlation key that identifies the process instance that is to be called back
 
-There is one related example available demonstrating two process engines communicating via web services: [https://github.com/camunda/camunda-consulting/tree/master/snippets/inter-process-communication-ws](https://github.com/camunda/camunda-consulting/tree/master/snippets/inter-process-communication-ws). It implements the whole communication within one Maven project including a proper automated test case.
-
+There is one related example available which demonstrates two process engines communicating via web services: [https://github.com/camunda/camunda-consulting/tree/master/snippets/inter-process-communication-ws](https://github.com/camunda/camunda-consulting/tree/master/snippets/inter-process-communication-ws). It implements the whole communication within one Maven project including a proper automated test case.
 
 ## Web Services for Invocation and Callback
 
-The scenario requires two Web Services to be provided – one on each side:
+This scenario requires two Web Services to be provided – one on each side:
 
  * Invocation Service: The first service is provided on the server where the child is deployed and will be called by the parent to start the child.
  * Callback Service: The second service is provided on the server where the parent process is deployed and will be called by the child to signal its completion to the parent.
 
 A common way to implement Web Services in Java is to use JAX-WS annotations on a POJO and use a Web Service framework like Apache Axis or Apache CXF as a provider for the underlying protocols and tools. The examples below use Apache CXF, which is available out of the box in JBoss AS 7.
 
-
 ## Process Invocation Web Service
 
-The Process Invocation Service has four parameters: The process to be started, a URL to call back when the process completed, a correlation id to identify the process instance to call back, and a String payload. The latter three are stored as process variables into the new process instance. The payload could of course use more complex types. We just use String here for simplicity of the example.
+The Process Invocation Service has four parameters: The process to be started, a URL to call back when the process completed, a correlation id to identify the process instance to call back and a String payload. The latter three are stored as process variables into the new process instance. The payload could of course use more complex types. We just use String here for simplicity of the example.
 
 [ProcessInvocation.java:](https://github.com/camunda/camunda-consulting/blob/master/snippets/inter-process-communication-ws/src/main/java/org/camunda/demo/interpocesscommunication/ws/ProcessInvocation.java)
 
@@ -61,8 +57,7 @@ public class ProcessInvocation {
 }
 ```
 
-
-## Process Callback Web Service    
+## Process Callback Web Service
 
 The Process Callback Service takes three arguments: The process that has completed, the correlation id that has been assigned during the invocation of that process, and a payload, which is again just a String for simplicity. With the first two arguments the process instance waiting for that callback is located and resumed while storing the payload as a process variable.
 
@@ -88,10 +83,9 @@ public class ProcessCallback {
 }
 ```
 
-
 ## Generation of WSDL and Web Service Clients
 
-When a Java class with an @WebService annocation is deployed, the application server automatically generates a WSDL description an provides the according Web Service, on a default JBoss AS 7 installation you will find the two WSDL's here:
+When a Java class with a @WebService annocation is deployed, the application server automatically generates a WSDL description and provides the according Web Service, on a default JBoss AS 7 installation you will find the two WSDL's here:
 
 *   [http://localhost:8080/inter-process-communication-ws/ProcessInvocation?wsdl](http://localhost:8080/inter-process-communication-ws/ProcessInvocation?wsdl)
 *   [http://localhost:8080/inter-process-communication-ws/ProcessCallback?wsdl](http://localhost:8080/inter-process-communication-ws/ProcessCallback?wsdl)
@@ -132,7 +126,6 @@ A Maven plugin provided by CXF can then be used to generate a Java client out of
 ...
 ```
 
-
 ## Integration of Web Services into Processes
 
 The Web Services clients generated by CXF are wrapped into CDI beans that are called by the processes using expressions.
@@ -172,7 +165,7 @@ public class ProcessInvocationClient {
 }
 ```
 
-You can see that we used a simple "ServiceRegistry" to query the right WSDL, This is basically a simple Java Map, but could be exchanged by any existing Registry. In a customer project we for example used WSO2 for this purpose.
+You can see that we used a simple "ServiceRegistry" to query the right WSDL. This is basically a simple Java map, but could be exchanged by any existing Registry. In a customer project we for example used WSO2 for this purpose.
 
 [child.bpmn:](https://github.com/camunda/camunda-consulting/blob/master/snippets/inter-process-communication-ws/src/main/resources/child.bpmn)
 
