@@ -3,7 +3,6 @@
 title: 'Overview'
 category: 'Patch Level Upgrade'
 
-
 ---
 
 <div class="alert alert-info">
@@ -20,3 +19,7 @@ category: 'Patch Level Upgrade'
   Please note, that Patch Level Upgrades will be provided for enterprise customers only, it is not available in the community edition.
   <p style="margin-top:10px">Check the <a href="http://www.camunda.com">camunda</a> product homepage for more information or to get your free trial version.</p>
 </div>
+
+###Upgrading over multiple Patch Level versions
+
+It is possible to upgrade the camunda BPM platform over multiple patch level versions (e.g., from 7.1.0 to 7.1.4). To do so, follow the steps listed [below](ref:#patch-level-upgrade-upgrade-your-server).
