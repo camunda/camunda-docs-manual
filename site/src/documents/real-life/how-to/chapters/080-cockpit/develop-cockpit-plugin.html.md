@@ -381,7 +381,7 @@ GET $cockpit_api_root/plugin/sample/$engine/process-instance
 #### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plug-in test case. Alternatively, you can write a real API test using [arquillian](http://arquillian.org/).
-See [PluginApiTest](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
+See [PluginApiTest](https://github.com/camunda/camunda-bpm-webapp/blob/master/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
 Now we are done with the server-side parts of the plug-in. Next, we will go ahead and write the client-side extension that exposes the functionality to the user.
 
@@ -407,7 +407,7 @@ FOO BAR
 
 #### Testing Assets
 
-To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plug-in into the Cockpit webapp.
+To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-webapp/blob/master/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plug-in into the Cockpit webapp.
 
 ### Integration into Cockpit
 
@@ -559,7 +559,7 @@ As the file is loaded as a RequireJS module (read more about the mechanism [here
 
 The plug-in must register itself with the `ViewsProvider` via a [module configuration hook](http://docs.angularjs.org/api/angular.Module). 
 
-From within Cockpit, views are included using the [view directive](https://github.com/camunda/camunda-bpm-platform/blob/master/webapps/camunda-webapp/webapp/src/main/webapp/app/plugin/view.js):
+From within Cockpit, views are included using the [view directive](https://github.com/camunda/camunda-commons-ui/blob/master/lib/plugin/view.js):
 
 ```html
 <view provider="viewProvider" vars="viewProviderVars" />
