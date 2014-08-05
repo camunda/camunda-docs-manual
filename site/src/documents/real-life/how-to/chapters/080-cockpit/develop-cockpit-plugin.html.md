@@ -411,27 +411,14 @@ To test that the assets are served, we can either [implement a test case](https:
 
 ### Integration into Cockpit
 
-Before integrating the plug-in into Cockpit, make sure you have built the plug-in at least once using `mvn clean install` (or however your IDE calls it). Furthermore, make sure that you have the [camunda BPM platform](https://github.com/camunda/camunda-bpm-platform) checked out on your local file system.
+There are two ways to add you plugin to the camunda BPM webapp.
 
-To integrate the plug-in, we need to add it to the dependencies of the Cockpit web project (located in the `/webapps/camunda-webapp/webapp` folder).
+1. you can copy it to the `WEB-INF/lib` folder of the camunda webapp.
+2. you can setup a maven war overlay for camunda webapp.
 
-```xml
-<dependencies>
-  ...
-  <dependency>
-    <groupId>org.camunda.bpm.cockpit.plugin</groupId>
-    <artifactId>cockpit-sample-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </dependency>
-```
-
-Now run the Cockpit application using `mvn clean jetty:run -Pdevelop`. It will boot an embedded jetty server and make the webapplication available at [http://localhost:8080/camunda](http://localhost:8080/camunda).
-
-You can navigate to [http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt](http://localhost:8080/camunda/api/cockpit/plugin/sample-plugin/static/info.txt) to assert that the client assets are correctly loaded.
-
-<div class="alert alert-warning">
-  <strong>Note:</strong> If you deploy the <code>camunda-webapp.war</code> on Apache Tomcat, you have to adjust the context path or rename the war file to <code>camunda.war</code> in order to access the webapp under <a href="http://localhost:8080/camunda">http://localhost:8080/camunda</a>.
-</div>
+The fist solution is the simplest: if you dowloaded the tomcat distribution, you can copy the plugin
+jar file to the `/server/apache-tomcat-${tomcat-version}/webapps/camunda/WEB-INF/lib/` folder and
+restart the server.
 
 ### plugin.js main file
 
