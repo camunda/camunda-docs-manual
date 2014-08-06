@@ -6,15 +6,15 @@ category: 'Process Engine'
 ---
 
 With the optional dependency [camunda-connect][github], the process engine supports simple
-connectors. Currently a SOAP and a RESET connector implementation exists.
+connectors. Currently SOAP and REST connector implementations exist.
 
-To use a connector you have to add the camunda extension element [connector][]. The connector is
-configured by a unique [connectorId][] which specifies the used connector implementation.
+To use a connector, you have to add the camunda extension element [connector][]. The connector is
+configured by a unique [connectorId][], which specifies the used connector implementation.
 Additionally, an [input/output mapping][iomapping] is used to configure the connector. The required
-input parameters and the available output parameters depend upon the connector implementation.
-Additional input parameters can also be provided to be used inside the connector.
+input parameters and the available output parameters depend on the connector implementation.
+Additional input parameters can also be provided to be used within the connector.
 
-As an example, an shortened configuration of the camunda SOAP connector implementation is shown. A
+As an example, a shortened configuration of the camunda SOAP connector implementation is shown. A
 complete [example][example-soap] can be found in the [camunda examples repository][examples] on
 GitHub.
 
@@ -45,8 +45,8 @@ GitHub.
 </serviceTask>
 ```
 
-A full [example][example-rest] of the REST connector can also be found in the [camunda examples
-repository][examples] on GitHub.
+A full [example][example-rest] of the REST connector can also be found in the 
+[camunda examples repository][examples] on GitHub.
 
 
 [github]: https://github.com/camunda/camunda-connect
