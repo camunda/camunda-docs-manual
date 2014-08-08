@@ -138,6 +138,21 @@ Each case execution object has the following properties:
     <td>The id of the case instance this case execution belongs to.</td>
   </tr>
   <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition this case execution belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityId</td>
+    <td>String</td>
+    <td>The id of the activity this case execution belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityName</td>
+    <td>String</td>
+    <td>The name of the activity this case execution belongs to.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>
