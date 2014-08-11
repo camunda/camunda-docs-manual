@@ -77,8 +77,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <!-- At the moment it is not possible to distinguish between case execution not found, transition not allowed etc. Because it is always thrown a ProcessEngineException. -->
-    <td>The case execution could not be found or the state transition is not allowed to be performed, for example when the case execution is active or is already disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The state transition is not allowed to be performed, for example when the case execution is active or is already disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>The case execution with given id is not found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

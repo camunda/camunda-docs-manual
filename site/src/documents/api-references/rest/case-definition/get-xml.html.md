@@ -81,12 +81,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Case definition with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Case definition with given id or key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

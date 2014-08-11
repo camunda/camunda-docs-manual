@@ -122,7 +122,7 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The case instance could not be created due to a nonexistent case definition key. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The case instance could not be created due to a nonexistent case definition. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
