@@ -9,6 +9,9 @@ camunda BPM supports scripting with JSR-223 compatible script engine implementat
 test the integration for Groovy, Javascript, JRuby and Jython. To use a scripting engine
 it is necessary to add the corresponding jar to the classpath.
 
+> **Javascript** is part of the Java Runtime (JRE) and thus available out ot the box.
+> We include **Groovy** in the pre-packaged camunda distributions.
+
 The following table provides an overview of the BPMN elements which support the execution of
 scripts.
 
