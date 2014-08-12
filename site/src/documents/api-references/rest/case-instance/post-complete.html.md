@@ -80,6 +80,11 @@ Response codes
     <td>The state transition is not allowed to be performed, for example when the case instance is already completed. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>The case instance cannot be completed because of CMMN restrictions. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
     <td>The case instance with given id is not found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
