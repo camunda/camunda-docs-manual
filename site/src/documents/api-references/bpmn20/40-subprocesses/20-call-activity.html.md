@@ -70,8 +70,6 @@ Furthermore, you can configure the call activity so that all process variables a
 </callActivity>
 ```
 
-We use a Custom Extension as a shortcut for the BPMN standard elements called dataInputAssociation and dataOutputAssociation, which only work if you declare process variables in the standard way for BPMN 2.0.
-
 It is possible to use expressions here as well:
 
 ```xml
