@@ -35,16 +35,17 @@ information such as process variables and other information can be accessed and
 manipulated through the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a> interface (click on the link for
 a detailed Javadoc of its operations).
 
+```java
+public class ToUppercase implements JavaDelegate {
 
-    public class ToUppercase implements JavaDelegate {
+  public void execute(DelegateExecution execution) throws Exception {
+    String var = (String) execution.getVariable("input");
+    var = var.toUpperCase();
+    execution.setVariable("input", var);
+  }
 
-      public void execute(DelegateExecution execution) throws Exception {
-        String var = (String) execution.getVariable("input");
-        var = var.toUpperCase();
-        execution.setVariable("input", var);
-      }
-
-    }
+}
+```
 
 Note: there will be <strong>only one instance of that Java class created for the serviceTask it is
 defined on</strong>. All process-instances share the same class instance that
@@ -101,13 +102,16 @@ Field Injection is supported when using the <class>class</class> attribute. Note
 to declare a <code>extensionElements</code> XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.
 
-    <serviceTask id="javaService"
-                 name="Java service invocation"
-                 camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
-      <extensionElements>
-          <camunda:field name="text" stringValue="Hello World" />
-      </extensionElements>
-    </serviceTask>
+```xml
+<serviceTask id="javaService"
+             name="Java service invocation"
+             camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+  <extensionElements>
+      <camunda:field name="text" stringValue="Hello World" />
+  </extensionElements>
+</serviceTask>
+```
+
 The class <code>ToUpperCaseFieldInjected</code> has a field
 <code>text</code> which is of type <code>org.camunda.bpm.engine.delegate.Expression</code>.
 When calling <code>text.getValue(execution)</code>, the configured string value
@@ -116,17 +120,20 @@ When calling <code>text.getValue(execution)</code>, the configured string value
 Alternatively, for longs texts (e.g. an inline e-mail) the <code>camunda:string</code> sub element can be
 used:
 
-    <serviceTask id="javaService"
-                 name="Java service invocation"
-                 camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
-      <extensionElements>
-        <camunda:field name="text">
-            <camunda:string>
-              Hello World
-          </camunda:string>
-        </camunda:field>
-      </extensionElements>
-    </serviceTask>
+```xml
+<serviceTask id="javaService"
+             name="Java service invocation"
+             camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ToUpperCaseFieldInjected">
+  <extensionElements>
+    <camunda:field name="text">
+        <camunda:string>
+          Hello World
+      </camunda:string>
+    </camunda:field>
+  </extensionElements>
+</serviceTask>
+```
+
 To inject values that are dynamically resolved at runtime, expressions
 can be used. Those expressions can use process variables, CDI or Spring
 beans. As already noted, an instance of the Java class is shared among
@@ -136,38 +143,47 @@ values in fields, you can inject value and method expressions in a
 which can be evaluated/invoked using the <code>DelegateExecution</code>
 passed in the <code>execute</code> method.
 
-    <serviceTask id="javaService" name="Java service invocation"
-                 camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
+```xml
+<serviceTask id="javaService" name="Java service invocation"
+             camunda:class="org.camunda.bpm.examples.bpmn.servicetask.ReverseStringsFieldInjected">
 
-      <extensionElements>
-        <camunda:field name="text1">
-          <camunda:expression>${genderBean.getGenderString(gender)}</camunda:expression>
-        </camunda:field>
-        <camunda:field name="text2">
-           <camunda:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</camunda:expression>
-        </camunda:field>
-      </extensionElements>
-    </serviceTask>
+  <extensionElements>
+    <camunda:field name="text1">
+      <camunda:expression>${genderBean.getGenderString(gender)}</camunda:expression>
+    </camunda:field>
+    <camunda:field name="text2">
+       <camunda:expression>Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}</camunda:expression>
+    </camunda:field>
+  </extensionElements>
+</serviceTask>
+```
+
 The example class below uses the injected expressions and resolves
 them using the current <code>DelegateExecution</code>.
 
-    public class ReverseStringsFieldInjected implements JavaDelegate {
+```java
+public class ReverseStringsFieldInjected implements JavaDelegate {
 
-      private Expression text1;
-      private Expression text2;
+  private Expression text1;
+  private Expression text2;
 
-      public void execute(DelegateExecution execution) {
-        String value1 = (String) text1.getValue(execution);
-        execution.setVariable("var1", new StringBuffer(value1).reverse().toString());
+  public void execute(DelegateExecution execution) {
+    String value1 = (String) text1.getValue(execution);
+    execution.setVariable("var1", new StringBuffer(value1).reverse().toString());
 
-        String value2 = (String) text2.getValue(execution);
-        execution.setVariable("var2", new StringBuffer(value2).reverse().toString());
-      }
-    }
+    String value2 = (String) text2.getValue(execution);
+    execution.setVariable("var2", new StringBuffer(value2).reverse().toString());
+  }
+}
+```
+
 Alternatively, you can also set the expressions as an attribute instead of a child-element, to make the XML less verbose.
 
-    <camunda:field name="text1" expression="${genderBean.getGenderString(gender)}" />
-    <camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
+```xml
+<camunda:field name="text1" expression="${genderBean.getGenderString(gender)}" />
+<camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
+```
+
 <strong> Since the Java class instance is reused, the injection only happens once, when the
 serviceTask is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them
 as immutable and not make any changes to them.</strong>
@@ -226,7 +242,8 @@ The following process definition contains 3 execution listeners:
   <sequenceFlow sourceRef="thirdTask" targetRef="theEnd" />
 
   <endEvent id="theEnd" />
-</process> ```
+</process>
+```
 
 The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the <code>org.camunda.bpm.engine.delegate.ExecutionListener</code> interface. When the event occurs (in this case end event) the method `notify(ExecutionListenerExecution execution)` is called.
 
@@ -237,7 +254,8 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
     execution.setVariable("variableSetInExecutionListener", "firstValue");
     execution.setVariable("eventReceived", execution.getEventName());
   }
-}```
+}
+```
 
 It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
 
@@ -252,14 +270,16 @@ tasks).
 The last execution listener is called when activity secondTask ends. Instead of using the class on the listener declaration, a expression is defined instead which is evaluated/invoked when the event is fired.
 
 ```xml
-<camunda:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />```
+<camunda:executionListener expression="${myPojo.myMethod(execution.eventName)}" event="end" />
+```
 
 As with other expressions, execution variables are resolved and can be used. Because the execution implementation object has a property that exposes the event name, it's possible to pass the event-name to your methods using execution.eventName.
 
 Execution listeners also support using a delegateExpression, similar to a service task.
 
 ```xml
-<camunda:executionListener event="start" delegateExpression="${myExecutionListenerBean}" />```
+<camunda:executionListener event="start" delegateExpression="${myExecutionListenerBean}" />
+```
 
 
 
@@ -277,7 +297,8 @@ A task listener can only be added in the process definition as a child element o
   <extensionElements>
     <camunda:taskListener event="create" class="org.camunda.bpm.MyTaskCreateListener" />
   </extensionElements>
-</userTask>```
+</userTask>
+```
 
 A task listener supports following attributes:
 
@@ -297,19 +318,22 @@ A task listener supports following attributes:
         // Custom logic goes here
       }
 
-    }```
+    }
+    ```
 
     It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
 
 *   __expression__: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
 
     ```xml
-    <camunda:taskListener event="create" expression="${myObject.callMethod(task, task.eventName)}" />```
+    <camunda:taskListener event="create" expression="${myObject.callMethod(task, task.eventName)}" />
+    ```
 
 *   __delegateExpression__: allows to specify an expression that resolves to an object implementing the TaskListener interface, similar to a service task.
 
-    ```java
-    <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />```
+    ```xml
+    <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
+    ```
 
 Besides the `class`, `expression` and `delegateExpression` attribute a
 [camunda:script][camunda-script] child element can be used to specify a script as task listener.
@@ -357,7 +381,8 @@ The fragment below shows a simple example process with an execution listener wit
   <sequenceFlow sourceRef="firstTask" targetRef="theEnd" />
 
   <endEvent id="theEnd" />
-</process>```
+</process>
+```
 
 The actual listener implementation may look as follows:
 
@@ -375,7 +400,8 @@ public class ExampleFieldInjectedExecutionListener implements ExecutionListener 
 
     execution.setVariable("var", value);
   }
-} ```
+}
+```
 
 The class `ExampleFieldInjectedExecutionListener` concatenates the 2 injected fields (one fixed and the other dynamic) and stores this in the process variable _var_.
 

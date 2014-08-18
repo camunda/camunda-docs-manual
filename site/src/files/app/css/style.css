@@ -686,7 +686,7 @@ code {
 }
 
 
-/* here are getting started styles 
+/* here are getting started styles
 */
 
 .gs-guide {
@@ -725,4 +725,10 @@ code {
 
 .gs-download-step-btn {
   margin-top: 14px;
+}
+
+/* description table where a cell should have a line break after the half of the width */
+
+.desc-table td {
+  width: 50%;
 }

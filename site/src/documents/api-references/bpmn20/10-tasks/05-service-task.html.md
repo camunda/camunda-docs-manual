@@ -29,48 +29,26 @@ To specify a class that is called during process execution, the fully qualified 
 
 Please refer to the [Java Delegate](ref:/guides/user-guide/#process-engine-delegation-code-java-delegate) section of the [User Guide](ref:/guides/user-guide/) for details on how to implement a Java Delegate.
 
-It is also possible to use an expression that resolves to an object. This object must follow the same rules as objects that are created when the `camunda:class` attribute is used.
+It is also possible to use an expression that resolves to an object. This object must follow the
+same rules as objects that are created when the `camunda:class` attribute is used.
 
 ```xml
-<serviceTask id="serviceTask" camunda:delegateExpression="${delegateExpressionBean}" />
+<serviceTask id="beanService"
+             name="My Bean Service Task"
+             camunda:delegateExpression="${myDelegateBean}" />
 ```
-Here, the	`delegateExpression` is an expression that resolves to a bean implementing the `JavaDelegate` interface. Beans can be resolved for example via CDI or Spring (see below).
 
-To specify an expression that should be evaluated, use the attribute `camunda:expression`.
+Or an expressions which call a method or resolve to a value.
 
 ```xml
-<serviceTask id="javaService"
-             name="My Java Service Task"
-             camunda:expression="#{printer.printMessage()}" />
+<serviceTask id="expressionService"
+             name="My Expression Service Task"
+             camunda:expression="${myBean.doWork()}" />
 ```
 
-Method `printMessage` (without parameters) will be called on the named bean called `printer`.
-
-It's also possible to pass parameters with an method used in the expression.
-
-```xml
-<serviceTask id="javaService"
-             name="My Java Service Task"
-             camunda:expression="#{printer.printMessage(execution, myVar)}" />
-```
-
-Method `printMessage` will be called on the object named `printer`. The first parameter passed is the	`DelegateExecution`, which is available in the expression context, by default available as `execution`. The second parameter passed is the value of the variable with the name `myVar` in the current execution.
-
-To specify a UEL value expression that should be evaluated, use the attribute `camunda:expression`.
-
-```xml
-<serviceTask id="javaService"
-             name="My Java Service Task"
-             camunda:expression="#{split.ready}"
-             camunda:resultVariable="myVar" />
-```
-The getter method of property `ready`,	`getReady()`	(without parameters), will be called on the named bean called `split`. The named objects are resolved in the execution's process variables	and (if applicable) in the CDI or Spring context.
-
-Note that you can store the return value of the method in a process variable by specifying the `camunda:resultVariable`.
-
-## Using Java Delegate Class
-
-Please refer to the [Java Delegate](ref:/guides/user-guide/#process-engine-delegation-code-java-delegate) section of the [User Guide](ref:/guides/user-guide/) for details.
+For more information about expression language as delegation code please see the corresponding
+[section](ref:/guides/user-guide/#process-engine-expression-language-use-expression-language-as-delegation-code)
+in the user guide.
 
 ## Generic Java Delegates & Field Injection
 

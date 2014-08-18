@@ -15,7 +15,7 @@ it is necessary to add the corresponding jar to the classpath.
 The following table provides an overview of the BPMN elements which support the execution of
 scripts.
 
-<table class="table">
+<table class="table desc-table">
   <tr>
     <th>BPMN element</th>
     <th>Script support</th>
@@ -26,19 +26,11 @@ scripts.
   </tr>
   <tr>
     <td>
-        <a href="#process-engine-scripting-use-scripts-as-inputoutput-parameters">
-          All Tasks, All Events, Transaction and Subprocess
-        </a>
-    </td>
-    <td>Script inside a inputOutput parameter mapping</td>
-  </tr>
-  <tr>
-    <td>
       <a href="#process-engine-scripting-use-scripts-as-execution-listener">
         Process, Activities, Sequence Flows, Gateways and Events
       </a>
     </td>
-    <td>Script as an exeuction listner</td>
+    <td>Script as an exeuction listener</td>
   </tr>
   <tr>
     <td>
@@ -55,6 +47,14 @@ scripts.
       </a>
     </td>
     <td>Script as condition expression of a sequence flow</td>
+  </tr>
+  <tr>
+    <td>
+        <a href="#process-engine-scripting-use-scripts-as-inputoutput-parameters">
+          All Tasks, All Events, Transaction, Subprocess and Connector
+        </a>
+    </td>
+    <td>Script inside a inputOutput parameter mapping</td>
   </tr>
 </table>
 
@@ -98,6 +98,102 @@ To start the process a variable `inputArray` is necessary.
 Map<String, Object> variables = new HashMap<String, Object>();
 variables.put("inputArray", new Integer[]{5, 23, 42});
 runtimeService.startProcessInstanceByKey("process", variables);
+```
+
+
+### Use Scripts as Execution Listeners
+
+Besides Java code and expression language, camunda BPM also supports the execution of a script
+as an execution listener. For general information about execution listeners see the corresponding
+[section](ref:#process-engine-delegation-code-execution-listener).
+
+To use a script as an execution listener, a `camunda:script` element has to be added as a child
+element of the `camunda:executionListener` element. During script evaluation, the variable `execution` is
+available, which corresponds to the `DelegateExecution` interface.
+
+The following example shows usage of scripts as execution listeners.
+
+```xml
+<process id="process" isExecutable="true">
+  <extensionElements>
+    <camunda:executionListener event="start">
+      <camunda:script scriptFormat="groovy">
+        println "Process " + execution.eventName + "ed"
+      </camunda:script>
+    </camunda:executionListener>
+  </extensionElements>
+
+  <startEvent id="start">
+    <extensionElements>
+      <camunda:executionListener event="end">
+        <camunda:script scriptFormat="groovy">
+          println execution.activityId + " " + execution.eventName + "ed"
+        </camunda:script>
+      </camunda:executionListener>
+    </extensionElements>
+  </startEvent>
+  <sequenceFlow id="flow1" startRef="start" targetRef="task">
+    <extensionElements>
+      <camunda:executionListener>
+        <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/transition.groovy" />
+      </camunda:executionListener>
+    </extensionElements>
+  </sequenceFlow>
+
+  <!--
+    ... remaining process omitted
+  -->
+</process>
+```
+
+
+### Use Scripts as Task Listeners
+
+Similar to execution listeners, task listeners can also be implemented as scripts. For general
+information about execution listeners see the corresponding
+[section](ref:#process-engine-delegation-code-task-listener).
+
+To use a script as a task listener, a `camunda:script` element has to be added as a child element of
+the `camunda:taskListener`. Inside the script, the variable `task` is available, which corresponds to
+the `DelegateTask` interface.
+
+The following example shows usage of scripts as task listeners.
+
+```xml
+<userTask id="userTask">
+  <extensionElements>
+    <camunda:taskListener event="create">
+      <camunda:script scriptFormat="groovy">println task.eventName</camunda:script>
+    </camunda:taskListener>
+    <camunda:taskListener event="assignment">
+      <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/assignemnt.groovy" />
+    </camunda:taskListener>
+  </extensionElements>
+</userTask>
+```
+
+### Use Scripts as Conditions
+
+As an alternative to expression language, camunda BPM allows you to use scripts as
+`conditionExpression` of conditional sequence flows. To do that, the `language` attribute of the
+`conditionExpression` element has to be set to the desired scripting language. The script source code
+is the text content of the element, as with expression language. Another way to specify the script
+source code is to define an external source as described in the [script source section](ref:#process-engine-scripting-script-source).
+
+The following example shows usage of scripts as conditions. The Groovy variable `status` is a
+process variable which is available inside the script.
+
+```xml
+<sequenceFlow>
+  <conditionExpression xsi:type="tFormalExpression" language="groovy">
+    status == 'closed'
+  </conditionExpression>
+</sequenceFlow>
+
+<sequenceFlow>
+  <conditionExpression xsi:type="tFormalExpression" language="groovy"
+      camunda:resource="org/camunda/bpm/condition.groovy" />
+</sequenceFlow>
 ```
 
 
@@ -177,102 +273,6 @@ for [script tasks](ref:#process-engine-scripting-script-source).
      <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/example/sum.groovy"/>
   </camunda:inputParameter>
 </camunda:inputOutput>
-```
-
-
-## Use Scripts as Execution Listeners
-
-Besides Java code and expression language, camunda BPM also supports the execution of a script
-as an execution listener. For general information about execution listeners see the corresponding
-[section](ref:#process-engine-delegation-code-execution-listener).
-
-To use a script as an execution listener, a `camunda:script` element has to be added as a child
-element of the `camunda:executionListener` element. During script evaluation, the variable `execution` is
-available, which corresponds to the `DelegateExecution` interface.
-
-The following example shows usage of scripts as execution listeners.
-
-```xml
-<process id="process" isExecutable="true">
-  <extensionElements>
-    <camunda:executionListener event="start">
-      <camunda:script scriptFormat="groovy">
-        println "Process " + execution.eventName + "ed"
-      </camunda:script>
-    </camunda:executionListener>
-  </extensionElements>
-
-  <startEvent id="start">
-    <extensionElements>
-      <camunda:executionListener event="end">
-        <camunda:script scriptFormat="groovy">
-          println execution.activityId + " " + execution.eventName + "ed"
-        </camunda:script>
-      </camunda:executionListener>
-    </extensionElements>
-  </startEvent>
-  <sequenceFlow id="flow1" startRef="start" targetRef="task">
-    <extensionElements>
-      <camunda:executionListener>
-        <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/transition.groovy" />
-      </camunda:executionListener>
-    </extensionElements>
-  </sequenceFlow>
-
-  <!--
-    ... remaining process omitted
-  -->
-</process>
-```
-
-
-## Use Scripts as Task Listeners
-
-Similar to execution listeners, task listeners can also be implemented as scripts. For general
-information about execution listeners see the corresponding
-[section](ref:#process-engine-delegation-code-task-listener).
-
-To use a script as a task listener, a `camunda:script` element has to be added as a child element of
-the `camunda:taskListener`. Inside the script, the variable `task` is available, which corresponds to
-the `DelegateTask` interface.
-
-The following example shows usage of scripts as task listeners.
-
-```xml
-<userTask id="userTask">
-  <extensionElements>
-    <camunda:taskListener event="create">
-      <camunda:script scriptFormat="groovy">println task.eventName</camunda:script>
-    </camunda:taskListener>
-    <camunda:taskListener event="assignment">
-      <camunda:script scriptFormat="groovy" resource="org/camunda/bpm/assignemnt.groovy" />
-    </camunda:taskListener>
-  </extensionElements>
-</userTask>
-```
-
-## Use Scripts as Conditions
-
-As an alternative to expression language, camunda BPM allows you to use scripts as
-`conditionExpression` of conditional sequence flows. To do that, the `language` attribute of the
-`conditionExpression` element has to be set to the desired scripting language. The script source code
-is the text content of the element, as with expression language. Another way to specify the script
-source code is to define an external source as described in the [script source section](ref:#process-engine-scripting-script-source).
-
-The following example shows usage of scripts as conditions. The Groovy variable `status` is a
-process variable which is available inside the script.
-
-```xml
-<sequenceFlow>
-  <conditionExpression xsi:type="tFormalExpression" language="groovy">
-    status == 'closed'
-  </conditionExpression>
-</sequenceFlow>
-
-<sequenceFlow>
-  <conditionExpression xsi:type="tFormalExpression" language="groovy"
-      camunda:resource="org/camunda/bpm/condition.groovy" />
-</sequenceFlow>
 ```
 
 
