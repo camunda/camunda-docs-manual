@@ -61,6 +61,10 @@ A JSON object with the following properties:
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances run on.</td>
   </tr>
@@ -155,6 +159,11 @@ Each historic process instance object has the following properties:
     <td>superProcessInstanceId</td>
     <td>String</td>
     <td>The id of the parent process instance, if it exists.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -252,4 +261,5 @@ Request body:
     "startUserId": "aStartUserId",
     "startActivityId": "aStartActivityId",
     "deleteReason": "aDeleteReason",
-    "superProcessInstanceId": "aSuperProcessInstanceId"}]
+    "superProcessInstanceId": "aSuperProcessInstanceId",
+    "caseInstanceId": "aCaseInstanceId"}]

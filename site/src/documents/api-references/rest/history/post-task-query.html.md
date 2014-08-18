@@ -67,10 +67,6 @@ A JSON object with the following properties:
     <td>Filter by the id of the execution that executed the task.</td>
   </tr>
   <tr>
-    <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
-  </tr>
-  <tr>
     <td>processDefinitionId</td>
     <td>Filter by process definition id.</td>
   </tr>
@@ -81,6 +77,30 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Filter by the id of the case execution that executed the task.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>Filter by case definition id.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>Restrict to tasks that belong to a case definition with the given key.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionName</td>
+    <td>Restrict to tasks that belong to a case definition with the given name.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
     <td>taskName</td>
@@ -200,7 +220,7 @@ A JSON object with the following properties:
     <td>Sort the results by a given criterion. Valid values are
     <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>,
     <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>,
-    <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code> and <code>priority</code>.
+    <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code> and <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -242,6 +262,21 @@ Each historic task object has the following properties:
     <td>executionId</td>
     <td>String</td>
     <td>The id of the execution the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution the task belongs to.</td>
   </tr>
   <tr>
     <td>activityInstanceId</td>
@@ -362,6 +397,9 @@ Response
      "processDefinitionId":"aProcDefId",
      "processInstanceId":"aProcInstId",
      "executionId":"anExecution",
+     "caseDefinitionId":"aCaseDefId",
+     "caseInstanceId":"aCaseInstId",
+     "caseExecutionId":"aCaseExecution",
      "activityInstanceId": "anActInstId",
      "name":"aName",
      "description":"aDescription",

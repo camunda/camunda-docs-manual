@@ -45,10 +45,6 @@ Parameters
     <td>Filter by the id of the execution that executed the task.</td>
   </tr>
   <tr>
-    <td>activityInstanceIdIn</td>
-    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
-  </tr>
-  <tr>
     <td>processDefinitionId</td>
     <td>Filter by process definition id.</td>
   </tr>
@@ -59,6 +55,30 @@ Parameters
   <tr>
     <td>processDefinitionName</td>
     <td>Restrict to tasks that belong to a process definition with the given name.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Filter by the id of the case execution that executed the task.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>Filter by case definition id.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>Restrict to tasks that belong to a case definition with the given key.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionName</td>
+    <td>Restrict to tasks that belong to a case definition with the given name.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
     <td>taskName</td>

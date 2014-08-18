@@ -48,6 +48,10 @@ A JSON object with the following properties:
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances run on.</td>
   </tr>
