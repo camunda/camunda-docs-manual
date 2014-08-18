@@ -411,12 +411,12 @@ To test that the assets are served, we can either [implement a test case](https:
 
 ### Integration into Cockpit
 
-There are two ways to add you plugin to the camunda BPM webapp.
+There are two ways to add your plugin to the camunda BPM webapp.
 
-1. you can copy it to the `WEB-INF/lib` folder of the camunda webapp.
-2. you can setup a maven war overlay for camunda webapp.
+1. You can copy it to the `WEB-INF/lib` folder of the camunda webapp.
+2. You can set up a maven war overlay for the camunda webapp.
 
-The fist solution is the simplest: if you dowloaded the tomcat distribution, you can copy the plugin
+The first solution is the simplest: if you dowloaded the tomcat distribution, you can copy the plugin
 jar file to the `/server/apache-tomcat-${tomcat-version}/webapps/camunda/WEB-INF/lib/` folder and
 restart the server.
 
