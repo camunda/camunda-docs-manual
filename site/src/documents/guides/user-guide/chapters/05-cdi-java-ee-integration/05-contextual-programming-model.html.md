@@ -19,16 +19,18 @@ Once a unit of work (for example a UserTask) is completed, the completeTask() me
 
 Note that the BusinessProcess-bean is a @Named bean, which means that the exposed methods can be invoked using expression language, for example from a JSF page. The following JSF2 snippet begins a new conversation and associates it with a user task instance, the id of which is passed as a request parameter (e.g. `pageName.jsf?taskId=XX`):
 
-    <f:metadata>
-      <f:viewParam name="taskId" />
-      <f:event type="preRenderView" listener="#{businessProcess.startTask(taskId, true)}" />
-    </f:metadata>
+```xml
+<f:metadata>
+  <f:viewParam name="taskId" />
+  <f:event type="preRenderView" listener="#{businessProcess.startTask(taskId, true)}" />
+</f:metadata>
+```
 
 ### Declaratively controlling the Process
 
 camunda-engine-cdi allows declaratively starting process instances and completing tasks using annotations. The @org.camunda.bpm.engine.cdi.annotation.StartProcess annotation allows to start a process instance either by "key" or by "name". Note that the process instance is started after the annotated method returns. Example:
 
-```
+```java
 @StartProcess("authorizeBusinessTripRequest")
 public String submitRequest(BusinessTripRequest request) {
   // do some work
@@ -38,12 +40,12 @@ public String submitRequest(BusinessTripRequest request) {
 
 Depending on the configuration of the camunda engine, the code of the annotated method and the starting of the process instance will be combined in the same transaction. The `@org.camunda.bpm.engine.cdi.annotation.CompleteTask`-annotation works in the same way:
 
-```
-  @CompleteTask(endConversation=false)
-  public String authorizeBusinessTrip() {
-      // do some work
-      return "success";
-  }
+```java
+@CompleteTask(endConversation=false)
+public String authorizeBusinessTrip() {
+    // do some work
+    return "success";
+}
 ```
 
 The `@CompleteTask` annotation offers the possibility to end the current conversation. The default behavior is to end the conversation after the call to the engine returns. Ending the conversation can be disabled, as shown in the example above.
@@ -52,7 +54,7 @@ The `@CompleteTask` annotation offers the possibility to end the current convers
 
 Using camunda-engine-cdi, the lifecycle of a bean can be bound to a process instance. To this extent, a custom context implementation is provided, namely the BusinessProcessContext. Instances of BusinessProcessScoped beans are stored as process variables in the current process instance. BusinessProcessScoped beans need to be PassivationCapable (for example Serializable). The following is an example of a process scoped bean:
 
-```
+```java
 @Named
 @BusinessProcessScoped
 public class BusinessTripRequest implements Serializable {

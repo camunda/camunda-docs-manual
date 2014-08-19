@@ -9,17 +9,19 @@ Spring integration also has a special feature for deploying resources. In the pr
 
 Here's an example:
 
-    <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-      ...
-      <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20" />
-      <property name="deploymentResources">
-        <list>
-          <value>classpath*:/mytest/autodeploy.*.bpmn20</value>
-          <value>classpath*:/mytest/autodeploy.*.png</value>
-        </list>
-      </property>
-    </bean>
+```xml
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+  ...
+  <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20" />
+  <property name="deploymentResources">
+    <list>
+      <value>classpath*:/mytest/autodeploy.*.bpmn20</value>
+      <value>classpath*:/mytest/autodeploy.*.png</value>
+    </list>
+  </property>
+</bean>
 
-    <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
-      <property name="processEngineConfiguration" ref="processEngineConfiguration" />
-    </bean>
+<bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+  <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+</bean>
+```

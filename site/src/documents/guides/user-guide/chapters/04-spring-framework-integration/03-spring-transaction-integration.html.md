@@ -11,98 +11,112 @@ When passing the DataSource to the `SpringProcessEngineConfiguration` (using pro
 
 Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g. `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
 
-    <beans xmlns="http://www.springframework.org/schema/beans"
-           xmlns:context="http://www.springframework.org/schema/context"
-           xmlns:tx="http://www.springframework.org/schema/tx"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-      <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-        <property name="driverClass" value="org.h2.Driver" />
-        <property name="url" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
-        <property name="username" value="sa" />
-        <property name="password" value="" />
-      </bean>
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+    <property name="driverClass" value="org.h2.Driver" />
+    <property name="url" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000" />
+    <property name="username" value="sa" />
+    <property name="password" value="" />
+  </bean>
 
-      <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
-      </bean>
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
 
-      <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-        <property name="dataSource" ref="dataSource" />
-        <property name="transactionManager" ref="transactionManager" />
-        <property name="databaseSchemaUpdate" value="true" />
-        <property name="jobExecutorActivate" value="false" />
-      </bean>
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    <property name="dataSource" ref="dataSource" />
+    <property name="transactionManager" ref="transactionManager" />
+    <property name="databaseSchemaUpdate" value="true" />
+    <property name="jobExecutorActivate" value="false" />
+  </bean>
 
-      <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
-        <property name="processEngineConfiguration" ref="processEngineConfiguration" />
-      </bean>
+  <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+  </bean>
 
-      <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
-      <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
-      <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
-      <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
-      <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
 
-    ...
-    </beans>
+  ...
+</beans>
+```
 
 The remainder of that Spring configuration file contains the beans and configuration that we'll use in this particular example:
 
-    <beans>
-      ...
-      <tx:annotation-driven transaction-manager="transactionManager"/>
+```xml
+<beans>
+  ...
+  <tx:annotation-driven transaction-manager="transactionManager"/>
 
-      <bean id="userBean" class="org.camunda.bpm.engine.spring.test.UserBean">
-        <property name="runtimeService" ref="runtimeService" />
-      </bean>
+  <bean id="userBean" class="org.camunda.bpm.engine.spring.test.UserBean">
+    <property name="runtimeService" ref="runtimeService" />
+  </bean>
 
-      <bean id="printer" class="org.camunda.bpm.engine.spring.test.Printer" />
+  <bean id="printer" class="org.camunda.bpm.engine.spring.test.Printer" />
 
-    </beans>
+</beans>
+```
 
 First the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
 
-    ClassPathXmlApplicationContext applicationContext =
-        new ClassPathXmlApplicationContext("mytest/SpringTransactionIntegrationTest-context.xml");
+```java
+ClassPathXmlApplicationContext applicationContext =
+    new ClassPathXmlApplicationContext("mytest/SpringTransactionIntegrationTest-context.xml");
+```
 
 
 or, since it is a test:
 
-    @ContextConfiguration("classpath:mytest/SpringTransactionIntegrationTest-context.xml")
+```java
+@ContextConfiguration("classpath:mytest/SpringTransactionIntegrationTest-context.xml")
+```
 
 Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies Propagation.REQUIRED transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:
 
-    RepositoryService repositoryService = (RepositoryService) applicationContext.getBean("repositoryService");
-    String deploymentId = repositoryService
-      .createDeployment()
-      .addClasspathResource("mytest/hello.bpmn20")
-      .addClasspathResource("mytest/hello.png")
-      .deploy()
-      .getId();
+```java
+RepositoryService repositoryService = (RepositoryService) applicationContext.getBean("repositoryService");
+String deploymentId = repositoryService
+  .createDeployment()
+  .addClasspathResource("mytest/hello.bpmn20")
+  .addClasspathResource("mytest/hello.png")
+  .deploy()
+  .getId();
+```
 
 The other way around also works. In this case, the Spring transaction will be around the userBean.hello() method and the engine service method invocation will join that same transaction.
 
-    UserBean userBean = (UserBean) applicationContext.getBean("userBean");
-    userBean.hello();
+```java
+UserBean userBean = (UserBean) applicationContext.getBean("userBean");
+userBean.hello();
+```
 
 The UserBean looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.
 
-    public class UserBean {
+```java
+public class UserBean {
 
-      // injected by Spring
-      private RuntimeService runtimeService;
+  // injected by Spring
+  private RuntimeService runtimeService;
 
-      @Transactional
-      public void hello() {
-        // here you can do transactional stuff in your domain model
-        // and it will be combined in the same transaction as
-        // the startProcessInstanceByKey to the RuntimeService
-        runtimeService.startProcessInstanceByKey("helloProcess");
-      }
+  @Transactional
+  public void hello() {
+    // here you can do transactional stuff in your domain model
+    // and it will be combined in the same transaction as
+    // the startProcessInstanceByKey to the RuntimeService
+    runtimeService.startProcessInstanceByKey("helloProcess");
+  }
 
-      public void setRuntimeService(RuntimeService runtimeService) {
-        this.runtimeService = runtimeService;
-      }
-    }
+  public void setRuntimeService(RuntimeService runtimeService) {
+    this.runtimeService = runtimeService;
+  }
+}
+```

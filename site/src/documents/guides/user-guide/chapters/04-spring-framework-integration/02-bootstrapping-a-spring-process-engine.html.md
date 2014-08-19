@@ -11,15 +11,17 @@ You can use a Spring application context Xml file for bootstrapping the process 
 
 The ProcessEngine can be configured as a regular Spring bean. The starting point of the integration is the class `org.camunda.bpm.engine.spring.ProcessEngineFactoryBean`. That bean takes a process engine configuration and creates the process engine. This means that the creation and configuration of properties for Spring is the same as documented in the configuration section. For Spring integration the configuration and engine beans will look like this:
 
-    <bean id="processEngineConfiguration"
-          class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-        ...
-    </bean>
+```xml
+<bean id="processEngineConfiguration"
+      class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    ...
+</bean>
 
-    <bean id="processEngine"
-          class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
-      <property name="processEngineConfiguration" ref="processEngineConfiguration" />
-    </bean>
+<bean id="processEngine"
+      class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+  <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+</bean>
+```
 
 
 Note that the processEngineConfiguration bean uses the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class.

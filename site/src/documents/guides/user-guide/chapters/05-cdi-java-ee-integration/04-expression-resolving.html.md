@@ -7,13 +7,14 @@ category: 'Cdi and Java EE Integration'
 
 The `camunda-engine-cdi` library exposes Cdi beans via Expression Language, using a custom resolver. This makes it possible to reference beans from the process:
 
-    <userTask id="authorizeBusinessTrip" name="Authorize Business Trip"
-                            camunda:assignee="#{authorizingManager.account.username}" />
-    </script>
+```xml
+<userTask id="authorizeBusinessTrip" name="Authorize Business Trip"
+                        camunda:assignee="#{authorizingManager.account.username}" />
+```
 
 Where "authorizingManager" could be a bean provided by a producer method:
 
-```
+```java
 @Inject
 @ProcessVariable
 private Object businessTripRequesterUsername;
@@ -28,5 +29,5 @@ public Employee authorizingManager() {
 }
 ```
 
-We can use the same feature to call a business method of an EJB in a service task, using the `camunda:expression="myEjb.method()"`-extension.
+We can use the same feature to call a business method of an EJB in a service task, using the `camunda:expression="${myEjb.method()}"`-extension.
 Note that this requires a `@Named`-annotation on the MyEjb-class.
