@@ -163,28 +163,12 @@ expression. Please see the corresponding section for [BPMN][] and [CMMN][] in th
 for more detailed examples.
 
 
-## Variables available inside expression language
+## Variables and functions available inside expression language
 
-Depending on the current execution context different variables are available inside expression
-language.
+### Process variables
 
-In an execution context like a service task, execution listener or sequence flow the variable
-`execution` is available. In a task context like a task listener the variable `task` exists. And in
-a CMMN context also the variable `caseExecution` exists. They correspond to the interfaces
-`DelegateExecution`, `DelegateTask` resp. `DelegateCaseExecution`.
-
-With the variable `authenticatedUserId` the id of the current authenticated user can be accessed.
-
-The following example shows an expression which sets the variable `test` to the current
-event name of an execution listener.
-
-```xml
-<camunda:executionListener event="start"
-  expression="${execution.setVariable('test', execution.eventName)}" />
-```
-
-Also all process variables of the current scope are directly available inside an
-expression. So a conditional sequence flow can directly check a variable.
+All process variables of the current scope are directly available inside an expression. So a 
+conditional sequence flow can directly check a variable value:
 
 ```xml
 <sequenceFlow>
@@ -194,18 +178,78 @@ expression. So a conditional sequence flow can directly check a variable.
 </sequenceFlow>
 ```
 
-Additionally it is possible to use Spring and CDI beans inside of expressions. Please see
-the corresponding sections for [Spring][] and [CDI][] for more information. The following
-example shows the usage of a bean which implements the JavaDelegate interface as delegateExecution.
-With the expression attribute any method of a bean can be called.
+### Internal context variables
+
+Depending on the current execution context, special built-in context variables are available while
+evaluating expressions:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Java Type</th>
+      <th>Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>execution</code></td>
+      <td><code>DelegateExecution</code></td>
+      <td>
+        Available in a BPMN execution context like a service task, execution listener or sequence 
+        flow.
+      </td>
+    </tr>
+    <tr>
+      <td><code>task</code></td>
+      <td><code>DelegateTask</code></td>
+      <td>Available a task context like a task listener.</td>
+    </tr>
+    <tr>
+      <td><code>caseExecution</code></td>
+      <td><code>DelegateCaseExecution</code></td>
+      <td>Available in a CMMN execution context.</td>
+    </tr>
+    <tr>
+      <td><code>authenticatedUserId</code></td>
+      <td><code>String</code></td>
+      <td>
+        The id of the currently authenticated user. Only returns a value if the id of the currently
+        authenticated user has been set through the corresponding methods of the
+        <code>IdentityService</code>. Otherwise it returns <code>null</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+The following example shows an expression which sets the variable `test` to the current
+event name of an execution listener.
+
+```xml
+<camunda:executionListener event="start"
+  expression="${execution.setVariable('test', execution.eventName)}" />
+```
+
+### External context variables with Spring and CDI
+
+If the process engine is integrated with Spring or CDI, It is possible to access Spring and CDI
+beans inside of expressions. Please see the corresponding sections for [Spring][] and [CDI][]
+for more information. The following example shows the usage of a bean which implements the 
+`JavaDelegate` interface as delegateExecution.
 
 ```xml
 <serviceTask id="task1" camunda:delegateExpression="${myBean}" />
+```
 
+With the expression attribute any method of a bean can be called.
+
+```xml
 <serviceTask id="task2" camunda:delegateExpression="${myBean.myMethod(execution)}" />
 ```
 
-If camunda Spin is available in the classpath of the engine also the special Spin methods `S`,
+### Built-in Camunda Spin functions
+
+If camunda Spin is available in the classpath of the engine also the special Spin functions `S`,
 `XML` and `JSON` are available inside of an expression.
 
 ```xml
