@@ -56,9 +56,13 @@ A JSON object with the following properties:
     Valid variable values are Boolean, Number, String and Date values.</td>
   </tr>
   <tr>
-    <td>business key</td>
-    <td>A JSON object containing the business key the process is to be initialized with.
+    <td>businessKey</td>
+    <td>The business key the process instance is to be initialized with.
 	The business key uniquely identifies the process instance in the context of the given process definition.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>The case instance id the process instance is to be initialized with.</td>
   </tr>
 </table>
 
@@ -89,6 +93,11 @@ Properties are:
     <td>businessKey</td>
     <td>String</td>
     <td>The business key of the process instance.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The case instance id of the process instance.</td>
   </tr>
   <tr>
     <td>ended</td>
