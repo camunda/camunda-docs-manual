@@ -137,8 +137,13 @@ Depending on the concrete instance of the historic detail it contains further pr
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
-    <td>The variable's value if it is a primitive value. 
-    <code>null</code> for custom object types.</td>
+    <td><p>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</p>
+    
+    <p>
+    <b>Deprecated</b>: For variables of type <code>Serializable</code>, a json object applying Jackson's POJO
+    serialization is returned. Note that this is only returned when the involved classes are accessible to the REST resources.
+    </p></td>
     <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
