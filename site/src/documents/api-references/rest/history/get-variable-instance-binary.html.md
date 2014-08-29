@@ -7,7 +7,7 @@ keywords: 'get'
 
 ---
 
-Retrieves the binary content of a single historic variable by id.
+Retrieves the content of a single historic variable by id. Applicable for variables that are serialized as binary data.
 
 
 Method

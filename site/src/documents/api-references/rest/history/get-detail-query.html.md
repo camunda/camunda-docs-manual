@@ -136,8 +136,17 @@ Depending on the concrete instance of the historic detail it contains further pr
   </tr>
   <tr>
     <td>value</td>
-    <td>String/Number/Boolean/Object</td>
-    <td>The value of the variable which has been updated.</td>
+    <td>String/Number/Boolean</td>
+    <td>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</td>
+    <!-- TODO: ref variable docs here -->
+  </tr>
+  <tr>
+    <td>serializedValue</td>
+    <td>Object</td>
+    <td>A json object that contains the variable's serialized value.
+    Always <code>null</code> unless the variable type stores custom objects in a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>revision</td>
@@ -212,6 +221,7 @@ GET `/history/detail?processInstanceId=aProcInstId`
         "variableName": "myProcessVariable",
         "variableTypeName": "String",
         "value": "aVariableValue",
+        "serializedValue": null,
         "revision": 1,
         "errorMessage": null
       },

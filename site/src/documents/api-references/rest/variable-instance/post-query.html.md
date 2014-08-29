@@ -133,8 +133,17 @@ A JSON array of variable instance objects. Each variable instance object has the
   </tr>
   <tr>
     <td>value</td>
-    <td>String/Number/Boolean/Object</td>
-    <td>Object serialization uses <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature.</td>
+    <td>String/Number/Boolean</td>
+    <td>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</td>
+    <!-- TODO: ref variable docs here -->
+  </tr>
+  <tr>
+    <td>serializedValue</td>
+    <td>Object</td>
+    <td>A json object that contains the variable's serialized value.
+    Always <code>null</code> unless the variable type stores custom objectsin a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a of type-specific configuration values.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -221,7 +230,8 @@ Request body:
         "processInstanceId": "aProcessInstanceId",
         "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
-        "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726"
+        "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
+        "serializedValue": null
       },
       {
         "id": "someOtherId",
@@ -231,7 +241,8 @@ Request body:
         "processInstanceId": "aProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
-        "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726"
+        "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
+        "serializedValue": null
       },
       {
         "id": "yetAnotherId",
@@ -241,6 +252,7 @@ Request body:
         "processInstanceId": "anotherProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
-        "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726"
+        "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
+        "serializedValue": null
       }      
     ]

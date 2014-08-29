@@ -106,8 +106,17 @@ Each historic activity instance object has the following properties:
   </tr>
   <tr>
     <td>value</td>
-    <td>String/Number/Boolean/Object</td>
-    <td>Object serialization uses <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature.</td>
+    <td>String/Number/Boolean</td>
+    <td>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</td>
+    <!-- TODO: ref variable docs here -->
+  </tr>
+  <tr>
+    <td>serializedValue</td>
+    <td>Object</td>
+    <td>A json object that contains the variable's serialized value.
+    Always <code>null</code> unless the variable type stores custom objectsin a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -161,4 +170,5 @@ GET `/history/variable-instance?variableName=my_variable`
       "type": "String",
       "value": "my_value",
       "processInstanceId": "aVariableInstanceProcInstId",
-      "errorMessage": null}]
+      "errorMessage": null,
+      "serializedValue": null}]

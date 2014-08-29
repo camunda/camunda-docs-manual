@@ -114,8 +114,17 @@ Each historic activity instance object has the following properties:
   </tr>
   <tr>
     <td>value</td>
-    <td>String</td>
-    <td>The value of the variable instance.</td>
+    <td>String/Number/Boolean</td>
+    <td>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</td>
+    <!-- TODO: ref variable docs here -->
+  </tr>
+  <tr>
+    <td>serializedValue</td>
+    <td>Object</td>
+    <td>A json object that contains the variable's serialized value.
+    Always <code>null</code> unless the variable type stores custom objectsin a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -169,4 +178,5 @@ Request body:
     [{"name": "someVariable",
     "type": "Integer",
     "value": 42,
-    "processInstanceId": "aProcInstId"}]
+    "processInstanceId": "aProcInstId",
+    "serializedValue": null}]

@@ -139,7 +139,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/variable-instance/count?processInstanceIdIn=aProcessInstanceId,anotherProcessInstanceId&variableValues=amount_gteq_5,amount_lteq_200`
 
 #### Response

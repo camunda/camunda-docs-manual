@@ -1,6 +1,6 @@
 ---
 
-title: "Get a single variable (Binary)"
+title: "Get Single Variable Instance (Binary)"
 category: 'Variable'
 
 keywords: 'get'
@@ -8,7 +8,7 @@ keywords: 'get'
 ---
 
 
-Retrieves the binary content of a single variable by id.
+Retrieves the content of a single variable by id. Applicable for variables that are serialized as binary data.
 
 
 Method
@@ -56,7 +56,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Variable with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id exists but does not serialize as binary data. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

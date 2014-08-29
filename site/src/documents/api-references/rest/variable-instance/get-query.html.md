@@ -123,8 +123,17 @@ A JSON array of variable instance objects. Each variable instance object has the
   </tr>
   <tr>
     <td>value</td>
-    <td>String/Number/Boolean/Object</td>
-    <td>Object serialization uses <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature.</td>
+    <td>String/Number/Boolean</td>
+    <td>The variable's value if it is a primitive value. 
+    <code>null</code> for custom object types.</td>
+    <!-- TODO: ref variable docs here -->
+  </tr>
+  <tr>
+    <td>serializedValue</td>
+    <td>Object</td>
+    <td>A json object that contains the variable's serialized value.
+    Always <code>null</code> unless the variable type stores custom objects in a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -186,7 +195,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessInstanceId&variableValues=amount_gteq_5,amount_lteq_200`
   
 #### Response
@@ -202,7 +210,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "taskId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
-        "caseInstanceId": null
+        "caseInstanceId": null,
+        "serializedValue": null
       },
       {
         "id": "someOtherId",
@@ -214,7 +223,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "taskId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
-        "caseInstanceId": null
+        "caseInstanceId": null,
+        "serializedValue": null
       },
       {
         "id": "yetAnotherId",
@@ -226,6 +236,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "taskId": null,
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
-        "caseInstanceId": null
+        "caseInstanceId": null,
+        "serializedValue": null
       }      
     ]
