@@ -30,7 +30,7 @@ scripts.
         Process, Activities, Sequence Flows, Gateways and Events
       </a>
     </td>
-    <td>Script as an exeuction listener</td>
+    <td>Script as an execution listener</td>
   </tr>
   <tr>
     <td>
@@ -54,7 +54,7 @@ scripts.
           All Tasks, All Events, Transaction, Subprocess and Connector
         </a>
     </td>
-    <td>Script inside a inputOutput parameter mapping</td>
+    <td>Script inside an inputOutput parameter mapping</td>
   </tr>
 </table>
 
@@ -199,7 +199,7 @@ process variable which is available inside the script.
 
 ### Use Scripts as inputOutput Parameters
 
-With the camunda `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
+With the Camunda `inputOutput` extension element you can map an `inputParameter` or `outputParameter`
 with a script. The following example process uses the Groovy script from the previous example to assign
 the Groovy variable `sum` to the process variable `x` for a Java delegate.
 
@@ -207,10 +207,10 @@ the Groovy variable `sum` to the process variable `x` for a Java delegate.
 <div class="alert alert-info">
   <strong>Script Return Value:</strong>
   <p>
-    Please notice that the last statement of the script is returned. This applies to Groovy,
+    Please note that the last statement of the script is returned. This applies to Groovy,
     Javascript and JRuby but not to Jython. If you want to use Jython, your script has to be a
     single expression like <code>a + b</code> or <code>a > b</code> where <code>a</code> and
-    <code>b</code> are already process variables. Otherwise the Jython scripting engine will
+    <code>b</code> are already process variables. Otherwise, the Jython scripting engine will
     not return a value.
   </p>
 </div>
@@ -249,7 +249,7 @@ the Groovy variable `sum` to the process variable `x` for a Java delegate.
 </definitions>
 ```
 
-After the script assigned a value to the `sum` variable, `x` can be used inside the Java delegate
+After the script has assigned a value to the `sum` variable, `x` can be used inside the Java delegate
 code.
 
 ```java

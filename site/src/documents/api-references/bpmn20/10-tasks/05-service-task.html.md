@@ -38,7 +38,7 @@ same rules as objects that are created when the `camunda:class` attribute is use
              camunda:delegateExpression="${myDelegateBean}" />
 ```
 
-Or an expressions which call a method or resolve to a value.
+Or an expression which calls a method or resolves to a value.
 
 ```xml
 <serviceTask id="expressionService"
@@ -48,7 +48,7 @@ Or an expressions which call a method or resolve to a value.
 
 For more information about expression language as delegation code please see the corresponding
 [section](ref:/guides/user-guide/#process-engine-expression-language-use-expression-language-as-delegation-code)
-in the user guide.
+of the [User Guide](ref:/guides/user-guide/).
 
 ## Generic Java Delegates & Field Injection
 

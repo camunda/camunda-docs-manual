@@ -10,8 +10,8 @@ camunda BPM supports Unified Expression Language (EL), specified as part of the 
 information about the usage of Expression Language please read the [official documentation][].
 Especially the provided [examples][examples] give a good overview of the syntax of expressions.
 
-Within camunda BPM EL can be used in many circumstances to evaluate small script like
-expression. The following table provides an overview of the BPMN elements which support
+Within Camunda BPM, EL can be used in many circumstances to evaluate small script-like
+expressions. The following table provides an overview of the BPMN elements which support
 usage of EL.
 
 <table class="table desc-table">
@@ -43,7 +43,7 @@ usage of EL.
           All Tasks, All Events, Transaction, Subprocess and Connector
         </a>
     </td>
-    <td>Expression language inside a inputOutput parameter mapping</td>
+    <td>Expression language inside an inputOutput parameter mapping</td>
   </tr>
   <tr>
     <td>
@@ -58,8 +58,8 @@ usage of EL.
 
 ### Use Expression Language as Delegation Code
 
-Besides Java code, camunda BPM also supports the evaluation of expressions as delegation code.  For
-general information about delegation code see the corresponding
+Besides Java code, Camunda BPM also supports the evaluation of expressions as delegation code.  For
+general information about delegation code, see the corresponding
 [section](ref:#process-engine-delegation-code).
 
 Two types of expressions are currently supported: `camunda:expression` and
@@ -67,7 +67,7 @@ Two types of expressions are currently supported: `camunda:expression` and
 
 With `camunda:expression` it is possible to evaluate a value expression or to invoke
 a method expression. You can use special variables which are available inside an expression or
-Spring and CDI beans. For more information about [variables][] and [Spring][] resp. [CDI][] beans
+Spring and CDI beans. For more information about [variables][] and [Spring][], respectively [CDI][] beans,
 please see the corresponding sections.
 
 ```xml
@@ -97,7 +97,7 @@ please see the corresponding sections.
 </process>
 ```
 
-The attribute `camunda:delegateExpression` is used for expressions which evaluates to an delegate
+The attribute `camunda:delegateExpression` is used for expressions which evaluate to a delegate
 object. This delegate object must implement either the `JavaDelegate` or `ActivityBehavior`
 interface.
 
@@ -112,15 +112,15 @@ interface.
 
 ### Use Expression Language as Conditions
 
-To use conditional sequence flows usually expression language is used. Therefore a
-`conditionExpression` element of a sequence flow has to be used of the type `tFormalExpression`.
+To use conditional sequence flows, expression language is usually used. Therefore, a
+`conditionExpression` element of a sequence flow of the type `tFormalExpression` has to be used.
 The text content of the element is the expression to be evaluated.
 
 Inside the expression some special variables are available which enable the access of the current
-context. To find more information about the available variables please see the [corresponding
+context. To find more information about the available variables please see the [corresponding 
 section][variables].
 
-The following example show the usage of expression language as condition of a sequence flow:
+The following example shows the usage of expression language as condition of a sequence flow:
 
 ```xml
 <sequenceFlow>
@@ -140,7 +140,7 @@ Inside the expression some special variables are available which enable the acce
 context. To find more information about the available variables please see the [corresponding
 section][variables].
 
-The following example show a `inputParameter` which uses expression language to call a method of
+The following example shows an `inputParameter` which uses expression language to call a method of
 a bean.
 
 ```xml
@@ -159,7 +159,7 @@ a bean.
 ### Use Expression Language as Value
 
 Different BPMN and CMMN elements allow to specify their content or an attribute value by an
-expression. Please see the corresponding section for [BPMN][] and [CMMN][] in the references
+expression. Please see the corresponding sections for [BPMN][] and [CMMN][] in the references
 for more detailed examples.
 
 
@@ -203,7 +203,7 @@ evaluating expressions:
     <tr>
       <td><code>task</code></td>
       <td><code>DelegateTask</code></td>
-      <td>Available a task context like a task listener.</td>
+      <td>Available in a task context like a task listener.</td>
     </tr>
     <tr>
       <td><code>caseExecution</code></td>
@@ -232,7 +232,7 @@ event name of an execution listener.
 
 ### External context variables with Spring and CDI
 
-If the process engine is integrated with Spring or CDI, It is possible to access Spring and CDI
+If the process engine is integrated with Spring or CDI, it is possible to access Spring and CDI
 beans inside of expressions. Please see the corresponding sections for [Spring][] and [CDI][]
 for more information. The following example shows the usage of a bean which implements the 
 `JavaDelegate` interface as delegateExecution.
@@ -249,8 +249,8 @@ With the expression attribute any method of a bean can be called.
 
 ### Built-in Camunda Spin functions
 
-If camunda Spin is available in the classpath of the engine also the special Spin functions `S`,
-`XML` and `JSON` are available inside of an expression.
+If Camunda Spin is available in the classpath of the engine, the special Spin functions `S`,
+`XML` and `JSON` are also available inside of an expression.
 
 ```xml
 <serviceTask id="task" camunda:expression="${XML(xml).attr('test').value()}" resultVariable="test" />
