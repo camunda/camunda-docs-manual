@@ -231,7 +231,7 @@ Where the class `MyProcessApplication` could look like this:
     <span class="container-tiny tomcat"></span>
     <span class="container-tiny glassfish"></span>
   </p>
-  <p>The spring process application is currently <strong>not supported on JBoss AS 7</strong>.</p>
+  <p>The spring process application is currently <strong>not supported on JBoss AS 7 / Wildfly 8</strong>.</p>
   <p><strong>Packaging:</strong> JAR, WAR, EAR</p>
 </div>
 

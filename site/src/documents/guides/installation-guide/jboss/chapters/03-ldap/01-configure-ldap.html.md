@@ -9,7 +9,7 @@ category: 'LDAP Configuration'
 In order to setup LDAP for the JBoss Application Server distribution, you have to perform the following steps:
 
 <strong>Adjust Process Engine Configuration</strong><br>
-Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss Application Server and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss / Wildfly Application Server and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">

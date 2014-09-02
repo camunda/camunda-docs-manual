@@ -14,7 +14,7 @@ A plugin must provide an implementation of the <a href="ref:/api-references/java
 Process engine plugins can be configured
 
 * in the [BPM Platform Deployment Descriptors](ref:/api-references/deployment-descriptors/) (bpm-platform.xml / processes.xml),
-* in [JBoss Application Server 7 configuration file](ref:#runtime-container-integration-the-camunda-jboss-as-7-subsystem) (standalone.xml / domain.xml)
+* in [JBoss Application Server 7 / Wildfly 8 configuration file](ref:#runtime-container-integration-the-camunda-jboss-subsystem) (standalone.xml / domain.xml)
 * using Spring Beans XML,
 * programatically.
 

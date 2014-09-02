@@ -14,10 +14,11 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 ## Container / Application Server
 
 *   Apache Tomcat 6 / 7
-*   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2
+*   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2 / 6.3
+*   Wildfly 8.1 Application Server
 *   GlassFish 3.1
 *   IBM WebSphere Application Server 8.0 / 8.5 (<a href="http://camunda.com/bpm/enterprise/">Enterprise Edition only</a>)
-*	Oracle WebLogic Server 12c - excluding camunda Cycle (<a href="http://camunda.com/bpm/enterprise/">Enterprise Edition only</a>)
+*	  Oracle WebLogic Server 12c - excluding camunda Cycle (<a href="http://camunda.com/bpm/enterprise/">Enterprise Edition only</a>)
 
 
 ## Databases

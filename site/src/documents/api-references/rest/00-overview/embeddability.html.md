@@ -57,7 +57,7 @@ Required steps
     You may also have to add the following Jackson providers: `org.codehaus.jackson.jaxrs.JacksonJsonProvider`,
     `org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper` and `org.codehaus.jackson.jaxrs.JsonParseExceptionMapper`.
     Depending on the runtime environment, this may not be necessary. 
-    On JBoss AS 7 these should be automatically added as an implicit module dependency.
+    On JBoss AS 7 / Wildfly 8 these should be automatically added as an implicit module dependency.
   
     For proper exception responses of the format as described in the [Introduction](ref:#overview-introduction),
     it is necessary to include `RestExceptionHandler`. `ProcessEngineExceptionHandler` is used to translate any exception thrown by the
