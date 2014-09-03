@@ -52,8 +52,20 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>type</td>
-    <td>The type of the variable to set. Valid types are Integer, Short, Long, Double, String, Boolean and Date.
+    <td>
+      <p><i>Optional</i></p>
+      <p>The simple class name of the variable value. Has to be compatible with the supplied variable type.</p>
     </td>
+  </tr>
+  <tr>
+    <td>variableType</td>
+    <td>The type of the variable to set. Valid values are the variable types that are available to the engine.
+    </td>
+    <!-- TODO: reference variable type docs here for default types -->
+  </tr>
+  <tr>
+    <td>serializationConfig</td>
+    <td>A json object containing meta-data that is required by the variable type when setting a serialized value. Required properties depend on the variable type. Primitive variable types do not require meta-data.</td>
   </tr>   
 </table>
 
@@ -91,10 +103,10 @@ Response codes
 </table>
 
   
-Example
--------
+Examples
+--------
 
-#### Request
+#### (1) Request
 
 PUT `/task/aTaskId/localVariables/aVarName`
   
@@ -102,6 +114,24 @@ PUT `/task/aTaskId/localVariables/aVarName`
 {
 	"value" : "someValue", 
 	"type": "String"
+}
+```
+
+#### Response
+    
+Status 204. No content.
+
+#### (1) Request
+
+Set a custom class object from its JSON representation (requires to use the `SpinSerialization` variable type in the engine):
+
+PUT `/task/aTaskId/localVariables/aVarName`
+
+```json
+{
+  "value" : "{\"aKey\": \"aValue\"}", 
+  "variableType": "SpinSerialization",
+  "serializationConfig": {"dataFormatId": "application/json; implementation=tree", "rootType": "my.custom.Class"}
 }
 ```
      

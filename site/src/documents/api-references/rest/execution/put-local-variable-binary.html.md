@@ -7,7 +7,7 @@ keywords: 'post update set binary variable'
 
 ---
 
-Sets the value for a binary variable
+Sets the serialized value for a binary variable.
 
 Method
 ------
@@ -53,13 +53,24 @@ A multipart form submit with the following parts:
   <tr>
     <td>data</td>
     <td>application/json</td>
-    <td>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</td>
+    <td>
+      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <p>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</p>
+    </td>
   </tr>
   <tr>
     <td>type</td>
     <td>text/plain</td>
-    <td>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</td>
-  </tr>  
+    <td>
+      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <p>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
+    </td>
+  </tr>
+  <tr>
+    <td>variableType</td>
+    <td>text/plain</td>
+    <td>The type of the variable to set. Example: <code>serializable</code> to set the binary representation for a serializable variable. Default value is `bytes`.</td>
+  </tr>
 </table>
 
 
@@ -96,7 +107,42 @@ Example
 
 #### Request
 
-(1) Post the JSON serialization of a Java Class:
+
+(1) Post binary content of a byte array variable:
+
+POST `/execution/anExecutionId/localVariables/aVarName/data`
+
+```  
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="data"; filename="unspecified"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+<<Byte Stream ommitted>>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
+```
+
+(2) Post serialized representation of a `serializable` variable:
+
+POST `/execution/anExecutionId/localVariables/aVarName/data`
+
+```  
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="data"; filename="unspecified"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+<<Byte Stream ommitted>>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="variableType"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+serializable
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
+```
+
+(3) Post the JSON serialization of a Java Class (**deprecated**):
 
 POST `/execution/anExecutionId/localVariables/aVarName/data`
 
@@ -113,19 +159,5 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 8bit
 
 java.util.ArrayList<java.lang.Object>
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
-```
-
-(2) Post binary content of a byte array variable:
-
-POST `/execution/anExecutionId/localVariables/aVarName/data`
-
-```  
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="data"; filename="unspecified"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: binary
-
-<<Byte Stream ommitted>>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
