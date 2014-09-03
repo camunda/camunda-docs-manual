@@ -119,26 +119,31 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The simple class name of the variable instance.</td>
+    <td>The simple class name of the variable value.</td>
+  </tr>
+  <tr>
+    <td>variableType</td>
+    <td>String</td>
+    <td>The type of the variable instance.</td>
+    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
-    <td><p>The variable's value if it is a primitive value. 
-    <code>null</code> for custom object types.</p>
+    <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>).</p>
+    <!-- TODO: ref variable docs here -->
     
     <p>
-    <b>Deprecated</b>: For variables of type <code>Serializable</code>, a json object applying Jackson's POJO
+    <b>Deprecated</b>: For variables of type <code>serializable</code>, a json object applying Jackson's POJO
     serialization is returned. Note that this is only returned when the involved classes are accessible to the REST resources.
     </p></td>
-    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
-    <td>serializedValue</td>
+    <td>serializationConfig</td>
     <td>Object</td>
-    <td>A json object that contains the variable's serialized value.
-    Always <code>null</code> unless the variable type stores custom objects in a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <td>A json object containing additional variable meta-data required to interpret the value. Exact properties depend on the variable type. For all primitive variable types this property is <code>null</code>.
     <!-- TODO: ref variable docs here -->
+    </td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -208,7 +213,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
       {
         "id": "someId",
         "name": "amount",
-        "type": "integer",
+        "type": "Integer",
+        "variableType": "integer",
         "value": 5,
         "processInstanceId": "aProcessInstanceId",
         "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
@@ -216,12 +222,13 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializedValue": null
+        "serializationConfig": null
       },
       {
         "id": "someOtherId",
         "name": "amount",
-        "type": "integer",
+        "type": "Integer",
+        "variableType": "integer",
         "value": 15,
         "processInstanceId": "aProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
@@ -229,12 +236,13 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializedValue": null
+        "serializationConfig": null
       },
       {
         "id": "yetAnotherId",
         "name": "amount",
-        "type": "integer",
+        "type": "Integer",
+        "variableType": "integer",
         "value": 150,
         "processInstanceId": "anotherProcessInstanceId",
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
@@ -242,6 +250,6 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializedValue": null
+        "serializationConfig": null
       }      
     ]

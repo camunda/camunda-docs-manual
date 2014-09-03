@@ -137,21 +137,20 @@ Depending on the concrete instance of the historic detail it contains further pr
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
-    <td><p>The variable's value if it is a primitive value. 
-    <code>null</code> for custom object types.</p>
+    <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>).</p>
+    <!-- TODO: ref variable docs here -->
     
     <p>
-    <b>Deprecated</b>: For variables of type <code>Serializable</code>, a json object applying Jackson's POJO
+    <b>Deprecated</b>: For variables of type <code>serializable</code>, a json object applying Jackson's POJO
     serialization is returned. Note that this is only returned when the involved classes are accessible to the REST resources.
     </p></td>
-    <!-- TODO: ref variable docs here -->
   </tr>
   <tr>
-    <td>serializedValue</td>
+    <td>serializationConfig</td>
     <td>Object</td>
-    <td>A json object that contains the variable's serialized value.
-    Always <code>null</code> unless the variable type stores custom objects in a text-based format. If filled, contains a String field <code>value</code> with the variable's serialized value and a field <code>configuration</code> with a map of type-specific configuration values.</td>
+    <td>A json object containing additional variable meta-data required to interpret the value. Exact properties depend on the variable type. For all primitive variable types this property is <code>null</code>.
     <!-- TODO: ref variable docs here -->
+    </td>
   </tr>
   <tr>
     <td>revision</td>
@@ -226,7 +225,7 @@ GET `/history/detail?processInstanceId=aProcInstId`
         "variableName": "myProcessVariable",
         "variableTypeName": "String",
         "value": "aVariableValue",
-        "serializedValue": null,
+        "serializationConfig": null,
         "revision": 1,
         "errorMessage": null
       },
