@@ -31,7 +31,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-      <a href="#process-engine-expression-language-use-expression-language-as-condition">
+      <a href="#process-engine-expression-language-use-expression-language-as-conditions">
         Sequence Flows
       </a>
     </td>
@@ -39,7 +39,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-        <a href="#process-engine-use-expression-language-as-inputoutput-parameters">
+        <a href="#process-engine-expression-language-use-expression-language-as-inputoutput-parameters">
           All Tasks, All Events, Transaction, Subprocess and Connector
         </a>
     </td>
