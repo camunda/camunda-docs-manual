@@ -115,14 +115,14 @@ Status 204. No content.
 
 #### (2) Request   
 
-Set a custom class object from its JSON representation (requires to use the `SpinSerialization` variable type in the engine):
+Set a custom class object from its JSON representation (requires to use the `spin-serialization` variable type in the engine):
 
 PUT `/process-instance/aProcessInstanceId/variables/aVarName`
 
 ```json  
 {
   "value" : "{\"aKey\": \"aValue\"}", 
-  "variableType": "SpinSerialization",
+  "variableType": "spin-serialization",
   "serializationConfig": {"dataFormatId": "application/json; implementation=tree", "rootType": "my.custom.Class"}
 }
 ```
