@@ -86,16 +86,21 @@ Depending on the concrete instance of the historic detail it contains further pr
     <td>The name of the variable which has been updated.</td>
   </tr>
   <tr>
-    <td>variableType</td>
+    <td>variableTypeName</td>
     <td>String</td>
     <td>The type of the variable which has been updated.</td>
+  </tr>
+  <tr>
+    <td>typeName</td>
+    <td>String</td>
+    <td>The type of the value which has been updated.</td>
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
     <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>).</p>
     <!-- TODO: ref variable docs here -->
-    
+
     <p>
     <b>Deprecated</b>: For variables of type <code>serializable</code>, a json object applying Jackson's POJO
     serialization is returned. Note that this is only returned when the involved classes are accessible to the REST resources.
@@ -167,7 +172,7 @@ Example
 #### Request
 
 GET `/history/detail/someId`
-  
+
 #### Response
 
 Status 200.
@@ -179,7 +184,8 @@ Status 200.
       "executionId": "anExecutionId",
       "time": "2014-02-28T15:00:00",
       "variableName": "myProcessVariable",
-      "variableTypeName": "String",
+      "variableTypeName": "string",
+      "typeName": "String",
       "value": "aVariableValue",
       "serializationConfig": null,
       "revision": 1,
