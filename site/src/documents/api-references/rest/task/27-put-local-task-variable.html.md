@@ -121,7 +121,7 @@ PUT `/task/aTaskId/localVariables/aVarName`
     
 Status 204. No content.
 
-#### (1) Request
+#### (2) Request
 
 Set a custom class object from its JSON representation (requires to use the `SpinSerialization` variable type in the engine):
 
