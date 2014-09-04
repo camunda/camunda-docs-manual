@@ -1,6 +1,6 @@
 ---
 
-title: 'Define resources in the cell scope'
+title: 'Define resources in the node scope'
 category: 'BPM Platform'
 
 ---
