@@ -123,15 +123,7 @@ If your process instance contains multiple execution paths (like for instance af
 
 Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a <a href="ref:/api-references/bpmn20/#subprocesses-embedded-subprocess">Embedded Sub Process</a> or in case of <a href="ref:/api-references/bpmn20/#tasks-task-markers">Multi Instance</a>.
 
-Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution.
-
-### Local Variables
-
-Executions can have local variables. Local variables are only visible to the execution itself and its children but not to siblings of parents in the execution tree. Local variables are usually used if a part of the process works on some local data object or if an execution works on one item of a collection in case of multi instance.
-
-In order to set a local variable on an execution, use the `setVariableLocal` method provided by the runtime service.
-
-    runtimeService.setVariableLocal(name, value);
+Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes](ref:#process-engine-process-variables), meaning that dynamic data can be associated with them.
 
 ### Querying for executions
 

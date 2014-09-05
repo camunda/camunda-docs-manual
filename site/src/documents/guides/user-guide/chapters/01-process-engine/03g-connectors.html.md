@@ -52,7 +52,7 @@ A full [example][example-rest] of the REST connector can also be found in the
 [github]: https://github.com/camunda/camunda-connect
 [connector]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundaconnector
 [connectorId]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundaconnectorid
-[iomapping]: ref:#process-engine-inputoutput-variable-mapping
+[iomapping]: ref:#process-engine-process-variables-inputoutput-variable-mapping
 [example-soap]: https://github.com/camunda/camunda-bpm-examples/tree/master/servicetask/soap-service
 [example-rest]: https://github.com/camunda/camunda-bpm-examples/tree/master/servicetask/rest-service
 [examples]: https://github.com/camunda/camunda-bpm-examples
