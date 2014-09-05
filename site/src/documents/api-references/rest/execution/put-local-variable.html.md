@@ -59,13 +59,12 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variableType</td>
-    <td>The type of the variable to set. Valid values are the variable types that are available to the engine.
+    <td>The type of the variable to set. Valid values are the variable types that are available to the engine. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.
     </td>
-    <!-- TODO: reference variable type docs here for default types -->
   </tr>
   <tr>
     <td>serializationConfig</td>
-    <td>A json object containing meta-data that is required by the variable type when setting a serialized value. Required properties depend on the variable type. Primitive variable types do not require meta-data.</td>
+    <td>A json object containing meta-data that is required by the variable type when setting a serialized value. Required properties depend on the variable type. Primitive variable types do not require meta-data. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</td>
   </tr>
 </table>
 

@@ -63,15 +63,12 @@ A json object with the following properties:
   <tr>
     <td>variableType</td>
     <td>String</td>
-    <td>The type of the variable instance.</td>
-    <!-- TODO: ref variable docs here -->
+    <td>The type of the variable instance. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</td>
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
-    <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>).</p>
-    <!-- TODO: ref variable docs here -->
-    
+    <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>). Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</p>
     <p>
     <b>Deprecated</b>: For variables of type <code>serializable</code>, a json object applying Jackson's POJO
     serialization is returned. Note that this is only returned when the involved classes are accessible to the REST resources.
@@ -80,8 +77,7 @@ A json object with the following properties:
   <tr>
     <td>serializationConfig</td>
     <td>Object</td>
-    <td>A json object containing additional variable meta-data required to interpret the value. Exact properties depend on the variable type. For all primitive variable types this property is <code>null</code>.
-    <!-- TODO: ref variable docs here -->
+    <td>A json object containing additional variable meta-data required to interpret the value. Exact properties depend on the variable type. For all primitive variable types this property is <code>null</code>. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.
     </td>
   </tr>
   <tr>

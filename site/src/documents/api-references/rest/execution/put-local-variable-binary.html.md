@@ -69,7 +69,7 @@ A multipart form submit with the following parts:
   <tr>
     <td>variableType</td>
     <td>text/plain</td>
-    <td>The type of the variable to set. Example: <code>serializable</code> to set the binary representation for a serializable variable. Default value is `bytes`.</td>
+    <td>The type of the variable to set. Example: <code>serializable</code> to set the binary representation for a serializable variable. Default value is `bytes`. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</td>
   </tr>
 </table>
 
