@@ -140,3 +140,21 @@ The filter function on the left hand side of the Process Definition View allows 
      </p>
   </div>
 </div>
+
+##Cancel multiple process instances
+
+<div class="alert alert-warning">
+ <p><strong>Enterprise Feature</strong></p>
+ Please note that the following feature is only included in the enterprise edition of the camunda BPM platform, it is not available in the community edition.
+ <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p></div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/bulk-xxl.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      You can cancel multiple process instances at once by using this feature. In the process definition view, hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
+    </p>
+  </div>
+</div>
