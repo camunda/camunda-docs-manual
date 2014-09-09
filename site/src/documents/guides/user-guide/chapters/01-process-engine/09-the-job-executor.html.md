@@ -101,6 +101,10 @@ Similarly, the following example defines three retries after 5 seconds each for 
 
 Recap: a retry may be required if there are any failures during the transaction which follows the timer.
 
+<div class="alert alert-info">
+  While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on <a href="ref:#process-engine-the-job-executor-concurrent-job-execution">concurrent job execution</a>). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
+</div>
+
 ## Concurrent Job Execution
 
 The Job Executor makes sure that **jobs from a single process instance are never executed concurrently**. Why is this? Consider the following process definition:
@@ -117,7 +121,7 @@ However, while this is a perfectly fine solution from the point of view of persi
 
 ### Exclusive Jobs
 
-An exclusive job cannot be performed at the same time as another exclusive job from the same process instance. Consider the process shown in the section above: if the jobs corresponding to the service tasks are treated as exclusive, the job executor will make sure that they are not executed concurrently. Instead, it will ensure that whenever it acquires an exclusive job from a certain process instance, it also acquires all other exclusive jobs from the same process instance and delegates them to the same worker thread. This enforces sequential execution of the jobs.
+An exclusive job cannot be performed at the same time as another exclusive job from the same process instance. Consider the process shown in the section above: if the jobs corresponding to the service tasks are treated as exclusive, the job executor will try to avoid that they are not executed in parallel. Instead, it will ensure that whenever it acquires an exclusive job from a certain process instance, it also acquires all other exclusive jobs from the same process instance and delegates them to the same worker thread. This enforces sequential execution of these jobs and in most cases avoids optimistic locking exceptions. However, this behavior is a heuristic, meaning that the job executor can only enforce sequential execution of the jobs that are available during **lookup time**. If a potentially conflicting job is created after that, it may be processed by another job execution thread in parallel.
 
 **Exclusive Jobs are the default configuration**. All asynchronous continuations and timer events are thus exclusive by default. In addition, if you want a job to be non-exclusive, you can configure it as such using `camunda:exclusive="false"`. For example, the following service task would be asynchronous but non-exclusive.
 
