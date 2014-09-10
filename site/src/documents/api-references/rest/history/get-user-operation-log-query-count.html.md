@@ -33,6 +33,10 @@ Parameters
     <td>Filter by process definition id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>Filter by process definition key.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by process instance id.</td>
   </tr>

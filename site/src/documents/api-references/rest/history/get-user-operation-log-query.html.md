@@ -12,6 +12,8 @@ keywords: 'historic get query list user operation'
 Query for user operation log entries that fulfill the given parameters.
 The size of the result set can be retrieved by using the [count](ref:#history-get-user-operation-log-count) method.
 
+Note that the properties of operation log entries are interpreted as restrictions on the entities they apply to. That means, if a single process instance is updated, the field `processInstanceId` is populated. If a single operation updates all process instances of the same process definition, the field `processInstanceId` is `null` (a `null` restriction is viewed as a wildcard, i.e. matches a process instance with any id) and the field `processDefinitionId` is populated. This way, it can easily be reconstructed which entities were changed by a user operation.
+
 
 Method
 ------
@@ -32,6 +34,10 @@ Parameters
   <tr>
     <td>processDefinitionId</td>
     <td>Filter by process definition id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>Filter by process definition key.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -123,41 +129,6 @@ Each log entry has the following properties:
     <td>The unique identifier of this log entry.</td>
   </tr>
   <tr>
-    <td>processDefinitionId</td>
-    <td>String</td>
-    <td>Process definition reference.</td>
-  </tr>
-  <tr>
-    <td>processInstanceId</td>
-    <td>String</td>
-    <td>Process instance reference.</td>
-  </tr>
-  <tr>
-    <td>executionId</td>
-    <td>String</td>
-    <td>Execution reference.</td>
-  </tr>
-  <tr>
-    <td>caseDefinitionId</td>
-    <td>String</td>
-    <td>Case definition reference.</td>
-  </tr>
-  <tr>
-    <td>caseInstanceId</td>
-    <td>String</td>
-    <td>Case instance reference.</td>
-  </tr>
-  <tr>
-    <td>caseExecutionId</td>
-    <td>String</td>
-    <td>Case execution reference.</td>
-  </tr>
-  <tr>
-    <td>taskId</td>
-    <td>String</td>
-    <td>Task reference.</td>
-  </tr>
-  <tr>
     <td>userId</td>
     <td>String</td>
     <td>The user who performed this operation.</td>
@@ -197,6 +168,48 @@ Each log entry has the following properties:
     <td>String</td>
     <td>The new value of the changed property.</td>
   </tr>
+  
+  <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this process definition.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to process definitions with this key.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this process instance.</td>
+  </tr>
+  <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this execution.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this case definition.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this case instance.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this case execution.</td>
+  </tr>
+  <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this task.</td>
+  </tr>
+  
 </table>
 
 
@@ -222,10 +235,12 @@ Response codes
 </table>
 
 
-Example
--------
+Examples
+--------
 
-#### Request
+#### (1) Request
+
+Gets an operation that updates a single task.
 
 GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&sortOrder=asc`
 
@@ -233,6 +248,7 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
 
     [{"id": "anUserOperationLogEntryId",
     "processDefinitionId": "aProcessDefinitionId",
+    "processDefinitionKey": null,
     "processInstanceId": "aProcessInstanceId",
     "executionId": "anExecutionId",
     "taskId": "aTaskId",
@@ -244,3 +260,26 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "property": "assignee",
     "orgValue": null,
     "newValue": "demo"}]
+    
+#### (2) Request
+
+Gets an operation that updates a multiple process instances with the same key.
+
+GET `/history/user-operation?operationType=Suspend&userId=demo`
+
+#### Response
+
+    [{"id": "anUserOperationLogEntryId",
+    "processDefinitionId": null,
+    "processDefinitionKey": "aProcessDefinitionKey",
+    "processInstanceId": null,
+    "executionId": null,
+    "taskId": null,
+    "userId": "demo",
+    "timestamp": "2014-02-25T14:58:37",
+    "operationId": "anOperationId",
+    "operationType": "Suspend",
+    "entityType": "ProcessInstance",
+    "property": "suspensionState",
+    "orgValue": null,
+    "newValue": "suspended"}]
