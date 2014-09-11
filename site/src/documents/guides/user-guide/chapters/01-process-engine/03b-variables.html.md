@@ -5,11 +5,11 @@ category: 'Process Engine'
 
 ---
 
-This section describes the concepts of variables in processes. Variables can be used to add data to process runtime state or, more particular, variable scopes. Various API methods that change the state of these entities allow to update the attached variables. In general, a variable consists of a name and a value. The name is used for identification across process constructs. For example, if one activity sets a variable named *var*, a follow-up activity can access it by using this name. The value of a variable is a Java object. 
+This section describes the concepts of variables in processes. Variables can be used to add data to process runtime states or, more particular, variable scopes. Various API methods that change the state of these entities allow updating of the attached variables. In general, a variable consists of a name and a value. The name is used for identification across process constructs. For example, if one activity sets a variable named *var*, a follow-up activity can access it by using this name. The value of a variable is a Java object. 
 
 ## Variable Scopes and Variable Visibility
 
-All entities that can have variables are called *variable scopes*. These are executions (which includes process instances) and tasks. As described in the  [Concepts section](ref:#process-engine-process-engine-concepts-executions), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
+All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section](ref:#process-engine-process-engine-concepts-executions), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-3.png" /></center>
 
@@ -21,7 +21,7 @@ There is a process instance with two child executions, each of which has created
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-5.png" /></center>
 
-In this case, when working on *Task 1* the variables *worker* and *customer* are accessible. Note that due to the structure of scopes, the variable *worker* can be defined twice such that *Task 1* accesses a different *worker* variable than *Task 2*. However, both share the variable *customer* which means that if that variable is updated by one of the tasks, this change is also visible to the other. 
+In this case, when working on *Task 1* the variables *worker* and *customer* are accessible. Note that due to the structure of scopes, the variable *worker* can be defined twice, so that *Task 1* accesses a different *worker* variable than *Task 2*. However, both share the variable *customer* which means that if that variable is updated by one of the tasks, this change is also visible to the other. 
 
 Both tasks can access two variables each while none of these is a local variable. All  three executions have one local variable each.
 
@@ -29,11 +29,11 @@ Now let's say, we set a local variable *customer* on *Task 1*:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-6.png" /></center>
 
-While still two variables named *customer* and *worker* can be accessed from *Task 1*, the *customer* variable on *Execution 1* is hidden, so the accessible *customer* variable is the local variable of *Task 1*.
+While two variables named *customer* and *worker* can still be accessed from *Task 1*, the *customer* variable on *Execution 1* is hidden, so the accessible *customer* variable is the local variable of *Task 1*.
 
 ## Variable Representations
 
-Internally, the process engine persists variables in the database, which is why there are two types of variable representations:
+Internally, the process engine persists variables to the database, which is why there are two types of variable representations:
 
 * The variable value as a Java object
 * The serialized variable value
@@ -42,13 +42,13 @@ While the Java Object representation is the one that is typically used when impl
 
 ## Variable Types
 
-When a variable is created, it is assigned a variable type. A variable type has two responsibilities: First, it defines a format and a procedure with which the value is persisted in the database. Second, it defines a procedure with which the value is restored when it is accessed. Depending on the Java type a value is an instance of, it may be persisted by a different variable type. The process engine provides a set of *primitive* and *custom object* variable types that are described in the following.
+When a variable is created, it is assigned a variable type. A variable type has two responsibilities: First, it defines a format and a procedure with which the value is persisted to the database. Second, it defines a procedure with which the value is restored when it is accessed. Depending on the Java type a value is an instance of, it may be persisted by a different variable type. The process engine provides a set of *primitive* and *custom object* variable types that are described in the following image.
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-1.png" /></center>
 
 ### Primitive Types
 
-Primitive types are variable types that are responsible to store instances of standard JDK classes. These are the following:
+Primitive types are variable types that are responsible for storing instances of standard JDK classes. These are the following:
 
 * `boolean`: Stores instances of `java.lang.Boolean`
 * `bytes`: Stores instances of `byte[]`
@@ -62,10 +62,10 @@ Primitive types are variable types that are responsible to store instances of st
 
 ### Custom Object Types
 
-Custom object types are capable of persisting variables of non-JDK Java classes that are for example provided with the process application. The two types provided by the engine are:
+Custom object types are capable of persisting variables of non-JDK Java classes that, for example, are provided with the process application. The two types provided by the engine are:
 
 * `serializable`: Stores objects of classes that implement `java.io.Serializable` by applying standard Java object serialization.
-* `spin-serialization`: Stores custom objects by serializing them with a data format provided by the [camunda Spin](https://github.com/camunda/camunda-spin) library. A typical application of this variable type is to serialize variables in a Java-independent format, such as JSON or XML. This type requires that camunda Spin is on the process engine's classpath which is the default when you use a pre-built distro.
+* `spin-serialization`: Stores custom objects by serializing them with a data format provided by the [camunda Spin](https://github.com/camunda/camunda-spin) library. A typical application of this variable type is to serialize variables in a Java-independent format, such as JSON or XML. This type requires that camunda Spin is on the process engine's classpath which is the default when you use a pre-built distribution.
 
 <div class="alert alert-info">
   <p><strong>Type Names in Java:</strong></p>
@@ -99,7 +99,7 @@ runtimeService.setVariable(execution.getId(), "order", order);
 com.example.Order retrievedOrder = (com.example.Order) runtimeService.getVariable(execution.getId(), "order")
 ```
 
-Note that this code sets a variable at the top-most possible point in the hierarchy of variable scopes. This means, if the variable is already present (whether in this execution or any of its parent scopes) it is updated. If the variable is not yet present, it is created in the top-most scope, i.e. the process instance. If a variable is supposed to be set exactly on the provided execution, the *local* methods can be used. For example: 
+Note that this code sets a variable at the highest possible point in the hierarchy of variable scopes. This means, if the variable is already present (whether in this execution or any of its parent scopes), it is updated. If the variable is not yet present, it is created in the highest scope, i.e. the process instance. If a variable is supposed to be set exactly on the provided execution, the *local* methods can be used. For example: 
 
 ```java
 com.example.Order order = new com.example.Order();
@@ -114,18 +114,18 @@ Whenever a variable is set in its Java representation, the process engine automa
 
 Variables in their Java object representation are accessible for the following cases:
 
-* instantiating processes
-* delivering messages
-* task lifecycle transitions, such as completion or resolution
-* setting/getting variables from outside
-* setting/getting variables in a [Delegate](ref:#process-engine-delegation-code)
-* expressions in the process model
-* scripts in the process model
-* (historic) variable queries
+* Instantiating processes
+* Delivering messages
+* Task lifecycle transitions, such as completion or resolution
+* Setting/getting variables from outside
+* Setting/getting variables in a [Delegate](ref:#process-engine-delegation-code)
+* Expressions in the process model
+* Scripts in the process model
+* (Historic) Variable queries
 
 ## Using the Serialized Value Representation
 
-Should the classes of custom objects miss on the classpath of the process engine or application that tries to access them, then using the Java object representation will result in a `ClassNotFoundException` or something similar. To inspect custom object variables in these cases anyway, the serialized  representation can be used. This representation is closer to how the variable value is persisted in the database and does not rely on non-JDK classes. 
+Should the classes of custom objects be missing on the classpath of the process engine or application that tries to access them, then using the Java object representation will result in a `ClassNotFoundException` or something similar. To inspect custom object variables in these cases anyway, the serialized representation can be used. This representation is closer to how the variable value is persisted to the database and does not rely on non-JDK classes. 
 
 ### Retrieving Serialized Variable Values
 
@@ -133,8 +133,8 @@ A serialized representation is an instance of `org.camunda.bpm.engine.delegate.S
 
 It can be accessed in the following cases:
 
-* setting/getting variables in a [Delegate](ref:#process-engine-delegation-code)
-* (historic) variable queries
+* Setting/getting variables in a [Delegate](ref:#process-engine-delegation-code)
+* (Historic) Variable queries
 
 The following is an example that gets the serialized value by issuing a variable query:
 
@@ -159,7 +159,7 @@ String serializedValue = (String) serializedRepresentation.getValue();  // equal
 Map<String, Object> configuration = serializedRepresentation.getConfig(); // returns an empty map
 ```
 
-The serialized representations of the remaining variable types are described in the following.
+The serialized representations of the remaining variable types are described in the following sections.
 
 #### Serialized Representation of `date` Variables
 
@@ -167,7 +167,7 @@ The serialized representation of a `date` variable is the date in milliseconds s
 
 #### Serialized Representation of `serializable` Variables
 
-Variables of type `serializable` are persisted as byte streams in the database by using standard Java object serialization. That is why their serialized representation is `byte[]`. They do not have additional serialization meta-data. The following code accesses the serialized value of a `serializable` variable:
+Variables of type `serializable` are persisted to the database as byte streams by using standard Java object serialization. That is why their serialized representation is `byte[]`. They do not have additional serialization meta-data. The following code accesses the serialized value of a `serializable` variable:
 
 ```java
 VariableInstance variableInstance = runtimeService.createVariableInstanceQuery().variableName("order").singleResult();
