@@ -35,7 +35,8 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved.
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
 </table>
 
 
