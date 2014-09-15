@@ -112,3 +112,21 @@ During startup of the camunda-bpm-platform, it tries to discover the location of
 5. (For Tomcat only): checks if there is a `bpm-platform.xml` inside the folder specified by `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/`
 
 The discovery stops when one of the above mentioned sources is found or, in case none is found, it falls back to the `bpm-platform.xml` on the classpath, respectively `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/` for Tomcat. We ship a default `bpm-platform.xml` file inside the camunda-bpm-platform.ear, except when you use the Tomcat or JBoss version of the platform.
+
+
+## Using system properties
+
+In order to externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e. `${PROPERTY_KEY}`). Expression resolution is supported within the `property` elements only. System properties may be set via command line (`-D`option) or in an implementation specific manner (Apache Tomcats `catalina.properties` for example).
+Complex operations are not supported, but you may combine more than one expression in a single `property` element (e.g. `${ldap.host}:${ldap.port}`).
+
+Example
+```xml
+<!-- ... -->
+<plugin>
+  <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+  <properties>
+    <property name="administratorUserName">${camunda.administratorUserName}</property>
+  </properties>
+</plugin>
+<!-- ... -->
+```
