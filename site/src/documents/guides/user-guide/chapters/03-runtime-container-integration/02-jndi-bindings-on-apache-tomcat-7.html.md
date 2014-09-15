@@ -17,7 +17,7 @@ To use the JNDI Bindings for Bpm Platform Services on Apache Tomcat 7 you have t
             type="org.camunda.bpm.ProcessApplicationService" />
   </Context>
 
-These elements are used to create a link to the global JNDI Resources definied in `$CATALINA_HOME/conf/server.xml`.
+These elements are used to create a link to the global JNDI Resources defined in `$TOMCAT_HOME/conf/server.xml`.
 
 Furthermore, declare the dependency on the JNDI binding inside the `WEB-INF/web.xml` deployment descriptor.
 
