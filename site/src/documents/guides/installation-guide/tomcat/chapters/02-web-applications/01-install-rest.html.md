@@ -17,7 +17,7 @@ The following steps are required to deploy the REST API on a Tomcat instance:
 1.  Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
     Or switch to the private repository for the enterprise version (User and password from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
-2.  Copy the war file to `$CATALINA_HOME/webapps`.
+2.  Copy the war file to `$TOMCAT_HOME/webapps`.
    Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/engine-rest`.
 3.  Startup Tomcat.
 4.  Access the REST API on the context you configured.
