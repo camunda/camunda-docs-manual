@@ -191,7 +191,7 @@ The following is a list of all supported configuration properties.
     <td>boolean</td>
     <td>
       <p>
-        If true, only resources that have changed become part of the deployment. This check is performed against previous deployments of the same name. Every resource contained in the process archive is compared to the most recent resource of the same name that is part of one of the previous deployments.
+        If true, only resources that have changed become part of the deployment. This check is performed against previous deployments of the same name. Every resource contained in the process archive is compared to the most recent resource of the same name that is part of one of the previous deployments. Activating this setting does not automatically resume previous versions of the deployment. 
       </p>
       <p>
         <strong>Default value:</strong>
