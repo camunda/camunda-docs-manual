@@ -41,6 +41,13 @@ A multipart form submit with the following parts:
     </td>
   </tr>
   <tr>
+    <td>deploy-changed-only</td>
+    <td>text/plain</td>
+    <td>
+      A flag indicating whether the process engine should perform duplicate checking on a per-resource basis. If set to <code>true</code>, only those resources that have actually changed are deployed. Checks are made against resources included previous deployments of the same name and only against the latest versions of those resources. If set to <code>true</code>, the option <code>enable-duplicate-filtering</code> is overridden and set to <code>true</code>.
+    </td>
+  </tr>
+  <tr>
     <td>*</td>
     <td>application/octet-stream</td>
     <td>The binary data to create the deployment resource. It is possible to have more than one form part with different form part names for the binary data to create a deployment.</td>
