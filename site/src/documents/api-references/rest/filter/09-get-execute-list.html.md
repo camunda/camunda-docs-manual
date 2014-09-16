@@ -57,7 +57,7 @@ Result
 
 A JSON array containing JSON objects corresponding to the matching entity interface in the engine.
 This depends on the saved query in the filter. Therefore it is not possible to specify a generic
-result format, i.e. if the resource type of the filter is `Task` the result will correspond with the
+result format, i.e., if the resource type of the filter is `Task` the result will correspond with the
 Task interface in the engine.
 
 Response codes

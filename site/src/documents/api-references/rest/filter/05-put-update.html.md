@@ -33,7 +33,7 @@ A JSON object with the following properties:
   <tr>
     <td>resourceType</td>
     <td>String</td>
-    <td>The resource type of the filter, e.g. <code>Task</code></td>
+    <td>The resource type of the filter, e.g., <code>Task</code></td>
   </tr>
   <tr>
     <td>name</td>
@@ -49,7 +49,7 @@ A JSON object with the following properties:
     <td>query</td>
     <td>Object</td>
     <td>
-      A JSON object which corresponds to the JSON body of a REST query. I.e. a filter which
+      A JSON object which corresponds to the JSON body of a REST query. I.e., a filter which
       has the resourceType <code>Task</code> must contain a query which is a valid task query
       (see <a href="#task-get-tasks">Task</a>).
     </td>
@@ -58,7 +58,7 @@ A JSON object with the following properties:
     <td>properties</td>
     <td>Object</td>
     <td>
-      A JSON object containing various properties of the filter. The properties are user definied
+      A JSON object containing various properties of the filter. The properties are user defined
       and no required properties exist. Properties can be used to save the priority or the
       description of a filter.
     </td>

@@ -34,7 +34,7 @@ Parameters
 
 #### Request Body
 
-A JSON object which corresponds to the type of the saved query of the filter, i.e. if the
+A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
 the [Task](ref:#task-get-tasks) resource.
 

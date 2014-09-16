@@ -34,7 +34,7 @@ Parameters
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Restrict to filters that have the given resource type, e.g. <code>Task</code>.</td>
+    <td>Restrict to filters that have the given resource type, e.g., <code>Task</code>.</td>
   </tr>
   <tr>
     <td>name</td>

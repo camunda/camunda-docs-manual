@@ -53,7 +53,7 @@ Its properties are as follows:
   <tr>
     <td>resourceType</td>
     <td>String</td>
-    <td>The resource type of the filter, e.g. <code>Task</code>.</td>
+    <td>The resource type of the filter, e.g., <code>Task</code>.</td>
   </tr>
   <tr>
     <td>name</td>

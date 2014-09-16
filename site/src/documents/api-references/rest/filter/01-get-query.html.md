@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for a list of filter using a list of parameters.  The size of the result set can be retrieved
+Query for a list of filters using a list of parameters. The size of the result set can be retrieved
 by using the [get filters count](ref:#filter-get-filters-count) method.
 
 
@@ -34,7 +34,7 @@ Parameters
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Filter by the resource type of the filter, e.g. <code>Task</code>.</td>
+    <td>Filter by the resource type of the filter, e.g., <code>Task</code>.</td>
   </tr>
   <tr>
     <td>name</td>
