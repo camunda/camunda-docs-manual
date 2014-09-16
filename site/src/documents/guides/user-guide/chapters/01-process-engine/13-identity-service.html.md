@@ -268,5 +268,17 @@ The LDAP Identity Provider provides the following configuration properties:
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>allowAnonymousLogin</td>
+    <td>
+      <p>
+        Allows to login anonymously without a password. <em>Default:</em> <code>false</code>
+      </p>
+      <p>
+        <strong>Warning:</strong> we strongly advise against using this property. You should configure your LDAP
+        to use simple authentication without anonymous login.
+      </p>
+    </td>
+  </tr>
 </table>
 
