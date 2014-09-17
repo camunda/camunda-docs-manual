@@ -22,7 +22,7 @@ If you want to customize the incident handling behavior, it is possible to repla
 There are different types of incidents. Currently the process engine supports the following incidents:
 
   * **Failed Job**: this type of incident is raised when automatic retries for a Job (Timer or Asynchronous continuation) have elapsed. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary.
-  The incident is resolved when the job ism manually executed or when the retries for the corresponding job are reset to a value > 0.
+  The incident is resolved when the job is manually executed or when the retries for the corresponding job are reset to a value > 0.
 
 ## (De-)Activating Incidents
 
