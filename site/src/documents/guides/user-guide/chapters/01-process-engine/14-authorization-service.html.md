@@ -26,7 +26,7 @@ A Permission defines the way an identity is allowed to interact with a certain r
 A single authorization object may assign multiple permissions to a single user and resource:
 
     authorization.addPermission(Permissions.READ);
-    authorization.addPermission(Permissions.WRITE);
+    authorization.addPermission(Permissions.UPDATE);
     authorization.addPermission(Permissions.DELETE);
 
 On top of the built-in permissions, camunda BPM allows using custom permission types.
@@ -69,7 +69,7 @@ Authorizations may range over all users, an individual user or a group of users 
 
 ## Creating an Authorization
 
-An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, WRITE, DELETE the resource. (See Authorization for details).
+An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, UPDATE, DELETE the resource. (See Authorization for details).
 
 In order to grant the permission to access a certain resource, an authorization object is created:
 
@@ -96,7 +96,7 @@ As a result, the given user or group will have permission to READ the referenced
 
 camunda BPM has no explicit concept of "administrator". An administrator in camunda BPM is a user who has been granted all authorizations on all resources.
 
-When downloading the camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](ref:#admin-initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service](ref:#process-engine-identity-service-the-database-identity-service) or a custom implementation providing READ / WRITE access to the user repository).
+When downloading the camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](ref:#admin-initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service](ref:#process-engine-identity-service-the-database-identity-service) or a custom implementation providing READ / UPDATE access to the user repository).
 
 This is not the case when using the [LDAP Identity Service](ref:#process-engine-identity-service-the-ldap-identity-service). The LDAP identity service only has read access to the user repository and the "Create Initial User" dialog will not be displayed.
 
