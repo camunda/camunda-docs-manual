@@ -33,7 +33,7 @@ Job acquisition is concerned with polling this database table and locking jobs.
 
 ### Acquirable Jobs
 
-A job is acquirable, i.e. a candidate for execution, if
+A job is acquirable, i.e. a candidate for execution, if it fulfills all following conditions:
 
 * it is due, meaning that the value in the DUEDATE_ column is in the past
 * it is not locked, meaning that the value in the LOCK_EXP_TIME_ column is in the past
@@ -59,7 +59,7 @@ In the scenario of an embedded process engine, the default implementation for th
 
 ### Failed Jobs
 
-Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is updated. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
+Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
 In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 

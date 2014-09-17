@@ -116,7 +116,7 @@ The most convenient option for deploying a process application to an Ejb Contain
       <version>${camunda.version}</version>
     </dependency>
 
-The camunda-ejb-client contains a reusable default implemenation of the EjbProcessApplicaiton as a Singleton Session Bean with auto-activation.
+The camunda-ejb-client contains a reusable default implementation of the EjbProcessApplication as a Singleton Session Bean with auto-activation.
 
 This deployment option requires that your project is a composite deployment (such as a WAR or EAR) deployment since you need to add a library JAR file. You could of course use something like the maven shade plugin for adding the class contained in the camunda-ejb-client artifact to a JAR-based deployment.
 

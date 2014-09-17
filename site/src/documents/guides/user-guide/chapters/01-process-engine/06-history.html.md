@@ -58,7 +58,7 @@ The default history database writes History Events to the appropriate database t
 
 ### History Entities
 
-There are five History entities, which - in contrast to the runtime data - will also remain present in the DB after process instances have been completed:
+There are seven History entities, which - in contrast to the runtime data - will also remain present in the DB after process instances have been completed:
 
 * `HistoricProcessInstances` containing information about current and past process instances.
 * `HistoricProcessVariables` containing information about the latest state a variable held in a  process instance.
@@ -159,7 +159,7 @@ In order to understand how to provide a custom history backend, it is useful to 
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-history-architecture.png" />
 </center>
 
-Whenever the state of a runtime entity is changed, the core execution component of the process engine fires History Events. In order to make this flexible, the actual creation of the History Events as well as populating the history events with data from the runtime structures is delegated to he History Event Producer. The producer is handed in the runtime data structures (such as an ExecutionEntity or a TaskEntity), creates a new History Event and populates it with data extracted from the runtime structures.
+Whenever the state of a runtime entity is changed, the core execution component of the process engine fires History Events. In order to make this flexible, the actual creation of the History Events as well as populating the history events with data from the runtime structures is delegated to the History Event Producer. The producer is handed in the runtime data structures (such as an ExecutionEntity or a TaskEntity), creates a new History Event and populates it with data extracted from the runtime structures.
 
 The event is next delivered to the History Event Handler which constitutes the *History Backend*. The drawing above contains a logical component named *event transport*. This is supposed to represent the channel between the process engine core component producing the events and the History Event Handler. In the default implementation, events are delivered to the History Event Handler synchronously and inside the same JVM. It is however conceptually possible to send the event stream to a different JVM (maybe running on a different machine) and making delivery asynchronous. A good fit might be a transactional message Queue (JMS).
 
