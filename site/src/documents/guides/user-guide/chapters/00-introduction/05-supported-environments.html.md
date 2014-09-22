@@ -30,7 +30,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
     
 *   MySQL 5.1
 *   Oracle 10g / 11g
-*   IBM DB2 9.7 
+*   IBM DB2 9.7 (excluding IBM z/OS)
 *   PostgreSQL 9.1 / 9.3
 *   Microsoft SQL Server 2008 R2 / 2012 (see [Configuration Note](ref:#process-engine-database-configuration-custom-configuration-for-microsoft-sql-server))
 *   H2 1.3
