@@ -133,6 +133,14 @@ Response codes
       response format.
     </td>
   </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>
+       The authenticated user is unauthorized to create a new filter.
+      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+    </td>
+  </tr>
 </table>
 
 
