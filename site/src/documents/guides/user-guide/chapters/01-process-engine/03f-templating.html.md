@@ -6,14 +6,67 @@ category: 'Process Engine'
 ---
 
 camunda BPM supports template engines which are implemented as script engines compatible with
-JSR-223. Currently there are implementations for the [FreeMarker][freemarker] and [Apache
-Velocity][velocity] template engines in the [camunda-template-engines][camunda-template-engines]
-project.
+JSR-223. As a result, templates can be used everywhere where scripts can be used.
+
+In community distributions of camunda BPM, the following template engines are provided out of the
+box:
+
+* [FreeMarker][freemarker]
+
+The following template engines are provided as optional add-ons:
+
+* [Apache Velocity][velocity]
+
+The script engine wrapper implementations can be found in the 
+[camunda-template-engines][camunda-template-engines] repository.
+
+Additionally, the following template engines are supported as enterprise extension:
+
+* XSLT
+
+# Installing a Template Engine
+
+## Installing a Template Engine for an Embedded Process Engine
+
+A template engine must be installed in the same way as a script engine. This means that the template
+engine must be added to the process engine classpath.
+
+When using an embedded process engine, the template engine libraries must be added to the
+application deployment. When using the process engine in a maven `war` project, the template engine
+dependencies must be added as dependencies to the maven `pom.xml` file:
+
+```xml
+<dependencies>
+
+  <!-- freemarker -->
+  <dependency>
+    <groupId>org.camunda.template-engines</groupId>
+    <artifactId>camunda-template-engines-freemarker</artifactId>
+    <version>1.0.0</version>
+  </dependency>
+
+  <!-- apache velocity -->
+  <dependency>
+    <groupId>org.camunda.template-engines</groupId>
+    <artifactId>camunda-template-engines-velocity</artifactId>
+    <version>1.0.0</version>
+  </dependency>
+
+</dependencies>
+```
+## Installing a Template Engine for a Shared Process Engine
+
+When using a shared process engine, the template engine must be added to the shared process engine
+classpath. The procedure for achieving this depends on the application server. In Apache Tomcat, the
+libraries have to be added to the shared `lib/` folder.
+
+> *Note:* [FreeMarker][freemarker] is pre-installed in the camunda pre-packaged distribution.
+
+# Using a Template Engine
 
 If the template engine library is in the classpath, you can use templates everywhere in the BPMN
 process where you can [use scripts][use-scripts], for example as a script task or inputOutput mapping.
-The FreeMarker template engine is part of the camunda BPM distribution. If you want to use Velocity
-you have to add it manually to the classpath of your process engine.
+The FreeMarker template engine is part of the camunda BPM distribution.
 
 Inside the template, all process variables of the BPMN element scope are available. The
 template can also be loaded from an external resource as described in the [script source
@@ -57,9 +110,50 @@ payload of a `camunda:connector`.
 </bpmn2:serviceTask>
 ```
 
+# Using XSLT as Template Engine
+
+> *Note*: XSLT support is provided as an enterprise extension.
+
+## Installing the XSLT Template Engine
+
+The XSLT Template Engine can be downloaded from the Enterprise Edition Download page.
+
+Instructions on how to install the template engine can be found inside the downloaded distribution.
+
+## Using XSLT Templates
+
+The following is an example of a BPMN ScriptTask used to execute a XSLT Template:
+
+```xml
+<bpmn2:scriptTask id="ScriptTask_1" name="convert input"
+                  scriptFormat="xslt"
+                  camunda:resource="org/camunda/bpm/example/xsltexample/example.xsl"
+                  camunda:resultVariable="xmlOutput">
+
+  <bpmn2:extensionElements>
+    <camunda:inputOutput>
+      <camunda:inputParameter name="camunda_source">${customers}</camunda:inputParameter>
+    </camunda:inputOutput>
+  </bpmn2:extensionElements>
+
+</bpmn2:scriptTask>
+```
+As shown in the example above, the XSL source file can be referenced using the `camunda:resource`
+attribute. It may be loaded from the classpath or the deployment (database). See also:
+
+The result of the transformation can be mapped to a variable using the `camunda:resultVariable`
+attribute.
+
+Finally, the input of the transformation must be mapped using the special variable `camunda_source`
+using a `<camunda:inputParameter ... />` mapping.
+
+A [full example of the XSLT Template Engine][xslt-example] in camunda BPM can be found in the 
+examples repository..
 
 [freemarker]: http://freemarker.org/
 [velocity]: http://velocity.apache.org/
 [camunda-template-engines]: https://github.com/camunda/camunda-template-engines-jsr223
 [use-scripts]: ref:#process-engine-scripting
 [script-source]: ref:#process-engine-scripting-script-source
+[xslt-example]: https://github.com/camunda/camunda-bpm-examples/tree/master/scripttask/xslt-scripttask
+
