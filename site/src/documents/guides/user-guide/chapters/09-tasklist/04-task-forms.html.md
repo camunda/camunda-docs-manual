@@ -50,7 +50,7 @@ To create an embedded task form read the [Creating Embedded Task Forms](ref:#tas
 
 ## Generated Task Forms
 
-The camunda process engine supports generating Html Task Forms based on Form Data Matadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda, allowing you to define form fields directly in BPMN 2.0 XML:
+The camunda process engine supports generating Html Task Forms based on Form Data Metadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda, allowing you to define form fields directly in BPMN 2.0 XML:
 
 ```xml
 <userTask id="usertask" name="Task">
