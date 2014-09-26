@@ -319,6 +319,15 @@ depends on a variable `avgForecast` as the average value of the three forecasts.
 </serviceTask>
 ```
 
+### Multi-instance IO Mapping
+
+Input mappings can also be used with multi-instance constructs, in which the mapping is applied for every instance that is created. For example, for a multi-instance subprocess with five instances, the mapping is executed five times and the involved variables are created in each of the five subprocess scopes such that they can be accessed independently.
+
+<div class="alert alert-info">
+  <p><strong>No output mapping for multi-instance constructs:</strong></p>
+  <p>The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.</p>
+</div>
+
 
 [inputOutput]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundainputoutput
 [inputParameter]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundainputparameter
