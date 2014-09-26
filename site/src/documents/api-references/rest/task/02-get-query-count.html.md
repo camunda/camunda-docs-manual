@@ -39,7 +39,7 @@ Parameters
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>processDefinitionId</td>
     <td>Restrict to tasks that belong to a process definition with the given id.</td>
@@ -55,7 +55,7 @@ Parameters
   <tr>
     <td>processDefinitionNameLike</td>
     <td>Restrict to tasks that have a process definition name that has the parameter value as a substring.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>executionId</td>
     <td>Restrict to tasks that belong to an execution with the given id.</td>
@@ -71,7 +71,7 @@ Parameters
   <tr>
     <td>caseInstanceBusinessKeyLike</td>
     <td>Restrict to tasks that have a case instance business key that has the parameter value as a substring.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>caseDefinitionId</td>
     <td>Restrict to tasks that belong to a case definition with the given id.</td>
@@ -96,31 +96,74 @@ Parameters
     <td>activityInstanceIdIn</td>
     <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
-
   <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
+  </tr>
+  <tr>
+    <td>assigneeExpression</td>
+    <td>Restrict to tasks that the user described by the given expression is assigned to.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">user
+        guide</a> for more information on available functions.
+    </td>
   </tr>
   <tr>
     <td>assigneeLike</td>
     <td>Restrict to tasks that have an assignee that has the parameter value as a substring.</td>
   </tr>
   <tr>
+    <td>assigneeLikeExpression</td>
+    <td>Restrict to tasks that have an assignee that has the parameter value described by the given
+        expression as a substring.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+    </td>
+  </tr>
+  <tr>
     <td>owner</td>
     <td>Restrict to tasks that the given user owns.</td>
+  </tr>
+  <tr>
+    <td>ownerExpression</td>
+    <td>Restrict to tasks that the user described by the given expression owns.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+    </td>
   </tr>
   <tr>
     <td>candidateGroup</td>
     <td>Only include tasks that are offered to the given group.</td>
   </tr>
   <tr>
+    <td>candidateGroupExpression</td>
+    <td>Only include tasks that are offered to the group described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+    </td>
+  </tr>
+  <tr>
     <td>candidateUser</td>
     <td>Only include tasks that are offered to the given user.</td>
+  </tr>
+  <tr>
+    <td>candidateUserExpression</td>
+    <td>Only include tasks that are offered to the user described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+    </td>
   </tr>
   <tr>
     <td>involvedUser</td>
     <td>Only include tasks that the given user is involved in.
     A user is involved in a task if an identity link exists between task and user (e.g. the user is the assignee).</td>
+  </tr>
+  <tr>
+    <td>involvedUserExpression</td>
+    <td>Only include tasks that the user described by the given expression is involved in.
+        A user is involved in a task if an identity link exists between task and user (e.g. the user is the assignee).
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">user
+        guide</a> for more information on available functions.
+    </td>
   </tr>
   <tr>
     <td>unassigned</td>
@@ -170,36 +213,110 @@ Parameters
     <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>dueDateExpression</td>
+    <td>Restrict to tasks that are due on the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>dueAfter</td>
     <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>dueAfterExpression</td>
+    <td>Restrict to tasks that are due after the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
   </tr>
   <tr>
     <td>dueBefore</td>
     <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>dueBeforeExpression</td>
+    <td>Restrict to tasks that are due before the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>followUp</td>
     <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>followUpDateExpression</td>
+    <td>Restrict to tasks that have a followUp date on the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
   </tr>
   <tr>
     <td>followUpAfter</td>
     <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>followUpAfterExpression</td>
+    <td>Restrict to tasks that have a followUp date after the date described by the given
+        expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>followUpBefore</td>
     <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>followUpBeforeExpression</td>
+    <td>Restrict to tasks that have a followUp date before the date described by the given
+        expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
   </tr>
   <tr>
     <td>created</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>createdOnExpression</td>
+    <td>Restrict to tasks that were created on the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>createdAfter</td>
     <td>Restrict to tasks that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>createdAfterExpression</td>
+    <td>Restrict to tasks that were created after the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>
+  <tr>
     <td>createdBefore</td>
     <td>Restrict to tasks that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>createdBeforeExpression</td>
+    <td>Restrict to tasks that were created before the date described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
   </tr>
   <tr>
     <td>delegationState</td>
@@ -208,6 +325,14 @@ Parameters
   <tr>
     <td>candidateGroups</td>
     <td>Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example <code>developers,support,sales</code>.</td>
+  </tr>
+  <tr>
+    <td>candidateGroupsExpression</td>
+    <td>Restrict to tasks that are offered to any of the candidate groups described by the given expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to <code>java.util.List</code> of Strings.
+    </td>
   </tr>
   <tr>
     <td>active</td>

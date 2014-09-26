@@ -117,7 +117,7 @@ To use conditional sequence flows, expression language is usually used. Therefor
 The text content of the element is the expression to be evaluated.
 
 Inside the expression some special variables are available which enable the access of the current
-context. To find more information about the available variables please see the [corresponding 
+context. To find more information about the available variables please see the [corresponding
 section][variables].
 
 The following example shows the usage of expression language as condition of a sequence flow:
@@ -167,7 +167,7 @@ for more detailed examples.
 
 ### Process variables
 
-All process variables of the current scope are directly available inside an expression. So a 
+All process variables of the current scope are directly available inside an expression. So a
 conditional sequence flow can directly check a variable value:
 
 ```xml
@@ -196,7 +196,7 @@ evaluating expressions:
       <td><code>execution</code></td>
       <td><code>DelegateExecution</code></td>
       <td>
-        Available in a BPMN execution context like a service task, execution listener or sequence 
+        Available in a BPMN execution context like a service task, execution listener or sequence
         flow.
       </td>
     </tr>
@@ -234,7 +234,7 @@ event name of an execution listener.
 
 If the process engine is integrated with Spring or CDI, it is possible to access Spring and CDI
 beans inside of expressions. Please see the corresponding sections for [Spring][] and [CDI][]
-for more information. The following example shows the usage of a bean which implements the 
+for more information. The following example shows the usage of a bean which implements the
 `JavaDelegate` interface as delegateExecution.
 
 ```xml
@@ -246,6 +246,60 @@ With the expression attribute any method of a bean can be called.
 ```xml
 <serviceTask id="task2" camunda:delegateExpression="${myBean.myMethod(execution)}" />
 ```
+
+### Internal context functions
+
+Special built-in context functions are available while evaluating expressions:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Return Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>currentUser()</code></td>
+      <td><code>String</code></td>
+      <td>
+        Returns the user id of the current authorized user or null if authorization is disabled or
+        no user is authorized at the moment.
+      </td>
+    </tr>
+    <tr>
+      <td><code>currentUserGroups()</code></td>
+      <td><code>List of Strings</code></td>
+      <td>
+        Returns a list of the group ids of the current authorized user or null if authorization
+        is disabled or no user is authorized at the moment.
+      </td>
+    </tr>
+    <tr>
+      <td><code>now()</code></td>
+      <td><code>Date</code></td>
+      <td>Returns the current date as a Java Date object.</td>
+    </tr>
+    <tr>
+      <td><code>dateTime()</code></td>
+      <td><code>DateTime</code></td>
+      <td>
+        Returns a Joda-Time DateTime object of the current date. Please see the
+        <a href="http://joda-time.sourceforge.net/api-release/org/joda/time/DateTime.html">Joda-Time</a>
+        documentation for all available functions.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+The following example sets the due date of an user task to the date 3 days after the creation
+of the task.
+
+```xml
+<userTask id="theTask" name="Important task" camunda:dueDate="${dateTime().plusDays(3).toDate()}"/>
+```
+
 
 ### Built-in Camunda Spin functions
 
