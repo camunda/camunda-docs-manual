@@ -32,6 +32,21 @@ Parameters
   </tr>
 </table>
 
+#### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>itemCount</td>
+    <td>
+      If set to <code>true</code> each filter result will contain an <code>itemCount</code> property
+      with the number of items matched by the filter itself.
+    </td>
+  </tr>
+</table>
 
 Result
 ------
@@ -74,6 +89,14 @@ Its properties are as follows:
     <td>properties</td>
     <td>Object</td>
     <td>The properties of the filter as JSON object.</td>
+  </tr>
+  <tr>
+    <td>itemCount</td>
+    <td>Long</td>
+    <td>
+      The number of items matched by the filter itself. Note: Only exists if the query parameter
+      <code>itemCount</code> was set to <code>true</code>
+    </td>
   </tr>
 </table>
 
@@ -136,5 +159,31 @@ Status 200.
     "candidateGroup": "accounting"
   },
   "resourceType": "Task"
+}
+```
+
+#### Request with itemCount enabled
+
+GET `/filter/aFilterId?itemCount=true`
+
+#### Response with itemCount
+
+Status 200.
+
+```json
+{
+  "id": "9917d731-3cde-11e4-b704-f0def1e59da8",
+  "name": "Accounting Tasks",
+  "owner": null,
+  "properties": {
+    "color": "#3e4d2f",
+    "description": "Tasks assigned to group accounting",
+    "priority": 5
+  },
+  "query": {
+    "candidateGroup": "accounting"
+  },
+  "resourceType": "Task",
+  "itemCount": 23
 }
 ```

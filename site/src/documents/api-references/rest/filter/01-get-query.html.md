@@ -49,6 +49,13 @@ Parameters
     <td>Filter by the user id of the owner of the filter.</td>
   </tr>
   <tr>
+    <td>itemCount</td>
+    <td>
+      If set to <code>true</code> each filter result will contain an <code>itemCount</code> property
+      with the number of items matched by the filter itself.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>filterId</code>, <code>firstName</code>, <code>lastName</code> and <code>email</code>.
@@ -110,6 +117,14 @@ A JSON array of filter objects. Each filter object has the following properties:
     <td>properties</td>
     <td>Object</td>
     <td>The properties of a filter as a JSON object.</td>
+  </tr>
+  <tr>
+    <td>itemCount</td>
+    <td>Long</td>
+    <td>
+      The number of items matched by the filter itself. Note: Only exists if the query parameter
+      <code>itemCount</code> was set to <code>true</code>
+    </td>
   </tr>
 </table>
 
@@ -178,6 +193,47 @@ Status 200.
       "description": "Filters assigned to me",
       "priority": 10
     }
+  }
+]
+```
+
+#### Request with itemCount enabled
+
+GET `/filter?resourceType=Task&itemCount=true`
+
+#### Response with itemCount
+
+Status 200.
+
+```json
+[
+  {
+    "id": "aFilter",
+    "resourceType": "Task",
+    "name": "My Filter",
+    "owner": "jonny1",
+    "query": {
+      "assignee": "jonny1"
+    },
+    "properties": {
+      "color": "#58FA58",
+      "description": "Filters assigned to me"
+    },
+    "itemCount": 13
+  },
+  {
+    "id": "anotherFilter",
+    "resourceType": "Task",
+    "name": "Accountants Filter",
+    "owner": "demo",
+    "query": {
+      "candidateGroup": "accountant"
+    },
+    "properties": {
+      "description": "Filters assigned to me",
+      "priority": 10
+    },
+    "itemCount": 42
   }
 ]
 ```
