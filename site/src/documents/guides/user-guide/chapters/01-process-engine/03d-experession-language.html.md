@@ -264,16 +264,14 @@ Special built-in context functions are available while evaluating expressions:
       <td><code>currentUser()</code></td>
       <td><code>String</code></td>
       <td>
-        Returns the user id of the current authorized user or null if authorization is disabled or
-        no user is authorized at the moment.
+        Returns the user id of the currently authenticated user or <code>null</code> no user is authenticated at the moment.
       </td>
     </tr>
     <tr>
       <td><code>currentUserGroups()</code></td>
       <td><code>List of Strings</code></td>
       <td>
-        Returns a list of the group ids of the current authorized user or null if authorization
-        is disabled or no user is authorized at the moment.
+        Returns a list of the group ids of the currently authenticated user or <code>null</code> if no user is authorized at the moment.
       </td>
     </tr>
     <tr>
