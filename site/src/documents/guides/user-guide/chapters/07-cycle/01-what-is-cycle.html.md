@@ -11,11 +11,11 @@ With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN
 
 Although business and IT use different BPMN tools, the process models keep in synch: With camunda Cycle you can synchronize BPMN diagrams in the tool chain anytime, for forward engineering as well as reverse engineering. By connecting and continuously synchronizing the process models in both environments, we keep business and IT aligned. This is what we call a full working BPM roundtrip.
 
-The typical use cases are: 
+The typical use cases are:
 
 * Synchronize a BPMN 2.0 diagram with an executable diagram (Forward Engineering)
 * Update the executable diagram and synchronize the changes with the origin BPMN 2.0 diagram (Reverse Engineering)
 * Create executable diagrams out of BPMN 2.0 diagram (Forward Engineering)
 
-Cycle is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/cycle. At first start up you will be prompt to create an admin user.
-If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](http://www.camunda.org/design/cycle-tutorial.html).
+Cycle is part of our camunda BPM distribution and ready to use by opening http://localhost:8080/cycle. At the first start up you will be prompted to create an admin user.
+If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](ref:/guides/getting-started-guides/roundtrip-with-cycle/).
