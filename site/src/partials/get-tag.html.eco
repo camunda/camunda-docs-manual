@@ -24,7 +24,7 @@
         </p>
         <p>
         To checkout the current state of the process application please execute the following command:
-        <pre class="console">git checkout -f <%= @tag %></pre>
+        <pre class="console">git checkout -f tags/<%= @tag %></pre>
         Or download as archive from <a href="https://github.com/camunda/<%= @repo %>/releases/tag/<%= @tag %>">here</a>.
         </p>
       </div>

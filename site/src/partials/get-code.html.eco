@@ -21,9 +21,9 @@
       <pre class="console">git clone https://github.com/camunda/<%= @repo %>.git</pre>
       To follow this guide, <a href="https://github.com/camunda/<%= @repo %>/archive/Start.zip">download</a>
       the initial state or checkout the tag in the git repositiory:
-      <pre class="console">git checkout -f Start</pre>
+      <pre class="console">git checkout -f tags/Start</pre>
       or every step in between:
-      <pre class="console">git checkout -f Step-X</pre>
+      <pre class="console">git checkout -f tags/Step-X</pre>
 
       After every section in this guide you will find a box which contains a download link to the current
       state of the project and git instructions to checkout the current version of the repository.
