@@ -96,11 +96,6 @@ typically `bin`.
 </datasource>
 ```
 
-<div class="alert alert-info">
-  <strong>Cycle</strong><br/>
-  Note that if you plan to use camunda Cycle, you need to configure an additional datasource. See the <a href="ref:#web-applications-install-camunda-cycle">Cycle section</a> for a guide.
-</div>
-
 Using H2 as a database is ideal for development purposes but is not recommended for usage in a productive environment.
 These links point you to resources for other databases:
 
