@@ -155,12 +155,12 @@ Parameters
   <tr>
     <td>involvedUser</td>
     <td>Only include tasks that the given user is involved in.
-    A user is involved in a task if an identity link exists between task and user (e.g. the user is the assignee).</td>
+    A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).</td>
   </tr>
   <tr>
     <td>involvedUserExpression</td>
     <td>Only include tasks that the user described by the given expression is involved in.
-        A user is involved in a task if an identity link exists between task and user (e.g. the user is the assignee).
+        A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).
         See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">user
         guide</a> for more information on available functions.
     </td>
