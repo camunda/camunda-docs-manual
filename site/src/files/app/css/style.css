@@ -558,6 +558,10 @@ code {
   text-align: right;
 }
 
+.table-condensed-column {
+  width: 129px;
+}
+
 .breadcrumb {
   margin: 10px 0 0;
   background-color: inherit;
@@ -641,7 +645,7 @@ code {
 }
 
 
-/* here are getting started styles 
+/* here are getting started styles
 */
 
 .gs-guide {
