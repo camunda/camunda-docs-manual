@@ -12,7 +12,7 @@ Create a comment for a task.
 Method
 ------
 
-POST `/task/{id}/comment`
+POST `/task/{id}/comment/create`
 
 
 Parameters
@@ -126,7 +126,7 @@ Example
 
 Post data for a new task comment:
 
-POST `/task/aTaskId/comment`
+POST `/task/aTaskId/comment/create`
 
     {"message": "a task comment"}
 
