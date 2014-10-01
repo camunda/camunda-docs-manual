@@ -283,6 +283,19 @@ Parameters
     </td>
   </tr>
   <tr>
+    <td>followUpBeforeOrNotExistent</td>
+    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>followUpBeforeExpressionOrNotExistent</td>
+    <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
+        expression.
+        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        user guide</a> for more information on available functions.
+        The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
+    </td>
+  </tr>  
+  <tr>
     <td>created</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
