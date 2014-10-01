@@ -291,7 +291,7 @@ Special built-in context functions are available while evaluating expressions:
   </tbody>
 </table>
 
-The following example sets the due date of an user task to the date 3 days after the creation
+The following example sets the due date of a user task to the date 3 days after the creation
 of the task.
 
 ```xml
@@ -313,7 +313,7 @@ If Camunda Spin is available in the classpath of the engine, the special Spin fu
 [JUEL]: http://juel.sourceforge.net/
 [official documentation]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html
 [examples]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html#bnain
-[variables]: #process-engine-expression-language-variables-available-inside-expression-language
+[variables]: process-engine-expression-language-variables-and-functions-available-inside-expression-language
 [Spring]: #spring-framework-integration-expression-resolving
 [CDI]: #cdi-and-java-ee-integration-expression-resolving
 [BPMN]: ref:/api-references/bpmn20/

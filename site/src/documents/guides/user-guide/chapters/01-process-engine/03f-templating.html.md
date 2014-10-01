@@ -17,7 +17,7 @@ The following template engines are provided as optional add-ons:
 
 * [Apache Velocity][velocity]
 
-The script engine wrapper implementations can be found in the 
+The script engine wrapper implementations can be found in the
 [camunda-template-engines][camunda-template-engines] repository.
 
 Additionally, the following template engines are supported as enterprise extension:
@@ -112,11 +112,15 @@ payload of a `camunda:connector`.
 
 # Using XSLT as Template Engine
 
-> *Note*: XSLT support is provided as an enterprise extension.
+<div class="alert alert-warning">
+  <p><strong>Enterprise Feature</strong></p>
+  Please note that this feature is only included in the enterprise edition of the camunda BPM platform, it is not available in the community edition.
+  <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
+</div>
 
 ## Installing the XSLT Template Engine
 
-The XSLT Template Engine can be downloaded from the Enterprise Edition Download page.
+The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](ref:/enterprise/#downloads-enterprise-extensions).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 
@@ -147,7 +151,7 @@ attribute.
 Finally, the input of the transformation must be mapped using the special variable `camunda_source`
 using a `<camunda:inputParameter ... />` mapping.
 
-A [full example of the XSLT Template Engine][xslt-example] in camunda BPM can be found in the 
+A [full example of the XSLT Template Engine][xslt-example] in camunda BPM can be found in the
 examples repository..
 
 [freemarker]: http://freemarker.org/

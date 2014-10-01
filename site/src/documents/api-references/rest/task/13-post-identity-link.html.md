@@ -90,7 +90,7 @@ Example
 
 #### Request
 
-POST `/task/anId/identityLinks`
+POST `/task/anId/identity-links`
 
 #### Response
 

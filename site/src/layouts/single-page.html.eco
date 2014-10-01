@@ -13,7 +13,7 @@ layout: 'plain-docs'
     </div>
 
     <section id="ch-<%= (i + 1) %>" data-main>
-      <% part = @getPages(chapter.part) %>
+      <% part = @getPages(chapter) %>
 
       <ol>
         <% for category, j in part.categories: %>

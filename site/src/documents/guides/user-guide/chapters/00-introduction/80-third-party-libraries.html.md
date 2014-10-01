@@ -115,14 +115,6 @@ The camunda Modeler depends on the following third-party libraries:
 - [Apache Xerces](http://xerces.apache.org/) [(Eclipse Public License 1.0)][epl]
 - [Eclipse WST SSE UI](http://www.eclipse.org/webtools/wst/components/sse/overview.html) [(Eclipse Public License 1.0)][epl]
 
-## Enterprise Extensions
-
-### XSLT extension
-
-The XSLT extension depends on the following third-party libraries:
-
-- [SAXON](http://saxon.sourceforge.net/) [(Mozilla Public License 2.0)][mpl2]
-
 [apache]: http://www.apache.org/licenses/LICENSE-2.0.html
 [mit]: http://opensource.org/licenses/MIT
 [dojo]: https://github.com/dojo/dojo/blob/1.9/LICENSE#L43-L195
@@ -132,4 +124,3 @@ The XSLT extension depends on the following third-party libraries:
 [tmate]: http://svnkit.com/license.html
 [python]: http://www.jython.org/license.html
 [jruby]: https://github.com/jruby/jruby/blob/master/LICENSE.RUBY
-

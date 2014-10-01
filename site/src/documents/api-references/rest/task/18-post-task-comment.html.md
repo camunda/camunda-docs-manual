@@ -12,7 +12,7 @@ Create a comment for a task.
 Method
 ------
 
-POST `/task/{id}/comment/create`
+POST `/task/{id}/comment`
 
 
 Parameters
@@ -33,18 +33,16 @@ Parameters
 
 #### Request Body
 
-A multipart form submit with the following parts:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
-    <th>Form Part Name</th>
-    <th>Content Type</th>
+    <th>Name</th>
     <th>Description</th>
   </tr>
   <tr>
     <td>message</td>
-    <td>text/plain</td>
-    <td>The content of the comment.</td>
+    <td>The message of the task comment to create. Has to be of type <code>String</code>.</td>
   </tr>
 </table>
 
@@ -52,7 +50,7 @@ A multipart form submit with the following parts:
 Result
 ------
 
-A JSON object corresponding to the `Comment` interface in the engine.
+A JSON object representing the newly created comment. Its structure corresponds to the `Comment` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -111,7 +109,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task does not exists or no comment message form part was submitted. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task does not exist or no comment message was submitted. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -128,15 +126,9 @@ Example
 
 Post data for a new task comment:
 
-POST `/task/aTaskId/comment/create`
+POST `/task/aTaskId/comment`
 
-```
---6e2248ad165e47e1b8d7138df64835b7
-Content-Disposition: form-data; name="message"
-
-comment message
---6e2248ad165e47e1b8d7138df64835b7--
-```
+    {"message": "a task comment"}
 
 #### Response
 
