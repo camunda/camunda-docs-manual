@@ -29,7 +29,7 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process instance to be retrieved.</td>
+    <td>The id of the process instance to be deleted.</td>
   </tr>
 </table>
 
