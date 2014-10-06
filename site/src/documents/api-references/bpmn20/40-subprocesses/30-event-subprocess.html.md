@@ -67,25 +67,6 @@ In both cases the same tasks are executed. However, there are differences betwee
 These two differences can help you decide whether a boundary event or an embedded subprocess is better suited for solving a particular process modeling / implementation problem.
 
 
-## camunda Extensions
-
-<table class="table table-striped">
-  <tr>
-    <th>Attributes</th>
-    <td>&ndash;</td>
-  </tr>
-  <tr>
-    <th>Extension Elements</th>
-    <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
-    </td>
-  </tr>
-  <tr>
-    <th>Constraints</th>
-    <td>&ndash;</td>
-  </tr>
-</table>
-
 ## Additional Resources
 
 *   [Event subprocess](http://camunda.org/bpmn/reference.html#activities-event-subprocess) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

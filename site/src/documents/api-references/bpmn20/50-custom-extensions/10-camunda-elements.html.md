@@ -802,9 +802,8 @@ The following elements are extension elements for the `camunda` namespace `http:
     <th>Parent elements</th>
     <td colspan="2">
       <a href="ref:#tasks">All Tasks</a>,
-      <a href="ref:#events">All Events</a>,
+      <a href="ref:#events">All Events</a> (except Start and Boundary Events),
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
-      <a href="ref:#subprocesses-event-subprocess">Event Subprocess</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">
         camunda:connector</a>

@@ -58,6 +58,18 @@ The exception type should only be used for business exceptions and not for techn
 An error event handler references the same error element to declare that it catches the error.
 
 
+## Error Start Event
+
+An error start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. The error start event is always interrupting.
+
+<div data-bpmn-diagram="implement/event-subprocess-alternative1"></div>
+
+
+## Error End Event
+
+When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate boundary error event. In case no matching boundary error event is found, the execution semantics defaults to the none end event semantics.
+
+
 ## camunda Extensions
 
 <table class="table table-striped">
@@ -77,18 +89,6 @@ An error event handler references the same error element to declare that it catc
     <td>&ndash;</td>
   </tr>
 </table>
-
-
-## Error Start Event
-
-An error start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. The error start event is always interrupting.
-
-<div data-bpmn-diagram="implement/event-subprocess-alternative1"></div>
-
-
-## Error End Event
-
-When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate boundary error event. In case no matching boundary error event is found, the execution semantics defaults to the none end event semantics.
 
 
 ## Error Boundary Event

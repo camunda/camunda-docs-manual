@@ -46,28 +46,6 @@ A signal event definition is declared using the signalEventDefinition element. T
 </definitions>
 ```
 
-## camunda Extensions
-
-<table class="table table-striped">
-  <tr>
-    <th>Attributes</th>
-    <td>&ndash;</td>
-  </tr>
-  <tr>
-    <th>Extension Elements</th>
-    <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
-        camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
-        camunda:inputOutput</a>
-    </td>
-  </tr>
-  <tr>
-    <th>Constraints</th>
-    <td>&ndash;</td>
-  </tr>
-</table>
-
 __Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, event if they are part of different process instances.
 
 ## Throwing Signal Events via API
@@ -123,6 +101,28 @@ or, alternatively:
 </boundaryEvent>
 ```
 
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
+
 
 ## Signal Intermediate Throwing Event
 
@@ -150,6 +150,28 @@ An asynchronous signal event would look like this:
   <signalEventDefinition signalRef="newCustomerSignal" camunda:async="true" />
 </intermediateThrowEvent>
 ```
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 
 ## Signal End Event

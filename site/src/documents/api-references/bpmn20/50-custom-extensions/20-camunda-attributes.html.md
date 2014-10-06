@@ -68,7 +68,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#events">End Events</a>,
       <a href="ref:#events">Intermediate Throw Events</a>,
       <a href="ref:#events">Intermediate Catch Events</a>,
-    
+
       Task,
       <a href="ref:#tasks-service-task">Service Task</a>,
       <a href="ref:#tasks-send-task">Send Task</a>,
@@ -76,17 +76,15 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
       <a href="ref:#tasks-script-task">Script Task</a>,
       <a href="ref:#tasks-receive-task">Receive Task</a>,
-      <a href="ref:#tasks-manual-task">Manual Task</a>
-      
+      <a href="ref:#tasks-manual-task">Manual Task</a>,
+
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
-      
+
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
       <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>
-      
-      
     </td>
   </tr>
 </table>
@@ -121,7 +119,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#events">End Events</a>,
       <a href="ref:#events">Intermediate Throw Events</a>,
       <a href="ref:#events">Intermediate Catch Events</a>,
-          
+
       Task,
       <a href="ref:#tasks-service-task">Service Task</a>,
       <a href="ref:#tasks-send-task">Send Task</a>,
@@ -129,12 +127,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
       <a href="ref:#tasks-script-task">Script Task</a>,
       <a href="ref:#tasks-receive-task">Receive Task</a>,
-      <a href="ref:#tasks-manual-task">Manual Task</a>
-            
+      <a href="ref:#tasks-manual-task">Manual Task</a>,
+
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
-            
+
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
@@ -535,7 +533,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#events">End Events</a>,
       <a href="ref:#events">Intermediate Throw Events</a>,
       <a href="ref:#events">Intermediate Catch Events</a>,
-        
+
       Task,
       <a href="ref:#tasks-service-task">Service Task</a>,
       <a href="ref:#tasks-send-task">Send Task</a>,
@@ -543,16 +541,16 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
       <a href="ref:#tasks-script-task">Script Task</a>,
       <a href="ref:#tasks-receive-task">Receive Task</a>,
-      <a href="ref:#tasks-manual-task">Manual Task</a>
-          
+      <a href="ref:#tasks-manual-task">Manual Task</a>,
+
       <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
       <a href="ref:#subprocesses-call-activity">Call Activity</a>,
       <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
-          
+
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
-      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>          
+      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>
     </td>
   </tr>
 </table>

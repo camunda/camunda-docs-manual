@@ -11,26 +11,6 @@ keywords: 'cancel end boundary compensation intermediate throwing boundary event
 Cancel and compensation events occur in the context of the [transaction subprocess](ref:#subprocesses-transaction-subprocess). Please read that section first to understand the overall idea.
 
 
-## camunda Extensions
-
-<table class="table table-striped">
-  <tr>
-    <th>Attributes</th>
-    <td>&ndash;</td>
-  </tr>
-  <tr>
-    <th>Extension Elements</th>
-    <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
-        camunda:inputOutput</a>
-    </td>
-  </tr>
-  <tr>
-    <th>Constraints</th>
-    <td>&ndash;</td>
-  </tr>
-</table>
-
 ## Cancel End Event
 
 The cancel end event can only be used in combination with a [transaction subprocess](ref:#subprocesses-transaction-subprocess). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
@@ -106,6 +86,26 @@ Additionally, the optional argument `activityRef` can be used to trigger compens
   <compensateEventDefinition activityRef="bookHotel" />
 </intermediateThrowEvent>
 ```
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 
 ## Compensation Boundary Event
