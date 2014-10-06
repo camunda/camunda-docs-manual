@@ -10,7 +10,7 @@ category: 'Tasklist'
     <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-task-forms-eclipse.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different <a href="ref:#tasklist-human-workflow-management-user-and-group-task-overview">folders</a>.</p>
+      <p>Tasks can be directly assigned to a user, to a candidate group (group) or to a candidate list (multiple users). Compared to the direct assignment of tasks, the tasks of candidate groups or candidate lists are not yet assigned. They must be claimed by a user who is part of the list or belongs to the group. Depending on this affiliation the Tasklist displays tasks in different <a href="ref:#tasklist-filters">filters</a>.</p>
       <p>In the properties panel in your <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a> you can configure all relevant attributes.</p>
   </div>  
 </div>
