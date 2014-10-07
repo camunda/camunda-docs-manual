@@ -11,7 +11,7 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      On the dashboard of Tasklist you can see an overview of pending tasks. On the left side of the screen, you can see an overview of the <a href="ref:#tasklist-filters">filters</a>. On the top right side of the screen, you can set a follow-up or due date and you can claim, unclaim and delegate tasks. On the bottom right of the screen, you can see the embedded form (please note that external task forms cannot be displayed here) or you can switch to the Diagram view.
+      On the dashboard of Tasklist you can see an overview of pending tasks. On the left side of the screen, you can see an overview of the <a href="ref:#tasklist-filters">filters</a>. On the top right side of the screen, you can set a follow-up or due date and you can claim and unclaim tasks. On the bottom right of the screen, you can see the embedded form (please note that external task forms cannot be displayed here) or you can switch to the Diagram view.
     </p>
   </div>
 </div>
@@ -37,8 +37,7 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      At the top right, you can change some settings of the specific task that is displayed. Here you can also set a follow up date or a due date. You can also claim, unclaim and delegate tasks. If a task is claimed, you can also delegate it by clicking on the user name of the assignee and inserting the user name of the user to delegate the task to.
-    </p>
+      At the top right, you can change some settings of the specific task that is displayed. Here you can set a follow up date or a due date for the task. You can also <a href="#ref:#tasklist-working-with-tasklist-un-claim-a-task">claim and unclaim</a> tasks.
   </div>
 </div>
 

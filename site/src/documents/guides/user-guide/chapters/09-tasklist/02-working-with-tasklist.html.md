@@ -45,8 +45,3 @@ Tasks that are assigned to you are listed on the dashboard in the filter <i>My T
 ## (Un-)Claim a Task
 
 <p>You can claim and unclaim tasks in the <a href="ref:#tasklist-dashboard-task-settings">Task settings</a>. To claim a task, simply select <i>Claim</i>. You can unclaim a task by hitting the <button class="btn btn-xs"><i class="glyphicon glyphicon-remove"></i></button> button next to the username of a claimed task.</p>
-
-
-## Delegate a Task
-
-<p>When you delegate a task to one of your colleagues he has the possibility to take a look at your task and give it back to you. This can be helpful if you want to get help from a colleague or you need feedback. To delegate a task doesn’t mean that you assign it to someone else. After delegation, you are still the assignee of the task. If you do not want to be the assignee of a task, use the <a href="ref:#tasklist-working-with-tasklist-un-claim-a-task">(un-)claim function</a>. You can delegate a task in the <a href="ref:#tasklist-dashboard-task-settings">Task settings</a> by clicking on the user name of the assignee and inserting the user name of the user to delegate the task to.</p>
