@@ -6,6 +6,9 @@ title: 'Latest Version'
 ---
 
 
+With our pre-packaged distribution we provide the Camunda BPM platform as part of an application server. The WebSphere and WebLogic distributions contain the Camunda BPM resources only, without the application server. Find more information in our <a href="ref:/guides/installation-guide/index.html">installation guide</a>.
+
+
 #### Download the camunda BPM enterprise edition
 
 <section class="row">
@@ -21,19 +24,24 @@ title: 'Latest Version'
          Distribution
         </th>
         <th>
-          Apache Tomcat 7
+          Apache Tomcat 7</br>
+          <a href="ref:/guides/installation-guide/tomcat/index.html">How to install</a>
         </th>
         <th>
-          JBoss AS 7
+          JBoss AS 7</br>
+          <a href="ref:/guides/installation-guide/jboss/index.html">How to install</a>
         </th>
         <th>
-          GlassFish 3.1.x
+          GlassFish 3.1.x</br>
+          <a href="ref:/guides/installation-guide/glassfish/index.html">How to install</a>
         </th>
         <th>
-          WebSphere 8.x
+          WebSphere 8.x</br>
+          <a href="ref:/guides/installation-guide/was/index.html">How to install</a>
         </th>
         <th>
-          WebLogic 12.x
+          WebLogic 12.x</br>
+          <a href="ref:/guides/installation-guide/wls/index.html">How to install</a>
         </th>
       </tr>
       </thead>
@@ -111,19 +119,20 @@ title: 'Latest Version'
          Distribution
         </th>
         <th>
-          Apache Tomcat 7
+          Apache Tomcat 7</br>
+          <a href="ref:/guides/installation-guide/tomcat/index.html">How to install</a>
         </th>
         <th>
-          JBoss AS 7
+          JBoss AS 7</br>
+          <a href="ref:/guides/installation-guide/jboss/index.html">How to install</a>
         </th>
         <th>
-          GlassFish 3.1.x
+          GlassFish 3.1.x</br>
+          <a href="ref:/guides/installation-guide/glassfish/index.html">How to install</a>
         </th>
         <th>
-          WebSphere 8.x
-        </th>
-        <th>
-          WebLogic 12.x
+          WebSphere 8.x</br>
+          <a href="ref:/guides/installation-guide/was/index.html">How to install</a>
         </th>
       </tr>
       </thead>
@@ -175,22 +184,28 @@ title: 'Latest Version'
          Distribution
         </th>
         <th>
-          Apache Tomcat 7
+          Apache Tomcat 7</br>
+          <a href="ref:/guides/installation-guide/tomcat/index.html">How to install</a>
         </th>
         <th>
-          JBoss AS 7
+          JBoss AS 7</br>
+          <a href="ref:/guides/installation-guide/jboss/index.html">How to install</a>
         </th>
         <th>
-          WildFly 8
+          WildFly 8</br>
+          <a href="ref:/guides/installation-guide/jboss/index.html">How to install</a>
         </th>
         <th>
-          GlassFish 3.1.x
+          GlassFish 3.1.x</br>
+          <a href="ref:/guides/installation-guide/glassfish/index.html">How to install</a>
         </th>
         <th>
-          WebSphere 8.x
+          WebSphere 8.x</br>
+          <a href="ref:/guides/installation-guide/was/index.html">How to install</a>
         </th>
         <th>
-          WebLogic 12.x
+          WebLogic 12.x</br>
+          <a href="ref:/guides/installation-guide/wls/index.html">How to install</a>
         </th>
       </tr>
       </thead>
