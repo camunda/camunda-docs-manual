@@ -22,9 +22,7 @@ The referenced process definition is resolved at runtime. This means that the pr
 An `ENABLED` process task can be started manually using the `CaseService` as follows:
 
 ```java
-caseService
-  .withCaseExecution("aCaseExecutionId")
-  .manualStart();
+caseService.manuallyStartCaseExecution("aCaseExecutionId");
 ```
 
 When the process task instance becomes `ACTIVE`, a new process instance will be launched. In the above example a new process instance of the process `checkCreditProcess` will be created.

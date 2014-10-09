@@ -20,9 +20,7 @@ A human task is defined in XML as follows:
 An `ENABLED` human task can be started manually using the `CaseService` as follows:
 
 ```java
-caseService
-  .withCaseExecution("aCaseExecutionId")
-  .manualStart();
+caseService.manuallyStartCaseExecution("aCaseExecutionId");
 ```
 
 When the defined human task becomes <code>ACTIVE</code>, a new task is created in the task list of the user(s) or group(s) assigned to that task.
@@ -30,9 +28,7 @@ When the defined human task becomes <code>ACTIVE</code>, a new task is created i
 If the work associated with the human task is completed, it is possible to complete the human task manually using the `CaseService` as follows:
 
 ```java
-caseService
-  .withCaseExecution("aCaseExecutionId")
-  .complete();
+caseService.completeCaseExecution("aCaseExecutionId");
 ```
 
 This will complete the created task as well.
@@ -47,7 +43,7 @@ In that case the associated human task will be completed as well.
 
 ## Description
 
-A human task can have also a description. In fact, any CMMN 1.0 element can have a description. A description is defined by adding the description attribute.
+A human task can also have a description. In fact, any CMMN 1.0 element can have a description. A description is defined by adding the `description` attribute.
 
 ```xml
 <humanTask id="theTask" name="Schedule meeting" description="Schedule an engineering meeting for next week with the new hire" />
@@ -63,19 +59,19 @@ task.getDescription();
 
 Each task has a field indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.
 
-There is an activity extension which allows you to specify an expression in your task-definition to set the initial due date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
+There is an activity extension which allows to specify an expression in a task definition to set the initial due date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
 
 ```xml
 <humanTask id="theTask" name="Important task" camunda:dueDate="${dateVariable}"/>
 ```
 
-The due date of a task can also be altered using the TaskService or in TaskListeners using the passed DelegateTask.
+The due date of a task can also be altered using the task service or in task listeners using the passed delegate task.
 
 ## Follow Up Date
 
 Each task has a field indicating the follow up date of that task. The Query API can be used to query for tasks that need to be followed up on, before or after a certain date.
 
-There is an activity extension which allows you to specify an expression in your task-definition to set the initial follow up date of a task when it is created. The expression should always resolve to a java.util.Date, java.util.String ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or null. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
+There is an activity extension which allows you to specify an expression in your task-definition to set the initial follow up date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
 
 ```xml
 <humanTask id="theTask" name="Important task" camunda:followUpDate="${dateVariable}"/>
@@ -83,7 +79,7 @@ There is an activity extension which allows you to specify an expression in your
 
 ## User Assignment
 
-A human task can be directly assigned to a user. This is done by using the attribute <code>performerRef</code> on a human task element. The defined <code>performerRef</code> attribute references an existing role. Such a role definition needs a name that actually defines the user.
+A human task can be directly assigned to a user. This is done by using the attribute `performerRef` on a human task element. The defined `performerRef` attribute references an existing role. Such a role definition needs a name that actually defines the user.
 
 ```xml
 <case ... >
@@ -96,7 +92,7 @@ A human task can be directly assigned to a user. This is done by using the attri
 
 Only one user can be assigned to the task as a performer. In the engine terminology, this user is called the assignee. Tasks that have an assignee are not visible in the task lists of other users and can be found in the so-called personal task list of the assignee instead.
 
-Tasks directly assigned to users can be retrieved through the TaskService as follows:
+Tasks directly assigned to users can be retrieved through the task service as follows:
 
 ```java
 List<Task> tasks = taskService.createTaskQuery().taskAssignee("kermit").list();

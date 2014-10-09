@@ -22,9 +22,7 @@ The referenced case definition is resolved at runtime. This means that the refer
 An `ENABLED` case task can be started manually using the `CaseService` as follows:
 
 ```java
-caseService
-  .withCaseExecution("aCaseExecutionId")
-  .manualStart();
+caseService.manuallyStartCaseExecution("aCaseExecutionId");
 ```
 
 When the case task instance becomes `ACTIVE`, a new case instance will be launched. In the above example a new case instance of the case `checkCreditCase` will be created.
