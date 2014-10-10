@@ -9,7 +9,7 @@ keywords: 'caseservice case api fluent non-fluent nonfluent classic'
 
 <!-- move this to the user guide as soon as there is a concept on how separate CMMN and BPMN concerns in it -->
 
-The `CaseService` offers two API variants. One is in the following referred to as the *classic* API, since it is very similar to the API offered by the `RuntimeService` for BPMN processes. The *fluent* API follows a different concept in that it allows to compose case service commands by method chaining.
+The `CaseService` offers two API variants. One is in the following referred to as the *classic* API, since it is very similar to the API offered by the `RuntimeService` for BPMN processes. The *fluent* API follows a different concept in that it allows composition of case service commands by method chaining.
 
 ## Classic and Fluent API by Example
 
@@ -19,7 +19,7 @@ As an example, the `CaseService` offers two classic methods to manually start a 
 caseService.manuallyStartCaseExecution(caseExecutionId);
 
 Map<String, Object> variables = new HashMap<String, Object>();
-variables.put("aVaraibleToSet", "aValueToSet");
+variables.put("aVariableToSet", "aValueToSet");
 
 caseService.manuallyStartCaseExecution(caseExecutionId, variables);
 ```
@@ -32,7 +32,7 @@ caseService
   .manualStart();
   
 Map<String, Object> variables = new HashMap<String, Object>();
-variables.put("aVaraibleToSet", "aValueToSet");
+variables.put("aVariableToSet", "aValueToSet");
   
 caseService
   .withCaseExecution(caseExecutionId)
@@ -40,11 +40,11 @@ caseService
   .manualStart();
 ```
 
-In this way, the fluent API is another, fluently readable way of expressing the same functionality. On top, the fluent API allows due to its flexibility to express very specific interactions that the classic API does not offer. For example, the following snippet manually starts a case execution, sets variables and removes another variable in one command (and therefore transaction):
+In this way, the fluent API is another, fluently readable way of expressing the same functionality. On top, the fluent API, due to its flexibility, allows expression of very specific interactions that the classic API does not offer. For example, the following snippet manually starts a case execution, sets variables and removes another variable in one command (and therefore transaction):
 
 ```java
 Map<String, Object> variables = new HashMap<String, Object>();
-variables.put("aVaraibleToSet", "aValueToSet");
+variables.put("aVariableToSet", "aValueToSet");
 
 caseService
   .withCaseExecution(caseExecutionId)
