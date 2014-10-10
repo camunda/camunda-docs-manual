@@ -10,3 +10,5 @@ To migrate your process application from from camunda BPM 7.0 to camunda BPM 7.1
 *   If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `camunda.taskForm`. 
 	There you have two choices: If you are using `camunda.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("camunda.taskForm")`, 
 	otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend you to use the annotation `@Named("camundaTaskForm")`.
+
+Please see [this section](ref:/guides/user-guide/#process-engine-process-versioning-version-migration) of our [User Guide](ref:/guides/user-guide/) for information about migrating process instances.
