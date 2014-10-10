@@ -23,6 +23,7 @@ The history level controls the amount of data the process engine provides via th
 * `NONE`: no history events are fired.
 * `ACTIVITY`: the following events are fired:
     * Process Instance START, UPDATE, END: fired as process instances are being started, updated and ended
+    * Case Instance CREATE, UPDATE, CLOSE: fired as case instances are being created, updated and closed
     * Activity Instance START, UPDATE, END: fired as activity instances are being started, updated and ended
     * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (ie. re-assigned, delegated etc.), completed and deleted.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
@@ -60,10 +61,11 @@ The default history database writes History Events to the appropriate database t
 
 ### History Entities
 
-There are seven History entities, which - in contrast to the runtime data - will also remain present in the DB after process instances have been completed:
+There are eight History entities, which - in contrast to the runtime data - will also remain present in the DB after process and case instances have been completed:
 
 * `HistoricProcessInstances` containing information about current and past process instances.
 * `HistoricProcessVariables` containing information about the latest state a variable held in a  process instance.
+* `HistoricCaseInstances` containing information about current and past case instances.
 * `HistoricActivityInstances` containing information about a single execution of an activity.
 * `HistoricTaskInstances` containing information about current and past (completed and deleted) task instances.
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
@@ -73,9 +75,13 @@ There are seven History entities, which - in contrast to the runtime data - will
 
 ### Querying History
 
-The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`, `createHistoricProcessVariableQuery()`, `createHistoricActivityInstanceQuery()`, `createHistoricDetailQuery()`, `createHistoricTaskInstanceQuery()`, `createHistoricIncidentQuery()` and `createUserOperationLogQuery()` which can be used for querying history.
+The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
+`createHistoricProcessVariableQuery()`, `createHistoricCaseInstanceQuery()`,
+`createHistoricActivityInstanceQuery()`, `createHistoricDetailQuery()`,
+`createHistoricTaskInstanceQuery()`, `createHistoricIncidentQuery()` and
+`createUserOperationLogQuery()` which can be used for querying history.
 
-Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the the javadocs, in the `org.camunda.bpm.engine.history` package.
+Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the javadocs, in the `org.camunda.bpm.engine.history` package.
 
 ** HistoricProcessInstanceQuery **
 
@@ -88,6 +94,19 @@ historyService.createHistoricProcessInstanceQuery()
   .orderByProcessInstanceDuration().desc()
   .listPage(0, 10);
 ```
+
+** HistoricCaseInstanceQuery **
+
+Get the ten `HistoricCaseInstances` that are closed and which took the most time to be closed (the longest duration) of all closed cases with definition 'XXX'.
+
+```java
+historyService.createHistoricCaseInstanceQuery()
+  .closed()
+  .caseDefinitionId("XXX")
+  .orderByCaseInstanceDuration().desc()
+  .listPage(0, 10);
+```
+
 
 ** HistoricActivityInstanceQuery **
 
