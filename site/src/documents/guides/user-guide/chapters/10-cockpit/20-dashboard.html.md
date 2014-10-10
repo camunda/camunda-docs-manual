@@ -1,11 +1,11 @@
 ---
 
-title: 'Start Page View'
+title: 'Dashboard'
 category: 'Cockpit'
 
 ---
 
-On the start page of Cockpit you get an overview of the installed plugins - you will see at least two pre-installed plugins. Additionally installed plugins will automatically be added below the existing ones.
+On the dashboard of Cockpit you get an overview of the installed plugins - you will see at least two pre-installed plugins. Additionally installed plugins will automatically be added below the existing ones.
 
 ## Deployed Processes (List)
 
