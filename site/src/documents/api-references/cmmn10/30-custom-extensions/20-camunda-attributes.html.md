@@ -169,6 +169,71 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+### camunda:class
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java delegate</a> interface.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Fully qualified Java class name of a class which implements a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.0 Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      camunda:caseExecutionListener
+    </td>
+  </tr>
+</table>
+
+### camunda:delegateExpression
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="/guides/user-guide/#process-engine-delegation-code">delegation code</a>).
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Expression which evaluates to a Java class implementing a <a href="/guides/user-guide/#process-engine-delegation-code">delegation</a> interface, e.g. <code>${myVariableListener}</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.0 Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variablekListener</a>,
+      camunda:caseExecutionListener
+    </td>
+  </tr>
+</table>
+
+
 ### camunda:dueDate
 
 <table class="table table-striped">
@@ -196,6 +261,39 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>CMMN 1.0 Elements</th>
     <td>
       <a href="ref:#tasks-human-task">Human Task</a>
+    </td>
+  </tr>
+</table>
+
+
+### camunda:expression
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute defines an expression which will be evaluated at runtime.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Expression, e.g. <code>${gender == 'male' ? 'Mr.' : 'Mrs.'}</code> or <code>#{printer.printMessage()}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.0 Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      camunda:caseExecutionListener
     </td>
   </tr>
 </table>
@@ -326,6 +424,45 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>CMMN 1.0 Elements</th>
     <td>
       <a href="ref:#tasks-process-task">Process Task</a>
+    </td>
+  </tr>
+</table>
+
+
+### camunda:resource
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies an external resource. The resource can be part of the deployment or
+      exists in the classpath. To specify the type of resource, a URL scheme like prefix
+      <code>deployment://</code> resp. <code>classpath://</code> can be supplied. If the scheme is
+      omitted, it is assumed that the resource exists in the classpath.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The path to a resource or an expression which returns the path. Optional the path can
+      start with an URL like scheme <code>classpath://</code> or <code>deployment://</code> to
+      specify where to find the resource. If omitted the resource is assumed to exists in the
+      classpath.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.0 Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      camunda:caseExecutionListener
     </td>
   </tr>
 </table>
