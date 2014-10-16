@@ -227,7 +227,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variablekListener</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>

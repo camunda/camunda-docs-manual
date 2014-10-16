@@ -138,7 +138,8 @@ If the business key of the called process instance should be different than the 
     <th>Extension Elements</th>
     <td>
       <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

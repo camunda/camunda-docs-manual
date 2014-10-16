@@ -167,6 +167,12 @@ public class FakeLdapService {
     </td>
   </tr>
   <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
+    </td>
+  </tr>
+  <tr>
     <th>Constraints</th>
     <td>
       The attribute <code>camunda:assignee</code> cannot be used simultaneously with the <code>perfomerRef</code>
