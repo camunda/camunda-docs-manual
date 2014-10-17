@@ -83,7 +83,7 @@ The `messageName` identifies the message as defined in the message name attribut
 Correlation is successful if a single matching entity exists among the following:
 
 * __Process Definition__: A process definition matches if it can be started by a message named `messageName`.
-* __Execution (Process Instance)__: An execution matches if it is waiting for a message named `messageName` and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables.
+* __Execution (Process Instance)__: An execution matches if it is waiting for a message named `messageName` (if provided) and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables. If `messageName` is not provided, any execution that matches the other criteria matches the overall correlation. This can be useful when the sending party only knows a dynamic correlation key but not the message name as defined in the process model.
 
 Alternatively, it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. Therefore you can correlate a message by using the message correlation builder as follows:
 
