@@ -46,6 +46,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 ## Java 
 
 *   Java 6 / 7
+*   Java 8 (if supported by your application server / container)
 
 
 ## Java Runtime
