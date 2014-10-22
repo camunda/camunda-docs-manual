@@ -8,7 +8,7 @@ keywords: 'historic post query list'
 ---
 
 
-Query for historic process instances that fulfill the given parameters. 
+Query for historic process instances that fulfill the given parameters.
 This method is slightly more powerful than the [GET query](ref:#history-get-process-instances) because it allows filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
@@ -19,8 +19,8 @@ POST `/history/process-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -45,8 +45,12 @@ A JSON object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>Filter by process instance id.</td>
+  </tr>
+  <tr>
     <td>processInstanceIds</td>
-    <td>Filter by process instance ids. Must be a comma-separated list of process instance ids.</td>
+    <td>Filter by process instance ids. Must be a json array process instance ids.</td>
   </tr>
   <tr>
     <td>processInstanceBusinessKey</td>
@@ -55,7 +59,7 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
@@ -78,7 +82,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processDefinitionKeyNotIn</td>
-    <td>Exclude instances that belong to a set of process definitions. Must be a comma-separated list of process definition keys.</td>
+    <td>Exclude instances that belong to a set of process definitions. Must be a json array of process definition keys.</td>
   </tr>
   <tr>
     <td>processDefinitionName</td>
@@ -213,7 +217,7 @@ Each historic process instance object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -240,30 +244,44 @@ Example
 #### Request
 
 POST `/history/process-instance`
-  
+
 Request body:
 
-    {"variables": 
-        [{"name": "myVariable",
-         "operator": "eq",
-         "value": "camunda"
-        },
-        {"name": "mySecondVariable",
-         "operator": "neq",
-         "value": 124}],
-    "finishedAfter":"2013-01-01T00:00:00",
-    "finishedAfter":"2013-04-01T23:59:59"}
-  
+```json
+{
+  "finishedAfter": "2013-01-01T00:00:00",
+  "finishedBefore": "2013-04-01T23:59:59",
+  "variables": [
+    {
+      "name": "myVariable",
+      "operator": "eq",
+      "value": "camunda"
+    },
+    {
+      "name": "mySecondVariable",
+      "operator": "neq",
+      "value": 124
+    }
+  ]
+}
+```
+
 #### Response
 
-    [{"id": "aProcInstId",
+```json
+[
+  {
     "businessKey": "aKey",
-    "processDefinitionId": "aProcDefId",
-    "startTime": "2013-03-23T13:42:43",
-    "endTime": "2013-03-23T13:42:45",
-    "durationInMillis": 2000,
-    "startUserId": "aStartUserId",
-    "startActivityId": "aStartActivityId",
+    "caseInstanceId": "aCaseInstanceId",
     "deleteReason": "aDeleteReason",
-    "superProcessInstanceId": "aSuperProcessInstanceId",
-    "caseInstanceId": "aCaseInstanceId"}]
+    "durationInMillis": 2000,
+    "endTime": "2013-03-23T13:42:45",
+    "id": "aProcInstId",
+    "processDefinitionId": "aProcDefId",
+    "startActivityId": "aStartActivityId",
+    "startTime": "2013-03-23T13:42:43",
+    "startUserId": "aStartUserId",
+    "superProcessInstanceId": "aSuperProcessInstanceId"
+  }
+]
+```

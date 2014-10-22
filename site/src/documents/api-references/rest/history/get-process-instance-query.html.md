@@ -29,6 +29,10 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>Filter by process instance id.</td>
+  </tr>
+  <tr>
     <td>processInstanceIds</td>
     <td>Filter by process instance ids. Must be a comma-separated list of process instance ids.</td>
   </tr>
@@ -39,7 +43,7 @@ Parameters
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
@@ -237,14 +241,20 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=
 
 #### Response
 
-    [{"id": "aProcInstId",
+```json
+[
+  {
     "businessKey": "aKey",
-    "processDefinitionId": "aProcDefId",
-    "startTime": "2013-03-23T13:42:43",
-    "endTime": "2013-03-23T13:42:45",
-    "durationInMillis": 2000,
-    "startUserId": "aStartUserId",
-    "startActivityId": "aStartActivityId",
+    "caseInstanceId": "aCaseInstanceId",
     "deleteReason": "aDeleteReason",
-    "superProcessInstanceId": "aSuperProcessInstanceId",
-    "caseInstanceId": "aCaseInstanceId"}]
+    "durationInMillis": 2000,
+    "endTime": "2013-03-23T13:42:45",
+    "id": "aProcInstId",
+    "processDefinitionId": "aProcDefId",
+    "startActivityId": "aStartActivityId",
+    "startTime": "2013-03-23T13:42:43",
+    "startUserId": "aStartUserId",
+    "superProcessInstanceId": "aSuperProcessInstanceId"
+  }
+]
+```

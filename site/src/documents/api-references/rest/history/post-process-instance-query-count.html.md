@@ -8,7 +8,7 @@ keywords: 'historic post query list'
 ---
 
 
-Query for the number of historic process instances that fulfill the given parameters. 
+Query for the number of historic process instances that fulfill the given parameters.
 This method takes the same message body as the [POST query](ref:#history-get-process-instances-post)
 and therefore it is slightly more powerful than the [GET query count](ref:#history-get-process-instances-count).
 
@@ -20,8 +20,8 @@ POST `/history/process-instance/count`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Request Body
 
 A JSON object with the following properties:
@@ -30,6 +30,10 @@ A JSON object with the following properties:
   <tr>
     <th>Name</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>Filter by process instance id.</td>
   </tr>
   <tr>
     <td>processInstanceIds</td>
@@ -138,7 +142,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -165,20 +169,32 @@ Example
 #### Request
 
 POST `/history/process-instance/count`
-  
+
 Request body:
 
-    {"variables": 
-        [{"name": "myVariable",
-         "operator": "eq",
-         "value": "camunda"
-        },
-        {"name": "mySecondVariable",
-         "operator": "neq",
-         "value": 124}],
-    "finishedAfter":"2013-01-01T00:00:00",
-    "finishedAfter":"2013-04-01T23:59:59"}
-  
+```json
+{
+  "finishedAfter": "2013-01-01T00:00:00",
+  "finishedBefore": "2013-04-01T23:59:59",
+  "variables": [
+    {
+      "name": "myVariable",
+      "operator": "eq",
+      "value": "camunda"
+    },
+    {
+      "name": "mySecondVariable",
+      "operator": "neq",
+      "value": 124
+    }
+  ]
+}
+```
+
 #### Response
 
-    {"count": 1}
+```json
+{
+  "count": 1
+}
+```

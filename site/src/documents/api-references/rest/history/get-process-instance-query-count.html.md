@@ -9,7 +9,7 @@ keywords: 'historic get query list'
 
 
 Query for the number of historic process instances that fulfill the given parameters.
-Takes the same parameters as the [Get Activity Instances](ref:#history-get-activity-instances-historic) method.
+Takes the same parameters as the [Get Process Instances](ref:#history-get-process-instances) method.
 
 
 Method
@@ -29,6 +29,10 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>Filter by process instance id.</td>
+  </tr>
+  <tr>
     <td>processInstanceIds</td>
     <td>Filter by process instance ids. Must be a comma-separated list of process instance ids.</td>
   </tr>
@@ -39,7 +43,7 @@ Parameters
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Filter by process instance business key that the parameter is a substring of.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
@@ -47,7 +51,7 @@ Parameters
   <tr>
     <td>subProcessInstanceId</td>
     <td>Restrict query to one process instance that has a sub process instance with the given id.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>caseInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
@@ -167,4 +171,8 @@ GET `/history/process-instance/count?variables=myVariable_eq_camunda`
 
 #### Response
 
-    {"count": 1}
+```json
+{
+  "count": 1
+}
+```

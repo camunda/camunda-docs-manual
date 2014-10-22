@@ -133,16 +133,18 @@ GET `/history/process-instance/aProcInstId`
 
 #### Response
 
-    {
-      "id": "aProcInstId",
-      "businessKey": "aKey",
-      "processDefinitionId": "aProcDefId",
-      "startTime": "2013-03-23T13:42:43",
-      "endTime": "2013-03-23T13:42:45",
-      "durationInMillis": 2000,
-      "startUserId": "aStartUserId",
-      "startActivityId": "aStartActivityId",
-      "deleteReason": "aDeleteReason",
-      "superProcessInstanceId": "aSuperProcessInstanceId",
-      "caseInstanceId": "aCaseInstanceId"
-    }
+```json
+{
+  "id": "aProcInstId",
+  "businessKey": "aKey",
+  "processDefinitionId": "aProcDefId",
+  "startTime": "2013-03-23T13:42:43",
+  "endTime": "2013-03-23T13:42:45",
+  "durationInMillis": 2000,
+  "startUserId": "aStartUserId",
+  "startActivityId": "aStartActivityId",
+  "deleteReason": "aDeleteReason",
+  "superProcessInstanceId": "aSuperProcessInstanceId",
+  "caseInstanceId": "aCaseInstanceId"
+}
+```
