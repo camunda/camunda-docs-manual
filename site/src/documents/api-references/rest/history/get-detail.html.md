@@ -98,8 +98,6 @@ Depending on the concrete instance of the historic detail it contains further pr
   <tr>
     <td>value</td>
     <td>String/Number/Boolean</td>
-<<<<<<< HEAD
-    <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>).</p>
     <td><p>The variable's value if it is a primitive variable. The variable's serialized value if it is a custom object variable with a text-based serialization format. <code>null</code> for variable types that serialize as byte array (i.e. variable types <code>bytes</code> and <code>serializable</code>). Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</p>
     <p>
     <b>Deprecated</b>: For variables of type <code>serializable</code>, a json object applying Jackson's POJO
