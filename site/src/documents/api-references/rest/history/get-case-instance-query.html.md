@@ -194,6 +194,36 @@ Each historic case instance object has the following properties:
     <td>String</td>
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
+  <tr>
+    <td>active</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is active.</td>
+  </tr>
+  <tr>
+    <td>completed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is completed.</td>
+  </tr>
+  <tr>
+    <td>terminated</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is terminated.</td>
+  </tr>
+  <tr>
+    <td>failed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is failed.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is suspended.</td>
+  </tr>
+  <tr>
+    <td>closed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is closed.</td>
+  </tr>
 </table>
 
 
@@ -238,7 +268,13 @@ GET `/history/case-instance?closedAfter=2013-01-01T00:00:00&closedBefore=2013-04
     "closeTime": "2013-03-23T13:42:45",
     "durationInMillis": 2000,
     "createUserId": "aStartUserId",
-    "superCaseInstanceId": "aSuperCaseInstanceId"
+    "superCaseInstanceId": "aSuperCaseInstanceId",
+    "active": true,
+    "completed": false,
+    "terminated": false,
+    "failed": false,
+    "suspended": false,
+    "closed": false
   }
 ]
 ```

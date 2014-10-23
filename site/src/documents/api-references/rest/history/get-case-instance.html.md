@@ -86,6 +86,36 @@ Its properties are as follows:
     <td>String</td>
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
+  <tr>
+    <td>active</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is active.</td>
+  </tr>
+  <tr>
+    <td>completed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is completed.</td>
+  </tr>
+  <tr>
+    <td>terminated</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is terminated.</td>
+  </tr>
+  <tr>
+    <td>failed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is failed.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is suspended.</td>
+  </tr>
+  <tr>
+    <td>closed</td>
+    <td>Boolean</td>
+    <td>If true, this case instance is closed.</td>
+  </tr>
 </table>
 
 
@@ -129,5 +159,11 @@ GET `/history/case-instance/aCaseInstId`
   "durationInMillis": 2000,
   "createUserId": "aStartUserId",
   "superCaseInstanceId": "aSuperCaseInstanceId",
+  "active": true,
+  "completed": false,
+  "terminated": false,
+  "failed": false,
+  "suspended": false,
+  "closed": false
 }
 ```
