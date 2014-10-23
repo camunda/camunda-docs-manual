@@ -51,7 +51,7 @@ A JSON object with the following properties:
     <td>
       A JSON object which corresponds to the JSON body of a REST query. I.e., a filter which
       has the resourceType <code>Task</code> must contain a query which is a valid task query
-      (see <a href="#task-get-tasks">Task</a>).
+      (see <a href="#task-get-tasks-post">Task</a>).
     </td>
   </tr>
   <tr>
