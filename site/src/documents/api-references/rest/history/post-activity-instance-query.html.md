@@ -1,28 +1,42 @@
 ---
 
-title: 'Get Activity Instances (Historic)'
-shortTitle: 'Get Activity Instances'
+title: 'Get Activity Instances (POST)'
 category: 'History'
 
-keywords: 'historic get query list'
+keywords: 'historic post query list'
 
 ---
 
 
 Query for historic activity instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count](ref:#history-get-activity-instances-count) method.
 
 
 Method
 ------
 
-GET `/history/activity-instance`
+POST `/history/activity-instance`
 
 
 Parameters
 ----------
 
 #### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+  </tr>
+</table>
+
+
+#### Request Body
+
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -103,14 +117,6 @@ Parameters
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
     Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 
@@ -237,7 +243,16 @@ Example
 
 #### Request
 
-GET `/history/activity-instance?activityType=userTask&taskAssignee=peter`
+POST `/history/activity-instance`
+
+Request body:
+
+```json
+{
+  "activityType": "userTask",
+  "taskAssignee": "peter"
+}
+```
 
 #### Response
 

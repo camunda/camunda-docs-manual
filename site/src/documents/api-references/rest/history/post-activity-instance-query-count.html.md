@@ -1,27 +1,28 @@
 ---
 
-title: 'Get Activity Instances Count'
+title: 'Get Activity Instances Count (POST)'
 category: 'History'
 
-keywords: 'historic get query list'
+keywords: 'historic post query list'
 
 ---
 
 
 Query for the number of historic activity instances that fulfill the given parameters.
-Takes the same parameters as the [get historic activity instances](ref:#history-get-activity-instances-historic) method.
 
 
 Method
 ------
 
-GET `/history/activity-instance/count`
+POST `/history/activity-instance/count`
 
 
 Parameters
 ----------
 
-#### Query Parameters
+#### Request Body
+
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -141,7 +142,15 @@ Example
 
 #### Request
 
-GET `/history/activity-instance/count?activityType=userTask`
+POST `/history/activity-instance/count`
+
+Request body:
+
+```json
+{
+  "activityType": "userTask"
+}
+```
 
 #### Response
 
