@@ -1,0 +1,176 @@
+---
+
+title: 'Get Variable Instances'
+category: 'History'
+
+keywords: 'historic get query list'
+
+---
+
+
+Query for historic variable instances that fulfill the given parameters. 
+The size of the result set can be retrieved by using the [count](ref:#history-get-variable-instances-count) method.
+
+
+Method
+------
+
+GET `/history/variable-instance`
+
+
+Parameters
+----------  
+  
+#### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>variableName</td>
+    <td>Filter by variable name.</td>
+  </tr>
+  <tr>
+    <td>variableNameLike</td>
+    <td>Restrict to variables with a name like the parameter.</td>
+  </tr>
+  <tr>
+    <td>variableValue</td>
+    <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>Filter by the process instance the variable belongs to.</td>
+  </tr>
+  <tr>
+    <td>executionIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
+  </tr>
+  <tr>
+    <td>taskIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated task ids.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
+  <tr>
+    <td>sortBy</td>
+    <td>Sort the results by a given criterion. Valid values are <code>instanceId</code>, <code>variableName</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+  </tr>
+  <tr>
+    <td>sortOrder</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+  </tr>
+  <tr>
+    <td>deserializeObjectValue</td>
+    <td>
+      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+    </td>
+  </tr>
+</table>
+
+
+Result
+------
+
+A JSON array of historic variable instance objects.
+Each historic activity instance object has the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the variable instance.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>String</td>
+    <td>The name of the variable instance.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-type.html.eco', @, {}) %></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td>String/Number/Boolean/Object</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeObjectValues'}) %></td>
+  </tr>
+  <tr>
+    <td>valueInfo</td>
+    <td>Object</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-valueinfo.html.eco', @, {}) %>
+    </td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id the process instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceId</td>
+    <td>String</td>
+    <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
+  </tr>
+</table>
+
+Response codes
+--------------
+
+<table class="table table-striped">
+  <tr>
+    <th>Code</th>
+    <th>Media type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+</table>
+
+Example
+-------
+
+#### Request
+
+GET `/history/variable-instance?variableName=my_variable`
+
+#### Response
+
+    [{"id": "someId"
+      "name": "my_variable",
+      "type": "String",
+      "value": "my_value",
+      "processInstanceId": "aVariableInstanceProcInstId",
+      "errorMessage": null}]

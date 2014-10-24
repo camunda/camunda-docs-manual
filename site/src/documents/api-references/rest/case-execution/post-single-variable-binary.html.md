@@ -63,16 +63,10 @@ A multipart form submit with the following parts:
     <td>text/plain</td>
     <td>
       <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
-      <p>The canonical java type name of the case variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into a case execution of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).
+      <p>The canonical java type name of the case variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).
       </p>
     </td>
   </tr>  
-  <!-- Comment in as soon as setting serialized values for case executions is part of the REST API
-  <tr>
-    <td>variableType</td>
-    <td>text/plain</td>
-    <td>The type of the variable to set. Example: <code>serializable</code> to set the binary representation for a serializable variable. Default value is `bytes`.</td>
-  </tr>  -->
 </table>
 
 
@@ -122,27 +116,6 @@ Content-Transfer-Encoding: binary
 <<Byte Stream ommitted>>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
-
-<!-- comment in as soon as supported for case executions
-(2) Post serialized representation of a `serializable` variable:
-
-POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
-
-```  
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="data"; filename="unspecified"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: binary
-
-<<Byte Stream ommitted>>
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="variableType"
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-
-serializable
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
-```-->
 
 (2) Post the JSON serialization of a Java Class (**deprecated**):
 

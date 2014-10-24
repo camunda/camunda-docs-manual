@@ -65,12 +65,7 @@ A multipart form submit with the following parts:
       <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
       <p>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
     </td>
-  </tr>  
-  <tr>
-    <td>variableType</td>
-    <td>text/plain</td>
-    <td>The type of the variable to set. Example: <code>serializable</code> to set the binary representation for a serializable variable. Default value is `bytes`. Refer to the documentation on <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-types">process variable types</a>.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -126,27 +121,7 @@ Content-Transfer-Encoding: binary
 ------------------------------354ddb6baeff--
 ```
 
-(2) Post serialized representation of a `serializable` variable:
-
-POST `/task/aTaskId/localVariables/aVarName/data`
-
-```  
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="data"; filename="unspecified"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: binary
-
-<<Byte Stream ommitted>>
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="variableType"
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-
-serializable
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
-```
-
-(3) Post the JSON serialization of a Java Class (**deprecated**):
+(2) Post the JSON serialization of a Java Class (**deprecated**):
 
 POST `/task/aTaskId/localVariables/aVarName/data`
 

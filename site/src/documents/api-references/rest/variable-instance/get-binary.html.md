@@ -8,7 +8,7 @@ keywords: 'get'
 ---
 
 
-Retrieves the content of a single variable by id. Applicable for variables that are serialized as binary data.
+Retrieves the content of a single variable by id. Applicable for byte array variables.
 
 
 Method

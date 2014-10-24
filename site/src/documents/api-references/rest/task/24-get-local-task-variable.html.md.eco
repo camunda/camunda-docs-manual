@@ -1,0 +1,110 @@
+---
+
+title: 'Get Local Task Variable'
+category: 'Task'
+
+keywords: 'get local task variable'
+
+---
+
+
+Retrieves a variable from the context of a given task.
+
+
+Method
+------
+
+GET `/task/{id}/localVariables/{varId}`
+
+
+Parameters
+----------
+  
+#### Path Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>The id of the task to retrieve the variable from.</td>
+  </tr>
+  <tr>
+    <td>varId</td>
+    <td>The name of the variable to get.</td>
+  </tr>
+</table>
+
+#### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>deserializeObjectValue</td>
+    <td>
+      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+    </td>
+  </tr>
+</table>
+
+Result
+------
+
+A JSON object with the following properties:
+
+<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeObjectValue'}) %>
+
+  
+Response codes
+--------------  
+
+<table class="table table-striped">
+  <tr>
+    <th>Code</th>
+    <th>Media type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>application/json</td>
+    <td>Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+</table>
+
+
+Example 1
+---------
+
+#### Request
+
+GET `/task/aTaskId/localVariables/aVarName`
+  
+#### Response
+
+<%- @partial('api-references/rest/variables/variable-response-example-deserialized.html.md', @, {}) %>
+
+Example 2
+---------
+
+#### Request
+
+GET `/task/aTaskId/localVariables/aVarName?deserializeObjectValue=false`
+  
+#### Response
+
+<%- @partial('api-references/rest/variables/variable-response-example-serialized.html.md', @, {}) %>

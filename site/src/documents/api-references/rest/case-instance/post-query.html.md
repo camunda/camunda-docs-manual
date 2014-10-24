@@ -199,6 +199,6 @@ Request body:
         "caseDefinitionId" : "aCaseDefinitionId",
         "businessKey" : "aKey",
         "active" : false,
-        "completed"        : false
+        "completed" : false
       }
     ]

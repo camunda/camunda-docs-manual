@@ -192,7 +192,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 GET `/process-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadValue`
 
 #### Response

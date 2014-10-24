@@ -1,0 +1,5 @@
+<p>Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default <code>true</code>).
+</p>
+<p>If set to <code>true</code>, a serializable variable will be deserialized on server side and transformed to JSON using <a href="http://jackson.codehaus.org">Jackson's</a> POJO/bean property introspection feature. Note that this requires the Java classes of the variable value to be on the REST API's classpath.</p>
+<p>If set to <code>false</code>, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.</p>
+<p><b>Note:</b>While <code>true</code> is the default value for reasons of backward compatibility, we recommend setting this parameter to <code>false</code> when developing web applications that are independent of the Java process applications deployed to the engine.</p>
