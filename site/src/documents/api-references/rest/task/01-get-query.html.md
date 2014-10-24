@@ -403,7 +403,7 @@ Parameters
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>,
-    <code>description</code>, <code>id</code>, <code>name</code> and <code>priority</code>.
+    <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code> and <code>priority</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
