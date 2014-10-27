@@ -104,14 +104,6 @@ Parameters
     <td>Only include terminated case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Only include failed case instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Only include suspended case instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
     <td>closed</td>
     <td>Only include closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

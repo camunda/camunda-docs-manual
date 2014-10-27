@@ -92,14 +92,6 @@ Parameters
     <td>Only include active case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Only include failed case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Only include suspended case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
     <td>completed</td>
     <td>Only include completed case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

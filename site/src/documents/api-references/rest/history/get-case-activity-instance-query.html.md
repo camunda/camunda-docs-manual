@@ -92,14 +92,6 @@ Parameters
     <td>Only include active case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Only include failed case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Only include suspended case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
     <td>completed</td>
     <td>Only include completed case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
@@ -227,16 +219,6 @@ Each historic activity instance object has the following properties:
     <td>If true, this case activity instance is active.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Boolean</td>
-    <td>If true, this case activity instance is failed.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>If true, this case activity instance is suspended.</td>
-  </tr>
-  <tr>
     <td>completed</td>
     <td>Boolean</td>
     <td>If true, this case activity instance is completed.</td>
@@ -298,10 +280,8 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "durationInMillis": 2000,
     "enabled": false,
     "endTime": "2013-04-23T18:42:43",
-    "failed": false,
     "id": "aCaseActivityInstId",
     "parentCaseActivityInstanceId": "aHistoricParentCaseActivityInstanceId",
-    "suspended": false,
     "taskId": "aTaskId",
     "terminated": false
   }

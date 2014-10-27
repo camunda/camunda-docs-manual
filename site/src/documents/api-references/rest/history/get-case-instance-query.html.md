@@ -105,14 +105,6 @@ Parameters
     <td>Only include terminated case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Only include failed case instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Only include suspended case instances. Values may be <code>true</code> or <code>false</code>.</td>
-  </tr>
-  <tr>
     <td>closed</td>
     <td>Only include closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
@@ -210,16 +202,6 @@ Each historic case instance object has the following properties:
     <td>If true, this case instance is terminated.</td>
   </tr>
   <tr>
-    <td>failed</td>
-    <td>Boolean</td>
-    <td>If true, this case instance is failed.</td>
-  </tr>
-  <tr>
-    <td>suspended</td>
-    <td>Boolean</td>
-    <td>If true, this case instance is suspended.</td>
-  </tr>
-  <tr>
     <td>closed</td>
     <td>Boolean</td>
     <td>If true, this case instance is closed.</td>
@@ -272,8 +254,6 @@ GET `/history/case-instance?closedAfter=2013-01-01T00:00:00&closedBefore=2013-04
     "active": true,
     "completed": false,
     "terminated": false,
-    "failed": false,
-    "suspended": false,
     "closed": false
   }
 ]
