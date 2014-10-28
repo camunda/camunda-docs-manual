@@ -101,7 +101,7 @@ or, alternatively:
 </boundaryEvent>
 ```
 
-## camunda Extensions
+### camunda Extensions for Catching Signal Events
 
 <table class="table table-striped">
   <tr>
@@ -111,8 +111,6 @@ or, alternatively:
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
-        camunda:failedJobRetryTimeCycle</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
         camunda:inputOutput</a>
     </td>
@@ -151,7 +149,7 @@ An asynchronous signal event would look like this:
 </intermediateThrowEvent>
 ```
 
-## camunda Extensions
+### camunda Extensions for Signal Intermediate Throwing Event
 
 <table class="table table-striped">
   <tr>
