@@ -9,7 +9,8 @@ keywords: 'get query list'
 
 
 Query for deployments that fulfill given parameters. Parameters may be the
-properties of deployments, such as the id or name. The size of the result set
+properties of deployments, such as the id or name or a range of the deployment time. 
+The size of the result set
 can be retrieved by using the [get deployments count](ref:#deployment-get-deployments-count) method.
 
 
@@ -40,6 +41,14 @@ Parameters
   <tr>
     <td>nameLike</td>
     <td>Filter by the deployment name that the parameter is a substring of. The parameter can include the wildcard <code>%</code> to express like-strategy such as: starts with (<code>%</code>name), ends with (name<code>%</code>) or contains (<code>%</code>name<code>%</code>).</td>
+  </tr>
+  <tr>
+    <td>after</td>
+	<td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+  </tr>
+  <tr>
+    <td>before</td>
+	<td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
   </tr>
   <tr>
     <td>sortBy</td>
