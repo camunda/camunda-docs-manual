@@ -127,6 +127,18 @@ A JSON object with the following properties:
     <td>Only include not closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>variables</td>
+    <td>A JSON array to only include process instances that have/had variables with certain values. <br/>
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+    <br/>
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
+    <code>like</code>.<br/>
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
     <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code>.
@@ -136,14 +148,6 @@ A JSON object with the following properties:
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
     Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 

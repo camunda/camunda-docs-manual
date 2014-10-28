@@ -8,7 +8,7 @@ keywords: 'historic get query list'
 ---
 
 
-Query for the number of historic variable instances that fulfill the given parameters. 
+Query for the number of historic variable instances that fulfill the given parameters.
 Takes the same parameters as the [get historic variable instances](ref:#history-get-variable-instances) method.
 
 
@@ -19,8 +19,8 @@ GET `/history/variable-instance/count`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -42,11 +42,19 @@ Parameters
   </tr>
   <tr>
     <td>processInstanceId</td>
-    <td>Filter by the process instance the variable belongs to. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Filter by the process instance the variable belongs to.</td>
   </tr>
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by the case instance the variable belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
@@ -79,7 +87,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -106,7 +114,11 @@ Example
 #### Request
 
 GET `/history/variable-instance/count?variableName=my_variable`
-  
+
 #### Response
 
-    {"count": 1}
+```json
+{
+  "count": 1
+}
+```

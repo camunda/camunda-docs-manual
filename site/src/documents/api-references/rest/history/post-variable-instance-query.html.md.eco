@@ -8,7 +8,7 @@ keywords: 'historic post query list'
 ---
 
 
-Query for historic variable instances that fulfill the given parameters. 
+Query for historic variable instances that fulfill the given parameters.
 This method is slightly more powerful than the [GET query](ref:#history-get-variable-instances) because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
 
 
@@ -19,8 +19,8 @@ POST `/history/variable-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -69,6 +69,14 @@ A JSON object with the following properties:
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by the case instance the variable belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
@@ -139,11 +147,21 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
   </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id the case instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id the case execution belongs to.</td>
+  </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -173,12 +191,25 @@ POST `/history/variable-instance`
 
 Request body:
 
-    {"variableValue": 42,
-    "variableName":"someVariable"}
-  
+```json
+{
+  "variableName": "someVariable",
+  "variableValue": 42
+}
+```
+
 #### Response
 
-    [{"name": "someVariable",
+```json
+[
+  {
+    "name": "someVariable",
+    "processInstanceId": "aProcInstId",
+    "activityInstanceId": "aActivityInstId",
+    "caseInstanceId": null,
+    "caseExecutionId": null,
     "type": "Integer",
-    "value": 42,
-    "processInstanceId": "aProcInstId"}]
+    "value": 42
+  }
+]
+```

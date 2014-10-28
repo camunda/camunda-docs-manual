@@ -8,7 +8,7 @@ keywords: 'historic post query list'
 ---
 
 
-Query for historic variable instances that fulfill the given parameters. 
+Query for historic variable instances that fulfill the given parameters.
 This method takes the same message body as the [POST query](ref:#history-get-variable-instances-post) and therefore it is more powerful regarding variable values than the [GET query count](ref:#history-get-variable-instances) method.
 
 
@@ -19,8 +19,8 @@ POST `/history/variable-instance/count`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Request body
 
 A JSON object with the following properties:
@@ -49,6 +49,14 @@ A JSON object with the following properties:
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by the case instance the variable belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed case execution ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>
@@ -81,7 +89,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -111,9 +119,17 @@ POST `/history/variable-instance/count`
 
 Request body:
 
-    {"variableValue": 42,
-    "variableName":"someVariable"}
-  
+```json
+{
+  "variableName": "someVariable",
+  "variableValue": 42
+}
+```
+
 #### Response
 
-    {"count" : 1}
+```json
+{
+  "count": 1
+}
+```

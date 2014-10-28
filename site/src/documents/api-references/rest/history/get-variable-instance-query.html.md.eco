@@ -8,7 +8,7 @@ keywords: 'historic get query list'
 ---
 
 
-Query for historic variable instances that fulfill the given parameters. 
+Query for historic variable instances that fulfill the given parameters.
 The size of the result set can be retrieved by using the [count](ref:#history-get-variable-instances-count) method.
 
 
@@ -19,8 +19,8 @@ GET `/history/variable-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -47,6 +47,14 @@ Parameters
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by the case instance the variable belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated case execution ids.</td>
+  </tr>
   </tr>
   <tr>
     <td>taskIdIn</td>
@@ -124,12 +132,22 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>String</td>
-    <td>The id the process instance belongs to.</td>
+    <td>The process instance id the variable instance belongs to.</td>
   </tr>
   <tr>
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The case instance id the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The case execution id the variable instance belongs to.</td>
   </tr>
   <tr>
     <td>errorMessage</td>
@@ -168,9 +186,18 @@ GET `/history/variable-instance?variableName=my_variable`
 
 #### Response
 
-    [{"id": "someId"
-      "name": "my_variable",
-      "type": "String",
-      "value": "my_value",
-      "processInstanceId": "aVariableInstanceProcInstId",
-      "errorMessage": null}]
+```json
+[
+  {
+    "id": "someId"
+    "name": "my_variable",
+    "type": "String",
+    "value": "my_value",
+    "processInstanceId": "aVariableInstanceProcInstId",
+    "activityInstanceId": "aVariableInstanceActivityInstId",
+    "caseInstanceId": null,
+    "caseExecutionId": null,
+    "errorMessage": null
+  }
+]
+```

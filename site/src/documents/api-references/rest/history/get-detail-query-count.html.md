@@ -7,7 +7,7 @@ keywords: 'historic get query list'
 
 ---
 
-Query for the number of historic details that fulfill the given parameters. 
+Query for the number of historic details that fulfill the given parameters.
 Takes the same parameters as the [get historic details](ref:#history-get-historic-details) method.
 
 
@@ -18,8 +18,8 @@ GET `/history/detail/count`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -38,6 +38,14 @@ Parameters
   <tr>
     <td>activityInstanceId</td>
     <td>Filter by activity instance id.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Filter by case execution id.</td>
   </tr>
   <tr>
     <td>variableInstanceId</td>
@@ -78,7 +86,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -105,7 +113,11 @@ Example
 #### Request
 
 GET `/history/detail/count?variableName=my_variable`
-  
+
 #### Response
 
-    {"count": 3}
+```json
+{
+  "count": 3
+}
+```

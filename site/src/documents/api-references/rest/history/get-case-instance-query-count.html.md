@@ -112,23 +112,18 @@ Parameters
     <td>Only include not closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+    <td>variables</td>
+    <td>Only include process instances that have/had variables with certain values.
+    Variable filtering expressions are comma-separated and are structured as follows:<br/>
+    A valid parameter value has the form <code>key_operator_value</code>.
+    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
+    <br/>
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
+    <code>like</code>.<br/>
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
+    </td>
   </tr>
 </table>
 

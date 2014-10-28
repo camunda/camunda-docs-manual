@@ -41,6 +41,14 @@ Parameters
     <td>Filter by activity instance id.</td>
   </tr>
   <tr>
+    <td>caseInstanceId</td>
+    <td>Filter by case instance id.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>Filter by case execution id.</td>
+  </tr>
+  <tr>
     <td>variableInstanceId</td>
     <td>Filter by variable instance id.</td>
   </tr>
@@ -109,6 +117,21 @@ Each historic detail object has the following properties:
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the execution the historic detail belongs to.</td>
+  </tr>
+  <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>The id of the execution the historic detail belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance the historic detail belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The id of the case execution the historic detail belongs to.</td>
   </tr>
   <tr>
     <td>taskId</td>
@@ -214,27 +237,33 @@ GET `/history/detail?processInstanceId=aProcInstId`
 
 #### Response
 
-    [
-      {
-        "id": "12345",
-        "processInstanceId": "aProcInstId",
-        "activityInstanceId": "anActInstId",
-        "executionId": "anExecutionId",
-        "time": "2014-02-28T15:00:00",
-        "variableName": "myProcessVariable",
-        "variableType": "String",
-        "value": "aVariableValue",
-        "revision": 1,
-        "errorMessage": null
-      },
-      {
-        "id": "12345",
-        "processInstanceId": "aProcInstId",
-        "activityInstanceId": "anActInstId",
-        "executionId": "anExecutionId",
-        "taskId": "aTaskId",
-        "time": "2014-02-28T15:00:00",
-        "fieldId": "aFieldId",
-        "fieldValue": "aFieldValue"
-      }
-    ]
+```json
+[
+  {
+    "id": "12345",
+    "processInstanceId": "aProcInstId",
+    "activityInstanceId": "anActInstId",
+    "executionId": "anExecutionId",
+    "caseInstanceId": null,
+    "caseExecutionId": null,
+    "time": "2014-02-28T15:00:00",
+    "variableName": "myProcessVariable",
+    "variableType": "String",
+    "value": "aVariableValue",
+    "revision": 1,
+    "errorMessage": null
+  },
+  {
+    "id": "12345",
+    "processInstanceId": "aProcInstId",
+    "activityInstanceId": "anActInstId",
+    "executionId": "anExecutionId",
+    "caseInstanceId": null,
+    "caseExecutionId": null,
+    "taskId": "aTaskId",
+    "time": "2014-02-28T15:00:00",
+    "fieldId": "aFieldId",
+    "fieldValue": "aFieldValue"
+  }
+]
+```
