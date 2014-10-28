@@ -41,7 +41,7 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
-    <td>deserializeObjectValue</td>
+    <td>deserializeValue</td>
     <td>
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
@@ -122,7 +122,7 @@ Depending on the concrete instance of the historic detail it contains further pr
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeObjectValue'}) %></td>
+    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValue'}) %></td>
   </tr>
   <tr>
     <td>valueInfo</td>

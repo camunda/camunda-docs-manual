@@ -41,7 +41,7 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
-    <td>deserializeObjectValues</td>
+    <td>deserializeValues</td>
     <td>
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
@@ -55,7 +55,7 @@ Result
 A JSON object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeObjectValues'}) %>
+<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValues'}) %>
 
   
 Response codes
@@ -95,7 +95,7 @@ Example 2
 
 #### Request
 
-GET `/execution/anExecutionId/localVariables?deserializeObjectValues=false`
+GET `/execution/anExecutionId/localVariables?deserializeValues=false`
   
 #### Response
 

@@ -55,7 +55,7 @@ version of the process definition by key.</td>
         contains non-existent variable names, the variable names are ignored.</td>
   </tr>
   <tr>
-    <td>deserializeObjectValues</td>
+    <td>deserializeValues</td>
     <td>
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
@@ -68,7 +68,7 @@ Result
 A JSON object containing a property for each variable returned. The key is the variable name, the
 value is a JSON object with the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeObjectValues'}) %>
+<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValues'}) %>
 
 Response codes
 --------------  

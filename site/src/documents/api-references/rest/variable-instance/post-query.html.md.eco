@@ -37,7 +37,7 @@ Parameters
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
   <tr>
-    <td>deserializeObjectValues</td>
+    <td>deserializeValues</td>
     <td>
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
@@ -140,7 +140,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeObjectValues'}) %></td>
+    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValues'}) %></td>
   </tr>
   <tr>
     <td>valueInfo</td>

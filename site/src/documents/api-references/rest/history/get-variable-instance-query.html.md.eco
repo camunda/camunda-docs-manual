@@ -83,7 +83,7 @@ Parameters
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
   <tr>
-    <td>deserializeObjectValue</td>
+    <td>deserializeValue</td>
     <td>
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
@@ -121,7 +121,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeObjectValues'}) %></td>
+    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValues'}) %></td>
   </tr>
   <tr>
     <td>valueInfo</td>
