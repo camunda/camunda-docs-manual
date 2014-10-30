@@ -9,7 +9,7 @@ keywords: 'get query list'
 
 
 Query for deployments that fulfill given parameters. Parameters may be the
-properties of deployments, such as the id or name or a range of the deployment time. 
+properties of deployments, such as the id or name or a range of the deployment time.
 The size of the result set
 can be retrieved by using the [get deployments count](ref:#deployment-get-deployments-count) method.
 
@@ -44,11 +44,11 @@ Parameters
   </tr>
   <tr>
     <td>after</td>
-	<td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
   </tr>
   <tr>
     <td>before</td>
-	<td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
   </tr>
   <tr>
     <td>sortBy</td>
