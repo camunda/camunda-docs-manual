@@ -24,7 +24,7 @@ Required steps
       <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine-rest</artifactId>
       <classifier>classes</classifier>
-      <version>7.0.0-Final</version>
+      <version>{camunda.version}</version>
     </dependency>
     ```
 
@@ -49,11 +49,11 @@ Required steps
     }
     ```
 
-    The `org.camunda.bpm.engine.rest.*RestServiceImpl` classes contain the methods as structured in this documentation. 
-    `ProcessEngineRestServiceImpl` adds the functionality that different engines may be addressed.
-    If it is not included, the default engine will always be used and `/engine/{name}` URLs will not be available.
+    `CamundaRestResources.getResourceClasses()` contains two JAX-RS resources that serve as the entry points. One of these (`org.camunda.bpm.engine.rest.impl.NamedProcessEngineRestServiceImpl`) provides all of the REST resources listed in this document on paths beginning with `/engine/{name}` while the other (`org.camunda.bpm.engine.rest.impl.DefaultProcessEngineRestServiceImpl`) provides access to the default engine's resources on the root path `/`.
+
+    To restrict the exposed REST resources to specific types (e.g. only process-definition-related methods), a subclass of `org.camunda.bpm.engine.rest.impl.AbstractProcessEngineRestServiceImpl` can be implemented and registered with the JAX-RS application. Such a subclass can control which resources get exposed by offering JAX-RS-annotated methods. See the sources of `NamedProcessEngineRestServiceImpl` and `DefaultProcessEngineRestServiceImpl` for an example. **Note**: The path to a subresource should always match the path defined in the subresource's interface.
     
-    `JacksonConfigurator` is required to correctly configure the serialization of date fields.
+    The configuration class `JacksonConfigurator` is required to correctly configure the serialization of date fields.
     You may also have to add the following Jackson providers: `org.codehaus.jackson.jaxrs.JacksonJsonProvider`,
     `org.codehaus.jackson.jaxrs.JsonMappingExceptionMapper` and `org.codehaus.jackson.jaxrs.JsonParseExceptionMapper`.
     Depending on the runtime environment, this may not be necessary. 
