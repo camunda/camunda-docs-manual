@@ -5,14 +5,31 @@ category: 'Tasklist'
 
 ---
 
-Some visual aspects of the web interface can be configured in the 
-`_vars.less` file (located in `webapps/camunda-webapp/webapp/src/main/webapp/assets/styles/`)
-as following:
+You can override the default configuration of the tasklist using a central configuration file
+located in `app/tasklist/scripts/config.js`. Currently, the following configuration options are
+available:
 
-  - __Header colors__: you can change the values of `@main-color` and `@main-darker` variables.
+##Date Format
 
-  - __Header logo__: you can either override the `app-logo.png` image file
-  located in the `webapps/camunda-webapp/webapp/src/main/webapp/assets/img/tasklist/`
-  or override the `@logo-tasklist` variable to point on a other image file.
+Dates can be configured by specifying a `dateFormat` object. The values of the properties of this
+object must be strings representing date formats in accordance to [moment.js]
+(http://momentjs.com). Following date formats are used within the tasklist:
 
-[More information about less](http://lesscss.org/).
+- `monthName` represents the name of a month (e.g. January).
+- `day` represents the number of a day in a month (1..31).
+- `abbr` represents a short format of a date including time.
+- `normal` represents the standard format of a date including time.
+- `long` represents a verbose format of a date including time and day of the week.
+- `short` represents a short format of a date excluding time.
+
+
+##Example Configuration
+
+```javascript
+var camTasklistConf = {
+  "dateFormat": {
+    "monthName": "MMM",
+    "long":   "LLLL"
+  }
+};
+```
