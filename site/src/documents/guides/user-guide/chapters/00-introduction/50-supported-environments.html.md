@@ -40,7 +40,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 
 *   Google Chrome latest
 *   Mozilla Firefox latest
-*   Internet Explorer 9 / 10
+*   Internet Explorer 9 / 10 / 11
 
   
 ## Java 
