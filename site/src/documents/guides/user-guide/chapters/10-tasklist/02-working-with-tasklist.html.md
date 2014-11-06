@@ -5,7 +5,7 @@ category: 'Tasklist'
 
 ---
 
-In the following example we will walk through a typical human workflow scenario. Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_.
+In the following example we will walk through a typical human workflow scenario. In our prepackaged distribution the Tasklist has four demo users which belong to different user groups. Sign in with the user _demo_.
 
 ### Start a Process
 
@@ -35,13 +35,13 @@ See [this section](ref:#tasklist-task-forms) for more information about task for
 
 ### Set Follow-Up Date
 
-Let's assume that this task was assigned to us just before the end of our shift. Because we want to hurry out and go to the pub, we will set a follow-up date (reminder) for this task so that we don't forget about it when we get back to the office. To do so, click on _Set follow-up date_ in the [task view section](ref:#tasklist-dashboard-task-view) and select a date in the calendar that is displayed. We can also set an exact time for the follow-up.
+Let's assume that this task was assigned to the user just before the end of his working day. Because we want to hurry out, we will set a follow-up date (reminder) for this task so that we don't forget about it when we get back to the office. To do so, click on _Set follow-up date_ in the [task view section](ref:#tasklist-dashboard-task-view) and select a date in the calendar that is displayed. We can also set an exact time for the follow-up.
 
 See [this section](ref:#tasklist-dashboard-set-due-dates-and-follow-up-dates) for more information about setting follow-up dates.
 
 ### Reassign tasks
 
-Next we will reassign this task to another user (e.g., _Mary_) for further handling. To do so, click on the user name _demo_ in the [task view section](ref:#tasklist-dashboard-task-view) and select the user that this task should be assigned to, e.g., _Mary_.
+Next we will reassign this task to another user (e.g., _Mary_) for further handling. To do so, click on the user name _demo_ in the [task view section](ref:#tasklist-dashboard-task-view) and insert the user that this task should be assigned to, e.g., _Mary_.
 
 See [this section](ref:#tasklist-dashboard-claim-unclaim-and-reassign-tasks) for more information about claiming, unclaiming and reassigning tasks.
 

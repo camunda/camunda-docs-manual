@@ -49,7 +49,7 @@ category: 'Tasklist'
 
 ### Search for Tasks by variable
 
-Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
 
 ## Task view
 
@@ -85,7 +85,7 @@ In Tasklist you can add and view comments on specific tasks. After selecting a t
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>In the lower section of the task view there are several tabs which can be selected to display both the task form itself and additional information related to this user task.
       <ul>
-        <li><strong>Task form view</strong> - The <i>Task</i> tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.</li>
+        <li><strong>Task form view</strong> - The <i>Form</i> tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.</li>
         <li><strong>Task history</strong> - The <i>History</i> tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks.</li>
         <li><strong>Diagram view</strong> - The <i>Diagram</i> tab shows the diagram of the process definition. The current user task is highlighted in this diagram.</li>
         <li><strong>Task description</strong> - Open the <i>Description</i> tab to see the description of the user task. See <a href="ref:/api-references/bpmn20/#tasks-user-task-description">this section</a> for more information about description of tasks.</li>
