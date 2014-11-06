@@ -12,7 +12,6 @@ There exist two types of Spin artifacts:
 * `camunda-spin-core`: a jar that contains only the core Spin classes. In addition to `camunda-spin-core`, single data format artifacts like `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom` exist that provide the JSON and XML functionality. These dependencies should be used when the default data formats have to be reconfigured or when custom data formats are used.
 * `camunda-spin-all`: a single jar without dependencies that contains the Spin core, the built-in XML and JSON data formats and the engine integration plugin. `camunda-spin-all` is included in the pre-built-distributions. 
 
-
 ### Maven coordinates
 
 #### `camunda-spin-core`

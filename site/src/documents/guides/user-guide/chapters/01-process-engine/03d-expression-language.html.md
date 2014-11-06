@@ -301,8 +301,8 @@ of the task.
 
 ### Built-in Camunda Spin functions
 
-If Camunda Spin is available in the classpath of the engine, the special Spin functions `S`,
-`XML` and `JSON` are also available inside of an expression.
+If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
+`XML` and `JSON` are also available inside of an expression. See the [Data Formats section][spin-section] for a detailed explanation.
 
 ```xml
 <serviceTask id="task" camunda:expression="${XML(xml).attr('test').value()}" resultVariable="test" />
@@ -318,3 +318,4 @@ If Camunda Spin is available in the classpath of the engine, the special Spin fu
 [CDI]: #cdi-and-java-ee-integration-expression-resolving
 [BPMN]: ref:/api-references/bpmn20/
 [CMMN]: ref:/api-references/cmmn10/
+[spin-section]: ref:#process-data-formats-xml-json-custom
