@@ -1,7 +1,7 @@
 ---
 
 title: 'Configuring Spin Integration'
-category: 'Process Data Formats (XML, JSON, Custom)'
+category: 'Data Formats (XML, JSON, Other)'
 
 ---
 

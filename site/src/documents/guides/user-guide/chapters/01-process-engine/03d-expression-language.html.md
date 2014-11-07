@@ -318,4 +318,4 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 [CDI]: #cdi-and-java-ee-integration-expression-resolving
 [BPMN]: ref:/api-references/bpmn20/
 [CMMN]: ref:/api-references/cmmn10/
-[spin-section]: ref:#process-data-formats-xml-json-custom
+[spin-section]: ref:#data-formats-xml-json-other
