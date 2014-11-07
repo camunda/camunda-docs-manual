@@ -12,8 +12,8 @@ available:
 ##Date Format
 
 Dates can be configured by specifying a `dateFormat` object. The values of the properties of this
-object must be strings representing date formats in accordance to [moment.js]
-(http://momentjs.com). Following date formats are used within the tasklist:
+object must be strings representing date formats in accordance to
+[moment.js](http://momentjs.com). Following date formats are used within the tasklist:
 
 - `monthName` represents the name of a month (e.g. January).
 - `day` represents the number of a day in a month (1..31).
