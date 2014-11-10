@@ -53,3 +53,18 @@ locale files in the `locales` directory.
 To create a new localization for the tasklist, copy the provided language file, translate it and
 save it as new localization file with the corresponding language code. You can then use the
 custom localization by setting `preferredLocale` in the configuration file to the new language.
+
+## Logo and Header Color
+
+To change visual aspects of the tasklist you can edit the user stylesheet file located in
+`app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into the tasklist
+and can override the standard styles.
+
+To display your own logo in the top-left corner, edit the `background-image` property of the
+`.navbar-brand` to point to the URL of your logo image.
+
+To set the color of the navigation bar (header), multiple properties have to be overwritten. You
+can find an example in the default `user-styles.css` file.
+
+In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
+using [less](http://lesscss.org/) to change the overall appearance of the tasklist.
