@@ -23,13 +23,33 @@ object must be strings representing date formats in accordance to
 - `short` represents a short format of a date excluding time.
 
 
-##Example Configuration
+###Example
 
 ```javascript
-var camTasklistConf = {
-  "dateFormat": {
-    "monthName": "MMM",
-    "long":   "LLLL"
-  }
-};
+"dateFormat": {
+  "monthName": "MMM",
+  "long":   "LLLL"
+}
 ```
+
+## Localization
+
+The localization of the tasklist is contained in the `app/tasklist/locales/` directory. This
+directory contains a separate localization file for every available language. The file name
+consists of the language code and the suffix `.json` (e.g. `en.json`).
+
+To change the language the tasklist operates with, you can set the `preferredLocale` property in
+the configuration file:
+
+```javascript
+"locales": {
+  "preferredLocale": "en"
+}
+```
+
+The language code specified in the configuration file must match the language code of one of the
+locale files in the `locales` directory.
+
+To create a new localization for the tasklist, copy the provided language file, translate it and
+save it as new localization file with the corresponding language code. You can then use the
+custom localization by setting `preferredLocale` in the configuration file to the new language.
