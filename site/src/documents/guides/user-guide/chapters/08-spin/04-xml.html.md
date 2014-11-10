@@ -61,27 +61,27 @@ A Java object can be serialized using Spin's built-in XML data format. Let us as
 public class Customer {
   protected String name;
   protected Address address;
-  
+
   @XmlAttribute
   public String getName() { .. }
-  
+
   @XmlElement(namespace = "http://camunda.org/example")
   public Address getAddress() { .. }
-  
+
   /* constructor and setters omitted for brevity */
 }
 
 public class Address {
   protected String street;
   protected int postCode;
-  
+
   @XmlElement(namespace = "http://camunda.org/example")
   public String getStreet() { .. }
-  
+
   @XmlElement(namespace = "http://camunda.org/example")
   public int getPostCode() { .. }
-    
-  /* constructor, getters and setters omitted for brevity */
+
+  /* constructor and setters omitted for brevity */
 }
 ```
 
@@ -93,7 +93,7 @@ Customer customer = new Customer("jonny", address);
 
 ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("aProcess");
 
-ObjectValue typedCustomerValue = 
+ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/xml").create();
 
 runtimeService.setVariableTyped(processInstance.getId(), "customer", typedCustomerValue);
@@ -102,7 +102,7 @@ runtimeService.setVariableTyped(processInstance.getId(), "customer", typedCustom
 The decisive statement is
 
 ```java
-ObjectValue typedCustomerValue = 
+ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/xml").create();
 ```
 
