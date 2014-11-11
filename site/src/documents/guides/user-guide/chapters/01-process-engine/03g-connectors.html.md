@@ -127,10 +127,10 @@ GitHub.
     <camunda:connector>
       <camunda:connectorId>soap-http-connector</camunda:connectorId>
       <camunda:inputOutput>
-        <camunda:inputParameter name="endpointUrl">
+        <camunda:inputParameter name="url">
           http://example.com/webservice
         </camunda:inputParameter>
-        <camunda:inputParameter name="soapEnvelope">
+        <camunda:inputParameter name="payload">
           <![CDATA[
             <soap:Envelope ...>
               ... // the request envelope
