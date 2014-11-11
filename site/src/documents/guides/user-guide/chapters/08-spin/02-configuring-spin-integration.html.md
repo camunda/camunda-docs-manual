@@ -14,15 +14,28 @@ There exist two types of Spin artifacts:
 
 ### Maven coordinates
 
+##### BOM
+
+The bill of material (BOM) of camunda Spin offers managed dependencies for all Spin artifacts.
+
+```xml
+<dependency>
+  <groupId>org.camunda.spin</groupId>
+  <artifactId>camunda-spin-bom</artifactId>
+  <scope>import</scope>
+  <type>pom</type>
+  <version>${spin.version}</version>
+</dependency>
+```
+
 #### camunda-spin-core
 
-`camunda-spin-core` contains Spin's core classes that every data format implementation requires. In addition, XML and JSON data formats can be included with the dependencies `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom`. These artifacts will transitively pull in their their dependencies, like Jackson in the case of the JSON data format. For integration with the engine, the artifact `camunda-spin-engine-plugin` is needed. The Maven coordinates are as follows:
+`camunda-spin-core` contains Spin's core classes that every data format implementation requires. In addition, XML and JSON data formats can be included with the dependencies `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom`. These artifacts will transitively pull in their their dependencies, like Jackson in the case of the JSON data format. For integration with the engine, the artifact `camunda-spin-engine-plugin` is needed. Given the BOM is imported, the Maven coordinates are as follows:
 
 ```xml
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-core</artifactId>
-  <version>${spin.version}</version>
 </dependency>
 ```
 
@@ -30,7 +43,6 @@ There exist two types of Spin artifacts:
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
-  <version>${spin.version}</version>
 </dependency>
 ```
 
@@ -38,7 +50,6 @@ There exist two types of Spin artifacts:
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-dataformat-xml-dom</artifactId>
-  <version>${spin.version}</version>
 </dependency>
 ```
 
@@ -46,19 +57,17 @@ There exist two types of Spin artifacts:
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-engine-plugin</artifactId>
-  <version>${spin.version}</version>
 </dependency>
 ```
 
 #### camunda-spin-all
 
-This artifact contains the Spin classes, the XML and JSON dataformats as well as their dependencies. To avoid conflicts with other versions of these dependencies, Spin's dependencies are relocated to different packages. `camunda-spin-all` has the following Maven coordinates:
+This artifact contains the core Spin classes, the XML and JSON dataformats as well as their dependencies. To avoid conflicts with other versions of these dependencies, Spin's dependencies are relocated to different packages. `camunda-spin-all` has the following Maven coordinates:
 
 ```xml
 <dependency>
   <groupId>org.camunda.spin</groupId>
   <artifactId>camunda-spin-all</artifactId>
-  <version>${spin.version}</version>
 </dependency>
 ```
 

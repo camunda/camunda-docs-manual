@@ -8,6 +8,109 @@ category: 'Process Engine'
 With the optional dependency [camunda-connect][github], the process engine supports simple
 connectors. Currently SOAP and REST connector implementations exist.
 
+### Configuring Camunda Connect
+
+Since camunda Connect is an optional dependency, it is not immediately available when using the process engine. With a pre-built distribution, camunda Connect is already preconfigured.
+
+There are two types of `connect` artifacts:
+
+* `camunda-connect-core`: a jar that contains only the core Spin classes. In addition to `camunda-connect-core`, single connector implementations like `camunda-connect-http-client` and `camunda-connect-soap-http-client` exist. These dependencies should be used when the default connectors have to be reconfigured or when custom connector implementations are used.
+* `camunda-connect-all`: a single jar without dependencies that contains the Connect core, the built-in HTTP and SOAP connectors and the engine integration plugin. `camunda-connect-all` is included in the pre-built-distributions.
+
+#### Maven Coordinates
+
+##### BOM
+
+The bill of material (BOM) of camunda Connect offers managed dependencies for all camunda Connect artifacts.
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-bom</artifactId>
+  <scope>import</scope>
+  <type>pom</type>
+  <version>VERSION</version>
+</dependency>
+```
+
+##### camunda-connect-core
+
+`camunda-connect-core` contains the core classes of Connect. In addition, the HTTP and SOAP connectors can be added with the dependencies `camunda-connect-http-client` and `camunda-connect-soap-http-client`. These artifacts will transitively pull in their their dependencies, like Apache HTTP client. For integration with the engine, the artifact `camunda-connect-engine-plugin` is needed. Given the BOM is imported, the Maven coordinates are as follows:
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-core</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-http-client</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-soap-http-client</artifactId>
+</dependency>
+```
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-engine-plugin</artifactId>
+</dependency>
+```
+
+#### camunda-connect-all
+
+This artifact contains the core Connect classes, the HTTP and SOAP connectors as well as their dependencies. To avoid conflicts with other versions of these dependencies, they dependencies are relocated to different packages. `camunda-connect-all` has the following Maven coordinates:
+
+```xml
+<dependency>
+  <groupId>org.camunda.connect</groupId>
+  <artifactId>camunda-connect-all</artifactId>
+</dependency>
+```
+
+#### Configuring the Process Engine Plugin
+
+`camunda-connect-engine-plugin` contains a class called `org.camunda.connect.plugin.ConnectProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism](ref:/guides/user-guide/#process-engine-process-engine-plugins). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform ">
+
+  ...
+
+  <process-engine name="default">
+    ...
+
+    <plugins>
+      <plugin>
+        <class>org.camunda.connect.plugin.ConnectProcessEnginePlugin</class>
+      </plugin>
+    </plugins>
+
+    ...
+  </process-engine>
+
+</bpm-platform>
+```
+
+<div class="alert alert-info">
+  <strong>Note:</strong>
+  <p>When using a pre-built distribution of camunda BPM, the plugin is already pre-configured.</p>
+</div>
+
+
+### Using connectors
+
 To use a connector, you have to add the camunda extension element [connector][]. The connector is
 configured by a unique [connectorId][], which specifies the used connector implementation.
 Additionally, an [input/output mapping][iomapping] is used to configure the connector. The required
@@ -45,7 +148,7 @@ GitHub.
 </serviceTask>
 ```
 
-A full [example][example-rest] of the REST connector can also be found in the 
+A full [example][example-rest] of the REST connector can also be found in the
 [camunda examples repository][examples] on GitHub.
 
 
