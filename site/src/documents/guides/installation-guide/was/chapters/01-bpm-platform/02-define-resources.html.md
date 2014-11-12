@@ -1,6 +1,6 @@
 ---
 
-title: 'Define resources in the node scope'
+title: 'Define resources in the right scope'
 category: 'BPM Platform'
 
 ---

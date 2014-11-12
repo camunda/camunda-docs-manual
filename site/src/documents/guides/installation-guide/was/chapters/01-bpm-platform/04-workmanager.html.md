@@ -7,10 +7,10 @@ category: 'BPM Platform'
 ---
 
 
-This section explains how you can use the WebShere Integrated Solutions Console to configure a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
+This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
-Select the appropriate server under **Resources** / **Asynchronous Beans** / **Work Managers** and open the configuration page. Example: <code>server1</code>
-Create a new work manager using the Button **New...**.
+Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: <code>Cell=<some_id></code>
+Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
 
 
@@ -26,8 +26,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   <tr>
     <td >Name</td>
     <td >camunda-platform-jobexecutor-WM</td>
-    <td >The name of the Work Manager. You can choose a different name if you reference
-      it when installing the camunda BPM platform jobexecutor resource adapter (see below).
+    <td >The name of the Work Manager.
     </td>
   </tr>
   <tr>
@@ -39,7 +38,7 @@ Configure the new Work Manager. The following is a selection of sensible default
     </td>
     <td>
       <p>Default JNDI name for WorkManager.</p>
-      <p><strong>This setting value is mandatory.</strong></p>
+      <p><strong>This setting value is mandatory and must not be changed.</strong></p>
     </td>
   </tr>
   <tr>
@@ -78,14 +77,14 @@ Configure the new Work Manager. The following is a selection of sensible default
     <td>Specifies the desired maximum number of threads that are used for alarms. The default value is 2.</td>
   </tr>
   <tr>
-    <td>Maximum number of threads</td>
-    <td>4</td>
-    <td>Specifies the maximum number of threads that are available in this work manager used by the jobexecutor. Should be greater than "Minimum Size".</td>
-  </tr>
-  <tr>
     <td>Minimum number of threads</td>
     <td>2</td>
     <td>Specifies the minimum number of threads that are available in this work manager. Should not be below "2" since one thread is blocked by the job acquisition. If you configure multiple job acquisitions, the Minimal Size should not be below Nr. of Acquisitions + 1.</td>
+  </tr>
+  <tr>
+    <td>Maximum number of threads</td>
+    <td>4</td>
+    <td>Specifies the maximum number of threads that are available in this work manager used by the jobexecutor. Should be greater than "Minimum Size".</td>
   </tr>
   <tr>
     <td>Thread Priority</td>

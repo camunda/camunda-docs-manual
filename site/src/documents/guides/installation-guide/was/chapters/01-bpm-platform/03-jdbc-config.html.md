@@ -12,7 +12,7 @@ The JNDI name of the datasource must be equal to the name used in the datasource
 
 ## Default JNDI Name
 
-The default JNDI name is <code>jdbc/ProcessEngine</code>
+The default JNDI name used by the process engine is <code>jdbc/ProcessEngine</code>
 
 The following screenshot shows the configuration of an XA datasource: 
 

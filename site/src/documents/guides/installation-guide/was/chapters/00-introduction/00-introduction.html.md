@@ -28,7 +28,7 @@ This document will guide you through the installation of camunda BPM and its com
   <p><strong>Reading the Guide</strong></p><br> 
   Throughout this guide we will use a number of variables to denote common path names and constants.<br>
   <code>$WAS_HOME</code> points to the WebSphere application server main directory (typically something like <code>/opt/IBM/WebSphere/AppServer</code>). <br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install or already have installed, e.g. <code>7.0.0</code>. <br>
+  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install or already have installed, e.g. <code>7.2.0</code>. <br>
   <code>$WAS_DISTRIBUTION</code> represents the downloaded camunda BPM distribution for the WAS, e.g. <code>camunda-ee-ibm-was-$PLATFORM_VERSION.zip</code>.
   <p style="margin-top:10px">
     The distribution is available at the <a href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/">camunda enterprise release page</a>.

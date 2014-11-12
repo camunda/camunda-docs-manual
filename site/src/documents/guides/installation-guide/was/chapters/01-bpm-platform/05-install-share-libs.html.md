@@ -7,7 +7,7 @@ category: 'BPM Platform'
 ---
 
 
-The shared libraries include the camunda engine and some utility JARs. The shared libraries must be visible to both the camunda BPM platform as well es all process applications.
+The shared libraries include the camunda engine and some utility JARs. The shared libraries must be visible to both the camunda BPM platform as well as all process applications.
 
 The shared libraries can be found in the lib folder of the distribution:
 
@@ -21,9 +21,10 @@ camunda-ee-ibm-was-$PLATFORM_VERSION.zip
            |-- joda-time-XX.jar
            |-- ...
       |-- camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear
-      |-- camunda-ibm-websphere-rar-$PLATFORM_VERSION.rar
-
 ```
 
-The shared libraries must be copied to the $WAS_HOME/lib/ext folder of the IBM WebSphere Server installation.
+Copy the shared libraries into a folder, where it can be referenced from your IBM WebSphere Server installation.
+Next, go to **Environment / Shared libraries**, choose the correct scope in which your EAR and applications will run and define a **new** shared library.
+Name it ```Camunda```. This name is **mandatory**, except when you modify the ```deployment.xml``` which is located inside the camunda BPM platform EAR accordingly.
+Enter as classpath the path where you have copied the camunda shared libraries, eg. ```/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/camunda-shared-libs```
 Restart the WebSphere Server after this operation.
