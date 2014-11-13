@@ -79,7 +79,7 @@ This artifact contains the HTTP and SOAP connectors as well as their dependencie
 
 #### Configuring the Process Engine Plugin
 
-`camunda-engine-plugin-connect` contains a class called `org.camunda.connect.plugin.ConnectProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism](ref:/guides/user-guide/#process-engine-process-engine-plugins). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
+`camunda-engine-plugin-connect` contains a class called `org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism](ref:/guides/user-guide/#process-engine-process-engine-plugins). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,7 +94,7 @@ This artifact contains the HTTP and SOAP connectors as well as their dependencie
 
     <plugins>
       <plugin>
-        <class>org.camunda.connect.plugin.ConnectProcessEnginePlugin</class>
+        <class>org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin</class>
       </plugin>
     </plugins>
 
