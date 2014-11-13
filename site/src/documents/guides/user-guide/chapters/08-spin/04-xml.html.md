@@ -5,7 +5,7 @@ category: 'Data Formats (XML, JSON, Other)'
 
 ---
 
-For working with XML, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.XML` can be used as entry points. The latter offers strongly-typed access to Spin's XML Api and is preferable when writing Java code. The returned Spin wrapper offers methods for manipulating and writing XML as well as mapping XML to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary XML format.
+For working with XML, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.XML` can be used as entry points. The latter offers strongly-typed access to Spin's XML Api and is preferable when writing Java code. In scripting environments, only the `S` function is available. The returned Spin wrapper offers methods for manipulating and writing XML as well as mapping XML to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary XML format.
 
 The following provides examples on how camunda Spin can be used in the process engine to work with XML data. For illustration purposes, let us assume that there exists a String process variable `customer` containing XML. It has the following contents:
 

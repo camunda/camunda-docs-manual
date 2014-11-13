@@ -5,11 +5,11 @@ category: 'Data Formats (XML, JSON, Other)'
 
 ---
 
-For working with JSON, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.JSON` can be used as entry points. The latter offers strongly-typed access to Spin's JSON Api and is preferable when writing Java code. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary JSON format.
+For working with JSON, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.JSON` can be used as entry points. The latter offers strongly-typed access to Spin's JSON Api and is preferable when writing Java code. In scripting environments, only the `S` function is available. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary JSON format.
 
 The following provides examples on how camunda Spin can be used in the process engine to work with JSON data. For illustration purposes, let us assume that there exists a String process variable `customer` containing JSON. It has the following contents:
 
-```xml
+```json
 {
   "name" : "jonny",
   "address" : {
@@ -59,14 +59,14 @@ A Java object can be serialized using Spin's built-in JSON data format. Let us a
 public class Customer {
   protected String name;
   protected Address address;
-  
+
   /* constructor, getters and setters omitted for brevity */
 }
 
 public class Address {
   protected String street;
   protected int postCode;
-  
+
   /* constructor, getters and setters omitted for brevity */
 }
 ```
@@ -79,7 +79,7 @@ Customer customer = new Customer("jonny", address);
 
 ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("aProcess");
 
-ObjectValue typedCustomerValue = 
+ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/json").create();
 
 runtimeService.setVariableTyped(processInstance.getId(), "customer", typedCustomerValue);
@@ -88,7 +88,7 @@ runtimeService.setVariableTyped(processInstance.getId(), "customer", typedCustom
 The decisive statement is
 
 ```java
-ObjectValue typedCustomerValue = 
+ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/json").create();
 ```
 
