@@ -110,11 +110,14 @@ Both options are explained in greater detail below.
 
 The most convenient option for deploying a process application to an Ejb Container is by adding the following maven dependency to you maven project:
 
-    <dependency>
-      <groupId>org.camunda.bpm.javaee</groupId>
-      <artifactId>camunda-ejb-client</artifactId>
-      <version>${camunda.version}</version>
-    </dependency>
+<%- @partial('camunda-bom.html.eco', @, {}) %>
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.javaee</groupId>
+  <artifactId>camunda-ejb-client</artifactId>
+</dependency>
+```
 
 The camunda-ejb-client contains a reusable default implementation of the EjbProcessApplication as a Singleton Session Bean with auto-activation.
 

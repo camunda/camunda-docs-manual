@@ -15,19 +15,7 @@ There exist two types of Spin artifacts:
 
 ### Maven coordinates
 
-##### BOM
-
-The bill of material (BOM) of camunda BPM offers managed dependencies for all Spin artifacts.
-
-```xml
-<dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-bom</artifactId>
-  <scope>import</scope>
-  <type>pom</type>
-  <version>${version.camunda}</version>
-</dependency>
-```
+<%- @partial('camunda-bom.html.eco', @, {}) %>
 
 #### camunda-spin-core
 

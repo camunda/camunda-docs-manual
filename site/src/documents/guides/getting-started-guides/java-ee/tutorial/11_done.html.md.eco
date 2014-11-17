@@ -38,13 +38,25 @@ category: 'Tutorial'
       <version>0.1.0-SNAPSHOT</version>
       <packaging>war</packaging>
 
+      <!-- import camunda BOM to ensure correct versions of camunda projects -->
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-bom</artifactId>
+            <version>7.1.0-Final</version>
+            <scope>import</scope>
+            <type>pom</type>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+
       <dependencies>
 
         <!-- camunda engine dependency -->
         <dependency>
           <groupId>org.camunda.bpm</groupId>
           <artifactId>camunda-engine</artifactId>
-          <version>7.1.0-Final</version>
           <scope>provided</scope>
         </dependency>
 
@@ -52,14 +64,12 @@ category: 'Tutorial'
         <dependency>
           <groupId>org.camunda.bpm</groupId>
           <artifactId>camunda-engine-cdi</artifactId>
-          <version>7.1.0-Final</version>
         </dependency>
 
         <!-- provides a default EjbProcessApplication -->
         <dependency>
           <groupId>org.camunda.bpm.javaee</groupId>
           <artifactId>camunda-ejb-client</artifactId>
-          <version>7.1.0-Final</version>
         </dependency>
 
         <!-- Java EE 6 Specification -->

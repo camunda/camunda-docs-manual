@@ -8,6 +8,23 @@ category: 'Maven Coordinates'
 
 Here are the coordinates to include the camunda BPM enterprise edition in Apache Maven Projects.
 
+## The camunda BOM
+
+```xml
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-bom</artifactId>
+  <version>7.1.0-Final-ee</version>
+  <scope>import</scope>
+  <type>pom</type>
+</dependency>
+```
+
+<div class="alert alert-info">
+  We recommend to import the camunda BOM to ensure correct versions for every camunda project.
+</div>
+
+
 
 ## The core process engine
 
@@ -15,7 +32,6 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine</artifactId>
-  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -26,7 +42,6 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine-spring</artifactId>
-  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -37,7 +52,6 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-engine-cdi</artifactId>
-  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 
@@ -48,7 +62,6 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm.javaee</groupId>
   <artifactId>camunda-ejb-client</artifactId>
-  <version>7.1.0-Final-ee</version>
 </dependency>
 ```
 

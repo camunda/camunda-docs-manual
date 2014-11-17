@@ -16,11 +16,12 @@ To migrate your process application from camunda fox to camunda BPM, you need to
 *   If you use the new camunda Tasklist component you have to adjust the `formKey`, as described in the [Getting Started](http://camunda.org/implement/getting-started.html) section. We will provide more information soon. For JSF-Formkeys your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g.: `/loan-approval/request-loan.jsf`
 *   If you use the `fox.taskForm` bean as described in [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application), you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
 
+    <%- @partial('camunda-bom.html.eco', @, {}) %>
+
     ```xml
     <dependency>
       <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine-cdi</artifactId>
-      <version>$PLATFORM_VERSION</version>
     </dependency>
     ```
 *   If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `fox.taskForm`. There you have two choices: If you are using `fox.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("fox.taskForm")`, otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend you to use the annotation `@Named("camundaTaskForm")`.

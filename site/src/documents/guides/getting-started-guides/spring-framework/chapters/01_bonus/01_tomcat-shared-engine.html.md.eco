@@ -40,16 +40,27 @@ And third, the `applicationContext.xml` file is adjusted so that the shared proc
       <spring.version>3.1.2.RELEASE</spring.version>
     </properties>
 
+    <!-- import camunda BOM to ensure correct versions of camunda projects -->
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.camunda.bpm</groupId>
+          <artifactId>camunda-bom</artifactId>
+          <version>${camunda.version}</version>
+          <scope>import</scope>
+          <type>pom</type>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+
     <dependencies>
       <dependency>
         <groupId>org.camunda.bpm</groupId>
         <artifactId>camunda-engine</artifactId>
-        <version>${camunda.version}</version>
       </dependency>
       <dependency>
         <groupId>org.camunda.bpm</groupId>
         <artifactId>camunda-engine-spring</artifactId>
-        <version>${camunda.version}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>

@@ -19,12 +19,13 @@ Required steps
 
 *   Add the REST API to your project as a Maven dependency.
 
+    <%- @partial('camunda-bom.html.eco', @, {}) %>
+
     ```xml
     <dependency>
       <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-engine-rest</artifactId>
       <classifier>classes</classifier>
-      <version>{camunda.version}</version>
     </dependency>
     ```
 

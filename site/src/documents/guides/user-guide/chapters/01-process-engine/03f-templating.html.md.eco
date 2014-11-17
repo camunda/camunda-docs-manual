@@ -35,6 +35,8 @@ When using an embedded process engine, the template engine libraries must be add
 application deployment. When using the process engine in a maven `war` project, the template engine
 dependencies must be added as dependencies to the maven `pom.xml` file:
 
+<%- @partial('camunda-bom.html.eco', @, {}) %>
+
 ```xml
 <dependencies>
 
@@ -42,18 +44,18 @@ dependencies must be added as dependencies to the maven `pom.xml` file:
   <dependency>
     <groupId>org.camunda.template-engines</groupId>
     <artifactId>camunda-template-engines-freemarker</artifactId>
-    <version>1.0.0</version>
   </dependency>
 
   <!-- apache velocity -->
   <dependency>
     <groupId>org.camunda.template-engines</groupId>
     <artifactId>camunda-template-engines-velocity</artifactId>
-    <version>1.0.0</version>
   </dependency>
 
 </dependencies>
 ```
+
+
 ## Installing a Template Engine for a Shared Process Engine
 
 When using a shared process engine, the template engine must be added to the shared process engine

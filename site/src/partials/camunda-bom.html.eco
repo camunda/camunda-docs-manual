@@ -1,0 +1,4 @@
+<!-- link to camunda bom -->
+<div class="alert alert-info">
+  Please import the <a href="<%= @docUrl("guides/getting-started-guides/#apache-maven-the-camunda-bom") %>" class="alert-link">camunda BOM</a> to ensure correct versions for every camunda project.
+</div>
