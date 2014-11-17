@@ -91,6 +91,21 @@ links: 'process'
 
       <div class="row">
         <div class="col-md-5">
+          <h3>The camunda BOM:</h3>
+          <div class="app-source" data-source-code="bom.xml"></div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <h3>Recommendation:</h3>
+          <div class="alert alert-success">
+            Please import the camunda BOM if you use multiple camunda projects.
+            The BOM defines versions for all camunda projects. This way it is
+            ensured that no incompatible versions are imported.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
           <h3>The core process engine:</h3>
           <div class="app-source" data-source-code="engine.xml"></div>
         </div>
@@ -132,6 +147,16 @@ links: 'process'
 <!-- ============================ Code, Yo! ============================= -->
 
 <div class="bootstrap-code">
+  <script type="text/xml" id="bom.xml">
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-bom</artifactId>
+  <version>7.1.0-Final</version>
+  <scope>import</scope>
+  <type>pom</type>
+</dependency>
+  </script>
+
   <script type="text/xml" id="engine.xml">
 <dependency>
   <groupId>org.camunda.bpm</groupId>
