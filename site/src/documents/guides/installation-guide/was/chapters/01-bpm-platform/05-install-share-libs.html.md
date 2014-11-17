@@ -26,5 +26,5 @@ camunda-ee-ibm-was-$PLATFORM_VERSION.zip
 Copy the shared libraries into a folder, where it can be referenced from your IBM WebSphere Server installation.
 Next, go to **Environment / Shared libraries**, choose the correct scope in which your EAR and applications will run and define a **new** shared library.
 Name it ```Camunda```. This name is **mandatory**, except when you modify the ```deployment.xml``` which is located inside the camunda BPM platform EAR accordingly.
-Enter as classpath the path where you have copied the camunda shared libraries, eg. ```/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/camunda-shared-libs```
-Restart the WebSphere Server after this operation.
+Enter as classpath the path where you have copied the camunda shared libraries, eg. ```/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/camunda-shared-libs```. Enable
+the **Use an isolated class loader for this shared library** checkbox. Restart the WebSphere Server after this operation.

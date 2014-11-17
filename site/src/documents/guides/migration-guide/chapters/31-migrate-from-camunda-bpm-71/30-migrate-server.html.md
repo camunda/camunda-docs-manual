@@ -20,9 +20,9 @@ The recommended upgrade steps are:
 * Create a new directory into which you copy the new camunda BPM 7.2 shared libraries. (Will be referenced by a Shared library we define in WebSphere later)
 * JDBC Drivers, DataSource and WorkManager settings stay the same.
 * Start the server.
-* Create a shared library like described [here](ref:/guides/installation-guide/was/#bpm-platform-install-the-camunda-bpm-platform-shared-libraries). Name it 'Camunda'.
+* Create a shared library like described [here](ref:/guides/installation-guide/was/#bpm-platform-install-the-camunda-bpm-platform-shared-libraries). Name it `Camunda`.
 * Install the camunda BPM 7.2 platform EAR. The RAR is now embedded into the EAR, so you do not have to install it separately. During the installation, the EAR will try to reference the previously
-created 'Camunda' shared library.
-* Install the camunda BPM 7.2 web applications (camunda webapp and engine-rest). Associate the installed web applications with the 'Camunda' shared library. Otherwise there will be missing resources during runtime. Start the web applications afterwards.
-* For each previously deployed process application: associate the 'Camunda' shared library with them. Otherwise they will fail to start because required resources are missing.
+created `Camunda` shared library.
+* Install the camunda BPM 7.2 web applications (camunda webapp and engine-rest). Associate the installed web applications with the `Camunda` shared library. Otherwise there will be missing resources during runtime. Start the web applications afterwards.
+* For each previously deployed process application: associate the `Camunda` shared library with them. Otherwise they will fail to start because required resources are missing.
 
