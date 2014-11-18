@@ -7,7 +7,7 @@ category: 'User Interface'
 
 ## Adding JSF Forms to your process application
 
-If you add JSF forms as described below, you can easily use them as [external task forms](ref:/guides/user-guide/#tasklist-task-forms-external-task-forms).
+If you add JSF forms as described below, you can easily use them as [external task forms](ref:/guides/user-guide/#task-forms-external-task-forms).
 
 A working example can be found in the [examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-external-jsf).
 

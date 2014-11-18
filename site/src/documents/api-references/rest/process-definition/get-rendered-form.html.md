@@ -7,10 +7,10 @@ keywords: 'get'
 
 ---
 
-Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms).
+Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form](ref:/guides/user-guide/#task-forms-generated-task-forms).
 
 Method
---------------  
+--------------
 
 GET `/process-definition/{id}/rendered-form`
 
@@ -18,7 +18,7 @@ GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for
 
 
 Parameters
---------------  
+--------------
 
 #### Path Parameters
 
@@ -39,12 +39,12 @@ Parameters
 
 
 Result
---------------  
+--------------
 
 An HTML response body providing the rendered (generated) form content.
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>

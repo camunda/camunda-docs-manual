@@ -11,7 +11,7 @@ keywords: 'post'
 Complete a task and update process variables using a form submit. There are two difference between this method and the `complete` method:
 
 * If the task is in state `PENDING` - ie. has been delegated before, it is not completed but resolved. Otherwise it will be completed.
-* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms](ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms) section of the [User Guide](ref:/guides/user-guide/) for more information. 
+* If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms](ref:/guides/user-guide/#task-forms-generated-task-forms) section of the [User Guide](ref:/guides/user-guide/) for more information.
 
 
 Method
@@ -22,7 +22,7 @@ POST `/task/{id}/submit-form`
 
 Parameters
 ----------
-  
+
 #### Path Parameters
 
 <table class="table table-striped">
@@ -35,7 +35,7 @@ Parameters
     <td>The id of the task to submit the form for.</td>
   </tr>
 </table>
-  
+
 #### Request Body
 
 A JSON object with the following properties:
@@ -77,7 +77,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>      
+  </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>

@@ -29,7 +29,7 @@ category: 'Tasklist'
       To start a process instance via Tasklist, hit the <button class="btn btn-xs"><i class="glyphicon glyphicon-list-alt"></i></button> button and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
     </p>
     <p>
-      Depending on whether you have defined a <a href="ref:#tasklist-task-forms">start form</a> for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a <a href="ref:#tasklist-task-forms-generic-task-forms">generic</a> start form will be displayed and Tasklist will offer the option of adding variables to the process instance.
+      Depending on whether you have defined a <a href="ref:#task-forms">start form</a> for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a <a href="ref:#task-forms-generic-task-forms">generic</a> start form will be displayed and Tasklist will offer the option of adding variables to the process instance.
     </p>
   </div>
 </div>

@@ -304,7 +304,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies a form resource. See <a href="ref:/guides/user-guide/#tasklist-task-forms">task forms</a> for more information.
+      This attribute specifies a form resource. See <a href="ref:/guides/user-guide/#task-forms">task forms</a> for more information.
     </td>
   </tr>
   <tr>

@@ -92,7 +92,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata of an individual validation constraint for a form field (see <a href="ref:/guides/user-guide/#tasklist-task-forms-form-field-validation">Form Field Validation</a>).
+      Metadata of an individual validation constraint for a form field (see <a href="ref:/guides/user-guide/#task-forms-generated-task-forms-form-field-validation">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -410,7 +410,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define fields of a form, which are used to generate task forms (see <a href="ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms">Generated Task Forms</a>).
+      Metadata to define fields of a form, which are used to generate task forms (see <a href="ref:/guides/user-guide/#task-forms-generated-task-forms">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -446,7 +446,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a single form field (see <a href="ref:/guides/user-guide/#tasklist-task-forms-generated-task-forms">Generated Task Forms</a>).
+      Metadata to define a single form field (see <a href="ref:/guides/user-guide/#task-forms-generated-task-forms">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -1337,7 +1337,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a list of validation constraints for form fields (see <a href="ref:/guides/user-guide/#tasklist-task-forms-form-field-validation">Form Field Validation</a>).
+      Metadata to define a list of validation constraints for form fields (see <a href="ref:/guides/user-guide/#task-forms-generated-task-forms-form-field-validation">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
