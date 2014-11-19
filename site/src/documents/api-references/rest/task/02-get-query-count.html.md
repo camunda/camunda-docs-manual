@@ -287,7 +287,7 @@ Parameters
     <td>Restrict to tasks that have no followUp date or a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
-    <td>followUpBeforeExpressionOrNotExistent</td>
+    <td>followUpBeforeOrNotExistentExpression</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
         expression.
         See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">

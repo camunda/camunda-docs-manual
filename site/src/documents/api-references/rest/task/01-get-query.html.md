@@ -289,7 +289,7 @@ Parameters
     The typical use case is to query all "active" tasks for a user for a given date.</td>
   </tr>
   <tr>
-    <td>followUpBeforeExpressionOrNotExistent</td>
+    <td>followUpBeforeOrNotExistentExpression</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
         expression.
         See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
