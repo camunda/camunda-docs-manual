@@ -77,6 +77,16 @@ Its properties are as follows:
     <td>The name of the activity this case execution belongs to.</td>
   </tr>
   <tr>
+    <td>activityType</td>
+    <td>String</td>
+    <td>The type of the activity this case execution belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityDescription</td>
+    <td>String</td>
+    <td>The description of the activity this case execution belongs to.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>

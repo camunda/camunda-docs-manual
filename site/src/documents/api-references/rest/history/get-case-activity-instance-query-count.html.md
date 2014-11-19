@@ -52,6 +52,10 @@ Parameters
     <td>Filter by the case activity name (according to CMMN 1.0 XML).</td>
   </tr>
   <tr>
+    <td>caseActivityType</td>
+    <td>Filter by the case activity type (according to CMMN 1.0 XML).</td>
+  </tr>
+  <tr>
     <td>createdBefore</td>
     <td>Restrict to instances that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
