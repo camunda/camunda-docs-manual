@@ -19,8 +19,8 @@ GET <code>/job/count</code>
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -47,7 +47,11 @@ Parameters
   <tr>
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the jobs run on.</td>
-  </tr>   
+  </tr>
+  <tr>
+    <td>activityId</td>
+    <td>Only select jobs which exist for an activity with the given id.</td>
+  </tr>
   <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left.</td>
@@ -93,13 +97,13 @@ Parameters
   <tr>
     <td>suspended</td>
     <td>Only include active jobs.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
@@ -126,7 +130,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -154,7 +158,7 @@ Example
 
 <!-- TODO: Insert a 'real' example -->
 GET <code>/job/count?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
-  
+
 #### Response
 
     {"count": 2}

@@ -18,8 +18,8 @@ POST <code>/job</code>
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -65,7 +65,11 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>Filter by the key of the process definition the jobs run on.</td>
-  </tr>   
+  </tr>
+  <tr>
+    <td>activityId</td>
+    <td>Only select jobs which exist for an activity with the given id.</td>
+  </tr>
   <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left. Valid value is a <code>boolean</code>.</td>
@@ -104,7 +108,7 @@ A JSON object with the following properties:
   <tr>
     <td>noRetriesLeft</td>
     <td>Only select jobs which have no retries left.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>active</td>
     <td>Only include active jobs.</td>
@@ -112,13 +116,13 @@ A JSON object with the following properties:
   <tr>
     <td>suspended</td>
     <td>Only include active jobs.</td>
-  </tr>    
+  </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
@@ -168,7 +172,7 @@ Each job object has the following properties:
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>The key of the process definition which this job belongs to.</td>
-  </tr>    
+  </tr>
   <tr>
     <td>retries</td>
     <td>Number</td>
@@ -178,17 +182,17 @@ Each job object has the following properties:
     <td>exceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
-  </tr>  
+  </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -220,19 +224,19 @@ POST <code>/job</code>
 Request body:
 
     {
-      "dueDates": 
+      "dueDates":
         [
           {
             "operator": "gt",
             "value": "2012-07-17'T'17:00:00"
           },
-          {   
+          {
             "operator": "lt",
             "value": "2012-07-17'T'18:00:00"
           }
         ]
     }
-  
+
 #### Response
 
     [
