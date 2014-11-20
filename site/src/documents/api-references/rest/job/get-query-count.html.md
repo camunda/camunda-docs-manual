@@ -49,6 +49,10 @@ Parameters
     <td>Filter by the key of the process definition the jobs run on.</td>
   </tr>   
   <tr>
+	<td>activityId</td>
+	<td>Only select jobs which exist for the given activity id.</td>
+  </tr>
+  <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left.</td>
   </tr>
