@@ -98,7 +98,19 @@ When an `object` value is passed to the process engine, a *serialization format*
 
 The process engine ships one built-in object serializer for the format `application/x-java-serialized-object`. It is able to serialize Java objects that implement the interface `java.io.Serializable` and applies standard Java object serialization.
 
-The desired serialization format can be specified when setting a variable using the Typed Value API. On top of that, the process engine configuration has an option `defaultSerializationFormat` that is used when no specific format is requested. This option defaults to `application/x-java-serialized-object`.
+The desired serialization format can be specified when setting a variable using the Typed Value API:
+
+```java
+CustomerData customerData = new CustomerData();
+
+ObjectValue customerDataValue = Variables.objectValue(customerData)
+  .serializationDataFormat(Variables.SerializationDataFormats.JAVA)
+  .create();
+
+execution.setVariable("someVariable", customerDataValue);
+```
+
+ On top of that, the process engine configuration has an option `defaultSerializationFormat` that is used when no specific format is requested. This option defaults to `application/x-java-serialized-object`.
 
 <div class="alert alert-info">
   <p><strong>Using Custom Objects in Task Forms:</strong></p>
@@ -168,7 +180,7 @@ ObjectValue retrievedTypedObjectValue = runtimeService.getVariableTyped(executio
 com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue.getValue();
 ```
 
-This again is equivalent to the Java-Object-based API. However, it is now possible to tell the engine which serialization format to use when persisting the value. For example, `ObjectValue typedObjectValue = Variables.objectValue(order).serializationDataFormat("application/x-java-serialized-object").create();` creates a value that gets serialized by the engine's built-in Java object serializer. Also, a retrieved `ObjectValue` instance provides additional variable details:
+This again is equivalent to the Java-Object-based API. However, it is now possible to tell the engine which serialization format to use when persisting the value. For example, `ObjectValue typedObjectValue = Variables.objectValue(order).serializationDataFormat(Variables.SerializationDataFormats.JAVA).create();` creates a value that gets serialized by the engine's built-in Java object serializer. Also, a retrieved `ObjectValue` instance provides additional variable details:
 
 ```java
 // returns true
@@ -196,7 +208,7 @@ String serializedOrder = "...";
 ObjectValue serializedValue =
   Variables
     .serializedObjectValue(serializedOrder)
-    .serializationDataFormat("application/x-java-serialized-object")
+    .serializationDataFormat(Variables.SerializationDataFormats.JAVA)
     .objectTypeName("com.example.Order")
     .create();
 
