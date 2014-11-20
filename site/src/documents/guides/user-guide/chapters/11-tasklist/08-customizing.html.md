@@ -69,5 +69,21 @@ To display your own logo in the top-left corner, edit the `background-image` pro
 To set the color of the navigation bar (header), multiple properties have to be overwritten. You
 can find an example in the default `user-styles.css` file.
 
+## Advanced styles customization
+
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
 using [less](http://lesscss.org/) to change the overall appearance of the tasklist.
+
+If you want to customize the interface with `less`, you probably should start by having a look at the variables defined in the `client/styles/styles.less` and `client/bower_components/bootstrap/less/variables.less` files.
+
+A sample file with variable overrides is available in the `client/styles` directory. To enable it, uncomment the line   
+`// @import "_variables-override";` in `client/styles/styles.less`   
+and re-compile the source.
+
+### Compiling using grunt
+
+From within the `camunda-tasklist-ui` directory:
+```
+grunt build
+```
+The command will build the whole frontend assets, styles included.
