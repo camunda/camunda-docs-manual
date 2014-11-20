@@ -13,7 +13,7 @@ camunda BPM 7.2 ships a new installation approach for the camunda BPM platform. 
 The recommended upgrade steps are:
 
 * Stop all process applications.
-* Stop and delete the 7.1 camunda BPM platform EAR, RAR and webapps.
+* Stop and delete the 7.1 camunda BPM platform EAR, RAR and web applications.
 * Delete the J2E connection factory and activation specification created for camunda BPM 7.1.
 * Stop the server.
 * Delete all camunda BPM related libraries from the `$WAS_HOME/lib/ext` directory. `$WAS_HOME` is usually located at `/opt/IBM/WebSphere/AppServer`.
@@ -26,3 +26,17 @@ created `Camunda` shared library.
 * Install the camunda BPM 7.2 web applications (camunda webapp and engine-rest). Associate the installed web applications with the `Camunda` shared library. Otherwise there will be missing resources during runtime. Start the web applications afterwards.
 * For each previously deployed process application: associate the `Camunda` shared library with them. Otherwise they will fail to start because required resources are missing.
 
+
+## Oracle WebLogic Server 12c
+
+### Upgrade the Oracle WebLogic Server
+
+With camunda BPM 7.2, we now embed the RAR into the EAR for the camunda BPM platform. See [installing camunda BPM platform on Oracle WebLogic Server](ref:/guides/installation-guide/wls/).
+The recommended upgrade steps are:
+
+* Stop all process applications.
+* Stop and delete the 7.1 camunda BPM platform EAR, RAR and web applications.
+* Stop the server.
+* Delete all camunda BPM related libraries from the `$WLS_DOMAIN_HOME/lib` directory and replace them with the camunda BPM 7.2 shared libraries.
+* Start the server.
+* Install the camunda BPM 7.2 platform EAR. The RAR previously included with camunda BPM 7.1 is now embedded in the EAR, so you do not have to install it separately.
