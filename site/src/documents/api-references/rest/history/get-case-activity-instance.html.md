@@ -67,6 +67,11 @@ Its properties are as follows:
     <td>The name of the case activity that this object is an instance of.</td>
   </tr>
   <tr>
+    <td>caseActivityType</td>
+    <td>String</td>
+    <td>The type of the activity this case execution belongs to.</td>
+  </tr>
+  <tr>
     <td>caseDefinitionId</td>
     <td>String</td>
     <td>The id of the case definition that this case activity instance belongs to.</td>
