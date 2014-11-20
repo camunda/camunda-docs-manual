@@ -120,16 +120,16 @@ shortTitle: 'Done!'
 
   <script type="text/xml" id="RequestLoan.html">
     <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label">Customer ID</label>
+      <div class="form-group">
+        <label for="customer-id">Customer ID</label>
         <div class="controls">
-          <input form-field type="string" name="customerId" />
+          <input cam-variable-type="String" cam-variable-name="customerId" />
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label">Amount</label>
+      <div class="form-group">
+        <label for="amount">Amount</label>
         <div class="controls">
-          <input form-field type="number" name="amount" />
+          <input cam-variable-type="Double" cam-variable-name="amount" />
         </div>
       </div>
     </form>
@@ -137,16 +137,16 @@ shortTitle: 'Done!'
 
   <script type="text/xml" id="ReviewLoan.html">
     <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label">Customer ID</label>
+      <div class="form-group">
+        <label for="customer-id">Customer ID</label>
         <div class="controls">
-          <input form-field type="string" name="customerId" readonly="true" />
+          <input cam-variable-type="String" cam-variable-name="customerId" readonly="true" />
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label">Amount</label>
+      <div class="form-group">
+        <label for="amount">Amount</label>
         <div class="controls">
-          <input form-field type="number" name="amount" />
+          <input cam-variable-type="Double" cam-variable-name="amount" />
         </div>
       </div>
     </form>
@@ -193,9 +193,8 @@ shortTitle: 'Done!'
       },
       "RequestLoan.html":
       {
-      "form-field": "AngularJS directive needs to be placed on form fields that should be converted into process variables.",
-      "type": "Allows specification of the type of the process variable.",
-      "name": "Allows specification of the name of the process variable."
+      "cam-variable-type": "Allows specification of the type of the process variable.",
+      "cam-variable-name": "Allows specification of the name of the process variable."
       },
       "ReviewLoan.html":
       {
