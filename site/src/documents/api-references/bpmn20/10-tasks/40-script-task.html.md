@@ -70,7 +70,7 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ### Enabling auto-storing of script variables
 
-By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for for the Groovy scripting language (see the [Set autoStoreScriptVariables](ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72-migrate-process-engine-configuration-set-autostorescriptvariables) section of the [Migration Guide](ref:/guides/migration-guide/) for more information).
+By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide](ref:/guides/migration-guide/) for more information).
 
 In order to use this feature, you have to
 
@@ -134,3 +134,4 @@ In the above example, the result of the script execution (the value of the resol
 
 [script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source
 [user-guide]: ref:/guides/user-guide/
+[autostore-variables]: ref:/guides/migration-guide/#script-variable-storing
