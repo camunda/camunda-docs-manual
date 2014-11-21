@@ -119,35 +119,27 @@ shortTitle: 'Done!'
   </script>
 
   <script type="text/xml" id="RequestLoan.html">
-    <form class="form-horizontal">
+    <form name="requestLoan">
       <div class="form-group">
-        <label for="customer-id">Customer ID</label>
-        <div class="controls">
-          <input cam-variable-type="String" cam-variable-name="customerId" />
-        </div>
+        <label for="customerId">Customer ID</label>
+        <input class="form-control" cam-variable-type="String" cam-variable-name="customerId" name="customerId"/>
       </div>
       <div class="form-group">
         <label for="amount">Amount</label>
-        <div class="controls">
-          <input cam-variable-type="Double" cam-variable-name="amount" />
-        </div>
+        <input class="form-control" cam-variable-type="Double" cam-variable-name="amount" name ="amount"/>
       </div>
     </form>
   </script>
 
   <script type="text/xml" id="ReviewLoan.html">
-    <form class="form-horizontal">
+    <form name="approveLoan">
       <div class="form-group">
-        <label for="customer-id">Customer ID</label>
-        <div class="controls">
-          <input cam-variable-type="String" cam-variable-name="customerId" readonly="true" />
-        </div>
+        <label for="customerId">Customer ID</label>
+        <input class="form-control" cam-variable-type="String" cam-variable-name="customerId" name="customerId" readonly="true"/>
       </div>
       <div class="form-group">
         <label for="amount">Amount</label>
-        <div class="controls">
-          <input cam-variable-type="Double" cam-variable-name="amount" />
-        </div>
+        <input class="form-control" cam-variable-type="Double" cam-variable-name="amount" name ="amount"/>
       </div>
     </form>
   </script>

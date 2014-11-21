@@ -50,13 +50,13 @@ category: 'Tutorial'
       Now use cockpit to check if the process is successfully deployed. Go to <a href="http://localhost:8080/camunda/app/cockpit" target="_blank">http://localhost:8080/camunda/app/cockpit</a>. Your process is visible on the start screen.
     </p>
     <p>
-      Next, go to camunda Tasklist (<a href="http://localhost:8080/camunda/app/tasklist" target="_blank">http://localhost:8080/camunda/app/tasklist</a>). Log in with demo / demo. After you have logged in, click on the <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-list-alt"> </i></button> button to start a process instance. Select <em>Loan Approval</em> from the list. This opens a page where you can set variables for the process instance using a generic form.
+      Next, go to camunda Tasklist (<a href="http://localhost:8080/camunda/app/tasklist" target="_blank">http://localhost:8080/camunda/app/tasklist</a>). Log in with demo / demo. After you have logged in, click on the <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-list-alt"> </i></button> button to start a process instance. This opens a page where you can select <em>Loan Approval</em> from the list. Now you can set variables for the process instance using a generic form.
     </p>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/tasklist-loan-approval.png"/>
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/start-form-generic.png"/>
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
@@ -65,9 +65,23 @@ category: 'Tutorial'
     <p>
       If you now go back to <a href="http://localhost:8080/camunda/app/cockpit" target="_blank">camunda Cockpit</a>, you see the newly created process instance that is waiting in the User Task.
     </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/diagram.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
       Log out of the Tasklist and log back in with the user credentials "john / john". Now you see the <em>Approve Loan</em> task in your tasklist. Select the task and click on the <code>Diagram</code> tab. This displays the process diagram highlighting the User Task that is waiting for you to work on it.
     </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/task-form-generic.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
       To work on the task, select the <code>Form</code> tab. Again, there is no task form associated with the process. Click on <code>Load Variables</code>. This displays the variables you have put in in the first step.
     </p>
