@@ -52,6 +52,15 @@
                   Deployment Descriptors
                 </a>
               </li>
+              <li data-active-link="/api-references/embedded-forms">
+                <a href="<%= @docUrl("api-references/embedded-forms/") %>">Embedded Forms</a>
+              </li>
+              <li data-active-link="/api-references/spin">
+                <a href="<%= @docUrl("api-references/spin/") %>">Spin</a>
+              </li>
+              <li data-active-link="/api-references/connect">
+                <a href="<%= @docUrl("api-references/connect/") %>">Connect</a>
+              </li>
             </ul>
         </li>
         <li class="dropdown" data-active-link="/real-life">
@@ -64,7 +73,7 @@
               <a href="<%= @docUrl("real-life/how-to/") %>">Tutorials &amp; How-Tos</a>
             </li>
           </ul>
-        </li>       
+        </li>
         <li class="dropdown" data-active-link="/enterprise">
           <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
         </li>
