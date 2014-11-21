@@ -71,6 +71,10 @@ A JSON object with the following properties:
     <td>Only select jobs which exist for an activity with the given id.</td>
   </tr>
   <tr>
+	<td>activityId</td>
+	<td>Only select jobs which exist for the given activity id.</td>
+  </tr>
+  <tr>
     <td>withRetriesLeft</td>
     <td>Only select jobs which have retries left. Valid value is a <code>boolean</code>.</td>
   </tr>
