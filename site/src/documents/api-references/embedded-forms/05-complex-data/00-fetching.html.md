@@ -9,7 +9,7 @@ This section explains how to work with serialized Java Objects in embedded task 
 
 > NOTE: Out of the box, you can only work with Java Objects which are serialized in *JSON format*
 > If Java Classes are serialized using JAX-B, you need to add custom XML parsing and writing logic
-> to the embedded form.
+> to the embedded form. Java Objects serialized using Java Serialization cannot be used in Forms.
 
 The Form SDK will only fetch those variables which are actually used in a form. Since a Complex Java
 Object is usually not bound to a single input field, we cannot use the `cam-variable-name` directive.

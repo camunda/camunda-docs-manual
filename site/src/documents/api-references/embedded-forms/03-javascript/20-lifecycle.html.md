@@ -95,7 +95,7 @@ It shows how custom scripting can be used for
     var customField = $('#customField', camForm.formElement);
 
     camForm.on('form-loaded', function() {
-      // declare a new variable so that it's value is fetched from the backend
+      // fetch the variable 'customVariable'
       variableManager.fetchVariable('customVariable');
     });
 
@@ -108,7 +108,7 @@ It shows how custom scripting can be used for
 
     camForm.on('submit', function(evt) {
       var fieldValue = customField.val();
-      var backendValue = variableManager.variableValue('customVariable');
+      var backendValue = variableManager.variable('customVariable').value;
 
       if(fieldValue === backendValue) {
         // prevent submit if value of form field was not changed
@@ -120,6 +120,41 @@ It shows how custom scripting can be used for
       }
     });
   </script>
+
+</form>
+```
+The above example uses jQuery for interacting with the HTML controls. If you use Angular JS you can also populate the `$scope` in the `variables-fetched` callback and read the values from the `$scope` in the `submit` callback:
+
+```html
+<form role="form">
+
+<!-- custom control which does not use cam-variable* directives
+     but binds to the angular scope -->
+<input type="text"
+       class="form-control"
+       id="customField"
+       ng-model="customerId">
+
+<script cam-script type="text/form-script">
+  var variableManager = camForm.variableManager;
+
+  $scope.customerId = null;
+
+  camForm.on('form-loaded', function() {
+    // fetch the variable 'customVariable'
+    variableManager.fetchVariable('customVariable');
+  });
+
+  camForm.on('variables-fetched', function() {
+    // value has been fetched, bind to $scope.customerId
+    $scope.customerId = variableManager.variable('customVariable').value;
+  });
+
+  camForm.on('submit', function(evt) {
+    // set value in variable manager so that it can be sent to backend
+    variableManager.variableValue('customVariable', $scope.customerId);
+  });
+</script>
 
 </form>
 ```
