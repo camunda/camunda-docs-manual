@@ -9,22 +9,25 @@ In case the variable does not yet exist (for instance in a Start Form), you have
 
 ```html
 <script cam-script type="text/form-script">
+
+  var dataObject = $scope.dataObject = {};
+
   camForm.on('form-loaded', function() {
 
-    // declare variable incuding metadata for serialization
+    // declare variable 'customerData' incuding metadata for serialization
     camForm.variableManager.createVariable({
-      name: 'invoiceData',
+      name: 'customerData',
       type: 'Object',
-      value: {},
-      serializationConfig: {
-        dataFormatId: 'application/json; implementation=tree',
-        rootType: 'org.my.project.dto.InvoiceData'
+      value: dataObject,
+      valueInfo: {
+        // indicate that object is serialized as json
+        serializationDataFormat: 'application/json',
+        // provide classname of java object to map to
+        objectTypeName: 'org.camunda.bpm.example.CustomerData'
       }
     });
 
   });
-  camForm.on('variables-fetched', function() {
-    $scope.invoiceData = camForm.variableManager.variableValue('invoiceData');
-  });
+
 </script>
 ```
