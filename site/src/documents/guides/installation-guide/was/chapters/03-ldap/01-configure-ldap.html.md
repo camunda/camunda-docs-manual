@@ -9,12 +9,11 @@ In order to setup LDAP for the WebSphere distribution, you have to perform the f
 
 <strong>1. Add LDAP Library</strong>
 
-Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
-`$WAS_HOME/lib/ext` folder.
+Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the shared library 'Camunda' folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
 
-Edit the file `bpm-platform.xml` located inside the folder `camunda-ibm-websphere-ear-$VERSION/camunda-ibm-websphere-service-$VERSION/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `bpm-platform.xml` located inside the camunda BPM enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

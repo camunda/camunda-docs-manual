@@ -9,12 +9,11 @@ In order to setup LDAP for the WebLogic distribution, you have to perform the fo
 
 <strong>1. Add LDAP Library</strong>
 
-Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
-`$WLS_DOMAIN_HOME/lib` folder.
+Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the `$WLS_DOMAIN_HOME/lib` folder.
 
 <strong>2. Adjust Process Engine Configuration</strong>
 
-Edit the file `bpm-platform.xml` located inside the folder `camunda-oracle-weblogic-ear-$PLATFORM_VERSION/camunda-oracle-weblogic-service-$PLATFORM_VERSION/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `bpm-platform.xml` located inside the camunda BPM enterprise archive at `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear/camunda-oracle-weblogic-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
