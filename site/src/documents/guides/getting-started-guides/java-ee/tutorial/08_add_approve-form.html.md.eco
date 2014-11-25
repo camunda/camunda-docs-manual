@@ -48,7 +48,7 @@ On form submit, the `approveOrderController.submitForm()` method calls the EJB `
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9">
     <p>
-      Open the process with the modeler plugin. Click on the approve order user task. In the properties view, set the <code>Form Key</code> property to <code>app:approveorder.jsf</code>. This means that we want to use an external JSF form and that the form is loaded from the <code>app</code>lication.
+      Open the process with the modeler plugin. Click on the approve order user task. In the properties view, set the <code>Form Key</code> property to <code>app:approveorder.jsf</code>. This means that we want to use an external JSF form and that the form is loaded from the <code>app</code> location.
     </p>
   </div>
 </div>
