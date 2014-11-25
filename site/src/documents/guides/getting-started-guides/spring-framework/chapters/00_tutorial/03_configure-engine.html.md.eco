@@ -18,7 +18,7 @@ After you added these definitions to the Spring Application context, perform a f
 	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.db.DbSqlSession executeSchemaResource
 	INFO: performing create on identity with resource org/camunda/bpm/engine/db/create/activiti.h2.create.identity.sql
 	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
-	  INFO: ProcessEngine default created
+	  INFO: ProcessEngine engine created
 </pre>
 
 <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-2"}) %>

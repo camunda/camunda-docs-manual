@@ -40,15 +40,6 @@ model and interact with the process form inside our Spring beans. In this sectio
         For the process to be deployed, we use the auto-deployment feature provided by the camunda engine Spring integration. In order to use this feature, modify the definition of the <code>processEngineConfiguration</code> bean inside your <code>src/main/webapp/WEB-INF/applicationContext.xml</code> file:
       </p>
       <div class="app-source" data-source-code="autodeployment" annotate="code-annotations" ></div>
-      <p>
-        If you redeploy the application, you should see the following message in the logfile, meaning that the process definition has been picked up and deployed:
-      </p>
-      <pre class="console">
-        INFO: ProcessEngine default created
-        28.04.2013 16:01:00 org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer deploy
-        INFO: Processing resource C:\demo\apache-tomcat-7.0.39\webapps\loanapproval-spring-0.0.1-SNAPSHOT\WEB-INF\classes\loanApproval.bpmn
-        28.04.2013 16:01:01 org.springframework.web.context.ContextLoader initWebApplicationContext
-      </pre>
     </div>
   </div>
 
