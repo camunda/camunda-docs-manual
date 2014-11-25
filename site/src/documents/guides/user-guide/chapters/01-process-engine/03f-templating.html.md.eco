@@ -145,7 +145,8 @@ The following is an example of a BPMN ScriptTask used to execute a XSLT Template
 </bpmn2:scriptTask>
 ```
 As shown in the example above, the XSL source file can be referenced using the `camunda:resource`
-attribute. It may be loaded from the classpath or the deployment (database). See also:
+attribute. It may be loaded from the classpath or the deployment (database) in the same way as
+described for [script tasks][script-source].
 
 The result of the transformation can be mapped to a variable using the `camunda:resultVariable`
 attribute.
