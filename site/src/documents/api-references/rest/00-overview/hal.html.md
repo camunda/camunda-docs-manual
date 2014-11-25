@@ -16,12 +16,13 @@ single task or a list of tasks.
 
 During the generation of a HAL response linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
-rarely modified. Also if user information are stored in an external system like
-LDAP every response also will access this external system which is an
+rarely modified. Also if user information is stored in an external system (such as
+LDAP) every request will access this external system which is an
 unnecessary overhead. To reduces such expensive requests the REST API can be
 configured to use a cache to temporary store such relations.
 
-This caching can be configured in the `web.xml` file of the REST API.
+This caching can be configured in the `web.xml` file of the REST API (or Camunda Web Application in
+case the rest api is embedded into Camunda Web Application).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -45,8 +46,12 @@ This caching can be configured in the `web.xml` file of the REST API.
             "capacity": 100,
             "secondsToLive": 900
           },
+          "org.camunda.bpm.engine.rest.hal.group.HalGroup": {
+            "capacity": 100,
+            "secondsToLive": 900
+          },
           "org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition": {
-            "capacity": 1000,
+            "capacity": 100,
             "secondsToLive": 600
           }
         }
@@ -59,8 +64,18 @@ This caching can be configured in the `web.xml` file of the REST API.
 </web-app>
 ```
 
+#### The HalRelationCacheBootstrap Listener
+
 To bootstrap the caching the `HalRelationCacheBootstrap` context listener is
-used. It is configured by the context parameter
+used: 
+
+```xml
+<listener>
+  <listener-class>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+</listener>
+```
+
+It is configured by the context parameter
 `org.camunda.bpm.engine.rest.hal.cache.config`. The configuration is provided
 as JSON and consists of two properties:
 
@@ -88,7 +103,10 @@ as JSON and consists of two properties:
   </tr>
 </table>
 
-The simple default cache implementation `DefaultHalResourceCache` provides following configuration options:
+#### DefaultHalResourceCache Configuration Options
+
+The simple default cache implementation `DefaultHalResourceCache` provides following configuration
+options:
 
 <table class="table table-striped">
   <tr>
@@ -110,6 +128,13 @@ The simple default cache implementation `DefaultHalResourceCache` provides follo
   </tr>
 </table>
 
+#### List of Resources which support Caching
 
+* Case Definition: `org.camunda.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition`
+* Group: `org.camunda.bpm.engine.rest.hal.group.HalGroup`
+* Identity Links (of a Task): `org.camunda.bpm.engine.rest.hal.identitylink.HalIdentityLink`
+* Process Definition: `org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition`
+* Task: `org.camunda.bpm.engine.rest.hal.task.HalTask`
+* User: `org.camunda.bpm.engine.rest.hal.user.HalUser`
 
 [hal]: http://stateless.co/hal_specification.html
