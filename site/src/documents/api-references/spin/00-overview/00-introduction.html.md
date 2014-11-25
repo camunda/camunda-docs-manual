@@ -15,9 +15,10 @@ Spin can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
 <div class="alert alert-info">
-  If you use other camunda BPM projects please import the
-  <a class="alert-link" href="ref:/guides/getting-started-guides/#apache-maven-the-camunda-bom">
-  camunda BOM</a> to ensure correct versions for every camunda project.
+  If you use spin in combination with other camunda BPM projects (such as camunda process engine),
+  please import the <a class="alert-link" href="ref:/guides/getting-started-guides/#apache-maven-the-camunda-bom">
+  camunda BOM</a> to ensure that you use the camunda Spin version matching your process engine
+  version.
 </div>
 
 ```xml

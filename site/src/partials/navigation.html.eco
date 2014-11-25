@@ -56,10 +56,10 @@
                 <a href="<%= @docUrl("api-references/embedded-forms/") %>">Embedded Forms</a>
               </li>
               <li data-active-link="/api-references/spin">
-                <a href="<%= @docUrl("api-references/spin/") %>">Spin</a>
+                <a href="<%= @docUrl("api-references/spin/") %>">Spin Dataformat Reference</a>
               </li>
               <li data-active-link="/api-references/connect">
-                <a href="<%= @docUrl("api-references/connect/") %>">Connect</a>
+                <a href="<%= @docUrl("api-references/connect/") %>">Connector Reference</a>
               </li>
             </ul>
         </li>

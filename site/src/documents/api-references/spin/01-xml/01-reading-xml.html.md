@@ -7,7 +7,7 @@ keyword: 'spin api xml'
 
 ---
 
-The XML datatype supports reading XML from Strings or input streams.
+The XML dataformat supports reading XML from Strings or input streams.
 
 ## Reading XML from a String:
 
