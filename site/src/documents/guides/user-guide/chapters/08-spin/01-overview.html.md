@@ -5,6 +5,14 @@ category: 'Data Formats (XML, JSON, Other)'
 
 ---
 
+<div class="alert alert-info" role="alert">
+  <strong>Spin Dataformat Reference</strong>
+  This section explain how to work with Dataformats such as Xml or Json in Camunda BPM. The
+  <a href="ref:/api-references/spin/">Spin Dataformat Reference</a> provides a complete reference of
+  all data manipulation features available.
+</div>
+
+
 While camunda BPM is a Java platform, process data is not always represented by Java objects. When interacting with external systems, often serialized formats such as JSON or XML are used. While such process variables can be treated by the engine as plain String objects, there is a significant effort required to process such data like parsing, manipulating or mapping from/to Java objects. Thus, camunda BPM offers an optional component that eases the work with this kind of data in the process engine.
 
 The [camunda Spin][spin-github] project provides data format functionality and can be plugged into the engine. It is a wrapper around well-known libraries for processing data formats like XML and JSON and integrates with the engine's data handling functionality. Spin is designed to be extensible such that custom data formats can be added to those provided out of the box.
