@@ -102,9 +102,11 @@ model and interact with the process form inside our Spring beans. In this sectio
     If you redeploy the application, you should see the following message in the logfile, meaning that the service task was executed.
   </p>
   <pre class="console">
-INFO: Processing resource C:\demo\apache-tomcat-7.0.39\webapps\loanapproval-spring-0.0.1-SNAPSHOT\WEB-INF\classes\loanApproval.bpmn
+org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
+  INFORMATION: ProcessEngine engine created
 Spring Bean invoked
-28.04.2013 16:01:01 org.springframework.web.context.ContextLoader initWebApplicationContext
+org.springframework.web.context.ContextLoader initWebApplicationContext
+  INFORMATION: Root WebApplicationContext: initialization completed in 1960 ms
   </pre>
 </section>
 
