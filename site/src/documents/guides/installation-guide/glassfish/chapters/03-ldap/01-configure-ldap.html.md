@@ -7,12 +7,13 @@ category: 'LDAP Configuration'
 
 In order to setup LDAP for the glassfish distribution, you have to perform the following steps:
 
-<strong>1. Add LDAP Library</strong>
+### Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
 
-<strong>2. Adjust Process Engine Configuration</strong>
+### Adjust the Process Engine Configuration
+
 Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
@@ -66,3 +67,49 @@ Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glas
 The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+
+### Enable Hal Resource caching
+
+If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
+Users and Groups in the camunda webapplication. In order to activate this, add the following
+configuration to the `web.xml` file of camunda webapplication
+(`camunda-webapp-glassfish-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!-- ... -->
+
+  <listener>
+    <listener-class>org.camunda.bpm.engine.rest.hal.cache.HalRelationCacheBootstrap</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>org.camunda.bpm.engine.rest.hal.cache.config</param-name>
+    <param-value>
+      {
+        "cacheImplementation": "org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache",
+        "caches": {
+          "org.camunda.bpm.engine.rest.hal.user.HalUser": {
+            "capacity": 100,
+            "secondsToLive": 900
+          },
+          "org.camunda.bpm.engine.rest.hal.group.HalGroup": {
+            "capacity": 100,
+            "secondsToLive": 900
+          }
+        }
+      }
+    </param-value>
+  </context-param>
+
+  <!-- ... -->
+
+</web-app>
+
+```
+
+[hal-caching]: /api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations
