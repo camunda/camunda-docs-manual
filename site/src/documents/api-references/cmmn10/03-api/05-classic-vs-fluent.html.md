@@ -9,11 +9,13 @@ keywords: 'caseservice case api fluent non-fluent nonfluent classic'
 
 <!-- move this to the user guide as soon as there is a concept on how separate CMMN and BPMN concerns in it -->
 
+To interact with case instances and executions, the process engine offers the case service. It can be retrieved by `processEngine.getCaseService()`.
+
 The `CaseService` offers two API variants. One is in the following referred to as the *classic* API, since it is very similar to the API offered by the `RuntimeService` for BPMN processes. The *fluent* API follows a different concept in that it allows composition of case service commands by method chaining.
 
 ## Classic and Fluent API by Example
 
-As an example, the `CaseService` offers two classic methods to manually start a task: 
+As an example, the `CaseService` offers two classic methods to manually start a task:
 
 ```java
 caseService.manuallyStartCaseExecution(caseExecutionId);
@@ -30,10 +32,10 @@ The same can be expressed using the fluent API as follows:
 caseService
   .withCaseExecution(caseExecutionId)
   .manualStart();
-  
+
 Map<String, Object> variables = new HashMap<String, Object>();
 variables.put("aVariableToSet", "aValueToSet");
-  
+
 caseService
   .withCaseExecution(caseExecutionId)
   .setVariables(variables)

@@ -7,7 +7,7 @@ keywords: 'human task due date assignment custom extensions'
 
 ---
 
-A `human task` is used to model work that needs to be done by a human actor.
+A *human task* is used to model work that needs to be done by a human actor.
 
 <img class="img-responsive" src="ref:asset:/assets/cmmn/human-task.png"/>
 
@@ -17,21 +17,21 @@ A human task is defined in XML as follows:
 <humanTask id="theHumanTask" name="A Human Task" />
 ```
 
-An `ENABLED` human task can be started manually using the `CaseService` as follows:
+An human task in state `ENABLED` can be started manually using the `CaseService` as follows:
 
 ```java
 caseService.manuallyStartCaseExecution("aCaseExecutionId");
 ```
 
-When the defined human task becomes <code>ACTIVE</code>, a new task is created in the task list of the user(s) or group(s) assigned to that task.
+When the human task becomes `ACTIVE`, a new task is created in the task list of the user(s) or group(s) assigned to that task.
 
-If the work associated with the human task is completed, it is possible to complete the human task manually using the `CaseService` as follows:
+If the work associated with the human task is done, it is possible to complete the human task manually using the `CaseService` as follows:
 
 ```java
 caseService.completeCaseExecution("aCaseExecutionId");
 ```
 
-This will complete the created task as well.
+This completes the created task as well.
 
 Instead of using the `CaseService` it is also possible to use the `TaskService` to complete a human task:
 
@@ -39,11 +39,11 @@ Instead of using the `CaseService` it is also possible to use the `TaskService` 
 taskService.complete("aTaskId");
 ```
 
-In that case the associated human task will be completed as well.
+In that case the associated human task is completed as well.
 
 ## Description
 
-A human task can also have a description. In fact, any CMMN 1.0 element can have a description. A description is defined by adding the `description` attribute.
+A human task can have a description. In fact, any CMMN 1.0 element can have a description. A description is defined by adding the `description` attribute.
 
 ```xml
 <humanTask id="theTask" name="Schedule meeting" description="Schedule an engineering meeting for next week with the new hire" />
@@ -59,7 +59,7 @@ task.getDescription();
 
 Each task has a field indicating the due date of that task. The Query API can be used to query for tasks that are due on, before or after a certain date.
 
-There is an activity extension which allows to specify an expression in a task definition to set the initial due date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
+There is an extension attribute that allows to specify an expression in a task definition to set the initial due date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
 
 ```xml
 <humanTask id="theTask" name="Important task" camunda:dueDate="${dateVariable}"/>
@@ -71,7 +71,7 @@ The due date of a task can also be altered using the task service or in task lis
 
 Each task has a field indicating the follow up date of that task. The Query API can be used to query for tasks that need to be followed up on, before or after a certain date.
 
-There is an activity extension which allows you to specify an expression in your task-definition to set the initial follow up date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
+There is an extension attribute that allows you to specify an expression in a task definition to set the initial follow up date of a task when it is created. The expression should always resolve to a `java.util.Date`, `java.util.String` ([ISO8601](http://en.wikipedia.org/wiki/ISO_8601) formatted) or `null`. When using ISO8601 formatted Strings, you may either specify an exact point in time or a time period relative to the time the task is created.
 
 ```xml
 <humanTask id="theTask" name="Important task" camunda:followUpDate="${dateVariable}"/>
@@ -79,7 +79,7 @@ There is an activity extension which allows you to specify an expression in your
 
 ## User Assignment
 
-A human task can be directly assigned to a user. This is done by using the attribute `performerRef` on a human task element. The defined `performerRef` attribute references an existing role. Such a role definition needs a name that actually defines the user.
+A human task can be directly assigned to a user. This is done by using the attribute `performerRef` on a human task element. The defined `performerRef` attribute references an existing role. Such a role definition needs a name that defines the user.
 
 ```xml
 <case ... >
@@ -90,7 +90,7 @@ A human task can be directly assigned to a user. This is done by using the attri
 </case>
 ```
 
-Only one user can be assigned to the task as a performer. In the engine terminology, this user is called the assignee. Tasks that have an assignee are not visible in the task lists of other users and can be found in the so-called personal task list of the assignee instead.
+Only one user can be assigned to the task as a performer. This user is called the assignee. Tasks that have an assignee are not visible in the task lists of other users and can only be found in the personal task list of the assignee.
 
 Tasks directly assigned to users can be retrieved through the task service as follows:
 
@@ -100,7 +100,7 @@ List<Task> tasks = taskService.createTaskQuery().taskAssignee("kermit").list();
 
 ## User Assignment using custom extensions
 
-It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the human task are possible.
+When strictly following the CMMN standard, user and group assignments can be quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the human task element can be set.
 
 * `assignee` attribute: this custom extension allows direct assignment of a human task to a given user.
 
@@ -109,13 +109,13 @@ It is clear that user and group assignments are quite cumbersome for use cases w
   ```
 
   This is exactly the same as using a <code>perfomerRef</code> construct as defined [above](ref:#tasks-human-task-user-assignment).
-* `candidateUsers` attribute: this custom extension allows you to make a user a candidate for a task.
+* `candidateUsers` attribute: this custom extension makes a user a candidate for a task.
 
   ```xml
   <humanTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
   ```
 
-* `candidateGroups` attribute: this custom extension allows you to make a group a candidate for a task.
+* `candidateGroups` attribute: this custom extension allows makes a group a candidate for a task.
 
   ```xml
   <humanTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
@@ -123,21 +123,21 @@ It is clear that user and group assignments are quite cumbersome for use cases w
 
 * `candidateUsers` and `candidateGroups` can both be defined for the same human task.
 
-Note: Although the camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
+Note: Although the camunda engine provides an identity management component, which is exposed through the `IdentityService`, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
 
-When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above and delegate to a bean with an expression that listens to task create events. In the following example, the assignee will be set by calling the <code>findManagerOfEmployee()</code> on the <code>ldapService</code> Spring/CDI bean. The <code>emp</code> parameter that is passed is a variable.
+When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above and delegate to a bean with an expression that listens to task create events. In the following example, the assignee will be set by calling the <code>findManagerOfEmployee()</code> on the <code>ldapService</code> Spring/CDI bean. The <code>emp</code> parameter is a variable of the case instance.
 
 ```xml
 <humanTask id="task" name="My Task" camunda:assignee="${ldapService.findManagerForEmployee(emp)}"/>
 ```
 
-This also works in a similar way for candidate users and groups:
+It works in a similar way for candidate users and groups:
 
 ```xml
 <humanTask id="task" name="My Task" camunda:candidateUsers="${ldapService.findAllSales()}"/>
 ```
 
-Note that this will only work if the return type of the invoked methods is String or Collection<String> (for candidate users and groups):
+Note that this only works if the return type of the invoked methods is String or Collection<String> (for candidate users and groups):
 
 ```java
 public class FakeLdapService {
@@ -169,6 +169,9 @@ public class FakeLdapService {
   <tr>
     <th>Extension Elements</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
     </td>
   </tr>

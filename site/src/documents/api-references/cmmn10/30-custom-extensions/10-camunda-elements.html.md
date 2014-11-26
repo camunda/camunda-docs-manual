@@ -7,6 +7,74 @@ category: 'Custom Extensions'
 
 The following elements are extension elements for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 
+## camunda:caseExecutionListener
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      Add an execution listener to an event in the lifecycle of a case item.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>event</code></td>
+    <td>
+      The type of the lifecycle event for which the listener is called
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>class</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>expression</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>delegateExpression</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>event</code> attribute is required and must be one of the lifecycle events that are valid for the plan item it is defined on. For regular tasks, these are: <code>create</code>, <code>enable</code>, <code>disable</code>, <code>reenable</code>, <code>start</code>, <code>manualStart</code>, <code>complete</code>, <code>reactivate</code>, <code>terminate</code>, <code>exit</code, <code>parentTerminate</code>, <code>suspend</code>, <code>resume</code>, <code>parentSuspend</code>, <code>parentSuspend</code>, <code>close</code>, <code>occur</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      One of the attributes <code>class</code>, <code>expression</code> or <code>delegateExpression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      Case,
+      <a href="ref:#tasks-human-task">Human Task</a>,
+      <a href="ref:#tasks-process-task">Process Task</a>,
+      <a href="ref:#tasks-case-task">Case Task</a>,
+      <a href="ref:#grouping-tasks-stage">Stage</a>,
+      <a href="ref:#milestones-milestone">Milestone</a>,
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+    </td>
+  </tr>
+</table>
 
 ## camunda:expression
 
@@ -340,7 +408,7 @@ The following elements are extension elements for the `camunda` namespace `http:
     <th>Attributes</th>
     <td><code>event</code></td>
     <td>
-      The type of the event for which the listener is called 
+      The type of the event for which the listener is called
     </td>
   </tr>
   <tr>
@@ -394,3 +462,5 @@ The following elements are extension elements for the `camunda` namespace `http:
     </td>
   </tr>
 </table>
+
+
