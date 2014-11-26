@@ -38,8 +38,8 @@ Now we need to add the actual service task implementation. Add a class named `Pr
       Build, deploy and execute the process. After completing the <em>Approve Application</em> step, check the logfile of the Apache Tomcat server:
     </p>
     <pre class="console">
-17.03.2013 08:42:14 org.camunda.bpm.getstarted.loanapproval.ProcessRequestDelegate execute
-INFO: Processing request by 'AC-343422'...
+org.camunda.bpm.getstarted.loanapproval.ProcessRequestDelegate execute
+    INFORMATION: Processing request by 'AC-343422'...
     </pre>
     <div class="panel-group" id="accClassloading">
       <div class="panel panel-default">
