@@ -6,7 +6,7 @@ category: 'Roundtrip'
 <div class="row">
   <div class="col-md-12">
     <p>
-      If you want to use an other BPMN 2.0 modeler, that modeler <b>must</b> comply with the following requirements:
+      If you want to use another BPMN 2.0 modeler, that modeler <b>must</b> comply with the following requirements:
     <ul>
       <li>Complete support of the BPMN 2.0 notation</li>
       <li>Export/Serialization of Process Diagrams in valid BPMN 2.0 XML</li>
