@@ -15,7 +15,7 @@ With our pre-packaged distribution we provide the Camunda BPM platform as part o
   <div class="col-md-12">
     <h3>7.2.0</h3>
     <p>
-      Current stable version, released on 28.11.2014, <a target="_blank" href="http://blog.camunda.org/2014/11/camunda-BPM-7.2.0-released.html">Release Notes</a>
+      Current stable version, released on 28.11.2014, <a target="_blank" href="http://blog.camunda.org/2014/11/camunda-BPM-7.2.0-Final-released.html">Release Notes</a>
     </p>
     <table class="table table-responsive">
       <thead>
