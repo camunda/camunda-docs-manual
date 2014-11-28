@@ -15,10 +15,10 @@ Similar changes in the state of a case instance may be driven by events occurrin
 <definitions>
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
-      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
-
       <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" entryCriteriaRefs="Sentry_1" />
       <planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1"/>
+
+      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
 
       <sentry id="Sentry_1">
         <planItemOnPart sourceRef="PlanItem_HumanTask_2">
