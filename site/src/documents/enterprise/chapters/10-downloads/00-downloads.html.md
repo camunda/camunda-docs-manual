@@ -92,7 +92,7 @@ With our pre-packaged distribution we provide the Camunda BPM platform as part o
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.2/7.2.0/camunda-webapp-ee-jboss-standalone-7.2.0-ee.war">war</a>&nbsp;
           </td>
           <td>
-            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/wildfly/7.2/7.2.0/camunda-webapp-ee-wildfly-standalone-7.2.0-ee.war">war</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.2/7.2.0/camunda-webapp-ee-jboss-standalone-7.2.0-ee.war">war</a>&nbsp;
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.2/7.2.0/camunda-webapp-ee-glassfish-standalone-7.2.0-ee.war">war</a>&nbsp;
