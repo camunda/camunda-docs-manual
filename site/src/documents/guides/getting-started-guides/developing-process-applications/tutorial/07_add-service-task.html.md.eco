@@ -39,7 +39,7 @@ Now we need to add the actual service task implementation. Add a class named `Pr
     </p>
     <pre class="console">
 org.camunda.bpm.getstarted.loanapproval.ProcessRequestDelegate execute
-    INFORMATION: Processing request by 'AC-343422'...
+INFORMATION: Processing request by 'AC-343422'...
     </pre>
     <div class="panel-group" id="accClassloading">
       <div class="panel panel-default">

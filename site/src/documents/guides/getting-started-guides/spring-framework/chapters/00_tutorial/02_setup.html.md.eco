@@ -87,18 +87,18 @@ In the following sections, we go through this process step by step.
     </p>
     <pre class="console">
 org.apache.catalina.startup.HostConfig deployWAR
-  INFORMATION: Deploying web application archive C:\demo\apache-tomcat-7.0.50\webapps\loanapproval-spring-0.1.0-SNAPSHOT.war
+INFORMATION: Deploying web application archive C:\demo\apache-tomcat-7.0.50\webapps\loanapproval-spring-0.1.0-SNAPSHOT.war
 org.springframework.web.context.ContextLoader initWebApplicationContext
-  INFORMATION: Root WebApplicationContext: initialization started
+INFORMATION: Root WebApplicationContext: initialization started
 org.springframework.context.support.AbstractApplicationContext prepareRefresh
-  INFORMATION: Refreshing Root WebApplicationContext: startup date [DATE]; root of context hierarchy
+INFORMATION: Refreshing Root WebApplicationContext: startup date [DATE]; root of context hierarchy
 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
-  INFORMATION: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+INFORMATION: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
-  INFORMATION: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@51bb8cae: defining beans []; root of factory hierarchy
+INFORMATION: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@51bb8cae: defining beans []; root of factory hierarchy
 org.springframework.web.context.ContextLoader initWebApplicationContext
-  INFORMATION: Root WebApplicationContext: initialization completed in 187 ms
-    </pre>
+INFORMATION: Root WebApplicationContext: initialization completed in 187 ms
+</pre>
     <p>
       This means that you have set up your Spring web application correctly.
     </p>

@@ -103,11 +103,11 @@ model and interact with the process form inside our Spring beans. In this sectio
   </p>
   <pre class="console">
 org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
-  INFORMATION: ProcessEngine engine created
+INFORMATION: ProcessEngine engine created
 Spring Bean invoked
 org.springframework.web.context.ContextLoader initWebApplicationContext
-  INFORMATION: Root WebApplicationContext: initialization completed in 1960 ms
-  </pre>
+INFORMATION: Root WebApplicationContext: initialization completed in 1960 ms
+</pre>
 </section>
 
 <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-3"}) %>
