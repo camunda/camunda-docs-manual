@@ -12,8 +12,7 @@ CMMN differentiates between *plan items* and *plan item definitions*. While plan
 As an example, consider the following fragment of a case definition:
 
 ```xml
-<?xml version="1.0" ...>
-<definitions ...>
+<definitions>
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
       <humanTask id="HumanTask_1" camunda:assignee="kermit" />

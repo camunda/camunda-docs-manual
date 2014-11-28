@@ -17,7 +17,29 @@ In XML, a milestone is defined as follows:
 <milestone id="theMilestone" name="A Milestone"/>
 ```
 
-When referenced in a case plan, a milestone gets completed as soon as its entry criteria are fulfilled. This requires no human interaction.
+When referenced in a case plan, a milestone gets completed as soon as its entry criteria are fulfilled. This requires no human interaction. A more complete example of a milestone depending on the completion of a human task is the following:
+
+```xml
+<definitions>
+  <case id="case" name="Case">
+    <casePlanModel id="CasePlanModel_1">
+      <humanTask id="HumanTask_1" />
+      <milestone id="Milestone_1" name="A Milestone" entryCriteriaRefs="Sentry_1" />
+
+      <planItem id="PlanItem_HumanTask" definitionRef="HumanTask_1"/>
+      <planItem id="PlanItem_Milestone" definitionRef="Milestone_1" entryCriteriaRefs="Sentry_1"/>
+
+      <sentry id="Sentry_1">
+        <planItemOnPart sourceRef="PlanItem_HumanTask">
+          <standardEvent>complete</standardEvent>
+        </planItemOnPart>
+      </sentry>
+    </casePlanModel>
+  </case>
+</defintions>
+```
+
+In this case, the milestone will complete as soon as as the human task completes.
 
 A milestone cannot have exit criteria.
 
