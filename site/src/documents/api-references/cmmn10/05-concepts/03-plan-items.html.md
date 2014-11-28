@@ -15,10 +15,10 @@ As an example, consider the following fragment of a case definition:
 <definitions>
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
-      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
-
       <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" />
       <planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1" />
+
+      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
     </casePlanModel>
   </case>
 </defintions>
