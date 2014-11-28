@@ -12,8 +12,7 @@ Transitions in a CMMN case can happen in two ways: Either by external interactio
 Similar changes in the state of a case instance may be driven by events occurring or conditions getting fulfilled. For example, it is possible to define that when one plan item completes, another is enabled. Similarly, a plan item can terminate when an event triggers. When specifying plan items, this concept is referred to as *entry criteria* and *exit criteria*. These criteria are always defined for individual plan items, not for plan item definitions. For example, the following case model fragment defines an entry criterion for the plan item `PlanItem_HumanTask_1`:
 
 ```xml
-<?xml version="1.0" ...>
-<definitions ...>
+<definitions>
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
       <humanTask id="HumanTask_1" camunda:assignee="kermit" />
