@@ -18,7 +18,7 @@ In the context of the process engine, errors are normally raised as Java excepti
 
 The standard handling strategy is that exceptions are thrown to the client, meaning that the current transaction is rolled back. This means that the process state is rolled back to the last wait state. This behavior is described in detail in the [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes) section of the [User Guide](ref:/guides/user-guide/). Error handling is delegated to the client by the engine.
 
-Let's show this in a concrete example: the user gets an error dialog on the frontend stating that the stock management software is currently not reachable due to network errors. To permorm a retry, the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
+Let's show this in a concrete example: the user gets an error dialog on the frontend stating that the stock management software is currently not reachable due to network errors. To perform a retry, the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
 
 ### Async and Failed Jobs
 
