@@ -14,7 +14,7 @@ Here are the coordinates to include the camunda BPM enterprise edition in Apache
 <dependency>
   <groupId>org.camunda.bpm</groupId>
   <artifactId>camunda-bom</artifactId>
-  <version>7.1.0-Final-ee</version>
+  <version>7.2.0-ee</version>
   <scope>import</scope>
   <type>pom</type>
 </dependency>
