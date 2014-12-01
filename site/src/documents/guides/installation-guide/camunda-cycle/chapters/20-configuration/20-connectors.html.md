@@ -5,7 +5,7 @@ category: 'Configuration'
 
 ---
 
-You can add own Connectors in form of JAR files to your camunda Cycle installation. Just follow these steps to add a new Connector.
+You can add own Connectors in form of JAR files to your Camunda Cycle installation. Just follow these steps to add a new Connector.
 
 1. Copy the JAR file which contains the Connector implementation to <code>$TOMCAT_HOME/webapps/cycle/WEB-INF/lib</code>.
 2. Edit the <code>$TOMCAT_HOME/webapps/cycle/WEB-INF/classes/spring/connector-configurations.xml</code> file and include a variation of the following snippet:

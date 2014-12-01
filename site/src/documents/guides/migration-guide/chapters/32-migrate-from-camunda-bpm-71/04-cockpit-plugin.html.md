@@ -1,7 +1,7 @@
 ---
 
 title: 'Migrating a Cockpit Plugin'
-category: 'Migrate from camunda BPM 7.1 to 7.2'
+category: 'Migrate from Camunda BPM 7.1 to 7.2'
 
 ---
 
@@ -11,7 +11,7 @@ First of all, __bootstrap.js is not used anymore__ (it has been replaced by the 
 
 ### JS promises
 
-The most critical change is probably the way Javascript promises are implemented/used. If you had something like this in the 7.1 release:
+The most critical change is probably the way JavaScript promises are implemented/used. If you had something like this in the 7.1 release:
 
 ```javascript
 SomeResource.$then(function(response) {

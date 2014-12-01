@@ -17,7 +17,7 @@ A human task is defined in XML as follows:
 <humanTask id="theHumanTask" name="A Human Task" />
 ```
 
-An human task in state `ENABLED` can be started manually using the `CaseService` as follows:
+A human task in state `ENABLED` can be started manually using the `CaseService` as follows:
 
 ```java
 caseService.manuallyStartCaseExecution("aCaseExecutionId");
@@ -123,7 +123,7 @@ When strictly following the CMMN standard, user and group assignments can be qui
 
 * `candidateUsers` and `candidateGroups` can both be defined for the same human task.
 
-Note: Although the camunda engine provides an identity management component, which is exposed through the `IdentityService`, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
+Note: Although the Camunda engine provides an identity management component, which is exposed through the `IdentityService`, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
 
 When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above and delegate to a bean with an expression that listens to task create events. In the following example, the assignee will be set by calling the <code>findManagerOfEmployee()</code> on the <code>ldapService</code> Spring/CDI bean. The <code>emp</code> parameter is a variable of the case instance.
 
@@ -152,7 +152,7 @@ public class FakeLdapService {
 }
 ```
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>

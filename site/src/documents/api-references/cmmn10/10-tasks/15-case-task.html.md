@@ -19,7 +19,7 @@ A case task is a regular task that requires a `caseRef` attribute that reference
 
 The referenced case definition is resolved at runtime. This means that the referenced case can be deployed independently from the calling case, if needed.
 
-An case task in state `ENABLED` can be started manually using the `CaseService` as follows:
+A case task in state `ENABLED` can be started manually using the `CaseService` as follows:
 
 ```java
 caseService.manuallyStartCaseExecution("aCaseExecutionId");
@@ -43,7 +43,7 @@ The activation of the case task as well as the creation and execution of the cas
 
 ## Case Binding
 
-By default, the case task always creates a new case instance of the latest case definition with the specified key. In order to specify a different version of a case, it is possible to define a binding with the camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
+By default, the case task always creates a new case instance of the latest case definition with the specified key. In order to specify a different version of a case, it is possible to define a binding with the Camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
 
 * `latest`: use the latest case definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the case definition version that is part of the calling case definition's deployment (note: this requires that a case with the specified key is deployed along with the calling case definition)
@@ -63,7 +63,7 @@ Note: It is also possible to use an expression for the attribute `caseVersion` t
 
 ## Exchange Variables
 
-The camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.
+The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,
 
 ```xml
 <caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase">
@@ -105,7 +105,7 @@ Note: The variables keeps their names.
 
 ## Pass Business Key
 
-In addition to [exchanging variables](#tasks-case-task-exchange-variables), it is possible to pass a business key to the called case instance as well. Since a business key is immutable, this is a one way mapping. It is not possible to have an output mapping for a business key.
+In addition to [exchanging variables](#tasks-case-task-exchange-variables), it is possible to pass a business key to the called case instance as well. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
 The following example shows how the business key of the calling case instance can be passed to the called case instance. In this case, the calling case instance and the called case instance end up with the same business key.
 
@@ -127,7 +127,7 @@ If the business key of the called case instance should be different from the bus
 </caseTask>
 ```
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>

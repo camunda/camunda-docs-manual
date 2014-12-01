@@ -9,7 +9,7 @@ keywords: 'cmmn plan item lifecycle'
 
 CMMN case instances and plan items go through a lifecycle of states during their execution. Depending on their state, different actions may be carried out to interact with them. Moreover, state transitions may automatically trigger changes in other plan items. The concrete lifecycle of a plan item depends on its plan item definition.
 
-The following descriptions cover the CMMN lifecycles as supported by the camunda engine. This is a subset of states and transitions that the CMMN standard defines. Any state or transition that is currently not supported is marked in grey.
+The following descriptions cover the CMMN lifecycles as supported by the Camunda engine. This is a subset of states and transitions that the CMMN standard defines. Any state or transition that is currently not supported is marked in grey.
 
 The descriptions in this section are general for the constructs they describe. Considerations that are specific for individual plan item definitions can be found in the respective sections of this guide.
 
@@ -45,7 +45,7 @@ This case contains two human tasks *Task A* and *Task B* that are connected by a
 
 Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED` that represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
 
-This formal lifecycle model is exposed via the `CaseService` API in camunda. Not only is it possible to trigger state transitions as in the code examples above. By making a case instance or case execution query, the current lifecycles state of a plan items are exposed. For example, the following code gets the state of the plan item for Task A:
+This formal lifecycle model is exposed via the `CaseService` API in Camunda. Not only is it possible to trigger state transitions as in the code examples above. By making a case instance or case execution query, the current lifecycles state of a plan items are exposed. For example, the following code gets the state of the plan item for Task A:
 
 ```java
 CaseExecution caseExecution = caseService.createCaseExecutionQuery().activityId("taskA").singleResult();

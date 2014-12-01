@@ -13,7 +13,7 @@ category: 'Introduction'
       </div>
       <div class="panel-body">
         <p>
-          You can download a prepackaged distribution of <strong>camunda Cycle</strong>.
+          You can download a prepackaged distribution of <strong>Camunda Cycle</strong>.
         </p><br /><br />
         <p>
           <a href="http://camunda.org/download/cycle/">
@@ -21,7 +21,7 @@ category: 'Introduction'
           </a>
         </p><br /><br />
         <p>
-          This distribution includes <strong>camunda Cycle</strong> deployed in an Apache Tomcat as well as the SQL scripts.
+          This distribution includes <strong>Camunda Cycle</strong> deployed in an Apache Tomcat as well as the SQL scripts.
         </p>
       </div>
     </div>
@@ -33,7 +33,7 @@ category: 'Introduction'
       </div>
       <div class="panel-body">
         <p>
-          Find <strong>camunda Cycle</strong> on our server:
+          Find <strong>Camunda Cycle</strong> on our server:
         </p><br /><br />
         <p>
           <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/">

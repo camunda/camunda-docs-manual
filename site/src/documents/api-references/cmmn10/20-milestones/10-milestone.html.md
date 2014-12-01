@@ -64,7 +64,7 @@ HistoricCaseActivityInstance milestoneInstance = historyService
 milestoneInstance.isCompleted(); // true if milestone occurred
 ```
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>

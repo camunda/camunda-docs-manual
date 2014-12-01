@@ -231,10 +231,10 @@ Exchanging the History Event Handler with a custom implementation allows users t
 Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you need to write a composite History Event Handler which dispatches events a collection of handlers.
 
 
-## Implementing a custon History Level
+## Implementing a custom History Level
 
 To provide a custom history level the interface `org.camunda.bpm.engine.impl.history.HistoryLevel` has to be implemented. The custom history level implementation
-has than to be added to the process engine configuration, either by configuration or a process engine plugin.
+then has to be added to the process engine configuration, either by configuration or a process engine plugin.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -267,20 +267,20 @@ public String getName() {
 }
 ```
 
-If the history level is enabled the method
+If the history level is enabled, the method
 
 ```java
 boolean isHistoryEventProduced(HistoryEventType eventType, Object entity)
 ```
 
-is called for every history event to determine if the event should be saved to history. The event types used in the
+is called for every history event to determine if the event should be saved to the history. The event types used in the
 engine can be found in `org.camunda.bpm.engine.impl.history.event.HistoryEventTypes` (see [java docs][1]).
 
-The second argument is the entity for which the event is triggered, e.g. a process instance, activity
+The second argument is the entity for which the event is triggered, e.g., a process instance, activity
 instance or variable instance. If the `entity` is null the engine tests if the history level in general
-handles such history events. When the method returns `false` in this case, the engine will not generated
-any history events of this type again. This means if your history level wants to generate the history
-event only for some instances of an event it must still return `true` if `entity` is `null`.
+handles such history events. If the method returns `false` in this case, the engine will not generate
+any history events of this type again. This means that if your history level only wants to generate the history
+event for some instances of an event it must still return `true` if `entity` is `null`.
 
 Please have a look at this [complete example][2] to get a better overview.
 

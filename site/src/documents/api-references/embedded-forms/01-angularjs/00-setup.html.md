@@ -5,7 +5,7 @@ category: 'Support for AngularJS'
 
 ---
 
-Embedded forms provide optional support for integrating with AngularJS. The angular JS integration
+Embedded forms provide optional support for integrating with AngularJS. The AngularJS integration
 provides support for
 
 * Angular compilation of Forms loaded from URLs,
@@ -14,7 +14,7 @@ provides support for
 
 ## Script Dependencies
 
-When using camunda BPM embedded forms inside an AngularJS application,
+When using Camunda BPM embedded forms inside an AngularJS application,
 `camunda-bpm-sdk-angular.js` must be loaded:
 
 ```html
@@ -24,7 +24,7 @@ When using camunda BPM embedded forms inside an AngularJS application,
 
 ## Bootstrapping
 
-The embedded forms support provides an angular module named `cam.embedded.forms` which can be added
+The embedded forms support provides an Angular module named `cam.embedded.forms` which can be added
 to the application's module dependencies:
 
 ```javascript

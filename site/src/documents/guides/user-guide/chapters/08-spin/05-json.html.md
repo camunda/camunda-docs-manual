@@ -5,9 +5,9 @@ category: 'Data Formats (XML, JSON, Other)'
 
 ---
 
-For working with JSON, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.JSON` can be used as entry points. The latter offers strongly-typed access to Spin's JSON Api and is preferable when writing Java code. In scripting environments, only the `S` function is available. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary JSON format.
+For working with JSON, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.JSON` can be used as entry points. The latter offers strongly-typed access to Spin's JSON API and is preferable when writing Java code. In scripting environments, only the `S` function is available. The returned Spin wrapper offers methods for manipulating and writing JSON as well as mapping JSON to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary JSON format.
 
-The following provides examples on how camunda Spin can be used in the process engine to work with JSON data. For illustration purposes, let us assume that there exists a String process variable `customer` containing JSON. It has the following contents:
+The following provides examples on how Camunda Spin can be used in the process engine to work with JSON data. For illustration purposes, let us assume that a String process variable `customer` containing JSON exists. It has the following content:
 
 ```json
 {
@@ -35,7 +35,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 
 ### Scripting Integration
 
-The following example is a script implemented in Javascript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
+The following example is a script implemented in JavaScript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
 
 ```xml
 ...

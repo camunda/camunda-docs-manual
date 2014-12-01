@@ -1,6 +1,6 @@
 ---
 
-title: 'camunda Extension Attributes'
+title: 'Camunda Extension Attributes'
 category: 'Custom Extensions'
 
 ---

@@ -7,7 +7,7 @@ category: 'Overview'
 
 The Forms SDK greatly simplifies the implementation of task forms.
 
-The main feature of the Forms SDK is handling of *process variables*. You can directly bind Html
+The main feature of the Forms SDK is handling of *process variables*. You can directly bind HTML
 form controls to process variables:
 
 ```html

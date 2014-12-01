@@ -12,7 +12,7 @@ This section explains how to work with serialized Java Objects in embedded task 
 > to the embedded form.
 
 The Form SDK will only fetch those variables which are actually used in a form. Since a Complex Java
-Object is usually not bound to a single input field we cannot use the `cam-variable-name` directive.
+Object is usually not bound to a single input field, we cannot use the `cam-variable-name` directive.
 We thus need to fetch the variable programatically:
 
 ```html

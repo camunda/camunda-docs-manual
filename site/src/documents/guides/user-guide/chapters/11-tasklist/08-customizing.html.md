@@ -5,7 +5,7 @@ category: 'Tasklist'
 
 ---
 
-You can override the default configuration of the tasklist using a central configuration file
+You can override the default configuration of Tasklist using a central configuration file
 located in `app/tasklist/scripts/config.js`. Currently, the following configuration options are
 available:
 
@@ -15,7 +15,7 @@ Dates can be configured by specifying a `dateFormat` object. The values of the p
 object must be strings representing date formats in accordance to
 [moment.js](http://momentjs.com). Following date formats are used within the tasklist:
 
-- `monthName` represents the name of a month (e.g. January).
+- `monthName` represents the name of a month (e.g., January).
 - `day` represents the number of a day in a month (1..31).
 - `abbr` represents a short format of a date including time.
 - `normal` represents the standard format of a date including time.
@@ -34,16 +34,16 @@ object must be strings representing date formats in accordance to
 
 ## Localization
 
-The localization of the tasklist is contained in the `app/tasklist/locales/` directory. This
+The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
 consists of the language code and the suffix `.json` (e.g. `en.json`).
 
-The tasklist uses a locale file corresponding to the language settings of the browser. You can
+Tasklist uses a locale file corresponding to the language settings of the browser. You can
 set the `availableLocales` property in the configuration file to provide a list of available
 locales. Every locale which is contained in this list must have a locale file in the `locales`
 directory with the corresponding language code.
 
-If the browser uses a language which is not available, the tasklist uses the locale which is
+If the browser uses a language which is not available, Tasklist uses the locale which is
 defined via the `fallbackLocale` property in the configuration file:
 
 ```javascript
@@ -53,14 +53,14 @@ defined via the `fallbackLocale` property in the configuration file:
 }
 ```
 
-To create a new localization for the tasklist, copy the provided language file, translate it and
+To create a new localization for Tasklist, copy the provided language file, translate it and
 save it as new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.
 
 ## Logo and Header Color
 
-To change visual aspects of the tasklist you can edit the user stylesheet file located in
-`app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into the tasklist
+To change visual aspects of Tasklist, you can edit the user stylesheet file located in
+`app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into Tasklist
 and can override the standard styles.
 
 To display your own logo in the top-left corner, edit the `background-image` property of the
@@ -72,9 +72,9 @@ can find an example in the default `user-styles.css` file.
 ## Advanced styles customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
-using [less](http://lesscss.org/) to change the overall appearance of the tasklist.
+using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
 
-If you want to customize the interface with `less`, you probably should start by having a look at the variables defined in the `client/styles/styles.less` and `client/bower_components/bootstrap/less/variables.less` files.
+If you want to customize the interface with `less`, you should probably start by having a look at the variables defined in the `client/styles/styles.less` and `client/bower_components/bootstrap/less/variables.less` files.
 
 A sample file with variable overrides is available in the `client/styles` directory. To enable it, uncomment the line   
 `// @import "_variables-override";` in `client/styles/styles.less`   

@@ -1,6 +1,6 @@
 ---
 
-title: 'Install camunda Cockpit and Tasklist'
+title: 'Install Camunda Cockpit and Tasklist'
 category: 'Web Applications'
 
 ---

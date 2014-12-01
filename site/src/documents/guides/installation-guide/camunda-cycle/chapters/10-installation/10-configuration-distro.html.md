@@ -11,7 +11,7 @@ The H2 JDBC driver is located at `camunda-cycle-distro-$CYCLE_VERSION.zip/server
 
 ### Exchange the database
 
-To exchange the preconfigured H2 database with your own, e.g. Oracle, you have to do the following:
+To exchange the preconfigured H2 database with your own, e.g., Oracle, you have to do the following:
 
 1.  Copy your JDBC database driver JAR file to `$TOMCAT_HOME/lib`.
 2.  Open `$TOMCAT_HOME/webapps/cycle/META-INF/context.xml` and edit the properties of the `jdbc/CycleDS` datasource definition.

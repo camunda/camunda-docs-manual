@@ -7,22 +7,22 @@ category: 'Overview'
 
 The REST API provides some resources in an additional media type. The
 [HAL][hal] media type `application/hal+json` describes a format which contains
-links and information of other resources. This allows us to embed the
-process definition or assignee of a task directly in the response. Which
-reduces the number of necessary requests to gather all informations regarding a
+links and information about other resources. This allows us to embed the
+process definition or assignee of a task directly into the response. Which in turn
+reduces the number of necessary requests to gather all information about a
 single task or a list of tasks.
 
 ### Caching of HAL relations
 
-During the generation of a HAL response linked resources are resolved to embed
+During the generation of a HAL response, linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
-rarely modified. Also if user information is stored in an external system (such as
-LDAP) every request will access this external system which is an
-unnecessary overhead. To reduces such expensive requests the REST API can be
+rarely modified. Also, if user information is stored in an external system (such as
+LDAP), every request will access this external system which is an
+unnecessary overhead. To reduces such expensive requests, the REST API can be
 configured to use a cache to temporary store such relations.
 
 This caching can be configured in the `web.xml` file of the REST API (or Camunda Web Application in
-case the rest api is embedded into Camunda Web Application).
+case the REST API is embedded into Camunda Web Application).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,7 +66,7 @@ case the rest api is embedded into Camunda Web Application).
 
 #### The HalRelationCacheBootstrap Listener
 
-To bootstrap the caching the `HalRelationCacheBootstrap` context listener is
+To bootstrap the caching, the `HalRelationCacheBootstrap` context listener is
 used: 
 
 ```xml
@@ -122,8 +122,8 @@ options:
   <tr>
     <td>secondsToLive</td>
     <td>
-      The number of seconds a cache entry is valid. If a cache entry is expired it is removed
-      and again resolved.
+      The number of seconds a cache entry is valid. If a cache entry is expired, it is removed
+      and resolved again.
     </td>
   </tr>
 </table>

@@ -1,7 +1,7 @@
 ---
 
 title: 'Migrate the Server'
-category: 'Migrate from camunda bpm 7.0 to 7.1'
+category: 'Migrate from Camunda BPM 7.0 to 7.1'
 
 ---
 
@@ -9,7 +9,7 @@ category: 'Migrate from camunda bpm 7.0 to 7.1'
 
 ### Upgrade the JBoss application server
 
-camunda bpm 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
+Camunda BPM 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
 The preferred upgrade steps are:
 
 * copy all your custom modules / subsystems to the new jboss server directory

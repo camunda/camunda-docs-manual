@@ -1,6 +1,6 @@
 ---
 
-title: 'camunda Extension Elements'
+title: 'Camunda Extension Elements'
 category: 'Custom Extensions'
 
 ---

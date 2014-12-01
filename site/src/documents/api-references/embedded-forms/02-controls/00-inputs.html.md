@@ -7,14 +7,14 @@ category: 'Supported HTML Controls'
 
 Most of the implementation can be done by adding the following special attributes to the fields.
 
-* cam-variable-name: _Requires a value_ corresponding to the variable name. This attribute __is used on every__ controls.
+* cam-variable-name: _Requires a value_ corresponding to the variable name. This attribute __is used on every__ control.
 * cam-variable-type: Is _optional_ but _requires a value_ if used.
 * cam-choices: _Requires a value_ corresponding to a variable name containing the available choices. This attribute is only used on [choices] controls. If a `select` tag has `option` tags as children, the new `option` tags (for the dynamically added) choices will be appended.
 
 ## Single Line Text Input
 
-Single line text inputs are `<input type="text">` controls. Single line text input are the most
-common input field and allow the user to provide values for different data types.
+Single line text inputs are `<input type="text">` controls. Single line text inputs are the most
+common input fields and allow the user to provide values for different data types.
 
 ### Binding Text Input to a Process Variable
 
@@ -93,14 +93,14 @@ Example:
        cam-variable-type="Date" />
 ```
 
-##### Date Format
+#### _Date Format_
 
 Currently only the ISO Date Format `yyyy-MM-dd'T'HH:mm:ss` is supported.
 Example value: `2013-01-23T13:42:42`
 
-##### Using a Date Picker
+#### _Using a Date Picker_
 
-You can use the [angular UI datepicker](http://angular-ui.github.io/bootstrap/)
+You can use the [Angular UI datepicker](http://angular-ui.github.io/bootstrap/)
 directive to offer a datepicker for the date input field. The complete markup of the input field
 including the datepicker button is shown below.
 
@@ -122,7 +122,7 @@ including the datepicker button is shown below.
 </p>
 ```
 
-In addition to the HTML markup, the following javascript must be included in the form file
+In addition to the HTML markup, the following JavaScript must be included in the form file
 (see [Custom JavaScript][javascript]):
 
 ```html
@@ -143,11 +143,11 @@ The attributes of the datepicker component are explained below:
    is returned by the datepicker. It must be the ISO Date Format.
  * `is-open="dateFieldOpened"`: This attribute contains the name of the variable, which
    indicates the open status of the datepicker. It must be the same variable, which is set to
-   true in the `open` function in the javascript snippet. If a form contains multiple
+   true in the `open` function in the JavaScript snippet. If a form contains multiple
    datepickers, they must have different values for this attribute.
 * Attributes of the datepicker button:
  * `ng-click="open($event)"`: This attribute contains the name of the function which is called
-   when the datepicker button is clicked. It must be the function name of the javascript snippet
+   when the datepicker button is clicked. It must be the function name of the JavaScript snippet
    which sets the `is-open` variable to true. If a form contains multiple date pickers, they
    must have different function names, or the name of the `is-open` variable must be passed to
    the function.
@@ -226,7 +226,7 @@ the value `true`, an unchecked checkbox corresponds to the value `false`.
 ## Hidden
 
 Hidden input elements are HTML `<input type="hidden">` controls. They are not displayed in the
-form, but can be used to retrieve values to be used in the context of the form (e.g. using angular
+form, but can be used to retrieve values to be used in the context of the form (e.g., using Angular
 bindings).
 
 ### Binding a Hidden Element to a Process Variable

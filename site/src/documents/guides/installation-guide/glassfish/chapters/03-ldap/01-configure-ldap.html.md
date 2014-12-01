@@ -1,6 +1,6 @@
 ---
 
-title: 'Configuring LDAP for camunda Cockpit and Tasklist'
+title: 'Configuring LDAP for Camunda Cockpit and Tasklist'
 category: 'LDAP Configuration'
 
 ---

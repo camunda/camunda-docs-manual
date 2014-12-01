@@ -7,7 +7,7 @@ keywords: 'cmmn plan item definition'
 
 ---
 
-CMMN differentiates between *plan items* and *plan item definitions*. While plan items represent actual units of work that are enacted as part of the case, plan item definitions serve as the blueprint for how a plan item has to be enacted. This concept simplifies reuse of plan item definitions and furthermore enables dynamic planning such that additional items can be generated at runtime from a definition.
+CMMN differentiates between *plan items* and *plan item definitions*. While plan items represent actual units of work that are enacted as part of the case, plan item definitions serve as the blueprint for how a plan item has to be enacted. This concept simplifies reuse of plan item definitions and furthermore enables dynamic planning so that additional items can be generated at runtime from a definition.
 
 As an example, consider the following fragment of a case definition:
 
@@ -28,6 +28,6 @@ This model contains one plan item definition, namely the `humanTask` element. Th
 
 Accordingly, a case plan model that contains plan item definitions but no plan items will appear as a case with no tasks at runtime.
 
-Apart from reuse of configuration, plan item definitions can be instantiated at runtime, typically referred to as *planning*. Planning allows users to create plan items of a well-defined set of plan item definitions dynamically as needed. Note that planning is currently not supported by the camunda engine.
+Apart from reuse of configuration, plan item definitions can be instantiated at runtime, typically referred to as *planning*. Planning allows users to create plan items of a well-defined set of plan item definitions dynamically as needed. Note that planning is currently not supported by the Camunda engine.
 
-This reference describes, if not otherwise noted, the plan item definitions supported by the camunda engine. Whenever there is a consideration of runtime state, it is assumed that a plan item referencing that definition exists.
+This reference describes, if not otherwise noted, the plan item definitions supported by the Camunda engine. Whenever there is a consideration of runtime state, it is assumed that a plan item referencing that definition exists.

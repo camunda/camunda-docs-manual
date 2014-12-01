@@ -12,7 +12,7 @@ keywords: 'overview symbols engine coverage'
 This page provides an overview of the CMMN 1.0 elements and the current coverage of the process engine.
 
 The elements marked in <span class="label label-warning">orange</span> are supported.
-Hover over the element to see since which version of the camunda BPM platform they are supported.
+Hover over the element to see since which version of the Camunda BPM platform they are supported.
 
 <%- @include('./item-definition-coverage.html') %>
 
