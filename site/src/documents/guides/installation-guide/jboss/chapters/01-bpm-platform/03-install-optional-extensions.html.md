@@ -6,7 +6,7 @@ category: 'BPM Platform'
 
 ---
 
-This section describes how to install optional camunda dependencies into a JBoss server. None of these are required to work with the core platform. Before continuing, make sure that the camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss).
+This section describes how to install optional Camunda dependencies onto a JBoss server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss).
 
 <div class="alert alert-info">
   <p><strong>Note</strong> </p>
@@ -35,7 +35,7 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `commons-codec/commons-codec`
 * `commons-logging/commons-logging`
 
-In order to activate camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
+In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -71,7 +71,7 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `com/fasterxml/jackson/core/jackson-annotations`
 * `com/jayway/jsonpath/json-path`
 
-In order to activate camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
+In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">

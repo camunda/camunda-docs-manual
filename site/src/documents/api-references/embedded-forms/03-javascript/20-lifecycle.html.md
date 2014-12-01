@@ -11,8 +11,8 @@ Events][lifecycle] for more details.
 ## Fetching additional Variables
 
 When loading the form, the values of all variables used in the form will be fetched from the
-backed. This means that the form sdk will only fetch those variables which are actually used in the
-form. The most convenient way for using a variable is the `cam-variable-name` directive. However
+backend. This means that the form SDK will only fetch those variables which are actually used in the
+form. The most convenient way for using a variable is the `cam-variable-name` directive. However,
 there are some situations where directive-based usage is inconvenient. In such situations it is
 useful to declare additional variables programmatically:
 
@@ -73,7 +73,7 @@ variables to the submit:
 ## Implementing Custom Fields
 
 The following is a small usage example which combines some of the features explained so far.
-It uses custom javascript for implementing a custom interaction with a form field which does not
+It uses custom JavaScript to implement a custom interaction with a form field which does not
 use any `cam-variable-*` directives.
 
 It shows how custom scripting can be used for

@@ -1,13 +1,13 @@
 ---
 
-title: 'Install the camunda platform shared libraries'
+title: 'Install the Camunda platform shared libraries'
 shortTitle: 'Install shared libraries'
 category: 'BPM Platform'
 
 ---
 
 
-The shared libraries include the camunda engine and some utility JARs. The shared libraries must be visible to both the camunda BPM platform as well as all process applications.
+The shared libraries include the Camunda engine and some utility JARs. The shared libraries must be visible to both the Camunda BPM platform as well as all process applications.
 
 The shared libraries can be found in the lib folder of the distribution:
 
@@ -28,7 +28,7 @@ Restart the Weblogic Server after this operation.
 <div class="alert alert-info">
   <strong>Hint:</strong>
   <p>
-    You can optionally create a shared library out of the camunda BPM platform shared libraries.
+    You can optionally create a shared library out of the Camunda BPM platform shared libraries.
     Then associate it with the `camunda-oracle-weblogic-ear` during installation.
     You must then also associate the shared library with each deployed process application.
     Have a look at the <a href="https://docs.oracle.com/cd/E24329_01/web.1211/e24368/libraries.htm#WLPRG325">Oracle WebLogic documentation</a> on how to create the shared library.

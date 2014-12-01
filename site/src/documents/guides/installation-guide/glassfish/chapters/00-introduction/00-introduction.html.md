@@ -5,7 +5,7 @@ category: 'Introduction'
 
 ---
 
-This document will guide you through the installation of camunda BPM and its components on a <a href="http://glassfish.java.net/">Glassfish 3.1 application server</a>.
+This document will guide you through the installation of Camunda BPM and its components on a <a href="http://glassfish.java.net/">Glassfish 3.1 application server</a>.
 
 <div class="alert alert-info">
   <strong>Reading the Guide</strong> <br>

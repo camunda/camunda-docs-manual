@@ -45,7 +45,7 @@ In general, variables are accessible in the following cases:
 
 ## Setting and Retrieving Variables - Overview
 
-To set and retrieve variables, the process engine offers a Java API that allows to set variables from Java objects and retrieve them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:
+To set and retrieve variables, the process engine offers a Java API that allows setting of variables from Java objects and retrieving them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes, when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:
 
 * **Java Object Value API**: Variables are represented as Java objects. These objects can be directly set as values and retrieved in the same form. This is the more simple API and is the recommended way when implementing code as part of a process application.
 * **Typed Value API**: Variable values are wrapped in so-called *typed values* that are used to set and retrieve variables. A typed value offers access to meta data such as the way the engine has serialized the variable and, depending on the type, the serialized representation of the variable.
@@ -149,9 +149,9 @@ Whenever a variable is set in its Java representation, the process engine automa
 
 ## Typed Value API
 
-In cases in which it is important to access a variable's serialized representation or in which the engine has to be hinted to serialize a value in a certain format, the typed-value-based API can be used. In comparison to the Java-Object-based API, it wraps a variable value in a so-called *Typed Value*. Such a typed value allows for a richer representation of variable values.
+In cases in which it is important to access a variable's serialized representation or in which the engine has to be hinted to serialize a value in a certain format, the typed-value-based API can be used. In comparison to the Java-Object-based API, it wraps a variable value in a so-called *Typed Value*. Such a typed value allows richer representation of variable values.
 
-In order to easily construct typed values, camunda BPM offers the class `org.camunda.bpm.engine.variable.Variables`. This class contains static methods that allow to create single typed values as well as create a map of typed values in a fluent way.
+In order to easily construct typed values, Camunda BPM offers the class `org.camunda.bpm.engine.variable.Variables`. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.
 
 ### Primitive Values
 

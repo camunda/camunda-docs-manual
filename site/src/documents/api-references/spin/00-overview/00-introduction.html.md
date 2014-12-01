@@ -5,9 +5,9 @@ category: 'Overview'
 
 ---
 
-camunda Spin is a library for simple XML and JSON processing on the JVM (Java
+Camunda Spin is a library for simple XML and JSON processing on the JVM (Java
 Virtual Machine), targeting Java and JVM-based scripting languages such as
-Groovy, JRuby, Jython, Javascript and Java Expression Language. It provides a
+Groovy, JRuby, Jython, JavaScript and Java Expression Language. It provides a
 comprehensible fluent API for working with different data formats through
 lightweight wrapper objects.
 
@@ -15,9 +15,9 @@ Spin can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
 <div class="alert alert-info">
-  If you use spin in combination with other camunda BPM projects (such as camunda process engine),
+  If you use Spin in combination with other Camunda BPM projects (such as the Camunda process engine),
   please import the <a class="alert-link" href="ref:/guides/getting-started-guides/#apache-maven-the-camunda-bom">
-  camunda BOM</a> to ensure that you use the camunda Spin version matching your process engine
+  Camunda BOM</a> to ensure that you use the Camunda Spin version matching your process engine
   version.
 </div>
 
@@ -50,7 +50,7 @@ dependency to your `pom.xml` file:
 ```
 
 
-camunda Spin is published to [maven central][1].
+Camunda Spin is published to [maven central][1].
 
 [1]: http://search.maven.org/#search%7Cga%7C1%7Ccamunda-spin
 

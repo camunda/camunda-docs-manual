@@ -6,7 +6,7 @@ category: 'BPM Platform'
 
 ---
 
-This section describes how to install optional camunda dependencies into a Tomcat server. None of these are required to work with the core platform. Before continuing, make sure that the camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
+This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
 
 <div class="alert alert-info">
   <p><strong>Note</strong> </p>
@@ -31,7 +31,7 @@ Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUT
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-In order to activate camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
+In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -61,7 +61,7 @@ Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUT
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-In order to activate camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
+In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

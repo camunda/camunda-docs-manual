@@ -1,11 +1,11 @@
 ---
 
-title: 'Configuring LDAP for camunda Cockpit and Tasklist'
+title: 'Configuring LDAP for Camunda Cockpit and Tasklist'
 category: 'LDAP Configuration'
 
 ---
 
-In order to setup LDAP for the WebSphere distribution, you have to perform the following steps:
+In order to set up LDAP for the WebSphere distribution, you have to perform the following steps:
 
 ### Add the LDAP Library
 
@@ -13,7 +13,7 @@ Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the sh
 
 ### Adjust the Process Engine Configuration
 
-Edit the file `bpm-platform.xml` located inside the camunda BPM enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `bpm-platform.xml` located inside the Camunda BPM enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -5,9 +5,9 @@ category: 'Custom Javascript'
 
 ---
 
-It is possible to use custom javascript in embedded forms.
+It is possible to use custom JavaScript in embedded forms.
 
-Custom javascript can be added to a from by using a `<script>` tag and adding the `cam-script`
+Custom JavaScript can be added to a form by using a `<script>` tag and adding the `cam-script`
 directive:
 
 ```html

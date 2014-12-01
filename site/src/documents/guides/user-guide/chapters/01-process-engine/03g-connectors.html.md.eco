@@ -10,13 +10,13 @@ connectors. Currently SOAP and REST connector implementations exist.
 
 ### Configuring Camunda Connect
 
-Since camunda Connect is an optional dependency, it is not immediately available when using the process engine. With a pre-built distribution, camunda Connect is already preconfigured.
+As Camunda Connect is an optional dependency, it is not immediately available when using the process engine. With a pre-built distribution, Camunda Connect is already preconfigured.
 
 There are two types of `connect` artifacts:
 
 * `camunda-connect-core`: a jar that contains only the core Connect classes. In addition to `camunda-connect-core`, single connector implementations like `camunda-connect-http-client` and `camunda-connect-soap-http-client` exist. These dependencies should be used when the default connectors have to be reconfigured or when custom connector implementations are used.
 * `camunda-connect-connectors-all`: a single jar without dependencies that contains the HTTP and SOAP connectors.
-* `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the camunda BPM platform.
+* `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the Camunda BPM platform.
 
 #### Maven Coordinates
 
@@ -24,7 +24,7 @@ There are two types of `connect` artifacts:
 
 #### camunda-connect-core
 
-`camunda-connect-core` contains the core classes of Connect. In addition, the HTTP and SOAP connectors can be added with the dependencies `camunda-connect-http-client` and `camunda-connect-soap-http-client`. These artifacts will transitively pull in their their dependencies, like Apache HTTP client. For integration with the engine, the artifact `camunda-engine-plugin-connect` is needed. Given the BOM is imported, the Maven coordinates are as follows:
+`camunda-connect-core` contains the core classes of Connect. Additionally, the HTTP and SOAP connectors can be added with the dependencies `camunda-connect-http-client` and `camunda-connect-soap-http-client`. These artifacts will transitively pull in their dependencies, like Apache HTTP client. For integration with the engine, the artifact `camunda-engine-plugin-connect` is needed. Given that the BOM is imported, the Maven coordinates are as follows:
 
 ```xml
 <dependency>
@@ -56,7 +56,7 @@ There are two types of `connect` artifacts:
 
 #### camunda-connect-connectors-all
 
-This artifact contains the HTTP and SOAP connectors as well as their dependencies. To avoid conflicts with other versions of these dependencies, they dependencies are relocated to different packages. `camunda-connect-connectors-all` has the following Maven coordinates:
+This artifact contains the HTTP and SOAP connectors as well as their dependencies. To avoid conflicts with other versions of these dependencies, the dependencies are relocated to different packages. `camunda-connect-connectors-all` has the following Maven coordinates:
 
 ```xml
 <dependency>
@@ -94,13 +94,13 @@ This artifact contains the HTTP and SOAP connectors as well as their dependencie
 
 <div class="alert alert-info">
   <strong>Note:</strong>
-  <p>When using a pre-built distribution of camunda BPM, the plugin is already pre-configured.</p>
+  <p>When using a pre-built distribution of Camunda BPM, the plugin is already pre-configured.</p>
 </div>
 
 
 ### Using connectors
 
-To use a connector, you have to add the camunda extension element [connector][]. The connector is
+To use a connector, you have to add the Camunda extension element [connector][]. The connector is
 configured by a unique [connectorId][], which specifies the used connector implementation.
 Additionally, an [input/output mapping][iomapping] is used to configure the connector. The required
 input parameters and the available output parameters depend on the connector implementation.

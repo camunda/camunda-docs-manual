@@ -1,12 +1,12 @@
 ---
 
-title: 'Create the database schema for camunda Cycle'
+title: 'Create the database schema for Camunda Cycle'
 category: 'Installation'
 
 ---
 
-Unless you are using the pre-packaged distribution and do not want to exchange the packaged H2 database, you first have to create a database schema for camunda Cycle.
-The camunda Cycle distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+Unless you are using the pre-packaged distribution and do not want to exchange the packaged H2 database, you have to first create a database schema for Camunda Cycle.
+The Camunda Cycle distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
 The database creation scripts reside in the `sql/create` folder:
 
@@ -14,9 +14,9 @@ The database creation scripts reside in the `sql/create` folder:
 camunda-cycle-distro-$CYCLE_VERSION.zip/sql/create/*_cycle.sql
 ```
 
-There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool (e.g., SqlDeveloper for Oracle).
 
-We recommend to create a separate database or database schema for camunda Cycle.
+We recommend to create a separate database or database schema for Camunda Cycle.
 
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these

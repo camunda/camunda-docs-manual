@@ -1,34 +1,34 @@
 ---
 
-title: 'Migrate from camunda BPM 7.1 to camunda BPM 7.2'
+title: 'Migrate from Camunda BPM 7.1 to Camunda BPM 7.2'
 shortTitle: 'Migrate from 7.1 to 7.2'
 category: 'Migration'
 
 ---
 
-The following steps describe how to upgrade the camunda artifacts in a Glassfish 3.1 application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [camunda BPM 7.2 Glassfish distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
+The following steps describe how to upgrade the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Glassfish distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
 
 The upgrade procedure takes the following steps:
 
-1. Uninstall the camunda libraries and archives
-2. Add the new camunda libraries
-3. Install optional camunda dependencies
+1. Uninstall the Camunda libraries and archives
+2. Add the new Camunda libraries
+3. Install optional Camunda dependencies
 4. Configure process engines
-5. Install the camunda archive
-6. Install the camunda BPM web applications
+5. Install the Camunda archive
+6. Install the Camunda BPM web applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 <div class="alert alert-info">
   <p><strong>Changing Platform Configuration</strong></p>
-  <p>Depending on your chosen feature set for camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">deployment descriptor reference</a>.</p>
+  <p>Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">deployment descriptor reference</a>.</p>
 </div>
 
 ## 1. Uninstall the Camunda Applications and Archives
 
-First, uninstall the camunda web applications, namely the camunda REST API (artifact name like `camunda-engine-rest`) and the camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
+First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
-Uninstall the camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
+Uninstall the Camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
 
 ## 2. Replace the Camunda Libraries
 
@@ -49,18 +49,18 @@ Add the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the fold
 
 ## 3. Install Optional Camunda Dependencies
 
-There are artifacts for camunda Connect, camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the shared library folder. Since all these artifacts add new functionality, the following steps are not required for migration.
+There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the shared library folder. Since all these artifacts add new functionality, the following steps are not required for migration.
 
-**Note:** The default camunda configuration file contained by the camunda EAR automatically activates the newly introduced, optional camunda dependencies, camunda Spin and Connect. If you do not use a custom BPM platform configuration as described [here][configuration-location] and do not intend to do so, you *must* install the camunda Spin and Connect core libraries to the shared libraries folder.
+**Note:** The default Camunda configuration file contained by the Camunda EAR automatically activates the newly introduced, optional Camunda dependencies, Camunda Spin and Connect. If you do not use a custom BPM platform configuration as described [here][configuration-location] and do not intend to do so, you *must* install the Camunda Spin and Connect core libraries to the shared libraries folder.
 
 <div class="alert alert-info">
   <p><strong>Not Using Connect/Spin</strong></p>
-  <p>If you do <b>not</b> want to use camunda Connect or camunda Spin, you cannot use the default BPM platform configuration that is contained in the camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear/camunda-glassfish-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
+  <p>If you do <b>not</b> want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear/camunda-glassfish-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
 </div>
 
 #### Camunda Connect
 
-If camunda Connect is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
+If Camunda Connect is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
@@ -68,7 +68,7 @@ If camunda Connect is intended to be used, copy the following library from `$GLA
 * `slf4j-api-$SLF4J_VERSION.jar`
 * `slf4j-jdk14-$SLF4J_VERSION.jar`
 
-If you use a custom BPM platform configuration file, camunda Connect functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
+If you use a custom BPM platform configuration file, Camunda Connect functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

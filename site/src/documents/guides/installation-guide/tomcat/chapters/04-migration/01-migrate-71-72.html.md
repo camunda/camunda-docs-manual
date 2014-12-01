@@ -1,19 +1,19 @@
 ---
 
-title: 'Migrate from camunda BPM 7.1 to camunda BPM 7.2'
+title: 'Migrate from Camunda BPM 7.1 to Camunda BPM 7.2'
 shortTitle: 'Migrate from 7.1 to 7.2'
 category: 'Migration'
 
 ---
 
-The following steps describe how to upgrade the camunda artifacts in a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [camunda BPM 7.2 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to upgrade the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
 The upgrade procedure takes the following steps:
 
-1. Upgrade the camunda BPM core libraries
-2. Upgrade and configure optional camunda BPM libraries (*optional*)
+1. Upgrade the Camunda BPM core libraries
+2. Upgrade and configure optional Camunda BPM libraries (*optional*)
 3. Configure process engines
-4. Upgrade camunda web applications
+4. Upgrade Camunda web applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
@@ -44,11 +44,11 @@ If present, remove the following artifacts:
 
 ## 2. Upgrade and Configure Optional Camunda BPM libraries
 
-In addition, there are artifacts for camunda Connect, camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the folder `$TOMCAT_HOME/lib/`. Since all these artifacts add new functionality, the following steps are not required for migration.
+In addition, there are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the folder `$TOMCAT_HOME/lib/`. Since all these artifacts add new functionality, the following steps are not required for migration.
 
 #### Camunda Connect
 
-If camunda Connect is intended to be used, add the following artifacts:
+If Camunda Connect is intended to be used, add the following artifacts:
 
 * `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
 * `camunda-connect-core-$CONNECT_VERSION.jar`
@@ -57,7 +57,7 @@ If camunda Connect is intended to be used, add the following artifacts:
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-In order to activate camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
+In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ In order to activate camunda Connect functionality for a process engine, a proce
 
 #### Camunda Spin
 
-If camunda Spin is intended to be used, add the following artifacts:
+If Camunda Spin is intended to be used, add the following artifacts:
 
 * `camunda-spin-dataformat-all-$SPIN_VERSION.jar`
 * `camunda-spin-core-$SPIN_VERSION.jar`
@@ -87,7 +87,7 @@ If camunda Spin is intended to be used, add the following artifacts:
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-In order to activate camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
+In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$TOMCAT_HOME/conf/bpm-platform.xml` as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -115,7 +115,7 @@ If Groovy is to be used as a scripting language, add the following artifacts:
 
 #### Freemarker Integration
 
-If the camunda integration for Freemarker is intended to be used, add the following artifacts:
+If the Camunda integration for Freemarker is intended to be used, add the following artifacts:
 
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
 * `freemarker-2.3.20.jar`
@@ -162,12 +162,12 @@ The following steps are required to upgrade the camunda REST API on a Tomcat ins
 The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
-2. Download the camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
+2. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
 <div class="alert alert-info">
   <p><strong>LDAP Entity Caching</strong></p>
-  <p>With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the <a href="">user guide</a> for details.</p>
+  <p>With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the <a href="">user guide</a> for details.</p>
 </div>
 
 [migration-guide]: ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72

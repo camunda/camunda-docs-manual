@@ -1,12 +1,12 @@
 ---
 
-title: 'Api Usage'
+title: 'API Usage'
 category: 'Support for AngularJS'
 
 ---
 
 In case the built-in `cam-form` directive does not provide enough flexibility, an embedded form can
-be bootstrapped programatically. Once you loaded the `camunda-bpm-sdk-angular.js` file, the Api is
+be bootstrapped programatically. Once you loaded the `camunda-bpm-sdk-angular.js` file, the API is
 available through `CamSDK.Form`:
 
 ```javascript
@@ -14,9 +14,9 @@ var camForm = new CamSDK.Form({
   ...
 });
 ```
-This can be directly used from an angular controller or - preferably - from a custom directive.
+This can be directly used from an Angular controller or - preferably - from a custom directive.
 
-## Dynamically Loading the Form from an URL
+## Dynamically loading the Form from an URL
 
 Forms can be loaded from an URL. This is useful for developing applications which dynamically load
 forms from an external source depending on the process definition.
@@ -35,7 +35,7 @@ new CamSDK.Form({
 ### Angular Directives & Compilation
 
 If the form is loaded from an URL, the SDK makes sure that it is properly compiled and linked to
-the current angular scope. This allows using angular directives in embedded forms loaded
+the current Angular scope. This allows using Angular directives in embedded forms loaded
 dynamically at runtime:
 
 ```html
@@ -98,7 +98,7 @@ new CamSDK.Form({
 
 ## Usage Eample
 
-You can initialize CamundaForm for a `<fom>` already existing in the DOM:
+You can initialize CamundaForm for a `<form>` already existing in the DOM:
 
 ```html
 <div ng-controller="FormController">
