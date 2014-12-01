@@ -23,12 +23,24 @@ This case contains two human tasks *Task A* and *Task B* that are connected by a
 
 1. A user instantiates the case by `caseService.createCaseInstanceByKey("case");`. A new case instance is created in state `ACTIVE`.
 2. Two instances for each human task are automatically created, both in state `AVAILABLE`.
-3. Task A does not have a condition to start, so it immediately reaches state `ENABLED`. Note that the steps 1 to 3 all happens synchronously with the `caseService` invocation from step 1.
-4. A user manually starts Task A by calling `caseService.manuallyStartCaseExecution(taskAExecutionId);`. As a consequence, Task A reaches state `ACTIVE` and a task instance is added to the assignee's task list. Note that starting a task is only allowed if that task is in state `ENABLED`. Thus, trying to manually start Task B here by `caseService.manuallyStartCaseExecution(taskBExecutionId);` would fail.
+3. Task A does not have a condition to start, so it immediately reaches state `ENABLED`. Note that the steps 1 to 3 all happens synchronously with the `caseService` invocation from step 1. The case is now in the following state:
+<center>
+  <img class="img-responsive" src="ref:asset:/assets/cmmn/lifecycle-example-1.png"/>
+</center>
+4. A user manually starts Task A by calling `caseService.manuallyStartCaseExecution(taskAExecutionId);`. As a consequence, Task A reaches state `ACTIVE` and a task instance is added to the assignee's task list. Note that starting a task is only allowed if that task is in state `ENABLED`. Thus, trying to manually start Task B here by `caseService.manuallyStartCaseExecution(taskBExecutionId);` would fail. The state is now:
+<center>
+<img class="img-responsive" src="ref:asset:/assets/cmmn/lifecycle-example-2.png"/>
+</center>
 5. The assignee completes the task instance by calling `taskService.complete(taskId);`. Task A reaches the state `COMPLETED`.
-6. Task A's state transition triggers Task B's sentry. In consequence, Task B becomes `ENABLED`. This happens synchronously in the invocation from step 5.
+6. Task A's state transition triggers Task B's sentry. In consequence, Task B becomes `ENABLED`. This happens synchronously in the invocation from step 5. Accordingly, the case's new state is:
+<center>
+  <img class="img-responsive" src="ref:asset:/assets/cmmn/lifecycle-example-3.png"/>
+</center>
 7. Similar to Task A, a user may now use the `CaseService` and `TaskService` to start Task B, complete the corresponding task instance, and complete Task B. Ultimately, Task B reaches the state `COMPLETED`.
-8. With both tasks in state `COMPLETED`, the case instance automatically reaches the state `COMPLETED` as well.
+8. With both tasks in state `COMPLETED`, the case instance automatically reaches the state `COMPLETED` as well. The state has case has reached the following state:
+<center>
+  <img class="img-responsive" src="ref:asset:/assets/cmmn/lifecycle-example-4.png"/>
+</center>
 9. A user may close the case instance by invoking `caseService.closeCaseInstance(caseInstanceId);`. The case instance reaches the state `CLOSED`.
 
 Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED` that represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
