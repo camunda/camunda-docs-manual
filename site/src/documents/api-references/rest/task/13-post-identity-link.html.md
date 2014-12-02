@@ -92,6 +92,10 @@ Example
 
 POST `/task/anId/identity-links`
 
+Request body:
+
+    {"groupId": "aNewGroupId", "type": "candidate"}
+
 #### Response
 
 Status 204. No content.
