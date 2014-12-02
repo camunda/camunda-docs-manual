@@ -24,7 +24,7 @@ title: 'Cycle'
   </thead>
   <tbody>
   <tr class="well">
-      <td><a href="ref:/guides/installation-guide/tomcat/#web-applications-install-camunda-cycle">Cycle for Tomcat</a></td>
+      <td><a href="ref:/guides/installation-guide/camunda-cycle/">Cycle for Tomcat</a></td>
       <td>3.0.0</td>
       <td>29.10.2014</td>
       <td>
@@ -34,3 +34,12 @@ title: 'Cycle'
     </tr>
   </tbody>
 </table>
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="pull-right">
+      <a href="http://camunda.org/enterprise-release/camunda-cycle/tomcat/">previous versions</a>
+    </p>
+  </div>
+</div>
+

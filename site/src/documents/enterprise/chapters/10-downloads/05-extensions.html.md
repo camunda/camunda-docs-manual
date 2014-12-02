@@ -26,10 +26,18 @@ title: 'Enterprise Extensions'
   <tr class="well">
       <td><a href="ref:/guides/user-guide/#process-engine-templating-using-xslt-as-template-engine">XSLT Extension</a></td>
       <td>1.0.1</td>
-      <td>28.11.2014</td>
+      <td>26.11.2014</td>
       <td>
         <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-bpm/extensions/xslt/1.0.1/camunda-bpm-ee-xslt-extension-1.0.1.zip">download zip file</a>
       </td>
     </tr>
   </tbody>
 </table>
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="pull-right">
+      <a href="http://camunda.org/enterprise-release/camunda-bpm/extensions/xslt/">previous versions</a>
+    </p>
+  </div>
+</div>
