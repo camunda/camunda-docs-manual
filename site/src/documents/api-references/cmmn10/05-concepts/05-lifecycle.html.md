@@ -91,7 +91,7 @@ States:
       terminated
     </td>
     <td>
-      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled. This transition removes the case instance from the runtime database.
+      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled.
     </td>
   </tr>
   <tr>
