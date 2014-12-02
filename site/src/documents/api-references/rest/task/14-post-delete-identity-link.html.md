@@ -92,6 +92,10 @@ Example
 
 POST `/task/anId/identityLinks/delete`
 
+Request body:
+
+    {"groupId": "theOldGroupId", "type": "candidate"}
+
 #### Response
 
 Status 204. No content.
