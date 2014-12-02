@@ -18,13 +18,13 @@ Similar changes in the state of a case instance may be driven by events occurrin
       <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" entryCriteriaRefs="Sentry_1" />
       <planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1"/>
 
-      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
-
       <sentry id="Sentry_1">
         <planItemOnPart sourceRef="PlanItem_HumanTask_2">
           <standardEvent>complete</standardEvent>
         </planItemOnPart>
       </sentry>
+
+      <humanTask id="HumanTask_1" camunda:assignee="kermit" />
     </casePlanModel>
   </case>
 </defintions>
@@ -36,10 +36,10 @@ Similarly, `PlanItem_HumanTask_1` with an exit criterion looks as follows:
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" exitCriteriaRefs="Sentry_1" />
 ```
 
-The conditions and events behind entry and exit criteria can be expressed by so-called *sentries*. Refer to the [Sentry] section on how sentries work and what kind of conditions can be expressed by them.
+The conditions and events behind entry and exit criteria can be expressed by so-called *sentries*. Refer to the [Sentry](ref:#sentries-sentry) section on how sentries work and what kind of conditions can be expressed by them.
 
-When an entry criterion is met, the plan item it is defined for performs the state transition from `AVAILABLE` to `ENABLED`. While the plan item is not in state `AVAILABLE`, entry criteria are not relevant.
+When any entry criterion is met, the plan item it is defined for performs the state transition from `AVAILABLE` to `ENABLED`. While the plan item is not in state `AVAILABLE`, entry criteria are not relevant.
 
-Similarly, when an exit criterion is met, a plan item performs a state transition from any of the states `AVAILABE`, `ENABLED`, `DISABLED`, or `ACTIVE` to state `TERMINATED`.
+Similarly, when any exit criterion is met, a plan item performs a state transition from any of the states `AVAILABE`, `ENABLED`, `DISABLED`, or `ACTIVE` to state `TERMINATED`.
 
 The details of plan item states and transitions are provided in the [Plan Item Lifecycles](ref:#concepts-plan-item-lifecycles) section.

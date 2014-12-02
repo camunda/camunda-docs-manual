@@ -26,14 +26,14 @@ When referenced in a case plan, a milestone gets completed as soon as its entry 
       <planItem id="PlanItem_HumanTask" definitionRef="HumanTask_1"/>
       <planItem id="PlanItem_Milestone" definitionRef="Milestone_1" entryCriteriaRefs="Sentry_1"/>
 
-      <humanTask id="HumanTask_1" />
-      <milestone id="Milestone_1" name="A Milestone" entryCriteriaRefs="Sentry_1" />
-
       <sentry id="Sentry_1">
         <planItemOnPart sourceRef="PlanItem_HumanTask">
           <standardEvent>complete</standardEvent>
         </planItemOnPart>
       </sentry>
+
+      <humanTask id="HumanTask_1" />
+      <milestone id="Milestone_1" name="A Milestone" entryCriteriaRefs="Sentry_1" />
     </casePlanModel>
   </case>
 </defintions>

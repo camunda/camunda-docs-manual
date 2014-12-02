@@ -7,7 +7,7 @@ keywords: 'cmmn plan item definition'
 
 ---
 
-CMMN differentiates between *plan items* and *plan item definitions*. While plan items represent actual units of work that are enacted as part of the case, plan item definitions serve as the blueprint for how a plan item has to be enacted. This concept simplifies reuse of plan item definitions and furthermore enables dynamic planning so that additional items can be generated at runtime from a definition.
+CMMN differentiates between *plan items* and *plan item definitions*. While plan items represent actual units of work that are enacted as part of the case, plan item definitions serve as the blueprint for how a plan item has to be enacted. This concept simplifies reuse of plan item definitions and furthermore enables dynamic planning such that additional items can be generated at runtime from a definition.
 
 As an example, consider the following fragment of a case definition:
 
