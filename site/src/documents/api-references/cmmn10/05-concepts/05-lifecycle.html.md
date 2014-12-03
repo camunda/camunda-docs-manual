@@ -130,7 +130,7 @@ States:
       enabled
     </td>
     <td>
-      A task or stage becomes <i>enabled</i> as soon as its entry criteria are fulfilled. If this is given when a the task/stage becomes available, it immediately becomes enabled.
+      A task or stage becomes <i>enabled</i> as soon as any of its entry criteria is fulfilled. If this is given when a the task/stage becomes available, it immediately becomes enabled or, depending on its manual activation rule, active.
     </td>
   </tr>
   <tr>
@@ -146,7 +146,7 @@ States:
       active
     </td>
     <td>
-      A task or stage must be manually started by a human worker using the <code>CaseService</code> API to become active. For a stage, all contained plan items are instantiated. For a task, its actual work is issued, e.g. for a human task, a task instance is created and to be worked on by a user.
+      When a task or stage becomes active, its actual work is performed. For a stage, all contained plan items are instantiated. For a task, its actual work is issued, e.g. for a human task, a task instance is created and to be worked on by a user. In order for a task or stage to become active, at least one entry criterion has to be fulfilled and it has to be activated. Activation can be either performed manually by a human worker using the <code>CaseService</code> API or by specifying a manual activation rule that evaluates to <code>false</code>.
     </td>
   </tr>
   <tr>
