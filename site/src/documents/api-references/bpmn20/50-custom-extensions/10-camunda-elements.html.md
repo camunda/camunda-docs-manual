@@ -831,9 +831,9 @@ The following elements are extension elements for the `camunda` namespace `http:
       text content of child elements. Which child elements are use is arbitrary, e.g..:
       <code><br/>
         &lt;camunda:list&gt;<br/>
-        &nbsp;&nbsp;&lt;value&gt;one&lt;/value&gt;<br/>
-        &nbsp;&nbsp;&lt;entry&gt;two&lt;/entry&gt;<br/>
-        &nbsp;&nbsp;&lt;property&gt;three&lt;/property&gt;<br/>
+        &nbsp;&nbsp;&lt;camunda:value&gt;one&lt;/camunda:value&gt;<br/>
+        &nbsp;&nbsp;&lt;camunda:value&gt;two&lt;/camunda:value&gt;<br/>
+        &nbsp;&nbsp;&lt;camunda:value&gt;three&lt;/camunda:value&gt;<br/>
         &lt;/camunda:list&gt;
       </code><br/>
       Also a <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">
