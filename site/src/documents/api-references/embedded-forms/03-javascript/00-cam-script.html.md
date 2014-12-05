@@ -1,7 +1,7 @@
 ---
 
 title: 'The cam-script Directive'
-category: 'Custom Javascript'
+category: 'Custom JavaScript'
 
 ---
 

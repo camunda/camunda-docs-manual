@@ -5,7 +5,7 @@ category: 'Supported HTML Controls'
 
 ---
 
-Single line text inputs are `<input type="text">` controls. Single line text input are the most
+Single line text inputs are `<input type="text">` controls. Single line text inputs are the most
 common input field and allow the user to provide values for different data types.
 
 ## Binding Text Input to a Process Variable

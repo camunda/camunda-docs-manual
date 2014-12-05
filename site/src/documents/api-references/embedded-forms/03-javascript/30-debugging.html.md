@@ -1,7 +1,7 @@
 ---
 
 title: 'Debugging Scripts'
-category: 'Custom Javascript'
+category: 'Custom JavaScript'
 
 ---
 

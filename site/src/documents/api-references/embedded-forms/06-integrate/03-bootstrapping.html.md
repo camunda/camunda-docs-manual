@@ -7,7 +7,7 @@ category: 'Integrating the Forms SDK'
 
 ## Creating a Client
 
-The form SDK uses an instance of the `CamSDK.Client` to communicate with the process engine (over the REST API):
+The Forms SDK uses an instance of the `CamSDK.Client` to communicate with the process engine (over the REST API):
 
 ```javascript
 var camClient = new CamSDK.Client({
@@ -18,7 +18,7 @@ var camClient = new CamSDK.Client({
 
 ## Creating a Form
 
-In order to create a Form, you need to create an instance of `CamSDK.Form`:
+In order to create a form, you need to create an instance of `CamSDK.Form`:
 
 ```javascript
 new CamSDK.Form({
@@ -28,7 +28,7 @@ new CamSDK.Form({
 
 ### Providing a Task Id
 
-In case the form is a task form (ie. the submission of the form should trigger the completing of a Task), you need to provide a `taskId`:
+In case the form is a task form (i.e., the submission of the form should trigger the completing of a task), you need to provide a `taskId`:
 
 ```javascript
 new CamSDK.Form({
@@ -43,22 +43,22 @@ new CamSDK.Form({
 
 ### Providing a Process Definition Id
 
-In case the form is a start form (ie. the submission of the form should trigger a new process instance to start), you need to provide a `processDefinitionId`:
+In case the form is a start form (i.e., the submission of the form should trigger a new process instance to start), you need to provide a `processDefinitionId`:
 
 ```javascript
 new CamSDK.Form({
   client: camClient,
 
-  // the process definition id
+  // the process definition ID
   processDefinitionId: 'someProcessDefinitionId',
 
   //...
 });
 ```
 
-### Loading a Form from an URL
+### Loading a Form from a URL
 
-The Forms SDK can automatically load forms from an URL.
+The Forms SDK can automatically load forms from a URL.
 The URL from which the form should be loaded is referenced using the `formElement` property.
 
 In that case you need to create a container element somewhere in the DOM:
@@ -88,11 +88,11 @@ new CamSDK.Form({
 });
 ```
 
-### Using a Form existing in the DOM
+### Using a form existing in the DOM
 
 It is also possible to initialize the Form SDK for a form already existing in the DOM.
 
-Assuming that you have a HTML `<form ...>` element present in the DOM:
+Assuming that you have an HTML `<form ...>` element present in the DOM:
 
 ```html
 <form id="myForm">

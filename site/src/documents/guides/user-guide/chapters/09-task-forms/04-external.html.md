@@ -5,7 +5,7 @@ category: 'Task Forms'
 
 ---
 
-If you want to call a Task Form that is not part of your application you can add a reference to the desired form. The Referenced Task Form will be configured similar to the Embedded Task Form. Open the properties view and enter `FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+If you want to call a task form that is not part of your application you can add a reference to the desired form. The referenced task form will be configured in a way similar to the embedded task form. Open the properties view and enter `FORM_NAME.html` as form key. The relevant XML tag looks like this:
 
 ```xml
 <userTask id="theTask" camunda:formKey="app:FORM_NAME.html"

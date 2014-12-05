@@ -1,13 +1,13 @@
 ---
 
-title: 'Angular JS Integration'
+title: 'AngularJS Integration'
 category: 'Integrating the Forms SDK'
 
 ---
 
 ## Including the Angular Distribution
 
-Make sure you include the angular JS build of the Forms SDK:
+Make sure you include the AngularJS build of the Forms SDK:
 
 ```html
 <script src="angular.min.js" type="text/javascript"></script>
@@ -26,7 +26,7 @@ angular.bootstrap(window.document, ['cam.embedded.forms', ...]);
 
 ## Angular Directives & Compilation
 
-If the form is loaded from an URL, the SDK makes sure that it is properly compiled and linked to the current angular scope. This allows using angular directives in forms loaded dynamically at runtime.
+If the form is loaded from a URL, the SDK makes sure that it is properly compiled and linked to the current Angular scope. This allows using Angular directives in forms loaded dynamically at runtime.
 
 ```html
 <form role="form" name="form">

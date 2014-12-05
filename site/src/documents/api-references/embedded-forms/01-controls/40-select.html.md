@@ -5,7 +5,7 @@ category: 'Supported HTML Controls'
 
 ---
 
-Select boxes are html controls of the form
+Select boxes are HTML controls of the form
 
 ```html
 <select></select>
