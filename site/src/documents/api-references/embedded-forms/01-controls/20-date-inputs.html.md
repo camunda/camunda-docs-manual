@@ -27,11 +27,11 @@ Example value: `2013-01-23T13:42:42`
 
 ## Using a Date Picker
 
-The Form SDK itself does not provide any custom components of widgets. As such it also does not provide a date picker. But you are able to integrate third party libraries providing such widgets.
+The Form SDK itself does not provide any custom components of widgets. As such it also does not provide a date picker. However, you are able to integrate third party libraries providing such widgets.
 
 > Inside Camunda Tasklist, datepicker support is provided through Angular UI.
 
-You can use the [angular UI datepicker](http://angular-ui.github.io/bootstrap/)
+You can use the [Angular UI datepicker](http://angular-ui.github.io/bootstrap/)
 directive to offer a datepicker for the date input field. The complete markup of the input field
 including the datepicker button is shown below.
 
@@ -55,8 +55,8 @@ including the datepicker button is shown below.
 </p>
 ```
 
-In addition to the HTML markup, the following javascript must be included in the form file
-(see [Custom JavaScript][javascript]):
+In addition to the HTML markup, the following JavaScript must be included in the form file
+(see [Custom JavaScript][JavaScript]):
 
 ```html
 <script cam-script type="text/form-script">
@@ -76,14 +76,14 @@ Additional attributes of the input element:
 is returned by the datepicker. It must be the ISO Date Format.
 * `is-open="dateFieldOpened"`: This attribute contains the name of the variable, which
 indicates the open status of the datepicker. It must be the same variable, which is set to
-true in the `open` function in the javascript snippet. If a form contains multiple
+true in the `open` function in the JavaScript snippet. If a form contains multiple
 datepickers, they must have different values for this attribute.
 
 Attributes of the datepicker button:
 * `ng-click="open($event)"`: This attribute contains the name of the function which is called
-when the datepicker button is clicked. It must be the function name of the javascript snippet
+when the datepicker button is clicked. It must be the function name of the JavaScript snippet
 which sets the `is-open` variable to true. If a form contains multiple date pickers, they
 must have different function names, or the name of the `is-open` variable must be passed to
 the function.
 
-[javascript]: ref:#custom-javascript
+[JavaScript]: ref:#custom-javascript

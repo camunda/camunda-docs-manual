@@ -5,7 +5,7 @@ category: 'Lifecycle and Events'
 
 ---
 
-Event listeners can be registered from [custom javascript][javascript]:
+Event listeners can be registered from [custom JavaScript][JavaScript]:
 
 ```html
 <form role="form" name="form">
@@ -58,4 +58,4 @@ Event listeners can be registered from [custom javascript][javascript]:
 </form>
 ```
 
-[javascript]: ref:#custom-javascript
+[JavaScript]: ref:#custom-javascript

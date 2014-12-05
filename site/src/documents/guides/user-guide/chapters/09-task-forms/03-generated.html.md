@@ -5,7 +5,7 @@ category: 'Task Forms'
 
 ---
 
-The camunda process engine supports generating Html Task Forms based on Form Data Metadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by camunda, allowing you to define form fields directly in BPMN 2.0 XML:
+The Camunda process engine supports generating HTML Task Forms based on Form Data Metadata provided in BPMN 2.0 XML. Form Data Metadata is a set of BPMN 2.0 vendor extensions provided by Camunda, allowing you to define form fields directly in BPMN 2.0 XML:
 
 ```xml
 <userTask id="usertask" name="Task">
@@ -33,16 +33,17 @@ The camunda process engine supports generating Html Task Forms based on Form Dat
 ```
 
 <p class="alert alert-info">
-  <strong>camunda Modeler:</strong> Form Metadata can be graphically edited using the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a>.
+  <strong>Camunda Modeler:</strong> Form metadata can be graphically edited using the <a href="http://camunda.org/bpmn/tool/">Camunda Modeler</a>.
 </p>
 
-This form would look like this in the camunda Tasklist:
+This form would look like this in the Camunda Tasklist:
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/user-guide/generated-forms-example.png" />
 </center>
+<br/>
 
-As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form Metadata consists of multiple Form Fields which represent individual input fields where a user has to provide some value or selection.
+As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form metadata consists of multiple form fields which represent individual input fields where a user has to provide some value or selection.
 
 ### Form Fields
 
@@ -56,7 +57,7 @@ A form field can have the following attributes:
   </thead>
   <tbody>
     <tr>
-      <td>id</td><td>unique id of the form field, corresponding to the name of the process variable to which the value of the form field is added when the form is submitted.</td>
+      <td>id</td><td>Unique id of the form field, corresponding to the name of the process variable to which the value of the form field is added when the form is submitted.</td>
     </tr>
     <tr>
       <td>label</td><td>The label to be displayed next to the form field.</td>
@@ -81,7 +82,7 @@ A form field can have the following attributes:
 
 ### Form Field Validation
 
-Validation can be used for specifying frontend and backend validation of form fields. camunda BPM provides a set of built-in form field validators and an extension point for plugging in custom validators.
+Validation can be used for specifying frontend and backend validation of form fields. Camunda BPM provides a set of built-in form field validators and an extension point for plugging in custom validators.
 
 Validation can be configured for each form field in BPMN 2.0 XML:
 
@@ -95,7 +96,7 @@ Validation can be configured for each form field in BPMN 2.0 XML:
 </camunda:formField>
 ```
 
-As you can see, you can provide a list of validation constraints for each Form Field.
+As you can see, you can provide a list of validation constraints for each form field.
 
 The following built-in validators are supported out of the box:
 
@@ -175,7 +176,7 @@ The following built-in validators are supported out of the box:
   </tbody>
 </table>
 
-camunda BPM supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
+Camunda BPM supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:
 
 ```xml
 <camunda:formField

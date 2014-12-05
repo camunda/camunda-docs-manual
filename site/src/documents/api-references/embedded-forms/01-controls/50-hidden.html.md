@@ -11,7 +11,7 @@ Hidden input elements are HTML
 <input type="hidden"></input>
 ```
 
-controls. They are not displayed in the form, but can be used to retrieve values to be used in the context of the form (e.g. using angular bindings).
+controls. They are not displayed in the form, but can be used to retrieve values to be used in the context of the form (e.g., using Angular bindings).
 
 ### Binding a Hidden Element to a Process Variable
 

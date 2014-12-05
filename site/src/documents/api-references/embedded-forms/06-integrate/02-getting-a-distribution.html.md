@@ -26,18 +26,18 @@ The Forms SDK depends on the following libraries:
 
 The Forms SDK *optionally* depends on the following libraries:
 
-* Angular JS (v1.2.16).
+* AngularJS (v1.2.16).
 
 ## Including the Library
 
-Next, you need to add the Javascript Library to the page.
+Next, you need to add the JavaScript Library to the page.
 
 ```html
 <script src="jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="camunda-bpm-sdk.min.js" type="text/javascript"></script>
 ```
 
-Or, with Angular JS Support:
+Or, with AngularJS Support:
 
 ```html
 <script src="angular.min.js" type="text/javascript"></script>

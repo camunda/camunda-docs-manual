@@ -1,7 +1,7 @@
 ---
 
 title: 'Available API'
-category: 'Custom Javascript'
+category: 'Custom JavaScript'
 
 ---
 

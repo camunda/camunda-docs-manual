@@ -1,7 +1,7 @@
 ---
 
 title: 'Participating in the Form Lifecycle'
-category: 'Custom Javascript'
+category: 'Custom JavaScript'
 
 ---
 
@@ -25,8 +25,8 @@ useful to declare additional variables programmatically:
     var variableManager = camForm.variableManager;
 
     camForm.on('form-loaded', function() {
-      // this callback is executed *before* the variables is loaded from the server.
-      // if we declare a variable here, it's value will be fetched as well
+      // this callback is executed *before* the variables are loaded from the server.
+      // if we declare a variable here, its value will be fetched as well
       variableManager.fetchVariable('customVariable');
     });
 
@@ -123,7 +123,7 @@ It shows how custom scripting can be used for
 
 </form>
 ```
-The above example uses jQuery for interacting with the HTML controls. If you use Angular JS you can also populate the `$scope` in the `variables-fetched` callback and read the values from the `$scope` in the `submit` callback:
+The above example uses jQuery for interacting with the HTML controls. If you use AngularJS, you can also populate the `$scope` in the `variables-fetched` callback and read the values from the `$scope` in the `submit` callback:
 
 ```html
 <form role="form">
