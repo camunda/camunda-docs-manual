@@ -21,6 +21,7 @@ The following is a list of current (unsupported) community extensions:
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
 * [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
+* [Cycle Connectors](https://github.com/camunda/camunda-cycle-connectors)
 
 ## Building a Community Extension
 
