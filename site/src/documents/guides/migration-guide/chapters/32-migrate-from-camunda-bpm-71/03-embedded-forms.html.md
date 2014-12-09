@@ -15,13 +15,13 @@ The following APIs / Behavior changed:
 
 * The `form-field` directive has been replaced with `cam-variable-name` and `cam-variable-type`.
 * The form now has a defined lifecycle (`form-loaded`, `variables-fetched`, ...) for which callbacks / event listeners can be provided.
-* In 7.1, all process instance scope variables were fetched. In 7.2 only the variables used in the form are fetched. The variables are retrieved from the task scope and it's parent scopes.
+* In 7.1, all process instance scope variables were fetched. In 7.2 only the variables used in the form are fetched. The variables are retrieved from the task scope and its parent scopes.
 
 In the remainder of this section, we walk through these changes in detail.
 
 # The `form-field` directive
 
-The form field directive is not supported in 7.2. Html controls using the `form-field` directive need to be migrated.
+The form field directive is not supported in 7.2. HTML controls using the `form-field` directive need to be migrated.
 
 The `form-field` directive was replaced by
 
@@ -47,7 +47,7 @@ In 7.2, the HTML `name` attribute is not used anymore for providing the name of 
 
 #### The `type` Attribute
 
-In 7.1 the HTML `type` attribute is not used anymore for providing the type of the variable. Instead, the `cam-variable-type` attribute is used:
+In 7.2 the HTML `type` attribute is not used anymore for providing the type of the variable. Instead, the `cam-variable-type` attribute is used:
 
 ```html
 <input name="someName"
@@ -189,7 +189,7 @@ In 7.1 all variables from the process instance scope were fetched. In 7.2 the fo
 
 If you use the `cam-variable-name` directive, the corresponding process variable will be fetched.
 
-## Fetching a variable using Javascript
+## Fetching a variable using JavaScript
 
 Additional variables can be fetched by hooking into the form lifecycle.
 
