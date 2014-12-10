@@ -5,11 +5,11 @@ category: 'Custom JavaScript'
 
 ---
 
-The following examples show example scenarios of custom Javascript in embedded forms.
+The following examples show example scenarios of custom JavaScript in embedded forms.
 
 ## Load Additional Resources
 
-This example includes an image, which is located in the contextPath of the form (e.g. in the same directory). The URL of the image is retrieved via the _task form key_ method of the REST API:
+This example includes an image, which is located in the contextPath of the form (i.e., in the same directory). The URL of the image is retrieved via the _task form key_ method of the REST API:
 
 ```html
 <form role="form">
