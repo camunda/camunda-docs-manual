@@ -21,5 +21,5 @@ We recommend to create a separate database or database schema for Camunda Cycle.
 <div class="alert alert-info">
   If you have not got the distro at hand, you can also download a file that packages these
   scripts from our <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/">server</a>.
-  Choose the correct version named <code>$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.war</code>.
+  Choose the correct version named <code>$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar</code>.
 </div>
