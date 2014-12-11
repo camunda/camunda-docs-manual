@@ -208,8 +208,41 @@
         return text.replace(/\&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace(/"/g, '&quot;');
       };
 
+      var parseHighlightLines = function(text) {
+        var lines = [];
+        text.split(';').forEach(function(range) {
+          var lineNumbers = [];
+          range.split('-').forEach(function(number) {
+            lineNumbers.push(+number);
+          });
+
+          for (var i = min(lineNumbers); i <= max(lineNumbers); i++) {
+            lines.push(i);
+          }
+        });
+
+        return lines;
+      }
+
+      var min = function(array) {
+        return Math.min.apply(Math, array);
+      }
+
+      var max = function(array) {
+        return Math.max.apply(Math, array);
+      }
+
+      var applyHighlights = function(content, lines) {
+        var contentContainer = $(content);
+        lines.forEach(function(line) {
+          contentContainer.find('li:eq(' + line + ')').addClass('highlight');
+        });
+
+        return contentContainer.html();
+      };
+
       var fetchCode = function(elementId) {
-        var escapedElementId = elementId.replace(/\./, '\\\.');
+        var escapedElementId = elementId.replace(/\./g, '\\\.');
         return indent($('#' + escapedElementId).html(), 0);
       };
 
@@ -217,13 +250,17 @@
         var element = $(this),
             filename = element.attr('data-source-code'),
             content = fetchCode(filename),
-            annotation = element.attr('annotate') && JSON.parse(fetchCode(element.attr('annotate'))) || {};
-
+            annotation = element.attr('annotate') && JSON.parse(fetchCode(element.attr('annotate'))) || {},
+            highlightLines = element.attr('highlight');
 
         // hack around incorrect tokenization
         content = content.replace('.done-true', 'doneTrue');
         if(filename.indexOf('Project-Layout')==-1) {
           content = prettyPrintOne(escape(content), undefined, true);
+        }
+
+        if (highlightLines) {
+          content = applyHighlights(content, parseHighlightLines(highlightLines));
         }
 
         // hack around incorrect tokenization
