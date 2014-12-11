@@ -226,6 +226,10 @@ footer {
   margin-top: 20px;
 }
 
+.highlight {
+  background-color: #FCDDBB;
+}
+
 /* =============================== */
 /* FORM SEARCH */
 
