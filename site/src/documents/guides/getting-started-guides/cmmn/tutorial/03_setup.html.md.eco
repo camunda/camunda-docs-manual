@@ -55,7 +55,7 @@ In the following sections, we go through this process step by step.
       <p>
         Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>
       </p>
-      <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started", tag: "Step-1"}) %>
+      <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-1"}) %>
     </div>
   </div>
 </section>
