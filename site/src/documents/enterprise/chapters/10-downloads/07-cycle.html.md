@@ -25,11 +25,11 @@ title: 'Cycle'
   <tbody>
   <tr class="well">
       <td><a href="ref:/guides/installation-guide/camunda-cycle/">Cycle for Tomcat</a></td>
-      <td>3.0.0</td>
-      <td>29.10.2014</td>
+      <td>3.1.0</td>
+      <td>16.12.2014</td>
       <td>
-        <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-cycle/tomcat/3.0/camunda-cycle-distro-3.0.0.zip">zip</a>&nbsp;
-        <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-cycle/tomcat/3.0/camunda-cycle-distro-3.0.0.tar.gz">tar.gz</a>
+        <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-cycle/tomcat/3.1/camunda-cycle-distro-3.1.0.zip">zip</a>&nbsp;
+        <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-cycle/tomcat/3.1/camunda-cycle-distro-3.1.0.tar.gz">tar.gz</a>
       </td>
     </tr>
   </tbody>
