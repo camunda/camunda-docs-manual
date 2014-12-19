@@ -57,6 +57,78 @@ To create a new localization for Tasklist, copy the provided language file, tran
 save it as new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.
 
+## Custom scripts
+
+If you want to add scripts (in order to add new [AngularJS](https://angularjs.org) directives or
+other libraries) you should add a `customScripts` property to the `app/tasklist/scripts/config.js`
+file with something like that:
+
+```javascript
+module.exports = {
+  // ...
+  customScripts: {
+    // AngularJS module names used like: angular.module('cam.tasklist.custom', conf.ngDeps);
+    ngDeps: ['ui.bootstrap'],
+
+    // RequireJS configuration for a complete configuration documentation see:
+    // http://requirejs.org/docs/api.html#config
+    deps: ['jquery', 'custom-ui'],
+
+    paths: {
+      'custom-ui': 'custom-ui/scripts'
+    }
+  }
+};
+```
+
+__Note:__ The content of the `customScripts` property will be treated as a
+[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
+`nodeIdCompat` and `skipDataMain``who are irrelevant and `deps` who will be used like:
+
+```javascript
+require(config.deps, callback);
+```
+
+
+In your scripts, you can add a controller and directive like that:
+
+```javascript
+'use strict';
+define('custom-ui', [
+  'something-else',
+  'angular'
+], function (somethingElse, angular) {
+  // the `cam.tasklist.custom` AngularJS module has been initialized for you with its dependencies
+  // (see above) and will be bootstrapped as part of the tasklist application...
+  var module = angular.module('cam.tasklist.custom');
+
+  // ...so now, you can safely add your controllers...
+  module.controller('customController', ['$scope', function ($scope) {
+    $scope.var1 = 'First variable';
+    $scope.var2 = 'Second variable';
+  }]);
+
+  // ...directives or else.
+  module.directive('customDirective', function () {
+    return {
+      template: 'Directive example: "{{ var1 }}", "{{ var2 }}"'
+    };
+  });
+
+  // it is not necessary to 'return' the module but it might come handy
+  return module;
+});
+```
+
+And finally, in your UI or embedded forms, you can use the new features like that:
+
+```html
+<div ng-controller="customController">
+  <div custom-directive> - (in this case; will be overwritten) - </div>
+</div>
+```
+
+
 ## Logo and Header Color
 
 To change visual aspects of Tasklist, you can edit the user stylesheet file located in
@@ -76,8 +148,9 @@ using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
 
 If you want to customize the interface with `less`, you should probably start by having a look at the variables defined in the `client/styles/styles.less` and `client/bower_components/bootstrap/less/variables.less` files.
 
-A sample file with variable overrides is available in the `client/styles` directory. To enable it, uncomment the line   
-`// @import "_variables-override";` in `client/styles/styles.less`   
+A sample file with variable overrides is available in the `client/styles` directory. To enable it,
+uncomment the line:
+`// @import "_variables-override";` in `client/styles/styles.less`
 and re-compile the source.
 
 ### Compiling using grunt
