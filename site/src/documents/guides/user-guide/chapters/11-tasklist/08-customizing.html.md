@@ -67,23 +67,26 @@ file with something like that:
 module.exports = {
   // ...
   customScripts: {
-    // AngularJS module names used like: angular.module('cam.tasklist.custom', conf.ngDeps);
-    ngDeps: ['ui.bootstrap'],
+    // names of angular modules defined in your custom script files.
+    // will be added to the 'cam.tasklist.custom' as dependencies
+    ngDeps: ['my.custom.module'],
 
-    // RequireJS configuration for a complete configuration documentation see:
-    // http://requirejs.org/docs/api.html#config
-    deps: ['jquery', 'custom-ui'],
+    // RequireJS modules to load.
+    deps: ['custom-ng-module'],
 
+    // RequreJS path definitions
     paths: {
-      'custom-ui': 'custom-ui/scripts'
+      'custom-ng-module': '../custom-ng-module/script'
     }
   }
 };
 ```
+This includes a `custom-ng-module/script.js` file. The path is relative to the
+`app/tasklist/scripts` folder in the camunda webapp .war file.
 
 __Note:__ The content of the `customScripts` property will be treated as a
 [RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain``who are irrelevant and `deps` who will be used like:
+`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` who will be used like:
 
 ```javascript
 require(config.deps, callback);
@@ -94,29 +97,29 @@ In your scripts, you can add a controller and directive like that:
 
 ```javascript
 'use strict';
-define('custom-ui', [
-  'something-else',
+define('custom-ng-module', [
   'angular'
-], function (somethingElse, angular) {
-  // the `cam.tasklist.custom` AngularJS module has been initialized for you with its dependencies
-  // (see above) and will be bootstrapped as part of the tasklist application...
-  var module = angular.module('cam.tasklist.custom');
+], function (angular) {
+  // define a new angular module named my.custom.module
+  // it will be added as angular module dependency to builtin 'cam.tasklist.custom' module
+  // see the config.js entry above
+  var customModule = angular.module('my.custom.module', []);
 
   // ...so now, you can safely add your controllers...
-  module.controller('customController', ['$scope', function ($scope) {
+  customModule.controller('customController', ['$scope', function ($scope) {
     $scope.var1 = 'First variable';
     $scope.var2 = 'Second variable';
   }]);
 
   // ...directives or else.
-  module.directive('customDirective', function () {
+  customModule.directive('customDirective', function () {
     return {
       template: 'Directive example: "{{ var1 }}", "{{ var2 }}"'
     };
   });
 
-  // it is not necessary to 'return' the module but it might come handy
-  return module;
+  // it is not necessary to 'return' the customModule but it might come handy
+  return customModule;
 });
 ```
 
