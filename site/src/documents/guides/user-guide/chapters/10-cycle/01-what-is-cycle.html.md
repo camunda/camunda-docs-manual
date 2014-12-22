@@ -8,7 +8,7 @@ category: 'Cycle'
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
   <p>With Camunda BPM 7.2.0 we have migrated Camunda Cycle into a standalone project. We did this to reduce the tight coupling between Camunda Cycle and the Camunda BPM platform. This eases our development efforts for Cycle and allows others to increase participation.
-  If you are looking for an installation guide for Camunda Cycle, please see <a href="http://docs.camunda.org/7.1/guides/installation-guide/tomcat/#web-applications-install-camunda-cycle">this section</a> on the 7.1 branch. We will publish more news here, through our newsletter and on our <a href="http://blog.camunda.org/">blog</a>.</p>
+  Here you can find the [installation guide](ref:/guides/installation-guide/camunda-cycle/) for Camunda Cycle. </p>
 </div> 
 
 With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their modeler (e.g. in Eclipse). Depending on your tool we can realize forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
@@ -24,5 +24,5 @@ The typical use cases are:
 * Create executable diagrams out of the BPMN 2.0 diagram (Forward Engineering)
 
 Cycle is a standalone application and must be downloaded separately from the camunda BPM distribution.
-After the installation of cycle it is ready to use by opening http://localhost:8080/cycle. At the first start up you will be prompted to create an admin user.
+After the installation of cycle it is ready to use by opening http://localhost:8180/cycle. At the first start up you will be prompted to create an admin user.
 If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](ref:/guides/getting-started-guides/roundtrip-with-cycle/).
