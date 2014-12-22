@@ -135,6 +135,15 @@ category: 'Roundtrip'
         <td></td>
         <td class="center">yes</td>
       </tr>
+      <tr>
+        <td><a href="http://www.businessprocessincubator.com/">Trisotech Business Process Incubator</a></td>
+        <td>2.0</td><td>commercial</td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
+        <td class="center">yes</td>
+      </tr>
     </table>
     <p>
       If this overview is in any way incorrect or outdated, please <a href="mailto:community@camunda.org">let us know</a>!
