@@ -92,7 +92,7 @@ category: 'Roundtrip'
         <td>commercial</td>
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
-        <td></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td></td>
         <td class="center">only forward</td>
       </tr>
@@ -103,7 +103,7 @@ category: 'Roundtrip'
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
-        <td></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td class="center">yes</td>
       </tr>
       <tr>
