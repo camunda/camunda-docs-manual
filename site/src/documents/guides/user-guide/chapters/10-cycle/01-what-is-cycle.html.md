@@ -8,7 +8,7 @@ category: 'Cycle'
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
   <p>With Camunda BPM 7.2.0 we have migrated Camunda Cycle into a standalone project. We did this to reduce the tight coupling between Camunda Cycle and the Camunda BPM platform. This eases our development efforts for Cycle and allows others to increase participation.
-  Here you can find the [installation guide](ref:/guides/installation-guide/camunda-cycle/) for Camunda Cycle. </p>
+  Here you can find the <a href="ref:/guides/installation-guide/camunda-cycle/">installation guide</a> for Camunda Cycle. </p>
 </div> 
 
 With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their modeler (e.g. in Eclipse). Depending on your tool we can realize forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
