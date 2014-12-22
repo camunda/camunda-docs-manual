@@ -11,6 +11,8 @@ To connect Cycle to a suitable repository you can set up one of the following co
 * [Subversion Connector](ref:#cycle-connector-configuration-subversion-connector)
 * [File System Connector](ref:#cycle-connector-configuration-file-system-connector)
 
+Cycle also ships with a gitHub connector. In addition more BPMN 2.0 tool vendors contribute their connectors in the <a href="https://github.com/camunda/camunda-cycle-connectors">cycle community extension</a>.
+
 Furthermore you get information about how to configure [User Credentials](ref:#cycle-connector-configuration-user-credentials) for your connector.
 
 ## Signavio Connector
@@ -37,7 +39,7 @@ Furthermore you get information about how to configure [User Credentials](ref:#c
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Use the subversion plugin to connect to a subversion repository like SVN or GitHub. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If <a href="ref:#cycle-connector-configuration-user-credentials">user credentials</a> are mandatory, you can provide them either globally or individually for each Cycle user. In the picture to the left you see a connector setup for a GitHub repository. The user credentials are provided globally. 
+      Use the subversion plugin to connect to a subversion repository like SVN. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If <a href="ref:#cycle-connector-configuration-user-credentials">user credentials</a> are mandatory, you can provide them either globally or individually for each Cycle user. In the picture to the left you see a connector setup for a GitHub repository. The user credentials are provided globally. 
     </p>
     <p>
       Hit <code>Test</code> to check if Cycle can find the folder you specified.
