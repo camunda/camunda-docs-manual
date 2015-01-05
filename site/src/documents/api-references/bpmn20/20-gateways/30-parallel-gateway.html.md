@@ -92,6 +92,7 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
   <tr>
     <th>Extension Elements</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaexecutionlistener">camunda:executionListener</a>
     </td>
   </tr>

@@ -84,17 +84,25 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching n
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
-    <td>&ndash;</td>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+    </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaexecutionlistener">camunda:executionListener</a>
     </td>
   </tr>
   <tr>
     <th>Constraints</th>
-    <td>&ndash;</td>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
   </tr>
 </table>
 
