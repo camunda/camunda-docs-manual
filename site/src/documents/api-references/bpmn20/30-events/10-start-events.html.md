@@ -45,6 +45,7 @@ This will ensure that the process engine creates a process instance when the pro
     <th>Attributes</th>
     <td>
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformhandlerclass">camunda:formHandlerClass</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:formKey</a>,
@@ -54,6 +55,7 @@ This will ensure that the process engine creates a process instance when the pro
   <tr>
     <th>Extension Elements</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaformdata">camunda:formData</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaformproperty">camunda:formProperty</a>,
     </td>
@@ -62,14 +64,13 @@ This will ensure that the process engine creates a process instance when the pro
     <th>Constraints</th>
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
-      <code>camunda:asyncBefore</code> is set to <code>true</code>
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
     </td>
   </tr>
   <tr>
     <td></td>
     <td>
-      The attributes <code>camunda:asyncBefore</code>, <code>camunda:exclusive</code> and
-      <code>camunda:initiator</code> are only available for start events of a Process
+      The attributes <code>camunda:asyncBefore</code> and <code>camunda:initiator</code> are only available for start events of a Process
     </td>
   </tr>
   <tr>
