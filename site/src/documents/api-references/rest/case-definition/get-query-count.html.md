@@ -66,7 +66,7 @@ Parameters
     <td>Filter by case definition version.</td>
   </tr>
   <tr>
-    <td>latestVersion</td>
+    <td>latest</td>
     <td>Only include those case definitions that are latest versions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
