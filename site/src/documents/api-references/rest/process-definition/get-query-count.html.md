@@ -58,12 +58,12 @@ Parameters
     <td>Filter by process definition categories that the parameter is a substring of.</td>
   </tr>
   <tr>
-    <td>version</td>
+    <td>ver</td>
     <td>Filter by process definition version.</td>
   </tr>
   <tr>
-    <td>latestVersion</td>
-    <td>Only include those process definitions that are latest versions. Values may be `true` or `false`.</td>
+    <td>latest</td>
+    <td>Only include those process definitions that are latest versions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>resourceName</td>
