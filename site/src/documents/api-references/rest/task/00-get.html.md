@@ -155,6 +155,11 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/hal+json</td>
+    <td>Request successful. In case of an expected <a href="ref:#overview-hypertext-application-language-hal">HAL</code> response.</td>
+  </tr>
+  <tr>
     <td>404</td>
     <td>application/json</td>
     <td>Task with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>

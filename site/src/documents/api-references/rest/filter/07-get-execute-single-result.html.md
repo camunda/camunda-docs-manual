@@ -54,6 +54,11 @@ Response codes
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/hal+json</td>
+    <td>Request successful. In case of an expected <a href="ref:#overview-hypertext-application-language-hal">HAL</code> response.</td>
+  </tr>
+  <tr>
     <td>204</td>
     <td></td>
     <td>Request successful, but the result was empty.</td>
