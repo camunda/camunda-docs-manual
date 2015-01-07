@@ -32,15 +32,17 @@ The `ServletProcessApplication` class is the base class for developing Process A
 
 The following is an example of a Servlet Process Application:
 
-    package org.camunda.bpm.example.loanapproval;
+```java
+package org.camunda.bpm.example.loanapproval;
 
-    import org.camunda.bpm.application.ProcessApplication;
-    import org.camunda.bpm.application.impl.ServletProcessApplication;
+import org.camunda.bpm.application.ProcessApplication;
+import org.camunda.bpm.application.impl.ServletProcessApplication;
 
-    @ProcessApplication("Loan Approval App")
-    public class LoanApprovalApplication extends ServletProcessApplication {
-      // empty implementation
-    }
+@ProcessApplication("Loan Approval App")
+public class LoanApprovalApplication extends ServletProcessApplication {
+  // empty implementation
+}
+```
 
 Notice the `@ProcessApplication` annotation. This annotation fulfills two purposes:
 
@@ -59,18 +61,18 @@ This means that in case you deploy to a Servlet 3.0 compliant container (such as
 
 In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Server 5 for that matter), you need manually register your ProcessApplication class as Servlet Context Listener in the Servlet Container. This can be achieved by adding a listener element to your `WEB-INF/web.xml` file:
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <listener>
+    <listener-class>org.my.project.MyProcessApplication</listener-class>
+  </listener>
 
-      <listener>
-        <listener-class>org.my.project.MyProcessApplication</listener-class>
-      </listener>
-
-    </web-app>
-
+</web-app>
+```
 <a name="servlet-process-applicarion-inside-ejb-container"></a>
 
 ### Using the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss
@@ -130,27 +132,107 @@ This deployment option requires that your project is a composite deployment (suc
 
 If you want to customize the behavior of the the EjbProcessApplication class you have the option of writing a custom EjbProcessApplication class. The following is an example of such an implementation:
 
-    @Singleton
-    @Startup
-    @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    @ProcessApplication
-    @Local(ProcessApplicationInterface.class)
-    public class MyEjbProcessApplication extends EjbProcessApplication {
+```java
+@Singleton
+@Startup
+@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+@ProcessApplication
+@Local(ProcessApplicationInterface.class)
+public class MyEjbProcessApplication extends EjbProcessApplication {
 
-      @PostConstruct
-      public void start() {
-        deploy();
-      }
+  @PostConstruct
+  public void start() {
+    deploy();
+  }
 
-      @PreDestroy
-      public void stop() {
-        undeploy();
-      }
+  @PreDestroy
+  public void stop() {
+    undeploy();
+  }
 
-    }
+}
+```
 
-### Invocation Semantics of  the EjbProcessApplication
+### Expose servlet context path using a custom EjbProcessApplication
+
+If your application is a `WAR` (or a `WAR` inside an `EAR`) and you want to use [embedded](ref:#task-forms-embedded-task-forms) or [external task forms](ref:#task-forms-external-task-forms) inside the [Tasklist](ref:#tasklist) application, then your custom EjbProcessApplication must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.
+
+Therefore your custom EjbProcessApplication must be extended by a `Map` and a getter-method for that `Map` as follows:
+
+```java
+@Singleton
+@Startup
+@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+@ProcessApplication
+@Local(ProcessApplicationInterface.class)
+public class MyEjbProcessApplication extends EjbProcessApplication {
+
+  protected Map<String, String> properties = new HashMap<String, String>();
+
+  @PostConstruct
+  public void start() {
+    deploy();
+  }
+
+  @PreDestroy
+  public void stop() {
+    undeploy();
+  }
+
+  public Map<String, String> getProperties() {
+    return properties;
+  }
+
+}
+```
+
+Furthermore, to provide the servlet context path a custom `javax.servlet.ServletContextListener` must be added to your application. Inside your custom implementation of the `ServletContextListener` you have to
+
+* inject your custom EjbProcessApplication using the `@EJB` annotation,
+* resolve the servlet context path and
+* expose the servlet context path through the `ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH` property inside your custom EjbProcessApplication.
+
+This can be done as follows:
+
+```java
+public class ProcessArchiveServletContextListener implements ServletContextListener {
+  
+  @EJB
+  private ProcessApplicationInterface processApplication;
+
+  public void contextInitialized(ServletContextEvent contextEvent) {
+
+    String contextPath = contextEvent.getServletContext().getContextPath();
+    
+    Map<String, String> properties = processApplication.getProperties();
+    properties.put(ProcessApplicationInfo.PROP_SERVLET_CONTEXT_PATH, contextPath);
+  }
+
+  public void contextDestroyed(ServletContextEvent arg0) {
+  }
+
+}
+```
+Finally the custom `ProcessArchiveServletContextListener` has to be added to your `WEB-INF/web.xml` file:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <listener>
+    <listener-class>org.my.project.ProcessArchiveServletContextListener</listener-class>
+  </listener>
+
+  ...
+
+</web-app>
+```
+
+### Invocation Semantics of the EjbProcessApplication
 
 The fact that the EjbProcessApplication exposes itself as a Session Bean Component inside the EJB container determines
 
@@ -197,28 +279,32 @@ The `org.camunda.bpm.application.impl.EmbeddedProcessApplication` can only be us
 
 The Embedded Process Application also does not provide auto-startup. You need to manually call the deploy method of your process application:
 
-    // instantiate the process application
-    MyProcessApplication processApplication = new MyProcessApplication();
+```java
+// instantiate the process application
+MyProcessApplication processApplication = new MyProcessApplication();
 
-    // deploy the process application
-    processApplication.deploy();
+// deploy the process application
+processApplication.deploy();
 
-    // interact with the process engine
-    ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
-    processEngine.getRuntimeService().startProcessInstanceByKey(...);
+// interact with the process engine
+ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
+processEngine.getRuntimeService().startProcessInstanceByKey(...);
 
-    // undeploy the process application
-    processApplication.undeploy();
+// undeploy the process application
+processApplication.undeploy();
+```
 
 Where the class `MyProcessApplication` could look like this:
 
-    @ProcessApplication(
-        name="my-app",
-        deploymentDescriptors={"path/to/my/processes.xml"}
-    )
-    public class MyProcessApplication extends EmbeddedProcessApplication {
+```java
+@ProcessApplication(
+    name="my-app",
+    deploymentDescriptors={"path/to/my/processes.xml"}
+)
+public class MyProcessApplication extends EmbeddedProcessApplication {
 
-    }
+}
+```
 
 ## The SpringProcessApplication
 
@@ -249,14 +335,16 @@ If your application is a WebApplication you should use `org.camunda.bpm.engine.s
 
 The following shows an example of how to bootstrap a SpringProcessApplication inside a spring application context Xml file:
 
-    <beans xmlns="http://www.springframework.org/schema/beans"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://www.springframework.org/schema/beans
-                               http://www.springframework.org/schema/beans/spring-beans.xsd">
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-      <bean id="invoicePa" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+  <bean id="invoicePa" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
 
-    </beans>
+</beans>
+```
 
 (Remember that you additionally need a `META-INF/processes.xml` file.
 
@@ -268,43 +356,45 @@ The SpringProcessApplication will use the bean name (`id="invoicePa"` in the exa
 
 If you use a Spring Process Application, you may want to configure your process engine inside the spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the BPM Platform infrastructure so that the process engine is returned by the `ProcessEngineService`. The following is an example of how to configure a managed process engine using Spring.
 
-    <beans xmlns="http://www.springframework.org/schema/beans"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://www.springframework.org/schema/beans
-                               http://www.springframework.org/schema/beans/spring-beans.xsd">
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-        <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
-            <property name="targetDataSource">
-                <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-                    <property name="driverClass" value="org.h2.Driver"/>
-                    <property name="url" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000"/>
-                    <property name="username" value="sa"/>
-                    <property name="password" value=""/>
-                </bean>
-            </property>
-        </bean>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <property name="targetDataSource">
+            <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+                <property name="driverClass" value="org.h2.Driver"/>
+                <property name="url" value="jdbc:h2:mem:camunda;DB_CLOSE_DELAY=1000"/>
+                <property name="username" value="sa"/>
+                <property name="password" value=""/>
+            </bean>
+        </property>
+    </bean>
 
-        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-            <property name="dataSource" ref="dataSource"/>
-        </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-        <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-            <property name="processEngineName" value="default" />
-            <property name="dataSource" ref="dataSource"/>
-            <property name="transactionManager" ref="transactionManager"/>
-            <property name="databaseSchemaUpdate" value="true"/>
-            <property name="jobExecutorActivate" value="false"/>
-        </bean>
+    <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+        <property name="processEngineName" value="default" />
+        <property name="dataSource" ref="dataSource"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="databaseSchemaUpdate" value="true"/>
+        <property name="jobExecutorActivate" value="false"/>
+    </bean>
 
-        <!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform -->
-        <bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
-            <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
-        </bean>
+    <!-- using ManagedProcessEngineFactoryBean allows registering the ProcessEngine with the BpmPlatform -->
+    <bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
+        <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
+    </bean>
 
-        <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
-        <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
-        <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
-        <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
-        <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
+    <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
+    <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
+    <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
+    <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
+    <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
 
-    </beans>
+</beans>
+```
