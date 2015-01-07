@@ -237,7 +237,7 @@ Where the class `MyProcessApplication` could look like this:
 
 The `org.camunda.bpm.engine.spring.application.SpringProcessApplication` class allows bootstrapping a process application through a Spring Application Context. You can either reference the SpringProcessApplication class from an Xml-based application context configuration file or use annotation-based setup.
 
-If your application is a WebApplicaiton you should use `org.camunda.bpm.engine.spring.application.SpringServletProcessApplication` as it provides support for exposing the servlet context path through the `ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH` property.
+If your application is a WebApplication you should use `org.camunda.bpm.engine.spring.application.SpringServletProcessApplication` as it provides support for exposing the servlet context path through the `ProcessApplicationInfo#PROP_SERVLET_CONTEXT_PATH` property.
 
 <div class="alert alert-info">
   <strong>SpringServletProcessApplication</strong>
