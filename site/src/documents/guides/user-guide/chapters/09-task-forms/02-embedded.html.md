@@ -37,8 +37,7 @@ relevant content for your form. The following example shows a simple form with t
 </form>
 ```
 
-To configure the form in your process, open the process in your Eclipse IDE with the <a
-href="http://camunda.org/bpmn/tool/">Camunda Modeler</a> and select the desired [User
+To configure the form in your process, open the process in your Eclipse IDE with the <a href="http://camunda.org/bpmn/tool/">Camunda Modeler</a> and select the desired [User
 Task](ref:/api-references/bpmn20/#tasks-user-task) or [Start
 Event](ref:/api-references/bpmn20/#events-start-events). Open the properties view and enter
 `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
