@@ -12,6 +12,124 @@ process definition or assignee of a task directly into the response. Which in tu
 reduces the number of necessary requests to gather all information about a
 single task or a list of tasks.
 
+In order to interact with `HAL` you have to set as Accept header `application/hal+json`. The
+response of a `HAL` request has always the following structure:
+
+```json
+{
+  "_links" : {},
+  "_embedded" : {}
+}
+```
+
+The property `_links` contains relational links that gives an easy way to navigate between
+associated resources. A `_links` property contains at least a `self` relational link. The
+property `_embedded` includes other linked resources in the representing resource. Each
+embedded resource will be structured as a `HAL` resource.
+
+### Example: Resource
+
+
+#### Request
+
+GET `/task/a-task-id`
+
+Request Header:
+```
+Accept: application/hal+json
+```
+
+#### Response
+
+```json
+{
+  "_links" : {
+    "self": {
+      "href": "/task/a-task-id"
+    },
+    "assignee": {
+      "href": "/user/demo"
+    },
+    ...
+  },
+  "_embedded" : {
+    "group" : [{
+      "_links" : {
+        "self" : {
+          "href" : "/group/management"
+        }
+      },
+      "_embedded" : null,
+      "id" : "management",
+      ...
+    }],
+    "processDefinition" : [ {...}, {...} ],
+    ...
+  },
+  "id" : "a-task-id",
+  "name": "Assign Approver",
+  "assignee": "demo",
+  ...
+}
+```
+
+### Example: Collection
+
+#### Request
+
+GET `/task`
+
+Request Header:
+```
+Accept: application/hal+json
+```
+
+#### Response
+
+```json
+{
+  "_links" : {
+    "self": {
+      "href": "/task"
+    }
+  },
+  "_embedded" : {
+    "assignee" : [{
+      "_links" : {
+        "self" : {
+          "href" : "/user/demo"
+        }
+      },
+      "_embedded" : null,
+      id: "demo",
+      ...
+    }],
+    "processDefinition" : [ {...} ],
+    "task" : [{
+      "_links" : {
+        "self": {
+          "href": "/task/a-task-id"
+        },
+        "assignee": {
+          "href": "/user/demo"
+        },
+        ...
+      },
+      "_embedded" : {
+        "variable" : [ {...}, {...} ]
+      },
+      "id" : "a-task-id",
+      "name": "Assign Approver",
+      "assignee": "demo",
+      ...
+    }, {
+      ...
+    }]
+  },
+  "count" : 2
+}
+```
+
 ### Caching of HAL relations
 
 During the generation of a HAL response, linked resources are resolved to embed
