@@ -33,7 +33,7 @@ When referenced in a case plan, a milestone gets completed as soon as its entry 
       </sentry>
 
       <humanTask id="HumanTask_1" />
-      <milestone id="Milestone_1" name="A Milestone" entryCriteriaRefs="Sentry_1" />
+      <milestone id="Milestone_1" name="A Milestone" />
     </casePlanModel>
   </case>
 </defintions>
