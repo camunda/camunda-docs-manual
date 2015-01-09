@@ -40,7 +40,8 @@ consists of the language code and the suffix `.json` (e.g. `en.json`).
 
 Tasklist uses a locale file corresponding to the language settings of the browser. You can
 set the `availableLocales` property in the configuration file to provide a list of available
-locales. Every locale which is contained in this list must have a locale file in the `locales`
+locales. The path to this configuration file is mentioned [above](ref:#tasklist-customizing).
+Every locale which is contained in this list must have a locale file in the `locales`
 directory with the corresponding language code.
 
 If the browser uses a language which is not available, Tasklist uses the locale which is
