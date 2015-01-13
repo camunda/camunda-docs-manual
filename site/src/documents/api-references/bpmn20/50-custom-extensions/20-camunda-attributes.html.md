@@ -653,7 +653,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
+      <p>
       The attribute specifies the process variable to save the return value of a <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>.
+      </p>
+      <p>
+        Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes unless the variable is a <a href="ref:/guides/user-guide/#process-engine-process-variables-variable-scopes-and-variable-visibility">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
+      <p>
+        This is a known issue. As a workaround, a local variable can be declared by adding an <a href="ref:/guides/user-guide/#process-engine-delegation-code-execution-listener">execution listener</a> to the subprocess' start event that initializes the variable as <code>null</code>.
+      </p>
     </td>
   </tr>
   <tr>
