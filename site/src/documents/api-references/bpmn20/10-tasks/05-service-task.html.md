@@ -66,6 +66,13 @@ The return value of a service execution (for a service task exclusively using ex
 
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
 
+<div class="alert alert-warning">
+  <strong>Result variables and multi-instance</strong>
+  <p>
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a> for details.
+  </p>
+</div>
+
 ## camunda Extensions
 
 <table class="table table-striped">
