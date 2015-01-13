@@ -66,5 +66,15 @@ The return value of a script task can be assigned to an already existing or to a
   <script>#{echo}</script>
 </scriptTask>    
 ```
-   
-In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes. 
+
+In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
+
+<div class="alert alert-warning">
+  <strong>Result variables and multi-instance</strong>
+  <p>
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior.
+  </p>
+  <p>
+    This is a known issue. As a workaround, a local variable can be declared by adding an <a href="ref:/guides/user-guide/#process-engine-delegation-code-execution-listener">execution listener</a> to the subprocess' start event that initializes the variable as null.
+  </p>
+</div>

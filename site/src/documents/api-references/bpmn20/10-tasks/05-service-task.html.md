@@ -88,6 +88,15 @@ The return value of a service execution (for service task using expression only)
 
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
 
+<div class="alert alert-warning">
+  <strong>Result variables and multi-instance</strong>
+  <p>
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior.
+  </p>
+  <p>
+    This is a known issue. As a workaround, a local variable can be declared by adding an <a href="ref:/guides/user-guide/#process-engine-delegation-code-execution-listener">execution listener</a> to the subprocess' start event that initializes the variable as null.
+  </p>
+</div>
 
 ## Additional Resources
 
