@@ -54,7 +54,7 @@ The following example is a script implemented in JavaScript. The script makes us
 
 ### Serializing Process Variables
 
-A Java object can be serialized using Spin's built-in XML data format. Let us assume that there are two Java classes, `com.example.Customer` and `com.example.Address`. Spin's default XML format relies on JAXB which is why these classes have JAXB annotations. They look as follows:
+A Java object can be serialized using Spin's built-in XML data format. Let us assume that there are two Java classes, `com.example.Customer` and `com.example.Address`. Spin's default XML format relies on JAXB which is why JAXB annotations like `@XmlRootElement`, `@XmlAttribute`, and `@XmlElement` can be used to configure the serialization process. Note though that these annotations are not required. The classes look as follows:
 
 ```java
 @XmlRootElement(namespace = "http://camunda.org/example")

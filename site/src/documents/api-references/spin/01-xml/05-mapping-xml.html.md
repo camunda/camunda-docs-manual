@@ -7,7 +7,7 @@ keyword: 'spin api xml'
 
 ---
 
-Spin can deserialize XML to JAXB annotated Java objects and serialize the annotated Java objects to XML by integrating mapping features into its fluent API.
+Spin can deserialize XML to Java objects and serialize the annotated Java objects to XML by integrating mapping features into its fluent API. JAXB annotations can be added to the involved Java classes to configure the (de-)serialization process but are not required.
 
 ## Mapping between Representations:
 
