@@ -101,6 +101,13 @@ The return value of a script task can be assigned to a previously existing or to
 
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
+<div class="alert alert-warning">
+  <strong>Result variables and multi-instance</strong>
+  <p>
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a> for details.
+  </p>
+</div>
+
 
 ## camunda Extensions
 
