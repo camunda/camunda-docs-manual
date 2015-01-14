@@ -12,3 +12,5 @@ The camunda-engine spring framework integration is located inside the camunda-en
       <artifactId>camunda-engine-spring</artifactId>
       <version>${camunda.version}</version>
     </dependency>
+
+The `camunda-engine-spring` artifact should be added as a library to the process application.
