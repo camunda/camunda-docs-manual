@@ -59,7 +59,10 @@ And the Spring bean configuration (also shown above) looks like this:
 
 In a shared process engine deployment scenario, you have a process engine which dispatches to multiple applications. In this case, there is not a single spring application context but each application may maintain its own application context. The process engine cannot use a single expression resolver for a single application context but must delegate to the appropriate process application, depending on which process is currently executed.
 
-This functionality is provided by the `org.camunda.bpm.engine.spring.application.SpringProcessApplicationElResolver`. This class is a ProcessApplicationElResolver implementation delegating to the local application context. Expression resolving then works in the following way: the shared process engine checks which process application corresponds to the
-process it is currently executing. It then delegates to that process application for resolving expressions. The process application delegates to the SpringProcessApplicationElResolver which uses the local Spring application context for resolving beans.
+This functionality is provided by the `org.camunda.bpm.engine.spring.application.SpringProcessApplicationElResolver`. This class is a ProcessApplicationElResolver implementation delegating to the local application context. Expression resolving then works in the following way: the shared process engine checks which process application corresponds to the process it is currently executing. It then delegates to that process application for resolving expressions. The process application delegates to the SpringProcessApplicationElResolver which uses the local Spring application context for resolving beans.
 
-The SpringProcessApplicationElResolver class is automatically detected if the camunda-engine-spring module is visible from the classpath of a process application.
+<div class="alert alert-info">
+   <p>The <code>SpringProcessApplicationElResolver</code> class is automatically detected if the <code>camunda-engine-spring</code> module is included as a library of the process application, not as a global library.</p>
+</div>
+
+
