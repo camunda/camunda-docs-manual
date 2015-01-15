@@ -79,6 +79,7 @@ Javascript dependencies:
 - [Dojo](http://dojotoolkit.org/) [(Academic Free License 2.1)][dojo]
 
 Java dependencies:
+- [Hibernate](http://hibernate.org/) [(GNU Lesser General Public License)][lgpl]
 - [Apache Commons Codec](http://commons.apache.org/proper/commons-codec/) [(Apache License 2.0)][apache]
 - [NekoHTML](http://nekohtml.sourceforge.net/) [(Apache License 2.0)][apache]
 - [SAXON](http://saxon.sourceforge.net/) [(Mozilla Public License 1.0)][mpl]
@@ -124,3 +125,5 @@ The camunda Modeler depends on the following third-party libraries:
 [tmate]: http://svnkit.com/license.html
 [python]: http://www.jython.org/license.html
 [jruby]: https://github.com/jruby/jruby/blob/master/LICENSE.RUBY
+[lgpl]: http://www.gnu.org/licenses/lgpl-3.0.de.html
+
