@@ -188,6 +188,33 @@ public class FakeLdapService {
 }
 ```
 
+## Forms
+
+It is possible to provide information to render a user task form using the `camunda:formKey`
+attribute:
+
+```xml
+<userTask id="someTask" camunda:formKey="someForm.html">
+  ...
+</userTask>
+```
+
+The form key is a symbolic value which can be set in the BPMN XML file using the extension attribute
+`formKey` and retrieved at runtime using the process engine API.
+
+If the user task form is displayed inside camunda Tasklist, the format of the formKey must follow
+special rules. [See the corresponding section in the userguide for details](ref:/guides/user-guide/#tasklist-task-forms).
+
+In custom applications, the value of the form key can be chosen freely. In a custom application the
+value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
+it can reference the name of a HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
+
+### Retrieving the form key using the form service.
+
+```java
+String formKey = formService.getTaskFormData(someTaskId).getFormKey();
+```
+
 ## camunda Extensions
 
 <table class="table table-striped">
