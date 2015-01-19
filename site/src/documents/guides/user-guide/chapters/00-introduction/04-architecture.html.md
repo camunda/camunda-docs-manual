@@ -58,6 +58,9 @@ The individual process engine instances do not maintain session state across tra
 
 The process engine [job executor](ref:#process-engine-the-job-executor) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters](ref:#process-engine-the-job-executor-cluster-setups).
 
+## Multi-Tenancy Model
+
+To serve multiple, independent parties with one Camunda installation, the process engine supports multi-tenancy. Based on the requirements on how the data of different tenants should be separated, it is possible to configure data isolation on database row level on the one hand, or on database, schema, or table level on the other. Furthermore, Camunda's APIs provide access to processes and related data in a tenant-specific way. See the [multi-tenancy section](ref:#process-engine-multi-tenancy) for details.
 
 ## Web Application Architecture
 

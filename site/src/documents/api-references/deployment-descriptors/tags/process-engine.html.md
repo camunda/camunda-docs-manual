@@ -334,4 +334,14 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><code>databaseTablePrefix</code></td>
+    <td>String</td>
+    <td>
+      <p>
+        Specifies a prefix for any table name included in SQL statements made by the process engine. Can be used to point the engine to a specific schema by setting the value to <code>MY_SCHEMA.</code> or tables with a naming pattern by setting the value to <code>MY_TABLE_PREFIX_PATTERN_</code>.
+      </p>
+    </td>
+  </tr>
+
 </table>
