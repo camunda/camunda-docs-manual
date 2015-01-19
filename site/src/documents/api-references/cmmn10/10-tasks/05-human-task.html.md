@@ -152,6 +152,52 @@ public class FakeLdapService {
 }
 ```
 
+## Forms
+
+It is possible to provide information to render a human task form using the `camunda:formKey`
+attribute:
+
+```xml
+<humanTask id="someTask" camunda:formKey="someForm.html">
+  ...
+</humanTask>
+```
+
+The form key is a symbolic value which can be set in the CMMN XML file using the extension
+attribute `formKey` and retrieved at runtime using the process engine API.
+
+If the user task form is displayed inside camunda Tasklist, the format of the formKey must follow
+special rules. [See the corresponding section in the userguide for details](ref:/guides/user-guide/#task-forms).
+
+In custom applications, the value of the form key can be chosen freely. In a custom application the
+value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
+it can reference the name of a HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
+
+### Retrieving the form key using the form service.
+
+```java
+String formKey = formService.getTaskFormData(someTaskId).getFormKey();
+```
+
+### Retrieving the form using the task service
+
+When performing a task query, it is possible to retrieve the form key as well. This is most useful
+if the form keys need to be retrieved for a complete list of tasks:
+
+```java
+List<Task> tasks = TaskService.createTaskQuery()
+  .assignee("jonny")
+  .initializeFormKeys() // must be invoked
+  .list();
+
+for(Task task : tasks) {
+  String formKey = task.getFormKey();
+}
+```
+
+Note that it is required to call the `.initializeFormKeys()` method on the `TaskQuery` object to
+make sure the form keys are initialized.
+
 ## Camunda Extensions
 
 <table class="table table-striped">
