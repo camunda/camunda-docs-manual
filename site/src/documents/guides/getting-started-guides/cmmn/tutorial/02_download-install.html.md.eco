@@ -17,7 +17,7 @@ category: 'Tutorial'
 
 ###Install camunda BPM platform
 
-First, download a distribution of the camunda BPM platform. You can choose from different distrubitions for various application servers. In this tutorial, we will use the Apache Tomcat 7 based distribution. Download it [here](http://camunda.org/download). Make sure you choose a version >= 7.2.0.
+First, download a distribution of the camunda BPM platform. You can choose from different distributions for various application servers. In this tutorial, we will use the Apache Tomcat 7 based distribution. Download it [here](http://camunda.org/download). Make sure you choose a version >= 7.2.0.
 
 After having downloaded the distribution, unpack it inside a directory of your choice. We will call that directory `$CAMUNDA_HOME`.
 

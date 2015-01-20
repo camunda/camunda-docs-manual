@@ -46,7 +46,7 @@ Now you can call the `buildProcessEngine()` operation to create a Process Engine
 ProcessEngine processEngine = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration()
   .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_FALSE)
   .setJdbcUrl("jdbc:h2:mem:my-own-db;DB_CLOSE_DELAY=1000")
-  .setJobExecutorActivate(true)
+  .setJobExecutorActivate("true")
   .buildProcessEngine();
 ```
 
@@ -125,7 +125,7 @@ The `<process-engine ... />` xml tag allows you to define a process engine:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform" 
+<bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.camunda.org/schema/1.0/BpmPlatform http://www.camunda.org/schema/1.0/BpmPlatform">
 
