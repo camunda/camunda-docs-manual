@@ -93,3 +93,49 @@ But there are consequences which you should keep in mind:
  * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. But in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
 
 <img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/NotWorkingTimerOnServiceTimeout.png"/>
+
+## Transaction Integration
+
+The process engine can either manage transactions on its own ("Standalone" transaction management)
+or integrate with a platform transaction manager.
+
+### Standalone Transaction Management
+
+If the process engine is configured to perform standalone transaction management, it always opens a
+new transaction for each command which is executed. To configure the process engine to use
+standalone transaction management, use the
+`org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`:
+
+```java
+ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration()
+  ...
+  .buildProcessEngine();
+```
+
+The usecases for standalone transaction management are situations where the process engine does not
+have to integrate with other transactional resources such as secondary datasources or messaging
+systems.
+
+> **Note**: in the tomcat distribution the process engine is configured using standalone transaction
+> management.
+
+### Transaction Manager Integration
+
+The process engine can be configured to integrate with a transaction manager (or transaction
+management systems). Out of the box, the process engine supports integration with Spring and JTA
+transaction management. More information can be found in the following chapters:
+
+* [Section on Spring Transaction Management][tx-spring]
+* [Section on JTA Transaction Management][tx-jta]
+
+The usecase for transaction manager integration are situations where the process engine needs to
+integrate with
+
+* transaction focused programming models such as Java EE or Spring (think about transaction scoped
+  JPA entity managers in Java EE),
+* other transactional resources such as secondary datasources, messaging systems or other
+  transactional middleware like the web services stack.
+
+[tx-spring]: ref:#spring-framework-integration-spring-transaction-integration
+[tx-jta]: ref:#cdi-and-java-ee-integration-jta-transaction-integration
+
