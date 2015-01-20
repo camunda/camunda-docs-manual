@@ -44,6 +44,14 @@ Working with different process engines for multiple tenants comprises the follow
 * **Deployment** of process definitions for different tenants to their respective engines
 * **Access** to a process engine based on a tenant identifier via the Camunda API
 
+
+<div class="alert alert-info">
+  <p>
+    <strong>Tutorial</strong>
+    <p>You can find a tutorial <a href="ref:/real-life/how-to/#process-engine-multi-tenancy">here</a> that shows how to implement multi-tenancy with data isolation by schemas.</p>
+  </p>
+</div>
+
 ##### Configuration
 
 Multiple process engines can be configured in a configuration file or via Java API. Each engine should be given a name that is related to a tenant such that it can be identified based on the tenant. For example, each engine can be named after the tenant it serves. See the [Process Engine Bootstrapping](ref:#process-engine-process-engine-bootstrapping) section for details.
