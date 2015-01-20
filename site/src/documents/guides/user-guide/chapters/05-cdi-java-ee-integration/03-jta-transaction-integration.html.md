@@ -5,5 +5,23 @@ category: 'Cdi and Java EE Integration'
 
 ---
 
+The process engine transaction management can integrate with JTA. In order to use JTA transaction
+manager integration, you need to use the 
 
-Documentation for this part has yet to be written.
+* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for Jta Integration only
+* `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI Expression
+  resolving support.
+
+> **Note 1**: The shared process engine distributions for Java EE Application Servers (Wildfly, JBoss,
+> Glassfish, IBM Websphere Application Server, Oracle Weblogic Application Server) provide JTA
+> integration out of the box.
+
+> **Note 2**: The process engine requires access to an implementation of
+> `javax.transaction.TransactionManager`. Not all application servers provide such an
+> implementation. Most notably WebSphere and Weblogic historically did not provide this
+> implementation. In order to achieve JTA Transaction Integration on these containers, users should
+> use the Spring Framework Abstraction and configure the process engine using the
+> [SpringProcessEngineConfiguration][tx-spring].
+
+[tx-spring]: ref:#spring-framework-integration-spring-transaction-integration
+
