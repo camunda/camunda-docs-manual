@@ -94,7 +94,7 @@ The approach of configuring multiple engines also allows you to differ engine co
 
 ## Develop a Tenant-Aware Process Application
 
-In this step, we describe a process application that deploys different processes for the two tenants. It also exposes a REST resource that uses CDI to transparently interact with the correct process engine based on a tenant identifier.
+In this step, we describe a process application that deploys different processes for the two tenants. It also exposes a REST resource that returns a tenant's process definitions. To identify the tenant, we provide a user name in the REST request. In the implementation, we use CDI to transparently interact with the correct process engine based on the tenant identifier.
 
 <div class="alert alert-info">
   <p>
@@ -103,7 +103,7 @@ In this step, we describe a process application that deploys different processes
 </div>
 
 
-### Setup the process application
+### Set Up the Process Application
 
 In the project, we have set up a plain camunda EJB process application.
 
@@ -123,7 +123,7 @@ In [pom.xml](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-t
 
 These are required to inject process engines via CDI.
 
-### Configure a tenant-specific deployment
+### Configure a Tenant-specific Deployment
 
 In the folder `src/main/resources`, we have added a folder `processes` and two subfolders `tenant1` and `tenant2`. These folder contain a [process for tenant 1](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation/src/main/resources/processes/tenant1) and a [process for tenant 2](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation/src/main/resources/processes/tenant2) respectively.
 
@@ -159,7 +159,7 @@ In order to deploy the two definitions to the two different engines, we have add
 
 This file declares two *process archives*. By the `process-engine` element, we can specify the engine to which an archive should be deployed. By the `resourceRootPath`, we can assign different portions of the contained process definitions to different process archives.
 
-### Build a Simple JAXRS Resource
+### Build a Simple JAX-RS Resource
 
 To showcase the programming model for multi-tenancy with CDI, we have added a simple REST resource that returns all deployed process definitions for a process engine. The resource has the following [source](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-tenancy/schema-isolation/src/main/java/org/camunda/bpm/tutorial/multitenancy/ProcessDefinitionResource.java):
 
@@ -279,13 +279,13 @@ public class TenantAwareProcessEngineServicesProducer extends ProcessEngineServi
 }
 ```
 
-The producer determines the engine based on the current tenant. It encapsulates the logic of accessing the process engine for the current tenant entirely. Any bean accessing this engine can simply declare `@Inject ProcessEngine` without specifying which specific engine is addressed.
+The producer determines the engine based on the current tenant. It encapsulates the logic of resolving the process engine for the current tenant entirely. Every bean can simply declare `@Inject ProcessEngine` without specifying which specific engine is addressed to work with the current tenant's engine.
 
-## Deploy the Application on JBoss
+## Deploy the Application to JBoss
 
-Start up JBoss. Build the process application and deploy the resulting war file on JBoss.
+Start up JBoss. Build the process application and deploy the resulting war file to JBoss.
 
-Make a GET request against the following URL to get all process definitions deployed to tenant 1's engine: http://localhost:8080/multi-tenancy-tutorial/process-definition?user=kermit
+Make a GET request (e.g. by entering the URL in your browser) against the following URL to get all process definitions deployed to tenant 1's engine: http://localhost:8080/multi-tenancy-tutorial/process-definition?user=kermit
 
 Only the process for tenant 1 is returned.
 
@@ -294,7 +294,7 @@ http://localhost:8080/multi-tenancy-tutorial/process-definition?user=gonzo
 
 Only the process for tenant 2 is returned.
 
-Go to Camunda Cockpit and switch the engine to `tenant1` on the following URL (you may be asked to create an admin user first):
+Go to Camunda Cockpit and switch the engine to `tenant1` on the following URL (you will be asked to create an admin user first):
 http://localhost:8080/camunda/app/cockpit/tenant1
 
 Only the process for tenant 1 shows up. You can check the same for tenant 2 by switching to engine `tenant2`.
