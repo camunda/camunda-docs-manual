@@ -126,6 +126,26 @@ The XSLT Template Engine can be downloaded from the [Enterprise Edition Download
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 
+## Using XSLT Template Engine with an embedded process engine
+
+When using an embedded process engine, the XSLT template engine library must be added to the
+application deployment. When using the process engine in a maven `war` project, the template engine
+dependency must be added as dependencies to the maven `pom.xml` file:
+
+<%- @partial('camunda-bom.html.eco', @, {}) %>
+
+```xml
+<dependencies>
+
+  <!-- XSLT -->
+  <dependency>
+    <groupId>org.camunda.bpm.extension.xslt</groupId>
+    <artifactId>camunda-bpm-xslt</artifactId>
+  </dependency>
+
+</dependencies>
+```
+
 ## Using XSLT Templates
 
 The following is an example of a BPMN ScriptTask used to execute a XSLT Template:
