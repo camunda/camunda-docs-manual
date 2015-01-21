@@ -60,6 +60,8 @@ The process engine [job executor](ref:#process-engine-the-job-executor) is also 
 
 ## Multi-Tenancy Model
 
+<center><img class="img-responsive" src="ref:asset:/assets/img/user-guide/multi-tenancy-process-engine.png"></img></center>
+
 To serve multiple, independent parties with one Camunda installation, the process engine supports multi-tenancy. Based on the requirements on how the data of different tenants should be separated, it is possible to configure data isolation on database row level on the one hand, or on database, schema, or table level on the other. Furthermore, Camunda's APIs provide access to processes and related data specific for each tenant. See the [multi-tenancy section](ref:#process-engine-multi-tenancy) for details.
 
 ## Web Application Architecture
