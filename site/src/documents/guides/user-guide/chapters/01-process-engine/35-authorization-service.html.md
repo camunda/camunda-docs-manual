@@ -12,10 +12,9 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 
 <em>Examples</em>
 
-* User 'jonny' is authorized to start new instances of the 'invoice' process
-* Group 'marketing' is not authorized to cancel process instances.
+* User 'jonny' is authorized to create new users
+* Group 'marketing' is not authorized to delete the Group 'sales'
 * Group 'marketing' is not allowed to use the tasklist application.
-* Nobody is allowed to edit process variables in the cockpit application, except the distinct user 'admin'.
 
 <strong>Identities</strong>
 camunda BPM distinguished two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual User or a Group of users.
@@ -46,6 +45,7 @@ Resources are the entities the user interacts with. Examples of resources are GR
       <li>Group</li>
       <li>Group Membership</li>
       <li>User</li>
+      <li>Filter</li>
     </ul>
   </p>
 </div>
@@ -81,7 +81,7 @@ In order to grant the permission to access a certain resource, an authorization 
     auth.setGroupId("management");
 
     //and a resource:
-    auth.setResource("processDefinition");
+    auth.setResource("filter");
     auth.setResourceId("2313");
 
     // finally the permissions to access that resource can be assigned:
@@ -90,7 +90,7 @@ In order to grant the permission to access a certain resource, an authorization 
     // and the authorization object is saved:
     authorizationService.saveAuthorization(auth);
 
-As a result, the given user or group will have permission to READ the referenced process definition.
+As a result, the given user or group will have permission to READ the referenced Filter.
 
 ## The Administrator Authorization Plugin
 
