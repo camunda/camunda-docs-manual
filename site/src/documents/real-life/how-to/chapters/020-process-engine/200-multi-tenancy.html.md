@@ -30,7 +30,50 @@ Start up JBoss by running `$CAMUNDA_HOME/start-camunda.{bat/sh}`. After startup,
 * **User Name**: sa
 * **Password**: sa
 
-Download the [database creation script for tenant 1](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-tenancy/schema-isolation/camunda.h2.create.engine.tenant1.sql) and paste it into the SQL script execution window. Hit *Run*. A new schema `TENANT_1` should have been created and it should contain the process engine database tables. Perform the same procedure with the [database script for tenant 2](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-tenancy/schema-isolation/camunda.h2.create.engine.tenant2.sql). A new schema `TENANT_2` should appear.
+Create two different schemas for the different process engines:
+
+```sql
+create schema TENANT1;
+create schema TENANT2;
+```
+
+Next, inside each schema, create the database tables. To achieve this, get the SQL create scripts
+from the jboss distribution from the `sql/create/` folder inside your distribution.
+
+Inside the h2 console, execute the create scripts (`h2_engine_7.2.0.sql` and
+`h2_identity_7.2.0.sql`) scripts after selecting the appropriate schema for the current connection:
+
+```sql
+set schema TENANT1;
+
+<<paste sql/create/h2_engine_7.2.0.sql here>>
+<<paste sql/create/h2_identity.2.0.sql here>>
+
+set schema TENANT2;
+
+<<paste sql/create/h2_engine_7.2.0.sql here>>
+<<paste sql/create/h2_identity.2.0.sql here>>
+```
+
+The following screenshot illustrates how to create the tables inside the correct schema:
+
+<br>
+<center>
+  <img src="ref:asset:/assets/img/real-life/process-engine/multi-tenancy/create-schema1.png" class="img-responsive"/>
+</center>
+<br>
+
+
+Next, hit *run*.
+
+After creating the tables in the two schemas, the UI should show the following
+table structure:
+
+<br>
+<center>
+  <img src="ref:asset:/assets/img/real-life/process-engine/multi-tenancy/create-schema2.png" class="img-responsive"/>
+</center>
+<br>
 
 Stop JBoss.
 
@@ -47,7 +90,7 @@ The configuration of the process engine for tenant 1:
   <datasource>java:jboss/datasources/ProcessEngine</datasource>
   <history-level>none</history-level>
   <properties>
-      <property name="databaseTablePrefix">TENANT_1.</property>
+      <property name="databaseTablePrefix">TENANT1.</property>
       <property name="jobExecutorAcquisitionName">default</property>
 
       <property name="isAutoSchemaUpdate">false</property>
