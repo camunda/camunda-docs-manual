@@ -8,11 +8,11 @@ category: 'Overview'
 The REST API provides some resources in an additional media type. The
 [HAL][hal] media type `application/hal+json` describes a format which contains
 links and information about other resources. This allows us to embed the
-process definition or assignee of a task directly into the response. Which in turn
+process definition or assignee of a task directly into the response, which in turn
 reduces the number of necessary requests to gather all information about a
 single task or a list of tasks.
 
-In order to interact with `HAL` you have to set as Accept header `application/hal+json`. The
+In order to interact with `HAL`, you have to set `application/hal+json` as Accept header. The
 response of a `HAL` request has always the following structure:
 
 ```json
@@ -22,7 +22,7 @@ response of a `HAL` request has always the following structure:
 }
 ```
 
-The property `_links` contains relational links that gives an easy way to navigate between
+The property `_links` contains relational links that give an easy way to navigate between
 associated resources. A `_links` property contains at least a `self` relational link. The
 property `_embedded` includes other linked resources in the representing resource. Each
 embedded resource will be structured as a `HAL` resource.
@@ -139,8 +139,8 @@ LDAP), every request will access this external system which is an
 unnecessary overhead. To reduces such expensive requests, the REST API can be
 configured to use a cache to temporary store such relations.
 
-This caching can be configured in the `web.xml` file of the REST API (or Camunda Web Application in
-case the REST API is embedded into Camunda Web Application).
+This caching can be configured in the `web.xml` file of the REST API (or the Camunda Web Application in
+case the REST API is embedded into the Camunda Web Application).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
