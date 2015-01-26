@@ -261,6 +261,8 @@ A Message Intermediate Throwing event sends a message to an external service. Th
   <tr>
     <th>Attributes</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,    
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
@@ -306,6 +308,8 @@ When process execution arrives at a Message End Event, the current path of execu
   <tr>
     <th>Attributes</th>
     <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,    
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
