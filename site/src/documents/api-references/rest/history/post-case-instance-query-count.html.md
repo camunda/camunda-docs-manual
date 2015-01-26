@@ -95,6 +95,14 @@ A JSON object with the following properties:
     <td>Restrict query to one case instance that has a sub case instance with the given id.</td>
   </tr>
   <tr>
+    <td>superProcessInstanceId</td>
+    <td>Restrict query to all case instances that are sub case instances of the given process instance. Takes a process instance id.</td>
+  </tr>
+  <tr>
+    <td>subProcessInstanceId</td>
+    <td>Restrict query to one case instance that has a sub process instance with the given id.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

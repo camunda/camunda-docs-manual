@@ -53,6 +53,14 @@ Parameters
     <td>Restrict query to one process instance that has a sub process instance with the given id.</td>
   </tr>
   <tr>
+    <td>superCaseInstanceId</td>
+    <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
+    <td>subCaseInstanceId</td>
+    <td>Restrict query to one process instance that has a sub case instance with the given id.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
   </tr>

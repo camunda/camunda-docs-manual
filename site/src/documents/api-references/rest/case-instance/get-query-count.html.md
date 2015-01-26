@@ -45,6 +45,22 @@ Parameters
     <td>Filter by the key of the case definition the case instances run on.</td>
   </tr>
   <tr>
+    <td>superProcessInstance</td>
+    <td>Restrict query to all case instances that are sub case instances of the given process instance. Takes a process instance id.</td>
+  </tr>
+  <tr>
+    <td>subProcessInstance</td>
+    <td>Restrict query to all case instances that have the given process instance as a sub process instance. Takes a process instance id.</td>
+  </tr>
+  <tr>
+    <td>superCaseInstance</td>
+    <td>Restrict query to all case instances that are sub case instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
+    <td>subCaseInstance</td>
+    <td>Restrict query to all case instances that have the given case instance as a sub case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

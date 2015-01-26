@@ -87,6 +87,11 @@ Its properties are as follows:
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
+    <td>superProcessInstanceId</td>
+    <td>String</td>
+    <td>The id of the parent parent instance, if it exists.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>If true, this case instance is active.</td>
@@ -159,6 +164,7 @@ GET `/history/case-instance/aCaseInstId`
   "durationInMillis": 2000,
   "createUserId": "aStartUserId",
   "superCaseInstanceId": "aSuperCaseInstanceId",
+  "superProcessInstanceId": null,
   "active": true,
   "completed": false,
   "terminated": false,

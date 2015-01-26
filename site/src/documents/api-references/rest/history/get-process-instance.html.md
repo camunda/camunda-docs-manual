@@ -56,6 +56,11 @@ Its properties are as follows:
     <td>The id of the parent process instance, if it exists.</td>
   </tr>
   <tr>
+    <td>superCaseInstanceId</td>
+    <td>String</td>
+    <td>The id of the parent case instance, if it exists.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>String</td>
     <td>The id of the parent case instance, if it exists.</td>
@@ -145,6 +150,7 @@ GET `/history/process-instance/aProcInstId`
   "startActivityId": "aStartActivityId",
   "deleteReason": "aDeleteReason",
   "superProcessInstanceId": "aSuperProcessInstanceId",
+  "superCaseInstanceId": null,
   "caseInstanceId": "aCaseInstanceId"
 }
 ```

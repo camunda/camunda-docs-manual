@@ -99,7 +99,12 @@ Its properties are as follows:
   <tr>
     <td>calledProcessInstanceId</td>
     <td>String</td>
-    <td>The id of the called process instance. Is only set if the activity is a call activity.</td>
+    <td>The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance.</td>
+  </tr>
+  <tr>
+    <td>calledCaseInstanceId</td>
+    <td>String</td>
+    <td>The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance.</td>
   </tr>
   <tr>
     <td>startTime</td>
@@ -168,6 +173,7 @@ GET `/history/activity-instance/aActivityInstId`
   "activityType": "userTask",
   "assignee": "peter",
   "calledProcessInstanceId": "aHistoricCalledProcessInstanceId",
+  "calledCaseInstanceId": null,
   "canceled": true,
   "completeScope": false,
   "durationInMillis": 2000,

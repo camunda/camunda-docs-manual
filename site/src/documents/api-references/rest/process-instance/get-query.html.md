@@ -58,6 +58,14 @@ Parameters
     <td>Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.</td>
   </tr>
   <tr>
+    <td>superCaseInstance</td>
+    <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
+    <td>subCaseInstance</td>
+    <td>Restrict query to all process instances that have the given case instance as a sub case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

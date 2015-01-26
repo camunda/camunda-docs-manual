@@ -53,6 +53,14 @@ Parameters
     <td>Restrict query to one process instance that has a sub process instance with the given id.</td>
   </tr>
   <tr>
+    <td>superCaseInstanceId</td>
+    <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
+  </tr>
+  <tr>
+    <td>subCaseInstanceId</td>
+    <td>Restrict query to one process instance that has a sub case instance with the given id.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.</td>
   </tr>
@@ -163,6 +171,11 @@ Each historic process instance object has the following properties:
     <td>The id of the parent process instance, if it exists.</td>
   </tr>
   <tr>
+    <td>superCaseInstanceId</td>
+    <td>String</td>
+    <td>The id of the parent case instance, if it exists.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>String</td>
     <td>The id of the parent case instance, if it exists.</td>
@@ -254,7 +267,8 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=
     "startActivityId": "aStartActivityId",
     "startTime": "2013-03-23T13:42:43",
     "startUserId": "aStartUserId",
-    "superProcessInstanceId": "aSuperProcessInstanceId"
+    "superProcessInstanceId": "aSuperProcessInstanceId",
+    "superCaseInstanceId": null
   }
 ]
 ```

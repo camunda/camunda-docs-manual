@@ -93,6 +93,14 @@ Parameters
     <td>Restrict query to one case instance that has a sub case instance with the given id.</td>
   </tr>
   <tr>
+    <td>superProcessInstanceId</td>
+    <td>Restrict query to all case instances that are sub case instances of the given process instance. Takes a process instance id.</td>
+  </tr>
+  <tr>
+    <td>subProcessInstanceId</td>
+    <td>Restrict query to one case instance that has a sub process instance with the given id.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
@@ -201,6 +209,11 @@ Each historic case instance object has the following properties:
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
+    <td>superProcessInstanceId</td>
+    <td>String</td>
+    <td>The id of the parent process instance, if it exists.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>If true, this case instance is active.</td>
@@ -265,6 +278,7 @@ GET `/history/case-instance?closedAfter=2013-01-01T00:00:00&closedBefore=2013-04
     "durationInMillis": 2000,
     "createUserId": "aStartUserId",
     "superCaseInstanceId": "aSuperCaseInstanceId",
+    "superProcessInstanceId": null,
     "active": true,
     "completed": false,
     "terminated": false,
