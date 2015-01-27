@@ -7,7 +7,7 @@ category: 'Tutorial'
 Now you are ready to set up your first process application project in eclipse. Setting up a process application project consists of 4 steps:
 
 1. [Create a new Maven Project in Eclipse](#set-up/eclipse)
-2. [Add the camunda dependencies](#set-up/maven)
+2. [Add the Camunda dependencies](#set-up/maven)
 3. [Add a `@ProcessApplication` class](#set-up/process-application)
 4. [Add a META-INF/processes.xml deployment descriptor](#set-up/processes.xml)
 
@@ -15,7 +15,7 @@ In the following sections, we go through this process step by step.
 
 <div class="alert alert-info">
   <p><strong>Terminology - Process vs. Case:</strong></p>
-  <p>CMMN is a modeling language for <i>cases</i> whereas BPMN is a language for <i>processes</i>. This tutorial is about cases. However, due to camunda's BPMN-focused heritage, the Java project contains classes and files with names like <code>ProcessApplication</code> and <code>processes.xml</code>. These are in fact generally applicable and can be used with both, processes and cases.</p>
+  <p>CMMN is a modeling language for <i>cases</i>, whereas BPMN is a language for <i>processes</i>. This tutorial is about cases. However, due to Camunda's BPMN-focused heritage, the Java project contains classes and files with names like <code>ProcessApplication</code> and <code>processes.xml</code>. These are in fact generally applicable and can be used with both processes as well as cases.</p>
 </div>
 
 <section id="set-up/eclipse">
@@ -38,14 +38,14 @@ In the following sections, we go through this process step by step.
         Since we are setting up a WAR Project, make sure to select <code>Packaging: war</code>.
       </p>
       <p>
-        When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> View.
+        When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> view.
       </p>
     </div>
   </div>
 </section>
 
 <section id="set-up/maven">
-  <h3>Add camunda Maven Dependencies</h3>
+  <h3>Add Camunda Maven Dependencies</h3>
   <div class="row">
     <div class="col-md-12">
       <p>
@@ -65,7 +65,7 @@ In the following sections, we go through this process step by step.
   <div class="row">
     <div class="col-md-12">
       <p>
-        Next, you need to create a package, e.g. <code>org.camunda.bpm.getstarted.loanapproval</code> and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
+        Next, you need to create a package, e.g., <code>org.camunda.bpm.getstarted.loanapproval</code>, and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
       </p>
       <div class="app-source" data-source-code="LoanApprovalApplication" annotate="code-annotations" ></div>
     </div>
@@ -118,7 +118,7 @@ In the following sections, we go through this process step by step.
       </div>
       <br>
       <p>
-        At this point you have successfully set up the process application and you can start creating the first CMMN case.
+        At this point you have successfully set up the process application and you can start creating your first CMMN case.
       </p>
     </div>
   </div>
