@@ -120,6 +120,25 @@ The XML looks as follows:
 
 There is nothing special about the process definition of the subprocess. It could also be used without being called from another process.
 
+## Create a Case Instance
+
+A call activity can also be used to create a new case instance as a sub case instance of the corresponding process instance. Therefore you have to use the attribute `caseRef` instead of the attribute `calledElement` to reference a case definition by its' key. This means that the latest case definition version is always called.
+
+To call another version of the case definition it is possible to define the attributes `caseBinding` and `caseVersion` in the call activity. Both attributes are optional.
+
+CaseBinding has three different values:
+
+*   latest: always call the latest case definition version (which is also the default behaviour if the attribute isn't defined)
+*   deployment: if called case  definition is part of the same deployment as the calling process definition, use the version from deployment
+*   version: call a fixed version of the case definition, in this case `caseVersion` is required
+
+```xml
+<callActivity id="callSubProcess" camunda:caseRef="checkCreditCase"
+  camunda:caseBinding="latest|deployment|version"
+  camunda:caseVersion="17">
+</callActivity>
+```
+
 ## camunda Extensions
 
 <table class="table table-striped">
@@ -130,6 +149,9 @@ There is nothing special about the process definition of the subprocess. It coul
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementbinding">camunda:calledElementBinding</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementversion">camunda:calledElementVersion</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacasebinding">camunda:caseBinding</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseref">camunda:caseRef</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseversion">camunda:caseVersion</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
     </td>
   </tr>
@@ -153,6 +175,20 @@ There is nothing special about the process definition of the subprocess. It coul
     <td>
       The attribute <code>camunda:calledElementVersion</code> should only be set if
       the attribute <code>camunda:calledElementBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>calledElement</code> cannot be used in combination
+      with the attribute <code>camunda:caseRef</code> and vice versa.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:caseVersion</code> should only be set if
+      the attribute <code>camunda:caseBinding</code> equals <code>version</code>
     </td>
   </tr>
 </table>

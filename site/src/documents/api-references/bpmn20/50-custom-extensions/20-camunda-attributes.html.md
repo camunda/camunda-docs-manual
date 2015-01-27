@@ -330,6 +330,99 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+### camunda:caseBinding
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which case definition version of the subcase the call activity calls.
+      If the value is <code>version</code> the attribute <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseversion">camunda:caseVersion</a>
+      is required, see <a href="ref:#subprocesses-call-activity-create-a-case-instance">Case Binding</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>latest</code>, <code>deployment</code>, <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#subprocesses-call-activity-create-a-case-instance">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
+### camunda:caseRef
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute references a case definition by its' key to call.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#subprocesses-call-activity-create-a-case-instance">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
+### camunda:caseVersion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which case definition version of the subcase the call activity calls if the <a href="ref:#custom-extensions-camunda-extension-attributes-camundacasebinding">camunda:caseBinding</a> is set to <code>version</code>, see <a href="ref:#subprocesses-call-activity-create-a-case-instance">Case Binding</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      All deployed version numbers of the subprocess to call
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#subprocesses-call-activity-create-a-case-instance">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
 ### camunda:class
 
 <table class="table table-striped">
