@@ -49,23 +49,23 @@ In this section you learn how to create your first CMMN 1.0 case in XML. Don't w
     </div>
   </div>
   <p>
-    As the first part of the loan application case, the loan application should be reviewed for any formal errors. We therefore add a <em>human task</em> to the case. Tasks are always specified by two parts: A <em>plan item</em> and a <em>plan item definition</em>. While the plan item definition is a blue print for the task's behavior, the plan item represents the actual task instantiation. Update your CMMN definition as follows (insert the highlighted parts at the appropriate positions or simply replace the entire contents):
+    As the first part of the loan application case, the loan application should be reviewed for any formal errors. We therefore add a <em>human task</em> to the case. Tasks are always specified by two parts: A <em>plan item</em> and a <em>plan item definition</em>. While the plan item definition is a blue print for the task's behavior, the plan item represents the actual task instantiation. Update your CMMN definition as follows (insert the highlighted parts at the appropriate positions or simply replace the entire content):
   </p>
 
   <div class="app-source" data-source-code="loan-application-02.cmmn10.xml" annotate="code-annotations" highlight="4-16"></div>
 
   <p>
-    In addition, the customer's credit worthiness has to be assessed. We add another user task:
+    In addition, the customer's creditworthiness has to be assessed. We add another user task:
   </p>
 
   <div class="app-source" data-source-code="loan-application-03.cmmn10.xml" annotate="code-annotations" highlight="6;18-26"></div>
 
   <p>
-    Note how there is no direct relation between the two plan items. There is no sequence flow connecting the two tasks as in BPMN. This expresses in CMMN, that the tasks can be executed concurrently.
+    Note how there is no direct relation between the two plan items. There is no sequence flow connecting the two tasks as in BPMN. In CMMN, this expresses that the tasks can be executed concurrently.
   </p>
 
   <p>
-    To learn more about human tasks, consider checking the <a href="ref:/api-references/cmmn10/#tasks-human-task">Human Task section</a> in our CMMN implementation guide.
+    To learn more about human tasks, consider checking the <a href="ref:/api-references/cmmn10/#tasks-human-task">Human Task section</a> of our CMMN implementation guide.
   </p>
   <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-3"}) %>
 </section>

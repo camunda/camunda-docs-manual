@@ -1,5 +1,5 @@
 ---
-title: 'Add A Milestone'
+title: 'Add a Milestone'
 category: 'Tutorial'
 ---
 
@@ -15,17 +15,17 @@ category: 'Tutorial'
 </div>
 
 <p>
-  Go back to eclipse and the cmmn model file. Insert the following XML:
+  Go back to eclipse and the CMMN model file. Insert the following XML:
 </p>
 
 <div class="app-source" data-source-code="loan-application-04.cmmn10.xml" annotate="code-annotations" highlight="7-22;43"></div>
 
 <p>
-  The above does not only add a milestone but also a <em>sentry</em>. Sentries are used to capture conditions within a case and can trigger other events to occur. Here, we have expressed that the milestone <em>Approved</em> is reached when both tasks have successfully completed, and if the application was sufficient and the customer received a good rating for credit worthiness.
+  The above does not only add a milestone but also a <em>sentry</em>. Sentries are used to capture conditions within a case and can trigger other events to occur. Here we have expressed that the milestone <em>Approved</em> is reached when both tasks have successfully completed, and if the application was sufficient and the customer received a good rating for creditworthiness.
 </p>
 
 <p>
-  Milestones are not visualized in the camunda web applications. In order to see that the milestone occurs we add a <em>CaseExecutionListener</em>. Create a new Java class in the project:
+  Milestones are not visualized in the Camunda web applications. In order to see that the milestone occurs we add a <em>CaseExecutionListener</em>. Create a new Java class in the project:
 </p>
 
 <div class="app-source" data-source-code="LifecycleListener" annotate="code-annotations"></div>
@@ -62,7 +62,7 @@ category: 'Tutorial'
 </div>
 
 <p>
-  Now open the Tomcat console. You have completed the tasks and set the variables accordingly such that the milestone has occurred. On the console, you should see the following log entries:
+  Now open the Tomcat console. You have completed the tasks and set the variables accordingly so that the milestone has occurred. On the console, you should see the following log entries:
 </p>
 
 <pre class="console">
