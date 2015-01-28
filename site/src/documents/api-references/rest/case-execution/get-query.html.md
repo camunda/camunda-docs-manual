@@ -54,6 +54,10 @@ Parameters
     <td>Filter by the id of the activity the case execution currently executes.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Only include required case executions. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
@@ -168,6 +172,13 @@ Each case execution object has the following properties:
     <td>The description of the activity this case execution belongs to.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is required or not.
+    </td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>
@@ -229,6 +240,7 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
         "links"            : [],
         "id"               : "aCaseExecutionId",
         "caseInstanceId"   : "aCaseInstId",
+        "required"         : false,
         "active"           : true,
         "enabled"          : false,
         "disabled"         : false

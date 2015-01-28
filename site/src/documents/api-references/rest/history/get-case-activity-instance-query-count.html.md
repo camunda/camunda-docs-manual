@@ -80,6 +80,10 @@ Parameters
     <td>Only include unfinished case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Only include required case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Only include available case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

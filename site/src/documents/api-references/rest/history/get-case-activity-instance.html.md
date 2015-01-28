@@ -117,6 +117,11 @@ Its properties are as follows:
     <td>The time the instance took to finish (in milliseconds).</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is required.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Boolean</td>
     <td>If true, this case activity instance is available.</td>
@@ -212,6 +217,7 @@ GET `/history/case-activity-instance/aCaseActivityInstId`
   "parentCaseActivityInstanceId": "aHistoricParentCaseActivityInstanceId",
   "suspended": false,
   "taskId": "aTaskId",
-  "terminated": false
+  "terminated": false,
+  "required": false
 }
 ```

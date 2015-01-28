@@ -87,6 +87,13 @@ Its properties are as follows:
     <td>The description of the activity this case execution belongs to.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is required or not.
+    </td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>
@@ -143,6 +150,7 @@ GET `/case-execution/aCaseExecutionId`
     {
       "id"               : "aCaseExecutionId",
       "caseInstanceId"   : "aCaseInstId",
+      "required"         : false,
       "active"           : true,
       "enabled"          : false,
       "disabled"         : false

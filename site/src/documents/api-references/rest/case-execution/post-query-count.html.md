@@ -56,6 +56,10 @@ A JSON object with the following properties:
     <td>Filter by the id of the activity the case execution currently executes.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Only include required case executions. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case executions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>

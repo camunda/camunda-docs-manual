@@ -80,6 +80,10 @@ Parameters
     <td>Only include unfinished case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Only include required case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Only include available case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
@@ -208,6 +212,11 @@ Each historic activity instance object has the following properties:
     <td>The time the instance took to finish (in milliseconds).</td>
   </tr>
   <tr>
+    <td>required</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is required.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Boolean</td>
     <td>If true, this case activity instance is available.</td>
@@ -292,7 +301,8 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "id": "aCaseActivityInstId",
     "parentCaseActivityInstanceId": "aHistoricParentCaseActivityInstanceId",
     "taskId": "aTaskId",
-    "terminated": false
+    "terminated": false,
+    "required": false
   }
 ]
 ```
