@@ -5,7 +5,7 @@ category: 'Cockpit'
 
 ---
 
-In the Process Definition View and in the Process Instance View you have the option of suspending the selected process definition or the process instance that you are viewing by using the <button class="btn btn-xs dropdown-toggle"><img src="ref:asset:/assets\img\implementation-cockpit\suspended.png"/></button> button on the right hand side. 
+In the Process Definition View and in the Process Instance View you have the option of suspending the selected process definition or the process instance that you are viewing by using the <button class="btn btn-xs dropdown-toggle"><img src="ref:asset:/assets/img/implementation-cockpit/suspended.png"/></button> button on the right hand side. 
 
 ## Process definition suspension
 
