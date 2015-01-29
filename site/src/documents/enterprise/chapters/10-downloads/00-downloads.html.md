@@ -5,12 +5,6 @@ title: 'Latest Version'
 
 ---
 
-
-**camunda BPM platform**: With our pre-packaged distribution we provide the camunda BPM platform as part of an application server. The WebSphere and WebLogic distributions contain the Camunda BPM resources only, without the application server. Find more information in our <a href="ref:/guides/installation-guide/">installation guide</a>.   
-
-**camunda standalone webapp**: With the <a href="http://docs.camunda.org/latest/guides/installation-guide/standalone/">camunda standalone webapp</a> we provide cockpit and tasklist as a self contained webapplication including an <a href="ref:/guides/user-guide/#introduction-architecture-overview-embedded-process-engine">embedded process engine</a>. Deploy the war file on a vanilla application server. It must not be installed to an application server from a camunda distribution download. Find more information in our <a href="ref:/guides/installation-guide/standalone/">installation guide</a>.
-
-
 #### Download the camunda BPM enterprise edition
 
 <section class="row">
@@ -54,9 +48,7 @@ title: 'Latest Version'
       <tbody>
         <tr class="well">
           <td>
-            <div title="camunda BPM resources with shared process engine">
-              camunda BPM platform
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.2/7.2.2/camunda-bpm-ee-tomcat-7.2.2-ee.zip">zip</a>&nbsp;
@@ -85,9 +77,7 @@ title: 'Latest Version'
         </tr>
         <tr>
           <td>
-            <div title="cockpit &amp; tasklist with embedded process engine">
-              <a href="http://docs.camunda.org/latest/guides/installation-guide/standalone/">camunda standalone webapp</a>
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.2/7.2.2/camunda-webapp-ee-tomcat-standalone-7.2.2-ee.war">war</a>&nbsp;
@@ -158,9 +148,7 @@ title: 'Latest Version'
       <tbody>
         <tr class="well">
           <td>
-            <div title="camunda BPM resources with shared process engine">
-              camunda BPM platform
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.7/camunda-bpm-ee-tomcat-7.1.7-ee.zip">zip</a>&nbsp;
@@ -185,9 +173,7 @@ title: 'Latest Version'
         </tr>
         <tr>
           <td>
-            <a href="http://docs.camunda.org/latest/guides/installation-guide/standalone/">camunda standalone webapp</a>
-            <div class="text-muted">(cockpit &amp; tasklist with embedded
-            <br> process engine)</div>
+            <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.1/7.1.7/camunda-webapp-ee-tomcat-standalone-7.1.7-ee.war">war</a>&nbsp;
@@ -251,9 +237,7 @@ title: 'Latest Version'
       <tbody>
         <tr class="well">
           <td>
-            <div title="camunda BPM resources with shared process engine">
-              camunda BPM platform
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.0/7.0.5/camunda-bpm-tomcat-7.0.5-ee.zip">zip</a>&nbsp;
@@ -328,9 +312,7 @@ title: 'Latest Version'
       <tbody>
         <tr class="well">
           <td>
-            <div title="camunda BPM resources with shared process engine">
-              camunda BPM platform
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.3.0-alpha1/camunda-bpm-ee-tomcat-7.3.0-alpha1-ee.zip">zip</a>&nbsp;
@@ -359,9 +341,7 @@ title: 'Latest Version'
         </tr>
         <tr>
           <td>
-            <div title="cockpit &amp; tasklist with embedded process engine">
-              <a href="http://docs.camunda.org/latest/guides/installation-guide/standalone/">camunda standalone webapp</a>
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/nightly/7.3.0-alpha1/camunda-webapp-ee-tomcat-standalone-7.3.0-alpha1-ee.war">war</a>&nbsp;
