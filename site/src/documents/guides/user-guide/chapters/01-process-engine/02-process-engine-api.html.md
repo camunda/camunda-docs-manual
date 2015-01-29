@@ -124,5 +124,3 @@ For performance reasons it might sometimes be desirable not to query the engine 
 
 The table layout is pretty straightforward - we concentrated on making it easy to understand. Hence it is OK to do SQL queries for e.g. reporting use cases. Just make sure that you do not mess up the engine data by updating the tables without exactly knowing what you are doing.
 
-See <a href="https://app.camunda.com/confluence/display/foxUserGuide/Reports+with+BIRT">Reports with BIRT</a> as example use case.
-

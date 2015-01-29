@@ -161,4 +161,5 @@ There is nothing special to the process definition of the subprocess. It could a
 ## Additional Resources
 
 *   [Call Activity in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/callactivity)
-*   [Process Decomposition](https://app.camunda.com/confluence/display/foxUserGuide/Process+Decomposition)
+*   [Call Activity](http://camunda.org/bpmn/reference.html#activities-call-activity) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+
