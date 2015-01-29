@@ -101,7 +101,6 @@ These links point you to resources for other databases:
 
 *   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
 *   [How to configure a MySQL database](http://javathreads.de/2011/09/jboss-as-7-mysql-datasource-konfigurieren/)
-*   **Important**: For DB2, check [Installation Troubleshooting and FAQ](https://app.camunda.com/confluence/display/foxUserGuide/Installation+Troubleshooting+and+FAQ) for known issues
 
 
 ## Using an XA datasource
