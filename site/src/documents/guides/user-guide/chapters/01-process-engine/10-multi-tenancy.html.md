@@ -12,7 +12,7 @@ Multi-tenancy can be achieved on different levels of data isolation. On the one 
 <div class="alert alert-info">
   <p>
     <strong>Recommended Approach:</strong>
-    <p>We recommend the approach of multiple process engines (i.e. isolation into different databases/schemas/tables) over the tenant marker approach as it is more robust and easier to use.</p>
+    <p>We recommend the approach of multiple process engines (i.e., isolation into different databases/schemas/tables) over the tenant marker approach as it is more robust and easier to use.</p>
   </p>
 </div>
 
@@ -58,7 +58,7 @@ Multiple process engines can be configured in a configuration file or via Java A
 
 The process engine configuration can be adapted to achieve either database-, schema- or table-based isolation of data. If different tenants should work on entirely different databases, they have to use different jdbc settings or different data sources. For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix](ref:/api-references/deployment-descriptors/#tags-process-engine-configuration-configuration-properties) can be used to configure database access in this case.
 
-For background execution of processes and tasks, the process engine has a component called [job executor](ref:#process-engine-the-job-executor). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process application on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines](ref:#process-engine-the-job-executor-the-job-executor-and-multiple-process-engines) for details.
+For background execution of processes and tasks, the process engine has a component called [job executor](ref:#process-engine-the-job-executor). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines](ref:#process-engine-the-job-executor-the-job-executor-and-multiple-process-engines) for details.
 
 Multi-tenancy settings can be applied in the various ways of configuring a process engine. The following is an example of a [bpm-platform.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-in-bpm-platformxml) file that specifies engines for two tenants that share the same database but work on different schemas:
 
@@ -104,7 +104,7 @@ Multi-tenancy settings can be applied in the various ways of configuring a proce
 
 ##### Deployment
 
-When developing process applications, i.e. process definitions and supplementary code, some processes may be deployed to every tenant's engine while others are tenant-specific. The processes.xml deployment descriptor that is part of every process application offers this kind of flexibility by the concept of *process archives*. One application can contain any number of process archive deployments, each of which can be deployed to a different process engine with different resources. See the section on the [processes.xml deployment descriptor](ref:#process-applications-the-processesxml-deployment-descriptor) for details.
+When developing process applications, i.e., process definitions and supplementary code, some processes may be deployed to every tenant's engine while others are tenant-specific. The processes.xml deployment descriptor that is part of every process application offers this kind of flexibility by the concept of *process archives*. One application can contain any number of process archive deployments, each of which can be deployed to a different process engine with different resources. See the section on the [processes.xml deployment descriptor](ref:#process-applications-the-processesxml-deployment-descriptor) for details.
 
 The following is an example that deploys different process definitions for two tenants. It uses the configuration property `resourceRootPath` that specifies a path in the deployment that contains process definitions to deploy. Accordingly, all the processes under `processes/tenant1` on the application's classpath are deployed to engine `tenant1`, while all the processes under `processes/tenant2` are deployed to engine `tenant2`.
 
@@ -146,7 +146,7 @@ In order to access a specific tenant's process engine at runtime, it has to be i
 
 ### A Tenant Marker Per Process Instance
 
-The least isolated approach is to add tenant-specific markers in form of a process variable to running processes. This marker identifies the tenant in which context the process instance is running. In order to access only data for a specific tenant, many process engine queries allow to filter by process variables. A calling application must make sure to filter accordingly by the correct tenant.
+The least isolated approach is to add tenant-specific markers in form of a process variable to running processes. This marker identifies the tenant in which context the process instance is running. In order to access only data for a specific tenant, many process engine queries allow to filter by process variables. A calling application must make sure to filter according to the correct tenant.
 
 #### Data isolation
 
@@ -154,7 +154,7 @@ Row level with applications responsible for filtering
 
 #### Advantages
 
-* Straight forward querying for data across multiple tenants as the data for all tenants is organized in the same tables.
+* Straightforward querying for data across multiple tenants as the data for all tenants is organized in the same tables.
 
 #### Disadvantages
 
@@ -180,7 +180,7 @@ variables.put("TENANT_ID", "tenant1");
 runtimeService.startProcessInstanceByKey("some process", variables);
 ```
 
-For process definitions that are specific for a single tenant, it is also possible to use an [execution listener](ref:#process-engine-delegation-code-execution-listener) on the start event that immediately sets the variable after instantiation.
+For process definitions that are specific to a single tenant, it is also possible to use an [execution listener](ref:#process-engine-delegation-code-execution-listener) on the start event that immediately sets the variable after instantiation.
 
 ##### Querying
 
