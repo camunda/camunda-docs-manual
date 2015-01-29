@@ -5,7 +5,7 @@ category: 'Tags'
 
 ---
 
-The job executor tag is used to configure the job executor and can be placed in [bpm-platform.xml](ref:#descriptors-bpm-platformxml) file.
+The job executor tag is used to configure the job executor and can be placed in the [bpm-platform.xml](ref:#descriptors-bpm-platformxml) file.
 
 ## Example
 
@@ -148,7 +148,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>maxJobsPerAcquisition</code></td>
     <td>Integer</td>
     <td>
-      <p>Sets the number of jobs to be acquired maximal at once.</p>
+      <p>Sets the maximal number of jobs to be acquired at once.</p>
       <p><strong>Default Value:</strong> 3</p>
     </td>
   </tr>
@@ -156,7 +156,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>waitTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      <p>Specify the wait time in milliseconds of the job acquisition thread. This value can be used to define how often the job acquisition thread should poll the database for jobs.</p>
+      <p>Specify the wait time of the job acquisition thread in milliseconds. This value can be used to define how often the job acquisition thread should poll the database for jobs.</p>
       <p><strong>Default Value:</strong> 5000</p>
     </td>
   </tr>
@@ -164,7 +164,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>lockTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      <p>Specify the lock time in milliseconds of an acquired job.</p>
+      <p>Specify the lock time of an acquired job in milliseconds.</p>
       <p><strong>Default Value:</strong> 300000</p>
     </td>
   </tr>
