@@ -48,4 +48,5 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 ## Additional Resources
 
 *   [Subprocesses in the BPMN Tutorial](http://camunda.org/design/reference.html#!/activities/subprocess)
-*   [Process Decomposition](https://app.camunda.com/confluence/display/foxUserGuide/Process+Decomposition)
+*   [Subprocesses](http://camunda.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
+

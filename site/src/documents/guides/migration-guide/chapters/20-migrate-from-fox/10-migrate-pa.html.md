@@ -14,7 +14,7 @@ You have to follow these steps:
 *   Adjust the `processes.xml` to the new format, see [Process Applications](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
 *   If you migrate completely to our new distro you have to adjust your `presistence.xml` from **FoxEngineDS** to **ProcessEngine**
 *   If you use the new camunda Tasklist component you have to adjust the `formKey`, as described in the [Getting Started](http://camunda.org/implement/getting-started.html). We provide more information soon. For JSF-Formkeys your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g.: `/loan-approval/request-loan.jsf`
-*   If you use the `fox.taskForm` bean as described in [Add forms to your Process Application](https://app.camunda.com/confluence/display/foxUserGuide/Add+forms+to+your+Process+Application) you have to make sure to have the `camunda-engine-cdi` dependency on your classpath:
+*   If you use the `fox.taskForm` bean, make sure you have the `camunda-engine-cdi` dependency on your classpath:
 
     ```xml
     <dependency>
