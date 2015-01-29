@@ -13,7 +13,7 @@ The [ProcessEngineService](ref:/api-references/javadoc/org/camunda/bpm/ProcessEn
 
 ## ProcessApplicationService
 
-The [ProcessApplicationService]((ref:/api-references/javadoc/org/camunda/bpm/ProcessApplicationService.html) is accessible via `BpmPlatform.getProcessApplicationService()`. It provides details on the process application deployments made on the application server it is running in. That means, it does not provide a global view across all nodes in a cluster.
+The [ProcessApplicationService]((ref:/api-references/javadoc/org/camunda/bpm/ProcessApplicationService.html) is accessible via `BpmPlatform.getProcessApplicationService()`. It provides details on the process application deployments made on the application server it is running on. That means that it does not provide a global view across all nodes in a cluster.
 
 Given a process application name, a `ProcessApplicationInfo` object can be retrieved that contains details on the deployments made by this process application. These correspond to the process archives declared in [processes.xml](ref:#process-applications-the-processesxml-deployment-descriptor).
 
