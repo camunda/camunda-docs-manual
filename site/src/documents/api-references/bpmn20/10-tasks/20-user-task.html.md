@@ -180,7 +180,7 @@ public class FakeLdapService {
 
 ## Forms
 
-It is possible to provide information to render a user task form using the `camunda:formKey`
+It is possible to provide information to render a user task form by using the `camunda:formKey`
 attribute:
 
 ```xml
@@ -189,15 +189,15 @@ attribute:
 </userTask>
 ```
 
-The form key is a symbolic value which can be set in the BPMN XML file using the extension attribute
+The form key is a symbolic value which can be set in the BPMN XML file by using the extension attribute
 `formKey` and retrieved at runtime using the process engine API.
 
-If the user task form is displayed inside camunda Tasklist, the format of the formKey must follow
-special rules. [See the corresponding section in the userguide for details](ref:/guides/user-guide/#tasklist-task-forms).
+If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
+special rules. [See the corresponding section in the user guide for details](ref:/guides/user-guide/#tasklist-task-forms).
 
 In custom applications, the value of the form key can be chosen freely. In a custom application the
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
-it can reference the name of a HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
+it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
 
 ### Retrieving the form key using the form service.
 
