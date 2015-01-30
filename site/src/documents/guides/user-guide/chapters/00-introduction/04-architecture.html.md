@@ -75,7 +75,7 @@ multi-tenancy. The following multi tenancy models are supported:
 * Row-level data separation by using a tenant marker.
 
 Users should choose the model which fits their data separation needs. Camunda's APIs provide access
-to processes and related data specific for each tenant.
+to processes and related data specific to each tenant.
 More details can be found in the  [multi-tenancy section](ref:#process-engine-multi-tenancy).
 
 ## Web Application Architecture
