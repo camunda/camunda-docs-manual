@@ -5,10 +5,6 @@ title: 'Latest Version'
 
 ---
 
-
-With our pre-packaged distribution we provide the Camunda BPM platform as part of an application server. The WebSphere and WebLogic distributions contain the Camunda BPM resources only, without the application server. Find more information in our <a href="ref:/guides/installation-guide/">installation guide</a>.
-
-
 #### Download the camunda BPM enterprise edition
 
 <section class="row">
@@ -52,7 +48,7 @@ With our pre-packaged distribution we provide the Camunda BPM platform as part o
       <tbody>
         <tr class="well">
           <td>
-            camunda BPM platform
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.2/7.2.2/camunda-bpm-ee-tomcat-7.2.2-ee.zip">zip</a>&nbsp;
@@ -81,9 +77,7 @@ With our pre-packaged distribution we provide the Camunda BPM platform as part o
         </tr>
         <tr>
           <td>
-            <div title="cockpit &amp; tasklist with embedded process engine">
-              <a href="http://docs.camunda.org/latest/guides/installation-guide/standalone/">camunda standalone webapp</a>
-            </div>
+            <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application</a>
           </td>
           <td>
             <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.2/7.2.2/camunda-webapp-ee-tomcat-standalone-7.2.2-ee.war">war</a>&nbsp;
