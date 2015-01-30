@@ -33,7 +33,7 @@ In order to reference process variables using EL, we have similar options:
 
 ### Injecting a process engine based on contextual data
 
-While a specific process engine can be accessed by adding the qualifier `@ProcessEngineName('name')` to the injection point, this requires that it is known at design time which process engine is used. A more flexible approach is to resolve the process engine at runtime based contextual information such as the logged in user. In this case, `@Inject` can be used without a `@ProcessEngineName` annotation.
+While a specific process engine can be accessed by adding the qualifier `@ProcessEngineName('name')` to the injection point, this requires that it is known which process engine is used at design time. A more flexible approach is to resolve the process engine at runtime based on contextual information such as the logged in user. In this case, `@Inject` can be used without a `@ProcessEngineName` annotation.
 
 To implement resolution from contextual data, the producer bean `org.camunda.bpm.engine.cdi.impl.ProcessEngineServicesProducer` must be extended. The following code implements a contextual resolution of the engine by the currently authenticated user. Note that which contextual data is used and how it is accessed is entirely up to you.
 
@@ -75,7 +75,7 @@ public class UserAwareEngineServicesProvider extends ProcessEngineServicesProduc
 }
 ```
 
-The above code makes selecting the process engine based on the current user's tenant completely transparent. For each request, the currently authenticated user is retrieved and the correct process engine looked up. Note that the class `UserInfo` represents any kind of context object that identifies the current tenant. For example, it could be a JAAS principal. The produced engine can be accessed in the following way:
+The above code makes selecting the process engine based on the current user's tenant completely transparent. For each request, the currently authenticated user is retrieved and the correct process engine is looked up. Note that the class `UserInfo` represents any kind of context object that identifies the current tenant. For example, it could be a JAAS principal. The produced engine can be accessed in the following way:
 
 ```java
 @Inject
