@@ -83,7 +83,7 @@ States:
       completed
     </td>
     <td>
-      The transition <i>complete</i> automatically triggers when all plan items contained in the case plan model are completed, terminated, or disabled. Furthermore, it is possible to manually complete a case instance via the <code>CaseService</code> API if it has no active tasks or stages.
+      The transition <i>complete</i> automatically triggers when all plan items contained in the case plan model are completed, terminated, or disabled.  With automatic completion enabled, only required plan items have to reach theses states. Furthermore, it is possible to manually complete a case instance via the <code>CaseService</code> API if it has no active tasks or stages and all required plan items are either completed, terminated, or disabled.
     </td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ States:
       completed
     </td>
     <td>
-      The <i>complete</i> transition triggers for a task when its actual work is done. For a stage, this transition triggers when all contained tasks/stages are either completed, terminated, or disabled. A task/stage in state <i>completed</i> is removed from the runtime database.
+      The <i>complete</i> transition triggers for a task when its actual work is done. For a stage, this transition triggers when all contained tasks/stages are either completed, terminated, or disabled. With automatic completion enabled, only required plan items have to reach theses states. A task/stage in state <i>completed</i> is removed from the runtime database.
     </td>
   </tr>
   <tr>

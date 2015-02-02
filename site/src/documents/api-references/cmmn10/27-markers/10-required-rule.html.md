@@ -11,9 +11,9 @@ keywords: 'required rule plan item definition variable'
 
 <img class="img-responsive" src="ref:asset:/assets/cmmn/required-marker.png"/>
 
-This rule will be evaluated when the milestone, stage or task is instantiated and transitions to <code>AVAILABLE</code> state, and their <code>boolean</code> value will be maintained for the rest of the file of the corresponding instance. The required rule determines whether the milestone, stage or task instance having this condition must be in the <code>COMPLETED</code>, <code>TERMINATED</code> or <code>DISABLED</code> state in order for its parent stage instance to transition into the <code>COMPLETED</code> state.
+A plan item may be *required*, meaning that it has to reach an end-like state before the containing stage can complete. Whether a plan item is required can be specified by a *required rule*.
 
-If this rule is not present, then it is considered <code>false</code>. If this rule evaluates to <code>true</code>, the parent stage instance must not transition to complete state unless this milestone, stage or task instance is in the <code>COMPLETED</code>, <code>TERMINATED</code> or <code>DISABLED</code> state.
+This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state <code>AVAILABLE</code>, and its result value of type `boolean` is maintained throughout the remainder of the case instance. If this rule evaluates to <code>true</code>, the plan item's parent stage instance must not transition to <code>COMPLETED</code> state unless the plan item is in the <code>COMPLETED</code>, <code>TERMINATED</code> or <code>DISABLED</code> state. For example, a task that has not yet been worked on, i.e. it is in state <code>ENABLED</code>, prevents its containing stage to complete. If the rule is not present, then it is considered to be <code>false</code>.
 
 ```xml
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
@@ -31,7 +31,7 @@ If this rule is not present, then it is considered <code>false</code>. If this r
 </humanTask>
 ```
 
-The specified expression `${true}` evaluates to the boolean value `true` and means that the plan item should become required.
+The specified expression `${true}` evaluates to the boolean value `true` and means that the plan item is required.
 
 For a plan item definition, the following XML can be used:
 
@@ -49,7 +49,7 @@ For a plan item definition, the following XML can be used:
 </humanTask>
 ```
 
-The rule specified in the `humanTask` element is valid for all plan items that reference it, here `PlanItem_HumanTask_1`.
+The rule specified in the `humanTask` element is valid and individually evaluated for all plan items that reference it, here `PlanItem_HumanTask_1`.
 
 As with any expression, you can use case variables to determine the result of a required rule. The following snippet expresses that the plan item is required when a variable `var` has a value greater than 100:
 

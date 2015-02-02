@@ -30,10 +30,10 @@ The attribute `autoComplete` controls the completion of a stage instance. The fo
         There are no children in the <code>ACTIVE</code> state, and all required (<a href="ref:#markers-required-rule">see Required Rule</a>) children are <code>COMPLETED</code>, <code>DISABLED</code> or <code>TERMINATED</code>.
       </td>
       <td>
-        There are no children in the <code>ACTIVE</code> state, and 
+        There are no children in the <code>ACTIVE</code> state, and
         <ul>
           <li>all children are <code>COMPLETED</code>, <code>DISABLED</code> or <code>TERMINATED</code>, or</li>
-          <li>on manual completion all required (<a href="ref:#markers-required-rule">see Required Rule</a>) children are <code>COMPLETED</code>, <code>DISABLED</code> or <code>TERMINATED</code>.</li>
+          <li>on manual completion using <code>CaseService#completeCaseExecution</code>, all required (<a href="ref:#markers-required-rule">see Required Rule</a>) children are <code>COMPLETED</code>, <code>DISABLED</code> or <code>TERMINATED</code>.</li>
         </ul>
       </td>
     </tr>
