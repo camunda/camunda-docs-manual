@@ -389,7 +389,7 @@ Now we are done with the server-side parts of the plug-in. Next, we will go ahea
 
 <div class="alert alert-info">
   <strong>Note:</strong>
-  This section only provides a short overview of the client-side plug-in mechanism in Cockpit. 
+  This section only provides a short overview of the client-side plug-in mechanism in Cockpit.
   Consider reading <a href="ref:/real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin-how-client-side-plugins-work">How client-side plug-ins work</a> if you are interested in more details.
 </div>
 
@@ -422,39 +422,39 @@ restart the server.
 
 ### plugin.js main file
 
-Each plug-in must contain a file `app/plugin.js` in the plug-ins assets directory (i.e., `plugin-webapp/$plugin_id`). That file bootstraps the client-side plug-in and registers it with Cockpit. To do so it must declare an [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [ngDefine](https://github.com/Nikku/requirejs-angular-define). 
+Each plug-in must contain a file `app/plugin.js` in the plug-ins assets directory (i.e., `plugin-webapp/$plugin_id`). That file bootstraps the client-side plug-in and registers it with Cockpit. To do so it must declare and return an [angular module](http://docs.angularjs.org/guide/module) named `cockpit.plugin.$plugin_id` using [requireJS](http://requirejs.org/).
 
 Without going too deeply into detail, our plugins `plugin.js` may look like this:
 
 ```javascript
-ngDefine('cockpit.plugin.sample-plugin', function(module) {
-  
-  var DashboardController = function($scope, $http, Uri) {
-  
-    $http.get(Uri.appUri("plugin://sample-plugin/default/process-instance"))
+define(['angular'], function(angular) {
+
+  var DashboardController = ["$scope", "$http", "Uri", function($scope, $http, Uri) {
+
+    $http.get(Uri.appUri("plugin://sample-plugin/:engine/process-instance"))
       .success(function(data) {
         $scope.processInstanceCounts = data;
       });
-  };
-  
-  DashboardController.$inject = ["$scope", "$http", "Uri"];
-  
-  var Configuration = function Configuration(ViewsProvider) {
-  
+  }];
+
+  var Configuration = ['ViewsProvider', function(ViewsProvider) {
+
     ViewsProvider.registerDefaultView('cockpit.dashboard', {
       id: 'process-definitions',
       label: 'Deployed Processes',
       url: 'plugin://sample-plugin/static/app/dashboard.html',
       controller: DashboardController,
-  
-      // make sure we have a higher priority than the default plug-in
+
+      // make sure we have a higher priority than the default plugin
       priority: 12
     });
-  };
-  
-  Configuration.$inject = ['ViewsProvider'];
-  
-  module.config(Configuration);
+  }];
+
+  var ngModule = angular.module('cockpit.plugin.sample-plugin', []);
+
+  ngModule.config(Configuration);
+
+  return ngModule;
 });
 ```
 
@@ -511,26 +511,26 @@ The client-side plug-in infrastructure provides extensions to the Cockpit core a
 A plug-in is defined in an `app/plugin.js` file that gets served as static plug-in asset:
 
 ```javascript
-ngDefine('cockpit.plugin.myPlugin', [
-  'jquery', 
-  'angular', 
+define([
+  'jquery',
+  'angular',
   'http://some-url/some-library.js',
-  'module:some.other.angularModule:./someOtherModule.js'
-], function(module, $, angular) {
+  './someOtherModule.js'
+], function($, angular) {
 
-  var ViewController = function($scope, Uri) {
+  var ViewController = ['$scope', function($scope, Uri) {
     // perform logic
 
     // uris to plugin assets and apis may be resolved via Uri#appUri
     // by prefixing those apis with 'plugin://'
     var pluginServiceUrl = Uri.appUri('plugin://myPlugin/default/process-definition');
 
-  };
+  }];
 
-  ViewController.$inject = ['$scope'];
+  var ngModule = angular.module('cockpit.plugin.myPlugin', ['some.other.angularModule']);
 
   // publish the plugin to cockpit
-  module.config(function(ViewsProvider) {
+  ngModule.config(function(ViewsProvider) {
 
     ViewsProvider.registerDefaultView('cockpit.some-view', {
       id: 'some-view-special-plugin',
@@ -539,12 +539,14 @@ ngDefine('cockpit.plugin.myPlugin', [
       controller: ViewController
     });
   });
+
+  return ngModule;
 });
 ```
 
-As the file is loaded as a RequireJS module (read more about the mechanism [here](https://github.com/Nikku/requirejs-angular-define#how-it-works)), dependencies (in terms of other RequireJS modules) may be specified. 
+As the file is loaded as a RequireJS module, dependencies (in terms of other RequireJS modules) may be specified.
 
-The plug-in must register itself with the `ViewsProvider` via a [module configuration hook](http://docs.angularjs.org/api/angular.Module). 
+The plug-in must register itself with the `ViewsProvider` via a [module configuration hook](http://docs.angularjs.org/api/angular.Module).
 
 From within Cockpit, views are included using the [view directive](https://github.com/camunda/camunda-commons-ui/blob/master/lib/plugin/view.js):
 
@@ -552,7 +554,7 @@ From within Cockpit, views are included using the [view directive](https://githu
 <view provider="viewProvider" vars="viewProviderVars" />
 ```
 
-The actual provider that defines the view as well as the published variables are defined by the responsible controller in the surrounding scope: 
+The actual provider that defines the view as well as the published variables are defined by the responsible controller in the surrounding scope:
 
 ```javascript
 function SomeCockpitController($scope, Views) {
