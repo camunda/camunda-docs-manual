@@ -218,6 +218,7 @@ make sure the form keys are initialized.
       <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundatasklistener">camunda:taskListener</a>,
       <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
     </td>
   </tr>
