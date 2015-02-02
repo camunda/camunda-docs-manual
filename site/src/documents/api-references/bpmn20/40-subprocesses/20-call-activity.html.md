@@ -10,7 +10,7 @@ keywords: 'call activity businesskey variables pass'
 
 BPMN 2.0 makes a distinction between an embedded subprocess and a call activity. From a conceptual point of view, both will call a subprocess when process execution arrives at the activity.
 
-The difference is that the call activity references a process that is external to the process definition, whereas the subprocess is embedded within the original process definition. The main use case for the call activity is to have a reusable process definition that can be called from multiple other process definitions.
+The difference is that the call activity references a process that is external to the process definition, whereas the subprocess is embedded within the original process definition. The main use case for the call activity is to have a reusable process definition that can be called from multiple other process definitions. Although not yet part of the BPMN specification, it is also possible to call a CMMN case definition.
 
 When process execution arrives at the call activity, a new process instance is created, which is used to execute the subprocess, potentially creating parallel child executions as within a regular process. The main process instance waits until the subprocess is completely ended, and continues the original process afterwards.
 
@@ -122,9 +122,9 @@ There is nothing special about the process definition of the subprocess. It coul
 
 ## Create a Case Instance
 
-A call activity can also be used to create a new case instance as a sub case instance of the corresponding process instance. Therefore you have to use the attribute `caseRef` instead of the attribute `calledElement` to reference a case definition by its' key. This means that the latest case definition version is always called.
+A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state [COMPLETED](ref:/api-references/cmmn10/#concepts-plan-item-lifecycles-case-instance-lifecycle) for the first time. In contrast to calling a BPMN process, the attribute `caseRef` instead of the attribute `calledElement` must be used to reference a case definition by its key. This means that the latest case definition version is always called.
 
-To call another version of the case definition it is possible to define the attributes `caseBinding` and `caseVersion` in the call activity. Both attributes are optional.
+To call another version of a case definition it is possible to define the attributes `caseBinding` and `caseVersion` in the call activity. Both attributes are optional.
 
 CaseBinding has three different values:
 
