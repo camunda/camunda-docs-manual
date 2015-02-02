@@ -395,6 +395,70 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
+## camunda:taskListener
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      Add a task listener to a task event.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>event</code></td>
+    <td>
+      The type of the event for which the listener is called
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>class</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>expression</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>delegateExpression</code></td>
+    <td>
+      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>event</code> attribute is required and must be one of the task events: <code>create</code>, <code>assignment</code>, <code>complete</code> or <code>delete</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      One of the attributes <code>class</code>, <code>expression</code> or <code>delegateExpression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="ref:#tasks-human-task">Human Task</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+    </td>
+  </tr>
+</table>
+
 ## camunda:variableListener
 
 <table class="table table-striped">
