@@ -369,7 +369,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute references a case definition by its' key to call.
+      The attribute references a case definition by its key to call.
     </td>
   </tr>
   <tr>
