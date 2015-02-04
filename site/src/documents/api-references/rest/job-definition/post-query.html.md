@@ -18,8 +18,8 @@ POST <code>/job-definition</code>
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -79,15 +79,22 @@ A JSON object with the following properties:
     <td>Only include suspended job definitions.</td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>  
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
 
@@ -123,7 +130,7 @@ Each job definition object has the following properties:
     <td>activityId</td>
     <td>String</td>
     <td>The id of the activity this job definition is associated with.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>jobType</td>
     <td>String</td>
@@ -143,7 +150,7 @@ Each job definition object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -169,18 +176,24 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 POST <code>/job-definition</code>
 
 Request body:
 
     {
-      "activityIdIn": 
+      "activityIdIn":
         [
           ServiceTask1, ServiceTask2
-        ]
+        ],
+      "sorting":
+        [{"sortBy": "activityId",
+        "sortOrder": "asc"
+        },
+        {"sortBy": "jobType",
+        "sortOrder": "asc"
+        }]
     }
-  
+
 #### Response
 
     [

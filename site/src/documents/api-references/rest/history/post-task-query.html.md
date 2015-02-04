@@ -216,17 +216,22 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are
-    <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>,
-    <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>,
-    <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code> and <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
 
@@ -389,7 +394,15 @@ Request body:
         {"name": "anotherVarName",
         "value": 30,
         "operator": "neq"}],
-    "priority":10}
+    "priority":10,
+    "sorting":
+      [{"sortBy": "priority",
+      "sortOrder": "asc"
+      },
+      {"sortBy": "duration",
+      "sortOrder": "desc"
+      }]
+    }
 
 Response
 

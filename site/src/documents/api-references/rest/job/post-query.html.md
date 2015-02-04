@@ -118,15 +118,22 @@ A JSON object with the following properties:
     <td>Only include active jobs.</td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
 
@@ -233,6 +240,18 @@ Request body:
           {
             "operator": "lt",
             "value": "2012-07-17'T'18:00:00"
+          }
+        ],
+      ,
+      "sorting":
+        [
+          {
+            "sortBy": "jobDueDate",
+            "sortOrder": "asc"
+          },
+          {
+            "sortBy": "jobRetries",
+            "sortOrder": "asc"
           }
         ]
     }

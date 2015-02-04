@@ -317,7 +317,7 @@ A JSON object with the following properties:
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr>  
+  </tr>
   <tr>
     <td>created</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
@@ -417,17 +417,29 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>,
-    <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code> and <code>priority</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>, <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code>, <code>priority</code>, <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, and <code>caseInstanceVariable</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+        <tr>
+          <td>parameters</td>
+          <td>Mandatory when <code>sortBy</code> is either <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, or <code>caseInstanceVariable</code>. Must be a JSON object with the properties <code>variable</code> and <code>type</code> where <code>variable</code> is a variable name and <code>type</code> is the name of a primitive variable value type.</td>
+        </tr>
+      </table>
+    </td>
   </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
+
+
 </table>
 
 
@@ -576,7 +588,18 @@ Request body:
         {"name": "anotherVarName",
         "value": 30,
         "operator": "neq"}],
-    "priority":10}
+    "priority":10,
+    "sorting":
+        [{"sortBy": "dueDate",
+        "sortOrder": "asc"
+        },
+        {"sortBy": "processVariable",
+        "sortOrder": "desc",
+        "parameters": {
+          "variable": "orderId",
+          "type": "string"
+        }}]
+    }
 
 #### Response
 

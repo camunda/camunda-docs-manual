@@ -8,7 +8,7 @@ keywords: 'post query list'
 ---
 
 
-Query for variable instances that fulfill given parameters through a JSON object. This method is slightly more powerful than the 
+Query for variable instances that fulfill given parameters through a JSON object. This method is slightly more powerful than the
 [GET query](ref:#variable-get-variable-instances) because it allows filtering by multiple variable instances of types `String`, `Number` or `Boolean`.
 
 
@@ -19,7 +19,7 @@ POST `/variable-instance`
 
 
 Parameters
-----------  
+----------
 
 #### Query Parameters
 
@@ -42,7 +42,7 @@ Parameters
       <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
     </td>
   </tr>
-</table> 
+</table>
 
 #### Request Body
 
@@ -98,15 +98,22 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
 
@@ -177,12 +184,12 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance that this variable instance belongs to.</td>
-  </tr>  
+  </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -212,7 +219,7 @@ POST `/variable-instance`
 
 Request body:
 
-    {"variableValuess": 
+    {"variableValuess":
         [{"name": "amount",
          "operator": "gteq",
          "value": "5"
@@ -220,8 +227,13 @@ Request body:
         {"name": "amount",
          "operator": "lteq",
          "value": 200}],
-    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ]}
-  
+    "processInstanceIdIn": [ "aProcessInstanceId", "anotherProcessInstanceId" ]},
+    "sorting":
+        [{"sortBy": "variableType",
+        "sortOrder": "asc"
+        }]
+    }
+
 #### Response
 
     [
@@ -260,5 +272,5 @@ Request body:
         "taskId": null,
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
         "serializationConfig": null
-      }      
+      }
     ]

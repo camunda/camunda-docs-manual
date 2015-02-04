@@ -37,7 +37,7 @@ Parameters
     <td>maxResults</td>
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
-</table>  
+</table>
 
 #### Request Body
 
@@ -101,15 +101,22 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>caseInstanceId</code>, <code>caseDefinitionKey</code> and <code>caseDefinitionId</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>sorting</td>
+    <td>
+      <p>
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+      </p>
+      <table>
+        <tr>
+          <td>sortBy</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>caseInstanceId</code>, <code>caseDefinitionKey</code> and <code>caseDefinitionId</code>.</td>
+        </tr>
+        <tr>
+          <td>sortOrder</td>
+          <td><b>Mandatory.</b> Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+        </tr>
+      </table>
+    </td>
   </tr>
 </table>
 
@@ -190,7 +197,7 @@ POST `/case-instance`
 Request body:
 
     {
-      "variables": 
+      "variables":
         [
           {
             "name" : "myVariable",
@@ -203,7 +210,18 @@ Request body:
             "value" : 124
           }
         ],
-      "caseDefinitionId" : "acaseDefinitionId"
+      "caseDefinitionId" : "acaseDefinitionId",
+      "sorting":
+        [
+          {
+            "sortBy": "caseDefinitionKey",
+            "sortOrder": "asc"
+          },
+          {
+            "sortBy": "caseInstanceId",
+            "sortOrder": "asc"
+          }
+        ]
     }
 
 #### Response
