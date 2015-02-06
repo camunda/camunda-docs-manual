@@ -68,7 +68,7 @@ import static org.camunda.spin.Spin.JSON;
 
 String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{\"id\": 2,\"name\": \"Tracy\",\"sex\": \"female\"}],\"number\": 1,\"boolean\": true}";
 
-Boolean exists = JSON(json).jsonPath("$.child[?(@.sex == 'female'").elementList();
+Boolean exists = JSON(json).jsonPath("$.child[?(@.sex == 'female')]").elementList();
 ```
 
 [json-path]: http://goessner.net/articles/JsonPath/
