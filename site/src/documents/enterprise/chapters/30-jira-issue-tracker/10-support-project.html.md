@@ -6,7 +6,7 @@ title: 'Support Project'
 ---
 
 
-Based on the agreed SLA (Service Level Agreement), you have the chance to contact our Support service with your questions, wishes and problems.
+Based on the agreed SLA (Service Level Agreement), you can contact our Support service with your questions, wishes and problems.
 
 
 ## Create a support ticket
@@ -53,12 +53,12 @@ You can prioritize issues. Please note that according to your SLA's, a prioritiz
   <tbody>
   <tr>
     <td>L1 <img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-blocker.png"/>blocker</td>
-    <td>Core components (i.e. process engine) of camunda BPM do not work at all / produce critical errors that prevent usage in production mode.</td>
+    <td>Core components (i.e., process engine) of Camunda BPM do not work at all / produce critical errors that prevent usage in production mode.</td>
     <td>Bug Tickets only! Production mode only!</td>
   </tr>
   <tr>
     <td>L2 <img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-major.png"/>critical</td>
-    <td>Usage of camunda BPM seriously affected, a workaround is urgently needed. </td>
+    <td>Usage of Camunda BPM seriously affected, a workaround is urgently needed. </td>
     <td>Bug Tickets only!</td>
   </tr>
   <tr>
@@ -69,7 +69,7 @@ You can prioritize issues. Please note that according to your SLA's, a prioritiz
   </tbody>
 </table>
 
-To create a new Support ticket follow the instructions below. To shorten the processing time please provide us as much information as possible.
+To create a new support ticket, follow the instructions below. To shorten the processing time, please provide us with as much information as possible.
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
