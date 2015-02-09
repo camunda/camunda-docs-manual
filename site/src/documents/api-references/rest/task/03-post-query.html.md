@@ -433,7 +433,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>parameters</td>
-          <td>Mandatory when <code>sortBy</code> is either <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, or <code>caseInstanceVariable</code>. Must be a JSON object with the properties <code>variable</code> and <code>type</code> where <code>variable</code> is a variable name and <code>type</code> is the name of a primitive variable value type.</td>
+          <td>Mandatory when <code>sortBy</code> is either <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, or <code>caseInstanceVariable</code>. Must be a JSON object with the properties <code>variable</code> and <code>type</code> where <code>variable</code> is a variable name and <code>type</code> is the name of a variable value type.</td>
         </tr>
       </table>
     </td>
@@ -597,7 +597,7 @@ Request body:
         "sortOrder": "desc",
         "parameters": {
           "variable": "orderId",
-          "type": "string"
+          "type": "String"
         }}]
     }
 
