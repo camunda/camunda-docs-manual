@@ -49,7 +49,16 @@ category: 'Tasklist'
 
 ### Search for Tasks by variable
 
-Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-variable-filter.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+    </p>
+  </div>
+</div>
 
 ## Task view
 
