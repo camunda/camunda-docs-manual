@@ -77,12 +77,70 @@ To create a new Support ticket follow the instructions below. To shorten the pro
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA Support system</a> and select <code>Create Issue</code>. Select <code>Support</code> as project and choose the desired issue type. Give the ticket a meaningful <code>Summary</code>. You can give your ticket a <code>Priority</code> depending on how urgent the issue is for you. Provide us with a date in case of important <code>deadlines</code> that need to be reached. Enter a detailed <code>description</code> of your issue. In case of <b>Bug Reports</b> please use the template (<b>Reproduce steps</b>, <b>Problem</b>, <b>Expected behavior</b>, etc.). <code>Attachments</code> like screenshots, log files or BPMN files help us to find and reproduce your bug faster. You can add <code>Authorized support contacts</code> if you want to share the tickets with your colleagues.
+      <ul>
+        <li>Go to our <a href="https://app.camunda.com/jira/browse/SUPPORT">JIRA Support system</a></li>
+        <li>select <code>Create Issue</code></li>
+        <li>Select <code>Support</code> as project and choose the desired issue type.</li>
+        <li>Give the ticket a meaningful <code>Summary</code></li>
+        <li>You can give your ticket a <code>Priority</code> depending on how urgent the issue is for you. Provide us with a date in case of important <code>deadlines</code> that need to be reached.</li>
+        <li>Enter a detailed <code>description</code> of your issue. In case of <b>Bug Reports</b> please use the template (<b>Reproduce steps</b>, <b>Problem</b>, <b>Expected behavior</b>, etc.).</li>
+        <li><code>Attachments</code> like screenshots, log files or BPMN files help us to find and reproduce your bug faster. </li>
+      </ul>
     </p>
   </div>
 </div>
 
-For further information please have a look at the Atlassian tutorial <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a>
+
+### Message formatting in JIRA
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/jira-support/jira-message.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      In JIRA tickets, messages are formatted using the Wiki Style Renderer. This offers a variety of formatting options, among which the option of adding preformatted code to your issues. You can display a preview of your text in formatted form by hitting the preview button at the bottom left of the message box and you can find additional help by clicking on the question mark at the bottom left.
+    </p>
+    <p>
+      This functionality is available both in the <strong>description</strong> field when creating a new ticket as well as in the <strong>comment</strong> field when responding to an existing ticket.
+    </p>
+  </div>
+</div>
+
+
+
+In this example, we show how to add a section of Java code with a title bar:
+
+```
+{code:title=Bar.java|borderStyle=solid}
+// Some comments here
+public String getFoo()
+{
+    return foo;
+}
+{code}
+```  
+
+This is rendered in JIRA as follows:
+<center><img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-comment-java.png" /></center>  
+
+This example shows how to add a section of XML code, this time without a title bar:  
+
+```
+{code:xml}
+    <test>
+        <another tag="attribute"/>
+    </test>
+{code}
+```
+
+This in turn is rendered in JIRA as follows:
+<center><img class="img-responsive" src="ref:asset:/assets/img/jira-support/jira-comment-xml.png" /></center>  
+
+A detailed description and explanation of the functionalities of the Wiki Style Renderer can be found [here](https://app.camunda.com/jira/secure/WikiRendererHelpAction.jspa?section=all).
+
+For further information please have a look at the Atlassian tutorial <a href="https://confluence.atlassian.com/display/Support/How+Atlassian+Uses+JIRA+for+Support">How Atlassian uses JIRA for Support</a>  
+
 
 ## Visibility of JIRA tickets
 
