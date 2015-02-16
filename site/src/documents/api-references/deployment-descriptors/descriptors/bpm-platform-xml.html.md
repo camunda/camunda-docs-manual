@@ -12,7 +12,7 @@ It is used to configure the camunda BPM platform in the following distributions:
 
 *   [Apache Tomcat](ref:/guides/installation-guide/tomcat/#bpm-platform)
 *   [Glassfish Application Server](ref:/guides/installation-guide/glassfish/#bpm-platform)
-*   [IBM Websphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
+*   [IBM WebSphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
 *   [Oracle WebLogic Application Server](ref:/guides/installation-guide/wls/#bpm-platform)
 
 <div class="alert alert-warning">
@@ -96,7 +96,7 @@ This feature is available for:
 
 *   [Apache Tomcat](ref:/guides/installation-guide/tomcat/#bpm-platform)
 *   [Glassfish Application Server](ref:/guides/installation-guide/glassfish/#bpm-platform)
-*   [IBM Websphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
+*   [IBM WebSphere Application Server](ref:/guides/installation-guide/was/#bpm-platform)
 *   [Oracle WebLogic Application Server](ref:/guides/installation-guide/wls/#bpm-platform)
 
 It is not available for the JBoss AS 7 / Wildfly 8 subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.

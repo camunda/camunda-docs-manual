@@ -44,7 +44,7 @@ The full distribution bundles
 server/container, the container itself is included. For example, if you download the tomcat
 distribution, tomcat itself is included and the camunda binaries (process engine and
 webapplications) are pre-installed into the container. This is not true for the the Oracle Weblogic
-and IBM Websphere downloads. These downloads do not include the application servers themselves.
+and IBM WebSphere downloads. These downloads do not include the application servers themselves.
 
 See [Installation Guide][installation-guide-full] for additional details.
 

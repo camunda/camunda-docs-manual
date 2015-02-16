@@ -1,13 +1,13 @@
 ---
 
-title: 'Configure a WorkManager to be used by the camunda BPM platform jobexecutor'
+title: 'Configure a WorkManager to be used by the Camunda BPM platform jobexecutor'
 shortTitle: 'Configure a WorkManager'
 category: 'BPM Platform'
 
 ---
 
 
-This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
+This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the Camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
 Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: <code>Cell=<some_id></code>
 Create a new work manager in the scope using the Button **New...**.
@@ -43,7 +43,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tr>
   <tr>
     <td >Description</td>
-    <td >"The work manager used by the camunda platform job executor"</td>
+    <td >"The work manager used by the Camunda platform job executor"</td>
     <td >Describes the work manager. Any value can be used.</td>
   </tr>
   <tr>

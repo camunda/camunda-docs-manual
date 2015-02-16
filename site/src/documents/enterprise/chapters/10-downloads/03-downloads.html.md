@@ -36,11 +36,11 @@ title: 'Latest Version'
           <a href="ref:/guides/installation-guide/glassfish/">How to install</a>
         </th>
         <th>
-          WebSphere 8.x</br>
+          <center>IBM</center> WebSphere 8.x</br>
           <a href="ref:/guides/installation-guide/was/">How to install</a>
         </th>
         <th>
-          WebLogic 12.x</br>
+          <center>Oracle</center> WebLogic 12.x</br>
           <a href="ref:/guides/installation-guide/wls/">How to install</a>
         </th>
       </tr>
@@ -136,11 +136,11 @@ title: 'Latest Version'
           <a href="ref:/guides/installation-guide/glassfish/">How to install</a>
         </th>
         <th>
-          WebSphere 8.x</br>
+          <center>IBM</center> WebSphere 8.x</br>
           <a href="ref:/guides/installation-guide/was/">How to install</a>
         </th>
         <th>
-          WebLogic 12.x</br>
+          <center>Oracle</center> WebLogic 12.x</br>
           <a href="ref:/guides/installation-guide/wls/">How to install</a>
         </th>
       </tr>
@@ -229,7 +229,7 @@ title: 'Latest Version'
           <a href="ref:/guides/installation-guide/glassfish/">How to install</a>
         </th>
         <th>
-          WebSphere 8.x</br>
+          IBM WebSphere 8.x</br>
           <a href="ref:/guides/installation-guide/was/">How to install</a>
         </th>
       </tr>
@@ -300,11 +300,11 @@ title: 'Latest Version'
           <a href="ref:/guides/installation-guide/glassfish/">How to install</a>
         </th>
         <th>
-          WebSphere 8.x</br>
+          <center>IBM</center> WebSphere 8.x</br>
           <a href="ref:/guides/installation-guide/was/">How to install</a>
         </th>
         <th>
-          WebLogic 12.x</br>
+          <center>Oracle</center> WebLogic 12.x</br>
           <a href="ref:/guides/installation-guide/wls/">How to install</a>
         </th>
       </tr>

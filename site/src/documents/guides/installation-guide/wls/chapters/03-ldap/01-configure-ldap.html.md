@@ -5,7 +5,7 @@ category: 'LDAP Configuration'
 
 ---
 
-In order to setup LDAP for the WebLogic distribution, you have to perform the following steps:
+In order to setup LDAP for the Oracle WebLogic distribution, you have to perform the following steps:
 
 ### Add the LDAP Library
 

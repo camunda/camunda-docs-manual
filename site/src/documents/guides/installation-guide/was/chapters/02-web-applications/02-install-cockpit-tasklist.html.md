@@ -1,19 +1,19 @@
 ---
 
-title: 'Install camunda Cockpit and Tasklist'
+title: 'Install Camunda Cockpit and Tasklist'
 category: 'Web Applications'
 
 ---
 
 
-The web application archive that contains camunda Cockpit and Tasklist resides under <code>webapps/camunda-was-$PLATFORM_VERSION.war</code> in the WAS distribution archive.
+The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under <code>webapps/camunda-was-$PLATFORM_VERSION.war</code> in the IBM WebSphere Application Server distribution archive.
 
-In this section we explain how to install the WAR file using the Websphere enterprise application Wizard provided by the Websphere Integrated Solutions Console:
+In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided by the WebSphere Integrated Solutions Console:
 
-1.  Open the Websphere Integrated Solutions Console.
+1.  Open the WebSphere Integrated Solutions Console.
 2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
 3.  Click the **Install** Button
-4.  The first page of the Wizard opens. Using the File Browser, select the <code>camunda-was-VERSION.war</code> file from the distribution and upload it.
+4.  The first page of the wizard opens. Using the file browser, select the <code>camunda-was-VERSION.war</code> file from the distribution and upload it.
 5.  Continue to the next page.
 6.  Select the **"Fast Path"** on the next page.
 7.  Step 1. Usually no changes are required.
