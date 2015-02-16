@@ -6,7 +6,7 @@ category: 'Migration'
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a WebSphere application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 WebSphere distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
+The following steps describe how to upgrade the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 IBM WebSphere distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
 
 The upgrade procedure takes the following steps:
 
@@ -46,7 +46,7 @@ Note that the non-Camunda artifacts may be depended on by other applications.
 
 ## 2. Add the new Camunda Libraries
 
-Camunda BPM 7.2 ships a new installation approach for the Camunda BPM platform on WebSphere. The Camunda BPM libraries are now available through a shared library the server administrator has to create.
+Camunda BPM 7.2 ships a new installation approach for the Camunda BPM platform on IBM WebSphere. The Camunda BPM libraries are now available through a shared library the server administrator has to create.
 
 Copy the Camunda core modules from the folder `$WAS_DISTRIBUTION/modules/lib` to a folder that can be referenced from your IBM WebSphere installation when you later create the shared library. In detail, these are the following artifacts:
 
@@ -187,16 +187,16 @@ As of version 7.2, the Camunda job executor resource adapter (RAR) that you unin
 
 #### Camunda REST API
 
-The following steps are required to upgrade the Camunda REST API on a WebSphere instance:
+The following steps are required to upgrade the Camunda REST API on an IBM WebSphere instance:
 
-1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` to your WebSphere instance.
+1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` to your IBM WebSphere instance.
 2. Associate the web application with the `Camunda` shared library.
 
 #### Camunda Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a WebSphere instance:
+The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
 
-1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-$PLATFORM_VERSION.war` to your WebSphere instance.
+1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-$PLATFORM_VERSION.war` to your IBM WebSphere instance.
 2. Associate the web application with the `Camunda` shared library.
 
 ## 8. Associate Existing Applications with Shared Library

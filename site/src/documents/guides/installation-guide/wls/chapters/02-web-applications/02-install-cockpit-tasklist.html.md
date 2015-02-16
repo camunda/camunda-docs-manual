@@ -6,11 +6,11 @@ category: 'Web Applications'
 ---
 
 
-The web application archive that contains camunda Cockpit and Tasklist resides under `webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` in the WLS distribution archive.
+The web application archive that contains camunda Cockpit and Tasklist resides under `webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` in the Oracle WebLogic Application Server distribution archive.
 
-In this section we explain how to install the WAR file using the WebLogic Server Administration Console:
+In this section we explain how to install the WAR file using the Oracle WebLogic Server Administration Console:
 
-1.  Open the WebLogic Server Administration Console.
+1.  Open the Oracle WebLogic Server Administration Console.
 2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
 3.  Click the **Install** button. The first page of the Wizard opens.
 4.  Using the File Browser, select the `camunda-webapp-ee-wls-$PLATFORM_VERSION.war` file from the distribution and upload it.

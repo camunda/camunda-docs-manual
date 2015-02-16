@@ -6,7 +6,7 @@ category: 'BPM Platform'
 ---
 
 
-In this section, we explain how the camunda-oracle-weblogic-ear module can be installed using the WebLogic Server Administration Console.
+In this section, we explain how the camunda-oracle-weblogic-ear module can be installed using the Oracle WebLogic Server Administration Console.
 
 The installation process is composed of two steps:
 
@@ -18,10 +18,10 @@ The installation process is composed of two steps:
 
 First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR file must be installed:
 
-1. Open the WebLogic Server Administration Console.
+1. Open the Oracle WebLogic Server Administration Console.
 2. Navigate to the **"Domain structure / YOUR_DOMAIN / Deployments"** page.
 3. Select the **"Install"** button.
-4. Using the File Browser, select the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> from the modules folder of the camunda BPM platform for Oracle Weblogic Application Server distribution and continue to the **"Next"** page.
+4. Using the File Browser, select the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> from the modules folder of the camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
 6. Fill in <code>camunda-bpm-platform</code> as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
     
@@ -53,7 +53,7 @@ Example: Deployment order set to **"90"**.
 3. Here, you see a preconfigured JCA Work Manager named **"wm/camunda-bpm-workmanager"**. Click on it.
 4. For **"Minimum Threads Constraint"**, select the preconfigured **"camunda-bpm-workmanager-min-threads"** option. Per default, we configure 2 threads as a minimum. **At least 2 threads are required**, but you can increase them when you think you do a lot of asynchronous work.
 5. For **"Maximum Threads Constraint"**, select the preconfigured **"camunda-bpm-workmanager-max-threads"** option. Per default, we configure 5 threads, but you can increase them when you think you do a lot of asynchronous work.
-6. For **"Stuck Thread Action"**, select **"Ignore stuck threads"**, because we have a long running daemon thread which acquires the jobs to execute. This forces WebLogic to skip the Stuck Thread Warning which would otherwise appear in the server log every ten minutes.
+6. For **"Stuck Thread Action"**, select **"Ignore stuck threads"**, because we have a long running daemon thread which acquires the jobs to execute. This forces Oracle WebLogic to skip the Stuck Thread Warning which would otherwise appear in the server log every ten minutes.
 7. For **"Capacity Constraint"**, select the preconfigured **"camunda-bpm-workmanager-capacity"** option. Per default, we configure a queue size of 10 for the workmanager, but you can always tune it accordingly to your needs.
 8. Click **"Save"** to persist your changes.
 

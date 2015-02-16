@@ -5,7 +5,7 @@ category: 'LDAP Configuration'
 
 ---
 
-In order to set up LDAP for the WebSphere distribution, you have to perform the following steps:
+In order to set up LDAP for the IBM WebSphere distribution, you have to perform the following steps:
 
 ### Add the LDAP Library
 
@@ -71,8 +71,8 @@ See our user guide for complete documentation on the [LDAP Identity Provider Plu
 ### Enable Hal Resource caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
-Users and Groups in the camunda webapplication. In order to activate this, add the following
-configuration to the `web.xml` file of camunda webapplication
+Users and Groups in the Camunda webapplication. In order to activate this, add the following
+configuration to the `web.xml` file of Camunda webapplication
 (`camunda-webapp-was-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
 
 ```xml

@@ -6,7 +6,7 @@ category: 'BPM Platform'
 ---
 
 
-The camunda BPM platform uses one or multiple process engines. Use the WebLogic Server Administration Console for the configuration of the datasources.
+The camunda BPM platform uses one or multiple process engines. Use the Oracle WebLogic Server Administration Console for the configuration of the datasources.
 The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml.
 
 
@@ -20,9 +20,9 @@ The following screenshot shows the mandatory configuration of a datasource for c
   <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-datasource-jndi.png" alt=""/>
 </a>
 
-In this section we explain how to add a datasource using the WebLogic Server Administration Console:
+In this section we explain how to add a datasource using the Oracle WebLogic Server Administration Console:
 
-1.  Open the WebLogic Server Administration Console.
+1.  Open the Oracle WebLogic Server Administration Console.
 2.  Navigate to the **"Domain Structure / YOUR_DOMAIN / Services / Data Sources"** page.
 3.  Click the **"New"** Button and select **"Generic Data Source"**.
 4.  On the next page, enter a name for the datasource.

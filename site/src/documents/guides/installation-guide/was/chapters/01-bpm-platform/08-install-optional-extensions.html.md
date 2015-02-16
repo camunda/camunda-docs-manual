@@ -6,7 +6,7 @@ category: 'BPM Platform'
 
 ---
 
-This section describes how to install optional Camunda dependencies onto a WebSphere server. None of these are required to work with the core platform.
+This section describes how to install optional Camunda dependencies onto an IBM WebSphere server. None of these are required to work with the core platform.
 
 The following covers the installation of these extensions:
 
@@ -54,7 +54,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in BPM platform configuration as follows:
+In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in the BPM platform configuration as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -25,7 +25,7 @@ For Eclipse this can be done by clicking on the project and hitting `Ctrl-Shift-
             <tr>
               <th>component</th>
               <th>Activiti class name</th>
-              <th>camunda class name</th>
+              <th>Camunda class name</th>
             </tr>
           </thead>
           <tbody>
