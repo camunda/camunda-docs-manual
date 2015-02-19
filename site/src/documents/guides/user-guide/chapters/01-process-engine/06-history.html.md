@@ -217,7 +217,7 @@ Query for successful historic job logs:
 
 ```java
 historyService.createUserOperationLogQuery()
-  .successful()
+  .successLog()
   .list();
 ```
 
