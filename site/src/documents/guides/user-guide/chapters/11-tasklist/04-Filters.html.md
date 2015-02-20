@@ -61,7 +61,7 @@ Several of the filter criteria accept expressions as values. These expressions a
       </tr>
       </thead>
       <tbody>
-        <tr class="well">
+        <tr>
           <td>
             All my tasks
           </td>
@@ -125,11 +125,11 @@ Several of the filter criteria accept expressions as values. These expressions a
             Displays all tasks assigned to a specific user group which have not been claimed yet
           </td>
           <td>
-            Candidate Groups,<br> 
+            Candidate Groups,<br>
             Unassigned
           </td>
           <td>
-           Group name (e.g., <code>accounting</code>),<br> 
+           Group name (e.g., <code>accounting</code>),<br>
            <code>true</code>
           </td>
         </tr>
@@ -169,11 +169,11 @@ Several of the filter criteria accept expressions as values. These expressions a
             Displays all tasks that have a due date set for the current date
           </td>
           <td>
-            Due After, <br> 
+            Due After, <br>
             Due Before
           </td>
           <td>
-            <code>${ dateTime().withTimeAtStartOfDay() }</code>,<br> 
+            <code>${ dateTime().withTimeAtStartOfDay() }</code>,<br>
             <code>${ dateTime().withTimeAtStartOfDay()<br>
             .plusDays(1).minusSeconds(1) }</code>
           </td>
