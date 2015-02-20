@@ -40,16 +40,25 @@ A JSON object with the following properties:
     <td>Filter by job id.</td>
   </tr>
   <tr>
+    <td>jobExceptionMessage</td>
+    <td>Filter by job exception message.</td>
+  </tr>
+  <tr>
     <td>jobDefinitionId</td>
     <td>Filter by job definition id.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionType</td>
+    <td>Filter by job definition type.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionConfiguration</td>
+    <td>Filter by job definition configuration.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
     <td>Only include historic job logs which belong to one of the passed activity ids.</td>
   </tr>
-  <tr>
-    <td>jobHandlerType</td>
-    <td>Filter by job handler type.</td>
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic job logs which belong to one of the passed execution ids.</td>
@@ -57,7 +66,6 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>Filter by process instance id.</td>
-  </tr>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -70,18 +78,6 @@ A JSON object with the following properties:
   <tr>
     <td>deploymentId</td>
     <td>Filter by deployment id.</td>
-  </tr>
-  <tr>
-    <td>jobExceptionMessage</td>
-    <td>Filter by job exception message.</td>
-  </tr>
-  <tr>
-    <td>jobTimers</td>
-    <td>Only select historic job logs for timers. Cannot be used together with <code>jobMessages</code>.</td>
-  </tr>
-  <tr>
-    <td>jobMessages</td>
-    <td>Only select historic job logs for messages. Cannot be used together with <code>jobTimers</code>.</td>
   </tr>
   <tr>
     <td>creationLog</td>

@@ -60,26 +60,6 @@ A JSON object with the following properties:
     <td>The id of the associated job.</td>
   </tr>
   <tr>
-    <td>jobDefinitionId</td>
-    <td>String</td>
-    <td>The id of the job definition on which the associated job was created.</td>
-  </tr>
-  <tr>
-    <td>activityId</td>
-    <td>String</td>
-    <td>The id of the activity on which the associated job was created.</td>
-  </tr>
-  <tr>
-    <td>jobType</td>
-    <td>String</td>
-    <td>The type of the associated job.</td>
-  </tr>
-  <tr>
-    <td>jobHandlerType</td>
-    <td>String</td>
-    <td>The handler type of the associated job.</td>
-  </tr>
-  <tr>
     <td>jobDueDate</td>
     <td>String</td>
     <td>The date on which the associated job is supposed to be processed.</td>
@@ -93,7 +73,27 @@ A JSON object with the following properties:
     <td>jobExceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred by executing the associated job.</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>String</td>
+    <td>The id of the job definition on which the associated job was created.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionType</td>
+    <td>String</td>
+    <td>The job definition type of the associated job.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionConfiguration</td>
+    <td>String</td>
+    <td>The job definition configuration type of the associated job.</td>
+  </tr>
+  <tr>
+    <td>activityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the associated job was created.</td>
+  </tr>
   <tr>
     <td>executionId</td>
     <td>String</td>

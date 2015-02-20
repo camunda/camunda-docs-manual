@@ -37,16 +37,25 @@ Parameters
     <td>Filter by job id.</td>
   </tr>
   <tr>
+    <td>jobExceptionMessage</td>
+    <td>Filter by job exception message.</td>
+  </tr>
+  <tr>
     <td>jobDefinitionId</td>
     <td>Filter by job definition id.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionType</td>
+    <td>Filter by job definition type.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionConfiguration</td>
+    <td>Filter by job definition configuration.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
     <td>Only include historic job logs which belong to one of the passed activity ids.</td>
   </tr>
-  <tr>
-    <td>jobHandlerType</td>
-    <td>Filter by job handler type.</td>
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic job logs which belong to one of the passed execution ids.</td>
@@ -54,7 +63,6 @@ Parameters
   <tr>
     <td>processInstanceId</td>
     <td>Filter by process instance id.</td>
-  </tr>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -67,18 +75,6 @@ Parameters
   <tr>
     <td>deploymentId</td>
     <td>Filter by deployment id.</td>
-  </tr>
-  <tr>
-    <td>jobExceptionMessage</td>
-    <td>Filter by job exception message.</td>
-  </tr>
-  <tr>
-    <td>jobTimers</td>
-    <td>Only select historic job logs for timers. Cannot be used together with <code>jobMessages</code>.</td>
-  </tr>
-  <tr>
-    <td>jobMessages</td>
-    <td>Only select historic job logs for messages. Cannot be used together with <code>jobTimers</code>.</td>
   </tr>
   <tr>
     <td>creationLog</td>
@@ -147,26 +143,6 @@ Each historic job log object has the following properties:
     <td>The id of the associated job.</td>
   </tr>
   <tr>
-    <td>jobDefinitionId</td>
-    <td>String</td>
-    <td>The id of the job definition on which the associated job was created.</td>
-  </tr>
-  <tr>
-    <td>activityId</td>
-    <td>String</td>
-    <td>The id of the activity on which the associated job was created.</td>
-  </tr>
-  <tr>
-    <td>jobType</td>
-    <td>String</td>
-    <td>The type of the associated job.</td>
-  </tr>
-  <tr>
-    <td>jobHandlerType</td>
-    <td>String</td>
-    <td>The handler type of the associated job.</td>
-  </tr>
-  <tr>
     <td>jobDueDate</td>
     <td>String</td>
     <td>The date on which the associated job is supposed to be processed.</td>
@@ -180,7 +156,27 @@ Each historic job log object has the following properties:
     <td>jobExceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred by executing the associated job.</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>String</td>
+    <td>The id of the job definition on which the associated job was created.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionType</td>
+    <td>String</td>
+    <td>The job definition type of the associated job.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionConfiguration</td>
+    <td>String</td>
+    <td>The job definition configuration type of the associated job.</td>
+  </tr>
+  <tr>
+    <td>activityId</td>
+    <td>String</td>
+    <td>The id of the activity on which the associated job was created.</td>
+  </tr>
   <tr>
     <td>executionId</td>
     <td>String</td>
