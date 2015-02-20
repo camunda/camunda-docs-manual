@@ -28,4 +28,44 @@ Note that the processEngineConfiguration bean uses the <a href="ref:/api-referen
 
 ### Configuring a container-managed Process Engine as a Spring Bean
 
-If you want the process engine to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration.
+If you want the process engine to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
+1) that none of your webapps include camunda-webapp\*.jar within their own lib folder, this should be at a shared level.
+2) that your server.xml contains JNDI entries for the 'ProcessEngineService' and 'ProcessApplicationService' as below:
+
+```xml
+<!-- Global JNDI resources
+       Documentation at /docs/jndi-resources-howto.html
+  -->
+  <GlobalNamingResources>
+
+    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService" auth="Container"
+              type="org.camunda.bpm.ProcessEngineService"
+              description="camunda BPM platform Process Engine Service"
+              factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
+
+    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService" auth="Container"
+              type="org.camunda.bpm.ProcessApplicationService"
+              description="camunda BPM platform Process Application Service"
+              factory="org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory" />
+     ...
+  </GlobalNamingResources>
+```
+
+I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration.
+
+### Configuring a Process Engine Plugin in Spring
+
+In Sping you can configure a process engine plugin by setting a list value to the
+`processEnginePlugins` property of the `processEngineConfiguration` bean:
+
+```xml
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+  ...
+  <property name="processEnginePlugins">
+    <list>
+      <bean id="spinPlugin" class="org.camunda.spin.plugin.impl.SpinProcessEnginePlugin" />
+    </list>
+  </property>
+</bean>
+```
+
