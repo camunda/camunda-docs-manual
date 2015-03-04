@@ -34,6 +34,7 @@ The history level controls the amount of data the process engine provides via th
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
+    * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
 
 If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
@@ -73,6 +74,7 @@ There are nine History entities, which - in contrast to the runtime data - will 
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
 * `HistoricIncidents` containing information about current and past (ie. deleted or resolved) incidents.
 * `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, etc.
+* `HistoricJobLog` containing information about the job execution. The log provides details about the lifecycle of a job.
 
 
 ### Querying History
@@ -80,8 +82,8 @@ There are nine History entities, which - in contrast to the runtime data - will 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricProcessVariableQuery()`, `createHistoricCaseInstanceQuery()`,
 `createHistoricActivityInstanceQuery()`, `createHistoricCaseActivityInstanceQuery()`,
-`createHistoricDetailQuery()`, `createHistoricTaskInstanceQuery()`, `createHistoricIncidentQuery()`
-and `createUserOperationLogQuery()` which can be used for querying history.
+`createHistoricDetailQuery()`, `createHistoricTaskInstanceQuery()`, `createHistoricIncidentQuery()`,
+`createUserOperationLogQuery()` and `createHistoricJobLogQuery()` which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the javadocs, in the `org.camunda.bpm.engine.history` package.
 
@@ -207,6 +209,16 @@ Query for all operations performed by user "jonny":
 historyService.createUserOperationLogQuery()
   .userId("jonny")
   .listPage(0, 10);
+```
+
+** HistoricJobLogQuery **
+
+Query for successful historic job logs:
+
+```java
+historyService.createUserOperationLogQuery()
+  .successLog()
+  .list();
 ```
 
 ## Providing a custom History Backend

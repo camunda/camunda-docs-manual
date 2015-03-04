@@ -23,7 +23,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 ```
 
 The shared libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
-Restart the Weblogic Server after this operation.
+Restart the Oracle WebLogic Server after this operation.
 
 <div class="alert alert-info">
   <strong>Hint:</strong>

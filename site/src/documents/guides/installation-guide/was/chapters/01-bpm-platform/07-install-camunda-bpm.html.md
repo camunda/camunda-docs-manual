@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the camunda BPM platform Application'
+title: 'Install the Camunda BPM platform Application'
 category: 'BPM Platform'
 
 ---
@@ -10,7 +10,7 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
 
 1.  Navigate to the Enterprise Applications page using the navigation path **Applications** / **Application Types** / **WebSphere enterprise applications**.
 2.  Click the **"Install"** Button.
-3.  Select the <code>camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear</code> file from the modules folder of the camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
+3.  Select the <code>camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear</code> file from the modules folder of the Camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
 4.  Select the **"Fast Path"** install option.
 5.  In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6.  Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.

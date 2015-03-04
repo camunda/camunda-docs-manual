@@ -23,4 +23,4 @@ category: 'Patch Level Upgrade'
 
 ###Upgrading over multiple Patch Level versions
 
-It is possible to upgrade the camunda BPM platform over multiple patch level versions (e.g., from 7.1.0 to 7.1.4). To do so, follow the steps listed [below](ref:#patch-level-upgrade-upgrade-your-server).
+It is possible to upgrade the Camunda BPM platform over multiple patch level versions (e.g., from 7.1.0 to 7.1.4). To do so, follow the steps listed [below](ref:#patch-level-upgrade-upgrade-your-server).

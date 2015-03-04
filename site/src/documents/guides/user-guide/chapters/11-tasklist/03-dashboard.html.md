@@ -13,8 +13,19 @@ category: 'Tasklist'
     <p>
       On the dashboard of Tasklist you see an overview of pending tasks. On the left side of the screen, an overview of the <a href="ref:#tasklist-filters">filters</a> is displayed. On the top right side of the screen, you can set a follow-up or due date and you can claim and unclaim tasks. Underneath that section, the embedded form is displayed (please note that external task forms cannot be displayed here), you can switch to the task history, you can see the diagram view or you can view the description of the user task.
     </p>
+  </div>
+</div>
+
+## Toggle view
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-toggle-view.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Tasklist offers you the option of toggling the view options on the dashboard. You can select to have a focus on the <a href="ref:#tasklist-dashboard-filter-results">filter results</a>, the <a href="ref:#tasklist-dashboard-task-view">task view</a> or to display the full dashboard.
+      Tasklist offers you the option of toggling the view options on the dashboard. You can select to have a focus on the <a href="ref:#tasklist-filters">filters</a>, the <a href="ref:#tasklist-dashboard-filter-results">filter results</a>, the <a href="ref:#tasklist-dashboard-task-view">task view</a> or to display the full dashboard. To do so, hit the respective <img src="ref:asset:/assets/img/implementation-tasklist/tasklist-toggle-view-button.png"></img> button (see the image on the left). At any time, you can also choose to instantly set full focus on the task view by hitting the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button.
+    </p>
   </div>
 </div>
 
@@ -49,7 +60,16 @@ category: 'Tasklist'
 
 ### Search for Tasks by variable
 
-Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-variable-filter.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is _equal to_ (=). You can toggle the operator and select _not equal to_ (!=), _greater than_ (>), _lower than_ (<), _equal to or greater than_ (>=) or _equal to or lower than_ (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+    </p>
+  </div>
+</div>
 
 ## Task view
 

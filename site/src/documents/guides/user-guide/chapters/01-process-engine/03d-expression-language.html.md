@@ -51,7 +51,7 @@ usage of EL.
           Different Elements
         </a>
     </td>
-    <td>Exression language as the value of an attribute or element</td>
+    <td>Expression language as the value of an attribute or element</td>
   </tr>
 </table>
 
@@ -313,7 +313,7 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 [JUEL]: http://juel.sourceforge.net/
 [official documentation]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html
 [examples]: http://docs.oracle.com/javaee/5/tutorial/doc/bnahq.html#bnain
-[variables]: process-engine-expression-language-variables-and-functions-available-inside-expression-language
+[variables]: #process-engine-expression-language-variables-and-functions-available-inside-expression-language
 [Spring]: #spring-framework-integration-expression-resolving
 [CDI]: #cdi-and-java-ee-integration-expression-resolving
 [BPMN]: ref:/api-references/bpmn20/
