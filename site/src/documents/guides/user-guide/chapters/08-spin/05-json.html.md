@@ -82,7 +82,7 @@ ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("aPro
 ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/json").create();
 
-runtimeService.setVariableTyped(processInstance.getId(), "customer", typedCustomerValue);
+runtimeService.setVariable(processInstance.getId(), "customer", typedCustomerValue);
 ```
 
 The decisive statement is
