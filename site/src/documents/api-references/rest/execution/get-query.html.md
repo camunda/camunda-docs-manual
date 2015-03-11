@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for the number of executions that fulfill given parameters.
+Query for the executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
 The size of the result set can be retrieved by using the [get executions count](ref:#execution-get-executions-count) method.
 
