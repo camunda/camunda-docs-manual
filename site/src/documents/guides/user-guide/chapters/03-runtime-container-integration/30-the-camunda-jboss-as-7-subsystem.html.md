@@ -252,7 +252,7 @@ By default, the Application server will not add this module to the classpath of 
 
 ### Implicit module dependencies with the Process Application API
 
-When using the Process Application API (ie. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
 
 ### Explicit module dependencies
 
@@ -295,7 +295,7 @@ There are three applications deployed and two process engine services exist. App
 
 ### Implicit Service Dependencies
 
-When using the Process Application API (ie. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
+When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
 
 ### Explicit Service Dependencies
 
