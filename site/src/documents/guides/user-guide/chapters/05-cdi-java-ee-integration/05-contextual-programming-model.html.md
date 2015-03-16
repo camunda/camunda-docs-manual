@@ -1,7 +1,7 @@
 ---
 
 title: 'Contextual Programming Model'
-category: 'Cdi and Java EE Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
@@ -65,4 +65,4 @@ public class BusinessTripRequest implements Serializable {
 }
 ```
 
-Sometimes, we want to work with process scoped beans, in the absence of an association with a process instance, for example before starting a process. If no process instance is currently active, instances of BusinessProcessScoped beans are temporarily stored in a local scope (I.e. the Conversation or the Request, depending on the context. If this scope is later associated with a business process instance, the bean instances are flushed to the process instance.
+Sometimes, we want to work with process scoped beans, in the absence of an association with a process instance, for example before starting a process. If no process instance is currently active, instances of BusinessProcessScoped beans are temporarily stored in a local scope (i.e. the Conversation or the Request, depending on the context.) If this scope is later associated with a business process instance, the bean instances are flushed to the process instance.

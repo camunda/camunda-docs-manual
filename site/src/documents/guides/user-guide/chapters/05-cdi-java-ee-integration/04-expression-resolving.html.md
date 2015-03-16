@@ -1,11 +1,11 @@
 ---
 
 title: 'Expression Resolving'
-category: 'Cdi and Java EE Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
-The `camunda-engine-cdi` library exposes Cdi beans via Expression Language, using a custom resolver. This makes it possible to reference beans from the process:
+The `camunda-engine-cdi` library exposes CDI beans via Expression Language, using a custom resolver. This makes it possible to reference beans from the process:
 
 ```xml
 <userTask id="authorizeBusinessTrip" name="Authorize Business Trip"

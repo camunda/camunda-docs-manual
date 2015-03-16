@@ -5,7 +5,7 @@ category: 'CDI and Java EE Integration'
 
 ---
 
-The camunda-engine-cdi module provides programming model integration with CDI (Context and Dependency Injection). CDI is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configuration of the camunda engine and the extensibility of Cdi. The most prominent features are:
+The camunda-engine-cdi module provides programming model integration with CDI (Context and Dependency Injection). CDI is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configuration of the camunda engine and the extensibility of CDI. The most prominent features are:
 
  * A custom El-Resolver for resolving CDI beans (including EJBs) from the process,
  * Support for @BusinessProcessScoped beans (CDI beans the lifecycle of which is bound to a process instance),

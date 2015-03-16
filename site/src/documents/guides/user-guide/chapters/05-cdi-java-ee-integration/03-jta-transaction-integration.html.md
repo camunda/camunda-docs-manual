@@ -1,7 +1,7 @@
 ---
 
-title: 'Jta Transaction Integration'
-category: 'Cdi and Java EE Integration'
+title: 'JTA Transaction Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
