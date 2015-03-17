@@ -100,6 +100,9 @@ Filters which are __not availabe anymore__:
 
 Beginning with 7.3, the REST API as well as Cockpit, Tasklist, and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further Jackson-specific migration may be required.
 
+#### Jackson 2 JAX-RS polymorphic response
+
+The Jackson 2 JAX-RS provider changes serialization of polymorphic types. Assume, your plugin's REST resource has a JAX-RS GET method with return type `List<A>`. `A` is an interface class with two implementing classes, `B` and `C`. With Jackson 2, the response JSON only contains properties defined in `A`. If your REST resource should dynamically include the properties of objects dependent on their actual class, consider adding the annotations `com.fasterxml.jackson.annotation.JsonSubTypes` and `com.fasterxml.jackson.annotation.JsonTypeInfo` to the superclass. See the [Jackson Javadocs][jackson-jsontypeinfo] for details.
 
 [ng-define]: http://nikku.github.io/requirejs-angular-define
 [requirejs]: http://requirejs.org
@@ -108,3 +111,4 @@ Beginning with 7.3, the REST API as well as Cockpit, Tasklist, and Admin use Jac
 [cockpit]: https://github.com/camunda-/camunda-cockpit-ui
 [angular-ui]: https://github.com/angular-ui/angular-ui-OLDREPO
 [angular-bootstrap]: https://github.com/angular-ui/bootstrap
+[jackson-jsontypeinfo]: https://fasterxml.github.io/jackson-annotations/javadoc/2.4/com/fasterxml/jackson/annotation/JsonTypeInfo.html
