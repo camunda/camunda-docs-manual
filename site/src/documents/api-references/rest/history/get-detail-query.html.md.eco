@@ -108,6 +108,11 @@ Each historic detail object has the following properties:
     <td>String</td>
     <td>The id of the historic detail.</td>
   </tr>
+    <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of the historic detail. Either <code>formField</code> for a submitted form field value or <code>variableUpdate</code> for variable updates.</td>
+  </tr>
   <tr>
     <td>processInstanceId</td>
     <td>String</td>
@@ -145,7 +150,7 @@ Each historic detail object has the following properties:
   </tr>
 </table>
 
-Depending on the concrete instance of the historic detail it contains further properties. In case of an <code>HistoricVariableUpdate</code> the following properties are also provided:
+Depending on the type of the historic detail it contains further properties. In case of an <code>HistoricVariableUpdate</code> the following properties are also provided:
 
 <table class="table table-striped">
   <tr>
