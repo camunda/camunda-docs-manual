@@ -1,6 +1,6 @@
 ---
 
-title: 'The camunda JBoss Subsystem'
+title: 'The Camunda JBoss Subsystem'
 category: 'Runtime Container Integration'
 
 ---
@@ -9,11 +9,11 @@ category: 'Runtime Container Integration'
   <p>
     <strong>Distribution & Installation Guide</strong>
   </p>
-   <p>If you <a href="http://camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the camunda JBoss subsystem is readily installed into the application server</p>
-   <p><a href="ref:/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the camunda JBoss subsystem into your JBoss AS 7 / Wildfly 8 Server.</p>
+   <p>If you <a href="http://camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the Camunda JBoss subsystem is readily installed into the application server</p>
+   <p><a href="ref:/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the Camunda JBoss subsystem into your JBoss AS 7 / Wildfly 8 Server.</p>
 </div>
 
-camunda BPM provides advanced integration for JBoss AS 7 / Wildfly 8 in the form of a custom <a href="https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7">JBoss Subsystem</a>.
+Camunda BPM provides advanced integration for JBoss AS 7 / Wildfly 8 in the form of a custom <a href="https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7">JBoss Subsystem</a>.
 
 The most prominent features are:
 
@@ -25,7 +25,7 @@ The most prominent features are:
 
 ## Configuring a process engine in standalone.xml / domain.xml
 
-Using the camunda JBoss Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7 / Wildfly 8 Server:
+Using the Camunda JBoss Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7 / Wildfly 8 Server:
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
         <process-engines>
@@ -128,12 +128,12 @@ You specify the process engine plugins in `standalone.xml` / `domain.xml` for ea
 You have to provide the fully qualified classname between the `<class>` tags. Additional properties can be specified using the `<properties>` element.
 The restrictions, which apply for [providing a custom process engine configuration class](ref:#runtime-container-integration-the-camunda-jboss-subsystem-providing-a-custom-process-engine-configuration-class), are also valid for the process engine plugins:
 
- * plugin class must be visible in the classpath for the camunda-subsystem.
+ * plugin class must be visible in the classpath for the Camunda-subsystem.
  * properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
 
 ## Looking up a Process Engine in JNDI
 
-The camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](ref:#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The Camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](ref:#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the Camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -245,14 +245,14 @@ The JConsole plugin allows you to inspect the management model graphically and b
    <p>Classpath dependencies are automatically managed for you if you use the <a href="ref:#process-applications">Process Application API</a>.</p>
 </div>
 
-When using the camunda JBoss subsystem, the process engine classes are deployed as jboss module. The module is named
+When using the Camunda JBoss subsystem, the process engine classes are deployed as jboss module. The module is named
 `org.camunda.bpm.camunda-engine` and is deployed in the folder `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine`.
 
 By default, the Application server will not add this module to the classpath of applications. If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.
 
 ### Implicit module dependencies with the Process Application API
 
-When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
 
 ### Explicit module dependencies
 
@@ -287,7 +287,7 @@ As a result, the Application Service will add the process engine module to the c
    <p>Service dependencies are automatically managed for you if you use the <a href="ref:#process-applications">Process Application API</a>.</p>
 </div>
 
-The camunda JBoss subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
+The Camunda JBoss subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/jboss-service-dependencies.png"></img></center>
 
@@ -295,7 +295,7 @@ There are three applications deployed and two process engine services exist. App
 
 ### Implicit Service Dependencies
 
-When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
+When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
 
 ### Explicit Service Dependencies
 

@@ -18,7 +18,7 @@ manager integration, you need to use the
 
 > **Note 2**: The process engine requires access to an implementation of
 > `javax.transaction.TransactionManager`. Not all application servers provide such an
-> implementation. Most notably IBM WebSphere and Oracle WebLogic historically did not provide this
+> implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this
 > implementation. In order to achieve JTA Transaction Integration on these containers, users should
 > use the Spring Framework Abstraction and configure the process engine using the
 > [SpringProcessEngineConfiguration][tx-spring].

@@ -26,7 +26,7 @@ The history level controls the amount of data the process engine provides via th
     * Case Instance CREATE, UPDATE, CLOSE: fired as case instances are being created, updated and closed
     * Activity Instance START, UPDATE, END: fired as activity instances are being started, updated and ended
     * Case Activity Instance CREATE, UPDATE, END: fired as case activity instances are being created, updated and ended
-    * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (i.e. re-assigned, delegated etc.), completed and deleted.
+    * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (i.e., re-assigned, delegated etc.), completed and deleted.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
     * Variable Instance CREATE, UPDATE, DELETE, as process variables are created, updated and deleted. The default history backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
 * `FULL`: in addition to the events provided by history level `AUDIT`, the following additional events are fired:
@@ -49,7 +49,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration
   .buildProcessEngine();
 ```
 
-Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, processes.xml). When using the camunda jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
+Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
 
 ```xml
 <property name="history">audit</property>
@@ -72,7 +72,7 @@ There are nine History entities, which - in contrast to the runtime data - will 
 * `HistoriCasecActivityInstances` containing information about a single execution of a case activity.
 * `HistoricTaskInstances` containing information about current and past (completed and deleted) task instances.
 * `HistoricDetails` containing various kinds of information related to either a historic process instances, an activity instance or a task instance.
-* `HistoricIncidents` containing information about current and past (i.e. deleted or resolved) incidents.
+* `HistoricIncidents` containing information about current and past (i.e., deleted or resolved) incidents.
 * `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, etc.
 * `HistoricJobLog` containing information about the job execution. The log provides details about the lifecycle of a job.
 

@@ -11,18 +11,18 @@ This section explains some core process engine concepts that are used in both th
 
 ## Process Definitions
 
-A process definition defines the structure of a process. You could say that the process definition *is* the process. camunda BPM uses [BPMN 2.0](http://camunda.org/bpmn/tutorial.html) as its primary modeling language for modeling process definitions.
+A process definition defines the structure of a process. You could say that the process definition *is* the process. Camunda BPM uses [BPMN 2.0](http://camunda.org/bpmn/tutorial.html) as its primary modeling language for modeling process definitions.
 
 <div class="alert alert-info">
   <strong>BPMN 2.0 Reference </strong>
-  <p>camunda BPM comes with two BPMN 2.0 References:</p>
+  <p>Camunda BPM comes with two BPMN 2.0 References:</p>
   <ul>
     <li>The <a href="http://camunda.org/bpmn/reference.html#!/reference">BPMN 2.0 Modeling Reference</a> introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the <a href="http://camunda.org/bpmn/tutorial.html">Tutorial</a> as well.)</li>
-    <li>The <a href="ref:/api-references/bpmn20/">BPMN 2.0 Implementation Reference</a> covers the implementation of the individual BPMN 2.0 constructs in camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.</li>
+    <li>The <a href="ref:/api-references/bpmn20/">BPMN 2.0 Implementation Reference</a> covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.</li>
   </ul>
 </div>
 
-In camunda BPM you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine.
+In Camunda BPM you can deploy processes to the process engine in BPMN 2.0 XML format. The XML files are parsed and transformed into a process definition graph structure. This graph structure is executed by the process engine.
 
 ### Querying for Process Definitions
 
@@ -54,7 +54,7 @@ If you deploy multiple processes with the same key, they are treated as individu
 
 ### Suspending Process Definitions
 
-Suspending a process definition disables it temporarily in that it cannot be instantiated while it is suspended. The `RuntimeService` Java API can be used to suspend a process definition. Similarly, you can activate a process definition to undo this effect.
+Suspending a process definition disables it temporarily, i.e., it cannot be instantiated while it is suspended. The `RuntimeService` Java API can be used to suspend a process definition. Similarly, you can activate a process definition to undo this effect.
 
 ## Process Instances
 
@@ -107,9 +107,9 @@ If your process uses at least one User Task, you can also interact with the proc
 
 Suspending a process instance is helpful, if you want ensure that it is not executed any further. For example, if process variables are in an undesired state, you can suspend the instance and change the variables *safely*.
 
-In detail, suspension means to disallow all actions that change *token* state (i.e. the activities that are currently executed) of the instance. For example, it is not possible to signal an event or complete a user task for a suspended process instance, as these actions will continue the process instance execution subsequently. Nevertheless, actions like setting or removing variables are still allowed, as they do not change token state.
+In detail, suspension means to disallow all actions that change *token* state (i.e., the activities that are currently executed) of the instance. For example, it is not possible to signal an event or complete a user task for a suspended process instance, as these actions will continue the process instance execution subsequently. Nevertheless, actions like setting or removing variables are still allowed, as they do not change the token state.
 
-Also, when suspending a process instance, all tasks belonging to it will be suspended. Therefore, it will no longer be possible to invoke actions that have effects on the task's *lifecycle* (i.e. user assignment, task delegation, task completion, ...). However, any actions not touching the lifecycle like setting variables or adding comments will still be allowed.
+Also, when suspending a process instance, all tasks belonging to it will be suspended. Therefore, it will no longer be possible to invoke actions that have effects on the task's *lifecycle* (i.e., user assignment, task delegation, task completion, ...). However, any actions not touching the lifecycle like setting variables or adding comments will still be allowed.
 
 A process instance can be suspended by using the `suspendProcessInstanceById(...)` method of the `RuntimeService`. Similarly it can be reactivated again.
 
@@ -121,7 +121,7 @@ If your process instance contains multiple execution paths (like for instance af
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/parallel-gw.png"/></center>
 
-Internally the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a <a href="ref:/api-references/bpmn20/#subprocesses-embedded-subprocess">Embedded Sub Process</a> or in case of <a href="ref:/api-references/bpmn20/#tasks-task-markers">Multi Instance</a>.
+Internally, the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a <a href="ref:/api-references/bpmn20/#subprocesses-embedded-subprocess">Embedded Sub Process</a> or in case of <a href="ref:/api-references/bpmn20/#tasks-task-markers">Multi Instance</a>.
 
 Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes](ref:#process-engine-process-variables), meaning that dynamic data can be associated with them.
 
@@ -141,7 +141,7 @@ You can also [query for executions using the REST API](ref:/api-references/rest/
 
 The activity instance concept is similar to the execution concept but takes a different perspective. While an execution can be imagined as a *token* moving through the process, an activity instance represents an individual instance of an activity (task, subprocess, ...). The concept of the activity instance is thus more *state-oriented*.
 
-Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e. part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree
+Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e., part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree
 
 Examples:
 
@@ -159,17 +159,17 @@ You can <a href="ref:/api-references/rest/#process-instance-get-activity-instanc
 
 ### Identity & Uniqueness
 
-Each activity instance is assigned a unique Id. The id is persistent, if you invoke this method multiple times, the same activity instance ids will be returned for the same activity instances. (However, there might be different executions assigned, see below)
+Each activity instance is assigned a unique ID. The ID is persistent, if you invoke this method multiple times, the same activity instance IDs will be returned for the same activity instances. (However, there might be different executions assigned, see below)
 
 ### Relation to Executions
 
-The Execution concept in the process engine is not completely aligned with the activity instance concept because the execution tree is in general not aligned with the activity / scope concept in BPMN. In general, there is a n-1 relationship between Executions and ActivityInstances, i.e. at a given point in time, an activity instance can be linked to multiple executions. In addition, it is not guaranteed that the same execution that started a given activity instance will also end it. The process engine performs several internal optimizations concerning the compacting of the execution tree which might lead to executions being reordered and pruned. This can lead to situations where a given execution starts an activity instance but another execution ends it. Another special case is the process instance: if the process instance is executing a non-scope activity (for example a user task) below the process definition scope, it will be referenced by both the root activity instance and the user task activity instance.
+The Execution concept in the process engine is not completely aligned with the activity instance concept because the execution tree is generally not aligned with the activity / scope concept in BPMN. In general, there is a n-1 relationship between Executions and ActivityInstances, i.e., at a given point in time, an activity instance can be linked to multiple executions. In addition, it is not guaranteed that the same execution that started a given activity instance will also end it. The process engine performs several internal optimizations concerning the compacting of the execution tree which might lead to executions being reordered and pruned. This can lead to situations where a given execution starts an activity instance but another execution ends it. Another special case is the process instance: if the process instance is executing a non-scope activity (for example a user task) below the process definition scope, it will be referenced by both the root activity instance and the user task activity instance.
 
 Note: If you need to interpret the state of a process instance in terms of a BPMN process model, it is usually easier to use the activity instance tree as opposed to the execution tree.
 
 ## Jobs and Job Definitions
 
-The camunda process engine includes a component named the *Job Executor*. The Job Executor is scheduling component responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reached the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a duedate which is calculated using the timer expression provided in BPMN XML.
+The Camunda process engine includes a component named the *Job Executor*. The Job Executor is a scheduling component, responsible for performing asynchronous background work. Consider the example of a Timer Event: whenever the process engine reaches the timer event, it will stop execution, persist the current state to the database and create a job to resume execution in the future. A job has a due date which is calculated using the timer expression provided in the BPMN XML.
 
 When a process is deployed, the process engine creates a Job Definition for each activity in the process which will create jobs at runtime. This allows you to query information about timers and asynchronous continuations in your processes.
 
@@ -196,7 +196,7 @@ managementService.createJobDefinitionQuery()
 ```
 The result will contain information about all timers and asynchronous continuations in the order process.
 
-It is possible to query for job definitions using the REST API.
+It is also possible to query for job definitions using the REST API.
 
 ### Suspending and Activating Job Execution
 
@@ -207,7 +207,7 @@ Job suspension prevents jobs from being executed. Suspension of job execution ca
 
 Job suspension by Job Definition allows you to suspend all instances of a certain timer or an asynchronous continuation. Intuitively, this allows you to suspend a certain activity in a process in a way that all process instances will advance until they have reached this activity and then not continue since the activity is suspended.
 
-Let's assume there is a process deployed with key `orderProcess` which contains a service task named `processPayment`. The service task has an asynchronous continuation configured which causes it to be executed by the job executor. The following example shows how you can prevent the `processPayment` service from being executed:
+Let's assume there is a process deployed with key `orderProcess`, which contains a service task named `processPayment`. The service task has an asynchronous continuation configured which causes it to be executed by the job executor. The following example shows how you can prevent the `processPayment` service from being executed:
 
 ```java
 List<JobDefinition> jobDefinitions = managementService.createJobDefinitionQuery()
