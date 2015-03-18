@@ -6,17 +6,17 @@ category: 'Introduction'
 ---
 
 
-camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why camunda BPM also provides a REST API which allows you to build applications connecting to a remote process engine.
+Camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why Camunda BPM also provides a REST API which allows you to build applications connecting to a remote process engine.
 
-camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries](ref:#introduction-third-party-libraries) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model](ref:#process-engine-transactions-in-processes).
+Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries](ref:#introduction-third-party-libraries) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model](ref:#process-engine-transactions-in-processes).
 
 
 ## Process Engine Architecture
 
 <center><img class="img-responsive" src="ref:asset:/assets/img/user-guide/process-engine-architecture.png"></img></center>
 
-* [Process Engine Public API](ref:#process-engine-process-engine-api): Service-oriented API allowing Java applications to interact with the process engine. The different responsibilities of the process engine (ie. Process Repository, Runtime Process Interaction, Task Management, ...) are separated into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
-* **BPMN 2.0 Core Engine**: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 Xml files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs such as Gateways or Service Tasks).
+* [Process Engine Public API](ref:#process-engine-process-engine-api): Service-oriented API allowing Java applications to interact with the process engine. The different responsibilities of the process engine (i.e., Process Repository, Runtime Process Interaction, Task Management, ...) are separated into individual services. The public API features a [command-style access pattern](http://en.wikipedia.org/wiki/Command_pattern): Threads entering the process engine are routed through a Command Interceptor which is used for setting up Thread Context such as Transactions.
+* **BPMN 2.0 Core Engine**: this is the core of the process engine. It features a lightweight execution engine for graph structures (PVM - Process Virtual Machine), a BPMN 2.0 parser which transforms BPMN 2.0 XML files into Java Objects and a set of BPMN Behavior implementations (providing the implementation for BPMN 2.0 constructs such as Gateways or Service Tasks).
 * [Job Executor](ref:#process-engine-the-job-executor): the Job Executor is responsible for processing asynchronous background work such as Timers or asynchronous continuations in a process.
 * **The Persistence Layer**: the process engine features a persistence layer responsible for persisting process instance state to a relational database. We use the MyBatis mapping engine for object relational mapping.
 
@@ -25,9 +25,9 @@ __Required third-party libraries__
 See section on [third-party libraries](ref:#introduction-third-party-libraries).
 
 
-## camunda BPM platform architecture
+## Camunda BPM platform architecture
 
-camunda BPM platform is a flexible framework which can be deployed in different scenarios. This section provides an overview over the most common deployment scenarios.
+Camunda BPM platform is a flexible framework which can be deployed in different scenarios. This section provides an overview of the most common deployment scenarios.
 
 
 ### Embedded Process Engine
@@ -46,7 +46,7 @@ In this case the process engine is started inside the runtime container (Servlet
 
 <center><img class="img-responsive" src="ref:asset:/assets/img/user-guide/standalone-process-engine.png"></img></center>
 
-In this case the process engine is provided as a network service. Different applications running on the network can interact with the process engine through a remote communication channel. The easiest way for making the process engine accessible remotely is to use the built-in REST api. Different communication channels such as SOAP Webservices or JMS are possible but need to be implemented by users.
+In this case the process engine is provided as a network service. Different applications running on the network can interact with the process engine through a remote communication channel. The easiest way for making the process engine accessible remotely is to use the built-in REST API. Different communication channels such as SOAP Webservices or JMS are possible but need to be implemented by users.
 
 ## Clustering Model
 
@@ -76,7 +76,7 @@ More details can be found in the  [multi-tenancy section](ref:#process-engine-mu
 
 ## Web Application Architecture
 
-The camunda BPM web applications are based on a RESTful architecture.
+The Camunda BPM web applications are based on a RESTful architecture.
 
 Frameworks used:
 
@@ -88,7 +88,7 @@ Frameworks used:
 
 Additional custom frameworks developed by camunda hackers:
 
-*   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): camunda BPMN 2.0 JavaScript libraries
+*   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): Camunda BPMN 2.0 JavaScript libraries
 *   [ngDefine](https://github.com/Nikku/requirejs-angular-define): integration of AngularJS into RequireJS powered applications
 *   [angular-data-depend](https://github.com/Nikku/angular-data-depend): toolkit for implementing complex, data heavy AngularJS applications
 

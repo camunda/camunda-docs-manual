@@ -1,16 +1,16 @@
 ---
 
 title: 'Overview'
-category: 'Cdi and Java EE Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
-The camunda-engine-cdi module provides programming model integration with Cdi (Context and Dependency Injection). Cdi is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configuration of the camunda engine and the extensibility of Cdi. The most prominent features are:
+The camunda-engine-cdi module provides programming model integration with CDI (Context and Dependency Injection). CDI is the Java EE 6 standard for Dependency Injection. The camunda-engine-cdi integration leverages both the configuration of the Camunda engine and the extensibility of CDI. The most prominent features are:
 
- * A custom El-Resolver for resolving Cdi beans (including EJBs) from the process,
- * Support for @BusinessProcessScoped beans (Cdi beans the lifecycle of which is bound to a process instance),
+ * A custom El-Resolver for resolving CDI beans (including EJBs) from the process,
+ * Support for @BusinessProcessScoped beans (CDI beans the lifecycle of which is bound to a process instance),
  * Declarative control over a process instance using annotations,
- * The Process Engine is hooked-up to the Cdi event bus,
+ * The Process Engine is hooked-up to the CDI event bus,
  * Works with both Java EE and Java SE, works with Spring,
  * Support for unit testing.
 
@@ -27,9 +27,9 @@ In order to use the camunda-engine-cdi module inside your application, you must 
 </dependency>
 ```
 
-Replace 'x' with your camunda BPM version.
+Replace 'x' with your Camunda BPM version.
 
 <div class="alert alert-info">
-  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called <code>camunda-archetype-ejb-war</code>, which gives you a complete running project including the Cdi integration.
+  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called <code>camunda-archetype-ejb-war</code>, which gives you a complete running project including the CDI integration.
 </div>
 

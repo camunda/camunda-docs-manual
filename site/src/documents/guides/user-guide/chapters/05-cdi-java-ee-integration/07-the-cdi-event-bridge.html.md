@@ -1,12 +1,12 @@
 ---
 
-title: 'Cdi Event Bridge'
-category: 'Cdi and Java EE Integration'
+title: 'CDI Event Bridge'
+category: 'CDI and Java EE Integration'
 
 ---
 
 
-The Process engine can be hooked-up to the Cdi event-bus. We call this the "Cdi Event Bridge" This allows us to be notified of process events using standard Cdi event mechanisms. In order to enable Cdi event support for an embedded process engine, enable the corresponding parse listener in the configuration:
+The Process engine can be hooked-up to the CDI event-bus. We call this the "CDI Event Bridge". This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded process engine, enable the corresponding parse listener in the configuration:
 
 ```xml
 <property name="postParseListeners">
@@ -16,7 +16,7 @@ The Process engine can be hooked-up to the Cdi event-bus. We call this the "Cdi 
 </property>
 ```
 
-Now the engine is configured for publishing events using the Cdi event bus.
+Now the engine is configured for publishing events using the CDI event bus.
 <div class="alert alert-info">
   <p>
     <strong>Note:</strong>
@@ -24,7 +24,7 @@ Now the engine is configured for publishing events using the Cdi event bus.
   </p>
 </div>
 
-The following gives an overview of how process events can be received in Cdi beans. In Cdi, we can declaratively specify event observers using the @Observes-annotation. Event notification is type-safe. The type of process events is org.camunda.bpm.engine.cdi.BusinessProcessEvent. The following is an example of a simple event observer method:
+The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event observers using the @Observes-annotation. Event notification is type-safe. The type of process events is org.camunda.bpm.engine.cdi.BusinessProcessEvent. The following is an example of a simple event observer method:
 
 ```java
 public void onProcessEvent(@Observes BusinessProcessEvent businessProcessEvent) {
@@ -102,7 +102,7 @@ public void beforeShippingGoods(@Observes @BusinessProcessDefinition("shippingPr
 }
 ```
 
-In the default configuration, event listeners are invoked synchronously and in the context of the same transaction. Cdi transactional observers (only available in combination with JavaEE / EJB), allow to control when the event is handed to the observer method. Using transactional observers, we can for example assure that an observer is only notified if the transaction in which the event is fired succeeds:
+In the default configuration, event listeners are invoked synchronously and in the context of the same transaction. CDI transactional observers (only available in combination with JavaEE / EJB), allow to control when the event is handed to the observer method. Using transactional observers, we can for example assure that an observer is only notified if the transaction in which the event is fired succeeds:
 
 ```java
 public void onShipmentSuceeded(
@@ -115,9 +115,9 @@ public void onShipmentSuceeded(
 Note: BusinessProcessEvent.getTask will return an instance of DelegateTask (in case the event is a task event). If the listener is invoked after the transaction has completed, the DelegateTask object cannot be used
 for modifying variables.
 
-### The Cdi Event Bridge in a Process Application
+### The CDI Event Bridge in a Process Application
 
-In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiEventListener](ref:/api-references/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener.html) needs to be added as a [Process Application Execution Event Listener](ref:#process-applications-process-application-event-listeners).
+In order to use the CDI Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiEventListener](ref:/api-references/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener.html) needs to be added as a [Process Application Execution Event Listener](ref:#process-applications-process-application-event-listeners).
 
 Example configuration for [Servlet Process Application](ref:#process-applications-the-process-application-class-the-servletprocessapplication):
 
