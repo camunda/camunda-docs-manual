@@ -1,7 +1,7 @@
 ---
 
 title: 'Process Engine Configuration'
-category: 'Cdi and Java EE Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 

@@ -1,14 +1,14 @@
 ---
 
-title: 'Jta Transaction Integration'
-category: 'Cdi and Java EE Integration'
+title: 'JTA Transaction Integration'
+category: 'CDI and Java EE Integration'
 
 ---
 
 The process engine transaction management can integrate with JTA. In order to use JTA transaction
 manager integration, you need to use the 
 
-* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for Jta Integration only
+* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA Integration only
 * `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI Expression
   resolving support.
 
