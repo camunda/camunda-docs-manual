@@ -61,6 +61,14 @@ Parameters
     <td>Only include operations on this task.</td>
   </tr>
   <tr>
+    <td>jobId</td>
+    <td>Filter by job id.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>Filter by job definition id.</td>
+  </tr>
+  <tr>
     <td>userId</td>
     <td>Only include operations of this user.</td>
   </tr>

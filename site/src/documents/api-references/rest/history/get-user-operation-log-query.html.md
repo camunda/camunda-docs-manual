@@ -64,6 +64,14 @@ Parameters
     <td>Only include operations on this task.</td>
   </tr>
   <tr>
+    <td>jobId</td>
+    <td>Filter by job id.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>Filter by job definition id.</td>
+  </tr>
+  <tr>
     <td>userId</td>
     <td>Only include operations of this user.</td>
   </tr>
@@ -209,6 +217,14 @@ Each log entry has the following properties:
     <td>String</td>
     <td>If not null, the operation is restricted to entities in relation to this task.</td>
   </tr>
+  <tr>
+    <td>jobId</td>
+    <td>If not null, the operation is restricted to entities in relation to this job.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>If not null, the operation is restricted to entities in relation to this job definition.</td>
+  </tr>
   
 </table>
 
@@ -252,6 +268,8 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "processInstanceId": "aProcessInstanceId",
     "executionId": "anExecutionId",
     "taskId": "aTaskId",
+    "jobId": "aJobId",
+    "jobDefinitionId": "aJobDefinitionId",
     "userId": "demo",
     "timestamp": "2014-02-25T14:58:37",
     "operationId": "anOperationId",
@@ -270,11 +288,13 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
 #### Response
 
     [{"id": "anUserOperationLogEntryId",
-    "processDefinitionId": null,
+    "processDefinitionId": "aProcessDefinitionId",
     "processDefinitionKey": "aProcessDefinitionKey",
     "processInstanceId": null,
     "executionId": null,
     "taskId": null,
+    "jobId": null,
+    "jobDefinitionId": null,
     "userId": "demo",
     "timestamp": "2014-02-25T14:58:37",
     "operationId": "anOperationId",
