@@ -23,6 +23,16 @@ In this section we explain how to install the WAR file using the IBM WebSphere e
 11. Step 5. Usually no changes are required.
 
 After completing the wizard, the applications should be successfully installed on the application server. Don't forget to save your changes to the master configuration.
-In some situations, you also have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
+
+The final step is to reference the shared libraries. To do so, follow these steps:
+
+1. Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
+2. Click on the name of the application (e.g., camunda-webapp-ee-was-7_2_0-ee_war).
+3. Click on **Shared library references**.
+4. Click on the checkbox next to the application name and click on the **Reference shared libraries** button.
+5. Select the shared library **Camunda**.
+6. Confirm selection by clicking on **OK**.
+
+In some situations, you have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
 
 You can check if everything went well by accessing Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
