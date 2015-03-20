@@ -83,6 +83,13 @@ It is possible to use expressions here as well:
 
 So, in the end `z = y+5 = x+5+5`
 
+<div class="alert alert-warning">
+  <strong>Passing variables from Multi Instance Call Activities</strong>
+  <p>
+    Please note that <code>&lt;camunda:out/&gt;</code> is not supported for variable passing from multi-instance call activites as the expected behavior is not clear.
+  </p>
+</div>
+
 
 ## Passing Business Key
 

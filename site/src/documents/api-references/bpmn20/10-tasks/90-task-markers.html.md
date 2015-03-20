@@ -107,6 +107,13 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
+<div class="alert alert-warning">
+  <strong>Passing variables from Multi Instance Call Activities</strong>
+  <p>
+    Please note that <code>&lt;camunda:out/&gt;</code> is not supported for variable passing from multi-instance call activites as the expected behavior is not clear. See <a href="ref:#subprocesses-call-activity-passing-variables">this section</a> for more information about passing variables in call activities.
+  </p>
+</div>
+
 ## camunda Extensions
 
 <table class="table table-striped">
@@ -136,6 +143,9 @@ Since a multi-instance is a regular activity, it is possible to define a boundar
 <div data-bpmn-diagram="implement/multiple-instance-boundary"></div>
 
 Here all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not completed yet.
+
+
+
 
 ## Loops
 
