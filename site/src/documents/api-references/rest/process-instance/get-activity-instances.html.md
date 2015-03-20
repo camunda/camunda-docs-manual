@@ -39,7 +39,7 @@ Result
 
 A JSON object corresponding to the Activity Instance tree of the given process instance.
 
-The properties of an activity instance are as follows: 
+The properties of an activity instance are as follows:
 
 <table class="table table-striped">
   <tr>
@@ -105,7 +105,7 @@ The properties of a transition instance are as follows:
   <tr>
     <td>activityId</td>
     <td>String</td>
-    <td>The id of the activity that is about to be entered</td>
+    <td>The id of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job)</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -116,7 +116,7 @@ The properties of a transition instance are as follows:
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>executionId</td>
     <td>List of String</td>
@@ -176,7 +176,7 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
                       "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
                       "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
                       "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "targetActivityId": "ServiceTask_1",
+                      "activityId": "ServiceTask_1",
                       "executionId": "8f72bca9-d505-11e2-bafa-3c970e140ef1"
                   },
                   {
@@ -184,7 +184,7 @@ GET `/process-instance/aProcessInstanceId/activity-instances`
                       "parentActivityInstanceId": "SubProcess_1:8f72bca4-d505-11e2-bafa-3c970e140ef1",
                       "processInstanceId": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",
                       "processDefinitionId": "executionProcess:1:8ef5c393-d505-11e2-bafa-3c970e140ef1",
-                      "targetActivityId": "ServiceTask_2",
+                      "activityId": "ServiceTask_2",
                       "executionId": "8f72bcaa-d505-11e2-bafa-3c970e140ef1"
                   }
               ],
