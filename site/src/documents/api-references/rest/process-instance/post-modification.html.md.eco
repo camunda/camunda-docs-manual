@@ -10,10 +10,10 @@ keywords: 'post modification move cancel start activity'
 <p>Submits a list of modification instructions to change a process instance's execution state. A modification instruction is one of the following:</p>
 
 <ul>
-  <li>starting execution before an activity</li>
-  <li>starting execution after an activity on its single outgoing sequence flow</li>
-  <li>starting execution on a specific sequence flow</li>
-  <li>cancelling an activity instances or all instances of one activity</li>
+  <li>Starting execution before an activity</li>
+  <li>Starting execution after an activity on its single outgoing sequence flow</li>
+  <li>Starting execution on a specific sequence flow</li>
+  <li>Canceling an activity instance or all instances of one activity</li>
 </ul>
 
 <p>Instructions are executed immediately and in the order they are provided in this request's body. Variables can be provided with every starting instruction.</p>
