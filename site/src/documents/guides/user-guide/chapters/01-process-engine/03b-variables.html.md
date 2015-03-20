@@ -187,7 +187,7 @@ This again is equivalent to the Java-Object-based API. However, it is now possib
 boolean isDeserialized = retrievedTypedObjectValue.isDeserialized();
 
 // returns the format used by the engine to serialize the value into the database
-String serializationFormat = retrievedTypedObjectValue.getSerializationFormat();
+String serializationDataFormat = retrievedTypedObjectValue.getSerializationDateFormat();
 
 // returns the serialized representation of the variable; the actual value depends on the serialization format used
 String serializedValue = retrievedTypedObjectValue.getValueSerialized();

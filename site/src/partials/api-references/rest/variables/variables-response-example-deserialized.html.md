@@ -4,7 +4,7 @@
         "type" : "Object",
         "valueInfo" : {
           "objectTypeName": "com.example.MyObject",
-          "serializationFormat": "application/xml"
+          "serializationDataFormat": "application/xml"
         }
       }
     }
