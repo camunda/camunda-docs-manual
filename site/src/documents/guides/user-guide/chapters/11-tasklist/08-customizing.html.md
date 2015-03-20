@@ -65,7 +65,7 @@ other libraries) you should add a `customScripts` property to the `app/tasklist/
 file with something like that:
 
 ```javascript
-module.exports = {
+var camTasklistConf = {
   // ...
   customScripts: {
     // names of angular modules defined in your custom script files.
