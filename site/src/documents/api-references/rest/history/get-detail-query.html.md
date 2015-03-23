@@ -130,6 +130,11 @@ Depending on the concrete instance of the historic detail it contains further pr
     <td>The name of the variable which has been updated.</td>
   </tr>
   <tr>
+    <td>variableInstanceId</td>
+    <td>String</td>
+    <td>The id of the associated variable instance.</td>
+  </tr>
+  <tr>
     <td>variableType</td>
     <td>String</td>
     <td>The type of the variable which has been updated.</td>
@@ -210,6 +215,7 @@ GET `/history/detail?processInstanceId=aProcInstId`
         "executionId": "anExecutionId",
         "time": "2014-02-28T15:00:00",
         "variableName": "myProcessVariable",
+        "variableInstanceId": "aVariableInstanceId",
         "variableTypeName": "String",
         "value": "aVariableValue",
         "revision": 1,
@@ -226,3 +232,4 @@ GET `/history/detail?processInstanceId=aProcInstId`
         "fieldValue": "aFieldValue"
       }
     ]
+
