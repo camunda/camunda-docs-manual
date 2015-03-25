@@ -39,6 +39,12 @@ A JSON object with the following properties:
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Restrict to tasks that belong to process instances with one of the give business keys.
+        The keys need to be in a comma-separated list.
+    </td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring.</td>
   </tr>
@@ -49,6 +55,12 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>Restrict to tasks that belong to a process definition with the given key.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKeyIn</td>
+    <td>Restrict to tasks that belong to a process definition with one of the given keys.
+        The keys need to be in a comma-separated list.
+    </td>
   </tr>
   <tr>
     <td>processDefinitionName</td>
@@ -176,6 +188,12 @@ expression as a substring.
   <tr>
     <td>taskDefinitionKey</td>
     <td>Restrict to tasks that have the given key.</td>
+  </tr>
+  <tr>
+    <td>taskDefinitionKeyIn</td>
+    <td>Restrict to tasks that have one of the given keys.
+      The keys need to be in a comma-separated list.
+    </td>
   </tr>
   <tr>
     <td>taskDefinitionKeyLike</td>
@@ -456,6 +474,7 @@ Request body:
         {"name": "anotherVarName",
         "value": 30,
         "operator": "neq"}],
+    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey", 
     "priority":10}
 
 #### Response
