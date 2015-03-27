@@ -114,7 +114,7 @@ GET `/process-definition/key/aKey/form-variables`
   },
   "firstName": {
       "type": "String",
-      "value": "Jonny"
+      "value": "Jonny",
       "valueInfo": {}
   }
 
