@@ -108,14 +108,14 @@ GET `/process-definition/key/aKey/form-variables`
 ```json
 {
   "amount": {
-      "name": "amount",
       "type": "Integer",
-      "value": 5
+      "value": 5,
+      "valueInfo": {}
   },
   "firstName": {
-      "name": "firstName",
       "type": "String",
       "value": "Jonny"
+      "valueInfo": {}
   }
 
 }
