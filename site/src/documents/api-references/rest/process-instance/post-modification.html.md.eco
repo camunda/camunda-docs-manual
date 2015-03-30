@@ -13,7 +13,7 @@ keywords: 'post modification move cancel start activity'
   <li>Starting execution before an activity</li>
   <li>Starting execution after an activity on its single outgoing sequence flow</li>
   <li>Starting execution on a specific sequence flow</li>
-  <li>Canceling an activity instance or all instances of one activity</li>
+  <li>Cancelling an activity instance, transition instance, or all instances (activity or transition) for an activity</li>
 </ul>
 
 <p>Instructions are executed immediately and in the order they are provided in this request's body. Variables can be provided with every starting instruction.</p>
@@ -79,11 +79,16 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>activityInstanceId</td>
-          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel.</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</td>
+        </tr>
+        <tr>
+          <td>transitionInstanceId</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</td>
         </tr>
         <tr>
           <td>ancestorActivityInstanceId</td>
-          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.</p>
+          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> Valid values are the activity instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</p>
+          <p>If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.</p>
           <p>Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specifiy under which subprocess instance the activity should be started.</p></td>
         </tr>
         <tr>
