@@ -107,7 +107,7 @@ These links point you to resources for other databases:
 *   [How-to configure Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
 *   [How-to configure MySQL database](http://javathreads.de/2011/09/jboss-as-7-mysql-datasource-konfigurieren/)
 *   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
-*   [How to configure a MySQL database](http://javathreads.de/2011/09/jboss-as-7-mysql-datasource-konfigurieren/)
+*   [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
 ## Using an XA datasource
@@ -145,6 +145,6 @@ For h2 it could be done with this configuration:
 
 For other databases, confer the following resources:
 
-*   [Oracle XA datasource](http://docs.jboss.org/ironjacamar/userguide/1.0/en-US/html_single/#ex_datasources_oracle_xa)
-*   [MySQL XA datasource](http://docs.jboss.org/ironjacamar/userguide/1.0/en-US/html_single/#ex_datasources_mysql_xa)
-*   [DB2 XA datasource](http://docs.jboss.org/ironjacamar/userguide/1.0/en-US/html_single/#ex_datasources_db2_xa)
+*   [Oracle XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_oracle_xa)
+*   [MySQL XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql_xa)
+*   [DB2 XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_db2_xa)
