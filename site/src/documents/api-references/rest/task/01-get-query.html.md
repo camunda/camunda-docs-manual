@@ -418,6 +418,10 @@ Parameters
     </td>
   </tr>
   <tr>
+    <td>parentTaskId</td>
+    <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>,

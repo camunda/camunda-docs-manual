@@ -415,6 +415,10 @@ Parameters
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+  <tr>
+    <td>parentTaskId</td>
+    <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
+  </tr>
 </table>
 
 

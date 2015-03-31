@@ -435,6 +435,10 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>parentTaskId</td>
+    <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
       <p>
