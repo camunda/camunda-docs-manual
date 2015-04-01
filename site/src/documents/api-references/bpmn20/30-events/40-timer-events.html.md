@@ -18,7 +18,7 @@ A timer definition must have exactly one element from the following:
 
     ```xml
     <timerEventDefinition>
-      <timeDate>2011-03-11T12:13:14</timeDate>
+      <timeDate>2011-03-11T12:13:14Z</timeDate>
     </timerEventDefinition>
     ```
 
@@ -114,7 +114,11 @@ and this process will start once, on a selected date:
 </startEvent>
 ```
 
-
+<div class="alert alert-info">
+  <p>
+    <strong>A note on time zones:</strong> The configuration <code>2016-03-11T12:13:14</code> does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g. <code>2016-03-11T12:13:14Z</code>) or with a UTC-relative offset (e.g. <code>2016-03-11T12:13:14+01</code>).
+  </p>
+</div>
 
 
 ## Timer Intermediate Catching Event
