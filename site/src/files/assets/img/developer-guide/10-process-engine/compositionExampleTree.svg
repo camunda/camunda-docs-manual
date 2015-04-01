@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="698.49976"
+   height="493.1088"
+   id="svg3311"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="Dokument im Speicher 6">
+  <metadata
+     id="metadata3449">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     id="namedview3447"
+     showgrid="false"
+     fit-margin-top="15"
+     fit-margin-left="15"
+     fit-margin-right="15"
+     fit-margin-bottom="15"
+     inkscape:zoom="0.98900575"
+     inkscape:cx="461.75561"
+     inkscape:cy="194.41143"
+     inkscape:window-x="1911"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3315" />
+  <defs
+     id="defs3313" />
+  <g
+     id="g3315"
+     transform="translate(-30.986675,-28.130477)">
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 332.89227,44.105601 0,69.608839 103.51315,0 0,-69.608839 -103.51315,0 z"
+       id="path3319"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 332.89227,44.105601 103.51315,0 0,69.608839 -103.51315,0 z"
+       id="path3321"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="378.98633"
+       y="86.473335"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3323">1</text>
+    <text
+       xml:space="preserve"
+       x="458.20886"
+       y="59.809757"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3325">isScope</text>
+    <text
+       xml:space="preserve"
+       x="518.96655"
+       y="59.809757"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3327">: </text>
+    <text
+       xml:space="preserve"
+       x="529.01788"
+       y="59.809757"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3329">true</text>
+    <text
+       xml:space="preserve"
+       x="458.20886"
+       y="83.812805"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3331">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="561.72198"
+       y="83.812805"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3333">: </text>
+    <text
+       xml:space="preserve"
+       x="571.77332"
+       y="83.812805"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3335">false</text>
+    <text
+       xml:space="preserve"
+       x="458.20886"
+       y="107.81585"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3337">a</text>
+    <text
+       xml:space="preserve"
+       x="467.81009"
+       y="107.81585"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3339">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="532.61835"
+       y="107.81585"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3341">: null</text>
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 436.40542,179.72282 0,69.60884 103.66316,0 0,-69.60884 -103.66316,0 z"
+       id="path3343"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 436.40542,179.72282 103.66316,0 0,69.60884 -103.66316,0 z"
+       id="path3345"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="482.58441"
+       y="222.05659"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3347">3</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3349">isScope</text>
+    <text
+       xml:space="preserve"
+       x="624.68768"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3351">: </text>
+    <text
+       xml:space="preserve"
+       x="634.73895"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3353">false</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3355">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="667.44312"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3357">: </text>
+    <text
+       xml:space="preserve"
+       x="677.49438"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3359">true</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3361">a</text>
+    <text
+       xml:space="preserve"
+       x="573.53119"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3363">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="638.33942"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3365">: null</text>
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 229.22911,179.72282 0,69.60884 103.66316,0 0,-69.60884 -103.66316,0 z"
+       id="path3367"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 229.22911,179.72282 103.66316,0 0,69.60884 -103.66316,0 z"
+       id="path3369"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="275.38821"
+       y="222.05649"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3371">2</text>
+    <text
+       xml:space="preserve"
+       x="45.09037"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3373">isScope</text>
+    <text
+       xml:space="preserve"
+       x="105.84809"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3375">: </text>
+    <text
+       xml:space="preserve"
+       x="115.89937"
+       y="195.39302"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3377">false</text>
+    <text
+       xml:space="preserve"
+       x="45.09037"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3379">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="148.60352"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3381">: </text>
+    <text
+       xml:space="preserve"
+       x="158.6548"
+       y="219.39607"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3383">true</text>
+    <text
+       xml:space="preserve"
+       x="45.09037"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3385">a</text>
+    <text
+       xml:space="preserve"
+       x="54.691589"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3387">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="119.49982"
+       y="243.39911"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3389">: A</text>
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.01875238px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       d="m 281.66077,180.49167 98.33748,-62.59545 -1.05013,-1.63146 -98.31874,62.59545 1.03139,1.63146 z m 98.76879,-59.57632 4.31305,-7.20091 -8.34481,0.88136 4.03176,6.31955 z"
+       id="path3391"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.01875238px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       d="m 487.73068,180.49167 -98.31873,-62.59545 1.05013,-1.63146 98.31874,62.59545 -1.05014,1.63146 z m -98.76879,-59.57632 -4.31305,-7.20091 8.34481,0.88136 -4.03176,6.31955 z"
+       id="path3393"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 436.40542,307.68907 0,69.60884 103.66316,0 0,-69.60884 -103.66316,0 z"
+       id="path3395"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 436.40542,307.68907 103.66316,0 0,69.60884 -103.66316,0 z"
+       id="path3397"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="482.58441"
+       y="350.04007"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3399">4</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="323.3765"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3401">isScope</text>
+    <text
+       xml:space="preserve"
+       x="624.68768"
+       y="323.3765"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3403">: </text>
+    <text
+       xml:space="preserve"
+       x="634.73895"
+       y="323.3765"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3405">true</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="347.37955"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3407">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="667.44312"
+       y="347.37955"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3409">: </text>
+    <text
+       xml:space="preserve"
+       x="677.49438"
+       y="347.37955"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3411">false</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="371.3826"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3413">a</text>
+    <text
+       xml:space="preserve"
+       x="573.53119"
+       y="371.3826"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3415">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="638.33942"
+       y="371.3826"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3417">: null</text>
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.01875238px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       d="m 489.28713,307.68907 0,-52.09411 -1.95025,0 0,52.09411 1.95025,0 z m 2.77535,-50.85646 -3.75047,-7.50095 -3.75048,7.50095 7.50095,0 z"
+       id="path3419"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 436.40542,435.65532 0,69.60884 103.66316,0 0,-69.60884 -103.66316,0 z"
+       id="path3421"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 436.40542,435.65532 103.66316,0 0,69.60884 -103.66316,0 z"
+       id="path3423"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="482.58441"
+       y="478.02353"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3425">5</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="451.35995"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3427">isScope</text>
+    <text
+       xml:space="preserve"
+       x="624.68768"
+       y="451.35995"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3429">: </text>
+    <text
+       xml:space="preserve"
+       x="634.73895"
+       y="451.35995"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3431">true</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="475.36301"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3433">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="667.44312"
+       y="475.36301"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3435">: </text>
+    <text
+       xml:space="preserve"
+       x="677.49438"
+       y="475.36301"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3437">false</text>
+    <text
+       xml:space="preserve"
+       x="563.92993"
+       y="499.36606"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3439">a</text>
+    <text
+       xml:space="preserve"
+       x="573.53119"
+       y="499.36606"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3441">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="638.33942"
+       y="499.36606"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3443">: B</text>
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.01875238px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       d="m 489.28713,435.65532 0,-52.09411 -1.95025,0 0,52.09411 1.95025,0 z m 2.77535,-50.85646 -3.75047,-7.50095 -3.75048,7.50095 7.50095,0 z"
+       id="path3445"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

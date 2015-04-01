@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="313.61337"
+   height="212.57318"
+   id="svg3109"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="Dokument im Speicher 4">
+  <metadata
+     id="metadata3169">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     id="namedview3167"
+     showgrid="false"
+     fit-margin-top="15"
+     fit-margin-left="15"
+     fit-margin-right="15"
+     fit-margin-bottom="15"
+     inkscape:zoom="0.34966634"
+     inkscape:cx="527.61982"
+     inkscape:cy="-94.210585"
+     inkscape:window-x="1911"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3113" />
+  <defs
+     id="defs3111" />
+  <g
+     id="g3113"
+     transform="translate(-72.386096,-30.6808)">
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 88.36122,46.655924 0,69.608836 103.51314,0 0,-69.608836 -103.51314,0 z"
+       id="path3117"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 88.36122,46.655924 103.51314,0 0,69.608836 -103.51314,0 z"
+       id="path3119"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="134.42702"
+       y="89.020805"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3121">1</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="62.357231"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3123">isScope</text>
+    <text
+       xml:space="preserve"
+       x="281.20068"
+       y="62.357231"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3125">: </text>
+    <text
+       xml:space="preserve"
+       x="291.25195"
+       y="62.357231"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3127">true</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="86.360275"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3129">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="323.95609"
+       y="86.360275"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3131">: </text>
+    <text
+       xml:space="preserve"
+       x="334.00739"
+       y="86.360275"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3133">false</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="110.36332"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3135">a</text>
+    <text
+       xml:space="preserve"
+       x="230.04417"
+       y="110.36332"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3137">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="294.85242"
+       y="110.36332"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3139">: null</text>
+    <path
+       style="fill:#5b9bd5;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 88.36122,157.67002 0,69.60884 103.51314,0 0,-69.60884 -103.51314,0 z"
+       id="path3141"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.95024765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 88.36122,157.67002 103.51314,0 0,69.60884 -103.51314,0 z"
+       id="path3143"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       x="134.42702"
+       y="199.9783"
+       style="font-size:22.50285721px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#ffffff;font-family:Calibri"
+       id="text3145">2</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="173.31473"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3147">isScope</text>
+    <text
+       xml:space="preserve"
+       x="281.20068"
+       y="173.31473"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3149">: </text>
+    <text
+       xml:space="preserve"
+       x="291.25195"
+       y="173.31473"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3151">true</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="197.31776"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3153">isConcurrent</text>
+    <text
+       xml:space="preserve"
+       x="323.95609"
+       y="197.31776"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3155">: </text>
+    <text
+       xml:space="preserve"
+       x="334.00739"
+       y="197.31776"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3157">false</text>
+    <text
+       xml:space="preserve"
+       x="220.44296"
+       y="221.32082"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3159">a</text>
+    <text
+       xml:space="preserve"
+       x="230.04417"
+       y="221.32082"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3161">ctivityId</text>
+    <text
+       xml:space="preserve"
+       x="294.85242"
+       y="221.32082"
+       style="font-size:19.95253372px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Calibri"
+       id="text3163">: A</text>
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.00937619px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+       d="m 141.09292,157.59501 0,-35.07633 -1.95025,0 0,35.07633 1.95025,0 z m 2.77535,-33.82929 -3.75048,-7.50096 -3.75047,7.50096 7.50095,0 z"
+       id="path3165"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

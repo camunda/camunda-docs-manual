@@ -26,6 +26,9 @@
             <li data-active-link="/guides/migration-guide">
               <a href="<%= @docUrl("guides/migration-guide/") %>">Migration Guide</a>
             </li>
+            <li data-active-link="/guides/developer-guide">
+              <a href="<%= @docUrl("guides/developer-guide/") %>">Developer Guide</a>
+            </li>
           </ul>
         </li>
         <li class="dropdown" data-active-link="/api-references">

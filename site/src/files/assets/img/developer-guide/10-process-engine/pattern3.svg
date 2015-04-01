@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- created with bpmn-js / http://bpmn.io -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="318"
+   height="203"
+   viewBox="203 196 318 203"
+   version="1.1"
+   id="svg6068"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="pattern3.svg">
+  <metadata
+     id="metadata6326">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview6324"
+     showgrid="false"
+     fit-margin-top="15"
+     fit-margin-left="15"
+     fit-margin-right="15"
+     fit-margin-bottom="15"
+     inkscape:zoom="1.3882353"
+     inkscape:cx="159"
+     inkscape:cy="101.5"
+     inkscape:window-x="0"
+     inkscape:window-y="380"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6068" />
+  <defs
+     id="defs6070">
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto"
+       refX="11"
+       refY="10"
+       id="markerSi7yecn9l9">
+      <path
+         d="M 1,5 11,10 1,15 z"
+         style="fill:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="path6073"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="20"
+       markerHeight="20"
+       orient="auto"
+       refX="6"
+       refY="6"
+       id="markerSi7yecn9lb">
+      <circle
+         cx="6"
+         cy="6"
+         r="5"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="circle6076"
+         sodipodi:cx="6"
+         sodipodi:cy="6"
+         sodipodi:rx="5"
+         sodipodi:ry="5" />
+    </marker>
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="20"
+       markerHeight="20"
+       orient="auto"
+       refX="11"
+       refY="10"
+       id="markerSi7yecn9ld">
+      <path
+         d="M 1,5 11,10 1,15 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="path6079"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto"
+       refX="11"
+       refY="10"
+       id="markerSi7yecn9lf">
+      <path
+         d="M 1,5 11,10 1,15"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="path6082"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto"
+       refX="-1"
+       refY="10"
+       id="markerSi7yecn9lh">
+      <path
+         d="m 0,10 8,-4 8,4 -8,4 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="path6085"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       viewBox="0 0 20 20"
+       markerWidth="10"
+       markerHeight="10"
+       orient="auto"
+       refX="-5"
+       refY="10"
+       id="markerSi7yecn9lj">
+      <path
+         d="M 1,4 5,16"
+         style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:10000, 1"
+         id="path6088"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <g
+     class="djs-group"
+     id="g6090"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       transform="translate(209,224)"
+       data-element-id="StartEvent_1"
+       class="djs-element djs-shape"
+       id="g6092">
+      <rect
+         height="48"
+         width="48"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6094"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6096">
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:2"
+           r="18"
+           cy="18"
+           cx="18"
+           id="circle6098"
+           d="M 36,18 C 36,27.941125 27.941125,36 18,36 8.0588745,36 0,27.941125 0,18 0,8.0588745 8.0588745,0 18,0 27.941125,0 36,8.0588745 36,18 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="18"
+           sodipodi:ry="18" />
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="36"
+         width="36"
+         y="0"
+         x="0"
+         id="rect6100" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6102"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(182,260)"
+       data-element-id="StartEvent_1_label"
+       class="djs-element djs-shape"
+       id="g6104">
+      <rect
+         height="32"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6106"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6108">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6110">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6112" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="20"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6114" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6116"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       transform="translate(295,202)"
+       data-element-id="UserTask_1"
+       class="djs-element djs-shape"
+       id="g6118">
+      <rect
+         height="92"
+         width="112"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6120"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6122">
+        <rect
+           style="fill:#ffffff;stroke:#000000;stroke-width:2"
+           ry="10"
+           rx="10"
+           height="80"
+           width="100"
+           y="0"
+           x="0"
+           id="rect6124" />
+        <text
+           class=" djs-label"
+           style="font-size:12px;font-family:'Arial, sans-serif'"
+           id="text6126">
+          <tspan
+             y="43.599998"
+             x="45.200001"
+             id="tspan6128">A</tspan>
+        </text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.5"
+           d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.622 -4.357,-4.622 -2.552,0 -4.288,2.068 -4.288,4.622 0,1.348 0.974,2.562 1.896,3.405 -0.529,0.187 -5.669,2.097 -5.794,4.756 v 6.718 h 17 V 16.776 C 21.051,14.478 15.523,12.181 15,12 z m -8,6 0,5.5 m 11,0 0,-5"
+           id="path6130"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.5"
+           d="m 15,12 m 2.162,1.009 c 0,2.447001 -2.158,4.431 -4.821,4.431 -2.665,0 -4.822,-1.980999 -4.822,-4.431"
+           id="path6132"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:0.5"
+           d="M 15,12 M 8.1,8.2 c 0,0 2.251,-2.358 4.274,-1.177 2.024,1.181 4.221,1.537 4.124,0.965 C 16.4,7.418 16.381,4.197 12.307,3.852 8.732,3.853 8.099,7.219 8.1,8.2 z"
+           id="path6134"
+           inkscape:connector-curvature="0" />
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="80"
+         width="100"
+         y="0"
+         x="0"
+         id="rect6136" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6138"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       transform="translate(445,224)"
+       data-element-id="EndEvent_1"
+       class="djs-element djs-shape"
+       id="g6140">
+      <rect
+         height="48"
+         width="48"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6142"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6144">
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:4"
+           r="18"
+           cy="18"
+           cx="18"
+           id="circle6146"
+           d="M 36,18 C 36,27.941125 27.941125,36 18,36 8.0588745,36 0,27.941125 0,18 0,8.0588745 8.0588745,0 18,0 27.941125,0 36,8.0588745 36,18 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="18"
+           sodipodi:ry="18" />
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="36"
+         width="36"
+         y="0"
+         x="0"
+         id="rect6148" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6150"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(418,260)"
+       data-element-id="EndEvent_1_label"
+       class="djs-element djs-shape"
+       id="g6152">
+      <rect
+         height="32"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6154"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6156">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6158">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6160" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="20"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6162" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6164"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       transform="translate(446,324)"
+       data-element-id="EndEvent_2"
+       class="djs-element djs-shape hover"
+       id="g6166">
+      <rect
+         height="48"
+         width="48"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6168"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6170">
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:4"
+           r="18"
+           cy="18"
+           cx="18"
+           id="circle6172"
+           d="M 36,18 C 36,27.941125 27.941125,36 18,36 8.0588745,36 0,27.941125 0,18 0,8.0588745 8.0588745,0 18,0 27.941125,0 36,8.0588745 36,18 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="18"
+           sodipodi:ry="18" />
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="36"
+         width="36"
+         y="0"
+         x="0"
+         id="rect6174" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6176"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(419,365)"
+       data-element-id="EndEvent_2_label"
+       class="djs-element djs-shape"
+       id="g6178">
+      <rect
+         height="12"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6180"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6182">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6184">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6186" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="0"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6188" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6190"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       transform="translate(351,264)"
+       data-element-id="BoundaryEvent_1"
+       class="djs-element djs-shape"
+       id="g6192">
+      <rect
+         height="48"
+         width="48"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6194"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6196">
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round"
+           r="18"
+           cy="18"
+           cx="18"
+           id="circle6198"
+           d="M 36,18 C 36,27.941125 27.941125,36 18,36 8.0588745,36 0,27.941125 0,18 0,8.0588745 8.0588745,0 18,0 27.941125,0 36,8.0588745 36,18 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="18"
+           sodipodi:ry="18" />
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:round"
+           r="15"
+           cy="18"
+           cx="18"
+           id="circle6200"
+           d="M 33,18 C 33,26.284271 26.284271,33 18,33 9.7157288,33 3,26.284271 3,18 3,9.7157288 9.7157288,3 18,3 26.284271,3 33,9.7157288 33,18 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="15"
+           sodipodi:ry="15" />
+        <circle
+           style="fill:#ffffff;stroke:#000000;stroke-width:2"
+           r="11"
+           cy="18"
+           cx="18"
+           id="circle6202"
+           d="M 29,18 C 29,24.075132 24.075132,29 18,29 11.924868,29 7,24.075132 7,18 7,11.924868 11.924868,7 18,7 c 6.075132,0 11,4.924868 11,11 z"
+           sodipodi:cx="18"
+           sodipodi:cy="18"
+           sodipodi:rx="11"
+           sodipodi:ry="11" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square"
+           d="m 18,18 2.25,-7.5 M 18,18 l 5.25,1.5"
+           id="path6204"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6206"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0.866,0.5,-0.5,0.866,11.4115,-6.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6208"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0.5,0.866,-0.866,0.5,24.5885,-6.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6210"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0,1,-1,0,36,0)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6212"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(-0.5,0.866,-0.866,-0.5,42.5885,11.4115)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6214"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(-0.866,0.5,-0.5,-0.866,42.5885,24.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6216"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(-1,0,0,-1,36,36)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6218"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(-0.866,-0.5,0.5,-0.866,24.5885,42.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6220"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(-0.5,-0.866,0.866,-0.5,11.4115,42.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6222"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0,-1,1,0,0,36)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6224"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0.5,-0.866,0.866,0.5,-6.5885,24.5885)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6226"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="matrix(0.866,-0.5,0.5,0.866,-6.5885,11.4115)"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square"
+           d="m 18,18 m 0,7.5 0,2.25"
+           id="path6228"
+           inkscape:connector-curvature="0" />
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="36"
+         width="36"
+         y="0"
+         x="0"
+         id="rect6230" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6232"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(324,300)"
+       data-element-id="BoundaryEvent_1_label"
+       class="djs-element djs-shape"
+       id="g6234">
+      <rect
+         height="32"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6236"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6238">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6240">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6242" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="20"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6244" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6246"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       data-element-id="SequenceFlow_1"
+       class="djs-element djs-connection"
+       id="g6248">
+      <rect
+         height="12"
+         width="62"
+         y="236"
+         x="239"
+         class="djs-outline"
+         id="rect6250"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6252">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerSi7yecn9l9)"
+           d="m 245,242 50,0"
+           id="path6254"
+           inkscape:connector-curvature="0" />
+      </g>
+      <polyline
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         points="245,242 295,242 "
+         id="polyline6256" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6258"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(225,232)"
+       data-element-id="SequenceFlow_1_label"
+       class="djs-element djs-shape"
+       id="g6260">
+      <rect
+         height="32"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6262"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6264">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6266">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6268" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="20"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6270" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6272"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       data-element-id="SequenceFlow_2"
+       class="djs-element djs-connection"
+       id="g6274">
+      <rect
+         height="12"
+         width="62"
+         y="236"
+         x="389"
+         class="djs-outline"
+         id="rect6276"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6278">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerSi7yecn9l9)"
+           d="m 395,242 50,0"
+           id="path6280"
+           inkscape:connector-curvature="0" />
+      </g>
+      <polyline
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         points="395,242 445,242 "
+         id="polyline6282" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6284"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(375,232)"
+       data-element-id="SequenceFlow_2_label"
+       class="djs-element djs-shape"
+       id="g6286">
+      <rect
+         height="32"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6288"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6290">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6292">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6294" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="20"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6296" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6298"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:block"
+       data-element-id="SequenceFlow_3"
+       class="djs-element djs-connection"
+       id="g6300">
+      <rect
+         height="54"
+         width="89"
+         y="294"
+         x="363"
+         class="djs-outline"
+         id="rect6302"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6304">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:2;marker-end:url(#markerSi7yecn9l9)"
+           d="m 369,300 0,42 77,0"
+           id="path6306"
+           inkscape:connector-curvature="0" />
+      </g>
+      <polyline
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         points="369,300 369,342 446,342 "
+         id="polyline6308" />
+    </g>
+  </g>
+  <g
+     class="djs-group"
+     id="g6310"
+     transform="translate(16.5,16.5)">
+    <g
+       style="display:none"
+       transform="translate(357,342)"
+       data-element-id="SequenceFlow_3_label"
+       class="djs-element djs-shape"
+       id="g6312">
+      <rect
+         height="18"
+         width="102"
+         y="-6"
+         x="-6"
+         class="djs-outline"
+         id="rect6314"
+         style="fill:none" />
+      <g
+         class="djs-visual"
+         id="g6316">
+        <text
+           class=" djs-label"
+           style="font-size:11px;font-family:'Arial, sans-serif'"
+           id="text6318">
+          <tspan
+             y="0"
+             x="45"
+             id="tspan6320" />
+        </text>
+      </g>
+      <rect
+         class="djs-hit"
+         style="fill:none;stroke:#ffffff;stroke-width:15;stroke-opacity:0"
+         height="6"
+         width="90"
+         y="0"
+         x="0"
+         id="rect6322" />
+    </g>
+  </g>
+</svg>
