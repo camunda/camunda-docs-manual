@@ -37,14 +37,15 @@
     "npm": ">= 1.2"
   },
   "dependencies": {
-    "docpad": "~6.54.1",
+    "docpad": "^6.78.1",
     "docpad-plugin-cleanurls": "~2.5.1",
     "docpad-plugin-coffeescript": "~2.2.2",
-    "docpad-plugin-eco": "~2.0.2",
+    "docpad-plugin-eco": "^2.1.0",
+    "docpad-plugin-links": "~2.8.2",
+    "docpad-plugin-marked": "~2.1.1",
     "docpad-plugin-partials": "~2.8.0",
-    "docpad-plugin-links": "~2.8.0",
     "docpad-plugin-text": "~2.3.0",
-    "docpad-plugin-marked": "~2.1.1"
+    "highlight.js": "~8.0.0"
   },
   "devDependencies": {},
   "main": "node_modules/docpad/bin/docpad-server",
