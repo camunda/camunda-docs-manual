@@ -45,7 +45,7 @@ If a thread remains idle in the thread pool for longer than the keepalive time, 
 threads exceeds core pool size, then the thread will be terminated. Hence the pool tends to settle
 around core thread count.
 
-* The default keepalive time is 0
+* The default keepalive time is 0.
 
 ### Clustered Deployment
 
@@ -55,3 +55,9 @@ Clusters](ref:#process-engine-the-job-executor-job-execution-in-heterogeneous-cl
 each job executor allocates a UUID which is used for identifying locked job ownership in the job
 table.  Hence in a two node cluster, the job executors may total up to 20 concurrent threads of
 execution.
+
+### Configuration
+
+The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the <code>bpm-platform.xml</code>.
+After configuring the job-acquisitions it is possible to set the values with the help of a <code>&lt;properties&gt;</code>
+tag. The correct syntax can be found in the [references](ref:api-references/deployment-descriptors/#tags-job-executor-configuration).
