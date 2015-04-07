@@ -30,6 +30,7 @@ The following activities are not scope activities:
 * All start and end events
 * The parallel gateway
 * The boundary event
+* Activity **A**
 
 The execution tree's structure and properties depend on whether the current activities are scopes or not.
 
@@ -43,7 +44,7 @@ An execution is an entity responsible for executing a part of a process instance
 
 Representing a process instance by more than one execution (in fact a tree structure of executions) allows to manage the mentioned related entities conveniently. For example, when an execution is removed, e.g. because it reaches an end event, all related variables that reference it can be easily removed while variables referencing other, still active executions are kept. In short, the lifetime and validity of an execution defines the lifetime and validity of all the entities that reference it.
 
-In the hierarchical structure of executions, different executions have different roles. These are reflecting by a set of properties. The basic execution properties are the following:
+In the hierarchical structure of executions, different executions have different roles. These are reflected by a set of properties. The basic execution properties are the following:
 
 * *isScope*: A scope execution is responsible for executing a scope activity.
 * *isConcurrent*: A concurrent execution is responsible for executing an activity concurrently to another activity in the same scope activity (e.g. two parallel tasks in the same subprocess)
@@ -110,7 +111,7 @@ The executions **2** and **3** are just there to represent the concurrency in th
 
 ### Generality of Patterns
 
-As mentioned above, there are different kinds of scope and none-scope activities. The above patterns are not specific for plain user tasks and user tasks with timer boundary events. Instead, they apply to all cases of non-scope activities (represented by plain user tasks) and scope activities (represented by user tasks with boundary events). In order to apply these patterns to different types of activities, you have to know whether they are scopes or not. Then you can apply the according pattern. For example, for a single task with an input/output mapping (i.e. a scope task), the execution tree looks exactly the same as in the pattern [Single Scope Activity](..).
+As mentioned above, there are different kinds of scope and none-scope activities. The above patterns are not specific for plain user tasks and user tasks with timer boundary events. Instead, they apply to all cases of non-scope activities (represented by plain user tasks) and scope activities (represented by user tasks with boundary events). In order to apply these patterns to different types of activities, you have to know whether they are scopes or not. Then you can apply the according pattern. For example, for a single task with an input/output mapping (i.e. a scope task), the execution tree looks exactly the same as in the pattern [Single Scope Activity](ref:#process-engine-execution-structure-single-scope-activity).
 
 ### Composition of Patterns
 
@@ -122,7 +123,7 @@ When both activities, **A** and **B**, are active, the tree looks as follows:
 
 <center><img src="ref:asset:/assets/img/developer-guide/10-process-engine/compositionExampleTree.svg" class="img-responsive"/></center>
 
-Notice how the execution structure of **1**, **2**, **3**, and **4** is a mixed instance of the patterns [Concurrent No-Scope Activities](..) and [Concurrent-Scope Activities](..). Execution **4** is responsible for executing the subprocess scope. Since activity **B** is a scope, **4** has a child execution **5**. This is an instance of the pattern [Single Scope Activity](..).
+Notice how the execution structure of **1**, **2**, **3**, and **4** is a mixed instance of the patterns [Concurrent No-Scope Activities](ref:#process-engine-execution-structure-concurrent-no-scope-activities) and [Concurrent-Scope Activities](ref:#process-engine-execution-structure-concurrent-scope-activities). Execution **4** is responsible for executing the subprocess scope. Since activity **B** is a scope, **4** has a child execution **5**. This is an instance of the pattern [Single Scope Activity](ref:#process-engine-execution-structure-single-scope-activity).
 
 In general, each scope execution in a complex tree is the root of a pattern instance. Here, these scope executions are **1** and **4** with the above-mentioned patterns.
 

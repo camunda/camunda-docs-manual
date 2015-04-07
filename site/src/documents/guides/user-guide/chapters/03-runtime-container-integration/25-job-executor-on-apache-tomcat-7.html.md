@@ -60,4 +60,4 @@ execution.
 
 The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the <code>bpm-platform.xml</code>.
 After configuring the job-acquisitions it is possible to set the values with the help of a <code>&lt;properties&gt;</code>
-tag. The correct syntax can be found in the [references](ref:api-references/deployment-descriptors/#tags-job-executor-configuration).
+tag. The correct syntax can be found in the [references](ref:/api-references/deployment-descriptors/#tags-job-executor-configuration).
