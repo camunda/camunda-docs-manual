@@ -596,6 +596,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
+### camunda:errorCodeVariable
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="ref:#events-error-events">Error Events</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The error code of an error defined in the process definition.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#events-error-events">Error Events</a>
+    </td>
+  </tr>
+</table>
+
 ### camunda:exclusive
 
 <table class="table table-striped">
