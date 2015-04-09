@@ -155,6 +155,14 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the size of the queue which is used for holding tasks to be executed.</p>
       <p><strong>Default Value:</strong> 3</p>
+      <div class="alert alert-warning">
+        <p>
+          <strong>Limitation:</strong>
+        </p>
+        <p>
+          This property only takes effect in a Tomcat environment.
+        </p>
+      </div>
     </td>
   </tr>
   <tr>
@@ -163,6 +171,14 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the size of the core pool in the thread pool. This number of threads will always be present and wait to execute tasks.</p>
       <p><strong>Default Value:</strong> 3</p>
+      <div class="alert alert-warning">
+        <p>
+          <strong>Limitation:</strong>
+        </p>
+        <p>
+          This property only takes effect in a Tomcat environment.
+        </p>
+      </div>
     </td>
   </tr>
   <tr>
@@ -171,6 +187,14 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the maximum number of threads that can be present in the thread pool.</p>
       <p><strong>Default Value:</strong> 10</p>
+      <div class="alert alert-warning">
+        <p>
+          <strong>Limitation:</strong>
+        </p>
+        <p>
+          This property only takes effect in a Tomcat environment.
+        </p>
+      </div>
     </td>
   </tr>
   <tr>
@@ -179,6 +203,14 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Specify the time in milliseconds threads will be kept alive when there are no tasks present before threads are terminated until the core pool size is reached.</p>
       <p><strong>Default Value:</strong> 0</p>
+      <div class="alert alert-warning">
+        <p>
+          <strong>Limitation:</strong>
+        </p>
+        <p>
+          This property only takes effect in a Tomcat environment.
+        </p>
+      </div>
     </td>
   </tr>
 
