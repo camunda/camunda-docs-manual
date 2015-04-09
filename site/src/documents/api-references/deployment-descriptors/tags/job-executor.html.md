@@ -21,6 +21,7 @@ The following example shows a job executor XML snippet:
     </properties>
   </job-acquisition>
   <properties>
+    <!-- Note: the following properties only take effect in a Tomcat environment -->
     <property name="queueSize">3</property>
     <property name="corePoolSize">5</property>
     <property name="maxPoolSize">10</property>
@@ -143,6 +144,15 @@ The following example shows a job executor XML snippet:
 
 The following is a list with the available job acquisition thread configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
+<div class="alert alert-warning">
+  <p>
+    <strong>Limitation:</strong>
+  </p>
+  <p>
+    This properties only take effect in a Tomcat environment.
+  </p>
+</div>
+
 <table class="table table-striped">
   <tr>
     <th>Property name</th>
@@ -155,14 +165,6 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the size of the queue which is used for holding tasks to be executed.</p>
       <p><strong>Default Value:</strong> 3</p>
-      <div class="alert alert-warning">
-        <p>
-          <strong>Limitation:</strong>
-        </p>
-        <p>
-          This property only takes effect in a Tomcat environment.
-        </p>
-      </div>
     </td>
   </tr>
   <tr>
@@ -171,14 +173,6 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the size of the core pool in the thread pool. This number of threads will always be present and wait to execute tasks.</p>
       <p><strong>Default Value:</strong> 3</p>
-      <div class="alert alert-warning">
-        <p>
-          <strong>Limitation:</strong>
-        </p>
-        <p>
-          This property only takes effect in a Tomcat environment.
-        </p>
-      </div>
     </td>
   </tr>
   <tr>
@@ -187,14 +181,6 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Sets the maximum number of threads that can be present in the thread pool.</p>
       <p><strong>Default Value:</strong> 10</p>
-      <div class="alert alert-warning">
-        <p>
-          <strong>Limitation:</strong>
-        </p>
-        <p>
-          This property only takes effect in a Tomcat environment.
-        </p>
-      </div>
     </td>
   </tr>
   <tr>
@@ -203,17 +189,8 @@ The following is a list with the available job acquisition thread configuration 
     <td>
       <p>Specify the time in milliseconds threads will be kept alive when there are no tasks present before threads are terminated until the core pool size is reached.</p>
       <p><strong>Default Value:</strong> 0</p>
-      <div class="alert alert-warning">
-        <p>
-          <strong>Limitation:</strong>
-        </p>
-        <p>
-          This property only takes effect in a Tomcat environment.
-        </p>
-      </div>
     </td>
   </tr>
-
 </table>
 
 
