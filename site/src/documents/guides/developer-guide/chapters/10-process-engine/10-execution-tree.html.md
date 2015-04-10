@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-In the following, we dig a little deeper into the engine's internal representation of process instances, the execution tree and its properties.
+In the following sections, we will dig a little deeper into the engine's internal representation of process instances, the execution tree and its properties.
 
 ## Introduction
 
@@ -13,7 +13,7 @@ In order to execute processes, the process engine has a hierarchical representat
 
 ## On Process Definitions and Activities
 
-Before considering runtime state, let's define the notion of *activities* the process engine has. These include BPMN activities, gateways, events, as well as the process definition itself. Activities may be scopes or not. An activity is a scope if it is a variable scope according to BPMN and Camunda (examples: process definition, subprocesses, multi-instance activities, activities with input/output mappings) or if it defines a context in which events can be received (examples: any activity with a boundary event, any activity containing an event subprocess, any catching intermediate event, an event-based gateway).
+Before considering runtime state, let's define the notion of *activities* the process engine has. These include BPMN activities, gateways, events, as well as the process definition itself. Activities may be scopes or not. An activity is a scope if it is a variable scope according to BPMN and Camunda (examples: process definition, subprocesses, multi-instance activities, activities with input/output mappings) or if it defines a context in which events can be received (examples: any activity with a boundary event, any activity containing an event subprocess, any catching intermediate event, any event-based gateway).
 
 Consider the following example:
 
@@ -38,23 +38,23 @@ The execution tree's structure and properties depend on whether the current acti
 
 An execution is an entity responsible for executing a part of a process instance. Many other instance-related entities are linked to it. These are:
 
-* timer jobs that reference the execution they trigger
-* event subscriptions (e.g. message) that reference the execution they trigger
-* variables that reference the execution they belong to
+* Timer jobs that reference the execution they trigger
+* Event subscriptions (e.g., message) that reference the execution they trigger
+* Variables that reference the execution they belong to
 
-Representing a process instance by more than one execution (in fact a tree structure of executions) allows to manage the mentioned related entities conveniently. For example, when an execution is removed, e.g. because it reaches an end event, all related variables that reference it can be easily removed while variables referencing other, still active executions are kept. In short, the lifetime and validity of an execution defines the lifetime and validity of all the entities that reference it.
+Representing a process instance by more than one execution (in fact a tree structure of executions) allows to manage the mentioned related entities conveniently. For example, when an execution is removed, e.g., because it reaches an end event, all related variables that reference it can be easily removed while variables referencing other, still active executions are kept. In short, the lifetime and validity of an execution defines the lifetime and validity of all the entities that reference it.
 
 In the hierarchical structure of executions, different executions have different roles. These are reflected by a set of properties. The basic execution properties are the following:
 
 * *isScope*: A scope execution is responsible for executing a scope activity.
-* *isConcurrent*: A concurrent execution is responsible for executing an activity concurrently to another activity in the same scope activity (e.g. two parallel tasks in the same subprocess)
+* *isConcurrent*: A concurrent execution is responsible for executing an activity concurrently to another activity in the same scope activity (e.g., two parallel tasks in the same subprocess)
 * *isActive*: An execution is active if it is currently executing a plain activity (an activity that does not contain activities itself) or transitioning from one activity to the next.
 * *isEventScope*: An event-scope execution is saved for executing compensation. Such an execution must be kept, because BPMN ensures that compensation is executed with a snapshot of the variables at the time of the compensation creation. In the following, we consider only executions that are not event scope executions.
 * *activityId*: The id of the activity currently executed by the execution. *Executing* means that the execution is entering the activity, leaving the activity, or performing the activity's actual work. It does not mean waiting for completion of child executions.
 
 ## Execution Tree Patterns
 
-Regardless how complex the structure of a process instance is, the execution tree is composed of four basic patterns. By combining these patterns, an execution tree can represent arbitrary state of BPMN processes. The patterns are the following:
+Regardless of how complex the structure of a process instance is, the execution tree is composed of four basic patterns. By combining these patterns, an execution tree can represent arbitrary states of BPMN processes. The patterns are the following:
 
 * Single No-scope activity
 * Concurrent No-scope Activities
@@ -111,7 +111,7 @@ The executions **2** and **3** are just there to represent the concurrency in th
 
 ### Generality of Patterns
 
-As mentioned above, there are different kinds of scope and none-scope activities. The above patterns are not specific for plain user tasks and user tasks with timer boundary events. Instead, they apply to all cases of non-scope activities (represented by plain user tasks) and scope activities (represented by user tasks with boundary events). In order to apply these patterns to different types of activities, you have to know whether they are scopes or not. Then you can apply the according pattern. For example, for a single task with an input/output mapping (i.e. a scope task), the execution tree looks exactly the same as in the pattern [Single Scope Activity](ref:#process-engine-execution-structure-single-scope-activity).
+As mentioned above, there are different kinds of scope and none-scope activities. The above patterns are not specific for plain user tasks and user tasks with timer boundary events. Instead, they apply to all cases of non-scope activities (represented by plain user tasks) and scope activities (represented by user tasks with boundary events). In order to apply these patterns to different types of activities, you have to know whether they are scopes or not. Then you can apply the according pattern. For example, for a single task with an input/output mapping (i.e., a scope task), the execution tree looks exactly the same as in the pattern [Single Scope Activity](ref:#process-engine-execution-structure-single-scope-activity).
 
 ### Composition of Patterns
 

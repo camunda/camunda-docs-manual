@@ -7,7 +7,7 @@ category: 'Introduction'
 
 <div class="alert alert-warning">
   <p>
-    <strong>This is documentation about engine internals.</strong> If you are a Camunda user, i.e. you develop process applications, please consult the <a href="ref:/guides/user-guide/">User Guide</a>.
+    <strong>This is documentation about engine internals.</strong> If you are a Camunda user, i.e., you develop process applications, please consult the <a href="ref:/guides/user-guide/">User Guide</a>.
   </p>
 </div>
 
