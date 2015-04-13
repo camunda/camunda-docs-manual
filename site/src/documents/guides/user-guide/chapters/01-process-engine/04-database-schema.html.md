@@ -51,3 +51,39 @@ The `ACT_RU_EVENT_SUBSCR` table contains all currently existing event
 subscriptions.  It includes the type, name and configuration of the expected
 event along with information about the corresponding process instance and
 execution.
+
+
+## Entitiy Relationship Diagrams
+
+The following Entitiy Relationship Diagrams visualize the database tables and their explicit foreign key constrains grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note, the diagrams do not visualize implicit connections between the tables.
+
+*Example*
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_example.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+      <ul>
+        <li>foreign keys are displayed as arrow from one entitiy to the other</li>
+        <li>the arrow label describes the name of the foreign key and the database filed name in brackets</li>
+        <li>the database filed name is marked with a green arrow in the table box</li>
+      </ul>
+  </div>
+</div>
+
+
+### Engine BPMN
+
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_engine_bpmn.svg" />
+
+### Engine CMMN
+
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_engine_cmmn.svg" />
+
+### History
+
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_history.svg" />
+
+### Identity
+
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_identity.svg" />
