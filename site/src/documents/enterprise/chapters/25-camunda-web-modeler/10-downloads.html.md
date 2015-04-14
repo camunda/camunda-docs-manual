@@ -15,6 +15,16 @@ title: 'Downloads'
   </thead>
 	<tbody>
 	<tr class="well">
+      <td>8.6.0</td>
+      <td>14.04.2015</td>
+      <td>
+        <a class="btn btn-sm btn-default" href="http://camunda.org/enterprise-release/camunda-web-modeler/8.6.0/camunda-web-modeler-8.6.0.0.zip">download zip file</a>
+      </td> 
+      <td>
+        <a class="btn btn-sm btn-default" href="ref:asset:/assets/pdf/administratorenhandbuch-camunda-web-modeler-version-86.pdf" target="_blank">download pdf (German)</a>
+      </td>
+  	</tr>
+	<tr>
       <td>7.8.0.1</td>
       <td>29.04.2014</td>
       <td>
