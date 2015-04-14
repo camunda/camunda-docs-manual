@@ -21,6 +21,7 @@ The following example shows a job executor XML snippet:
     </properties>
   </job-acquisition>
   <properties>
+    <!-- Note: the following properties only take effect in a Tomcat environment -->
     <property name="queueSize">3</property>
     <property name="corePoolSize">5</property>
     <property name="maxPoolSize">10</property>
@@ -143,6 +144,15 @@ The following example shows a job executor XML snippet:
 
 The following is a list with the available job acquisition thread configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
+<div class="alert alert-warning">
+  <p>
+    <strong>Limitation:</strong>
+  </p>
+  <p>
+    This properties only take effect in a Tomcat environment.
+  </p>
+</div>
+
 <table class="table table-striped">
   <tr>
     <th>Property name</th>
@@ -181,7 +191,6 @@ The following is a list with the available job acquisition thread configuration 
       <p><strong>Default Value:</strong> 0</p>
     </td>
   </tr>
-
 </table>
 
 

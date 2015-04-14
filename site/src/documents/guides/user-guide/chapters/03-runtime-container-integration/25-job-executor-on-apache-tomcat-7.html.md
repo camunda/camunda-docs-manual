@@ -9,9 +9,13 @@ category: 'Runtime Container Integration'
 
 The BPM platform on Apache Tomcat 7.x uses the DefaultJobExecutor. The default [job
 executor](ref:#process-engine-the-job-executor) uses a ThreadPoolExecutor which manages a thread
-pool and a job queue. A number of job executor parameters can be modified at runtime via the use of
-a JMX client.
+pool and a job queue.
 
+The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the <code>bpm-platform.xml</code>.
+After configuring the job-acquisitions it is possible to set the values with the help of a <code>&lt;properties&gt;</code>
+tag. The correct syntax can be found in the [references](ref:/api-references/deployment-descriptors/#tags-job-executor-configuration).
+
+All the previously mentioned properties except the queue size can be modified at runtime via the use of a JMX client.
 
 ### Core Pool Size
 
@@ -55,9 +59,3 @@ Clusters](ref:#process-engine-the-job-executor-job-execution-in-heterogeneous-cl
 each job executor allocates a UUID which is used for identifying locked job ownership in the job
 table.  Hence in a two node cluster, the job executors may total up to 20 concurrent threads of
 execution.
-
-### Configuration
-
-The core pool size, queue size, maximum pool size and keep-alive-time can be configured in the <code>bpm-platform.xml</code>.
-After configuring the job-acquisitions it is possible to set the values with the help of a <code>&lt;properties&gt;</code>
-tag. The correct syntax can be found in the [references](ref:/api-references/deployment-descriptors/#tags-job-executor-configuration).

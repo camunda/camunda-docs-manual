@@ -64,6 +64,25 @@ An error start event can only be used to trigger an Event Sub-Process - it __can
 
 <div data-bpmn-diagram="implement/event-subprocess-alternative1"></div>
 
+Two optional attributes can be added to the error start event, <code>errorRef</code> and <code>camunda:errorCodeVariable</code>:
+```xml
+<definitions>
+  <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
+  ...
+  <process>
+    ...
+    <subprocess>
+      <startEvent id="myErrorStartEvent">
+        <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable"/>
+      </startEvent>
+    ...
+    </subprocess>
+  ...
+  </process>
+</definitions>
+```
+* If <code>errorRef</code> is omitted, the subprocess will start for every error event that occurs.
+* The <code>camunda:errorCodeVariable</code> will contain the error code that was specified with the error. The value can be retrieved like any other process variable, but only if the attribute was set.
 
 ## Error End Event
 
@@ -81,7 +100,7 @@ When process execution arrives at an error end event, the current path of execut
     <th>Extension Elements</th>
     <td>
       <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
-        camunda:inputOutput</a>
+        camunda:inputOutput</a>, <a href="ref:#custom-extensions-camunda-extension-attributes-camundaerrorcodevariable">camunda:errorCodeVariable</a>
     </td>
   </tr>
   <tr>
@@ -113,7 +132,7 @@ A boundary error event is defined as a typical boundary event. As with the other
       <!-- ... -->
     </subProcess>
     <boundaryEvent id="catchError" attachedToRef="mySubProcess">
-      <errorEventDefinition errorRef="myError"/>
+      <errorEventDefinition errorRef="myError" camunda:errorCodeVariable="myErrorVariable"/>
     </boundaryEvent>
   </process>
 </definitions>
@@ -123,6 +142,7 @@ The errorCode is used to match the errors that are caught:
 
 *   If errorRef is omitted, the boundary error event will catch any error event, regardless of the errorCode of the error.
 *   In case an errorRef is provided and it references an existing error, the boundary event will only catch errors with the defined error code.
+*   If the errorCodeVariable is set, the error code can be retrieved using this variable.
 
 
 ## Additional Resources
