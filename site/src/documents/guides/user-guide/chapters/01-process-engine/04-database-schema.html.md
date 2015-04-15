@@ -53,9 +53,18 @@ event along with information about the corresponding process instance and
 execution.
 
 
-## Entitiy Relationship Diagrams
+## Entity Relationship Diagrams
 
-The following Entitiy Relationship Diagrams visualize the database tables and their explicit foreign key constrains grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note, the diagrams do not visualize implicit connections between the tables.
+<div class="alert alert-warning">
+      <strong>Heads-Up:</strong>
+      The database is not part of the <strong>public API</strong>. The database schema may change for MINOR and MAJOR version updates.
+      <br>
+      <br>
+      <strong>Please note:</strong>
+      The following diagrams are based on the oracle database schema. For other databases the diagram may be slightly different.
+</div>
+
+The following Entity Relationship Diagrams visualize the database tables and their explicit foreign key constrains grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note, the diagrams do not visualize implicit connections between the tables.
 
 *Example*
 <div class="row">
@@ -64,7 +73,7 @@ The following Entitiy Relationship Diagrams visualize the database tables and th
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
       <ul>
-        <li>foreign keys are displayed as arrow from one entitiy to the other</li>
+        <li>foreign keys are displayed as arrow from one entity to the other</li>
         <li>the arrow label describes the name of the foreign key and the database filed name in brackets</li>
         <li>the database filed name is marked with a green arrow in the table box</li>
       </ul>
@@ -81,6 +90,8 @@ The following Entitiy Relationship Diagrams visualize the database tables and th
 <img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_engine_cmmn.svg" />
 
 ### History
+
+To allow different configurations and to keep the tables more flexible the history tables contain no foreign key constraints.
 
 <img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_history.svg" />
 
