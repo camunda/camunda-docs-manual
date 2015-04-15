@@ -186,6 +186,10 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>includeAssignedTasks</td>
+    <td>Also include tasks that are assigned to users. Default is to only include tasks that are not assigned to any user.</td>
+  </tr>
+  <tr>
     <td>involvedUser</td>
     <td>Only include tasks that the given user is involved in.
     A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).</td>
