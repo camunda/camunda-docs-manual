@@ -83,18 +83,18 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ### Engine BPMN
 
-<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_engine_bpmn.svg" />
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_oracle_73_bpmn.svg" />
 
 ### Engine CMMN
 
-<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_engine_cmmn.svg" />
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_oracle_73_cmmn.svg" />
 
 ### History
 
 To allow different configurations and to keep the tables more flexible the history tables contain no foreign key constraints.
 
-<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_history.svg" />
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_oracle_73_history.svg" />
 
 ### Identity
 
-<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_identity.svg" />
+<img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_oracle_73_identity.svg" />
