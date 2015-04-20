@@ -32,7 +32,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   MariaDB 10.0
 *   Oracle 10g / 11g / 12c
 *   IBM DB2 9.7 (excluding IBM z/OS)
-*   PostgreSQL 9.1 / 9.3 
+*   PostgreSQL 9.1 / 9.3 / 9.4
 *   Microsoft SQL Server 2008 R2 / 2012 / 2014 (see [Configuration Note](ref:#process-engine-database-configuration-custom-configuration-for-microsoft-sql-server))
 *   H2 1.3
 
