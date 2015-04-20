@@ -29,6 +29,7 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 ## Databases
     
 *   MySQL 5.1 / 5.5 / 5.6
+*   MariaDB 10.0
 *   Oracle 10g / 11g / 12c
 *   IBM DB2 9.7 (excluding IBM z/OS)
 *   PostgreSQL 9.1 / 9.3 
