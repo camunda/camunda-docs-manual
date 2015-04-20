@@ -85,19 +85,6 @@ cam-variable-name="CUSTOMER_REVENUE"
 cam-variable-type="Short" />
 ```
 
-### Float
-
-In order to bind the input field to a Java `Float` variable, the directive
-`cam-variable-type="Float"` must be used.
-
-Example:
-
-```html
-<input type="text"
-cam-variable-name="CUSTOMER_REVENUE"
-cam-variable-type="Float" />
-```
-
 ### Double
 
 In order to bind the input field to a Java `Double` variable, the directive

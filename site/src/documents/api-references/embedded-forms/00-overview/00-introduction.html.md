@@ -41,7 +41,7 @@ The following is a simple example of a form with two input fields binding to pro
 
   <input type="text" id="customerRevenue"
          cam-variable-name="CUSTOMER_REVENUE"
-         cam-variable-type="Float">
+         cam-variable-type="Double">
 
 </form>
 ```

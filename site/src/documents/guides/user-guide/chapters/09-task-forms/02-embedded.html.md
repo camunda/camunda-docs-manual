@@ -31,7 +31,7 @@ relevant content for your form. The following example shows a simple form with t
   <div class="form-group">
     <label for="amount-field">Amount</label>
     <input cam-variable-name="amount"
-           cam-variable-type="Float"
+           cam-variable-type="Double"
            class="form-control" />
   </div>
 </form>
