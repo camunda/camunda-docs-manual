@@ -52,8 +52,9 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 
 ## Java Runtime
 
-* Sun / Oracle Hot Spot 6 / 7
-* IBM® J9 virtual machine (JVM) 6 / 7
+* Sun / Oracle Hot Spot 6 / 7 / 8
+* IBM® J9 virtual machine (JVM) 6 / 7 / 8
+* OpenJDK 6 / 7
 * Oracle JRockit 6 - R28.2.7
 
 
