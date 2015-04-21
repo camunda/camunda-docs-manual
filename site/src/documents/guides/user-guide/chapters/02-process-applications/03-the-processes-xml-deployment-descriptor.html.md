@@ -124,18 +124,43 @@ The registration allows the process engine to load additional Java Classes and r
 3. The process engine creates a new deployment `deployment-2`, containing the updated invoice.bpmn process.
 3. The process application is registered for the new deployment `deployment-2` AND the existing deployment `deployment-1`.
 
-The resuming of the previous deployment (deployment-1) is a feature called `resumePreviousVersions` and is activated by default. If you want to deactivate this feature, you have to set the property to `false` in processes.xml file:
+The resuming of the previous deployment (deployment-1) is a feature called `resumePreviousVersions` and is activated by default. There are two different possibilities how to resume previous deployments.
 
-    <process-application
-    xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+The first one, which is the default way, is that a previous deployment will be resolved based on the process definition keys. Depending on the processes you deploy with your process application all deployments will be resumed that contain process definitions with the same key.
 
-      <process-archive name="loan-approval">
-        ...
-        <properties>
-          ...
-          <property name="isResumePreviousVersions">false</property>
-        </properties>
-      </process-archive>
+The second option is to resume deployments based on the deployment name (more precisely the value of the <code>name</code> attribute of the process archive). That way you can delete a process in a new  deployment but the process application will register itself for the previous deployments and therefore also for the deleted process. This makes it possible that the running process instances of the deleted process can continue for this process application.
 
-    </process-application>
+To activate this behavior you have set the property <code>isResumePreviousVersions</code> to true and the property <code>resumePreviousBy</code> to <code>deployment-name</code>:
+```xml
+<process-application
+  xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <process-archive name="loan-approval">
+    ...
+    <properties>
+      ...
+      <property name="isResumePreviousVersions">true</property>
+      <property name="resumePreviousBy">deployment-name</property>
+    </properties>
+  </process-archive>
+
+</process-application>
+```
+
+If you want to deactivate this feature, you have to set the property to `false` in processes.xml file:
+```xml
+<process-application
+  xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <process-archive name="loan-approval">
+    ...
+    <properties>
+      ...
+      <property name="isResumePreviousVersions">false</property>
+    </properties>
+  </process-archive>
+
+</process-application>
+```
