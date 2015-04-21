@@ -64,7 +64,7 @@ execution.
       The following diagrams are based on the oracle database schema. For other databases the diagram may be slightly different.
 </div>
 
-The following Entity Relationship Diagrams visualize the database tables and their explicit foreign key constrains grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note, the diagrams do not visualize implicit connections between the tables.
+The following Entity Relationship Diagrams visualize the database tables and their explicit foreign key constraints grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note that the diagrams do not visualize implicit connections between the tables.
 
 *Example*
 <div class="row">
@@ -91,7 +91,7 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ### History
 
-To allow different configurations and to keep the tables more flexible the history tables contain no foreign key constraints.
+To allow different configurations and to keep the tables more flexible, the history tables contain no foreign key constraints.
 
 <img data-img-thumb src="ref:asset:/guides/user-guide/assets/img/erd_oracle_73_history.svg" />
 
