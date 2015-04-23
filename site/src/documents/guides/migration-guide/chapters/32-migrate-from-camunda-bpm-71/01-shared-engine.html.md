@@ -21,6 +21,8 @@ For migration from **Camunda BPM 7.1** to **Camunda BPM 7.2**, the provided upgr
 
 If you migrate from a version < 7.1.4 or have not previously executed the 7.1.5 patch script, you have to execute the SQL script `$DATABASE_engine_7.1_patch.sql` first, where `$DATABASE` corresponds to the database platform you use.
 
+If you migrate from a version < 7.1.10 you will have to execute the SQL script `$DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
+
 Regardless of the version you are migrating from, the main upgrade script is `$DATABASE_engine_7.1_to_7.2.sql` and has to be executed next.
 
 ## 2. Upgrade of the Camunda Libraries in the Application Server and Optional Configuration
