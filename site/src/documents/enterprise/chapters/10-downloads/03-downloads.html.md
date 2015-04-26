@@ -243,7 +243,7 @@ title: 'Latest Version'
   <div class="col-md-12">
     <h3>7.3.0-alpha3</h3>
     <p>
-      Current alpha version, released on 23.04.2015, <a target="_blank" href="http://blog.camunda.org/2015/04/camunda-BPM-7.3.0-alpha3-released.html">Release Notes</a>
+      Current alpha version, released on 23.04.2015, <a target="_blank" href="http://blog.camunda.org/2015/04/camunda-bpm-730-alpha3-released.html">Release Notes</a>
     </p>
     <table class="table table-responsive">
       <thead>
