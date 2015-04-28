@@ -57,7 +57,7 @@ A JSON object containing a list of task attachments.
   <tr>
     <td>taskId</td>
     <td>String</td>
-    <td>The id of the task to which the comment belongs.</td>
+    <td>The id of the task to which the attachment belongs.</td>
   </tr>
   <tr>
     <td>description</td>
