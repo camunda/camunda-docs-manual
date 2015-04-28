@@ -48,6 +48,15 @@ Here you can see the various points at which you are able to add your own plugin
   </div>
 </div>
 
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/plugin-points/tasklist-plugin-list.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    The plugin point that you can see highlighted in the image on the left is called <code>tasklist.list</code>.
+  </div>
+</div>
+
 
 Here is an example of how to configure where you place your plugin:
 
