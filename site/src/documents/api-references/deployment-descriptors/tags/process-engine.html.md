@@ -267,7 +267,7 @@ The following is a list with the most commonly used process engine configuration
         Sets the fully qualified classname of the JDBC driver to use.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
+        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -279,7 +279,7 @@ The following is a list with the most commonly used process engine configuration
         Sets the JDBC url for the database connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
+        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -291,7 +291,7 @@ The following is a list with the most commonly used process engine configuration
         Sets the username of the JDBC connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
+        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
@@ -303,7 +303,7 @@ The following is a list with the most commonly used process engine configuration
         Sets the password of the JDBC connection.
       </p>
       <p>
-        This is usually used if the process engine is NOT configured using a <code><datasource></code> (see above) but using the built-in mybatis connection pool instead.
+        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
     </td>
   </tr>
