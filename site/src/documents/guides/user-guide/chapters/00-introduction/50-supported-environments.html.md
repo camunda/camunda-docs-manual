@@ -27,14 +27,14 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 
 
 ## Databases
-    
+
 *   MySQL 5.1 / 5.5 / 5.6
 *   MariaDB 10.0
 *   Oracle 10g / 11g / 12c
 *   IBM DB2 9.7 / 10.1 / 10.5 (excluding IBM z/OS for all versions)
 *   PostgreSQL 9.1 / 9.3 / 9.4
 *   Microsoft SQL Server 2008 R2 / 2012 / 2014 (see [Configuration Note](ref:#process-engine-database-configuration-custom-configuration-for-microsoft-sql-server))
-*   H2 1.3gst
+*   H2 1.3
 
 
 ## Webbrowser
@@ -43,8 +43,8 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   Mozilla Firefox latest
 *   Internet Explorer 9 / 10 / 11
 
-  
-## Java 
+
+## Java
 
 *   Java 6 / 7
 *   Java 8 (if supported by your application server / container)
