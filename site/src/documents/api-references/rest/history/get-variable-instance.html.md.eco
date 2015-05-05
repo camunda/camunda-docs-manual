@@ -86,6 +86,16 @@ A user object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id the process instance belongs to.</td>
@@ -94,6 +104,16 @@ A user object with the following properties:
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition the variable instance belongs to.</td>
   </tr>
   <tr>
     <td>caseInstanceId</td>

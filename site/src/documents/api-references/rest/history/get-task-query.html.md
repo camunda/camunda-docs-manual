@@ -239,6 +239,11 @@ Each historic task object has the following properties:
     <td>The task id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition the task belongs to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition the task belongs to.</td>
@@ -252,6 +257,11 @@ Each historic task object has the following properties:
     <td>executionId</td>
     <td>String</td>
     <td>The id of the execution the task belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition the task belongs to.</td>
   </tr>
   <tr>
     <td>caseDefinitionId</td>

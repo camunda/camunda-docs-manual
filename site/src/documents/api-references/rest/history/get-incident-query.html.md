@@ -112,6 +112,11 @@ Each historic incident object has the following properties:
     <td>The id of the incident.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition this incident is associated with.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition this incident is associated with.</td>

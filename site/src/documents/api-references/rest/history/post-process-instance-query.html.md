@@ -194,6 +194,11 @@ Each historic process instance object has the following properties:
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition that this process instance belongs to.</td>
