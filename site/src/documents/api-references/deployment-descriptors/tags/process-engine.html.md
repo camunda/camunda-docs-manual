@@ -335,6 +335,36 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>jobExecutorPreferTimerJobs</code></td>
+    <td>Boolean</td>
+    <td>
+      <p>
+        Controls whether the job executor prefers due timer jobs over other job types. Default value is <code>false</code>. See the
+        <a href="ref:/guides/user-guide/#process-engine-the-job-executor-the-job-order-of-job-acquisition">user guide</a>
+        for more details on this setting.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>jobExecutorAcquireByDueDate</code></td>
+    <td>Boolean</td>
+    <td>
+      <p>
+        Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
+        <a href="ref:/guides/user-guide/#process-engine-the-job-executor-the-job-order-of-job-acquisition">user guide</a>
+        for more details on this setting.
+      </p>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>autoStoreScriptVariables</code></td>
     <td>Boolean</td>
     <td>
