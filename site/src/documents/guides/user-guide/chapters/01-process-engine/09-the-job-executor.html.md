@@ -90,10 +90,10 @@ asynchronous continuation jobs. And also sort these jobs within a type ascending
 by due date.
 
 <div class="alert alert-warning">
-Please note this options are set to `false` by default and should only be
+Please note this options are set to <code>false</code> by default and should only be
 activated if required by the use case. The options alter the used job
 acquisition query and my affect its performance. That's why we also advise to
-add an index on the corresponding column(s) of the `ACT_RU_JOB` table.
+add an index on the corresponding column(s) of the <code>ACT_RU_JOB</code> table.
 </div>
 
 <table class="table table-striped">
