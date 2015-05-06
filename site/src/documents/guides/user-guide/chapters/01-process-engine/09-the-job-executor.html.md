@@ -53,6 +53,73 @@ The situation where multiple job executor instances attempt to lock the same job
 
 After having locked a job, the job executor instance has effectively reserved a time slot for executing the job: once the date written to the LOCK&#95;EXP&#95;TIME&#95; column is reached it will be visible to job acquisition again. In order to execute the acquired jobs, they are passed to the acquired jobs queue.
 
+### The Job Order of Job Acquisition
+
+By default the job executor does not impose an order in which the acquirable
+jobs are acquired. Which means the job acquisition order depends on the
+database and its configuration. That's why the job acquisition is assumed to be
+nondeterministic. The intention for this is to keep the job acquisition query
+simple and fast.
+
+But this simple job acquisition query can lead to disadvantages in some
+situations.  In theory job starvation is possible if there are always to many
+jobs to acquire and the database returns the acquirable jobs in a manner that
+some jobs are never returned.  Another observation could be that timer
+execution is delayed in a high load scenario.  Meaning that the execution date
+of a timer job can be significantly later than its actual due date. Which is
+not unexpected behavior since the due date only specify the earliest date a job
+can be executed and not the date of the actual execution. But in some scenarios
+it may be preferable to acquire timer jobs as soon as they become available to
+execute.
+
+To address the previous described issues the job acquisition query can be
+controlled by the process engine configuration. Currently two options
+are supported:
+
+- `jobExecutorPreferTimerJobs` if set to `true` the job executor
+  will acquire all acquirable timer jobs before other job types. This
+  doesn't specify a order within types of jobs which are acquired.
+
+- `jobExecutorAcquireByDueDate` if set to `true` the job executor will
+  acquire jobs by ascending due date. Where a asynchronous continuation
+  has its creation date set as due date, as it is immediately executable.
+
+If both options (`jobExecutorPreferTimerJobs` and `jobExecutorAcquireByDueDate`)
+are set to `true` the job executor will first acquire timer jobs and after that
+asynchronous continuation jobs. And also sort these jobs within a type ascending
+by due date.
+
+<div class="alert alert-warning">
+Please note this options are set to `false` by default and should only be
+activated if required by the use case. The options alter the used job
+acquisition query and my affect its performance. That's why we also advise to
+add an index on the corresponding column(s) of the `ACT_RU_JOB` table.
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>jobExecutorPreferTimerJobs</th>
+    <th>jobExecutorAcquireByDueDate</th>
+    <th>Recommend Index</th>
+  </tr>
+  <tr>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
+    <td><code>ACT_RU_JOB(TYPE_ DESC)</code></td>
+  </tr>
+  <tr>
+    <td><code>false</code></td>
+    <td><code>true</code></td>
+    <td><code>ACT_RU_JOB(DUEDATE_ ASC)</code></td>
+  </tr>
+  <tr>
+    <td><code>true</code></td>
+    <td><code>true</code></td>
+    <td><code>ACT_RU_JOB(TYPE_ DESC, DUEDATE_ ASC)</code></td>
+  </tr>
+</table>
+
+
 ## Job Execution
 
 ### Thread Pool
