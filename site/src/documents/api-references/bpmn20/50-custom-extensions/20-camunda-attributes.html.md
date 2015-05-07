@@ -186,12 +186,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code></td>
+    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      All deployed version numbers of the subprocess to call
+      A concrete version of all deployed version numbers of the subprocess to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g. <code>${versionToCall}</code>
     </td>
   </tr>
   <tr>
