@@ -29,10 +29,10 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the job to be retrieved.</td>
+    <td>The id of the job to be updated.</td>
   </tr>
 </table>
-  
+
 
 #### Request Body
 
