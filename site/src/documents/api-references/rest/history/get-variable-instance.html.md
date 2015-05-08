@@ -76,6 +76,11 @@ A user object with the following properties:
     <td>The id of the activity instance in which the variable is valid.</td>
   </tr>
   <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>errorMessage</td>
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
@@ -109,7 +114,7 @@ Example
 #### Request
 
 GET `/history/variable-instance/someId`
-  
+
 #### Response
 
 Status 200.

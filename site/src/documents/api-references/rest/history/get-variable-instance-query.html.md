@@ -8,7 +8,7 @@ keywords: 'historic get query list'
 ---
 
 
-Query for historic variable instances that fulfill the given parameters. 
+Query for historic variable instances that fulfill the given parameters.
 The size of the result set can be retrieved by using the [count](ref:#history-get-variable-instances-count) method.
 
 
@@ -19,8 +19,8 @@ GET `/history/variable-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -118,6 +118,11 @@ Each historic activity instance object has the following properties:
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
+  <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
   </tr>
   <tr>
     <td>errorMessage</td>

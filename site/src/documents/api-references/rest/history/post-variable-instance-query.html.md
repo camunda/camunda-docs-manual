@@ -8,7 +8,7 @@ keywords: 'historic post query list'
 ---
 
 
-Query for historic variable instances that fulfill the given parameters. 
+Query for historic variable instances that fulfill the given parameters.
 This method is slightly more powerful than the [GET query](ref:#history-get-variable-instances), because it allows to filter by variable values of the different types `String`, `Number` or `Boolean`.
 
 
@@ -19,8 +19,8 @@ POST `/history/variable-instance`
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -127,11 +127,16 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
   </tr>
+  <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
+  </tr>
 </table>
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -163,7 +168,7 @@ Request body:
 
     {"variableValue": 42,
     "variableName":"someVariable"}
-  
+
 #### Response
 
     [{"name": "someVariable",
