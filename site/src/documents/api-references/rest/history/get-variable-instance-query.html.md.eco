@@ -170,6 +170,11 @@ Each historic activity instance object has the following properties:
     <td>The case execution id the variable instance belongs to.</td>
   </tr>
   <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>errorMessage</td>
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
