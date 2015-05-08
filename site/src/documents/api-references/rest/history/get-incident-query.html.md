@@ -15,7 +15,7 @@ The size of the result set can be retrieved by using the [get incidents count](r
 Method
 ------
 
-GET <code>/incident</code>
+GET <code>/history/incident</code>
 
 
 Parameters

@@ -93,7 +93,7 @@ Parameters
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include active jobs.</td>
+    <td>Only include suspended jobs.</td>
   </tr>    
   <tr>
     <td>sortBy</td>

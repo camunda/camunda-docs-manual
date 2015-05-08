@@ -27,7 +27,7 @@ PUT `/job/{id}/duedate`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the job to be retrieved.</td>
+    <td>The id of the job to be updates.</td>
   </tr>
 </table>
 
