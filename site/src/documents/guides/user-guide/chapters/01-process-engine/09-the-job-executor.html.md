@@ -55,44 +55,44 @@ After having locked a job, the job executor instance has effectively reserved a 
 
 ### The Job Order of Job Acquisition
 
-By default the job executor does not impose an order in which the acquirable
-jobs are acquired. Which means the job acquisition order depends on the
+By default the job executor does not impose an order in which acquirable
+jobs are acquired. This means that the job acquisition order depends on the
 database and its configuration. That's why the job acquisition is assumed to be
 nondeterministic. The intention for this is to keep the job acquisition query
 simple and fast.
 
 But this simple job acquisition query can lead to disadvantages in some
-situations.  In theory job starvation is possible if there are always to many
+situations.  In theory job starvation is possible if there are always too many
 jobs to acquire and the database returns the acquirable jobs in a manner that
-some jobs are never returned.  Another observation could be that timer
-execution is delayed in a high load scenario.  Meaning that the execution date
-of a timer job can be significantly later than its actual due date. Which is
-not unexpected behavior since the due date only specify the earliest date a job
-can be executed and not the date of the actual execution. But in some scenarios
+some jobs are never returned. Another observation could be that timer
+execution is delayed in a high load scenario, meaning that the execution date
+of a timer job can be significantly later than its actual due date. This is
+not unexpected behavior since the due date only specifies the earliest date a job
+can be executed and not the date of the actual execution. However, in some scenarios
 it may be preferable to acquire timer jobs as soon as they become available to
 execute.
 
-To address the previous described issues the job acquisition query can be
-controlled by the process engine configuration. Currently two options
+To address the previously described issues, the job acquisition query can be
+controlled by the process engine configuration. Currently, two options
 are supported:
 
-- `jobExecutorPreferTimerJobs` if set to `true` the job executor
+- `jobExecutorPreferTimerJobs`. If set to `true`, the job executor
   will acquire all acquirable timer jobs before other job types. This
   doesn't specify a order within types of jobs which are acquired.
 
-- `jobExecutorAcquireByDueDate` if set to `true` the job executor will
-  acquire jobs by ascending due date. Where a asynchronous continuation
-  has its creation date set as due date, as it is immediately executable.
+- `jobExecutorAcquireByDueDate`. If set to `true`, the job executor will
+  acquire jobs by ascending due date. Where an asynchronous continuation
+  has its creation date set as due date, it is immediately executable.
 
 If both options (`jobExecutorPreferTimerJobs` and `jobExecutorAcquireByDueDate`)
 are set to `true` the job executor will first acquire timer jobs and after that
-asynchronous continuation jobs. And also sort these jobs within a type ascending
+asynchronous continuation jobs. And also sort these jobs within the type ascending
 by due date.
 
 <div class="alert alert-warning">
-Please note this options are set to <code>false</code> by default and should only be
+Please note these options are set to <code>false</code> by default and should only be
 activated if required by the use case. The options alter the used job
-acquisition query and my affect its performance. That's why we also advise to
+acquisition query and may affect its performance. That's why we also advise to
 add an index on the corresponding column(s) of the <code>ACT_RU_JOB</code> table.
 </div>
 
