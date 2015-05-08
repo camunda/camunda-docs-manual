@@ -150,12 +150,17 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>caseInstanceId</td>
     <td>String</td>
-    <td>The id the case instance belongs to.</td>
+    <td>The id of the case instance the variable instance belongs to.</td>
   </tr>
   <tr>
     <td>caseExecutionId</td>
     <td>String</td>
-    <td>The id the case execution belongs to.</td>
+    <td>The id of the case execution the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
   </tr>
 </table>
 
