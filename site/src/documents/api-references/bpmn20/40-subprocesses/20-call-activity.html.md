@@ -36,7 +36,8 @@ CalledElementBinding has three different values:
 
 *   latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
 * 	deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
-*   version: call a fixed version of the process definition, in this case `calledElementVersion` is required
+*   version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be
+    specified in the BPMN XML or returned by an expression (see [custom extensions](ref:#custom-extensions-camunda-extension-attributes-camundacalledelementversion))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
