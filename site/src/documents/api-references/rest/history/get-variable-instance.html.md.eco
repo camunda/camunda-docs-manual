@@ -101,6 +101,11 @@ A user object with the following properties:
     <td>The id the process instance belongs to.</td>
   </tr>
   <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>The execution id the variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
@@ -171,15 +176,21 @@ Status 200.
 
 ```json
 {
-  "id": "someId"
+  "id": "someId",
   "name": "amount",
   "type": "Integer",
   "variableType": "integer",
   "value": 5,
+  "valueInfo": {},
+  "processDefinitionKey": "aProcessDefinitionKey",
+  "processDefinitionId": "aProcessDefinitionId",
   "processInstanceId": "aProcessInstanceId",
+  "executionId": "aExecutionId",
   "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
+  "caseDefinitionKey": null,
   "caseInstanceId": null,
   "caseExecutionId": null,
+  "taskId": null,
   "errorMessage": null
 }
 ```

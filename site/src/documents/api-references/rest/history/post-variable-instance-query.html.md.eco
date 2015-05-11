@@ -161,6 +161,11 @@ Each historic activity instance object has the following properties:
     <td>The id the process instance belongs to.</td>
   </tr>
   <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>The id of the execution the variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance in which the variable is valid.</td>
@@ -243,13 +248,22 @@ Request body:
 ```json
 [
   {
+    "id": "someId",
     "name": "someVariable",
+    "type": "Integer",
+    "variableType": "integer",
+    "value": 5,
+    "valueInfo": {},
+    "processDefinitionKey": "aProcessDefinitionKey",
+    "processDefinitionId": "aProcessDefinitionId",
     "processInstanceId": "aProcInstId",
+    "executionId": "aExecutionId",
     "activityInstanceId": "aActivityInstId",
+    "caseDefinitionKey": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "type": "Integer",
-    "value": 42
+    "taskId": null,
+    "errorMessage": null
   }
 ]
 ```
