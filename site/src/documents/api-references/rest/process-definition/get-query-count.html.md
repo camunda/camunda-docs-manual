@@ -43,7 +43,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -79,11 +79,11 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active process definitions. Values may be `true` or `false`.</td>
+    <td>Only include active process definitions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended process definitions. Values may be `true` or `false`.</td>
+    <td>Only include suspended process definitions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
 </table>
 
@@ -124,7 +124,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned of some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned of some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

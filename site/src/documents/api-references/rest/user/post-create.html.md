@@ -35,7 +35,7 @@ A json object with the following properties:
     <td>Array</td>
     <td>
       A json object containing variable key-value pairs. The object contains the following properties: 
-      `id (String)`, `firstName (String)`, `lastName (String)` and `email (String)`.
+      <code>id (String)</code>, <code>firstName (String)</code>, <code>lastName (String)</code> and <code>email (String)</code>.
     </td>
   </tr>
   <tr>
@@ -43,7 +43,7 @@ A json object with the following properties:
     <td>Array</td>
     <td>
       A json object containing variable key-value pairs. The object contains the following properties:
-      `password (String)`.
+      <code>password (String)</code>.
     </td>
   </tr>
 </table>

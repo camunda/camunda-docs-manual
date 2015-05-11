@@ -57,11 +57,11 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished process instances. Values may be `true` or `false`.</td>
+    <td>Only include finished process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished process instances. Values may be `true` or `false`.</td>
+    <td>Only include unfinished process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>startedBy</td>
@@ -69,30 +69,30 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>startedBefore</td>
-    <td>Restrict to instances that were started before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>startedAfter</td>
-    <td>Restrict to instances that were started after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were started after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedBefore</td>
-    <td>Restrict to instances that were finished before the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>finishedAfter</td>
-    <td>Restrict to instances that were finished after the given date. The date must have the format `yyyy-MM-dd'T'HH:mm:ss`, so for example `2013-01-23T14:42:45` is valid.</td>
+    <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
     <td>variables</td>
     <td>A json array to only include process instances that have/had variables with certain values. <br/>
-    The array consists of objects with the three properties `name`, `operator` and `value`.
-    `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
-    `value` may be `String`, `Number` or `Boolean`.
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
-    `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
-    `like`.<br/>
+    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    <code>like</code>.<br/>
     </td>
   </tr>
 </table>

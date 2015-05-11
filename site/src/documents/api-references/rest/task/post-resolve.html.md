@@ -45,7 +45,7 @@ A json object with the following properties:
   <tr>
     <td>variables</td>
     <td>A json object containing variable key-value pairs. Each key is a variable name and each value a json variable value object.
-    A variable value object has has the property `value`, which is the value to update, and `type`, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date. This parameter is optional and may be left out.</td>
+    A variable value object has has the property <code>value</code>, which is the value to update, and <code>type</code>, which represents the type of the value. Valid types are String, Integer, Short, Long, Double and Date. This parameter is optional and may be left out.</td>
   </tr>
 </table>
 

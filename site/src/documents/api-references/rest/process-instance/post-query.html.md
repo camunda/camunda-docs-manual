@@ -75,34 +75,34 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active process instances. Values may be `true` or `false`.</td>
+    <td>Only include active process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended process instances. Values may be `true` or `false`.</td>
+    <td>Only include suspended process instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>variables</td>
     <td>A json array to only include process instances that have variables with certain values. <br/>
-    The array consists of objects with the three properties `name`, `operator` and `value`.
-    `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value.<br/>
-    `value` may be `String`, `Number` or `Boolean`.
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: `eq` - equals; `neq` - not equals; `gt` - greater than;
-    `gteq` - greater than or equals; `lt` - lower than; `lteq` - lower than or equals;
-    `like`.<br/>
+    Valid operator values are: <code>eq</code> - equals; <code>neq</code> - not equals; <code>gt</code> - greater than;
+    <code>gteq</code> - greater than or equals; <code>lt</code> - lower than; <code>lteq</code> - lower than or equals;
+    <code>like</code>.<br/>
     </td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    `instanceId`, `definitionKey` and `definitionId`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
+    <code>instanceId</code>, <code>definitionKey</code> and <code>definitionId</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
 </table>
 
@@ -164,7 +164,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>
     or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>

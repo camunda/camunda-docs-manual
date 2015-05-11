@@ -38,7 +38,7 @@ Parameters
   </tr>
   <tr>
     <td>variableValue</td>
-    <td>Filter by variable value. Is treated as a `String` object on server side.</td>
+    <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>

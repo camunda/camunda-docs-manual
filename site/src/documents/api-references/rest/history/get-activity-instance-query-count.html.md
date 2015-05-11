@@ -62,11 +62,11 @@ Parameters
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include finished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Values may be `true` or `false`.</td>
+    <td>Only include unfinished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
 </table>
 

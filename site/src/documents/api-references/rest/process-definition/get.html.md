@@ -54,7 +54,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>

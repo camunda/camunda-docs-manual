@@ -49,7 +49,7 @@ Parameters
   </tr>
   <tr>
     <td>resourceId</td>
-    <td>The id of the resource to check permissions for. If left blank, a check for gloal permissions on the resource is performed.</td>
+    <td>The id of the resource to check permissions for. If left blank, a check for global permissions on the resource is performed.</td>
     <td>No</td>
   </tr> 
 </table>

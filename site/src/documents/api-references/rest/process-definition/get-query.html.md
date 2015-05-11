@@ -42,7 +42,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -62,7 +62,7 @@ Parameters
   </tr>
   <tr>
     <td>latest</td>
-    <td>Only include those process definitions that are latest versions. Values may be `true` or `false`.</td>
+    <td>Only include those process definitions that are latest versions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>resourceName</td>
@@ -78,22 +78,22 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active process definitions. Values may be `true` or `false`.</td>
+    <td>Only include active process definitions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended process definitions. Values may be `true` or `false`.</td>
+    <td>Only include suspended process definitions. Values may be <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    `category`, `key`, `id`, `name`, `version` and `deploymentId`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code> and <code>deploymentId</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
   <tr>
     <td>firstResult</td>
@@ -126,7 +126,7 @@ Each process definition object has the following properties:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -188,7 +188,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

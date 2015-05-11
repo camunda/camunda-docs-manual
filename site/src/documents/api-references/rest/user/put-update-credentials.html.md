@@ -36,7 +36,7 @@ A json object with the following properties:
   <tr>
     <td>authenticatedUserPassword</td>
     <td>String</td>
-    <td>The password of the authenticated user who changes the password of the user (ie. the user with passed id as path parameter).</td>
+    <td>The password of the authenticated user who changes the password of the user (i.e., the user with passed id as path parameter).</td>
   </tr>    
 </table>
 

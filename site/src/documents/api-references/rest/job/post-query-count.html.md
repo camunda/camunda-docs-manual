@@ -14,7 +14,7 @@ Query for jobs that fulfill given parameters. This method takes the same message
 Method
 ------
 
-POST <code>/job/count</code>
+POST `/job/count`
 
 
 Parameters
@@ -138,7 +138,7 @@ Example
 #### Request
 
 <!-- TODO: Insert a 'real' example -->
-POST <code>/job</code>
+POST `/job`
 
 Request body:
 

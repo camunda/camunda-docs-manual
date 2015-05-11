@@ -14,7 +14,7 @@ Sets the retries of the job to the given number of retries.
 Method
 ------
 
-PUT <code>/job/{id}/retries</code>
+PUT `/job/{id}/retries`
 
 
 Parameters
@@ -87,7 +87,7 @@ Example
 
 #### Request
 
-PUT <code>/job/aJobId/retries</code>
+PUT `/job/aJobId/retries`
 
 Request body:
 

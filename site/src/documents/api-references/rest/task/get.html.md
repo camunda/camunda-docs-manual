@@ -64,18 +64,18 @@ Its properties are as follows:
   <tr>
     <td>created</td>
     <td>String</td>
-    <td>The time the task was created. Format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The time the task was created. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>due</td>
     <td>String</td>
-    <td>The due date for the task. Format `yyyy-MM-dd'T'HH:mm:ss`.</td>
+    <td>The due date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
   <tr>
     <td>delegationState</td>
     <td>String</td>
-    <td>The delegation state of the task. Corresponds to the `DelegationState` enum in the engine.
-    Possible values are `RESOLVED` and `PENDING`.</td>
+    <td>The delegation state of the task. Corresponds to the <code>DelegationState</code> enum in the engine.
+    Possible values are <code>RESOLVED</code> and <code>PENDING</code>.</td>
   </tr>
   <tr>
     <td>description</td>

@@ -38,7 +38,7 @@ Parameters
   </tr>
   <tr>
     <td>variableValue</td>
-    <td>Filter by variable value. Is treated as a `String` object on server side.</td>
+    <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -46,13 +46,13 @@ Parameters
   </tr>
   <tr>
     <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are `instanceId`, `variableName`.
-    Must be used in conjunction with the `sortOrder` parameter.</td>
+    <td>Sort the results by a given criterion. Valid values are <code>instanceId</code>, <code>variableName</code>.
+    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
     <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be `asc` for ascending order or `desc` for descending order.
-    Must be used in conjunction with the `sortBy` parameter.</td>
+    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
+    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
   <tr>
     <td>firstResult</td>
@@ -117,7 +117,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a `sortOrder` parameter is supplied, but no `sortBy`. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

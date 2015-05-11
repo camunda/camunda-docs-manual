@@ -40,7 +40,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>variableValue</td>
-    <td>Filter by variable value. May be `String`, `Number` or `Boolean`.</td>
+    <td>Filter by variable value. May be <code>String</code>, <code>Number</code> or <code>Boolean</code>.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>

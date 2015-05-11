@@ -42,7 +42,7 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>suspended</td>
-    <td>A `Boolean` value which indicates whether to activate or suspend a given process instance. When the value is set to `true`, then the given process instance will be suspended and when the value is set to `false`, then the given process instance will be activated.</td>
+    <td>A <code>Boolean</code> value which indicates whether to activate or suspend a given process instance. When the value is set to <code>true</code>, then the given process instance will be suspended and when the value is set to <code>false</code>, then the given process instance will be activated.</td>
   </tr>
 </table>
 

@@ -14,7 +14,7 @@ Executes the job. <strong>Note:</strong> The execution of the job happens in syn
 Method
 ------
 
-POST <code>/job/{id}/execute</code>
+POST `/job/{id}/execute`
 
 
 Parameters
@@ -70,7 +70,7 @@ Example
 
 #### Request
 
-PUT <code>/job/aJobId/execute</code>
+PUT `/job/aJobId/execute`
 
 #### Response
 

@@ -46,7 +46,7 @@ Parameters
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and duedate is <code>null</code> or duedate is in the past.</td>
+    <td>Only select jobs which are executable, i.e., retries &gt; 0 and duedate is <code>null</code> or duedate is in the past.</td>
   </tr>
   <tr>
     <td>timers</td>

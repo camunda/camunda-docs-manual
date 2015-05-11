@@ -14,7 +14,7 @@ Retrieves a single job according to the `Job` interface in the engine.
 Method
 ------
 
-GET <code>/job/{id}</code>
+GET `/job/{id}`
 
 
 Parameters
@@ -105,7 +105,7 @@ Example
 
 #### Request
 
-GET <code>/job/aJobId</code>
+GET `/job/aJobId`
 
 #### Response
 

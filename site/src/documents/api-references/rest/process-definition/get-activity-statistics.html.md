@@ -44,19 +44,19 @@ Parameters
   </tr>
   <tr>
     <td>failedJobs</td>
-    <td>Whether to include the number of failed jobs in the result or not. Valid values are `true` or `false`.</td>
+    <td>Whether to include the number of failed jobs in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
   </tr>
   <tr>
     <td>incidents</td>
-    <td>Valid values for this property are `true` or `false`. If this property has been set to `true` the result will include for each occurred incident type the corresponding number of incidents. In the case of `false` the incidents will not be included in the result.</td>
+    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include for each occurred incident type the corresponding number of incidents. In the case of <code>false</code> the incidents will not be included in the result.</td>
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e. a String value) the result will only include the number of incidents for the assigned incident type.</td>
+    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type.</td>
   </tr>  
 </table>
 
-__Note:__ The query parameters `incidents` and `incidentsForType` are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
+__Note:__ The query parameters <code>incidents</code> and <code>incidentsForType</code> are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
 
 Result
 --------------  
@@ -84,7 +84,7 @@ Each object has the following properties:
     <td>failedJobs</td>
     <td>Number</td>
     <td>The total number of failed jobs for the running instances.<br/>
-    <strong>Note:</strong> Will be `0` (not `null`), if failed jobs were excluded.</td>
+    <strong>Note:</strong> Will be <code>0</code> (not <code>null</code>), if failed jobs were excluded.</td>
   </tr>
   <tr>
     <td>incidents</td>
@@ -94,7 +94,7 @@ Each object has the following properties:
           <li>incidentType: The type of the incident the number of incidents is aggregated for.</li>
           <li>incidentCount: The total number of incidents for the corresponding incident type.</li>
         </ul>
-        <strong>Note:</strong> Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty, if no incidents were found.
+        <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty, if no incidents were found.
     </td>
   </tr>
 </table>
@@ -117,7 +117,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters `incidents` and `incidentsForType` were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
