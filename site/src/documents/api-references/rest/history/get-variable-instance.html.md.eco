@@ -151,15 +151,16 @@ Status 200.
 
 ```json
 {
-  "id": "someId"
+  "id": "someId",
   "name": "amount",
   "type": "Integer",
-  "variableType": "integer",
   "value": 5,
+  "valueInfo": {},
   "processInstanceId": "aProcessInstanceId",
   "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
   "caseInstanceId": null,
   "caseExecutionId": null,
+  "taskId": null,
   "errorMessage": null
 }
 ```

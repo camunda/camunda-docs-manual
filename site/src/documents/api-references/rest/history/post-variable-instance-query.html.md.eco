@@ -208,13 +208,16 @@ Request body:
 ```json
 [
   {
+    "id": "aId",
     "name": "someVariable",
+    "type": "Integer",
+    "value": 42,
+    "valueInfo": {},
     "processInstanceId": "aProcInstId",
     "activityInstanceId": "aActivityInstId",
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "type": "Integer",
-    "value": 42
+    "taskId": null
   }
 ]
 ```
