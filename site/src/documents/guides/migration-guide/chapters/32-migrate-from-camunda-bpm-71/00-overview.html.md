@@ -7,10 +7,11 @@ category: 'Migrate from Camunda BPM 7.1 to 7.2'
 
 The following guide covers these use cases:
 
-1. For administrators and developers: Migrating a shared process engine setting
-2. For administrators and developers: Migrating an embedded process engine setting
-2. For developers: Migrating embedded task forms
-3. For developers: Migrating a Cockpit plugin
+1. For administrators and developers: Migrate the database
+2. For administrators and developers: Migrating a shared process engine setting
+3. For administrators and developers: Migrating an embedded process engine setting
+4. For developers: Migrating embedded task forms
+5. For developers: Migrating a Cockpit plugin
 
 This guide covers mandatory migration steps as well as optional steps that can be carried out to enable or disable new functionality included in Camunda BPM 7.2. The following concepts were introduced with Camunda BPM 7.2:
 
