@@ -46,6 +46,10 @@ Resources are the entities the user interacts with. Examples of resources are GR
       <li>Group Membership</li>
       <li>User</li>
       <li>Filter</li>
+      <li>Deployment</li>
+      <li>Process Definition</li>
+      <li>Process Instance</li>
+      <li>Task</li>
     </ul>
   </p>
 </div>
