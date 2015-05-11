@@ -1,7 +1,7 @@
 ---
 
 title: 'Migrate the Server'
-category: 'Migrate from camunda bpm 7.0 to 7.1'
+category: 'Migrate from Camunda BPM 7.0 to 7.1'
 
 ---
 
