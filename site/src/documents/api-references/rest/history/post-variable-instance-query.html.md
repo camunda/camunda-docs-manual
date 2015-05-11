@@ -171,7 +171,16 @@ Request body:
 
 #### Response
 
-    [{"name": "someVariable",
-    "type": "Integer",
+```json
+[
+  {
+    "id": "aId",
+    "name": "someVariable",
+    "type": "integer",
     "value": 42,
-    "processInstanceId": "aProcInstId"}]
+    "processInstanceId": "aProcInstId",
+    "activityInstanceId": "aActivityInstId",
+    "taskId": null
+  }
+]
+```

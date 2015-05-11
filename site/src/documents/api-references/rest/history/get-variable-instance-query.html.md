@@ -161,9 +161,17 @@ GET `/history/variable-instance?variableName=my_variable`
 
 #### Response
 
-    [{"id": "someId"
-      "name": "my_variable",
-      "type": "String",
-      "value": "my_value",
-      "processInstanceId": "aVariableInstanceProcInstId",
-      "errorMessage": null}]
+```json
+[
+  {
+    "id": "someId",
+    "name": "my_variable",
+    "type": "string",
+    "value": "my_value",
+    "processInstanceId": "aVariableInstanceProcInstId",
+    "activityInstanceId": "aVariableInstanceActivityInstId",
+    "taskId": null,
+    "errorMessage": null
+  }
+]
+```

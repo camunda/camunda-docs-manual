@@ -119,12 +119,15 @@ GET `/history/variable-instance/someId`
 
 Status 200.
 
-    {
-      "id": "someId"
-      "name": "amount",
-      "type": "integer",
-      "value": 5,
-      "processInstanceId": "aProcessInstanceId",
-      "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
-      "errorMessage": null
-    }
+```json
+{
+  "id": "someId",
+  "name": "amount",
+  "type": "integer",
+  "value": 5,
+  "processInstanceId": "aProcessInstanceId",
+  "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
+  "taskId": null,
+  "errorMessage": null
+}
+```
