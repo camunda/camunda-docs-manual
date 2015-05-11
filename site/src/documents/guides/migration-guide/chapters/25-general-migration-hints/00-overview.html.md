@@ -21,7 +21,7 @@ category: 'General migration hints for Camunda BPM'
 **Getting Help:** If you have any trouble, ask for assistance in the [Forum](http://camunda.org/community/forum.html). As an enterprise customer, you can contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 This guide gives some hints and general guidelines / steps to follow when upgrading Camunda BPM from one minor version to the next one.
-It is _NOT_ a migration guide by its own. Always check the concrete migration guide of the version from where you start the migration, e.g. e.g. [migrate from Camunda BPM 7.0 to 7.1](ref:/guides/migration-guide/#migrate-from-camunda-bpm-70-to-71).
+It is _NOT_ a migration guide by its own. Always check the concrete migration guide of the version from where you start the migration, e.g. [migrate from Camunda BPM 7.0 to 7.1](ref:/guides/migration-guide/#migrate-from-camunda-bpm-70-to-71).
 
 The migration guides usually cover following migration topics in detail:
 
