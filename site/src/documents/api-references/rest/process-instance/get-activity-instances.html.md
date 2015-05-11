@@ -108,6 +108,16 @@ The properties of a transition instance are as follows:
     <td>The id of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job)</td>
   </tr>
   <tr>
+    <td>activityName</td>
+    <td>String</td>
+    <td>The name of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job)</td>
+  </tr>
+  <tr>
+    <td>activityType</td>
+    <td>String</td>
+    <td>The type of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job)</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id of the process instance.</td>
