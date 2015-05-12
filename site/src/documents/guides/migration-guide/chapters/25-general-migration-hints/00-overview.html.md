@@ -39,5 +39,5 @@ The general approach to migrate from one minor version to the next involves the 
 3. Upgrade the Camunda libraries and web applications in your server.
 4. Upgrade your process applications.
 
-Depending if you are running Camunda BPM as a shared engine or an embedded one, if differs what you have to do during steps 3 and 4.
+Depending if you are running Camunda BPM as a shared engine or an embedded one, it differs what you have to do during steps 3 and 4.
 Check the concrete migration guide if there are any special steps you have to make.

@@ -10,8 +10,8 @@ When migrating your database to the next minor version you have to do the follow
 1. Check for any existing patch scripts for your database [here] that are within the bounds of your upgrade path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  Execute them by version number ordering.
- The naming pattern is `$DATABASENAME_engine_$MINOR_VERSION_patch_$PLATFORM_VERSION_to_$NEW_PLATFORM_VERSION.sql`, e.g. `db2_engine_7.1_patch_7.1.9_to_7.1.1.sql`.
- 
+ The naming pattern is `$DATABASENAME_engine_$MINOR_VERSION_patch_$PLATFORM_VERSION_to_$NEW_PLATFORM_VERSION.sql`, e.g. `db2_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
+
 2. Execute the corresponding upgrade scripts named
  * `$DATABASENAME_engine_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g. `db2_engine_7.1_to_7.2.sql`
  * `$DATABASENAME_identity_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g. `db2_identity_7.1_to_7.2.sql`
