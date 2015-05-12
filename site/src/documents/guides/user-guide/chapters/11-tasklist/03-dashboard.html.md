@@ -68,6 +68,21 @@ category: 'Tasklist'
     <p>
       Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is <i>equal to</i> (=). You can toggle the operator and select <i>not equal to</i> (!=), <i>greater than</i> (>), <i>lower than</i> (<), <i>equal to or greater than</i> (>=) or <i>equal to or lower than</i> (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
     </p>
+    <p>
+      If the searched variable is of String type, values:
+      <ul>
+        <li>`true` and `false`</li>
+        <li>numbers (like `73288`)</li>
+        <li>NULL</li>
+      </ul>
+      need to be wrapped into quotes as follow:
+      <ul>
+        <li>`'true'` and `'false'`</li>
+        <li>`'73288'`</li>
+        <li>`'NULL'`</li>
+      </ul>
+      in order to get the expected results.
+    </p>
   </div>
 </div>
 
