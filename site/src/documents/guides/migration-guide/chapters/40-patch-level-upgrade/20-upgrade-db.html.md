@@ -21,7 +21,7 @@ Each patch script contains a comment what the fixes are related to and a link to
 ### Available SQL Patch scripts
 
 <table class="table desc-table">
-  <th>
+  <thead>
     <tr>
       <th>Camunda Version</th>
       <th>Patch file</th>
@@ -29,7 +29,7 @@ Each patch script contains a comment what the fixes are related to and a link to
       <th>Affected databases</th>
       <th>Issue link</th>
     <tr>
-  </th>
+  </thead>
   <tbody>
     <tr>
       <td>7.1</td>
