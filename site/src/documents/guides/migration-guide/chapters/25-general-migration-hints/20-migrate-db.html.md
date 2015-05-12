@@ -28,6 +28,6 @@ When migrating your database to the next minor version you have to do the follow
   The scripts are stored inside the `camunda-sql-scripts-$NEW_PLATFOR_VERSION.jar`. Unzip the JAR-file and you are good to go.
 </div>
 
-Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) for an overview of available sql patch scripts for your current version.
+Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) for an overview of available SQL patch scripts for your current version.
 
 [here]: ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts
