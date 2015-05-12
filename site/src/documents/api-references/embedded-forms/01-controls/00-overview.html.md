@@ -19,6 +19,16 @@ The `cam-variable-name` directive allows providing the name of a process / task 
        cam-variable-name="CUSTOMER_ID">
 ```
 
+## The `cam-business-key` Directive
+
+The `cam-business-key` is aimed to be used on a free text input field in order to define a businessKey at the [start of a process][process-start].  
+This attribute is only relevant when the form is aimed to start a process.
+
+```html
+<input type="text"
+       cam-business-key>
+```
+
 ### AngularJS support and `cam-variable-name`
 If you use the AngularJS integration, the `cam-variable-name` directive will automatically bind the input to the model in case no binding is provided by the user.
 
@@ -78,4 +88,5 @@ The `cam-variable-type` directive can be used as validation directive:
 </span>
 ```
 
+[process-start]: ref:/api-references/rest/#process-definition-submit-start-form
 [variable-types]: ref:/guides/user-guide/#process-engine-process-variables-supported-variable-values
