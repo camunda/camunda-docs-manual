@@ -20,3 +20,8 @@ If these authorizations are not desired, you have the following options to delet
 
 * Before executing the upgrade script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
 * Use the [Camunda Admin application](ref:/guides/user-guide/#admin-administrator-account-authorizations) to delete the created authorizations.
+
+<div class="alert alert-warning">
+  <strong>Note:</strong> If you added new authorization resources by yourself in 7.2 please check that they have another id than the newly
+  introduced resources (listed above). Otherwise the new authorizations inserted by the update will allow everyone to access your custom resources.
+</div>
