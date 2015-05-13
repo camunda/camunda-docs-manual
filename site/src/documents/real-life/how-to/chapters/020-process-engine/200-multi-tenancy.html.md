@@ -113,7 +113,7 @@ The configuration of the process engine for tenant 2:
   <datasource>java:jboss/datasources/ProcessEngine</datasource>
   <history-level>none</history-level>
   <properties>
-      <property name="databaseTablePrefix">TENANT_2.</property>
+      <property name="databaseTablePrefix">TENANT2.</property>
       <property name="jobExecutorAcquisitionName">default</property>
 
       <property name="isAutoSchemaUpdate">false</property>
