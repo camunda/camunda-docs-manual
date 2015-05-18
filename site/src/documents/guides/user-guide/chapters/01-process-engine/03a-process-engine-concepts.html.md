@@ -78,6 +78,21 @@ Process variables are available to all tasks in a process instance and are autom
 
 It is also possible to [start a process instance using the REST API](ref:/api-references/rest/#process-definition-start-process-instance).
 
+### Starting a Process Instance at Any Set of Activities
+
+The `startProcessInstanceByKey` and `startProcessInstanceById` methods start the process instance at their default initial activity, which is typically the single blank start event of the process definition. It is also possible to start anywhere in a process instance by using the *fluent builder* for process instances. The fluent builder can be accessed via the RuntimeService methods `createProcessInstanceByKey` and `createProcessInstanceById`.
+
+The following starts a process instance before the activity `SendInvoiceReceiptTask` and the embedded sub process `DeliverPizzaSubProcess`:
+
+    ProcessInstance instance = runtimeService.createProcessInstanceByKey("invoice")
+      .startBeforeActivity("SendInvoiceReceiptTask")
+      .setVariable("creditor", "Nice Pizza Inc.")
+      .startBeforeActivity("DeliverPizzaSubProcess")
+      .setVariableLocal("destination", "12 High Street")
+      .execute();
+
+The fluent builder allows to submit any number of so-called instantiation instructions. When calling `execute`, the process engine performs these instructions in the order they are specified. In the above example, the engine first starts the task *SendInvoiceReceiptTask* and executes the process until it reaches a wait state and then starts *DeliverPizzaTask* and does the same. After these two instructions, the `execute` call returns.
+
 ### Querying for Process Instances
 
 You can query for all currently running process instances using the `ProcessInstanceQuery` offered by the `RuntimeService`:
