@@ -212,7 +212,7 @@ expression as a substring.
   </tr>
 
   <tr>
-    <td>due</td>
+    <td>dueDate</td>
     <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
@@ -248,7 +248,7 @@ expression as a substring.
     </td>
   </tr>
   <tr>
-    <td>followUp</td>
+    <td>followUpDate</td>
     <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
@@ -297,7 +297,7 @@ expression as a substring.
     </td>
   </tr> 
   <tr>
-    <td>created</td>
+    <td>createdOn</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
