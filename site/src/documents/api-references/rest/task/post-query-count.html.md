@@ -127,7 +127,7 @@ A json object with the following properties:
   </tr>
   
   <tr>
-    <td>due</td>
+    <td>dueDate</td>
     <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
@@ -139,7 +139,7 @@ A json object with the following properties:
     <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
-    <td>created</td>
+    <td>createdOn</td>
     <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
   </tr>
   <tr>
