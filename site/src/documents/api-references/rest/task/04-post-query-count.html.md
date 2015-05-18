@@ -375,11 +375,11 @@ expression as a substring.
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active tasks. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended tasks. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include suspended tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>taskVariables</td>

@@ -66,7 +66,7 @@ Parameters
   </tr>
   <tr>
     <td>latestVersion</td>
-    <td>Only include those case definitions that are latest versions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include those case definitions that are latest versions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>resourceName</td>

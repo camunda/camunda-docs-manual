@@ -152,19 +152,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished tasks. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include finished tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished tasks. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include unfinished tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>processFinished</td>
-    <td>Only include tasks of finished processes. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include tasks of finished processes. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>processUnfinished</td>
-    <td>Only include tasks of unfinished processes. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include tasks of unfinished processes. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>taskDueDate</td>

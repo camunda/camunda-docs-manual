@@ -63,19 +63,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include finished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include unfinished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Only include canceled activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include canceled activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>completeScope</td>
-    <td>Only include activity instances which completed a scope. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include activity instances which completed a scope. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
   <td>startedBefore</td>

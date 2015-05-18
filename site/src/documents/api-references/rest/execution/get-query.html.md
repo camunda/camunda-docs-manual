@@ -59,11 +59,11 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include suspended executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>incidentId</td>

@@ -81,19 +81,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>creationLog</td>
-    <td>Only include creation logs. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include creation logs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>failureLog</td>
-    <td>Only include failure logs. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include failure logs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>successLog</td>
-    <td>Only include success logs. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include success logs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>deletionLog</td>
-    <td>Only include deletion logs. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include deletion logs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

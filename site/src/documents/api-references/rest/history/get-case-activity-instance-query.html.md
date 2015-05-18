@@ -73,39 +73,39 @@ Parameters
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include finished case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include unfinished case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>required</td>
-    <td>Only include required case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include required case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>available</td>
-    <td>Only include available case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include available case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>enabled</td>
-    <td>Only include enabled case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include enabled case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>disabled</td>
-    <td>Only include disabled case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include disabled case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>completed</td>
-    <td>Only include completed case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include completed case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>terminated</td>
-    <td>Only include terminated case activity instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include terminated case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sortBy</td>

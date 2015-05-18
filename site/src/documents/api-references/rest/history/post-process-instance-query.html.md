@@ -102,11 +102,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished process instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include finished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished process instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include unfinished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>startedBy</td>

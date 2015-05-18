@@ -102,23 +102,23 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active case instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>completed</td>
-    <td>Only include completed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include completed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>terminated</td>
-    <td>Only include terminated case instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include terminated case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>closed</td>
-    <td>Only include closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include closed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>notClosed</td>
-    <td>Only include not closed case instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include not closed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>variables</td>

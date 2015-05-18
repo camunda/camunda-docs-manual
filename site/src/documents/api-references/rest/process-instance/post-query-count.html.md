@@ -69,11 +69,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active process instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended process instances. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include suspended process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>incidentId</td>

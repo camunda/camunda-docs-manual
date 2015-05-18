@@ -74,19 +74,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>required</td>
-    <td>Only include required case executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include required case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active case executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include active case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>enabled</td>
-    <td>Only include enabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include enabled case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>disabled</td>
-    <td>Only include disabled case executions. Values may be <code>true</code> or <code>false</code>.</td>
+    <td>Only include disabled case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>variables</td>
