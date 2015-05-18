@@ -162,7 +162,11 @@ A json object with the following properties:
   </tr>
   <tr>
     <td>createdOn</td>
-    <td>Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.</td>
+    <td>
+      Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, so for example <code>2013-01-23T14:42:45</code> is valid.
+      <strong>Note:</strong> if the used database saves dates with milliseconds precision this query only will return tasks created on the given timestamp with zero
+      milliseconds.
+    </td>
   </tr>
   <tr>
     <td>createdAfter</td>
