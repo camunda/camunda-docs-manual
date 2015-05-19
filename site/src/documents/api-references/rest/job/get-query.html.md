@@ -93,11 +93,11 @@ Parameters
   </tr>
   <tr>
     <td>active</td>
-    <td>Only include active jobs.</td>
+    <td>Only include active jobs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>suspended</td>
-    <td>Only include suspended jobs.</td>
+    <td>Only include suspended jobs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sortBy</td>
