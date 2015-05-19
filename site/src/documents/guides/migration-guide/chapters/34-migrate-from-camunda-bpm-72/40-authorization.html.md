@@ -12,7 +12,7 @@ As of version 7.3, it is allowed to authorize access to process related resource
 * `Process Instance`
 * `Task`
 
-So that an authenticated user can only see, modify and delete those process definitions, process instances and tasks which the user is authorized to see, modify and delete (for further details please read the [User Guide](ref:/guides/user-guide/#process-engine-authorization-service)).
+so that an authenticated user can only see, modify and delete those process definitions, process instances and tasks which the user is authorized to see, modify and delete (for further details please read the [User Guide](ref:/guides/user-guide/#process-engine-authorization-service)).
 
 The upgrade script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statements to create a new `GLOBAL` authorization and a new `GRANT` authorization for the group `camunda-admin` for each new authorization resource. This will be done to avoid any effect to your custom (process) applications by the new authorization capabilities.
 

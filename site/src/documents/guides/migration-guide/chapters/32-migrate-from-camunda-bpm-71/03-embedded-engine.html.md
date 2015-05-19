@@ -20,7 +20,7 @@ This section describes a change in the engine's default behavior. While the chan
 
 #### Script Variable Storing
 
-As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g. a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations. Depending on your scenario, this may involve updating a `camunda.cfg.xml` file, a `processes.xml` file or a programmatic configuration. For example, in a `camunda.cfg.xml` file, the property can be set as follows:
+As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations. Depending on your scenario, this may involve updating a `camunda.cfg.xml` file, a `processes.xml` file or a programmatic configuration. For example, in a `camunda.cfg.xml` file, the property can be set as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -43,7 +43,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 ## 2. Upgrade Camunda Dependencies
 
-Upgrade the dependencies declared in your application's pom.xml file to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+Upgrade the dependencies declared in your application's `pom.xml` file to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`

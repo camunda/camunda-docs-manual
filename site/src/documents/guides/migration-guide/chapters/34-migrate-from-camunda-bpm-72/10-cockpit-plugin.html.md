@@ -60,9 +60,9 @@ define([
 
 ### Reviewing usage of angular-ui
 
-In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, the [angular-ui][angular-ui] which is __not supported anymore__ has been, partially, replaced by [angular-bootstrap][angular-bootstrap].
+In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, the [angular-ui][angular-ui], which is __not supported anymore__ has been partially replaced by [angular-bootstrap][angular-bootstrap].
 
-Custom Cockpit plugins might have use directives or filters provided by [angular-ui][angular-ui] and therefore need to be reviewed.
+Custom Cockpit plugins might have used directives or filters provided by [angular-ui][angular-ui] and therefore need to be reviewed.
 
 #### Hints
 
@@ -103,11 +103,11 @@ In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap]
 
 ### Using Jackson 2 instead of Jackson 1
 
-Beginning with 7.3, the REST API as well as Cockpit, Tasklist, and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further Jackson-specific migration may be required.
+Beginning with 7.3, the REST API, as well as Cockpit, Tasklist and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further Jackson-specific migration may be required.
 
 #### Jackson 2 JAX-RS polymorphic response
 
-The Jackson 2 JAX-RS provider changes serialization of polymorphic types. Assume, your plugin's REST resource has a JAX-RS GET method with return type `List<A>`. `A` is an interface class with two implementing classes, `B` and `C`. With Jackson 2, the response JSON only contains properties defined in `A`. If your REST resource should dynamically include the properties of objects dependent on their actual class, consider adding the annotations `com.fasterxml.jackson.annotation.JsonSubTypes` and `com.fasterxml.jackson.annotation.JsonTypeInfo` to the superclass. See the [Jackson Javadocs][jackson-jsontypeinfo] for details.
+The Jackson 2 JAX-RS provider changes serialization of polymorphic types. Let's assume that your plugin's REST resource has a JAX-RS GET method with return type `List<A>`. `A` is an interface class with two implementing classes, `B` and `C`. With Jackson 2, the response JSON only contains properties defined in `A`. If your REST resource should dynamically include the properties of objects dependent on their actual class, consider adding the annotations `com.fasterxml.jackson.annotation.JsonSubTypes` and `com.fasterxml.jackson.annotation.JsonTypeInfo` to the superclass. See the [Jackson Javadocs][jackson-jsontypeinfo] for details.
 
 [ng-define]: http://nikku.github.io/requirejs-angular-define
 [requirejs]: http://requirejs.org
