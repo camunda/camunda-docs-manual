@@ -11,10 +11,10 @@ category: 'Migrate from camunda fox'
    Throughout this guide we will use a number of variables to denote common path names and constants:
   <ul>
     <li><code>$DATABASE</code> expresses the target database platform, e.g. DB2, MySql etc.</li>
-    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged camunda BPM distribution, e.g. <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat etc.</li>
-    <li><code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install, e.g. <code>7.0.0</code>.</li>
-    <li><code>$FOX_HOME</code> points to the camunda fox server main directory.</li>
-    <li><code>$FOX_VERSION</code> denotes the version of the camunda fox platform you have installed, e.g. <code>6.2.4</code>.</li>
+    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat etc.</li>
+    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.0.0</code>.</li>
+    <li><code>$FOX_HOME</code> points to the Camunda fox server main directory.</li>
+    <li><code>$FOX_VERSION</code> denotes the version of the Camunda fox platform you have installed, e.g., <code>6.2.4</code>.</li>
   </ul>
 </div>
 

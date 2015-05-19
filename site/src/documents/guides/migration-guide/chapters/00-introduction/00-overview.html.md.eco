@@ -14,9 +14,9 @@ This page describes the necessary steps.
 The changes in short are:
 
 *   Maven **Dependencies**, e.g. `activiti.jar` changed to `camunda-engine.jar`.
-*   **Package Names** changed from `org.activiti` to `org.camunda.bpm` for all modules (including engine, cdi and spring).
+*   **Package Names** changed from `org.activiti` to `org.camunda.bpm` for all modules (including engine, CDI and spring).
 *   The **configuration file** changed from `activiti.cfg.xml` to `camunda.cfg.xml`.
-*   A couple of (internal) classes are renamed - see the lists below.
+*   Several (internal) classes are renamed - see the lists below.
 
 There are some things which have not changed yet:
 
