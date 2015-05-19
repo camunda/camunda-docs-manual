@@ -11,7 +11,7 @@ Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms 
 
 # Overview
 
-The following APIs / Behavior changed:
+The following APIs / behavior has changed:
 
 * The `form-field` directive has been replaced with `cam-variable-name` and `cam-variable-type`.
 * The form now has a defined lifecycle (`form-loaded`, `variables-fetched`, ...) for which callbacks / event listeners can be provided.
@@ -51,8 +51,8 @@ In 7.2 the HTML `type` attribute is not used anymore for providing the type of t
 
 ```html
 <input name="someName"
+       type="text|checkbox|hidden|..."
        cam-variable-name="[variableName]"
-       type="input|checkbox|hidden|..."
        cam-variable-type="[variableType]" />
 ```
 

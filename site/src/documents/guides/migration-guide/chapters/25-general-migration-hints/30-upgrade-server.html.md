@@ -5,11 +5,11 @@ category: 'General migration hints for Camunda BPM'
 
 ---
 
-Depending on the scenario in which the Camunda BPM platform is deployed you have to adjust the upgrade process.
-Please note that the following procedure my differ for cluster scenarios.
+Depending on the scenario in which the Camunda BPM platform is deployed, you have to adjust the upgrade process.
+Please note that the following procedure may differ for cluster scenarios.
 As an enterprise customer, you can contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
-When upgrading a shared or embedded engine, at least following steps have to done.
+When upgrading a shared or embedded engine, at least the following steps have to be done.
 
 ### Shared Engine
 

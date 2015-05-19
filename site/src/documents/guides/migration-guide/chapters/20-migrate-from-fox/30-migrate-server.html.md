@@ -17,7 +17,7 @@ category: 'Migrate from Camunda fox'
 
 ### Adjust the `$FOX_HOME/standalone/configuration/standalone.xml`
 
-Change the Camunda jboss subsystem as extension from:
+Change the Camunda JBoss subsystem as extension from:
 
     <extension module="com.camunda.fox.platform.fox-platform-jboss-subsystem"/>
 
@@ -38,7 +38,7 @@ and add the global module for Camunda BPM:
         <module name="org.camunda.bpm.camunda-engine" slot="main"/>
     </global-modules>
 
-Adjust the Camunda jboss subsystem configuration from:
+Adjust the Camunda JBoss subsystem configuration from:
 
     <subsystem xmlns="urn:com.camunda.fox.fox-platform:1.1">
 
@@ -61,7 +61,7 @@ Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the co
       ...
     </process-engines>
 
-Since Camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since Camunda BPM 7.0 you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
 
 ### Replace the Camunda fox webapps with Camunda BPM webapps (JBoss)
 
@@ -122,7 +122,7 @@ and the corresponding application references:
 
     <application-ref ref="fox-tasklist-$FOX_VERSION" virtual-servers="server"></application-ref>
 
-To adjust the JDBC Connection Pool and JDBC Resource replace the following JDBC resource:
+To adjust the JDBC Connection Pool and JDBC Resources, replace the following JDBC resource:
 
     <jdbc-resource pool-name="FoxEnginePool"
                    jndi-name="jdbc/FoxEngine"
@@ -136,7 +136,7 @@ with:
                    enabled="true">
     </jdbc-resource>
 
-and:
+and replace the following JDBC resource:
 
     <resource-ref ref="jdbc/FoxEngine"></resource-ref>
 
@@ -220,11 +220,11 @@ to:
   * `fox-cycle-glassfish-$FOX_VERSION`
   * `fox-platform-jobexecutor-rar`
   * `fox-tasklist-$FOX_VERSION`
-* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor resourse adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that in that case the deployment order is not defined. Due to this we propose to startup the GlassFish to initially deploy the jobexecutor resource adapter. After a successful startup shutdown the GlassFish.
+* Copy the jobexecutor resource adapter `$DISTRIBUTION_PATH/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`. The jobexecutor resource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that in that case the deployment order is not defined. Due to this, we propose to startup the GlassFish to initially deploy the jobexecutor resource adapter. After a successful startup, shutdown the GlassFish application server.
 * Copy the artifact `$DISTRIBUTION_PATH/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`.
-* After a successful startup the Camunda BPM platform is installed.
+* After a successful startup, the Camunda BPM platform is installed.
 
-Since Camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since Camunda BPM 7.0 you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
 
 ### Replace the Camunda fox webapps with Camunda BPM webapps (GlassFish)
 
@@ -264,7 +264,7 @@ Since Camunda BPM 7.0 you can configure built-in process engine plugins, for mor
   * `fox-platform-api-$FOX_VERSION.jar`
 * Now you can install Camunda BPM 7.0, to do so, see the [installation guide](ref:/guides/installation-guide/was/) and follow the instructions.
 
-Since Camunda BPM 7.0 you can configure built-in process engine plugins, for more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins).
+Since Camunda BPM 7.0 you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
 
 ### Deploy Camunda BPM webapps
 
