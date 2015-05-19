@@ -7,7 +7,8 @@ category: 'Process Engine'
 
 camunda BPM provides a resource oriented authorization framework.
 
-<strong>Authorizations</strong>
+####Authorizations
+
 An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
 
 <em>Examples</em>
@@ -16,11 +17,42 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 * Group 'marketing' is not authorized to delete the Group 'sales'
 * Group 'marketing' is not allowed to use the tasklist application.
 
-<strong>Identities</strong>
+####Identities
+
 camunda BPM distinguished two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual User or a Group of users.
 
-<strong>Permissions</strong>
-A Permission defines the way an identity is allowed to interact with a certain resource. Examples of permissions are CREATE, READ, UPDATE, DELETE, ... See Permissions for a set of built-in permissions.
+####Permissions
+
+A Permission defines the way an identity is allowed to interact with a certain resource.
+
+<div class="alert alert-info">
+  <p>
+    <strong>Built-In Permissions</strong>
+  </p>
+  <p>
+    The following permissions are currently supported by the authorization framework:
+    <ul>
+      <li>None</li>
+      <li>All</li>
+      <li>Read</li>
+      <li>Update</li>
+      <li>Create</li>
+      <li>Delete</li>
+      <li>Access</li>
+      <li>Read Task</li>
+      <li>Update Task</li>
+      <li>Create Instance</li>
+      <li>Read Instance</li>
+      <li>Update Instance</li>
+      <li>Delete Instance</li>
+      <li>Read History</li>
+      <li>Delete History</li>
+    </ul>
+  </p>
+</div>
+
+Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
+Also, the "All" permission will vanish from a user if a single permission is revoked.
 
 A single authorization object may assign multiple permissions to a single user and resource:
 
@@ -30,8 +62,9 @@ A single authorization object may assign multiple permissions to a single user a
 
 On top of the built-in permissions, camunda BPM allows using custom permission types.
 
-<strong>Resources</strong>
-Resources are the entities the user interacts with. Examples of resources are GROUPS, USERS, process-definitions, process-instances, tasks ...
+####Resources
+
+Resources are the entities the user interacts with.
 
 <div class="alert alert-info">
   <p>
@@ -56,14 +89,112 @@ Resources are the entities the user interacts with. Examples of resources are GR
 
 On top of the built-in resources, the camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
 
-<strong>Authorization Type</strong>
+####Combination of authorizations and resources
+
+Not every possible permission can be granted for every possible resource.
+For the "Application" resource you can exclusively grant the "Access" permission.
+
+The "Process Definition" resource is the only resource for which you can grant the permissions
+<ul>
+  <li>Read Task</li>
+  <li>Update Task</li>
+  <li>Create Instance</li>
+  <li>Read Instance</li>
+  <li>Update Instance</li>
+  <li>Delete Instance</li>
+  <li>Read History</li>
+  <li>Delete History</li>
+</ul>
+
+The remaining, valid combinations can be found in the following table.
+
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Read</th>
+    <th>Update</th>
+    <th>Create</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>User</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Group Membership</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Authorization</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Filter</th>
+      <td>X</td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Process Definition</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Task</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Process Instance</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+####Authorization Type
+
 There are three types of authorizations:
 
 Global Authorizations (`AUTH_TYPE_GLOBAL`) range over all users and groups (`userId = ANY`) and are usually used for fixing the "base" permission for a resource.
 Grant Authorizations (`AUTH_TYPE_GRANT`) range over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.
 Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
 
-<strong>Authorization Precedence</strong>
+####Authorization Precedence
+
 Authorizations may range over all users, an individual user or a group of users or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
 
 * An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
@@ -75,9 +206,10 @@ Authorizations may range over all users, an individual user or a group of users 
 
 An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, UPDATE, DELETE the resource. (See Authorization for details).
 
-In order to grant the permission to access a certain resource, an authorization object is created:
+In order to grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:
 
-    Authorization auth = authorizationService.createNewAuthorization();
+```java
+    Authorization auth = authorizationService.createNewAuthorization(AUTH_TYPE_GRANT);
 
     // The authorization object can be configured either for a user or a group:
     auth.setUserId("john");
@@ -87,14 +219,46 @@ In order to grant the permission to access a certain resource, an authorization 
     //and a resource:
     auth.setResource("filter");
     auth.setResourceId("2313");
+    // a resource can also be a process definition
+    auth.setResource(Resources.PROCESS_INSTANCE);
+    // the process defintion key is the resource id
+    auth.setResourceId("invoice");
 
     // finally the permissions to access that resource can be assigned:
     auth.addPermission(Permissions.READ);
+    // more than one permission can be granted
+    auth.addPermission(Permissions.CREATE);
 
     // and the authorization object is saved:
     authorizationService.saveAuthorization(auth);
+```
 
 As a result, the given user or group will have permission to READ the referenced Filter.
+
+Another possible example would be to restrict the group of persons who are allowed to start a special process:
+
+```java
+    //we need to authorizations, one to access the process definition and another one to create process instances
+    Authorization authProcessDefinition = authorizationService.createNewAuthorization(AUTH_TYPE_GRANT);
+    Authorization authProcessInstance = authorizationService.createNewAuthorization(AUTH_TYPE_GRANT);
+
+    authProcessDefinition.setUserId("johnny");
+    authProcessInstance.setUserId("johnny");
+
+    authProcessDefinition.setResource(Resources.PROCESS_DEFINITION);
+    authProcessInstance.setResource(Resources.PROCESS_INSTANCE);
+    //the resource id for a process definition is the process definition key
+    authProcessDefinition.setResourceId("invoice");
+    //asterisk to allow the start of a process instance
+    authProcessInstance.setResourceId("*")
+    // allow the user to create instances of this process definition
+    authProcessDefinition.addPermission(Permissions.CREATE_INSTANCE);
+    // and to create processes
+    authProcessInstance.addPermission(Permissions.CREATE);
+
+    authorizationService.saveAuthorization(authProcessDefinition);
+    authorizationService.saveAuthorization(authProcessInstance);
+```
 
 ## The Administrator Authorization Plugin
 
