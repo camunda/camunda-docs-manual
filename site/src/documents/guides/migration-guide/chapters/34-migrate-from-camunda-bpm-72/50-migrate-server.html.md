@@ -9,7 +9,9 @@ category: 'Migrate from Camunda BPM 7.2 to 7.3'
 
 ### Upgrade the Wildfly
 
-Camunda BPM 7.3 ships with a new version of the Wildfly, namely, 8.2.0.
+Camunda BPM 7.3 ships with a new version of the Wildfly, namely, 8.2.0.Final.
+
+See the [Wildfly 8.2.0.Final release notes](http://wildfly.org/news/2014/11/20/WildFly82-Final-Released/) for any relevant changes compared to 8.1.0.Final.
 
 The preferred upgrade steps are:
 
