@@ -11,6 +11,7 @@ Client side:
 
 * [Replacing ngDefine with requireJS](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-replacing-ngdefine-with-requirejs)
 * [Reviewing usage of angular-ui](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-reviewing-usage-of-angular-ui)
+* [Reviewing usage of bootstrap](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-reviewing-usage-of-bootstrap)
 
 Server side:
 
@@ -96,6 +97,10 @@ Filters which are __not availabe anymore__:
 - `inflector`
 - `unique`
 
+### Reviewing usage of bootstrap
+
+In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been upgraded from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
+
 ### Using Jackson 2 instead of Jackson 1
 
 Beginning with 7.3, the REST API as well as Cockpit, Tasklist, and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further Jackson-specific migration may be required.
@@ -107,8 +112,10 @@ The Jackson 2 JAX-RS provider changes serialization of polymorphic types. Assume
 [ng-define]: http://nikku.github.io/requirejs-angular-define
 [requirejs]: http://requirejs.org
 [howto-cockpit-plugin]: ref:/real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin
-[admin]: https://github.com/camunda-/camunda-admin-ui
-[cockpit]: https://github.com/camunda-/camunda-cockpit-ui
+[admin]: https://github.com/camunda/camunda-admin-ui
+[cockpit]: https://github.com/camunda/camunda-cockpit-ui
 [angular-ui]: https://github.com/angular-ui/angular-ui-OLDREPO
 [angular-bootstrap]: https://github.com/angular-ui/bootstrap
+[bootstrap]: http://getbootstrap.com/
+[bootstrap-changenotes]: https://github.com/twbs/bootstrap/releases/tag/v3.3.1
 [jackson-jsontypeinfo]: https://fasterxml.github.io/jackson-annotations/javadoc/2.4/com/fasterxml/jackson/annotation/JsonTypeInfo.html
