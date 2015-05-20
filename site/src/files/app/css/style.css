@@ -740,3 +740,17 @@ code {
 .desc-table td {
   width: 50%;
 }
+
+table.matrix-table,
+table.matrix-table>thead>tr>th {
+  border-top: none;
+  border-left: none;
+}
+table.matrix-table>tbody>tr>th {
+  border-left: none;
+  text-align: right;
+}
+table.matrix-table>thead>tr>th,
+table.matrix-table>tbody>tr>td {
+  text-align: center;
+}
