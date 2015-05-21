@@ -22,6 +22,7 @@ The following is a list of current (unsupported) community extensions:
 * [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
 * [Cycle Connectors](https://github.com/camunda/camunda-cycle-connectors)
+* [Single Sign On for Jboss](https://github.com/camunda/camunda-sso-jboss)
 
 ## Building a Community Extension
 
