@@ -55,19 +55,19 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withRetriesLeft</td>
-    <td>Only select jobs which have retries left. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs which have retries left. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>timers</td>
-    <td>Only select jobs that are timers. Cannot be used together with <code>messages</code>. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs that are timers. Cannot be used together with <code>messages</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>messages</td>
-    <td>Only select jobs that are messages. Cannot be used together with <code>timers</code>. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs that are messages. Cannot be used together with <code>timers</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>dueDates</td>
@@ -82,7 +82,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withException</td>
-    <td>Only select jobs that failed due to an exception. Valid value is a <code>boolean</code>.</td>
+    <td>Only select jobs that failed due to an exception. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>exceptionMessage</td>
@@ -90,7 +90,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>noRetriesLeft</td>
-    <td>Only select jobs which have no retries left.</td>
+    <td>Only select jobs which have no retries left. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>
