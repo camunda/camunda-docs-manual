@@ -29,6 +29,8 @@ This attribute is only relevant when the form is aimed to start a process.
        cam-business-key>
 ```
 
+See also: [Setting the business key using Javascript](ref:#custom-javascript-generating-a-business-key)
+
 ### AngularJS support and `cam-variable-name`
 If you use the AngularJS integration, the `cam-variable-name` directive will automatically bind the input to the model in case no binding is provided by the user.
 
