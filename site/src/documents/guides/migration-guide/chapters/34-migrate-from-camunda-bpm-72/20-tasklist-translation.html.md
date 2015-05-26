@@ -54,3 +54,5 @@ The following labels must be added to the Tasklist locale file:
 * `TASK_DEFINITION_KEY`
 * `DELEGATION_STATE`
 * `LIKE`
+
+Have a look at the [english translation file](https://github.com/camunda/camunda-tasklist-translations/blob/master/locales/en.json) for a basis to translate.

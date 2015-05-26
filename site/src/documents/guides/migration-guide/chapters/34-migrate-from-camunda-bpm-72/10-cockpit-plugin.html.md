@@ -15,7 +15,7 @@ Client side:
 
 Server side:
 
-* [Using Jackson 2 instead of Jackson 1](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-using-jackson-2-instead-of-jackson-1)
+* [Replacing Jackson 1 with Jackson 2](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-replacing-jackson-1-with-jackson-2)
 
 ### Replacing ngDefine with requireJS
 
@@ -101,9 +101,9 @@ Filters which are __not availabe anymore__:
 
 In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been upgraded from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
 
-### Using Jackson 2 instead of Jackson 1
+### Replacing Jackson 1 with Jackson 2
 
-Beginning with 7.3, the REST API, as well as Cockpit, Tasklist and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further Jackson-specific migration may be required.
+Beginning with 7.3, the REST API, as well as Cockpit, Tasklist and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further [Jackson-specific migration](http://www.cowtowncoder.com/blog/archives/2012/04/entry_469.html) may be required.
 
 #### Jackson 2 JAX-RS polymorphic response
 
