@@ -253,6 +253,81 @@ List<HistoricActivityInstance> result = historyService
   .list();
 ```
 
+## User Operation Log
+
+The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged regardless whether the operation is performed in the context of a logged in user or not (e.g. during job execution). To use the operation log, the process engine history level must be set to `FULL`.
+
+### Accessing the User Operation Log
+
+The user operation log can be accessed via the Java API. The runtime service can be used to execute a `UserOperationLogQuery` by calling `runtimeService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API](ref:/api-references/rest/#history-get-user-operation-log-historic).
+
+### User Operation Log Entries
+
+The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of many entries, one at least. Entries contain the detailed changes being part of the operation. When making a user operation log query the returned entities are of type `UserOperationLogEntry`, corresponding to entries. Multiple entries of one operation are linked by an operation id.
+
+A user operation log entry has the following properties:
+
+* **Operation Type**: An identifier of the operation performed. Available operation types are listed in the interface [org.camunda.bpm.engine.history.UserOperationLogEntry](ref:/api-references/javadoc/org/camunda/bpm/engine/history/UserOperationLogEntry.html).
+* **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
+* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class [org.camunda.bpm.engine.EntityTypes](ref:/api-references/javadoc/org/camunda/bpm/engine/EntityTypes.html).
+* **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
+* **User ID**: The ID of the user who performed the operation.
+* **Timestamp**: The time at which the operation was performed.
+* **Changed Property**: A user operation may change multiple properties. For example, suspension of a process instance changes the suspension state property. A log entry is created for each property changed involved in an operation.
+* **Old Property Value**: The previous value of the changed property. A  `null` value either indicates that the property was previously `null` or is not known.
+* **New Property Value**: The new value of the changed property.
+
+### Glossary of Operations Logged in the User Operation Log
+
+The following describes the operations logged in the user operation log and the entries that are created as part of it:
+
+<table class="table table-striped">
+  <tr>
+    <th>Operation Type</th>
+    <th>Entity Type</th>
+    <th>Properties</th>
+  </tr>
+  <tr>
+    <td>Assign</td>
+    <td>Task</td>
+    <td>
+      <ul>
+        <li><strong>assignee</strong>: The id of the user who was assigned to the task</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Claim</td>
+    <td>Task</td>
+    <td>
+      <ul>
+        <li><strong>assignee</strong>: The id of the user who claimed the task</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Activate</td>
+    <td>ProcessInstance</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: The new suspension state, <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Suspend</td>
+    <td>ProcessInstance</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: The new suspension state, <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+Note that this table is not complete yet.
+
+
 ## Providing a custom History Backend
 
 In order to understand how to provide a custom history backend, it is useful to first look at a more detailed view of the history architecture:
