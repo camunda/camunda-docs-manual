@@ -221,6 +221,38 @@ historyService.createUserOperationLogQuery()
   .list();
 ```
 
+### Partially Sorting History Events by their Occurence
+
+Sometimes you are interested in sorting history events according to the order in which they
+occurred. Please not that timestamps cannot be used for that.
+
+Most history events contain a timestamp which marks the point in time at which the action signified
+by the event occurred. However, this timestamp can, in general, not be used for sorting the history
+events. The reason is that the process engine can be run on multiple cluster nodes:
+
+* on a single machine, the clock may change due to network synch at runtime,
+* in a cluster, events happening in a single process instance may be generated on different nodes
+  among which the clock may not be synced accurately down to nanoseconds.
+
+To work around this, the Camunda engine generates sequence numbers which can be used to _partially_
+sort history events by their occurence:
+
+At a BPMN level this means that instances of concurrent activities (example: activities on different
+parallel branches after a parallel gateway) cannot be compared to each other. Instances of
+activities which are part of happens-before relation at the BPMN level will be ordered in respect to
+that relation.
+
+Example:
+
+```java
+List<HistoricActivityInstance> result = historyService
+  .createHistoricActivityInstanceQuery()
+  .processInstanceId("someProcessInstanceId")
+  .orderPartiallyByOccurrence()
+  .asc()
+  .list();
+```
+
 ## Providing a custom History Backend
 
 In order to understand how to provide a custom history backend, it is useful to first look at a more detailed view of the history architecture:
