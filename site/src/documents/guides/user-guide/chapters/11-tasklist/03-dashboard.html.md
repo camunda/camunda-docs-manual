@@ -58,7 +58,7 @@ category: 'Tasklist'
   </div>
 </div>
 
-### Search for Tasks by variable
+### Search for Tasks
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
@@ -66,22 +66,10 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Above the filter results, you have the option of searching for user tasks by variable within the selected filter results. To do so, click in the search box and select which variables to search for, either a Process Variable, a Task Variable or a Case Variable. Next you need to insert both a Property and a Value for the variable. By default the operator is <i>equal to</i> (=). You can toggle the operator and select <i>not equal to</i> (!=), <i>greater than</i> (>), <i>lower than</i> (<), <i>equal to or greater than</i> (>=) or <i>equal to or lower than</i> (<=). Depending on the data type of your search, the operators can vary slightly. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
+      Above the filter results, you have the option of searching for user tasks within the selected filter results. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g. 'like', which allows to search for a task where the entered value is a substring of the property value. If you are searching for variables, you also have to enter the variable name you want to search for. If the filter you have selected has defined labels for variables, you can select the label of the variable as variable name. Otherwise (if there is no label definition for a variable), you have to enter the variable name to search for it. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
     </p>
     <p>
-      If the searched variable is of String type, values:
-      <ul>
-        <li>`true` and `false`</li>
-        <li>numbers (like `73288`)</li>
-        <li>NULL</li>
-      </ul>
-      need to be wrapped into quotes as follow:
-      <ul>
-        <li>`'true'` and `'false'`</li>
-        <li>`'73288'`</li>
-        <li>`'NULL'`</li>
-      </ul>
-      in order to get the expected results.
+      If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g. <code>'93288'</code> or <code>'NULL'</code>).
     </p>
   </div>
 </div>
