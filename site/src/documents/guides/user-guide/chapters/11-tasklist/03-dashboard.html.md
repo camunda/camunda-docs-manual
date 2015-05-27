@@ -53,7 +53,13 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Here you can see an overview of all tasks for the selected <a href="ref:#tasklist-filters">filter</a>. By default the filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default <i>Priority</i>). You can change the sorting of the tasks by clicking on <i>Sort by Priority</i> and selecting one of the options <i>Created (sort by time and date of creation)</i>, <i>Due date</i>, <i>Follow-up date</i>, <i>Task name</i> or <i>Assignee</i>. You can toggle between ascending and descending order by clicking on the arrow (<button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-up"></i></button>, respectively <button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-down"></i></button>). To start working on the task, simply select the task.
+      Here you can see an overview of all tasks for the selected <a href="ref:#tasklist-filters">filter</a>. By default the filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default it is sorted by the creation date). You can change the sorting of the tasks by clicking on the name of the sorting property. You can toggle between ascending and descending order by clicking on the arrow (<button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-up"></i></button>, respectively <button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-down"></i></button>).
+    </p>
+    <p>
+      You can sort by more than one property by adding more properties with the <a><span class="glyphicon glyphicon-plus-sign"></span></a> button. You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.</a> To remove a sort parameter you can click on the <a><span class="glyphicon glyphicon-minus-sign"></span></a>.
+    </p>
+    <p>
+       To start working on the task, simply select the task.
     </p>
   </div>
 </div>
