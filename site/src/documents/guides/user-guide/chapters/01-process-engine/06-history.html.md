@@ -221,7 +221,7 @@ historyService.createUserOperationLogQuery()
   .list();
 ```
 
-### Partially Sorting History Events by their Occurence
+### Partially Sorting History Events by their Occurrence
 
 Sometimes you are interested in sorting history events according to the order in which they
 occurred. Please not that timestamps cannot be used for that.
@@ -235,7 +235,7 @@ events. The reason is that the process engine can be run on multiple cluster nod
   among which the clock may not be synced accurately down to nanoseconds.
 
 To work around this, the Camunda engine generates sequence numbers which can be used to _partially_
-sort history events by their occurence:
+sort history events by their occurrence.
 
 At a BPMN level this means that instances of concurrent activities (example: activities on different
 parallel branches after a parallel gateway) cannot be compared to each other. Instances of
@@ -252,6 +252,11 @@ List<HistoricActivityInstance> result = historyService
   .asc()
   .list();
 ```
+
+Please note the returned list of historic activity instances in the example is
+only partial sorted as explained above. It guarantees that related
+activity instances are sorted by their occurrence. The ordering of unrelated
+activity instances is arbitrary and is not guaranteed.
 
 ## User Operation Log
 
