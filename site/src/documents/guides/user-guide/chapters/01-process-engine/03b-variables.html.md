@@ -92,7 +92,7 @@ Depending on the actual value of a variable, a different type is assigned. Out o
 
 Furthermore, the value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
 
-The types `json` and `xml` are special because the engine provides constants for them in the enumeration `SerializationDataFormats` but doesn't provide any serializers out of the box. You could either write your own `TypedValueSerializers` for those types and register them in your process engine configuration or you could use camunda Spin, which provides support for the two types (see [here](ref:#data-formats-xml-json-other)).
+If you prefer to store your variables in XML or JSON format you can use the types `xml` or `json`. Both are special because the engine provides constants for them in the enumeration `SerializationDataFormats` but doesn't provide any serializers out of the box. You could either write your own `TypedValueSerializers` for those types and register them in your process engine configuration or you could use camunda Spin, which provides support for the two types (see [here](ref:#data-formats-xml-json-other)).
 
 ### Object Value Serialization
 

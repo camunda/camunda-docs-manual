@@ -19,6 +19,8 @@ The following provides examples on how Camunda Spin can be used in the process e
 }
 ```
 
+If you want to learn how to use JSON objects inside an embedded form please take a look in the [Embedded Forms Reference](ref:/api-references/embedded-forms/#working-with-json-objects).
+
 ### Expression Language Integration
 
 The Spin entry functions can be used wherever the process engine allows expression language. The following BPMN snippet shows a conditional sequence flow expression based on the customer's post code:

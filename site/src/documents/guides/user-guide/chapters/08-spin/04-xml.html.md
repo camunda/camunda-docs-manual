@@ -87,7 +87,7 @@ public class MyDelegate implements JavaDelegate {
 
 The call to `SpinValues.jsonValue(...).create()` will transform the string into a DomXML object wrapped by Spin.
 
-If we wanted to retrieve the JSON in another JavaDelegate and e.g. add some more information we could do this easily:
+If we wanted to retrieve the XML in another JavaDelegate and e.g. add some more information we could do this easily:
 
 ```java
 public class AddDataDelegate implements JavaDelegate {
