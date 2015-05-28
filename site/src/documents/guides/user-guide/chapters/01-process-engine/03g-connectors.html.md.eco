@@ -33,7 +33,7 @@ There are two types of `connect` artifacts:
 * `camunda-connect-connectors-all`: a single jar without dependencies that contains the HTTP and SOAP connectors.
 * `camunda-engine-plugin-connect`: a process engine plugin to add Connect to the Camunda BPM platform.
 
-#### Maven Coordinates
+### Maven Coordinates
 
 <%- @partial('camunda-bom.html.eco', @, {}) %>
 
