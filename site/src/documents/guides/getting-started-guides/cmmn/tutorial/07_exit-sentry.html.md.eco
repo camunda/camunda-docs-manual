@@ -1,0 +1,50 @@
+---
+title: 'Add an Exit Criterion'
+category: 'Tutorial'
+---
+
+<p>
+  When a loan application is not sufficient, for example because it has formal errors, there is no need to provide a customer rating any longer. We can express this in CMMN by adding a sentry.
+</p>
+
+<h3>Add a Sentry and Exit Criterion</h3>
+
+<div class="row">
+  <div class="col-xs-3 col-sm-3 col-md-3"></div>
+  <div class="col-xs-4 col-sm-4 col-md-4">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-cmmn-applications/cmmn-complete.png"/>
+  </div>
+</div>
+
+<p>
+  In the CMMN XML file, add the following sentry definition and register it for the <em>Provide Customer Rating</em> human task:
+</p>
+
+<div class="app-source" data-source-code="loan-application-06.cmmn10.xml" annotate="code-annotations" highlight="6;23-32"></div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    Again, rebuild and redeploy the project.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-cmmn-applications/tasklist-check-application-variable-unchecked.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    Go to Tasklist and access the <code>demo</code> user's tasks. As before, check the task <em>Check Application</em>. In order to trigger the sentry, add the variable <code>applicationSufficient</code> of type <code>Boolean</code>, but this time make sure to leave the check box unchecked. Click <button class="btn btn-xs btn-primary" type="submit">Complete</button>.
+  </div>
+</div>
+
+<p>
+  You will notice that the task <em>Provide Customer Rating</em> has disappeared from the Tasklist. That is because the sentry has been triggered and the task's exit criterion has been fulfilled. Also, you can check the Tomcat console. This time, there is no log entry for the milestone.
+</p>
+
+<p>
+  To learn more about sentries, consider checking the <a href="ref:/api-references/cmmn10/#sentries-sentry">Sentry section</a> in our CMMN implementation guide.
+</p>
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-6"}) %>

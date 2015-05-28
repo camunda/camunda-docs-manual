@@ -86,19 +86,19 @@ In the following sections, we go through this process step by step.
       You can now perform a full Maven build and deploy the project to a vanilla Apache Tomcat server. You should see the following log output:
     </p>
     <pre class="console">
-      28.04.2013 15:11:02 org.apache.catalina.startup.HostConfig deployWAR
-      INFO: Deploying web application archive C:\demo\apache-tomcat-7.0.39\webapps\loanapproval-spring-0.0.1-SNAPSHOT.war
-      28.04.2013 15:11:03 org.springframework.web.context.ContextLoader initWebApplicationContext
-      INFO: Root WebApplicationContext: initialization started
-      28.04.2013 15:11:03 org.springframework.context.support.AbstractApplicationContext prepareRefresh
-      INFO: Refreshing Root WebApplicationContext: startup date [Sun Apr 28 15:11:03 CEST 2013]; root of context hierarchy
-      28.04.2013 15:11:03 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
-      INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
-      28.04.2013 15:11:03 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
-      INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1a8dfb3: defining beans []; root of factory hierarchy
-      28.04.2013 15:11:03 org.springframework.web.context.ContextLoader initWebApplicationContext
-      INFO: Root WebApplicationContext: initialization completed in 170 ms
-    </pre>
+org.apache.catalina.startup.HostConfig deployWAR
+INFORMATION: Deploying web application archive C:\demo\apache-tomcat-7.0.50\webapps\loanapproval-spring-0.1.0-SNAPSHOT.war
+org.springframework.web.context.ContextLoader initWebApplicationContext
+INFORMATION: Root WebApplicationContext: initialization started
+org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFORMATION: Refreshing Root WebApplicationContext: startup date [DATE]; root of context hierarchy
+org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFORMATION: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFORMATION: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@51bb8cae: defining beans []; root of factory hierarchy
+org.springframework.web.context.ContextLoader initWebApplicationContext
+INFORMATION: Root WebApplicationContext: initialization completed in 187 ms
+</pre>
     <p>
       This means that you have set up your Spring web application correctly.
     </p>

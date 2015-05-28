@@ -1,0 +1,126 @@
+---
+title: 'Set up your project'
+category: 'Tutorial'
+---
+
+
+Now you are ready to set up your first process application project in eclipse. Setting up a process application project consists of 4 steps:
+
+1. [Create a new Maven Project in Eclipse](#set-up/eclipse)
+2. [Add the Camunda dependencies](#set-up/maven)
+3. [Add a `@ProcessApplication` class](#set-up/process-application)
+4. [Add a META-INF/processes.xml deployment descriptor](#set-up/processes.xml)
+
+In the following sections, we go through this process step by step.
+
+<div class="alert alert-info">
+  <p><strong>Terminology - Process vs. Case:</strong></p>
+  <p>CMMN is a modeling language for <i>cases</i>, whereas BPMN is a language for <i>processes</i>. This tutorial is about cases. However, due to Camunda's BPMN-focused heritage, the Java project contains classes and files with names like <code>ProcessApplication</code> and <code>processes.xml</code>. These are in fact generally applicable and can be used with both processes as well as cases.</p>
+</div>
+
+<section id="set-up/eclipse">
+  <h3>Create a new Maven Project in Eclipse</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-cmmn-applications/eclipse-new-project.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        In eclipse, go to <code>File / New / Other ...</code>. This opens the <em>New Project Wizard</em>. In the <em>New Project Wizard</em> select <code>Maven / Maven Project</code>. Click Next.
+      </p>
+      <p>
+        On the first page of the <em>New Maven Project Wizard</em> select &quot;<em>Create a simple project (skip archetype selection)</em>&quot;. Click Next.
+      </p>
+      <p>
+        On the second page (see screenshot), configure the Maven coordinates for the project.
+      </p>
+      <p class="alert alert-warning">
+        Since we are setting up a WAR Project, make sure to select <code>Packaging: war</code>.
+      </p>
+      <p>
+        When you are done, click Finish. Eclipse sets up a new Maven project. The project appears in the <em>Project Explorer</em> view.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/maven">
+  <h3>Add Camunda Maven Dependencies</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        The next step consists of setting up the Maven dependencies for your new process application. Add the following dependencies to the <code>pom.xml</code> file of your project:
+      </p>
+      <div class="app-source" data-source-code="pom.xml" annotate="code-annotations" ></div>
+      <p>
+        Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>
+      </p>
+      <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-1"}) %>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/process-application">
+  <h3>Add a Process Application Class</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        Next, you need to create a package, e.g., <code>org.camunda.bpm.getstarted.loanapproval</code>, and add a Process Application class to it. The Process Application class constitutes the interface between your application and the process engine.
+      </p>
+      <div class="app-source" data-source-code="LoanApprovalApplication" annotate="code-annotations" ></div>
+    </div>
+  </div>
+  <div class="panel-group" id="accSimple">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accSimple" href="#collapseOne">
+          <i class="glyphicon glyphicon-question-sign"></i>
+          What about EJB Containers?
+        </a>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p>In an EJB Container, use an EJB Process Application:</p>
+          <div class="app-source" data-source-code="LoanApprovalEjbApplication" annotate="code-annotations" ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="set-up/processes.xml">
+  <h3>Add a META-INF/processes.xml deployment descriptor</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        The last step to set up the process application is to add the <code>META-INF/processes.xml</code> deployment descriptor file. This file allows us to provide a declarative configuration of the deployment(s) this process application makes to the process engine.
+      </p>
+      <p class="alert alert-info">
+        This file needs to be added to the <code>src/main/resources/META-INF</code> folder of the Maven project.
+      </p>
+      <div class="app-source" data-source-code="processes.xml" annotate="code-annotations" ></div>
+      <div class="panel-group" id="accProcessesXml">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accProcessesXml" href="#accProcessesXmlCollapsed">
+              <i class="glyphicon glyphicon-thumbs-up"></i>
+              Empty META-INF/processes.xml
+            </a>
+          </div>
+          <div id="accProcessesXmlCollapsed" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>
+                You can leave the META-INF/processes.xml file empty. In that case, default values are used. See the <a href="ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-empty-processesxml">Empty Processes.xml</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more information
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <p>
+        At this point you have successfully set up the process application and you can start creating your first CMMN case.
+      </p>
+    </div>
+  </div>
+  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-2"}) %>
+</section>

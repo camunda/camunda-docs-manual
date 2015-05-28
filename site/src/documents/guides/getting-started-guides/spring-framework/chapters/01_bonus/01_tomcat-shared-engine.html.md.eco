@@ -27,300 +27,310 @@ And third, the `applicationContext.xml` file is adjusted so that the shared proc
 <section class="placeholder"></section>
 <div class="bootstrap-code">
 <script type="text/xml" id="pom.xml">
-  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.camunda.bpm.getstarted</groupId>
-    <artifactId>loanapproval-spring</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.camunda.bpm.getstarted</groupId>
+  <artifactId>loanapproval-spring</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
-    <properties>
-      <camunda.version>7.1.0-Final</camunda.version>
-      <spring.version>3.1.2.RELEASE</spring.version>
-    </properties>
+  <properties>
+    <camunda.version>7.3.0</camunda.version>
+    <spring.version>3.1.2.RELEASE</spring.version>
+  </properties>
 
+  <!-- import camunda BOM to ensure correct versions of camunda projects -->
+  <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.camunda.bpm</groupId>
-        <artifactId>camunda-engine</artifactId>
+        <artifactId>camunda-bom</artifactId>
         <version>${camunda.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.camunda.bpm</groupId>
-        <artifactId>camunda-engine-spring</artifactId>
-        <version>${camunda.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-web</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-jdbc</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>1.3.171</version>
+        <scope>import</scope>
+        <type>pom</type>
       </dependency>
     </dependencies>
+  </dependencyManagement>
 
-  </project>
+  <dependencies>
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.3.171</version>
+    </dependency>
+  </dependencies>
+
+</project>
 </script>
 
 <script type="text/xml" id="web.xml">
-  <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
-    <context-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/applicationContext.xml</param-value>
-    </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+  </context-param>
 
-    <listener>
-      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
-  </web-app>
+</web-app>
 </script>
 
 <script type="text/xml" id="applicationContext.xml">
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
-  </beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans.xsd">
+</beans>
 </script>
 
 <script type="text/xml" id="embeddedEngine.xml">
-  <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
-    <property name="targetDataSource">
-      <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-        <property name="driverClass" value="org.h2.Driver" />
-        <property name="url"
-                  value="jdbc:h2:mem:process-engine;DB_CLOSE_DELAY=1000" />
-        <property name="username" value="sa" />
-        <property name="password" value="" />
-      </bean>
-    </property>
-  </bean>
+<bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+  <property name="targetDataSource">
+    <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+      <property name="driverClass" value="org.h2.Driver" />
+      <property name="url"
+                value="jdbc:h2:mem:process-engine;DB_CLOSE_DELAY=1000" />
+      <property name="username" value="sa" />
+      <property name="password" value="" />
+    </bean>
+  </property>
+</bean>
 
-  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource" />
-  </bean>
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <property name="dataSource" ref="dataSource" />
+</bean>
 
-  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-    <property name="processEngineName" value="engine" />
-    <property name="dataSource" ref="dataSource" />
-    <property name="transactionManager" ref="transactionManager" />
-    <property name="databaseSchemaUpdate" value="true" />
-    <property name="jobExecutorActivate" value="false" />
-  </bean>
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+  <property name="processEngineName" value="engine" />
+  <property name="dataSource" ref="dataSource" />
+  <property name="transactionManager" ref="transactionManager" />
+  <property name="databaseSchemaUpdate" value="true" />
+  <property name="jobExecutorActivate" value="false" />
+</bean>
 
-  <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
-    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
-  </bean>
+<bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+  <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+</bean>
 
-  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
-  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
-  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
-  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
-  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
 </script>
 
 <script type="text/xml" id="autodeployment">
-  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-    <property name="processEngineName" value="engine" />
-    <property name="dataSource" ref="dataSource" />
-    <property name="transactionManager" ref="transactionManager" />
-    <property name="databaseSchemaUpdate" value="true" />
-    <property name="jobExecutorActivate" value="false" />
-    <property name="deploymentResources" value="classpath*:*.bpmn" />
-  </bean>
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+  <property name="processEngineName" value="engine" />
+  <property name="dataSource" ref="dataSource" />
+  <property name="transactionManager" ref="transactionManager" />
+  <property name="databaseSchemaUpdate" value="true" />
+  <property name="jobExecutorActivate" value="false" />
+  <property name="deploymentResources" value="classpath*:*.bpmn" />
+</bean>
 </script>
 
 <script type="text/xml" id="applicationContext-withSpringPa">
-  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
-    <property name="processEngineName" value="engine" />
-    <property name="dataSource" ref="dataSource" />
-    <property name="transactionManager" ref="transactionManager" />
-    <property name="databaseSchemaUpdate" value="true" />
-    <property name="jobExecutorActivate" value="false" />
-  </bean>
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+  <property name="processEngineName" value="engine" />
+  <property name="dataSource" ref="dataSource" />
+  <property name="transactionManager" ref="transactionManager" />
+  <property name="databaseSchemaUpdate" value="true" />
+  <property name="jobExecutorActivate" value="false" />
+</bean>
 
-  <bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
-    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
-  </bean>
+<bean id="processEngine" class="org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean">
+  <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+</bean>
 
-  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
-  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
-  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
-  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
-  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
 
-  <bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" depends-on="processEngine" />
+<bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" depends-on="processEngine" />
 </script>
 
 <script type="text/xml" id="processes.xml">
-  <?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-  <process-application
-      xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<process-application
+    xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <process-archive name="loan-approval">
-      <process-engine>engine</process-engine>
-      <properties>
-        <property name="isDeleteUponUndeploy">false</property>
-        <property name="isScanForProcessDefinitions">true</property>
-      </properties>
-    </process-archive>
+  <process-archive name="loan-approval">
+    <process-engine>engine</process-engine>
+    <properties>
+      <property name="isDeleteUponUndeploy">false</property>
+      <property name="isScanForProcessDefinitions">true</property>
+    </properties>
+  </process-archive>
 
-  </process-application>
+</process-application>
 </script>
 
 <script type="text/xml" id="starter-java">
-  public class Starter implements InitializingBean {
+public class Starter implements InitializingBean {
 
-    @Autowired
-    private RuntimeService runtimeService;
+  @Autowired
+  private RuntimeService runtimeService;
 
-    public void afterPropertiesSet() throws Exception {
-      runtimeService.startProcessInstanceByKey("loanApproval");
-    }
-
-    public void setRuntimeService(RuntimeService runtimeService) {
-      this.runtimeService = runtimeService;
-    }
+  public void afterPropertiesSet() throws Exception {
+    runtimeService.startProcessInstanceByKey("loanApproval");
   }
 
+  public void setRuntimeService(RuntimeService runtimeService) {
+    this.runtimeService = runtimeService;
+  }
+}
 </script>
 
 <script type="text/xml" id="starter-xml">
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context
+                         http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
 
-    ...
+  ...
 
-    <context:annotation-config />
+  <context:annotation-config />
 
-    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+  <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
 
-    ...
+  ...
 
-  </beans>
+</beans>
 </script>
 
 <script type="text/xml" id="starter-xml">
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
-    ...
-    <context:annotation-config />
-    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
-    ...
-  </beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context
+                         http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+  ...
+  <context:annotation-config />
+  <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+  ...
+</beans>
 </script>
 
 <script type="text/xml" id="service-java">
-  public class CalculateInterestService implements JavaDelegate {
+public class CalculateInterestService implements JavaDelegate {
 
-    public void execute(DelegateExecution delegate) throws Exception {
+  public void execute(DelegateExecution delegate) throws Exception {
 
-      System.out.println("Spring Bean invoked.");
-
-    }
+    System.out.println("Spring Bean invoked.");
 
   }
+
+}
 </script>
 
 <script type="text/xml" id="service-xml">
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
-    ...
-    <context:annotation-config />
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context
+                         http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+  ...
+  <context:annotation-config />
 
-    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
-    <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
-    ...
-  </beans>
+  <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+  <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
+  ...
+</beans>
 </script>
 
 <script type="text/xml" id="provided-engine">
-  <dependency>
-    <groupId>org.camunda.bpm</groupId>
-    <artifactId>camunda-engine</artifactId>
-    <version>${camunda.version}</version>
-    <scope>provided</scope>
-  </dependency>
+<dependency>
+  <groupId>org.camunda.bpm</groupId>
+  <artifactId>camunda-engine</artifactId>
+  <version>${camunda.version}</version>
+  <scope>provided</scope>
+</dependency>
 </script>
 
 <script type="text/xml" id="managed-engine-lookup">
-  <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context
+                         http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
 
-    <!-- bind the process engine service as Spring Bean -->
-    <bean name="processEngineService" class="org.camunda.bpm.BpmPlatform" factory-method="getProcessEngineService" />
+  <!-- bind the process engine service as Spring Bean -->
+  <bean name="processEngineService" class="org.camunda.bpm.BpmPlatform" factory-method="getProcessEngineService" />
 
-    <!-- bind the default process engine as Spring Bean -->
-    <bean name="processEngine" factory-bean="processEngineService" factory-method="getDefaultProcessEngine" />
+  <!-- bind the default process engine as Spring Bean -->
+  <bean name="processEngine" factory-bean="processEngineService" factory-method="getDefaultProcessEngine" />
 
-    <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
-    <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
-    <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
-    <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
-    <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
+  <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
+  <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
+  <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
+  <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
+  <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
 
-    <!-- bootstrap the process application -->
-    <bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
+  <!-- bootstrap the process application -->
+  <bean id="processApplication" class="org.camunda.bpm.engine.spring.application.SpringServletProcessApplication" />
 
-    <context:annotation-config />
+  <context:annotation-config />
 
-    <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
-    <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
+  <bean class="org.camunda.bpm.getstarted.loanapproval.Starter" />
+  <bean id="calculateInterestService" class="org.camunda.bpm.getstarted.loanapproval.CalculateInterestService" />
 
-  </beans>
+</beans>
 </script>
 
 <script type="text/xml" id="platform-processes.xml">
-  <?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-  <process-application
-      xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<process-application
+    xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <process-archive name="loan-approval">
-      <process-engine>default</process-engine>
-      <properties>
-        <property name="isDeleteUponUndeploy">false</property>
-        <property name="isScanForProcessDefinitions">true</property>
-      </properties>
-    </process-archive>
+  <process-archive name="loan-approval">
+    <process-engine>default</process-engine>
+    <properties>
+      <property name="isDeleteUponUndeploy">false</property>
+      <property name="isScanForProcessDefinitions">true</property>
+    </properties>
+  </process-archive>
 
-  </process-application>
+</process-application>
 </script>
 
 <script type="text/ng-template" id="code-annotations">

@@ -64,9 +64,6 @@ category: 'Roundtrip'
     <p>
       <b>Heads up!</b> If your process model is a collaboration diagram, Cycle will check which pools are flagged as "executable". Only those pools will actually be regarded for the executable process model, so you don't have to bother with huge diagrams describing manual flows while you are only really interested in the technical flows that will be executed by the process engine. We call this feature "Pool Extraction".
     </p>
-    <p>
-      You can now either check out the BPMN 2.0 - XML from your Subversion or open it directly in your local drive. In both cases, you can now edit it inside your Eclipse IDE by using the <a href="http://camunda.org/bpmn/tool/">camunda Modeler</a>.
-    </p>
   </div>
 </div>
 
