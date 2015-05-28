@@ -26,186 +26,188 @@ shortTitle: 'Done!'
 </div>
 
 <div class="bootstrap-code">
-  <script type="text/xml" id="pom.xml">
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-      <modelVersion>4.0.0</modelVersion>
-      <groupId>org.camunda.bpm.getstarted</groupId>
-      <artifactId>loan-approval</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-      <packaging>war</packaging>
+<script type="text/xml" id="pom.xml">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.camunda.bpm.getstarted</groupId>
+  <artifactId>loan-approval</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
-      <dependencies>
-        <dependency>
-          <groupId>org.camunda.bpm</groupId>
-          <artifactId>camunda-engine</artifactId>
-          <version>7.1.0-Final</version>
-          <scope>provided</scope>
-        </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-bom</artifactId>
+        <version>7.3.0</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-        <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>javax.servlet-api</artifactId>
-          <version>3.0.1</version>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.3</version>
-            <configuration>
-              <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
-    </project>
-  </script>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-  <script type="text/xml" id="LoanApprovalApplication">
-    package org.camunda.bpm.getstarted.loanapproval;
+</project>
+</script>
 
-    import org.camunda.bpm.application.ProcessApplication;
-    import org.camunda.bpm.application.impl.ServletProcessApplication;
+<script type="text/xml" id="LoanApprovalApplication">
+package org.camunda.bpm.getstarted.loanapproval;
 
-    @ProcessApplication("Loan Approval App")
-    public class LoanApprovalApplication extends ServletProcessApplication {
-      // empty implementation
-    }
-  </script>
+import org.camunda.bpm.application.ProcessApplication;
+import org.camunda.bpm.application.impl.ServletProcessApplication;
 
-  <script type="text/xml" id="LoanApprovalEjbApplication">
-    @ProcessApplication("Loan Approval App")
-    @Singleton
-    @Startup
-    @ConcurrencyManagement(ConcurrencyManagementType.BEAN)
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    @Local(ProcessApplicationInterface.class)
-    public class LoanApprovalEjbApplication extends EjbProcessApplication {
+@ProcessApplication("Loan Approval App")
+public class LoanApprovalApplication extends ServletProcessApplication {
+  // empty implementation
+}
+</script>
 
-      @PostConstruct
-      public void start() {
-        deploy();
-      }
+<script type="text/xml" id="LoanApprovalEjbApplication">
+@ProcessApplication("Loan Approval App")
+@Singleton
+@Startup
+@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+@Local(ProcessApplicationInterface.class)
+public class LoanApprovalEjbApplication extends EjbProcessApplication {
 
-      @PreDestroy
-      public void stop() {
-        undeploy();
-      }
-    }
-  </script>
+  @PostConstruct
+  public void start() {
+    deploy();
+  }
 
-  <script type="text/xml" id="processes.xml">
-    <?xml version="1.0" encoding="UTF-8" ?>
+  @PreDestroy
+  public void stop() {
+    undeploy();
+  }
+}
+</script>
 
-    <process-application
-        xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<script type="text/xml" id="processes.xml">
+<?xml version="1.0" encoding="UTF-8" ?>
 
-      <process-archive name="loan-approval">
-        <process-engine>default</process-engine>
-        <properties>
-          <property name="isDeleteUponUndeploy">false</property>
-          <property name="isScanForProcessDefinitions">true</property>
-        </properties>
-      </process-archive>
+<process-application
+    xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    </process-application>
-  </script>
+  <process-archive name="loan-approval">
+    <process-engine>default</process-engine>
+    <properties>
+      <property name="isDeleteUponUndeploy">false</property>
+      <property name="isScanForProcessDefinitions">true</property>
+    </properties>
+  </process-archive>
 
-  <script type="text/xml" id="RequestLoan.html">
-    <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label">Customer ID</label>
-        <div class="controls">
-          <input form-field type="string" name="customerId" />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Amount</label>
-        <div class="controls">
-          <input form-field type="number" name="amount" />
-        </div>
-      </div>
-    </form>
-  </script>
+</process-application>
+</script>
 
-  <script type="text/xml" id="ReviewLoan.html">
-    <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label">Customer ID</label>
-        <div class="controls">
-          <input form-field type="string" name="customerId" readonly="true" />
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Amount</label>
-        <div class="controls">
-          <input form-field type="number" name="amount" />
-        </div>
-      </div>
-    </form>
-  </script>
+<script type="text/xml" id="RequestLoan.html">
+<form name="requestLoan">
+  <div class="form-group">
+    <label for="customerId">Customer ID</label>
+    <input class="form-control" cam-variable-type="String" cam-variable-name="customerId" name="customerId"/>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input class="form-control" cam-variable-type="Double" cam-variable-name="amount" name ="amount"/>
+  </div>
+</form>
+</script>
 
-  <script type="text/xml" id="ProcessRequestDelegate">
+<script type="text/xml" id="ReviewLoan.html">
+<form name="approveLoan">
+  <div class="form-group">
+    <label for="customerId">Customer ID</label>
+    <input class="form-control" cam-variable-type="String" cam-variable-name="customerId" name="customerId" readonly="true"/>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input class="form-control" cam-variable-type="Double" cam-variable-name="amount" name ="amount"/>
+  </div>
+</form>
+</script>
 
-    public class ProcessRequestDelegate implements JavaDelegate {
+<script type="text/xml" id="ProcessRequestDelegate">
 
-      private final static Logger LOGGER = Logger.getLogger("LOAN-REQUESTS");
+public class ProcessRequestDelegate implements JavaDelegate {
 
-      public void execute(DelegateExecution execution) throws Exception {
-        LOGGER.info("Processing request by '"+execution.getVariable("customerId")+"'...");
-      }
+  private final static Logger LOGGER = Logger.getLogger("LOAN-REQUESTS");
 
-    }
-  </script>
+  public void execute(DelegateExecution execution) throws Exception {
+    LOGGER.info("Processing request by '"+execution.getVariable("customerId")+"'...");
+  }
 
-  <script type="text/ng-template" id="code-annotations">
-    {
-    "pom.xml":
-      { "war": "Process Applications are most commonly packaged as Java Web Application Archives (WAR files). Other deployment options are available. On the Java EE 6 platform, you can use plain JAR or advanced EAR deployments as well." ,
-      "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
-      "provided": "The process engine can be either <ul><li>provided by the servlet container or</li><li>embedded inside your process application.</li></ul> Here we use a shared process engine that is provided by the servlet container.",
-      "javax.servlet-api": "The servlet API is required for compilation",
-      "false" : "With Servlet 3.0 we do not need a web.xml file. Maven needs to catch up.",
-      "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
+}
+</script>
 
-      },
-      "LoanApprovalApplication":
-      { "@ProcessApplication": "The @ProcessApplication annotation makes sure the process application is discovered and deployed by the servlet container integration."
-      },
-      "LoanApprovalEjbApplication":
-      {
-      "ConcurrencyManagement": "The process engine uses this bean to perform callbacks inside this application. Make sure the container does not synchronize access to this process application.",
-      "TransactionAttribute": "Make sure the application participates in transactions but does not manadate own transactions."
-      },
-      "processes.xml":
-      {
-      "loan-approval": "The name of the process engine deployment to be constructed.",
-      "default": "The name of the process engine we want to use (you can start multiple process engines).",
-      "isDeleteUponUndeploy": "Controls if the process engine deployment should be removed when the process application is undeployed. If set to true, all process instances are deleted in the database when the WAR file is removed from the server.",
-      "isScanForProcessDefinitions": "If set to true, the WAR file is automatically scanned for process definitions. All files ending in <code>.bpmn20.xml</code> or <code>.bpm</code> are automatically picked up."
-      },
-      "RequestLoan.html":
-      {
-      "form-field": "AngularJS directive needs to be placed on form fields that should be converted into process variables.",
-      "type": "Allows specification of the type of the process variable.",
-      "name": "Allows specification of the name of the process variable."
-      },
-      "ReviewLoan.html":
-      {
-      "readonly": "AngularJS directive allowing you to make the variable read-only."
-      },
-      "ProcessRequestDelegate":
-      {
-      "JavaDelegate": "Interface provided by the Process Engine. Useful for writing Service Implementation Delegates.",
-      "DelegateExecution":"Object representing the currently active process execution. Provides access to process variables."
-      }
-    }
-  </script>
+<script type="text/ng-template" id="code-annotations">
+{
+"pom.xml":
+  { "war": "Process Applications are most commonly packaged as Java Web Application Archives (WAR files). Other deployment options are available. On the Java EE 6 platform, you can use plain JAR or advanced EAR deployments as well." ,
+  "camunda-engine": "The process engine is the component responsible for picking up your BPMN 2.0 processes and executing them.",
+  "provided": "The process engine can be either <ul><li>provided by the servlet container or</li><li>embedded inside your process application.</li></ul> Here we use a shared process engine that is provided by the servlet container.",
+  "javax.servlet-api": "The servlet API is required for compilation",
+  "false" : "With Servlet 3.0 we do not need a web.xml file. Maven needs to catch up.",
+  "camunda-bpm-nexus" : "camunda nexus providing the Maven artifacts."
+
+  },
+  "LoanApprovalApplication":
+  { "@ProcessApplication": "The @ProcessApplication annotation makes sure the process application is discovered and deployed by the servlet container integration."
+  },
+  "LoanApprovalEjbApplication":
+  {
+  "ConcurrencyManagement": "The process engine uses this bean to perform callbacks inside this application. Make sure the container does not synchronize access to this process application.",
+  "TransactionAttribute": "Make sure the application participates in transactions but does not manadate own transactions."
+  },
+  "processes.xml":
+  {
+  "loan-approval": "The name of the process engine deployment to be constructed.",
+  "default": "The name of the process engine we want to use (you can start multiple process engines).",
+  "isDeleteUponUndeploy": "Controls if the process engine deployment should be removed when the process application is undeployed. If set to true, all process instances are deleted in the database when the WAR file is removed from the server.",
+  "isScanForProcessDefinitions": "If set to true, the WAR file is automatically scanned for process definitions. All files ending in <code>.bpmn20.xml</code> or <code>.bpm</code> are automatically picked up."
+  },
+  "RequestLoan.html":
+  {
+  "cam-variable-type": "Allows specification of the type of the process variable.",
+  "cam-variable-name": "Allows specification of the name of the process variable."
+  },
+  "ReviewLoan.html":
+  {
+  "readonly": "AngularJS directive allowing you to make the variable read-only."
+  },
+  "ProcessRequestDelegate":
+  {
+  "JavaDelegate": "Interface provided by the Process Engine. Useful for writing Service Implementation Delegates.",
+  "DelegateExecution":"Object representing the currently active process execution. Provides access to process variables."
+  }
+}
+</script>
 </div>

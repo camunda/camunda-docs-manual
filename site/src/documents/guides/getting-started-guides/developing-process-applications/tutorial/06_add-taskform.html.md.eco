@@ -26,29 +26,33 @@ Go back to eclipse and add a folder named `src/main/webapp/forms`. Inside this f
 
 ###Add a Task Form
 
+The Task Form can be added and configured the same way. Add a file named <code>approve-loan.html</code> to the <code>src/main/webapp/forms</code> directory and add the following content:
+
+<div class="app-source" data-source-code="ReviewLoan.html" annotate="code-annotations"></div><br>
+
+After that, open the process with the modeler plugin again. Click on the user task. In the properties view, insert <code>embedded:app:forms/approve-loan.html</code> into the <code>Form Key</code> property field.
+
+When you are done, save all resources, perform a Maven build and redeploy the process application.
+
+<p class="alert alert-info">
+  <i class="glyphicon glyphicon-info-sign"></i> <strong>Maven:</strong> It is best practice to perform a <code>clean install</code> build to make sure all resources are replaced with their newest version.
+</p>
+
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/tasklist-loan-approval-start-form.png"/>
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/start-form-embedded.png"/>
   </div>
   <div class="col-xs-9 col-sm-9 col-md-9">
-    <p>
-      The Task Form can be added and configured the same way. Add a file named <code>approve-loan.html</code> to the <code>src/main/webapp/forms</code> directory and add the following content:
-    </p>
-  <div class="app-source" data-source-code="ReviewLoan.html" annotate="code-annotations"></div><br>
+    Now you can open the Tasklist and start a new process instance for the loan approval process. You will notice that the custom form is displayed.
   </div>
-  <div>
-    <p>
-      After that, open the process with the modeler plugin again. Click on the user task. In the properties view, insert <code>embedded:app:forms/approve-loan.html</code> into the <code>Form Key</code> property field.
-    </p>
-    <p>
-      When you are done, save all resources, perform a Maven build and redeploy the process application.
-    </p>
-    <p class="alert alert-info">
-      <i class="glyphicon glyphicon-info-sign"></i> <strong>Maven:</strong> It is best practice to perform a <code>clean install</code> build to make sure all resources are replaced with their newest version.
-    </p>
-    <p>
-      Now you can open the Tasklist and start a new process instance for the loan approval process. You will notice that the custom form is displayed.
-    </p>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/task-form-embedded.png"/>
+  </div>
+  <div class="col-xs-9 col-sm-9 col-md-9">
+    After starting a new process instance a new task <code>Approve Loan</code> is assigned to john. To work on the task, select the task inside the list of tasks and you will also notice that the custom form is displayed.
   </div>
 </div>
 

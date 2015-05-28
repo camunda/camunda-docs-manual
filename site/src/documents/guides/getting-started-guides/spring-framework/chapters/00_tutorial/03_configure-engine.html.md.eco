@@ -11,14 +11,22 @@ Now that you have set up the project with the correct Maven dependencies, we can
 After you added these definitions to the Spring Application context, perform a full Maven build and redeploy the application. In the logfile of the Apache Tomcat server you should be able to see the initialization of the process-engine:
 
 <pre class="console">
-	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.db.DbSqlSession executeSchemaResource
-	INFO: performing create on engine with resource org/camunda/bpm/engine/db/create/activiti.h2.create.engine.sql
-	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.db.DbSqlSession executeSchemaResource
-	INFO: performing create on history with resource org/camunda/bpm/engine/db/create/activiti.h2.create.history.sql
-	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.db.DbSqlSession executeSchemaResource
-	INFO: performing create on identity with resource org/camunda/bpm/engine/db/create/activiti.h2.create.identity.sql
-	28.04.2013 15:33:04 org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
-	  INFO: ProcessEngine default created
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on engine with resource org/camunda/bpm/engine/db/create/activiti.h2.create.engine.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on history with resource org/camunda/bpm/engine/db/create/activiti.h2.create.history.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on identity with resource org/camunda/bpm/engine/db/create/activiti.h2.create.identity.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on case.engine with resource org/camunda/bpm/engine/db/create/activiti.h2.create.case.engine.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on case.history with resource org/camunda/bpm/engine/db/create/activiti.h2.create.case.history.sql
+org.camunda.bpm.engine.impl.SchemaOperationsProcessEngineBuild checkHistoryLevel
+INFORMATION: No historyLevel property found in database.
+org.camunda.bpm.engine.impl.SchemaOperationsProcessEngineBuild dbCreateHistoryLevel
+Creating historyLevel property in database with value: audit
+org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
+INFORMATION: ProcessEngine engine created
 </pre>
 
 <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-2"}) %>
