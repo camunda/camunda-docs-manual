@@ -87,7 +87,7 @@ This includes a `custom-ng-module/script.js` file. The path is relative to the
 
 __Note:__ The content of the `customScripts` property will be treated as a
 [RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
-`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` who will be used like:
+`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
 
 ```javascript
 require(config.deps, callback);
