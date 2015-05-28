@@ -40,7 +40,7 @@ Camunda Spin provides the following engine functionality:
 * Fluent APIs for reading, manipulating and writing text-based data formats like JSON and XML wherever code is plugged into a process
 * Integration of the Spin API functions into the expression language
 * Integration of the Spin API functions into scripting environments
+* Native JSON and XML variable value types
 * Serializing Java process variables by mapping objects to Spin data formats like JSON and XML
 
 [spin-github]: https://github.com/camunda/camunda-spin
-

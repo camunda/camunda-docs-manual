@@ -33,6 +33,18 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
+If your variable is already a [XML variable value](ref:#data-formats-xml-json-other-xml-native-xml-variable-value) and not a string like in the previous example you can omit the `XML(...)` call and directly access the variable:
+
+```xml
+...
+<sequenceFlow>
+  <conditionExpression xsi:type="tFormalExpression">
+    ${customer.xPath("/customer/address/postCode").element().textContent() == "1234"}
+  </conditionExpression>
+</sequenceFlow>
+...
+```
+
 ### Scripting Integration
 
 The following example is a script implemented in JavaScript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
@@ -51,6 +63,47 @@ The following example is a script implemented in JavaScript. The script makes us
 </scriptTask>
 ...
 ```
+
+### Native XML Variable Value
+
+The native variable value for XML makes it possible to easily parse a XML string and wrap it inside an object without the need to have a class representing the XML. Suppose we want to save the XML inside a process variable for later use, we could do the following inside a JavaDelegate:
+
+```java
+public class MyDelegate implements JavaDelegate {
+
+  @Override
+  public void execute(DelegateExecution execution) throws Exception {
+    String xml = "<customer xmlns=\"http:\\/\\/camunda.org/example\" name=\"Jonny\">"
+          + "<address>"
+            + "<street>12 High Street</street>"
+            + "<postCode>1234</postCode>"
+          + "</address>"
+        + "</customer>";
+    XmlValue xmlValue = SpinValues.xmlValue(xml).create();
+    execution.setVariable("customerJonny", xmlValue);
+  }
+}
+```
+
+The call to `SpinValues.jsonValue(...).create()` will transform the string into a DomXML object wrapped by Spin.
+
+If we wanted to retrieve the JSON in another JavaDelegate and e.g. add some more information we could do this easily:
+
+```java
+public class AddDataDelegate implements JavaDelegate {
+  @Override
+  public void execute(DelegateExecution execution) throws Exception {
+    XmlValue customer = execution.getVariableTyped("customerJonny");
+    SpinXmlElement xmlElement = customer.getValue().append(Spin.XML("<creditLimit>1000.00</creditLimit>"));
+    customer = SpinValues.xmlValue(xmlElement).create();
+    execution.setVariable("customerJonny", customer);
+    //<?xml version="1.0" encoding="UTF-8"?><customer xmlns="http:\/\/camunda.org/example" name="Jonny"><address><street>12 High Street</street><postCode>1234</postCode></address><creditLimit xmlns="">1000.00</creditLimit></customer>
+  }
+}
+```
+
+When retrieving the XML value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
+Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
 
 ### Serializing Process Variables
 

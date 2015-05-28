@@ -33,6 +33,18 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
+If your variable is already a [JSON variable value](ref:#data-formats-xml-json-other-json-native-json-variable-value) and not a string like in the previous example you can omit the `S(...)` call and directly access the variable:
+
+```xml
+...
+<sequenceFlow>
+  <conditionExpression xsi:type="tFormalExpression">
+    ${customer.jsonPath("$.adress.post code").numberValue() == 1234}
+  </conditionExpression>
+</sequenceFlow>
+...
+```
+
 ### Scripting Integration
 
 The following example is a script implemented in JavaScript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
@@ -50,6 +62,45 @@ The following example is a script implemented in JavaScript. The script makes us
 </scriptTask>
 ...
 ```
+
+### Native JSON Variable Value
+
+The native variable value for JSON makes it possible to easily parse a JSON string and wrap it inside an object without the need to have a class representing the JSON. Suppose we want to save the JSON inside a process variable for later use, we could do the following inside a JavaDelegate:
+
+```java
+public class MyDelegate implements JavaDelegate {
+  @Override
+  public void execute(DelegateExecution execution) throws Exception {
+    String json = "{\"name\" : \"jonny\","
+        + "\"address\" : {"
+          + "\"street\" : \"12 High Street\","
+          + "\"post code\" : 1234"
+          + "}"
+        + "}";
+    JsonValue jsonValue = SpinValues.jsonValue(json).create();
+    execution.setVariable("customerJonny", jsonValue);
+  }
+}
+
+```
+
+The call to `SpinValues.jsonValue(...).create()` will transform the string into a Jackson object wrapped by Spin.
+
+If we wanted to retrieve the JSON in another JavaDelegate and e.g. add some more information we could do this easily:
+
+```java
+public class AddDataDelegate implements JavaDelegate {
+  @Override
+  public void execute(DelegateExecution execution) throws Exception {
+    JsonValue customer = execution.getVariableTyped("customerJonny");
+    customer.getValue().prop("creditLimit", 1000.00);
+    //{"name":"jonny","address":{"street":"12 High Street","post code":1234},"creditLimit":1000.0}
+  }
+}
+```
+
+When retrieving the JSON value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
+Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
 
 ### Serializing Process Variables
 
