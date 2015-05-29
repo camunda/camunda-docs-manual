@@ -224,7 +224,7 @@ historyService.createUserOperationLogQuery()
 ### Partially Sorting History Events by their Occurrence
 
 Sometimes you are interested in sorting history events according to the order in which they
-occurred. Please not that timestamps cannot be used for that.
+occurred. Please note that timestamps cannot be used for that.
 
 Most history events contain a timestamp which marks the point in time at which the action signified
 by the event occurred. However, this timestamp can, in general, not be used for sorting the history
@@ -260,7 +260,7 @@ activity instances is arbitrary and is not guaranteed.
 
 ## User Operation Log
 
-The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged regardless whether the operation is performed in the context of a logged in user or not (e.g. during job execution). To use the operation log, the process engine history level must be set to `FULL`.
+The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged regardless whether the operation is performed in the context of a logged in user or not (e.g., during job execution). To use the operation log, the process engine history level must be set to `FULL`.
 
 ### Accessing the User Operation Log
 
