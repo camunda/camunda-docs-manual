@@ -64,7 +64,7 @@ If you have previously replaced the default BPM platform configuration by a cust
 
 ## 5. Install the Camunda Archive
 
-Install the Camunda EAR, i.e. the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the previously created `Camunda` shared library.
+Install the Camunda EAR, i.e., the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the previously created `Camunda` shared library.
 
 ## 6. Install the Camunda Web Applications
 
