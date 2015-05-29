@@ -24,6 +24,11 @@ category: 'Cockpit'
   </div>
 </div>
 
+<div class="alert alert-info">
+  <strong>Semantics of Process Instance Modification</strong>
+  <p>The exact semantics of process instance modification can be read about in the <a href="ref:#process-engine-process-instance-modification">Process Instance Modification section</a> of this guide.</p>
+</div>
+
 ## Perform a Modification
 
 A modification consists of multiple instructions, which are displayed in the modification tab at the bottom half of the screen (1). To add an instruction to the modification, hover over an activity of the process instance diagram. Using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-wrench"></i> </button> button (2), you can select the operation to be performed with this activity. In the top-left corner of the activity, a modification badge will appear, indicating how many new instances of this activity will be created and how many activity instances will be canceled when applying this modification (3). This number represents the directly created/canceled instances only. Instances created during the modification (e.g. by service tasks) are not counted.
