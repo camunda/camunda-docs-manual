@@ -62,7 +62,7 @@ If you have previously replaced the default BPM platform configuration by a cust
 
 ## 5. Install the Camunda Archive
 
-Install the Camunda EAR, i.e. the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
+Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
 ## 6. Install the Camunda Web Applications
 
