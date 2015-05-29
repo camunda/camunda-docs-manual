@@ -288,13 +288,13 @@ The following describes the operations logged in the user operation log and the 
 
 <table class="table table-striped">
   <tr>
-    <th>Operation Type</th>
     <th>Entity Type</th>
+    <th>Operation Type</th>
     <th>Properties</th>
   </tr>
   <tr>
+  <td>Task</td>
     <td>Assign</td>
-    <td>Task</td>
     <td>
       <ul>
         <li><strong>assignee</strong>: The id of the user who was assigned to the task</li>
@@ -302,8 +302,8 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
     <td>Claim</td>
-    <td>Task</td>
     <td>
       <ul>
         <li><strong>assignee</strong>: The id of the user who claimed the task</li>
@@ -311,8 +311,74 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
-    <td>Activate</td>
+    <td></td>
+    <td>Complete</td>
+    <td>
+      <ul>
+        <li><strong>delete</strong>: The new delete state, <code>true</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Create</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Delegate</td>
+    <td>
+      When delegating a task three log entries are created, containing one of the following properties:
+      <ul>
+        <li><strong>delegation</strong>: The resulting delegation state, <code>PENDING</code></li>
+        <li><strong>owner</strong>: The original owner of the task</li>
+        <li><strong>assignee</strong>: The user this task has been assigned to</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Resolve</td>
+    <td>
+      <ul>
+        <li><strong>delegation</strong>: The resulting delegation state, <code>RESOLVED</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SetOwner</td>
+    <td>
+      <ul>
+        <li><strong>owner</strong>: The new owner of the task</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SetPriority</td>
+    <td>
+      <ul>
+        <li><strong>priority</strong>: The new priority of the task</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Update</td>
+    <td>
+      The manually changed property of a task, where manually means that a property got directly changed. Claiming a task via the TaskService wouldn't be logged with an update entry, but setting the assignee directly would be. One of the following is possible:
+      <ul>
+        <li><strong>description</strong>: The new description of the task</li>
+        <li><strong>owner</strong>: The new owner of the task</li>
+        <li><strong>assignee</strong>: The new assignee to the task</li>
+        <li><strong>dueDate</strong>: The new due date of the task</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>ProcessInstance</td>
+    <td>Activate</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: The new suspension state, <code>active</code></li>
@@ -320,18 +386,157 @@ The following describes the operations logged in the user operation log and the 
     </td>
   </tr>
   <tr>
+    <td></td>
+    <td>Delete</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>ModifyProcessInstance</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
     <td>Suspend</td>
-    <td>ProcessInstance</td>
     <td>
       <ul>
         <li><strong>suspensionState</strong>: The new suspension state, <code>suspended</code></li>
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>IdentityLink</td>
+    <td>AddUserLink</td>
+    <td>
+      <ul>
+        <li><strong>candidate</strong>: The new candidate user associated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>DeleteUserLink</td>
+    <td>
+      <ul>
+        <li><strong>candidate</strong>: The previously associated user</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>AddGroupLink</td>
+    <td>
+      <ul>
+        <li><strong>candidate</strong>: The new group associated</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>DeleteGroupLink</td>
+    <td>
+      <ul>
+      <li><strong>candidate</strong>: The previously associated group</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Attachment</td>
+    <td>AddAttachment</td>
+    <td>
+      <ul>
+        <li><strong>name</strong>: The name of the added attachment</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>DeleteAttachment</td>
+    <td>
+      <ul>
+        <li><strong>name</strong>: The name of the deleted attachment</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>JobDefinition</td>
+    <td>ActivateJobDefinition</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SuspendJobDefinition</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>ProcessDefinition</td>
+    <td>ActivateProcessDefinition</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SuspendProcessDefinition</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Job</td>
+    <td>ActivateJob</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SetJobRetries</td>
+    <td>
+      <ul>
+        <li><strong>retries</strong>: the new number of retries</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SuspendJob</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Variable</td>
+    <td>ModifyVariable</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>RemoveVariable</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SetVariable</td>
+    <td><i>No additional property is logged</i></td>
+  </tr>
 </table>
-
-Note that this table is not complete yet.
-
 
 ## Providing a custom History Backend
 
