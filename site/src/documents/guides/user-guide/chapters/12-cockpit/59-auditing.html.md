@@ -22,71 +22,88 @@ The following table serves as an index that relates operations in the Cockpit us
 <table class="table table-striped">
   <tr>
     <th>UI Operation</th>
-    <th>Operation Type/Entity Type in Operation Log</th>
+    <th>Operation Type</th>
+    <th>Entity Type</th>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-process-definition-suspension">Activate a Process Definition</a></td>
-    <td>ActivateProcessDefinition/ProcessDefinition</td>
+    <td>ActivateProcessDefinition</td>
+    <td>ProcessDefinition</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-process-definition-suspension">Suspend a Process Definition</a></td>
-    <td>SuspendProcessDefinition/ProcessDefinition</td>
+    <td>SuspendProcessDefinition</td>
+    <td>ProcessDefinition</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-process-instance-suspension">Activate a Process Instance</a></td>
-    <td>Activate/ProcessInstance</td>
+    <td>Activate</td>
+    <td>ProcessInstance</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-process-instance-suspension">Suspend a Process Instance</a></td>
-    <td>Suspend/ProcessInstance</td>
+    <td>Suspend</td>
+    <td>ProcessInstance</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-job-definition-suspension">Activate a Job Definition</a></td>
-    <td>ActivateJobDefinition/JobDefinition</td>
+    <td>ActivateJobDefinition</td>
+    <td>JobDefinition</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-suspension-job-definition-suspension">Suspend a Job Definition</a></td>
-    <td>SuspendJobDefinition/JobDefinition</td>
+    <td>SuspendJobDefinition</td>
+    <td>JobDefinition</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-process-instance-detail-view-cancel-a-process-instance">Cancel a Process Instance</a></td>
-    <td>Delete/ProcessInstance</td>
+    <td>Delete</td>
+    <td>ProcessInstance</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-process-definition-view-cancel-multiple-process-instances">Cancel Multiple Process Instances</a></td>
-    <td>Delete/ProcessInstance</td>
+    <td>Delete</td>
+    <td>ProcessInstance</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-process-instance-detail-view-adding-variables">Add Process Instance Variables</a></td>
-    <td>SetVariable/Variable</td>
+    <td>SetVariable</td>
+    <td>Variable</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-process-instance-detail-view-editing-variables">Edit Process Instance Variables</a></td>
-    <td>ModifyVariable/Variable</td>
+    <td>ModifyVariable</td>
+    <td>Variable</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-failed-jobs-retry-a-failed-job">Retry a Failed Job</a></td>
-    <td>SetJobRetries/Job</td>
+    <td>SetJobRetries</td>
+    <td>Job</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-failed-jobs-bulk-retry">Bulk Retry of Failed Jobs</a></td>
-    <td>SetJobRetries/Job</td>
+    <td>SetJobRetries</td>
+    <td>Job</td>
   </tr>
   <tr>
     <td><a href="ref:#cockpit-process-instance-modification">Process Instance Modification</a></td>
-    <td>ModifyProcessInstance/ProcessInstance</td>
+    <td>ModifyProcessInstance</td>
+    <td>ProcessInstance</td>
   </tr>
   <tr>
     <td>Set Task Assignee</td>
-    <td>Assign/Task</td>
+    <td>Assign</td>
+    <td>Task</td>
   </tr>
   <tr>
     <td>Add Task Candidate Group</td>
-    <td>AddGroupLink/IdentityLink</td>
+    <td>AddGroupLink</td>
+    <td>IdentityLink</td>
   </tr>
   <tr>
     <td>Remove Task Candidate Group</td>
-    <td>DeleteGroupLink/IdentityLink</td>
+    <td>DeleteGroupLink</td>
+    <td>IdentityLink</td>
   </tr>
 </table>
 
