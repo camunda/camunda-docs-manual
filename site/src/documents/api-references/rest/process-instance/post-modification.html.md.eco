@@ -18,6 +18,8 @@ keywords: 'post modification move cancel start activity'
 
 <p>Instructions are executed immediately and in the order they are provided in this request's body. Variables can be provided with every starting instruction.</p>
 
+<p>The exact semantics of modification can be read about in the <a href="ref:/guides/user-guide/#process-engine-process-instance-modification">user guide</a>.</p>
+
 Method
 ------
 
