@@ -32,3 +32,6 @@ viewer.importXML(xml, function(err) {
   }
 });
 ```
+
+
+Alternatively, you can use the [bpmn-viewer widget](http://camunda.github.io/camunda-commons-ui/cam-widget-bpmn-viewer.html) from the Camunda commons UI.
