@@ -67,6 +67,8 @@ The camunda Webapp (Cockpit, Tasklist, Admin) depends on the following third-par
 - [Snap.svg](http://snapsvg.io/) [(Apache License 2.0)][apache]
 - [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) [(Apache License 2.0)][apache]
 
+Most of those libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed to ease the development of browser based user interfaces.
+
 ## camunda Cycle
 
 Cycle depends on the following third-party libraries:
