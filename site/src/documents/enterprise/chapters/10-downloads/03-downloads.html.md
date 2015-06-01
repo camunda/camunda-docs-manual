@@ -11,7 +11,7 @@ title: 'Latest Version'
   <div class="col-md-12">
     <h3>7.3.0</h3>
     <p>
-      Current stable version, released on 28.05.2015, <a target="_blank" href="http://blog.camunda.org/2015/05/camunda-bpm-730-Final-released.html">Release Notes</a>
+      Current stable version, released on 28.05.2015, <a target="_blank" href="http://blog.camunda.org/2015/05/camunda-bpm-730-final-released.html">Release Notes</a>
     </p>
     <table class="table table-responsive">
       <thead>
