@@ -9,6 +9,128 @@ title: 'Latest Version'
 
 <section class="row">
   <div class="col-md-12">
+    <h3>7.3.0</h3>
+    <p>
+      Current stable version, released on 28.05.2015, <a target="_blank" href="http://blog.camunda.org/2015/05/camunda-bpm-730-final-released.html">Release Notes</a>
+    </p>
+    <table class="table table-responsive">
+      <thead>
+      <tr>
+        <th class="table-condensed-column">
+         Distribution
+        </th>
+        <th>
+          <center>
+            Apache <br/>
+            Tomcat 7
+          </center>
+          <a href="ref:/guides/installation-guide/tomcat/">How to install</a>
+        </th>
+        <th>
+          <center>
+            JBoss <br/>
+            AS 7
+          </center>
+          <a href="ref:/guides/installation-guide/jboss/">How to install</a>
+        </th>
+        <th>
+          <center>
+            JBoss <br/>
+            WildFly 8
+          </center>
+          <a href="ref:/guides/installation-guide/jboss/">How to install</a>
+        </th>
+        <th>
+          <center>
+            GlassFish <br/>
+            Server 3.1.x
+          </center>
+          <a href="ref:/guides/installation-guide/glassfish/">How to install</a>
+        </th>
+        <th>
+          <center>
+            IBM <br/>
+            WebSphere 8.x
+          </center>
+          <a href="ref:/guides/installation-guide/was/">How to install</a>
+        </th>
+        <th>
+          <center>
+            Oracle <br/>
+            WebLogic 12.x
+          </center>
+          <a href="ref:/guides/installation-guide/wls/">How to install</a>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr class="well">
+          <td>
+            <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.3/7.3.0/camunda-bpm-ee-tomcat-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.3/7.3.0/camunda-bpm-ee-tomcat-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.3/7.3.0/camunda-bpm-ee-jboss-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.3/7.3.0/camunda-bpm-ee-jboss-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/wildfly/7.3/7.3.0/camunda-bpm-ee-wildfly-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/wildfly/7.3/7.3.0/camunda-bpm-ee-wildfly-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.3/7.3.0/camunda-bpm-ee-glassfish-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.3/7.3.0/camunda-bpm-ee-glassfish-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.3/7.3.0/camunda-ee-ibm-was-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.3/7.3.0/camunda-ee-ibm-was-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.3/7.3.0/camunda-ee-oracle-wls-7.3.0-ee.zip">zip</a>&nbsp;
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.3/7.3.0/camunda-ee-oracle-wls-7.3.0-ee.tar.gz">tar.gz</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/tomcat/7.3/7.3.0/camunda-webapp-ee-tomcat-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.3/7.3.0/camunda-webapp-ee-jboss-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/jboss/7.3/7.3.0/camunda-webapp-ee-jboss-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/glassfish/7.3/7.3.0/camunda-webapp-ee-glassfish-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/7.3/7.3.0/camunda-webapp-ee-was-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+          <td>
+            <a class="btn btn-sm btn-default download-bpm" href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/7.3/7.3.0/camunda-webapp-ee-wls-standalone-7.3.0-ee.war">war</a>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="row">
+  <div class="col-md-12">
+    <p class="pull-right">
+      <a href="ref:/enterprise/previous-downloads.html">previous versions</a> |
+      <a href="http://camunda.org/download">community edition</a><br><br><br>
+    </p>
+  </div>
+</div>
+
+<section class="row">
+  <div class="col-md-12">
     <h3>7.2.5</h3>
     <p>
       Current stable version, released on 12.05.2015, <a target="_blank" href="https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=13590">Release Notes</a>
