@@ -338,6 +338,11 @@ The following describes the operations logged in the user operation log and the 
   </tr>
   <tr>
     <td></td>
+    <td>Delete</td>
+    <td><strong>delete</strong>: The new delete state, <code>true</code></td>
+  </tr>
+  <tr>
+    <td></td>
     <td>Resolve</td>
     <td>
       <ul>
