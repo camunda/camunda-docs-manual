@@ -30,24 +30,56 @@ This example includes an image, which is located in the contextPath of the form 
 
 ## Provide Download Link for Byte Variables
 
-This example provides a download link for the file stored in the byte variable `attachment`. First, the process instance id of the task is retrieved to then access the id of the attachment variable:
+This example provides a download link for the file stored in the byte variable `INVOICE_DOCUMENT`. First, the process instance id of the task is retrieved to then access the id of the `INVOICE_DOCUMENT` variable. In Google Chrome and Mozilla Firefox you can also specify the filename with the `download` attribute in the `<a>` tag. In this example, the file name is retrieved from the process variable `INVOICE_DOCUMENT_FILENAME`.
 
 ```html
 <form role="form">
   <script cam-script type="text/form-script">
     inject(['$http', 'Uri', function($http, Uri) {
       camForm.on('form-loaded', function() {
+
+        // get the download link
         $http.get(Uri.appUri('engine://engine/:engine/task/' + camForm.taskId)).success(function(result){
-          $http.get(Uri.appUri('engine://engine/:engine/variable-instance/?variableName=attachment&processInstanceIdIn=' + result.processInstanceId)).success(function(result){
+          $http.get(Uri.appUri('engine://engine/:engine/variable-instance/?variableName=INVOICE_DOCUMENT&processInstanceIdIn=' + result.processInstanceId)).success(function(result){
             $scope.downloadLink = Uri.appUri('engine://engine/:engine/variable-instance/' + result[0].id + '/data');
           });
-       });
+        });
+
+        // get the filename
+        camForm.variableManager.fetchVariable('INVOICE_DOCUMENT_FILENAME');
+      });
+
+      camForm.on('variables-fetched', function() {
+        $scope.INVOICE_DOCUMENT_FILENAME = camForm.variableManager.variableValue('INVOICE_DOCUMENT_FILENAME');
       });
     }]);
   </script>
 
-  <a ng-href="{{downloadLink}}">Download File</a>
+  <a ng-href="{{downloadLink}}" download="{{INVOICE_DOCUMENT_FILENAME}}" target="_blank">Download File</a>
 
+</form>
+```
+
+## Store filename for uploaded file
+
+This example shows how to store the filename of an uploaded file (`INVOICE_DOCUMENT`) in the process variable `INVOICE_DOCUMENT_FILENAME`.
+
+```html
+<form role="form">
+  <script cam-script type="text/form-script">
+    camForm.on('submit', function(evt) {
+      camForm.variableManager.createVariable({
+        name: 'INVOICE_DOCUMENT_FILENAME',
+        type: 'String',
+        value: camForm.formElement.find('[cam-variable-name="INVOICE_DOCUMENT"]')[0].files[0].name
+      });
+    });
+  </script>
+
+  <input type="file"
+         cam-variable-name="INVOICE_DOCUMENT"
+         cam-variable-type="Bytes"
+         cam-max-filesize="10000000" />
 </form>
 ```
 
