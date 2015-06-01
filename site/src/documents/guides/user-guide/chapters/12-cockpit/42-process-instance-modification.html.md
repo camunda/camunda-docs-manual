@@ -26,7 +26,7 @@ category: 'Cockpit'
 
 <div class="alert alert-info">
   <strong>Semantics of Process Instance Modification</strong>
-  <p>The exact semantics of process instance modification can be read about in the <a href="ref:#process-engine-process-instance-modification">Process Instance Modification section</a> of this guide.</p>
+  <p>The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the <a href="ref:#process-engine-process-instance-modification">Process Instance Modification section</a> of this guide.</p>
 </div>
 
 ## Perform a Modification
@@ -61,11 +61,11 @@ In the modification tab you can then configure the specification of the instruct
     <img data-img-thumb src="ref:asset:/assets/img/implementation-cockpit/cockpit-modification-start.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>When starting a new activity instance, you have the option to start before or start after the activity. Using startBefore, the activity will be executed. StartAfter is only possible if there is only one sequence flow going out of the activity. In both cases you have the option to create new variables which are created or updated with the creation of the activity.</p>
+    <p>When starting a new activity instance, you have the option to start before or start after the activity. Using startBefore, the activity will be executed. StartAfter is only possible if there is only one sequence flow going out of the activity. In both cases you have the option to create new variables which are created or updated with the creation of the activity. Starting an activity instantiates all parent scopes (e.g. sub processes) that are not instantiated yet before the actual activity is executed.</p>
 
-    <p>Aditionally you can specify the ancestor of the new activity instance if its created in a nested sub-process or part of a multi-instance scenario. For every ancestor, the variables are displayed. If you try to create a new activity in a sub-process without an instance or specify an ancestor, which is not a direct parent of the activity, the parent-chain will be created to hold the newly created activity.</p>
+    <p>Additionally you can specify the ancestor of the new activity instance if it is created in a nested sub-process or part of a multi-instance scenario. For every ancestor, the variables are displayed. When an activity is instantiated with a specific ancestor activity instance, all scopes <i>between</i> the ancestor's activity and the target activity are instantiated.</p>
 
-    <p>When starting activities with a multi-instance flag, there is the option to either start a new multi-instance body of the activity (which will create the number of child activities specified in the multi-instance configuration for this task) or a new single instance of the activity in an already existing multi-instance body.</p>
+    <p>When starting activities with a multi-instance flag, there is the option to either start a new multi-instance body of the activity (which executes the entire multi-instance construct and therefore creates the number of child activities specified in the multi-instance configuration for this task) or a new single instance of the activity in an already existing multi-instance body.</p>
   </div>
 </div>
 
@@ -78,6 +78,6 @@ In the modification tab you can then configure the specification of the instruct
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>At any point during the creation of the modification, you can show the payload of the modification by clicking the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-eye-open"></i> </button> button. This will show the request payload that will be sent via the <a href="ref:/api-references/rest/#process-instance-modify-process-instance-execution-state">REST API</a>.</p>
 
-    <p>To perform the modification, you have to click on the Apply modifications button. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.</p>
+    <p>To perform the modification, you have to click on the *Apply modifications* button. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.</p>
   </div>
 </div>
