@@ -21,7 +21,7 @@ To perform such an operation, the process engine offers the *process instance mo
 
 <div class="alert alert-info">
   <strong>Process Instance Modification in Cockpit</strong>
-  <p>Note that the Camunda enterprise edition provides a user interface to <a href="ref:#cockpit-process-instance-modification">compose process instance modifications visually on the BPMN diagram in Camunda Cockpit</a>.</p>
+  <p>The Camunda enterprise edition provides a user interface to <a href="ref:#cockpit-process-instance-modification">compose process instance modifications visually on the BPMN diagram in Camunda Cockpit</a>.</p>
 </div>
 
 ## Process Instance Modification by Example
@@ -30,7 +30,7 @@ As an example, consider the following process model:
 
 <div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example1"></div>
 
-The model shows a simple process for processing a loan application. Let us assume that a loan application has arrived, the loan application has been evaluated, and it was determined to decline the application. That means, the process instances has the following activity instance state:
+The model shows a simple process for processing a loan application. Let us assume that a loan application has arrived, the loan application has been evaluated, and it was determined to decline the application. That means, the process instance has the following activity instance state:
 
 ```
 ProcessInstance
@@ -47,7 +47,7 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
   .execute();
 ```
 
-This command first starts execution before the activity *Accept Loan Application* until a wait state - the creation of the user task in this case - is reached. After that, it cancels the running instance of the activity *Decline Loan Application*. In the worker's task list, the task *Decline* task has been removed and an *Accept* task has appeared. The resulting activity instance state is:
+This command first starts execution before the activity *Accept Loan Application* until a wait state - the creation of the user task in this case - is reached. After that, it cancels the running instance of the activity *Decline Loan Application*. In the worker's task list, the *Decline* task has been removed and an *Accept* task has appeared. The resulting activity instance state is:
 
 ```
 ProcessInstance
@@ -113,7 +113,7 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
 
 ## Operational Semantics
 
-The following sections specify the exact semantics of process instance modification and should be read in order to understand the modification effects in varying circumstances. If not otherwise noted, the following examples refer to the following process model for illustrative examples:
+The following sections specify the exact semantics of process instance modification and should be read in order to understand the modification effects in varying circumstances. If not otherwise noted, the following examples refer to the following process model for illustration:
 
 <div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example1"></div>
 
@@ -164,7 +164,7 @@ Starting a transition via `startTransition` translates to starting execution on 
 ProcessInstanceModificationBuilder#cancelActivityInstance(String activityInstanceId)
 ```
 
-A specific activity instance can be cancelled by `cancelActivityInstance`. This can either be a leaf activity instance, such as an instance of a user task, as well as an instance of a scope higher in the hierarchy, such as an instance of a sub process. See the [details on activity instances] how to retrieve the activity instances of a process instance.
+A specific activity instance can be cancelled by `cancelActivityInstance`. This can either be a leaf activity instance, such as an instance of a user task, as well as an instance of a scope higher in the hierarchy, such as an instance of a sub process. See the [details on activity instances](ref:#process-engine-process-instance-modification-activity-instance-based-api) how to retrieve the activity instances of a process instance.
 
 #### Cancel a Transition Instance
 
@@ -172,7 +172,7 @@ A specific activity instance can be cancelled by `cancelActivityInstance`. This 
 ProcessInstanceModificationBuilder#cancelTransitionInstance(String activityInstanceId)
 ```
 
-Transition instances represent execution flow that is about to enter/leave an activity in the form of an asynchronous continuation. An asynchronous continuation job that has already been created but not yet executed is represented as a transition instance. These instances can be cancelled by `cancelTransitionInstance`. See the [details on activity and transition instances] how to retrieve the transition instances of a process instance.
+Transition instances represent execution flow that is about to enter/leave an activity in the form of an asynchronous continuation. An asynchronous continuation job that has already been created but not yet executed is represented as a transition instance. These instances can be cancelled by `cancelTransitionInstance`. See the [details on activity and transition instances](ref:#process-engine-process-instance-modification-activity-instance-based-api) how to retrieve the transition instances of a process instance.
 
 #### Cancel All Activity Instances for an Activity
 
@@ -181,6 +181,20 @@ ProcessInstanceModificationBuilder#cancelAllForActivity(String activityId)
 ```
 
 For convenience, it is also possible to cancel all activity and transition instances of a given activity by the instruction `cancelAllForActivity`.
+
+### Providing Variables
+
+With every instantiating instruction (i.e. `startBeforeActivity`, `startAfterActivity`, or `startTransition`), it is possible to submit process variables.
+The API offers the methods
+
+* `setVariable(String name, Object value)`
+* `setVariables(Map<String, Object> variables)`
+* `setVariableLocal(String name, Object value)`
+* `setVariablesLocal(Map<String, Object> variables)`
+
+Variables are set **after** the [necessary scopes for instantiation are created](ref:#process-engine-process-instance-modification-nested-instantiation) and **before** the actual execution of the specified element begins. That means, in the process engine history these variables do not appear as if they were set during execution of the specified activity for `startBefore` and `startAfter` instructions. Local variables are set on the execution that is about to perform the instruction, i.e. that enters the activity etc.
+
+See the [variables section of this guide](ref:#process-engine-process-variables) for details on variables and scopes in general.
 
 ### Activity-Instance-based API
 
@@ -217,14 +231,14 @@ It is also possible to directly retrieve all activity instances for a given acti
 ```java
 ProcessInstance processInstance = ...;
 ActivityInstance activityInstance = runtimeService.getActivityInstance(processInstance.getId());
-ActivityInstance assesCreditWorthinessInstances = activityInstance.getActivityInstances("assessCreditWorthiness")[0];
+ActivityInstance assessCreditWorthinessInstances = activityInstance.getActivityInstances("assessCreditWorthiness")[0];
 ```
 
 Compared to activity instances, *transition instances* do not represent active activities but activities that are about to be entered or about to be left. This is the case when jobs for asynchronous continuations exist but have not been executed yet. For an activity instance, child transition instances can be retrieved with the method `getChildTransitionInstances` and the API for transition instances is similar to that for activity instances.
 
 ### Nested Instantiation
 
-Assume a process instance of the above example process where the activity *Decline Loan Application* is active. Now we submit the instruction to start before the activity *Asses Credit Worthiness*. When applying this instruction, the process engine makes sure to instantiate all parent scopes that are not active yet. In this case, before starting the activity, the process engine instantiates the *Evaluate Loan Application* sub process. Where before the activity instance tree was
+Assume a process instance of the above example process where the activity *Decline Loan Application* is active. Now we submit the instruction to start before the activity *Assess Credit Worthiness*. When applying this instruction, the process engine makes sure to instantiate all parent scopes that are not active yet. In this case, before starting the activity, the process engine instantiates the *Evaluate Loan Application* sub process. Where before the activity instance tree was
 
 ```
 ProcessInstance
@@ -244,7 +258,7 @@ Apart from instantiating these parent scopes, the engine also ensures to registe
 
 <div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example2"></div>
 
-Starting the activity *Asses Credit Worthiness* also registers an event subscription for the message boundary event *Cancellation Notice Received* such that it is possible to cancel the sub process this way.
+Starting the activity *Assess Credit Worthiness* also registers an event subscription for the message boundary event *Cancellation Notice Received* such that it is possible to cancel the sub process this way.
 
 ### Ancestor Selection for Instantiation
 
@@ -323,9 +337,9 @@ ProcessInstance
   Decline Loan Application
 ```
 
-If all instructions have been executed and there is no active activity instance left, the entire process instance is cancelled. This would be the case in the example above if both activity instances are cancelled, the one for *Assess Credit Worthiness* and the one for *Decline Loan Application*.
+If all instructions have been executed and there is no active activity instance left, the entire process instance is cancelled. This would be the case in the example above if both activity instances were cancelled, the one for *Assess Credit Worthiness* and the one for *Decline Loan Application*.
 
-However, the process instance is only cancelled after all instructions have been executed. This means, if the process instance has no active activities between two instructions the process instance is not immediately cancelled. For example, assume that the activity *Decline Loan Application* is active. The activity instance tree is:
+However, the process instance is only cancelled after all instructions have been executed. That means, if the process instance has no active activity instances between two instructions the process instance is not immediately cancelled. As an example, assume that the activity *Decline Loan Application* is active. The activity instance tree is:
 
 ```
 ProcessInstance
