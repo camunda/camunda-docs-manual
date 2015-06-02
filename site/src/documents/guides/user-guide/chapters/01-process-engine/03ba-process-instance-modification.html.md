@@ -5,7 +5,7 @@ category: 'Process Engine'
 
 ---
 
-While the process model contains sequence flow that defines in which order activities must be executed, sometimes it is desired to flexibly start an activity again or cancel a running activity. For example, this can be useful when the process model contains an error, such as a wrong sequence flow condition, and running process instances need to be corrected. Use cases for this API may be
+While the process model contains sequence flows that define in which order activities must be executed, sometimes it is desired to flexibly start an activity again or cancel a running activity. For example, this can be useful when the process model contains an error, such as a wrong sequence flow condition, and running process instances need to be corrected. Use cases for this API may be
 
 * Repairing process instances in which some steps have to be repeated or skipped
 * Migrating process instances from one version of a process definition to another

@@ -11,4 +11,4 @@ Apart from JUnit assertions, there is the community extension [camunda-bpm-asser
 
 ### Writing Focused Tests
 
-The feature to [start a process instance at a set of activities](ref:#process-engine-process-engine-concepts-starting-a-process-instance-at-any-set-of-activities) can be used to to create a very specific scenario without much setup. Similarly, certain activities can be skipped by using [process instance modification](ref:#cockpit-process-instance-modification).
+The feature to [start a process instance at a set of activities](ref:#process-engine-process-engine-concepts-starting-a-process-instance-at-any-set-of-activities) can be used to to create a very specific scenario without much setup. Similarly, certain activities can be skipped by using [process instance modification](ref:#process-engine-process-instance-modification).
