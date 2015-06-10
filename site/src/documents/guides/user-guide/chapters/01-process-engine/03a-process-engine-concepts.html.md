@@ -115,7 +115,7 @@ Once you have performed a query for a particular process instance (or a list of 
       * Through a [Signal Event](ref:/api-references/bpmn20/#events-signal-events)
   * Canceling it:
       * Using the `RuntimeService.deleteProcessInstance(...)` method.
-  * Starting/Cancelling any activity:
+  * Starting/Canceling any activity:
       * Using the [process instance modification feature](ref:#process-engine-process-instance-modification)
 
 If your process uses at least one User Task, you can also interact with the process instance using the TaskService API.

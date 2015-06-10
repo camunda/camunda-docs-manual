@@ -60,7 +60,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1taf0y5" name="no" sourceRef="ExclusiveGateway_1fa6bkl" targetRef="UserTask_15w6dy1"/>
     <bpmn:sequenceFlow id="SequenceFlow_08niqu9" sourceRef="UserTask_15w6dy1" targetRef="EndEvent_0r7nlxq"/>
     <bpmn:sequenceFlow id="SequenceFlow_0zvqope" sourceRef="StartEvent_1" targetRef="SubProcess_138nnao"/>
-    <bpmn:boundaryEvent id="BoundaryEvent_1" name="Cancellation Notice&#xD;&#xA; Reveiced" attachedToRef="SubProcess_138nnao">
+    <bpmn:boundaryEvent id="BoundaryEvent_1" name="Cancelation Notice&#xD;&#xA; Received" attachedToRef="SubProcess_138nnao">
       <bpmn:outgoing>SequenceFlow_1</bpmn:outgoing>
       <bpmn:messageEventDefinition id="_MessageEventDefinition_2"/>
     </bpmn:boundaryEvent>
