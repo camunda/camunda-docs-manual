@@ -138,15 +138,6 @@ For groups and users to be able to see process definitions they need at least th
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin_proc_inst_group_full_access.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>Next we grant all permssions for the process instances. Without these permission the group could see the process definition in Cockpit but wouldn't be able to see or start process instances. The resource id references the generated process instance ids, therefore we use the asterisk to see all running instances.</p>
-  </div>
-</div>
-
 After we got to know how to grant certain permissions we might need a second user who serves as administrator.
 
 ## Create a user with all permissions
