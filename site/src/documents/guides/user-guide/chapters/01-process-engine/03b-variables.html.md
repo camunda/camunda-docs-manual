@@ -89,6 +89,7 @@ Depending on the actual value of a variable, a different type is assigned. Out o
 * `date`: Instances of `java.util.Date`
 * `string`: Instances of `java.lang.String`
 * `null`: `null` references
+* `file`: Instances of `java.io.File`
 
 Furthermore, the value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
 
