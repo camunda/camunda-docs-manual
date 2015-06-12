@@ -130,7 +130,7 @@ Several of the filter criteria accept expressions as values. These expressions a
           </td>
           <td>
            Group name (e.g., <code>accounting</code>),<br>
-           <code>true</code>
+           N/A
           </td>
         </tr>
         <tr>
@@ -144,7 +144,7 @@ Several of the filter criteria accept expressions as values. These expressions a
             Unassigned
           </td>
           <td>
-            <code>true</code>
+            N/A
           </td>
         </tr>
         <tr>

@@ -11,7 +11,7 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      On the dashboard of Tasklist you see an overview of pending tasks. On the left side of the screen, an overview of the <a href="ref:#tasklist-filters">filters</a> is displayed. On the top right side of the screen, you can set a follow-up or due date and you can claim and unclaim tasks. Underneath that section, the embedded form is displayed (please note that external task forms cannot be displayed here), you can switch to the task history, you can see the diagram view or you can view the description of the user task.
+      On the dashboard of Tasklist you see an overview of pending tasks. On the left side of the screen, an overview of the <a href="ref:#tasklist-filters">filters</a> is displayed. On the upper right side of the screen, you can set a follow-up or due date, you can claim, unclaim and reassign tasks and you can add comments. Underneath that section, the embedded form is displayed (please note that external task forms cannot be displayed here), you can switch to the task history, you can see the diagram view or you can view the description of the user task.
     </p>
   </div>
 </div>
@@ -37,7 +37,7 @@ category: 'Tasklist'
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      To start a process instance via Tasklist, hit the <button class="btn btn-xs"><i class="glyphicon glyphicon-list-alt"></i></button> button and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
+      To start a process instance via Tasklist, click on <button class="btn btn-xs"><i class="glyphicon glyphicon-list-alt"></i> Start process</button> and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
     </p>
     <p>
       Depending on whether you have defined a <a href="ref:#task-forms">start form</a> for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a <a href="ref:#task-forms-generic-task-forms">generic</a> start form will be displayed and Tasklist will offer the option of adding variables to the process instance.
@@ -45,18 +45,35 @@ category: 'Tasklist'
   </div>
 </div>
 
+## Create a standalone task
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-start-task.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      Tasklist offers you the possibility of creating standalone tasks. To do so, click on <button class="btn btn-xs"><i class="glyphicon glyphicon-plus-sign"></i> Create Task</button>. In the screen that appears, you can define a name of the task, the assignee and you can add a description. Once you click on <code>Save</code>, the task is created.
+    </p>
+    <p>
+      Now the standalone task becomes visible in the filter results and can be handled. Variables can be added and the Task can be completed. Once the task has been completed, the data is flushed to the database and the task is no longer visible in Tasklist.
+    </p>
+  </div>
+</div>
+
+
 ## Filter Results
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-task-overview.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-filter-results.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
-      Here you can see an overview of all tasks for the selected <a href="ref:#tasklist-filters">filter</a>. By default the filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default it is sorted by the creation date). You can change the sorting of the tasks by clicking on the name of the sorting property. You can toggle between ascending and descending order by clicking on the arrow (<button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-up"></i></button>, respectively <button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-down"></i></button>).
+      Here you can see an overview of all tasks for the selected <a href="ref:#tasklist-filters">filter</a>. The filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default it is sorted by the creation date). You can change the sorting of the tasks by clicking on the name of the sorting property. You can toggle between ascending and descending order by clicking on the arrow (<button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-up"></i></button>, respectively <button class="btn btn-xs"><i class="glyphicon glyphicon-chevron-down"></i></button>).
     </p>
     <p>
-      You can sort by more than one property by adding more properties with the <a><span class="glyphicon glyphicon-plus-sign"></span></a> button. You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.</a> To remove a sort parameter you can click on the <a><span class="glyphicon glyphicon-minus-sign"></span></a>.
+      You can sort by more than one property by adding more properties with the <button class="btn btn-xs"><i class="glyphicon glyphicon-plus-sign"></i></button> button. You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.</a> To remove a sort parameter you can click on the <button class="btn btn-xs"><i class="glyphicon glyphicon-minus-sign"></i></button> button.
     </p>
     <p>
        To start working on the task, simply select the task.
@@ -68,7 +85,7 @@ category: 'Tasklist'
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-variable-filter.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-task-search.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>
@@ -109,13 +126,13 @@ In Tasklist you can add and view comments on specific tasks. After selecting a t
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-task-view.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/tasklist-task-view-tabs.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>In the lower section of the task view there are several tabs which can be selected to display both the task form itself and additional information related to this user task.
       <ul>
         <li><strong>Task form view</strong> - The <i>Form</i> tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.</li>
-        <li><strong>Task history</strong> - The <i>History</i> tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks.</li>
+        <li><strong>Task history</strong> - The <i>History</i> tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks. Comments are also displayed here.</li>
         <li><strong>Diagram view</strong> - The <i>Diagram</i> tab shows the diagram of the process definition. The current user task is highlighted in this diagram.</li>
         <li><strong>Task description</strong> - Open the <i>Description</i> tab to see the description of the user task. See <a href="ref:/api-references/bpmn20/#tasks-user-task-description">this section</a> for more information about description of tasks.</li>
       </ul>
