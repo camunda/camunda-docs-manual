@@ -7,7 +7,7 @@ category: 'Cockpit'
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the dashboard as shown in the following example:
 
-<center><img src="ref:asset:/assets/img/real-life/cockpit-plugins/cockpit-plugin.png" class="img-responsive"/></center>
+<center><img src="ref:asset:/assets/img/implementation-cockpit/cockpit-plugin.png" class="img-responsive"/></center>
 
 The nature of a cockpit plugin
 ------------------------------

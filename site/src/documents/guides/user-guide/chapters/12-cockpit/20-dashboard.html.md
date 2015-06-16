@@ -58,7 +58,7 @@ The dashboard of Cockpit is your entry point for process monitoring. It comes wi
       If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., <code>'93288'</code> or <code>'NULL'</code>).
     </p>
     <p>
-      You can always either search for process instances or for incidents. When you add a parameter for an incidents search, you can not add a second parameter which would search for a process instance and vice versa.
+      You can always either search for process instances or for incidents. When you add a parameter for an incident search, you can not add a second parameter which would search for a process instance and vice versa.
     </p>
   </div>
 </div>

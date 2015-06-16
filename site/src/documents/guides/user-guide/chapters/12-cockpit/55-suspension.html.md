@@ -5,7 +5,7 @@ category: 'Cockpit'
 
 ---
 
-In the Process Definition View and in the Process Instance View you have the option of suspending the selected process definition or the process instance that you are viewing by using the <button class="btn btn-xs dropdown-toggle"><img src="ref:asset:/assets/img/implementation-cockpit/suspended.png"/></button> button on the right hand side. 
+In the Process Definition View and in the Process Instance View you have the option of suspending the selected process definition or the process instance that you are viewing by using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-pause"></i> </button> button on the right hand side. 
 
 ## Process definition suspension
 
@@ -19,4 +19,4 @@ If you suspend the process instance, you can prevent the process instance from b
 
 ## Job definition suspension
 
-In the Process Definition View you have the option of suspending a job definition. This can be done by using the <button class="btn btn-xs dropdown-toggle"><img src="ref:asset:/assets\img\implementation-cockpit\suspended.png"/></button> button displayed in the Action column of the Job Definitions tab at the bottom of the screen. By doing this, you can prevent this job definition from being processed in all process instances of the selected process definition. You can simply re-activate the job definition by using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-play"></i> </button> button in the same Action column. You can find more information about the functionality of this in the <a href="ref:#process-engine-process-engine-concepts-suspending-and-activating-job-execution">Suspending and activating job execution</a> section of the Process Engine chapter.
+In the Process Definition View you have the option of suspending a job definition. This can be done by using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-pause"></i> </button> button displayed in the Action column of the Job Definitions tab at the bottom of the screen. By doing this, you can prevent this job definition from being processed in all process instances of the selected process definition. You can simply re-activate the job definition by using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-play"></i> </button> button in the same Action column. You can find more information about the functionality of this in the <a href="ref:#process-engine-process-engine-concepts-suspending-and-activating-job-execution">Suspending and activating job execution</a> section of the Process Engine chapter.

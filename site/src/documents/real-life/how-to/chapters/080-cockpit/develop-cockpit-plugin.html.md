@@ -40,7 +40,7 @@ As a first step we create a maven jar project that represents our plug-in librar
     <dependency>
       <groupId>org.camunda.bpm.webapp</groupId>
       <artifactId>camunda-webapp-core</artifactId>
-      <version>7.2.0</version>
+      <version>${camunda.version}</version>
     </dependency>
 
     <dependency>
@@ -91,7 +91,7 @@ Now let's go ahead and write a test case that makes sure the plug-in gets discov
   <dependency>
     <groupId>org.camunda.bpm</groupId>
     <artifactId>camunda-engine</artifactId>
-    <version>7.2.0</version>
+    <version>${camunda.version}</version>
     <scope>test</scope>
   </dependency>
   <dependency>
