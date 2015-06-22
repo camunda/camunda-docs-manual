@@ -5,9 +5,9 @@ category: 'Admin'
 
 ---
 
-Users who belong to the group camunda-admin (default set by the invoice receipt demo process application) have administrator privileges. There must be at least one member in this group, otherwise the [initial setup screen](ref:#admin-initial-user-setup) appears. Besides user- and groupmanagement, as administrator you are able to define authorization rules for users and groups to control access permissions for applications and [Filters](ref:#tasklist-filters), and set the visibility of users and groups.
+Users who belong to the group camunda-admin (default set by the invoice receipt demo process application) have administrator privileges. There must be at least one member in this group, otherwise the [initial setup screen](ref:#admin-initial-user-setup) appears. Besides user- and groupmanagement, as administrator you are able to define authorization rules for a variety of resources. See the chapter on [Authorizations](ref:#admin-administrator-account-authorizations) for more details.
 
-In the following sections you will learn how to use an administrator account with the help of simple use cases. First, you will create a group with two users who will be able to work together in Tasklist.
+In the following sections you will learn how to use an administrator account with the help of some simple use cases. First, you will create a group with two users who will be able to work together in Tasklist.
 
 ## Create users, groups and grant basic permissions
 
@@ -15,7 +15,7 @@ In the following sections you will learn how to use an administrator account wit
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-users.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-start-page-view.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>The Users menu allows you to add, edit and delete user profiles.</p>
@@ -110,7 +110,7 @@ Of the predefined resources at the moment this would be:
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin_proc_def_group_read_acces.png" />
+    <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin_proc_def_group_read_access.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
     <p>For all the resources that are accessible from Cockpit we add the read permission for the group for every resource id (indicated by the asterisk), e.g. in the screenshot for all process definitions.</p>
@@ -165,7 +165,7 @@ In this use case we want to give the "accounting" group the permission to start 
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin_tasklist_access_group.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>To start, we will grant the group access to Tasklist (see also <a href="#admin-administrator-account-application-specific-permission">Application specific permission</a>).</p>
+    <p>To start, we will grant the group access to Tasklist (also see <a href="#admin-administrator-account-application-specific-permissions">Application specific permission</a>).</p>
   </div>
 </div>
 
@@ -207,7 +207,7 @@ It is possible to restrict a group's/user's permissions to a single process inst
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin_cockpit_proc_inst_id.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>Now we have to get the process instance id from Cockpit. You can find the ids of all running processes after clicking on a process in either the <a href="#cockpit-dashboard-deployed-processes-list">list</a> or the <a href="#cockpit-dashboard-deployed-processes-icons">previews</a>.
+    <p>Now we have to get the process instance id from Cockpit. You can find the ids of all running processes after clicking on a process definition name or diagram preview on the <a href="ref:#cockpit-dashboard-deployed-processes">dashboard</a>.
   </div>
 </div>
 <div class="row">
