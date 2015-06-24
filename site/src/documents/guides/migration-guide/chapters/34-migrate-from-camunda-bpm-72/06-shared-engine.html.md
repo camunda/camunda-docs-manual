@@ -21,7 +21,7 @@ Prerequisites:
     </div>
     <div class="col-md-11">
       <p><strong>No Rolling Upgrades</strong></p>
-      <p>It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine.</p>
+      <p>It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine, as these may use features that were not available yet in 7.2.</p>
     </div>
   </div>
 </div>
