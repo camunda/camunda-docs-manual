@@ -48,7 +48,7 @@ In general, variables are accessible in the following cases:
 To set and retrieve variables, the process engine offers a Java API that allows setting of variables from Java objects and retrieving them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes, when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:
 
 * **Java Object Value API**: Variables are represented as Java objects. These objects can be directly set as values and retrieved in the same form. This is the more simple API and is the recommended way when implementing code as part of a process application.
-* **Typed Value API**: Variable values are wrapped in so-called *typed values* that are used to set and retrieve variables. A typed value offers access to meta data such as the way the engine has serialized the variable and, depending on the type, the serialized representation of the variable.
+* **Typed Value API**: Variable values are wrapped in so-called *typed values* that are used to set and retrieve variables. A typed value offers access to metadata such as the way the engine has serialized the variable and, depending on the type, the serialized representation of the variable.
 
 As an example, the following code retrieves and sets two integer variables using both APIs:
 
@@ -78,7 +78,7 @@ The process engine supports the following variable value types:
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-1.png" /></center>
 
-Depending on the actual value of a variable, a different type is assigned. Out of the available types, there are nine *primitive* value types, meaning that they correspond to standard JDK classes:
+Depending on the actual value of a variable, a different type is assigned. Out of the available types, there are nine *primitive* value types, meaning that they store values of simple standard JDK classes without additional metadata:
 
 * `boolean`: Instances of `java.lang.Boolean`
 * `bytes`: Instances of `byte[]`
@@ -89,11 +89,14 @@ Depending on the actual value of a variable, a different type is assigned. Out o
 * `date`: Instances of `java.util.Date`
 * `string`: Instances of `java.lang.String`
 * `null`: `null` references
-* `file`: Instances of `java.io.File`
 
-Furthermore, the value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
+Primitive values differ from other variable values in that they can be used in API queries such as process instance queries as filtering conditions.
 
-If you prefer to store your variables in XML or JSON format you can use the types `xml` or `json`. Both are special because the engine provides constants for them in the enumeration `SerializationDataFormats` but doesn't provide any serializers out of the box. You could either write your own `TypedValueSerializers` for those types and register them in your process engine configuration or you could use camunda Spin, which provides support for the two types (see [here](ref:#data-formats-xml-json-other)).
+The type `file` can be used to store the contents of a file or input stream along with metadata such as a file name, an encoding, and the mime type the file contents correspond to.
+
+The value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
+
+Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin](ref:#data-formats-xml-json-other). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
 
 ### Object Value Serialization
 
@@ -164,15 +167,37 @@ The following code sets a single `String` variable by specifying it as a typed v
 StringValue typedStringValue = Variables.stringValue("a string value");
 runtimeService.setVariable(execution.getId(), "stringVariable", typedStringValue);
 
-StringValue retrievedTypedStringValue = runtimeService.getVariableTyped(execution.getId(), "order");
+StringValue retrievedTypedStringValue = runtimeService.getVariableTyped(execution.getId(), "stringVariable");
 String stringValue = retrievedTypedStringValue.getValue(); // equals "a string value"
 ```
 
 Note that with this API, there is one more level of abstraction around the variable value. Thus, in order to access the true value, it is necessary to *unwrap* the actual value.
 
+### File Values
+
+Of course, for plain `String` values, the Java-Object-based API is more concise. Let us therefore consider values of richer data structures.
+
+Files can be persisted as BLOBs in the database. The `file` value type allows to store additional metadata such as a file name and a mime type along with it. The following example code creates a file value from a text file:
+
+```java
+FileValue typedFileValue = Variables
+  .fileValue("addresses.txt")
+  .file(new File("path/to/the/file.txt"))
+  .mimeType("text/plain")
+  .encoding("UTF-8")
+  .create();
+runtimeService.setVariable(execution.getId(), "fileVariable", typedFileValue);
+
+FileValue retrievedTypedFileValue = runtimeService.getVariableType(execution.getId(), "fileVariable");
+InputStream fileContent = retrievedTypedFileValue.getValue(); // a byte stream of the file contents
+String fileName = retrievedTypedFileValue.getFilename(); // equals "addresses.txt"
+String mimeType = retrievedTypedFileValue.getMimeType(); // equals "text/plain"
+String encoding = retrievedTypedFileValue.getEncoding(); // equals "UTF-8"
+```
+
 ### Object Values
 
-Of course, for plain `String` values, the Java-Object-based API is more concise. Let us therefore consider an example with a custom object value:
+Custom Java objects can be serialized with the value type `object`. Example using the typed value API:
 
 ```java
 com.example.Order order = new com.example.Order();
@@ -226,6 +251,10 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
   <p>When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of <code>com.example.Order</code>. Thus, an invalid variable value will only be detected when <code>runtimeService#getVariableTyped</code> is called.</p>
 </div>
 
+### JSON and XML Values
+
+The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents](ref:#data-formats-xml-json-other-json-native-json-variable-value) and [storing XML documents](ref:#data-formats-xml-json-other-xml-native-xml-variable-value) for details.
+
 ### Setting Multiple Typed Values
 
 Similar to the Java-Object-based API, it is also possible to set multiple typed values in one API call. The `Variables` class offers a fluent API to construct a map of typed values:
@@ -244,7 +273,7 @@ runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 
 Both APIs offer different views on the same entities and can therefore be combined as is desired. For example, a variable that is set using the Java-Object-based API can be retrieved as a typed value and vice versa. As the class `VariableMap` implements the `Map` interface, it is also possible to put plain Java objects as well as typed values into this map.
 
-Which API should you use? The one that fits your purpose best. When you are certain that you always have access to the involved value classes, such as when implementing code in a process application like a `JavaDelegate`, then the Java-Object-based API is easier to use. When you need to access value-specific meta data such as serialization formats, then the Typed-Value-based API is the way to go.
+Which API should you use? The one that fits your purpose best. When you are certain that you always have access to the involved value classes, such as when implementing code in a process application like a `JavaDelegate`, then the Java-Object-based API is easier to use. When you need to access value-specific metadata such as serialization formats, then the Typed-Value-based API is the way to go.
 
 ## Input/Output Variable Mapping
 
