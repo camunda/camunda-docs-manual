@@ -11,5 +11,5 @@ This installation guide also details how to configure the Cycle installation, in
 
 <div class="alert alert-warning">
   <p><strong>Note</strong></p>
-  <p>We do not recommend to install Camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. Such a combined installation is not supported.</p>
+  <p>We do not recommend to install Camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. A combined installation of designtime and runtime components on a single environment is not supported.</p>
 </div>
