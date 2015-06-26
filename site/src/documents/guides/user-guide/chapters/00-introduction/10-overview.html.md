@@ -33,4 +33,4 @@ Camunda BPM is built around the process engine component. The following illustra
 *Additional Tools*
 
 *   [Camunda Modeler](http://camunda.org/features/modeler.html): Eclipse plugin for process modeling.
-*   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): JavaScript framework for parsing, rendering and executing BPMN 2.0 from an XML source.
+*   [bpmn.io](http://bpmn.io/): BPMN web modeler which is used in our web applications Cockpit and Tasklist for rendering BPMN 2.0 process models in a browser. Although [bpmn.io](http://bpmn.io/) is still under development, its API is rather stable.
