@@ -26,7 +26,7 @@ Camunda BPM is built around the process engine component. The following illustra
 *   [REST API](ref:/api-references/rest/) The REST API allows you to use the process engine from a remote application or a JavaScript application. (Note: The documentation of the REST API is factored out into an own document.)
 *   [Camunda Tasklist](ref:#tasklist) A web application for human workflow management and user tasks that allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
 *   [Camunda Cockpit](ref:#cockpit) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
-*   [Camunda Admin](ref:#admin) A web application for user management that allows you to manage users, groups and authorizations.
+*   [Camunda Admin](ref:#admin) A web application that allows you to manage users, groups and authorizations.
 *   [Camunda Cycle](ref:#cycle) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
 
 
