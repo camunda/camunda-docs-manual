@@ -14,13 +14,18 @@ The `create` and `drop` scripts contain all necessary logic to create the requir
 The naming convention for creating a `create`/`drop` script is:
 
 ```
-activiti.${database_type}.create.${purpose}.sql
+activiti.${database_type}.${action}.${purpose}.sql
 ```
 
-where `${database_type}` is something like db2, h2, etc. The `${purpose}` describes the goal of the sql script when it is executed. 
-For example `engine` as purpose denotes the creation of the necessary runtime engine tables.
-All this applies for `drop` scripts too. The only exception is instead of`create`, `drop` is used.
-A complete naming example for a create script: `activiti.db2.create.engine.sql`, for a drop script: `activiti.mssql.drop.history.sql`.
+where `${database_type}` the database identifier like db2, h2, etc. With
+`${action}` is specified whether this script creates or drops the database
+scheme. The `${purpose}` describes the purpose which database scheme is
+managed by this script. For example `engine` as purpose denotes the creation
+of the necessary runtime engine tables.
+
+A complete naming example for a create script:
+`activiti.db2.create.engine.sql`, for a drop script:
+`activiti.mssql.drop.history.sql`.
 
 ### Testing
 The `create` and `drop` scripts are tested using the Engine [testsuite](https://github.com/camunda/camunda-bpm-platform/tree/master/engine/src/test/). The test suite is executed against all supported databases.
