@@ -94,10 +94,25 @@ POST `/task/anId/submit-form`
 
 Request body:
 
-    {"variables":
-        {"aVariable": {"value": "aStringValue"},
-        "anotherVariable": {"value": 42},
-        "aThirdVariable": {"value": true}}
+    {
+        "variables": {
+            "aVariable": {
+                "value": "aStringValue"
+            },
+            "anotherVariable": {
+                "value": 42
+            },
+            "aThirdVariable": {
+                "value": true
+            },
+            "aFileVariable": {
+                "value": "TG9yZW0gaXBzdW0=",
+                "type": "File",
+                "valueInfo": {
+                    "filename": "myFile.txt"
+                }
+            }
+        }
     }
 
 #### Response

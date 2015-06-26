@@ -7,7 +7,7 @@ keywords: 'post update set binary'
 
 ---
 
-Sets the serialized value for a binary variable.
+Sets the serialized value for a binary variable or the Base64 encoded value for a file variable.
 
 Method
 ------
@@ -16,7 +16,7 @@ POST `/case-instance/{id}/variables/{varId}/data`
 
 Parameters
 ----------
-  
+
 #### Path Parameters
 
 <table class="table table-striped">
@@ -36,7 +36,7 @@ Parameters
 
 #### Request Body
 
-A multipart form submit with the following parts:
+For binary variables a multipart form submit with the following parts:
 
 <table class="table table-striped">
   <tr>
@@ -67,13 +67,43 @@ A multipart form submit with the following parts:
   </tr>
 </table>
 
+For file variables a multipart form submit with the following parts:
+
+<table class="table table-striped">
+  <tr>
+    <th>Form Part Name</th>
+    <th>Content Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>filename</td>
+    <td>text/plain</td>
+    <td>The name of the file. This is <b>not</b> the variable name but the name that will be used when downloading the file again.</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>text/plain</td>
+    <td><b>Optional</b>: The binary data encoded as Base64 string to be set.</td>
+  </tr>
+  <tr>
+    <td>mimetype</td>
+    <td>text/plain</td>
+    <td><b>Optional</b>: The mime type of the file that is being uploaded.</td>
+  </tr>
+  <tr>
+    <td>mimetype</td>
+    <td>text/plain</td>
+    <td><b>Optional</b>: The encoding of the file that is being uploaded.</td>
+  </tr>
+</table>
+
 
 Result
 ------
 
 This method returns no content.
 
-  
+
 Response codes
 --------------  
 
@@ -91,11 +121,11 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
-  </tr>    
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
 </table>
 
-  
+
 Example
 -------
 
@@ -133,5 +163,37 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 8bit
 
 java.util.ArrayList<java.lang.Object>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
+```
+
+(3) Post a text file:
+
+POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
+
+```  
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="data"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+TG9yZW0gaXBzdW0=
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="filename"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+myFile.txt
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="mimetype"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+text/plain
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="encoding"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+UTF-8
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
