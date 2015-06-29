@@ -562,7 +562,12 @@ Exchanging the History Event Handler with a custom implementation allows users t
 * Provide a custom implementation of the [HistoryEventHandler](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html) interface.
 * Wire the custom implementation in the process engine configuration.
 
-Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you need to write a composite History Event Handler which dispatches events a collection of handlers.
+<div class="alert alert-info">
+  <p><strong>Composite History Handling</strong></p>
+  <p>Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class <code>org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler</code> that dispatches events to a collection of handlers.</p>
+</div>
+
+
 
 
 ## Implementing a custom History Level
