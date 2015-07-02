@@ -358,4 +358,3 @@ title: 'Latest Version'
     </p>
   </div>
 </div>
-
