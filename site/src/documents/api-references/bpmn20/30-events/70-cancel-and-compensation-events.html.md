@@ -87,6 +87,18 @@ Additionally, the optional argument `activityRef` can be used to trigger compens
 </intermediateThrowEvent>
 ```
 
+## Compensation End Event
+
+<div data-bpmn-symbol="endevent/compensate"></div>
+
+A compensation end event triggers compensation and the current path of execution is ended. It has the same behavior and limitations as a compensation intermediate throwing event.
+
+```xml
+<endEvent id="throwCompensation">
+  <compensateEventDefinition />
+</endEvent>
+```
+
 ## camunda Extensions
 
 <table class="table table-striped">
