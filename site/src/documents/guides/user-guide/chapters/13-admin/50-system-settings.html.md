@@ -5,7 +5,7 @@ category: 'Admin'
 
 ---
 
-At the top of the screen you can select the **System** tab. Here you can see a menu on the left side of the screen with several options. You can view the status of the process engine by clicking on the *General* menu point, you can access the *Flow Node Count* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*.
+At the top of the screen you can select the **System** tab. Here you can see a menu on the left side of the screen with several options. You can access the *Flow Node Count* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*.
 
 
 ### Flow Node Count
@@ -15,7 +15,7 @@ At the top of the screen you can select the **System** tab. Here you can see a m
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-flow-node-count.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>The Flow Node Count feature in Admin displays an approximate number of flow this that have been executed by the engine within a specified time range.</p>
+    <p>The Flow Node Count feature in Admin displays an approximate number of flow nodes that have been executed by the engine within a specified time range.</p>
   </div> 
 </div>
 
