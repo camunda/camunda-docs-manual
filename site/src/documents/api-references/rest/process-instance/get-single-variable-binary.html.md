@@ -1,19 +1,20 @@
 ---
 
-title: "Get Single Historic Detail (Binary)"
-category: 'History'
+title: 'Get Single Process Variable (Binary)'
+category: 'Process Instance'
 
 keywords: 'get'
 
 ---
 
-Retrieves the content of a single historic variable update by id. Applicable for byte array and file variables.
+
+Retrieves a binary variable of a given process instance. Applicable for byte array and file variables.
 
 
 Method
 ------
 
-GET `/history/detail/{id}/data`
+GET `/process-instance/{id}/variables/{varId}/data`
 
 
 Parameters
@@ -28,10 +29,13 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the historic variable update.</td>
+    <td>The id of the process instance to retrieve the variable from.</td>
+  </tr>
+  <tr>
+    <td>varId</td>
+    <td>The name of the variable to get.</td>
   </tr>
 </table>
-
 
 Result
 ------
@@ -56,21 +60,22 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Detail with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Detail with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
+
 
 Example
 -------
 
 #### Request
 
-GET `/history/detail/someId/data`
+GET `/process-instance/aProcessInstanceId/variables/aVarName/data`
 
 #### Response
 

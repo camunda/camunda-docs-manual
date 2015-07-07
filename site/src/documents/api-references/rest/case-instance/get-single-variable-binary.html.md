@@ -1,19 +1,20 @@
 ---
 
-title: "Get Single Historic Detail (Binary)"
-category: 'History'
+title: 'Get Single Case Instance Variable (Binary)'
+category: 'Case Instance'
 
 keywords: 'get'
 
 ---
 
-Retrieves the content of a single historic variable update by id. Applicable for byte array and file variables.
+
+Retrieves a binary variable of a given case instance. Applicable for byte array and file variables.
 
 
 Method
 ------
 
-GET `/history/detail/{id}/data`
+GET `/case-instance/{id}/variables/{varId}/data`
 
 
 Parameters
@@ -28,7 +29,11 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the historic variable update.</td>
+    <td>The id of the case instance to retrieve the variable from.</td>
+  </tr>
+  <tr>
+    <td>varId</td>
+    <td>The name of the variable to get.</td>
   </tr>
 </table>
 
@@ -39,8 +44,9 @@ Result
 For binary variables or files without any mime type information a byte stream is returned. File variables with mime type information are returned as the saved type.
 Additionally, for file variables the Content-Disposition header will be set.
 
+
 Response codes
---------------
+--------------  
 
 <table class="table table-striped">
   <tr>
@@ -56,12 +62,12 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Detail with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Detail with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -70,7 +76,7 @@ Example
 
 #### Request
 
-GET `/history/detail/someId/data`
+GET `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
 #### Response
 
