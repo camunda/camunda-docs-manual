@@ -6,9 +6,9 @@ category: 'Introduction'
 ---
 
 
-Welcome to the camunda BPM userguide! camunda BPM is a Java-based framework for process automation. This document provides information about the features provided by camunda BPM platform.
+Welcome to the Camunda BPM userguide! Camunda BPM is a Java-based framework for process automation. This document provides information about the features provided by Camunda BPM platform.
 
-camunda BPM is built around the process engine component. The following illustration shows the most important components of camunda BPM along with typical user roles.
+Camunda BPM is built around the process engine component. The following illustration shows the most important components of Camunda BPM along with typical user roles.
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/architecture-overview.png"/>
@@ -24,11 +24,11 @@ camunda BPM is built around the process engine component. The following illustra
 *Web Applications*
 
 *   [REST API](ref:/api-references/rest/) The REST Api allows using the process engine from a remote application or a Java Script application. (Note: The documentation of the REST Api is factored out into an own document.)
-*   [camunda Tasklist](ref:#tasklist) A web application for human workflow management and user tasks. The tasklist allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
-*   [camunda Cockpit](ref:#cockpit) A web application for process monitoring and operations. camunda Cockpit allows to search for process instanced, inspect their state and repair broken instances.
-*   [camunda Cycle](ref:#cycle) A webapplication for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
+*   [Camunda Tasklist](ref:#tasklist) A web application for human workflow management and user tasks. The Tasklist allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
+*   [Camunda Cockpit](ref:#cockpit) A web application for process monitoring and operations. Camunda Cockpit allows you to search for process instances, inspect their state and repair broken instances.
+*   [Camunda Cycle](ref:#cycle) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
 
 *Additional Tools*
 
-*   [camunda Modeler](http://camunda.org/features/modeler.html): eclipse plugin for process modeling.
+*   [Camunda Modeler](http://camunda.org/features/modeler.html): eclipse plugin for process modeling.
 *   [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js): javascript framework for parsing, rendering and executing BPMN 2.0 from XML source.
