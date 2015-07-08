@@ -7,10 +7,8 @@ category: 'Introduction'
 
 
 Welcome to the Camunda BPM user guide! Camunda BPM is a Java-based framework for process automation. This document contains information about the features provided by the Camunda BPM platform.
-Welcome to the Camunda BPM userguide! Camunda BPM is a Java-based framework for process automation. This document provides information about the features provided by Camunda BPM platform.
 
 Camunda BPM is built around the process engine component. The following illustration shows the most important components of Camunda BPM along with some typical user roles.
-Camunda BPM is built around the process engine component. The following illustration shows the most important components of Camunda BPM along with typical user roles.
 
 <center>
   <img class="img-responsive" src="ref:asset:/assets/img/architecture-overview.png"/>
@@ -25,7 +23,7 @@ Camunda BPM is built around the process engine component. The following illustra
 
 *Web Applications*
 
-*   [REST API](ref:/api-references/rest/) The REST Api allows using the process engine from a remote application or a Java Script application. (Note: The documentation of the REST Api is factored out into an own document.)
+*   [REST API](ref:/api-references/rest/) The REST API allows using the process engine from a remote application or a Java Script application. (Note: The documentation of the REST Api is factored out into an own document.)
 *   [Camunda Tasklist](ref:#tasklist) A web application for human workflow management and user tasks that allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
 *   [Camunda Cockpit](ref:#cockpit) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
 *   [Camunda Admin](ref:#admin) A web application for user management that allows you to manage users, groups and authorizations.
