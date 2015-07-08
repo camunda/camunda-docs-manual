@@ -10,7 +10,7 @@ These scripts apply the necessary fixes for the bug, nothing more. `Patch-level`
 They are released in a patch level version for a specific minor version.
 
 ### Development
-To create a patch level scripts follow these guidelines:
+To create a patch level script, follow these guidelines:
 
 1. Identify which database and Camunda BPM patch versions are affected.
 
@@ -21,8 +21,8 @@ If `master` is affected too, the patch for it will be done in the `create` and `
 
   2. Add the fix to the `create` and `drop` scripts of each affected database on each minor version branch, except `master` where it is already done through the `create` scripts.
 
-  3. Make sure you have added **all** patch scripts for **all** versions on master in the `upgrade`-folder. On **each** minor version branch, only patch scripts are add which **belong to the version of the minor branch and previously released minor versions**.
-Eg. on `master`, all patch scripts are available. On `7.2`, only patch scripts affecting `7.2` and lower minor versions are available, that means `7.1` and `7.0`. On `7.1`, only patch scripts regarding `7.1` and lower are available.
+  3. Make sure you have added **all** patch scripts for **all** versions on master in the `upgrade`-folder. On **each** minor version branch, only patch scripts are added which **belong to the version of the minor branch and previously released minor versions**.
+E.g., on `master`, all patch scripts are available. On `7.2`, only patch scripts affecting `7.2` and lower minor versions are available, i.e., `7.1` and `7.0`. On `7.1`, only patch scripts regarding `7.1` and lower are available.
 
 3. To get the testing right, some modifications must be done to the `patch-new-schema` section of the `sql-maven-plugin` and the `generate-test-resources` phase configuration of the `maven-antrun-plugin` in the [database upgrade] and [instance migration] tests.
 
@@ -37,13 +37,13 @@ of the `pom.xml`. If this is not the case you have to add it manually to the
 
 4. Document the new patch level scripts by adding them to the list of [available SQL Patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) in the migration guide.
 Describe for each patch script file: Affected Camunda BPM minor version, the full name of the patch file, a description what it fixes, the affected databases and a link to the concrete CAM issue in our issue tracker.
-If the **same** fix is in multiple patch scripts, eg. on different branches, then also **mention** those patch scripts. This is **important**, so the users know that they may have already applied the fix through another patch script from a previous minor version branch.
+If the **same** fix is in multiple patch scripts, e.g., on different branches, then also **mention** those patch scripts. This is **important**, so the users know that they may have already applied the fix through another patch script from a previous minor version branch.
 
 
 ###Complete example for creating a patch level script
 
 The context:
-* Camunda BPM minor version `7.1` and `7.2` are affected also the currently developed version `7.3` (i.e. the `master` branch)
+* Camunda BPM minor version `7.1` and `7.2` are affected. Also the currently developed version `7.3` (i.e., the `master` branch)
 
 Steps:
 1. Identify affected database and Camunda BPM minor versions:
@@ -79,7 +79,7 @@ upgrade
 ```
 
 3. The following lines need to be added to the `pom.xml` of [database upgrade] and [instance migration] tests. For each test project, add the lines to the `maven-antrun-plugin` and `sql-maven-plugin`.
-On `master` and `7.2` nothing is added, because the patches of the previous minor version are applied automatically. On `7.1`, the patch scripts for the 7.1 must be added to the `patch-new-schema` section.
+On `master` and `7.2` nothing is added, because the patches of the previous minor version are applied automatically. On `7.1`, the patch scripts for `7.1` must be added to the `patch-new-schema` section.
 This must be done because the `7.0` minor version doesn't apply the patch script as an old version like it is happening on `master` and `7.2`.
 For 7.1:
 ```
@@ -142,8 +142,8 @@ ${database_type}_${purpose}_${minor_version}_patch_${patch_version_with_bug}_to_
 
 where
 
-  * `${database_type}` describes the affected database, eg. db2, mysql and so on. The placeholder `${purpose}` denotes what is affected when you execute the script. Currently the only purpose is `engine`.
-  * `${minor version}` is the version of the current branch you are on, eg. it is `7.2` on `7.2` branch.
+  * `${database_type}` describes the affected database, e.g., `db2`, `mysql` and so on. The placeholder `${purpose}` denotes what is affected when you execute the script. Currently the only purpose is `engine`.
+  * `${minor version}` is the version of the current branch you are on, e.g., it is `7.2` on `7.2` branch.
   * `${patch_version_with_bug}` describes the patch level version affected by the bug and `${fix_patch_version}` describes the fix patch version.
 
 Example: `db2_engine_7.2_patch_7.2.4_to_7.2.5.sql` or `mssql_engine_7.1_patch_7.1.9_to_7.1.10.sql`
