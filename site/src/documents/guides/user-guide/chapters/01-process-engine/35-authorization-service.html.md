@@ -264,7 +264,7 @@ Another possible example would be to restrict the group of persons who are allow
 
 camunda BPM has no explicit concept of "administrator". An administrator in camunda BPM is a user who has been granted all authorizations on all resources.
 
-When downloading the camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](ref:#admin-initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service](ref:#process-engine-identity-service-the-database-identity-service) or a custom implementation providing READ / UPDATE access to the user repository).
+When downloading the camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [camunda Admin Web application](ref:#admin-user-management-initial-user-setup) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service](ref:#process-engine-identity-service-the-database-identity-service) or a custom implementation providing READ / UPDATE access to the user repository).
 
 This is not the case when using the [LDAP Identity Service](ref:#process-engine-identity-service-the-ldap-identity-service). The LDAP identity service only has read access to the user repository and the "Create Initial User" dialog will not be displayed.
 

@@ -84,7 +84,7 @@ Next, go to camunda Tasklist (<a href="http://localhost:8080/camunda/app/tasklis
       To allow the user <em>john</em> to see the process definition <em>Loan Approval</em> you have to go to camunda Admin (<a href="http://localhost:8080/camunda/app/admin/default/#/authorization?resource=6" target="_blank">http://localhost:8080/camunda/app/admin/default/#/authorization?resource=6</a>). Next, click on the button <button class="btn btn-default btn-xs">Create New</button> to add a new authorization on the resource <em>process definition</em>. Now you can give the user <em>john</em> all permissions on process definition <em>approve-loan</em>. When you are done, submit the new authorization.
     </p>
     <p>
-      For further details about authorizations and how to manage them please read the following sections in the user guide: <a href="ref:/guides/user-guide/#process-engine-authorization-service" target="_blank">Authorization Service</a> and <a href="ref:/guides/user-guide/#admin-administrator-account-authorizations" target="_blank">Authorizations</a>
+      For further details about authorizations and how to manage them please read the following sections in the user guide: <a href="ref:/guides/user-guide/#process-engine-authorization-service" target="_blank">Authorization Service</a> and <a href="ref:/guides/user-guide/#admin-authorization-management-authorizations" target="_blank">Authorizations</a>
     </p>
   </div>
 </div>

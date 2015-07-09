@@ -12,7 +12,7 @@ category: 'Admin'
     <img data-img-thumb src="ref:asset:/assets/img/implementation-admin/admin-start-page-view.png" />
   </div>
   <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>The Users menu allows you to add, edit and delete user profiles. Furthermore, you can manage group membership and change passwords.
+    <p>The Users menu allows you to add, edit and delete user profiles. Furthermore, you can manage group membership and change passwords.</p>
       </div>
 </div>
 
@@ -41,4 +41,4 @@ You can also access the My Profile menu from any of the web applications by clic
 
 ## Administrator Account
 
-Users who belong to the group _camunda-admin_ (default set by the invoice receipt demo process application) have administrator privileges. There must be at least one member in this group, otherwise the [initial setup screen](ref:#admin-initial-user-setup) appears. Besides user- and groupmanagement, as administrator you are able to define authorization rules for a variety of resources. See the chapter on [Authorizations](ref:#admin-authorization-management) for more details.
+Users who belong to the group _camunda-admin_ (default set by the invoice receipt demo process application) have administrator privileges. There must be at least one member in this group, otherwise the [initial setup screen](ref:#admin-user-management-initial-user-setup) appears. Besides user- and groupmanagement, as administrator you are able to define authorization rules for a variety of resources. See the chapter on [Authorizations](ref:#admin-authorization-management) for more details.
