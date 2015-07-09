@@ -19,8 +19,8 @@ The upgrade script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statement
 If these authorizations are not desired and you want to restrict access to the listed resources, you have the following options:
 
 * Before executing the upgrade script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
-* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-administrator-account-authorizations) to delete the created authorizations.
-* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-administrator-account-authorizations) to add authorizations that restrict access.
+* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-authorization-management-authorizations) to delete the created authorizations.
+* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-authorization-management-authorizations) to add authorizations that restrict access.
 
 <div class="alert alert-warning">
   <strong>Note:</strong> If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.

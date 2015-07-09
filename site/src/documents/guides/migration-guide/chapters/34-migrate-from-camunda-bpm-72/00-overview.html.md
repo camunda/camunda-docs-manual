@@ -16,4 +16,4 @@ The following guide covers these use cases:
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.3. The following concepts were introduced with Camunda BPM 7.3 and are relevant for migration:
 
-* **Authorization:** With [Authorization](ref:/guides/user-guide/#admin-administrator-account-authorizations) being used for restricting access to applications and identity-related data in Camunda BPM 7.2, 7.3 extends authorization checks to execution-related concepts like process instances and tasks.
+* **Authorization:** With [Authorization](ref:/guides/user-guide/#admin-authorization-management-authorizations) being used for restricting access to applications and identity-related data in Camunda BPM 7.2, 7.3 extends authorization checks to execution-related concepts like process instances and tasks.
