@@ -127,7 +127,8 @@ In this example, parallel instances will be created for each element of the assi
   <tr>
     <th>Constraints</th>
     <td>
-      &ndash;
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
     </td>
   </tr>
 </table>
