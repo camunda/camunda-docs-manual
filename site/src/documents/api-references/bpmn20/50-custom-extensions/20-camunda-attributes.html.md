@@ -84,7 +84,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
 
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
-      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>
+      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
+      
+      <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>
@@ -136,7 +138,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
-      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>
+      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
+      
+      <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>
@@ -674,7 +678,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
-      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>
+      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
+      
+      <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
 </table>

@@ -95,6 +95,21 @@ when the execution listener class is not available on the node that instantiates
 <startEvent id="theStart" name="Invoice Received" camunda:asyncBefore="true" />
 ```
 
+### Asynchronous Continuations of Multi-Instance Activities
+
+A [multi-instance activity](ref:/api-references/bpmn20/#tasks-task-markers-multiple-instance) can be configured for asynchronous continuation like other activities. Declaring asynchronous continuation of a multi-instance activity makes the multi-instance body asynchronously, that means, the process continues asynchronously *before* the instances of that activity are created or *after* all instances are ended.
+
+Additionally, the inner activity can also be configured for asynchronous continuation using the `camunda:asyncBefore` and `camunda:asyncAfter` extension attribute on the `multiInstanceLoopCharacteristics` element:
+
+```xml
+<serviceTask id="service1" name="Generate Invoice" camunda:class="my.custom.Delegate">
+	<multiInstanceLoopCharacteristics isSequential="false" camunda:asyncBefore="true">
+ 		<loopCardinality>5</loopCardinality>
+	</multiInstanceLoopCharacteristics>		
+</serviceTask>
+```
+
+Declaring asynchronous continuation of the inner activity makes each instance of the multi-instance activity asynchronously. In the above example, all instances of the parallel multi-instance activity will be created but their execution will be deferred. This can be useful to take more control over the transaction boundaries of the multi-instance activity or enable true parallelism in case of a parallel multi-instance activity.
 
 ### Understanding Asynchronous Continuations
 
