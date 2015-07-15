@@ -11,7 +11,7 @@ There is both a community and an enterprise edition of camunda BPM. Among these,
 1. __Major Release__: The Major release contains features and bugfixes. It is fully tested and meant to be used for production systems. The Major release may contain incompatible API changes. The release is done in parallel for the community edition and for the enterprise edition.
 2. __Minor Release__: The Minor release contains features and bugfixes. It is fully tested and meant to be used for production systems. In Minor releases we add functionality in a backwards compatible manner. The release is done in parallel for the community edition and for the enterprise edition.
 3. __Development Release__: On the community branch and on the enterprise branch we release _ALPHA_ versions in short iteration cycles. Development releases contain the latest features and bug fixes. The Development release is not fully tested and is a snapshot of the current development state.
-4. __Maintenance Release__: On the enterprise branch we perform Maintenance releases in which we backport the latest bug fixes. Maintenance releases do not contain new features and are meant to be used for production systems. Maintenance releases are fully tested and are only available to enterprise customers.
+4. __Patch Release__: On the enterprise branch we perform patch releases in which we backport the latest bug fixes. Patch releases do not contain new features and are meant to be used for production systems. Patch releases are fully tested and are only available to enterprise customers.
 
 The following drawing illustrates the different release types for the community edition and the enterprise edition.
 
