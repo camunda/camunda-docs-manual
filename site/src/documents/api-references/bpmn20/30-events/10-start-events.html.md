@@ -21,9 +21,12 @@ The engine supports the following types of start events:<br>
 <p>
 	<div data-bpmn-symbol="startevent/message"><a href="ref:#events-message-events">Message</a></div>
 </p>
+<p>
+	<div data-bpmn-symbol="startevent/signal"><a href="ref:#events-signal-events">Signal</a></div>
+</p>
 
 
-There can a maximum of one blank or timer start event per process definition. There can be multiple message start events.
+There can a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
 
 Although start events are not mandatory according to the BPMN 2.0 specification, the engine requires at least one start event to instantiate a process.
 

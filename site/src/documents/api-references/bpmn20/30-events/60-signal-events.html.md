@@ -61,7 +61,6 @@ The difference between `signalEventReceived(String signalName)` and `signalEvent
 
 Note: The signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to exclusively deliver a signal to a specific process instance, do not use the throwing signal event but perform correlation manually and use `signalEventReceived(String signalName, String executionId)` using the appropriate query mechanisms.
 
-
 ## Querying for Signal Event subscriptions
 
 It is possible to query for all executions which have subscribed to a specific signal event:
@@ -74,18 +73,46 @@ List<Execution> executions = runtimeService.createExecutionQuery()
 
 We could then use the signalEventReceived(String signalName, String executionId) method to deliver the signal to these executions.
 
-
 ## Catching Signal Events
 
-A signal event can be caught by an intermediate catch signal event or a signal boundary event.
+### Signal Start Event
+
+<p>
+<div data-bpmn-symbol="startevent/signal" />
+</p>
+
+A signal start event can be used to start a process instance using a named signal. 
+
+When deploying a process definition with one or more signal start events, the following considerations apply:
+
+* The name of the signal start event must be unique across a given process definition, i.e. a process definition must not have multiple signal start events with the same name. The engine throws an exception upon deployment of a process definition in case two or more signal start events reference the same signal or if two or more signal start events reference signals with the same signal name.
+* Contrary to message start events, the name of the signal start event does not have to be unique across all deployed process definitions. 
+* Process versioning: Upon deployment of a new version of a process definition, the signal subscriptions of the previous version are canceled. This is also the case for signal events that are not present in the new version.
+
+A process instance of a process definition with one or more signal start events will be started, when thrown a signal with a proper name. The signal can either be thrown by a process instance (i.e. on intermediate throwing signal event or signal end event) or using the following methods on the RuntimeService:
+
+```java
+void signalEventReceived(String signalName);
+void signalEventReceived(String signalName, Map<String, Object> processVariables);
+```
+
+Note: A thrown signal can start multiple process instances when multiple process definitions have a signal start event with the same signal name.
+
+The XML representation of a signal start event is the normal start event declaration with a signalEventDefinition child-element:
+
+```xml
+<startEvent id="signalStart" >
+  <signalEventDefinition signalRef="alertSignal" />
+</startEvent>
+```
+
+### Signal Intermediate Catching Event
 
 <p>
 <div data-bpmn-symbol="intermediatecatchevent/signal" />
 </p>
 
-Note: Contrary to other events, such as the boundary error event, a boundary signal event does not only catch signal events thrown from the scope it is attached to. A signal event has a global scope (broadcast semantics), meaning that the signal can be thrown from any place, even from a different process instance.
-
-This is straightforward in the XML:
+When a token arrives at the signal intermediate catching event, it will wait there until a signal with the proper name arrives.
 
 ```xml
 <intermediateCatchEvent id="signal">
@@ -93,15 +120,7 @@ This is straightforward in the XML:
 </intermediateCatchEvent>
 ```
 
-or, alternatively:
-
-```xml
-<boundaryEvent id="boundary" attachedToRef="task" cancelActivity="true">
-  <signalEventDefinition signalRef="alertSignal"/>
-</boundaryEvent>
-```
-
-### camunda Extensions for Catching Signal Events
+### camunda Extensions for Signal Intermediate Catching Event
 
 <table class="table table-striped">
   <tr>
@@ -121,8 +140,21 @@ or, alternatively:
   </tr>
 </table>
 
+### Signal Boundary Event
 
-## Signal Intermediate Throwing Event
+When an execution arrives in the activity to which the signal boundary event is attached, the signal boundary event catches signals with the proper name. 
+
+Note: Contrary to other events, such as the error boundary event, a signal boundary event does not only catch signal events thrown from the scope it is attached to. A signal event has a global scope (broadcast semantics), meaning that the signal can be thrown from any place, even from a different process instance.
+
+```xml
+<boundaryEvent id="boundary" attachedToRef="task" cancelActivity="true">
+  <signalEventDefinition signalRef="alertSignal"/>
+</boundaryEvent>
+```
+
+## Throwing Signal Events
+
+### Signal Intermediate Throwing Event
 
 An intermediate throwing signal event throws a signal event for a defined signal.
 
@@ -172,7 +204,7 @@ An asynchronous signal event would look like this:
 </table>
 
 
-## Signal End Event
+### Signal End Event
 
 <div data-bpmn-symbol="endevent/signal"></div>
 
