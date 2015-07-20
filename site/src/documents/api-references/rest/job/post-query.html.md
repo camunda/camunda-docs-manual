@@ -118,6 +118,14 @@ A JSON object with the following properties:
     <td>Only include suspended jobs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>priorityLowerThanOrEquals</td>
+    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid integer.</td>
+  </tr>
+  <tr>
+    <td>priorityHigherThanOrEquals</td>
+    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid integer.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
       <p>
@@ -126,7 +134,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, and <code>jobDueDate</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -230,7 +238,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 POST <code>/job</code>
 
 Request body:

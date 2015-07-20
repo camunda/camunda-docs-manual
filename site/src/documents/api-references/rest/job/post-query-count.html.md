@@ -101,15 +101,12 @@ A JSON object with the following properties:
     <td>Only include suspended jobs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobRetries</code> and <code>jobDueDate</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+    <td>priorityLowerThanOrEquals</td>
+    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid integer.</td>
   </tr>
   <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>priorityHigherThanOrEquals</td>
+    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid integer.</td>
   </tr>
 </table>
 
@@ -160,7 +157,6 @@ Example
 
 #### Request
 
-<!-- TODO: Insert a 'real' example -->
 POST <code>/job/count</code>
 
 Request body:
