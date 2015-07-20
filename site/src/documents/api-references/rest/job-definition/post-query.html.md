@@ -79,6 +79,10 @@ A JSON object with the following properties:
     <td>Only include suspended job definitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withOverridingJobPriority</td>
+    <td>Only include job definitions that have an overriding job priority defined. The only effective value is <code>true</code>. If set to <code>false</code>, this filter is not applied.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
       <p>

@@ -18,8 +18,8 @@ POST <code>/job-definition/count</code>
 
 
 Parameters
-----------  
-  
+----------
+
 #### Request Body
 
 A JSON object with the following properties:
@@ -62,11 +62,15 @@ A JSON object with the following properties:
     <td>Only include suspended job definitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withOverridingJobPriority</td>
+    <td>Only include job definitions that have an overriding job priority defined. The only effective value is <code>true</code>. If set to <code>false</code>, this filter is not applied.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
@@ -95,7 +99,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -127,12 +131,12 @@ POST <code>/job-definition/count</code>
 Request body:
 
     {
-      "activityIdIn": 
+      "activityIdIn":
         [
           ServiceTask1, ServiceTask2
         ]
     }
-  
+
 #### Response
 
     {"count": 2}
