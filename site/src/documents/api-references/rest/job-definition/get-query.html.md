@@ -121,9 +121,9 @@ Each job definition object has the following properties:
     <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
-    <td>jobPriority</td>
+    <td>overridingJobPriority</td>
     <td>Number</td>
-    <td>The execution priority defined for jobs that are created based on this definition. May be <code>null</code> when the priority has not been overriden on the job definition level.</td>
+    <td>The execution priority defined for jobs that are created based on this definition. May be <code>null</code> when the priority has not been overridden on the job definition level.</td>
   </tr>
   <tr>
     <td>suspended</td>
@@ -174,7 +174,7 @@ GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
         "suspended": false,
-        "jobPriority": 15
+        "overridingJobPriority": 15
       },
       {
         "id": "aJobDefId",
@@ -184,6 +184,6 @@ GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
         "suspended": true,
-        "jobPriority": null
+        "overridingJobPriority": null
       }
     ]
