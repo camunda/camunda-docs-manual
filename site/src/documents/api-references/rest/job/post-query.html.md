@@ -195,6 +195,11 @@ Each job object has the following properties:
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
   </tr>
+  <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The job's priority for execution.</td>
+  </tr>
 </table>
 
 
@@ -265,7 +270,9 @@ Request body:
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anExecutionId",
         "retries": 0,
-        "exceptionMessage": "An exception Message"
+        "exceptionMessage": "An exception Message",
+        "suspended": false,
+        "priority": 10
       },
       {
         "id": "anotherJobId",
@@ -273,6 +280,8 @@ Request body:
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anotherExecutionId",
         "retries": 0,
-        "exceptionMessage": "Another exception Message"
+        "exceptionMessage": "Another exception Message",
+        "suspended": true,
+        "priority": 8
       }
     ]

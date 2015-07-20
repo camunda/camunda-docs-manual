@@ -18,7 +18,7 @@ GET `/job-definition/{id}`
 
 
 Parameters
----------- 
+----------
 
 #### Path Parameters
 
@@ -65,7 +65,7 @@ Its properties are as follows:
     <td>activityId</td>
     <td>String</td>
     <td>The id of the activity this job definition is associated with.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>jobType</td>
     <td>String</td>
@@ -77,6 +77,11 @@ Its properties are as follows:
     <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
+    <td>jobPriority</td>
+    <td>Number</td>
+    <td>The execution priority defined for jobs that are created based on this definition. May be <code>null</code> when the priority has not been overriden on the job definition level.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>Indicates whether this job definition is suspended or not.</td>
@@ -85,7 +90,7 @@ Its properties are as follows:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -123,5 +128,6 @@ GET `/job-definition/aJobDefinitionId`
         "activityId": "ServiceTask1",
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
-        "suspended": false
+        "suspended": false,
+        "jobPriority": 15
       }

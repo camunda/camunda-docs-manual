@@ -8,7 +8,7 @@ keywords: 'get query list'
 ---
 
 
-Query for job definitions that fulfill given parameters. 
+Query for job definitions that fulfill given parameters.
 The size of the result set can be retrieved by using the [get job definitions count](ref:#job-definition-get-job-definitions-count) method.
 
 
@@ -19,8 +19,8 @@ GET <code>/job-definition</code>
 
 
 Parameters
-----------  
-  
+----------
+
 #### Query Parameters
 
 <table class="table table-striped">
@@ -65,7 +65,7 @@ Parameters
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortOrder</td>
     <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
@@ -105,7 +105,7 @@ Each job definition object has the following properties:
     <td>activityId</td>
     <td>String</td>
     <td>The id of the activity this job definition is associated with.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>jobType</td>
     <td>String</td>
@@ -117,6 +117,11 @@ Each job definition object has the following properties:
     <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
+    <td>jobPriority</td>
+    <td>Number</td>
+    <td>The execution priority defined for jobs that are created based on this definition. May be <code>null</code> when the priority has not been overriden on the job definition level.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>Indicates whether this job definition is suspended or not.</td>
@@ -125,7 +130,7 @@ Each job definition object has the following properties:
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>
@@ -153,7 +158,7 @@ Example
 
 <!-- TODO: Insert a 'real' example -->
 GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
-  
+
 #### Response
 
     [
@@ -164,7 +169,8 @@ GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
         "activityId": "ServiceTask1",
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
-        "suspended": false
+        "suspended": false,
+        "jobPriority": 15
       },
       {
         "id": "aJobDefId",
@@ -173,6 +179,7 @@ GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
         "activityId": "ServiceTask2",
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
-        "suspended": true
+        "suspended": true,
+        "jobPriority": null
       }
     ]

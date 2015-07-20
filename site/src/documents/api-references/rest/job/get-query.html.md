@@ -178,6 +178,11 @@ Each job object has the following properties:
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
   </tr>
+  <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The job's priority for execution.</td>
+  </tr>
 </table>
 
 
@@ -220,7 +225,9 @@ GET <code>/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anExecutionId",
         "retries": 0,
-        "exceptionMessage": "An exception Message"
+        "exceptionMessage": "An exception Message",
+        "suspended": false,
+        "priority": 10
       },
       {
         "id": "anotherJobId",
@@ -228,6 +235,8 @@ GET <code>/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anotherExecutionId",
         "retries": 0,
-        "exceptionMessage": "Another exception Message"
+        "exceptionMessage": "Another exception Message",
+        "suspended": true,
+        "priority": 8
       }
     ]

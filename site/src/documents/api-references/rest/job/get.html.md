@@ -75,7 +75,7 @@ Its properties are as follows:
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>The key of the process definition which this job belongs to.</td>
-  </tr>    
+  </tr>
   <tr>
     <td>retries</td>
     <td>Number</td>
@@ -85,12 +85,17 @@ Its properties are as follows:
     <td>exceptionMessage</td>
     <td>String</td>
     <td>The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the job is suspended or not.</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The job's priority for execution.</td>
+  </tr>
 </table>
 
 
@@ -130,5 +135,7 @@ GET <code>/job/aJobId</code>
       "processInstanceId": "aProcessInstanceId",
       "executionId": "anExecutionId",
       "retries": 0,
-      "exceptionMessage": "An exception Message"
+      "exceptionMessage": "An exception Message",
+      "suspended": false,
+      "priority": 10
     }
