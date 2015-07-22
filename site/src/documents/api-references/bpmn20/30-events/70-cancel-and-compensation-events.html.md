@@ -48,8 +48,9 @@ An intermediate throwing compensation event can be used to trigger compensation.
 Triggering compensation: Compensation can either be triggered for a designated activity or for the scope that hosts the compensation event. Compensation is performed through execution of the compensation handler associated with an activity.
 
 *   When compensation is thrown for an activity, the associated compensation handler is executed the same amount of times the activity completed successfully.
-*   If compensation is thrown for the current scope, all activities withing the current scope are compensated, which includes activities on concurrent branches.
+*   If compensation is thrown for the current scope, all activities within the current scope are compensated, which includes activities on concurrent branches.
 *   Compensation is triggered hierarchically: if an activity to be compensated is a subprocess, compensation is triggered for all activities contained within the subprocess. If the subprocess has nested activities, compensation is thrown recursively. However, compensation is not propagated to the "upper levels" of the process: if compensation is triggered within a subprocess, it is not propagated to activities outside of the subprocess scope. The BPMN specification states that compensation is triggered for activities at "the same level of subprocess".
+*   Compensation is consumed by compensation event subprocess: if an activity to be compensated is a subprocess and the subprocess contains an event subprocess triggered by a compensation start event, compensation triggers the event subprocess instead of trigger the activities contained within the subprocess.
 *   Compensation is performed in reverse order of execution. This means that whichever activity completed last is compensated first, etc.
 *   The intermediate throwing compensation event can be used to compensate transaction subprocesses which completed successfully.
 
@@ -122,7 +123,7 @@ A compensation end event triggers compensation and the current path of execution
 
 ## Compensation Boundary Event
 
-An attached intermediate catching compensation on the boundary of an activity, or, for short, a compensation boundary event, can be used to attach a compensation handler to an activity.
+An attached intermediate catching compensation on the boundary of an activity, or, for short, a compensation boundary event, can be used to attach a compensation handler to an activity or an embedded subprocess.
 
 <div data-bpmn-symbol="intermediatecatchevent/compensate"></div>
 
@@ -134,8 +135,6 @@ A compensation boundary event has a different activation policy than other bound
 *   If a compensation boundary event is attached to an activity with multiple instance characteristics, a compensation event subscription is created for each instance.
 *   If a compensation boundary event is attached to an activity which is contained inside a loop, a compensation event subscription is created for each time the activity is executed.
 *   If the process instance ends, the subscriptions to compensation events are canceled.
-
-Note: The compensation boundary event is not supported on embedded subprocesses.
 
 A compensation boundary event is defined as a typical boundary event:
 
@@ -150,6 +149,37 @@ A compensation boundary event is defined as a typical boundary event:
 ```
 
 As the compensation boundary event is activated after the activity has completed successfully, the cancelActivity attribute is not supported.
+
+## Compensation Start Event
+
+<div data-bpmn-symbol="startevent/compensate"></div>
+
+A compensation start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. This kind of event subprocess called compensation event subprocess.
+
+When deploying a process definition with a compensation event subprocess, the following considerations apply:
+
+* The compensation event subprocess is only supported for embedded subprocess and not at process-level, caused by the current limitation that compensation is not propagated to sub process instances spawned by call activities.
+* There can be only one compensation event subprocess at the same embedded subprocess. 
+* A subprocess with a compensation event subprocess and an attached compensation boundary event is not supported. When compensation is thrown, the compensation event subprocess will be ignored. Note that the compensation event subprocess and the compensation boundary event has a similar behavior, so only one of them should be chosen.
+
+A compensation event subprocess can be used as a compensation handler for the embedded subprocess. Similar to a compensation boundary event attached to a subprocess, a compensation event subprocess will only be invoked by a thrown compensation event, if the subprocess completed successfully. In this case, the compensation event subprocess will be invoked the same amount of times that the subprocess completed successfully.
+
+Contrary to a compensation boundary event attached to a subprocess, a compensation event subprocess consume a thrown compensation event. When compensation is thrown for the subprocess or the current scope, the compensation event subprocess is invoked. Other activities within the subprocess are not compensated. The compensation event subprocess can recursively trigger compensation for activities contained in its parent.
+
+<div data-bpmn-diagram="implement/event-compensation-event-subprocess"></div>
+
+The above process contains an embedded subprocess with a compensation event subprocess, triggered by a compensation start event. Note that this compensation handler deviates from default compensation in that it triggers compensation activities in an specific order independent from the order of execution; it also contains an additional activity adding process logic that cannot be derived from the body of the subprocess itself.
+
+The XML representation of a compensation start event is the normal start event declaration with a compensateEventDefinition child-element:
+
+```xml
+<subProcess id="compensationEventSubprocess" triggeredByEvent="true">
+  <startEvent id="compensationStart" >
+    <compensateEventDefinition />
+  </startEvent>
+  <!-- ... -->
+</subProcess>
+```
 
 
 ## Additional Resources

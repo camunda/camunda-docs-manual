@@ -28,7 +28,7 @@ It is represented using XML in the same way as an embedded subprocess. Additiona
 
 <div class="alert alert-info">
   <ul>
-    <li>Event subprocesses triggered using an Error Start Event, Signal Start Event, Timer Start Event and Message Start Event are supported.</li>
+    <li>Event subprocesses triggered using an Error Start Event, Signal Start Event, Compensation Start Event, Timer Start Event and Message Start Event are supported.</li>
   </ul>
 </div>
 
