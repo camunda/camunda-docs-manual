@@ -85,6 +85,7 @@ In the example above, the result of the service execution (the return value of t
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundatype">camunda:type</a>
     </td>

@@ -105,7 +105,12 @@ A compensation end event triggers compensation and the current path of execution
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
-    <td>&ndash;</td>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+    </td>
   </tr>
   <tr>
     <th>Extension Elements</th>

@@ -94,13 +94,18 @@ When process execution arrives at an error end event, the current path of execut
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
-    <td>&ndash;</td>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaerrorcodevariable">camunda:errorCodeVariable</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+    </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
-        camunda:inputOutput</a>, <a href="ref:#custom-extensions-camunda-extension-attributes-camundaerrorcodevariable">camunda:errorCodeVariable</a>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

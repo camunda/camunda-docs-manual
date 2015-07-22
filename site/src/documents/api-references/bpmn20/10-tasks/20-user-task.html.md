@@ -249,6 +249,7 @@ make sure the form keys are initialized.
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformhandlerclass">camunda:formHandlerClass</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:formKey</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundapriority">camunda:priority</a>
     </td>
   </tr>

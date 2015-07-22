@@ -8,9 +8,7 @@ keywords: 'put'
 ---
 
 
-Sets the default execution priority for jobs of that definition. Optionally, the priorities of all the definition's existing jobs are updated accordingly. The priority can be reset by setting it to <code>null</code>, meaning that a new job's priority will not be determined based on its definition's priority any longer.
-
-<!-- TODO: refer to user guide on job priorities here -->
+Sets an overriding execution priority for jobs of that definition. Optionally, the priorities of all the definition's existing jobs are updated accordingly. The priority can be reset by setting it to <code>null</code>, meaning that a new job's priority will not be determined based on its definition's priority any longer. See the [user guide on job prioritization](ref:/guides/user-guide/#job-definition-priorities-via-managementservice-api) for details.
 
 Method
 ------

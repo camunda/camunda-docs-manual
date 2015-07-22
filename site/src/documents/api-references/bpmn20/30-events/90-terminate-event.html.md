@@ -8,7 +8,7 @@ keywords: 'terminate end event definition'
 ---
 
 
-A terminate event ends the complete scope where the event is raised and all inner scopes. 
+A terminate event ends the complete scope where the event is raised and all inner scopes.
 
 It is useful if you had a parallel split in your process before and you want to consume all tokens that are currently available immediately.
 
@@ -30,6 +30,31 @@ A terminate event is modeled as a end event with an additional definition elemen
   <!-- ... -->
 </process>
 ```
+
+## camunda Extensions
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 
 ## Additional Resources

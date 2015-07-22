@@ -53,6 +53,14 @@ usage of EL.
     </td>
     <td>Expression language as the value of an attribute or element</td>
   </tr>
+  <tr>
+    <td>
+      <a href="ref:#priorities-from-bpmn-xml">
+        All Flow Nodes, Process Definition
+      </a>
+    </td>
+    <td>Expression language to determine the priority of a job</td>
+  </tr>
 </table>
 
 

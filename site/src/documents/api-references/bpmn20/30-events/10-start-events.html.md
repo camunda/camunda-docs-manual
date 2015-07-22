@@ -52,7 +52,8 @@ This will ensure that the process engine creates a process instance when the pro
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformhandlerclass">camunda:formHandlerClass</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:formKey</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundainitiator">camunda:initiator</a>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundainitiator">camunda:initiator</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>

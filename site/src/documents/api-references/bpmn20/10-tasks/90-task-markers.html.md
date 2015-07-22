@@ -117,7 +117,8 @@ In this example, parallel instances will be created for each element of the assi
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaelementvariable">camunda:elementVariable</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
       <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>

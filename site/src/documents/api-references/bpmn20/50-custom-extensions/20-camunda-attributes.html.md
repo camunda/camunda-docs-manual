@@ -85,7 +85,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
       <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
-      
+
       <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
@@ -139,7 +139,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
       <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
-      
+
       <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
@@ -679,7 +679,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="ref:#gateways-event-based-gateway">Event Based Gateway</a>,
       <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
       <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
-      
+
       <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
@@ -813,6 +813,61 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="ref:#events-start-events">Start Event</a> of a Process
+    </td>
+  </tr>
+</table>
+
+### camunda:jobPriority
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      Specifies the priority a job receives that is created in the context of executing the given process element (e.g. a timer event, or in the case of [asyncBefore](ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore) and [asyncAfter](ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter)). See the user guide on [Job Prioritization](ref:/guides/user-guide/#process-engine-the-job-executor-job-prioritization) for details.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      An expression must resolve to an integer.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>none</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#events-start-events">Start Events</a>,
+      <a href="ref:#events">End Events</a>,
+      <a href="ref:#events">Intermediate Throw Events</a>,
+      <a href="ref:#events">Intermediate Catch Events</a>,
+
+      Task,
+      <a href="ref:#tasks-service-task">Service Task</a>,
+      <a href="ref:#tasks-send-task">Send Task</a>,
+      <a href="ref:#tasks-user-task">User Task</a>,
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>,
+      <a href="ref:#tasks-script-task">Script Task</a>,
+      <a href="ref:#tasks-receive-task">Receive Task</a>,
+      <a href="ref:#tasks-manual-task">Manual Task</a>,
+
+      <a href="ref:#subprocesses-embedded-subprocess">Embedded Subprocess</a>,
+      <a href="ref:#subprocesses-call-activity">Call Activity</a>,
+      <a href="ref:#subprocesses-transaction-subprocess">Transaction Subprocess</a>,
+
+      <a href="ref:#gateways-parallel-gateway">Parallel Gateway</a>,
+      <a href="ref:#gateways-inclusive-gateway">Inclusive Gateway</a>,
+      <a href="ref:#gateways-data-based-exclusive-gateway-xor">Exclusive Gateway</a>,
+
+      <a href="ref:#tasks-task-markers-multiple-instance">Multi Instance Loop Characteristics</a>,
+
+      Process
     </td>
   </tr>
 </table>

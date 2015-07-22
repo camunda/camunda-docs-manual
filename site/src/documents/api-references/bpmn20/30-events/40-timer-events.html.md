@@ -68,7 +68,10 @@ Note: timers are only fired when the [Job Executor](ref:/guides/user-guide/#proc
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
+      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
@@ -137,11 +140,6 @@ A timer intermediate event is defined as a intermediate catching event. The spec
     </timerEventDefinition>
 </intermediateCatchEvent>
 ```
-
-
-
-
-
 
 ## Timer Boundary Event
 
