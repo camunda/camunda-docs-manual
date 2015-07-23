@@ -51,7 +51,7 @@ In general, there are two types of use cases that can be tackled with job priori
 
 ### Job Priorities Throughout Process Execution
 
-Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. A priority is a natural number in the integer range. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of 0. For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities](ref:#process-engine-the-job-executor-specifying-job-priorities).
+Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of 0. For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities](ref:#process-engine-the-job-executor-specifying-job-priorities).
 
 During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities. This behaviour is by default not active and can be toggled by the process engine configuration setting `jobExecutorAcquireByPriority`. See the section [The Order of Job Acquisition](ref:#process-engine-the-job-executor-the-job-order-of-job-acquisition) for details on configuring prioritized job acquisition and recommended database indexes.
 
@@ -81,7 +81,7 @@ Since the store assistant waits for the task *Take Customer's Order*, its preced
   camunda:jobPriority="100" />
 ```
 
-It is also possible to use an [expression](ref:#process-engine-expression-language) to determine a priority, for example based on business data. In the example process, let us assume that the furniture store wants high price orders to be processed sooner than low price orders. Assuming that there is a process variable `order`, an expression can be used to dynamically determine the priority as follows:
+It is also possible to use an [expression](ref:#process-engine-expression-language) to determine a priority, for example based on business data. Such an expression must evaluate to a number in the integer range. In the example process, let us assume that the furniture store wants high price orders to be processed sooner than low price orders. Assuming that there is a process variable `order`, an expression can be used to dynamically determine the priority as follows:
 
 ```xml
 <bpmn:serviceTask id="ServiceTask_1"
@@ -90,14 +90,14 @@ It is also possible to use an [expression](ref:#process-engine-expression-langua
   camunda:jobPriority="${order.getPriority()}" />
 ```
 
-When the job is created in the context of a running process instance (such as for asynchronous continuations), the variable `execution` is implicitly defined as well as all the execution's variables by their name.
+When the job is created in the context of a running process instance (such as for asynchronous continuations), the variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 
 Expressions allow to implement a range of other use cases:
 
 * *User-driven Priorities*: A priority variable can be set in a task form; this variable can be used in the expression
 * *Priority Propagation to Called Process Instances*: When starting a process instance via a call activity, the priority of the starting process instance can be propagated to the new process instance by passing in a variable. See [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-call-activity-passing-variables) for details.
 
-In case all jobs of a process definition should receive a priority, the effort of editing every single asynchronous activity can be saved by configuring it on the `process` element:
+In case all jobs of a process definition should receive a priority, the effort of editing every single asynchronous activity can be saved by configuring the `process` element:
 
 ```xml
 <bpmn:process id="Process_1" isExecutable="true" camunda:jobPriority="8">
@@ -181,7 +181,7 @@ After having locked a job, the job executor instance has effectively reserved a 
 
 By default the job executor does not impose an order in which acquirable
 jobs are acquired. This means that the job acquisition order depends on the
-database and its configuration. That's why the job acquisition is assumed to be
+database and its configuration. That's why job acquisition is assumed to be
 non-deterministic. The intention for this is to keep the job acquisition query
 simple and fast.
 
@@ -199,7 +199,7 @@ This method of acquiring jobs is not sufficient in all cases, such as:
   they become available to execute.
 
 To address the previously described issues, the job acquisition query can be
-controlled by the process engine configuration. Currently, three options
+controlled by the process engine configuration properties. Currently, three options
 are supported:
 
 - `jobExecutorAcquireByPriority`. If set to `true`, the job executor
