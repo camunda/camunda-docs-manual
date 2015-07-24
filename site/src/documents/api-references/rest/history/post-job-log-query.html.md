@@ -230,14 +230,6 @@ Each historic job log object has the following properties:
     <td>The id of the deployment which the associated job belongs to.</td>
   </tr>
   <tr>
-    <td>jobPriorityLowerThanOrEquals</td>
-    <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid integer.</td>
-  </tr>
-  <tr>
-    <td>jobPriorityHigherThanOrEquals</td>
-    <td>Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid integer.</td>
-  </tr>
-  <tr>
     <td>creationLog</td>
     <td>boolean</td>
     <td>A flag indicating whether this log represents the creation of the associated job.</td>
