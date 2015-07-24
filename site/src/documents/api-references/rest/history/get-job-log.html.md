@@ -63,11 +63,16 @@ A JSON object with the following properties:
     <td>jobDueDate</td>
     <td>String</td>
     <td>The date on which the associated job is supposed to be processed.</td>
-  </tr>    
+  </tr>
   <tr>
     <td>jobRetries</td>
     <td>Number</td>
     <td>The number of retries the associated job has left.</td>
+  </tr>
+  <tr>
+    <td>jobPriority</td>
+    <td>Number</td>
+    <td>The execution priority the job had when the log entry was created.</td>
   </tr>
   <tr>
     <td>jobExceptionMessage</td>
@@ -184,6 +189,7 @@ Status 200.
   "jobHandlerType" : "async-continuation",
   "jobDueDate" : null,
   "jobRetries" : 3,
+  "jobPriority": 15,
   "jobExceptionMessage" : null,
   "executionId" : "anExecutionId",
   "processInstanceId" : "aProcessInstanceId",

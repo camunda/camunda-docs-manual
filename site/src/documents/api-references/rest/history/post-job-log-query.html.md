@@ -93,6 +93,14 @@ A JSON object with the following properties:
     <td>Filter by deployment id.</td>
   </tr>
   <tr>
+    <td>jobPriorityLowerThanOrEquals</td>
+    <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid integer.</td>
+  </tr>
+  <tr>
+    <td>jobPriorityHigherThanOrEquals</td>
+    <td>Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid integer.</td>
+  </tr>
+  <tr>
     <td>creationLog</td>
     <td>Only include creation logs. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -117,7 +125,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>timestamp</code>, <code>jobId</code>, <code>jobDefinitionId</code>, <code>jobDueDate</code>, <code>jobRetries</code>, <code>activityId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>deploymentId</code> and <code>occurrence</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>timestamp</code>, <code>jobId</code>, <code>jobDefinitionId</code>, <code>jobDueDate</code>, <code>jobRetries</code>, <code>jobPriority</code>, <code>activityId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>deploymentId</code> and <code>occurrence</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -160,11 +168,16 @@ Each historic job log object has the following properties:
     <td>jobDueDate</td>
     <td>String</td>
     <td>The date on which the associated job is supposed to be processed.</td>
-  </tr>    
+  </tr>
   <tr>
     <td>jobRetries</td>
     <td>Number</td>
     <td>The number of retries the associated job has left.</td>
+  </tr>
+  <tr>
+    <td>jobPriority</td>
+    <td>Number</td>
+    <td>The execution priority the job had when the log entry was created.</td>
   </tr>
   <tr>
     <td>jobExceptionMessage</td>
@@ -215,6 +228,14 @@ Each historic job log object has the following properties:
     <td>deploymentId</td>
     <td>String</td>
     <td>The id of the deployment which the associated job belongs to.</td>
+  </tr>
+  <tr>
+    <td>jobPriorityLowerThanOrEquals</td>
+    <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid integer.</td>
+  </tr>
+  <tr>
+    <td>jobPriorityHigherThanOrEquals</td>
+    <td>Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid integer.</td>
   </tr>
   <tr>
     <td>creationLog</td>
@@ -290,6 +311,7 @@ Request body:
     "jobHandlerType" : "async-continuation",
     "jobDueDate" : null,
     "jobRetries" : 3,
+    "jobPriority" : 15,
     "jobExceptionMessage" : null,
     "executionId" : "anExecutionId",
     "processInstanceId" : "aProcessInstanceId",
