@@ -1,7 +1,12 @@
 ---
 
 title: 'Install camunda Cockpit and Tasklist'
-category: 'Web Applications'
+weight: 50
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-webapp"
+    parent: "installation-guide-full-tomcat"
 
 ---
 

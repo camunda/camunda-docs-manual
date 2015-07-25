@@ -1,8 +1,12 @@
 ---
 
 title: 'Migrate from Camunda BPM 7.1 to Camunda BPM 7.2'
-shortTitle: 'Migrate from 7.1 to 7.2'
-category: 'Migration'
+weight: 70
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-migrate-72"
+    parent: "installation-guide-full-tomcat"
 
 ---
 

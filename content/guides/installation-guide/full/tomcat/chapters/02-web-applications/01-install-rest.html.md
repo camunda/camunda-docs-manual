@@ -1,8 +1,12 @@
 ---
 
 title: 'Install the REST API web application'
-shortTitle: 'Install the REST API'
-category: 'Web Applications'
+weight: 40
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-rest"
+    parent: "installation-guide-full-tomcat"
 
 ---
 

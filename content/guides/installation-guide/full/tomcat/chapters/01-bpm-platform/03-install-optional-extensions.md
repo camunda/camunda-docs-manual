@@ -1,8 +1,12 @@
 ---
 
 title: 'Install Optional Camunda Dependencies'
-shortTitle: 'Install Optional Dependencies'
-category: 'BPM Platform'
+weight: 30
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-install-optional"
+    parent: "installation-guide-full-tomcat"
 
 ---
 

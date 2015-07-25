@@ -1,10 +1,14 @@
 ---
 
-title: 'Installation Guides'
-layout: 'default'
-links: 'process'
+title: "Installation"
+weight: 20
 
+menu:
+  main:
+    identifier: "installation-guide"
+    
 ---
+
 
 <div class="col-md-12 overview-page">
   <div class="page-header">

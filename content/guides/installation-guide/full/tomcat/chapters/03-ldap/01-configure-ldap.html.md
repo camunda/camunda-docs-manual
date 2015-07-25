@@ -1,9 +1,15 @@
 ---
 
-title: 'Configuring LDAP for camunda Cockpit and Tasklist'
-category: 'LDAP Configuration'
+title: 'Configuring LDAP'
+weight: 60
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-ldap"
+    parent: "installation-guide-full-tomcat"
 
 ---
+
 In order to setup LDAP for the tomcat distribution, you have to perform the following steps:
 
 ### Add the LDAP Library

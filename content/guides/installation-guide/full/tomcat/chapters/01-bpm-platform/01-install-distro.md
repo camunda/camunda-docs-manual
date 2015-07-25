@@ -1,9 +1,15 @@
 ---
 
-title: 'Install the pre-built distro'
-category: 'BPM Platform'
+title: 'Install the pre-packaged Distribution'
+weight: 10
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-install-pre-built"
+    parent: "installation-guide-full-tomcat"
 
 ---
+
 
 1.  Download the pre-packaged distribution from http://camunda.org/release/camunda-bpm/tomcat/.    
 2.  Unpack the distro to a directory.

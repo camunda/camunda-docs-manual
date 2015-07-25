@@ -1,8 +1,12 @@
 ---
 
 title: 'Install the platform on a vanilla Tomcat'
-shortTitle: 'Install on a vanilla Tomcat'
-category: 'BPM Platform'
+weight: 20
+
+menu:
+  main:
+    identifier: "installation-guide-full-tomcat-install-vanilla"
+    parent: "installation-guide-full-tomcat"
 
 ---
 
