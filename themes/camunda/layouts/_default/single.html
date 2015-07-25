@@ -1,0 +1,36 @@
+{{ partial "header.html" . }}
+
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-3">
+      {{partial "menu.html" . }}
+    </div>
+
+    <div class="col-xs-12 col-md-9">
+      
+      <div class="row">
+
+        <div class="col-xs-12 col-md-9">
+            <h1>{{ .Title }}</h1>
+            {{ .Content }}
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <div class="affix well" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+            <h3>On this Page:</h3>
+            <div>
+              {{ .TableOfContents }}
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-3">
+      {{partial "menu.html" . }}
+    </div>
+
+    <div class="col-xs-12 col-md-9">
+      
+
+        <div class="col-xs-12 col-md-9">
+            <h1>{{ .Title }}</h1>
+            
+            {{if $currentNode.HasMenuCurrent "main" . }}
+            
+        </div>
+        
+    </div>
+  </div>
+</div>
+
+
+
+{{ partial "footer.html" . }}

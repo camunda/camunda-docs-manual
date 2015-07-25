@@ -1,0 +1,9 @@
+---
+baseurl: "http://docs.camunda.org/latest/"
+languageCode: "en-us"
+title: "Camunda BPM documentation"
+theme: "camunda"
+
+blackfriday:
+  plainIdAnchors: true
+...
