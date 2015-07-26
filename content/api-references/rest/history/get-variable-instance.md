@@ -1,0 +1,199 @@
+---
+
+title: "Get Single Variable Instance"
+weight: 310
+
+menu:
+  main:
+    identifier: "rest-api-history-get-variable-instance"
+    parent: "rest-api-history"
+
+---
+
+
+Retrieves a single historic variable by id.
+
+
+Method
+------
+
+GET `/history/variable-instance/{id}`
+
+
+Parameters
+----------
+
+#### Path Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>The id of the variable instance.</td>
+  </tr>
+</table>
+
+#### Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>deserializeValue</td>
+    <td>
+      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+    </td>
+  </tr>
+</table>
+
+Result
+------
+
+A user object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the variable instance.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>String</td>
+    <td>The name of the variable instance.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-type.html.eco', @, {}) %></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td>String/Number/Boolean/Object</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValue'}) %></td>
+  </tr>
+  <tr>
+    <td>valueInfo</td>
+    <td>Object</td>
+    <td><%- @partial('api-references/rest/variables/variable-response-valueinfo.html.eco', @, {}) %>
+    </td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id the process instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>executionId</td>
+    <td>String</td>
+    <td>The execution id the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>activityInstanceId</td>
+    <td>String</td>
+    <td>The id of the activity instance in which the variable is valid.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The case instance id the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseExecutionId</td>
+    <td>String</td>
+    <td>The case execution id the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>taskId</td>
+    <td>String</td>
+    <td>The id of the task the variable instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>String</td>
+    <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
+  </tr>
+</table>
+
+Response codes
+--------------
+
+<table class="table table-striped">
+  <tr>
+    <th>Code</th>
+    <th>Media type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>application/json</td>
+    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+  </tr>
+</table>
+
+Example
+-------
+
+#### Request
+
+GET `/history/variable-instance/someId`
+
+#### Response
+
+Status 200.
+
+```json
+{
+  "id": "someId",
+  "name": "amount",
+  "type": "Integer",
+  "variableType": "integer",
+  "value": 5,
+  "valueInfo": {},
+  "processDefinitionKey": "aProcessDefinitionKey",
+  "processDefinitionId": "aProcessDefinitionId",
+  "processInstanceId": "aProcessInstanceId",
+  "executionId": "aExecutionId",
+  "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
+  "caseDefinitionKey": null,
+  "caseInstanceId": null,
+  "caseExecutionId": null,
+  "taskId": null,
+  "errorMessage": null
+}
+```
