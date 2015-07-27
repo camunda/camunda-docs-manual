@@ -43,61 +43,48 @@ In practice, the amount of jobs processed is seldom spread evenly across the day
 
 In general, there are two types of use cases that can be tackled with job prioritization:
 
-* **Prioritization by Design**: In many cases, a high-load scenario can be anticipated when designing a process model. In these scenarios, it is often important to prioritize job execution according to certain business objectives. Examples:
+* **Anticipating priorities at Design Time**: In many cases, a high-load scenario can be anticipated when designing a process model. In these scenarios, it is often important to prioritize job execution according to certain business objectives. Examples:
   * A retail store has casual and VIP customers. In case of high load, it is desired to handle orders of VIP customers with higher priority since their satisfaction is more important to the company's business goals.
   * A furniture store has human-centric processes for consulting customers in buying furniture as well as non-time-critical processes for delivery. Prioritization can be used to ensure fast response times in the consulting processes, improving user and customer satisfaction.
-* **Prioritization as a Response to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
+* **Prioritization as a Reaction to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
   * A service task accesses a web service to process a payment. The payment service encounters an overload and responds very slowly. To avoid occupying all the job executor's resources with waiting for the service to respond, the respective jobs' priorities can be temporarily reduced. This way, unrelated process instances and jobs are not slowed down. After the service recovers, the overriding priority can be cleared again.
 
-### Job Priorities Throughout Process Execution
+### The Job Priority
 
-Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of 0. For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities](ref:#process-engine-the-job-executor-specifying-job-priorities).
+A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future. 
 
-During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities. This behaviour is by default not active and can be toggled by the process engine configuration setting `jobExecutorAcquireByPriority`. See the section [The Order of Job Acquisition](ref:#process-engine-the-job-executor-the-job-order-of-job-acquisition) for details on configuring prioritized job acquisition and recommended database indexes.
+Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities.
 
 <div class="alert alert-info">
-  <p><b>Job Starvation:</b></p>
+  <p>A note on <b>Job Starvation:</b></p>
   <p>In scheduling scenarios, starvation is a typical concern. When high priority jobs are continuously created, it may happen that low priority jobs are never acquired. The process engine has no countermeasure in place to cope with such a situation when using priorities. This is for two reasons: Performance and resource utilization.</p>
   <p>Performance-wise, acquiring jobs strictly by priority enables the job executor to use indexes for ordering. Solutions like <a href="https://en.wikipedia.org/wiki/Aging_%28scheduling%29">aging</a> that dynamically boost priorities of starving jobs cannot be easily supplemented with an index.</p>
   <p>In addition, in an environment where the job executor can never catch up to execute all jobs in the job table such that low priority jobs are not executed in a reasonable amount of time, there may be a general issue with overloaded resources. In this case, a solution could be adding additional job executor resources such as adding a new node to a cluster.</p>
 </div>
 
+### Configuring the Process Engine for Job Priorities
+
+This section explains how to enable and disable job priorities in the configuration. There are two relevant configuration properties which can be set on the process engine configuration:
+
+`producePrioritizedJobs`: Controls whether the process engine assigns priorities to jobs. The default value is `true`. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of `0`.
+For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities](ref:#process-engine-the-job-executor-specifying-job-priorities).
+
+`jobExecutorAcquireByPriority`: Controls whether jobs are acquired according to their priority. The default value is `false` which means that it needs to be explicitly enabled. Hint: when enabling this, additional database indexes should be created as well: See the section [The Order of Job Acquisition](ref:#process-engine-the-job-executor-the-job-order-of-job-acquisition) for details.
+
 ### Specifying Job Priorities
 
-Job priorities can be specified in the BPMN model as well as overridden at runtime via API. To explain the logic how the engine determines a job's priority, we consider the following example process model:
+Job priorities can be specified in the BPMN model as well as overridden at runtime via API.
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/the-job-executor/example"></div>
+#### Specifying Priorities in BPMN XML
 
-This simple process describes a furniture store's procedure when a customer enters the store, has chosen a some piece of furniture to buy, and delivers the order to a shop assistant. The store uses an external service for product delivery. For technical reasons, the store has decided to make both tasks asynchronous by using the `camunda:asyncBefore` property.
+Job Priorities can be assigned at the process or the activity level. To achieve this the camunda extension attribute `camunda:jobPriority` can be used.
 
-#### Priorities from BPMN XML
+For specifying the priority, both constant values and [expressions](ref:#process-engine-expression-language) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
+The concreate value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
-Since the store assistant waits for the task *Take Customer's Order*, its preceding job is supposed to receive a high priority. In BPMN XML, this can be expressed as follows:
+#### Specifying Priorities at the Process Level
 
-```xml
-<bpmn:userTask id="UserTask_1"
-  name="Take Customer&#39;s Order"
-  camunda:asyncBefore="true"
-  camunda:jobPriority="100" />
-```
-
-It is also possible to use an [expression](ref:#process-engine-expression-language) to determine a priority, for example based on business data. Such an expression must evaluate to a number in the integer range. In the example process, let us assume that the furniture store wants high price orders to be processed sooner than low price orders. Assuming that there is a process variable `order`, an expression can be used to dynamically determine the priority as follows:
-
-```xml
-<bpmn:serviceTask id="ServiceTask_1"
-  name="Schedule Delivery"
-  camunda:asyncBefore="true"
-  camunda:jobPriority="${order.getPriority()}" />
-```
-
-When the job is created in the context of a running process instance (such as for asynchronous continuations), the variable `execution` is implicitly defined as well as all of the execution's variables by their name.
-
-Expressions allow to implement a range of other use cases:
-
-* *User-driven Priorities*: A priority variable can be set in a task form; this variable can be used in the expression
-* *Priority Propagation to Called Process Instances*: When starting a process instance via a call activity, the priority of the starting process instance can be propagated to the new process instance by passing in a variable. See [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-call-activity-passing-variables) for details.
-
-In case all jobs of a process definition should receive a priority, the effort of editing every single asynchronous activity can be saved by configuring the `process` element:
+When configuring job priorities at the process instance level, the `camunda:jobPriority` attribute needs to be applied to the bpmn `<process ...>` element:
 
 ```xml
 <bpmn:process id="Process_1" isExecutable="true" camunda:jobPriority="8">
@@ -105,11 +92,68 @@ In case all jobs of a process definition should receive a priority, the effort o
 </bpmn:process>
 ```
 
-This priority applies to all jobs created in the context of the process definition, unless an activity has a `jobPriority` attribute itself.
+The effect is that all activities inside the process inherit the same priority (unless it is overridden locally).
+See also: [Job Priority Precedence Schema](ref:#job-priority-precedence-schema).
 
-#### Job Definition Priorities via ManagementService API
+The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process. If different process instances need to be executed with different priorities, an expression can be used:
 
-Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. In the example, the delivery service may be overloaded and respond slowly. The furniture store's job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
+```xml
+<bpmn:process id="Process_1" isExecutable="true" camunda:jobPriority="${order.priority}">
+  ...
+</bpmn:process>
+```
+
+In the above example the priority is determied baed on the property `priority` of the variable `order`.
+
+#### Specifying Priorities at the Activity Level
+
+When configuring job priorities at the activity level, the `camunda:jobPriority` attribute needs to be applied
+to the corresponding bpmn element:
+
+```xml
+<bpmn:serviceTask id="ServiceTask_1"
+  name="Prepare Payment"
+  camunda:asyncBefore="true"
+  camunda:jobPriority="100" />
+```
+
+The effect is that the priority is applied to all instances of the given service task.
+The priority overrides a process level priority. See also: [Job Priority Precedence Schema](ref:#job-priority-precedence-schema).
+
+When using a constant value, as shown in the above example, the same priority is applied to all instances of the service task. It is also possible to use an expression:
+
+```xml
+<bpmn:serviceTask id="ServiceTask_1"
+  name="Schedule Delivery"
+  camunda:asyncBefore="true"
+  camunda:jobPriority="${customer.status == 'VIP'}" />
+```
+
+In the above example the priority is determied baed on the property `status` of the current customer.
+
+#### Resolution Context of Priority Expressions
+
+This section explains which context variables and functions are available when evaluating priority expressions.
+For some general documentation on this, see the corresponding [documentation section](ref:#process-engine-expression-language-variables-and-functions-available-inside-expression-language).
+
+All prioritry expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
+
+The only exceptions are the priority of jobs which lead to the instantiation of a new process instance.
+Examples:
+
+* Timer start event
+
+#### Priority Propagation to Called Process Instances
+
+When starting a process instance via a call activity, you sometimes whant the process instance to "inherit" the priority of the calling process instance.
+The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process. 
+See also [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-call-activity-passing-variables) for details on how to pass variables using call activities.
+
+#### Setting Job Definition Priorities via ManagementService API
+
+Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task "Process Payment" of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
+
+#### Overriding Priority by Job Definition
 
 While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The furniture store can perform the following operation to downgrade the priority for all future delivery jobs:
 
@@ -124,8 +168,15 @@ JobDefinition jobDefinition = managementService
 managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0);
 ```
 
-Setting an overriding priority makes sure that every new job that is created based on this definition receives the given priority. This setting overrides any priority specified in the BPMN XML. Optionally, the overriding priority can be applied to all the existing jobs of that definition by using the `cascade` parameter:
-`managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0, true)`.
+Setting an overriding priority makes sure that every new job that is created based on this definition receives the given priority. This setting overrides any priority specified in the BPMN XML.
+
+Optionally, the overriding priority can be applied to all the existing jobs of that definition by using the `cascade` parameter:
+
+```java
+managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0, true);
+```
+
+#### Resetting Priority by Job Definition
 
 When the delivery service has recovered from the overload situation, the furniture store can clear the overriding priority as follows:
 
@@ -141,7 +192,7 @@ The following diagram sums up the precedence of priority sources when a job's pr
 
 <center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-priority-precedence.png"/></center>
 
-#### Job Priorities via ManagementService API
+#### Setting Job Priorities via ManagementService API
 
 The ManagementService also offers a method to change a single job's priority via `ManagementService#setJobPriority(String jobId, int priority)`.
 
