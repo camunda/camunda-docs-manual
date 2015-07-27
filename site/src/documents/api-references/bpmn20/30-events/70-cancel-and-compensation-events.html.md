@@ -159,17 +159,17 @@ As the compensation boundary event is activated after the activity has completed
 
 <div data-bpmn-symbol="startevent/compensate"></div>
 
-A compensation start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. This kind of event subprocess called compensation event subprocess.
+A compensation start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. This kind of event subprocess is called compensation event subprocess.
 
 When deploying a process definition with a compensation event subprocess, the following considerations apply:
 
 * The compensation event subprocess is only supported for embedded subprocess and not at process-level, caused by the current limitation that compensation is not propagated to sub process instances spawned by call activities.
-* There can be only one compensation event subprocess at the same embedded subprocess. 
-* A subprocess with a compensation event subprocess and an attached compensation boundary event is not supported. When compensation is thrown, the compensation event subprocess will be ignored. Note that the compensation event subprocess and the compensation boundary event has a similar behavior, so only one of them should be chosen.
+* There can be only one compensation event subprocess at the same level of subprocess.
+* A subprocess with a compensation event subprocess and an attached compensation boundary event is not supported. When compensation is thrown, the compensation event subprocess will be ignored. Note that the compensation event subprocess and the compensation boundary event have a similar intent, so only one of them should be chosen.
 
-A compensation event subprocess can be used as a compensation handler for the embedded subprocess. Similar to a compensation boundary event attached to a subprocess, a compensation event subprocess will only be invoked by a thrown compensation event, if the subprocess completed successfully. In this case, the compensation event subprocess will be invoked the same amount of times that the subprocess completed successfully.
+A compensation event subprocess can be used as a compensation handler for the embedded subprocess. Similar to a compensation boundary event attached to a subprocess, a compensation event subprocess will only be invoked by a thrown compensation event, if the subprocess completed successfully before. In this case, the compensation event subprocess will be invoked the same amount of times that the subprocess was completed.
 
-Contrary to a compensation boundary event attached to a subprocess, a compensation event subprocess consume a thrown compensation event. When compensation is thrown for the subprocess or the current scope, the compensation event subprocess is invoked. Other activities within the subprocess are not compensated. The compensation event subprocess can recursively trigger compensation for activities contained in its parent.
+Contrary to a compensation boundary event attached to a subprocess, a compensation event subprocess *consumes* a thrown compensation event. That means, activities contained in the subprocess are not compensated by default. Instead, the compensation event subprocess can recursively trigger compensation for activities contained in its parent.
 
 <div data-bpmn-diagram="implement/event-compensation-event-subprocess"></div>
 
