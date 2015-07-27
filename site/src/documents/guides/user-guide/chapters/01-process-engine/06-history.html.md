@@ -35,6 +35,7 @@ The history level controls the amount of data the process engine provides via th
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
+* `AUTO`: The level auto is useful if you are planning to run multiple engines on the same database. In that case, all engines have to use the same history level. Instead of manually keeping your configurations in sync, use the level "auto" and the engine will determine the level already configured in the database automatically. If none is found, the default value "audit" is used. Keep in mind: If you are planning to use custom history levels, you have to register the custom levels for every configuration, otherwise an exception is thrown. 
 
 If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
