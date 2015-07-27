@@ -46,7 +46,7 @@ In general, there are two types of use cases that can be tackled with job priori
 * **Anticipating priorities at Design Time**: In many cases, a high-load scenario can be anticipated when designing a process model. In these scenarios, it is often important to prioritize job execution according to certain business objectives. Examples:
   * A retail store has casual and VIP customers. In case of high load, it is desired to handle orders of VIP customers with higher priority since their satisfaction is more important to the company's business goals.
   * A furniture store has human-centric processes for consulting customers in buying furniture as well as non-time-critical processes for delivery. Prioritization can be used to ensure fast response times in the consulting processes, improving user and customer satisfaction.
-* **Prioritization as a Reaction to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
+* **Prioritization as a Response to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
   * A service task accesses a web service to process a payment. The payment service encounters an overload and responds very slowly. To avoid occupying all the job executor's resources with waiting for the service to respond, the respective jobs' priorities can be temporarily reduced. This way, unrelated process instances and jobs are not slowed down. After the service recovers, the overriding priority can be cleared again.
 
 ### The Job Priority
@@ -82,7 +82,7 @@ Job Priorities can be assigned at the process or the activity level. To achieve 
 For specifying the priority, both constant values and [expressions](ref:#process-engine-expression-language) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
 The concreate value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
-#### Specifying Priorities at the Process Level
+##### Specifying Priorities at the Process Level
 
 When configuring job priorities at the process instance level, the `camunda:jobPriority` attribute needs to be applied to the bpmn `<process ...>` element:
 
@@ -105,7 +105,7 @@ The above example shows how a constant value can be used for setting the priorit
 
 In the above example the priority is determied baed on the property `priority` of the variable `order`.
 
-#### Specifying Priorities at the Activity Level
+##### Specifying Priorities at the Activity Level
 
 When configuring job priorities at the activity level, the `camunda:jobPriority` attribute needs to be applied
 to the corresponding bpmn element:
@@ -126,12 +126,12 @@ When using a constant value, as shown in the above example, the same priority is
 <bpmn:serviceTask id="ServiceTask_1"
   name="Schedule Delivery"
   camunda:asyncBefore="true"
-  camunda:jobPriority="${customer.status == 'VIP'}" />
+  camunda:jobPriority="${customer.status == 'VIP' ? 10 : 0}" />
 ```
 
 In the above example the priority is determied baed on the property `status` of the current customer.
 
-#### Resolution Context of Priority Expressions
+##### Resolution Context of Priority Expressions
 
 This section explains which context variables and functions are available when evaluating priority expressions.
 For some general documentation on this, see the corresponding [documentation section](ref:#process-engine-expression-language-variables-and-functions-available-inside-expression-language).
@@ -141,9 +141,10 @@ All prioritry expressions are evaluated in the context of an existing execution.
 The only exceptions are the priority of jobs which lead to the instantiation of a new process instance.
 Examples:
 
-* Timer start event
+* Timer Start Event
+* Asynchronous Signal Start Event
 
-#### Priority Propagation to Called Process Instances
+##### Priority Propagation to Called Process Instances
 
 When starting a process instance via a call activity, you sometimes whant the process instance to "inherit" the priority of the calling process instance.
 The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process. 
@@ -153,7 +154,7 @@ See also [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-cal
 
 Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task "Process Payment" of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
 
-#### Overriding Priority by Job Definition
+##### Overriding Priority by Job Definition
 
 While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The furniture store can perform the following operation to downgrade the priority for all future delivery jobs:
 
@@ -176,7 +177,7 @@ Optionally, the overriding priority can be applied to all the existing jobs of t
 managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0, true);
 ```
 
-#### Resetting Priority by Job Definition
+##### Resetting Priority by Job Definition
 
 When the delivery service has recovered from the overload situation, the furniture store can clear the overriding priority as follows:
 

@@ -21,6 +21,11 @@ h1 a, h2 a, h3 a, h4 a {
   color: inherit;
 }
 
+h5, h6 {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
   text-decoration: none;
 }
