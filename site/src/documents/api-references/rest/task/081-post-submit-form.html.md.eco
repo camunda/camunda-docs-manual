@@ -106,7 +106,7 @@ Request body:
                 "value": true
             },
             "aFileVariable": {
-                "value": "TG9yZW0gaXBzdW0=",
+                "value": "[B@5449579a",
                 "type": "File",
                 "valueInfo": {
                     "filename": "myFile.txt"

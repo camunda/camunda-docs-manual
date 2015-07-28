@@ -7,7 +7,7 @@ keywords: 'post update set binary variable'
 
 ---
 
-Sets the serialized value for a binary variable or the Base64 encoded value for a file variable.
+Sets the serialized value for a binary variable or the binary value for a file variable.
 
 Method
 ------
@@ -77,24 +77,9 @@ For file variables a multipart form submit with the following parts:
     <th>Description</th>
   </tr>
   <tr>
-    <td>filename</td>
-    <td>text/plain</td>
-    <td>The name of the file. This is <b>not</b> the variable name but the name that will be used when downloading the file again.</td>
-  </tr>
-  <tr>
     <td>data</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The binary data encoded as Base64 string to be set.</td>
-  </tr>
-  <tr>
-    <td>mimetype</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The mime type of the file that is being uploaded.</td>
-  </tr>
-  <tr>
-    <td>mimetype</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The encoding of the file that is being uploaded.</td>
+    <td>arbitrary</td>
+    <td>This multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</td>
   </tr>
 </table>
 
@@ -164,5 +149,19 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 8bit
 
 java.util.ArrayList<java.lang.Object>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
+```
+
+(3) Post a text file:
+
+POST `/execution/anExecutionId/localVariables/aVarName/data`
+
+```  
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="data"; filename="myFile.txt"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: binary
+
+<<Byte Stream ommitted>>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
