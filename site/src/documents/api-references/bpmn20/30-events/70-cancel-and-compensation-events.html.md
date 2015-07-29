@@ -165,7 +165,7 @@ When deploying a process definition with a compensation event subprocess, the fo
 
 * The compensation event subprocess is only supported for embedded subprocess and not at process-level, caused by the current limitation that compensation is not propagated to sub process instances spawned by call activities.
 * There can be only one compensation event subprocess at the same level of subprocess.
-* A subprocess with a compensation event subprocess and an attached compensation boundary event is not supported. When compensation is thrown, the compensation event subprocess will be ignored. Note that the compensation event subprocess and the compensation boundary event have a similar intent, so only one of them should be chosen.
+* A subprocess with a compensation event subprocess and an attached compensation boundary event is not supported. Note that the compensation event subprocess and the compensation boundary event have a similar intent, so only one of them should be chosen.
 
 A compensation event subprocess can be used as a compensation handler for the embedded subprocess. Similar to a compensation boundary event attached to a subprocess, a compensation event subprocess will only be invoked by a thrown compensation event, if the subprocess completed successfully before. In this case, the compensation event subprocess will be invoked the same amount of times that the subprocess was completed.
 
