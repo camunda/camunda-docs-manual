@@ -55,7 +55,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-      <a href="ref:#priorities-from-bpmn-xml">
+      <a href="ref:#specifying-priorities-in-bpmn-xml">
         All Flow Nodes, Process Definition
       </a>
     </td>

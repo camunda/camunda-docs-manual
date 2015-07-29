@@ -51,7 +51,7 @@ In general, there are two types of use cases that can be tackled with job priori
 
 ### The Job Priority
 
-A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future. 
+A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future.
 
 Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities.
 
@@ -103,7 +103,7 @@ The above example shows how a constant value can be used for setting the priorit
 </bpmn:process>
 ```
 
-In the above example the priority is determied baed on the property `priority` of the variable `order`.
+In the above example the priority is determined based on the property `priority` of the variable `order`.
 
 ##### Specifying Priorities at the Activity Level
 
@@ -136,7 +136,7 @@ In the above example the priority is determied baed on the property `status` of 
 This section explains which context variables and functions are available when evaluating priority expressions.
 For some general documentation on this, see the corresponding [documentation section](ref:#process-engine-expression-language-variables-and-functions-available-inside-expression-language).
 
-All prioritry expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
+All priority expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 
 The only exceptions are the priority of jobs which lead to the instantiation of a new process instance.
 Examples:
@@ -146,17 +146,17 @@ Examples:
 
 ##### Priority Propagation to Called Process Instances
 
-When starting a process instance via a call activity, you sometimes whant the process instance to "inherit" the priority of the calling process instance.
-The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process. 
+When starting a process instance via a call activity, you sometimes want the process instance to "inherit" the priority of the calling process instance.
+The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process.
 See also [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-call-activity-passing-variables) for details on how to pass variables using call activities.
 
 #### Setting Job Definition Priorities via ManagementService API
 
-Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task "Process Payment" of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
+Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task *Process Payment* of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
 
 ##### Overriding Priority by Job Definition
 
-While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The furniture store can perform the following operation to downgrade the priority for all future delivery jobs:
+While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The following operation can be performed to downgrade the priority for all future jobs of a given job definition:
 
 ```java
 // find the job definition
@@ -177,9 +177,11 @@ Optionally, the overriding priority can be applied to all the existing jobs of t
 managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0, true);
 ```
 
+Note that this will not lead to preemption of jobs that are currently executed.
+
 ##### Resetting Priority by Job Definition
 
-When the delivery service has recovered from the overload situation, the furniture store can clear the overriding priority as follows:
+When the service has recovered from the overload situation, overriding priority can be cleared again as follows:
 
 ```java
 managementService.clearOverridingJobPriorityForJobDefinition(jobDefinition.getId());
