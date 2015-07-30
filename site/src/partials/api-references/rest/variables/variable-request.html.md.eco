@@ -6,7 +6,7 @@
   <tr>
     <td>value</td>
     <td>The variable's value. For variables of type <code>Object</code>, the serialized value has to be submitted as a String value.<p>
-        For variables of type <code>File</code> the value has to be submitted as binary value.
+        For variables of type <code>File</code> the value has to be submitted as Base64 encoded string.
     </td>
   </tr>
   <tr>
