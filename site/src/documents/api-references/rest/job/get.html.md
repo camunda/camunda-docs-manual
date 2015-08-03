@@ -52,6 +52,10 @@ Its properties are as follows:
     <td>The id of the job.</td>
   </tr>
   <tr>
+    <td>jobDefinitionId</td>
+    <td>The id of the associated job definition.</td>
+  </tr>
+  <tr>
     <td>dueDate</td>
     <td>String</td>
     <td>The date on which this job is supposed to be processed.</td>
