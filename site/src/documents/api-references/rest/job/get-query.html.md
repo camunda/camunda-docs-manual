@@ -33,6 +33,10 @@ Parameters
     <td>Filter by job id.</td>
   </tr>
   <tr>
+    <td>jobDefinitionId</td>
+    <td>Only select jobs which exist for the given job definition.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Only select jobs which exist for the given process instance.</td>
   </tr>
@@ -133,6 +137,10 @@ Each job object has the following properties:
     <td>id</td>
     <td>String</td>
     <td>The id of the job.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>The id of the associated job definition.</td>
   </tr>
   <tr>
     <td>dueDate</td>

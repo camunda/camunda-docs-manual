@@ -34,6 +34,10 @@ A json object with the following properties:
     <td>Filter by job id.</td>
   </tr>
   <tr>
+    <td>jobDefinitionId</td>
+    <td>Only select jobs which exist for the given job definition.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Only select jobs which exist for the given process instance.</td>
   </tr>
