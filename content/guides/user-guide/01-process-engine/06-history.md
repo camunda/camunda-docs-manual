@@ -40,6 +40,7 @@ The history level controls the amount of data the process engine provides via th
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
+* `AUTO`: The level `auto` is useful if you are planning to run multiple engines on the same database. In that case, all engines have to use the same history level. Instead of manually keeping your configurations in sync, use the level `auto` and the engine determines the level already configured in the database automatically. If none is found, the default value `audit` is used. Keep in mind: If you are planning to use custom history levels, you have to register the custom levels for every configuration, otherwise an exception is thrown.
 
 If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
@@ -273,13 +274,13 @@ The user operation log can be accessed via the Java API. The runtime service can
 
 ### User Operation Log Entries
 
-The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of many entries, one at least. Entries contain the detailed changes being part of the operation. When making a user operation log query the returned entities are of type `UserOperationLogEntry`, corresponding to entries. Multiple entries of one operation are linked by an operation id.
+The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of many entries, one at least. Entries contain the detailed changes being part of the operation. When making a user operation log query the returned entities are of type `UserOperationLogEntry`, corresponding to entries. All entries of one operation are linked by an operation id.
 
 A user operation log entry has the following properties:
 
-* **Operation Type**: An identifier of the operation performed. Available operation types are listed in the interface [org.camunda.bpm.engine.history.UserOperationLogEntry](ref:/api-references/javadoc/org/camunda/bpm/engine/history/UserOperationLogEntry.html).
 * **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
-* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class [org.camunda.bpm.engine.EntityTypes](ref:/api-references/javadoc/org/camunda/bpm/engine/EntityTypes.html).
+* **Operation Type**: A name of the operation performed. Available operation types are listed in the interface [org.camunda.bpm.engine.history.UserOperationLogEntry](ref:/api-references/javadoc/org/camunda/bpm/engine/history/UserOperationLogEntry.html). Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
+* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class [org.camunda.bpm.engine.EntityTypes](ref:/api-references/javadoc/org/camunda/bpm/engine/EntityTypes.html). Like the operation type, one operation may address more than one type of entity.
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
 * **Timestamp**: The time at which the operation was performed.
@@ -479,6 +480,15 @@ The following describes the operations logged in the user operation log and the 
   </tr>
   <tr>
     <td></td>
+    <td>SetPriority</td>
+    <td>
+      <ul>
+        <li><strong>overridingPriority</strong>: the new overriding job priority. Is <code>null</code>, if the priority was cleared.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
     <td>SuspendJobDefinition</td>
     <td>
       <ul>
@@ -510,6 +520,15 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SetPriority</td>
+    <td>
+      <ul>
+        <li><strong>priority</strong>: the new priority of the job</li>
       </ul>
     </td>
   </tr>

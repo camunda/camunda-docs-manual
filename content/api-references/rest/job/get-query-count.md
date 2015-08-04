@@ -10,7 +10,6 @@ menu:
 
 ---
 
-
 Query for the number of jobs that fulfill given parameters.
 Takes the same parameters as the [get jobs](ref:#job-get-jobs) method.
 
@@ -34,6 +33,10 @@ Parameters
   <tr>
     <td>jobId</td>
     <td>Filter by job id.</td>
+  </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>Only select jobs which exist for the given job definition.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>

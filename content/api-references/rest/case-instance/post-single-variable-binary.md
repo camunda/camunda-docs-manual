@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Sets the serialized value for a binary variable or the Base64 encoded value for a file variable.
+Sets the serialized value for a binary variable or the binary value for a file variable.
 
 Method
 ------
@@ -79,24 +79,9 @@ For file variables a multipart form submit with the following parts:
     <th>Description</th>
   </tr>
   <tr>
-    <td>filename</td>
-    <td>text/plain</td>
-    <td>The name of the file. This is <b>not</b> the variable name but the name that will be used when downloading the file again.</td>
-  </tr>
-  <tr>
     <td>data</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The binary data encoded as Base64 string to be set.</td>
-  </tr>
-  <tr>
-    <td>mimetype</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The mime type of the file that is being uploaded.</td>
-  </tr>
-  <tr>
-    <td>mimetype</td>
-    <td>text/plain</td>
-    <td><b>Optional</b>: The encoding of the file that is being uploaded.</td>
+    <td>arbitrary</td>
+    <td>This multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</td>
   </tr>
 </table>
 
@@ -108,7 +93,7 @@ This method returns no content.
 
 
 Response codes
---------------
+--------------  
 
 <table class="table table-striped">
   <tr>
@@ -139,7 +124,7 @@ Example
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```
+```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
 Content-Disposition: form-data; name="data"; filename="unspecified"
 Content-Type: application/octet-stream
@@ -153,7 +138,7 @@ Content-Transfer-Encoding: binary
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```
+```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
 Content-Disposition: form-data; name="data"
 Content-Type: application/json; charset=US-ASCII
@@ -173,30 +158,12 @@ java.util.ArrayList<java.lang.Object>
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```
+```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="data"
+Content-Disposition: form-data; name="data"; filename="myFile.txt"
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: binary
 
-TG9yZW0gaXBzdW0=
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="filename"
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-
-myFile.txt
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="mimetype"
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-
-text/plain
----OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
-Content-Disposition: form-data; name="encoding"
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-
-UTF-8
+<<Byte Stream ommitted>>
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
