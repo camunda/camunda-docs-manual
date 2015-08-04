@@ -1,8 +1,12 @@
 ---
 
 title: 'Install the REST API web application'
-shortTitle: 'Install the REST API'
-category: 'Web Applications'
+weight: 60
+
+menu:
+  main:
+    identifier: "installation-guide-full-weblogic-install-rest-api"
+    parent: "installation-guide-full-weblogic"
 
 ---
 

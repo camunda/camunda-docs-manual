@@ -1,10 +1,14 @@
 ---
 
-title: 'Configuring LDAP for Camunda Cockpit and Tasklist'
-category: 'LDAP Configuration'
+title: 'Configuring LDAP'
+weight: 80
+
+menu:
+  main:
+    identifier: "installation-guide-full-weblogic-ldap"
+    parent: "installation-guide-full-weblogic"
 
 ---
-
 In order to setup LDAP for the Oracle WebLogic distribution, you have to perform the following steps:
 
 ### Add the LDAP Library

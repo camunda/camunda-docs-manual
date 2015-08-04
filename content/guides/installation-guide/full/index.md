@@ -1,7 +1,7 @@
 ---
 
 title: "Full Distribution"
-weight: 20
+weight: 10
 
 menu:
   main:

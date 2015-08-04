@@ -1,10 +1,14 @@
 ---
 
-title: 'Install camunda Cockpit and Tasklist'
-category: 'Web Applications'
+title: 'Install the Camunda Cockpit and Tasklist'
+weight: 70
+
+menu:
+  main:
+    identifier: "installation-guide-full-weblogic-install-webapp"
+    parent: "installation-guide-full-weblogic"
 
 ---
-
 
 The web application archive that contains camunda Cockpit and Tasklist resides under `webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` in the Oracle WebLogic Application Server distribution archive.
 

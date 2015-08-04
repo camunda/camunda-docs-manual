@@ -1,16 +1,16 @@
 ---
 
 title: 'Migrate from Camunda BPM 7.1 to Camunda BPM 7.2'
-weight: 90
+weight: 70
 
 menu:
   main:
-    identifier: "installation-guide-full-weblogic-migrate-72"
-    parent: "installation-guide-full-weblogic"
+    identifier: "installation-guide-full-glassfish-migrate-72"
+    parent: "installation-guide-full-glassfish"
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Oracle WebLogic distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to upgrade the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 Glassfish distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
 
 The upgrade procedure takes the following steps:
 
@@ -32,11 +32,11 @@ In each of the following steps, the identifiers `$*_VERSION` refer to the curren
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
-Uninstall the camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-oracle-weblogic-$PLATFORM_VERSION.rar`.
+Uninstall the Camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
 
 ## 2. Replace the Camunda Libraries
 
-After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with their equivalents from `$WLS_DISTRIBUTION/modules/lib`:
+After shutting down the server, replace the following libraries in `$GLASSFISH_HOME/glassfish/lib` with their equivalents from `$GLASSFISH_DISTRIBUTION/modules/lib`:
 
 * `camunda-engine-$PLATFORM_VERSION.jar`
 * `camunda-bpmn-model-$PLATFORM_VERSION.jar`
@@ -47,7 +47,7 @@ If present, also replace the following optional artifact:
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-Add the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`:
+Add the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `camunda-cmmn-model-$PLATFORM_VERSION.jar`
 
@@ -59,12 +59,12 @@ There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template l
 
 <div class="alert alert-info">
   <p><strong>Not Using Connect/Spin</strong></p>
-  <p>If you do <b>not</b> want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear/camunda-oracle-weblogic-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
+  <p>If you do <b>not</b> want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear/camunda-glassfish-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
 </div>
 
 #### Camunda Connect
 
-If Camunda Connect is intended to be used, copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`:
+If Camunda Connect is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
@@ -94,7 +94,7 @@ If you use a custom BPM platform configuration file, Camunda Connect functionali
 
 #### Camunda Spin
 
-If Camunda Spin is intended to be used, copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`:
+If camunda Spin is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `camunda-spin-core-$CONNECT_VERSION.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
@@ -102,7 +102,7 @@ If Camunda Spin is intended to be used, copy the following library from `$WLS_DI
 * `slf4j-api-$SLF4J_VERSION.jar`
 * `slf4j-jdk14-$SLF4J_VERSION.jar`
 
-If you use a custom BPM platform configuration file, Camunda Spin functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
+If you use a custom BPM platform configuration file, camunda Spin functionality has to be activated for a process engine by registering a process engine plugin (note that if you use the default configuration, this step is not necessary):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -123,13 +123,13 @@ If you use a custom BPM platform configuration file, Camunda Spin functionality 
 
 #### Groovy Scripting
 
-If Groovy is to be used as a scripting language, add the following artifacts to the folder `$WLS_DOMAIN_HOME/lib`:
+If Groovy is to be used as a scripting language, add the following artifacts to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
 #### Freemarker Integration
 
-If the Camunda integration for Freemarker is intended to be used, add the following artifacts to the folder `$WLS_DOMAIN_HOME/lib`:
+If the camunda integration for Freemarker is intended to be used, add the following artifacts to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
 * `freemarker-2.3.20.jar`
@@ -163,23 +163,27 @@ As an alternative, process application developers can migrate script code by rep
 
 ## 5. Install the Camunda Archive
 
-Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
-
-As of version 7.2, the Camunda job executor resource adapter (RAR) that you uninstalled in step 1 is part of the Camunda EAR and therefore does not need to be installed separately.
+First, install the camunda job executor resource adapter, namely the file `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`. Then, install the camunda EAR, i.e., the file `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear`.
 
 ## 6. Install the Camunda Web Applications
 
 #### Camunda REST API
 
-Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
+The following steps are required to upgrade the camunda REST API on a Glassfish instance:
+
+1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+2. Deploy the web application archive to your Glassfish instance.
 
 #### Camunda Cockpit, Tasklist, and Admin
 
-Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
+The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
+
+1. Download the camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
+2. Deploy the web application archive to your Glassfish instance.
 
 <div class="alert alert-info">
   <p><strong>LDAP Entity Caching</strong></p>
-  <p>With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
+  <p>With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
 </div>
 
 [configuration-location]: ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file
