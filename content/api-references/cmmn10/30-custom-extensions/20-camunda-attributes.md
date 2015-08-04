@@ -1,7 +1,12 @@
 ---
 
-title: 'Camunda Extension Attributes'
-category: 'Custom Extensions'
+title: 'Extension Attributes'
+weight: 20
+
+menu:
+  main:
+    identifier: "cmmn-ref-extensions-attributes"
+    parent: "cmmn-ref-extensions"
 
 ---
 

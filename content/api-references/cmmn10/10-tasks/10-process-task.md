@@ -1,9 +1,12 @@
 ---
 
 title: 'Process Task'
-category: 'Tasks'
+weight: 20
 
-keywords: 'process task businesskey variables pass'
+menu:
+  main:
+    identifier: "cmmn-ref-tasks-process"
+    parent: "cmmn-ref-tasks"
 
 ---
 

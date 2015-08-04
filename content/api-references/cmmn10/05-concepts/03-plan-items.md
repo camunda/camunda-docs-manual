@@ -1,9 +1,12 @@
 ---
 
 title: 'Plan Items and Item Definitions'
-category: 'Concepts'
+weight: 10
 
-keywords: 'cmmn plan item definition'
+menu:
+  main:
+    identifier: "cmmn-ref-concepts-plan-items-and-definitions"
+    parent: "cmmn-ref-concepts"
 
 ---
 

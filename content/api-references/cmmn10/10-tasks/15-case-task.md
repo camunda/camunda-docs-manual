@@ -1,9 +1,12 @@
 ---
 
 title: 'Case Task'
-category: 'Tasks'
+weight: 20
 
-keywords: 'case task businesskey variables pass'
+menu:
+  main:
+    identifier: "cmmn-ref-tasks-case"
+    parent: "cmmn-ref-tasks"
 
 ---
 

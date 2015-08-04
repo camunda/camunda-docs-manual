@@ -1,9 +1,12 @@
 ---
 
-title: 'Milestone'
-category: 'Milestones'
+title: "Milestones"
+weight: 50
 
-keywords: 'milestone kpi'
+menu:
+  main:
+    identifier: "cmmn-ref-milestones"
+    parent: "cmmn-ref"
 
 ---
 

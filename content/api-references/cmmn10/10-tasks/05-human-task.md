@@ -1,11 +1,15 @@
 ---
 
 title: 'Human Task'
-category: 'Tasks'
+weight: 10
 
-keywords: 'human task due date assignment custom extensions'
+menu:
+  main:
+    identifier: "cmmn-ref-tasks-human"
+    parent: "cmmn-ref-tasks"
 
 ---
+
 
 A *human task* is used to model work that needs to be done by a human actor.
 

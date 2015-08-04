@@ -1,9 +1,12 @@
 ---
 
-title: 'Sentry'
-category: 'Sentries'
+title: 'Sentries'
+weight: 60
 
-keywords: 'sentry event exit entry criteria criterion'
+menu:
+  main:
+    identifier: "cmmn-ref-sentries"
+    parent: "cmmn-ref"
 
 ---
 

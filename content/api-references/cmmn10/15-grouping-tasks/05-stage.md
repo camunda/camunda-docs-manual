@@ -1,9 +1,12 @@
 ---
 
 title: 'Stage'
-category: 'Grouping Tasks'
+weight: 10
 
-keywords: 'stage'
+menu:
+  main:
+    identifier: "cmmn-ref-grouping-stage"
+    parent: "cmmn-ref-grouping"
 
 ---
 

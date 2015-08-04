@@ -1,9 +1,12 @@
 ---
 
 title: 'Entry and Exit Criteria'
-category: 'Concepts'
+weight: 20
 
-keywords: 'cmmn plan item entry exit criteria criterion'
+menu:
+  main:
+    identifier: "cmmn-ref-concepts-entry-and-exit-criteria"
+    parent: "cmmn-ref-concepts"
 
 ---
 

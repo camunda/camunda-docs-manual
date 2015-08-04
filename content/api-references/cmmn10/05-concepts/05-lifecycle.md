@@ -1,9 +1,12 @@
 ---
 
 title: 'Plan Item Lifecycles'
-category: 'Concepts'
+weight: 20
 
-keywords: 'cmmn plan item lifecycle'
+menu:
+  main:
+    identifier: "cmmn-ref-concepts-lifecycle"
+    parent: "cmmn-ref-concepts"
 
 ---
 

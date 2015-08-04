@@ -1,9 +1,12 @@
 ---
 
 title: 'Auto Complete'
-category: 'Markers'
+weight: 30
 
-keywords: 'auto complete stage case plan model'
+menu:
+  main:
+    identifier: "cmmn-ref-markers-auto-complete"
+    parent: "cmmn-ref-markers"
 
 ---
 

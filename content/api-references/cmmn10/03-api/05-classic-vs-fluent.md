@@ -1,9 +1,12 @@
 ---
 
 title: 'Classic vs Fluent API'
-category: 'API'
+weight: 10
 
-keywords: 'caseservice case api fluent non-fluent nonfluent classic'
+menu:
+  main:
+    identifier: "cmmn-ref-api"
+    parent: "cmmn-ref"
 
 ---
 

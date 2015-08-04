@@ -1,9 +1,15 @@
 ---
 
-title: 'Camunda Extension Elements'
-category: 'Custom Extensions'
+title: 'Extension Elements'
+weight: 10
+
+menu:
+  main:
+    identifier: "cmmn-ref-extensions-elements"
+    parent: "cmmn-ref-extensions"
 
 ---
+
 
 The following elements are extension elements for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 

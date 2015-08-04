@@ -1,9 +1,12 @@
 ---
 
 title: 'Manual Activation Rule'
-category: 'Markers'
+weight: 10
 
-keywords: 'manual activation rule plan item definition variable'
+menu:
+  main:
+    identifier: "cmmn-ref-markers-manual-activation"
+    parent: "cmmn-ref-markers"
 
 ---
 

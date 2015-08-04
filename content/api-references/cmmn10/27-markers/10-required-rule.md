@@ -1,9 +1,12 @@
 ---
 
 title: 'Required Rule'
-category: 'Markers'
+weight: 20
 
-keywords: 'required rule plan item definition variable'
+menu:
+  main:
+    identifier: "cmmn-ref-markers-required"
+    parent: "cmmn-ref-markers"
 
 ---
 
