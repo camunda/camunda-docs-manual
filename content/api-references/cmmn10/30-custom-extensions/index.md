@@ -1,7 +1,7 @@
 ---
 
 title: 'Extension Reference'
-weight: 70
+weight: 80
 
 menu:
   main:
