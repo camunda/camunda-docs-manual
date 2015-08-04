@@ -1,9 +1,12 @@
 ---
 
 title: 'User Task'
-category: 'Tasks'
+weight: 30
 
-keywords: 'user task due date assignment custom extensions'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-user-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

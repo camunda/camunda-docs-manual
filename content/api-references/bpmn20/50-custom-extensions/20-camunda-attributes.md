@@ -1,7 +1,12 @@
 ---
 
-title: 'camunda Extension Attributes'
-category: 'Custom Extensions'
+title: 'Extension Attributes'
+weight: 20
+
+menu:
+  main:
+    identifier: "bpmn-extensions-attributes"
+    parent: "bpmn-extensions"
 
 ---
 

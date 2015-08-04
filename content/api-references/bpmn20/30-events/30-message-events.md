@@ -1,9 +1,12 @@
 ---
 
 title: 'Message Events'
-category: 'Events'
+weight: 30
 
-keywords: 'message start intermediate catching boundary intermediate throwing end event definition messages'
+menu:
+  main:
+    identifier: "bpmn-ref-events-message-events"
+    parent: "bpmn-ref-events"
 
 ---
 

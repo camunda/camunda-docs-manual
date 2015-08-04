@@ -1,9 +1,12 @@
 ---
 
 title: 'Task Markers'
-category: 'Tasks'
+weight: 80
 
-keywords: 'multi instance boundary event loop compensation'
+menu:
+  main:
+    identifier: "bpmn-ref-task-markers"
+    parent: "bpmn-ref-tasks"
 
 ---
 

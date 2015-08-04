@@ -1,11 +1,15 @@
 ---
 
 title: 'Terminate Events'
-category: 'Events'
+weight: 90
 
-keywords: 'terminate end event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-terminate-event"
+    parent: "bpmn-ref-events"
 
 ---
+
 
 
 A terminate event ends the complete scope where the event is raised and all inner scopes.

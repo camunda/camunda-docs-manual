@@ -1,9 +1,12 @@
 ---
 
 title: 'Parallel Gateway'
-category: 'Gateways'
+weight: 30
 
-keywords: ''
+menu:
+  main:
+    identifier: "bpmn-ref-gateways-parallel"
+    parent: "bpmn-ref-gateways"
 
 ---
 

@@ -1,10 +1,12 @@
 ---
 
 title: 'Conditional and Default Sequence Flows'
-shortTitle: 'Sequence Flows'
-category: 'Gateways'
+weight: 20
 
-keywords: 'default condition sequence flow'
+menu:
+  main:
+    identifier: "bpmn-ref-gateways-sequence-flow"
+    parent: "bpmn-ref-gateways"
 
 ---
 

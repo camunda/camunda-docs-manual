@@ -1,7 +1,12 @@
 ---
 
-title: 'camunda Extension Elements'
-category: 'Custom Extensions'
+title: 'Extension Elements'
+weight: 10
+
+menu:
+  main:
+    identifier: "bpmn-extensions-elements"
+    parent: "bpmn-extensions"
 
 ---
 

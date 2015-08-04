@@ -1,11 +1,15 @@
 ---
 
 title: 'Link Events'
-category: 'Events'
+weight: 80
 
-keywords: 'link event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-link-events"
+    parent: "bpmn-ref-events"
 
 ---
+
 
 
 Link events are a special case - it has no special execution semantics but serves as a "GoTo" to another point

@@ -1,9 +1,12 @@
 ---
 
 title: 'Timer Events'
-category: 'Events'
+weight: 40
 
-keywords: 'timer start intermediate boundary event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-timer-events"
+    parent: "bpmn-ref-events"
 
 ---
 

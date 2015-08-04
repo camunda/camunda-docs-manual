@@ -1,9 +1,12 @@
 ---
 
 title: 'None Events'
-category: 'Events'
+weight: 20
 
-keywords: 'none start intermediate throwing end event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-none-events"
+    parent: "bpmn-ref-events"
 
 ---
 

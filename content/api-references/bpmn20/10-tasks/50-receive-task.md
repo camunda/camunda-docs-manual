@@ -1,9 +1,12 @@
 ---
 
 title: 'Receive Task'
-category: 'Tasks'
+weight: 60
 
-keywords: 'message receive task'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-receive-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

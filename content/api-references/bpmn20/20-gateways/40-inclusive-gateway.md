@@ -1,9 +1,12 @@
 ---
 
 title: 'Inclusive Gateway'
-category: 'Gateways'
+weight: 40
 
-keywords: ''
+menu:
+  main:
+    identifier: "bpmn-ref-gateways-inclusive"
+    parent: "bpmn-ref-gateways"
 
 ---
 

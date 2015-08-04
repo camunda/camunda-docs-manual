@@ -1,9 +1,12 @@
 ---
 
 title: 'Start Events'
-category: 'Events'
+weight: 10
 
-keywords: 'start events asynchronous instantiation none timer message'
+menu:
+  main:
+    identifier: "bpmn-ref-events-start-event"
+    parent: "bpmn-ref-events"
 
 ---
 

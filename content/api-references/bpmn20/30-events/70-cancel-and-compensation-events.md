@@ -1,9 +1,12 @@
 ---
 
 title: 'Cancel and Compensation Events'
-category: 'Events'
+weight: 70
 
-keywords: 'cancel end boundary compensation intermediate throwing boundary event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-cancel-and-compensation-events"
+    parent: "bpmn-ref-events"
 
 ---
 

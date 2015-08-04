@@ -1,11 +1,15 @@
 ---
 
 title: 'Service Task'
-category: 'Tasks'
+weight: 10
 
-keywords: 'service task implementation field injections results'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-service-task"
+    parent: "bpmn-ref-tasks"
 
 ---
+
 
 
 A service task is used to invoke services. In camunda this is done by calling Java code.

@@ -1,11 +1,12 @@
 ---
 
 title: 'Data-based Exclusive Gateway (XOR)'
-shortTitle: 'Exclusive Gateway (XOR)'
+weight: 10
 
-category: 'Gateways'
-
-keywords: ''
+menu:
+  main:
+    identifier: "bpmn-ref-gateways-xor"
+    parent: "bpmn-ref-gateways"
 
 ---
 

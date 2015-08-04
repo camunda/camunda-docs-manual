@@ -1,10 +1,14 @@
 ---
 
-title: 'BPMN 2.0 Custom Extensions'
-category: 'Custom Extensions'
+title: "Extension Reference"
+weight: 50
+
+menu:
+  main:
+    identifier: "bpmn-extensions"
+    parent: "bpmn-ref"
 
 ---
-
 
 The BPMN 2.0 standard is a good thing for all parties involved. End-users don't suffer from a vendor lock-in that comes from depending on a proprietary solution. Frameworks, and particularly open-source frameworks such as camunda BPM, can implement a solution that has the same (and often better implemented ;-)) features as those of a big vendor. Due to the BPMN 2.0 standard, the transition from one tool to the other works seamlessly.
 

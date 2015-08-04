@@ -1,3 +1,160 @@
+---
+
+title: 'BPMN 2.0 Implementation Reference'
+weight: 20
+
+menu:
+  main:
+    identifier: "bpmn-ref"
+
+---
+
+This page gives you an overview of the BPMN 2.0 elements and the current coverage of the process engine. 
+
+<div class="alert alert-warning">
+  <strong>Heads up!</strong>
+  
+  If you are unfamiliar with BPMN 2.0 you might want to check out our <a href="http://camunda.org/bpmn/tutorial.html">BPMN Tutorial</a> first.
+</div>
+
+# Coverage
+
+The elements marked in <span class="label label-warning">orange</span> are supported. 
+Hover over the element to see since which version of the camunda BPM platform they are supported.
+
+## Symbols
+
+<div>
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Participants</h3>
+      <div style="position: relative">
+        <div data-bpmn-symbol="participant" data-bpmn-symbol-name="Pool">          
+          <div id="1" title="since 7.0"></div>
+        </div>
+        <div style="position: absolute; top: 0; left: 24px" data-bpmn-symbol="lane" data-bpmn-symbol-name="Lane">
+          <div id="1" title="since 7.0"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3>Subprocesses</h3>
+      <div data-bpmn-symbol="subprocess" data-bpmn-symbol-name="Subprocess">
+        <a href="ref:#subprocesses-embedded-subprocess">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="callactivity" data-bpmn-symbol-name="Call Activity">
+        <a href="ref:#subprocesses-call-activity">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="eventsubprocess" data-bpmn-symbol-name="Event Subprocess">
+        <a href="ref:#subprocesses-event-subprocess">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="transaction" data-bpmn-symbol-name="Transaction">
+        <a href="ref:#subprocesses-transaction-subprocess">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Tasks</h3>
+      <div data-bpmn-symbol="servicetask" data-bpmn-symbol-name="Service Task">
+        <a href="ref:#tasks-service-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="usertask" data-bpmn-symbol-name="User Task">
+        <a href="ref:#tasks-user-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="scripttask" data-bpmn-symbol-name="Script Task">
+        <a href="ref:#tasks-script-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="businessruletask" data-bpmn-symbol-name="Business Rule Task">
+        <a href="ref:#tasks-business-rule-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="manualtask" data-bpmn-symbol-name="Manual Task">
+        <a href="ref:#tasks-manual-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task">
+        <a href="ref:#tasks-receive-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="task" data-bpmn-symbol-name="Undefined Task"></div>
+      <div data-bpmn-symbol="sendtask" data-bpmn-symbol-name="Send Task">
+        <a href="ref:#tasks-send-task">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="receivetask-instantiate" data-bpmn-symbol-name="Receive Task (instantiated)"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Gateways</h3>
+      <div data-bpmn-symbol="exclusivegateway" data-bpmn-symbol-name="XOR">
+        <a href="ref:#gateways-data-based-exclusive-gateway-xor">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="inclusivegateway" data-bpmn-symbol-name="OR">
+        <a href="ref:#gateways-inclusive-gateway">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="parallelgateway" data-bpmn-symbol-name="AND">
+        <a href="ref:#gateways-parallel-gateway">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+      <div data-bpmn-symbol="eventbasedgateway" data-bpmn-symbol-name="Event">
+        <a href="ref:#gateways-event-based-gateway">
+          <div id="1" title="since 7.0"></div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3>Data</h3>
+      <div data-bpmn-symbol="dataobject" data-bpmn-symbol-name="Data <br>Object"></div>
+      <div data-bpmn-symbol="datastorereference" data-bpmn-symbol-name="Data <br>Store"></div>
+    </div>
+    <div class="col-md-3">
+      <h3>Artifacts</h3>
+      <div data-bpmn-symbol="textannotation" data-bpmn-symbol-name="Text <br>Annotation">
+        <div id="1" title="since 7.0"></div>
+      </div>
+      <div data-bpmn-symbol="group" data-bpmn-symbol-name="Group">
+        <div id="1" title="since 7.0"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+## Events
+
+In BPMN there are Start events, Intermediate events, and End events. These three event types can be catching events and/or throwing events. Intermediate events can be used as boundary events on tasks, in which case they can be interrupting or non-interrupting. This gives you a lot of flexibility to use events in your processes.
+
+<div class="alert alert-warning">
+  <strong>Heads up!</strong>
+  For understanding the principle behavior of events in BPMN, we recommend to check the
+  <a href="http://camunda.org/bpmn/reference.html#events-basic-concepts">Events: Basic Concepts</a> chapter of the <a href="http://camunda.org/bpmn/reference.html">BPMN Modeling Reference</a> section.
+</div>
+
 <div class="table-responsive">
   <table class="table table-bordered table-bpmn-events">
     <thead>

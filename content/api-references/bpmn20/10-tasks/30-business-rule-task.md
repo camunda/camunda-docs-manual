@@ -1,9 +1,12 @@
 ---
 
 title: 'Business Rule Task'
-category: 'Tasks'
+weight: 40
 
-keywords: 'service task business rule'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-business-rule-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

@@ -1,9 +1,12 @@
 ---
 
 title: 'Manual Task'
-category: 'Tasks'
+weight: 70
 
-keywords: 'manual'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-manual-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

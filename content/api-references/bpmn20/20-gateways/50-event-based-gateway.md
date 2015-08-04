@@ -1,12 +1,14 @@
 ---
 
 title: 'Event-based Gateway'
-category: 'Gateways'
+weight: 50
 
-keywords: ''
+menu:
+  main:
+    identifier: "bpmn-ref-gateways-event-based"
+    parent: "bpmn-ref-gateways"
 
 ---
-
 
 The event-based Gateway allows you to make a decision based on events. Each outgoing sequence flow of the gateway needs to be connected to an intermediate catching event. When process execution reaches an event-based Gateway, the gateway acts like a wait state: execution is suspended. In addition, for each outgoing sequence flow, an event subscription is created.
 

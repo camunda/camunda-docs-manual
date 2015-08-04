@@ -1,9 +1,12 @@
 ---
 
 title: 'Error Events'
-category: 'Events'
+weight: 50
 
-keywords: 'error start end boundary event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-error-events"
+    parent: "bpmn-ref-events"
 
 ---
 

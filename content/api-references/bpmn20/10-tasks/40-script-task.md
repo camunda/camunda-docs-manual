@@ -1,9 +1,12 @@
 ---
 
 title: 'Script Task'
-category: 'Tasks'
+weight: 50
 
-keywords: 'variables scripts results'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-script-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

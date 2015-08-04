@@ -1,9 +1,12 @@
 ---
 
 title: 'Signal Events'
-category: 'Events'
+weight: 60
 
-keywords: 'signal catching intermediate throw end event event definition'
+menu:
+  main:
+    identifier: "bpmn-ref-events-signal-events"
+    parent: "bpmn-ref-events"
 
 ---
 

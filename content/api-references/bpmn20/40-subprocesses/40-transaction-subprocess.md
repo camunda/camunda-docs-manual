@@ -1,9 +1,12 @@
 ---
 
 title: 'Transaction Subprocess'
-category: 'Subprocesses'
+weight: 40
 
-keywords: 'transaction subprocess'
+menu:
+  main:
+    identifier: "bpmn-subprocess-transaction-subprocess"
+    parent: "bpmn-subprocess"
 
 ---
 

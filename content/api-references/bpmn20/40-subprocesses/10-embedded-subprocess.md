@@ -1,9 +1,12 @@
 ---
 
 title: 'Embedded Subprocess'
-category: 'Subprocesses'
+weight: 10
 
-keywords: 'call activity businesskey variables pass'
+menu:
+  main:
+    identifier: "bpmn-subprocess-embedded"
+    parent: "bpmn-subprocess"
 
 ---
 

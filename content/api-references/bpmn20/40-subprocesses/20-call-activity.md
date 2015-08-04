@@ -1,9 +1,12 @@
 ---
 
 title: 'Call Activity'
-category: 'Subprocesses'
+weight: 20
 
-keywords: 'call activity businesskey variables pass'
+menu:
+  main:
+    identifier: "bpmn-subprocess-call-activity"
+    parent: "bpmn-subprocess"
 
 ---
 

@@ -1,9 +1,12 @@
 ---
 
 title: 'Send Task'
-category: 'Tasks'
+weight: 20
 
-keywords: 'service task send task'
+menu:
+  main:
+    identifier: "bpmn-ref-tasks-send-task"
+    parent: "bpmn-ref-tasks"
 
 ---
 

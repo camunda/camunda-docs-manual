@@ -1,9 +1,12 @@
 ---
 
 title: 'Event Subprocess'
-category: 'Subprocesses'
+weight: 30
 
-keywords: 'event subprocess'
+menu:
+  main:
+    identifier: "bpmn-subprocess-event-subprocess"
+    parent: "bpmn-subprocess"
 
 ---
 
