@@ -1,9 +1,12 @@
 ---
 
 title: 'Querying XML'
-category: 'Handling XML'
+weight: 40
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-querying"
+    parent: "spin-ref-xml"
 
 ---
 

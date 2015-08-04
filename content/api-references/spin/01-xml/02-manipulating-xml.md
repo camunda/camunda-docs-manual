@@ -1,9 +1,12 @@
 ---
 
 title: 'Manipulating XML'
-category: 'Handling XML'
+weight: 20
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-manipulating"
+    parent: "spin-ref-xml"
 
 ---
 

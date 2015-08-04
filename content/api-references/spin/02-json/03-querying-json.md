@@ -1,9 +1,12 @@
 ---
 
 title: 'Querying JSON'
-category: 'Handling JSON'
+weight: 30
 
-keyword: 'spin api json'
+menu:
+  main:
+    identifier: "spin-ref-json-querying"
+    parent: "spin-ref-json"
 
 ---
 

@@ -1,9 +1,12 @@
 ---
 
 title: 'Writing XML'
-category: 'Handling XML'
+weight: 30
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-writing"
+    parent: "spin-ref-xml"
 
 ---
 

@@ -1,9 +1,12 @@
 ---
 
 title: 'Configuring XML Handling'
-category: 'Handling XML'
+weight: 60
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-configuration"
+    parent: "spin-ref-xml"
 
 ---
 

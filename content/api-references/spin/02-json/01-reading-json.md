@@ -1,11 +1,15 @@
 ---
 
 title: 'Reading JSON'
-category: 'Handling JSON'
+weight: 10
 
-keyword: 'spin api json'
+menu:
+  main:
+    identifier: "spin-ref-json-reading"
+    parent: "spin-ref-json"
 
 ---
+
 
 The JSON datatype supports reading JSON from Strings or Readers.
 

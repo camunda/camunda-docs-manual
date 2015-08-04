@@ -1,9 +1,12 @@
 ---
 
 title: 'Mapping JSON'
-category: 'Handling JSON'
+weight: 40
 
-keyword: 'spin api json'
+menu:
+  main:
+    identifier: "spin-ref-json-mapping"
+    parent: "spin-ref-json"
 
 ---
 

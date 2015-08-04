@@ -1,9 +1,12 @@
 ---
 
 title: 'Configuring JSON Handling'
-category: 'Handling JSON'
+weight: 50
 
-keyword: 'spin api json'
+menu:
+  main:
+    identifier: "spin-ref-json-configuration"
+    parent: "spin-ref-json"
 
 ---
 

@@ -1,9 +1,12 @@
 ---
 
 title: 'Reading XML'
-category: 'Handling XML'
+weight: 10
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-reading"
+    parent: "spin-ref-xml"
 
 ---
 

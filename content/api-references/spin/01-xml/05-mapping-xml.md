@@ -1,9 +1,12 @@
 ---
 
 title: 'Mapping XML'
-category: 'Handling XML'
+weight: 50
 
-keyword: 'spin api xml'
+menu:
+  main:
+    identifier: "spin-ref-xml-mapping"
+    parent: "spin-ref-xml"
 
 ---
 

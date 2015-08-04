@@ -1,9 +1,12 @@
 ---
 
 title: 'Writing JSON'
-category: 'Handling JSON'
+weight: 20
 
-keyword: 'spin api json'
+menu:
+  main:
+    identifier: "spin-ref-json-writing"
+    parent: "spin-ref-json"
 
 ---
 
