@@ -1,7 +1,12 @@
 ---
 
 title: 'How to develop a Cockpit plugin'
-category: 'Cockpit'
+weight: 60
+
+menu:
+  main:
+    identifier: "examples-tutorials-cockpit-plugin"
+    parent: "examples-tutorials"
 
 ---
 

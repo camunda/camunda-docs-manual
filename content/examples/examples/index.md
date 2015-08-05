@@ -1,27 +1,19 @@
 ---
 
-title: 'Examples'
-layout: 'default'
-links: 'process'
+title: 'Camunda BPM usage examples on GitHub'
+weight: 10
+
+menu:
+  main:
+    identifier: "examples-examples"
+    parent: "examples"
 
 ---
-
-<%- @partial('breadcrumb.html.eco', @, {}) %>
-
-<div class="col-lg-12">
-
-  <div class="page-header">
-    <h1>camunda BPM usage examples on GitHub</h1>
-  </div>
-
-</div>
 
 <div class="col-lg-12">
   <p class="lead">Completed the <a href="ref:/guides/getting-started-guides/">Getting Started Guides</a>? Now discover what you can build with camunda BPM:</p>
 </div>
-
 <div class="col-lg-12">
-
   <div class="row">
     <div class="col-lg-4">
       <div class="panel panel-primary">
@@ -45,7 +37,6 @@ links: 'process'
         </div>
       </div>
     </div>
-
     <div class="col-lg-4">
       <div class="panel panel-default">
         <div class="panel-heading">

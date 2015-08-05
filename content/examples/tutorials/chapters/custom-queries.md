@@ -1,7 +1,12 @@
 ---
 
 title: 'Custom Queries'
-category: 'Process Engine'
+weight: 20
+
+menu:
+  main:
+    identifier: "examples-tutorials-custom-queries"
+    parent: "examples-tutorials"
 
 ---
 
@@ -37,7 +42,7 @@ So far, a pretty common situation (please note that the object diagram has been 
 ```java
 @Inject
 private TaskService taskService;
- 
+
 public List<Task> getTasks() {
   return taskService.createTaskQuery().processVariableValueEquals("customer", "0815").list();
 }
@@ -52,7 +57,7 @@ How to do this?
 
 ## The "naive" implementation
 
-Something we see very often is what we call the "naive" implementation, the easiest way you can think of: use the existing query capabilities and add an own filter to your Java code. This is easy to write for any Java developer. However, it normally queries too much information from the Process Engine's database and therefore **might cause serious performance issues - so please check the alternatives below first.** 
+Something we see very often is what we call the "naive" implementation, the easiest way you can think of: use the existing query capabilities and add an own filter to your Java code. This is easy to write for any Java developer. However, it normally queries too much information from the Process Engine's database and therefore **might cause serious performance issues - so please check the alternatives below first.**
 
 For the two example queries above we could write the following code:
 
@@ -149,7 +154,7 @@ public class MyBatisExtendedSessionFactory extends StandaloneProcessEngineConfig
     initCommandExecutors();
     initSqlSessionFactory();
     initIncidentHandlers();
-    initIdentityProviderSessionFactory();        
+    initIdentityProviderSessionFactory();
     initSessionFactories();
   }
 
@@ -282,4 +287,4 @@ This is all you have to do. Please check out the full code in the example, you c
 
 ## Performance Experiences
 
-It was really important to us to write this article because sometimes we hear that the process engine performs badly and almost every time this is related to wrongly designed queries. One customer had his project status turned to "dark yellow" (which is close to red) because of these performance issues. This solution improved performance by a factor greater than 10 and fixed paging and sorting issues, bringing the project back on track. So we think everybody should know about it! 
+It was really important to us to write this article because sometimes we hear that the process engine performs badly and almost every time this is related to wrongly designed queries. One customer had his project status turned to "dark yellow" (which is close to red) because of these performance issues. This solution improved performance by a factor greater than 10 and fixed paging and sorting issues, bringing the project back on track. So we think everybody should know about it!

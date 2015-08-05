@@ -1,7 +1,12 @@
 ---
 
 title: 'Multi-Tenancy'
-category: 'Process Engine'
+weight: 30
+
+menu:
+  main:
+    identifier: "examples-tutorials-multiy-tenancy"
+    parent: "examples-tutorials"
 
 ---
 

@@ -1,7 +1,12 @@
 ---
 
 title: 'Error Handling'
-category: 'Concepts'
+weight: 10
+
+menu:
+  main:
+    identifier: "examples-tutorials-error-handling"
+    parent: "examples-tutorials"
 
 ---
 
@@ -32,7 +37,7 @@ This strategy is pretty powerful and applied often in real-life projects, howeve
 
 If you call Java Code which can throw an exception, you can catch the exception within the Java Delegate, CDI Bean or whatsoever. Maybe it is already sufficient to log some information and go on, meaning that you ignore the error. More often you write the result into a process variable and model an XOR-Gateway later in the process flow to take a different path if that error occurs.
 
-In that case you model the error handling explicitly in the process model but you make it look like a normal result and not like an error. From a business perspective it is not an error but a result, so the decision should not be made lightly. A rule of thumb is that results can be handled this way, exceptional errors should not. However, the BPMN perspective does not always have to match the technical implementation. 
+In that case you model the error handling explicitly in the process model but you make it look like a normal result and not like an error. From a business perspective it is not an error but a result, so the decision should not be made lightly. A rule of thumb is that results can be handled this way, exceptional errors should not. However, the BPMN perspective does not always have to match the technical implementation.
 
 Example:
 
@@ -49,7 +54,7 @@ The BPMN 2.0 error event gives you the possibility to explicitly model errors, t
 <img src="ref:asset:/assets/img/real-life/bpmn.boundary.error.event.png" class="img-responsive"/>
 
 
-See the [Error Events](ref:/api-references/bpmn20/#events-error-events) section of the [BPMN 2.0 Implementation Reference](ref:/api-references/bpmn20/) and the [Throwing Errors from Delegation Code](ref:/guides/user-guide/#process-engine-delegation-code-throwing-bpmn-errors-from-delegation-code) section of the [User Guide](ref:/guides/user-guide/) for more information. 
+See the [Error Events](ref:/api-references/bpmn20/#events-error-events) section of the [BPMN 2.0 Implementation Reference](ref:/api-references/bpmn20/) and the [Throwing Errors from Delegation Code](ref:/guides/user-guide/#process-engine-delegation-code-throwing-bpmn-errors-from-delegation-code) section of the [User Guide](ref:/guides/user-guide/) for more information.
 
 ### BPMN 2.0 Compensation and Business Transactions
 
@@ -65,7 +70,7 @@ As mentioned above, the simplest error handling strategy is to throw the excepti
 
 ### Retry failed Jobs
 
-If you use Jobs (`async`), you can leverage Cockpit as monitoring tool to handle failed jobs, in this case no end user sees the exception. Then you normally see failures in cockpit when the retries are depleted (see the [Failed Jobs](ref:/guides/user-guide/#process-engine-the-job-executor-failed-jobs) section of the [User Guide](ref:/guides/user-guide/) for more information). 
+If you use Jobs (`async`), you can leverage Cockpit as monitoring tool to handle failed jobs, in this case no end user sees the exception. Then you normally see failures in cockpit when the retries are depleted (see the [Failed Jobs](ref:/guides/user-guide/#process-engine-the-job-executor-failed-jobs) section of the [User Guide](ref:/guides/user-guide/) for more information).
 
 See the [Failed Jobs in Cockpit](ref:/guides/user-guide/#cockpit-failed-jobs) section of the [User Guide](ref:/guides/user-guide/) for more details.
 

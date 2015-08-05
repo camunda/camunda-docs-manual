@@ -1,7 +1,12 @@
 ---
 
-title: 'Creating Custom Tasks for camunda Modeler'
-category: 'Modeler'
+title: 'Creating Custom Tasks for the Camunda Modeler'
+weight: 70
+
+menu:
+  main:
+    identifier: "examples-tutorials-custom-tasks"
+    parent: "examples-tutorials"
 
 ---
 
@@ -73,7 +78,7 @@ Create or edit the `plugin.xml` in your project root with the following contents
 </plugin>
 ```
 
-This tells Eclipse you are going to implement the custom task extension point using the class `com.mycompany.modeler.tasks.MyCustomTaskProvider`. 
+This tells Eclipse you are going to implement the custom task extension point using the class `com.mycompany.modeler.tasks.MyCustomTaskProvider`.
 
 You are ready to write your custom task provider. Go ahead and create the class with the following contents:
 
@@ -103,9 +108,9 @@ Additionally, create the utility class `com.mycompany.modeler.tasks.PluginConsta
 public class PluginConstants {
 
   public static final EStructuralFeature CLASS_STRUCTURAL_FEATURE = ModelPackage.eINSTANCE.getDocumentRoot_Class();
-  
+
   public static final String CLASS_VALUE = "com.mycompany.services.MyService";
-  
+
   public static boolean isMyCustomTask(EObject eObject) {
     return eObject instanceof ServiceTask && CLASS_VALUE.equals(eObject.eGet(CLASS_STRUCTURAL_FEATURE));
   }
@@ -128,7 +133,7 @@ The utility `PluginConstants` provides reusable utilities such as the implementa
 
 ### Activation of the extension
 
-The behavior shipped with a custom task provider will automatically activate whenever `ICustomTaskProvider#appliesTo(EObject)` returns as true. This means that our implementation `MyCustomTaskProvider` activates for all objects of type `ServiceTask` that have a `class` property set to `com.mycompany.services.MyService` (cf. `PluginConstants#isMyCustomTask(EObject)`). 
+The behavior shipped with a custom task provider will automatically activate whenever `ICustomTaskProvider#appliesTo(EObject)` returns as true. This means that our implementation `MyCustomTaskProvider` activates for all objects of type `ServiceTask` that have a `class` property set to `com.mycompany.services.MyService` (cf. `PluginConstants#isMyCustomTask(EObject)`).
 
 In other words: It is all plain old BPMN 2.0 with camunda extensions and any service task with an XML definition like
 
@@ -160,20 +165,20 @@ public class MyCustomTaskTabSection extends AbstractTabSection {
   protected Composite createCompositeForObject(Composite parent, EObject businessObject) {
     return new MyCustomTaskTabSectionFactory(this, parent).createCompositeForBusinessObject((BaseElement) businessObject);
   }
-  
+
   private static class MyCustomTaskTabSectionFactory extends AbstractTabCompositeFactory<BaseElement> {
 
     public MyCustomTaskTabSectionFactory(GFPropertySection section, Composite parent) {
       super(section, parent);
     }
-    
+
     @Override
     public Composite createCompositeForBusinessObject(BaseElement baseElement) {
 
       Text endpointText = FieldInjectionUtil.createLongStringText(
         section, parent, "Endpoint", "endpoint", baseElement);
-      
-      PropertyUtil.attachNoteWithLink(section, endpointText, 
+
+      PropertyUtil.attachNoteWithLink(section, endpointText,
         "For more information search <a href=\"http://google.com\">google</a>");
 
       return parent;
@@ -184,7 +189,7 @@ public class MyCustomTaskTabSection extends AbstractTabSection {
 
 The `MyCustomTaskTabSection` delegates creating the tab contents to an instance of [`AbstractTabCompositeFactory`][12]. It creates the contents of the tab in `#createCompositeForBusinessObject(EObject)`. Our implementation adds a text area with the label _Endpoint_ that maps to a [field injection][13] of type text with the name `endpoint`. Additionally, it renders the note `For more information search google` right below the text.
 
-We may now start Eclipse with the extension installed via `Run > Run As > Eclipse Application`. 
+We may now start Eclipse with the extension installed via `Run > Run As > Eclipse Application`.
 After we assigned the class `com.mycompany.services.MyService` to a service task and refreshed the properties panel (i.e. deselect and select the task again) we should see our property tabs extension in action.
 
 ![Property tab extension for custom task][14]
@@ -202,7 +207,7 @@ To learn more about what else is possible in property panels, browse the subclas
 
 ## Palette Integration
 
-The way a custom task is integrated into the new element palette may be configured via `ICustomTaskProvider#getPaletteIntegration()`. 
+The way a custom task is integrated into the new element palette may be configured via `ICustomTaskProvider#getPaletteIntegration()`.
 
 To enable palette integration for our service task, add the following lines to the `MyCustomTaskProvider` class
 
@@ -220,7 +225,7 @@ This is done by exposing a custom set of modeling features, including a create f
 
 ## Defining Custom Task Features
 
-Feature containers, implementing the interface [`IFeatureContainer`][19], tell the Modeler how certain modeling operations are implemented on diagram elements. 
+Feature containers, implementing the interface [`IFeatureContainer`][19], tell the Modeler how certain modeling operations are implemented on diagram elements.
 
 These operations include:
 
@@ -272,23 +277,23 @@ To do so, add the following lines to the `MyCustomTaskFeatureContainer` class:
   public ICreateFeature getCreateFeature(IFeatureProvider fp) {
     String taskName = PluginConstants.getMyCustomTaskName();
     String createDescription = "A task that talks to an endpoint";
-    
+
     return new AbstractCreateTaskFeature<ServiceTask>(fp, taskName, createDescription) {
 
       @Override
       protected String getStencilImageId() {
         return Images.IMG_16_SERVICE_TASK;
       }
-      
+
       @Override
       public ServiceTask createBusinessObject(ICreateContext context) {
         ServiceTask serviceTask = super.createBusinessObject(context);
-        
+
         serviceTask.eSet(PluginConstants.CLASS_STRUCTURAL_FEATURE, PluginConstants.CLASS_VALUE);
-        
+
         return serviceTask;
       }
-      
+
       @Override
       public EClass getBusinessObjectClass() {
         return Bpmn2Package.eINSTANCE.getServiceTask();
@@ -307,7 +312,7 @@ After restarting Eclipse, the palette entry should now display the name of your 
 
 As a final step we need to build a customized Eclipse that contains the camunda Modeler and our custom task plug-in. One of the various ways to do this is via a product configuration that allows you to generate Eclipse applications as well as update sites.
 
-To start, create a new product configuration named `customModeler.product` via `New > Other... > Plug-in Configuration` and specify that you would like to create a configuration using basic settings. 
+To start, create a new product configuration named `customModeler.product` via `New > Other... > Plug-in Configuration` and specify that you would like to create a configuration using basic settings.
 
 Configure the resulting view similar to the following screenshot
 
