@@ -316,10 +316,10 @@ Since your process models will be stored in certain repositories, you should set
       </tr>
       <tr>
         <td><a href="http://www.igrafx.de/">iGrafx</a></td>
-        <td>2013</td>
+        <td>2015</td>
         <td>commercial</td>
         <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
-        <td></td>
+        <td class="center"><i class="glyphicon glyphicon-ok"></i></td>
         <td></td>
         <td></td>
         <td class="center">no</td>

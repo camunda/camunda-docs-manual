@@ -502,6 +502,102 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+### camunda:decisionRef
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute references a decision definition to evalute by its key.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A String or an expression which evalutes to the key of a decision definition which should be evaluated by this task, e.g. <code>myDecisionDefinitionKey</code> or <code>${decisionKey}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>
+    </td>
+  </tr>
+</table>
+
+### camunda:decisionRefBinding
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which decision definition version the task evaluates.
+      If the value is <code>version</code> the attribute <a href="ref:#custom-extensions-camunda-extension-attributes-camundadecisionrefversion">camunda:decisionRefVersion</a>
+      is required.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>latest</code>, <code>deployment</code>, <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>latest</code></td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>
+    </td>
+  </tr>
+</table>
+
+### camunda:decisionRefVersion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which decision definition version the task evaluates if the <a href="ref:#custom-extensions-camunda-extension-attributes-camundadecisionrefbinding">camunda:decisionRefBinding</a>
+      is set to <code>version</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete version of all deployed version numbers of the decision to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g. <code>${versionToCall}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#tasks-business-rule-task">Business Rule Task</a>
+    </td>
+  </tr>
+</table>
+
 ### camunda:delegateExpression
 
 <table class="table table-striped">

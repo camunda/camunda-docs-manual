@@ -1,6 +1,6 @@
 ---
 
-title: 'File Input Fields'
+title: 'File Upload and Download'
 weight: 70
 
 menu:
@@ -10,12 +10,7 @@ menu:
 
 ---
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Note:</strong> File Upload is not supported for Internet Explorer 9.
-  </p>
-</div>
-
+# Uploading Files
 
 File input elements are HTML
 
@@ -25,24 +20,52 @@ File input elements are HTML
 
 controls. They allow users to upload files, which will be stored as a process instance variable of the type Bytes. Larger files will take longer to process and may crash the browser, so there is a soft file size limit of 5MB. You can overwrite this limit using the `cam-max-filesize` directive. To upload larger files without freezing the browser, see the [custom javascript section][JavascriptUpload].
 
-The file input element can not be used to download previously uploaded files. To provide download links for files, see the [download example][DownloadExample] in the custom javascript section.
 
-### Uploading Files
+<div class="alert alert-warning">
+  <p>
+    <strong>Note:</strong> File Upload is not supported for Internet Explorer 9.
+  </p>
+</div>
 
 Files can be uploaded using the `cam-variable-name` and `cam-variable-type` directives:
 
 ```html
 <input type="file"
        cam-variable-name="INVOICE_DOCUMENT"
-       cam-variable-type="Bytes"
+       cam-variable-type="File"
        cam-max-filesize="10000000" />
 ```
 
 In the example above, the user can upload a document with a maximum filesize of 10MB. The uploaded file will be stored as process instance variable with the name `INVOICE_DOCUMENT`.
 
-### Supported Variable Types for Input Elements
+Besides uploading a file, it is also possible to present the user with a download link or displaying files as images.
 
-The file input type supports variables of type Bytes only. The directive `cam-variable-type="Bytes"` must be used.
+# Downloading Files
+
+The `cam-file-download` directive turns a link into a file download link.
+
+```html
+<a cam-file-download="INVOICE_DOCUMENT"></a>
+```
+
+The above link will allow the user to download the file stored in the variable `INVOICE_DOCUMENT`.
+
+If the link has no text content, the filename of the file will be set as text content.
+
+# Displaying an uploaded Image
+
+If the user uploaded an image, it can be displayed using an `<img>` tag. There is no special directive for this yet.
+However, you can make sure that the corresponding variable is fetched (either using javascript or an hidden input field) and then
+use the generated link as value for the `src` attribute.
+
+```html
+<!-- make sure the file is fetched. Alternative: use javascript -->
+<input type="hidden" cam-variable-name="INVOICE_DOCUMENT"/>
+
+<!-- set contentUrl as src of the image-->
+<img src="{{ camForm.variableManager.variable('INVOICE_DOCUMENT').contentUrl }}"></img>
+```
+
+> **Note**: the above example uses the angular js integration.
 
 [JavascriptUpload]: ref:#custom-javascript-examples-upload-large-files
-[DownloadExample]: ref:#custom-javascript-examples-provide-download-link-for-byte-variables
