@@ -12,7 +12,7 @@ menu:
 
 The following attributes are extension attributes for the `camunda` namespace `http://activiti.org/bpmn`.
 
-### camunda:assignee
+# camunda:assignee
 
 <table class="table table-striped">
   <tr>
@@ -43,7 +43,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:asyncAfter
+# camunda:asyncAfter
 
 <table class="table table-striped">
   <tr>
@@ -96,7 +96,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:asyncBefore
+# camunda:asyncBefore
 
 <table class="table table-striped">
   <tr>

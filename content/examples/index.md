@@ -1,6 +1,6 @@
 ---
 
-title: "Examples"
+title: "Examples & Tutorials"
 weight: 40
 
 menu:
@@ -9,9 +9,10 @@ menu:
 
 ---
 
-<div class="span12">
-  <ul>
-    <li><a href="ref:/real-life/examples/">Examples</a></li>
-    <li><a href="ref:/real-life/how-to/">Tutorials</a></li>
-  </ul>
-</div>
+Completed the <a href="{{< relref "guides/getting-started-guides/index.md" >}}">Getting Started Guides</a>? Now discover what you can build with camunda BPM.
+
+This page collects links to hands-on examples and tutorials around Camunda BPM
+
+* [Examples](https://github.com/camunda/camunda-bpm-examples) (On Github)
+* [Camunda Consulting Examples](https://github.com/camunda/camunda-consulting) (On Github)
+* [Tutorials]({{< relref "examples/tutorials/index.md" >}})
