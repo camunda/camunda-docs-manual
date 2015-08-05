@@ -9,35 +9,26 @@
 
   <meta name="viewport" content="width=device-width" />
 
+  <meta name="description" content="documentation of the camunda BPM platform" />
+  <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
+  <meta name="author" content="camunda BPM community" />
+
   <title>{{ .Title }}</title>
 
   <meta name="generator" content="Hugo {{.Hugo.Version}}" />
-
-  <!-- ie6-8 support of html5 elements -->
-  <!--[if lt IE 9]>
-    <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="{{.Site.BaseURL}}/img/favicon.ico" type="image/x-icon" />
 
   <link rel="stylesheet" href="{{.Site.BaseURL}}/css/docs.css">
-
 </head>
-<body>
+<body class="{{ .Params.bodyclass }}">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <p class="navbar-text">
-        docs.camunda.org
+<div class="page-wrapper">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="navbar-text">
+          <a href="{{.Site.BaseURL}}">docs.camunda.org</a>
         </p>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
