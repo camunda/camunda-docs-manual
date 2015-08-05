@@ -1,9 +1,95 @@
 ---
 
-title: 'Migrate the Server'
-category: 'Migrate from Camunda fox'
+title: "Migration from Camunda fox"
+weight: 70
+
+menu:
+  main:
+    identifier: "migration-guide-fox"
+    parent: "migration-guide"
 
 ---
+
+<div class="alert alert-info">
+  <strong>Reading the Guide</strong><br>
+   Throughout this guide we will use a number of variables to denote common path names and constants:
+  <ul>
+    <li><code>$DATABASE</code> expresses the target database platform, e.g., DB2, MySql, etc.</li>
+    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat, etc.</li>
+    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.0.0</code>.</li>
+    <li><code>$FOX_HOME</code> points to the Camunda fox server main directory.</li>
+    <li><code>$FOX_VERSION</code> denotes the version of the Camunda fox platform you have installed, e.g., <code>6.2.4</code>.</li>
+  </ul>
+</div>
+
+As Camunda fox included the Activiti engine you have to perform the [above steps](ref:#migrate-from-activiti) as well.
+
+Before you can start with the migration from Camunda fox to Camunda BPM, we recommend that you [download](http://camunda.org/download) the pre-packaged distribution corresponding to your Camunda fox server.
+
+
+# Migrate your Process Application
+
+To migrate your process application from Camunda fox to Camunda BPM, you need to follow these steps:
+
+*   Do the Activiti migration as [described above](ref:#migrate-from-activiti), as Camunda fox included the Activiti engine.
+*   Remove the `fox-platform-client.x.jar` from your deployment - it is not needed anymore.
+*   Add a Process Application Class, see [Process Applications](ref:/guides/user-guide/#process-applications-the-process-application-class).
+*   If you don't use our engine as embedded jar, you should set your maven-dependency for it to **provided-scope**
+*   Adjust the `processes.xml` to the new format, see [Process Applications](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
+*   If you completely migrate to our new distribution, you have to adjust your `persistence.xml` from **FoxEngineDS** to **ProcessEngine**
+*   If you use the new Camunda Tasklist component, you have to adjust the `formKey`, as described in the [Getting Started](http://camunda.org/implement/getting-started.html) section. We will provide more information soon. For JSF-Formkeys, your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g., `/loan-approval/request-loan.jsf`
+*   If you use the `fox.taskForm` bean, make sure you have the `camunda-engine-cdi` dependency on your classpath:
+
+    <%- @partial('camunda-bom.html.eco', @, {}) %>
+
+    ```xml
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-cdi</artifactId>
+    </dependency>
+    ```
+*   If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `fox.taskForm`. There you have two choices: If you are using `fox.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("fox.taskForm")`, otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend that you use the annotation `@Named("camundaTaskForm")`.
+*   Since Camunda BPM 7.0, the unique constraint for the business key has been removed in the runtime and history tables and the database schema create and drop scripts. The [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/) do not include the drop statements of the unique constraint for the business key. So if you do not rely on the unique constraint for the business key, you can delete the unique constraint yourself. See the following documentation about the [Business Key](ref:/guides/user-guide/#process-engine-database-configuration-business-key) to delete the unique constraint corresponding to your database.
+*   If you do a JNDI lookup to get one of the Platform Services (i.e., `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as follows:
+    *   ProcessArchiveService:
+        *   Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessArchiveService`
+        *   New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService`
+        *   **Note:** The name of `ProcessArchiveService` has changed to `ProcessApplicationService`.
+    *   ProcessEngineService:
+        *   Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessEngineService`
+        *   New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
+
+## Which Camunda fox class names have changed?
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>component</th>
+      <th>Camunda fox class name</th>
+      <th>Camunda BPM class name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fox-platform-api</td>
+      <td>ProcessArchiveService</td>
+      <td>ProcessApplicationService</td>
+    </tr>
+    <tr>
+      <td>fox-platform-client</td>
+      <td>ProcessArchiveSupport</td>
+      <td>DefaultEjbProcessApplication</td>
+    </tr>
+  </tbody>
+</table>
+
+
+# Migrate your Database
+
+Be aware that there were major changes in our database structure. For migration from **Camunda fox EE 6.2** and **Camunda fox CE 1.34** we recommend to take a look at our migration scripts. These are located in the following folder of your downloaded pre-packaged distribution: `$DISTRIBUTION_PATH/sql/upgrade`. To perform the migration of your database, choose the corresponding upgrade script `$DATABASE_engine_6.2_to_7.0` according to your database platform and run it.
+
+
+# Migrate the Server
 
 ## JBoss AS 7.1.3
 
