@@ -8,7 +8,7 @@ In order to build this documentation, you first need to install [hugo][hugo].
 
 Hugo can be installed by downloading it and putting the binary inside your path. See the [hugo installation guilde][hugo-installation] for more details.
 
-## Building the Doumentation
+## Building the Documentation
 
 After you have installed hugo, you can build the docs by typing the following command:
 
