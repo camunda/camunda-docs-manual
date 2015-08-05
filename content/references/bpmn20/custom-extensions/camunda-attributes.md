@@ -38,7 +38,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="ref:#tasks-user-task">User Task</a>
+      <a href="{{< relref "references/bpmn20/tasks/user-task.md" >}}">User Task</a>
     </td>
   </tr>
 </table>
