@@ -1,0 +1,11 @@
+
+<figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
+
+    <img
+        src="{{ .Get "src" }}"
+            {{ if (.Get "title") }}
+                title="{{ with .Get "title"}}{{.}}{{ end }}"
+            {{ end }}
+        class="img-responsive"></img>
+
+</figure>
