@@ -1,9 +1,12 @@
 ---
 
 title: 'Configuring Connectors'
-category: 'Extending Connect'
+weight: 30
 
-keyword: 'connect api extending'
+menu:
+  main:
+    identifier: "connect-ref-configuration"
+    parent: "connect-ref"
 
 ---
 
