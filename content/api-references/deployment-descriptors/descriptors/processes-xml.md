@@ -1,7 +1,12 @@
 ---
 
 title: 'processes.xml'
-category: 'Descriptors'
+weight: 20
+
+menu:
+  main:
+    identifier: "descriptor-ref-processes-xml"
+    parent: "descriptor-ref"
 
 ---
 

@@ -1,10 +1,13 @@
 ---
 
 title: 'Deployment Descriptor Reference'
-category: 'Overview'
+weight: 80
+
+menu:
+  main:
+    identifier: "descriptor-ref"
 
 ---
-
 
 This reference explains the syntax of the camunda BPM deployment descriptors. The deployment descriptors are xml configuration files which allow configuration of the camunda BPM platform and declaratively specify the BPMN 2.0 deployments to the process engine.
 

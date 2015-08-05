@@ -1,7 +1,12 @@
 ---
 
 title: 'Process Engine Configuration'
-category: 'Tags'
+weight: 50
+
+menu:
+  main:
+    identifier: "descriptor-ref-process-engine"
+    parent: "descriptor-ref"
 
 ---
 

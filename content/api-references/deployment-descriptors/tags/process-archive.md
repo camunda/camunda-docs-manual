@@ -1,7 +1,12 @@
 ---
 
 title: 'Process Archive Configuration'
-category: 'Tags'
+weight: 40
+
+menu:
+  main:
+    identifier: "descriptor-ref-process-archive"
+    parent: "descriptor-ref"
 
 ---
 

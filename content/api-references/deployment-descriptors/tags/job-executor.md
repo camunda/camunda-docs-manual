@@ -1,7 +1,12 @@
 ---
 
 title: 'Job Executor Configuration'
-category: 'Tags'
+weight: 30
+
+menu:
+  main:
+    identifier: "descriptor-ref-job-executor"
+    parent: "descriptor-ref"
 
 ---
 

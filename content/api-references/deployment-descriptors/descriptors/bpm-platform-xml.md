@@ -1,10 +1,14 @@
 ---
 
 title: 'bpm-platform.xml'
-category: 'Descriptors'
+weight: 10
+
+menu:
+  main:
+    identifier: "descriptor-ref-bpm-platform"
+    parent: "descriptor-ref"
 
 ---
-
 
 The `bpm-platform.xml` file is part of the camunda BPM platform distribution and can be used for configuration of process engines and the job executor.
 
