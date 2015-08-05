@@ -6,6 +6,7 @@ weight: 20
 menu:
   main:
     identifier: "bpmn-ref"
+    parent: "references"
 
 ---
 

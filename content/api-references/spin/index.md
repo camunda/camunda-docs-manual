@@ -6,6 +6,7 @@ weight: 60
 menu:
   main:
     identifier: "spin-ref"
+    parent: "references"
 
 ---
 

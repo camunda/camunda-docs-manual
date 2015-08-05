@@ -6,6 +6,7 @@ weight: 70
 menu:
   main:
     identifier: "connect-ref"
+    parent: "references"
 
 ---
 

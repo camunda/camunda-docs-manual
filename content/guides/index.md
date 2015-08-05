@@ -2,6 +2,8 @@
 
 title: "Guides"
 
-menu: "main"
+menu:
+  main:
+    identifier: "guides"
 
 ---

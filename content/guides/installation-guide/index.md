@@ -6,6 +6,7 @@ weight: 20
 menu:
   main:
     identifier: "installation-guide"
+    parent: "guides"
     
 ---
 

@@ -6,6 +6,7 @@ weight: 50
 menu:
   main:
     identifier: "embedded-forms-ref"
+    parent: "references"
 
 ---
 

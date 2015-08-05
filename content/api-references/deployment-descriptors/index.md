@@ -6,6 +6,7 @@ weight: 80
 menu:
   main:
     identifier: "descriptor-ref"
+    parent: "references"
 
 ---
 

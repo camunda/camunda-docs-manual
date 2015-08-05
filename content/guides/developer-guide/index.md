@@ -6,6 +6,7 @@ weight: 100
 menu:
   main:
     identifier: "developer-guide"
+    parent: "guides"
 
 ---
 
