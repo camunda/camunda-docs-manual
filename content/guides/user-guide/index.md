@@ -1,7 +1,7 @@
 ---
 
 title: "User Guide"
-weight: 10
+weight: 20
 
 menu:
   main:

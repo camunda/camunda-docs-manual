@@ -1,8 +1,12 @@
 ---
 
 title: 'Get started'
-layout: 'default'
-links: 'process'
+weight: 10
+
+menu:
+  main:
+    identifier: "get-started"
+    parent: "guides"
 
 ---
 

@@ -1,10 +1,229 @@
 ---
-title: 'Use shared Process Engine on Apache Tomcat'
-shortTitle: 'Shared Process Engine'
-category: 'Bonus Chapter'
+
+title: 'Camunda and the Spring Framework'
+weight: 30
+
+menu:
+  main:
+    identifier: "get-started-spring"
+    parent: "get-started"
+
 ---
 
-In this tutorial we explore how to set up an embedded process engine inside a web application using the Spring Framework. You can also use the Spring Framework to develop applications that use a shared process engine. As opposed to the embedded process engine, the shared process engine is controlled independently from an application and is started / stopped by the runtime container (like Apache Tomcat). This allows multiple applications (or a single modular application) to use the same process engine. You can also re-deploy individual applications independently from the process engine.
+# What will you learn?
+
+This tutorial guides you through your first steps of using camunda BPM in a Spring web application.
+
+<dl class="dl-horizontal">
+  <dt>
+    <a href ="ref:#tutorial-set-up-your-project">Set up</a>
+  </dt>
+  <dd>
+    a Spring Web application project as an Apache Maven project.
+  </dd>
+  <dt>
+    <a href = "ref:#tutorial-configure-an-embedded-process-engine">Configure</a>
+  </dt>
+  <dd>
+    the camunda process engine and embed it inside your application.
+  </dd>
+  <dt>
+    <a href = "ref:#tutorial-configure-an-embedded-process-engine">Deploy</a>
+  </dt>
+  <dd>
+    your project to a <strong>vanilla Apache Tomcat</strong> server.
+  </dd>
+  <dt>
+    <a href = "ref:#tutorial-add-a-spring-bean-service-task">Add Spring Task</a>
+  </dt>
+  <dd>
+    Learn how to use UEL Expressions to resolve Spring Beans from the BPMN 2.0 process.
+  </dd>
+  <dt>
+    <a href = "ref:#bonus-chapter-use-shared-process-engine-on-apache-tomcat">Adapt</a>
+  </dt>
+  <dd>
+    your project to use a Shared Process Engine and deploy it to the camunda BPM enhanced Tomcat server.
+  </dd>
+</dl>
+
+<div class="alert alert-info">
+  <p>
+    <strong>Before you start</strong><br/>
+    In this tutorial we assume that you are familiar with the basics of Java web application development and the Spring Framework. We also assume that you have installed an eclipse distribution and the camunda Modeler.
+  </p>
+</div>
+
+<%- @partial('get-code.html.eco', @, {repo: "camunda-get-started-spring"}) %>
+
+# Configure an Embedded Process Engine
+
+Now that you have set up the project with the correct Maven dependencies, we can start configuring the process engine. Add the following Spring beans configuration to the `src/main/webapp/WEB-INF/applicationContext.xml` file:
+
+<div class="app-source" data-source-code="embeddedEngine.xml" annotate="code-annotations" ></div>
+
+After you added these definitions to the Spring Application context, perform a full Maven build and redeploy the application. In the logfile of the Apache Tomcat server you should be able to see the initialization of the process-engine:
+
+<pre class="console">
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on engine with resource org/camunda/bpm/engine/db/create/activiti.h2.create.engine.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on history with resource org/camunda/bpm/engine/db/create/activiti.h2.create.history.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on identity with resource org/camunda/bpm/engine/db/create/activiti.h2.create.identity.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on case.engine with resource org/camunda/bpm/engine/db/create/activiti.h2.create.case.engine.sql
+org.camunda.bpm.engine.impl.db.sql.DbSqlSession executeSchemaResource
+INFORMATION: performing create on case.history with resource org/camunda/bpm/engine/db/create/activiti.h2.create.case.history.sql
+org.camunda.bpm.engine.impl.SchemaOperationsProcessEngineBuild checkHistoryLevel
+INFORMATION: No historyLevel property found in database.
+org.camunda.bpm.engine.impl.SchemaOperationsProcessEngineBuild dbCreateHistoryLevel
+Creating historyLevel property in database with value: audit
+org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
+INFORMATION: ProcessEngine engine created
+</pre>
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-2"}) %>
+
+# Add a Spring Bean Service Task
+
+Now that we know how to bootstrap the process engine in a Spring Application context, we can add a BPMN 2.0 process
+model and interact with the process form inside our Spring beans. In this section we will
+
+1. [Model an executable BPMN 2.0 process.](#servicetask/model)
+2. [Use Spring auto-deployment for BPMN 2.0 processes.](#servicetask/deploy)
+3. [Start a process instance from a Spring bean.](#servicetask/start)
+4. [Invoke a Spring bean from a BPMN 2.0 Service task.](#servicetask/invoke)
+
+<section id="servicetask/model">
+  <h3>Model an executable BPMN 2.0 process</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img data-img-thumb src="ref:asset:/assets/img/getting-started/spring-framework/process-model.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        We start by modeling an executable process using the camunda Modeler. The process should look as depicted in the screenshot to the left.
+      </p>
+      <div class="alert alert-info">
+        If you are unfamiliar with modeling an executable process, you can read the <a href ="ref:/guides/getting-started-guides/developing-process-applications/#tutorial-model-a-process"><em>Model a Process</em></a> section of the <a href="ref:/guides/getting-started-guides/developing-process-applications/">Developing Process Applications</a> tutorial.
+      </div>
+      <p>
+        When you are done, save the process model.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="servicetask/deploy">
+  <h3>Use Spring auto-deployment for BPMN 2.0 processes</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        For the process to be deployed, we use the auto-deployment feature provided by the camunda engine Spring integration. In order to use this feature, modify the definition of the <code>processEngineConfiguration</code> bean inside your <code>src/main/webapp/WEB-INF/applicationContext.xml</code> file:
+      </p>
+      <div class="app-source" data-source-code="autodeployment" annotate="code-annotations" ></div>
+    </div>
+  </div>
+
+  <div class="panel-group" id="accAutoDeployment">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accAutoDeployment" href="#accAutoDeploymentCollapsed"> <i class="icon-thumbs-up"></i>
+          Alternative: Auto-deployment using <code>META-INF/processes.xml</code>
+        </a>
+      </div>
+      <div id="accAutoDeploymentCollapsed" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p>
+            The <code>deploymentResources</code> provide basic auto-deployment features. If you need more control over the deployment process, you can use the processes.xml based deployment options in combination with <code>SpringProcessApplication</code>. This feature works with both the embedded process engine (as used in this tutorial) as well as the shared process engine. In order to use the <code>META-INF/processes.xml</code> based deployment, you must make the following changes in the application context file:
+          </p>
+          <div class="app-source" data-source-code="applicationContext-withSpringPa" annotate="code-annotations" ></div>
+          <p>
+            Now you can add a <code>META-INF/processes.xml</code> file:
+          </p>
+          <div class="app-source" data-source-code="processes.xml" annotate="code-annotations" ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicetask/start">
+  <h3>Start a process instance from a Spring bean</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        The next step consists of starting a process instance from a Spring Bean. We will simply add a Spring Bean to the application context which injects to the process engine and starts a single process instance from an <code>afterPropertiesSet()</code> Method:
+      </p>
+      <div class="app-source" data-source-code="starter-java" annotate="code-annotations" ></div>
+      <p>
+        We add the Spring bean to the applicationContext.xml file:
+      </p>
+      <div class="app-source" data-source-code="starter-xml" annotate="code-annotations" ></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicetask/invoke">
+  <h3>Invoke a Spring bean from a BPMN 2.0 Service task</h3>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3">
+      <img data-img-thumb src="ref:asset:/assets/img/getting-started/spring-framework/service-task.png"/>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <p>
+        Referencing a Spring Bean from a BPMN 2.0 Service Task is simple. As shown in the screenshot to the left, we have to select the service task in the camunda Modeler and provide an expression in the <em>Expression Delegate</em> Field. We type <code>${calculateInterestService}</code>.
+      </p>
+    </div>
+  </div>
+  <p>Finally, we add the Java class implementing the <code>JavaDelegate</code> interface.</p>
+  <div class="app-source" data-source-code="service-java" annotate="code-annotations" ></div>
+  <p>And register it as a Spring Bean in the application context.</p>
+  <div class="app-source" data-source-code="service-xml" annotate="code-annotations" ></div>
+  <p>
+    If you redeploy the application, you should see the following message in the logfile, meaning that the service task was executed.
+  </p>
+  <pre class="console">
+org.camunda.bpm.engine.impl.ProcessEngineImpl <init>
+INFORMATION: ProcessEngine engine created
+Spring Bean invoked
+org.springframework.web.context.ContextLoader initWebApplicationContext
+INFORMATION: Root WebApplicationContext: initialization completed in 1960 ms
+</pre>
+</section>
+
+<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-spring", tag: "Step-3"}) %>
+
+# Done!
+
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      This marks the end of this tutorial. You have successfully set up a Spring Application with an embedded process engine. You can deploy this project to virtually any application server.
+    </p>
+    <h3>Where to go from here?</h3>
+    <ul>
+      <li>
+        Read the documentation about <a href ="ref:/guides/user-guide/#spring-framework-integration">Spring integration</a> in the camunda BPM platform in the <a href ="ref:/guides/user-guide/">User Guide</a>.
+      </li>
+      <li>
+        Explore the <a href="http://docs.camunda.org/api-references/bpmn20/">BPMN 2.0 Implementation Reference</a>
+      </li>
+      <li>
+        Read the <a href ="ref:#bonus-chapter">bonus chapter</a> below about how to adapt the configuration of the application to deploy it to the Apache Tomcat application server which is configured for the camunda BPM platform.
+      </li>
+      <li>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://docs.camunda.org/latest/guides/getting-started-guides/"
+           data-text="Whohoo! I just developed a Spring #BPMN Process Application." data-size="large" data-hashtags="camunda">Tweet</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+# Alternative Configuration: Using shared Process Engine
+
+So far, we explored how to set up an embedded process engine inside a web application using the Spring Framework. You can also use the Spring Framework to develop applications that use a shared process engine. As opposed to the embedded process engine, the shared process engine is controlled independently from an application and is started / stopped by the runtime container (like Apache Tomcat). This allows multiple applications (or a single modular application) to use the same process engine. You can also re-deploy individual applications independently from the process engine.
 
 In order to configure the loanapproval-spring example to work with an embedded process engine, you have to change three things:
 

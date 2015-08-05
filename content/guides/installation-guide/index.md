@@ -1,7 +1,7 @@
 ---
 
 title: "Installation"
-weight: 20
+weight: 30
 
 menu:
   main:
