@@ -1,7 +1,11 @@
 ---
 
-title: 'Target Audience'
-category: 'Introduction'
+title: 'Developer Guide'
+weight: 100
+
+menu:
+  main:
+    identifier: "developer-guide"
 
 ---
 
