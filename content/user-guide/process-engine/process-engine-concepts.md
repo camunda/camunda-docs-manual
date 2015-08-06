@@ -163,13 +163,56 @@ You can also [query for executions using the REST API](ref:/api-references/rest/
 
 The activity instance concept is similar to the execution concept but takes a different perspective. While an execution can be imagined as a *token* moving through the process, an activity instance represents an individual instance of an activity (task, subprocess, ...). The concept of the activity instance is thus more *state-oriented*.
 
-Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e., part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree
+Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e., part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree.
+
+For example, Activity Instances are used for [Process Instance Modification](ref:#process-engine-process-instance-modification) and the [Activity Instance Tree in Cockpit](ref:#cockpit-process-instance-detail-view-activity-instance-tree).
 
 Examples:
 
-  * Process with two parallel user tasks after parallel Gateway: in the activity instance tree you will see two activity instances below the root instance, one for each user task.
-  * Process with two parallel Multi Instance user tasks after parallel Gateway: in the activity instance tree, all instances of both user tasks will be listed below the root activity instance. Reason: all activity instances are at the same level of subprocess.
-  * Usertask inside embedded subprocess: the activity instance tree will have 3 levels: the root instance representing the process instance itself, below it an activity instance representing the instance of the embedded subprocess, and below this one, the activity instance representing the usertask.
+* Process with two parallel user tasks after parallel Gateway:
+
+<div data-bpmn-diagram="guides/user-guide/process-engine/activity-instances/parallelGateway_two_userTasks"></div>
+
+```
+ProcessInstance
+  receive payment
+  ship order
+```
+
+* Process with two parallel Multi-Instance user tasks after parallel Gateway:
+
+<div data-bpmn-diagram="guides/user-guide/process-engine/activity-instances/parallelGateway_two_multiInstance_userTasks"></div>
+
+```
+ProcessInstance
+  receive payment - Multi-Instance Body
+    receive payment
+    receive payment
+  ship order - Multi-Instance Body
+    ship order
+```
+
+Note: A multi-instance activity consists of a multi-instance body and an inner activity. The multi-instance body is a scope around the inner activity and collect the activity instances of the inner activity.
+
+* User Task inside an embedded subprocess:
+
+<div data-bpmn-diagram="guides/user-guide/process-engine/activity-instances/userTask_inside_embeddedSubprocess"></div>
+
+```
+ProcessInstance
+  Subprocess
+    receive payment
+```
+
+* Process with thrown compensation event after user task:
+
+<div data-bpmn-diagram="guides/user-guide/process-engine/activity-instances/compensation_userTask"></div>
+
+```
+ProcessInstance
+  cancel order
+  cancel shipping
+```
 
 ### Retrieving an Activity Instance
 

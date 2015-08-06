@@ -56,6 +56,7 @@ In the hierarchical structure of executions, different executions have different
 * *isActive*: An execution is active if it is currently executing a plain activity (an activity that does not contain activities itself) or transitioning from one activity to the next.
 * *isEventScope*: An event-scope execution is saved for executing compensation. Such an execution must be kept, because BPMN ensures that compensation is executed with a snapshot of the variables at the time of the compensation creation. In the following, we consider only executions that are not event scope executions.
 * *activityId*: The id of the activity currently executed by the execution. *Executing* means that the execution is entering the activity, leaving the activity, or performing the activity's actual work. It does not mean waiting for completion of child executions.
+* *activityInstanceId*: The id of the activity instance currently executed by this execution.
 
 ## Execution Tree Patterns
 
@@ -142,6 +143,27 @@ There are certain invariants for a consistent execution tree. The following stat
 * In an execution tree excluding event-scope executions (*isEventScope*), all leaves have a not-`null` *activityId*. All other executions have a `null` *activityId*
 
 If you understand why these invariants hold, you have very likely understood the contents of this chapter :)
+
+## Activity Instances and Executions
+
+Each execution has a property *activityInstanceId* for the id of the activity instance that is currently executed by this execution. When an execution starts an activity, the activity instance id is generated of the id of the activity and is set as property of the execution. When the execution leaf the activity, the property of the activity instance id is cleared.
+
+The activity instance id is set on an execution following the rules:
+
+* If the execution has no child executions, the execution has the activity instance id of the activity that is currently executed by this execution.
+* If the execution has child executions and execute a composite activity (e.g. subprocess, multi-instance activity), the execution has the activity instance id of the composite activity and the activity instance id is also set to the parent execution, if exists.
+* If the execution is the process instance, the activity instance id is the id of the process instance.
+* If the execution does not match the above patterns, the execution takes the activity instance id of the parent execution.
+
+For Example:
+
+<center><div data-bpmn-diagram="guides/developer-guide/execution-tree/activity-instance-ids-on-execution-tree"></div></center>
+
+When both activities, **A** and **B**, are active, the execution tree looks as follows:
+
+<center><img src="ref:asset:/assets/img/developer-guide/10-process-engine/activity-instance-ids-on-execution-tree.PNG" class="img-responsive"/></center>
+
+Both executions **4** and **6** have no child executions and have the activity instance id of the user task **A** and **B**. The executions **3** and **5** have the same activity instance id because **5** execute the composite activity **Subprocess**. **1** is the execution of the process instance and has the id of the process instance as activity instance id. The execution **2** does not match the other patterns and take the activity instance id of the parent execution **1**.
 
 ## The role of the Process Virtual Machine (PVM)
 

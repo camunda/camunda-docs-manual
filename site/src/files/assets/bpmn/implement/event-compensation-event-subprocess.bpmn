@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="_MfigsCxYEeWjfbjoc0vmBQ" targetNamespace="http://activiti.org/bpmn" exporter="camunda modeler" exporterVersion="2.7.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:process id="bookingProcess" name="Booking Process" isExecutable="true">
-    <bpmn2:startEvent id="start">
-      <bpmn2:outgoing>SequenceFlow_0uzn2qb</bpmn2:outgoing>
-    </bpmn2:startEvent>
     <bpmn2:subProcess id="booking-subprocess" name="Booking">
-      <bpmn2:incoming>SequenceFlow_0uzn2qb</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+      <bpmn2:incoming>SequenceFlow_0yjktag</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14769qn</bpmn2:outgoing>
       <bpmn2:userTask id="bookFlight" name="Book Flight">
         <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
         <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
       </bpmn2:userTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="bookFlight" targetRef="join" />
       <bpmn2:userTask id="bookHotel" name="Book Hotel">
         <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
         <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
       </bpmn2:userTask>
-      <bpmn2:boundaryEvent id="boundaryEvent_bookFlight" name="" attachedToRef="bookFlight">
-        <bpmn2:compensateEventDefinition id="CompensateEventDefinition_1" waitForCompletion="true" />
-      </bpmn2:boundaryEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="bookHotel" targetRef="join" />
       <bpmn2:userTask id="cancelFlight" name="Cancel Flight" isForCompensation="true" />
-      <bpmn2:boundaryEvent id="boundaryEvent_bookHotel" name="" attachedToRef="bookHotel">
-        <bpmn2:compensateEventDefinition id="CompensateEventDefinition_2" waitForCompletion="true" />
-      </bpmn2:boundaryEvent>
       <bpmn2:userTask id="cancelHotel" name="Cancel Hotel" isForCompensation="true" />
-      <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="bookFlight" targetRef="join" />
       <bpmn2:parallelGateway id="parallel">
         <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
         <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
@@ -35,34 +27,6 @@
         <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
       </bpmn2:startEvent>
       <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="startSubprocess" targetRef="parallel" />
-      <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="bookHotel" targetRef="join" />
-      <bpmn2:subProcess id="compensationSubProcess" name="Handle Compensation" triggeredByEvent="true">
-        <bpmn2:startEvent id="compensationStartEvent" name="Booking">
-          <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
-          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_3" waitForCompletion="true" />
-        </bpmn2:startEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="compensationStartEvent" targetRef="compensateFlight" />
-        <bpmn2:intermediateThrowEvent id="compensateFlight" name="Flight">
-          <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
-          <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
-          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_5" waitForCompletion="true" />
-        </bpmn2:intermediateThrowEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_8" name="" sourceRef="compensateFlight" targetRef="compensateHotel" />
-        <bpmn2:intermediateThrowEvent id="compensateHotel" name="Hotel">
-          <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-          <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
-          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_6" waitForCompletion="true" />
-        </bpmn2:intermediateThrowEvent>
-        <bpmn2:userTask id="updateCustomerRecord" name="Update Customer Record">
-          <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
-          <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
-        </bpmn2:userTask>
-        <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="compensateHotel" targetRef="updateCustomerRecord" />
-        <bpmn2:endEvent id="endCompensationSubProcess">
-          <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
-        </bpmn2:endEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="updateCustomerRecord" targetRef="endCompensationSubProcess" />
-      </bpmn2:subProcess>
       <bpmn2:parallelGateway id="join">
         <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
         <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
@@ -72,263 +36,285 @@
       <bpmn2:endEvent id="endSubprocess">
         <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
       </bpmn2:endEvent>
+      <bpmn2:boundaryEvent id="boundaryEvent_bookFlight" name="" attachedToRef="bookFlight">
+        <bpmn2:compensateEventDefinition id="CompensateEventDefinition_1" waitForCompletion="true" />
+      </bpmn2:boundaryEvent>
+      <bpmn2:boundaryEvent id="boundaryEvent_bookHotel" name="" attachedToRef="bookHotel">
+        <bpmn2:compensateEventDefinition id="CompensateEventDefinition_2" waitForCompletion="true" />
+      </bpmn2:boundaryEvent>
+      <bpmn2:subProcess id="compensationSubProcess" name="Handle Compensation" triggeredByEvent="true">
+        <bpmn2:intermediateThrowEvent id="compensateHotel" name="Hotel">
+          <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+          <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_6" waitForCompletion="true" />
+        </bpmn2:intermediateThrowEvent>
+        <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="compensateHotel" targetRef="updateCustomerRecord" />
+        <bpmn2:userTask id="updateCustomerRecord" name="Update Customer Record">
+          <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+          <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+        </bpmn2:userTask>
+        <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="updateCustomerRecord" targetRef="endCompensationSubProcess" />
+        <bpmn2:endEvent id="endCompensationSubProcess">
+          <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+        </bpmn2:endEvent>
+        <bpmn2:startEvent id="compensationStartEvent" name="Booking">
+          <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_3" waitForCompletion="true" />
+        </bpmn2:startEvent>
+        <bpmn2:intermediateThrowEvent id="IntermediateThrowEvent_1" name="Flight">
+          <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+          <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+          <bpmn2:compensateEventDefinition id="CompensateEventDefinition_7" waitForCompletion="true" />
+        </bpmn2:intermediateThrowEvent>
+        <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="compensationStartEvent" targetRef="IntermediateThrowEvent_1" />
+        <bpmn2:sequenceFlow id="SequenceFlow_14" name="" sourceRef="IntermediateThrowEvent_1" targetRef="compensateHotel" />
+      </bpmn2:subProcess>
     </bpmn2:subProcess>
-    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="booking-subprocess" targetRef="validateBooking" />
-    <bpmn2:userTask id="validateBooking" name="Validate Booking">
-      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_1p0crx2</bpmn2:outgoing>
-    </bpmn2:userTask>
-    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" default="SequenceFlow_1x8y8ju">
-      <bpmn2:incoming>SequenceFlow_1p0crx2</bpmn2:incoming>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" default="SequenceFlow_0bulvjz">
+      <bpmn2:incoming>SequenceFlow_14769qn</bpmn2:incoming>
       <bpmn2:outgoing>notValid</bpmn2:outgoing>
-      <bpmn2:outgoing>SequenceFlow_1x8y8ju</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0bulvjz</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="notValid" name="not valid" sourceRef="ExclusiveGateway_1" targetRef="throwCompensation">
       <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression">${valid == false}</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
-    <bpmn2:endEvent id="end">
-      <bpmn2:incoming>SequenceFlow_1x8y8ju</bpmn2:incoming>
-    </bpmn2:endEvent>
     <bpmn2:endEvent id="throwCompensation">
       <bpmn2:incoming>notValid</bpmn2:incoming>
       <bpmn2:compensateEventDefinition id="CompensateEventDefinition_4" waitForCompletion="true" />
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_0uzn2qb" sourceRef="start" targetRef="booking-subprocess" />
-    <bpmn2:sequenceFlow id="SequenceFlow_1x8y8ju" sourceRef="ExclusiveGateway_1" targetRef="end" />
-    <bpmn2:sequenceFlow id="SequenceFlow_1p0crx2" sourceRef="validateBooking" targetRef="ExclusiveGateway_1" />
+    <bpmn2:endEvent id="EndEvent_1o7htk4">
+      <bpmn2:incoming>SequenceFlow_0bulvjz</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_0bulvjz" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_1o7htk4" />
+    <bpmn2:startEvent id="StartEvent_1d9syh8">
+      <bpmn2:outgoing>SequenceFlow_0yjktag</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_0yjktag" sourceRef="StartEvent_1d9syh8" targetRef="booking-subprocess" />
+    <bpmn2:sequenceFlow id="SequenceFlow_14769qn" sourceRef="booking-subprocess" targetRef="ExclusiveGateway_1" />
     <bpmn2:association id="Association_1" sourceRef="boundaryEvent_bookFlight" targetRef="cancelFlight" />
     <bpmn2:association id="Association_2" sourceRef="boundaryEvent_bookHotel" targetRef="cancelHotel" />
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="bookingProcess">
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_14" bpmnElement="start">
-        <dc:Bounds x="28" y="341" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1" y="382" width="90" height="0" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_SubProcess_5" bpmnElement="booking-subprocess" isExpanded="true">
-        <dc:Bounds x="136" y="22" width="697" height="673" />
+        <dc:Bounds x="84" y="6" width="553" height="625" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_15" bpmnElement="startSubprocess">
-        <dc:Bounds x="180" y="200" width="36" height="36" />
+        <dc:Bounds x="98" y="169" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="153" y="241" width="90" height="0" />
+          <dc:Bounds x="71" y="210" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_ParallelGateway_2" bpmnElement="parallel">
-        <dc:Bounds x="256" y="193" width="50" height="50" />
+        <dc:Bounds x="168" y="162" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="236" y="248" width="90" height="0" />
+          <dc:Bounds x="193" y="217" width="0" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_StartEvent_15" targetElement="_BPMNShape_ParallelGateway_2">
-        <di:waypoint xsi:type="dc:Point" x="216" y="218" />
-        <di:waypoint xsi:type="dc:Point" x="256" y="218" />
+        <di:waypoint xsi:type="dc:Point" x="134" y="187" />
+        <di:waypoint xsi:type="dc:Point" x="168" y="187" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="188" y="218" width="90" height="6" />
+          <dc:Bounds x="146" y="188" width="6" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_13" bpmnElement="bookFlight">
-        <dc:Bounds x="376" y="70" width="100" height="80" />
+        <dc:Bounds x="244" y="40" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_UserTask_13">
-        <di:waypoint xsi:type="dc:Point" x="281" y="193" />
-        <di:waypoint xsi:type="dc:Point" x="281" y="110" />
-        <di:waypoint xsi:type="dc:Point" x="376" y="110" />
+        <di:waypoint xsi:type="dc:Point" x="193" y="162" />
+        <di:waypoint xsi:type="dc:Point" x="193" y="80" />
+        <di:waypoint xsi:type="dc:Point" x="244" y="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="236" y="168" width="90" height="6" />
+          <dc:Bounds x="190" y="137" width="6" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_14" bpmnElement="bookHotel">
-        <dc:Bounds x="376" y="274" width="100" height="80" />
+        <dc:Bounds x="244" y="244" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_UserTask_14">
-        <di:waypoint xsi:type="dc:Point" x="281" y="243" />
-        <di:waypoint xsi:type="dc:Point" x="281" y="314" />
-        <di:waypoint xsi:type="dc:Point" x="376" y="314" />
+        <di:waypoint xsi:type="dc:Point" x="193" y="212" />
+        <di:waypoint xsi:type="dc:Point" x="193" y="284" />
+        <di:waypoint xsi:type="dc:Point" x="244" y="284" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="314" width="90" height="6" />
+          <dc:Bounds x="151" y="284" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_8" bpmnElement="boundaryEvent_bookFlight">
-        <dc:Bounds x="433" y="132" width="36" height="36" />
+        <dc:Bounds x="301" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="406" y="173" width="90" height="6" />
+          <dc:Bounds x="316" y="143" width="6" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_15" bpmnElement="cancelFlight">
-        <dc:Bounds x="508" y="166" width="100" height="80" />
+        <dc:Bounds x="352" y="126" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_Association_1" bpmnElement="Association_1" sourceElement="_BPMNShape_BoundaryEvent_8" targetElement="_BPMNShape_UserTask_15">
-        <di:waypoint xsi:type="dc:Point" x="451" y="168" />
-        <di:waypoint xsi:type="dc:Point" x="451" y="206" />
-        <di:waypoint xsi:type="dc:Point" x="508" y="206" />
+        <di:waypoint xsi:type="dc:Point" x="319" y="138" />
+        <di:waypoint xsi:type="dc:Point" x="319" y="166" />
+        <di:waypoint xsi:type="dc:Point" x="352" y="166" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_9" bpmnElement="boundaryEvent_bookHotel">
-        <dc:Bounds x="434" y="336" width="36" height="36" />
+        <dc:Bounds x="302" y="306" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="407" y="377" width="90" height="6" />
+          <dc:Bounds x="275" y="347" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_16" bpmnElement="cancelHotel">
-        <dc:Bounds x="508" y="371" width="100" height="80" />
+        <dc:Bounds x="352" y="328" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_Association_2" bpmnElement="Association_2" sourceElement="_BPMNShape_BoundaryEvent_9" targetElement="_BPMNShape_UserTask_16">
-        <di:waypoint xsi:type="dc:Point" x="452" y="372" />
-        <di:waypoint xsi:type="dc:Point" x="452" y="410" />
-        <di:waypoint xsi:type="dc:Point" x="508" y="411" />
+        <di:waypoint xsi:type="dc:Point" x="320" y="342" />
+        <di:waypoint xsi:type="dc:Point" x="320" y="368" />
+        <di:waypoint xsi:type="dc:Point" x="352" y="368" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_9" bpmnElement="endSubprocess">
-        <dc:Bounds x="772" y="190" width="36" height="36" />
+        <dc:Bounds x="581" y="159" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="745" y="231" width="90" height="0" />
+          <dc:Bounds x="554" y="200" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_UserTask_13" targetElement="_BPMNShape_ParallelGateway_3">
-        <di:waypoint xsi:type="dc:Point" x="476" y="110" />
-        <di:waypoint xsi:type="dc:Point" x="568" y="110" />
-        <di:waypoint xsi:type="dc:Point" x="701" y="110" />
-        <di:waypoint xsi:type="dc:Point" x="701" y="182" />
+        <di:waypoint xsi:type="dc:Point" x="344" y="80" />
+        <di:waypoint xsi:type="dc:Point" x="436" y="80" />
+        <di:waypoint xsi:type="dc:Point" x="529" y="80" />
+        <di:waypoint xsi:type="dc:Point" x="529" y="152" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="456" y="110" width="90" height="6" />
+          <dc:Bounds x="366" y="80" width="6" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_UserTask_14" targetElement="_BPMNShape_ParallelGateway_3">
-        <di:waypoint xsi:type="dc:Point" x="476" y="314" />
-        <di:waypoint xsi:type="dc:Point" x="568" y="314" />
-        <di:waypoint xsi:type="dc:Point" x="701" y="314" />
-        <di:waypoint xsi:type="dc:Point" x="701" y="232" />
+        <di:waypoint xsi:type="dc:Point" x="344" y="284" />
+        <di:waypoint xsi:type="dc:Point" x="436" y="284" />
+        <di:waypoint xsi:type="dc:Point" x="529" y="284" />
+        <di:waypoint xsi:type="dc:Point" x="529" y="202" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="596" y="314" width="90" height="6" />
+          <dc:Bounds x="464" y="284" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_SubProcess_6" bpmnElement="compensationSubProcess" isExpanded="true">
-        <dc:Bounds x="160" y="490" width="613" height="169" />
+        <dc:Bounds x="110" y="450" width="501" height="169" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_16" bpmnElement="compensationStartEvent">
-        <dc:Bounds x="196" y="562" width="36" height="36" />
+        <dc:Bounds x="156" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="170" y="603" width="90" height="25" />
+          <dc:Bounds x="131" y="563" width="90" height="25" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_IntermediateThrowEvent_5" bpmnElement="compensateFlight">
-        <dc:Bounds x="316" y="562" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="290" y="603" width="90" height="25" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="_BPMNShape_StartEvent_16" targetElement="_BPMNShape_IntermediateThrowEvent_5">
-        <di:waypoint xsi:type="dc:Point" x="232" y="580" />
-        <di:waypoint xsi:type="dc:Point" x="316" y="580" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="212" y="580" width="90" height="6" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_IntermediateThrowEvent_6" bpmnElement="compensateHotel">
-        <dc:Bounds x="436" y="562" width="36" height="36" />
+        <dc:Bounds x="331" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="409" y="603" width="90" height="25" />
+          <dc:Bounds x="304" y="563" width="90" height="25" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_8" sourceElement="_BPMNShape_IntermediateThrowEvent_5" targetElement="_BPMNShape_IntermediateThrowEvent_6">
-        <di:waypoint xsi:type="dc:Point" x="352" y="580" />
-        <di:waypoint xsi:type="dc:Point" x="436" y="580" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="332" y="580" width="90" height="6" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_17" bpmnElement="updateCustomerRecord">
-        <dc:Bounds x="522" y="540" width="100" height="80" />
+        <dc:Bounds x="415" y="500" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="_BPMNShape_IntermediateThrowEvent_6" targetElement="_BPMNShape_UserTask_17">
-        <di:waypoint xsi:type="dc:Point" x="472" y="580" />
-        <di:waypoint xsi:type="dc:Point" x="522" y="580" />
+        <di:waypoint xsi:type="dc:Point" x="367" y="540" />
+        <di:waypoint xsi:type="dc:Point" x="415" y="540" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="452" y="580" width="90" height="6" />
+          <dc:Bounds x="347" y="540" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_10" bpmnElement="endCompensationSubProcess">
-        <dc:Bounds x="672" y="562" width="36" height="36" />
+        <dc:Bounds x="559" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="645" y="603" width="90" height="0" />
+          <dc:Bounds x="532" y="563" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_UserTask_17" targetElement="_BPMNShape_EndEvent_10">
-        <di:waypoint xsi:type="dc:Point" x="622" y="580" />
-        <di:waypoint xsi:type="dc:Point" x="672" y="580" />
+        <di:waypoint xsi:type="dc:Point" x="515" y="540" />
+        <di:waypoint xsi:type="dc:Point" x="559" y="540" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="602" y="580" width="90" height="6" />
+          <dc:Bounds x="495" y="540" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="_BPMNShape_UserTask_18" bpmnElement="validateBooking">
-        <dc:Bounds x="908" y="317" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
-        <dc:Bounds x="1073" y="332" width="50" height="50" />
+        <dc:Bounds x="665" y="294" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1053" y="387" width="90" height="0" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_11" bpmnElement="end">
-        <dc:Bounds x="1183" y="339" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1156" y="380" width="90" height="0" />
+          <dc:Bounds x="645" y="349" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_EndEvent_12" bpmnElement="throwCompensation">
-        <dc:Bounds x="1183" y="441" width="36" height="36" />
+        <dc:Bounds x="752" y="372" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1156" y="482" width="90" height="0" />
+          <dc:Bounds x="725" y="413" width="90" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="notValid" sourceElement="_BPMNShape_ExclusiveGateway_3" targetElement="_BPMNShape_EndEvent_12">
-        <di:waypoint xsi:type="dc:Point" x="1098" y="382" />
-        <di:waypoint xsi:type="dc:Point" x="1098" y="459" />
-        <di:waypoint xsi:type="dc:Point" x="1183" y="459" />
+        <di:waypoint xsi:type="dc:Point" x="690" y="344" />
+        <di:waypoint xsi:type="dc:Point" x="690" y="390" />
+        <di:waypoint xsi:type="dc:Point" x="752" y="390" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1096" y="458" width="90" height="25" />
+          <dc:Bounds x="677" y="363" width="90" height="25" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_ParallelGateway_3" bpmnElement="join">
-        <dc:Bounds x="676" y="182" width="50" height="50" />
+        <dc:Bounds x="504" y="152" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="656" y="237" width="90" height="0" />
+          <dc:Bounds x="529" y="207" width="0" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_16" sourceElement="_BPMNShape_ParallelGateway_3" targetElement="_BPMNShape_EndEvent_9">
-        <di:waypoint xsi:type="dc:Point" x="726" y="207" />
-        <di:waypoint xsi:type="dc:Point" x="772" y="208" />
+        <di:waypoint xsi:type="dc:Point" x="554" y="177" />
+        <di:waypoint xsi:type="dc:Point" x="581" y="177" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="702" y="207" width="90" height="6" />
+          <dc:Bounds x="561" y="177" width="6" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_13" sourceElement="_BPMNShape_SubProcess_5" targetElement="_BPMNShape_UserTask_18">
-        <di:waypoint xsi:type="dc:Point" x="832" y="357" />
-        <di:waypoint xsi:type="dc:Point" x="908" y="357" />
+      <bpmndi:BPMNShape id="_BPMNShape_IntermediateThrowEvent_7" bpmnElement="IntermediateThrowEvent_1">
+        <dc:Bounds x="242" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="825" y="357" width="90" height="6" />
+          <dc:Bounds x="216" y="563" width="90" height="25" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_StartEvent_16" targetElement="_BPMNShape_IntermediateThrowEvent_7">
+        <di:waypoint xsi:type="dc:Point" x="192" y="540" />
+        <di:waypoint xsi:type="dc:Point" x="242" y="540" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="172" y="540" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0uzn2qb_di" bpmnElement="SequenceFlow_0uzn2qb">
-        <di:waypoint xsi:type="dc:Point" x="64" y="359" />
-        <di:waypoint xsi:type="dc:Point" x="136" y="359" />
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="SequenceFlow_14" sourceElement="_BPMNShape_IntermediateThrowEvent_7" targetElement="_BPMNShape_IntermediateThrowEvent_6">
+        <di:waypoint xsi:type="dc:Point" x="278" y="540" />
+        <di:waypoint xsi:type="dc:Point" x="331" y="540" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="55" y="349" width="90" height="20" />
+          <dc:Bounds x="260" y="540" width="90" height="6" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_1x8y8ju_di" bpmnElement="SequenceFlow_1x8y8ju">
-        <di:waypoint xsi:type="dc:Point" x="1123" y="357" />
-        <di:waypoint xsi:type="dc:Point" x="1183" y="357" />
+      <bpmndi:BPMNShape id="EndEvent_1o7htk4_di" bpmnElement="EndEvent_1o7htk4">
+        <dc:Bounds x="752" y="231" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1130" y="348" width="90" height="20" />
+          <dc:Bounds x="725" y="267" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0bulvjz_di" bpmnElement="SequenceFlow_0bulvjz">
+        <di:waypoint xsi:type="dc:Point" x="690" y="294" />
+        <di:waypoint xsi:type="dc:Point" x="690" y="249" />
+        <di:waypoint xsi:type="dc:Point" x="752" y="249" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="689" y="309" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_1p0crx2_di" bpmnElement="SequenceFlow_1p0crx2">
-        <di:waypoint xsi:type="dc:Point" x="1008" y="357" />
-        <di:waypoint xsi:type="dc:Point" x="1073" y="357" />
+      <bpmndi:BPMNShape id="StartEvent_1d9syh8_di" bpmnElement="StartEvent_1d9syh8">
+        <dc:Bounds x="16" y="301" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="995" y="347" width="90" height="20" />
+          <dc:Bounds x="-11" y="337" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yjktag_di" bpmnElement="SequenceFlow_0yjktag">
+        <di:waypoint xsi:type="dc:Point" x="52" y="319" />
+        <di:waypoint xsi:type="dc:Point" x="84" y="319" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="23" y="309" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14769qn_di" bpmnElement="SequenceFlow_14769qn">
+        <di:waypoint xsi:type="dc:Point" x="637" y="319" />
+        <di:waypoint xsi:type="dc:Point" x="665" y="319" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="686.5" y="309" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
