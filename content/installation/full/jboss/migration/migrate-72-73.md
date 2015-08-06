@@ -5,8 +5,9 @@ weight: 90
 
 menu:
   main:
-    identifier: "installation-guide-full-jboss-migrate-73"
-    parent: "installation-guide-full-jboss"
+    name: "7.2 to 7.3"
+    identifier: "installation-guide-full-jboss-upgrade-73"
+    parent: "installation-guide-full-jboss-upgrade"
 
 ---
 
@@ -48,8 +49,7 @@ Whenever the instructions are to *replace* a module, make sure to delete the pre
 </div>
 
 
-
-## 1. Upgrade the Camunda BPM modules
+# 1. Upgrade the Camunda BPM Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -60,19 +60,18 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/bpm/model/camunda-xml-model`
 
 
-
-## 2. Upgrade Optional Camunda BPM modules
+# 2. Upgrade Optional Camunda BPM Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, and Camunda Spin.
 If you use any of these extensions, the following upgrade steps apply:
 
-#### LDAP integration
+## LDAP Integration
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
-#### Camunda Connect
+## Camunda Connect
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
 
@@ -81,7 +80,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 
-#### Camunda Spin
+## Camunda Spin
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
 
@@ -94,10 +93,9 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `com/fasterxml/jackson/core/jackson-annotations`
 
 
+# 3. Upgrade Camunda Web Applications
 
-## 3. Upgrade Camunda Web Applications
-
-#### Upgrade Camunda REST API
+## Upgrade Camunda REST API
 
 The following steps are required to upgrade the camunda REST API on a JBoss/Wildfly instance:
 
@@ -106,7 +104,7 @@ The following steps are required to upgrade the camunda REST API on a JBoss/Wild
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-#### Upgrade Camunda Cockpit, Tasklist, and Admin
+## Upgrade Camunda Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 

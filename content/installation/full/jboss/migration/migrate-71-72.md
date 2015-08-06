@@ -5,8 +5,9 @@ weight: 80
 
 menu:
   main:
-    identifier: "installation-guide-full-jboss-migrate-72"
-    parent: "installation-guide-full-jboss"
+    name: "7.1 to 7.2"
+    identifier: "installation-guide-full-jboss-upgrade-72"
+    parent: "installation-guide-full-jboss-upgrade"
 
 ---
 
@@ -21,7 +22,8 @@ The upgrade procedure takes the following steps:
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-## 1. Upgrade the Camunda BPM Modules
+
+# 1. Upgrade the Camunda BPM Modules
 
 Replace the following modules from the folder `$JBOSS_HOME/modules/` with their new versions from the folder `$JBOSS_DISTRIBUTION/modules/`:
 
@@ -60,9 +62,10 @@ Add the following modules from the folder `$JBOSS_DISTRIBUTION/modules/` to the 
 * `org/camunda/template-engines/camunda-template-engines-freemarker`
 * `org/freemarker/freemarker`
 
-## 2. Configure Process Engines
 
-#### Script Variable Storing
+# 2. Configure Process Engines
+
+## Script Variable Storing
 
 As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` for any process engine in the `standalone.xml`:
 
@@ -85,11 +88,12 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 
 As an alternative, process application developers can migrate script code by replacing all implicit declarations of process variables in their scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
-## 3. Configure Optional Camunda BPM modules
+
+## 3. Configure Optional Camunda BPM Modules
 
 In addition, there are modules for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that extend the Camunda BPM functionality. Since all these artifacts add new functionality, the following steps are not required for migration.
 
-#### Camunda Connect
+## Camunda Connect
 
 In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
 
@@ -113,7 +117,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 </subsystem>
 ```
 
-#### Camunda Spin
+## Camunda Spin
 
 In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in `$JBOSS_HOME/standalone/configuration/standalone.xml` as follows:
 
@@ -136,9 +140,9 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </subsystem>
 ```
 
-## 4. Upgrade Camunda Web Applications
+# 4. Upgrade Camunda Web Applications
 
-#### Upgrade Camunda REST API
+## Upgrade Camunda REST API
 
 The following steps are required to upgrade the camunda REST API on a JBoss instance:
 
@@ -146,7 +150,7 @@ The following steps are required to upgrade the camunda REST API on a JBoss inst
 2. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss instance.
 
-#### Upgrade Camunda Cockpit, Tasklist, and Admin
+## Upgrade Camunda Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss instance:
 

@@ -1,21 +1,26 @@
 ---
 
-title: 'Configuring LDAP'
-weight: 70
+title: 'Configure the Full Distribution for JBoss/Wildfly'
+weight: 30
 
 menu:
   main:
+    name: "Configuration"
     identifier: "installation-guide-full-jboss-ldap"
     parent: "installation-guide-full-jboss"
 
 ---
 
+This page explains how to configure the full distribution for the JBoss/Wildfly application server.
 
-In order to setup LDAP for the JBoss Application Server distribution, you have to perform the following steps:
 
-### Adjust the Process Engine Configuration
+# Configure LDAP
 
-Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss / Wildfly Application Server and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+In order to setup LDAP for the JBoss/Wildfly Application Server distribution, you have to perform the following steps:
+
+## Adjust the Process Engine Configuration
+
+Edit the file `standalone.xml` (or `domain.xml`) provided by the JBoss/Wildfly Application Server and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -68,10 +73,10 @@ The `administratorUserName` property should contain the user id of the LDAP user
 
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
-### Enable Hal Resource caching
+## Hal Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
-Users and Groups in the camunda webapplication. In order to activate this, add the following
+Users and Groups in the Camunda webapplication. In order to activate this, add the following
 configuration to the `web.xml` file of camunda webapplication
 (`camunda-webapp-jboss-$PLATFORM_VERSION.war/WEB-INF/lib`):
 
