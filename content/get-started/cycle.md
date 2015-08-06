@@ -1,16 +1,15 @@
 ---
 
-title: 'Bpmn Roundtrip with Camunda Cycle'
+title: 'Get started with the BPMN 2.0 Roundtrip and Camunda Cycle'
 weight: 50
 
 menu:
   main:
+    name: "BPMN 2.0 Roundtrip"
     identifier: "get-started-cycle"
     parent: "get-started"
 
 ---
-
-# What is Camunda Cycle?
 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3">

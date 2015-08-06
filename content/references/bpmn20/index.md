@@ -5,6 +5,7 @@ weight: 20
 
 menu:
   main:
+    name: "BPMN 2.0"
     identifier: "bpmn-ref"
     parent: "references"
 

@@ -1,16 +1,15 @@
 ---
 
-title: 'Developing Process Applications'
+title: 'Get started with Camunda and BPMN 2.0'
 weight: 10
 
 menu:
   main:
+    name: "BPMN 2.0"
     identifier: "get-started-pa"
     parent: "get-started"
 
 ---
-
-# What will you learn?
 
 This tutorial guides you through setting up camunda BPM and developing your first process application. You will learn to  
 

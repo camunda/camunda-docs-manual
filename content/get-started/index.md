@@ -6,15 +6,9 @@ weight: 10
 menu:
   main:
     identifier: "get-started"
-    parent: "guides"
 
 ---
 
-<section class="row row-top">
-  <div class="col-md-12 center">
-    <h1>Getting Started with Camunda BPM</h1>
-  </div>
-</section>
 <section class="row gs-guide gs-guide-primary">
   <div class="col-md-8">
     <h1>Simple Process Applications (BPMN)</h1>

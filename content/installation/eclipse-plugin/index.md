@@ -1,10 +1,11 @@
 ---
 
-title: "Camunda Modeler Installation Guide"
-weight: 40
+title: "Install the eclipse Plugin"
+weight: 30
 
 menu:
   main:
+    name: "Eclipse Plugin"
     identifier: "installation-guide-modeler"
     parent: "installation-guide"
 

@@ -1,16 +1,15 @@
 ---
 
-title: 'Camunda and Java EE 6'
+title: 'Get Started with Camunda and Java EE 6'
 weight: 40
 
 menu:
   main:
+    name: "Java EE 6"
     identifier: "get-started-java-ee"
     parent: "get-started"
 
 ---
-
-# What will you learn?
 
 This tutorial guides you through setting up camunda BPM and developing your first process application with Java EE 6.
 You will learn to

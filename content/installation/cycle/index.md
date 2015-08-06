@@ -1,10 +1,11 @@
 ---
 
-title: "Camunda Cycle Installation Guide"
-weight: 30
+title: "Install Camunda Cycle"
+weight: 40
 
 menu:
   main:
+    name: "Cycle"
     identifier: "installation-guide-cycle"
     parent: "installation-guide"
 

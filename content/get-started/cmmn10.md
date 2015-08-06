@@ -1,17 +1,15 @@
 ---
 
-title: 'Developing CMMN Applications'
+title: 'Get started with Camunda and CMMN 1.0'
 weight: 20
 
 menu:
   main:
+    name: "CMMN 1.0"
     identifier: "get-started-cmmn"
     parent: "get-started"
 
 ---
-
-
-# What you will learn?
 
 This tutorial guides you through setting up Camunda BPM and developing your first application with a CMMN case. You will learn to
 

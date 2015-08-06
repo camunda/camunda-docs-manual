@@ -1,20 +1,17 @@
 ---
 
-title: "Installation"
-weight: 30
+title: "Install Camunda BPM"
+weight: 40
 
 menu:
   main:
+    name: "Installation"
     identifier: "installation-guide"
-    parent: "guides"
     
 ---
 
 
 <div class="col-md-12 overview-page">
-  <div class="page-header">
-    <h1>Installation Guide</h1>
-  </div>
 
   <div class="alert alert-info">Check out the <a href="ref:/guides/user-guide/">user guide</a> for a list of <a href="ref:/guides/user-guide/#introduction-supported-environments">supported environments</a>.</div>
 

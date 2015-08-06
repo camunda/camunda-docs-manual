@@ -1,10 +1,11 @@
 ---
 
-title: "Camunda Webapp Standalone Installation Guide"
+title: "Install the Standalone Webapplication"
 weight: 20
 
 menu:
   main:
+    name: "Standalone Webapplication"
     identifier: "installation-guide-standalone"
     parent: "installation-guide"
 

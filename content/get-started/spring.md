@@ -1,16 +1,15 @@
 ---
 
-title: 'Camunda and the Spring Framework'
+title: 'Get started with Camunda and the Spring Framework'
 weight: 30
 
 menu:
   main:
+    name: "Spring Framework"
     identifier: "get-started-spring"
     parent: "get-started"
 
 ---
-
-# What will you learn?
 
 This tutorial guides you through your first steps of using camunda BPM in a Spring web application.
 
