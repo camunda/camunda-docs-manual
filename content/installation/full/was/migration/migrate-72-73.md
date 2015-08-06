@@ -5,8 +5,9 @@ weight: 150
 
 menu:
   main:
-    identifier: "installation-guide-full-websphere-migrate-73"
-    parent: "installation-guide-full-websphere"
+    name: "7.2 to 7.3"
+    identifier: "installation-guide-full-was-upgrade-73"
+    parent: "installation-guide-full-was-upgrade"
 
 ---
 

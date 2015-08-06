@@ -1,22 +1,28 @@
 ---
 
-title: 'Configuring LDAP'
-weight: 130
+title: 'Configure the Full Distribution for IBM WebSphere'
+weight: 30
 
 menu:
   main:
-    identifier: "installation-guide-full-websphere-ldap"
-    parent: "installation-guide-full-websphere"
+    name: "Configuration"
+    identifier: "installation-guide-full-was-configuration"
+    parent: "installation-guide-full-was"
 
 ---
 
+This page explains how to configure the full distribution for an IBM WebSphere application server.
+
+
+# Configure LDAP
+
 In order to set up LDAP for the IBM WebSphere distribution, you have to perform the following steps:
 
-### Add the LDAP Library
+## Add the LDAP Library
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the shared library 'Camunda' folder.
 
-### Adjust the Process Engine Configuration
+## Adjust the Process Engine Configuration
 
 Edit the file `bpm-platform.xml` located inside the Camunda BPM enterprise archive at `camunda-ibm-websphere-ear-$VERSION.ear/camunda-ibm-websphere-service.jar/META-INF/` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
@@ -72,8 +78,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
-
-### Enable Hal Resource caching
+## Hal Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
