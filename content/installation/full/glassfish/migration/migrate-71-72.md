@@ -5,8 +5,9 @@ weight: 70
 
 menu:
   main:
+    name: "7.1 to 7.2"
     identifier: "installation-guide-full-glassfish-migrate-72"
-    parent: "installation-guide-full-glassfish"
+    parent: "installation-guide-full-glassfish-upgrade"
 
 ---
 
@@ -28,13 +29,13 @@ In each of the following steps, the identifiers `$*_VERSION` refer to the curren
   <p>Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">deployment descriptor reference</a>.</p>
 </div>
 
-## 1. Uninstall the Camunda Applications and Archives
+# 1. Uninstall the Camunda Applications and Archives
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the Camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
 
-## 2. Replace the Camunda Libraries
+# 2. Replace the Camunda Libraries
 
 After shutting down the server, replace the following libraries in `$GLASSFISH_HOME/glassfish/lib` with their equivalents from `$GLASSFISH_DISTRIBUTION/modules/lib`:
 
@@ -51,7 +52,7 @@ Add the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the fold
 
 * `camunda-cmmn-model-$PLATFORM_VERSION.jar`
 
-## 3. Install Optional Camunda Dependencies
+# 3. Install Optional Camunda Dependencies
 
 There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the shared library folder. Since all these artifacts add new functionality, the following steps are not required for migration.
 
@@ -62,7 +63,7 @@ There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template l
   <p>If you do <b>not</b> want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear/camunda-glassfish-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
 </div>
 
-#### Camunda Connect
+# Camunda Connect
 
 If Camunda Connect is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
@@ -92,7 +93,7 @@ If you use a custom BPM platform configuration file, Camunda Connect functionali
 ```
 
 
-#### Camunda Spin
+## Camunda Spin
 
 If camunda Spin is intended to be used, copy the following library from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
@@ -121,13 +122,13 @@ If you use a custom BPM platform configuration file, camunda Spin functionality 
 </bpm-platform>
 ```
 
-#### Groovy Scripting
+## Groovy Scripting
 
 If Groovy is to be used as a scripting language, add the following artifacts to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-#### Freemarker Integration
+## Freemarker Integration
 
 If the camunda integration for Freemarker is intended to be used, add the following artifacts to the folder `$GLASSFISH_HOME/glassfish/lib`:
 
@@ -137,15 +138,15 @@ If the camunda integration for Freemarker is intended to be used, add the follow
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-## 4. Configure Process Engines
+# 4. Configure Process Engines
 
-#### Script Variable Storing
+## Script Variable Storing
 
 As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g. a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` for any process engine in the `bpm-platform.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ... >
   ...
   <process-engine name="default">
     ...
@@ -161,20 +162,20 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 
 As an alternative, process application developers can migrate script code by replacing all implicit declarations of process variables in their scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
-## 5. Install the Camunda Archive
+# 5. Install the Camunda Archive
 
 First, install the camunda job executor resource adapter, namely the file `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`. Then, install the camunda EAR, i.e., the file `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear`.
 
-## 6. Install the Camunda Web Applications
+# 6. Install the Camunda Web Applications
 
-#### Camunda REST API
+## Camunda REST API
 
 The following steps are required to upgrade the camunda REST API on a Glassfish instance:
 
 1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
-#### Camunda Cockpit, Tasklist, and Admin
+# Camunda Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
 

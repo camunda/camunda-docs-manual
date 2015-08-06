@@ -1,23 +1,30 @@
 ---
 
-title: 'Configuring LDAP'
-weight: 60
+title: 'Configure the Full Distribution for Glassfish'
+weight: 30
 
 menu:
   main:
-    identifier: "installation-guide-full-glassfish-ldap"
+    name: "Configuration"
+    identifier: "installation-guide-full-glassfish-configuration"
     parent: "installation-guide-full-glassfish"
 
 ---
 
-In order to setup LDAP for the glassfish distribution, you have to perform the following steps:
+This page explains how to configure the full distribution for glassfish application server.
 
-### Add the LDAP Library
+# Configure LDAP
+
+In order to setup LDAP for the glassfish distribution, you have to add the plugin and adjust the process engine configuration.
+
+## Add the LDAP Plugin
+
+> Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
 
-### Adjust the Process Engine Configuration
+## Configure the LDAP Plugin
 
 Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
@@ -73,7 +80,7 @@ The `administratorUserName` property should contain the user id of the LDAP user
 
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
 
-### Enable Hal Resource caching
+# Hal Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
 Users and Groups in the camunda webapplication. In order to activate this, add the following

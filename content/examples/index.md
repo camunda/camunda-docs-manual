@@ -9,7 +9,7 @@ menu:
 
 ---
 
-Completed the <a href="{{< relref "guides/getting-started-guides/index.md" >}}">Getting Started Guides</a>? Now discover what you can build with camunda BPM.
+Completed the <a href="{{< relref "get-started/index.md" >}}">Getting Started Guides</a>? Now discover what you can build with camunda BPM.
 
 This page collects links to hands-on examples and tutorials around Camunda BPM
 

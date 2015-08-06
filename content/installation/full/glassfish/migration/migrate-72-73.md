@@ -5,9 +5,9 @@ weight: 80
 
 menu:
   main:
+    name: "7.2 to 7.3"
     identifier: "installation-guide-full-glassfish-migrate-73"
-    parent: "installation-guide-full-glassfish"
-
+    parent: "installation-guide-full-glassfish-upgrade"
 ---
 
 The following steps describe how to upgrade the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.3 Glassfish distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).

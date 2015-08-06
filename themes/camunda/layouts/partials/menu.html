@@ -1,8 +1,29 @@
+{{ define "menu-node" }}
+  <li>
+    {{ if .HasChildren }}
+      <a href="{{.URL}}" >
+        {{ .Pre }}
+        <span>{{ .Name }}</span>
+      </a>
+      <ul>
+        {{ range .Children }}
+          {{ template "menu-node" .}}
+        {{ end }}
+      </ul>
+    {{else}}
+      <a href="{{.URL}}" >
+        {{ .Pre }}
+        <span>{{ .Name }}</span>
+      </a>
+    {{end}}
+  </li>
+{{ end }}
+
 <!-- menu start -->
+
 <ul>
-  {{ $currentNode := . }}
   {{ range .Site.Menus.main }}
-    {{ partial "menu-node.html" . }}
+    {{ template "menu-node" . }}
   {{end}}
 </ul>
 
