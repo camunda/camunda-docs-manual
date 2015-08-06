@@ -20,6 +20,7 @@ The data source that is constructed based on the provided JDBC properties will h
 * `jdbcMaxIdleConnections`: The maximum number of idle connections that the connection pool can contain at any given time.
 * `jdbcMaxCheckoutTime`: The amount of time in milliseconds that a connection can be 'checked out' for from the connection pool before it is forcefully returned. Default is 20000 (20 seconds).
 * `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it takes unusually long (to avoid failing silently forever if the pool is mis-configured) Default is 20000 (20 seconds).
+* `jdbcStatementTimeout`: The amount of time in seconds the jdbc driver will wait for a response from the database. Default is null that means there is no timeout.
 
 Example database configuration:
 
