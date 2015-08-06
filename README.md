@@ -43,7 +43,9 @@ So if you have a file named `user-guide/process-engine/history/overview.md` and 
 
 Use the `img` shorthand:
 
+```html
 {{< img src="architecture-overview.png" title="History Architecture" >}}
+```
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
