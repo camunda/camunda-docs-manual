@@ -5,8 +5,9 @@ weight: 70
 
 menu:
   main:
-    identifier: "installation-guide-full-tomcat-migrate-72"
-    parent: "installation-guide-full-tomcat"
+    name: "7.1 to 7.2"
+    identifier: "installation-guide-full-tomcat-upgrade-72"
+    parent: "installation-guide-full-tomcat-upgrade"
 
 ---
 
@@ -21,7 +22,8 @@ The upgrade procedure takes the following steps:
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-## 1. Upgrade the Camunda BPM Core Libraries
+
+# 1. Upgrade the Camunda BPM Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -46,11 +48,12 @@ If present, remove the following artifacts:
 
 **Note:** The libraries `camunda-engine-spring-$PLATFORM_VERSION.jar` and `camunda-engine-spring-$PLATFORM_VERSION.jar` should be part of application deployments and therefore not in the global library folder. Make sure your process applications bundle these libraries when you remove them from the global folder.
 
-## 2. Upgrade and Configure Optional Camunda BPM libraries
+
+# 2. Upgrade and Configure Optional Camunda BPM Libraries
 
 In addition, there are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the folder `$TOMCAT_HOME/lib/`. Since all these artifacts add new functionality, the following steps are not required for migration.
 
-#### Camunda Connect
+## Camunda Connect
 
 If Camunda Connect is intended to be used, add the following artifacts:
 
@@ -111,13 +114,13 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </bpm-platform>
 ```
 
-#### Groovy Scripting
+## Groovy Scripting
 
 If Groovy is to be used as a scripting language, add the following artifacts:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-#### Freemarker Integration
+## Freemarker Integration
 
 If the Camunda integration for Freemarker is intended to be used, add the following artifacts:
 
@@ -127,9 +130,10 @@ If the Camunda integration for Freemarker is intended to be used, add the follow
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-## 3. Configure Process Engines
 
-#### Script Variable Storing
+# 3. Configure Process Engines
+
+## Script Variable Storing
 
 As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g. a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` for any process engine in the `bpm-platform.xml`:
 

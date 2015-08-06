@@ -5,8 +5,9 @@ weight: 80
 
 menu:
   main:
-    identifier: "installation-guide-full-tomcat-migrate-73"
-    parent: "installation-guide-full-tomcat"
+    name: "7.2 to 7.3"
+    identifier: "installation-guide-full-tomcat-upgrade-73"
+    parent: "installation-guide-full-tomcat-upgrade"
 
 ---
 
@@ -38,7 +39,8 @@ In each of the following steps, the identifiers `$*_VERSION` refer to the curren
   </p>
 </div>
 
-## 1. Upgrade the Camunda BPM Core Libraries
+
+# 1. Upgrade the Camunda BPM Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -51,13 +53,13 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, and Camunda Spin. If you use any of these extensions, the following upgrade steps apply:
 
-#### LDAP integration
+## LDAP integration
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/` if present:
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-#### Camunda Connect
+## Camunda Connect
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/` if present:
 
@@ -65,7 +67,7 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-engine-plugin-connect-$PLATFORM_VERSION.jar`
 
-#### Camunda Spin
+## Camunda Spin
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/` if present:
 
@@ -73,9 +75,10 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 * `camunda-spin-core-$SPIN_VERSION.jar`
 * `camunda-engine-plugin-spin-$PLATFORM_VERSION.jar`
 
-## 3. Upgrade Camunda Web Applications
 
-#### Upgrade Camunda REST API
+# 3. Upgrade Camunda Web Applications
+
+## Upgrade Camunda REST API
 
 The following steps are required to upgrade the camunda REST API on a Tomcat instance:
 
@@ -83,7 +86,7 @@ The following steps are required to upgrade the camunda REST API on a Tomcat ins
 2. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-#### Upgrade Camunda Cockpit, Tasklist, and Admin
+## Upgrade Camunda Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
