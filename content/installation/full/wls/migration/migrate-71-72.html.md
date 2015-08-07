@@ -5,8 +5,9 @@ weight: 90
 
 menu:
   main:
-    identifier: "installation-guide-full-weblogic-migrate-72"
-    parent: "installation-guide-full-weblogic"
+    name: "7.1 to 7.2"
+    identifier: "installation-guide-full-wls-upgrade-72"
+    parent: "installation-guide-full-wls-upgrade"
 
 ---
 
@@ -28,13 +29,13 @@ In each of the following steps, the identifiers `$*_VERSION` refer to the curren
   <p>Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">deployment descriptor reference</a>.</p>
 </div>
 
-## 1. Uninstall the Camunda Applications and Archives
+# 1. Uninstall the Camunda Applications and Archives
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-oracle-weblogic-$PLATFORM_VERSION.rar`.
 
-## 2. Replace the Camunda Libraries
+# 2. Replace the Camunda Libraries
 
 After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with their equivalents from `$WLS_DISTRIBUTION/modules/lib`:
 
@@ -51,7 +52,7 @@ Add the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$W
 
 * `camunda-cmmn-model-$PLATFORM_VERSION.jar`
 
-## 3. Install Optional Camunda Dependencies
+# 3. Install Optional Camunda Dependencies
 
 There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template language and Groovy scripting that may optionally be added to the shared library folder. Since all these artifacts add new functionality, the following steps are not required for migration.
 
@@ -62,7 +63,7 @@ There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template l
   <p>If you do <b>not</b> want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described <a href="/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file">here</a>. As a starting point, you can copy the default configuration from <code>$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear/camunda-oracle-weblogic-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml</code> and remove the <code>&lt;plugin/&gt;</code> entries for the classes <code>ConnectProcessEnginePlugin</code> and <code>SpinProcessEnginePlugin</code>.</p>
 </div>
 
-#### Camunda Connect
+## Camunda Connect
 
 If Camunda Connect is intended to be used, copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`:
 
@@ -76,7 +77,7 @@ If you use a custom BPM platform configuration file, Camunda Connect functionali
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   <process-engine name="default">
     ...
     <plugins>
@@ -91,8 +92,7 @@ If you use a custom BPM platform configuration file, Camunda Connect functionali
 </bpm-platform>
 ```
 
-
-#### Camunda Spin
+## Camunda Spin
 
 If Camunda Spin is intended to be used, copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib`:
 
@@ -106,7 +106,7 @@ If you use a custom BPM platform configuration file, Camunda Spin functionality 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   <process-engine name="default">
     ...
     <plugins>
@@ -121,13 +121,13 @@ If you use a custom BPM platform configuration file, Camunda Spin functionality 
 </bpm-platform>
 ```
 
-#### Groovy Scripting
+## Groovy Scripting
 
 If Groovy is to be used as a scripting language, add the following artifacts to the folder `$WLS_DOMAIN_HOME/lib`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-#### Freemarker Integration
+## Freemarker Integration
 
 If the Camunda integration for Freemarker is intended to be used, add the following artifacts to the folder `$WLS_DOMAIN_HOME/lib`:
 
@@ -137,15 +137,16 @@ If the Camunda integration for Freemarker is intended to be used, add the follow
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 * `slf4j-api-$SLF4J_VERSION.jar`
 
-## 4. Configure Process Engines
 
-#### Script Variable Storing
+# 4. Configure Process Engines
+
+## Script Variable Storing
 
 As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g. a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` for any process engine in the `bpm-platform.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   ...
   <process-engine name="default">
     ...
@@ -161,19 +162,21 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 
 As an alternative, process application developers can migrate script code by replacing all implicit declarations of process variables in their scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
-## 5. Install the Camunda Archive
+
+# 5. Install the Camunda Archive
 
 Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
 As of version 7.2, the Camunda job executor resource adapter (RAR) that you uninstalled in step 1 is part of the Camunda EAR and therefore does not need to be installed separately.
 
-## 6. Install the Camunda Web Applications
 
-#### Camunda REST API
+# 6. Install the Camunda Web Applications
+
+## Camunda REST API
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
 
-#### Camunda Cockpit, Tasklist, and Admin
+## Camunda Cockpit, Tasklist, and Admin
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 

@@ -5,8 +5,9 @@ weight: 100
 
 menu:
   main:
-    identifier: "installation-guide-full-weblogic-migrate-73"
-    parent: "installation-guide-full-weblogic"
+    name: "7.2 to 7.3"
+    identifier: "installation-guide-full-wls-upgrade-73"
+    parent: "installation-guide-full-wls-upgrade"
 
 ---
 
@@ -23,13 +24,15 @@ The upgrade procedure takes the following steps:
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-## 1. Uninstall the Camunda Applications and Archives
+
+# 1. Uninstall the Camunda Applications and Archives
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the camunda EAR. Its name should be `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
-## 2. Replace Camunda Core Libraries
+
+# 2. Replace Camunda Core Libraries
 
 After shutting down the server, replace the following libraries in `$WLS_DOMAIN_HOME/lib` with their equivalents from `$WLS_DISTRIBUTION/modules/lib`:
 
@@ -38,43 +41,47 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 * `camunda-cmmn-model-$PLATFORM_VERSION.jar`
 * `camunda-xml-model-$PLATFORM_VERSION.jar`
 
-## 3. Replace Optional Camunda Dependencies
+
+# 3. Replace Optional Camunda Dependencies
 
 In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Connect, and Camunda Spin. If you use any of these extensions, the following upgrade steps apply:
 
-#### LDAP integration
+## LDAP integration
 
 Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib` if present:
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-#### Camunda Connect
+## Camunda Connect
 
 Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib` if present:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 
-#### Camunda Spin
+## Camunda Spin
 
 Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder `$WLS_DOMAIN_HOME/lib` if present:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
-## 4. Maintain the BPM platform configuration
+
+# 4. Maintain the BPM Platform Configuration
 
 If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file), it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
 
-## 5. Install the Camunda Archive
+
+# 5. Install the Camunda Archive
 
 Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
-## 6. Install the Camunda Web Applications
 
-#### Camunda REST API
+# 6. Install the Camunda Web Applications
+
+## Camunda REST API
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
 
-#### Camunda Cockpit, Tasklist, and Admin
+## Camunda Cockpit, Tasklist, and Admin
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
