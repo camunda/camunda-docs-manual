@@ -1,16 +1,17 @@
 ---
 
-title: "IBM WebSphere"
+title: "Install the Full Distribution for IBM WebSphere"
 weight: 40
 
 menu:
   main:
+    name: "IBM WebSphere"
     identifier: "installation-guide-full-was"
     parent: "installation-guide-full"
 
 ---
 
-This document describes the installation of Camunda BPM and its components on an IBM WebSphere Application Server.
+This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for IBM WebSphere Application Server.
 
 <div class="alert alert-info">
   We support the Camunda BPM platform for IBM WebSphere on
@@ -30,8 +31,6 @@ This document describes the installation of Camunda BPM and its components on an
  </div>
 
 There are different options for installing the Full Distribution:
-
-{{< sub-menu-list >}}
 
 ## Manual Installation
 

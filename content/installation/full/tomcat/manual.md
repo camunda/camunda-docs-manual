@@ -11,7 +11,8 @@ menu:
 
 ---
 
-This document will guide you through the installation of Camunda BPM and its components on an <a href="http://tomcat.apache.org/">Apache Tomcat 7 Server</a>.
+
+This section will describe how you can install the camunda BPM platform and its components on a vanilla [Apache Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
 
 <div class="alert alert-info">
   <strong>Reading the Guide</strong> <br>
@@ -21,14 +22,13 @@ This document will guide you through the installation of Camunda BPM and its com
   <code>$TOMCAT_DISTRIBUTION</code> represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code>.
 </div>
 
-This section will describe how you can install the Camunda BPM platform on a vanilla [Tomcat 7](http://tomcat.apache.org/) server if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
-
 
 # Setup
 
 Before you can install the Camunda components, you need to perform a number of required setup steps.
 
-## Create the database schema for the Camunda BPM platform
+
+## Create the Database Schema
 
 If you do not want to use the H2 database, you first have to create a database schema for the Camunda BPM platform. The Camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
@@ -38,6 +38,7 @@ The database creation scripts reside in the `sql/create` folder:
 `$TOMCAT_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
 There is an individual SQL script for each supported database. Select the appropriate script for your database type and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+
 
 ## Add BPM Bootstrap Server Listener
 
@@ -50,7 +51,8 @@ Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap`
   ...
 ```
 
-## Configuring JDBC Resource
+
+## Confige a JDBC Resource
 
 To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server.xml`. This could look like the following example for an H2 database:
 
@@ -74,15 +76,16 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
 </Server>
 ```
 
-## Add necessary libraries to vanilla Tomcat 7
+## Add necessary Libraries to vanilla Tomcat 7
 
 Copy all libraries from the `$TOMCAT_DISTRIBUTION/lib/` folder to the Tomcat library folder `$TOMCAT_HOME/lib`:
 
 Furthermore, you have to merge your corresponding JDBC driver into the folder `$TOMCAT_HOME/lib`.
 
+
 ## Add bpm-platform.xml
 
-You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file):
+You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -113,7 +116,7 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 
 # Install Optional Components
 
-This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
+This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
 
 <div class="alert alert-info">
   <p><strong>Note</strong> </p>
@@ -122,15 +125,18 @@ This section describes how to install optional Camunda dependencies onto a Tomca
 
 The following covers the installation of these extensions:
 
-* [Camunda Connect](ref:/guides/user-guide/#process-engine-connectors)
-* [Camunda Spin](ref:/guides/user-guide/#data-formats-xml-json-other)
-* [Freemarker Integration](ref:/guides/user-guide/#process-engine-templating-installing-a-template-engine)
-* [Groovy Scripting](ref:/guides/user-guide/#process-engine-scripting)
+* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
+* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
+* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
+* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
+* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
+
 
 ## Install Camunda Cockpit and Tasklist
 
 To install camunda Cockpit and Tasklist, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Tomcat](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
+See the above section on how to [install the pre-built distro]({{< relref "installation/full/tomcat/pre-packaged.md" >}}) or [install the platform on a vanilla Tomcat]({{< relref "#setup" >}}).
 
 **Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
 
@@ -144,10 +150,11 @@ The following steps are required to deploy the applications on a Tomcat instance
 3. Startup Tomcat.
 4. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
+
 ## Install Camunda REST API
 
 To install the REST API, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla Tomcat](ref:#bpm-platform-install-the-platform-on-a-vanilla-tomcat).
+See the above section on how to [install the pre-built distro]({{< relref "installation/full/tomcat/pre-packaged.md" >}}) or [install the platform on a vanilla Tomcat]({{< relref "#setup" >}})
 
 **Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
 
@@ -161,6 +168,7 @@ The following steps are required to deploy the REST API on a Tomcat instance:
 3.  Startup Tomcat.
 4.  Access the REST API on the context you configured.
     For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, provided that you deployed the application in the context `/engine-rest`.
+
 
 ## Install Camunda Connect
 
@@ -177,7 +185,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   <process-engine name="default">
     ...
     <plugins>
@@ -191,6 +199,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 </bpm-platform>
 ```
+
 
 ## Install Camunda Spin
 
@@ -207,7 +216,7 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   ...
   <process-engine name="default">
     ...
@@ -223,11 +232,13 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </bpm-platform>
 ```
 
+
 ## Install Groovy Scripting
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
+
 
 ## Install Freemarker Integration
 

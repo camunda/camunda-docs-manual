@@ -1,20 +1,34 @@
 ---
 
-title: "JBoss / Wildfly"
-weight: 10
+title: "Install the Full Distribution for JBoss/Wildfly"
+weight: 20
 
 menu:
   main:
+    name: "JBoss/Wildfly"
     identifier: "installation-guide-full-jboss"
     parent: "installation-guide-full"
 
 ---
 
-This document will guide you through the installation of camunda BPM and its components on a <a href="http://www.jboss.org/jbossas">JBoss Application Server 7 / JBoss EAP 6</a> or <a href="http://www.wildfly.org">Wildfly 8 Application Server</a>.
+This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or [Wildfly 8 Application Server](http://www.wildfly.org).
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-  Throughout this guide we will use a number of variables to denote common path names and constants:<br>
-  <code>$JBOSS_HOME</code>/<code>$WILDFLY_HOME</code> points to the JBoss/Wildfly application server main directory.<br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install or already have installed, e.g. <code>7.0.0</code>.
-</div>
+There are different options for installing the Full Distribution:
+
+## Install the Pre-Packaged Distribution
+
+Installing the pre-packaged distribution is the easiest way to get started. The pre-packaged distribution provides a Tomcat Application Server itself with all the Camunda librarires and web applications pre-installed and pre-configured.
+
+[Install the pre-packaged distribution]({{< relref "installation/full/tomcat/pre-packaged.md" >}}).
+
+## Manual Installation
+
+If you want to add the Full Distribution to an existing tomcat installation, you need to perform the installation steps manually.
+
+[Install the Full Distribution for Tomcat manually]({{< relref "installation/full/tomcat/manual.md" >}}).
+
+## Configuration
+
+After you have completed either of the above installation procedures, you can perform a number of optional configuration steps.
+
+[Configure the Full Distribution for Tomcat]({{< relref "installation/full/tomcat/configuration.md" >}}).

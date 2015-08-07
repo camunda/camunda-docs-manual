@@ -1,7 +1,7 @@
 ---
 
 title: "Install the Full Distribution for Glassfish"
-weight: 10
+weight: 30
 
 menu:
   main:
@@ -11,11 +11,9 @@ menu:
 
 ---
 
-This document describes the installation of the Full Distribution for <a href="http://glassfish.java.net/">Glassfish 3.1 Application Server</a>.
+This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for [Glassfish 3.1 Application Server](http://glassfish.java.net/).
 
 There are different options for installing the Full Distribution:
-
-{{< sub-menu-list >}}
 
 ## Install the Pre-Packaged Distribution
 

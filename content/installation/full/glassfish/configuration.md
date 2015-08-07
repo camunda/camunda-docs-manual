@@ -11,11 +11,14 @@ menu:
 
 ---
 
+
 This page explains how to configure the full distribution for glassfish application server.
+
 
 # Configure LDAP
 
 In order to setup LDAP for the glassfish distribution, you have to add the plugin and adjust the process engine configuration.
+
 
 ## Add the LDAP Plugin
 
@@ -24,9 +27,10 @@ In order to setup LDAP for the glassfish distribution, you have to add the plugi
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
 
+
 ## Configure the LDAP Plugin
 
-Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glassfish/domains/domain1/applications/camunda-bpm-platform/camunda-glassfish-service-VERSION.jar/META-INF` and add the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,11 +82,12 @@ Edit the file `bpm-platform.xml` located inside the folder `$GLASSFISH_HOME/glas
 
 The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log into the webapplication and grant authorizations to additional users.
 
-See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
+
 
 # Hal Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the camunda webapplication. In order to activate this, add the following
 configuration to the `web.xml` file of camunda webapplication
 (`camunda-webapp-glassfish-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
@@ -121,7 +126,4 @@ configuration to the `web.xml` file of camunda webapplication
   <!-- ... -->
 
 </web-app>
-
 ```
-
-[hal-caching]: /api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations

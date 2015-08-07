@@ -1,20 +1,19 @@
 ---
 
-title: "Tomcat"
+title: "Install the Full Distribution for Tomcat"
 weight: 10
 
 menu:
   main:
+    name: "Tomcat"
     identifier: "installation-guide-full-tomcat"
     parent: "installation-guide-full"
 
 ---
 
-This document describes the installation of the Full Distribution for <a href="http://tomcat.apache.org/">Apache Tomcat 7 Server</a>.
+This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for [Apache Tomcat 7 Application Server](http://tomcat.apache.org/).
 
 There are different options for installing the Full Distribution:
-
-{{< sub-menu-list >}}
 
 ## Install the Pre-Packaged Distribution
 

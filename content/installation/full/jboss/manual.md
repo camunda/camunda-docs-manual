@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on a Vanilla JBoss/Wildfly Application Server manually '
+title: 'Install the Full Distribution on a JBoss/Wildfly Application Server manually '
 weight: 20
 
 menu:
@@ -10,6 +10,9 @@ menu:
     parent: "installation-guide-full-jboss"
 
 ---
+
+
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 Application Server](http://www.wildfly.org), if you are not able to use the pre-packaged JBoss/Wildfly distribution.
 
 <div class="alert alert-info">
   <strong>Reading the Guide</strong><br>
@@ -28,6 +31,7 @@ menu:
 4. Adjust your `$JBOSS_HOME/standalone/configuration/standalone.xml` (or the JBoss configuration applicable for your installation) as described below
 5. Adjust the datasource to your needs (see below), by default it uses the built in H2 database
 6. Startup the server
+
 
 ## Adjust the standalone.xml
 
@@ -166,6 +170,7 @@ For other databases, confer the following resources:
 5. Adjust the datasource to your needs (see below), by default it uses the built in H2 database
 6. Startup the server
 
+
 ## Adjust the standalone.xml
 
 Here we describe the changes necessary in the `$WILDFLY_HOME/standalone/configuration/standalone.xml`. These are already done in the pre-packaged server.
@@ -250,6 +255,7 @@ These links point you to resources for other databases:
 *   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
 *   [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
+
 ## Use an XA Datasource
 
 We **strongly recommend** to use an XA data-source in production environments.
@@ -292,7 +298,7 @@ For other databases, confer the following resources:
 
 # Install Optional Components
 
-This section describes how to install optional Camunda dependencies onto a JBoss server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss).
+This section describes how to install optional Camunda dependencies onto a JBoss server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
 
 <div class="alert alert-info">
   <p><strong>Note</strong> </p>
@@ -301,20 +307,20 @@ This section describes how to install optional Camunda dependencies onto a JBoss
 
 The following covers the installation of these extensions:
 
-* [Camunda Cockpit and Tasklist](ref:/)
-* [Camunda REST API](ref:/)
-* [Camunda Connect](ref:/guides/user-guide/#process-engine-connectors)
-* [Camunda Spin](ref:/guides/user-guide/#data-formats-xml-json-other)
-* [Freemarker Integration](ref:/guides/user-guide/#process-engine-templating-installing-a-template-engine)
-* [Groovy Scripting](ref:/guides/user-guide/#process-engine-scripting)
+* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
+* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
+* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
+* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
+* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
+
 
 ## Install Cockpit and Tasklist
 
 To install Camunda Cockpit and Tasklist, a JBoss/Wildfly installation with the
-`org.camunda.bpm.camunda-engine` module is required.  See the above section on how to [install the
-pre-built distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a
-vanilla JBoss](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss) /
-[Wildfly](ref:#bpm-platform-install-the-platform-on-a-vanilla-wildfly).
+`org.camunda.bpm.camunda-engine` module is required. See the above section on how to [install the
+pre-built distro]({{< relref "installation/full/jboss/pre-packaged.md" >}}) or [install the platform on a
+vanilla JBoss]({{< relref "#install-the-platform-on-a-vanilla-jboss" >}})/[vaniall Wildfly]({{< relref "#install-the-platform-on-a-vanilla-wildfly" >}}).
 
 **Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
 
@@ -329,13 +335,13 @@ The following steps are required to deploy the applications on a JBoss/Wildfly i
 3.  Startup JBoss AS / Wildfly.
 4.  Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
+
 ## Install the REST API
 
 To install the REST API, a JBoss/Wildfly installation with the `org.camunda.bpm.camunda-engine`
-module is required.  See the above section on how to [install the pre-built
-distro](ref:#bpm-platform-install-the-pre-built-distro) or [install the platform on a vanilla
-JBoss](ref:#bpm-platform-install-the-platform-on-a-vanilla-jboss) /
-[Wildfly](ref:#bpm-platform-install-the-platform-on-a-vanilla-wildfly).
+module is required. See the above section on how to [install the
+pre-built distro]({{< relref "installation/full/jboss/pre-packaged.md" >}}) or [install the platform on a
+vanilla JBoss]({{< relref "#install-the-platform-on-a-vanilla-jboss" >}})/[vaniall Wildfly]({{< relref "#install-the-platform-on-a-vanilla-wildfly" >}}).
 
 **Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
 
@@ -351,6 +357,7 @@ The following steps are required to deploy the REST API on a JBoss instance:
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.
+
 
 ## Install Camunda Connect
 
@@ -388,6 +395,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 </subsystem>
 ```
 
+
 ## Install Camunda Spin
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
@@ -424,11 +432,13 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </subsystem>
 ```
 
+
 ## Install Groovy Scripting
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
 * `org/codehaus/groovy/groovy-all`
+
 
 ## Install Freemarker Integration
 

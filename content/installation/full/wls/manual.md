@@ -11,6 +11,9 @@ menu:
 
 ---
 
+
+This section will describe how you can install the camunda BPM platform and its components on an Oracle WebLogic.
+
 <div class="alert alert-info">
   <p><strong>Reading the Guide</strong></p> Throughout this guide we will use a number of variables to denote common path names and constants.<br>
   <code>$WLS_DOMAIN_HOME</code> points to the Oracle WebLogic application server domain directory (typically something like <code>/opt/oracle/WebLogic/domains/mydomain</code>). <br>
@@ -27,6 +30,7 @@ menu:
 
 Before you can install the Camunda components, you need to perform a number of required setup steps.
 
+
 ## Resource Configuration
 
 The camunda BPM platform requires a set of resources that need to be configured at the application server level:
@@ -34,10 +38,12 @@ The camunda BPM platform requires a set of resources that need to be configured 
 * One or multiple datasources to be used by the engine.
 * A work manager for the job executor.
 
+
 ## JDBC/Datasource Configuration
 
 The Camunda BPM platform uses one or multiple process engines. Use the Oracle WebLogic Server Administration Console for the configuration of the datasources.
 The JNDI name of the datasource must be equal to the name used in the datasource-Element of the process engine(s) configured in the bpm-platform.xml.
+
 
 ### Default JNDI Name
 
@@ -45,9 +51,7 @@ The default JNDI name is <code>jdbc/ProcessEngine</code>
 
 The following screenshot shows the mandatory configuration of a datasource for Camunda BPM:
 
-<a href="ref:asset:/guides/installation-guide/wls/assets/img/configuration-datasource-jndi.png" target="_blank">
-  <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-datasource-jndi.png" alt=""/>
-</a>
+{{< img src="datasource-jndi.png" title="JNDI Name" >}}
 
 In this section we explain how to add a datasource using the Oracle WebLogic Server Administration Console:
 
@@ -60,12 +64,13 @@ In this section we explain how to add a datasource using the Oracle WebLogic Ser
 7.  When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
 8.  Check the box in front of your datasource and test if it works.
 
-Note that you can configure multiple datasources used by different process engine instances. See the <a href="ref:/guides/user-guide/">User Guide</a> for details.
+Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
 
 
 # Required Components
 
 The following steps are required to deploy the Camunda BPM platform onto an Oracle WebLogic server.
+
 
 ## Install the Camunda BPM Platform Shared Libraries
 
@@ -97,6 +102,7 @@ Restart the Oracle WebLogic Server after this operation.
   </p>
 </div>
 
+
 ## Install the Camunda BPM Platform Modules
 
 The Camunda BPM platform includes one module in the modules folder of the distribution:
@@ -110,6 +116,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda BPM platform services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to the camunda BPM platform.
 It must be installed to your Oracle WebLogic Application Server.
 
+
 ## Install the Camunda BPM Platform Application
 
 In this section, we explain how the camunda-oracle-weblogic-ear module can be installed using the Oracle WebLogic Server Administration Console.
@@ -117,6 +124,7 @@ The installation process is composed of two steps:
 
 1. Install the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> EAR file.
 2. Configure the deployment order of <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> EAR file.
+
 
 ### Install the EAR File
 
@@ -129,13 +137,11 @@ First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR fil
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
 6. Fill in <code>camunda-bpm-platform</code> as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
 
-  <a href="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-name.png" target="_blank">
-    <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-name.png" alt=""/>
-  </a>
+{{< img src="ear-name.png" title="EAR Name" >}}
 
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
-9. (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
+9. (optional) [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
 
 ### Configure the Deployment Order
 
@@ -144,9 +150,8 @@ First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR fil
 
 Example: Deployment order set to **"90"**.
 
-<a href="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-deploymentorder.png" target="_blank">
-  <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-ear-deploymentorder.png" alt=""/>
-</a>
+{{< img src="ear-deploymentorder.png" title="Deployment Order" >}}
+
 
 ### Configure the JCA Work Manager
 
@@ -162,9 +167,7 @@ Example: Deployment order set to **"90"**.
 <p>Now you can start the camunda-bpm-platform application if it is not already running. If this initially fails, try to restart the server.</p>
 Example: Finished configuration of the JCA Work Manager used by the resource adapter.
 
-<a href="ref:asset:/guides/installation-guide/wls/assets/img/configuration-work-manager.png" target="_blank">
-  <img class="tile" src="ref:asset:/guides/installation-guide/wls/assets/img/configuration-work-manager.png" alt=""/>
-</a>
+{{< img src="work-manager.png" title="Work Manager" >}}
 
 
 # Optional Components
@@ -173,8 +176,9 @@ This section describes how to install optional components onto an Oracle WebLogi
 
 The following covers the installation of these components:
 
-* [Camunda Cockpit and Tomcat]({{< relref "#install-camunda-cockpit-and-tomcat" >}})
-* [Camunda REST API]({{< relref "#install-camunda-rest-api" >}})
+* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
+* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+
 
 ## Install Camunda Cockpit and Tasklist
 
@@ -194,6 +198,7 @@ After completing the wizard, the Cockpit and Tasklist should be accessible on th
 In some situations, you also have to start the web application manually from the **Domain Structure / YOUR_DOMAIN / Deployments** page.
 
 You can check if everything went well by accessing Cockpit, Tasklist and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin` or under the context path you configured.
+
 
 ## Install Camunda REST API
 

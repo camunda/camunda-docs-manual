@@ -11,6 +11,7 @@ menu:
 
 ---
 
+
 This page explains how to configure the full distribution for glassfish application server.
 
 
@@ -18,14 +19,18 @@ This page explains how to configure the full distribution for glassfish applicat
 
 In order to setup LDAP for the Tomcat distribution, you have to perform the following steps:
 
+
 ## Add the LDAP Library
+
+> Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$TOMCAT_DISTRIBUTION/lib/` folder.
 
+
 ## Adjust the Process Engine Configuration
 
-Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin](/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` and add the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -77,11 +82,12 @@ Edit the file `bpm-platform.xml` located inside the folder `$TOMCAT_HOME/conf` a
 
 The `administratorUserName` property should contain the user id of the LDAP user you want to grant administrator authorizations to. You can then use this user to log in to the web application and grant authorizations to additional users.
 
-See our user guide for complete documentation on the [LDAP Identity Provider Plugin](ref:/guides/user-guide/#process-engine-identity-service-the-ldap-identity-service) and the [Administrator Authorization Plugin](ref:/guides/user-guide/#process-engine-authorization-service-the-administrator-authorization-plugin).
+See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
-## Hal Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
+# Hal Resource Caching
+
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the camunda webapplication. In order to activate this, add the following
 configuration to the `web.xml` file of camunda webapplication
 (`camunda-webapp-tomcat-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
@@ -120,7 +126,4 @@ configuration to the `web.xml` file of camunda webapplication
   <!-- ... -->
 
 </web-app>
-
 ```
-
-[hal-caching]: /api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations

@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on an IBM WebSphere Server manually '
+title: 'Install the Full Distribution on an IBM WebSphere Server'
 weight: 20
 
 menu:
@@ -10,6 +10,9 @@ menu:
     parent: "installation-guide-full-was"
 
 ---
+
+
+This section will describe how you can install the camunda BPM platform and its components on an IBM WebSphere.
 
 <div class="alert alert-info">
   <p><strong>Reading the Guide</strong></p><br>
@@ -28,6 +31,7 @@ menu:
 
 Before  you can install the Camunda components, you need to perform a number of required setup steps.
 
+
 ## Resource Configuration
 
 The Camunda BPM platform requires a set of resources that need to be configured at the application server level:
@@ -38,7 +42,9 @@ The Camunda BPM platform requires a set of resources that need to be configured 
 
 ## Define Resources in the right Scope
 
-In order to perform the steps listed in this guide, make sure you understand the concept of management scopes introduced by the IBM WebSphere Application Server. We assume that resources are defined at the "Node" scope. <a href="ref:asset:/guides/installation-guide/was/assets/img/scope-highlight.png" target="_blank"><img class="tile" src="ref:asset:/guides/installation-guide/was/assets/img/scope-highlight.png" alt=""/></a>
+In order to perform the steps listed in this guide, make sure you understand the concept of management scopes introduced by the IBM WebSphere Application Server. We assume that resources are defined at the "Node" scope.
+
+{{< img src="scope-highlight.png" title="Scope" >}}
 
 
 ## JDBC/Datasource Configuration
@@ -52,11 +58,9 @@ The default JNDI name used by the process engine is <code>jdbc/ProcessEngine</co
 
 The following screenshot shows the configuration of an XA datasource:
 
-<a href="ref:asset:/guides/installation-guide/was/assets/img/jdbc.png" target="_blank">
-  <img class="tile" src="ref:asset:/guides/installation-guide/was/assets/img/jdbc.png" alt=""/>
-</a>
+{{< img src="jdbc.png" title="JDBC Configuration" >}}
 
-Note that you may configure multiple datasources used by different process engine instances. See the <a href="ref:/guides/user-guide/">User Guide</a> for details.
+Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
 
 
 ## Configure a WorkManager
@@ -153,14 +157,13 @@ Configure the new Work Manager. The following is a selection of sensible default
 
 The following screenshot shows an example configuration of the work manager and its thread pool properties.
 
-<a href="ref:asset:/guides/installation-guide/was/assets/img/work-manager.png" target="_blank">
-  <img class="tile" src="ref:asset:/guides/installation-guide/was/assets/img/work-manager.png" alt=""/>
-</a>
+{{< img src="work-manager.png" title="Work Manager" >}}
 
 
 # Install Required Components
 
-The following steps are required to deploy the Camunda BPM platform onto an IBM WebSphere server.
+The following steps are required to deploy the Camunda BPM platform on an IBM WebSphere server.
+
 
 ## Install the Camunda BPM Platform Shared Libraries
 
@@ -214,7 +217,7 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
 5.  In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6.  Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
 7.  Save the configuration.
-8.  (optional) [Configure location of the bpm-platform.xml file](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file)
+8.  (optional) [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
 9.  Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 
@@ -225,14 +228,15 @@ This section describes how to install optional components onto an IBM WebSphere 
 
 The following covers the installation of these extensions:
 
-* [Camunda Cockpit and Tomcat]({{< relref "#install-camunda-cockpit-and-tomcat" >}})
-* [Camunda REST API]({{< relref "#install-camunda-rest-api" >}})
-* [Camunda Connect](ref:/guides/user-guide/#process-engine-connectors)
-* [Camunda Spin](ref:/guides/user-guide/#data-formats-xml-json-other)
-* [Freemarker Integration](ref:/guides/user-guide/#process-engine-templating-installing-a-template-engine)
-* [Groovy Scripting](ref:/guides/user-guide/#process-engine-scripting)
+* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
+* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
+* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
+* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
+* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
 
-## Install Camunda Cockpit and Tomcat
+
+## Install Camunda Cockpit and Tasklist
 
 The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under <code>webapps/camunda-was-$PLATFORM_VERSION.war</code> in the IBM WebSphere Application Server distribution archive.
 
@@ -265,6 +269,7 @@ In some situations, you have to start the web application manually from the **Ap
 
 You can check if everything went well by accessing Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
+
 ## Install Camunda REST API
 
 The Camunda REST API WAR file resides under <code>webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war</code> in the IBM WebSphere Application Server distribution archive.
@@ -296,6 +301,7 @@ The final step is to reference the shared libraries. To do so, follow these step
 
 In some situations, you have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
 
+
 ## Install Camunda Connect
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
@@ -309,7 +315,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ... >
   <process-engine name="default">
     ...
     <plugins>
@@ -326,6 +332,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 Note that this requires a custom `bpm-platform.xml` file.
 
+
 ## Install Camunda Spin
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
@@ -339,7 +346,7 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ...>
   ...
   <process-engine name="default">
     ...
@@ -357,11 +364,13 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 Note that this requires a custom `bpm-platform.xml` file.
 
+
 ## Install Groovy Scripting
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
 * `groovy-all-$GROOVY_VERSION.jar`
+
 
 ## Install Freemarker Integration
 
@@ -383,6 +392,7 @@ This should only be necessary when you use the **"shared"** engine deployment ap
 
 # Troubleshooting
 
-## Defining IBM WebSphere Resources in the right scope
+
+## Define IBM WebSphere Resources in the right scope
 
 When installing the Camunda BPM platform application, you may see error messages indicating that you are referencing resources from the wrong scope. Make sure you define the resources in the right scope so all components are visible to each other. Make sure you understand the IBM WebSphere management concepts "Cell", "Node" and "Server".
