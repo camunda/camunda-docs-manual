@@ -1,17 +1,19 @@
 ---
 
-title: "Install the Eclipse Plugin"
+title: "Install the Camunda Modeler Eclipse Plugin"
 weight: 30
 
 menu:
   main:
-    name: "Eclipse Plugin"
+    name: "Modeler Eclipse Plugin"
     identifier: "installation-guide-modeler"
     parent: "installation-guide"
 
 ---
 
+
 This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plugin for the Eclipse IDE. This document will guide you through the installation process step by step and gives you information about download pages, requirements and troubleshooting.
+
 
 # Installation
 
@@ -32,7 +34,7 @@ This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plu
       </div>
       <div class="panel-body">
         <p>
-          You can download a prepackaged <strong>camunda Modeler</strong> (Windows only).
+          You can download a prepackaged <strong>Camunda Modeler</strong> (Windows only).
         </p><br /><br />
         <p>
           <a class="btn btn-primary btn-lg" href="http://camunda.org/release/camunda-modeler/kepler/camunda-modeler-kepler-latest.zip">
@@ -40,7 +42,7 @@ This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plu
           </a>
         </p><br /><br />
         <p>
-          This distribution includes <strong>camunda Modeler</strong> installed inside eclipse Kepler (32bit, Windows).
+          This distribution includes the <strong>Camunda Modeler</strong> installed inside eclipse Kepler (32bit, Windows).
         </p>
       </div>
     </div>
@@ -52,7 +54,7 @@ This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plu
       </div>
       <div class="panel-body">
         <p>
-          Find <strong>camunda Modeler</strong> on the following update sites:
+          Find <strong>Camunda Modeler</strong> on the following update sites:
           <br /><strong>Kepler</strong><br />
           <a href="http://camunda.org/release/camunda-modeler/update-sites/kepler/latest/site/">
             http://camunda.org/release/camunda-modeler/update-sites/kepler/latest/site/
@@ -63,141 +65,80 @@ This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plu
           </a>
         </p>
         <p>
-          Follow the Instructions below to install <strong>camunda Modeler</strong> as a plugin in your own Eclipse distribution.
+          Follow the Instructions below to install the <strong>Camunda Modeler</strong> as a plugin in your own Eclipse distribution.
         </p>
       </div>
     </div>
   </div>
 </section>
 
+
 ## Step by Step Installation
 
-### Step 1 - Add the update site
+### Add the Update Site
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_01.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      Add the update site URL (see above) as an Eclipse Repository.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_01.png" title="Update Site" >}}
+
+Add the update site URL (see above) as an Eclipse Repository.
 
 
-### Step 2 - Select item
+### Select an Item
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_02.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      The item <strong>camunda Modeler</strong> appears. Select it and click <em>Next</em>.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_02.png" title="Item" >}}
+
+The item **Camunda Modeler** appears. Select it and click *Next*.
 
 
-### Step 3 - Installation details
+### Installation Details
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_03.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      Wait for the installation details. Click <em>Next</em>.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_03.png" title="Installation Details" >}}
+
+Wait for the installation details. Click *Next*.
 
 
-### Step 4 - User Agreement
+### User Agreement
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_04.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      Before you can download the plugin you will be prompted to accept the User Agreement. Click <em>Next</em>.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_04.png" title="USer Agreement" >}}
+
+Before you can download the plugin you will be prompted to accept the User Agreement. Click *Next*.
 
 
-### Step 5 - Installation in progress
+### Installation in Progress
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_05.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      The installation progress window appears. Wait.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_05.png" title="Installation in Progress" >}}
+
+The installation progress window appears. Wait.
 
 
-### Step 6 - Security warning
+### Security Warning
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_06.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      You will get a security warning message during the installation. Click <em>OK</em>.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_06.png" title="Security Warning" >}}
+
+You will get a security warning message during the installation. Click *OK*.
 
 
-### Step 7 - Restart
+### Restart
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/modeler_plugin_07.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    <p>
-      After the installation has finished you will be prompted to restart your Eclipse. Click <em>Restart Now</em>. After the restart the camunda modeler is ready to use.
-    </p>
-  </div>
-</div>
+{{< img src="modeler_plugin_07.png" title="Restart" >}}
+
+After the installation has finished you will be prompted to restart your Eclipse. Click *Restart Now*. After the restart the Camunda Modeler is ready to use.
+
 
 # Troubleshooting
 
 ## NoClassDefFoundError: graphiti
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/exception-graphiti.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-  	<p>
-    	If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the <strong>camunda Modeler</strong>. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the camunda Modeler (one common example would be the Activiti Designer).
-    </p>
-  </div>
-</div>
+{{< img src="modeler-exception-graphiti.png" title="Item" >}}
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/modeler/install-graphiti.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-		<p>
-			If this happens you have two options:
-			<ul>
-	      <li>Start with a <em>fresh</em> Eclipse.</li>
-	      <li>Install graphiti manually as shown in the left screenshot (please note that the version might change, currently use the latest 0.8.x version or check which version is referenced in the <strong>camunda Modeler</strong> update site).</li>
-      </ul>
-    </p>
-  </div>
-</div>
+If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the **Camunda Modeler**. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the camunda Modeler (one common example would be the Activiti Designer).
+
+{{< img src="modeler-exception-graphiti.png" title="Item" >}}
+
+If this happens you have two options:
+
+1.  Restart with a fresh Eclipse.
+2.  Install graphiti manually as shown in the left screenshot (please note that the version might change, currently use the latest 0.8.x version or check which version is referenced in the **Camunda Modeler** update site).
+
 
 ## Unhandled loop exception
 
@@ -212,5 +153,3 @@ If the Modeler behaves strangely and you are getting exceptions like [this](http
 ```
 
 If these options already exist, remove them first.
-
-
