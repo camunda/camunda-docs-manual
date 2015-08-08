@@ -12,19 +12,19 @@ menu:
 ---
 
 
-This document will guide you through the installation and configuration of the camunda standalone web application.
+This document will guide you through the installation and configuration of the Camunda standalone web application.
 The Camunda web application combines [Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) and [Tasklist]({{< relref "user-guide/tasklist/index.md" >}}). The web application is self-contained and includes
 an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
 Spring Framework and will automatically start when the application is deployed. The process engine must be configured
 to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
 identity service, which can be replaced with LDAP (see the [LDAP configuration]({{< relref "#ldap-configuration" >}}) section).
 
-> Note: Since the camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a camunda distribution download. Application servers contained in camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
+> Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
 
 
 # Download
 
-Download the camunda standalone webapp matching your application server from
+Download the Camunda standalone webapp matching your application server from
 our [download page](http://camunda.org/download). Enterprise subscription
 customers use the [enterprise download page](ref:/enterprise/#downloads).
 
@@ -36,19 +36,19 @@ customers use the [enterprise download page](ref:/enterprise/#downloads).
 Once you downloaded the `camunda-webapp-SERVER-standalone-VERSION.war` file you
 must deploy it to your application server.<br>
 **Note:** Make sure to use a vanilla distribution of your application server, not an application server downloaded
-from camunda.<br>
+from Camunda.<br>
 The exact deployment procedure for web applications depends on
 your application server. In case you aren't sure how to install the application, please refer to your application server documentation.
 
 
-The default context path for the camunda web application is `/camunda`.<br>
-**Note:** If you install the camunda standalone web application on Apache Tomcat by dropping
+The default context path for the Camunda web application is `/camunda`.<br>
+**Note:** If you install the Camunda standalone web application on Apache Tomcat by dropping
 it in the `webapps` folder, Tomcat will assign the filename of the war file as
 the context path. If you want the context path to be `/camunda`, rename the war
 file to `camunda.war`.
 
 Given that your application is binding to localhost, is running on port 8080
-and the context path is `/camunda`, you can then access the camunda standalone
+and the context path is `/camunda`, you can then access the Camunda standalone
 web application by using the following url:
 
 [http://localhost:8080/camunda/](http://localhost:8080/camunda/)
@@ -109,7 +109,7 @@ Do not forget to configure the [Administrator Authorization Plugin]({{< relref "
 
 # HAL Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of camunda webapplication:
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the Camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of Camunda webapplication:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
