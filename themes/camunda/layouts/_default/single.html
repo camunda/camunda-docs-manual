@@ -1,33 +1,20 @@
 {{ partial "header.html" . }}
-<!-- _default/single template -->
+
 <div class="container-fluid">
-
   <div class="row">
-
-    <div class="col-xs-12 col-md-3 site-menu">
+    <div class="site-menu col-xs-12 col-sm-3 col-md-3">
       {{partial "menu.html" . }}
     </div>
 
-    <div class="col-xs-12 col-md-9">
-      <div class="row">
-
-        <div class="col-xs-12 col-md-9 page-content">
-            <h1>{{ .Title }}</h1>
-            {{ .Content }}
-        </div>
-
-        <div class="col-xs-12 col-md-3 page-toc">
-          <div class="affix well" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-            <h3>On this Page:</h3>
-            <div>
-              {{ .TableOfContents }}
-            </div>
-          </div>
-        </div>
-
-      </div><!-- / .row -->
+    <div class="page-content col-xs-12 col-sm-9 col-md-7">
+      <h1 class="page-title">{{ .Title }}</h1>
+      {{ .Content }}
     </div>
 
+    <div class="page-toc hidden-sm col-md-2">
+      <h3>On this Page:</h3>
+      {{ .TableOfContents }}
+    </div>
   </div>
 </div>
 
