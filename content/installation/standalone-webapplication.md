@@ -13,24 +13,13 @@ menu:
 
 
 This document will guide you through the installation and configuration of the camunda standalone web application.
-The camunda web application combines [cockpit][] and [tasklist][]. The web application is self-contained and includes
-an [embedded process engine][], which is configured inside the application. The process engine is configured using the
+The Camunda web application combines [Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) and [Tasklist]({{< relref "user-guide/tasklist/index.md" >}}). The web application is self-contained and includes
+an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
 Spring Framework and will automatically start when the application is deployed. The process engine must be configured
-to connect to a database (see the [database configuration][] section). By default the process engine will use a built-in
-identity service, which can be replaced with LDAP (see the [LDAP configuration][] section).
+to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
+identity service, which can be replaced with LDAP (see the [LDAP configuration]({{< relref "#ldap-configuration" >}}) section).
 
-<div class="alert alert-danger">
-  Since the camunda standalone web application uses an <a href="ref:/guides/user-guide/#introduction-architecture-overview-embedded-process-engine">embedded process engine</a>
-  it must not be installed to an application server from a camunda distribution download. Application servers contained in camunda distributions already provide a
-  <a href="ref:/guides/user-guide/#introduction-architecture-overview-shared-container-managed-process-engine">shared process engine</a>.
-</div>
-
-
-[cockpit]: ref:/guides/user-guide/#cockpit
-[tasklist]: ref:/guides/user-guide/#tasklist
-[embedded process engine]: ref:/guides/user-guide/#introduction-architecture-overview-embedded-process-engine
-[database configuration]: ref:/guides/installation-guide/standalone/#configuration-database-configuration
-[LDAP configuration]: ref:/guides/installation-guide/standalone/#configuration-ldap-configuration
+> Note: Since the camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a camunda distribution download. Application servers contained in camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
 
 
 # Download
@@ -39,9 +28,7 @@ Download the camunda standalone webapp matching your application server from
 our [download page](http://camunda.org/download). Enterprise subscription
 customers use the [enterprise download page](ref:/enterprise/#downloads).
 
-<div class="alert alert-info">
-  Make sure to download the right distribution for your existing application server.
-</div>
+> Note: Make sure to download the right distribution for your existing application server.
 
 
 # Deploy
@@ -67,9 +54,9 @@ web application by using the following url:
 [http://localhost:8080/camunda/](http://localhost:8080/camunda/)
 
 
-# Databse Configuration
+# Database Configuration
 
-The camunda standalone webapp is initially configured using a file-based `H2` database
+The Camunda standalone webapp is initially configured using a file-based `H2` database
 and an Apache Commons DBCP datasource. The `h2` database is only useful for demo purposes.
 If you want to use the standalone webapp in production we recommend using a different database.
 
@@ -89,19 +76,17 @@ In order to configure another database, edit the file named `WEB-INF/application
 </bean>
 ```
 
-<div class="alert alert-warning">
-  If you configure a different database do not forget to add the corresponding database driver to the classpath of the web application.
-</div>
+> Note: If you configure a different database do not forget to add the corresponding database driver to the classpath of the web application.
 
-As an alternative you can also configure a datasource inside your application server and look it up from
+As an alternative you can also configure a datasource inside your application server and look it up from the web application.
 
 
-# LDAP Cconfiguration
+# LDAP Configuration
 
 ## Adjust the Process Engine Configuration
 
-Initially the camunda standalone webapp is configured to use a built-in database identity service.
-If you want to use LDAP instead you have to activate the camunda LDAP identity service. The file
+Initially the Camunda standalone webapp is configured to use a built-in database identity service.
+If you want to use LDAP instead you have to activate the Camunda LDAP identity service. The file
 `WEB-INF/applicationContext.xml` already contains a configuration example which is deactivated. In
 order to activate it, simply uncomment the lines shown below:
 
@@ -118,16 +103,13 @@ order to activate it, simply uncomment the lines shown below:
 </bean>
 ```
 
-To configure the LDAP service please adjust the values of the bean named `ldapIdentityProviderPlugin` as
-described in the [user guide](ref:/guides/user-guide/#process-engine-identity-service-configuration-properties-of-the-ldap-plugin).
-Do not forget to configure the authorization plugin as well (see the [documentation](ref:/guides/user-guide/#process-engine-authorization-service)).
+To configure the LDAP service please adjust the values of the bean named `ldapIdentityProviderPlugin` as described in the [user guide]({{< relref "user-guide/process-engine/identity-service.md#configuration-properties-of-the-ldap-plugin" >}}).
+Do not forget to configure the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) as well.
 
 
-## Enable Hal Resource caching
+# HAL Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching][hal-caching] of
-Users and Groups in the camunda webapplication. In order to activate this, add the following
-configuration to the `web.xml` file of camunda webapplication:
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of camunda webapplication:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -163,7 +145,4 @@ configuration to the `web.xml` file of camunda webapplication:
   <!-- ... -->
 
 </web-app>
-
 ```
-
-[hal-caching]: /api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations
