@@ -11,7 +11,8 @@ menu:
 
 ---
 
-This document explains the installation procedure for Camunda Cycle. You can download a prepackaged distribution which includes Camunda Cycle and a Tomcat server. For information on how to configure the prepackaged distribution, refer to the section on [Configuring the pre-packaged distribution](ref:#installation-configuring-the-pre-packaged-distribution). You can also install Camunda Cycle on a vanilla Tomcat server. This procedure is explained in the section [Install Camunda Cycle on vanilla Tomcat 7](ref:#installation-install-camunda-cycle-on-vanilla-tomcat-7).
+
+This document describes the installation procedure for Camunda Cycle. You can download a prepackaged distribution which includes Camunda Cycle and a Tomcat server. For information on how to configure the prepackaged distribution, refer to the section on [Configure the Pre-packaged Distribution]({{< relref "#configure-the-pre-packaged-distribution" >}}). You can also install Camunda Cycle on a vanilla Tomcat server. This procedure is explained in the section [Install Camunda Cycle on a Vanilla Tomcat 7]({{< relref "#install-camunda-cycle-on-a-vanilla-tomcat-7" >}}).
 
 This installation guide also details how to configure the Cycle installation, including the setup of the email service, password encryption and the installation of custom connectors.
 
@@ -19,6 +20,7 @@ This installation guide also details how to configure the Cycle installation, in
   <p><strong>Note</strong></p>
   <p>We do not recommend to install Camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. A combined installation of designtime and runtime components on a single environment is not supported.</p>
 </div>
+
 
 # Download
 
@@ -77,6 +79,7 @@ This installation guide also details how to configure the Cycle installation, in
 </div>
 </div>
 
+
 # Create the Database Schema
 
 Unless you are using the pre-packaged distribution and do not want to exchange the packaged H2 database, you have to first create a database schema for Camunda Cycle.
@@ -98,12 +101,14 @@ We recommend to create a separate database or database schema for Camunda Cycle.
   Choose the correct version named <code>$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar</code>.
 </div>
 
-# Install Camunda Cycle on vanilla Tomcat 7
+
+# Install Camunda Cycle on a Vanilla Tomcat 7
 
 You can download the Camunda Cycle web application from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-tomcat/).
 Choose the correct version named `$CYCLE_VERSION/camunda-cycle-tomcat-$CYCLE_VERSION.war`.
 
-## Create a datasource
+
+## Create a Datasource
 
 The Cycle datasource is configured in the Cycle web application in the file `META-INF/context.xml`. It should be named `jdbc/CycleDS`.
 
@@ -119,7 +124,8 @@ For example, if you plan to use the H2 database, you would have to add the h2-VE
   <code>$TOMCAT_HOME/lib</code>.
 </div>
 
-## Install the web application
+
+## Install the Web Application
 
 1.  Copy the Cycle war file to `$TOMCAT_HOME/webapps`.
     Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/cycle`.
@@ -128,22 +134,23 @@ For example, if you plan to use the H2 database, you would have to add the h2-VE
     The initial user has administrator privileges and can be used to create more users once you have logged in.
 
 
-## Configuring the pre-packaged distribution
+# Configure the Pre-packaged Distribution
 
 The distribution comes with a preconfigured H2 database used by Cycle.
 
 The H2 JDBC driver is located at `camunda-cycle-distro-$CYCLE_VERSION.zip/server/apache-tomcat-VERSION/lib/h2-VERSION.jar`.
 
-## Exchange the database
+## Exchange the Database
 
 To exchange the preconfigured H2 database with your own, e.g., Oracle, you have to do the following:
 
 1.  Copy your JDBC database driver JAR file to `$TOMCAT_HOME/lib`.
 2.  Open `$TOMCAT_HOME/webapps/cycle/META-INF/context.xml` and edit the properties of the `jdbc/CycleDS` datasource definition.
 
+
 # Configuration
 
-## Configuring email
+## Configure Email
 
 **Note**: This step is optional and can be skipped if you do not require Cycle to send a welcome email to newly created users.
 
@@ -173,7 +180,7 @@ The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, 
 </bean>
 ```
 
-## Configuring Connector Password Encryption
+## Configure Connector Password Encryption
 
 Connector passwords are encrypted before they are stored in the Cycle database using the PBEWithMD5AndDES algorithm implementation.
 
@@ -186,7 +193,7 @@ Connector passwords are encrypted before they are stored in the Cycle database u
 </div>
 
 
-## Adding Connectors
+## Add Connectors
 
 You can add own Connectors in form of JAR files to your Camunda Cycle installation. Just follow these steps to add a new Connector.
 
@@ -222,11 +229,12 @@ After adding the JAR file and updating the Connector configuration file, you can
   </script>
 </div>
 
-# Migration 
 
-## Migration from 3.0 to 3.1
+# Migration
 
-We updated the database schema of camunda Cycle in the version 3.1.0. So please update your database schema using the migration scripts provided in the `sql/upgrade` folder of the camunda cycle distribution:
+## Migrate from 3.0 to 3.1
+
+We updated the database schema of Camunda Cycle in the version 3.1.0. So please update your database schema using the migration scripts provided in the `sql/upgrade` folder of the Camunda Cycle distribution:
 
 ```
 camunda-cycle-distro-$CYCLE_VERSION.zip/sql/upgrade/*_cycle_3.0_to_3.1.sql
