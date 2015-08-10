@@ -6807,13 +6807,10 @@ body {
 .page-footer {
   position: fixed;
   bottom: 0;
-  height: 100px;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 @media screen and (max-width: 991px) {
-  /* line 60, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000360}}
+  /* line 57, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000357}}
   .site-menu {
     width: 240px;
     z-index: 1029;
@@ -6822,8 +6819,8 @@ body {
     -o-transform: translate(-240px, 0);
     transform: translate(-240px, 0);
   }
-  /* line 67, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000367}}
+  /* line 64, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000364}}
   body.menu-open .site-menu {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
@@ -7056,11 +7053,14 @@ body {
 .navbar {
   margin-bottom: 0;
 }
-/* line 1, styles/_sticky-footer.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_sticky-footer\.less}line{font-family:\000031}}
+/* line 37, styles/_sticky-footer.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_sticky-footer\.less}line{font-family:\0000337}}
 .page-footer {
+  height: 100px;
   background: #f8f8f8;
   border-top: 1px solid #e7e7e7;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 90%;
 }
 /* line 1, styles/_content.less */
@@ -7104,17 +7104,16 @@ h1.page-title {
   text-transform: uppercase;
   font-weight: lighter;
   font-size: 14px;
-  margin-bottom: 14px;
 }
-/* line 12, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000312}}
+/* line 11, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000311}}
 .page-toc ul,
 .page-toc li {
   margin: 0;
   padding: 0;
 }
-/* line 18, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000318}}
+/* line 17, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000317}}
 .page-toc ul {
   overflow: hidden;
   list-style: none;
@@ -7122,63 +7121,63 @@ h1.page-title {
   -o-transition: max-height 1s linear;
   transition: max-height 1s linear;
 }
-/* line 24, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000324}}
+/* line 23, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000323}}
 .page-toc ul ul {
   margin-top: 0.3em;
 }
-/* line 26, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000326}}
+/* line 25, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000325}}
 .page-toc ul ul:first-child {
   margin-top: 0;
 }
-/* line 31, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000331}}
+/* line 30, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000330}}
 .page-toc li {
   padding-left: .5em;
   border-left: 1px solid transparent;
   margin-left: .5em;
   margin-bottom: 0.3em;
 }
-/* line 36, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000336}}
+/* line 35, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000335}}
 .page-toc li:last-child {
   margin-bottom: 0;
 }
-/* line 39, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000339}}
+/* line 38, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000338}}
 .page-toc li > ul {
   max-height: 0;
 }
-/* line 42, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000342}}
+/* line 41, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000341}}
 .page-toc li.open {
   border-left: 1px solid #b5152b;
 }
-/* line 44, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000344}}
+/* line 43, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000343}}
 .page-toc li.open > ul {
   max-height: 2000px;
 }
-/* line 50, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000350}}
+/* line 49, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000349}}
 .page-toc nav {
   padding-left: 15px;
   border-left: 1px dotted #777777;
 }
-/* line 53, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000353}}
+/* line 52, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000352}}
 .page-toc nav > ul {
   margin-left: 0;
 }
-/* line 55, styles/_page-toc.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000355}}
+/* line 54, styles/_page-toc.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000354}}
 .page-toc nav > ul > li {
   margin-left: 0;
 }
 @media (max-width: 991px) {
-  /* line 62, styles/_page-toc.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000362}}
+  /* line 61, styles/_page-toc.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000361}}
   .page-toc {
     display: none;
   }

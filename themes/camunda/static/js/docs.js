@@ -317,7 +317,7 @@ var currentMenuItem;
 
 function tocPosition() {
   if (toc) {
-    attr(tocWrapper, 'style', null);
+    attr(tocWrapper, 'style', null);//.style.position = 'static';
     tocLeft = offset(tocWrapper).left;
     tocWrapper.style.width = tocWrapper.clientWidth + 'px';
     tocWrapper.style.left = tocLeft + 'px';

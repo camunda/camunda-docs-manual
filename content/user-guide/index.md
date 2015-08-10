@@ -9,3 +9,8 @@ menu:
 
 ---
 
+{{< note title="Heads Up!" >}}
+
+  Some *awesome* note.
+
+{{< /note >}}
