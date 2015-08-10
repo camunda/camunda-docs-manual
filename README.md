@@ -24,7 +24,7 @@ While editing the docs, you probably want to start the hugo server in "watch mod
 hugo server -w
 ```
 
-You can then browse the docs under [http://localhost:1313/latest/](http://localhost:1313/latest/).
+You can then browse the docs under [http://localhost:1313/](http://localhost:1313/).
 Hugo will automatically detect when you change a file and refresh the page in the browser.
 
 ## Writing Docs
