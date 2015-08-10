@@ -1,4 +1,5 @@
-<div class="{{ with .Get "class" }}bg-{{.}} docs-{{.}}{{ end }}">
+
+<div class="bg-info docs-info">
   <h3>{{ .Get "title" }}</h3>
   <p>{{ trim .Inner "" | markdownify }}</p>
 </div>
