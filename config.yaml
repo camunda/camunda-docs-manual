@@ -6,4 +6,9 @@ theme: "camunda"
 
 blackfriday:
   plainIdAnchors: true
+
+params:
+  github:
+    repositoryName: "camunda/docs.camunda.org"
+    branch: "master"
 ...

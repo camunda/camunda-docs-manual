@@ -23,22 +23,25 @@
 <body class="{{ .Params.bodyclass }}">
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-header">
-    <div class="navbar-text">
-      <button class="site-menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-text col-xs-4">
+        <button class="site-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="{{.Site.BaseURL}}">docs.camunda.org</a>
+      </div>
 
-      <a href="{{.Site.BaseURL}}">docs.camunda.org</a>
+      <div class="col-xs-8">
+        <ul class="list-inline">
+          <li><a href="#">Manual</a></li>
+          <li><a href="#">Enterprise</a></li>
+          <li><a href="#">Community extensions</a></li>
+        </ul>
+      </div>
     </div>
-
-    <ul class="list-inline">
-      <li><a href="#">Manual</a></li>
-      <li><a href="#">Enterprise</a></li>
-      <li><a href="#">Community extensions</a></li>
-    </ul>
   </div>
 </nav>
 
