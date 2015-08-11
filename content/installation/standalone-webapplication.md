@@ -109,7 +109,7 @@ Do not forget to configure the [Administrator Authorization Plugin]({{< relref "
 
 # HAL Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the Camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of Camunda webapplication:
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of Users and Groups in the Camunda webapplication. In order to activate this, add the following configuration to the `web.xml` file of Camunda webapplication:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

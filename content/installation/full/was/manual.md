@@ -217,7 +217,7 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
 5.  In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6.  Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
 7.  Save the configuration.
-8.  (optional) [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
+8.  (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
 9.  Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 
@@ -229,7 +229,7 @@ This section describes how to install optional components onto an IBM WebSphere 
 The following covers the installation of these extensions:
 
 * [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
 * [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
 * [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
 * [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})

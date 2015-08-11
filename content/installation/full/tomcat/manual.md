@@ -85,7 +85,7 @@ Furthermore, you have to merge your corresponding JDBC driver into the folder `$
 
 ## Add bpm-platform.xml
 
-You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}):
+You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -126,7 +126,7 @@ This section describes how to install optional Camunda dependencies onto a Tomca
 The following covers the installation of these extensions:
 
 * [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
 * [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
 * [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
 * [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})

@@ -141,7 +141,7 @@ First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR fil
 
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
-9. (optional) [Configure location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
+9. (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
 
 ### Configure the Deployment Order
 
@@ -177,7 +177,7 @@ This section describes how to install optional components onto an Oracle WebLogi
 The following covers the installation of these components:
 
 * [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
 
 
 ## Install Camunda Cockpit and Tasklist

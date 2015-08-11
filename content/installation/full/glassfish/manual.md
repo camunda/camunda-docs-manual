@@ -145,7 +145,7 @@ The following steps are required to deploy the camunda BPM platform on a Glassfi
 1. Merge the shared libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` into the `GLASSFISH_HOME/glassfish/lib` directory (i.e., copy the content into the Glassfish library directory).
 2. Copy the job executor resource adapter `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`. The job executor resource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this, we propose to startup the Glassfish application server to initially deploy the job executor resource adapter. After a successful startup, shutdown the Glassfish application server.
 3. Copy the artifact `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`.
-4. (optional) [Configure the location of the bpm-platform.xml file]({{< relref "references/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
+4. (optional) [Configure the location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}).
 5. Startup the Glassfish application server.
 6. After a successful startup, the camunda BPM platform is installed.
 
@@ -162,7 +162,7 @@ This section describes how to install optional Camunda dependencies onto a Glass
 The following section covers the installation of these extensions:
 
 * [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
 * [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
 * [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
 * [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})

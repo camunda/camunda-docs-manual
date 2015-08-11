@@ -78,7 +78,7 @@ See our user guide for complete documentation on the [LDAP Identity Provider Plu
 
 # Hal Resource Caching
 
-If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "references/rest/overview/hal.md#caching-of-hal-relations" >}}) of
+If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
 Users and Groups in the Camunda webapplication. In order to activate this, add the following
 configuration to the `web.xml` file of camunda webapplication
 (`camunda-webapp-jboss-$PLATFORM_VERSION.war/WEB-INF/lib`):

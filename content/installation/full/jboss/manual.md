@@ -308,7 +308,7 @@ This section describes how to install optional Camunda dependencies onto a JBoss
 The following covers the installation of these extensions:
 
 * [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "references/rest/index.md" >}})
+* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
 * [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
 * [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
 * [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
