@@ -72,12 +72,12 @@ After you have successfully unpacked your distribution of the camunda BPM platfo
 This script will start the application server and open a welcome screen in your Web browser. If the page does not open, go to [http://localhost:8080/camunda-welcome/index.html](http://localhost:8080/camunda-welcome/index.html).
 
 {{< note title="Getting Help" class="info" >}}
-If you have trouble setting up the camunda BPM platform, you can ask for assistance in the <a href="http://camunda.org/community/forum.html">Process Application Development Forum
+If you have trouble setting up the camunda BPM platform, you can ask for assistance in the [User Forum](http://camunda.org/community/forum.html).
 {{< /note >}}
 
 ## Install the camunda Modeler
 
-Follow the instructions in the [camunda Modeler](ref:/guides/installation-guide/camunda-modeler/) section.
+Follow the instructions in the [camunda Modeler]({{< relref "installation/eclipse-plugin.md" >}}) section.
 
 # Set up your project
 
@@ -94,7 +94,7 @@ In the following sections, we go through this process step by step.
 
 In eclipse, go to `File / New / Other ...`. This opens the *New Project Wizard*. In the *New Project Wizard* select `Maven / Maven Project`. Click Next.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-new-project.png"/>
+{{< img src="../img/bpmn20/eclipse-new-project.png" >}}
 
 On the first page of the *New Maven Project Wizard* select *Create a simple project (skip archetype selection)*. Click Next.
 
@@ -215,7 +215,7 @@ In this section you learn how to create your first BPMN 2.0 process with the cam
 
 ## Create a new BPMN Diagram
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-new-bpmn-diagram.png"/>
+{{< img src="../img/bpmn20/eclipse-new-bpmn-diagram.png" >}}
 
 In the eclipse *Package Explorer* select the `src/main/resources` folder. Right-click and select *New > Other ...*.
 Go to the folder *BPMN* and select *BPMN 2.0 Diagram*. Click Next.
@@ -226,7 +226,7 @@ On the second page, you must specify the file name of the process. Insert `loan-
 
 Start by modeling a simple process. From the Palette on the right hand side of the canvas, drag a *Start Event* onto the canvas.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-simple-process.png"/>
+{{< img src="../img/bpmn20/eclipse-simple-process.png" >}}
 
 Double-click on the Start Event. A text box opens. Type "Loan Request Received".
 
@@ -238,7 +238,7 @@ Add a User Task to the process. Name it *Approve Loan*. Add an End Event named *
 
 ## Configure a User Task
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-simple-process-property.png"/>
+{{< img src="../img/bpmn20/eclipse-simple-process-property.png" >}}
 
 Next, Open the properties view. If the properties view is not visible, select it from the menu: *Window / Show View / Other ...* This opens a dialog. From the dialog select *Properties*.
 
@@ -249,7 +249,7 @@ When you are done, save your changes.
 
 ## Configure Properties for Execution
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-simple-process-config.png"/>
+{{< img src="../img/bpmn20/eclipse-simple-process-config.png" >}}
 
 Since we are modeling an executable process, we should give it an ID and set the `isExecutable` property to `true`. Open the properties view and click on a free spot of the modeling canvas. This displays the properties of the process itself.
 
@@ -302,13 +302,13 @@ INFORMATION: Process Application Loan Approval App successfully deployed.
 
 Now use Cockpit to check if the process is successfully deployed. Go to <a href="http://localhost:8080/camunda/app/cockpit" target="_blank">http://localhost:8080/camunda/app/cockpit</a>. Log in with demo / demo. Your process *Loan Approval* is visible on the start screen.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/cockpit-loan-approval.png"/>
+{{< img src="../img/bpmn20/cockpit-loan-approval.png" >}}
 
 ## Start a process instance
 
 Next, go to camunda Tasklist (<a href="http://localhost:8080/camunda/app/tasklist" target="_blank">http://localhost:8080/camunda/app/tasklist</a>). Click on the <button class="btn btn-default btn-xs"><i class="glyphicon glyphicon-list-alt"></i> Start process</button> button to start a process instance. This opens a dialog where you can select *Loan Approval* from the list. Now you can set variables for the process instance using a generic form.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/start-form-generic.png"/>
+{{< img src="../img/bpmn20/start-form-generic.png" >}}
 
 The generic form can be used whenever you have not added a dedicated form for a User Task or a Start Event.
 Click on the <button class="btn btn-default btn-xs">Add a variable</button> button to get a new row. Fill in the form as shown in the screenshot. When you are done, click <button class="btn btn-default btn-xs">Start</button>.
@@ -319,7 +319,7 @@ If you now go back to <a href="http://localhost:8080/camunda/app/cockpit" target
 
 To allow the user *john* to see the process definition *Loan Approval* you have to go to camunda Admin (<a href="http://localhost:8080/camunda/app/admin/default/#/authorization?resource=6" target="_blank">http://localhost:8080/camunda/app/admin/default/#/authorization?resource=6</a>). Next, click on the button <button class="btn btn-default btn-xs">Create New</button> to add a new authorization on the resource *process definition*. Now you can give the user *john* all permissions on process definition *approve-loan*. When you are done, submit the new authorization.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/create-process-definition-authorization.png"/>
+{{< img src="../img/bpmn20/create-process-definition-authorization.png" >}}
 
 For further details about authorizations and how to manage them please read the following sections in the user guide: <a href="ref:/guides/user-guide/#process-engine-authorization-service" target="_blank">Authorization Service</a> and <a href="ref:/guides/user-guide/#admin-authorization-management-authorizations" target="_blank">Authorizations</a>
 
@@ -327,11 +327,11 @@ For further details about authorizations and how to manage them please read the 
 
 Log out of the Admin. Go to Tasklist (<a href="http://localhost:8080/camunda/app/tasklist" target="_blank">http://localhost:8080/camunda/app/tasklist</a>) and log back in with the user credentials "john / john". Now you see the *Approve Loan* task in your Tasklist. Select the task and click on the `Diagram` tab. This displays the process diagram highlighting the User Task that is waiting for you to work on it.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/diagram.png"/>
+{{< img src="../img/bpmn20/diagram.png" >}}
 
 To work on the task, select the `Form` tab. Again, there is no task form associated with the process. Click on <button class="btn btn-default btn-xs">Load Variables</button>. This displays the variables you have put in in the first step.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/task-form-generic.png"/>
+{{< img src="../img/bpmn20/task-form-generic.png" >}}
 
 # Add Forms
 
@@ -356,7 +356,7 @@ Go back to eclipse and add a folder named `src/main/webapp/forms`. Inside this f
 
 Open the process with the modeler plugin. Click on the start event. In the properties view, insert `embedded:app:forms/request-loan.html` into the `Form Key` property field. This means that we want to use an `embedded` form inside the Tasklist and that the form is loaded from the `app`lication.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-configure-start-form.png"/>
+{{< img src="../img/bpmn20/eclipse-configure-start-form.png" >}}
 
 ## Add a Task Form
 
@@ -385,11 +385,11 @@ It is best practice to perform a `clean install` build to make sure all resource
 
 Now you can open the Tasklist and start a new process instance for the loan approval process. You will notice that the custom form is displayed.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/start-form-embedded.png"/>
+{{< img src="../img/bpmn20/start-form-embedded.png" >}}
 
 After starting a new process instance a new task `Approve Loan` is assigned to john. To work on the task, select the task inside the list of tasks and you will also notice that the custom form is displayed.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/task-form-embedded.png"/>
+{{< img src="../img/bpmn20/task-form-embedded.png" >}}
 
 {{< get-tag repo="camunda-get-started" tag="Step-4" >}}
 
@@ -401,7 +401,7 @@ In the last section of this tutorial we add some code to the process.
 
 Use the camunda modeler plugin in eclipse to add a service task after the user task. The service task can be dropped on a sequence flow (see screenshot).
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-add-service-task.png"/>
+{{< img src="../img/bpmn20/eclipse-add-service-task.png" >}}
 
 ## Add a JavaDelegate Implementation
 
@@ -424,7 +424,7 @@ public class ProcessRequestDelegate implements JavaDelegate {
 
 Use the properties view to reference the Service Task in the process (see screenshot). You need to provide the fully qualified classname of your class in the `class` property field.
 
-<img data-img-thumb src="ref:asset:/assets/img/getting-started/developing-process-applications/eclipse-configure-service.png"/>
+{{< img src="../img/bpmn20/eclipse-configure-service.png" >}}
 
 Build, deploy and execute the process. After completing the *Approve Application* step, check the logfile of the Apache Tomcat server:
 
