@@ -50,7 +50,7 @@ Use the `img` shorthand:
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
 
-#### How can I add a note?
+### How can I add a note?
 
 Use the `note` shorthand:
 
