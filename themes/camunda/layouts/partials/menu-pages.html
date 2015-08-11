@@ -8,21 +8,21 @@
 
 
 
-    {{ if $currentNode.HasChildren }}    
+    {{ if $currentNode.HasChildren }}
       {{ range $currentNode.Children }}
 
         {{ if $thisPage.IsMenuCurrent "main" . }}
           {{ $ctx.Set "menuItem" . }}
         {{ else }}
 
-        {{ if $thisPage.HasMenuCurrent "main" . }}        
+        {{ if $thisPage.HasMenuCurrent "main" . }}
           {{ $ctx.Set "currentNode" . }}
-          {{ template "find-current-menu-node" $ctx }}          
+          {{ template "find-current-menu-node" $ctx }}
         {{ end}}
       {{ end }}
     {{ end }}
 
-  {{ end }}  
+  {{ end }}
 
 {{ end }}
 
@@ -32,7 +32,7 @@
 {{ $ctx.Set "thisPage" $thisPage }}
 
 {{ range .Site.Menus.main }}
-  
+
   {{ if $thisPage.IsMenuCurrent "main" . }}
     {{ $ctx.Set "menuItem" . }}
   {{ end }}

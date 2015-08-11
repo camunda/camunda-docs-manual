@@ -317,7 +317,7 @@ var currentMenuItem;
 
 function tocPosition() {
   if (toc) {
-    attr(tocWrapper, 'style', null);//.style.position = 'static';
+    attr(tocWrapper, 'style', null);
     tocLeft = offset(tocWrapper).left;
     tocWrapper.style.width = tocWrapper.clientWidth + 'px';
     tocWrapper.style.left = tocLeft + 'px';
@@ -344,6 +344,49 @@ if (currentLink) {
   currentMenuItem = currentLink.parentNode;
   openParentItem(currentLink.parentNode);
 }
+
+
+
+var siteMenuToggle = query('.site-menu-toggle');
+if (siteMenuToggle) {
+  siteMenuToggle.addEventListener('click', function () {
+    document.body.classList.toggle('site-menu-open');
+  });
+}
+
+var siteMenuSubmenus = queryAll('.site-menu ul ul');
+
+function setSubmenuClasses(span, nope) {
+  if (!nope) {
+    span.parentNode.classList.toggle('open');
+  }
+  var open = span.parentNode.classList.contains('open');
+  span.classList[open ? 'add' : 'remove']('open');
+  // if (open) {
+  //   span.classList.add('glyphicon-minus');
+  //   span.classList.remove('glyphicon-plus');
+  // }
+  // else {
+  //   span.classList.remove('glyphicon-minus');
+  //   span.classList.add('glyphicon-plus');
+  // }
+}
+
+function makeToggleBtn(ul) {
+  var span = document.createElement('span');
+  span.className = 'submenu-toggle';// glyphicon glyphicon-plus';
+  span.addEventListener('click', function () {
+    setSubmenuClasses(span);
+  });
+
+  ul.parentNode.insertBefore(span, ul);
+  return span;
+}
+
+siteMenuSubmenus.forEach(function (ul) {
+  var toggleBtn = makeToggleBtn(ul);
+  setSubmenuClasses(toggleBtn, true);
+});
 
 
 function scrolling() {
