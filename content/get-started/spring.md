@@ -54,7 +54,7 @@ This tutorial guides you through your first steps of using camunda BPM in a Spri
   </p>
 </div>
 
-<%- @partial('get-code.html.eco', @, {repo: "camunda-get-started-spring"}) %>
+{{< get-code repo="camunda-get-started-spring" >}}
 
 # Configure an Embedded Process Engine
 

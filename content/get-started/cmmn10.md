@@ -81,7 +81,7 @@ This script will start the application server and open a welcome screen in your 
   If you have trouble setting up the Camunda BPM platform, you can ask for assistance in the <a href="http://camunda.org/community/forum.html">Camunda Users Forum</a>.
 </div>
 
-<%- @partial('get-code.html.eco', @, {repo: "camunda-get-started-cmmn"}) %>
+{{< get-code repo="camunda-get-started-cmmn" >}}
 
 # Set up your project
 
@@ -136,7 +136,7 @@ In the following sections, we go through this process step by step.
       <p>
         Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>
       </p>
-      <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-1"}) %>
+      {{< get-tag repo="camunda-get-started-cmmn" tag="Step-1" >}}
     </div>
   </div>
 </section>
@@ -203,7 +203,7 @@ In the following sections, we go through this process step by step.
       </p>
     </div>
   </div>
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-2"}) %>
+  {{< get-tag repo="camunda-get-started-cmmn" tag="Step-2" >}}
 </section>
 
 # Create a CMMN Case
@@ -272,7 +272,7 @@ In this section you learn how to create your first CMMN 1.0 case in XML. Don't w
   <p>
     To learn more about human tasks, consider checking the <a href="ref:/api-references/cmmn10/#tasks-human-task">Human Task section</a> of our CMMN implementation guide.
   </p>
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-3"}) %>
+  {{< get-tag repo="camunda-get-started-cmmn" tag="Step-3" >}}
 </section>
 
 # Deploy the Process Application
@@ -356,7 +356,7 @@ INFORMATION: Process Application Loan Approval CMMN successfully deployed.
   </div>
 </div>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-4"}) %>
+{{< get-tag repo="camunda-get-started-cmmn" tag="Step-4" >}}
 
 
 # Add a Milestone
@@ -436,7 +436,7 @@ INFORMATION: Plan Item 'PI_Milestone_1' labeled 'Approved' has performed transit
   To learn more about milestones, consider checking the <a href="ref:/api-references/cmmn10/#milestones-milestone">Milestone section</a> in our CMMN implementation guide.
 </p>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-5"}) %>
+{{< get-tag repo="camunda-get-started-cmmn" tag="Step-5" >}}
 
 # Add an Exit Criterion
 
@@ -484,7 +484,7 @@ INFORMATION: Plan Item 'PI_Milestone_1' labeled 'Approved' has performed transit
   To learn more about sentries, consider checking the <a href="ref:/api-references/cmmn10/#sentries-sentry">Sentry section</a> in our CMMN implementation guide.
 </p>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-cmmn", tag: "Step-6"}) %>
+{{< get-tag repo="camunda-get-started-cmmn" tag="Step-6" >}}
 
 # Done!
 

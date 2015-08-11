@@ -85,7 +85,8 @@ If the page does not open, go to http://localhost:8080/camunda-welcome/index.htm
 
 Follow the instructions in the [camunda Modeler](/guides/installation-guide/camunda-modeler/) section.
 
-<%- @partial('get-code.html.eco', @, {repo: "camunda-get-started-javaee"}) %>
+{{< get-code repo="camunda-get-started-javaee" >}}
+
 
 # Set up your project
 
@@ -144,7 +145,7 @@ In the following sections, we go through this process step by step.
   <p>
     Now you can perform the first build. Select the <code>pom.xml</code> in the Package Explorer, perform a right-click and select <code>Run As / Maven Install</code>
   </p>
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-1"}) %>
+  {{< get-tag repo="camunda-get-started-javaee" tag="Step-1" >}}
 </section>
 
 <section id="set-up/beans.xml">
@@ -211,7 +212,7 @@ In the following sections, we go through this process step by step.
     At this point you have successfully set up the process application you can start modeling your process.
   </p>
 
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-2"}) %>
+  {{< get-tag repo="camunda-get-started-javaee" tag="Step-2" >}}
 </section>
 
 # Model a Process
@@ -267,7 +268,7 @@ In this section we model our sample process with the camunda Modeler.
     </div>
   </div>
 
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-3"}) %>
+  {{< get-tag repo="camunda-get-started-javaee" tag="Step-3" >}}
 </section>
 
 # Deploy the Process Application
@@ -347,7 +348,7 @@ When the form is submitted, the `camundaTaskForm.completeProcessInstanceForm()` 
   </div>
 </div>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-4"}) %>
+{{< get-tag repo="camunda-get-started-javaee" tag="Step-4" >}}
 
 # Add EJB Service Task
 
@@ -385,7 +386,7 @@ In the method `persistOrder`, a new instance of the order entity is created and 
     </pre>
   </div>
 
-  <%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-5"}) %>
+  {{< get-tag repo="camunda-get-started-javaee" tag="Step-5" >}}
 </div>
 
 # Add JSF Task Form
@@ -457,7 +458,7 @@ On form submit, the `approveOrderController.submitForm()` method calls the EJB `
   </div>
 </div>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-6"}) %>
+{{< get-tag repo="camunda-get-started-javaee" tag="Step-6" >}}
 
 # Complete the Process
 
@@ -494,7 +495,7 @@ A new conversation is started again before the view is rendered and the task is 
   </div>
 </div>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-7"}) %>
+{{< get-tag repo="camunda-get-started-javaee" tag="Step-7" >}}
 
 ## Add Send Rejection Email Service Task
 
@@ -518,7 +519,7 @@ The EJB is extended with a method which logs an informative message for the reje
   </div>
 </div>
 
-<%- @partial('get-tag.html.eco', @, {repo: "camunda-get-started-javaee", tag: "Step-8"}) %>
+{{< get-tag repo="camunda-get-started-javaee" tag="Step-8" >}}
 
 # Done
 

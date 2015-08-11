@@ -1,6 +1,7 @@
 ---
 
 title: 'Developer Guide'
+layout: "section-list"
 weight: 100
 
 menu:

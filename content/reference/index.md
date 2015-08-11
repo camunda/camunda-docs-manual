@@ -1,6 +1,7 @@
 ---
 
 title: "Reference"
+layout: "section-list"
 weight: 30
 
 menu:

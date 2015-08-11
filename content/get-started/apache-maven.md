@@ -84,6 +84,6 @@ Please import the Camunda BOM if you use multiple Camunda projects. The BOM defi
 
 **Other Camunda Modules:**
 
-* <a href="ref:/guides/user-guide/#data-formats-xml-json-other-configuring-spin-integration-maven-coordinates">Camunda Spin</a>
-* <a href="ref:/guides/user-guide/#process-engine-connectors-maven-coordinates">Camunda Connect</a>
-* <a href="ref:/guides/user-guide/#process-engine-templating-installing-a-template-engine-for-an-embedded-process-engine">Templating Engines</a>
+* [Camunda Spin]({{< relref "" >}})
+* [Camunda Connect]({{< relref "" >}})
+* [Templating Engines]({{< relref "" >}})

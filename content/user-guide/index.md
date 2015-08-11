@@ -1,6 +1,7 @@
 ---
 
 title: "User Guide"
+layout: "section-list"
 weight: 20
 
 menu:
@@ -8,9 +9,3 @@ menu:
     identifier: "user-guide"
 
 ---
-
-{{< note title="Heads Up!" >}}
-
-  Some *awesome* note.
-
-{{< /note >}}
