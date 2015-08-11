@@ -8,6 +8,7 @@ menu:
     name: "Spring Framework"
     identifier: "get-started-spring"
     parent: "get-started"
+    pre: "Get started with using Camunda BPM in Spring Web applications. Learn how to embed the process engine inside a Spring application, invoke Spring Beans from BPMN 2.0 Service Tasks and deploy to a vanilla Apache Tomcat application server. Stop there or adjust the project to deploy it to a shared process engine on Camunda BPM for Apache Tomcat."
 
 ---
 
