@@ -5,6 +5,7 @@ weight: 70
 
 menu:
   main:
+    name: "Connectors"
     identifier: "connect-ref"
     parent: "references"
 

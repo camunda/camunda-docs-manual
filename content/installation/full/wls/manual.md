@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on an Oracle WebLogic Server'
+title: 'Install the Full Distribution on Oracle WebLogic Application Server'
 weight: 20
 
 menu:
@@ -8,6 +8,7 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-wls-install-manual"
     parent: "installation-guide-full-wls"
+    pre: "Install and configure the Full Distribution on Oracle WebLogic Application Server."
 
 ---
 

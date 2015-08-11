@@ -8,6 +8,7 @@ menu:
     name: "Modeler Eclipse Plugin"
     identifier: "installation-guide-modeler"
     parent: "installation-guide"
+    pre: "Install the BPMN 2.0 Modeler Plugin for Eclipse."
 
 ---
 

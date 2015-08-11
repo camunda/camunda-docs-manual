@@ -8,6 +8,7 @@ menu:
     name: "Pre-Packaged Distribution"
     identifier: "installation-guide-full-glassfish-install-pre-built"
     parent: "installation-guide-full-glassfish"
+    pre: "Download and install Glassfish Application Server with the Full Distribution pre-deployed and pre-configured."
 
 ---
 

@@ -8,6 +8,7 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-tomcat-install-manual"
     parent: "installation-guide-full-tomcat"
+    pre: "Manually install and configure the Full Distribution on a vanilla Apache Tomcat Server."
 
 ---
 

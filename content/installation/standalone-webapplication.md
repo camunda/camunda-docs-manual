@@ -8,6 +8,7 @@ menu:
     name: "Standalone Webapplication"
     identifier: "installation-guide-standalone"
     parent: "installation-guide"
+    pre: "Install the Standalone Webapplication (bundling an embedded Process Engine) inside an Application Server like Wildfly or Tomcat."
 
 ---
 

@@ -8,6 +8,7 @@ menu:
     name: "Configuration"
     identifier: "installation-guide-full-tomcat-configuration"
     parent: "installation-guide-full-tomcat"
+    pre: "Configure the installation."
 
 ---
 

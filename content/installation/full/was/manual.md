@@ -8,6 +8,7 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-was-install-manual"
     parent: "installation-guide-full-was"
+    pre: "Install and configure the Full Distribution on IBM WebSphere Application Server."
 
 ---
 

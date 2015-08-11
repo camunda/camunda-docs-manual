@@ -8,6 +8,7 @@ menu:
     name: "Configuration"
     identifier: "installation-guide-full-wls-configuration"
     parent: "installation-guide-full-wls"
+    pre: "Configure the installation."
 
 ---
 

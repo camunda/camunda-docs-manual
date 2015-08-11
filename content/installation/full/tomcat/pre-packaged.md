@@ -8,6 +8,7 @@ menu:
     name: "Pre-Packaged Distribution"
     identifier: "installation-guide-full-tomcat-install-pre-built"
     parent: "installation-guide-full-tomcat"
+    pre: "Download and install Apache Tomcat with the Full Distribution pre-deployed and pre-configured."
 
 ---
 

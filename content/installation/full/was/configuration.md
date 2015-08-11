@@ -8,6 +8,7 @@ menu:
     name: "Configuration"
     identifier: "installation-guide-full-was-configuration"
     parent: "installation-guide-full-was"
+    pre: "Configure the installation."
 
 ---
 

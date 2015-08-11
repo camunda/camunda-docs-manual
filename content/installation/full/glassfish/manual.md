@@ -8,6 +8,7 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-glassfish-install-manually"
     parent: "installation-guide-full-glassfish"
+    pre: "Install and configure the Full Distribution on a vanilla Glassfish Application Server."
 
 ---
 

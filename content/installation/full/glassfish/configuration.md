@@ -8,6 +8,7 @@ menu:
     name: "Configuration"
     identifier: "installation-guide-full-glassfish-configuration"
     parent: "installation-guide-full-glassfish"
+    pre: "Additional configuration."
 
 ---
 

@@ -8,6 +8,7 @@ menu:
     name: "Cycle"
     identifier: "installation-guide-cycle"
     parent: "installation-guide"
+    pre: "Install the Cycle Webapplication supporting the BPMN 2.0 Roundtrip."
 
 ---
 

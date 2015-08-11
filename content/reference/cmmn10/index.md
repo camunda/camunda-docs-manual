@@ -5,6 +5,7 @@ weight: 40
 
 menu:
   main:
+    name: "CMMN 1.0"
     identifier: "cmmn-ref"
     parent: "references"
 

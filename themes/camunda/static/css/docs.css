@@ -6859,7 +6859,7 @@ body {
 .page-footer > .container-fluid {
   padding: 15px;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   /* line 65, styles/_layout.less */
   @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000365}}
   .site-menu {
@@ -7061,7 +7061,7 @@ body {
 .site-menu-toggle:hover > span {
   background-color: #b5152b;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   /* line 156, styles/_menu.less */
   @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003156}}
   .site-menu-toggle {
@@ -7129,7 +7129,7 @@ body {
   height: 40px;
   background: url(../img/logo.png) -8px no-repeat;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   /* line 48, styles/_navbar.less */
   @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_navbar\.less}line{font-family:\0000348}}
   .navbar-text a {
@@ -7306,7 +7306,7 @@ dd {
 .page-toc nav > ul > li {
   margin-left: 0;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   /* line 62, styles/_page-toc.less */
   @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\0000362}}
   .page-toc {

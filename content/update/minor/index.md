@@ -21,7 +21,7 @@ When performing such a version update, you should first read this guide and then
   * Camunda web applications (and plugins)
   * Process applications
 
-{{< note title="Reading this Guide" >}}
+{{< note title="Reading this Guide" class="info" >}}
 
 Throughout this guide, a number of variables are used. These variables denote common path names and constants:
 

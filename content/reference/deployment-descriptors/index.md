@@ -5,6 +5,7 @@ weight: 80
 
 menu:
   main:
+    name: "Deployment Descriptors"
     identifier: "descriptor-ref"
     parent: "references"
 

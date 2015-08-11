@@ -1,6 +1,7 @@
 ---
 
 title: "Install Camunda BPM"
+layout: "section-list"
 weight: 40
 
 menu:
@@ -10,101 +11,11 @@ menu:
     
 ---
 
+These documents contain information about how to install different components and distributions of Camunda.
 
-<div class="col-md-12 overview-page">
+{{< note title="Supported Environments" class="info" >}}
+Before installing a distribution, fist check the list of [Supported Environments]({{< relref "user-guide/introduction/supported-environments.md" >}}).
+{{< /note >}}
 
-  <div class="alert alert-info">Check out the <a href="ref:/guides/user-guide/">user guide</a> for a list of <a href="ref:/guides/user-guide/#introduction-supported-environments">supported environments</a>.</div>
+Choose from the following distributions and components:
 
-  <h2>Install the Full Distribution</h2>
-
-  <p>Learn how to install the <a href="ref:/guides/user-guide/#introduction-download-full-distribution">Full Distribution</a> on the different application servers.</p>
-
-  <div class="row">
-    <div class="col-md-4">
-      <h4><a href="ref:tomcat/">Apache Tomcat 7</a></h4>
-      <ul>
-        <li><a href="ref:tomcat/#bpm-platform">BPM platform</a></li>
-        <li><a href="ref:tomcat/#web-applications-install-the-rest-api-web-application">REST API</a></li>
-        <li><a href="ref:tomcat/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Cockpit</a></li>
-        <li><a href="ref:tomcat/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Tasklist</a></li>
-        <li><a href="ref:tomcat/#ldap-configuration">LDAP Configuration</a></li>
-        <li><a href="ref:tomcat/#migration">Migration</a></li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h4><a href="ref:jboss/">JBoss AS 7 / Wildfly 8</a></h4>
-      <ul>
-        <li><a href="ref:jboss/#bpm-platform">BPM platform</a></li>
-        <li><a href="ref:jboss/#web-applications-install-the-rest-api-web-application">REST API</a></li>
-        <li><a href="ref:jboss/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Cockpit</a></li>
-        <li><a href="ref:jboss/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Tasklist</a></li>
-        <li><a href="ref:jboss/#ldap-configuration">LDAP Configuration</a></li>
-        <li><a href="ref:jboss/#migration">Migration</a></li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h4><a href="ref:glassfish/">GlassFish 3.1</a></h4>
-      <ul>
-        <li><a href="ref:glassfish/#bpm-platform">BPM platform</a></li>
-        <li><a href="ref:glassfish/#web-applications-install-the-rest-api-web-application">REST API</a></li>
-        <li><a href="ref:glassfish/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Cockpit</a></li>
-        <li><a href="ref:glassfish/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Tasklist</a></li>
-        <li><a href="ref:glassfish/#ldap-configuration">LDAP Configuration</a></li>
-        <li><a href="ref:glassfish/#migration">Migration</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h4><a href="ref:was/">IBM WebSphere 8.x</a></h4>
-      <ul>
-        <li><a href="ref:was/#bpm-platform">BPM platform</a></li>
-        <li><a href="ref:was/#web-applications-install-the-rest-api-web-application">REST API</a></li>
-        <li><a href="ref:was/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Cockpit</a></li>
-        <li><a href="ref:was/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Tasklist</a></li>
-        <li><a href="ref:was/#ldap-configuration">LDAP Configuration</a></li>
-        <li><a href="ref:was/#migration">Migration</a></li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h4><a href="ref:wls/">Oracle WebLogic 12.x</a></h4>
-      <ul>
-        <li><a href="ref:wls/#bpm-platform">BPM platform</a></li>
-        <li><a href="ref:wls/#web-applications-install-the-rest-api-web-application">REST API</a></li>
-        <li><a href="ref:wls/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Cockpit</a></li>
-        <li><a href="ref:wls/#web-applications-install-camunda-cockpit-and-tasklist">Camunda Tasklist</a></li>
-        <li><a href="ref:wls/#ldap-configuration">LDAP Configuration</a></li>
-        <li><a href="ref:wls/#migration">Migration</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <h2><a href="ref:standalone/">Install the Standalone Webapplication</h2></a>
-
-    <p>Learn how to install the <a href="ref:/guides/user-guide/#introduction-download-standalone-web-application-distribution">Standalone Web Application Distribution</a> on the different application servers.</p>
-
-    <ul>
-      <li><a href="ref:standalone/#installation">Installation</a></li>
-      <li><a href="ref:standalone/#configuration-database-configuration">Database configuration</a></li>
-      <li><a href="ref:standalone/#configuration-ldap-configuration">LDAP Configuration</a></li>
-    </ul>
-  </div>
-  <div class="row">
-    <h2><a href="ref:camunda-modeler/">Install Camunda Modeler</a></h2>
-    <p>Learn how to install Camunda Modeler as an eclipse plugin.</p>
-    <ul>
-      <li><a href="ref:camunda-modeler/#installation-requirements">Requirements</a></li>
-      <li><a href="ref:camunda-modeler/#installation-downloads">Downloads</a></li>
-      <li><a href="ref:camunda-modeler/#installation-step-by-step-installation">Installation</a></li>
-      <li><a href="ref:camunda-modeler/#troubleshooting">Troubleshooting</a></li>
-    </ul>
-  </div>
-  <div class="row">
-    <h2><a href="ref:camunda-cycle/">Install Camunda Cycle</a></h2>
-    <p>Learn how to install Camunda Cycle to create a roundtrip between a BPMN 2.0 modeler and your Development Repository.</p>
-    <ul>
-      <li><a href="ref:camunda-cycle/#installation">Installation</a></li>
-      <li><a href="ref:camunda-cycle/#configuration">Configuration</a></li>
-    </ul>
-  </div>
-</div>

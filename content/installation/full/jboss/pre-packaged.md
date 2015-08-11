@@ -8,6 +8,7 @@ menu:
     name: "Pre-Packaged Distribution"
     identifier: "installation-guide-full-jboss-install-pre-built"
     parent: "installation-guide-full-jboss"
+    pre: "Download and install Wildfly Application Server with the Full Distribution pre-deployed and pre-configured."
 
 ---
 

@@ -8,6 +8,7 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-jboss-install-vanilla"
     parent: "installation-guide-full-jboss"
+    pre: "Install and configure the Full Distribution on a vanilla JBoss / Wildfly Application Server."
 
 ---
 

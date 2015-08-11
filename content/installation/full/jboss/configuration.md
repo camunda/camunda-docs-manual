@@ -8,6 +8,7 @@ menu:
     name: "Configuration"
     identifier: "installation-guide-full-jboss-ldap"
     parent: "installation-guide-full-jboss"
+    pre: "Configure the installation."
 
 ---
 
