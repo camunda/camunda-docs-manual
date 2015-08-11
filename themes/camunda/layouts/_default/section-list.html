@@ -3,17 +3,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="site-menu col-xs-12 col-md-3">
-      {{partial "menu.html" . }}
+      {{ partial "menu.html" . }}
     </div>
 
     <div class="page-content col-xs-12 col-md-offset-3 col-md-9 col-lg-7">
       {{ partial "edit-on-github.html" . }}
       <h1 class="page-title">{{ .Title }}</h1>
       {{ .Content }}
-      {{partial "menu-pages.html" .}}
+      {{ partial "menu-pages.html" .}}
     </div>
 
-    <div class="page-toc hidden-sm col-md-2">
+    <div class="page-toc hidden-xs hidden-sm hidden-md col-lg-2">
+
     </div>
   </div>
 </div>

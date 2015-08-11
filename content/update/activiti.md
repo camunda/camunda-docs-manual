@@ -1,12 +1,13 @@
 ---
 
-title: "Migration from Activiti"
-weight: 60
+title: "Activiti Migration"
+weight: 30
 
 menu:
   main:
     identifier: "migration-guide-activiti"
     parent: "migration-guide"
+    pre: "Guides you through the migration from Activiti to Camunda."
 
 ---
 

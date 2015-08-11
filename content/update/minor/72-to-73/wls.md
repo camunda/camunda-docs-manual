@@ -1,13 +1,12 @@
 ---
 
-title: 'Migrate from Camunda BPM 7.2 to Camunda BPM 7.3'
-weight: 100
+title: "Update an Oracle Weblogic Installation from 7.2 to 7.3"
 
 menu:
   main:
-    name: "7.2 to 7.3"
-    identifier: "installation-guide-full-wls-upgrade-73"
-    parent: "installation-guide-full-wls-upgrade"
+    name: "Weblogic"
+    identifier: "migration-guide-72-weblogic"
+    parent: "migration-guide-72"
 
 ---
 

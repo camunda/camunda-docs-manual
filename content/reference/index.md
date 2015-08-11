@@ -1,6 +1,6 @@
 ---
 
-title: "References"
+title: "Reference"
 weight: 30
 
 menu:

@@ -1,12 +1,13 @@
 ---
 
-title: "Migration from Camunda BPM 7.1"
-weight: 30
+title: "Update from 7.1 to 7.2"
+weight: 110
 
 menu:
   main:
+    name: "7.1 to 7.2"
     identifier: "migration-guide-71"
-    parent: "migration-guide"
+    parent: "migration-guide-minor"
 
 ---
 

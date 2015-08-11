@@ -1,13 +1,12 @@
 ---
 
-title: 'Migrate from Camunda BPM 7.2 to Camunda BPM 7.3'
-weight: 150
+title: "Update an IBM Websphere Installation from 7.2 to 7.3"
 
 menu:
   main:
-    name: "7.2 to 7.3"
-    identifier: "installation-guide-full-was-upgrade-73"
-    parent: "installation-guide-full-was-upgrade"
+    name: "Webshere"
+    identifier: "migration-guide-72-was"
+    parent: "migration-guide-72"
 
 ---
 

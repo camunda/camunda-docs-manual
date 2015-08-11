@@ -1,13 +1,12 @@
 ---
 
-title: 'Migrate from Camunda BPM 7.1 to Camunda BPM 7.2'
-weight: 70
+title: "Update a Glassfish Installation from 7.1 to 7.2"
 
 menu:
   main:
-    name: "7.1 to 7.2"
-    identifier: "installation-guide-full-glassfish-migrate-72"
-    parent: "installation-guide-full-glassfish-upgrade"
+    name: "Glassfish"
+    identifier: "migration-guide-71-glassfish"
+    parent: "migration-guide-71"
 
 ---
 

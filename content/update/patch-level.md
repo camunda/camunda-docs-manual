@@ -1,12 +1,14 @@
 ---
 
-title: "Patch level upgrades"
-weight: 50
+title: "Update the Patch level"
+weight: 20
 
 menu:
   main:
+    name: "Patch Level Update"
     identifier: "migration-guide-patch"
     parent: "migration-guide"
+    pre: "Guides you through a patch level update (Example: <code>7.3.2</code> to <code>7.3.3</code>)"
 
 ---
 
@@ -26,10 +28,9 @@ menu:
   <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">Camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
 </div>
 
-###Upgrading over multiple Patch Level versions
+# Upgrading over multiple Patch Level versions
 
 It is possible to upgrade the Camunda BPM platform over multiple patch level versions (e.g., from 7.1.0 to 7.1.4). To do so, follow the steps listed [below](ref:#patch-level-upgrade-upgrade-your-server).
-
 
 # Upgrade your Database
 
@@ -46,7 +47,7 @@ patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
 Each patch script contains a comment what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
 
-### Available SQL Patch scripts
+# Available SQL Patch scripts
 
 <table class="table desc-table">
   <thead>

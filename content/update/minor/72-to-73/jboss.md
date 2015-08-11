@@ -1,13 +1,12 @@
 ---
 
-title: 'Migrate from Camunda BPM 7.2 to Camunda BPM 7.3'
-weight: 90
+title: "Update a JBoss Installation from 7.2 to 7.3"
 
 menu:
   main:
-    name: "7.2 to 7.3"
-    identifier: "installation-guide-full-jboss-upgrade-73"
-    parent: "installation-guide-full-jboss-upgrade"
+    name: "JBoss"
+    identifier: "migration-guide-72-jboss"
+    parent: "migration-guide-72"
 
 ---
 

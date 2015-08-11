@@ -1,12 +1,13 @@
 ---
 
-title: "Migration from Camunda BPM 7.0"
-weight: 20
+title: "Update from 7.0 to 7.1"
+weight: 120
 
 menu:
   main:
+    name: "7.0 to 7.1"
     identifier: "migration-guide-70"
-    parent: "migration-guide"
+    parent: "migration-guide-minor"
 
 ---
 
@@ -19,7 +20,6 @@ menu:
     <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.1.0</code>.</li>
   </ul>
 </div>
-
 
 # Migrate your Database
 

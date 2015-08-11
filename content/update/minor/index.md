@@ -1,42 +1,42 @@
 ---
 
-title: "General migration hints for Camunda BPM"
+title: "Update to the next Minor Version"
 weight: 10
 
 menu:
   main:
-    identifier: "migration-guide-general"
+    name: "Minor Version Update"
+    identifier: "migration-guide-minor"
     parent: "migration-guide"
-    pre: "Information generally  useful"
+    pre: "Guides you through a minor version update (Example: <code>7.3</code> to <code>7.4</code>)"
 
 ---
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-   Throughout this guide we will use a number of variables to denote common path names and constants:
-  <ul>
-    <li><code>$DATABASE</code> expresses the target database platform, e.g., DB2, MySql, etc.</li>
-    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat, etc.</li>
-    <li><code>$MINOR_VERSION</code> denotes the current minor version of the Camunda BPM platform you are currently using, e.g., <code>7.1</code>.</li>
-    <li><code>$NEW_MINOR_VERSION</code> denotes the next minor version of the Camunda BPM platform you want to upgrade to, e.g., <code>7.2</code>.</li>
-    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you are currently using, e.g., <code>7.1.0</code>.</li>
-    <li><code>$NEW_PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to upgrade to, e.g., <code>7.2.0</code>.</li>
-  </ul>
-</div>
+This page gives an overview of how to perform a minor version update. This applies to any updates of the version number "after the first dot", example: `7.3` to `7.4`.
 
-**Getting Help:** If you have any trouble, ask for assistance in the [Forum](http://camunda.org/community/forum.html). As an enterprise customer, you can contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
-
-This guide gives some hints and general guidelines / steps to follow when upgrading Camunda BPM from one minor version to the next one.
-It is _NOT_ a migration guide by its own. Always check the concrete migration guide of the version from which you start the migration, e.g., [migrate from Camunda BPM 7.0 to 7.1](ref:/guides/migration-guide/#migrate-from-camunda-bpm-70-to-71).
-
-The migration guides usually cover following migration topics in detail:
+When performing such a version update, you should first read this guide and then read the specific guide for the update you want to perform. The specific update guide covers the following topics in detail:
 
   * Database
-  * Engine (and plugins)
+  * Process Engine (and plugins)
   * Camunda web applications (and plugins)
   * Process applications
 
-###Upgrading from a minor version to the next one
+{{< note title="Reading this Guide" >}}
+
+Throughout this guide, a number of variables are used. These variables denote common path names and constants:
+
+* `$DATABASE`: the target database platform, e.g., DB2, MySql, etc.
+* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat.
+* `$MINOR_VERSION`: the current minor version of the Camunda BPM platform you are currently using, e.g., `7.1`.
+* `$NEW_MINOR_VERSION`: the next minor version of the Camunda BPM platform you want to upgrade to, e.g., `7.2`.
+* `$PLATFORM_VERSION`: the version of the Camunda BPM platform you are currently using, e.g., `7.1.0`.
+* `$NEW_PLATFORM_VERSION`: the version of the Camunda BPM platform you want to upgrade to, e.g., `7.2.0`
+
+{{< /note >}}
+
+**Getting Help:** If you have any trouble, ask for assistance in the [Forum](http://camunda.org/community/forum.html). As an enterprise customer, you can contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
+
+# Overview
 
 The general approach to migrate from one minor version to the next one involves the following steps:
 
@@ -49,7 +49,7 @@ Depending if you are running Camunda BPM as a shared engine or an embedded one, 
 Check the concrete migration guide if there are any special steps you have to make.
 
 
-# Upgrade your Database
+# Upgrade the Database
 
 When migrating your database to the next minor version, you have to do the following:
 
@@ -79,7 +79,7 @@ Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upg
 [here]: ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts
 
 
-# Upgrade your Server
+# Upgrade a Server Installation
 
 Depending on the scenario in which the Camunda BPM platform is deployed, you have to adjust the upgrade process.
 Please note that the following procedure may differ for cluster scenarios.
@@ -87,13 +87,13 @@ As an enterprise customer, you can contact our [support team](https://app.camund
 
 When upgrading a shared or embedded engine, at least the following steps have to be done.
 
-### Shared Engine
+# Shared Process Engine
 
 * Shut down your application server.
 * Exchange Camunda BPM libraries, tools and web applications (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide](ref:/guides/installation-guide/) for your server.
 * Restart your application server.
 
-### Embedded Engine
+# Embedded Process Engine
 
 * Upgrade the Camunda-related dependencies in your WAR / EAR artifact.
 * Rebuild and redeploy it.

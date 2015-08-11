@@ -6825,40 +6825,43 @@ body {
   top: 41px;
   bottom: 100px;
   padding-bottom: 36px;
+  padding-left: 0;
+  padding-right: 0;
   -webkit-transition: transform 0.218s ease;
   -o-transition: transform 0.218s ease;
   transition: transform 0.218s ease;
 }
-/* line 37, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000337}}
+/* line 39, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000339}}
 .site-menu > .meta {
   position: absolute;
   width: 100%;
   height: 36px;
   bottom: 0;
 }
-/* line 45, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000345}}
+/* line 47, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000347}}
 .page-content {
   padding-bottom: 115px;
   max-height: 100%;
   overflow: auto;
 }
-/* line 51, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000351}}
+/* line 53, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000353}}
 .page-footer {
   position: fixed;
   bottom: 0;
   height: 100px;
+  z-index: 1030;
 }
-/* line 55, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000355}}
+/* line 58, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000358}}
 .page-footer > .container-fluid {
   padding: 15px;
 }
 @media (max-width: 991px) {
-  /* line 62, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000362}}
+  /* line 65, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000365}}
   .site-menu {
     width: 240px;
     z-index: 1029;
@@ -6867,8 +6870,8 @@ body {
     -o-transform: translate(-240px, 0);
     transform: translate(-240px, 0);
   }
-  /* line 69, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000369}}
+  /* line 71, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000371}}
   body.site-menu-open .site-menu {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);

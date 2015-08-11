@@ -1,13 +1,12 @@
 ---
 
-title: 'Migrate from Camunda BPM 7.2 to Camunda BPM 7.3'
-weight: 80
+title: "Update a Tomcat Installation from 7.2 to 7.3"
 
 menu:
   main:
-    name: "7.2 to 7.3"
-    identifier: "installation-guide-full-tomcat-upgrade-73"
-    parent: "installation-guide-full-tomcat-upgrade"
+    name: "Tomcat"
+    identifier: "migration-guide-72-tomcat"
+    parent: "migration-guide-72"
 
 ---
 
