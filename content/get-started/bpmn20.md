@@ -207,7 +207,7 @@ You can leave the META-INF/processes.xml file empty. In that case, default value
 
 At this point you have successfully set up the process application and you can start modeling the first process.
 
-{{< get-tag repo="camunda-get-started" tag="Step-2" >}}  
+{{< get-tag repo="camunda-get-started" tag="Step-2" >}}
 
 # Model a Process
 
