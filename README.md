@@ -49,3 +49,22 @@ Use the `img` shorthand:
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
+
+#### How can I add a note?
+
+Use the `note` shorthand:
+
+```html
+{{< note title="Heads Up!" class="info" >}}
+The content of the note.
+  
+* full
+* markdown is supported
+
+{{< /note >}}
+```
+
+Supported classes:
+
+* `info`
+* `warning`
