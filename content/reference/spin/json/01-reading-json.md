@@ -102,7 +102,7 @@ SpinJsonNode json = JSON("{\"customer\": \[\"Kermit\", \"Waldo\"\]}");
 SpinJsonNode customerProperty = json.prop("customer");
 SpinList customers = customerProperty.elements();
 SpinJsonNode customer = customers.get(0);
-String customerName = customer.value();
+String customerName = customer.stringValue();
 ```
 
 in Javascript:
