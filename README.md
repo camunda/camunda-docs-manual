@@ -68,3 +68,18 @@ Supported classes:
 
 * `info`
 * `warning`
+* 
+
+### How can I add an "EE only note"?
+
+Sometimes you want to flag a Feature as an Enterprise Feature.
+
+This can be achieved using the `enterprise` shortcode:
+
+```html
+{{< enterprise >}}
+The FOO Feature is only available in the Enterprise Edition.
+{{< /enterprise >}}
+```
+
+
