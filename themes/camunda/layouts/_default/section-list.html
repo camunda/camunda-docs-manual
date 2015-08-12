@@ -1,22 +1,20 @@
 {{ partial "header.html" . }}
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="site-menu col-xs-12 col-md-3">
-      {{ partial "menu.html" . }}
-    </div>
-
-    <div class="page-content col-xs-12 col-sm-offset-3 col-sm-9 col-md-7">
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row content-header">
       {{ partial "edit-on-github.html" . }}
       <h1 class="page-title">{{ .Title }}</h1>
-      {{ .Content }}
-      {{ partial "menu-pages.html" .}}
     </div>
 
-    <div class="page-toc hidden-xs hidden-sm col-md-2">
-      {{partial "banner.html"}}
+    <div class="row">
+      {{ partial "menu-pages.html" .}}
     </div>
   </div>
+</div>
+
+<div class="page-toc">
+  {{partial "banner.html"}}
 </div>
 
 {{ partial "footer.html" . }}
