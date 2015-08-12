@@ -49,11 +49,11 @@ Depending if you are running Camunda BPM as a shared engine or an embedded one, 
 Check the concrete migration guide if there are any special steps you have to make.
 
 
-# Upgrade the Database
+# Update the Database
 
-When migrating your database to the next minor version, you have to do the following:
+When updtating to the next minor version you need to update the database.
 
-1. Check for any existing patch scripts for your database [here] that are within the bounds of your upgrade path.
+1. Check for [Available SQL Patch Scripts][patch-scripts] for your database that are within the bounds of your upgrade path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_$MINOR_VERSION_patch_$PLATFORM_VERSION_to_$NEW_PLATFORM_VERSION.sql`, e.g., `db2_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
@@ -68,32 +68,31 @@ When migrating your database to the next minor version, you have to do the follo
  _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`.
  The procedure is the same as in step 1, only for the new minor version.
 
-<div class="alert alert-info">
-  <strong>SQL patch scripts</strong><br>
-  Community users also have access to the SQL patch scripts from the enterprise version. See <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/">Camunda Nexus</a>.
-  The scripts are stored inside the `camunda-sql-scripts-$NEW_PLATFOR_VERSION.jar`. Unzip the JAR-file and you are good to go.
-</div>
+{{< note title="SQL patch scripts" class="warning" >}}
+Community users also have access to the SQL patch scripts from the enterprise version.
+See [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
+The scripts are stored inside the `camunda-sql-scripts-$NEW_PLATFOR_VERSION.jar`. Unzip the JAR-file and you are good to go.
+{{< /note >}}
 
-Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) for an overview of available SQL patch scripts for your current version.
+# Full Distribution
 
-[here]: ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts
+If you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) on an application server, you need to update the libraries and applications installed inside the application server. Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
+* Shut down the server
+* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
+* Restart the server
 
-# Upgrade a Server Installation
+# Custom Application with Embedded Process Engine
 
-Depending on the scenario in which the Camunda BPM platform is deployed, you have to adjust the upgrade process.
-Please note that the following procedure may differ for cluster scenarios.
-As an enterprise customer, you can contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
+In case you use an embedded process engine inside your Java Application, you need to 
 
-When upgrading a shared or embedded engine, at least the following steps have to be done.
+1. update the Process Engine librarayin your dependency management (Apache MAven, Gradle ...),
+2. re-package the application,
+3. deploy the new version of the application.
 
-# Shared Process Engine
+# Standalone Webapplication Distribution
 
-* Shut down your application server.
-* Exchange Camunda BPM libraries, tools and web applications (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide](ref:/guides/installation-guide/) for your server.
-* Restart your application server.
+In case you installed the [Standalone Webapplication Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
-# Embedded Process Engine
-
-* Upgrade the Camunda-related dependencies in your WAR / EAR artifact.
-* Rebuild and redeploy it.
+1. undeploy the previous version of the webapplication,
+2. deploy the new version of the webapplication.
