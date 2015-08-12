@@ -301,9 +301,6 @@ function openParentItem(childItem, className) {
 
 
 
-
-
-
 var toc = query('#TableOfContents');
 var navBar = query('.navbar-fixed-top');
 var tocWrapper;
@@ -401,5 +398,15 @@ if (location.hash) {
   shiftWindow();
 }
 window.addEventListener('hashchange', shiftWindow);
+
+
+queryAll('.gs-download-step-panel').forEach(function (panel) {
+  var btn = query('.toggle-instructions', panel);
+  if (!btn) { return; }
+  btn.addEventListener('click', function () {
+    panel.classList.toggle('open');
+  });
+});
+
 
 },{"./classList":1}]},{},[2]);

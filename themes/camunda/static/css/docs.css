@@ -7235,35 +7235,66 @@ legend {
   box-shadow: 0 0 3px 2px rgba(119, 119, 119, 0.55) inset;
   background-color: #eeeeee;
 }
-/* line 46, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000346}}
+/* line 45, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000345}}
+.note {
+  padding: 6px 12px;
+}
+/* line 47, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000347}}
+.note > h3 {
+  margin-top: 6px;
+}
+/* line 53, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000353}}
 .content-header {
   position: relative;
 }
-/* line 50, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000350}}
+/* line 57, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000357}}
 .edit-on-github {
   position: absolute;
   top: 3px;
   right: 0;
 }
-/* line 56, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000356}}
+/* line 63, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000363}}
 h1.page-title {
   color: #555555;
   padding-bottom: 10px;
   border-bottom: 1px solid #777777;
   margin-bottom: 30px;
 }
-/* line 64, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000364}}
+/* line 71, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000371}}
 dt {
   font-size: 16px;
 }
-/* line 67, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000367}}
+/* line 74, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000374}}
 dd {
   margin: 0.5em 0 1em 2em;
+}
+/* line 80, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000380}}
+.gs-download-step-panel .panel-body {
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.218s ease, padding 0.218s ease;
+}
+/* line 88, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000388}}
+.gs-download-step-panel .toggle-instructions {
+  cursor: pointer;
+}
+/* line 92, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000392}}
+.gs-download-step-panel.open .panel-body {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  max-height: 500px;
 }
 /* line 2, styles/_page-toc.less */
 @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_page-toc\.less}line{font-family:\000032}}
