@@ -1,6 +1,6 @@
 ---
 
-title: "Update the Patch level"
+title: "Patch Level Update"
 weight: 20
 
 menu:
@@ -8,46 +8,36 @@ menu:
     name: "Patch Level Update"
     identifier: "migration-guide-patch"
     parent: "migration-guide"
-    pre: "Guides you through a patch level update (Example: <code>7.3.2</code> to <code>7.3.3</code>)"
+    pre: "Guides you through a patch level update (Example: `7.3.2` to `7.3.3`)"
 
 ---
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-   Throughout this guide we will use a number of variables to denote common path names and constants:
-  <ul>
-    <li><code>$DATABASE</code> expresses the target database platform, e.g., DB2, MySql etc.</li>
-    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat etc.</li>
-    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.1.0</code>.</li>
-  </ul>
-</div>
+This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.3.2` to `7.3.3`.
 
-<div class="alert alert-warning">
-  <p><strong>Enterprise Feature</strong></p>
-  Please note that Patch Level Upgrades will only be provided to enterprise customers, they are not available in the community edition.
-  <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">Camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
-</div>
+{{< enterprise >}}
+Please note that Patch Level Upgrades are only provided to enterprise customers, they are not available in the community edition.  
+{{< /enterprise >}}
 
-# Upgrading over multiple Patch Level versions
+{{< note title="Reading this Guide" class="info" >}}
+In this guide, a number of variables are used to denote common path names and constants:
 
-It is possible to upgrade the Camunda BPM platform over multiple patch level versions (e.g., from 7.1.0 to 7.1.4). To do so, follow the steps listed [below](ref:#patch-level-upgrade-upgrade-your-server).
+* `$DATABASE`: the target database platform, e.g., DB2, MySql etc.
+* `$DISTRIBUTION_PATH`: the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
+* `$PLATFORM_VERSION`: the version of the Camunda BPM platform you want to install, e.g., `7.1.0`.
 
-# Upgrade your Database
+{{< /note >}}
 
-Within a minor version we will not change anything in our database structure. The database structure
-of all patch releases is backwards compatible to the corresponding minor version.
+# Patching the Database
 
-However, we do provide patch scripts for certain bugs that are caused by the database configuration.
-If you are affected by those bugs you have the option to run a patch script.
-We ship the patch scripts with the prepackaged distribution in the following location:
-`$DISTRIBUTION_PATH/sql/upgrade`, named: `$DATABASE_engine_$VERSION_patch_$A_to_$B`.
-Please execute all patch scripts that are within the bounds of your upgrade path. This means if
-your current patch version is `X.X.1` and you upgrade to `X.X.5` you have to execute all
-patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
+Between patch levels, the structure of the database schema is not changed. The database structure of all patch releases is backwards compatible to the corresponding minor version. Example: the database schema of all `7.3.x` versions is backwards compatible to the `7.3.0` schema.
+
+The one exception to this are bugs in the database schema itself. If you are affected by such a bug, you have the option to run a patch script.
+Patch scripts are shipped inside the distribution at the following location: `$DISTRIBUTION_PATH/sql/upgrade`, named: `$DATABASE_engine_$VERSION_patch_$A_to_$B`.
+If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your upgrade path. This means if your current patch version is `X.X.1` and you upgrade to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
 Each patch script contains a comment what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
 
-# Available SQL Patch scripts
+The following list is an overview of all currently available patch scripts:
 
 <table class="table desc-table">
   <thead>
@@ -91,11 +81,29 @@ Each patch script contains a comment what the fixes are related to and a link to
   </tbody>
 </table>
 
+# Full Distribution
 
-# Upgrade your Server
+If you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) on an application server, you need to update the libraries and applications installed inside the application server. Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
-Depending on the scenario in which the Camunda BPM platform is deployed, you have to adjust the upgrade process. Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
+* Shut down the server
+* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
+* Restart the server
 
-* Shut down your server
-* Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide](ref:/guides/installation-guide/) for your server.
-* Restart your server
+# Custom Application with Embedded Process Engine
+
+In case you use an embedded process engine inside your Java Application, you need to 
+
+1. update the Process Engine librarayin your dependency management (Apache MAven, Gradle ...),
+2. re-package the application,
+3. deploy the new version of the application.
+
+# Standalone Webapplication Distribution
+
+In case you installed the [Standalone Webapplication Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
+
+1. undeploy the previous version of the webapplication,
+2. deploy the new version of the webapplication.
+
+# Multiple Patch Level Versions
+
+It is possible to upgrade the Camunda BPM platform over multiple patch level versions at once (e.g., from 7.1.0 to 7.1.4).
