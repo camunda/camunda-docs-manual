@@ -73,7 +73,7 @@ import static org.camunda.spin.Spin.*;
 
 SpinJsonNode json = JSON("{\"customer\": \"Kermit\"}");
 SpinJsonNode customerProperty = json.prop("customer");
-String customerName = customerProperty.value();
+String customerName = customerProperty.stringValue();
 ```
 
 in Javascript:
