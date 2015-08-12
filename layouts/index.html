@@ -1,25 +1,22 @@
 {{ partial "header.html" . }}
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="site-menu col-xs-12 col-md-3">
-      {{ partial "menu.html" . }}
-    </div>
 
-    <div class="page-content col-xs-12 col-sm-offset-3 col-sm-9 col-md-7">
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row content-header">
       {{ partial "edit-on-github.html" . }}
       <h1 class="page-title">The Camunda BPM Manual</h1>
+    </div>
 
+    <div class="row">
       Welcome to the Camunda BPM Manual! Camunda BPM is a light-weight, open-source platform for Business Process Management.
       The Manual introduces key concepts in Camunda BPM, explains how to use BPMN for Business Process Management, CMMN for Case Management and DMN for Business Decision Management. The manual also provides installation procedures as well as a comprehensive reference section.
-      
     </div>
-
-    <div class="page-toc hidden-xs hidden-sm col-md-2">
-      {{partial "banner.html"}}
-    </div>
-
   </div>
+</div>
+
+<div class="page-toc">
+  {{partial "banner.html"}}
 </div>
 
 {{ partial "footer.html" . }}
