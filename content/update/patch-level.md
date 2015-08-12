@@ -8,7 +8,7 @@ menu:
     name: "Patch Level Update"
     identifier: "migration-guide-patch"
     parent: "migration-guide"
-    pre: "Guides you through a patch level update (Example: `7.3.2` to `7.3.3`)"
+    pre: "Guides you through a patch level update (Example: `7.3.2` to `7.3.3`)."
 
 ---
 
@@ -27,7 +27,7 @@ In this guide, a number of variables are used to denote common path names and co
 
 {{< /note >}}
 
-# Patching the Database
+# Database Patches
 
 Between patch levels, the structure of the database schema is not changed. The database structure of all patch releases is backwards compatible to the corresponding minor version. Example: the database schema of all `7.3.x` versions is backwards compatible to the `7.3.0` schema.
 
@@ -81,17 +81,17 @@ The following list is an overview of all currently available patch scripts:
   </tbody>
 </table>
 
-# Update Libraries and Applications
+# Full Distribution
 
-## Full Distribution
+This section is applicable if you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
-If you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) on an application server, you need to update the libraries and applications installed inside the application server. Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
+Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
 * Shut down the server
 * Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
 * Restart the server
 
-## Custom Application with Embedded Process Engine
+# Application with Embedded Process Engine
 
 In case you use an embedded process engine inside your Java Application, you need to 
 
@@ -99,13 +99,13 @@ In case you use an embedded process engine inside your Java Application, you nee
 2. re-package the application,
 3. deploy the new version of the application.
 
-## Standalone Webapplication Distribution
+# Standalone Webapplication Distribution
 
 In case you installed the [Standalone Webapplication Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.
 
-# Multiple Patch Level Versions
+# Applying multiple Patches at once
 
-It is possible to upgrade the Camunda BPM platform over multiple patch level versions at once (e.g., from 7.1.0 to 7.1.4).
+It is possible to apply multiple patches in one go (e.g., updateing from `7.1.0` to `7.1.4`).

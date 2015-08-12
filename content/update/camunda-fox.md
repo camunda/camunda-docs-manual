@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "migration-guide-fox"
     parent: "migration-guide"
-    pre: "Guides you through the migration from Camunda Fox <code>6.x</code> to Camunda BPM Platform <code>7.x</code>"
+    pre: "Guides you through the migration from Camunda Fox <code>6.x</code> to Camunda BPM Platform <code>7.x</code>."
 
 ---
 

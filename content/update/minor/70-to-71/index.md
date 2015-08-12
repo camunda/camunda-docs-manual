@@ -8,6 +8,7 @@ menu:
     name: "7.0 to 7.1"
     identifier: "migration-guide-70"
     parent: "migration-guide-minor"
+    pre: "Update from `7.0.x` to `7.1.0`."
 
 ---
 

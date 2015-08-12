@@ -8,18 +8,21 @@ menu:
     name: "7.1 to 7.2"
     identifier: "migration-guide-71"
     parent: "migration-guide-minor"
+    pre: "Update from `7.1.x` to `7.2.0`."
 
 ---
 
-The following guide covers these use cases:
+This document guides you through the update from Camunda BPM `7.1.x` to `7.2.0`. It covers these use cases:
 
-1. For administrators and developers: Migrate the database
-2. For administrators and developers: Migrating a shared process engine setting
-3. For administrators and developers: Migrating an embedded process engine setting
-4. For developers: Migrating embedded task forms
-5. For developers: Migrating a Cockpit plugin
+1. For administrators and developers: [Database Updates]({{< relref "#update-the-database" >}})
+2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
+3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
+4. For developers: [Migrating Task Forms]({{< relref "#task-forms" >}})
+5. For developers: [Migrating Cockpit Plugins]({{< relref "#cockpit-plugins" >}})
 
-This guide covers mandatory migration steps as well as optional steps that can be carried out to enable or disable new functionality included in Camunda BPM 7.2. The following concepts were introduced with Camunda BPM 7.2:
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.2.
+
+Noteworthy new Features in 7.2:
 
 * **CMMN:** [Case Management Model And Notation][cmmn-ref] (CMMN) is a modelling standard similar to BPMN that focuses on human-centric processes. Camunda BPM 7.2 implements this standard and therefore extends the database schema during upgrade. If you do not plan to use CMMN, these tables will stay empty.
 * **Spin/Connect:** Camunda [Spin][spin-ref] and [Connect][connect-ref] are optional Camunda extensions that ease the use of text-based data formats and connectivity in processes. Spin and Connect are separate modules that have to be explicitly added to and configured in an existing installation. This guide shows you how to enable/disable the usage of Spin and Connect.
@@ -32,44 +35,52 @@ Before migrating, decide whether you additionally want to enable Spin/Connect an
 [spin-ref]: /guides/user-guide/#data-formats-xml-json-other
 [freemarker-ref]: /guides/user-guide/#process-engine-templating
 
+{{< note title="No Rolling Upgrades" class="warning" >}}
+It is not possible to migrate process engines from Camunda 7.2 to 7.2 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.2 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.2 engine, as these may use features that were not available yet in 7.2.
+{{< /note >}}
 
-# Migrate your Database
+# Database Updates
 
-For migration from **Camunda BPM 7.1** to **Camunda BPM 7.2**, the provided upgrade scripts that match your database have to be executed. With a pre-built distribution, the upgrade scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
+The first step consists in updating the database.
 
-If you migrate from a version < 7.1.4 or have not previously executed the 7.1.5 patch script, you have to execute the SQL script `$DATABASE_engine_7.1_patch_7.1.4_to_7.1.5.sql` first, where `$DATABASE` corresponds to the database platform you use.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#patching-the-database" >}}) for your database that are within the bounds of your upgrade path.
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
+ We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ The naming pattern is `$DATABASENAME_engine_7.1_patch_?.sql`.
 
-If you migrate from a version < 7.1.10, you will have to execute the SQL script `$DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
+2. Execute the corresponding upgrade scripts named
 
-Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) for an overview of available SQL patch scripts for your current version.
+    * `$DATABASENAME_engine_7.1_to_7.2.sql`
+    * `$DATABASENAME_identity_7.1_to_7.2.sql`
+ 
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
 
-Regardless of the version you are migrating from, the main upgrade script is `$DATABASE_engine_7.1_to_7.2.sql` and has to be executed next.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
+# Full Distribution
 
-# Migrating a Shared Process Engine Setting
+This section is applicable if you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
-When migrating a Camunda BPM shared engine installation, i.e., a scenario in which the process engine is configured as a central service on the application server, the following steps are required:
+The following steps are required:
 
-1. Upgrade of the Camunda libraries on the application server and optional configuration
-2. Migrate process applications
+1. Upgrade Camunda Libraries and Applications inside the application server
+2. Migrate custom Process Applications
 
-Prerequisites:
+Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
-* Before starting, make sure that you have downloaded the Camunda BPM 7.2 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+## Camunda Libraries and Applications
 
-## 1. Upgrade of the Camunda Libraries on the Application Server and Optional Configuration
+Please choose the application server you are working with from the following list:
 
-Please choose the application server you are working with from the following list. You will be redirected to Camunda's installation guide.
+* [Apache Tomcat]({{< relref "update/minor/71-to-72/tomcat.md" >}})
+* [JBoss/Wildfly]({{< relref "update/minor/71-to-72/jboss.md" >}})
+* [Glassfish]({{< relref "update/minor/71-to-72/glassfish.md" >}})
+* [IBM WebSphere]({{< relref "update/minor/71-to-72/was.md" >}})
+* [Oracle WebLogic]({{< relref "update/minor/71-to-72/wls.md" >}})
 
-* [Apache Tomcat][tomcat-migration]
-* [JBoss][jboss-migration]
-* [Glassfish][glassfish-migration]
-* [IBM WebSphere][websphere-migration]
-* [Oracle WebLogic][weblogic-migration]
+## Custom Process Applications
 
-## 2. Migration Process Applications
-
-For every process application, the Camunda dependencies should be upgraded to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Camunda dependencies have to be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -80,72 +91,37 @@ For every process application, the Camunda dependencies should be upgraded to th
 
 There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
 
-[tomcat-migration]: ref:/guides/installation-guide/tomcat/#migration-migrate-from-camunda-bpm-71-to-camunda-bpm-72
-[jboss-migration]: ref:/guides/installation-guide/jboss/#migration-migrate-from-camunda-bpm-71-to-camunda-bpm-72
-[glassfish-migration]: ref:/guides/installation-guide/glassfish/#migration-migrate-from-camunda-bpm-71-to-camunda-bpm-72
-[websphere-migration]: ref:/guides/installation-guide/was/#migration-migrate-from-camunda-bpm-71-to-camunda-bpm-72
-[weblogic-migration]: ref:/guides/installation-guide/wls/#migration-migrate-from-camunda-bpm-71-to-camunda-bpm-72
+# Application with Embedded Process Engine
 
+This section is applicable if you have a custom application with an **embedded** process engine.
 
-# Migrating an Embedded Process Engine Setting
+## Basic Procedure
 
-When migrating a Camunda BPM embedded engine, i.e., a process engine that is managed entirely within an application and bound to that application's lifecycle, the following steps are required:
+Updating an application with embedded process engineUpgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
-1. Configure process engines (*optional*)
-2. Upgrade Camunda dependencies
+* `camunda-engine`
+* `camunda-bpmn-model`
+* `camunda-engine-spring`
+* `camunda-engine-cdi`
+* ...
 
-Prerequisites:
-
-* Before starting, make sure that you have downloaded the Camunda BPM 7.2 distribution for the application server you use. It contains the SQL scripts required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
-
-## 1. Configure Process Engines
+## Special Considerations
 
 This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
 
-#### Script Variable Storing
+### Script Variable Storing
 
-As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations. Depending on your scenario, this may involve updating a `camunda.cfg.xml` file, a `processes.xml` file or a programmatic configuration. For example, in a `camunda.cfg.xml` file, the property can be set as follows:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ...>
-  ...
-  <process-engine name="default">
-    ...
-    <properties>
-      ... existing properties ...
-      <property name="autoStoreScriptVariables">true</property>
-    </properties>
-    ...
-  </process-engine>
-  ...
-</bpm-platform>
-```
+As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations. 
 
 As an alternative, script code can be migrated by replacing all implicit declarations of process variables in scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
-
-## 2. Upgrade Camunda Dependencies
-
-Upgrade the dependencies declared in your application's `pom.xml` file to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
-
-* `camunda-engine`
-* `camunda-bpmn-model`
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
-* ...
-
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
-
-
-# Migrating Embedded Task Forms
+# Embedded Task Forms
 
 Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms must be migrated.
 
 > Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference](ref:/api-references/embedded-forms/)
 
-# Overview
+## Overview
 
 The following APIs / behavior has changed:
 
@@ -155,7 +131,7 @@ The following APIs / behavior has changed:
 
 In the remainder of this section, we walk through these changes in detail.
 
-# The `form-field` directive
+## The `form-field` directive
 
 The form field directive is not supported in 7.2. HTML controls using the `form-field` directive need to be migrated.
 
@@ -172,7 +148,7 @@ In 7.1, the `form-field` directive was used on input fields of the following for
 <input form-field name="[variableName]" type="[type]" />
 ```
 
-#### The `name` Attribute
+### The `name` Attribute
 
 In 7.2, the HTML `name` attribute is not used anymore for providing the name of the process variable. In 7.2, the `cam-variable-name` attribute must be used:
 
@@ -181,7 +157,7 @@ In 7.2, the HTML `name` attribute is not used anymore for providing the name of 
        cam-variable-name="[variableName]" />
 ```
 
-#### The `type` Attribute
+### The `type` Attribute
 
 In 7.2 the HTML `type` attribute is not used anymore for providing the type of the variable. Instead, the `cam-variable-type` attribute is used:
 
@@ -194,7 +170,7 @@ In 7.2 the HTML `type` attribute is not used anymore for providing the type of t
 
 > Note: The `cam-variable-type` attribute is only required if the variable does not yet exist. If the variable already exists in the process, the attribute is not required.
 
-##### Boolean
+### Boolean
 
 In 7.1 a boolean input field looked like this:
 
@@ -210,7 +186,7 @@ In 7.2 it looks like this:
        cam-variable-type="Boolean" />
 ```
 
-##### String
+### String
 
 In 7.1 a string input field looked like this:
 
@@ -226,7 +202,7 @@ In 7.2 it looks like this:
        cam-variable-type="String" />
 ```
 
-##### Number
+### Number
 
 In 7.1 a number input field looked like this:
 
@@ -242,7 +218,7 @@ In 7.2 it looks like this:
        cam-variable-type="Integer|Long|Short|Float|Double" />
 ```
 
-##### Date
+### Date
 
 In 7.1 a date input field looked like this:
 
@@ -285,7 +261,7 @@ In 7.2, select boxes have the following form:
 </select>
 ```
 
-#### Serialized List and Map
+### Serialized List and Map
 
 In 7.1 a serialized `java.util.List` and `java.util.Map` instance could be used for populating the `form-values="[optionsVarName]"`. In 7.2, this is possible in combination with the `cam-choices="[optionsVarName]"` directive. However, the lists and maps need to be serialized using the `application/json` dataformat:
 
@@ -317,15 +293,15 @@ In 7.2, it has the following form:
           cam-variable-type="String"></textarea>
 ```
 
-# Fetching additional variables
+## Fetching additional variables
 
 In 7.1 all variables from the process instance scope were fetched. In 7.2 the form needs to declare the variables it wants to fetch. This can be achieved declaratively or programmatically.
 
-## Fetching a variable using `cam-variable-name`
+### Fetching a variable using `cam-variable-name`
 
 If you use the `cam-variable-name` directive, the corresponding process variable will be fetched.
 
-## Fetching a variable using JavaScript
+### Fetching a variable using JavaScript
 
 Additional variables can be fetched by hooking into the form lifecycle.
 
@@ -353,14 +329,13 @@ camForm.on('variables-fetched', function() {
 </form>
 ```
 
-
-# Migrating a Cockpit Plugin
+# Cockpit Plugins
 
 As of version 7.2, Cockpit uses updated (and unpatched) versions of AngularJS (1.2.16) and Twitter Bootstrap (3.1.1). These updates introduce breaking changes in some heavily used features, such as JS promises, modal windows and a few more things described in detail below. Confer the [AngularJS changelog](https://github.com/angular/angular.js/blob/master/CHANGELOG.md) and the [Bootstrap migration guide](http://getbootstrap.com/getting-started/#migration) for details.
 
 First of all, __bootstrap.js is not used anymore__ (it has been replaced by the angular-ui/bootstrap project), Only the CSS parts are kept (and they are being rewritten in order to leverage less compilation and avoid unnecessary declarations).
 
-### JS promises
+## JS promises
 
 The most critical change is probably the way JavaScript promises are implemented/used. If you had something like this in the 7.1 release:
 
@@ -380,7 +355,7 @@ SomeResource.$promise.then(function(response) {
 });
 ```
 
-### Dialogs / modal windows
+## Dialogs / modal windows
 
 Also widely used in web interfaces, the dialogues (a.k.a. modal windows) were completely rewritten. With the 7.1 release, you might have something like:
 
@@ -439,7 +414,7 @@ function(BimBamBum,   $modal,   $scope) {
 }];
 ```
 
-### Tooltips
+## Tooltips
 
 In the 7.1 release, you could add tool tips using a *help* attribute like this:
 
@@ -465,7 +440,7 @@ With the 7.2 release, the attributes would be:
 Note the *tooltip-placement* value is not wrapped between single quotes anymore.
 
 
-### Pagers
+## Pagers
 
 Pagers need special attention because you might need to adapt setup and change your HTML. But generally speaking, if you have something like this with the 7.1 release:
 

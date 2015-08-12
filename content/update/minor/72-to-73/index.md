@@ -8,116 +8,84 @@ menu:
     name: "7.2 to 7.3"
     identifier: "migration-guide-72"
     parent: "migration-guide-minor"
+    pre: "Update from `7.2.x` to `7.3.0`."
 
 ---
 
-The following guide covers these use cases:
+This document guides you through the update from Camunda BPM `7.2.x` to `7.3.0`. It covers these use cases:
 
-1. For administrators and developers: [Migrate the database](ref:#migrate-from-camunda-bpm-72-to-73-migrate-your-database)
-2. For administrators and developers: [Migrating a shared process engine setting](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-shared-process-engine-setting)
-3. For administrators and developers: [Migrating an embedded process engine setting](ref:#migrate-from-camunda-bpm-72-to-73-migrating-an-embedded-process-engine-setting)
-4. For developers: [Migrating a Cockpit plugin](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin)
-5. For administrators: [Migrating a Tasklist translation file](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-tasklist-translation-file)
-6. For administrators and developers: [Checking authorizations for newly introduced authorization resources](ref:#migrate-from-camunda-bpm-72-to-73-authorization)
+1. For administrators and developers: [Database Updates]({{< relref "#update-the-database" >}})
+2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
+3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
+4. For developers: [Migrating a Cockpit plugin]({{< relref "#cockpit-plugins" >}})
+5. For administrators: [Migrating a Tasklist translation file]({{< relref "#tasklist-translation-file" >}})
+6. For administrators and developers: [Checking authorizations for newly introduced authorization resources]({{< relref "#notewothy-new-features" >}})
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.3. The following concepts were introduced with Camunda BPM 7.3 and are relevant for migration:
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.3.
 
-* **Authorization:** With [Authorization](ref:/guides/user-guide/#admin-authorization-management-authorizations) being used for restricting access to applications and identity-related data in Camunda BPM 7.2, 7.3 extends authorization checks to execution-related concepts like process instances and task
+Noteworthy new Features in 7.3:
 
+* **Authorization:** With [Authorization]({{< relref "#notewothy-new-features" >}}) being used for restricting access to applications and identity-related data in Camunda BPM 7.2, 7.3 extends authorization checks to execution-related concepts like process instances and task
 
-# Migrate your Database
+{{< note title="No Rolling Upgrades" class="warning" >}}
+It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine, as these may use features that were not available yet in 7.2.
+{{< /note >}}
 
-For migration from **Camunda BPM 7.2** to **Camunda BPM 7.3**, the provided upgrade scripts that match your database have to be executed. With a pre-built distribution, the upgrade scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
+# Database Updates
 
-If you migrate from a version < 7.2.5 and use DB2 or Microsoft SQL Server, you have to execute the SQL script `$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql`, where `$DATABASE` corresponds to the database platform you use.
+The first step consists in updating the database.
 
-<div class="alert alert-warning">
-<strong>Note</strong>: If you previously migrated from 7.1 to 7.2 you may have already executed the patch script <code>$DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql</code>. This script is the same as patch <code>$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql</code> which need not be executed then.
-</div>
+## Basic Procedure
 
-Check [available SQL patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) for an overview of available SQL patch scripts for your current version.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#patching-the-database" >}}) for your database that are within the bounds of your upgrade path.
+ Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
+ We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ The naming pattern is `$DATABASENAME_engine_7.2_patch_?.sql`.
 
-Regardless of the version you are migrating from, the main upgrade script is `$DATABASE_engine_7.2_to_7.3.sql` and has to be executed next.
+2. Execute the corresponding upgrade scripts named
 
+    * `$DATABASENAME_engine_7.2_to_7.3.sql`
+    * `$DATABASENAME_identity_7.2_to_7.3.sql`
+ 
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
 
-# Migrating a Shared Process Engine Setting
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
-When migrating a Camunda BPM shared engine installation, i.e., a scenario in which the process engine is configured as a central service on the application server, the following steps are required:
+## Special considerations
 
-1. Upgrade of the Camunda libraries on the application server
-2. Migrate process applications
+### Microsoft SQL Server
 
-Prerequisites:
+If you update from a version < 7.2.5 and use DB2 or Microsoft SQL Server, you have to execute the SQL script `$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql`, where `$DATABASE` corresponds to the database platform you use.
 
-* Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+### Patch Scripts
 
-<div class="alert alert-warning">
-  <div class="row">
-    <div class="col-md-1">
-      <img src="ref:asset:/assets/img/welcome/real-life.png" height="50" />
-    </div>
-    <div class="col-md-11">
-      <p><strong>No Rolling Upgrades</strong></p>
-      <p>It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine, as these may use features that were not available yet in 7.2.</p>
-    </div>
-  </div>
-</div>
+If you previously migrated from 7.1 to 7.2 you may have already executed the patch script `$DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
+This script is the same as patch `$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql` which need not be executed then.
 
-## 1. Upgrade of the Camunda Libraries on the Application Server and Optional Configuration
+# Full Distribution
 
-Please choose the application server you are working with from the following list. You will be redirected to Camunda's installation guide.
+This section is applicable if you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
-* [Apache Tomcat][tomcat-migration]
-* [JBoss/Wildfly][jboss-migration]
-* [Glassfish][glassfish-migration]
-* [IBM WebSphere][websphere-migration]
-* [Oracle WebLogic][weblogic-migration]
+The following steps are required:
 
-## 2. Migration Process Applications
+1. Upgrade Camunda Libraries and Applications inside the application server
+2. Migrate custom Process Applications
 
-For every process application, the Camunda dependencies should be upgraded to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
-* `camunda-engine`
-* `camunda-bpmn-model`
-* `camunda-engine-spring`
-* `camunda-engine-cdi`
-* `camunda-ejb-client`
-* ...
+## Camunda Libraries and Applications
 
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+Please choose the application server you are working with from the following list:
 
-[tomcat-migration]: ref:/guides/installation-guide/tomcat/#migration-migrate-from-camunda-bpm-72-to-camunda-bpm-73
-[jboss-migration]: ref:/guides/installation-guide/jboss/#migration-migrate-from-camunda-bpm-72-to-camunda-bpm-73
-[glassfish-migration]: ref:/guides/installation-guide/glassfish/#migration-migrate-from-camunda-bpm-72-to-camunda-bpm-73
-[websphere-migration]: ref:/guides/installation-guide/was/#migration-migrate-from-camunda-bpm-72-to-camunda-bpm-73
-[weblogic-migration]: ref:/guides/installation-guide/wls/#migration-migrate-from-camunda-bpm-72-to-camunda-bpm-73
+* [Apache Tomcat]({{< relref "update/minor/72-to-73/tomcat.md" >}})
+* [JBoss/Wildfly]({{< relref "update/minor/72-to-73/jboss.md" >}})
+* [Glassfish]({{< relref "update/minor/72-to-73/glassfish.md" >}})
+* [IBM WebSphere]({{< relref "update/minor/72-to-73/was.md" >}})
+* [Oracle WebLogic]({{< relref "update/minor/72-to-73/wls.md" >}})
 
+## Custom Process Applications
 
-# Migrating an Embedded Process Engine Setting
-
-When migrating a Camunda BPM embedded engine, i.e., a process engine that is managed entirely within an application and bound to that application's lifecycle, the following steps are required:
-
-1. Upgrade Camunda dependencies
-
-Prerequisites:
-
-* Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
-
-<div class="alert alert-warning">
-  <div class="row">
-    <div class="col-md-1">
-      <img src="ref:asset:/assets/img/welcome/real-life.png" height="50" />
-    </div>
-    <div class="col-md-11">
-      <p><strong>No Rolling Upgrades</strong></p>
-      <p>It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine, as these may use features that were not available yet in 7.2.</p>
-    </div>
-  </div>
-</div>
-
-## 1. Upgrade Camunda Dependencies
-
-Upgrade the dependencies declared in your application's `pom.xml` file to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Camunda dependencies have to be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -128,29 +96,39 @@ Upgrade the dependencies declared in your application's `pom.xml` file to the ne
 
 There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
 
+# Application with Embedded Process Engine
 
-# Migrating a Cockpit Plugin
+This section is applicable if you have a custom application with an **embedded** process engine.
+
+Updating an application with embedded process engineUpgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+
+* `camunda-engine`
+* `camunda-bpmn-model`
+* `camunda-engine-spring`
+* `camunda-engine-cdi`
+* ...
+
+There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+
+# Cockpit Plugins
 
 Migrating a Cockpit Plugin from Camunda BPM 7.2 to 7.3 consists of the following steps:
 
 Client side:
 
-* [Replacing ngDefine with requireJS](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-replacing-ngdefine-with-requirejs)
-* [Reviewing usage of angular-ui](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-reviewing-usage-of-angular-ui)
-* [Reviewing usage of bootstrap](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-reviewing-usage-of-bootstrap)
+* [Replacing ngDefine with requireJS]({{< relref "#replacing-ngdefine-with-requirejs" >}})
+* [Reviewing usage of angular-ui]({{< relref "#reviewing-usage-of-angular-ui" >}})
+* [Reviewing usage of bootstrap]({{< relref "#reviewing-usage-of-bootstrap" >}})
 
 Server side:
 
-* [Replacing Jackson 1 with Jackson 2](ref:#migrate-from-camunda-bpm-72-to-73-migrating-a-cockpit-plugin-replacing-jackson-1-with-jackson-2)
+* [Replacing Jackson 1 with Jackson 2]({{< relref "#replacing-jackson-1-with-jackson-2" >}})
 
-### Replacing ngDefine with requireJS
+## Replace ngDefine with requireJS
 
-As of version 7.3, the use of [ngDefine][ng-define] in Cockpit and Admin Plugins is deprecated. You are encouraged to use [requireJS][requirejs] instead. For information about the use of requireJS in plugins, see the [How to develop a Cockpit Plugin][howto-cockpit-plugin] Tutorial or the migration information below.
+As of version 7.3, the use of [ngDefine][ng-define] in Cockpit and Admin Plugins is deprecated. You are encouraged to use [requireJS][requirejs] instead.
 
 ngDefine remains part of the Cockpit and Admin app for backwards compatability, but may be removed in the future. ngDefine is not part of the Tasklist app. Tasklist plugins must be written using requireJS.
-
-
-#### Replace ngDefine with define call
 
 With ngDefine, you could create an angular module with its dependencies using the ngDefine call:
 
@@ -184,13 +162,13 @@ define([
 ```
 
 
-### Reviewing usage of angular-ui
+## Review usage of angular-ui
 
 In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, the [angular-ui][angular-ui], which is __not supported anymore__ has been partially replaced by [angular-bootstrap][angular-bootstrap].
 
 Custom Cockpit plugins might have used directives or filters provided by [angular-ui][angular-ui] and therefore need to be reviewed.
 
-#### Hints
+### Hints
 
 Typically, you can skip this if you do not have custom plugins, otherwise you might want to have a look at the templates of your custom plugins (because it is where filters and directives are expected to be used).
 
@@ -223,31 +201,17 @@ Filters which are __not availabe anymore__:
 - `inflector`
 - `unique`
 
-### Reviewing usage of bootstrap
+## Review usage of bootstrap
 
 In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been upgraded from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
 
-### Replacing Jackson 1 with Jackson 2
+## Replace Jackson 1 with Jackson 2
 
 Beginning with 7.3, the REST API, as well as Cockpit, Tasklist and Admin use Jackson 2 instead of Jackson 1 for object mapping to and from JSON. Plugins explicitly using Jackson need to be migrated. In general, this consists of replacing the Jackson 1 packages `org.codehaus.jackson` with Jackson 2 packages `com.fasterxml.jackson`. Depending on the Jackson features used, further [Jackson-specific migration](http://www.cowtowncoder.com/blog/archives/2012/04/entry_469.html) may be required.
 
-#### Jackson 2 JAX-RS polymorphic response
-
 The Jackson 2 JAX-RS provider changes serialization of polymorphic types. Let's assume that your plugin's REST resource has a JAX-RS GET method with return type `List<A>`. `A` is an interface class with two implementing classes, `B` and `C`. With Jackson 2, the response JSON only contains properties defined in `A`. If your REST resource should dynamically include the properties of objects dependent on their actual class, consider adding the annotations `com.fasterxml.jackson.annotation.JsonSubTypes` and `com.fasterxml.jackson.annotation.JsonTypeInfo` to the superclass. See the [Jackson Javadocs][jackson-jsontypeinfo] for details.
 
-[ng-define]: http://nikku.github.io/requirejs-angular-define
-[requirejs]: http://requirejs.org
-[howto-cockpit-plugin]: ref:/real-life/how-to/#cockpit-how-to-develop-a-cockpit-plugin
-[admin]: https://github.com/camunda/camunda-admin-ui
-[cockpit]: https://github.com/camunda/camunda-cockpit-ui
-[angular-ui]: https://github.com/angular-ui/angular-ui-OLDREPO
-[angular-bootstrap]: https://github.com/angular-ui/bootstrap
-[bootstrap]: http://getbootstrap.com/
-[bootstrap-changenotes]: https://github.com/twbs/bootstrap/releases/tag/v3.3.1
-[jackson-jsontypeinfo]: https://fasterxml.github.io/jackson-annotations/javadoc/2.4/com/fasterxml/jackson/annotation/JsonTypeInfo.html
-
-
-# Migrating a Tasklist Translation File
+# Tasklist Translation File
 
 The following labels must be added to the Tasklist locale file:
 
@@ -301,8 +265,11 @@ The following labels must be added to the Tasklist locale file:
 
 Have a look at the [english translation file](https://github.com/camunda/camunda-tasklist-translations/blob/master/locales/en.json) for a basis to translate.
 
+# Notewothy new Features
 
-# Authorization
+This section contains details and  considerations about new features which are noteworthy in the context of updates
+
+## Authorizations
 
 As of version 7.3, it is possible to authorize access to process-related resources such as
 
@@ -324,3 +291,12 @@ If these authorizations are not desired and you want to restrict access to the l
 <div class="alert alert-warning">
   <strong>Note:</strong> If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.
 </div>
+
+[ng-define]: http://nikku.github.io/requirejs-angular-define
+[requirejs]: http://requirejs.org
+[admin]: https://github.com/camunda/camunda-admin-ui
+[cockpit]: https://github.com/camunda/camunda-cockpit-ui
+[angular-ui]: https://github.com/angular-ui/angular-ui-OLDREPO
+[angular-bootstrap]: https://github.com/angular-ui/bootstrap
+[bootstrap]: http://getbootstrap.com/
+[bootstrap-changenotes]: https://github.com/twbs/bootstrap/releases/tag/v3.3.1
