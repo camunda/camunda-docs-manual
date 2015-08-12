@@ -308,7 +308,7 @@ var tocLinks;
 var tocTargets;
 var tocTargetPositions;
 
-var currentLink = query('.site-menu a[href$="' + location.pathname + '"]');
+var currentLink = query('.site-menu a[href="' + location.pathname + '"]');
 var currentMenuItem;
 
 if (toc) {
