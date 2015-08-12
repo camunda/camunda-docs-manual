@@ -1,11 +1,11 @@
 ---
 
-title: 'Customizing'
-weight: 60
+title: 'Configuration'
+weight: 70
 
 menu:
   main:
-    identifier: "user-guide-tasklist-customizing"
+    identifier: "user-guide-tasklist-configuration"
     parent: "user-guide-tasklist"
 
 ---
@@ -15,7 +15,7 @@ You can override the default configuration of Tasklist using a central configura
 located in `app/tasklist/scripts/config.js`. Currently, the following configuration options are
 available:
 
-##Date Format
+# Date Format
 
 Dates can be configured by specifying a `dateFormat` object. The values of the properties of this
 object must be strings representing date formats in accordance to
@@ -29,7 +29,7 @@ object must be strings representing date formats in accordance to
 - `short` represents a short format of a date excluding time.
 
 
-###Example
+## Example
 
 ```javascript
 "dateFormat": {
@@ -38,7 +38,8 @@ object must be strings representing date formats in accordance to
 }
 ```
 
-## Localization
+
+# Localization
 
 The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
@@ -46,8 +47,7 @@ consists of the language code and the suffix `.json` (e.g. `en.json`).
 
 Tasklist uses a locale file corresponding to the language settings of the browser. You can
 set the `availableLocales` property in the configuration file to provide a list of available
-locales. The path to this configuration file is mentioned [above](ref:#tasklist-customizing).
-Every locale which is contained in this list must have a locale file in the `locales`
+locales. Every locale which is contained in this list must have a locale file in the `locales`
 directory with the corresponding language code.
 
 If the browser uses a language which is not available, Tasklist uses the locale which is
@@ -64,7 +64,8 @@ To create a new localization for Tasklist, copy the provided language file, tran
 save it as new localization file with the corresponding language code. To make the new translation
 available, add it to the list of available locales in the configuration file.
 
-## Custom scripts
+
+# Custom Scripts
 
 If you want to add scripts (in order to add new [AngularJS](https://angularjs.org) directives or
 other libraries) you should add a `customScripts` property to the `app/tasklist/scripts/config.js`
@@ -91,7 +92,7 @@ var camTasklistConf = {
 This includes a `custom-ng-module/script.js` file. The path is relative to the
 `app/tasklist/scripts` folder in the camunda webapp .war file.
 
-__Note:__ The content of the `customScripts` property will be treated as a
+**Note:** The content of the `customScripts` property will be treated as a
 [RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
 `nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
 
@@ -139,7 +140,7 @@ And finally, in your UI or embedded forms, you can use the new features like tha
 ```
 
 
-## Logo and Header Color
+# Logo and Header Color
 
 To change visual aspects of Tasklist, you can edit the user stylesheet file located in
 `app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into Tasklist
@@ -151,7 +152,8 @@ To display your own logo in the top-left corner, edit the `background-image` pro
 To set the color of the navigation bar (header), multiple properties have to be overwritten. You
 can find an example in the default `user-styles.css` file.
 
-## Advanced styles customization
+
+# Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
 using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
@@ -163,7 +165,8 @@ uncomment the line:
 `// @import "_variables-override";` in `client/styles/styles.less`
 and re-compile the source.
 
-### Compiling using grunt
+
+## Compiling with Grunt
 
 From within the `camunda-tasklist-ui` directory:
 ```

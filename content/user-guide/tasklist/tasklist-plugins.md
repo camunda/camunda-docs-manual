@@ -1,7 +1,7 @@
 ---
 
 title: 'Plugins'
-weight: 80
+weight: 60
 
 menu:
   main:
@@ -13,58 +13,44 @@ menu:
 
 Tasklist uses the concept of plugins to add own functionality without being forced to extend or hack the Tasklist web application.
 
-For further details about the concepts behind plugins please read the [plugins section](ref:#cockpit-plugins) inside the [cockpit chapter](ref:#cockpit).
+For further details about the concepts behind plugins please read the [Cockpit plugins section]({{< relref "user-guide/cockpit/cockpit-plugins.md" >}})).
 
-<div class="alert alert-warning">
-  <p><strong>Difference between Cockpit and Tasklist plugins:</strong></p>
-  <ul>
-    <li>To publish the plugin with Tasklist, its class name must be put into a file called <code>org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin</code> that resides in the directory <code>META-INF/services</code>.</li>
-    <li>The plugin mechanism of Tasklist does not allow to provide additinal SQL queries by using <a href="http://www.mybatis.org/">MyBatis</a> mappings.</li>
-  </ul>
-</div>
+{{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
+  * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
+  * The plugin mechanism of Tasklist does not allow to provide additinal SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
+{{< /note >}}
 
-### Plugin points
+
+# Plugin Points
 
 Here you can see the various points at which you are able to add your own plugins.
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/plugin-points/tasklist-plugin-navbar-action.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    The plugin point that you can see highlighted in the image on the left is called <code>tasklist.navbar.action</code>.
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/plugin-points/tasklist-plugin-task-action.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    The plugin point that you can see highlighted in the image on the left is called <code>tasklist.task.action</code>.
-  </div>
-</div>
+**Name:** ```tasklist.navbar.action```.
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/plugin-points/tasklist-plugin-task-detail.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    The plugin point that you can see highlighted in the image on the left is called <code>tasklist.task.detail</code>.
-  </div>
-</div>
+{{< img src="../img/plugin-points/tasklist-plugin-navbar-action.png" title="Plugin Point" >}}
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-3">
-    <img data-img-thumb src="ref:asset:/assets/img/implementation-tasklist/plugin-points/tasklist-plugin-list.png" />
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-9">
-    The plugin point that you can see highlighted in the image on the left is called <code>tasklist.list</code>.
-  </div>
-</div>
+---
 
+**Name:** ```tasklist.task.action```.
 
-Here is an example of how to configure where you place your plugin:
+{{< img src="../img/plugin-points/tasklist-plugin-task-action.png" title="Plugin Point" >}}
+
+---
+
+**Name:** ```tasklist.task.detail```.
+
+{{< img src="../img/plugin-points/tasklist-plugin-task-detail.png" title="Plugin Point" >}}
+
+---
+
+**Name:** ```tasklist.list```.
+
+{{< img src="../img/plugin-points/tasklist-plugin-list.png" title="Plugin Point" >}}
+
+---
+
+Place your plugin as shown in the following example:
 
 ```html
 var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {

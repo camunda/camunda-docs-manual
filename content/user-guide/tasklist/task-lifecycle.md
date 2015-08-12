@@ -11,6 +11,6 @@ menu:
 ---
 
 
-The diagram below shows the task lifecycle and supported transitions supported by camundaBPM. To get to know how to programmatically work with the lifecycle in your application refer to the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/TaskServiceImpl.html">Java-API Reference</a>.
+The diagram below shows the task lifecycle and supported transitions supported by camundaBPM. To get to know how to programmatically work with the lifecycle in your application refer to the {{< javadocref page="?org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Reference" >}}.
 
-<center><img class="img-responsive" src="ref:asset:/assets/img/implementation-tasklist/tasklist-user-task-state-complete.png" /></center>
+{{< img src="../img/tasklist-user-task-state-complete.png" title="User Task States" >}}
