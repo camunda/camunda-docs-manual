@@ -8,6 +8,8 @@ In order to build this documentation, you first need to install [hugo][hugo].
 
 Hugo can be installed by downloading it and putting the binary inside your path. See the [hugo installation guilde][hugo-installation] for more details.
 
+**Note:** Camunda docs currently requires a patched version of hugo which can be downloaded from the [Camunda Nexus][].
+
 ## Building the Documentation
 
 After you have installed hugo, you can build the docs by typing the following command:
@@ -47,9 +49,6 @@ Use the `img` shorthand:
 {{< img src="architecture-overview.png" title="History Architecture" >}}
 ```
 
-[hugo]: http://gohugo.io/
-[hugo-installation]: http://gohugo.io/overview/installing/
-
 ### How can I add a note?
 
 Use the `note` shorthand:
@@ -57,7 +56,7 @@ Use the `note` shorthand:
 ```html
 {{< note title="Heads Up!" class="info" >}}
 The content of the note.
-  
+
 * full
 * markdown is supported
 
@@ -68,7 +67,7 @@ Supported classes:
 
 * `info`
 * `warning`
-* 
+*
 
 ### How can I add an "EE only note"?
 
@@ -82,4 +81,6 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
-
+[hugo]: http://gohugo.io/
+[hugo-installation]: http://gohugo.io/overview/installing/
+[Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
