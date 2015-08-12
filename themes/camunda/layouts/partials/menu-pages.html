@@ -57,7 +57,9 @@
       <a href="{{.URL}}">{{ .Name }}</a>
     </dt>
     <dd>
-      {{.Pre }}
+      {{ if .Pre}}
+        {{ trim .Pre "" | markdownify }}
+      {{ end }}
     </dd>
 
   {{ end }}

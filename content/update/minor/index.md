@@ -8,7 +8,7 @@ menu:
     name: "Minor Version Update"
     identifier: "migration-guide-minor"
     parent: "migration-guide"
-    pre: "Guides you through a minor version update (Example: <code>7.3</code> to <code>7.4</code>)"
+    pre: "Guides you through a minor version update (Example: `7.3` to `7.4`)"
 
 ---
 
@@ -74,7 +74,9 @@ See [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camu
 The scripts are stored inside the `camunda-sql-scripts-$NEW_PLATFOR_VERSION.jar`. Unzip the JAR-file and you are good to go.
 {{< /note >}}
 
-# Full Distribution
+# Update Libraries and Applications
+
+## Full Distribution
 
 If you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) on an application server, you need to update the libraries and applications installed inside the application server. Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
@@ -82,7 +84,7 @@ If you installed the [Full Distribution]({{< relref "user-guide/introduction/dow
 * Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
 * Restart the server
 
-# Custom Application with Embedded Process Engine
+## Custom Application with Embedded Process Engine
 
 In case you use an embedded process engine inside your Java Application, you need to 
 
@@ -90,7 +92,7 @@ In case you use an embedded process engine inside your Java Application, you nee
 2. re-package the application,
 3. deploy the new version of the application.
 
-# Standalone Webapplication Distribution
+## Standalone Webapplication Distribution
 
 In case you installed the [Standalone Webapplication Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
