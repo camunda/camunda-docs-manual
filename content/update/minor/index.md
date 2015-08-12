@@ -16,13 +16,12 @@ This page gives an overview of how to perform a minor version update. This appli
 
 When performing such a version update, you should first read this guide and then read the specific guide for the update you want to perform. The specific update guide covers the following topics in detail:
 
-  * Database
-  * Process Engine (and plugins)
-  * Camunda web applications (and plugins)
-  * Process applications
+* Database
+* Process Engine (and plugins)
+* Camunda web applications (and plugins)
+* Process applications
 
 {{< note title="Reading this Guide" class="info" >}}
-
 Throughout this guide, a number of variables are used. These variables denote common path names and constants:
 
 * `$DATABASE`: the target database platform, e.g., DB2, MySql, etc.
@@ -59,16 +58,15 @@ When updtating to the next minor version you need to update the database.
  The naming pattern is `$DATABASENAME_engine_$MINOR_VERSION_patch_$PLATFORM_VERSION_to_$NEW_PLATFORM_VERSION.sql`, e.g., `db2_engine_7.1_patch_7.1.9_to_7.1.10.sql`.
 
 2. Execute the corresponding upgrade scripts named
- * `$DATABASENAME_engine_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g., `db2_engine_7.1_to_7.2.sql`
- * `$DATABASENAME_identity_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g., `db2_identity_7.1_to_7.2.sql`
 
- The scripts migrate the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    * `$DATABASENAME_engine_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g., `db2_engine_7.1_to_7.2.sql`
+    * `$DATABASENAME_identity_$MINOR_VERSION_to_$NEW_MINOR_VERSION.sql`, e.g., `db2_identity_7.1_to_7.2.sql` 
+ 
+    The scripts migrate the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number.
- _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`.
- The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
-{{< note title="SQL patch scripts" class="warning" >}}
+{{< note title="Locating SQL patch scripts" class="warning" >}}
 Community users also have access to the SQL patch scripts from the enterprise version.
 See [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
 The scripts are stored inside the `camunda-sql-scripts-$NEW_PLATFOR_VERSION.jar`. Unzip the JAR-file and you are good to go.
