@@ -1,16 +1,19 @@
 ---
 
-title: 'Customizing'
+title: 'Configuration'
 weight: 100
 
 menu:
   main:
-    identifier: "user-guide-cockpit-customizing"
+    identifier: "user-guide-cockpit-configuration"
     parent: "user-guide-cockpit"
 
 ---
 
-Some visual aspects of the web interface can be configured in the 
+
+# Customizing
+
+Some visual aspects of the web interface can be configured in the
 `_vars.less` file (located in `webapps/camunda-webapp/webapp/src/main/webapp/assets/styles/`)
 as follows:
 

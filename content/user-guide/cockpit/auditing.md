@@ -1,7 +1,7 @@
 ---
 
 title: 'Auditing of Cockpit Operations'
-weight: 70
+weight: 80
 
 menu:
   main:
@@ -10,7 +10,8 @@ menu:
 
 ---
 
-Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the BPM platform's [user operation log](ref:#process-engine-history-and-audit-event-log-user-operation-log) that is part of the process engine history. The log allows to understand
+
+Since Cockpit is a very powerful tool, it is often desired to inspect which user performed which operation for auditing purposes. Cockpit operations that change state are logged in the BPM platform's [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) that is part of the process engine history. The log allows to understand
 
 * which user performed an operation
 * which operation was performed
@@ -18,11 +19,12 @@ Since Cockpit is a very powerful tool, it is often desired to inspect which user
 * which entities (process instances, tasks, etc.) were involved
 * which changes were made
 
-While this log can currently not be viewed in Cockpit's UI, there exist [Java and REST API methods](ref:#process-engine-history-and-audit-event-log-accessing-the-user-operation-log) to perform this task.
+While this log can currently not be viewed in Cockpit's UI, there exist [Java and REST API methods]({{< relref "user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}) to perform this task.
 
-## Cockpit Operation Log Entries
 
-The following table serves as an index that relates operations in the Cockpit user interface to operations in the user operation log. Whenever a listed operation is performed in Cockpit, entries for the corresponding user operations are created in the user operation log. The following list relates UI operations to the operation and entity types in the operation log. See the [user operation log documentation](ref:#process-engine-history-and-audit-event-log-glossary-of-operations-logged-in-the-user-operation-log) for details on these types.
+# Cockpit Operation Log Entries
+
+The following table serves as an index that relates operations in the Cockpit user interface to operations in the user operation log. Whenever a listed operation is performed in Cockpit, entries for the corresponding user operations are created in the user operation log. The following list relates UI operations to the operation and entity types in the operation log. See the [user operation log documentation]({{< relref "user-guide/process-engine/history.md#glossary-of-operations-logged-in-the-user-operation-log" >}}) for details on these types.
 
 <table class="table table-striped">
   <tr>
@@ -111,4 +113,3 @@ The following table serves as an index that relates operations in the Cockpit us
     <td>IdentityLink</td>
   </tr>
 </table>
-
