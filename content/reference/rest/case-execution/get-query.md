@@ -61,6 +61,14 @@ Parameters
     <td>Only include required case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Only include repeatable case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Only include case executions which are repetitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -182,6 +190,20 @@ Each case execution object has the following properties:
     </td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is repeatable or not.
+    </td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is a repetition or not.
+    </td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>
@@ -244,6 +266,8 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
         "id"               : "aCaseExecutionId",
         "caseInstanceId"   : "aCaseInstId",
         "required"         : false,
+        "repeatable"       : true,
+        "repetition"       : false,
         "active"           : true,
         "enabled"          : false,
         "disabled"         : false

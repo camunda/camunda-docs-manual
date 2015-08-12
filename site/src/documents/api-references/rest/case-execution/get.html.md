@@ -94,6 +94,20 @@ Its properties are as follows:
     </td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is repeatable or not.
+    </td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Boolean</td>
+    <td>
+      A flag indicating whether the case execution is a repetition or not.
+    </td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>
@@ -151,6 +165,8 @@ GET `/case-execution/aCaseExecutionId`
       "id"               : "aCaseExecutionId",
       "caseInstanceId"   : "aCaseInstId",
       "required"         : false,
+      "repeatable"       : true,
+      "repetition"       : false,
       "active"           : true,
       "enabled"          : false,
       "disabled"         : false

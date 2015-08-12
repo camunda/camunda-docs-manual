@@ -60,6 +60,14 @@ A JSON object with the following properties:
     <td>Only include required case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Only include repeatable case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Only include case executions which are repetitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
