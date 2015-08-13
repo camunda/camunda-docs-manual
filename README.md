@@ -49,6 +49,14 @@ Use the `img` shorthand:
 {{< img src="architecture-overview.png" title="History Architecture" >}}
 ```
 
+### How can I reference to the Javadocs?
+
+Use the 'javadocref' shorthand:
+
+```html
+{{< javadocref page="?org/camunda/bpm/engine/impl/TaskServiceImpl.html" text="Java-API Task Service" >}}.
+```
+
 ### How can I add a note?
 
 Use the `note` shorthand:
