@@ -87,6 +87,14 @@ Parameters
     <td>Only include required case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Only include repeatable case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Only include case activity instances which are repetitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Only include available case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>

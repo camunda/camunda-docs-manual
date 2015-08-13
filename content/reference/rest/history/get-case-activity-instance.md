@@ -124,6 +124,16 @@ Its properties are as follows:
     <td>If true, this case activity instance is required.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is repeatable.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is a repetition.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Boolean</td>
     <td>If true, this case activity instance is available.</td>
@@ -220,6 +230,8 @@ GET `/history/case-activity-instance/aCaseActivityInstId`
   "suspended": false,
   "taskId": "aTaskId",
   "terminated": false,
-  "required": false
+  "required": false,
+  "repeatable": true,
+  "repetition": false
 }
 ```

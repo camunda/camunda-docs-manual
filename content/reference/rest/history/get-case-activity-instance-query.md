@@ -86,6 +86,14 @@ Parameters
     <td>Only include required case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Only include repeatable case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Only include case activity instances which are repetitions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Only include available case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -219,6 +227,16 @@ Each historic activity instance object has the following properties:
     <td>If true, this case activity instance is required.</td>
   </tr>
   <tr>
+    <td>repeatable</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is repeatable.</td>
+  </tr>
+  <tr>
+    <td>repetition</td>
+    <td>Boolean</td>
+    <td>If true, this case activity instance is a repetition.</td>
+  </tr>
+  <tr>
     <td>available</td>
     <td>Boolean</td>
     <td>If true, this case activity instance is available.</td>
@@ -304,7 +322,9 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "parentCaseActivityInstanceId": "aHistoricParentCaseActivityInstanceId",
     "taskId": "aTaskId",
     "terminated": false,
-    "required": false
+    "required": false,
+    "repeatable": true,
+    "repetition": false
   }
 ]
 ```
