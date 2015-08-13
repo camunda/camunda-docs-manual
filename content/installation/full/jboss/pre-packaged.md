@@ -12,6 +12,7 @@ menu:
 
 ---
 
+# Installation Procedure
 
 1. Download the pre-packaged distribution for JBoss AS 7 from http://camunda.org/release/camunda-bpm/jboss/ or Wildfly 8 from http://camunda.org/release/camunda-bpm/wildfly/.
 2. Unpack the distro to a directory.
@@ -19,7 +20,7 @@ menu:
 4. Startup the server by running `camunda-welcome.bat` or by using the `$JBOSS_HOME/bin/standalone.{bat/sh}` script.
 
 
-## Accessing the H2 console
+# Accessing the H2 console
 
 In JBoss/Wildfly you can easily access the H2 console to inspect your local H2 database (used in demo/evaluation scenarios):
 

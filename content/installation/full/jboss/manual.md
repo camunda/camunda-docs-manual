@@ -12,31 +12,24 @@ menu:
 
 ---
 
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 Application Server](http://www.wildfly.org).
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 Application Server](http://www.wildfly.org), if you are not able to use the pre-packaged JBoss/Wildfly distribution.
+{{< note title="Reading this Guide" class="info" >}}
+This guide uses a number of variables to denote common path names and constants:
+`$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss/Wildfly application server main directory.
+`$PLATFORM_VERSION` denotes the version of the camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
+{{< /note >}}
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-  Throughout this guide we will use a number of variables to denote common path names and constants:<br>
-  <code>$JBOSS_HOME</code>/<code>$WILDFLY_HOME</code> points to the JBoss/Wildfly application server main directory.<br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install or already have installed, e.g. <code>7.0.0</code>.
-</div>
+# Required Setup for JBoss
 
+This section explains how to perfom the required setup steps for JBoss Application Server.
 
-# Install the Platform on a Vanilla JBoss
+First, you need to [download the camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
-1. Download the camunda jboss distro from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.zip` or `$PLATFORM_VERSION/camunda-bpm-jboss-$PLATFORM_VERSION.tar.gz`.
-2. Unpack the `modules` folder of the archive.
-3. Merge all content into your $JBOSS_HOME/modules/ directory.
-4. Adjust your `$JBOSS_HOME/standalone/configuration/standalone.xml` (or the JBoss configuration applicable for your installation) as described below
-5. Adjust the datasource to your needs (see below), by default it uses the built in H2 database
-6. Startup the server
+## Adjust the Configuration
 
-
-## Adjust the standalone.xml
-
-Here we describe the changes necessary in the `$JBOSS_HOME/standalone/configuration/standalone.xml`. These are already done in the pre-packaged server.
+Next, a number of changes need to be performed in the application server's configuration file.
+In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
 Add the camunda subsystem as extension:
 
@@ -60,7 +53,7 @@ Add the following elements in order to create a thread pool for the Job Executor
 </subsystem>
 ```
 
-The name of the thread pool is then referenced in the camunda bpm subsystem job executor configuration.
+The name of the thread pool is then referenced in the job executor configuration.
 This also configures the default process engine.
 
 ```xml
@@ -92,14 +85,13 @@ This also configures the default process engine.
 </subsystem>
 ```
 
-
 ## Create a Datasource
 
 You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
 The following datasource shows an example of using the built in H2 database for this, using a file within the `./` folder,
 typically `bin`.
 
-**Note**: If you start the script from a different location the database is stored there!
+If you start the script from a different location the database is stored there!
 
 ```xml
 <datasource jta="true" enabled="true" use-java-context="true" use-ccm="true"
@@ -117,64 +109,20 @@ typically `bin`.
 Using H2 as a database is ideal for development purposes but is not recommended for usage in a productive environment.
 These links point you to resources for other databases:
 
-*   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
-*   [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
+* [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
+* [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
-## Use an XA Datasource
+# Required Setup for Wildfly
 
-We **strongly recommend** to use an XA data-source in production environments.
-Since you normally access other transactional resources from within your process, the risk of having inconsistencies is otherwise high.
-For H2 it could be done with this configuration:
+This section explains how to perfom the required setup steps for Wildfly Application Server.
 
-```xml
-<xa-datasource jndi-name="java:jboss/datasource/ProcessEngine" pool-name="ProcessEngine" enabled="true" use-ccm="false">
-  <xa-datasource-property name="URL">jdbc:h2:./camunda-h2-dbs/process-engine;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE</xa-datasource-property>
-  <driver>h2</driver>
-  <xa-pool>
-    <max-pool-size>10</max-pool-size>
-    <is-same-rm-override>false</is-same-rm-override>
-    <interleaving>false</interleaving>
-    <pad-xid>false</pad-xid>
-    <wrap-xa-resource>false</wrap-xa-resource>
-  </xa-pool>
-  <security>
-    <user-name>sa</user-name>
-    <password>sa</password>
-  </security>
-  <validation>
-    <validate-on-match>false</validate-on-match>
-    <background-validation>false</background-validation>
-    <background-validation-millis>0</background-validation-millis>
-  </validation>
-  <statement>
-    <prepared-statement-cache-size>0</prepared-statement-cache-size>
-    <share-prepared-statements>false</share-prepared-statements>
-  </statement>
-</xa-datasource>
-```
+First, you need to [download the camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
-For other databases, confer the following resources:
+## Adjust the Configuration
 
-*   [Oracle XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_oracle_xa)
-*   [MySQL XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql_xa)
-*   [DB2 XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_db2_xa)
-
-
-# Install the Platform on a Vanilla Wildfly
-
-1. Download the camunda Wildfly distro from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/).
-   Choose the correct version named `$PLATFORM_VERSION/camunda-bpm-wildfly-$PLATFORM_VERSION.zip` or `$PLATFORM_VERSION/camunda-bpm-wildfly-$PLATFORM_VERSION.tar.gz`.
-2. Unpack the `modules` folder of the archive.
-3. Merge all content into your $WILDFLY_HOME/modules/ directory.
-4. Adjust your `$WILDFLY_HOME/standalone/configuration/standalone.xml` (or the Wildfly configuration applicable for your installation) as described below
-5. Adjust the datasource to your needs (see below), by default it uses the built in H2 database
-6. Startup the server
-
-
-## Adjust the standalone.xml
-
-Here we describe the changes necessary in the `$WILDFLY_HOME/standalone/configuration/standalone.xml`. These are already done in the pre-packaged server.
+Next, a number of changes need to be performed in the application server's configuration file.
+In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
 Add the camunda subsystem as extension:
 
@@ -236,8 +184,6 @@ You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
 The following datasource shows an example of using the built in H2 database for this, using a file within the `./` folder,
 typically `bin`.
 
-**Note**: If you start the script from a different location the database is stored there!
-
 ```xml
 <datasource jta="true" enabled="true" use-java-context="true" use-ccm="true"
             jndi-name="java:jboss/datasources/ProcessEngine"
@@ -256,76 +202,13 @@ These links point you to resources for other databases:
 *   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
 *   [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
+# Optional Components
 
-## Use an XA Datasource
+This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
 
-We **strongly recommend** to use an XA data-source in production environments.
-Since you normally access other transactional resources from within your process, the risk of having inconsistencies is otherwise high.
-For H2 it could be done with this configuration:
+## Cockpit, Tasklist and Admin
 
-```xml
-<xa-datasource jndi-name="java:jboss/datasource/ProcessEngine" pool-name="ProcessEngine" enabled="true" use-ccm="false">
-  <xa-datasource-property name="URL">jdbc:h2:./camunda-h2-dbs/process-engine;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE</xa-datasource-property>
-  <driver>h2</driver>
-  <xa-pool>
-    <max-pool-size>10</max-pool-size>
-    <is-same-rm-override>false</is-same-rm-override>
-    <interleaving>false</interleaving>
-    <pad-xid>false</pad-xid>
-    <wrap-xa-resource>false</wrap-xa-resource>
-  </xa-pool>
-  <security>
-    <user-name>sa</user-name>
-    <password>sa</password>
-  </security>
-  <validation>
-    <validate-on-match>false</validate-on-match>
-    <background-validation>false</background-validation>
-    <background-validation-millis>0</background-validation-millis>
-  </validation>
-  <statement>
-    <prepared-statement-cache-size>0</prepared-statement-cache-size>
-    <share-prepared-statements>false</share-prepared-statements>
-  </statement>
-</xa-datasource>
-```
-
-For other databases, confer the following resources:
-
-*   [Oracle XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_oracle_xa)
-*   [MySQL XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql_xa)
-*   [DB2 XA datasource](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_db2_xa)
-
-
-# Install Optional Components
-
-This section describes how to install optional Camunda dependencies onto a JBoss server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
-
-<div class="alert alert-info">
-  <p><strong>Note</strong> </p>
-  <p>When using a pre-packaged JBoss/Wildfly distribution, the optional extensions are already installed and activated.</p>
-</div>
-
-The following covers the installation of these extensions:
-
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
-* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
-* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
-* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
-* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
-
-
-## Install Cockpit and Tasklist
-
-To install Camunda Cockpit and Tasklist, a JBoss/Wildfly installation with the
-`org.camunda.bpm.camunda-engine` module is required. See the above section on how to [install the
-pre-built distro]({{< relref "installation/full/jboss/pre-packaged.md" >}}) or [install the platform on a
-vanilla JBoss]({{< relref "#install-the-platform-on-a-vanilla-jboss" >}})/[vaniall Wildfly]({{< relref "#install-the-platform-on-a-vanilla-wildfly" >}}).
-
-**Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
-
-The following steps are required to deploy the applications on a JBoss/Wildfly instance:
+The following steps are required to deploy the web application:
 
 1.  Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
     Or switch to the private repository for the enterprise version (User and password from license required).
@@ -336,17 +219,9 @@ The following steps are required to deploy the applications on a JBoss/Wildfly i
 3.  Startup JBoss AS / Wildfly.
 4.  Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
+## REST API
 
-## Install the REST API
-
-To install the REST API, a JBoss/Wildfly installation with the `org.camunda.bpm.camunda-engine`
-module is required. See the above section on how to [install the
-pre-built distro]({{< relref "installation/full/jboss/pre-packaged.md" >}}) or [install the platform on a
-vanilla JBoss]({{< relref "#install-the-platform-on-a-vanilla-jboss" >}})/[vaniall Wildfly]({{< relref "#install-the-platform-on-a-vanilla-wildfly" >}}).
-
-**Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
-
-The following steps are required to deploy the REST API on a JBoss instance:
+The following steps are required to deploy the REST API:
 
 1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Or switch to the private repository for the enterprise version (User and password from license required).
@@ -360,7 +235,7 @@ The following steps are required to deploy the REST API on a JBoss instance:
    provided that you deployed the application in the context `/engine-rest`.
 
 
-## Install Camunda Connect
+## Camunda Connect
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
@@ -397,7 +272,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 ```
 
 
-## Install Camunda Spin
+## Camunda Spin
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
@@ -434,14 +309,14 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 ```
 
 
-## Install Groovy Scripting
+## Groovy Scripting
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
 * `org/codehaus/groovy/groovy-all`
 
 
-## Install Freemarker Integration
+## Freemarker Integration
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 

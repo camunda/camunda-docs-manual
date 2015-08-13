@@ -16,7 +16,7 @@ menu:
 This page explains how to configure the full distribution for an IBM WebSphere application server.
 
 
-# Configure LDAP
+# LDAP
 
 In order to set up LDAP for the IBM WebSphere distribution, you have to perform the following steps:
 

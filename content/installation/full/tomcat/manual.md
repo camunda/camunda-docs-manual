@@ -15,14 +15,14 @@ menu:
 
 This section will describe how you can install the camunda BPM platform and its components on a vanilla [Apache Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong> <br>
-  Throughout this guide we will use a number of variables to denote common path names and constants:<br>
-  <code>$TOMCAT_HOME</code> points to the main directory of the tomcat server.<br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. <code>7.0.0</code>.<br>
-  <code>$TOMCAT_DISTRIBUTION</code> represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code>.
-</div>
+{{< note title="Reading the Guide" class="info" >}}
+Throughout this guide we will use a number of variables to denote common path names and constants:
 
+* `$TOMCAT_HOME` points to the main directory of the tomcat server.<br>
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.<br>
+*   `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
+
+{{< /note >}}
 
 # Setup
 
@@ -114,34 +114,13 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 </bpm-platform>
 ```
 
+# Optional Components
 
-# Install Optional Components
+This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform.
 
-This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
+## Cockpit, Tasklist and Admin
 
-<div class="alert alert-info">
-  <p><strong>Note</strong> </p>
-  <p>When using a pre-packaged Tomcat distribution, the optional extensions are already installed and activated.</p>
-</div>
-
-The following covers the installation of these extensions:
-
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
-* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
-* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
-* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
-* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
-
-
-## Install Camunda Cockpit and Tasklist
-
-To install camunda Cockpit and Tasklist, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro]({{< relref "installation/full/tomcat/pre-packaged.md" >}}) or [install the platform on a vanilla Tomcat]({{< relref "#setup" >}}).
-
-**Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
-
-The following steps are required to deploy the applications on a Tomcat instance:
+The following steps are required to deploy the applications:
 
 1. Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Or switch to the private repository for the enterprise version (User and password from license required).
@@ -152,14 +131,9 @@ The following steps are required to deploy the applications on a Tomcat instance
 4. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
 
-## Install Camunda REST API
+## REST API
 
-To install the REST API, a Tomcat installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro]({{< relref "installation/full/tomcat/pre-packaged.md" >}}) or [install the platform on a vanilla Tomcat]({{< relref "#setup" >}})
-
-**Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
-
-The following steps are required to deploy the REST API on a Tomcat instance:
+The following steps are required to deploy the REST API:
 
 1.  Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
     Or switch to the private repository for the enterprise version (User and password from license required).
@@ -171,7 +145,7 @@ The following steps are required to deploy the REST API on a Tomcat instance:
     For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, provided that you deployed the application in the context `/engine-rest`.
 
 
-## Install Camunda Connect
+## Camunda Connect
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
@@ -202,7 +176,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 ```
 
 
-## Install Camunda Spin
+## Camunda Spin
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
@@ -234,14 +208,14 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 ```
 
 
-## Install Groovy Scripting
+## Groovy Scripting
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
 
-## Install Freemarker Integration
+## Freemarker Integration
 
 Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUTION/lib/` to the folder `$TOMCAT_HOME/lib/`:
 

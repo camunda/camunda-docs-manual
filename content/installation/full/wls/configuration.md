@@ -16,7 +16,7 @@ menu:
 This page explains how to configure the full distribution for an Oracle WebLogic application server.
 
 
-# Configure LDAP
+# LDAP
 
 In order to set up LDAP for the Oracle WebLogic distribution, you have to perform the following steps:
 

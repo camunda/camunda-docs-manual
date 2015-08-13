@@ -20,7 +20,9 @@ Spring Framework and will automatically start when the application is deployed. 
 to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
 identity service, which can be replaced with LDAP (see the [LDAP configuration]({{< relref "#ldap-configuration" >}}) section).
 
-> Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
+{{< note title="Embedded vs. Shared Process Engine" >}}
+Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
+{{< /note >}}
 
 
 # Download
@@ -28,9 +30,6 @@ identity service, which can be replaced with LDAP (see the [LDAP configuration](
 Download the Camunda standalone webapp matching your application server from
 our [download page](http://camunda.org/download). Enterprise subscription
 customers use the [enterprise download page](ref:/enterprise/#downloads).
-
-> Note: Make sure to download the right distribution for your existing application server.
-
 
 # Deploy
 

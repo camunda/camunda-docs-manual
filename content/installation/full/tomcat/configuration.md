@@ -15,19 +15,19 @@ menu:
 
 This page explains how to configure the full distribution for glassfish application server.
 
-
-# Configure LDAP
+# LDAP
 
 In order to setup LDAP for the Tomcat distribution, you have to perform the following steps:
 
 
 ## Add the LDAP Library
 
-> Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
-
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `$TOMCAT_DISTRIBUTION/lib/` folder.
 
+{{< note title="Pre packaged distribution" class="info" >}}
+Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
+{{< /note >}}
 
 ## Adjust the Process Engine Configuration
 

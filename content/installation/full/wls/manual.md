@@ -15,16 +15,16 @@ menu:
 
 This section will describe how you can install the camunda BPM platform and its components on an Oracle WebLogic.
 
-<div class="alert alert-info">
-  <p><strong>Reading the Guide</strong></p> Throughout this guide we will use a number of variables to denote common path names and constants.<br>
-  <code>$WLS_DOMAIN_HOME</code> points to the Oracle WebLogic application server domain directory (typically something like <code>/opt/oracle/WebLogic/domains/mydomain</code>). <br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to or have installed, e.g. <code>7.0.0</code>. <br>
-  <code>$WLS_DISTRIBUTION</code> represents the downloaded Camunda BPM distribution for the Oracle WebLogic Application Server, e.g., <code>camunda-ee-oracle-wls-$PLATFORM_VERSION.zip</code>.
-  <p style="margin-top:10px">
-    The distribution is available at the <a href="http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/">Camunda enterprise release page</a>.
-    You will be asked to enter the credentials you received during the trial or subscription process.
-  </p>
-</div>
+{{< note title="Reading this Guide" class="info" >}}
+This guide uses a number of variables to denote common path names and constants.
+
+* `$WLS_DOMAIN_HOME` points to the Oracle WebLogic application server domain directory (typically something like `/opt/oracle/WebLogic/domains/mydomain`).
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to or have installed, e.g. `7.0.0`.
+* `$WLS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the Oracle WebLogic Application Server, e.g., `camunda-ee-oracle-wls-$PLATFORM_VERSION.zip`.
+
+The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/oracle-wls/).
+You will be asked to enter the credentials you received during the trial or subscription process.
+{{< /note >}}
 
 
 # Setup
@@ -48,7 +48,7 @@ The JNDI name of the datasource must be equal to the name used in the datasource
 
 ### Default JNDI Name
 
-The default JNDI name is <code>jdbc/ProcessEngine</code>
+The default JNDI name is `jdbc/ProcessEngine`
 
 The following screenshot shows the mandatory configuration of a datasource for Camunda BPM:
 
@@ -123,20 +123,20 @@ It must be installed to your Oracle WebLogic Application Server.
 In this section, we explain how the camunda-oracle-weblogic-ear module can be installed using the Oracle WebLogic Server Administration Console.
 The installation process is composed of two steps:
 
-1. Install the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> EAR file.
-2. Configure the deployment order of <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> EAR file.
+1. Install the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` EAR file.
+2. Configure the deployment order of `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` EAR file.
 
 
 ### Install the EAR File
 
-First the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> RAR file must be installed:
+First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be installed:
 
 1. Open the Oracle WebLogic Server Administration Console.
 2. Navigate to the **"Domain structure / YOUR_DOMAIN / Deployments"** page.
 3. Select the **"Install"** button.
-4. Using the File Browser, select the <code>camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear</code> from the modules folder of the camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
+4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
-6. Fill in <code>camunda-bpm-platform</code> as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
+6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
 
 {{< img src="ear-name.png" title="EAR Name" >}}
 
@@ -175,13 +175,7 @@ Example: Finished configuration of the JCA Work Manager used by the resource ada
 
 This section describes how to install optional components onto an Oracle WebLogic server. None of these are required to work with the core platform.
 
-The following covers the installation of these components:
-
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
-
-
-## Install Camunda Cockpit and Tasklist
+## Cockpit, Tasklist and Admin
 
 The web application archive that contains Camunda Cockpit and Tasklist resides under `webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` in the Oracle WebLogic Application Server distribution archive.
 
@@ -201,7 +195,7 @@ In some situations, you also have to start the web application manually from the
 You can check if everything went well by accessing Cockpit, Tasklist and Admin via `/camunda/app/cockpit`, `/camunda/app/tasklist` and `/camunda/app/admin` or under the context path you configured.
 
 
-## Install Camunda REST API
+## REST API
 
 The Camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` in the Oracle WebLogic Application Server distribution archive.
 

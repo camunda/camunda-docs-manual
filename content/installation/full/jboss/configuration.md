@@ -16,7 +16,7 @@ menu:
 This page explains how to configure the full distribution for the JBoss/Wildfly application server.
 
 
-# Configure LDAP
+# LDAP
 
 In order to setup LDAP for the JBoss/Wildfly Application Server distribution, you have to perform the following steps:
 

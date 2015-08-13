@@ -15,17 +15,16 @@ menu:
 
 This section will describe how you can install the camunda BPM platform and its components on an IBM WebSphere.
 
-<div class="alert alert-info">
-  <p><strong>Reading the Guide</strong></p><br>
-  Throughout this guide we will use a number of variables to denote common path names and constants.<br>
-  <code>$WAS_HOME</code> points to the IBM WebSphere application server main directory (typically something like <code>/opt/IBM/WebSphere/AppServer</code>). <br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install or already have installed, e.g., <code>7.2.0</code>. <br>
-  <code>$WAS_DISTRIBUTION</code> represents the downloaded Camunda BPM distribution for the IBM WebSphere Application Server, e.g., <code>camunda-ee-ibm-was-$PLATFORM_VERSION.zip</code>.
-  <p style="margin-top:10px">
-    The distribution is available at the <a href="http://camunda.org/enterprise-release/camunda-bpm/ibm-was/">Camunda enterprise release page</a>.
-    You will be asked to enter the credentials you received during the trial or subscription process.
-  </p>
-</div>
+{{< note title="Reading this Guide" class="info" >}}
+Throughout this guide we will use a number of variables to denote common path names and constants.
+
+* `$WAS_HOME`: points to the IBM WebSphere application server main directory (typically something like `/opt/IBM/WebSphere/AppServer`).
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g., `7.2.0`.
+* `$WAS_DISTRIBUTION` represents the downloaded Camunda BPM distribution for the IBM WebSphere Application Server, e.g., `camunda-ee-ibm-was-$PLATFORM_VERSION.zip`.
+
+The distribution is available at the [Camunda enterprise release page](http://camunda.org/enterprise-release/camunda-bpm/ibm-was/).
+You will be asked to enter the credentials you received during the trial or subscription process.
+{{< /note >}}
 
 
 # Setup
@@ -55,7 +54,7 @@ The JNDI name of the datasource must be equal to the name used in the datasource
 
 ### Default JNDI Name
 
-The default JNDI name used by the process engine is <code>jdbc/ProcessEngine</code>
+The default JNDI name used by the process engine is `jdbc/ProcessEngine`
 
 The following screenshot shows the configuration of an XA datasource:
 
@@ -68,7 +67,7 @@ Note that you may configure multiple datasources used by different process engin
 
 This section explains how you can use the WebSphere Integrated Solutions Console to configure a work manager to be used by the Camunda BPM platform jobexecutor. It is recommended to check the [manual of the application server](http://www-01.ibm.com/software/webservers/appserv/was/library/) for additional details.
 
-Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: <code>Cell=<some_id></code>
+Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: `Cell=<some_id>`
 Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
 
@@ -161,12 +160,11 @@ The following screenshot shows an example configuration of the work manager and 
 {{< img src="work-manager.png" title="Work Manager" >}}
 
 
-# Install Required Components
+# Required Components
 
-The following steps are required to deploy the Camunda BPM platform on an IBM WebSphere server.
+The following steps are required to deploy the Camunda BPM platform.
 
-
-## Install the Camunda BPM Platform Shared Libraries
+## Camunda Shared Libraries
 
 The shared libraries include the Camunda engine and some utility JARs. The shared libraries must be visible to both the Camunda BPM platform as well as all process applications.
 
@@ -191,7 +189,7 @@ Enter as classpath the path where you have copied the Camunda shared libraries, 
 the **Use an isolated class loader for this shared library** checkbox. Restart the IBM WebSphere Server after this operation.
 
 
-## Install the Camunda BPM Platform Modules
+## Camunda BPM Platform EAR
 
 The Camunda BPM platform distribution for IBM WebSphere Application Server includes one module in the modules folder:
 
@@ -204,16 +202,11 @@ camunda-ee-ibm-was-$PLATFORM_VERSION.zip
 The camunda-ibm-websphere-ear is a Java EE application enterprise archive (EAR) providing the Camunda BPM platform services. It contains an embedded rar module.
 This camunda-ibm-websphere-rar module is a JCA Resource Adapter providing the jobexecutor service to the Camunda BPM platform.
 
-The EAR must be installed to your IBM WebSphere Application Server.
-
-
-## Install the Camunda BPM Platform Application
-
-In this section, we explain how the camunda-ibm-websphere-ear module can be installed using the WebShere Integrated Solutions Console.
+The EAR must be installed to your IBM WebSphere Application Server:
 
 1.  Navigate to the Enterprise Applications page using the navigation path **Applications** / **Application Types** / **WebSphere enterprise applications**.
 2.  Click the **"Install"** Button.
-3.  Select the <code>camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear</code> file from the modules folder of the Camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
+3.  Select the `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear` file from the modules folder of the Camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
 4.  Select the **"Fast Path"** install option.
 5.  In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6.  Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
@@ -223,30 +216,20 @@ In this section, we explain how the camunda-ibm-websphere-ear module can be inst
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 
 
-# Install Optional Components
+# Optional Components
 
-This section describes how to install optional components onto an IBM WebSphere server. None of these are required to work with the core platform.
+This section describes how to install optional components. None of these are required to work with the core platform.
 
-The following covers the installation of these extensions:
+## Cockpit, Tasklist and Admin
 
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
-* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
-* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
-* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
-* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
-
-
-## Install Camunda Cockpit and Tasklist
-
-The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under <code>webapps/camunda-was-$PLATFORM_VERSION.war</code> in the IBM WebSphere Application Server distribution archive.
+The web application archive that contains Camunda Cockpit and Camunda Tasklist resides under `webapps/camunda-was-$PLATFORM_VERSION.war` in the IBM WebSphere Application Server distribution archive.
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided by the WebSphere Integrated Solutions Console:
 
 1.  Open the WebSphere Integrated Solutions Console.
 2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
 3.  Click the **Install** Button
-4.  The first page of the wizard opens. Using the file browser, select the <code>camunda-was-VERSION.war</code> file from the distribution and upload it.
+4.  The first page of the wizard opens. Using the file browser, select the `camunda-was-VERSION.war` file from the distribution and upload it.
 5.  Continue to the next page.
 6.  Select the **"Fast Path"** on the next page.
 7.  Step 1. Usually no changes are required.
@@ -271,16 +254,16 @@ In some situations, you have to start the web application manually from the **Ap
 You can check if everything went well by accessing Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
 
-## Install Camunda REST API
+## REST API
 
-The Camunda REST API WAR file resides under <code>webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war</code> in the IBM WebSphere Application Server distribution archive.
+The Camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` in the IBM WebSphere Application Server distribution archive.
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided within the WebSphere Integrated Solutions Console:
 
 1.  Open the WebSphere Integrated Solutions Console.
 2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
 3.  Click the **Install** Button
-4.  The first page of the wizard opens. Using the file browser, select the <code>camunda-engine-rest-VERSION-was.war</code> file from the distribution and upload it.
+4.  The first page of the wizard opens. Using the file browser, select the `camunda-engine-rest-VERSION-was.war` file from the distribution and upload it.
 5.  Continue to the next page.
 6.  Select the **"Fast Path"** on the next page.
 7.  Step 1. Usually no changes are required.
@@ -303,7 +286,7 @@ The final step is to reference the shared libraries. To do so, follow these step
 In some situations, you have to start the web application manually from the **Applications / Application Types / WebSphere enterprise applications** page.
 
 
-## Install Camunda Connect
+## Camunda Connect
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
 
@@ -334,7 +317,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 Note that this requires a custom `bpm-platform.xml` file.
 
 
-## Install Camunda Spin
+## Camunda Spin
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
@@ -366,14 +349,14 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 Note that this requires a custom `bpm-platform.xml` file.
 
 
-## Install Groovy Scripting
+## Groovy Scripting
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
 
-## Install Freemarker Integration
+## Freemarker Integration
 
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
@@ -384,7 +367,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `slf4j-api-$SLF4J_VERSION.jar`
 
 
-# Install Process Applications
+# Process Applications
 
 After installing a Process Application (PA) in your IBM WebSphere Application Server, which **does not** include the Camunda BPM dependencies,
 you must assign the previously created **"Camunda"** shared library with the Process Application deployment.

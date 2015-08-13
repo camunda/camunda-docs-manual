@@ -15,13 +15,14 @@ menu:
 
 This section will describe how you can install the camunda BPM platform and its components on a vanilla [Glassfish 3.1](http://glassfish.java.net/), if you are not able to use the pre-packaged Glassfish distribution. Regardless, we recommend that you [download a Glassfish 3.1 distribution](http://camunda.org/download/) to use the required modules.
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong> <br>
-  Throughout this guide we will use a number of variables to denote common path names and constants.<br>
-  <code>$GLASSFISH_HOME</code> points to the glassfish application server main directory (typically <code>glassfish3/glassfish</code> when extracted from a glassfish distribution).<br>
-  <code>$PLATFORM_VERSION</code> denotes the version of the camunda BPM platform you want to install or already have installed, e.g. <code>7.0.0</code>.<br>
-  <code>$GLASSFISH_DISTRIBUTION</code> represents the downloaded pre-packaged camunda BPM distribution for Glassfish, e.g. <code>camunda-bpm-glassfish-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-glassfish-$PLATFORM_VERSION.tar.gz</code>.<br>
-</div>
+{{< note title="Reading this Guide" class="info" >}}
+Throughout this guide we will use a number of variables to denote common path names and constants.
+
+* `$GLASSFISH_HOME` points to the glassfish application server main directory (typically `glassfish3/glassfish` when extracted from a glassfish distribution).
+* `$PLATFORM_VERSION` denotes the version of the camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
+* `$GLASSFISH_DISTRIBUTION` represents the downloaded pre-packaged camunda BPM distribution for Glassfish, e.g. `camunda-bpm-glassfish-$PLATFORM_VERSION.zip` or `camunda-bpm-glassfish-$PLATFORM_VERSION.tar.gz`.
+
+{{< /note >}}
 
 
 # Setup
@@ -39,9 +40,6 @@ The database creation scripts are reside in the `sql/create` folder:
 `$GLASSFISH_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
 There is an individual SQL script for each supported database. Select the appropriate script for your database and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
-
-<!--The next sections describe how to configure the Glassfish and to install the camunda BPM platfrom on Glassfish. If you prefer you can do the following [configurations via Glassfish Administration Console](ref:#configuring-admin-console) and [skip](ref:#configuring-admin-console) the next sections.-->
-
 
 ## Configure a JDBC Connection Pool
 
@@ -82,7 +80,7 @@ This could look like the following example for an H2 database:
 In case another database than H2 is used (i.e., DB2, MySQL etc.), you have to adjust the `datasource-classname` and the `res-type` attributes with the corresponding database classes and set the database specific properties (such as the url, etc.) inside the JDBC Connection Pool. Furthermore, you have to add the corresponding JDBC driver to `$GLASSFISH_HOME/glassfish/lib/`. For example, you can add the H2 JDBC driver which is located at `$GLASSFISH_DISTRIBUTION/server/glassfish3/glassfish/lib/h2-VERSION.jar` to run with the H2 database.
 
 
-##  Configure a Thread Pool for the Job Executor
+## Configure a Thread Pool for the Job Executor
 
 To do so, you have to edit the file `$GLASSFISH_HOME/glassfish/domains/<domain>/config/domain.xml` and add the following elements to the `resources` section.
 
@@ -139,9 +137,9 @@ To configure a thread pool for the job executor you have to add it to the corres
     </domain>
 
 
-# Install Required Components
+# Required Components
 
-The following steps are required to deploy the camunda BPM platform on a Glassfish instance:
+The following steps are required to deploy the camunda BPM platform:
 
 1. Merge the shared libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` into the `GLASSFISH_HOME/glassfish/lib` directory (i.e., copy the content into the Glassfish library directory).
 2. Copy the job executor resource adapter `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar` into `$GLASSFISH_HOME/glassfish/domains/<domain>/autodeploy`. The job executor resource adapter has to be deployed first because the artifact `camunda-glassfish-ear-$PLATFORM_VERSION.ear` depends on it and cannot be deployed successfully without the resource adapter. If you try to deploy both components with the auto-deploy feature in one step you should be aware that the deployment order is not defined in this case. Due to this, we propose to startup the Glassfish application server to initially deploy the job executor resource adapter. After a successful startup, shutdown the Glassfish application server.
@@ -151,33 +149,13 @@ The following steps are required to deploy the camunda BPM platform on a Glassfi
 6. After a successful startup, the camunda BPM platform is installed.
 
 
-# Install Optional Components
+# Optional Components
 
-This section describes how to install optional Camunda dependencies onto a Glassfish server. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
+This section describes how to install optional Camunda dependencies onto a Glassfish server. None of these are required to work with the core platform.
 
-<div class="alert alert-info">
-  <p><strong>Note</strong> </p>
-  <p>When using a pre-packaged Glassfish distribution, the optional extensions are already installed and activated.</p>
-</div>
+## Cockpit and Tasklist
 
-The following section covers the installation of these extensions:
-
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) [and Tasklist]({{< relref "user-guide/tasklist/index.md" >}})
-* [Camunda REST API]({{< relref "reference/rest/index.md" >}})
-* [Camunda Connect]({{< relref "user-guide/process-engine/connectors.md" >}})
-* [Camunda Spin]({{< relref "user-guide/spin/data-formats-in-processes.md" >}})
-* [Freemarker Integration]({{< relref "user-guide/process-engine/templating.md" >}})
-* [Groovy Scripting]({{< relref "user-guide/process-engine/scripting.md" >}})
-
-
-## Install Cockpit and Tasklist
-
-To install Camunda Cockpit and Tasklist, a Glassfish installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro]({{< relref "installation/full/glassfish/pre-packaged.md" >}}) or [install the platform on a vanilla Glassfish]({{< relref "#setup" >}}).
-
-**Note**: The distro already ships the applications. They may be accessed via `/camunda/app/cockpit` and `/camunda/app/tasklist`, respectively.
-
-The following steps are required to deploy the applications on a Glassfish instance:
+The following steps are required to deploy the applications:
 
 1. Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/).
    Or switch to the private repository for the enterprise version (User and password from license required).
@@ -188,15 +166,9 @@ The following steps are required to deploy the applications on a Glassfish insta
 3. Startup the Glassfish Application Server.
 4. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
+## REST API
 
-## Install the REST API
-
-To install the REST API, a Glassfish installation with the `org.camunda.bpm.camunda-engine` module is required.
-See the above section on how to [install the pre-built distro]({{< relref "installation/full/glassfish/pre-packaged.md" >}}) or [install the platform on a vanilla Glassfish]({{< relref "#setup" >}}).
-
-**Note**: The distro already ships the REST API exposing it on the context path `/engine-rest`.
-
-The following steps are required to deploy the REST API on a Glassfish instance:
+The following steps are required to deploy the REST API:
 
 1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
    Or switch to the private repository for the enterprise version (User and password from license required).
@@ -210,7 +182,7 @@ The following steps are required to deploy the REST API on a Glassfish instance:
    if you deployed the application in the context `/engine-rest`.
 
 
-## Install Camunda Connect
+## Camunda Connect
 
 Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRIBUTION/modules/lib/` to the folder `$GLASSFISH_HOME/glassfish/lib/`:
 
@@ -240,7 +212,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 ```
 
 
-## Install Camunda Spin
+## Camunda Spin
 
 Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRIBUTION/modules/lib/` to the folder `$GLASSFISH_HOME/glassfish/lib/`:
 
@@ -271,14 +243,14 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 ```
 
 
-## Install Groovy Scripting
+## Groovy Scripting
 
 Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRIBUTION/modules/lib/` to the folder `$GLASSFISH_HOME/glassfish/lib/`:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
 
-## Install Freemarker Integration
+## Freemarker Integration
 
 Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRIBUTION/modules/lib/` to the folder `$GLASSFISH_HOME/glassfish/lib/`:
 

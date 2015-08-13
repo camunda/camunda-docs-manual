@@ -16,14 +16,16 @@ menu:
 This page explains how to configure the full distribution for glassfish application server.
 
 
-# Configure LDAP
+# LDAP
 
 In order to setup LDAP for the glassfish distribution, you have to add the plugin and adjust the process engine configuration.
 
 
 ## Add the LDAP Plugin
 
-> Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
+{{< note title="Note" class="info" >}}
+Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
+{{< note >}}
 
 Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
 `GLASSFISH_HOME/glassfish/lib` folder.
