@@ -96,6 +96,7 @@ The FOO Feature is only available in the Enterprise Edition.
 * Don't overruse notes and warning. Not everything that comes into mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warinings than content.
 * Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: insted of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through he steps of..."* write *"This document guides you through the steps"*
+* Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
 
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
