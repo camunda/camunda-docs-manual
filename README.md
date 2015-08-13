@@ -6,7 +6,10 @@ This repository contains the sources of the Camunda BPM Documentation.
 
 In order to build this documentation, you first need to install [hugo][hugo].
 
-Hugo can be installed by downloading it and putting the binary inside your path. See the [hugo installation guilde][hugo-installation] for more details.
+> Note: We need a special build of hugo which includes some currently unreleased patches and fixes.
+Please [download it from here](https://app.camunda.com/nexus/content/repositories/public/hugo/).
+
+See the [hugo installation guilde][hugo-installation] for more details on howto install Hugo.
 
 ## Building the Documentation
 
