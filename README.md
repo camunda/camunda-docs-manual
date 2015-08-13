@@ -89,6 +89,14 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
+## Writing Guidelines
+
+* Use short sentences. Full stop is better than comma.
+* One a Page named *Updating Camunda* not every headline needs to start with *Upating this*, *Updating that*. Instead just write *This* or *That*. It is clear to the reader that things are being updated.
+* Don't overruse notes and warning. Not everything that comes into mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warinings than content.
+* Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: insted of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
+* Don't use the future form: instead of *"This document will guide you through he steps of..."* write *"This document guides you through the steps"*
+
 [hugo]: http://gohugo.io/
 [hugo-installation]: http://gohugo.io/overview/installing/
 [Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
