@@ -1458,14 +1458,59 @@ queryAll('.gs-download-step-panel').forEach(function (panel) {
   });
 });
 
-// queryAll('.page-content img').forEach(function (img) {
-//   console.info(img.clientWidth, img.naturalWidth);
-// });
 
 
+var lightbox = document.createElement('div');
+var lightboxContent = document.createElement('div');
+var lightboxImg = document.createElement('img');
+lightbox.appendChild(lightboxContent);
+lightbox.addEventListener('click', function () {
+  lightbox.classList.remove('open');
+});
+lightboxContent.appendChild(lightboxImg);
+attr(lightbox, 'class', 'lightbox');
+attr(lightboxContent, 'class', 'content');
+
+document.body.appendChild(lightbox);
+
+function showBigger(evt) {
+  var img = evt.target;
+  attr(lightboxImg, 'src', img.src);
+  var style = lightboxContent.style;
+  style.marginLeft = (0 - (img.naturalWidth / 2)) + 'px';
+  style.marginTop = (0 - (img.naturalHeight / 2)) + 'px';
+  lightbox.classList.add('open');
+}
+
+queryAll('.page-content figure.image img').forEach(function (img) {
+  if (img.clientWidth < img.naturalWidth) {
+    img.classList.add('clickable');
+    img.addEventListener('click', showBigger);
+  }
+});
+
+var siteMenuMeta = query('.site-menu .meta');
+var metaToggle = query('.toggle', siteMenuMeta);
+var metaHeader = query('.header', siteMenuMeta);
+function toggleMenuMeta() {
+  var mcl = siteMenuMeta.classList;
+  var tcl = metaToggle.classList;
+
+  mcl.toggle('open');
+  if (mcl.contains('open')) {
+    tcl.remove('glyphicon-chevron-up');
+    tcl.add('glyphicon-chevron-down');
+  }
+  else {
+    tcl.add('glyphicon-chevron-up');
+    tcl.remove('glyphicon-chevron-down');
+  }
+}
+query('.site-menu .version a').addEventListener('click', toggleMenuMeta);
+metaHeader.addEventListener('click', toggleMenuMeta);
 
 
-var prismjs = window.prismjs = require('prismjs');
+var prismjs = require('prismjs');
 require('prismjs/components/prism-bash');
 require('prismjs/components/prism-css');
 require('prismjs/components/prism-css-extras');
@@ -1475,6 +1520,7 @@ require('prismjs/components/prism-java');
 require('prismjs/components/prism-less');
 require('prismjs/components/prism-markup');
 require('prismjs/components/prism-yaml');
+prismjs.languages.json = prismjs.languages.javascript;
 prismjs.languages.js = prismjs.languages.javascript;
 prismjs.languages.xml = prismjs.languages.markup;
 prismjs.languages.html = prismjs.languages.markup;
