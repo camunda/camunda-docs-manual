@@ -28,27 +28,48 @@ The `camunda:decisionRefBinding` attribute defaults to `latest`.
 The output of the decision is saved in a variable which can be specified by the `camunda:resultVariable`
 attribute.
 
+
+
 ```xml
-<businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision"
-                                        camunda:resultVariable="decisionResult" />
+<businessRuleTask id="businessRuleTask"
+    camunda:decisionRef="myDecision"
+    camunda:resultVariable="decisionResult" />
 ```
 
 ```xml
-<businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision"
-                                        camunda:decisionRefBinding="version"
-                                        camunda:decisionRefVersion="12"
-                                        camunda:resultVariable="decisionResult" />
+<businessRuleTask id="businessRuleTask"
+    camunda:decisionRef="myDecision"
+    camunda:decisionRefBinding="version"
+    camunda:decisionRefVersion="12"
+    camunda:resultVariable="decisionResult" />
 ```
 
 The attributes `camunda:decisionRef` and `camunda:decisionRefVersion` can both be specified as
 an expression which will be evaluated on execution of the task.
 
 ```xml
-<businessRuleTask id="businessRuleTask" camunda:decisionRef="${decisionKey}"
-                                        camunda:decisionRefBinding="version"
-                                        camunda:decisionRefVersion="${decisionVersion}"
-                                        camunda:resultVariable="decisionResult" />
+<businessRuleTask id="businessRuleTask"
+    camunda:decisionRef="${decisionKey}"
+    camunda:decisionRefBinding="version"
+    camunda:decisionRefVersion="${decisionVersion}"
+    camunda:resultVariable="decisionResult" />
 ```
+
+### DMN Result Variable Type
+
+Please beware that depending of the structure of the decision result the result
+variable type will change. The following rules are applied to *unpack* the
+decision result to be easy accessible in the process:
+
+1. If **only one** rule matches and has **only one** output the result variable will
+   contain this output value.
+2. If **only one** rule matches and has **more than one** output the result variable
+   will be a map of the output values.
+3. If **more than one** rule matches but **all** matched rules have **only one** output the
+   result variable will be a list of these output values.
+4. If **more than one** rule matches and **at least one** matched rule has **more than one** output
+   the result variable will be the complete decision result which is a list of
+   maps.
 
 
 ## Using a custom rule engine
@@ -58,7 +79,8 @@ made good experiences with JBoss Drools. To do so, you have to plug in your
 implementation of the rule task the same way as in a Service Task.
 
 ```xml
-<businessRuleTask id="businessRuleTask" camunda:delegateExpression="${MyRuleServiceDelegate}" />
+<businessRuleTask id="businessRuleTask"
+    camunda:delegateExpression="${MyRuleServiceDelegate}" />
 ```
 
 ## Using Delegate Code

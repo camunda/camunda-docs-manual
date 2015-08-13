@@ -38,12 +38,22 @@ information on the possible ways of providing the script source code please see 
 
 For general information about scripting in the process engine, please see the [Scripting](ref:/guides/user-guide/#process-engine-scripting) section of the [User Guide][user-guide].
 
-<div class="alert alert-info">
-  <strong>Supported Script Languages:</strong>
-  <p>
-    camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
-  </p>
-</div>
+{{< note title="Supported Script Languages" class="info" >}}
+
+Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
+
+{{< /note >}}
+
+{{< note title="Decision Script Task" class="info" >}}
+Beside normal script languages you can also use Script Task to evaluate a DMN decision.
+
+```xml
+<scriptTask id="dmnScriptTask" name="Check order" scriptFormat="dmn"
+    camunda:resource="org/camunda/bpm/DmnScriptTaskTest.dmn10.xml"
+    camunda:resultVariable="decisionResult" >
+```
+
+{{< /note >}}
 
 ## Variables in scripts
 
@@ -111,6 +121,10 @@ In the above example, the result of the script execution (the value of the resol
   </p>
 </div>
 
+In case you evaluate a DMN decision using a Script Task the decision result
+will be *unpacked* to be easy accessible in the process.  The applied rules can
+be found in the [Business Rule Task][dmn-result-type] documentation.
+
 
 ## camunda Extensions
 
@@ -146,3 +160,4 @@ In the above example, the result of the script execution (the value of the resol
 [script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source
 [user-guide]: ref:/guides/user-guide/
 [autostore-variables]: ref:/guides/migration-guide/#script-variable-storing
+[dmn-result-type]: {{< relref "business-rule-task.md#dmn-result-variable-type" >}}
