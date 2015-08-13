@@ -26,26 +26,18 @@ The upgrade procedure takes the following steps:
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-<div class="alert alert-info">
-  <p><strong>Upgraded Wildfly Version</strong></p>
-  <p>
-    The pre-built Camunda 7.3 distribution ships with Wildfly 8.2.0.Final, whereas 7.2 comes with Wildfly 8.1.0.Final.
-    Camunda 7.3 is supported on Wildfly 8.1 and 8.2 such that an upgrade is not required when migrating from 7.2 to 7.3.
-  </p>
-  <p>
-    Should you want to upgrade Wildfly along with Camunda, perform the following steps either before or after upgrading Camunda:
-  </p>
-  <p>
-    <ul>
-      <li>Copy all your Camunda-related modules from <code>$WILDFLY_HOME/modules</code> to the new Wildfly server's <code>module</code>-directory.</li>
-      <li>Apply all modifications to Wildfly configuration files such as <code>standalone.xml</code> to the files located in the new Wildfly server's directory.</li>
-      <li>Undeploy all process applications and copy them to the new Wildfly server's directory for redeployment.</li>
-    </ul>
-  </p>
-  <p>
-    See the <a href="http://wildfly.org/news/2014/11/20/WildFly82-Final-Released/">Wildfly 8.2.0.Final release notes</a> for any relevant changes compared to 8.1.0.Final.
-  </p>
-</div>
+{{< note title="Upgraded Wildfly Version" class="info" >}}
+The pre-built Camunda 7.3 distribution ships with Wildfly 8.2.0.Final, whereas 7.2 comes with Wildfly 8.1.0.Final.
+Camunda 7.3 is supported on Wildfly 8.1 and 8.2 such that an upgrade is not required when migrating from 7.2 to 7.3.
+
+Should you want to upgrade Wildfly along with Camunda, perform the following steps either before or after upgrading Camunda:
+
+* Copy all your Camunda-related modules from `$WILDFLY_HOME/modules` to the new Wildfly server's `module`-directory.
+* Apply all modifications to Wildfly configuration files such as `standalone.xml` to the files located in the new Wildfly server's directory.
+* Undeploy all process applications and copy them to the new Wildfly server's directory for redeployment.
+
+See the [Wildfly 8.2.0.Final release notes](http://wildfly.org/news/2014/11/20/WildFly82-Final-Released/) for any relevant changes compared to 8.1.0.Final.
+{{< /note >}}
 
 
 # 1. Upgrade the Camunda BPM Modules
@@ -94,7 +86,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 
 # 3. Upgrade Camunda Web Applications
 
-## Upgrade Camunda REST API
+## Upgrade REST API
 
 The following steps are required to upgrade the camunda REST API on a JBoss/Wildfly instance:
 
@@ -103,7 +95,7 @@ The following steps are required to upgrade the camunda REST API on a JBoss/Wild
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-## Upgrade Camunda Cockpit, Tasklist, and Admin
+## Upgrade Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
@@ -113,14 +105,11 @@ The following steps are required to upgrade the Camunda web applications Cockpit
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-<div class="alert alert-info">
-  <p><strong>LDAP Entity Caching</strong></p>
-  <p>Beginning with 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. If you have previously used caching, you can enable this feature by modifying the Camunda webapp artifact. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
-</div>
+{{< note title="LDAP Entity Caching" class="info" >}}
+It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+{{< /note >}}
 
-
-
-[migration-guide]: ref:/guides/migration-guide/#migrate-from-camunda-bpm-72-to-73
+[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
 [jboss-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/
 [wildfly-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/

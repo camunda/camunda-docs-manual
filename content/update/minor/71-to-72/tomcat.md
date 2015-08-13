@@ -67,7 +67,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ... >
   <process-engine name="default">
     ...
     <plugins>
@@ -97,7 +97,7 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ... >
   ...
   <process-engine name="default">
     ...
@@ -138,7 +138,7 @@ As of 7.2, the default behavior of script variables has changed. Script variable
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpm-platform ... ">
+<bpm-platform ... >
   ...
   <process-engine name="default">
     ...
@@ -172,9 +172,9 @@ The following steps are required to upgrade the camunda web applications Cockpit
 2. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-<div class="alert alert-info">
-  <p><strong>LDAP Entity Caching</strong></p>
-  <p>With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
-</div>
+{{< note title="LDAP Entity Caching" class="info" >}}
+With 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+{{< /note >}}
 
-[migration-guide]: ref:/guides/migration-guide/#migrate-from-camunda-bpm-71-to-72
+[configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
+[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}

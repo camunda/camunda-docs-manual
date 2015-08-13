@@ -12,15 +12,15 @@ menu:
 
 ---
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-   Throughout this guide we will use a number of variables to denote common path names and constants:
-  <ul>
-    <li><code>$DATABASE</code> expresses the target database platform, e.g., DB2, MySql, etc.</li>
-    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat etc.</li>
-    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.1.0</code>.</li>
-  </ul>
-</div>
+{{< note title="Reading the Guide" class="info" >}}
+This guide uses a number of variables to denote common path names and constants:
+
+*`$DATABASE` expresses the target database platform, e.g., DB2, MySql, etc.
+*`$DISTRIBUTION_PATH` represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat etc.
+*`$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install, e.g., `7.1.0`.
+
+{{< /note >}}
+
 
 # Migrate your Database
 
@@ -36,12 +36,9 @@ Regardless of the version you are migrating from, the main upgrade script is `$D
 
 To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you need to follow these steps:
 
-*   If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `camunda.taskForm`.
+* If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `camunda.taskForm`.
   There you have two choices: If you are using `camunda.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("camunda.taskForm")`,
   otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend that you use the annotation `@Named("camundaTaskForm")`.
-
-In case you have to migrate (upgrade) the version of running process instances, we provide more information in our [User Guide](ref:/guides/user-guide/#process-engine-process-versioning-version-migration).
-
 
 # Migrate the Server
 

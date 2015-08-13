@@ -7,23 +7,22 @@ menu:
   main:
     identifier: "migration-guide-fox"
     parent: "migration-guide"
-    pre: "Guides you through the migration from Camunda Fox <code>6.x</code> to Camunda BPM Platform <code>7.x</code>."
+    pre: "Guides you through the migration from Camunda Fox `6.x` to Camunda BPM Platform `7.x`."
 
 ---
 
-<div class="alert alert-info">
-  <strong>Reading the Guide</strong><br>
-   Throughout this guide we will use a number of variables to denote common path names and constants:
-  <ul>
-    <li><code>$DATABASE</code> expresses the target database platform, e.g., DB2, MySql, etc.</li>
-    <li><code>$DISTRIBUTION_PATH</code> represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., <code>camunda-bpm-tomcat-$PLATFORM_VERSION.zip</code> or <code>camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz</code> for Tomcat, etc.</li>
-    <li><code>$PLATFORM_VERSION</code> denotes the version of the Camunda BPM platform you want to install, e.g., <code>7.0.0</code>.</li>
-    <li><code>$FOX_HOME</code> points to the Camunda fox server main directory.</li>
-    <li><code>$FOX_VERSION</code> denotes the version of the Camunda fox platform you have installed, e.g., <code>6.2.4</code>.</li>
-  </ul>
-</div>
+As Camunda fox included the Activiti engine you have to perform the [activit migration]({{< relref "activiti.md" >}}) as well.
 
-As Camunda fox included the Activiti engine you have to perform the [above steps](ref:#migrate-from-activiti) as well.
+{{< note title="Reading this Guide" class="info" >}}
+This guide uses a  number of variables to denote common path names and constants:
+
+*  `$DATABASE` expresses the target database platform, e.g., DB2, MySql, etc.
+* `$DISTRIBUTION_PATH` represents the path of the downloaded pre-packaged Camunda BPM distribution, e.g., `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz` for Tomcat, etc.
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install, e.g., `7.0.0`.
+* `$FOX_HOME` points to the Camunda fox server main directory.
+* `$FOX_VERSION` denotes the version of the Camunda fox platform you have installed, e.g., `6.2.4`.
+
+{{< /note >}}
 
 Before you can start with the migration from Camunda fox to Camunda BPM, we recommend that you [download](http://camunda.org/download) the pre-packaged distribution corresponding to your Camunda fox server.
 
@@ -32,11 +31,11 @@ Before you can start with the migration from Camunda fox to Camunda BPM, we reco
 
 To migrate your process application from Camunda fox to Camunda BPM, you need to follow these steps:
 
-*   Do the Activiti migration as [described above](ref:#migrate-from-activiti), as Camunda fox included the Activiti engine.
+*   Do the Activiti migration as [described]({{< relref "activiti.md" >}}), as Camunda fox included the Activiti engine.
 *   Remove the `fox-platform-client.x.jar` from your deployment - it is not needed anymore.
-*   Add a Process Application Class, see [Process Applications](ref:/guides/user-guide/#process-applications-the-process-application-class).
+*   Add a Process Application Class, see [Process Applications]({{< relref "user-guide/process-applications/index.md" >}}).
 *   If you don't use our engine as embedded jar, you should set your maven-dependency for it to **provided-scope**
-*   Adjust the `processes.xml` to the new format, see [Process Applications](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor).
+*   Adjust the `processes.xml` to the new format, see [Process Applications]({{< relref "user-guide/process-applications/index.md" >}}).
 *   If you completely migrate to our new distribution, you have to adjust your `persistence.xml` from **FoxEngineDS** to **ProcessEngine**
 *   If you use the new Camunda Tasklist component, you have to adjust the `formKey`, as described in the [Getting Started](http://camunda.org/implement/getting-started.html) section. We will provide more information soon. For JSF-Formkeys, your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g., `/loan-approval/request-loan.jsf`
 *   If you use the `fox.taskForm` bean, make sure you have the `camunda-engine-cdi` dependency on your classpath:
@@ -50,7 +49,7 @@ To migrate your process application from Camunda fox to Camunda BPM, you need to
     </dependency>
     ```
 *   If you use `@Inject` with TaskForm, you have to add a `@Named("...")` annotation to the `@Inject` annotation due to backward-compatibility of `fox.taskForm`. There you have two choices: If you are using `fox.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("fox.taskForm")`, otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend that you use the annotation `@Named("camundaTaskForm")`.
-*   Since Camunda BPM 7.0, the unique constraint for the business key has been removed in the runtime and history tables and the database schema create and drop scripts. The [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/) do not include the drop statements of the unique constraint for the business key. So if you do not rely on the unique constraint for the business key, you can delete the unique constraint yourself. See the following documentation about the [Business Key](ref:/guides/user-guide/#process-engine-database-configuration-business-key) to delete the unique constraint corresponding to your database.
+*   Since Camunda BPM 7.0, the unique constraint for the business key has been removed in the runtime and history tables and the database schema create and drop scripts. The [migration scripts](https://app.camunda.com/nexus/index.html#view-repositories;camunda-bpm~browsestorage~/org/camunda/bpm/distro/camunda-sql-scripts/) do not include the drop statements of the unique constraint for the business key. So if you do not rely on the unique constraint for the business key, you can delete the unique constraint yourself. See the following documentation about the [Business Key]({{< relref "" >}}) to delete the unique constraint corresponding to your database.
 *   If you do a JNDI lookup to get one of the Platform Services (i.e., `ProcessArchiveService` or `ProcessEngineService`), you have to adjust the JNDI name to do the lookup as follows:
     *   ProcessArchiveService:
         *   Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessArchiveService`
@@ -148,7 +147,7 @@ Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the co
       ...
     </process-engines>
 
-Since Camunda BPM 7.0, you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
+Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
 ### Replace the Camunda fox webapps with Camunda BPM webapps (JBoss)
 
@@ -162,7 +161,7 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins. For mo
   * `camunda-webapp-jboss-$PLATFORM_VERSION.war`
 * You can delete the corresponding Cockpit tables because they are not needed anymore.
 
-For more details about installing the Camunda BPM webapps read the [installation guide](ref:/guides/installation-guide/jboss/).
+For more details about installing the Camunda BPM webapps read the [installation guide]({{< relref "installation/full/jboss/index.md" >}}).
 
 ## GlassFish 3.1
 
@@ -311,7 +310,7 @@ to:
 * Copy the artifact `$DISTRIBUTION_PATH/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear` to `$FOX_HOME/glassfish/domains/<domain>/autodeploy`.
 * After a successful startup, the Camunda BPM platform is installed.
 
-Since Camunda BPM 7.0, you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
+Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
 ### Replace the Camunda fox webapps with Camunda BPM webapps (GlassFish)
 
@@ -349,9 +348,9 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins. For mo
 * Open the folder `$FOX_HOME/lib/ext/` and delete the following artifacts:
   * `fox-engine-$FOX_VERSION.jar`
   * `fox-platform-api-$FOX_VERSION.jar`
-* Now you can install Camunda BPM 7.0, to do so, see the [installation guide](ref:/guides/installation-guide/was/) and follow the instructions.
+* Now you can install Camunda BPM 7.0, to do so, see the [installation guide]({{< relref "installation/full/index.md" >}}) and follow the instructions.
 
-Since Camunda BPM 7.0, you can configure built-in process engine plugins. For more details see [this section](ref:/guides/user-guide/#process-engine-process-engine-plugins-list-of-built-in-process-engine-plugins) of the user guide.
+Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
 ### Deploy Camunda BPM webapps
 

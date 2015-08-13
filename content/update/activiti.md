@@ -26,7 +26,7 @@ The changes in short are:
 There are some things which have not changed yet:
 
 *   Database schema and table names. Note that we based our fork on Activiti 5.11 and the tables existent in that version.
-*   The `camunda:` [Custom Extensions](ref:/api-references/bpmn20/#custom-extensions-bpmn-20-custom-extensions) are kept.
+*   The `activiti:` [Custom Extensions]({{< relref "reference/bpmn20/custom-extensions/index.md" >}}) are kept.
     A Camunda BPM namespace will be introduced soon but backwards compatibility will be ensured.
 
 We based our fork on the database schema of Activiti 5.11. So please [upgrade](http://www.activiti.org/userguide/index.html#databaseUpgrade) your project to this database using the upgrade scripts provided by Activiti. If you are using a newer version, best ask for assistance in the [Forum](http://camunda.org/community/forum.html).

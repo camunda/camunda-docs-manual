@@ -66,7 +66,7 @@ Copy the following libraries from `$WLS_DISTRIBUTION/modules/lib` to the folder 
 
 # 4. Maintain the BPM Platform Configuration
 
-If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file), it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
+If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
 
 
 # 5. Install the Camunda Archive
@@ -74,19 +74,19 @@ If you have previously replaced the default BPM platform configuration by a cust
 Install the Camunda EAR, i.e., the file `$WLS_DISTRIBUTION/modules/camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear`.
 
 
-# 6. Install the Camunda Web Applications
+# 6. Install the Web Applications
 
-## Camunda REST API
+## REST API
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-wls.war` to your Oracle WebLogic instance.
 
-## Camunda Cockpit, Tasklist, and Admin
+## Cockpit, Tasklist, and Admin
 
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
-<div class="alert alert-info">
-  <p><strong>LDAP Entity Caching</strong></p>
-  <p>Beginning with 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. If you have previously used caching, you can enable this feature by modifying the Camunda webapp artifact. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
-</div>
+{{< note title="LDAP Entity Caching" class="info" >}}
+It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+{{< /note >}}
 
-[migration-guide]: ref:/guides/migration-guide/#migrate-from-camunda-bpm-72-to-73
+[configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
+[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}

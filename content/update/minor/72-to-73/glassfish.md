@@ -23,13 +23,13 @@ The upgrade procedure takes the following steps:
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-## 1. Uninstall the Camunda Applications and Archives
+# 1. Uninstall the Camunda Applications and Archives
 
 First, uninstall the Camunda web applications, namely the Camunda REST API (artifact name like `camunda-engine-rest`) and the Camunda applications Cockpit, Tasklist and Admin (artifact name like `camunda-webapp`).
 
 Uninstall the Camunda EAR. Its name should be `camunda-glassfish-ear-$PLATFORM_VERSION.ear`. Then, uninstall the Camunda job executor adapter, called `camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`.
 
-## 2. Replace Camunda Core Libraries
+# 2. Replace Camunda Core Libraries
 
 After shutting down the server, replace the following libraries in `$GLASSFISH_HOME/glassfish/lib` with their equivalents from `$GLASSFISH_DISTRIBUTION/modules/lib`:
 
@@ -38,56 +38,55 @@ After shutting down the server, replace the following libraries in `$GLASSFISH_H
 * `camunda-cmmn-model-$PLATFORM_VERSION.jar`
 * `camunda-xml-model-$PLATFORM_VERSION.jar`
 
-## 3. Replace Optional Camunda Dependencies
+# 3. Replace Optional Camunda Dependencies
 
 In addition to the core libraries, there may be optional artifacts in `$GLASSFISH_HOME/glassfish/lib` for LDAP integration, Camunda Connect, and Camunda Spin. If you use any of these extensions, the following upgrade steps apply:
 
-#### LDAP integration
+## LDAP integration
 
 Copy the following libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib` if present:
 
 * `camunda-identity-ldap-$PLATFORM_VERSION.jar`
 
-#### Camunda Connect
+## Camunda Connect
 
 Copy the following libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib` if present:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 
-#### Camunda Spin
+## Camunda Spin
 
 Copy the following libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` to the folder `$GLASSFISH_HOME/glassfish/lib` if present:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
-## 4. Maintain the BPM platform configuration
+# 4. Maintain the BPM platform configuration
 
-If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference](ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file), it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
+If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
 
-## 5. Install the Camunda Archive
+# 5. Install the Camunda Archive
 
 First, install the camunda job executor resource adapter, namely the file `$GLASSFISH_DISTRIBUTION/modules/camunda-jobexecutor-rar-$PLATFORM_VERSION.rar`. Then, install the camunda EAR, i.e., the file `$GLASSFISH_DISTRIBUTION/modules/camunda-glassfish-ear-$PLATFORM_VERSION.ear`.
 
-## 6. Install the Camunda Web Applications
+# 6. Install the Web Applications
 
-#### Camunda REST API
+## REST API
 
 The following steps are required to upgrade the camunda REST API on a Glassfish instance:
 
 1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
-#### Camunda Cockpit, Tasklist, and Admin
+## Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the camunda web applications Cockpit, Tasklist, and Admin on a Glassfish instance:
 
 1. Download the camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-glassfish/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-glassfish-$PLATFORM_VERSION.war`.
 2. Deploy the web application archive to your Glassfish instance.
 
-<div class="alert alert-info">
-  <p><strong>LDAP Entity Caching</strong></p>
-  <p>Beginning with 7.2, it is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. If you have previously used caching, you can enable this feature by modifying the Camunda webapp artifact. See the <a href="ref:/api-references/rest/#overview-hypertext-application-language-hal-caching-of-hal-relations">REST Api Documentation</a> for details.</p>
-</div>
+{{< note title="LDAP Entity Caching" class="info" >}}
+It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+{{< /note >}}
 
-[configuration-location]: ref:/api-references/deployment-descriptors/#descriptors-bpm-platformxml-configure-location-of-the-bpm-platformxml-file
-[migration-guide]: ref:/guides/migration-guide/#migrate-from-camunda-bpm-72-to-73
+[configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
+[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
