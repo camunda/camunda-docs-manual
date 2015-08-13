@@ -14,7 +14,7 @@ menu:
 
 This document guides you through the update from Camunda BPM `7.1.x` to `7.2.0`. It covers these use cases:
 
-1. For administrators and developers: [Database Updates]({{< relref "#update-the-database" >}})
+1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 4. For developers: [Migrating Task Forms]({{< relref "#task-forms" >}})
@@ -30,20 +30,20 @@ Noteworthy new Features in 7.2:
 
 Before migrating, decide whether you additionally want to enable Spin/Connect and Freemarker. Based on this decision, you may have to carry out additional migration steps.
 
-[cmmn-ref]: ref:/api-references/cmmn10/
-[connect-ref]: ref:/guides/user-guide/#process-engine-connectors
-[spin-ref]: /guides/user-guide/#data-formats-xml-json-other
-[freemarker-ref]: /guides/user-guide/#process-engine-templating
+[cmmn-ref]: {{< relref "reference/cmmn10/index.md" >}}
+[connect-ref]: {{< relref "user-guide/process-engine/connectors.md" >}}
+[spin-ref]: {{< relref "user-guide/spin/index.md" >}}
+[freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}
 
 {{< note title="No Rolling Upgrades" class="warning" >}}
-It is not possible to migrate process engines from Camunda 7.2 to 7.2 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.2 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.2 engine, as these may use features that were not available yet in 7.2.
+It is not possible to migrate process engines from Camunda 7.1 to 7.2 in a rolling fashion. This means, it is not possible to run process engines of version 7.1 and 7.2 in parallel with the same database configuration. The reason is that a 7.1 engine may not be able to execute process instances that have been previously executed by a 7.2 engine, as these may use features that were not available yet in 7.1.
 {{< /note >}}
 
 # Database Updates
 
 The first step consists in updating the database.
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#patching-the-database" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.1_patch_?.sql`.
@@ -119,7 +119,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms must be migrated.
 
-> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference](ref:/api-references/embedded-forms/)
+> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/index.md" >}})
 
 ## Overview
 
@@ -233,8 +233,6 @@ In 7.2 it looks like this:
        cam-variable-name="VAR_NAME"
        cam-variable-type="Date" />
 ```
-
-> See this [Note on Datepickers](ref:/api-references/embedded-forms/#supported-html-controls-date-inputs-using-a-date-picker)
 
 ### The `form-field` Directive on Select Boxes
 

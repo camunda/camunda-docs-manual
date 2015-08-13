@@ -14,7 +14,7 @@ menu:
 
 This document guides you through the update from Camunda BPM `7.2.x` to `7.3.0`. It covers these use cases:
 
-1. For administrators and developers: [Database Updates]({{< relref "#update-the-database" >}})
+1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 4. For developers: [Migrating a Cockpit plugin]({{< relref "#cockpit-plugins" >}})
@@ -37,7 +37,7 @@ The first step consists in updating the database.
 
 ## Basic Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#patching-the-database" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.2_patch_?.sql`.
@@ -278,19 +278,19 @@ As of version 7.3, it is possible to authorize access to process-related resourc
 * `Process Instance`
 * `Task`
 
-so that an authenticated user can only see, modify, and delete those process definitions, process instances, and tasks for which the user is authorized to do so (for further details please read the [User Guide](ref:/guides/user-guide/#process-engine-authorization-service)).
+so that an authenticated user can only see, modify, and delete those process definitions, process instances, and tasks for which the user is authorized to do so (for further details please read the [User Guide]({{< relref "user-guide/process-engine/authorization-service.md" >}})).
 
 The upgrade script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statements that create a new `GLOBAL` authorization and a new `GRANT` authorization for the group `camunda-admin` for each new authorization resource. These authorizations ensure that all users are able to access above-mentioned resources so that the process engine behaves the same way after the upgrade as it did before the upgrade.
 
 If these authorizations are not desired and you want to restrict access to the listed resources, you have the following options:
 
 * Before executing the upgrade script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
-* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-authorization-management-authorizations) to delete the created authorizations.
-* Use the [Camunda Admin application](ref:/guides/user-guide/#admin-authorization-management-authorizations) to add authorizations that restrict access.
+* Use the [Camunda Admin application]({{< relref "user-guide/admin/authorization-management.md" >}}) to delete the created authorizations.
+* Use the [Camunda Admin application]({{< relref "user-guide/admin/authorization-management.md" >}}) to add authorizations that restrict access.
 
-<div class="alert alert-warning">
-  <strong>Note:</strong> If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.
-</div>
+{{< note title="Note" class="warning" >}}
+If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.
+{{< /note >}}
 
 [ng-define]: http://nikku.github.io/requirejs-angular-define
 [requirejs]: http://requirejs.org
