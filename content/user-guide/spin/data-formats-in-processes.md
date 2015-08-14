@@ -15,23 +15,27 @@ The main entry point to Spin's functionality is the static function `org.camunda
 
 The following subsections describe the integration points of the process engine and Spin. For specific documentation on data formats like XML and JSON, please refer to the [XML section][xml-subsection] and the [JSON section][json-subsection].
 
-### Expression Language Integration
+
+# Expression Language Integration
 
 The Spin engine plugin registers the Spin API entry functions in the context used for expression evaluation. It can therefore be used at all points where the engine allows expression language.
 
-### Scripting Integration
 
-Similar to the EL integration, the Spin functions can be accessed from custom scripts in the supported languages JavaScript, Groovy, Python and Ruby. See the [scripting section](ref:/guides/user-guide/#process-engine-scripting) on how scripting is configured in general in Camunda BPM.
+# Scripting Integration
 
-### Native JSON and XML Variable Values
+Similar to the EL integration, the Spin functions can be accessed from custom scripts in the supported languages JavaScript, Groovy, Python and Ruby. See the [scripting section]({{< relref "user-guide/process-engine/scripting.md" >}}) on how scripting is configured in general in Camunda BPM.
+
+
+# Native JSON and XML Variable Values
 
 When working with JSON or XML payload it wouldn't be convenient to treat the payload as strings because then features like path-expressions and accessing properties couldn't be used. Additionally, you do not always need or want a class in your system to represent the JSON/XML.
 
 That is why Spin provides native variable values to work with JSON and XML. The Spin API enables access and manipulation of the data in an easy way. Parsing and Serialization can be done with a single command.
 
-### Serializing Process Variables
+
+# Serializing Process Variables
 
 Whenever custom Java objects are set as process variables, they have to be persisted to the database. Thus, a Java object instance has to be serialized. The engine's default serialization uses standard Java object serialization which ends up as machine-readable bytes in the database. This approach is limited in that the database values cannot be introspected and that a client reading the object has to possess the respective Java class. To alleviate these issues, by using the Spin engine plugin, variables can be serialized using Spin's data formats. The plugin registers a serializer that looks up all available data formats and offers them for serialization.
 
-[xml-subsection]: ref:#data-formats-xml-json-other-xml
-[json-subsection]: ref:#data-formats-xml-json-other-json
+[xml-subsection]: {{< relref "user-guide/spin/xml.md" >}}
+[json-subsection]: {{< relref "user-guide/spin/json.md" >}}

@@ -24,7 +24,8 @@ The following provides examples on how camunda Spin can be used in the process e
 </customer>
 ```
 
-### Expression Language Integration
+
+# Expression Language Integration
 
 The Spin entry functions can be used wherever the process engine allows expression language. The following BPMN snippet shows a conditional sequence flow expression based on the customer's post code:
 
@@ -38,7 +39,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
-If your variable is already a [XML variable value](ref:#data-formats-xml-json-other-xml-native-xml-variable-value) and not a string like in the previous example you can omit the `XML(...)` call and directly access the variable:
+If your variable is already a [XML variable value]({{< relref "#native-xml-variable-value" >}}) and not a string like in the previous example you can omit the `XML(...)` call and directly access the variable:
 
 ```xml
 ...
@@ -50,7 +51,8 @@ If your variable is already a [XML variable value](ref:#data-formats-xml-json-ot
 ...
 ```
 
-### Scripting Integration
+
+# Scripting Integration
 
 The following example is a script implemented in JavaScript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
 
@@ -69,7 +71,8 @@ The following example is a script implemented in JavaScript. The script makes us
 ...
 ```
 
-### Native XML Variable Value
+
+# Native XML Variable Value
 
 The native variable value for XML makes it possible to easily parse a XML string and wrap it inside an object without the need to have a class representing the XML. Suppose we want to save the XML inside a process variable for later use, we could do the following inside a JavaDelegate:
 
@@ -110,7 +113,8 @@ public class AddDataDelegate implements JavaDelegate {
 When retrieving the XML value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
 Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
 
-### Serializing Process Variables
+
+# Serializing Process Variables
 
 A Java object can be serialized using Spin's built-in XML data format. Let us assume that there are two Java classes, `com.example.Customer` and `com.example.Address`. Spin's default XML format relies on JAXB which is why JAXB annotations like `@XmlRootElement`, `@XmlAttribute`, and `@XmlElement` can be used to configure the serialization process. Note though that these annotations are not required. The classes look as follows:
 
@@ -184,7 +188,6 @@ customerXml matches:
 */
 ```
 
-<div class="alert alert-info">
-  <strong>Default Serialization Format:</strong>
-  <p>The engine can be configured to persist all objects for which no explicit data format is specified as XML. The process engine configuration offers a property <code>defaultSerializationFormat</code>. To configure default XML serialization, set this property to <code>application/xml</code>. Now, the invocation <code>runtimeService.setVariable(processInstance.getId(), "customer", new Customer())</code> directly serializes the Customer object as XML without explicit declaration of the format.</p>
-</div>
+{{< note title="Default Serialization Format" class="info" >}}
+  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property ```defaultSerializationFormat```. To configure default JSON serialization, set this property to ```application/xml```. Now, the invocation ```runtimeService.setVariable(processInstance.getId(), "customer", new Customer())``` directly serializes the Customer object as XML without explicit declaration of the format.
+{{< /note >}}

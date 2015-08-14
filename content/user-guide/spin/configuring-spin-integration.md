@@ -18,11 +18,15 @@ There are two types of Spin artifacts:
 * `camunda-spin-dataformat-all`: a single jar without dependencies that contains the XML and JSON data formats.
 * `camunda-engine-plugin-spin`: a process engine plugin which adds Spin to the Camunda BPM platform.
 
-### Maven coordinates
 
-<%- @partial('camunda-bom.html.eco', @, {}) %>
+# Maven coordinates
 
-#### camunda-spin-core
+{{< note title="" class="info" >}}
+  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+{{< /note >}}
+
+
+## camunda-spin-core
 
 `camunda-spin-core` contains Spin's core classes that every data format implementation requires. Additionally, XML and JSON data formats can be included with the dependencies `camunda-spin-dataformat-json-jackson` and `camunda-spin-dataformat-xml-dom`. These artifacts will transitively pull in their dependencies, like Jackson in the case of the JSON data format. For integration with the engine, the artifact `camunda-engine-plugin-spin` is needed. Given that the BOM is imported, the Maven coordinates are as follows:
 
@@ -54,7 +58,7 @@ There are two types of Spin artifacts:
 </dependency>
 ```
 
-#### camunda-spin-dataformat-all
+## camunda-spin-dataformat-all
 
 This artifact contains the XML and JSON dataformats as well as their dependencies. To avoid conflicts with other versions of these dependencies, Spin's dependencies are relocated to different packages. `camunda-spin-dataformat-all` has the following Maven coordinates:
 
@@ -65,9 +69,10 @@ This artifact contains the XML and JSON dataformats as well as their dependencie
 </dependency>
 ```
 
-### Configuring the Spin Process Engine Plugin
 
-`camunda-engine-plugin-spin` contains a class called `org.camunda.spin.plugin.impl.SpinProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism](ref:/guides/user-guide/#process-engine-process-engine-plugins). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
+# Configuring the Spin Process Engine Plugin
+
+`camunda-engine-plugin-spin` contains a class called `org.camunda.spin.plugin.impl.SpinProcessEnginePlugin` that can be registered with a process engine using the [plugin mechanism]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}). For example, a `bpm-platform.xml` file with the plugin enabled would look as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -92,7 +97,6 @@ This artifact contains the XML and JSON dataformats as well as their dependencie
 </bpm-platform>
 ```
 
-<div class="alert alert-info">
-  <strong>Note:</strong>
-  <p>When using a pre-built distribution of Camunda BPM, the plugin is already pre-configured.</p>
-</div>
+{{< note title="Note:" class="info" >}}
+  When using a pre-built distribution of Camunda BPM, the plugin is already pre-configured.
+{{< /note >}}

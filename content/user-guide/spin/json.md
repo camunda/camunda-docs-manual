@@ -24,9 +24,10 @@ The following provides examples on how Camunda Spin can be used in the process e
 }
 ```
 
-If you want to learn how to use JSON objects inside an embedded form please take a look in the [Embedded Forms Reference](ref:/api-references/embedded-forms/#working-with-json-objects).
+If you want to learn how to use JSON objects inside an embedded form please take a look in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
 
-### Expression Language Integration
+
+# Expression Language Integration
 
 The Spin entry functions can be used wherever the process engine allows expression language. The following BPMN snippet shows a conditional sequence flow expression based on the customer's post code:
 
@@ -40,7 +41,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
-If your variable is already a [JSON variable value](ref:#data-formats-xml-json-other-json-native-json-variable-value) and not a string like in the previous example you can omit the `S(...)` call and directly access the variable:
+If your variable is already a [JSON variable value]({{< relref "#native-json-variable-value" >}}) and not a string like in the previous example you can omit the `S(...)` call and directly access the variable:
 
 ```xml
 ...
@@ -52,7 +53,8 @@ If your variable is already a [JSON variable value](ref:#data-formats-xml-json-o
 ...
 ```
 
-### Scripting Integration
+
+# Scripting Integration
 
 The following example is a script implemented in JavaScript. The script makes use of the Spin API to extract the address object from the customer, add a city name and set it as a process variable:
 
@@ -70,7 +72,8 @@ The following example is a script implemented in JavaScript. The script makes us
 ...
 ```
 
-### Native JSON Variable Value
+
+# Native JSON Variable Value
 
 The native variable value for JSON makes it possible to easily parse a JSON string and wrap it inside an object without the need to have a class representing the JSON. Suppose we want to save the JSON inside a process variable for later use, we could do the following inside a JavaDelegate:
 
@@ -109,7 +112,8 @@ public class AddDataDelegate implements JavaDelegate {
 When retrieving the JSON value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
 Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
 
-### Serializing Process Variables
+
+# Serializing Process Variables
 
 A Java object can be serialized using Spin's built-in JSON data format. Let us assume that there are two java classes, `com.example.Customer` and `com.example.Address`, with the following structure:
 
@@ -170,7 +174,6 @@ customerJson matches:
 */
 ```
 
-<div class="alert alert-info">
-  <strong>Default Serialization Format:</strong>
-  <p>The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property <code>defaultSerializationFormat</code>. To configure default JSON serialization, set this property to <code>application/json</code>. Now, the invocation <code>runtimeService.setVariable(processInstance.getId(), "customer", new Customer())</code> directly serializes the Customer object as JSON without explicit declaration of the format.</p>
-</div>
+{{< note title="Default Serialization Format" class="info" >}}
+  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property ```defaultSerializationFormat```. To configure default JSON serialization, set this property to ```application/json```. Now, the invocation ```runtimeService.setVariable(processInstance.getId(), "customer", new Customer())``` directly serializes the Customer object as JSON without explicit declaration of the format.
+{{< /note >}}
