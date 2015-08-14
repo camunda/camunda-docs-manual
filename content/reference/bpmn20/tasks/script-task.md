@@ -50,7 +50,7 @@ Beside normal script languages you can also use Script Task to evaluate a DMN de
 ```xml
 <scriptTask id="dmnScriptTask" name="Check order" scriptFormat="dmn"
     camunda:resource="org/camunda/bpm/DmnScriptTaskTest.dmn10.xml"
-    camunda:resultVariable="decisionResult" >
+    camunda:resultVariable="decisionResult" />
 ```
 
 {{< /note >}}
