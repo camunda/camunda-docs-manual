@@ -13,7 +13,7 @@
   <meta name="keywords" content="camunda, open source, free, Apache License, Apache 2.0, workflow, BPMN, BPMN 2.0, camunda.org, bpm, BPMS, engine, platform, process, automation, community, documentation" />
   <meta name="author" content="camunda BPM community" />
 
-  <title>{{ .Title }}</title>
+  <title>{{ .Title }} | docs.camunda.org</title>
 
   <meta name="generator" content="Hugo {{.Hugo.Version}}" />
   <link rel="shortcut icon" href="{{.Site.BaseURL}}/img/favicon.ico" type="image/x-icon" />
@@ -22,7 +22,7 @@
 </head>
 <body class="{{ .Params.bodyclass }}">
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
   <div class="navbar-header">
     <div class="navbar-text">
       <button class="site-menu-toggle">
@@ -31,7 +31,10 @@
         <span></span>
       </button>
 
-      <a href="{{.Site.BaseURL}}">docs.camunda.org</a>
+      <a href="{{.Site.BaseURL}}">
+        <span class="icon icon-bpmn-io"></span>
+        <span>docs.camunda.org</span>
+      </a>
     </div>
 
     <ul class="list-inline">

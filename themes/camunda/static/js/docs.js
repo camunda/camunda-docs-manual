@@ -1477,7 +1477,12 @@ function showBigger(evt) {
   var img = evt.target;
   attr(lightboxImg, 'src', img.src);
   var style = lightboxContent.style;
-  style.marginLeft = (-4 - (img.naturalWidth / 2)) + 'px';
+  if (img.naturalWidth < document.body.clientWidth) {
+    style.marginLeft = (-4 - (img.naturalWidth / 2)) + 'px';
+  }
+  else {
+    style.marginLeft = (0 - (document.body.clientWidth / 2)) + 'px';
+  }
   style.marginTop = (-4 - (img.naturalHeight / 2)) + 'px';
   lightbox.classList.add('open');
 }
