@@ -1477,15 +1477,16 @@ function showBigger(evt) {
   var img = evt.target;
   attr(lightboxImg, 'src', img.src);
   var style = lightboxContent.style;
-  style.marginLeft = (0 - (img.naturalWidth / 2)) + 'px';
-  style.marginTop = (0 - (img.naturalHeight / 2)) + 'px';
+  style.marginLeft = (-4 - (img.naturalWidth / 2)) + 'px';
+  style.marginTop = (-4 - (img.naturalHeight / 2)) + 'px';
   lightbox.classList.add('open');
 }
 
 queryAll('.page-content figure.image img').forEach(function (img) {
   if (img.clientWidth < img.naturalWidth) {
-    img.classList.add('clickable');
-    img.addEventListener('click', showBigger);
+    var figure = img.parentNode.parentNode;
+    figure.classList.add('clickable');
+    figure.addEventListener('click', showBigger);
   }
 });
 

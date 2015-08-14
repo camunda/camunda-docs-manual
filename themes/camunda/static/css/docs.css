@@ -6856,38 +6856,34 @@ body {
   top: 0;
   left: 0;
   height: 30px;
-  line-height: 30px;
 }
-/* line 58, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000358}}
+/* line 57, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000357}}
 .site-menu > .meta .header {
   width: 100%;
-  text-align: center;
-  padding-left: 30px;
-  border-bottom: 1px solid draken(#b5152b, 50);
-  cursor: pointer;
+  padding-left: 45px;
 }
-/* line 66, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000366}}
+/* line 62, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000362}}
 .site-menu > .meta .toggle {
   width: 30px;
 }
-/* line 70, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000370}}
+/* line 66, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000366}}
 .site-menu > .meta .content {
   margin-top: 30px;
   min-height: 200px;
 }
-/* line 77, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000377}}
+/* line 73, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000373}}
 .page-content {
   max-width: 650px;
   min-height: 100%;
   margin-bottom: -130px;
   padding-bottom: 130px;
 }
-/* line 84, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000384}}
+/* line 80, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000380}}
 .page-toc {
   display: none;
   position: fixed;
@@ -6895,8 +6891,8 @@ body {
   top: 106px;
   left: 1010px;
 }
-/* line 92, styles/_layout.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000392}}
+/* line 88, styles/_layout.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000388}}
 .page-footer {
   height: 100px;
   margin-top: 30px;
@@ -6905,8 +6901,8 @@ body {
   padding: 15px;
 }
 @media (max-width: 769px) {
-  /* line 102, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003102}}
+  /* line 98, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\0000398}}
   .site-menu {
     width: 240px;
     z-index: 1029;
@@ -6915,18 +6911,18 @@ body {
     -o-transform: translate(-240px, 0);
     transform: translate(-240px, 0);
   }
-  /* line 108, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003108}}
+  /* line 104, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003104}}
   .page-content {
     max-width: none;
   }
-  /* line 112, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003112}}
+  /* line 108, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003108}}
   .page-wrapper {
     padding-left: 15px;
   }
-  /* line 116, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003116}}
+  /* line 112, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003112}}
   body.site-menu-open .site-menu {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
@@ -6935,8 +6931,8 @@ body {
   }
 }
 @media (min-width: 1280px) {
-  /* line 122, styles/_layout.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003122}}
+  /* line 118, styles/_layout.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_layout\.less}line{font-family:\00003118}}
   .page-toc {
     display: block;
   }
@@ -7035,46 +7031,101 @@ body {
 /* line 69, styles/_menu.less */
 @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000369}}
 .site-menu .meta,
-.site-menu > ul > li {
+.site-menu > ul > li > a {
   padding: 10px 15px 10px 30px;
 }
-/* line 74, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000374}}
+/* line 75, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000375}}
 .site-menu .meta {
   background-color: #b5152b;
   color: #fff;
 }
-/* line 80, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000380}}
+/* line 78, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000378}}
+.site-menu .meta > .header {
+  border-bottom: 1px solid #871020;
+  cursor: pointer;
+  margin: 0;
+  font-size: 14px;
+  line-height: 30px;
+  text-transform: uppercase;
+  transition: background-color 0.218s ease;
+}
+/* line 86, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000386}}
+.site-menu .meta > .header:hover {
+  background-color: #9e1226;
+}
+/* line 90, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000390}}
+.site-menu .meta .toggle {
+  background-color: #9e1226;
+  line-height: 30px;
+  text-align: center;
+}
+/* line 94, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000394}}
+.site-menu .meta .toggle:before {
+  margin-left: -2px;
+}
+/* line 98, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000398}}
+.site-menu .meta > .content {
+  margin-left: -15px;
+}
+/* line 104, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003104}}
 .site-menu > ul > li {
   border-bottom: 1px solid #fff;
   display: block;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
 }
-/* line 84, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000384}}
+/* line 112, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003112}}
+.site-menu > ul > li > ul {
+  padding-left: 30px;
+}
+/* line 116, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003116}}
 .site-menu > ul > li > a {
   font-size: 18px;
   color: #b5152b;
   font-family: 'open_sanslight', Helvetica, Arial, Verdana, sans-serif;
   font-weight: normal;
+  width: 100%;
+  position: relative;
+  display: block;
+  transition: background-color 0.218s ease;
 }
-/* line 91, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000391}}
+/* line 124, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003124}}
+.site-menu > ul > li > a:hover {
+  background-color: #fff;
+}
+/* line 130, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003130}}
 .site-menu > ul > li.open > a {
   color: #555555;
 }
-/* line 96, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\0000396}}
+/* line 133, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003133}}
+.site-menu > ul > li.open > ul {
+  margin-bottom: 0.6em;
+}
+/* line 138, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003138}}
 .site-menu > ul > li:last-child {
   border-bottom: none;
 }
-/* line 100, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003100}}
+/* line 142, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003142}}
 .site-menu > ul > li > ul > li {
   padding-left: 1em;
 }
-/* line 105, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003105}}
+/* line 147, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003147}}
 .site-menu .submenu-toggle {
   cursor: pointer;
   position: absolute;
@@ -7086,8 +7137,8 @@ body {
   margin-right: -14px;
   width: 16px;
 }
-/* line 118, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003118}}
+/* line 160, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003160}}
 .site-menu .submenu-toggle:before {
   display: inline-block;
   height: 16px;
@@ -7096,21 +7147,21 @@ body {
   vertical-align: middle;
   content: '+';
 }
-/* line 128, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003128}}
+/* line 170, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003170}}
 .site-menu .submenu-toggle.open:before {
   content: '-';
 }
-/* line 134, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003134}}
+/* line 176, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003176}}
 .site-menu > ul > li > .submenu-toggle {
   line-height: 18px;
   height: 18px;
   top: 10px;
   margin-right: -25px;
 }
-/* line 142, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003142}}
+/* line 184, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003184}}
 .site-menu-toggle {
   display: none;
   background: none;
@@ -7129,8 +7180,8 @@ body {
   -o-transition: background-color 0.218s linear;
   transition: background-color 0.218s linear;
 }
-/* line 158, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003158}}
+/* line 200, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003200}}
 .site-menu-toggle > span {
   display: block;
   height: 2px;
@@ -7140,30 +7191,30 @@ body {
   -o-transition: background-color 0.218s linear;
   transition: background-color 0.218s linear;
 }
-/* line 164, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003164}}
+/* line 206, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003206}}
 .site-menu-toggle > span:first-child {
   margin-top: 3px;
 }
-/* line 168, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003168}}
+/* line 210, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003210}}
 .site-menu-toggle:hover {
   border: 1px solid #eeeeee;
   background-color: #fff;
 }
-/* line 171, styles/_menu.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003171}}
+/* line 213, styles/_menu.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003213}}
 .site-menu-toggle:hover > span {
   background-color: #b5152b;
 }
 @media (max-width: 769px) {
-  /* line 178, styles/_menu.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003178}}
+  /* line 220, styles/_menu.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003220}}
   .site-menu-toggle {
     display: inline-block;
   }
-  /* line 182, styles/_menu.less */
-  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003182}}
+  /* line 224, styles/_menu.less */
+  @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_menu\.less}line{font-family:\00003224}}
   .site-menu {
     background-color: rgba(238, 238, 238, 0.95);
   }
@@ -7437,49 +7488,101 @@ pre[class*="language-"] {
 }
 /* line 46, styles/_content.less */
 @media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000346}}
-.page-content figure.image > img,
+.page-content figure.image img,
 .page-content p > img {
   margin: auto;
   max-width: 100%;
   display: block;
 }
-/* line 54, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000354}}
-.page-content figure.image .clickable {
+/* line 53, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000353}}
+.page-content figure.image {
+  text-align: center;
+}
+/* line 55, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000355}}
+.page-content figure.image > span {
+  max-width: 100%;
+  border: 1px solid #777777;
+  padding: 3px;
+  display: block;
+  margin: auto;
+}
+/* line 64, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000364}}
+.page-content figure.clickable {
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
 }
-/* line 60, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000360}}
+/* line 67, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000367}}
+.page-content figure.clickable:before,
+.page-content figure.clickable:after {
+  display: block;
+  position: absolute;
+}
+/* line 73, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000373}}
+.page-content figure.clickable:before {
+  width: 30px;
+  height: 30px;
+  top: 3px;
+  right: 3px;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e015';
+  z-index: 2;
+  color: #fff;
+}
+/* line 89, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000389}}
+.page-content figure.clickable:after {
+  width: 78px;
+  height: 78px;
+  top: -39px;
+  right: -39px;
+  content: '';
+  z-index: 1;
+  background-color: rgba(85, 85, 85, 0.5);
+  transform: rotateZ(45deg);
+}
+/* line 104, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003104}}
 .page-content .menu-pages {
   border-top: 1px dotted #eeeeee;
   padding-top: 15px;
   margin-top: 15px;
 }
-/* line 66, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000366}}
+/* line 110, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003110}}
 .page-content table {
   font-size: 12px;
 }
-/* line 69, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000369}}
+/* line 113, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003113}}
 .page-content th {
   font-family: 'open_sansbold', Helvetica, Arial, Verdana, sans-serif;
   font-weight: normal;
 }
-/* line 75, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000375}}
+/* line 119, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003119}}
 .content-header {
   position: relative;
 }
-/* line 79, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000379}}
+/* line 123, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003123}}
 .edit-on-github {
   position: absolute;
   top: 3px;
   right: 0;
 }
-/* line 85, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000385}}
+/* line 129, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003129}}
 h1.page-title {
   color: #555555;
   padding-bottom: 10px;
@@ -7487,18 +7590,18 @@ h1.page-title {
   margin-bottom: 15px;
   margin-top: 45px;
 }
-/* line 94, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000394}}
+/* line 138, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003138}}
 dt {
   font-size: 16px;
 }
-/* line 97, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\0000397}}
+/* line 141, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003141}}
 dd {
   margin: 0.5em 0 1em 2em;
 }
-/* line 102, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003102}}
+/* line 146, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003146}}
 .gs-download-step-panel,
 .note,
 figure.image,
@@ -7506,58 +7609,100 @@ pre[class^="language-"],
 pre[class*="language-"] {
   margin: 15px 30px;
 }
-/* line 110, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003110}}
+/* line 154, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003154}}
 .note {
   padding: 6px 12px;
-  border-left: 5px solid #777777;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid #777777;
+  font-size: 13px;
 }
-/* line 114, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003114}}
+/* line 162, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003162}}
+.note:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background-color: #777777;
+  width: 30px;
+  height: 30px;
+  transform: rotateZ(45deg);
+}
+/* line 175, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003175}}
 .note > h3 {
   margin-top: 6px;
   font-size: 16px;
   font-family: 'open_sansregular', Helvetica, Arial, Verdana, sans-serif;
   font-weight: normal;
 }
-/* line 120, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003120}}
+/* line 181, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003181}}
 .note.docs-primary {
-  border-left-color: #b5152b;
+  border-color: #b5152b;
 }
-/* line 123, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003123}}
+/* line 183, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003183}}
+.note.docs-primary:before {
+  background-color: #b5152b;
+}
+/* line 187, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003187}}
 .note.docs-success {
-  border-left-color: #5cb85c;
+  border-color: #5cb85c;
 }
-/* line 126, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003126}}
+/* line 189, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003189}}
+.note.docs-success:before {
+  background-color: #5cb85c;
+}
+/* line 193, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003193}}
 .note.docs-info {
-  border-left-color: #5bc0de;
+  border-color: #5bc0de;
 }
-/* line 129, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003129}}
+/* line 195, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003195}}
+.note.docs-info:before {
+  background-color: #5bc0de;
+}
+/* line 199, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003199}}
 .note.docs-warning {
-  border-left-color: #f0ad4e;
+  border-color: #f0ad4e;
 }
-/* line 132, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003132}}
+/* line 201, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003201}}
+.note.docs-warning:before {
+  background-color: #f0ad4e;
+}
+/* line 205, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003205}}
 .note.docs-danger {
-  border-left-color: #d9534f;
+  border-color: #d9534f;
 }
-/* line 138, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003138}}
+/* line 207, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003207}}
+.note.docs-danger:before {
+  background-color: #d9534f;
+}
+/* line 214, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003214}}
 .gs-download-step-panel {
   border-left: 5px solid #5cb85c;
 }
-/* line 141, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003141}}
+/* line 217, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003217}}
 .gs-download-step-panel .panel-heading h4 {
   margin-top: 0;
   margin-bottom: 20px;
 }
-/* line 146, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003146}}
+/* line 222, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003222}}
 .gs-download-step-panel .panel-body {
   padding-top: 0;
   padding-bottom: 0;
@@ -7565,20 +7710,20 @@ pre[class*="language-"] {
   overflow: hidden;
   transition: max-height 0.218s ease, padding 0.218s ease;
 }
-/* line 154, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003154}}
+/* line 230, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003230}}
 .gs-download-step-panel .toggle-instructions {
   cursor: pointer;
 }
-/* line 158, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003158}}
+/* line 234, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003234}}
 .gs-download-step-panel.open .panel-body {
   padding-top: 15px;
   padding-bottom: 15px;
   max-height: 500px;
 }
-/* line 166, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003166}}
+/* line 242, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003242}}
 .lightbox {
   position: fixed;
   overflow: hidden;
@@ -7589,24 +7734,28 @@ pre[class*="language-"] {
   transition: bottom 0.218s ease;
   background-color: rgba(85, 85, 85, 0.8);
   z-index: 1039;
+  cursor: pointer;
 }
-/* line 177, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003177}}
+/* line 254, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003254}}
 .lightbox .content {
   max-width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
+  border: 1px solid #777777;
+  padding: 3px;
+  background-color: #fff;
 }
-/* line 184, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003184}}
+/* line 264, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003264}}
 .lightbox img {
   display: block;
   max-width: 100%;
   background-color: #fff;
 }
-/* line 190, styles/_content.less */
-@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003190}}
+/* line 270, styles/_content.less */
+@media -sass-debug-info{filename{font-family:file\:\/\/styles\/_content\.less}line{font-family:\00003270}}
 .lightbox.open {
   bottom: 0;
 }
