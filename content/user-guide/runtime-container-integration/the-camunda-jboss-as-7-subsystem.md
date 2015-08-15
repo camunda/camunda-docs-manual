@@ -10,15 +10,13 @@ menu:
 
 ---
 
-<div class="alert alert-info">
-  <p>
-    <strong>Distribution & Installation Guide</strong>
-  </p>
-   <p>If you <a href="http://camunda.org/download/">download a pre-packaged distribution from camunda.org</a>, the Camunda JBoss subsystem is readily installed into the application server</p>
-   <p><a href="ref:/guides/installation-guide/jboss/">Read the installation guide</a> in order to learn how to install the Camunda JBoss subsystem into your JBoss AS 7 / Wildfly 8 Server.</p>
-</div>
+{{< note title="Installation Guide" class="info" >}}
+  If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss subsystem is readily installed into the application server.
 
-Camunda BPM provides advanced integration for JBoss AS 7 / Wildfly 8 in the form of a custom <a href="https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7">JBoss Subsystem</a>.
+  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) in order to learn how to install the Camunda JBoss subsystem into your JBoss AS 7/Wildfly 8 Server.
+{{< /note >}}
+
+Camunda BPM provides advanced integration for JBoss AS 7/Wildfly 8 in the form of a custom [JBoss Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
 
 The most prominent features are:
 
@@ -28,9 +26,10 @@ The most prominent features are:
 * Automatic deployment of BPMN 2.0 processes (through the Process Application API).
 * Use a managed Thread Pool provided by JBoss Threads in combination with the Job Executor.
 
-## Configuring a process engine in standalone.xml / domain.xml
 
-Using the Camunda JBoss Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7 / Wildfly 8 Server:
+# Configure a Process Engine in standalone.xml/domain.xml
+
+Using the Camunda JBoss Subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7/Wildfly 8 Server:
 
     <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
         <process-engines>
@@ -61,11 +60,12 @@ Using the Camunda JBoss Subsystem, it is possible to configure and manage the pr
 
 It should be easy to see that the configuration consists of a single process engine which uses the Datasource `java:jboss/datasources/ProcessEngine` and is configured to be the `default` process engine. In addition, the Job Executor currently uses a single Job Acquisition also named default.
 
-If you start up your JBoss AS 7 / Wildfly 8 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
+If you start up your JBoss AS 7/Wildfly 8 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
 
-## Providing a custom process engine configuration class
 
-It is possible to provide a custom Process Engine Configuration class on JBoss AS 7 / Wildfly 8 Application Server. To this extent, provide the fully qualified classname of the class in the `standalone.xml` file:
+# Provide a Custom Process Engine Configuration Class
+
+It is possible to provide a custom Process Engine Configuration class on JBoss AS 7/Wildfly 8 Application Server. To this extent, provide the fully qualified classname of the class in the `standalone.xml` file:
 
     <process-engine name="default" default="true">
         <datasource>java:jboss/datasources/ProcessEngine</datasource>
@@ -87,22 +87,21 @@ class would provide a method named
       ...
     }
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Module dependency of custom configuration class</strong>
-  </p>
-   <p>If you configure the process engine in <code>standalone.xml</code> and provide a custom configuration class packaged inside an own module, the camunda-jboss-subsystem module needs to have a module dependency on the module providing the class.</p>
-   <p>If you fail to do this, you will see the following error log:</p>
-   <pre class="console">
-Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.bar': the class must be visible from the camunda-jboss-subsystem module.
+{{< note title="Module dependency of custom configuration class" class="warning" >}}
+  If you configure the process engine in ```standalone.xml``` and provide a custom configuration class packaged inside an own module, the camunda-jboss-subsystem module needs to have a module dependency on the module providing the class.
+
+  If you fail to do this, you will see the following error log:
+
+  ```console
+    Caused by: org.camunda.bpm.engine.ProcessEngineException: Could not load 'foo.bar': the class must be visible from the camunda-jboss-subsystem module.
         at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.createProcessEngineConfiguration(MscManagedProcessEngineController.java:187) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
         at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController.startProcessEngine(MscManagedProcessEngineController.java:138) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
         at org.camunda.bpm.container.impl.jboss.service.MscManagedProcessEngineController$3.run(MscManagedProcessEngineController.java:126) [camunda-jboss-subsystem-7.0.0-alpha8.jar:]
-</pre>
+  ```
+{{< /note >}}
 
-</div>
 
-## Extending a process engine using process engine plugins
+# Extend a Process Engine Using Process Engine Plugins
 
 It is possible to extend a process engine using the process engine plugins concept.
 You specify the process engine plugins in `standalone.xml` / `domain.xml` for each process engine separately as shown below:
@@ -131,14 +130,15 @@ You specify the process engine plugins in `standalone.xml` / `domain.xml` for ea
     </subsystem>
 
 You have to provide the fully qualified classname between the `<class>` tags. Additional properties can be specified using the `<properties>` element.
-The restrictions, which apply for [providing a custom process engine configuration class](ref:#runtime-container-integration-the-camunda-jboss-subsystem-providing-a-custom-process-engine-configuration-class), are also valid for the process engine plugins:
+The restrictions, which apply for [providing a custom process engine configuration class]({{< relref "#provide-a-custom-process-engine-configuration-class" >}}), are also valid for the process engine plugins:
 
  * plugin class must be visible in the classpath for the Camunda-subsystem.
  * properties map can be used for invoking primitive valued setters (Integer, String, Boolean) that follow the Java Bean conventions.
 
-## Looking up a Process Engine in JNDI
 
-The Camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService](ref:#runtime-container-integration-jndi-bindings-for-bpm-platform-services) as provided on other containers. In addition, the Camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+# Look Up a Process Engine in JNDI
+
+The Camunda JBoss subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< relref "user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -146,23 +146,22 @@ The global JNDI bindings for process engines follow the pattern
 
 If a process engine is named "engine1", it will be available using the name `java:global/camunda-bpm-platform/process-engine/engine1`.
 
-Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies](ref:#runtime-container-integration-the-camunda-jboss-subsystem-explicit-service-dependencies).
+Note that when looking up the process engine, using a declarative mechanism (like `@Resource` or referencing the resource in a deployment descriptor) is preferred over a programmatic way. The declarative mechanism makes the application server aware of our dependency on the process engine service and allows it to manage that dependency for us. See also: [Managing Service Dependencies]({{< relref "#explicit-service-dependencies" >}}).
 A declarative mechanism like `@Resource` could be
 
     @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Looking up a Process Engine from JNDI using Spring</strong>
-  </p>
-   <p>On JBoss AS 7 / Wildfly 8, spring users should always <a href="ref:#runtime-container-integration-the-camunda-jboss-subsystem-managing-service-dependencies">create a resource-ref for the process engine in web.xml</a> and then lookup the local name in the <code>java:comp/env/</code> namespace. <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa">For an example, see this Quickstart</a>.</p>
-</div>
+{{< note title="Look Up a Process Engine From JNDI Using Spring" class="warning" >}}
+  On JBoss AS 7/Wildfly 8, spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the ```java:comp/env/``` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
+{{< /note >}}
 
-## Managing the process engine through the JBoss Management System
 
-In oder to inspect and change the management model, we can use <a href="https://docs.jboss.org/author/display/AS72/Management+Clients">one of the multiple JBoss Management clients available</a>.
+# Manage the Process Engine Through the JBoss Management System
 
-### Inspecting the configuration
+In oder to inspect and change the management model, we can use [one of the multiple JBoss Management clients available](https://docs.jboss.org/author/display/AS72/Management+Clients).
+
+
+## Inspect the Configuration
 
 It is possible to inspect the configuration using the CLI (Command Line Interface, jboss-cli.bat/sh):
 
@@ -201,7 +200,8 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 }
 </pre>
 
-### Stopping a Process Engine through the JBoss Management System
+
+## Stop the Process Engine Through the JBoss Management System
 
 Once the process engine is registered in the JBoss Management Model, it is possible to control it thorough the management API. For example, you can stop it through the CLI:
 
@@ -213,14 +213,12 @@ Once the process engine is registered in the JBoss Management Model, it is possi
 
 This removes the process engine and all dependent services. This means that if you remove a process engine the application server will stop all deployed applications which use the process engine.
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Declaring Service Dependencies</strong>
-  </p>
-   <p>In order for this to work, but also in order to avoid race conditions at deployment time, it is necessary that each application explicitly declares dependencies on the process engines it is using. <a href="">Learn how to declare dependencies</a></p>
-</div>
+{{< note title="Declaring Service Dependencies" class="warning" >}}
+  In order for this to work, but also in order to avoid race conditions at deployment time, it is necessary that each application explicitly declares dependencies on the process engines it is using.
+{{< /note >}}
 
-### Starting a Process Engine through the JBoss Management System
+
+## Start the Process Engine Through the JBoss Management System
 
 It is also possible to start a new process engine at runtime:
 <pre class="console">
@@ -228,41 +226,42 @@ It is also possible to start a new process engine at runtime:
 {"outcome" => "success"}
 </pre>
 
-One of the nice features of the JBoss AS 7 / Wildfly 8 Management System is that it will
+One of the nice features of the JBoss AS 7/Wildfly 8 Management System is that it will
 
 * persist any changes to the model in the underlying configuration file. This means that if you start a process engine using the command line interface, the configuration will be added to `standalone.xml` / `domain.xml` such that it is available when the server is restarted.
 * distribute the configuration in the cluster and start / stop the process engine on all servers part of the same domain.
 
-### Using the JBoss JConsole Extensions
+
+## Use the JBoss JConsole Extensions
 
 In some cases, you may find it more convenient to use the JBoss JConsole extension for starting a process engine.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/jboss-jconsole.png"></img></center>
+{{< img src="../img/jboss-jconsole.png" title="JConsole" >}}
 
-The JConsole plugin allows you to inspect the management model graphically and build operations using a wizard. In order to start the JBoss JConsole plugin, start the jconsole.bat/sh file provided in the JBoss distribution. <a href="https://docs.jboss.org/author/display/AS72/JMX+subsystem+configuration">More Information in the JBoss Docs</a>.
+The JConsole plugin allows you to inspect the management model graphically and build operations using a wizard. In order to start the JBoss JConsole plugin, start the jconsole.bat/sh file provided in the JBoss distribution. [More Information in the JBoss Docs](https://docs.jboss.org/author/display/AS72/JMX+subsystem+configuration).
 
-## Managing Classpath Dependencies
 
-<div class="alert alert-info">
-  <p>
-    <strong>Implicit module dependencies</strong>
-  </p>
-   <p>Classpath dependencies are automatically managed for you if you use the <a href="ref:#process-applications">Process Application API</a>.</p>
-</div>
+# Manage Classpath Dependencies
+
+{{< note title="Implicit Module Dependencies" class="info" >}}
+   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+{{< /note >}}
 
 When using the Camunda JBoss subsystem, the process engine classes are deployed as jboss module. The module is named
 `org.camunda.bpm.camunda-engine` and is deployed in the folder `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine`.
 
 By default, the Application server will not add this module to the classpath of applications. If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.
 
-### Implicit module dependencies with the Process Application API
 
-When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an <a href="https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments">implicit module dependency</a> because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+## Implicit Module Dependencies with the Process Application API
 
-### Explicit module dependencies
+When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an [implicit module dependency](https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments) because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+
+
+## Explicit Module Dependencies
 
 If an application does not use the process application API but still needs the process engine classes to be added to its classpath, an explicit module dependency is required.
-JBoss AS 7 / Wildfly 8 has <a href="https://docs.jboss.org/author/display/AS72/Class+Loading+in+AS7">different mechanisms for achieving this</a>. The simplest way is to add a manifest entry to the MANIFEST.MF file of the deployment. The following example illustrates how to generate such a dependency using the maven WAR plugin:
+JBoss AS 7/Wildfly 8 has [different mechanisms for achieving this](https://docs.jboss.org/author/display/AS72/Class+Loading+in+AS7). The simplest way is to add a manifest entry to the MANIFEST.MF file of the deployment. The following example illustrates how to generate such a dependency using the maven WAR plugin:
 
     <build>
        ...
@@ -283,26 +282,26 @@ JBoss AS 7 / Wildfly 8 has <a href="https://docs.jboss.org/author/display/AS72/C
 
 As a result, the Application Service will add the process engine module to the classpath of the application.
 
-## Managing Service Dependencies
 
-<div class="alert alert-info">
-  <p>
-    <strong>Implicit service dependencies</strong>
-  </p>
-   <p>Service dependencies are automatically managed for you if you use the <a href="ref:#process-applications">Process Application API</a>.</p>
-</div>
+# Manage Service Dependencies
+
+{{< note title="Implicit Service Dependencies" class="info" >}}
+   Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+{{< /note >}}
 
 The Camunda JBoss subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/jboss-service-dependencies.png"></img></center>
+{{< img src="../img/jboss-service-dependencies.png" title="JBoss Service Dependencies" >}}
 
 There are three applications deployed and two process engine services exist. Application 1 and Application 2 are using Process Engine 1 and Application 3 is using Process Engine 2.
 
-### Implicit Service Dependencies
+
+## Implicit Service Dependencies
 
 When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss Subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
 
-### Explicit Service Dependencies
+
+## Explicit Service Dependencies
 
 If an application does not use the process application API but still needs to interact with a process engine, it is important to declare the dependency on the process engine service explicitly. If we fail to declare the dependency, there is no guarantee that the process engine is available to the application.
 

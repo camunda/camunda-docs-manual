@@ -1,6 +1,7 @@
 ---
 
 title: "Runtime Container Integration"
+layout: "section-list"
 weight: 40
 
 menu:
