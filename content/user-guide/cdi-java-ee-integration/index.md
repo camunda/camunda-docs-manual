@@ -1,6 +1,7 @@
 ---
 
 title: "CDI and Java EE Integration"
+layout: "section-list"
 weight: 60
 
 menu:
@@ -19,11 +20,14 @@ The camunda-engine-cdi module provides programming model integration with CDI (C
  * Works with both Java EE and Java SE, works with Spring,
  * Support for unit testing.
 
-## Maven Dependency
+
+# Maven Dependency
 
 In order to use the camunda-engine-cdi module inside your application, you must include the following Maven dependency:
 
-<%- @partial('camunda-bom.html.eco', @, {}) %>
+{{< note title="" class="info" >}}
+  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+{{< /note >}}
 
 ```xml
 <dependency>
@@ -34,7 +38,6 @@ In order to use the camunda-engine-cdi module inside your application, you must 
 
 Replace 'x' with your Camunda BPM version.
 
-<div class="alert alert-info">
-  There is a <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>project template for Maven</strong></a> called <code>camunda-archetype-ejb-war</code>, which gives you a complete running project including the CDI integration.
-</div>
-
+{{< note title="" class="info" >}}
+  There is a [project template for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) called ```camunda-archetype-ejb-war```, which gives you a complete running project including the CDI integration.
+{{< /note >}}

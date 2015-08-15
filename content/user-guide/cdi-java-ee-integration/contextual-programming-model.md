@@ -12,7 +12,8 @@ menu:
 
 In this section we briefly look at the contextual process execution model used by the camunda-engine-cdi extension. A BPMN business process is typically a long-running interaction, comprised of both user and system tasks. At runtime, a process is split-up into a set of individual units of work, performed by users and/or application logic. In camunda-engine-cdi, a process instance can be associated with a CDI scope, the association representing a unit of work. This is particularly useful, if a unit of work is complex, for instance if the implementation of a UserTask is a complex sequence of different forms and "non-process-scoped" state needs to be kept during this interaction. In the default configuration, process instances are associated with the "broadest" active scope, starting with the conversation and falling back to the request if the conversation context is not active.
 
-### Associating a Conversation with a Process Instance
+
+# Associate a Conversation with a Process Instance
 
 When resolving @BusinessProcessScoped beans, or injecting process variables, we rely on an existing association between an active CDI scope and a process instance. camunda-engine-cdi provides the org.camunda.bpm.engine.cdi.BusinessProcess bean for controlling the association, most prominently:
 
@@ -31,7 +32,8 @@ Note that the BusinessProcess-bean is a @Named bean, which means that the expose
 </f:metadata>
 ```
 
-### Declaratively controlling the Process
+
+# Declaratively Controlling the Process
 
 camunda-engine-cdi allows declaratively starting process instances and completing tasks using annotations. The @org.camunda.bpm.engine.cdi.annotation.StartProcess annotation allows to start a process instance either by "key" or by "name". Note that the process instance is started after the annotated method returns. Example:
 
@@ -55,7 +57,8 @@ public String authorizeBusinessTrip() {
 
 The `@CompleteTask` annotation offers the possibility to end the current conversation. The default behavior is to end the conversation after the call to the engine returns. Ending the conversation can be disabled, as shown in the example above.
 
-### Working with @BusinessProcessScoped beans
+
+# Work with @BusinessProcessScoped Beans
 
 Using camunda-engine-cdi, the lifecycle of a bean can be bound to a process instance. To this extent, a custom context implementation is provided, namely the BusinessProcessContext. Instances of BusinessProcessScoped beans are stored as process variables in the current process instance. BusinessProcessScoped beans need to be PassivationCapable (for example Serializable). The following is an example of a process scoped bean:
 

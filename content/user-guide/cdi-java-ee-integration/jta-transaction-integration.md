@@ -11,7 +11,7 @@ menu:
 ---
 
 The process engine transaction management can integrate with JTA. In order to use JTA transaction
-manager integration, you need to use the 
+manager integration, you need to use the
 
 * `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` for JTA Integration only
 * `org.camunda.bpm.engine.cdi.CdiJtaProcessEngineConfiguration` for additional CDI Expression
@@ -26,7 +26,4 @@ manager integration, you need to use the
 > implementation. Most notably, IBM WebSphere and Oracle WebLogic historically did not provide this
 > implementation. In order to achieve JTA Transaction Integration on these containers, users should
 > use the Spring Framework Abstraction and configure the process engine using the
-> [SpringProcessEngineConfiguration][tx-spring].
-
-[tx-spring]: ref:#spring-framework-integration-spring-transaction-integration
-
+> [SpringProcessEngineConfiguration]({{< relref "user-guide/spring-framework-integration/index.md">}}).

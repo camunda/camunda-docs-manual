@@ -36,7 +36,8 @@ In order to reference process variables using EL, we have similar options:
 * `@Named @BusinessProcessScoped` beans can be referenced directly,
 * other process variables can be referenced using the ProcessVariables-bean: `#{processVariables['accountNumber']}`
 
-### Injecting a process engine based on contextual data
+
+# Inject a Process Engine Based on Contextual Data
 
 While a specific process engine can be accessed by adding the qualifier `@ProcessEngineName('name')` to the injection point, this requires that it is known which process engine is used at design time. A more flexible approach is to resolve the process engine at runtime based on contextual information such as the logged in user. In this case, `@Inject` can be used without a `@ProcessEngineName` annotation.
 
