@@ -1,6 +1,6 @@
 ---
 
-title: 'Creating a model'
+title: 'Create a Model'
 weight: 20
 
 menu:
@@ -10,13 +10,14 @@ menu:
 
 ---
 
-To create a new BPMN model from scratch you have to create a empty BPMN model instance with the following method.
+
+To create a new BPMN model from scratch you have to create an empty BPMN model instance with the following method:
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createEmptyModel();
 ```
 
-The next step is to create a BPMN definitions element, set the target namespace on it and add it
+The next step is to create a BPMN definitions element. Set the target namespace on it and add it
 to the newly created empty model instance.
 
 ```java
@@ -25,7 +26,7 @@ definitions.setTargetNamespace("http://camunda.org/examples");
 modelInstance.setDefinitions(definitions);
 ```
 
-After that you usually want to add a process to your model. This follows
+Usually you want to add a process to your model. This follows
 the same 3 steps as the creation of the BPMN definitions element:
 
 1. create a new instance of the BPMN element
@@ -66,7 +67,7 @@ public SequenceFlow createSequenceFlow(Process process, FlowNode from, FlowNode 
 }
 ```
 
-After you created your process you can validate the model against the BPMN 2.0 specification and convert it to
+Validate the model against the BPMN 2.0 specification and convert it to
 a XML string or save it to a file or stream.
 
 ```java
@@ -85,12 +86,12 @@ File file = new File(...);
 Bpmn.writeModelToFile(file, modelInstance);
 ```
 
-### Example 1: Create a simple process with one user task
+# Example 1: Create a Simple Process with one User Task
 
 With the basic helper methods from above it is very easy and straightforward to create simple processes. First create a
 process with a start event, user task and a end event.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/bpmn-model-api-simple-process.png" /></center>
+{{< img src="../img/bpmn-model-api-simple-process.png" title="Single User Task Example" >}}
 
 The following code creates this process using the helper methods from above (without the DI elements).
 
@@ -120,11 +121,12 @@ File file = File.createTempFile("bpmn-model-api-", ".bpmn");
 Bpmn.writeModelToFile(file, modelInstance);
 ```
 
-### Example 2: Create a simple process with two parallel tasks
 
-Even complexer processes can be created with a few lines of code with the standard BPMN model API.
+# Example 2: Create a Simple Process with two Parallel Tasks
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/bpmn-model-api-parallel-gateway.png" /></center>
+Even more complex processes can be created with a few lines of code with the standard BPMN model API.
+
+{{< img src="../img/bpmn-model-api-parallel-gateway.png" title="Parallel Task Example" >}}
 
 ```java
 // create an empty model

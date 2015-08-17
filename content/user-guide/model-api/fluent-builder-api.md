@@ -1,6 +1,6 @@
 ---
 
-title: 'Fluent builder API'
+title: 'Fluent Builder API'
 weight: 40
 
 menu:
@@ -11,7 +11,7 @@ menu:
 ---
 
 To create simple BPMN processes we provide a fluent builder API. With this API you can easily create basic
-processes in a few lines of code. In the [generate process fluent api][1] quickstart we demonstrate how to
+processes in a few lines of code. In the [generate process fluent api](https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api) quickstart we demonstrate how to
 create a rather complex process with 5 tasks and 2 gateways within less than 50 lines of code.
 
 The fluent builder API is not nearly complete but provides you with the following basic elements:
@@ -26,7 +26,8 @@ The fluent builder API is not nearly complete but provides you with the followin
 * end event
 * subprocess
 
-## Create a process with the fluent builder API
+
+# Create a Process with the Fluent Builder API
 
 To create a empty model instance with a new process the method `Bpmn.createProcess()` is used. After this
 you can add as many tasks and gateways as you like. At the end you must call `done()` to return the generated
@@ -180,7 +181,8 @@ subProcess.builder()
     .endEvent();
 ```
 
-## Extend a process with the fluent builder API
+
+# Extend a Process with the Fluent Builder API
 
 With the fluent builder API you can not only create processes, you can also extend existing processes.
 
@@ -213,5 +215,3 @@ userTask.builder()
   .userTask()
   .connectTo(serviceTask.getId());
 ```
-
-[1]: https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api

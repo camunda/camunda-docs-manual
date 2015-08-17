@@ -1,6 +1,6 @@
 ---
 
-title: 'Reading a model'
+title: 'Read a Model'
 weight: 10
 
 menu:
@@ -9,6 +9,7 @@ menu:
     parent: "user-guide-model-api"
 
 ---
+
 
 If you already created a BPMN model and want to process it by the BPMN model API you can import it with the
 following methods.
@@ -23,7 +24,6 @@ InputStream stream = [...]
 BpmnModelInstance modelInstance = Bpmn.readModelFromStream(stream);
 ```
 
-
 After you imported your model you can search for elements by their id or by the type of elements.
 
 ```java
@@ -34,7 +34,6 @@ StartEvent start = (StartEvent) modelInstance.getModelElementById("start");
 ModelElementType taskType = modelInstance.getModel().getType(Task.class);
 Collection<ModelElementInstance> taskInstances = modelInstance.getModelElementsByType(taskType);
 ```
-
 
 For every element instance you can now read and edit the attribute values. You can do this by either using the provided
 helper methods or the generic XML model API. If you added custom attributes to the BPMN elements you can
@@ -60,7 +59,7 @@ start.setAttributeValue("custom-attribute", "new value");
 start.setAttributeValueNs("custom-attribute", "http://camunda.org/custom", "new value");
 ```
 
-Uou can also access the child elements of an element or references to other elements. For example a sequence flow
+You can also access the child elements of an element or references to other elements. For example a sequence flow
 references a source and a target element while a flow node (like start event, tasks etc.) has child elements
 for incoming and outgoing sequence flows.
 
@@ -116,4 +115,3 @@ public Collection<FlowNode> getFlowingFlowNodes(FlowNode node) {
   return followingFlowNodes;
 }
 ```
-
