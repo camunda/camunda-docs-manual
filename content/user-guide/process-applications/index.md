@@ -21,11 +21,8 @@ Adding a `ProcessApplication` class to your Java Application provides your appli
 Transforming an existing Java Application into a Process Application is easy and non-intrusive. You simply have to add:
 
 * A Process Application class: The Process Application class constitutes the interface between your application and the process engine. There are different base classes you can extend to reflect different environments (e.g. Servlet vs. EJB Container).
-* A processes.xml file to META-INF: The deployment descriptor file allows you to provide a declarative configuration of the deployment(s) that this process application makes to the process engine. It can be empty (see the <a href ="ref:#process-applications-the-processesxml-deployment-descriptor-empty-processesxml">empty processes.xml</a> section) and serve as simple marker file. If it is not present then the engine will start up but auto-deployment will not be performed. 
+* A processes.xml file to META-INF: The deployment descriptor file allows you to provide a declarative configuration of the deployment(s) that this process application makes to the process engine. It can be empty (see the <a href ="ref:#process-applications-the-processesxml-deployment-descriptor-empty-processesxml">empty processes.xml</a> section) and serve as simple marker file. If it is not present then the engine will start up but auto-deployment will not be performed.
 
-<div class="alert alert-info">
-  <p>
-    <strong>Heads-up!</strong>
-    You might want to checkout the <a href="http://camunda.org/get-started"><strong>Getting Started Tutorial</strong></a> first as it explains the creation of a process application step by step or the <a href="ref:#process-applications-maven-project-templates-archetypes"><strong>Project Templates for Maven</strong></a>, which gives you a complete running process application out of the box.
-  </p>
-</div>
+{{< note title="" class="info" >}}
+  You might want to checkout the [Getting Started Tutorial](http://camunda.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}), which gives you a complete running process application out of the box.
+{{< /note >}}
