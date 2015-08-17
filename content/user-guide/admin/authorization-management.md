@@ -161,7 +161,7 @@ First of all, we have to grant the *accounting* group **READ** permission for fi
 
 {{< img src="../img/admin_task_acc_edit.png" title="Edit Access" >}}
 
-Next we go into Cockpit and <a href="ref:#cockpit-process-instance-detail-view-detailed-information-panel">[assign the desired task]({{< relref "user-guide/cockpit/process-instance-detail-view.md#detailed-information-panel" >}})</a> to the *accounting* group.
+Next we go into Cockpit and [assign the desired task]({{< relref "user-guide/cockpit/process-instance-view.md#detailed-information-panel" >}})</a> to the *accounting* group.
 This will automatically create an entry for the task with the task id as resource id in Admin and grant the **READ** and **UPDATE** permissions.
 
 

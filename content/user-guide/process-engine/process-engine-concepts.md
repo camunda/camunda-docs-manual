@@ -83,7 +83,7 @@ Process variables are available to all tasks in a process instance and are autom
 
 It is also possible to [start a process instance using the REST API](ref:/api-references/rest/#process-definition-start-process-instance).
 
-## Starting a Process Instance at Any Set of Activities
+## Start a Process Instance at Any Set of Activities
 
 The `startProcessInstanceByKey` and `startProcessInstanceById` methods start the process instance at their default initial activity, which is typically the single blank start event of the process definition. It is also possible to start anywhere in a process instance by using the *fluent builder* for process instances. The fluent builder can be accessed via the RuntimeService methods `createProcessInstanceByKey` and `createProcessInstanceById`.
 

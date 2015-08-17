@@ -29,7 +29,7 @@ Most Camunda artifacts are pushed to <a href="http://search.maven.org/#browse%7C
 ```
 
 {{< note title="Use the BOM!" class="info" >}}
-Please import the Camunda BOM if you use multiple Camunda projects. The BOM defines versions for all Camunda projects. This way it is ensured that no incompatible versions are imported.
+  Please import the Camunda BOM if you use multiple Camunda projects. The BOM defines versions for all Camunda projects. This way it is ensured that no incompatible versions are imported.
 {{< /note >}}
 
 **Camunda Engine**

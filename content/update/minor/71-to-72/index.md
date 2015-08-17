@@ -32,7 +32,7 @@ Before migrating, decide whether you additionally want to enable Spin/Connect an
 
 [cmmn-ref]: {{< relref "reference/cmmn10/index.md" >}}
 [connect-ref]: {{< relref "user-guide/process-engine/connectors.md" >}}
-[spin-ref]: {{< relref "user-guide/spin/index.md" >}}
+[spin-ref]: {{< relref "user-guide/data-formats/index.md" >}}
 [freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}
 
 {{< note title="No Rolling Upgrades" class="warning" >}}
@@ -52,7 +52,7 @@ The first step consists in updating the database.
 
     * `$DATABASENAME_engine_7.1_to_7.2.sql`
     * `$DATABASENAME_identity_7.1_to_7.2.sql`
- 
+
     The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
@@ -111,7 +111,7 @@ This section describes a change in the engine's default behavior. While the chan
 
 ### Script Variable Storing
 
-As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations. 
+As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g., a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` in your process engines' configurations.
 
 As an alternative, script code can be migrated by replacing all implicit declarations of process variables in scripts with an explicit call to `execution.setVariable('varName', 'value')`.
 
