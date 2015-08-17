@@ -2,16 +2,16 @@
 
 <div class="page-content">
   <div class="container-fluid">
-    <div class="row content-header">
+    <div class="col-xs-12 content-header">
       {{ partial "edit-on-github.html" . }}
       <h1 class="page-title">{{ .Title }}</h1>
     </div>
 
-    <div class="row">
+    <div class="col-xs-12 content-text">
       {{ .Content }}
     </div>
 
-    <div class="row menu-pages">
+    <div class="col-xs-12 menu-pages">
       {{ partial "menu-pages.html" .}}
     </div>
   </div>
