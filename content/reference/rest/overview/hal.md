@@ -11,7 +11,7 @@ menu:
 ---
 
 The REST API provides some resources in an additional media type. The
-[HAL][hal] media type `application/hal+json` describes a format which contains
+[HAL](http://stateless.co/hal_specification.html) media type `application/hal+json` describes a format which contains
 links and information about other resources. This allows us to embed the
 process definition or assignee of a task directly into the response, which in turn
 reduces the number of necessary requests to gather all information about a
@@ -32,10 +32,11 @@ associated resources. A `_links` property contains at least a `self` relational 
 property `_embedded` includes other linked resources in the representing resource. Each
 embedded resource will be structured as a `HAL` resource.
 
-### Example: Resource
+
+# Example: Resource
 
 
-#### Request
+## Request
 
 GET `/task/a-task-id`
 
@@ -44,7 +45,7 @@ Request Header:
 Accept: application/hal+json
 ```
 
-#### Response
+## Response
 
 ```json
 {
@@ -78,9 +79,10 @@ Accept: application/hal+json
 }
 ```
 
-### Example: Collection
 
-#### Request
+# Example: Collection
+
+## Request
 
 GET `/task`
 
@@ -89,7 +91,7 @@ Request Header:
 Accept: application/hal+json
 ```
 
-#### Response
+## Response
 
 ```json
 {
@@ -135,7 +137,8 @@ Accept: application/hal+json
 }
 ```
 
-### Caching of HAL relations
+
+# Caching of HAL relations
 
 During the generation of a HAL response, linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
@@ -187,7 +190,7 @@ case the REST API is embedded into the Camunda Web Application).
 </web-app>
 ```
 
-#### The HalRelationCacheBootstrap Listener
+## The HalRelationCacheBootstrap Listener
 
 To bootstrap the caching, the `HalRelationCacheBootstrap` context listener is
 used:
@@ -226,7 +229,7 @@ as JSON and consists of two properties:
   </tr>
 </table>
 
-#### DefaultHalResourceCache Configuration Options
+## DefaultHalResourceCache Configuration Options
 
 The simple default cache implementation `DefaultHalResourceCache` provides following configuration
 options:
@@ -251,7 +254,7 @@ options:
   </tr>
 </table>
 
-#### List of Resources which support Caching
+## List of Resources which support Caching
 
 * Case Definition: `org.camunda.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition`
 * Group: `org.camunda.bpm.engine.rest.hal.group.HalGroup`
@@ -259,5 +262,3 @@ options:
 * Process Definition: `org.camunda.bpm.engine.rest.hal.processDefinition.HalProcessDefinition`
 * Task: `org.camunda.bpm.engine.rest.hal.task.HalTask`
 * User: `org.camunda.bpm.engine.rest.hal.user.HalUser`
-
-[hal]: http://stateless.co/hal_specification.html

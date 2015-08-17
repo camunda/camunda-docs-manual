@@ -37,8 +37,7 @@ Note that HTTP Basic Authentication *does not provide encryption* and should be 
 
 The authentication provider is exchangeable. You can implement the interface `org.camunda.bpm.engine.rest.security.auth.AuthenticationProvider` to provide another authentication method and change the filter's initialization parameter accordingly.
 
-RESTEasy Specifics
-------------------
+# RESTEasy Specifics
 
 The authentication filter works fine whenever the JAX-RS application containing the REST API is deployed as a servlet. This is not necessarily the case. One such case we are aware of is with some types of RESTEasy deployments:
 
