@@ -307,6 +307,38 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
+## camunda:repetitionCriterion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      A repetition criterion is used as an entry criterion for repetitions of a task.
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      The <code>repetitionCriterion</code> can be used when a repetition rule is present.
+    </td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <th>Parent elements</th>
+    <td colspan="2">
+      <a href="../../markers/repetition-rule">
+        repetitionRule</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child elements</th>
+    <td colspan="2">
+      &ndash;
+    </td>
+  </tr>
+</table>
+
 ## camunda:script
 
 <table class="table table-striped">
