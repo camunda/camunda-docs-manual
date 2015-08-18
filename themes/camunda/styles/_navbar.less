@@ -1,0 +1,149 @@
+.navbar-fixed-top {
+  padding: 0 (@grid-gutter-width * 0.5);
+  background-color: @brand-primary;
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+}
+
+.navbar-text {
+  float: left;
+  margin: 0 0 0 -7px;
+
+  a {
+    line-height: @navbar-height;
+    font-size: 28px;
+    text-decoration: none;
+  }
+
+  .icon:before {
+    margin: 0;
+  }
+
+  @media (max-width: @site-menu-breakpoint) {
+    a {
+      font-size: 18px;
+    }
+  }
+}
+
+
+.site-menu-toggle {
+  display: none;
+  background: none;
+  position: relative;
+  top: 2px;
+
+  width: 26px;
+  padding: 2px 5px;
+
+  border: 1px solid transparent;
+
+  transition: border-color 0.218s linear,
+              background-color 0.218s linear;
+
+  > span {
+    display: block;
+    height: 2px;
+    margin-bottom: 3px;
+    background: #fff;
+    transition: background-color 0.218s linear;
+
+    &:first-child {
+      margin-top: 3px;
+    }
+  }
+  &:hover {
+    border: 1px solid @gray-lighter;
+    background-color: #fff;
+    > span {
+      background-color: @brand-primary;
+    }
+  }
+
+  @media (max-width: @site-menu-breakpoint) {
+    display: inline-block;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+
+
+.site-menu .main-menu {
+  display: none;
+}
+.navbar .main-menu {
+  display: block;
+  .list-inline;
+  margin-bottom: 0;
+  float: right;
+  font-size: 16px;
+
+  a {
+    height: @navbar-height;
+    line-height: @navbar-height;
+    display: inline-block;
+    font-weight: 100;
+  }
+
+  li {
+    padding: 0 (@grid-gutter-width * .5);
+    float: left;
+    border-right: 1px solid mix(@gray-lighter, @brand-primary);
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+}
+
+@media (max-width: @site-menu-breakpoint) {
+  .navbar .main-menu {
+    border-top: 1px solid mix(@gray-lighter, @brand-primary);
+    display: table;
+    width: ~"calc(100% + @{grid-gutter-width})";
+    margin-left: 0 - (@grid-gutter-width * 0.5);
+    margin-right: 0 - (@grid-gutter-width * 0.5);
+    background-color: mix(@gray, @brand-primary);
+
+    li {
+      height: 30px;
+      padding: 2px 5px;
+
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      float: none;
+      width: 33%;
+
+      &:first-child {
+        // text-align: left;
+        padding-left: (@grid-gutter-width * 0.5);
+      }
+      &:last-child {
+        // text-align: right;
+        padding-right: (@grid-gutter-width * 0.5);
+      }
+    }
+
+    a {
+      height: auto;
+      line-height: 100%;
+    }
+  }
+}
+// @media (max-width: @site-menu-breakpoint) {
+//   .site-menu .main-menu {
+//     display: block;
+//   }
+//   .navbar .main-menu {
+//     display: none;
+//   }
+// }

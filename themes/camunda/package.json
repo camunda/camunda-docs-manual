@@ -1,0 +1,37 @@
+{
+  "proivate": true,
+  "name": "camunda-docs-styles",
+  "version": "0.0.1",
+  "description": "Styling for http://docs.camunda.org/.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camunda/docs.camunda.org.git"
+  },
+  "keywords": [
+    "camunda"
+  ],
+  "author": "Valentin Vago <zeropaper@irata.ch>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camunda/camunda-hugo-theme/issues"
+  },
+  "homepage": "https://github.com/camunda/camunda-hugo-theme",
+  "setup": {
+    "target": "./../docs.camunda.org/themes/camunda"
+  },
+  "devDependencies": {
+    "camunda-commons-ui": "camunda/camunda-commons-ui#9a1aed5b77176b1d4c3438a6dce4dc434c1b6b72",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.2.0",
+    "prismjs": "0.0.1"
+  }
+}
