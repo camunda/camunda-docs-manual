@@ -1474,7 +1474,7 @@ attr(lightboxContent, 'class', 'content');
 document.body.appendChild(lightbox);
 
 function showBigger(evt) {
-  var img = evt.target;
+  var img = evt.target.src ? evt.target : query('img', evt.target);
   attr(lightboxImg, 'src', img.src);
   var style = lightboxContent.style;
   if (img.naturalWidth < document.body.clientWidth) {
