@@ -10,10 +10,10 @@ menu:
 
 ---
 
-camunda BPM supports template engines which are implemented as script engines compatible with
+Camunda BPM supports template engines which are implemented as script engines compatible with
 JSR-223. As a result, templates can be used everywhere where scripts can be used.
 
-In community distributions of camunda BPM, the following template engines are provided out of the
+In community distributions of Camunda BPM, the following template engines are provided out of the
 box:
 
 * [FreeMarker][freemarker]
@@ -29,9 +29,10 @@ Additionally, the following template engines are supported as enterprise extensi
 
 * XSLT
 
-# Installing a Template Engine
 
-## Installing a Template Engine for an Embedded Process Engine
+# Install a Template Engine
+
+## Install a Template Engine for an Embedded Process Engine
 
 A template engine must be installed in the same way as a script engine. This means that the template
 engine must be added to the process engine classpath.
@@ -40,7 +41,9 @@ When using an embedded process engine, the template engine libraries must be add
 application deployment. When using the process engine in a maven `war` project, the template engine
 dependencies must be added as dependencies to the maven `pom.xml` file:
 
-<%- @partial('camunda-bom.html.eco', @, {}) %>
+{{< note title="" class="info" >}}
+  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+{{< /note >}}
 
 ```xml
 <dependencies>
@@ -61,19 +64,22 @@ dependencies must be added as dependencies to the maven `pom.xml` file:
 ```
 
 
-## Installing a Template Engine for a Shared Process Engine
+## Install a Template Engine for a Shared Process Engine
 
 When using a shared process engine, the template engine must be added to the shared process engine
 classpath. The procedure for achieving this depends on the application server. In Apache Tomcat, the
 libraries have to be added to the shared `lib/` folder.
 
-> *Note:* [FreeMarker][freemarker] is pre-installed in the camunda pre-packaged distribution.
+{{< note title="" class="info" >}}
+  [FreeMarker][freemarker] is pre-installed in the Camunda pre-packaged distribution.
+{{< /note >}}
 
-# Using a Template Engine
+
+# Use a Template Engine
 
 If the template engine library is in the classpath, you can use templates everywhere in the BPMN
 process where you can [use scripts][use-scripts], for example as a script task or inputOutput mapping.
-The FreeMarker template engine is part of the camunda BPM distribution.
+The FreeMarker template engine is part of the Camunda BPM distribution.
 
 Inside the template, all process variables of the BPMN element scope are available. The
 template can also be loaded from an external resource as described in the [script source
@@ -87,10 +93,10 @@ The following example shows a FreeMarker template, of which the result is saved 
   <script>
     Dear ${customer},
 
-    thank you for working with camunda BPM ${version}.
+    thank you for working with Camunda BPM ${version}.
 
     Greetings,
-    camunda Developers
+    Camunda Developers
   </script>
 </scriptTask>
 ```
@@ -117,27 +123,32 @@ payload of a `camunda:connector`.
 </bpmn2:serviceTask>
 ```
 
-# Using XSLT as Template Engine
+
+# Use XSLT as Template Engine
 
 <div class="alert alert-warning">
   <p><strong>Enterprise Feature</strong></p>
-  Please note that this feature is only included in the enterprise edition of the camunda BPM platform, it is not available in the community edition.
-  <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
+  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">Camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
 </div>
 
-## Installing the XSLT Template Engine
+
+## Install the XSLT Template Engine
 
 The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](ref:/enterprise/#downloads-enterprise-extensions).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 
-## Using XSLT Template Engine with an embedded process engine
+
+## Use XSLT Template Engine with an embedded process engine
 
 When using an embedded process engine, the XSLT template engine library must be added to the
 application deployment. When using the process engine in a maven `war` project, the template engine
 dependency must be added as dependencies to the maven `pom.xml` file:
 
-<%- @partial('camunda-bom.html.eco', @, {}) %>
+{{< note title="" class="info" >}}
+  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+{{< /note >}}
 
 ```xml
 <dependencies>
@@ -151,7 +162,7 @@ dependency must be added as dependencies to the maven `pom.xml` file:
 </dependencies>
 ```
 
-## Using XSLT Templates
+## Use XSLT Templates
 
 The following is an example of a BPMN ScriptTask used to execute a XSLT Template:
 
@@ -169,6 +180,7 @@ The following is an example of a BPMN ScriptTask used to execute a XSLT Template
 
 </bpmn2:scriptTask>
 ```
+
 As shown in the example above, the XSL source file can be referenced using the `camunda:resource`
 attribute. It may be loaded from the classpath or the deployment (database) in the same way as
 described for [script tasks][script-source].
@@ -179,13 +191,13 @@ attribute.
 Finally, the input of the transformation must be mapped using the special variable `camunda_source`
 using a `<camunda:inputParameter ... />` mapping.
 
-A [full example of the XSLT Template Engine][xslt-example] in camunda BPM can be found in the
+A [full example of the XSLT Template Engine][xslt-example] in Camunda BPM can be found in the
 examples repository..
+
 
 [freemarker]: http://freemarker.org/
 [velocity]: http://velocity.apache.org/
 [camunda-template-engines]: https://github.com/camunda/camunda-template-engines-jsr223
-[use-scripts]: ref:#process-engine-scripting
-[script-source]: ref:#process-engine-scripting-script-source
+[use-scripts]: {{< relref "user-guide/process-engine/scripting.md" >}}
+[script-source]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [xslt-example]: https://github.com/camunda/camunda-bpm-examples/tree/master/scripttask/xslt-scripttask
-

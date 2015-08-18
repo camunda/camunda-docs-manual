@@ -10,17 +10,19 @@ menu:
 
 ---
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries](ref:#process-engine-transactions-in-processes)) is approached. Job processing can therefore be separated into three phases:
 
-* [Job Creation](ref:#process-engine-the-job-executor-job-creation)
-* [Job Acquisition](ref:#process-engine-the-job-executor-job-acquisition)
-* [Job Execution](ref:#process-engine-the-job-executor-job-execution)
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
+
+* [Job Creation]({{< relref "#job-creation" >}})
+* [Job Acquisition]({{< relref "#job-acquisition" >}})
+* [Job Execution]({{< relref "#job-execution" >}})
 
 While jobs are created during process execution, job acquisition and execution are the job executor's responsibility. The following diagram illustrates these two steps:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-basic-architecture.png"/></center>
+{{< img src="../img/job-executor-basic-architecture.png" title="Basic Architecture" >}}
 
-## Job Executor Activation
+
+# Job Executor Activation
 
 By default, the Job Executor is activated when the process engine boots. For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (`ManagementService.createJobQuery`) and execute jobs (`ManagementService.executeJob`) *by hand*, which allows to control job execution from within a unit test. To avoid interference with the job executor, it can be switched off.
 
@@ -32,17 +34,19 @@ Specify
 
 in the process engine configuration when you don't want the JobExecutor to be activated upon booting the process engine.
 
-## Job Creation
+
+# Job Creation
 
 Jobs are created for a range of purposes by the process engine:
 
-* Asynchronous continuation to set [transaction boundaries](ref:#process-engine-transactions-in-processes) in the process
+* Asynchronous continuation to set [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) in the process
 * Timer jobs for BPMN timer events
 * Asynchronous handling of BPMN events
 
 During creation, jobs can receive a priority for acquisition and execution.
 
-### Job Prioritization
+
+## Job Prioritization
 
 In practice, the amount of jobs processed is seldom spread evenly across the day. Instead there are peaks of high load, for example when batch operations are run overnight. In such a situation, the job executor can be temporarily overloaded: the database contains much more jobs than the job executor can handle at a time. *Job Prioritization* can help cope with these situations in a well-defined matter by defining an order of importance and enabling execution by that order.
 
@@ -54,40 +58,44 @@ In general, there are two types of use cases that can be tackled with job priori
 * **Prioritization as a Response to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
   * A service task accesses a web service to process a payment. The payment service encounters an overload and responds very slowly. To avoid occupying all the job executor's resources with waiting for the service to respond, the respective jobs' priorities can be temporarily reduced. This way, unrelated process instances and jobs are not slowed down. After the service recovers, the overriding priority can be cleared again.
 
-### The Job Priority
+
+## The Job Priority
 
 A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future.
 
 Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities.
 
-<div class="alert alert-info">
-  <p>A note on <b>Job Starvation:</b></p>
-  <p>In scheduling scenarios, starvation is a typical concern. When high priority jobs are continuously created, it may happen that low priority jobs are never acquired. The process engine has no countermeasure in place to cope with such a situation when using priorities. This is for two reasons: Performance and resource utilization.</p>
-  <p>Performance-wise, acquiring jobs strictly by priority enables the job executor to use indexes for ordering. Solutions like <a href="https://en.wikipedia.org/wiki/Aging_%28scheduling%29">aging</a> that dynamically boost priorities of starving jobs cannot be easily supplemented with an index.</p>
-  <p>In addition, in an environment where the job executor can never catch up to execute all jobs in the job table such that low priority jobs are not executed in a reasonable amount of time, there may be a general issue with overloaded resources. In this case, a solution could be adding additional job executor resources such as adding a new node to a cluster.</p>
-</div>
+{{< note title="A note on Job Starvation" class="info" >}}
+  In scheduling scenarios, starvation is a typical concern. When high priority jobs are continuously created, it may happen that low priority jobs are never acquired. The process engine has no countermeasure in place to cope with such a situation when using priorities. This is for two reasons: Performance and resource utilization.
+  Performance-wise, acquiring jobs strictly by priority enables the job executor to use indexes for ordering. Solutions like [aging](https://en.wikipedia.org/wiki/Aging_%28scheduling%29) that dynamically boost priorities of starving jobs cannot be easily supplemented with an index.
+  In addition, in an environment where the job executor can never catch up to execute all jobs in the job table such that low priority jobs are not executed in a reasonable amount of time, there may be a general issue with overloaded resources. In this case, a solution could be adding additional job executor resources such as adding a new node to a cluster.
+{{< /note >}}
 
-### Configuring the Process Engine for Job Priorities
+
+## Configure the Process Engine for Job Priorities
 
 This section explains how to enable and disable job priorities in the configuration. There are two relevant configuration properties which can be set on the process engine configuration:
 
 `producePrioritizedJobs`: Controls whether the process engine assigns priorities to jobs. The default value is `true`. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of `0`.
-For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities](ref:#process-engine-the-job-executor-specifying-job-priorities).
+For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities]({{< relref "#specify-job-priorities" >}}).
 
-`jobExecutorAcquireByPriority`: Controls whether jobs are acquired according to their priority. The default value is `false` which means that it needs to be explicitly enabled. Hint: when enabling this, additional database indexes should be created as well: See the section [The Order of Job Acquisition](ref:#process-engine-the-job-executor-the-job-order-of-job-acquisition) for details.
+`jobExecutorAcquireByPriority`: Controls whether jobs are acquired according to their priority. The default value is `false` which means that it needs to be explicitly enabled. Hint: when enabling this, additional database indexes should be created as well: See the section [The Order of Job Acquisition]({{< relref "#the-job-order-of-job-acquisition" >}}) for details.
 
-### Specifying Job Priorities
+
+## Specify Job Priorities
 
 Job priorities can be specified in the BPMN model as well as overridden at runtime via API.
 
-#### Specifying Priorities in BPMN XML
+
+### Priorities in BPMN XML
 
 Job Priorities can be assigned at the process or the activity level. To achieve this the camunda extension attribute `camunda:jobPriority` can be used.
 
-For specifying the priority, both constant values and [expressions](ref:#process-engine-expression-language) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
+For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
 The concreate value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
-##### Specifying Priorities at the Process Level
+
+#### Priorities at the Process Level
 
 When configuring job priorities at the process instance level, the `camunda:jobPriority` attribute needs to be applied to the bpmn `<process ...>` element:
 
@@ -98,7 +106,7 @@ When configuring job priorities at the process instance level, the `camunda:jobP
 ```
 
 The effect is that all activities inside the process inherit the same priority (unless it is overridden locally).
-See also: [Job Priority Precedence Schema](ref:#job-priority-precedence-schema).
+See also: [Job Priority Precedence Schema]({{< relref "#job-priority-precedence-schema" >}}).
 
 The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process. If different process instances need to be executed with different priorities, an expression can be used:
 
@@ -110,7 +118,8 @@ The above example shows how a constant value can be used for setting the priorit
 
 In the above example the priority is determined based on the property `priority` of the variable `order`.
 
-##### Specifying Priorities at the Activity Level
+
+#### Priorities at the Activity Level
 
 When configuring job priorities at the activity level, the `camunda:jobPriority` attribute needs to be applied
 to the corresponding bpmn element:
@@ -123,7 +132,7 @@ to the corresponding bpmn element:
 ```
 
 The effect is that the priority is applied to all instances of the given service task.
-The priority overrides a process level priority. See also: [Job Priority Precedence Schema](ref:#job-priority-precedence-schema).
+The priority overrides a process level priority. See also: [Job Priority Precedence Schema]({{< relref "#job-priority-precedence-schema" >}}).
 
 When using a constant value, as shown in the above example, the same priority is applied to all instances of the service task. It is also possible to use an expression:
 
@@ -136,10 +145,11 @@ When using a constant value, as shown in the above example, the same priority is
 
 In the above example the priority is determied baed on the property `status` of the current customer.
 
-##### Resolution Context of Priority Expressions
+
+#### Resolution Context of Priority Expressions
 
 This section explains which context variables and functions are available when evaluating priority expressions.
-For some general documentation on this, see the corresponding [documentation section](ref:#process-engine-expression-language-variables-and-functions-available-inside-expression-language).
+For some general documentation on this, see the corresponding [documentation section]({{< relref "user-guide/process-engine/expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
 
 All priority expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 
@@ -149,17 +159,20 @@ Examples:
 * Timer Start Event
 * Asynchronous Signal Start Event
 
-##### Priority Propagation to Called Process Instances
+
+#### Priority Propagation to Called Process Instances
 
 When starting a process instance via a call activity, you sometimes want the process instance to "inherit" the priority of the calling process instance.
 The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process.
-See also [Call Activity Parameters](ref:/api-references/bpmn20/#subprocesses-call-activity-passing-variables) for details on how to pass variables using call activities.
+See also [Call Activity Parameters]({{< relref "reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}) for details on how to pass variables using call activities.
 
-#### Setting Job Definition Priorities via ManagementService API
+
+### Set Job Definition Priorities via ManagementService API
 
 Sometimes job priorities need to be changed at runtime to deal with unforeseen circumstances. For example: consider the service task *Process Payment* of an order process: the service task invokes some external payment service which may be overloaded and thus respond slowly. The job executor is therefore blocked waiting for responses. Other concurrent jobs with the same or lower priorities cannot proceed, although this is desirable in this exceptional situation.
 
-##### Overriding Priority by Job Definition
+
+#### Override Priority by Job Definition
 
 While expressions may help in these cases to a certain extent, it is cumbersome to change process data for all involved process instances and to make sure to restore it when the exceptional condition is over. Thus the ManagementService API allows to temporarily set an overriding priority for a job definition. The following operation can be performed to downgrade the priority for all future jobs of a given job definition:
 
@@ -184,7 +197,8 @@ managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId()
 
 Note that this will not lead to preemption of jobs that are currently executed.
 
-##### Resetting Priority by Job Definition
+
+#### Reset Priority by Job Definition
 
 When the service has recovered from the overload situation, overriding priority can be cleared again as follows:
 
@@ -194,21 +208,25 @@ managementService.clearOverridingJobPriorityForJobDefinition(jobDefinition.getId
 
 From now on, all new jobs receive the priorities specified in the BPMN XML again.
 
-#### Job Priority Precedence Schema
+
+### Job Priority Precedence Schema
 
 The following diagram sums up the precedence of priority sources when a job's priority is determined:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-priority-precedence.png"/></center>
+{{< img src="../img/job-executor-priority-precedence.png" title="^Priority Precedence" >}}
 
-#### Setting Job Priorities via ManagementService API
+
+### Set Job Priorities via ManagementService API
 
 The ManagementService also offers a method to change a single job's priority via `ManagementService#setJobPriority(String jobId, int priority)`.
 
-## Job Acquisition
+
+# Job Acquisition
 
 Job acquisition is the process of retrieving jobs from the database that are to be executed next. Therefore jobs must be persisted to the database together with properties determining whether a job can be executed. For example, a job created for a timer event may not be executed before the defined time span has passed.
 
-### Persistence
+
+## Persistence
 
 Jobs are persisted to the database, in the `ACT_RU_JOB` table. This database table has the following columns (among others):
 
@@ -218,7 +236,8 @@ ID_ | REV_ | LOCK_EXP_TIME_ | LOCK_OWNER_ | RETRIES_ | DUEDATE_
 
 Job acquisition is concerned with polling this database table and locking jobs.
 
-### Acquirable Jobs
+
+## Acquirable Jobs
 
 A job is acquirable, i.e. a candidate for execution, if it fulfills all following conditions:
 
@@ -228,7 +247,8 @@ A job is acquirable, i.e. a candidate for execution, if it fulfills all followin
 
 In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
 
-### The two Phases of Job Acquisition
+
+## The Two Phases of Job Acquisition
 
 Job acquisition has two phases. In the first phase the job executor queries for a configurable amount of acquirable jobs. If at least one job can be found, it enters the second phase, locking the jobs. Locking is necessary in order to ensure that jobs are executed exactly once. In a clustered scenario, it is accustom to operate multiple job executor instances (one for each node) that all poll the same ACT&#95;RU&#95;JOB table. Locking a job ensures that it is only acquired by a single job executor instance. Locking a job means updating its values in the LOCK&#95;EXP&#95;TIME&#95; and LOCK&#95;OWNER&#95; columns. The LOCK&#95;EXP&#95;TIME&#95; column is updated with a timestamp signifying a date that lies in the future. The intuition behind this is that we want to lock the job until that date is reached. The LOCK&#95;OWNER&#95; column is updated with a value uniquely identifying the current job executor instance. In a clustered scenario this could be a node name uniquely identifying the current cluster node.
 
@@ -236,7 +256,8 @@ The situation where multiple job executor instances attempt to lock the same job
 
 After having locked a job, the job executor instance has effectively reserved a time slot for executing the job: once the date written to the LOCK&#95;EXP&#95;TIME&#95; column is reached it will be visible to job acquisition again. In order to execute the acquired jobs, they are passed to the acquired jobs queue.
 
-### The Job Order of Job Acquisition
+
+## The Job Order of Job Acquisition
 
 By default the job executor does not impose an order in which acquirable
 jobs are acquired. This means that the job acquisition order depends on the
@@ -246,7 +267,7 @@ simple and fast.
 
 This method of acquiring jobs is not sufficient in all cases, such as:
 
-* **Job Prioritization**: When creating [prioritized jobs](#process-engine-the-job-executor-job-prioritization),
+* **Job Prioritization**: When creating [prioritized jobs]({{< relref "#job-prioritization" >}}),
   the job executor must acquire jobs according to the given priorities
 * **Job Starvation**: In a high load scenario, job starvation is theoretically
   possible when new jobs are repeatedly created in a rate higher than the job
@@ -289,12 +310,12 @@ For example:
   jobs and after that asynchronous continuation jobs. And also sort these jobs within the type
   ascending by due date.
 
-<div class="alert alert-warning">
-All of these options are set to <code>false</code> by default and should only be
-activated if required by the use case. The options alter the used job
-acquisition query and may affect its performance. That's why we also advise to
-add an index on the corresponding column(s) of the <code>ACT_RU_JOB</code> table.
-</div>
+{{< note title="" class="warning" >}}
+  All of these options are set to ```false``` by default and should only be
+  activated if required by the use case. The options alter the used job
+  acquisition query and may affect its performance. That's why we also advise to
+  add an index on the corresponding column(s) of the ```ACT_RU_JOB``` table.
+{{< /note >}}
 
 <table class="table table-striped">
   <tr>
@@ -330,15 +351,17 @@ add an index on the corresponding column(s) of the <code>ACT_RU_JOB</code> table
 </table>
 
 
-## Job Execution
 
-### Thread Pool
+# Job Execution
+
+## Thread Pool
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration](ref:#runtime-container-integration) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how this achieved.
 
-### Failed Jobs
+
+## Failed Jobs
 
 Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
@@ -378,15 +401,16 @@ Similarly, the following example defines three retries after 5 seconds each for 
 
 Recap: a retry may be required if there are any failures during the transaction which follows the timer.
 
-<div class="alert alert-info">
-  While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on <a href="ref:#process-engine-the-job-executor-concurrent-job-execution">concurrent job execution</a>). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
-</div>
+{{< note title="" class="info" >}}
+  While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
+{{< /note >}}
 
-## Concurrent Job Execution
+
+# Concurrent Job Execution
 
 The Job Executor makes sure that **jobs from a single process instance are never executed concurrently**. Why is this? Consider the following process definition:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-exclusive-jobs.png"/></center>
+{{< img src="../img/job-executor-exclusive-jobs.png" title="Exclusive Jobs" >}}
 
 We have a parallel gateway followed by three service tasks which all perform an asynchronous continuation. As a result of this, three jobs are added to the database. Once such a job is present in the database it can be processed by the job executor. It acquires the jobs and delegates them to a thread pool of worker threads which actually process the jobs. This means that using an asynchronous continuation, you can distribute the work to this thread pool (and in a clustered scenario even across multiple thread pools in the cluster).
 
@@ -396,7 +420,8 @@ This requires synchronization between the branches of execution. The engine addr
 
 However, while this is a perfectly fine solution from the point of view of persistence and consistency, this might not always be desirable behavior at a higher level, especially if the execution has non-transactional side effects, which will not be rolled back by the failing transaction. For instance, if the *book concert tickets* service does not share the same transaction as the process engine, we might book multiple tickets if we retry the job. That is why jobs of the same process instance are processed *exclusively* by default.
 
-### Exclusive Jobs
+
+## Exclusive Jobs
 
 An exclusive job cannot be performed at the same time as another exclusive job from the same process instance. Consider the process shown in the section above: if the jobs corresponding to the service tasks are treated as exclusive, the job executor will try to avoid that they are not executed in parallel. Instead, it will ensure that whenever it acquires an exclusive job from a certain process instance, it also acquires all other exclusive jobs from the same process instance and delegates them to the same worker thread. This enforces sequential execution of these jobs and in most cases avoids optimistic locking exceptions. However, this behavior is a heuristic, meaning that the job executor can only enforce sequential execution of the jobs that are available during **lookup time**. If a potentially conflicting job is created after that, it may be processed by another job execution thread in parallel.
 
@@ -411,20 +436,21 @@ Is this a good solution? We had some people asking whether it was. Their concern
 * It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used to retry the gateway until the exception resolves.
 * It is actually not a performance issue. Performance is an issue under heavy load. Heavy load means that all worker threads of the job executor are busy all the time. With exclusive jobs the engine will simply distribute the load differently. Exclusive jobs means that jobs from a single process instance are performed by the same thread sequentially. But consider: you have more than one single process instance. Jobs from other process instances are delegated to other threads and executed concurrently. This means that with exclusive jobs the engine will not execute jobs from the same process instance concurrently but it will still execute multiple instances concurrently. From an overall throughput perspective this is desirable in most scenarios as it usually leads to individual instances being done more quickly.
 
-## The Job Executor and Multiple Process Engines
+
+# The Job Executor and Multiple Process Engines
 
 In the case of a single, application-embedded process engine, the job executor setup is the following:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-single-engine.png" /></center>
+{{< img src="../img/job-executor-single-engine.png" title="Single Engine" >}}
 
 There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
 
 In larger deployments however, this quickly leads to a poorly manageable situation. When running camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/job-executor-multiple-engines.png"/></center>
+{{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration](ref:#runtime-container-integration) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -437,19 +463,21 @@ To which job acquisition a process engine is assigned can be specified in the de
 </process-engine>
 ```
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options](ref:#runtime-container-integration).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/index.md" >}}).
 
-## Cluster Setups
+
+# Cluster Setups
 
 When running the camunda platform in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run the camunda BPM platform against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/homogeneous-cluster.png"/></center>
+{{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
 
 In the *heterogeneous* case, this is not given, meaning that some process applications areonly  deployed to a part of the nodes.
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/heterogeneous-cluster.png"/></center>
+{{< img src="../img/heterogeneous-cluster.png" title="Heterogenous Cluster" >}}
 
-### Job Execution in Heterogeneous Clusters
+
+## Job Execution in Heterogeneous Clusters
 
 A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means that jobs created in the context of process application B (so on node 2) may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
 

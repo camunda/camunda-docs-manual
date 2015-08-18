@@ -10,30 +10,36 @@ menu:
 
 ---
 
+
 All persistent entities managed by the process engine (Process Instances, Tasks, ...) have unique
 IDs. These Ids uniquely identify an individual task, process instance etc. When these entities are
 persisted to the database, the ids are used as primary keys in the corresponding database tables.
 
 Out of the box, the process engine provides two Id generator implementations.
 
-### The Database Id Generator
 
-The Database Id Generator  is implemented using a sequence Generator on top of the `ACT_RU_PROPERTY`
+# The Database Id Generator
+
+The Database Id Generator is implemented using a sequence Generator on top of the `ACT_RU_PROPERTY`
 table.
 
 This id generator is good for debugging and testing since it generates human readable ids.
 
-> The Databse Id Generator should *never* be used in production since it cannot handle high levels
-> of concurrency.
+{{< note title="" class="warning" >}}
+  The Databse Id Generator should **never** be used in production since it cannot handle high levels of concurrency.
+{{< /note >}}
 
-### The UUID Generator
 
-The StrongUuidGenerator uses a UUID generator which uses the [Java Uuid Generator (JUG)][1] library
+# The UUID Generator
+
+The StrongUuidGenerator uses a UUID generator which uses the [Java UUID Generator (JUG)][1] library
 internally.
 
-> Always use the StrongUuidGenerator for production setups.
+{{< note title="" class="warning" >}}
+  Always use the StrongUuidGenerator for production setups.
+{{< /note >}}
 
-In the [Camunda BPM Full Distributions](ref:#introduction-download-full-distribution), the
+In the [Camunda BPM Full Distributions][2], the
 StrongUuidGenerator is preconfigured and the default Id Generator used by the process engine.
 
 If you use an embedded process engine configuration and configure the process engine using Spring,
@@ -64,3 +70,4 @@ In addition, you need the following maven dependency:
 ```
 
 [1]: http://wiki.fasterxml.com/JugHome
+[2]: {{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}

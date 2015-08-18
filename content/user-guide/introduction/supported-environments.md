@@ -16,7 +16,7 @@ You can run the camunda BPM platform in every Java-runnable environment. camunda
 Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introduction-supported-environments">supported environments for version 7.0</a> and the <a href="http://docs.camunda.org/7.1/guides/user-guide/#introduction-supported-environments">supported environments for version 7.1</a>  here.
 
 
-## Container / Application Server for runtime components (excluding camunda Cycle)
+# Container/Application Server for Runtime Components (Excluding Camunda Cycle)
 
 *   Apache Tomcat 6 / 7
 *   JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2 / 6.3 / 6.4
@@ -26,12 +26,12 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *	Oracle WebLogic Server 12c (<a href="http://camunda.com/bpm/enterprise/">Enterprise Edition only</a>)
 
 
-## Container for camunda Cycle
+# Container for camunda Cycle
 
 *   Apache Tomcat 7
 
 
-## Databases
+# Databases
 
 *   MySQL 5.1 / 5.5 / 5.6
 *   MariaDB 10.0
@@ -42,20 +42,20 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   H2 1.3
 
 
-## Webbrowser
+# Webbrowser
 
 *   Google Chrome latest
 *   Mozilla Firefox latest
 *   Internet Explorer 9 / 10 / 11
 
 
-## Java
+# Java
 
 *   Java 6 / 7
 *   Java 8 (if supported by your application server / container)
 
 
-## Java Runtime
+# Java Runtime
 
 * Sun / Oracle Hot Spot 6 / 7 / 8
 * IBM® J9 virtual machine (JVM) 6 / 7 / 8
@@ -63,6 +63,6 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 * Oracle JRockit 6 - R28.2.7
 
 
-## Eclipse (for camunda modeler)
+# Eclipse (for Camunda Modeler)
 
 *   Eclipse Indigo / Juno / Kepler

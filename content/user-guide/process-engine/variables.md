@@ -10,21 +10,23 @@ menu:
 
 ---
 
+
 This section describes the concepts of variables in processes. Variables can be used to add data to process runtime state or, more particular, variable scopes. Various API methods that change the state of these entities allow updating of the attached variables. In general, a variable consists of a name and a value. The name is used for identification across process constructs. For example, if one activity sets a variable named *var*, a follow-up activity can access it by using this name. The value of a variable is a Java object.
 
-## Variable Scopes and Variable Visibility
 
-All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section](ref:#process-engine-process-engine-concepts-executions), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
+# Variable Scopes and Variable Visibility
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-3.png" /></center>
+All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section]({{< relref "user-guide/process-engine/process-engine-concepts.md#executions" >}}), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
+
+{{< img src="../img/variables-3.png" title="Variables" >}}
 
 The runtime structure of this process is as follows:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-4.png" /></center>
+{{< img src="../img/variables-4.png" title="Variables" >}}
 
 There is a process instance with two child executions, each of which has created a task. All these five entities are variable scopes and the arrows mark a parent-child relationship. A variable that is defined on a parent scope is accessible in every child scope unless a child scope defines a variable of the same name. The other way around, child variables are not accessible from a parent scope. Variables that are directly attached to the scope in question are called *local* variables. Consider the following assignment of variables to scopes:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-5.png" /></center>
+{{< img src="../img/variables-5.png" title="Variables" >}}
 
 In this case, when working on *Task 1* the variables *worker* and *customer* are accessible. Note that due to the structure of scopes, the variable *worker* can be defined twice, so that *Task 1* accesses a different *worker* variable than *Task 2*. However, both share the variable *customer* which means that if that variable is updated by one of the tasks, this change is also visible to the other.
 
@@ -32,7 +34,7 @@ Both tasks can access two variables each while none of these is a local variable
 
 Now let's say, we set a local variable *customer* on *Task 1*:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-6.png" /></center>
+{{< img src="../img/variables-6.png" title="Variables" >}}
 
 While two variables named *customer* and *worker* can still be accessed from *Task 1*, the *customer* variable on *Execution 1* is hidden, so the accessible *customer* variable is the local variable of *Task 1*.
 
@@ -42,13 +44,13 @@ In general, variables are accessible in the following cases:
 * Delivering messages
 * Task lifecycle transitions, such as completion or resolution
 * Setting/getting variables from outside
-* Setting/getting variables in a [Delegate](ref:#process-engine-delegation-code)
+* Setting/getting variables in a [Delegate]({{< relref "user-guide/process-engine/delegation-code.md" >}})
 * Expressions in the process model
 * Scripts in the process model
 * (Historic) Variable queries
 
 
-## Setting and Retrieving Variables - Overview
+# Set and Retrieve Variables - Overview
 
 To set and retrieve variables, the process engine offers a Java API that allows setting of variables from Java objects and retrieving them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes, when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:
 
@@ -75,13 +77,14 @@ IntegerValue typedDiff = Variables.integerValue(diff);
 execution.setVariable("diff", typedDiff);
 ```
 
-The specifics of this code are described in more detail in the sections on the [Java Object Value API](ref:#process-engine-process-variables-java-object-api) and the [Typed Value API](ref:#process-engine-process-variables-typed-value-api).
+The specifics of this code are described in more detail in the sections on the [Java Object Value API]({{< relref "#java-object-api" >}}) and the [Typed Value API]({{< relref "#typed-value-api" >}}).
 
-## Supported Variable Values
+
+# Supported Variable Values
 
 The process engine supports the following variable value types:
 
-<center><img class="img-responsive" src="ref:asset:/guides/user-guide/assets/img/variables-1.png" /></center>
+{{< img src="../img/variables-1.png" title="Variables" >}}
 
 Depending on the actual value of a variable, a different type is assigned. Out of the available types, there are nine *primitive* value types, meaning that they store values of simple standard JDK classes without additional metadata:
 
@@ -101,9 +104,10 @@ The type `file` can be used to store the contents of a file or input stream alon
 
 The value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
 
-Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin](ref:#data-formats-xml-json-other). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
+Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
 
-### Object Value Serialization
+
+## Object Value Serialization
 
 When an `object` value is passed to the process engine, a *serialization format* can be specified to tell the process engine to store the value in a specific format. Based on this format, the engine looks up a *serializer*. The serializer is able to serialize a Java object to the specified format and deserialize it from a representation in that format. That means, there may be different serializers for different formats and it is possible to implement custom serializers in order to store custom objects in a specific format.
 
@@ -123,18 +127,16 @@ execution.setVariable("someVariable", customerDataValue);
 
  On top of that, the process engine configuration has an option `defaultSerializationFormat` that is used when no specific format is requested. This option defaults to `application/x-java-serialized-object`.
 
-<div class="alert alert-info">
-  <p><strong>Using Custom Objects in Task Forms:</strong></p>
-  <p>Note that the built-in serializer converts objects to byte streams that can only be interpreted with the Java class at hand. When implementing task forms that are based on complex objects, a text-based serialization format should be used since the tasklist cannot interpret these byte streams. See the box <i>Serializing Objects to XML and JSON</i> for details on how to integrate serialization formats like XML and JSON.</p>
-</div>
+{{< note title="Using Custom Objects in Task Forms" class="info" >}}
+  Note that the built-in serializer converts objects to byte streams that can only be interpreted with the Java class at hand. When implementing task forms that are based on complex objects, a text-based serialization format should be used since the tasklist cannot interpret these byte streams. See the box *Serializing Objects to XML and JSON* for details on how to integrate serialization formats like XML and JSON.
+{{< /note >}}
 
-<div class="alert alert-info">
-  <p><strong>Serializing Objects to XML and JSON:</strong></p>
-  <p>The <a href="ref:#data-formats-xml-json-other">camunda Spin plugin</a> provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class.</p>
-  <p>When using a pre-built camunda distribution, camunda Spin is already preconfigured and you can try these formats without further configuration.</p>
-</div>
+{{< note title="Serializing Objects to XML and JSON" class="info" >}}
+  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class.When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
+{{< /note >}}
 
-## Java Object API
+
+# Java Object API
 
 The most convenient way of working with process variables from Java is to use their Java object representation. Wherever the process engine offers variable access, process variables can be accessed in this representation given that for custom objects the engine is aware of the involved classes. For example, the following code sets and retrieves a variable for a given process instance:
 
@@ -158,13 +160,15 @@ com.example.Order retrievedOrder = (com.example.Order) runtimeService.getVariabl
 
 Whenever a variable is set in its Java representation, the process engine automatically determines a suitable value serializer or raises an exception if the provided value cannot be serialized.
 
-## Typed Value API
+
+# Typed Value API
 
 In cases in which it is important to access a variable's serialized representation or in which the engine has to be hinted to serialize a value in a certain format, the typed-value-based API can be used. In comparison to the Java-Object-based API, it wraps a variable value in a so-called *Typed Value*. Such a typed value allows richer representation of variable values.
 
 In order to easily construct typed values, Camunda BPM offers the class `org.camunda.bpm.engine.variable.Variables`. This class contains static methods that allow creation of single typed values as well as creation of a map of typed values in a fluent way.
 
-### Primitive Values
+
+## Primitive Values
 
 The following code sets a single `String` variable by specifying it as a typed value:
 
@@ -178,7 +182,8 @@ String stringValue = retrievedTypedStringValue.getValue(); // equals "a string v
 
 Note that with this API, there is one more level of abstraction around the variable value. Thus, in order to access the true value, it is necessary to *unwrap* the actual value.
 
-### File Values
+
+## File Values
 
 Of course, for plain `String` values, the Java-Object-based API is more concise. Let us therefore consider values of richer data structures.
 
@@ -200,7 +205,8 @@ String mimeType = retrievedTypedFileValue.getMimeType(); // equals "text/plain"
 String encoding = retrievedTypedFileValue.getEncoding(); // equals "UTF-8"
 ```
 
-### Object Values
+
+## Object Values
 
 Custom Java objects can be serialized with the value type `object`. Example using the typed value API:
 
@@ -251,16 +257,18 @@ ObjectValue retrievedTypedObjectValue = runtimeService.getVariableTyped(executio
 com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue.getValue();
 ```
 
-<div class="alert alert-warning">
-  <p><strong>Be Aware of Inconsistent Variable State:</strong></p>
-  <p>When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of <code>com.example.Order</code>. Thus, an invalid variable value will only be detected when <code>runtimeService#getVariableTyped</code> is called.</p>
-</div>
+{{< note title="Be Aware of Inconsistent Variable State" class="warning" >}}
+  When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of ```com.example.Order```. Thus, an invalid variable value will only be detected when ```runtimeService#getVariableTyped``` is called.
+{{< /note >}}
 
-### JSON and XML Values
 
-The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents](ref:#data-formats-xml-json-other-json-native-json-variable-value) and [storing XML documents](ref:#data-formats-xml-json-other-xml-native-xml-variable-value) for details.
 
-### Setting Multiple Typed Values
+## JSON and XML Values
+
+The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< relref "user-guide/data-formats/index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< relref "user-guide/data-formats/index.md#native-xml-variable-value" >}}) for details.
+
+
+## Set Multiple Typed Values
 
 Similar to the Java-Object-based API, it is also possible to set multiple typed values in one API call. The `Variables` class offers a fluent API to construct a map of typed values:
 
@@ -274,18 +282,20 @@ VariableMap variables =
 runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 ```
 
-## Interchangeability of APIs
+
+# Interchangeability of APIs
 
 Both APIs offer different views on the same entities and can therefore be combined as is desired. For example, a variable that is set using the Java-Object-based API can be retrieved as a typed value and vice versa. As the class `VariableMap` implements the `Map` interface, it is also possible to put plain Java objects as well as typed values into this map.
 
 Which API should you use? The one that fits your purpose best. When you are certain that you always have access to the involved value classes, such as when implementing code in a process application like a `JavaDelegate`, then the Java-Object-based API is easier to use. When you need to access value-specific metadata such as serialization formats, then the Typed-Value-based API is the way to go.
 
-## Input/Output Variable Mapping
 
-To improve the reusability of source code and business logic, camunda BPM offers input/output
+# Input/Output Variable Mapping
+
+To improve the reusability of source code and business logic, Camunda BPM offers input/output
 mapping of process variables. This can be used for tasks, events and subprocesses.
 
-In order to use the variable mapping, the camunda extension element [inputOutput][] has to be added
+In order to use the variable mapping, the Camunda extension element [inputOutput][] has to be added
 to the element. It can contain multiple [inputParameter][] and [outputParameter][] elements that
 specify which variables should be mapped. The `name` attribute of an [inputParameter][] denotes
 the variable name inside the activity (a local variable to be created), whereas the `name` attribute of an [outputParameter][]
@@ -380,19 +390,19 @@ depends on a variable `avgForecast` as the average value of the three forecasts.
 </serviceTask>
 ```
 
-### Multi-instance IO Mapping
+
+## Multi-instance IO Mapping
 
 Input mappings can also be used with multi-instance constructs, in which the mapping is applied for every instance that is created. For example, for a multi-instance subprocess with five instances, the mapping is executed five times and the involved variables are created in each of the five subprocess scopes such that they can be accessed independently.
 
-<div class="alert alert-info">
-  <p><strong>No output mapping for multi-instance constructs:</strong></p>
-  <p>The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.</p>
-</div>
+{{< note title="No output mapping for multi-instance constructs" class="info" >}}
+  The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
+{{< /note >}}
 
 
-[inputOutput]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundainputoutput
-[inputParameter]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundainputparameter
-[outputParameter]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundaoutputparameter
-[list]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundalist
-[map]: ref:/api-references/bpmn20/#custom-extensions-camunda-extension-elements-camundamap
-[script-io]: ref:#process-engine-scripting-use-scripts-as-inputoutput-parameters
+[inputOutput]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
+[inputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
+[outputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-outputparameter" >}}
+[list]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-list" >}}
+[map]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-map" >}}
+[script-io]: {{< relref "user-guide/process-engine/scripting.md#use-scripts-as-inputoutput-parameters" >}}

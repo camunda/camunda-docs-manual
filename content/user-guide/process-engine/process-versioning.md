@@ -10,7 +10,8 @@ menu:
 
 ---
 
-## Versioning of process definitions
+
+# Versioning of Process Definitions
 
 Business Processes are by nature long running. The process instances will maybe last for weeks, or months. In the meantime the state of the process instance is stored to the database. But sooner or later you might want to change the process definition even if there are still running instances.
 
@@ -18,15 +19,15 @@ This is supported by the process engine:
 
 * If you redeploy a changed process definition you get a new version in the database.
 * Running process instances will continue to run in the version they were started in.
-* New process instances will run in the new version - unless specified explicitly. 
-* Support for migrating process instances to new a version is supported within certain limits. 
+* New process instances will run in the new version - unless specified explicitly.
+* Support for migrating process instances to new a version is supported within certain limits.
 
 So you can see different versions in the process definition table and the process instances are linked to this:
 
-<center><img src="ref:asset:/assets/img/implementation-java/versioning.png" class="img-responsive"/></center>
+{{< img src="../img/versioning.png" title="Versioning" >}}
 
 
-## Which version will be used
+# Which Version Will be Used
 
 When you start a process instance
 
@@ -35,77 +36,65 @@ When you start a process instance
 
 The default and recommended usage is to just use `startProcessInstanceByKey` and always use the latest version:
 
-    processEngine.getRuntimeService().startProcessInstanceByKey("invoice"); 
-    // will use the latest version (2 in our example)
+```java
+processEngine.getRuntimeService().startProcessInstanceByKey("invoice");
+// will use the latest version (2 in our example)
+```
+
 If you want to specifically start an instance of an old process definition, use a Process Definition Query to find the correct ProcessDefinition id and use `startProcessInstanceById`:
 
-    ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
-        .processDefinitionKey("invoice")
-        .processDefinitionVersion(1).singleResult();
-    processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
+```java
+ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
+    .processDefinitionKey("invoice")
+    .processDefinitionVersion(1).singleResult();
+processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
+```
 
-When you use [BPMN CallActivities](ref:/api-references/bpmn20/#subprocesses-call-activity) you can configure which version is used:
+When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}) you can configure which version is used:
 
-    <callActivity id="callSubProcess" calledElement="checkCreditProcess"
-      camunda:calledElementBinding="latest|deployment|version"
-      camunda:calledElementVersion="17">
-    </callActivity>
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementBinding="latest|deployment|version"
+  camunda:calledElementVersion="17">
+</callActivity>
+```
 
 The options are
 
 * latest: use the latest version of the process definition (as with `startProcessInstanceByKey`).
-* deployment: use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as then they are always versioned together (see [Process Application Deployment](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-process-application-deployment) for more details). 
+* deployment: use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as then they are always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
 * version: specify the version hard coded in the XML.
 
 
-
-## Key vs. ID of a process definition
+# Key vs. ID of a Process Definition
 
 You might have spotted that two different columns exist in the process definition table with different meanings:
 
-* Key: The key is the unique identifier of the process definition in the XML, so its value is read from the id attribute in the XML: 
+* Key: The key is the unique identifier of the process definition in the XML, so its value is read from the id attribute in the XML:
 
     ```xml
-    <bpmn2:process id="invoice" ...```
+    <bpmn2:process id="invoice" ...
+    ```
 
 * Id: The id is the database primary key and an artificial key normally combined out of the key, the version and a generated id (note that the ID may be shortened to fit into the database column, so there is no guarantee that the id is built this way).
 
 
+# Version Migration
 
+Version migration can only be applied if a process instance is currently in a persistent wait state, see [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}).
 
-## Version Migration
-
-Sometimes it is necessary to migrate (upgrade) running process instances to a new version, maybe when you have added an important new task or even fixed a bug. In this case we can migrate the running process instances to the new version.
-
-Please note that migration can only be applied if a process instance is currently in a persistent wait state, see [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes).
-
-<div class="alert alert-warning">
-      <strong>Heads-Up:</strong>
-      Due to the risks and limitations mentioned above this is considered an <strong>advanced use case</strong>. It is not available over the public API - but you can use an internal command.
-</div>
-
-    public void migrateVersion() {
-       String processInstanceId = "71712c34-af1d-11e1-8950-08002700282e";
-       int newVersion = 2;
-       SetProcessDefinitionVersionCmd command = 
-          new SetProcessDefinitionVersionCmd(processInstanceId, newVersion);
-       ((ProcessEngineImpl) ProcessEngines.getDefaultProcessEngine())
-            .getProcessEngineConfiguration()
-            .getCommandExecutorTxRequired().execute(command);
-    }
-
-### Risks and limitations of Version Migration
+## Risks and Limitations of Version Migration
 
 Process Version Migration is not an easy topic. Migrating process instances to a new version only works if:
 
 * for all currently existing executions and running tokens the "current activity" with the same id still exists in the new process definition
 * the scopes, sub executions, jobs and so on are still valid.
 
-Hence the cases in which this simple instance migration works are limited. The following examples will cause problems: 
+Hence the cases in which this simple instance migration works are limited. The following examples will cause problems:
 
-* If the new version introduces a **new (message / signal / timer) boundary event attached to an activity**, process instances which are waiting at this activity **cannot be migrated** (since the activity is a scope in the new version and not a scope in the old version).
-* If the new version introduces a new (message / signal / timer) boundary event attached to a subprocess, process instances which are waiting in an activity contained by the subprocess can be migrated, but the event will never trigger (event subscription / timer not created when entering the scope).
-* If the new version removes a (message / signal / timer) boundary event attached to an activity, process instances which are waiting at this activity cannot be migrated.
+* If the new version introduces a **new (message/signal/timer) boundary event attached to an activity**, process instances which are waiting at this activity **cannot be migrated** (since the activity is a scope in the new version and not a scope in the old version).
+* If the new version introduces a new (message/signal/timer) boundary event attached to a subprocess, process instances which are waiting in an activity contained by the subprocess can be migrated, but the event will never trigger (event subscription/timer not created when entering the scope).
+* If the new version removes a (message/signal/timer) boundary event attached to an activity, process instances which are waiting at this activity cannot be migrated.
 * If the new version removes a timer boundary event attached to a subprocess, process instances which are waiting at an activity contained by the subprocess can be migrated. If the timer job is triggered (executed by the job executor) it will fail. The timer job is removed with the scope execution.
 * If the new version removes a signal or message boundary event attached to a subprocess, process instances which are waiting at an activity contained by the subprocess can be migrated. The signal/message subscription already exists but cannot be triggered anymore. The subscription is removed with the scope execution.
 * If a new version changes field injection on Java classes, you might want to set attributes on a Java class which doesn't exist any more or the other way round: you are missing attributes.

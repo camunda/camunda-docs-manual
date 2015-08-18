@@ -10,7 +10,8 @@ menu:
 
 ---
 
-The identity service is an API abstraction over various User / Group repositories. The basic entities are
+
+The identity service is an API abstraction over various user/group repositories. The basic entities are
 
 * User: a user identified by a unique Id
 * Group: a group identified by a unique Id
@@ -18,31 +19,37 @@ The identity service is an API abstraction over various User / Group repositorie
 
 Example:
 
-    User demoUser = processEngine.getIdentityService()
-      .createUserQuery()
-      .userId("demo")
-      .singleResult();
+```java
+User demoUser = processEngine.getIdentityService()
+  .createUserQuery()
+  .userId("demo")
+  .singleResult();
+```
 
-camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user / group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
+Camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user/group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
 
 In order to provide a custom identity provider implementation, the following interfaces can be implemented:
 
-* [org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html)
-* [org.camunda.bpm.engine.impl.identity.WritableIdentityProvider](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html)
+* {{< javadocref page="?org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider" >}}
+* {{< javadocref page="?org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.WritableIdentityProvider" >}}
 
-## The Database Identity Service
+
+# The Database Identity Service
 
 The database identity service uses the process engine database for managing users and groups. This is the default identity service implementation used if no alternative identity service implementation is provided.
 
 The Database Identity Service implements both `ReadOnlyIdentityProvider` and `WritableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
 
-## The LDAP Identity Service
 
-The LDAP identity service provides read-only access to an LDAP-based user / group repository. The identity service provider is implemented as a [Process Engine Plugin](ref:#process-engine-process-engine-plugins) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
+# The LDAP Identity Service
+
+The LDAP identity service provides read-only access to an LDAP-based user/group repository. The identity service provider is implemented as a [Process Engine Plugin]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
 
 In order to use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
 
-<%- @partial('camunda-bom.html.eco', @, {}) %>
+{{< note title="" class="info" >}}
+  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+{{< /note >}}
 
 ```xml
 <dependency>
@@ -51,93 +58,96 @@ In order to use the LDAP identity service, the `camunda-identity-ldap.jar` libra
 </dependency>
 ```
 
-### Activating the LDAP Plugin
+
+## Activate the LDAP Plugin
 
 The following is an example of how to configure the LDAP Identity Provider Plugin using Spring XML:
 
-    <beans xmlns="http://www.springframework.org/schema/beans"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
-      <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
-        ...
-        <property name="processEnginePlugins">
-          <list>
-            <ref bean="ldapIdentityProviderPlugin" />
-          </list>
-        </property>
-      </bean>
-      <bean id="ldapIdentityProviderPlugin" class="org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin">
-        <property name="serverUrl" value="ldap://localhost:3433/" />
-        <property name="managerDn" value="uid=daniel,ou=office-berlin,o=camunda,c=org" />
-        <property name="managerPassword" value="daniel" />
-        <property name="baseDn" value="o=camunda,c=org" />
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+    ...
+    <property name="processEnginePlugins">
+      <list>
+        <ref bean="ldapIdentityProviderPlugin" />
+      </list>
+    </property>
+  </bean>
+  <bean id="ldapIdentityProviderPlugin" class="org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin">
+    <property name="serverUrl" value="ldap://localhost:3433/" />
+    <property name="managerDn" value="uid=daniel,ou=office-berlin,o=camunda,c=org" />
+    <property name="managerPassword" value="daniel" />
+    <property name="baseDn" value="o=camunda,c=org" />
 
-        <property name="userSearchBase" value="" />
-        <property name="userSearchFilter" value="(objectclass=person)" />
-        <property name="userIdAttribute" value="uid" />
-        <property name="userFirstnameAttribute" value="cn" />
-        <property name="userLastnameAttribute" value="sn" />
-        <property name="userEmailAttribute" value="mail" />
-        <property name="userPasswordAttribute" value="userpassword" />
+    <property name="userSearchBase" value="" />
+    <property name="userSearchFilter" value="(objectclass=person)" />
+    <property name="userIdAttribute" value="uid" />
+    <property name="userFirstnameAttribute" value="cn" />
+    <property name="userLastnameAttribute" value="sn" />
+    <property name="userEmailAttribute" value="mail" />
+    <property name="userPasswordAttribute" value="userpassword" />
 
-        <property name="groupSearchBase" value="" />
-        <property name="groupSearchFilter" value="(objectclass=groupOfNames)" />
-        <property name="groupIdAttribute" value="ou" />
-        <property name="groupNameAttribute" value="cn" />
-        <property name="groupMemberAttribute" value="member" />
-      </bean>
-    </beans>
+    <property name="groupSearchBase" value="" />
+    <property name="groupSearchFilter" value="(objectclass=groupOfNames)" />
+    <property name="groupIdAttribute" value="ou" />
+    <property name="groupNameAttribute" value="cn" />
+    <property name="groupMemberAttribute" value="member" />
+  </bean>
+</beans>
+```
 
-The following is an example of how to configure the LDAP Identity Provider Plugin in bpm-platform.xml / processes.xml:
+The following is an example of how to configure the LDAP Identity Provider Plugin in bpm-platform.xml/processes.xml:
 
-    <process-engine name="default">
-      <job-acquisition>default</job-acquisition>
-      <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
-      <datasource>java:jdbc/ProcessEngine</datasource>
+```xml
+<process-engine name="default">
+  <job-acquisition>default</job-acquisition>
+  <configuration>org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration</configuration>
+  <datasource>java:jdbc/ProcessEngine</datasource>
 
-      <properties>...</properties>
+  <properties>...</properties>
 
-      <plugins>
-        <plugin>
-          <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
-          <properties>
+  <plugins>
+    <plugin>
+      <class>org.camunda.bpm.identity.impl.ldap.plugin.LdapIdentityProviderPlugin</class>
+      <properties>
 
-            <property name="serverUrl">ldap://localhost:4334/</property>
-            <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
-            <property name="managerPassword">s3cr3t</property>
+        <property name="serverUrl">ldap://localhost:4334/</property>
+        <property name="managerDn">uid=jonny,ou=office-berlin,o=camunda,c=org</property>
+        <property name="managerPassword">s3cr3t</property>
 
-            <property name="baseDn">o=camunda,c=org</property>
+        <property name="baseDn">o=camunda,c=org</property>
 
-            <property name="userSearchBase"></property>
-            <property name="userSearchFilter">(objectclass=person)</property>
+        <property name="userSearchBase"></property>
+        <property name="userSearchFilter">(objectclass=person)</property>
 
-            <property name="userIdAttribute">uid</property>
-            <property name="userFirstnameAttribute">cn</property>
-            <property name="userLastnameAttribute">sn</property>
-            <property name="userEmailAttribute">mail</property>
-            <property name="userPasswordAttribute">userpassword</property>
+        <property name="userIdAttribute">uid</property>
+        <property name="userFirstnameAttribute">cn</property>
+        <property name="userLastnameAttribute">sn</property>
+        <property name="userEmailAttribute">mail</property>
+        <property name="userPasswordAttribute">userpassword</property>
 
-            <property name="groupSearchBase"></property>
-            <property name="groupSearchFilter">(objectclass=groupOfNames)</property>
-            <property name="groupIdAttribute">ou</property>
-            <property name="groupNameAttribute">cn</property>
+        <property name="groupSearchBase"></property>
+        <property name="groupSearchFilter">(objectclass=groupOfNames)</property>
+        <property name="groupIdAttribute">ou</property>
+        <property name="groupNameAttribute">cn</property>
 
-            <property name="groupMemberAttribute">member</property>
+        <property name="groupMemberAttribute">member</property>
 
-          </properties>
-        </plugin>
-      </plugins>
+      </properties>
+    </plugin>
+  </plugins>
 
-    </process-engine>
+</process-engine>
+```
 
-<div class="alert alert-info">
-  <p>
-    <strong>Administrator Authorization Plugin</strong>
-    The LDAP Identity Provider Plugin is usually used in combination with the <a href="ref:#process-engine-authorization-service-the-administrator-authorization-plugin">Administrator Authorization Plugin</a> which allows you to grant administrator authorizations for a particular LDAP User / Group.
-  </p>
-</div>
+{{< note title="Administrator Authorization Plugin" class="info" >}}
+  The LDAP Identity Provider Plugin is usually used in combination with the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) which allows you to grant administrator authorizations for a particular LDAP User/Group.
+{{< /note >}}
 
-### Configuration Properties of the LDAP Plugin
+
+## Configuration Properties of the LDAP Plugin
 
 The LDAP Identity Provider provides the following configuration properties:
 
@@ -289,4 +299,3 @@ The LDAP Identity Provider provides the following configuration properties:
     </td>
   </tr>
 </table>
-
