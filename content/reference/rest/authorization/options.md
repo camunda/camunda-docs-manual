@@ -13,16 +13,14 @@ menu:
 
 The `/authorization` resource supports two custom OPTIONS requests, one for the resource as such and one for individual authorization instances. The OPTIONS request allows you to check for the set of available operations that the currently authenticated user can perform on the `/authorization` resource. Whether the user can perform an operation or not may depend on various factors, including the users authorizations to interact with this resource and the internal configuration of the process engine.
 
-Method
-------
+# Method
 
 OPTIONS `/authorization` for available interactions on resource
 
 OPTIONS `/authorization/{id}` for available interactions on resource instance
 
 
-Result
-------
+# Result
 
 A JSON object with a single property named `links`, providing a list of resource links. Each link has the following properties
 
@@ -50,8 +48,7 @@ A JSON object with a single property named `links`, providing a list of resource
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -66,14 +63,13 @@ Response codes
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 OPTIONS `/authorization/anAuthorizationId`
 
-#### Response
+## Response
 
 Status 200.
 

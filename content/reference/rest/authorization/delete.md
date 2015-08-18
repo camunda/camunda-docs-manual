@@ -14,16 +14,14 @@ menu:
 Deletes an authorization by id.
 
 
-Method
-------
+# Method
 
 DELETE `/authorization/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,14 +35,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -60,22 +56,21 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If the authenticated user is unauthorized to delete the resource instance. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Authorization cannot be found. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/authorization/anAuthorizationId`
 
-#### Response
+## Response
 
 Status 204. No content.

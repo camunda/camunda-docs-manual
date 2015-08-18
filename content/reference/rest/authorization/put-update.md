@@ -13,16 +13,14 @@ menu:
 
 Updates a single authorization.
 
-Method
-------
+# Method
 
 PUT `/authorization/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +34,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -74,14 +72,12 @@ A JSON object with the following properties:
   </tr>
 </table>
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -97,7 +93,7 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The authenticated user is unauthorized to update this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to update this resource. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -107,18 +103,17 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The authorization could not be updated due to an internal server error. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authorization could not be updated due to an internal server error. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/authorization/anAuthorizationId`
 
-Request body:
+Request Body:
 
     {"permissions": 16,
      "userId": "*",
@@ -126,6 +121,6 @@ Request body:
      "resourceType": 1,
      "resourceId": "*"}
 
-#### Response
+## Response
 
 Status 204. No content.

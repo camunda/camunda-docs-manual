@@ -1,6 +1,7 @@
 ---
 
 title: "Authorization"
+layout: "section-list"
 weight: 20
 
 menu:

@@ -1,6 +1,6 @@
 ---
 
-title: "Create a new Authorization"
+title: "Create a New Authorization"
 weight: 60
 
 menu:
@@ -14,16 +14,14 @@ menu:
 Creates a new authorization
 
 
-Method
-------
+# Method
 
 POST `/authorization/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -65,8 +63,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A json array with the following properties:
 
@@ -119,8 +116,7 @@ A json array with the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -136,24 +132,23 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The authorization could not be updated due to an internal server error. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The authorization could not be updated due to an internal server error. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/authorization/create`
 
-Request body:
+Request Body:
 
     {"type" : 0,
      "permissions": ["CREATE", "READ"],
@@ -162,7 +157,7 @@ Request body:
      "resourceType": 1,
      "resourceId": "*"}
 
-#### Response
+## Response
 
 Status 200.
 

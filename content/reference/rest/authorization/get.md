@@ -13,16 +13,14 @@ menu:
 
 Retrieves a single authorization by Id.
 
-Method
-------
+# Method
 
 GET `/authorization/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,8 +34,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array with the following properties:
 
@@ -90,8 +87,7 @@ A JSON array with the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -107,18 +103,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Authorization with given id does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/authorization/anAuthorizationId`
 
-#### Response
+## Response
 
 Status 200.
 
