@@ -1,0 +1,129 @@
+html,
+body {
+  position: absolute;
+  min-height: 100%;
+}
+
+html,
+body,
+.page-wrapper,
+.page-footer {
+  width: 100%;
+  left: 0;
+}
+
+body {
+  padding: @header-height 0 @footer-height 0;
+}
+
+.page-wrapper {
+  position: absolute;
+  top: @header-height;
+  bottom: 0;
+  padding-left: @site-menu-width + (@grid-gutter-width * 1);
+  padding-right: @grid-gutter-width * 1;
+  z-index: 1;
+}
+
+.site-menu {
+  position: fixed;
+  width: @site-menu-width;
+  top: @header-height;
+  left: 0;
+  bottom: 0;
+  padding: 0 0 @site-menu-meta-closed-height 0;
+  z-index: 2;
+  transition: transform 0.218s ease;
+
+  > .meta {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    max-height: @site-menu-meta-closed-height;
+    transition: max-height 0.218s ease;
+
+    &.open {
+      max-height: 300px;
+    }
+
+    .header,
+    .toggle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: @site-menu-meta-closed-height;
+    }
+
+    .header {
+      width: 100%;
+      padding-left: @grid-gutter-width * 1.5;
+    }
+
+    .toggle {
+      width: @grid-gutter-width;
+    }
+
+    .content {
+      margin-top: @site-menu-meta-closed-height;
+      min-height: 200px;
+    }
+  }
+}
+
+.page-content {
+  max-width: @page-content-max-width;
+  min-height: 100%;
+  margin-bottom: 0 - (@footer-height + @grid-gutter-width);
+  padding-bottom: @footer-height + @grid-gutter-width;
+}
+
+.page-toc {
+  display: none;
+  position: fixed;
+  width: @page-toc-width;
+  top: 106px;
+  left: @site-menu-width + (@grid-gutter-width * 2) + @page-content-max-width;
+}
+
+.page-footer {
+  height: @footer-height;
+  margin-top: @grid-gutter-width;
+  margin-left: 0 - (@grid-gutter-width * 1);
+  width: ~"calc(100% + (@{grid-gutter-width} * 2))";
+  padding: (@grid-gutter-width * 0.5);
+}
+
+
+@media (max-width: @site-menu-breakpoint)  {
+  .site-menu {
+    top: @header-height + 30px;
+    width: @site-menu-width;
+    z-index: @zindex-navbar-fixed - 1;
+    .translate(0 - @site-menu-width, 0);
+  }
+
+  body.site-menu-open .site-menu {
+    .translate(0, 0);
+  }
+
+  .page-content {
+    max-width: none;
+  }
+
+  .page-wrapper {
+    top: @header-height + 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-footer {
+    margin: @grid-gutter-width 0 0 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: @page-toc-breakpoint) {
+  .page-toc {
+    display: block;
+  }
+}
