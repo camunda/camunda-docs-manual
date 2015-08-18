@@ -64,9 +64,13 @@ The shown examples can lead to a infinite number of repetitions, because for eac
 </manualActivationRule>
 ```
 
-## Repetition Rule By Example
+# Repetition Rule By Example
+
+Consider the following excerpt of a CMMN Case Definition:
 
 {{< img src="../img/repetition-rule-example.png" >}}
+
+The corresponding XML representation could look like this:
 
 ```xml
 <definitions>
@@ -129,7 +133,7 @@ In our example, the following steps might take place:
 10. If the entry criterion (*Sentry_1*) of *B''* gets satisfied and a user starts and completes *B''*, the instance *A''* becomes `ENABLED`. As a consequence that *A''* and *B''* are not repeatable no new instances are created.
 {{< img src="../img/state-6.png" >}}
 
-## Repetition Criteria
+# Repetition Criteria
 
 Additionally to the entry criteria it is possible to use `repetition criteria` to define on which condition a `repetition` of a task (or stage or milestone) should transition from state `AVAILABLE` either to `ENABLED` or `ACTIVE`.
 
@@ -210,7 +214,7 @@ For a plan item definition, the following XML can be used:
 </definitions>
 ```
 
-### Entry Criteria vs Repetition Criteria
+## Entry Criteria vs Repetition Criteria
 
 For a better understanding it is necessary to distinguish between a `first` instance and an instance which is a `repetition`:
 
@@ -228,7 +232,7 @@ The `first` instance performs the state transition, when any *entry* criterion i
 4. Neither entry nor repetition criteria are present:
 Each instance (`first`and every `repetition`) performs immediately the state transition. But this could lead to undesired situations, for example it is possible to create an infinite loop. In such a combination the repetition rule should evaluate after a given number of repetitions to `true`. This would allow to instantiate for example 5 instance in parallel (whereby one instance is the `first` instance and the other four instances are the `repetitions`).
 
-### Example
+## Example
 
 The repetition rule gives the opportunity to implement the following use case: Whenever the task *A* completes a new instance of task *A* should be offered to repeat the task.
 
@@ -271,7 +275,7 @@ So the `first` instance of task *A* would immediately perform the state transiti
 
 This example can be easily extended to limit the number of repetitions by using another expression as repetition rule.
 
-## Camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
