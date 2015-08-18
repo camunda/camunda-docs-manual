@@ -12,19 +12,17 @@ menu:
 
 
 Query for case definitions that fulfill given parameters. Parameters may be the properties of case definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [GET query count](ref:#case-definition-get-case-definitions-count).
+The size of the result set can be retrieved by using the [GET query count]({{< relref "reference/rest/case-definition/get-query-count.md" >}}).
 
 
-Method
---------------
+# Method
 
 GET `/case-definition`
 
 
-Parameters
---------------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -101,8 +99,7 @@ Parameters
 </table>
 
 
-Result
---------------
+# Result
 
 A JSON array of case definition objects.
 Each case definition object has the following properties:
@@ -151,8 +148,7 @@ Each case definition object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -168,20 +164,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/case-definition?keyLike=Key&sortBy=category&sortOrder=asc`
 
-#### Response
+## Response
 
     [
       {

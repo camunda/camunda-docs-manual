@@ -14,18 +14,16 @@ menu:
 Retrieves a single case definition according to the CaseDefinition interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/case-definition/{id}`
 
 GET `/case-definition/key/{key}` (returns the latest version of case definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,8 +41,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the CaseDefinition interface in the engine.
 Its properties are as follows:
@@ -93,8 +90,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -110,22 +106,21 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case definition with given id or key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Case definition with given id or key does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/case-definition/aCaseDefinitionId`
 
 GET `/case-definition/key/aCaseDefinitionKey`
 
-#### Response
+## Response
 
     {
       "id":"aCaseDefinitionId",

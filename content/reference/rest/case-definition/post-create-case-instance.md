@@ -14,18 +14,16 @@ menu:
 Instantiates a given case definition. Case variables and business key may be supplied in the request body.
 
 
-Method
-------
+# Method
 
 POST `/case-definition/{id}/create`
 
 POST `/case-definition/key/{key}/create` (creates the latest version of the case definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,7 +41,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -66,8 +64,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object representing the newly created case instance.
 Properties are:
@@ -103,8 +100,7 @@ Properties are:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -120,35 +116,34 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The case execution cannot be instantiated because of CMMN restrictions. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The case execution cannot be instantiated because of CMMN restrictions. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The case instance could not be created due to a nonexistent case definition. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The case instance could not be created due to a nonexistent case definition. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The case instance could not be created successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The case instance could not be created successfully. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/case-definition/aCaseDefinitionId/create`
 
 POST `/case-definition/key/aCaseDefinitionKey/create`
 
-Request body:
+Request Body:
 
     {
       "variables":
@@ -159,7 +154,7 @@ Request body:
 	    "businessKey" : "myBusinessKey"
 	}
 
-#### Response
+## Response
 
     {
       "links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],

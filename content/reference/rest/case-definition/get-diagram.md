@@ -14,18 +14,16 @@ menu:
 Retrieves the diagram of a case definition.
 
 
-Method
-------
+# Method
 
 GET `/case-definition/{id}/diagram`
 
 GET `/case-definition/key/{key}/diagram` (returns the diagram for the latest version of the case definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,13 +41,11 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 The image diagram of this case.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -71,21 +67,20 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>The path parameter "key" has no value or the case definition with given id does not exist.
-        See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+        See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>Case definition with given id or key does not exist.
-        See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+        See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/case-definition/invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c/diagram`
 
