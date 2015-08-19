@@ -21,8 +21,8 @@
     {{ if eq $.Site.Params.section.id .id }} <span class="name">{{ .name }}</span> {{ end }}
   {{ end }}
 
-  {{if $.Site.Params.section.isversioned }}
-    <span class="number"><a>7.4</a></span>
+  {{with $.Site.Params.section.version }}
+    <span class="number"><a>{{.}}</a></span>
   {{ end }}
 </div>
 
@@ -40,7 +40,12 @@
   </h4>
 
   <div class="content">
-    here comes something else...
+    Version: 
+    <select>
+      {{range $.Site.Params.section.versions }}
+        <option {{if eq $.Site.Params.section.version . }} selected {{end}}>{{.}}</option>
+      {{ end }}
+    </select>
   </div>
 </div>
 
