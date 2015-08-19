@@ -18,17 +18,15 @@ Unresolved incidents of a process instance or a sub process instance are indicat
 
 # Retry a Failed Job
 
-To resolve a failed job you can use the *retry* button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
+To resolve a failed job you can use the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-repeat"></i> </button> button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
 
 
 # Bulk Retry
 
 {{< enterprise >}}
-Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 {{< img src="../img/cockpit-bulk-retry.png" title="Bulk Retry" >}}
 
-You can also perform a bulk Retry of failed jobs. This feature is available in the [Process Definition View][process-definition-view] in the Job Definitions tab. If you hit this button, you will increment the number of retries for all of the defined jobs of the process definition.
-
-[process-definition-view]: {{< relref "user-guide/cockpit/process-definition-view.md" >}}
+You can also perform a bulk Retry of failed jobs. This feature is available in the [Process Definition View]({{< relref "user-guide/cockpit/process-definition-view.md" >}}) in the Job Definitions tab. If you hit this button, you will increment the number of retries for all of the defined jobs of the process definition.

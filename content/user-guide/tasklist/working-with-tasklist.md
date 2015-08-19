@@ -48,14 +48,14 @@ Let's assume that this task was assigned to the user just before the end of his 
 See [this section][tasklist-dashboard-follow-up] for more information about setting follow-up dates.
 
 
-# Reassign tasks
+# Reassign Tasks
 
 Next we will reassign this task to another user (e.g., *Mary*) for further handling. To do so, click on the user name *Demo Demo* in the [task view section][tasklist-dashboard-task-view] and insert the user that this task should be assigned to, e.g., *Mary*.
 
 See [this section]({{< relref "user-guide/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) for more information about claiming, unclaiming and reassigning tasks.
 
 
-# Comment a task
+# Comment a Task
 
 Now that we have assigned the task to *Mary*, we want to add a comment for her to see. To do so, click on *Add Comment* at the top of the [task view section][tasklist-dashboard-task-view] and insert the comment, e.g., "Hi Mary, please handle this task". The comment can now be seen in the task history.
 

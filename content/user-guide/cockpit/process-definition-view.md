@@ -30,7 +30,10 @@ The tab `Job Definitions` displays the Job Definitions that are linked to this P
 The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
 The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in `" "`.
 
->Note: Please be aware that complex data types are not supported in this feature.
+{{< note title="Complexe Datatypes" class="info" >}}
+  Please be aware that complex data types are not supported in this feature.
+{{< /note >}}
+
 
 **Filtering for process instances**
 
@@ -110,4 +113,4 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../img/cockpit-bulk-cancel.png" title="Bulk Cancel" >}}
 
-Cancel multiple process instances at once by using this feature. In the process definition view, hit the cancel button on the right hand side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
+Cancel multiple process instances at once by using this feature. In the process definition view, hit the  <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.

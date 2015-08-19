@@ -57,7 +57,7 @@ To start working on the task, simply select the task.
 
 Above the filter results, you have the option of searching for user tasks within the selected filter results. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., 'like', which allows to search for a task where the entered value is a substring of the property value. If you are searching for variables, you also have to enter the variable name you want to search for. If the filter you have selected has defined labels for variables, you can select the label of the variable as variable name. Otherwise (if there is no label definition for a variable), you have to enter the variable name to search for it. If you change the filter selection, the search will be performed on the selected filter and the results will be updated accordingly.
 
-If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g ```'93288'``` or ```'NULL'```).
+If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g `'93288'` or `'NULL'`).
 
 
 # Task View

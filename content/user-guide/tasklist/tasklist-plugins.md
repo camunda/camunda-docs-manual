@@ -26,25 +26,25 @@ For further details about the concepts behind plugins please read the [Cockpit p
 Here you can see the various points at which you are able to add your own plugins.
 
 
-**Name:** ```tasklist.navbar.action```.
+**Name:** `tasklist.navbar.action`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-navbar-action.png" title="Plugin Point" >}}
 
 ---
 
-**Name:** ```tasklist.task.action```.
+**Name:** `tasklist.task.action`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-action.png" title="Plugin Point" >}}
 
 ---
 
-**Name:** ```tasklist.task.detail```.
+**Name:** `tasklist.task.detail`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-detail.png" title="Plugin Point" >}}
 
 ---
 
-**Name:** ```tasklist.list```.
+**Name:** `tasklist.list`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-list.png" title="Plugin Point" >}}
 

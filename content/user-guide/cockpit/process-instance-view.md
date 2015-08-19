@@ -33,23 +33,23 @@ Use the Detailed Information Panel to get an overview of the variables, incident
 
 In addition to the instance information you can [edit variables]({{< relref "#edit-variables" >}}) or change the assignees of user tasks.
 
-In the Incidents tab you can click on the Incident message name, which will open the stacktrace of the selected incident. Furthermore you can increment the number of retries for a failed job.
+In the Incidents tab you can click on the Incident message name, which will open the stacktrace of the selected incident. Furthermore you can also increment the number of retries for a failed job by hitting the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-repeat"></i></button> button.
 
-The User Tasks tab allows to manage groups for selected user tasks.
+The User Tasks tab allows to manage groups for selected user tasks. Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-user"></i></button> button to open the corresponding menu.
 
 
 # Add Variables
 
 {{< img src="../img/cockpit-add-variables.png" title="Add Variables" >}}
 
-Hit the *plus* button on the right hand side to add variables to a process instance. You can choose between different data types. Please note that variables will be overwritten if you add a new variable with an existing name.
+Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-plus"></i> </button> button on the right hand side to add variables to a process instance. You can choose between different data types. Please note that variables will be overwritten if you add a new variable with an existing name.
 
 
 # Edit Variables
 
 {{< img src="../img/cockpit-edit-variables.png" title="Edit Variables" >}}
 
-Edit variables in the list of variables. This feature allows you to change the value of variables as well as the type. A validation of the date format and for the value of integers happens on client side. If you enter NULL the variable will be converted to a string type.</p>
+Edit variables in the list of variables by using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-pencil"></i> </button> symbol. This feature allows you to change the value of variables as well as the type. A validation of the date format and for the value of integers happens on client side. If you enter NULL the variable will be converted to a string type.
 
 
 # Cancel a Process Instance
@@ -57,4 +57,4 @@ Edit variables in the list of variables. This feature allows you to change the v
 {{< img src="../img/cockpit-cancel-process-instance.png" title="Cancel Instances" >}}
 
 When you select a single process instance you can cancel it in the Process Instance View.
-Hit the cancel button on the right hand side. After you have confirmed this step the runtime data of the canceled instance will be deleted.
+Hit the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-remove-circle"></i> </button> button on the right hand side. After you have confirmed this step the runtime data of the canceled instance will be deleted.
