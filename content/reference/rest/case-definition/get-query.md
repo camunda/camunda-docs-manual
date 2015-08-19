@@ -34,6 +34,10 @@ GET `/case-definition`
     <td>Filter by case definition id.</td>
   </tr>
   <tr>
+    <td>caseDefinitionIdIn</td>
+    <td>Filter by case definition ids.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>Filter by case definition name.</td>
   </tr>

@@ -1,26 +1,27 @@
 ---
 
-title: "Post Local Case Execution Variable (Binary)"
-weight: 170
+title: "Post Single Case Execution Variable (Binary)"
+weight: 140
 
 menu:
   main:
-    identifier: "rest-api-case-execution-put-local-varibale-binary"
-    parent: "rest-api-case-execution"
+    name: "Post (Binary)"
+    identifier: "rest-api-case-execution-post-single-variable-binary"
+    parent: "rest-api-case-execution-variables"
+    pre: "POST `/case-execution/{id}/variables/{varId}/data`"
 
 ---
 
 Sets the serialized value for a binary variable or the binary value for a file variable.
 
-Method
-------
+# Method
 
-POST `/case-execution/{id}/localVariables/{varId}/data`
+POST `/case-execution/{id}/variables/{varId}/data`
 
-Parameters
-----------
 
-#### Path Parameters
+# Parameters
+
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,7 +38,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 For binary variables a multipart form submit with the following parts:
 
@@ -56,7 +57,7 @@ For binary variables a multipart form submit with the following parts:
     <td>data</td>
     <td>application/json</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
       <p>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</p>
     </td>
   </tr>
@@ -64,8 +65,9 @@ For binary variables a multipart form submit with the following parts:
     <td>type</td>
     <td>text/plain</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
-      <p>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
+      <p>The canonical java type name of the case variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).
+      </p>
     </td>
   </tr>  
 </table>
@@ -86,14 +88,12 @@ For file variables a multipart form submit with the following parts:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -109,20 +109,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
-
+## Request
 
 (1) Post binary content of a byte array variable:
 
-POST `/case-execution/aCaseExecutionId/localVariables/aVarName/data`
+POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -136,7 +134,7 @@ Content-Transfer-Encoding: binary
 
 (2) Post the JSON serialization of a Java Class (**deprecated**):
 
-POST `/case-execution/aCaseExecutionId/localVariables/aVarName/data`
+POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -156,7 +154,7 @@ java.util.ArrayList<java.lang.Object>
 
 (3) Post a text file:
 
-POST `/case-execution/aCaseExecutionId/localVariables/aVarName/data`
+POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y

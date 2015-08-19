@@ -1,12 +1,14 @@
 ---
 
 title: "Get Single Case Execution Variable"
-weight: 200
+weight: 110
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-case-execution-get-single-variable"
-    parent: "rest-api-case-execution"
+    parent: "rest-api-case-execution-variables"
+    pre: "GET `/case-execution/{id}/variables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a variable of a given case execution.
 
 
-Method
-------
+# Method
 
 GET `/case-execution/{id}/variables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,7 +40,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -50,21 +50,19 @@ Parameters
   <tr>
     <td>deserializeValue</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object with the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValue'}) %>
+{{< rest-var-response deserializationParameter="deserializeValues" >}}
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -80,30 +78,28 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example 1
----------
+# Example 1
 
-#### Request
+## Request
 
 GET `/case-execution/aCaseExecutionId/variables/aVarName`
 
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variable-response-example-deserialized.html.md', @, {}) %>
+{{< rest-var-response-example-deserialized >}}
 
-Example 2
----------
+# Example 2
 
-#### Request
+## Request
 
 GET `/case-execution/aCaseExecutionId/variables/aVarName?deserializeValue=false`
 
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variable-response-example-serialized.html.md', @, {}) %>
+{{< rest-var-response-example-serialized >}}
 
