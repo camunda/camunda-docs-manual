@@ -16,13 +16,13 @@ Request the number of process definitions that fulfill the query criteria. Takes
 
 
 Method
---------------  
+--------------
 
 GET `/process-definition/count`
 
 
 Parameters
---------------  
+--------------
 
 
 #### Query Parameters
@@ -31,6 +31,14 @@ Parameters
   <tr>
     <th>Name</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by process definition id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionIdIn</td>
+    <td>Filter by process definition ids.</td>
   </tr>
   <tr>
     <td>name</td>
@@ -108,7 +116,7 @@ Parameters
 
 
 Result
---------------  
+--------------
 
 A JSON object that contains the count as the only property.
 
@@ -127,7 +135,7 @@ A JSON object that contains the count as the only property.
 
 
 Response codes
---------------  
+--------------
 
 <table class="table table-striped">
   <tr>

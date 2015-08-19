@@ -36,6 +36,10 @@ GET `/decision-definition/count`
     <td>Filter by decision definition id.</td>
   </tr>
   <tr>
+    <td>decisionDefinitionIdIn</td>
+    <td>Filter by decision definition ids.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>Filter by decision definition name.</td>
   </tr>

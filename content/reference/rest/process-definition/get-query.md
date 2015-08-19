@@ -32,6 +32,14 @@ Parameters
     <th>Description</th>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by process definition id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionIdIn</td>
+    <td>Filter by process definition ids.</td>
+  </tr>
+  <tr>
     <td>name</td>
     <td>Filter by process definition name.</td>
   </tr>
