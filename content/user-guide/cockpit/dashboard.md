@@ -47,6 +47,6 @@ Please note that this feature is only included in the enterprise edition of the 
 
 At the top of the dashboard page, you can search for process instances and incidents which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. Some properties also allow operators other than equal, e.g., 'like', which allows to search for process instances where the entered value is a substring of the property value. If you are searching for process variables, you also have to enter the variable name you want to search for.
 
-If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., ```'93288'``` or ```'NULL'```).
+If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., `'93288'` or `'NULL'`).
 
 You can always either search for process instances or for incidents. When you add a parameter for an incident search, you can not add a second parameter which would search for a process instance and vice versa.

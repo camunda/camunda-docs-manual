@@ -99,7 +99,7 @@ In Sping you can configure a process engine plugin by setting a list value to th
 
 We'll explain the `SpringTransactionIntegrationTest` found in the Spring examples of the distribution step by step. Below is the Spring configuration file that we use in this example (you can find it in `SpringTransactionIntegrationTest-context.xml`). The section shown below contains the `dataSource`, `transactionManager`, `processEngine` and the process engine services.
 
-When passing the DataSource to the `SpringProcessEngineConfiguration` (using property "dataSource"), the camunda engine uses a `org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy` internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it's no longer needed to proxy the dataSource yourself in Spring configuration, although it's still allowed to pass a `TransactionAwareDataSourceProxy` into the `SpringProcessEngineConfiguration`. In this case no additional wrapping will occur.
+When passing the DataSource to the `SpringProcessEngineConfiguration` (using property "dataSource"), the Camunda engine uses a `org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy` internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it's no longer needed to proxy the dataSource yourself in Spring configuration, although it's still allowed to pass a `TransactionAwareDataSourceProxy` into the `SpringProcessEngineConfiguration`. In this case no additional wrapping will occur.
 
 Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g. `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
 
@@ -302,11 +302,11 @@ In a shared process engine deployment scenario, you have a process engine which 
 This functionality is provided by the `org.camunda.bpm.engine.spring.application.SpringProcessApplicationElResolver`. This class is a ProcessApplicationElResolver implementation delegating to the local application context. Expression resolving then works in the following way: the shared process engine checks which process application corresponds to the process it is currently executing. It then delegates to that process application for resolving expressions. The process application delegates to the SpringProcessApplicationElResolver which uses the local Spring application context for resolving beans.
 
 {{< note title="" class="info" >}}
-  The ```SpringProcessApplicationElResolver``` class is automatically detected if the ```camunda-engine-spring``` module is included as a library of the process application, not as a global library.
+  The `SpringProcessApplicationElResolver` class is automatically detected if the `camunda-engine-spring` module is included as a library of the process application, not as a global library.
 {{< /note >}}
 
 
-# Spring-based Testing
+# Spring-Based Testing
 
 When integrating with Spring, business processes can be tested very easily (in scope 2, see [Testing Scopes]({{< relref "user-guide/testing/index.md" >}})) using the standard Camunda testing facilities. The following example shows how a business process is tested in a typical Spring-based unit test:
 

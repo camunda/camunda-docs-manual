@@ -328,7 +328,7 @@ The following describes the operations logged in the user operation log and the 
     <td>Complete</td>
     <td>
       <ul>
-        <li><strong>delete</strong>: The new delete state, ```true```</li>
+        <li><strong>delete</strong>: The new delete state, <code>true</code></li>
       </ul>
     </td>
   </tr>
@@ -343,7 +343,7 @@ The following describes the operations logged in the user operation log and the 
     <td>
       When delegating a task three log entries are created, containing one of the following properties:
       <ul>
-        <li><strong>delegation</strong>: The resulting delegation state, ```PENDING```</li>
+        <li><strong>delegation</strong>: The resulting delegation state, <code>PENDING</code></li>
         <li><strong>owner</strong>: The original owner of the task</li>
         <li><strong>assignee</strong>: The user this task has been assigned to</li>
       </ul>
@@ -352,14 +352,14 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
-    <td><strong>delete</strong>: The new delete state, ```true```</td>
+    <td><strong>delete</strong>: The new delete state, <code>true</code></td>
   </tr>
   <tr>
     <td></td>
     <td>Resolve</td>
     <td>
       <ul>
-        <li><strong>delegation</strong>: The resulting delegation state, ```RESOLVED```</li>
+        <li><strong>delegation</strong>: The resulting delegation state, <code>RESOLVED</code></li>
       </ul>
     </td>
   </tr>
@@ -399,7 +399,7 @@ The following describes the operations logged in the user operation log and the 
     <td>Activate</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: The new suspension state, ```active```</li>
+        <li><strong>suspensionState</strong>: The new suspension state, <code>active</code></li>
       </ul>
     </td>
   </tr>
@@ -418,7 +418,7 @@ The following describes the operations logged in the user operation log and the 
     <td>Suspend</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: The new suspension state, ```suspended```</li>
+        <li><strong>suspensionState</strong>: The new suspension state, <code>suspended</code></li>
       </ul>
     </td>
   </tr>
@@ -481,7 +481,7 @@ The following describes the operations logged in the user operation log and the 
     <td>ActivateJobDefinition</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```active```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
       </ul>
     </td>
   </tr>
@@ -490,7 +490,7 @@ The following describes the operations logged in the user operation log and the 
     <td>SetPriority</td>
     <td>
       <ul>
-        <li><strong>overridingPriority</strong>: the new overriding job priority. Is ```null```, if the priority was cleared.</li>
+        <li><strong>overridingPriority</strong>: the new overriding job priority. Is <code>null</code>, if the priority was cleared.</li>
       </ul>
     </td>
   </tr>
@@ -499,7 +499,7 @@ The following describes the operations logged in the user operation log and the 
     <td>SuspendJobDefinition</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```suspended```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
       </ul>
     </td>
   </tr>
@@ -508,7 +508,7 @@ The following describes the operations logged in the user operation log and the 
     <td>ActivateProcessDefinition</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```active```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
       </ul>
     </td>
   </tr>
@@ -517,7 +517,7 @@ The following describes the operations logged in the user operation log and the 
     <td>SuspendProcessDefinition</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```suspended```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
       </ul>
     </td>
   </tr>
@@ -526,7 +526,7 @@ The following describes the operations logged in the user operation log and the 
     <td>ActivateJob</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```active```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
       </ul>
     </td>
   </tr>
@@ -553,7 +553,7 @@ The following describes the operations logged in the user operation log and the 
     <td>SuspendJob</td>
     <td>
       <ul>
-        <li><strong>suspensionState</strong>: the new suspension state ```suspended```</li>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
       </ul>
     </td>
   </tr>
@@ -593,7 +593,7 @@ Exchanging the History Event Handler with a custom implementation allows users t
 * Wire the custom implementation in the process engine configuration.
 
 {{< note title="Composite History Handling" class="info" >}}
-  Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class ```org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler``` that dispatches events to a collection of handlers.
+  Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
 {{< /note >}}
 
 

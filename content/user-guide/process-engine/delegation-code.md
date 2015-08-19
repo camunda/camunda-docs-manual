@@ -25,16 +25,16 @@ You can create generic delegation code and configure this via the BPMN 2.0 XML u
 
 # Java Delegate
 
-To implement a class that can be called during process execution, this class needs to implement the ```org.camunda.bpm.engine.delegate.JavaDelegate```
-interface and provide the required logic in the ```execute```
+To implement a class that can be called during process execution, this class needs to implement the `org.camunda.bpm.engine.delegate.JavaDelegate`
+interface and provide the required logic in the `execute`
 method. When process execution arrives at this particular step, it
 will execute this logic defined in that method and leave the activity
 in the default BPMN 2.0 way.
 
 As an example let's create a Java class that can be used to change a
 process variable String to uppercase. This class needs to implement
-the ```org.camunda.bpm.engine.delegate.JavaDelegate```
-interface, which requires us to implement the ```execute(DelegateExecution)```
+the `org.camunda.bpm.engine.delegate.JavaDelegate`
+interface, which requires us to implement the `execute(DelegateExecution)`
 method. It's this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
@@ -60,10 +60,10 @@ be thread-safe, since it can be executed simultaneously from different
 threads. This also influences the way Field Injection is handled.
 
 The classes that are referenced in the process definition (i.e. by using
-```camunda:class```  ) are **NOT instantiated during deployment**.
+`camunda:class`  ) are **NOT instantiated during deployment**.
 Only when a process execution arrives at the point in the process where the class is used for the
 first time, an instance of that class will be created. If the class cannot be found,
-a ```ProcessEngineException``` will be thrown. The reason for this is that the environment (and
+a `ProcessEngineException` will be thrown. The reason for this is that the environment (and
 more specifically the classpath) when you are deploying is often different than the actual runtime
 environment.
 
@@ -71,7 +71,7 @@ environment.
 # Activity Behavior
 
 Instead of writing a Java Delegate is also possible to provide a class that implements the `org.camunda.bpm.engine.impl.pvm.delegate.ActivityBehavior`
-interface. Implementations then have access to the more powerful ```ActivityExecution``` that for example also allows to influence the control flow of the process. However, note that this is not a very good practice and should be avoided as much as possible. So, it is advised to use the ```ActivityBehavior``` interface only for advanced use cases and if you know exactly what you're doing.
+interface. Implementations then have access to the more powerful `ActivityExecution` that for example also allows to influence the control flow of the process. However, note that this is not a very good practice and should be avoided as much as possible. So, it is advised to use the `ActivityBehavior` interface only for advanced use cases and if you know exactly what you're doing.
 
 
 # Field Injection
@@ -83,12 +83,12 @@ It's possible to inject values into the fields of the delegated classes. The fol
 
 If available, the value is injected through a public setter method on
 your delegated class, following the Java Bean naming conventions (e.g.
-field ```firstName``` has setter ```setFirstName(...)```).
+field `firstName` has setter `setFirstName(...)`).
 If no setter is available for that field, the value of private
 member will be set on the delegate (but using private fields is **not** recommended - see warning below).
 
 **Regardless of the type of value declared in the process-definition, the type of the
-setter/private field on the injection target should always be ```org.camunda.bpm.engine.delegate.Expression```**.
+setter/private field on the injection target should always be `org.camunda.bpm.engine.delegate.Expression`**.
 
 {{< note title="" class="warning" >}}
   Private fields cannot always be modified! It does **not work** with e.g.
@@ -97,8 +97,8 @@ setter/private field on the injection target should always be ```org.camunda.bpm
 {{< /note >}}
 
 The following code snippet shows how to inject a constant value into a field.
-Field Injection is supported when using the ```class``` attribute. Note that we need
-to declare a ```extensionElements``` XML element before the actual field injection
+Field Injection is supported when using the `class` attribute. Note that we need
+to declare a `extensionElements` XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.
 
 ```xml
@@ -111,12 +111,12 @@ declarations, which is a requirement of the BPMN 2.0 XML Schema.
   </serviceTask>
 ```
 
-The class ```ToUpperCaseFieldInjected``` has a field
-```text``` which is of type ```org.camunda.bpm.engine.delegate.Expression```.
-When calling ```text.getValue(execution)```, the configured string value
-```Hello World``` will be returned.
+The class `ToUpperCaseFieldInjected` has a field
+`text` which is of type `org.camunda.bpm.engine.delegate.Expression`.
+When calling `text.getValue(execution)`, the configured string value
+`Hello World` will be returned.
 
-Alternatively, for longs texts (e.g. an inline e-mail) the ```camunda:string``` sub element can be
+Alternatively, for longs texts (e.g. an inline e-mail) the `camunda:string` sub element can be
 used:
 
 ```xml
@@ -138,9 +138,9 @@ can be used. Those expressions can use process variables, CDI or Spring
 beans. As already noted, an instance of the Java class is shared among
 all process-instances in a service task. To have dynamic injection of
 values in fields, you can inject value and method expressions in a
-```org.camunda.bpm.engine.delegate.Expression```
-which can be evaluated/invoked using the ```DelegateExecution```
-passed in the ```execute``` method.
+`org.camunda.bpm.engine.delegate.Expression`
+which can be evaluated/invoked using the `DelegateExecution`
+passed in the `execute` method.
 
 ```xml
   <serviceTask id="javaService" name="Java service invocation"
@@ -158,7 +158,7 @@ passed in the ```execute``` method.
 ```
 
 The example class below uses the injected expressions and resolves
-them using the current ```DelegateExecution```.
+them using the current `DelegateExecution`.
 
 ```java
   public class ReverseStringsFieldInjected implements JavaDelegate {
@@ -241,7 +241,7 @@ The following process definition contains 3 execution listeners:
   </process>
 ```
 
-The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the ```org.camunda.bpm.engine.delegate.ExecutionListener``` interface. When the event occurs (in this case end event) the method `notify(ExecutionListenerExecution execution)` is called.
+The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the `org.camunda.bpm.engine.delegate.ExecutionListener` interface. When the event occurs (in this case end event) the method `notify(ExecutionListenerExecution execution)` is called.
 
 ```java
   public class ExampleExecutionListenerOne implements ExecutionListener {
@@ -253,7 +253,7 @@ The first execution listener is notified when the process starts. The listener i
   }
 ```
 
-It is also possible to use a delegation class that implements the ```org.camunda.bpm.engine.delegate.JavaDelegate``` interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
+It is also possible to use a delegation class that implements the `org.camunda.bpm.engine.delegate.JavaDelegate` interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
 
 The second execution listener is called when the transition is taken. Note that the listener element
 doesn't define an event, since only take events are fired on transitions. Values in the event
@@ -280,7 +280,7 @@ Execution listeners also support using a delegateExpression, similar to a servic
 
 # Task Listener
 
-A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the camunda namespace, since a task listener is a construct specifically for the camunda engine.
+A task listener is used to execute custom Java logic or an expression upon the occurrence of a certain task-related event. It can only be added in the process definition as a child element of a user task. Note that this also must happen as a child of the BPMN 2.0 extensionElements and in the Camunda namespace, since a task listener is a construct specifically for the Camunda engine.
 
 ```xml
   <userTask id="myTask" name="My Task" >
@@ -292,14 +292,14 @@ A task listener is used to execute custom Java logic or an expression upon the o
 
 A task listener supports following attributes:
 
-*   **event (required)**: the type of task event on which the task listener will be invoked. Possible events are:
-    *    **create**: occurs when the task has been created and all task properties are set.
-    *    **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, first an assignment event will be fired, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task including the assignee.
-    *    **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
-    *    **delete**: occurs just before the task is deleted from the runtime data.
+* **event (required)**: the type of task event on which the task listener will be invoked. Possible events are:
+    * **create**: occurs when the task has been created and all task properties are set.
+    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, first an assignment event will be fired, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task including the assignee.
+    * **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
+    * **delete**: occurs just before the task is deleted from the runtime data.
 
 
-*   **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
+* **class**: the delegation class that must be called. This class must implement the `org.camunda.bpm.engine.impl.pvm.delegate.TaskListener` interface.
 
     ```java
     public class MyTaskCreateListener implements TaskListener {
@@ -313,13 +313,13 @@ A task listener supports following attributes:
 
     It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
 
-*   **expression**: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
+* **expression**: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
 
     ```xml
     <camunda:taskListener event="create" expression="${myObject.callMethod(task, task.eventName)}" />
     ```
 
-*   **delegateExpression**: allows to specify an expression that resolves to an object implementing the TaskListener interface, similar to a service task.
+* **delegateExpression**: allows to specify an expression that resolves to an object implementing the TaskListener interface, similar to a service task.
 
     ```xml
     <camunda:taskListener event="create" delegateExpression="${myTaskListenerBean}" />
@@ -444,6 +444,7 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 
 }
 ```
+
 
 [script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}

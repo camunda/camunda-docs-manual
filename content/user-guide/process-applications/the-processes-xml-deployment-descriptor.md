@@ -61,7 +61,7 @@ The empty processes.xml will scan for process definitions and perform a single d
 
 # Location of the processes.xml File
 
-The default location of the processes.xml file is `META-INF/processes.xml`. The camunda BPM platform will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
+The default location of the processes.xml file is `META-INF/processes.xml`. The Camunda BPM platform will parse and process all processes.xml files on the classpath of a process application. Composite process applications (WAR / EAR) may carry multiple subdeployments providing a META-INF/processes.xml file.
 
 In an apache maven based project, add the the processes.xml file to the `src/main/resources/META-INF` folder.
 
@@ -148,9 +148,9 @@ The resuming of the previous deployment (deployment-1) is a feature called `resu
 
 The first one, which is the default way, is that a previous deployment will be resolved based on the process definition keys. Depending on the processes you deploy with your process application all deployments will be resumed that contain process definitions with the same key.
 
-The second option is to resume deployments based on the deployment name (more precisely the value of the ```name``` attribute of the process archive). That way you can delete a process in a new  deployment but the process application will register itself for the previous deployments and therefore also for the deleted process. This makes it possible that the running process instances of the deleted process can continue for this process application.
+The second option is to resume deployments based on the deployment name (more precisely the value of the `name` attribute of the process archive). That way you can delete a process in a new  deployment but the process application will register itself for the previous deployments and therefore also for the deleted process. This makes it possible that the running process instances of the deleted process can continue for this process application.
 
-To activate this behavior you have set the property ```isResumePreviousVersions``` to true and the property ```resumePreviousBy``` to ```deployment-name```:
+To activate this behavior you have set the property `isResumePreviousVersions` to true and the property `resumePreviousBy` to `deployment-name`:
 
 ```xml
 <process-application

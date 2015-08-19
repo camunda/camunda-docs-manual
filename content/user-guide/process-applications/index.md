@@ -10,7 +10,7 @@ menu:
 
 ---
 
-A Process Application is an ordinary Java Application that uses the camunda process engine for BPM and Worklow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionality into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootstrap and configure the provided services.
+A Process Application is an ordinary Java Application that uses the Camunda process engine for BPM and Worklow functionality. Most such applications will start their own process engine (or use a process engine provided by the runtime container), deploy some BPMN 2.0 process definitions and interact with process instances derived from these process definitions. Since most process applications perform very similar bootstrapping, deployment and runtime tasks, we generalized this functionality into a Java Class which is named - *Surprise!* - `ProcessApplication`. The concept is similar to the `javax.ws.rs.core.Application` class in JAX-RS: adding the process application class allows you to bootstrap and configure the provided services.
 
 Adding a `ProcessApplication` class to your Java Application provides your applications with the following services:
 
@@ -23,6 +23,6 @@ Transforming an existing Java Application into a Process Application is easy and
 * A Process Application class: The Process Application class constitutes the interface between your application and the process engine. There are different base classes you can extend to reflect different environments (e.g. Servlet vs. EJB Container).
 * A processes.xml file to META-INF: The deployment descriptor file allows you to provide a declarative configuration of the deployment(s) that this process application makes to the process engine. It can be empty (see the <a href ="ref:#process-applications-the-processesxml-deployment-descriptor-empty-processesxml">empty processes.xml</a> section) and serve as simple marker file. If it is not present then the engine will start up but auto-deployment will not be performed.
 
-{{< note title="" class="info" >}}
+{{< note title="Tutorial" class="info" >}}
   You might want to checkout the [Getting Started Tutorial](http://camunda.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}), which gives you a complete running process application out of the box.
 {{< /note >}}

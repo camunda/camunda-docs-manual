@@ -89,7 +89,7 @@ Job priorities can be specified in the BPMN model as well as overridden at runti
 
 ### Priorities in BPMN XML
 
-Job Priorities can be assigned at the process or the activity level. To achieve this the camunda extension attribute `camunda:jobPriority` can be used.
+Job Priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:jobPriority` can be used.
 
 For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
 The concreate value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
@@ -311,10 +311,10 @@ For example:
   ascending by due date.
 
 {{< note title="" class="warning" >}}
-  All of these options are set to ```false``` by default and should only be
+  All of these options are set to `false` by default and should only be
   activated if required by the use case. The options alter the used job
   acquisition query and may affect its performance. That's why we also advise to
-  add an index on the corresponding column(s) of the ```ACT_RU_JOB``` table.
+  add an index on the corresponding column(s) of the `ACT_RU_JOB` table.
 {{< /note >}}
 
 <table class="table table-striped">
@@ -365,7 +365,7 @@ In the scenario of an embedded process engine, the default implementation for th
 
 Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
-In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
+In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the Camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn">
@@ -445,7 +445,7 @@ In the case of a single, application-embedded process engine, the job executor s
 
 There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
 
-In larger deployments however, this quickly leads to a poorly manageable situation. When running camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
+In larger deployments however, this quickly leads to a poorly manageable situation. When running Camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
 
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
@@ -454,7 +454,7 @@ See the platform-specific information in the [Runtime Container Integration]({{<
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
-To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the `processes.xml` deployment descriptor of a process application or in the camunda BPM platform descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named `default`, which is created when the platform is bootstrapped.
+To which job acquisition a process engine is assigned can be specified in the declaration of the engine, so either in the `processes.xml` deployment descriptor of a process application or in the Camunda BPM platform descriptor. The following is an example configuration that declares a new engine and assigns it to the job acquisition named `default`, which is created when the platform is bootstrapped.
 
 ```xml
 <process-engine name="newEngine">
@@ -468,7 +468,7 @@ Job acquisitions have to be declared in the BPM platform's deployment descriptor
 
 # Cluster Setups
 
-When running the camunda platform in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run the camunda BPM platform against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
+When running the Camunda platform in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run the Camunda BPM platform against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
 
 {{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
 

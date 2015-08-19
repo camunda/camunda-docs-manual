@@ -25,13 +25,13 @@ The following archetypes are currently provided. They are distributed via our Ma
   <tbody>
     <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
-      <td>Process application that uses a shared camunda BPM engine in a Java EE Container, e.g. JBoss AS7.
-          Contains: camunda EJB client, camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, JSF-based start and task forms,
+      <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g. JBoss AS7.
+          Contains: Camunda EJB client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, JSF-based start and task forms,
           configuration for JPA (Hibernate), JUnit Test with in-memory engine, Arquillian Test for JBoss AS7, Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
-      <td>Process application that uses a shared camunda BPM engine in a Servlet Container, e.g. Apache Tomcat.
+      <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g. Apache Tomcat.
           Contains: Servlet Process Application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Arquillian Test for JBoss AS7, Ant build script for one-click deployment in Eclipse</td>
     </tr>
@@ -41,11 +41,9 @@ The following archetypes are currently provided. They are distributed via our Ma
 
 # Usage in Eclipse IDE
 
-
 ## Summary
 
 1. Add archetype catalog (**Preferences -> Maven -> Archetypes -> Add Remote Catalog**):
-
     **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
 2. Create Maven project from archetype (**File -> New -> Project... -> Maven -> Maven Project**)
 
@@ -69,8 +67,8 @@ Now you should be able to use the archetypes when creating a new Maven project i
 {{< img src="../img/eclipse-03-select-maven-project-location.png" title="Eclipse: Select Maven project location" >}}
 3. Select the archetype from the catalog that you created before.
 {{< img src="../img/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >}}
-4. Specify Maven coordinates and camunda version and finish the project creation.
-{{< img src="../img/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and camunda version" >}}
+4. Specify Maven coordinates and Camunda version and finish the project creation.
+{{< img src="../img/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and Camunda version" >}}
 
 The resulting project should look like this:
 

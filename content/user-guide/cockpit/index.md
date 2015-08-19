@@ -2,7 +2,7 @@
 
 title: 'Cockpit'
 layout: "section-list"
-weight: 130
+weight: 120
 
 menu:
   main:

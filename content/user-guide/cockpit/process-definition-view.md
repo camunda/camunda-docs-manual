@@ -13,11 +13,11 @@ menu:
 {{< img src="../img/cockpit-process-definitions-view.png" title="Process Definition View" >}}
 
 he Process Definition View provides you with information about the definition and the status of a process. On the left hand side you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed together with an instances counter label in the corresponding rendered diagram. So it is easy to locate [failed activities][failed-activities] in the process. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to pan the diagram in the desired direction.
-In the tab ```Process Instances``` all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [Process Instance View][process-instance-view].
+In the tab `Process Instances` all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [Process Instance View][process-instance-view].
 
-The tab ```Called Process Definitions``` displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the Process Definition View. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the column *Activity* you can select the instance that is calling the child process.
+The tab `Called Process Definitions` displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the Process Definition View. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the column *Activity* you can select the instance that is calling the child process.
 
-The tab ```Job Definitions``` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information)
+The tab `Job Definitions` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information)
 
 
 [failed-activities]: {{< relref "user-guide/cockpit/failed-jobs.md" >}}
@@ -27,8 +27,8 @@ The tab ```Job Definitions``` displays the Job Definitions that are linked to th
 
 # Filter
 
-The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical _AND_ relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the _operator_ may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
-The `like` operator is for string variables only. You can use `%` as wildcard in the _value_ expression. String and date values must be properly enclosed in `" "`.
+The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
+The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in `" "`.
 
 >Note: Please be aware that complex data types are not supported in this feature.
 

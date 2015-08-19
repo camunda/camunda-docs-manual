@@ -10,6 +10,7 @@ menu:
 
 ---
 
+
 {{< img src="../img/admin-system-management.png" title="System Management" >}}
 
 The System Settings menu gives you some general information about the process engine and allows you to access the *Flow Node Count* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*
@@ -24,10 +25,9 @@ The Flow Node Count menu in Admin displays an approximate number of flow nodes t
 
 # Camunda License Key
 
-{{< note title="Enterprise Feature" class="warning">}}
+{{< enterprise >}}
   Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
-  Check the [Camunda enterprise homepage](http://camunda.com/bpm/enterprise/) for more information or get your [free trial version](http://camunda.com/bpm/enterprise/trial/).
-{{< /note >}}
+{{< /enterprise >}}
 
 {{< img src="../img/admin-license-key.png" title="License Key" >}}
 

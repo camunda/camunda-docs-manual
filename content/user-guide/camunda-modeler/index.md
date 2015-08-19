@@ -32,7 +32,7 @@ This view provides a hierarchical view of the resources in your workspace. Proje
 
 {{< img src="img/modeler-properties-panel.png" title="Modeler" >}}
 
-The Properties Panel allows you to maintain BPMN and camunda BPM vendor extensions in your diagrams. To open this view click *Window / Show View / Other... / General / Properties*.
+The Properties Panel allows you to maintain BPMN and Camunda BPM vendor extensions in your diagrams. To open this view click *Window / Show View / Other... / General / Properties*.
 
 
 ## Diagram Canvas

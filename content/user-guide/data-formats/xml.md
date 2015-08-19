@@ -12,7 +12,7 @@ menu:
 
 For working with XML, the Spin functions `org.camunda.spin.Spin.S` and `org.camunda.spin.Spin.XML` can be used as entry points. The latter offers strongly-typed access to Spin's XML API and is preferable when writing Java code. In scripting environments, only the `S` function is available. The returned Spin wrapper offers methods for manipulating and writing XML as well as mapping XML to Java. Furthermore, the entry functions can be provided with Java objects that get implicitly converted to Spin's intermediary XML format.
 
-The following provides examples on how camunda Spin can be used in the process engine to work with XML data. For illustration purposes, let us assume that a String process variable `customer` containing XML exists. It has the following content:
+The following provides examples on how Camunda Spin can be used in the process engine to work with XML data. For illustration purposes, let us assume that a String process variable `customer` containing XML exists. It has the following content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -189,5 +189,5 @@ customerXml matches:
 ```
 
 {{< note title="Default Serialization Format" class="info" >}}
-  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property ```defaultSerializationFormat```. To configure default JSON serialization, set this property to ```application/xml```. Now, the invocation ```runtimeService.setVariable(processInstance.getId(), "customer", new Customer())``` directly serializes the Customer object as XML without explicit declaration of the format.
+  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/xml`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as XML without explicit declaration of the format.
 {{< /note >}}

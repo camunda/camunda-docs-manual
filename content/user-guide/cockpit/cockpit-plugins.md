@@ -128,72 +128,72 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 ## Dashboard
 
-**Name:** ```cockpit.dashboard```
+**Name:** `cockpit.dashboard`
 
 {{< img src="../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
 
 ## Process Definition Runtime Tab
 
-**Name:** ```cockpit.processDefinition.runtime.tab```
+**Name:** `cockpit.processDefinition.runtime.tab`
 
 {{< img src="../img/plugin-points/plugin-point-process-definition-details.png" title="Process Definition Runtime Tab" >}}
 
 ## Process Instance Runtime Tab
 
-**Name:** ```cockpit.processInstance.runtime.tab```
+**Name:** `cockpit.processInstance.runtime.tab`
 
 {{< img src="../img/plugin-points/plugin-point-process-instance-details.png" title="Process Instance Runtime Tab" >}}
 
 ## Process Definition Runtime Action
 
-**Name:** ```cockpit.processDefinition.runtime.action```
+**Name:** `cockpit.processDefinition.runtime.action`
 
 {{< img src="../img/plugin-points/plugin-point-process-definition-runtime-action.png" title="Process Definition Runtime Action" >}}
 
 ## Process Instance Runtime Action
 
-**Name:** ```cockpit.processInstance.runtime.action```
+**Name:** `cockpit.processInstance.runtime.action`
 
 {{< img src="../img/plugin-points/plugin-point-process-instance-runtime-action.png" title="Process Instance Runtime Action" >}}
 
 
 ## Process Definition View
 
-**Name:** ```cockpit.processDefinition.view```
+**Name:** `cockpit.processDefinition.view`
 
 {{< img src="../img/plugin-points/plugin-point-cockpit-process-definition-view.png" title="Process Definition View" >}}
 
 
 ## Process Instance View
 
-**Name:** ```cockpit.processDefinition.view```
+**Name:** `cockpit.processDefinition.view`
 
 {{< img src="../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Process Instance View" >}}
 
 
 ## Process Instance View
 
-**Name:** ```cockpit.processInstance.view```
+**Name:** `cockpit.processInstance.view`
 
 {{< img src="../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
 
 
 ## Process Definition Diagram Overlay
 
-**Name:** ```cockpit.processDefinition.diagram.overlay```
+**Name:** `cockpit.processDefinition.diagram.overlay`
 
 {{< img src="../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
 
 
 ## Process Instance Diagram Overlay
 
-**Name:** ```cockpit.processInstance.diagram.overlay```
+**Name:** `cockpit.processInstance.diagram.overlay`
 
 {{< img src="../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
 
 ## Job Definition Action
 
-**Name:** ```cockpit.jobDefinition.action```
+**Name:** `cockpit.jobDefinition.action`
 
 {{< img src="../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}

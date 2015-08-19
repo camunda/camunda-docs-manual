@@ -30,12 +30,12 @@ scripts.
     <th>Script support</th>
   </tr>
   <tr>
-    <td><a href="#process-engine-scripting-use-script-tasks">Script Task</a></td>
+    <td><a href="#use-script-tasks">Script Task</a></td>
     <td>Script inside a script task</td>
   </tr>
   <tr>
     <td>
-      <a href="#process-engine-scripting-use-scripts-as-execution-listeners">
+      <a href="#use-scripts-as-execution-listeners">
         Process, Activities, Sequence Flows, Gateways and Events
       </a>
     </td>
@@ -43,7 +43,7 @@ scripts.
   </tr>
   <tr>
     <td>
-      <a href="#process-engine-scripting-use-scripts-as-task-listeners">
+      <a href="#use-scripts-as-task-listeners">
         User Tasks
       </a>
     </td>
@@ -51,7 +51,7 @@ scripts.
   </tr>
   <tr>
     <td>
-      <a href="#process-engine-scripting-use-scripts-as-conditions">
+      <a href="#use-scripts-as-conditions">
         Sequence Flows
       </a>
     </td>
@@ -59,7 +59,7 @@ scripts.
   </tr>
   <tr>
     <td>
-        <a href="#process-engine-scripting-use-scripts-as-inputoutput-parameters">
+        <a href="#use-scripts-as-inputoutput-parameters">
           All Tasks, All Events, Transaction, Subprocess and Connector
         </a>
     </td>
@@ -215,8 +215,8 @@ the Groovy variable `sum` to the process variable `x` for a Java delegate.
 {{< note title="Script Return Value" class="info" >}}
   Please note that the last statement of the script is returned. This applies to Groovy,
   Javascript and JRuby but not to Jython. If you want to use Jython, your script has to be a
-  single expression like ```a + b``` or ```a > b``` where ```a``` and
-  ```b``` are already process variables. Otherwise, the Jython scripting engine will not return a value.
+  single expression like `a + b` or `a > b` where `a` and
+  `b` are already process variables. Otherwise, the Jython scripting engine will not return a value.
 {{< /note >}}
 
 ```xml

@@ -219,7 +219,16 @@ ObjectValue retrievedTypedObjectValue = runtimeService.getVariableTyped(executio
 com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue.getValue();
 ```
 
-This again is equivalent to the Java-Object-based API. However, it is now possible to tell the engine which serialization format to use when persisting the value. For example, `ObjectValue typedObjectValue = Variables.objectValue(order).serializationDataFormat(Variables.SerializationDataFormats.JAVA).create();` creates a value that gets serialized by the engine's built-in Java object serializer. Also, a retrieved `ObjectValue` instance provides additional variable details:
+This again is equivalent to the Java-Object-based API. However, it is now possible to tell the engine which serialization format to use when persisting the value. For example:
+
+```java
+ObjectValue typedObjectValue = Variables
+  .objectValue(order)
+  .serializationDataFormat(Variables.SerializationDataFormats.JAVA)
+  .create();
+ ```
+
+ creates a value that gets serialized by the engine's built-in Java object serializer. Also, a retrieved `ObjectValue` instance provides additional variable details:
 
 ```java
 // returns true
@@ -257,8 +266,8 @@ ObjectValue retrievedTypedObjectValue = runtimeService.getVariableTyped(executio
 com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue.getValue();
 ```
 
-{{< note title="Be Aware of Inconsistent Variable State" class="warning" >}}
-  When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of ```com.example.Order```. Thus, an invalid variable value will only be detected when ```runtimeService#getVariableTyped``` is called.
+{{< note title="Inconsistent Variable States" class="warning" >}}
+  When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of `com.example.Order`. Thus, an invalid variable value will only be detected when `runtimeService#getVariableTyped` is called.
 {{< /note >}}
 
 
