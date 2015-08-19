@@ -16,8 +16,14 @@
 <!-- menu start -->
 
 <div class="version">
-  <span class="name">Manual</span>
-  <span class="number"><a>7.4</a></span>
+
+  {{range $.Site.Params.sections }}
+    {{ if eq $.Site.Params.section.id .id }} <span class="name">{{ .name }}</span> {{ end }}
+  {{ end }}
+
+  {{if $.Site.Params.section.isversioned }}
+    <span class="number"><a>7.4</a></span>
+  {{ end }}
 </div>
 
 <ul class="site-menu-items">
