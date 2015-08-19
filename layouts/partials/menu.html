@@ -1,18 +1,14 @@
 {{ define "menu-node" }}
   <li>
     {{ if .HasChildren }}
-      <a href="{{.URL}}" >
-        <span>{{ .Name }}</span>
-      </a>
+      <a href="{{.URL}}" >{{ .Name }}</a>
       <ul>
         {{ range .Children }}
           {{ template "menu-node" .}}
         {{ end }}
       </ul>
     {{else}}
-      <a href="{{.URL}}" >
-        <span>{{ .Name }}</span>
-      </a>
+      <a href="{{.URL}}" >{{ .Name }}</a>
     {{end}}
   </li>
 {{ end }}
@@ -36,6 +32,7 @@
     <span class="toggle glyphicon glyphicon-chevron-up"></span>
     Options
   </h4>
+
   <div class="content">
     here comes something else...
   </div>
