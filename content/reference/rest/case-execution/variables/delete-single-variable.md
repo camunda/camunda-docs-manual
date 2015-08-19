@@ -1,12 +1,14 @@
 ---
 
 title: "Delete Single Case Execution Variable"
-weight: 230
+weight: 170
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-case-execution-delete-single-variable"
-    parent: "rest-api-case-execution"
+    parent: "rest-api-case-execution-variables"
+    pre: "DELETE `/case-execution/{id}/variables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a variable of a given case execution.
 
 
-Method
-------
+# Method
 
 DELETE `/case-execution/{id}/variables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +62,13 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/case-execution/aCaseExecutionId/variables/aVarName`
 
 
-#### Response
+## Response
 
 Status 204. No content.

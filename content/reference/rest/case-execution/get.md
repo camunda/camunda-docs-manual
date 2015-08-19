@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-case-execution-get"
     parent: "rest-api-case-execution"
+    pre: "GET `/case-execution/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single case execution according to the `CaseExecution` interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/case-execution/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the CaseExecution interface in the engine.
 Its properties are as follows:
@@ -134,8 +133,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -151,18 +149,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case execution with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Case execution with given id does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/case-execution/aCaseExecutionId`
 
-#### Response
+## Response
 
     {
       "id"               : "aCaseExecutionId",

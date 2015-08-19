@@ -5,8 +5,10 @@ weight: 240
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-case-execution-delete-local-variable"
-    parent: "rest-api-case-execution"
+    parent: "rest-api-case-execution-local-variables"
+    pre: "DELETE `/case-execution/{id}/localVariables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a variable in the context of a given case execution. Deletion does not propagate upwards in the case execution hierarchy.
 
 
-Method
-------
+# Method
 
 DELETE `/case-execution/{id}/localVariables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +62,13 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/case-execution/aCaseExecutionId/localVariables/aVarName`
 
 
-#### Response
+## Response
 
 Status 204. No content.

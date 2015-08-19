@@ -5,8 +5,10 @@ weight: 180
 
 menu:
   main:
+    name: "Modify"
     identifier: "rest-api-case-execution-post-local-variables"
-    parent: "rest-api-case-execution"
+    parent: "rest-api-case-execution-local-variables"
+    pre: "POST `/case-execution/{id}/localVariables`"
 
 ---
 
@@ -15,16 +17,14 @@ Updates or deletes the variables in the context of a case execution. The updates
 Please note: deletion precedes update.
 
 
-Method
-------
+# Method
 
 POST `/case-execution/{id}/localVariables`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +38,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -49,8 +49,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>modifications</td>
-    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %></td>
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
+    {{< rest-var-request >}}
   </tr>
   <tr>
     <td>deletions</td>
@@ -59,14 +59,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -82,7 +80,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -91,14 +89,14 @@ Response codes
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 POST `/case-execution/aCaseExecutionId/localVariables`
 
-Request body:
+Request Body:
 
     {
       "modifications":
@@ -112,6 +110,6 @@ Request body:
         ]
     }
 
-#### Response
+## Response
 
 Status 204. No content.

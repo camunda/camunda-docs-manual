@@ -5,27 +5,27 @@ weight: 50
 
 menu:
   main:
+    name: "Get Count (Post)"
     identifier: "rest-api-case-execution-post-query-count"
     parent: "rest-api-case-execution"
+    pre: "POST `/case-instance/count`"
 
 ---
 
 
 Query for the number of case executions that fulfill the given parameters.
-This method takes the same message body as the [POST query](ref:#case-execution-get-case-executions-post)
-and therefore it is slightly more powerful than the [GET query count](ref:#case-execution-get-case-executions-count).
+This method takes the same message body as the [POST query]({{< relref "reference/rest/case-execution/post-query.md" >}})
+and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/case-execution/get-query-count.md" >}}).
 
 
-Method
-------
+# Method
 
 POST `/case-instance/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -105,8 +105,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -124,8 +123,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -141,19 +139,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/case-execution/count`
 
-Request body:
+Request Body:
 
     {
       "variables":
@@ -172,7 +169,7 @@ Request body:
       "caseDefinitionId" : "aCaseDefinitionId"
     }
 
-#### Response
+## Response
 
     {
       "count" : 1

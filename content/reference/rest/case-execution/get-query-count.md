@@ -5,26 +5,26 @@ weight: 20
 
 menu:
   main:
+    name: "Get Count"
     identifier: "rest-api-case-execution-get-query-count"
     parent: "rest-api-case-execution"
+    pre: "GET `/case-execution/count`"
 
 ---
 
 
 Query for the number of case executions that fulfill given parameters.
-Takes the same parameters as the [get case executions](ref:#case-execution-get-case-executions) method.
+Takes the same parameters as the [get case executions]({{< relref "reference/rest/case-execution/get-query.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/case-execution/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -110,8 +110,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -129,8 +128,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -146,20 +144,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if an invalid operator for variable comparison is used. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/case-execution/count?variables=myVariable_eq_camunda`
 
-#### Response
+## Response
 
     {
       "count": 1
