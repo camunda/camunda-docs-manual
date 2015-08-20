@@ -5,27 +5,27 @@ weight: 10
 
 menu:
   main:
+    name: "Deliver"
     identifier: "rest-api-message-post-message"
     parent: "rest-api-message"
+    pre: "POST `/message`"
 
 ---
 
 
 Deliver a message to the process engine to either trigger a message start event or an intermediate message catching event.
 Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
-For more information about the correlation behavior, see the [Message Events](ref:/api-references/bpmn20/#events-message-events) section of the [BPMN 2.0 Implementation Reference](ref:/api-references/bpmn20/).
+For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
 
 
-Method
-------
+# Method
 
 POST `/message`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -44,20 +44,20 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>correlationKeys</td>
-    <td><p>Used for correlation of process instances that wait for incoming messages.
+    <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.
-    Each key is a variable name and each value a JSON variable value object with the following properties.</p>
+    Each key is a variable name and each value a JSON variable value object with the following properties.
 
-    <%- @partial('api-references/rest/variables/variable-request-primitive-only.html.md.eco', @, {}) %>
+    {{< rest-var-request-primitive-only >}}
 
     <p><strong>Note:</strong> Process instance variables are the global variables of a process instance.
     Local variables of child executions (such as in subprocesses) are not considered!</p></td>
   </tr>
   <tr>
     <td>processVariables</td>
-    <td><p>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
-    Each key is a variable name and each value a JSON variable value object with the following properties.</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %>
+    <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
+    Each key is a variable name and each value a JSON variable value object with the following properties.
+    {{< rest-var-request >}}
   </tr>
   <tr>
     <td>all</td>
@@ -66,14 +66,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -89,18 +87,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>No <code>messageName</code> was supplied or the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No <code>messageName</code> was supplied or the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+
+## Request
 
 POST `/message`
 
-Request body:
+Request Body:
 
     {"messageName" : "aMessage",
     "businessKey" : "aBusinessKey",
@@ -113,6 +111,6 @@ Request body:
     }
     }
 
-#### Response
+## Response
 
 Status 204. No content.

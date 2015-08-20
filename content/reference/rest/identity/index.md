@@ -1,6 +1,7 @@
 ---
 
 title: "Identity"
+layout: "section-list"
 weight: 120
 
 menu:

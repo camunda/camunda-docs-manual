@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-engine-get-names"
     parent: "rest-api-engine"
+    pre: "GET `/engine`"
 
 ---
 
@@ -16,20 +18,18 @@ Retrieves the names of all process engines available on your platform.
 __Note:__ You cannot prepend `/engine/{name}` to this method.
 
 
-Method
-------
+# Method
 
 GET `/engine`
 
 
-Parameters
-----------
+# Parameters
 
 This method takes no parameters.
 
 
-Result
------------------
+# Result
+
 A JSON array consisting of engine objects.
 Each engine object has the following properties:
 
@@ -47,8 +47,7 @@ Each engine object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +63,13 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/engine`
 
-#### Response
+## Response
 
     [{"name":"default"},
      {"name":"anotherEngineName"}]

@@ -1,6 +1,7 @@
 ---
 
 title: "Metrics"
+layout: "section-list"
 weight: 170
 
 menu:

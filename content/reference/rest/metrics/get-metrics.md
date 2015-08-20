@@ -7,21 +7,20 @@ menu:
   main:
     identifier: "rest-api-metrics-get-metrics"
     parent: "rest-api-metrics"
+    pre: "GET `/metrics/{metrics-name}/sum`"
 
 ---
 
 Retrieves the `sum` (count) for a given metrics.
 
-Method
-------
+# Method
 
 GET `/metrics/{metrics-name}/sum`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,8 +33,7 @@ Parameters
   </tr>
 </table>
 
-
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -53,8 +51,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object providing the result:
 
@@ -72,8 +69,8 @@ A JSON object providing the result:
 </table>
 
 
-Response codes
---------------
+# Response Codes
+
 
 <table class="table table-striped">
   <tr>
@@ -89,14 +86,13 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00`
 
-#### Response
+## Response
 
     { "result": 4342343241 }
 

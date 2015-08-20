@@ -1,6 +1,7 @@
 ---
 
 title: "Message"
+layout: "section-list"
 weight: 160
 
 menu:

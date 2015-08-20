@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Get Groups"
     identifier: "rest-api-identity-get-group-info"
     parent: "rest-api-identity"
+    pre: "GET `/identity/groups`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Gets the groups of a user and all users that share a group with the given user.
 
 
-Method
-------
+# Method
 
 GET `/identity/groups`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object containing groups, the number of members and other users.
 Its properties are as follows:
@@ -65,8 +64,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -82,19 +80,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If the <code>userId</code> query parameter is missing. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If the <code>userId</code> query parameter is missing. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/identity/groups?userId=aUserId`
 
-#### Response
+## Response
 
     {"groups":
       [{"id":"group1Id",
