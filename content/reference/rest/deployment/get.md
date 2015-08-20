@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-deployment-get"
     parent: "rest-api-deployment"
+    pre: "GET `/deployment/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single deployment by id.
 
 
-Method
-------
+# Method
 
 GET `/deployment/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the `Deployment` interface of the engine. Its properties are as follows:
 
@@ -66,8 +65,7 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -83,18 +81,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/deployments/someDeploymentId`
 
-#### Response
+## Response
 
 Status 200.
 

@@ -5,8 +5,10 @@ weight: 60
 
 menu:
   main:
+    name: "Get Resource"
     identifier: "rest-api-deployment-get-resource"
     parent: "rest-api-deployment"
+    pre: "GET `/deployment/{id}/resources/{resourceId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single deployment resource by resource id for the given deployment.
 
 
-Method
-------
+# Method
 
 GET `/deployment/{id}/resources/{resourceId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,8 +41,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the `Resource` interface in the engine.
 Its properties are as follows:
@@ -71,8 +70,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -88,18 +86,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/deployments/someDeploymentId/resources/someResourceId`
 
-#### Response
+## Response
 
 Status 200.
 

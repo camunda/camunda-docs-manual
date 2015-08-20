@@ -5,8 +5,10 @@ weight: 50
 
 menu:
   main:
+    name: "Get Resources"
     identifier: "rest-api-deployment-get-resources"
     parent: "rest-api-deployment"
+    pre: "GET `/deployment/{id}/resources`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves all deployment resources of a given deployment.
 
 
-Method
-------
+# Method
 
 GET `/deployment/{id}/resources`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array containing all deployment resources of the given deployment. Each
 object has the following properties:
@@ -67,8 +66,7 @@ object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -84,19 +82,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment resources for the given deployment do not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment resources for the given deployment do not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/deployment/anDeploymentId/resources`
 
-#### Response
+## Response
 
 ```json
 [

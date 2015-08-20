@@ -1,6 +1,7 @@
 ---
 
 title: "Deployment"
+layout: "section-list"
 weight: 60
 
 menu:

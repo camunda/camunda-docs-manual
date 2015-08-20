@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Get Resource (Binary)"
     identifier: "rest-api-deployment-get-resource-binary"
     parent: "rest-api-deployment"
+    pre: "GET `/deployment/{id}/resources/{resourceId}/data`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves the binary content of a single deployment resource for the given deployment.
 
 
-Method
-------
+# Method
 
 GET `/deployment/{id}/resources/{resourceId}/data`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,13 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 Byte Stream.
 
-Response codes
---------------
+
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -63,18 +62,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Deployment Resource with given resource id or deployment id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/deployments/someDeploymentId/resources/someResourceId/data`
 
-#### Response
+## Response
 
 Status 200.
 
