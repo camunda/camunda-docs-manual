@@ -16,8 +16,8 @@ links: 'process'
 
 </div>
 
-<div class="row">
-  <p class="lead">Completed the <a href="http://camunda.org/get-started">Getting Started Tutorials</a>? Now discover what you can build with camunda BPM:</p>
+<div class="col-lg-12">
+  <p class="lead">Completed the <a href="/get-started/">Getting Started Guides</a>? Now discover what you can build with camunda BPM:</p>
 </div>
 
 <div class="row">

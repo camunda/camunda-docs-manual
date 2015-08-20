@@ -14,8 +14,8 @@
         <li class="dropdown" data-active-link="/guides">
           <a href="<%= @docUrl("guides/") %>">Guides</a>
           <ul class="dropdown-menu">
-            <li data-active-link="/guides/getting-started-guides">
-              <a href="<%= @docUrl("guides/getting-started-guides/") %>">Getting Started Guides</a>
+            <li>
+              <a href="/get-started">Getting Started Guides</a>
             </li>
             <li data-active-link="/guides/user-guide">
               <a href="<%= @docUrl("guides/user-guide/") %>">User Guide</a>
@@ -60,22 +60,8 @@
             </li>
           </ul>
         </li>
-        <li class="dropdown" data-active-link="/incubation">
-          <a href="<%= @docUrl("incubation/") %>">Incubation</a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="https://github.com/camunda/camunda-bpm-fluent-testing">Fluent Testing Library</a>
-            </li>
-            <li>
-              <a href="http://camunda.github.io/camunda-bpm-php-sdk">PHP SDK</a>
-            </li>
-            <li>
-              <a href="https://github.com/camunda/camunda-bpm-camel">Apache Camel Integration</a>
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown" data-active-link="/enterprise">
-          <a href="<%= @docUrl("enterprise/") %>">Enterprise</a>
+        <li class="dropdown">
+          <a href="/enterprise">Enterprise</a>
         </li>
       </ul>
 

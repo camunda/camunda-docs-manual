@@ -34,7 +34,7 @@ The migration guides usually cover following migration topics in detail:
 
 The general approach to migrate from one minor version to the next involves the following steps:
 
-1. [Download](http://camunda.org/download/) the pre-packaged distribution corresponding to the next minor version from the Camunda website, e.g. `camunda-bpm-tomcat-7.2.0.zip`. As an enterprise customer, use the [enterprise edition download](ref:/enterprise/#downloads) page instead. 
+1. [Download](http://camunda.org/download/) the pre-packaged distribution corresponding to the next minor version from the Camunda website, e.g., `camunda-bpm-tomcat-7.2.0.zip`. As an enterprise customer, use the [enterprise edition download](/enterprise/download) page instead. 
 2. Migrate your database using the SQL scripts packaged inside the `$DISTRIBUTION_PATH/sql/upgrade`.
 3. Upgrade the Camunda libraries and web applications in your server.
 4. Upgrade your process applications.

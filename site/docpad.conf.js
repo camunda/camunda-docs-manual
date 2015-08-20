@@ -12,8 +12,7 @@ var docpadConfig = {
     links: {
       validate: {
         failOnError: process.env.FAIL_ON_ERROR || false,
-        ignoreTargetPattern: /\/api-references\/javadoc\/.*/,
-        ignoreDocumentPattern: /\/single-page.*/
+        ignoreTargetPattern: /\/api-references\/javadoc\/.*/
       },
       process: {
         headings: [ 'h1', 'h2', 'h3' ],
@@ -30,8 +29,9 @@ var docpadConfig = {
     site: {
 
       versions: {
-        current: process.env.DOCS_VERSION || 'latest',
+        current: process.env.DOCS_VERSION || '7.0',
         all: [
+          { id: 'master', name: 'Master' },
           { id: 'latest', name: 'Latest' },
           { id: '7.3', name: '7.3 (stable)' },
           { id: '7.2', name: '7.2 (stable)' },
