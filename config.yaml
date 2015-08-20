@@ -1,5 +1,5 @@
 ---
-baseurl: "http://stage.docs.camunda.org"
+baseurl: "/manual/7.4"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
@@ -11,13 +11,13 @@ params:
   sections:
     - id: "get-started"
       name: "Get Started"
-      url: "http://stage.docs.camunda.org/get-started/"
+      url: "/get-started"
     - id: "manual"
       name: "Manual"
-      url: "http://stage.docs.camunda.org/"
+      url: "/manual"
     - id: "enterprise"
       name: "Enterprise"
-      url: "http://stage.docs.camunda.org/enterprise"
+      url: "/enterprise"
   section:
     id: "manual"
     version: "7.4"
