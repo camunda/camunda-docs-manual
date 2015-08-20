@@ -5,8 +5,10 @@ weight: 20
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-group-member-delete"
     parent: "rest-api-group-member"
+    pre: "DELETE `/group/{id}/members/{userId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Removes a member from a group.
 
 
-Method
-------
+# Method
 
 DELETE `/group/{id}/members/{userId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -69,17 +67,17 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an error occurs. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>In case an error occurs. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 DELETE `/group/sales/members/jonny1`
 
-#### Response
+## Response
 
 Status 204. No content.

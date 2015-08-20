@@ -5,23 +5,23 @@ weight: 10
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-group-member-put"
     parent: "rest-api-group-member"
+    pre: "PUT `/group/{id}/members/{userId}`"
 
 ---
 
 
 Add a member to a group.
 
-Method
-------
+# Method
 
 PUT `/group/{id}/members/{userId}`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,14 +40,12 @@ Parameters
 
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -68,18 +66,18 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>In case an internal error occurs. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>In case an internal error occurs. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 PUT `/group/sales/members/jonny1`
 
 
-#### Response
+## Response
 
 Status 204. No content.

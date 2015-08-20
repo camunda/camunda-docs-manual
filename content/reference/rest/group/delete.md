@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-group-delete"
     parent: "rest-api-group"
+    pre: "DELETE `/group/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a group by id.
 
 
-Method
-------
+# Method
 
 DELETE `/group/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,14 +37,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -65,17 +63,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Group cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Group cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 DELETE `/group/sales`
 
-#### Response
+## Response
 
 Status 204. No content.

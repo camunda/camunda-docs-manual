@@ -1,6 +1,7 @@
 ---
 
 title: "Group"
+layout: "section-list"
 weight: 100
 
 menu:

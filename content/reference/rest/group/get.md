@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-group-get"
     parent: "rest-api-group"
+    pre: "GET `/group/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single group.
 
 
-Method
-------
+# Method
 
 GET `/group/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of group objects.
 Each group object has the following properties:
@@ -67,8 +66,7 @@ Each group object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -84,18 +82,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/group/sales`
 
-#### Response
+## Response
 
 Status 200.
 

@@ -5,26 +5,28 @@ weight: 60
 
 menu:
   main:
+    name: "Options"
     identifier: "rest-api-group-options"
     parent: "rest-api-group"
+    pre: "OPTIONS `/group` for available interactions on resource
+          </br>
+          OPTIONS `/group/{id}` for available interactions on resource instance"
 
 ---
 
 
 The `/group` resource supports two custom OPTIONS requests, one for the resource as such and one for individual group instances. The OPTIONS request allows checking for the set of available operations that the currently authenticated user can perform on the `/group` resource. The fact whether the user can perform an operation or not may depend on various things, including the users authorizations to interact with this resource and the internal configuration of the process engine.
 
-Method
-------
+# Method
 
 OPTIONS `/group` for available interactions on resource
 
 OPTIONS `/group/{id}` for available interactions on resource instance
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,8 +40,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object with a single property named `links`, providing a list of resource links. Each link has the following properties
 
@@ -67,8 +68,8 @@ A JSON object with a single property named `links`, providing a list of resource
 </table>
 
 
-Response codes
---------------
+# Response Codes
+
 
 <table class="table table-striped">
   <tr>
@@ -83,14 +84,15 @@ Response codes
   </tr>
 </table>
 
-Example 1
----------
 
-#### Request
+# Example 1
+
+
+## Request
 
 OPTIONS `/group`
 
-#### Response
+## Response
 
 Status 200.
 
@@ -99,14 +101,13 @@ Status 200.
         {"method":"GET","href":"http://localhost:8080/camunda/api/engine/engine/default/group/count","rel":"count"},
         {"method":"POST","href":"http://localhost:8080/camunda/api/engine/engine/default/group/create","rel":"create"}]}
 
-Example 2
----------
 
-#### Request
+# Example 2
+
+## Request
 
 OPTIONS `/group/aGroupId`
-
-#### Response
+## Response
 
 Status 200.
 
