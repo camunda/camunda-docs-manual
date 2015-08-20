@@ -122,7 +122,7 @@ payload of a `camunda:connector`.
 
 ## Installing the XSLT Template Engine
 
-The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](ref:/enterprise/#downloads-enterprise-extensions).
+The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download-enterprise-extensions).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 
