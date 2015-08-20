@@ -5,24 +5,24 @@ weight: 100
 
 menu:
   main:
+    name: "Execute List (POST)"
     identifier: "rest-api-filter-10-post-execute-list"
     parent: "rest-api-filter"
+    pre: "POST `/filter/{id}/list`"
 
 ---
 
 Executes the saved query of the filter and returns the result list. This method is slightly more
-powerful then the [GET query](ref:#filter-execute-filter-list) because it allows to extend the saved
+powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-list.md" >}}) because it allows to extend the saved
 query of the filter.
 
-Method
-------
+# Method
 
 POST `/filter/{id}/list`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
 </table>
 
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -56,23 +56,21 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
-the [Task](ref:#task-get-tasks) resource.
+the [Task]({{< relref "reference/rest/task/get-query.md" >}}) resource.
 
 
-Result
-------
+# Result
 
 A JSON array containing JSON objects corresponding to the matching entity interface in the engine.
 This depends on the saved query in the filter. Therefore it is not possible to specify a generic
 result format, i.e., if the resource type of the filter is `Task` the result will correspond with the
 Task interface in the engine.
 
-Response codes
---------------
+# Response codes
 
 <table class="table table-striped">
   <tr>
@@ -88,13 +86,13 @@ Response codes
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="ref:#overview-hypertext-application-language-hal">HAL</code> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</code> response.</td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      The extending query was invalid. See the <a href="ref:#overview-introduction">Introduction</a>
+      The extending query was invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>
@@ -103,7 +101,7 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -111,16 +109,15 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/filter/aTaskFilterId/list/?firstResult=0&maxResults=2`
 
@@ -138,7 +135,7 @@ Request Body:
 }
 
 ```
-#### Response
+## Response
 
 Status 200.
 

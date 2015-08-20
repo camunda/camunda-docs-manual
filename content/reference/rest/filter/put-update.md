@@ -5,8 +5,10 @@ weight: 50
 
 menu:
   main:
+    name: "Update"
     identifier: "rest-api-filter-05-put-update"
     parent: "rest-api-filter"
+    pre: "PUT `/filter/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Update an existing filter.
 
 
-Method
-------
+# Method
 
 PUT `/filter/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -54,7 +54,7 @@ A JSON object with the following properties:
     <td>
       A JSON object which corresponds to the JSON body of a REST query. I.e., a filter which
       has the resourceType <code>Task</code> must contain a query which is a valid task query
-      (see <a href="#task-get-tasks">Task</a>).
+      (see <a href="{{< relref "reference/rest/task/get-query.md" >}}">Task</a>).
     </td>
   </tr>
   <tr>
@@ -69,14 +69,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -93,7 +91,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>
-      Filter was invalid. See <a href="ref:#overview-introduction">Introduction</a> for the error
+      Filter was invalid. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error
       response format.
     </td>
   </tr>
@@ -102,28 +100,27 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to update this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>
-      Filter cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for
+      Filter cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for
       the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/filter/aFilterID`
 
-Request body:
+Request Body:
 
 ```json
 {
@@ -141,6 +138,6 @@ Request body:
 }
 ```
 
-#### Response
+## Response
 
 Status 204. No content.

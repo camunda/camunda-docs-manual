@@ -5,24 +5,24 @@ weight: 80
 
 menu:
   main:
+    name: "Execute (POST)"
     identifier: "rest-api-filter-08-post-execute-single-result"
     parent: "rest-api-filter"
+    pre: "POST `/filter/{id}/singleResult`"
 
 ---
 
 Executes the saved query of the filter and returns the single result. This method is slightly more
-powerful then the [GET query](ref:#filter-execute-filter-single-result) because it allows to extend
+powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-single-result.md" >}}) because it allows to extend
 the saved query of the filter.
 
-Method
-------
+# Method
 
 POST `/filter/{id}/singleResult`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -35,14 +35,13 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
-the [Task](ref:#task-get-tasks) resource.
+the [Task]({{< relref "reference/rest/task/get-query.md" >}}) resource.
 
-Result
-------
+# Result
 
 A JSON object corresponding to the corresponding entity interface in the engine. This depends
 on the saved query in the filter. Therefore it is not possible specify a generic result format,
@@ -50,8 +49,7 @@ i.e., if the resource type of the filter is `Task` the result will correspond wi
 interface in the engine.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -67,7 +65,7 @@ Response codes
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="ref:#overview-hypertext-application-language-hal">HAL</code> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
   </tr>
   <tr>
     <td>204</td>
@@ -79,7 +77,7 @@ Response codes
     <td>application/json</td>
     <td>
       The executed filter returned more than one single result or the extending query was invalid.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -87,7 +85,7 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -95,16 +93,15 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `filter/aTaskFilterId/singleResult`
 
@@ -122,7 +119,7 @@ Request Body:
 }
 ```
 
-#### Response
+## Response
 
 Status 200.
 

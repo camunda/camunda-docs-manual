@@ -5,22 +5,22 @@ weight: 110
 
 menu:
   main:
+    name: "Execute Count"
     identifier: "rest-api-filter-11-get-execute-count"
     parent: "rest-api-filter"
+    pre: "GET `/filter/{id}/count`"
 
 ---
 
 Executes the saved query of the filter and returns the count.
 
-Method
-------
+# Method
 
 GET `/filter/{id}/count`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -33,8 +33,7 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object with a single count property.
 
@@ -52,8 +51,7 @@ A JSON object with a single count property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -71,7 +69,7 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -79,20 +77,19 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/filter/aTaskFilterId/count`
 
-#### Response
+## Response
 
 Status 200.
 

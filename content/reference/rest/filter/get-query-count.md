@@ -5,26 +5,26 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-filter-02-get-query-count"
     parent: "rest-api-filter"
+    pre: "GET `/filter/count`"
 
 ---
 
 
 Get the number of filters that fulfill a provided query. Corresponds to the size of the result set
-when using the [get filters](ref:#filter-get-filters) method.
+when using the [get filters]({{< relref "reference/rest/filter/get-query.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/filter/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -54,8 +54,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object with a single count property.
 
@@ -73,8 +72,7 @@ A JSON object with a single count property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -93,22 +91,21 @@ Response codes
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code>
       parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable
-      comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the
+      comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the
       error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 
 GET `/filter/count?resourceType=Task&owner=aUserId`
 
-#### Response
+## Response
 
 Status 200.
 

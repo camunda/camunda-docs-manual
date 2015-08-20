@@ -1,6 +1,7 @@
 ---
 
 title: "Filter"
+layout: "section-list"
 weight: 90
 
 menu:

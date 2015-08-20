@@ -5,8 +5,10 @@ weight: 60
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-filter-06-delete"
     parent: "rest-api-filter"
+    pre: "DELETE `/filter/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a filter by id.
 
 
-Method
-------
+# Method
 
 DELETE `/filter/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,14 +37,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -62,26 +60,26 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to delete this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>
-      Filter cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for
+      Filter cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for
       the error response format.
     </td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 DELETE `/filter/aFilterId`
 
-#### Response
+## Response
 
 Status 204. No content.

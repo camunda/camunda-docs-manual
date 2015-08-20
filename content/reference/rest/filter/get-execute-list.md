@@ -5,22 +5,22 @@ weight: 90
 
 menu:
   main:
+    name: "Execute List"
     identifier: "rest-api-filter-09-get-execute-list"
     parent: "rest-api-filter"
+    pre: "GET `/filter/{id}/list`"
 
 ---
 
 Executes the saved query of the filter and returns the result list.
 
-Method
-------
+# Method
 
 GET `/filter/{id}/list`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
 </table>
 
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -55,16 +55,14 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array containing JSON objects corresponding to the matching entity interface in the engine.
 This depends on the saved query in the filter. Therefore it is not possible to specify a generic
 result format, i.e., if the resource type of the filter is `Task` the result will correspond with the
 Task interface in the engine.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -80,14 +78,14 @@ Response codes
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="ref:#overview-hypertext-application-language-hal">HAL</code> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -95,20 +93,19 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/filter/aTaskFilterId/list/?firstResult=0&maxResults=2`
 
-#### Response
+## Response
 
 Status 200.
 

@@ -5,26 +5,26 @@ weight: 10
 
 menu:
   main:
+    name: Get List
     identifier: "rest-api-filter-01-get-query"
     parent: "rest-api-filter"
+    pre: "GET `/filter`"
 
 ---
 
 
 Query for a list of filters using a list of parameters. The size of the result set can be retrieved
-by using the [get filters count](ref:#filter-get-filters-count) method.
+by using the [get filters count]({{< relref "reference/rest/filter/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/filter`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -80,8 +80,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of filter objects. Each filter object has the following properties:
 
@@ -132,8 +131,7 @@ A JSON array of filter objects. Each filter object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -152,20 +150,19 @@ Response codes
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code>
       parameter is supplied, but no <code>sortBy</code> is specified. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/filter?resourceType=Task`
 
-#### Response
+## Response
 
 Status 200.
 
@@ -200,11 +197,11 @@ Status 200.
 ]
 ```
 
-#### Request with itemCount enabled
+## Request with ItemCount Enabled
 
 GET `/filter?resourceType=Task&itemCount=true`
 
-#### Response with itemCount
+## Response with ItemCount
 
 Status 200.
 

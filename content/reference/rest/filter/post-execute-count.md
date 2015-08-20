@@ -5,24 +5,24 @@ weight: 120
 
 menu:
   main:
+    name: "Execute Count (POST)"
     identifier: "rest-api-filter-12-post-execute-count"
     parent: "rest-api-filter"
+    pre: "POST `/filter/{id}/count`"
 
 ---
 
 Executes the saved query of the filter and returns the count. This method is slightly more
-powerful then the [GET query](ref:#filter-execute-filter-count) because it allows to extend
+powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-count.md" >}}) because it allows to extend
 the saved query of the filter.
 
-Method
-------
+# Method
 
 POST `/filter/{id}/count`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -35,14 +35,13 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object which corresponds to the type of the saved query of the filter, i.e., if the
 resource type of the filter is `Task` the body should form a valid task query corresponding to
-the [Task](ref:#task-get-tasks) resource.
+the [Task]({{< relref "reference/rest/task/get-query.md" >}}) resource.
 
-Result
-------
+# Result
 
 A JSON object with a single count property.
 
@@ -59,8 +58,7 @@ A JSON object with a single count property.
   </tr>
 </table>
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -77,7 +75,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>
-      The extending query was invalid. See the <a href="ref:#overview-introduction">Introduction</a>
+      The extending query was invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>
@@ -86,7 +84,7 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -94,16 +92,15 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `filter/aTaskFilterId/singleResult`
 
@@ -121,7 +118,7 @@ Request Body:
 }
 ```
 
-#### Response
+## Response
 
 Status 200.
 

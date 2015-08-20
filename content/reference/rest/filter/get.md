@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-filter-03-get"
     parent: "rest-api-filter"
+    pre: "GET `/filter/{id}`"
 
 ---
 
@@ -14,15 +16,13 @@ menu:
 Retrieves a single filter according to the Filter interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/filter/{id}`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -35,7 +35,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -51,8 +51,7 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object corresponding to the Filter interface in the engine.
 Its properties are as follows:
@@ -104,8 +103,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -123,7 +121,7 @@ Response codes
     <td>application/json</td>
     <td>
       The authenticated user is unauthorized to read this filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -131,20 +129,19 @@ Response codes
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/filter/aFilterId`
 
-#### Response
+## Response
 
 Status 200.
 
@@ -165,11 +162,11 @@ Status 200.
 }
 ```
 
-#### Request with itemCount enabled
+## Request with ItemCount Enabled
 
 GET `/filter/aFilterId?itemCount=true`
 
-#### Response with itemCount
+## Response with ItemCount
 
 Status 200.
 

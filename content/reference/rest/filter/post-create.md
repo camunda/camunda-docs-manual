@@ -5,8 +5,10 @@ weight: 40
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-filter-04-post-create"
     parent: "rest-api-filter"
+    pre: "POST `/filter/create`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Create a new filter.
 
 
-Method
-------
+# Method
 
 POST `/filter/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -54,7 +54,7 @@ A JSON object with the following properties:
     <td>
       A JSON object which corresponds to the JSON body of a REST query. I.e., a filter which
       has the resourceType <code>Task</code> must contain a query which is a valid task query
-      (see <a href="#task-get-tasks-post">Task</a>).
+      (see <a href="{{< relref "reference/rest/task/post-query.md" >}}">Task</a>).
     </td>
   </tr>
   <tr>
@@ -69,8 +69,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the Filter interface in the engine.
 Its properties are as follows:
@@ -114,8 +113,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response codes
 
 <table class="table table-striped">
   <tr>
@@ -132,7 +130,7 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>
-      Filter was invalid. See <a href="ref:#overview-introduction">Introduction</a> for the error
+      Filter was invalid. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error
       response format.
     </td>
   </tr>
@@ -141,20 +139,19 @@ Response codes
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to create a new filter.
-      See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/filter/create`
 
-Request body:
+Request Body:
 
 ```json
 {
@@ -172,7 +169,7 @@ Request body:
 }
 ```
 
-#### Response
+## Response
 
 Status 200.
 
