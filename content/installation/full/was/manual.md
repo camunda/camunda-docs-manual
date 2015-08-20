@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This section will describe how you can install the camunda BPM platform and its components on an IBM WebSphere.
+This section will describe how you can install the Camunda BPM platform and its components on an IBM WebSphere.
 
 {{< note title="Reading this Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants.
@@ -44,7 +44,7 @@ The Camunda BPM platform requires a set of resources that need to be configured 
 
 In order to perform the steps listed in this guide, make sure you understand the concept of management scopes introduced by the IBM WebSphere Application Server. We assume that resources are defined at the "Node" scope.
 
-{{< img src="scope-highlight.png" title="Scope" >}}
+{{< img src="../img/scope-highlight.png" title="Scope" >}}
 
 
 ## JDBC/Datasource Configuration
@@ -58,7 +58,7 @@ The default JNDI name used by the process engine is `jdbc/ProcessEngine`
 
 The following screenshot shows the configuration of an XA datasource:
 
-{{< img src="jdbc.png" title="JDBC Configuration" >}}
+{{< img src="../img/jdbc.png" title="JDBC Configuration" >}}
 
 Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
 
@@ -70,6 +70,7 @@ This section explains how you can use the WebSphere Integrated Solutions Console
 Go to **Resources / Asynchronous Bean / Work Managers** and select the appropriate scope, for example: `Cell=<some_id>`
 Create a new work manager in the scope using the Button **New...**.
 Configure the new Work Manager. The following is a selection of sensible default values:
+
 
 ### General Properties
 
@@ -118,6 +119,7 @@ Configure the new Work Manager. The following is a selection of sensible default
   </tbody>
 </table>
 
+
 ### Thread Pool Properties
 
 <table class="table">
@@ -157,7 +159,7 @@ Configure the new Work Manager. The following is a selection of sensible default
 
 The following screenshot shows an example configuration of the work manager and its thread pool properties.
 
-{{< img src="work-manager.png" title="Work Manager" >}}
+{{< img src="../img/work-manager.png" title="Work Manager" >}}
 
 
 # Required Components
@@ -204,15 +206,15 @@ This camunda-ibm-websphere-rar module is a JCA Resource Adapter providing the jo
 
 The EAR must be installed to your IBM WebSphere Application Server:
 
-1.  Navigate to the Enterprise Applications page using the navigation path **Applications** / **Application Types** / **WebSphere enterprise applications**.
-2.  Click the **"Install"** Button.
-3.  Select the `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear` file from the modules folder of the Camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
-4.  Select the **"Fast Path"** install option.
-5.  In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
-6.  Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
-7.  Save the configuration.
-8.  (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
-9.  Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
+1. Navigate to the Enterprise Applications page using the navigation path **Applications** / **Application Types** / **WebSphere enterprise applications**.
+2. Click the **"Install"** Button.
+3. Select the `camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear` file from the modules folder of the Camunda BPM platform for IBM WebSphere Application Server distribution. Click Next.
+4. Select the **"Fast Path"** install option.
+5. In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
+6. Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
+7. Save the configuration.
+8. (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
+9. Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 
 
@@ -226,15 +228,15 @@ The web application archive that contains Camunda Cockpit and Camunda Tasklist r
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided by the WebSphere Integrated Solutions Console:
 
-1.  Open the WebSphere Integrated Solutions Console.
-2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
-3.  Click the **Install** Button
-4.  The first page of the wizard opens. Using the file browser, select the `camunda-was-VERSION.war` file from the distribution and upload it.
-5.  Continue to the next page.
-6.  Select the **"Fast Path"** on the next page.
-7.  Step 1. Usually no changes are required.
-8.  Step 2. Usually no changes are required.
-9.  Step 3. Usually no changes are required.
+1. Open the WebSphere Integrated Solutions Console.
+2. Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
+3. Click the **Install** Button
+4. The first page of the wizard opens. Using the file browser, select the `camunda-was-VERSION.war` file from the distribution and upload it.
+5. Continue to the next page.
+6. Select the **"Fast Path"** on the next page.
+7. Step 1. Usually no changes are required.
+8. Step 2. Usually no changes are required.
+9. Step 3. Usually no changes are required.
 10. Step 4. Define a context root for the applications. We propose to use **/camunda**
 11. Step 5. Usually no changes are required.
 
@@ -260,15 +262,15 @@ The Camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFO
 
 In this section we explain how to install the WAR file using the IBM WebSphere enterprise application wizard provided within the WebSphere Integrated Solutions Console:
 
-1.  Open the WebSphere Integrated Solutions Console.
-2.  Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
-3.  Click the **Install** Button
-4.  The first page of the wizard opens. Using the file browser, select the `camunda-engine-rest-VERSION-was.war` file from the distribution and upload it.
-5.  Continue to the next page.
-6.  Select the **"Fast Path"** on the next page.
-7.  Step 1. Usually no changes are required.
-8.  Step 2. Usually no changes are required.
-9.  Step 3. Usually no changes are required.
+1. Open the WebSphere Integrated Solutions Console.
+2. Navigate to the **Applications / Application Types / WebSphere** enterprise applications page.
+3. Click the **Install** Button
+4. The first page of the wizard opens. Using the file browser, select the `camunda-engine-rest-VERSION-was.war` file from the distribution and upload it.
+5. Continue to the next page.
+6. Select the **"Fast Path"** on the next page.
+7. Step 1. Usually no changes are required.
+8. Step 2. Usually no changes are required.
+9. Step 3. Usually no changes are required.
 10. Step 4. Define a context root for the REST API. We propose to use **/engine-rest**
 11. Step 5. Usually no changes are required.
 

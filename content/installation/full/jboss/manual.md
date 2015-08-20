@@ -12,26 +12,29 @@ menu:
 
 ---
 
+
 This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
 `$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss/Wildfly application server main directory.
-`$PLATFORM_VERSION` denotes the version of the camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
+`$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
+
 
 # Required Setup for JBoss
 
 This section explains how to perfom the required setup steps for JBoss Application Server.
 
-First, you need to [download the camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to [download the Camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+
 
 ## Adjust the Configuration
 
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
-Add the camunda subsystem as extension:
+Add the Camunda subsystem as extension:
 
 ```xml
 <server xmlns="urn:jboss:domain:1.1">
@@ -85,6 +88,7 @@ This also configures the default process engine.
 </subsystem>
 ```
 
+
 ## Create a Datasource
 
 You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
@@ -117,14 +121,15 @@ These links point you to resources for other databases:
 
 This section explains how to perfom the required setup steps for Wildfly Application Server.
 
-First, you need to [download the camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to [download the Camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+
 
 ## Adjust the Configuration
 
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
-Add the camunda subsystem as extension:
+Add the Camunda subsystem as extension:
 
 ```xml
 <server xmlns="urn:jboss:domain:2.1">
@@ -146,7 +151,7 @@ Add the following elements in order to create a thread pool for the Job Executor
 </subsystem>
 ```
 
-The name of the thread pool is then referenced in the camunda bpm subsystem job executor configuration.
+The name of the thread pool is then referenced in the Camunda bpm subsystem job executor configuration.
 This also configures the default process engine.
 
 ```xml
@@ -178,6 +183,7 @@ This also configures the default process engine.
 </subsystem>
 ```
 
+
 ## Create a Datasource
 
 You need to create a datasource named `java:jboss/datasources/ProcessEngine`.
@@ -199,25 +205,28 @@ typically `bin`.
 Using H2 as a database is ideal for development purposes but is not recommended for usage in a productive environment.
 These links point you to resources for other databases:
 
-*   [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
-*   [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
+* [How to configure an Oracle database](http://blog.foos-bar.com/2011/08/jboss-as-7-and-oracle-datasource.html)
+* [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
+
 
 # Optional Components
 
 This section describes how to install optional dependencies. None of these are required to work with the core platform. Before continuing, make sure that the Camunda BPM platform is already installed according to [this step]({{< relref "#setup" >}}).
 
+
 ## Cockpit, Tasklist and Admin
 
 The following steps are required to deploy the web application:
 
-1.  Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
+1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/).
     Or switch to the private repository for the enterprise version (User and password from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.
-2.  Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
+2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
     Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
-2.  Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-3.  Startup JBoss AS / Wildfly.
-4.  Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
+3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
+4. Startup JBoss AS/Wildfly.
+5. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
+
 
 ## REST API
 
@@ -229,7 +238,7 @@ The following steps are required to deploy the REST API:
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-4. Startup JBoss AS / Wildfly.
+4. Startup JBoss AS/Wildfly.
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.

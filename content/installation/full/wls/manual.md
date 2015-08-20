@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This section will describe how you can install the camunda BPM platform and its components on an Oracle WebLogic.
+This section will describe how you can install the Camunda BPM platform and its components on an Oracle WebLogic.
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants.
@@ -34,7 +34,7 @@ Before you can install the Camunda components, you need to perform a number of r
 
 ## Resource Configuration
 
-The camunda BPM platform requires a set of resources that need to be configured at the application server level:
+The Camunda BPM platform requires a set of resources that need to be configured at the application server level:
 
 * One or multiple datasources to be used by the engine.
 * A work manager for the job executor.
@@ -52,18 +52,18 @@ The default JNDI name is `jdbc/ProcessEngine`
 
 The following screenshot shows the mandatory configuration of a datasource for Camunda BPM:
 
-{{< img src="datasource-jndi.png" title="JNDI Name" >}}
+{{< img src="../img/datasource-jndi.png" title="JNDI Name" >}}
 
 In this section we explain how to add a datasource using the Oracle WebLogic Server Administration Console:
 
-1.  Open the Oracle WebLogic Server Administration Console.
-2.  Navigate to the **"Domain Structure / YOUR_DOMAIN / Services / Data Sources"** page.
-3.  Click the **"New"** Button and select **"Generic Data Source"**.
-4.  On the next page, enter a name for the datasource.
-5.  Enter the required JNDI Name **"jdbc/ProcessEngine"**, which is **mandatory** for the camunda BPM platform.
-6.  Continue to the next pages and fill in your database credentials.
-7.  When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
-8.  Check the box in front of your datasource and test if it works.
+1. Open the Oracle WebLogic Server Administration Console.
+2. Navigate to the **"Domain Structure / YOUR_DOMAIN / Services / Data Sources"** page.
+3. Click the **"New"** Button and select **"Generic Data Source"**.
+4. On the next page, enter a name for the datasource.
+5. Enter the required JNDI Name **"jdbc/ProcessEngine"**, which is **mandatory** for the Camunda BPM platform.
+6. Continue to the next pages and fill in your database credentials.
+7. When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
+8. Check the box in front of your datasource and test if it works.
 
 Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
 
@@ -93,15 +93,11 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
 The shared libraries must be copied to the `$WLS_DOMAIN_HOME/lib` folder of your Oracle WebLogic Server installation. Do **"NOT"** copy it to your `$WL_HOME/lib` folder.
 Restart the Oracle WebLogic Server after this operation.
 
-<div class="alert alert-info">
-  <strong>Hint:</strong>
-  <p>
-    You can optionally create a shared library out of the Camunda BPM platform shared libraries.
-    Then associate it with the `camunda-oracle-weblogic-ear` during installation.
-    You must then also associate the shared library with each deployed process application.
-    Have a look at the <a href="https://docs.oracle.com/cd/E24329_01/web.1211/e24368/libraries.htm#WLPRG325">Oracle WebLogic documentation</a> on how to create the shared library.
-  </p>
-</div>
+{{< note title="Shared Libraries" class="info" >}}
+  You can optionally create a shared library out of the Camunda BPM platform shared libraries. Then associate it with the `camunda-oracle-weblogic-ear` during installation. Associate the shared library with each deployed process application.
+
+  Have a look at the [Oracle WebLogic documentation](https://docs.oracle.com/cd/E24329_01/web.1211/e24368/libraries.htm#WLPRG325) on how to create the shared library.
+{{< /note >}}
 
 
 ## Install the Camunda BPM Platform Modules
@@ -114,7 +110,7 @@ camunda-ee-oracle-wls-$PLATFORM_VERSION.zip
       |-- camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear
 ```
 
-The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda BPM platform services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to the camunda BPM platform.
+The `camunda-oracle-weblogic-ear` is a Java EE application providing the Camunda BPM platform services. It contains an embedded JCA Resource Adapter, the camunda-oracle-weblogic-rar, which provides the jobexecutor service to the Camunda BPM platform.
 It must be installed to your Oracle WebLogic Application Server.
 
 
@@ -134,11 +130,11 @@ First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be i
 1. Open the Oracle WebLogic Server Administration Console.
 2. Navigate to the **"Domain structure / YOUR_DOMAIN / Deployments"** page.
 3. Select the **"Install"** button.
-4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
+4. Using the File Browser, select the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` from the modules folder of the Camunda BPM platform for Oracle WebLogic Application Server distribution and continue to the **"Next"** page.
 5. Select **"Install this deployment as an application"** and continue to the **"Next"** page.
 6. Fill in `camunda-bpm-platform` as name for the enterprise application deployment. This setting is **mandatory** and **MUST NOT** be changed.
 
-{{< img src="ear-name.png" title="EAR Name" >}}
+{{< img src="../img/ear-name.png" title="EAR Name" >}}
 
 7. Continue to the **"Next"** page.
 8. Select **"Yes, take me to the deployment's configuration screen"** and click the **"Finish"** button to complete the installation.
@@ -151,7 +147,7 @@ First the `camunda-oracle-weblogic-ear-$PLATFORM_VERSION.ear` RAR file must be i
 
 Example: Deployment order set to **"90"**.
 
-{{< img src="ear-deploymentorder.png" title="Deployment Order" >}}
+{{< img src="../img/ear-deploymentorder.png" title="Deployment Order" >}}
 
 
 ### Configure the JCA Work Manager
@@ -165,10 +161,10 @@ Example: Deployment order set to **"90"**.
 7. For **"Capacity Constraint"**, select the preconfigured **"camunda-bpm-workmanager-capacity"** option. Per default, we configure a queue size of 10 for the workmanager, but you can always tune it accordingly to your needs.
 8. Click **"Save"** to persist your changes.
 
-<p>Now you can start the camunda-bpm-platform application if it is not already running. If this initially fails, try to restart the server.</p>
+Now you can start the camunda-bpm-platform application if it is not already running. If this initially fails, try to restart the server.</p>
 Example: Finished configuration of the JCA Work Manager used by the resource adapter.
 
-{{< img src="work-manager.png" title="Work Manager" >}}
+{{< img src="../img/work-manager.png" title="Work Manager" >}}
 
 
 # Optional Components
@@ -181,13 +177,13 @@ The web application archive that contains Camunda Cockpit and Tasklist resides u
 
 In this section we explain how to install the WAR file using the Oracle WebLogic Server Administration Console:
 
-1.  Open the Oracle WebLogic Server Administration Console.
-2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
-3.  Click the **Install** button. The first page of the Wizard opens.
-4.  Using the File Browser, select the `camunda-webapp-ee-wls-$PLATFORM_VERSION.war` file from the distribution and upload it.
-5.  Continue to the **Next** page.
-6.  Select **Install this deployment as an application** and continue to the **Next** page.
-7.  Click the **Finish** button to complete the installation.
+1. Open the Oracle WebLogic Server Administration Console.
+2. Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
+3. Click the **Install** button. The first page of the Wizard opens.
+4. Using the File Browser, select the `camunda-webapp-ee-wls-$PLATFORM_VERSION.war` file from the distribution and upload it.
+5. Continue to the **Next** page.
+6. Select **Install this deployment as an application** and continue to the **Next** page.
+7. Click the **Finish** button to complete the installation.
 
 After completing the wizard, the Cockpit and Tasklist should be accessible on the default context path **/camunda**.
 In some situations, you also have to start the web application manually from the **Domain Structure / YOUR_DOMAIN / Deployments** page.
@@ -201,13 +197,13 @@ The Camunda REST API WAR file resides under `webapps/camunda-engine-rest-$PLATFO
 
 In this section we explain how to install the WAR file using the Oracle WebLogic Server Administration Console:
 
-1.  Open the Oracle WebLogic Server Administration Console.
-2.  Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
-3.  Click the **Install** button. The first page of the wizard opens.
-4.  Using the File Browser, select the `camunda-engine-rest-$PLATFORM_VERSION-wls.war` file from the distribution and upload it.
-5.  Continue to the **Next** page.
-6.  Select **Install this deployment as an application** and continue to the **Next** page.
-7.  Adapt the optional settings to your needs and click the **Finish** button to complete the installation.
+1. Open the Oracle WebLogic Server Administration Console.
+2. Navigate to the **Domain Structure / YOUR_DOMAIN / Deployments** page.
+3. Click the **Install** button. The first page of the wizard opens.
+4. Using the File Browser, select the `camunda-engine-rest-$PLATFORM_VERSION-wls.war` file from the distribution and upload it.
+5. Continue to the **Next** page.
+6. Select **Install this deployment as an application** and continue to the **Next** page.
+7. Adapt the optional settings to your needs and click the **Finish** button to complete the installation.
 
 After completing the wizard, the REST API should be successfully installed on the application server.
 The context root for the REST API is **/engine-rest** by default.

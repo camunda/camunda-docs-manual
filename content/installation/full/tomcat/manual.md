@@ -13,16 +13,17 @@ menu:
 ---
 
 
-This section will describe how you can install the camunda BPM platform and its components on a vanilla [Apache Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
+This section will describe how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
 
-* `$TOMCAT_HOME` points to the main directory of the tomcat server.<br>
-* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.<br>
-*   `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
+* `$TOMCAT_HOME` points to the main directory of the tomcat server.
+* `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
+* `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
 
 {{< /note >}}
+
 
 # Setup
 
@@ -77,6 +78,7 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
 </Server>
 ```
 
+
 ## Add necessary Libraries to vanilla Tomcat 7
 
 Copy all libraries from the `$TOMCAT_DISTRIBUTION/lib/` folder to the Tomcat library folder `$TOMCAT_HOME/lib`:
@@ -114,15 +116,17 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 </bpm-platform>
 ```
 
+
 # Optional Components
 
 This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform.
+
 
 ## Cockpit, Tasklist and Admin
 
 The following steps are required to deploy the applications:
 
-1. Download the camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
+1. Download the Camunda web application that contains both applications from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-tomcat/).
    Or switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 2. Copy the war file to `$TOMCAT_HOME/webapps/camunda.war`.
@@ -135,13 +139,13 @@ The following steps are required to deploy the applications:
 
 The following steps are required to deploy the REST API:
 
-1.  Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
+1. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/).
     Or switch to the private repository for the enterprise version (User and password from license required).
     Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
-2.  Copy the war file to `$TOMCAT_HOME/webapps`.
+2. Copy the war file to `$TOMCAT_HOME/webapps`.
    Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/engine-rest`.
-3.  Startup Tomcat.
-4.  Access the REST API on the context you configured.
+3. Startup Tomcat.
+4. Access the REST API on the context you configured.
     For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, provided that you deployed the application in the context `/engine-rest`.
 
 

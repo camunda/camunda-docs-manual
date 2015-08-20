@@ -21,8 +21,8 @@ This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plu
 ## Requirements
 
 * We recommend to use Eclipse Indigo. The edition (32bit/64bit) must match your Java edition.
-* Please note that you cannot install the Activiti Designer and the camunda Modeler in the same Eclipse. It will cause both designers to not work properly.
-* If you are using the fox-designer, please uninstall the fox-designer plugin before using the __camunda Modeler__. You can uninstall already installed plugins in the following menu: `Help` -> `Install New Software...` -> `What is already installed?`.
+* Please note that you cannot install the Activiti Designer and the Camunda Modeler in the same Eclipse. It will cause both designers to not work properly.
+* If you are using the fox-designer, please uninstall the fox-designer plugin before using the **Camunda Modeler**. You can uninstall already installed plugins in the following menu: `Help` -> `Install New Software...` -> `What is already installed?`.
 
 
 ## Download
@@ -131,7 +131,7 @@ After the installation has finished you will be prompted to restart your Eclipse
 
 {{< img src="modeler-exception-graphiti.png" title="Item" >}}
 
-If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the **Camunda Modeler**. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the camunda Modeler (one common example would be the Activiti Designer).
+If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the **Camunda Modeler**. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the Camunda Modeler (one common example would be the Activiti Designer).
 
 {{< img src="modeler-exception-graphiti.png" title="Item" >}}
 
@@ -148,6 +148,7 @@ If the Modeler behaves strangely and you are getting exceptions like [this](http
 * Clean up your Eclipse.
 * Start your Eclipse with command line option `-clean` once.
 * Depending on your models, you might want to give Eclipse more resources. You may do so by appending the following lines in the eclipse.ini file residing next to your Eclipse executable.
+
 ```
 -Xms768m
 -Xmx1024m

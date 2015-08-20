@@ -17,11 +17,9 @@ This document describes the installation procedure for Camunda Cycle. You can do
 
 This installation guide also details how to configure the Cycle installation, including the setup of the email service, password encryption and the installation of custom connectors.
 
-<div class="alert alert-warning">
-  <p><strong>Note</strong></p>
-  <p>We do not recommend to install Camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. A combined installation of designtime and runtime components on a single environment is not supported.</p>
-</div>
-
+{{< note title="Installation Environment" class="warning" >}}
+  We do not recommend to install Camunda Cycle together with the other platform components (webapps, engine, REST API) on the same runtime environment. A combined installation of designtime and runtime components on a single environment is not supported.
+{{< /note >}}
 
 # Download
 
@@ -96,11 +94,10 @@ There is an individual SQL script for each supported database. Select the script
 
 We recommend to create a separate database or database schema for Camunda Cycle.
 
-<div class="alert alert-info">
-  If you have not got the distro at hand, you can also download a file that packages these
-  scripts from our <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/">server</a>.
-  Choose the correct version named <code>$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar</code>.
-</div>
+{{< note title="" class="info" >}}
+  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/).
+  Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
+{{< /note >}}
 
 
 # Install Camunda Cycle on a Vanilla Tomcat 7
@@ -118,20 +115,17 @@ In order to use a custom datasource name, you have to edit the file `WEB-INF/cla
 In order to use the `org.apache.tomcat.jdbc.pool.DataSourceFactory`, you need to add the driver of the database you use to the `$TOMCAT_HOME/lib` folder.
 For example, if you plan to use the H2 database, you would have to add the h2-VERSION.jar.
 
-<div class="alert alert-info">
-  <strong>Tomcat 6.x</strong>
-  <br/>
-  On Tomcat 6, you will also have to add the tomcat-jdbc.jar, which ships with Tomcat 7 and the pre-packaged Camunda Cycle distribution, to
-  <code>$TOMCAT_HOME/lib</code>.
-</div>
+{{< note title="Tomcat 6.x" class="info" >}}
+  On Tomcat 6, you will also have to add the tomcat-jdbc.jar, which comes with Tomcat 7 and the pre-packaged Camunda Cycle distribution, to `$TOMCAT_HOME/lib`.
+{{< /note >}}
 
 
 ## Install the Web Application
 
-1.  Copy the Cycle war file to `$TOMCAT_HOME/webapps`.
+1. Copy the Cycle war file to `$TOMCAT_HOME/webapps`.
     Optionally you may rename it or extract it to a folder to deploy it to a specific context like `/cycle`.
-2.  Startup Tomcat.
-3.  Access Camunda Cycle on the context you configured. If Cycle is installed correctly, a screen should appear that allows you to create an initial user.
+2. Start Tomcat.
+3. Access Camunda Cycle on the context you configured. If Cycle is installed correctly, a screen should appear that allows you to create an initial user.
     The initial user has administrator privileges and can be used to create more users once you have logged in.
 
 
@@ -145,8 +139,8 @@ The H2 JDBC driver is located at `camunda-cycle-distro-$CYCLE_VERSION.zip/server
 
 To exchange the preconfigured H2 database with your own, e.g., Oracle, you have to do the following:
 
-1.  Copy your JDBC database driver JAR file to `$TOMCAT_HOME/lib`.
-2.  Open `$TOMCAT_HOME/webapps/cycle/META-INF/context.xml` and edit the properties of the `jdbc/CycleDS` datasource definition.
+1. Copy your JDBC database driver JAR file to `$TOMCAT_HOME/lib`.
+2. Open `$TOMCAT_HOME/webapps/cycle/META-INF/context.xml` and edit the properties of the `jdbc/CycleDS` datasource definition.
 
 
 # Configuration
@@ -155,10 +149,9 @@ To exchange the preconfigured H2 database with your own, e.g., Oracle, you have 
 
 **Note**: This step is optional and can be skipped if you do not require Cycle to send a welcome email to newly created users.
 
-<div class="alert alert-info">
-  You need to install the java mail library when NOT using the prepackaged distribution.
-  Download version 1.4.x manually from <a href=http://mvnrepository.com/artifact/javax.mail/mail>http://mvnrepository.com/artifact/javax.mail/mail</a> and copy it into your <code>$TOMCAT_HOME/lib</code> folder.
-</div>
+{{< note title="Java Mail Library" class="info" >}}
+  You need to install the java mail library when NOT using the prepackaged distribution. Download version 1.4.x manually from [http://mvnrepository.com/artifact/javax.mail/mail](href=http://mvnrepository.com/artifact/javax.mail/mail) and copy it into your `$TOMCAT_HOME/lib` folder.
+{{< /note >}}
 
 In order to use the Cycle email service, you have to configure a mail session in the `META-INF/context.xml` file in the Cycle web application.
 
@@ -185,27 +178,25 @@ The file defines a Spring Bean named `cycleConfiguration`. On this spring bean, 
 
 Connector passwords are encrypted before they are stored in the Cycle database using the PBEWithMD5AndDES algorithm implementation.
 
-<div class="alert alert-info">
-  <strong>Encryption key</strong>
-  <br/>
-  Cycle uses a default key to encrypt passwords (contained in the source code and hence not really secure).
-  If you want to improve security you can exchange the encryption password by creating a file <code>$USER_HOME/cycle.password</code>
-  containing a self chosen plain ASCII password.
-</div>
+{{< note title="Encryption Key" class="info" >}}
+  Cycle uses a default key to encrypt passwords (contained in the source code and hence not really secure). If you want to improve security you can exchange the encryption password by creating a file `$USER_HOME/cycle.password` containing a self chosen plain ASCII password.
+{{< /note >}}
 
 
 ## Add Connectors
 
 You can add own Connectors in form of JAR files to your Camunda Cycle installation. Just follow these steps to add a new Connector.
 
-1. Copy the JAR file which contains the Connector implementation to <code>$TOMCAT_HOME/webapps/cycle/WEB-INF/lib</code>.
-2. Edit the <code>$TOMCAT_HOME/webapps/cycle/WEB-INF/classes/spring/connector-configurations.xml</code> file and include a variation of the following snippet:
+1. Copy the JAR file which contains the Connector implementation to `$TOMCAT_HOME/webapps/cycle/WEB-INF/lib`.
+2. Edit the `$TOMCAT_HOME/webapps/cycle/WEB-INF/classes/spring/connector-configurations.xml` file and include a variation of the following snippet:
 
+```xml
 <div class="app-source" data-source-code="connector-configurations.xml" annotate="code-annotations" ></div>
+```
 
 After adding the JAR file and updating the Connector configuration file, you can start the server. The added Connector appears in the Add Connector dialog and can be used to create roundtrips.
 
-
+```xml
 <div class="bootstrap-code">
   <script type="text/xml" id="connector-configurations.xml">
 <bean name="svnConnectorDefinition" class="org.camunda.bpm.cycle.entity.ConnectorConfiguration">
@@ -229,7 +220,7 @@ After adding the JAR file and updating the Connector configuration file, you can
     }
   </script>
 </div>
-
+```
 
 # Migration
 
@@ -243,7 +234,6 @@ camunda-cycle-distro-$CYCLE_VERSION.zip/sql/upgrade/*_cycle_3.0_to_3.1.sql
 
 There is an individual SQL script for each supported database. Select the script appropriate for your database and run it with your database administration tool (e.g. SqlDeveloper for Oracle).
 
-<div class="alert alert-info">
-  If you have not got the distro at hand, you can also download a file that packages these
-  scripts from our <a href="https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/3.1.0/camunda-cycle-sql-scripts-3.1.0.jar">server</a>.
-</div>
+{{< note title="" class="info" >}}
+  If you have not got the distro at hand, you can also download a file that packages these scripts from our [server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/3.1.0/camunda-cycle-sql-scripts-3.1.0.jar).
+{{< /note >}}

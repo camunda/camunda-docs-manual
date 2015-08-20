@@ -23,12 +23,9 @@ In order to setup LDAP for the glassfish distribution, you have to add the plugi
 
 ## Add the LDAP Plugin
 
-{{< note title="Note" class="info" >}}
-Note: If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
-{{< note >}}
+If you use the pre-packaged distribution, the ldap plugin is already present and you can skip this step.
 
-Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the
-`GLASSFISH_HOME/glassfish/lib` folder.
+Make sure the `camunda-identity-ldap-$PLATFORM_VERSION.jar` is present in the `GLASSFISH_HOME/glassfish/lib` folder.
 
 
 ## Configure the LDAP Plugin
@@ -88,11 +85,11 @@ The `administratorUserName` property should contain the user id of the LDAP user
 See our user guide for complete documentation on the [LDAP Identity Provider Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) and the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}).
 
 
-# Hal Resource Caching
+# HAL Resource Caching
 
 If you use LDAP as Indentity Provider, you should consider [activating caching]({{< relref "reference/rest/overview/hal.md#caching-of-hal-relations" >}}) of
-Users and Groups in the camunda webapplication. In order to activate this, add the following
-configuration to the `web.xml` file of camunda webapplication
+Users and Groups in the Camunda webapplication. In order to activate this, add the following
+configuration to the `web.xml` file of Camunda webapplication
 (`camunda-webapp-glassfish-$PLATFORM_VERSION.war/WEB-INF/web.xml`):
 
 ```xml
