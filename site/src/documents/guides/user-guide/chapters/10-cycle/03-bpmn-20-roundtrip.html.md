@@ -71,7 +71,7 @@ When we are talking about a Roundtrip we are talking about the synchronization o
 </div>
 
 <div class="alert alert-warning">
-  <strong>Please note!</strong> The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section <a href="ref:/guides/getting-started-guides/roundtrip-with-cycle/#roundtrip-roundtrip-with-other-tools">Roundtrip with other Tools</a> in our <a href="http://camunda.org/bpmn/cycle-tutorial.html">Cycle Tutorial</a>.
+  <strong>Please note!</strong> The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section &quot;Roundtrip with other Tools&quot; in our <a href="http://camunda.org/bpmn/cycle-tutorial.html">Cycle Tutorial</a>.
 </div>
 
 ## Pool Extraction

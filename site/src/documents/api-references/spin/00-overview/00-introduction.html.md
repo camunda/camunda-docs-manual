@@ -16,7 +16,7 @@ dependency to your `pom.xml` file:
 
 <div class="alert alert-info">
   If you use Spin in combination with other Camunda BPM projects (such as the Camunda process engine),
-  please import the <a class="alert-link" href="ref:/guides/getting-started-guides/#apache-maven-the-camunda-bom">
+  please import the <a class="alert-link" href="/get-started/apache-maven/">
   Camunda BOM</a> to ensure that you use the Camunda Spin version matching your process engine
   version.
 </div>

@@ -25,4 +25,4 @@ The typical use cases are:
 
 Cycle is a standalone application and must be downloaded separately from the camunda BPM distribution.
 After the installation of cycle it is ready to use by opening http://localhost:8180/cycle. At the first start up you will be prompted to create an admin user.
-If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](ref:/guides/getting-started-guides/roundtrip-with-cycle/).
+If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](/get-started/roundtrip-with-cycle/).

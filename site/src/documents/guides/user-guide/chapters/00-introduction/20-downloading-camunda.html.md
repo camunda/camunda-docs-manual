@@ -79,7 +79,7 @@ the [community download page][community-download-page].
 
 [get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [community-download-page]: http://camunda.org/download
-[enterprise-download-page]: ref:/enterprise/#downloads
+[enterprise-download-page]: /enterprise/download
 [shared-engine]: ref:#introduction-architecture-overview-shared-container-managed-process-engine
 [embedded-engine]: ref:#introduction-architecture-overview-embedded-process-engine
 [installation-guide-standalone]: ref:/guides/installation-guide/standalone/
