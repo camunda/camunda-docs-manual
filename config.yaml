@@ -1,5 +1,5 @@
 ---
-baseurl: "/manual/7.4"
+baseurl: "/manual/7.4/"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
