@@ -40,8 +40,8 @@
   </h4>
 
   <div class="content">
-    Version: 
-    <select>
+    <label for="version-select">Version:</label>
+    <select id="version-select" data-basepath="/{{ $.Site.Params.section.id }}">
       {{range $.Site.Params.section.versions }}
         <option {{if eq $.Site.Params.section.version . }} selected {{end}}>{{.}}</option>
       {{ end }}
