@@ -1,6 +1,0 @@
----
-title: 'Information for Tool Vendors'
-category: 'Additional Information'
----
-
-If you are a BPMN tool vendor and would like your tool to integrate (better) with camunda Cycle, you can build your own connector and plug it into cycle. Here you can find more information about building [cycle connectors](https://github.com/camunda/camunda-cycle-connectors).
