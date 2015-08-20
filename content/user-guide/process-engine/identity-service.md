@@ -48,7 +48,7 @@ The LDAP identity service provides read-only access to an LDAP-based user/group 
 In order to use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml

@@ -26,7 +26,7 @@ The camunda-engine-cdi module provides programming model integration with CDI (C
 In order to use the camunda-engine-cdi module inside your application, you must include the following Maven dependency:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml

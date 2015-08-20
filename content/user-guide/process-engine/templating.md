@@ -42,7 +42,7 @@ application deployment. When using the process engine in a maven `war` project, 
 dependencies must be added as dependencies to the maven `pom.xml` file:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml
@@ -147,7 +147,7 @@ application deployment. When using the process engine in a maven `war` project, 
 dependency must be added as dependencies to the maven `pom.xml` file:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml

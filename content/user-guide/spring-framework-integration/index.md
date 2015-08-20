@@ -13,7 +13,7 @@ menu:
 The camunda-engine spring framework integration is located inside the `camunda-engine-spring` maven module and can be added to apache maven-based projects through the following dependency:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml

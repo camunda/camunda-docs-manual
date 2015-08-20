@@ -104,7 +104,7 @@ Both options are explained in greater detail below.
 The most convenient option for deploying a process application to an Ejb Container is by adding the following maven dependency to you maven project:
 
 {{< note title="" class="info" >}}
-  Please import the [Camunda BOM]({{< relref "get-started/apache-maven.md" >}}) to ensure correct versions for every Camunda project.
+  Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
 {{< /note >}}
 
 ```xml

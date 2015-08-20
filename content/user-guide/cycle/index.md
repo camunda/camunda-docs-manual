@@ -30,7 +30,7 @@ The typical use cases are:
 
 Cycle is a standalone application and must be downloaded separately from the Camunda BPM distribution.
 After the installation of cycle it is ready to use by opening http://localhost:8180/cycle. At the first start up you will be prompted to create an admin user.
-If you are new to Cycle have a look at our Hands-On [Cycle Tutorial]({{< relref "get-started/cycle.md" >}}).
+If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](/get-started/cycle/).
 
 
 # Connector Configuration
@@ -133,7 +133,7 @@ You can now hit the sync button in the corresponding direction (in our case from
 Now both models are synchronized again, indicated by green labels "in sync" on both sites.
 
 {{< note title="BPMN 2.0 Support" class="warning" >}}
-  The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section [roundtrip with other tools]({{< relref "get-started/cycle.md#roundtrip-with-other-tools" >}}) in our [Cycle Tutorial]({{< relref "get-started/cycle.md" >}}).
+  The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section "roundtrip with other tools" in our [Cycle Tutorial](/get-started/cycle.md/).
 {{< /note >}}
 
 
