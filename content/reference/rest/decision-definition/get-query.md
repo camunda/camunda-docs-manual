@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-decision-definition-get-query"
     parent: "rest-api-decision-definition"
+    pre: "GET `/decision-definition`"
 
 ---
 

@@ -5,8 +5,10 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-decision-definition-get-query-count"
     parent: "rest-api-decision-definition"
+    pre: "GET `/decision-definition/count`"
 
 ---
 

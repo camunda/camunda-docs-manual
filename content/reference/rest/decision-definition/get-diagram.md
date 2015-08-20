@@ -5,8 +5,12 @@ weight: 50
 
 menu:
   main:
+    name: "Get Diagram"
     identifier: "rest-api-decision-definition-get-diagram"
     parent: "rest-api-decision-definition"
+    pre: "GET `/decision-definition/{id}/diagram`
+          </br>
+          GET `/decision-definition/key/{key}/diagram` (returns the diagram for the latest version of the decision definition)"
 
 ---
 

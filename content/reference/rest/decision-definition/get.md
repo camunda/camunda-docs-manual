@@ -5,8 +5,12 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-decision-definition-get"
     parent: "rest-api-decision-definition"
+    pre: "GET `/decision-definition/{id}`
+          </br>
+          GET `/decision-definition/key/{key}` (returns the latest version of decision definition)"
 
 ---
 

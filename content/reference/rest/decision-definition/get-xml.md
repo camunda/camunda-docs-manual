@@ -5,8 +5,12 @@ weight: 40
 
 menu:
   main:
+    name: "Get XML"
     identifier: "rest-api-decision-definition-get-xml"
     parent: "rest-api-decision-definition"
+    pre: "GET `/decision-definition/{id}/xml`
+          </br>
+          GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition)"
 
 ---
 

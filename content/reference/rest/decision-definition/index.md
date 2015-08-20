@@ -1,6 +1,7 @@
 ---
 
 title: "Decision Definition"
+layout: "section-list"
 weight: 55
 
 menu:
