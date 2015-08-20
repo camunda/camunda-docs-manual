@@ -7,7 +7,7 @@ menu:
   main:
     name: "Get (Binary)"
     identifier: "rest-api-execution-get-local-variable-binary"
-    parent: "rest-api-xecution-local-variables"
+    parent: "rest-api-execution-local-variables"
     pre: "GET `/execution/{id}/localVariables/{varId}/data`"
 
 ---
