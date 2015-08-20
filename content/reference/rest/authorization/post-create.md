@@ -132,12 +132,12 @@ A json array with the following properties:
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+    <td>The authenticated user is unauthorized to create an instance of this resource. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The authorization could not be updated due to an internal server error. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+    <td>The authorization could not be updated due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

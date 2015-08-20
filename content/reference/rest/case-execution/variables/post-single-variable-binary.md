@@ -109,7 +109,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

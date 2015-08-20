@@ -116,22 +116,22 @@ Properties are:
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The case instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The case execution cannot be instantiated because of CMMN restrictions. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+    <td>The case execution cannot be instantiated because of CMMN restrictions. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The case instance could not be created due to a nonexistent case definition. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+	<td>The case instance could not be created due to a nonexistent case definition. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The case instance could not be created successfully. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
+    <td>The case instance could not be created successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
