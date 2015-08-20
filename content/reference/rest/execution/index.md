@@ -8,6 +8,5 @@ menu:
   main:
     identifier: "rest-api-execution"
     parent: "rest-api"
-    pre: "/"
 
 ---

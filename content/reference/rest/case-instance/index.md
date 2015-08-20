@@ -8,6 +8,5 @@ menu:
   main:
     identifier: "rest-api-case-instance"
     parent: "rest-api"
-    pre: "/"
 
 ---
