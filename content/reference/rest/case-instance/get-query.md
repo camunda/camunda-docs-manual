@@ -5,27 +5,27 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-case-instance-get-query"
     parent: "rest-api-case-instance"
+    pre: "GET `/case-instance`"
 
 ---
 
 
 Query for case instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of case instances.
-The size of the result set can be retrieved by using the [get case instances count](ref:#case-instance-get-case-instances-count) method.
+The size of the result set can be retrieved by using the [get case instances count]({{< relref "reference/rest/case-instance/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/case-instance`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -108,8 +108,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of case instance objects.
 Each case instance object has the following properties:
@@ -152,8 +151,7 @@ Each case instance object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -169,20 +167,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/case-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadValue`
 
-#### Response
+## Response
 
     [
       {

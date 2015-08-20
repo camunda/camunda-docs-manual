@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-case-instance-get"
     parent: "rest-api-case-instance"
+    pre: "GET `/case-instance/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single case instance according to the `CaseInstance` interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/case-instance/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the CaseInstance interface in the engine.
 Its properties are as follows:
@@ -81,8 +80,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -98,18 +96,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Case instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Case instance with given id does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/case-instance/aCaseInstanceId`
 
-#### Response
+## Response
 
     {
       "id"               : "aCaseInstanceId",

@@ -5,8 +5,10 @@ weight: 140
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-case-instance-delete-single-variable"
-    parent: "rest-api-case-instance"
+    parent: "rest-api-case-instance-variables"
+    pre: "DELETE `/case-instance/{id}/variables/{varId}`"
 
 ---
 
@@ -14,16 +16,15 @@ menu:
 Deletes a variable of a given case instance.
 
 
-Method
-------
+# Method
+
 
 DELETE `/case-instance/{id}/variables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +42,13 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
+
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +64,12 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/case-instance/aCaseInstanceId/variables/aVarName`
 
-
-#### Response
+## Response
 
 Status 204. No content.

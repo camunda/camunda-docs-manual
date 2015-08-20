@@ -5,8 +5,10 @@ weight: 110
 
 menu:
   main:
+    name: "Modify"
     identifier: "rest-api-case-instance-post-variables"
-    parent: "rest-api-case-instance"
+    parent: "rest-api-case-instance-variables"
+    pre: "POST `/case-instance/{id}/variables`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Updates or deletes the variables of a case instance. Please note: deletion precedes update.
 
 
-Method
-------
+# Method
 
 POST `/case-instance/{id}/variables`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,8 +36,7 @@ Parameters
   </tr>
 </table>
 
-
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -48,8 +47,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>modifications</td>
-    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %></td>
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:
+    {{< rest-var-request >}}
   </tr>
   <tr>
     <td>deletions</td>
@@ -58,14 +57,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -81,7 +78,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -90,10 +87,10 @@ Response codes
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 POST `/case-instance/aCaseInstanceId/variables`
 
@@ -118,6 +115,6 @@ Request body:
         ]
     }
 
-#### Response
+## Response
 
 Status 204. No content.

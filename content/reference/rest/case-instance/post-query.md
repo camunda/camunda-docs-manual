@@ -5,27 +5,27 @@ weight: 40
 
 menu:
   main:
+    name: "Get List (POST)"
     identifier: "rest-api-case-instance-post-query"
     parent: "rest-api-case-instance"
+    pre: "POST `/case-instance`"
 
 ---
 
 
 Query for case instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query](ref:#case-instance-get-case-instances) because it allows
+This method is slightly more powerful than the [GET query]({{< relref "reference/rest/case-instance/get-query.md" >}}) because it allows
 to filter by multiple case variables of types `String`, `Number` or `Boolean`.
 
 
-Method
-------
+# Method
 
 POST `/case-instance`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -42,7 +42,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -124,8 +124,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of case instance objects.
 Each case instance object has the following properties:
@@ -168,8 +167,7 @@ Each case instance object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -185,19 +183,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/case-instance`
 
-Request body:
+Request Body:
 
     {
       "variables":
@@ -227,7 +224,7 @@ Request body:
         ]
     }
 
-#### Response
+## Response
 
     [
       {

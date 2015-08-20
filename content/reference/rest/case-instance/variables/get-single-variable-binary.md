@@ -5,8 +5,10 @@ weight: 100
 
 menu:
   main:
+    name: "Get (Binary)"
     identifier: "rest-api-case-instance-get-single-variable-binary"
-    parent: "rest-api-case-instance"
+    parent: "rest-api-case-instance-variables"
+    pre: "GET `/case-instance/{id}/variables/{varId}/data`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a binary variable of a given case instance. Applicable for byte array and file variables.
 
 
-Method
-------
+# Method
 
 GET `/case-instance/{id}/variables/{varId}/data`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,15 +41,13 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 For binary variables or files without any mime type information a byte stream is returned. File variables with mime type information are returned as the saved type.
 Additionally, for file variables the Content-Disposition header will be set.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -65,23 +63,22 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Variable with given id exists but is not a binary variable. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id exists but is not a binary variable. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="/reference/rest/overview">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-#### Response
+## Response
 
 binary variable: Status 200. Content-Type: application/octet-stream
 
