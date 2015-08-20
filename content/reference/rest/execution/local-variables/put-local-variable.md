@@ -5,8 +5,10 @@ weight: 90
 
 menu:
   main:
+    name: "Update"
     identifier: "rest-api-execution-put-local-variable"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-local-variables"
+    pre: "PUT `/execution/{id}/localVariables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Sets a variable in the context of a given execution. Update does not propagate upwards in the execution hierarchy.
 
 
-Method
-------
+# Method
 
 PUT `/execution/{id}/localVariables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,21 +40,19 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
-<%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %>
+{{< rest-var-request >}}
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -70,32 +68,32 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example 1
----------
 
-#### Request
+# Example 1
+
+## Request
 
 PUT `/execution/anExecutionId/localVariables/aVarName`
 
     {"value" : "someValue", "type": "String"}
 
-#### Response
+## Response
 
 Status 204. No content.
 
-Example 2
----------
 
-#### Request
+# Example 2
+
+## Request
 
 PUT `/execution/anExecutionId/localVariables/aVarName`
 
-<%- @partial('api-references/rest/variables/variable-request-example.md', @, {}) %>
+{{< rest-var-request-example >}}
 
-#### Response
+## Response
 
 Status 204. No content.

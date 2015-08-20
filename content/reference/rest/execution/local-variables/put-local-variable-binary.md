@@ -5,23 +5,23 @@ weight: 100
 
 menu:
   main:
+    name: "Post (Binary)"
     identifier: "rest-api-execution-put-local-variable-binary"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-local-variables"
+    pre: "POST `/execution/{id}/localVariables/{varId}/data`"
 
 ---
 
 Sets the serialized value for a binary variable or the binary value for a file variable.
 
-Method
-------
+# Method
 
 POST `/execution/{id}/localVariables/{varId}/data`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +38,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 For binary variables a multipart form submit with the following parts:
 
@@ -57,7 +57,7 @@ For binary variables a multipart form submit with the following parts:
     <td>data</td>
     <td>application/json</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
       <p>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</p>
     </td>
   </tr>
@@ -65,7 +65,7 @@ For binary variables a multipart form submit with the following parts:
     <td>type</td>
     <td>text/plain</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
       <p>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
     </td>
   </tr>
@@ -87,14 +87,12 @@ For file variables a multipart form submit with the following parts:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -110,15 +108,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 
 (1) Post binary content of a byte array variable:

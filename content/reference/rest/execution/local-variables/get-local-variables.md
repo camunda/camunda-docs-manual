@@ -5,8 +5,10 @@ weight: 60
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-execution-get-local-variables"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-local-variables"
+    pre: "GET `/execution/{id}/localVariables`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves all variables of a given execution.
 
 
-Method
-------
+# Method
 
 GET `/execution/{id}/localVariables`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -46,23 +46,21 @@ Parameters
   <tr>
     <td>deserializeValues</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValues'}) %>
+{{< rest-var-response deserializationParameter="deserializeValues" >}}
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -78,28 +76,28 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example 1
----------
 
-#### Request
+# Example 1
+
+## Request
 
 GET `/execution/anExecutionId/localVariables`
 
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variables-response-example-deserialized.html', @, {}) %>
+{{< rest-vars-response-example-deserialized >}}
 
-Example 2
----------
 
-#### Request
+# Example 2
+
+## Request
 
 GET `/execution/anExecutionId/localVariables?deserializeValues=false`
 
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variables-response-example-serialized.html.md', @, {}) %>
+{{< rest-vars-response-example-serialized >}}

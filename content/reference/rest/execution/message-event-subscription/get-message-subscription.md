@@ -5,8 +5,10 @@ weight: 130
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-execution-get-message-subscription"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-message-event-subscription"
+    pre: "GET `/execution/{id}/messageSubscriptions/{messageName}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Get a message event subscription for a specific execution and a message name.
 
 
-Method
-------
+# Method
 
 GET `/execution/{id}/messageSubscriptions/{messageName}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,8 +41,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object with the following properties:
 
@@ -82,8 +81,7 @@ A JSON object with the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -101,18 +99,18 @@ Response codes
     <td>application/json</td>
     <td>A message subscription for the given name and execution does not exist.
     This may either mean that the execution does not exist, or that it is not subscribed on such a message.
-    See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
---------------
 
-#### Request
+# Example
+
+## Request
 
 GET `/execution/anExecutionId/messageSubscriptions/someMessage`
 
-#### Response
+## Response
 
     {"id": "anEventSubscriptionId",
     "eventType": "message",

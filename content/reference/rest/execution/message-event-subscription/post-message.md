@@ -5,8 +5,10 @@ weight: 140
 
 menu:
   main:
+    name: "Trigger"
     identifier: "rest-api-execution-post-message"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-message-event-subscription"
+    pre: "POST `/execution/{id}/messageSubscriptions/{messageName}/trigger`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deliver a message to a specific execution to trigger an existing message event subscription. Inject process variables as the message's payload.
 
 
-Method
-------
+# Method
 
 POST `/execution/{id}/messageSubscriptions/{messageName}/trigger`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,7 +41,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -52,20 +52,18 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %></td>
+    <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
+    {{< rest-var-request >}}
   </tr>
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -81,30 +79,29 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
     <td>The addressed execution has no pending message subscriptions for the given message.
-    See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 POST `/execution/anExecutionId/messageSubscriptions/someMessage/trigger`
 
-Request body:
+Request Body:
 
     {"variables" :
         {"aVariable" : {"value" : true, "type": "Boolean"},
          "anotherVariable" : {"value" : 42, "type": "Integer"}}
     }
 
-#### Response
+## Response
 
 Status 204. No content.

@@ -5,27 +5,27 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-execution-get-query"
     parent: "rest-api-execution"
+    pre: "GET `/execution`"
 
 ---
 
 
 Query for the executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
-The size of the result set can be retrieved by using the [get executions count](ref:#execution-get-executions-count) method.
+The size of the result set can be retrieved by using the [get executions count]({{< relref "reference/rest/execution/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/execution`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -132,8 +132,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of execution objects.
 Each execution object has the following properties:
@@ -162,8 +161,7 @@ Each execution object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -179,19 +177,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/execution?variables=myVariable_eq_camunda`
 
-#### Response
+## Response
 
 Status 200.
 

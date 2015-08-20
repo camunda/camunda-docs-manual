@@ -5,8 +5,10 @@ weight: 120
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-execution-delete-local-variable"
-    parent: "rest-api-execution"
+    parent: "rest-api-execution-local-variables"
+    pre: "DELETE `/execution/{id}/localVariables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a variable in the context of a given execution. Deletion does not propagate upwards in the execution hierarchy.
 
 
-Method
-------
+# Method
 
 DELETE `/execution/{id}/localVariables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +62,12 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/execution/anExecutionId/localVariables/aVarName`
 
-
-#### Response
+## Response
 
 Status 204. No content.
