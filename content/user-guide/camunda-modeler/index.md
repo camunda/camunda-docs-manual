@@ -1,6 +1,6 @@
 ---
 
-title: 'Eclipse Modeler Plugin'
+title: 'Camunda Modeler Eclipse Plugin'
 weight: 150
 
 menu:
