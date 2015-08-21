@@ -5,26 +5,26 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-job-definition-get-query"
     parent: "rest-api-job-definition"
+    pre: "GET `/job-definition`"
 
 ---
 
 
 Query for job definitions that fulfill given parameters.
-The size of the result set can be retrieved by using the [get job definitions count](ref:#job-definition-get-job-definitions-count) method.
+The size of the result set can be retrieved by using the [get job definitions count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
-GET <code>/job-definition</code>
+GET `/job-definition`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -81,8 +81,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of job definition objects.
 Each job definition object has the following properties:
@@ -136,8 +135,7 @@ Each job definition object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -153,20 +151,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET <code>/job-definition?activityIdIn=ServiceTask1,ServiceTask2</code>
 
-#### Response
+## Response
 
     [
       {

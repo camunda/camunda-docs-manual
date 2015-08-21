@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-job-definition-get"
     parent: "rest-api-job-definition"
+    pre: "GET `/job-definition/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single job definition according to the JobDefinition interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/job-definition/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the JobDefinition interface in the engine.
 Its properties are as follows:
@@ -92,8 +91,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -109,20 +107,19 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job definition with given id does not exist.  See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job definition with given id does not exist.  See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/job-definition/aJobDefinitionId`
 
-#### Response
+## Response
 
       {
         "id": "aJobDefId",

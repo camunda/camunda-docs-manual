@@ -5,8 +5,10 @@ weight: 90
 
 menu:
   main:
+    name: "Update Retries"
     identifier: "rest-api-job-put-set-job-retries"
     parent: "rest-api-job"
+    pre: "PUT `/job/{id}/retries`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Sets the retries of the job to the given number of retries.
 
 
-Method
-------
+# Method
 
-PUT <code>/job/{id}/retries</code>
+PUT `/job/{id}/retries`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,7 +37,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -53,14 +53,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -76,26 +74,26 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The retries could not be set successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The retries could not be set successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
 
-PUT <code>/job/aJobId/retries</code>
+## Request
 
-Request body:
+PUT `/job/aJobId/retries`
+
+Request Body:
 
     {"retries": 3}
 
-#### Response
+## Response
 
   Status 204. No content.

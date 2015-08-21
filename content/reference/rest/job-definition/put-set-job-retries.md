@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Set Retries"
     identifier: "rest-api-job-definition-put-set-job-definition-retries"
     parent: "rest-api-job-definition"
+    pre: "PUT `/job-definition/{id}/retries`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Set the number of retries of all <strong>failed</strong> jobs associated with the given job definition id.
 
 
-Method
-------
+# Method
 
-PUT <code>/job-definition/{id}/retries</code>
+PUT `/job-definition/{id}/retries`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,7 +37,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -53,14 +53,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -76,21 +74,21 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The retries could not be set successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The retries could not be set successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 PUT <code>/job-definition/aJobDefId/retries</code>
 
-Request body:
+Request Body:
 
     {"retries": 3}
 
-#### Response
+## Response
 
   Status 204. No content.

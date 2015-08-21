@@ -5,23 +5,23 @@ weight: 110
 
 menu:
   main:
+    name: "Activate/Suspend By Id"
     identifier: "rest-api-job-put-activate-suspend-by-id"
     parent: "rest-api-job"
+    pre: "PUT `/job/{id}/suspended`"
 
 ---
 
 
 Activate or suspend a given job by id.
 
-Method
-------
+# Method
 
 PUT `/job/{id}/suspended`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -50,14 +50,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -73,10 +71,9 @@ Response codes
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/job/aJobId/suspended`
 
@@ -84,6 +81,6 @@ PUT `/job/aJobId/suspended`
       "suspended" : true
     }
 
-#### Response
+## Response
 
 Status 204. No content.

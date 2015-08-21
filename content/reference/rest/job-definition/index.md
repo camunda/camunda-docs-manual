@@ -1,6 +1,7 @@
 ---
 
 title: "Job Definition"
+layout: "section-list"
 weight: 150
 
 menu:

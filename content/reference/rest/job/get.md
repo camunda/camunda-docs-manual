@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-job-get"
     parent: "rest-api-job"
+    pre: "GET `/job/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single job according to the `Job` interface in the engine.
 
 
-Method
-------
+# Method
 
-GET <code>/job/{id}</code>
+GET `/job/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the Job interface in the engine.
 Its properties are as follows:
@@ -107,8 +106,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -124,18 +122,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
 
-GET <code>/job/aJobId</code>
+## Request
 
-#### Response
+GET `/job/aJobId`
+
+## Response
 
     {
       "id": "aJobId",

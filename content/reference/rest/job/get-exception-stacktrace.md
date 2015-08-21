@@ -5,24 +5,24 @@ weight: 100
 
 menu:
   main:
+    name: "Get Stacktrace"
     identifier: "rest-api-job-get-exception-stacktrace"
     parent: "rest-api-job"
+    pre: "GET `/job/{id}/stacktrace`"
 
 ---
 
 
 Retrieves the corresponding exception stacktrace to the passed job id.
 
-Method
-------
+# Method
 
-GET <code>/job/{id}/stacktrace</code>
+GET `/job/{id}/stacktrace`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,14 +36,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 The result is the corresponding stacktrace as a plain text.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -59,18 +57,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
-GET <code>/job/aJobId/stacktrace</code>
+GET `/job/aJobId/stacktrace`
 
-#### Response
+## Response
 
     java.lang.RuntimeException: A exception message!
       at org.camunda.bpm.pa.service.FailingDelegate.execute(FailingDelegate.java:10)

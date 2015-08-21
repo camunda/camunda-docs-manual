@@ -5,25 +5,25 @@ weight: 40
 
 menu:
   main:
+    name: "Get List (POST)"
     identifier: "rest-api-job-definition-post-query"
     parent: "rest-api-job-definition"
+    pre: "POST `/job-definition`"
 
 ---
 
 
-Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query](ref:#job-definition-get-job-definitions) because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query]({{< relref "reference/rest/job-definition/get-query.md" >}}) because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
-Method
-------
+# Method
 
-POST <code>/job-definition</code>
+POST `/job-definition`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,7 +40,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -88,9 +88,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-      <p>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      </p>
       <table>
         <tr>
           <td>sortBy</td>
@@ -106,8 +104,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of job definition objects.
 Each job definition object has the following properties:
@@ -161,8 +158,7 @@ Each job definition object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -178,19 +174,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST <code>/job-definition</code>
 
-Request body:
+Request Body:
 
     {
       "activityIdIn":
@@ -206,7 +201,7 @@ Request body:
         }]
     }
 
-#### Response
+## Response
 
     [
       {

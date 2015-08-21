@@ -5,25 +5,25 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-job-get-query-count"
     parent: "rest-api-job"
+    pre: "GET `/job/count`"
 
 ---
 
 Query for the number of jobs that fulfill given parameters.
-Takes the same parameters as the [get jobs](ref:#job-get-jobs) method.
+Takes the same parameters as the [get jobs]({{< relref "reference/rest/job/get-query.md" >}}) method.
 
 
-Method
-------
+# Method
 
-GET <code>/job/count</code>
+GET `/job/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -114,8 +114,8 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -132,8 +132,7 @@ A JSON object that contains the count as the only property.
   </tr>
 </table>
 
-Response codes
---------------
+# Response codes
 
 <table class="table table-striped">
   <tr>
@@ -149,18 +148,17 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
-GET <code>/job/count?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
+GET `/job/count?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
 
-#### Response
+## Response
 
     {"count": 2}

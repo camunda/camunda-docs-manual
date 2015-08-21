@@ -5,23 +5,23 @@ weight: 80
 
 menu:
   main:
+    name: "Activate/Suspend By Id"
     identifier: "rest-api-job-definition-put-activate-suspend-by-id"
     parent: "rest-api-job-definition"
+    pre: "PUT `/job-definition/{id}/suspended`"
 
 ---
 
 
 Activate or suspend a given job definition by id.
 
-Method
-------
+# Method
 
 PUT `/job-definition/{id}/suspended`
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -58,14 +58,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -81,15 +79,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/job-definition/aJobDefinitionId/suspended`
 
@@ -99,6 +96,6 @@ PUT `/job-definition/aJobDefinitionId/suspended`
       "executionDate" : "2013-11-21T10:49:45"
     }
 
-#### Response
+## Response
 
 Status 204. No content.

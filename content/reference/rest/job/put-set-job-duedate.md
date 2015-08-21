@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Update Due Date"
     identifier: "rest-api-job-put-set-job-duedate"
     parent: "rest-api-job"
+    pre: "PUT `/job/{id}/duedate`"    
 
 ---
 
@@ -14,14 +16,14 @@ menu:
 Updates the due date of a job.
 
 
-## Method
+# Method
 
 PUT `/job/{id}/duedate`
 
 
-## Parameters
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +36,7 @@ PUT `/job/{id}/duedate`
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -50,12 +52,12 @@ A JSON object with the following properties:
 </table>
 
 
-## Result
+# Result
 
 This method returns no content.
 
 
-## Response codes
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -71,26 +73,26 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr><br>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The due date could not be set successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The due date could not be set successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-## Example
+# Example
 
-#### Request
+## Request
 
 PUT `/job/aJobId/duedate`
 
-Request body:
+Request Body:
 
     {"duedate": "2013-08-13 18:43:28"}
 
-#### Response
+## Response
 
 Status 204. No content.

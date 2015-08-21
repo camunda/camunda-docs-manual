@@ -5,25 +5,25 @@ weight: 60
 
 menu:
   main:
+    name: "Execute"
     identifier: "rest-api-job-post-execute-job"
     parent: "rest-api-job"
+    pre: "POST `/job/{id}/execute`"
 
 ---
 
 
-Executes the job. <strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
+Executes the job. </br><strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
 
 
-Method
-------
+# Method
 
-POST <code>/job/{id}/execute</code>
+POST `/job/{id}/execute`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,14 +36,13 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -59,22 +58,22 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The job could not be executed successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The job could not be executed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
 
-PUT <code>/job/aJobId/execute</code>
+## Request
 
-#### Response
+PUT `/job/aJobId/execute`
+
+## Response
 
   Status 204. No content.

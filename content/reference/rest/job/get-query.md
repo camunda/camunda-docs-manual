@@ -5,26 +5,26 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-job-get-query"
     parent: "rest-api-job"
+    pre: "GET `/job`"
 
 ---
 
 
 Query for jobs that fulfill given parameters.
-The size of the result set can be retrieved by using the [get jobs count](ref:#job-get-jobs-count) method.
+The size of the result set can be retrieved by using the [get jobs count]({{< relref "reference/rest/job/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
-GET <code>/job</code>
+GET `/job`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -136,8 +136,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of job objects.
 Each job object has the following properties:
@@ -206,8 +205,7 @@ Each job object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -223,20 +221,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for due date comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00</code>
+GET `/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
 
-#### Response
+## Response
 
     [
       {

@@ -5,23 +5,23 @@ weight: 130
 
 menu:
   main:
+    name: "Activate/Suspend By Process Definition Id"
     identifier: "rest-api-job-put-activate-suspend-by-proc-def-id"
     parent: "rest-api-job"
+    pre: "PUT `/job/suspended`"
 
 ---
 
 
 Activate or suspend jobs with the given process definition id.
 
-Method
-------
+# Method
 
 PUT `/job/suspended`
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -41,14 +41,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,15 +62,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the <code>processDefinitionId</code> parameter is null. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the <code>processDefinitionId</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/job/suspended`
 
@@ -81,6 +78,6 @@ PUT `/job/suspended`
       "suspended" : true
     }
 
-#### Response
+## Response
 
 Status 204. No content.

@@ -5,25 +5,25 @@ weight: 50
 
 menu:
   main:
+    name: "Get List Count (POST)"
     identifier: "rest-api-job-definition-post-query-count"
     parent: "rest-api-job-definition"
+    pre: "POST `/job-definition/count`"
 
 ---
 
 
-Query for the number of job definitions that fulfill given parameters. This method takes the same message body as the [POST query](ref:#job-definition-get-job-definitions-post) and therefore it is slightly more powerful than the [GET query count](ref:#job-definition-get-job-definitions-count).
+Query for the number of job definitions that fulfill given parameters. This method takes the same message body as the [POST query]({{< relref "reference/rest/job-definition/post-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}).
 
 
-Method
-------
+# Method
 
-POST <code>/job-definition/count</code>
+POST `/job-definition/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -82,8 +82,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -101,8 +100,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -118,20 +116,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 POST <code>/job-definition/count</code>
 
-Request body:
+Request Body:
 
     {
       "activityIdIn":
@@ -140,6 +137,6 @@ Request body:
         ]
     }
 
-#### Response
+## Response
 
     {"count": 2}
