@@ -15,14 +15,15 @@
 
 <!-- menu start -->
 
-<div class="version">
+<div class="version{{ if $.Site.Params.section.version }} versioned{{end}}">
+  {{ if $.Site.Params.section.version }}
+    {{range $.Site.Params.sections }}
+      {{ if eq $.Site.Params.section.id .id }} <span class="name">{{ .name }}</span> {{ end }}
+    {{ end }}
 
-  {{range $.Site.Params.sections }}
-    {{ if eq $.Site.Params.section.id .id }} <span class="name">{{ .name }}</span> {{ end }}
-  {{ end }}
-
-  {{with $.Site.Params.section.version }}
-    <span class="number"><a>{{.}}</a></span>
+    {{with $.Site.Params.section.version }}
+      <span class="number"><a>{{.}}</a></span>
+    {{ end }}
   {{ end }}
 </div>
 
