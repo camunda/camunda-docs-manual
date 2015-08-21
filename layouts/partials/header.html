@@ -62,11 +62,14 @@
         <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
       {{ end }}
     </ul>
+    <input id="docs-site-search" type="text" name="search"></input>
   </div>
 </nav>
 
 <div class="site-menu">
   {{ cachedPartial "menu.html" . }}
 </div>
+
+<div id="docs-search-results"></div>
 
 <div class="page-wrapper">
