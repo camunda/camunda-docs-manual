@@ -5,8 +5,10 @@ weight: 40
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-variable-instance-get"
     parent: "rest-api-variable-instance"
+    pre: "GET `/variable-instance/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single variable by id.
 
 
-Method
-------
+# Method
 
 GET `/variable-instance/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -46,13 +46,12 @@ Parameters
   <tr>
     <td>deserializeValue</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A json object with the following properties:
 
@@ -75,18 +74,17 @@ A json object with the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-type.html.eco', @, {}) %></td>
+    <td>{{< rest-var-response-type >}}</td>
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValue'}) %></td>
+    <td>{{< rest-var-response deserializationParameter="deserializeValue" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
     <td>Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-valueinfo.html.eco', @, {}) %>
-    </td>
+    <td>{{< rest-var-response-valueinfo >}}</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -125,8 +123,7 @@ A json object with the following properties:
   </tr>
 </table>
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -142,18 +139,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/variable-instance/someId`
   
-#### Response
+## Response
 
 Status 200.
 

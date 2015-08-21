@@ -1,6 +1,7 @@
 ---
 
 title: "Incident"
+layout: section-list
 weight: 130
 
 menu:

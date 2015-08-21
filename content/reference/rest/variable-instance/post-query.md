@@ -5,26 +5,26 @@ weight: 50
 
 menu:
   main:
+    name: "Get List (POST)"
     identifier: "rest-api-variable-instance-post-list"
     parent: "rest-api-variable-instance"
+    pre: "POST `/variable-instance`"
 
 ---
 
 
 Query for variable instances that fulfill given parameters through a JSON object. This method is slightly more powerful than the
-[GET query](ref:#variable-get-variable-instances) because it allows filtering by multiple variable instances of types `String`, `Number` or `Boolean`.
+[GET query]({{< relref "reference/rest/variable-instance/get-query.md" >}}) because it allows filtering by multiple variable instances of types `String`, `Number` or `Boolean`.
 
 
-Method
-------
+# Method
 
 POST `/variable-instance`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -42,12 +42,12 @@ Parameters
   <tr>
     <td>deserializeValues</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -121,8 +121,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of variable instance objects. Each variable instance object has the following properties:
 
@@ -145,18 +144,17 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>type</td>
     <td>String</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-type.html.eco', @, {}) %></td>
+    <td>{{< rest-var-response-type >}}</td>
   </tr>
   <tr>
     <td>value</td>
     <td>String/Number/Boolean/Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-value.html.eco', @, {deserializationParameter: 'deserializeValues'}) %></td>
+    <td>{{< rest-var-response deserializationParameter="deserializeValues" >}}</td>
   </tr>
   <tr>
     <td>valueInfo</td>
     <td>Object</td>
-    <td><%- @partial('api-references/rest/variables/variable-response-valueinfo.html.eco', @, {}) %>
-    </td>
+    <td>{{< rest-var-response-valueinfo >}}</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -191,8 +189,7 @@ A JSON array of variable instance objects. Each variable instance object has the
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -208,19 +205,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/variable-instance`
 
-Request body:
+Request Body:
 
     {"variableValuess":
         [{"name": "amount",
@@ -237,7 +233,7 @@ Request body:
         }]
     }
 
-#### Response
+## Response
 
     [
       {

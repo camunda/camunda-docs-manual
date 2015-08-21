@@ -5,24 +5,24 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-variable-instance-get-list-count"
     parent: "rest-api-variable-instance"
+    pre: "GET `/variable-instance/count`"
 
 ---
 
 
-Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances](ref:#variable-get-variable-instances) method.
+Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances]({{< relref "reference/rest/variable-instance/get-query.md" >}}) method.
 
-Method
-------
+# Method
 
 GET `/variable-instance/count`
 
 
-Parameters
-----------  
+# Parameters
   
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -97,8 +97,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -116,8 +115,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -133,17 +131,16 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/variable-instance/count?processInstanceIdIn=aProcessInstanceId,anotherProcessInstanceId&variableValues=amount_gteq_5,amount_lteq_200`
 
-#### Response
+## Response
 
     {"count": 3}    

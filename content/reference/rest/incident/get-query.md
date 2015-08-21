@@ -5,26 +5,26 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-incident-get-query"
     parent: "rest-api-incident"
+    pre: "GET `/incident`"
 
 ---
 
 
 Query for incidents that fulfill given parameters.
-The size of the result set can be retrieved by using the [get incidents count](ref:#incident-get-incidents-count) method.
+The size of the result set can be retrieved by using the [get incidents count]({{< relref "reference/rest/incident/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
-GET <code>/incident</code>
+GET `/incident`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -85,8 +85,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of incident objects.
 Each incident object has the following properties:
@@ -155,8 +154,7 @@ Each incident object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response codes
 
 <table class="table table-striped">
   <tr>
@@ -172,20 +170,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET <code>/incident?processInstanceId=aProcInstId</code>
 
-#### Response
+## Response
 
     [
       {
