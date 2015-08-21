@@ -5,26 +5,28 @@ weight: 20
 
 menu:
   main:
+    name: "Get Diagram"
     identifier: "rest-api-process-definition-get-process-diagram"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/{id}/diagram`
+          </br>
+          GET `/process-definition/key/{key}/diagram` (returns the diagram for the latest version of the process definition)"
 
 ---
 
 Retrieves the diagram of a process definition.
 
 
-Method
-------
+# Method
 
 GET `/process-definition/{id}/diagram`
 
 GET `/process-definition/key/{key}/diagram` (returns the diagram for the latest version of the process definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -42,13 +44,11 @@ Parameters
 </table>
 
 
-Result
------- 
+# Result
 
 The image diagram of this process.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -70,21 +70,20 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>The path parameter "key" has no value or the process definition with given id does not exist.
-        See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>Process definition with given id or key does not exist.
-        See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/process-definition/invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c/diagram`
 

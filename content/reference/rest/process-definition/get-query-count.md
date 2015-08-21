@@ -5,27 +5,26 @@ weight: 40
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-process-definition-get-definitions-count"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/count`"
 
 ---
 
 
 Request the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[GET query](ref:#process-definition-get-definitions).
+[GET query]({{< relref "reference/rest/process-definition/get-query.md" >}}).
 
 
-Method
---------------
+# Method
 
 GET `/process-definition/count`
 
 
-Parameters
---------------
+# Parameters
 
-
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -115,8 +114,7 @@ Parameters
 </table>
 
 
-Result
---------------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -134,8 +132,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -151,19 +148,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/count?keyLike=Key&version=47`
 
-#### Response
+## Response
 
     {"count": 1}

@@ -7,6 +7,9 @@ menu:
   main:
     identifier: "rest-api-process-definition-get-activity-instance-statistics"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/{id}/statistics`
+          </br>
+          GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition)"
 
 ---
 
@@ -16,18 +19,16 @@ These statistics include the number of running activity instances, optionally th
 __Note:__ This does not include historic data.
 
 
-Method
---------------  
+# Method
 
 GET `/process-definition/{id}/statistics`
 
 GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition)
 
 
-Parameters
---------------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -44,7 +45,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -67,8 +68,7 @@ Parameters
 
 __Note:__ The query parameters `incidents` and `incidentsForType` are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
 
-Result
---------------  
+# Result
 
 A JSON array containing statistics results per activity.
 Each object has the following properties:
@@ -109,8 +109,7 @@ Each object has the following properties:
 </table>
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -126,27 +125,26 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Examples
---------
+# Examples
 
-#### Request with query parameter `failedJobs=true`
+## Request with Query Parameter `failedJobs=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?failedJobs=true`
 
 GET `/process-definition/key/aProcessDefinitionKey/statistics?failedJobs=true`
 
-#### Response
+## Response
 
     [{"id":"anActivity",
      "instances":123,
@@ -158,14 +156,14 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?failedJobs=true`
      "failedJobs":43,
      "incidents": []}]
 
-#### Request with query parameter `incidents=true`
+## Request with Query Parameter `incidents=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?incidents=true`
 
 GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
 
-#### Response
+## Response
 
     [{"id":"anActivity",
      "instances":123,
@@ -187,14 +185,14 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
       ]
     }]
 
-#### Request with query parameter `incidentsForType=anIncident`
+## Request with Query Parameter `incidentsForType=anIncident`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/statistics?incidentsForType=anIncident`
 
 GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=anIncident`
 
-#### Response
+## Response
 
     [{"id":"anActivity",
      "instances":123,

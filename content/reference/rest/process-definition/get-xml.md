@@ -5,8 +5,12 @@ weight: 90
 
 menu:
   main:
+    name: "Get XML"
     identifier: "rest-api-process-definition-get-bpmn-20-xml"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/{id}/xml`
+          </br>
+          GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition)"
 
 ---
 
@@ -14,18 +18,16 @@ menu:
 Retrieves the BPMN 2.0 XML of this process definition.
 
 
-Method
-------
+# Method
 
 GET `/process-definition/{id}/xml`
 
 GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,8 +45,7 @@ Parameters
 </table>
 
 
-Result
------- 
+# Result
 
 A JSON object containing the id of the definition and the BPMN 2.0 XML.
 
@@ -67,8 +68,7 @@ A JSON object containing the id of the definition and the BPMN 2.0 XML.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -84,27 +84,26 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId/xml`
 
 GET `/process-definition/key/aProcessDefinitionKey/xml`
 
-#### Response
+## Response
 
     {"id":"aProcessDefinitionId",
     "bpmn20Xml":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"

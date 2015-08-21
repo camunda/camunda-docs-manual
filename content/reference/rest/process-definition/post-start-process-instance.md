@@ -5,8 +5,12 @@ weight: 110
 
 menu:
   main:
+    name: "Start"
     identifier: "rest-api-process-definition-start-process-instance"
     parent: "rest-api-process-definition"
+    pre: "POST `/process-definition/{id}/start`
+          </br>
+          POST `/process-definition/key/{key}/start` (starts the latest version of process definition)"
 
 ---
 
@@ -14,18 +18,16 @@ menu:
 Instantiates a given process definition. Process variables and business key may be supplied in the request body.
 
 
-Method
-------
+# Method
 
 POST `/process-definition/{id}/start`
 
 POST `/process-definition/key/{key}/start` (starts the latest version of process definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,7 +45,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -54,8 +56,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td><p>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %></td>
+    <td>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
+    {{< rest-var-request >}}
   </tr>
   <tr>
     <td>businessKey</td>
@@ -69,9 +71,7 @@ A JSON object with the following properties:
   <tr>
     <td>startInstructions</td>
     <td>
-      <p>
         <b>Optional</b>. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.
-      </p>
       <p>
         The instructions are executed in the order they are in. An instruction may have the following properties:
       </p>
@@ -91,7 +91,7 @@ A JSON object with the following properties:
         <tr>
           <td>variables</td>
           <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-          <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {additionalProperties: {local: 'Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity.'}}) %></td>
+          {{< rest-var-request local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
         </tr>
       </table>
     </td>
@@ -99,22 +99,21 @@ A JSON object with the following properties:
   <tr>
     <td>skipCustomListeners</td>
     <td>
-      <p>Skip execution listener invocation for activities that are started or ended as part of this request.</p>
+      Skip execution listener invocation for activities that are started or ended as part of this request.
       <p><b>Note:</b> This option is currently only respected when start instructions are submitted via the <code>startInstructions</code> property.</p>
     </td>
   </tr>
   <tr>
     <td>skipIoMappings</td>
     <td>
-      <p>Skip execution of <a href="ref:/guides/user-guide/#process-engine-process-variables-inputoutput-variable-mapping">input/output variable mappings</a> for activities that are started or ended as part of this request.</p>
+      Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.
       <p><b>Note:</b> This option is currently only respected when start instructions are submitted via the <code>startInstructions</code> property.</p>
     </td>
   </tr>
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object representing the newly created process instance.
 Properties are:
@@ -163,8 +162,7 @@ Properties are:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -180,26 +178,26 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The instance could not be created due to a non existing process definition key. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The instance could not be created successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The instance could not be created successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+
+# Example
 
 ### Starting a process instance at its default initial activity:
 
-#### Request
+## Request
 
 POST `/process-definition/aProcessDefinitionId/start`
 
@@ -213,7 +211,7 @@ Request body:
 	 "businessKey" : "myBusinessKey"
 	}
 
-#### Response
+## Response
 
     {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",
@@ -224,13 +222,13 @@ Request body:
 
 ### Starting a process instance at two specific activities:
 
-#### Request
+## Request
 
 POST `/process-definition/aProcessDefinitionId/start`
 
 POST `/process-definition/key/aProcessDefinitionKey/start`
 
-Request body:
+Request Body:
 
     {"variables":
         {"aProcessVariable" : {"value" : "aStringValue", "type": "String"}},
@@ -260,7 +258,7 @@ Request body:
       }]
 	  }
 
-#### Response
+## Response
 
     {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",

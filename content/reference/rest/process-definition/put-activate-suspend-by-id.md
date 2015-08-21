@@ -5,26 +5,28 @@ weight: 130
 
 menu:
   main:
+    name: "Activate/Suspend By Id"
     identifier: "rest-api-process-definition-activate-suspend-by-id"
     parent: "rest-api-process-definition"
+    pre: "PUT `/process-definition/{id}/suspended`
+          </br>
+          PUT `/process-definition/key/{key}/suspended` (suspend latest version of process definition)"
 
 ---
 
 
 Activate or suspend a given process definition by id or by latest version of process definition key.
 
-Method
-------
+# Method
 
 PUT `/process-definition/{id}/suspended`
 
 PUT `/process-definition/key/{key}/suspended` (suspend latest version of process definition)
 
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,7 +43,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -65,14 +67,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -88,20 +88,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
   
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/process-definition/aProcessDefinitionId/suspended`
 
@@ -113,6 +112,6 @@ PUT `/process-definition/key/aProcessDefinitionKey/suspended`
       "executionDate" : "2013-11-21T10:49:45"
     }
      
-#### Response
+## Response
     
 Status 204. No content.

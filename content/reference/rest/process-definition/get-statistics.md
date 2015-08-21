@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "rest-api-process-definition-get-process-instance-statistics"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/statistics`"
 
 ---
 
@@ -15,16 +16,14 @@ These statistics include the number of running process instances, optionally the
 __Note:__ This does not include historic data.
 
 
-Method
-------
+# Method
 
 GET `/process-definition/statistics`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -47,8 +46,7 @@ Parameters
 
 __Note:__ The query parameters `incidents` and `incidentsForType` are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
 
-Result
-------
+# Result
 
 A JSON array containing statistics results per process definition.
 Each object has the following properties:
@@ -78,7 +76,7 @@ Each object has the following properties:
   <tr>
     <td>definition</td>
     <td>Object</td>
-    <td>The process definition with the properties as described in the <a href="ref:#process-definition-get-single-definition">get single definition</a> method.</td>
+    <td>The process definition with the properties as described in the <a href="{{< relref "reference/rest/process-definition/get.md" >}}">get single definition</a> method.</td>
   </tr>
   <tr>
     <td>incidents</td>
@@ -94,8 +92,7 @@ Each object has the following properties:
 </table>
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -111,20 +108,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>  
 </table>
 
 
-Examples
---------
+# Examples
 
-#### Request with query parameter `failedJobs=true`
+## Request with Query Parameter `failedJobs=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/statistics?failedJobs=true`
 
-#### Response
+## Response
 
     [{"id":"aProcessDefinitionId",
       "instances":123,
@@ -159,12 +155,12 @@ GET `/process-definition/statistics?failedJobs=true`
       "incidents:" []        
     }]
 
-#### Request with query parameter `incidents=true`
+## Request with Query Parameter `incidents=true`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/statistics?incidents=true`
 
-#### Response
+## Response
 
     [{"id":"aProcessDefinitionId",
       "instances":123,
@@ -208,12 +204,12 @@ GET `/process-definition/statistics?incidents=true`
       ]        
     }]
 
-#### Request with query parameter `incidentsForType=anIncident`
+## Request with Query Parameter `incidentsForType=anIncident`
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/statistics?incidentsForType=anIncident`
 
-#### Response
+## Response
 
     [{"id":"aProcessDefinitionId",
       "instances":123,

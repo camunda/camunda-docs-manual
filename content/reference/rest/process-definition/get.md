@@ -5,8 +5,12 @@ weight: 100
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-process-definition-get-single-definition"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/{id}`
+          </br>
+          GET `/process-definition/key/{key}` (returns the latest version of process definition)"
 
 ---
 
@@ -14,18 +18,16 @@ menu:
 Retrieves a single process definition according to the ProcessDefinition interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/process-definition/{id}`
 
 GET `/process-definition/key/{key}` (returns the latest version of process definition)
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,8 +45,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the ProcessDefinition interface in the engine.
 Its properties are as follows:
@@ -108,8 +109,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -125,27 +125,26 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given id or key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given id or key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 <!-- TODO: Insert a 'real' example -->
 GET `/process-definition/aProcessDefinitionId`
 
 GET `/process-definition/key/aProcessDefinitionKey`
 
-#### Response
+## Response
 
     {"id":"aProcessDefinitionId",
     "key":"aProcessDefinitionKey",

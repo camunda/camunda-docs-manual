@@ -5,23 +5,23 @@ weight: 140
 
 menu:
   main:
+    name: "Activate/Suspend By Key"
     identifier: "rest-api-process-definition-activate-suspend-by-key"
     parent: "rest-api-process-definition"
+    pre: "PUT `/process-definition/suspended`"
 
 ---
 
 
 Activate or suspend process definitions with the given process definition key.
 
-Method
-------
+# Method
 
 PUT `/process-definition/suspended`
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -49,14 +49,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -72,15 +70,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format or if the <code>processDefinitionKey</code> parameter is null. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format or if the <code>processDefinitionKey</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
   
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/process-definition/suspended`
   
@@ -91,6 +88,6 @@ PUT `/process-definition/suspended`
       "executionDate" : "2013-11-21T10:49:45"
     }
      
-#### Response
+## Response
     
 Status 204. No content.

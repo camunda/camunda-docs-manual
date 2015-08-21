@@ -7,23 +7,24 @@ menu:
   main:
     identifier: "rest-api-process-definition-get-rendered-start-form"
     parent: "rest-api-process-definition"
+    pre: "GET `/process-definition/{id}/rendered-form`
+          </br>
+          GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition)"
 
 ---
 
-Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form](ref:/guides/user-guide/#task-forms-generated-task-forms).
+Retrieves the rendered form for a process definition. This method can be used for getting the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
 
-Method
---------------
+# Method
 
 GET `/process-definition/{id}/rendered-form`
 
 GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition)
 
 
-Parameters
---------------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,13 +42,11 @@ Parameters
 </table>
 
 
-Result
---------------
+# Result
 
 An HTML response body providing the rendered (generated) form content.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -63,26 +62,25 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist or has no form field metadata defined. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist or has no form field metadata defined. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 GET `/process-definition/anId/rendered-form`
 
 GET `/process-definition/key/aKey/rendered-form`
 
-#### Response
+## Response
 
 ```xml
 <form class="form-horizontal">
