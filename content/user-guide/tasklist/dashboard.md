@@ -74,7 +74,7 @@ In the upper section of the task view, you can set a due date and follow-up date
 
 ## Claim, Unclaim and Reassign Tasks
 
-Within the task view, you can claim, unclaim and reassign tasks. To claim a task, simply select *Claim*. Unclaim a task by hitting the <button class="btn btn-xs"><i class="glyphicon glyphicon-remove"></i></button> button next to the username of a claimed task and reassign a task to a different user by clicking on the username and inserting the username of the user you want to assign the task to. You can also assign tasks to user groups by clicking on *Add Groups*.
+Within the task view, you can claim, unclaim and reassign tasks. To claim a task, simply select *Claim*. Unclaim a task by hitting the {{< glyphicon name="remove" >}} button next to the username of a claimed task and reassign a task to a different user by clicking on the username and inserting the username of the user you want to assign the task to. You can also assign tasks to user groups by clicking on *Add Groups*.
 
 
 ## Comments

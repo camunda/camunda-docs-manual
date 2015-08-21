@@ -41,9 +41,9 @@ In the modification tab you can then configure the specification of the instruct
 
 {{< img src="../img/cockpit-modification-cancel.png" title="Cancel Modification" >}}
 
-When canceling activity instances you can select the instances of the activity you want to cancel. You can select them by their instance ID using the Select Instances button on the right. To better distinguish between activity instances, you can also show variables assigned to this instance using the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-eye-open"></i></button> button.
+When canceling activity instances you can select the instances of the activity you want to cancel. You can select them by their instance ID using the Select Instances button on the right. To better distinguish between activity instances, you can also show variables assigned to this instance using the {{< glyphicon name="eye-open" >}} button.
 
-When canceling all instances of an activity using the <a class="btn btn-link"><span class="glyphicon glyphicon-plus-sign"></span> All</a> button, all instances which exist at the moment this instruction is executed will be canceled. This will also cancel instances which were created in the same modification (e.g., using a startBefore instruction before the cancel instruction). In most cases, you probably want to explicitly state the instances to cancel.
+When canceling all instances of an activity using the {{< glyphicon name="plus-sign" text=" All">}} button, all instances which exist at the moment this instruction is executed will be canceled. This will also cancel instances which were created in the same modification (e.g., using a startBefore instruction before the cancel instruction). In most cases, you probably want to explicitly state the instances to cancel.
 
 
 ## Start New Activity Instances
@@ -61,7 +61,7 @@ When starting activities with a multi-instance flag, there is the option to eith
 
 {{< img src="../img/cockpit-modification-review.png" title="Modification Review" >}}
 
-At any point during the creation of the modification, you can show the payload of the modification by clicking the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-eye-open"></i> </button> button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/index.md" >}}).
+At any point during the creation of the modification, you can show the payload of the modification by clicking the {{< glyphicon name="eye-open" >}} button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/index.md" >}}).
 
 To perform the modification, you have to click on the *Apply modifications* button. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.
 

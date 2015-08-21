@@ -18,7 +18,7 @@ Unresolved incidents of a process instance or a sub process instance are indicat
 
 # Retry a Failed Job
 
-To resolve a failed job you can use the <button class="btn btn-xs dropdown-toggle"><i class="glyphicon glyphicon-repeat"></i> </button> button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
+To resolve a failed job you can use the {{< glyphicon name="repeat" >}} button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
 
 
 # Bulk Retry
