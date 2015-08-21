@@ -5,24 +5,24 @@ weight: 130
 
 menu:
   main:
+    name: "Add"
     identifier: "rest-api-task-post-get-identity-link"
-    parent: "rest-api-task"
+    parent: "rest-api-task-identity-links"
+    pre: "POST `/task/{id}/identity-links`"
 
 ---
 
 Adds an identity link to a task. Can be used to link any user or group to a task and specify and relation.
 
 
-Method
-------
+# Method
 
 POST `/task/{id}/identity-links`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -59,14 +59,12 @@ A JSON object with the following properties:
   </tr>
 </table>
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -82,15 +80,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/task/anId/identity-links`
 
@@ -98,6 +95,6 @@ Request body:
 
     {"groupId": "aNewGroupId", "type": "candidate"}
 
-#### Response
+## Response
 
 Status 204. No content.

@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "rest-api-task-get-form-key"
     parent: "rest-api-task"
+    pre: "GET `/task/{id}/form`"
 
 ---
 
@@ -15,16 +16,14 @@ Retrieves the form key for a task. The form key corresponds to the `FormData#for
 This key can be used to do task-specific form rendering in client applications. Additionally, the context path of the containing process application is returned.
 
 
-Method
-------
+# Method
 
 GET `/task/{id}/form`
 
 
-Parameters
----------- 
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object containing the form key.
 
@@ -62,8 +60,7 @@ A JSON object containing the form key.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -79,19 +76,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/task/anId/form`
 
-#### Response
+## Response
 
     {"key":"aFormKey",
     "contextPath":"http://localhost:8080/my-process-application/"}

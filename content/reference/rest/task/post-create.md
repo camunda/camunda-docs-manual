@@ -5,8 +5,10 @@ weight: 320
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-task-post-create"
     parent: "rest-api-task"
+    pre: "POST `/task/create`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Create a new task.
 
 
-Method
-------
+# Method
 
 POST `/task/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -92,14 +92,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -115,18 +113,17 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if a not valid <code>delegationState</code> is supplied. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if a not valid <code>delegationState</code> is supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/task/create`
 
-Request body:
+Request Body:
 
     {
       "id": "aTaskId",
@@ -142,6 +139,6 @@ Request body:
       "caseInstanceId" : "aCaseInstanceId"
     }
 
-#### Response
+## Response
 
 Status 204. No content.

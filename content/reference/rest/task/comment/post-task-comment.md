@@ -5,23 +5,23 @@ weight: 180
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-task-post-task-comment"
-    parent: "rest-api-task"
+    parent: "rest-api-task-comment"
+    pre: "POST `/task/{id}/comment/create`"
 
 ---
 
 Create a comment for a task.
 
-Method
-------
+# Method
 
 POST `/task/{id}/comment/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -50,8 +50,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object representing the newly created comment. Its structure corresponds to the `Comment` interface in the engine.
 Its properties are as follows:
@@ -95,8 +94,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -112,20 +110,19 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task does not exist or no comment message was submitted. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task does not exist or no comment message was submitted. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 Post data for a new task comment:
 
@@ -133,7 +130,7 @@ POST `/task/aTaskId/comment/create`
 
     {"message": "a task comment"}
 
-#### Response
+## Response
 
 Status 200.
 

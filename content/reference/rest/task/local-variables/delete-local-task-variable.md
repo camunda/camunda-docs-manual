@@ -5,8 +5,10 @@ weight: 300
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-task-delete-local-variable"
-    parent: "rest-api-task"
+    parent: "rest-api-task-local-variables"
+    pre: "DELETE `/task/{id}/localVariables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Removes a local variable from a task.
 
 
-Method
-------
+# Method
 
 DELETE `/task/{id}/localVariables/{varId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,18 +62,17 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/task/aTaskId/localVariables/aVarName`
 
-#### Response
+## Response
 
 Status 204. No content.

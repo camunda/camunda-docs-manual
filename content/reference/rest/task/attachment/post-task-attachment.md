@@ -5,23 +5,23 @@ weight: 210
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-task-post-task-attachments"
-    parent: "rest-api-task"
+    parent: "rest-api-task-attachment"
+    pre: "POST `/task/{id}/attachment/create`"
 
 ---
 
 Create an attachment for a task.
 
-Method
-------
+# Method
 
 POST `/task/{id}/attachment/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A multipart form submit with the following parts:
 
@@ -72,8 +72,7 @@ A multipart form submit with the following parts:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the `Attachment` interface in the engine.
 Its properties are as follows:
@@ -117,8 +116,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response codes
 
 <table class="table table-striped">
   <tr>
@@ -134,24 +132,24 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task does not exists or task id is null. No content or url to remote content exists. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task does not exists or task id is null. No content or url to remote content exists. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 Post data for a new task attachment:
 
 POST `/task/aTaskId/attachment/create`
+
 
 ```
 ------------------------------925df49a954b
@@ -173,7 +171,7 @@ attachmentType
 ------------------------------925df49a954b--
 ```
 
-#### Response
+## Response
 
 Status 200.
 

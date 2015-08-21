@@ -5,8 +5,10 @@ weight: 80
 
 menu:
   main:
+    name: "Complete"
     identifier: "rest-api-task-post-complete"
     parent: "rest-api-task"
+    pre: "POST `/task/{id}/complete`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Complete a task and update process variables.
 
 
-Method
-------
+# Method
 
 POST `/task/{id}/complete`
 
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
   
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -48,19 +48,17 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
-    <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %></td>
+    {{< rest-var-request >}}
   </tr>
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -76,23 +74,22 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>      
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>If the task does not exist or the corresponding process instance could not be resumed successfully. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>If the task does not exist or the corresponding process instance could not be resumed successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 POST `/task/anId/complete`
 
-Request body:
+Request Body:
 
     {"variables":
         {"aVariable": {"value": "aStringValue"},
@@ -100,6 +97,6 @@ Request body:
         "aThirdVariable": {"value": true}}
     }
 
-#### Response
+## Response
 
 Status 204. No content.

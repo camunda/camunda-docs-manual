@@ -5,8 +5,10 @@ weight: 170
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-task-get-task-comment"
-    parent: "rest-api-task"
+    parent: "rest-api-task-comment"
+    pre: "GET `/task/{id}/comment/{commentId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single task comment by task id and comment id.
 
 
-Method
-------
+# Method
 
 GET `/task/{id}/comment/{commentId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,8 +41,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the `Comment` interface in the engine.
 Its properties are as follows:
@@ -81,8 +80,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -98,19 +96,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The task or comment with given task and comment id do not exist, or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task or comment with given task and comment id do not exist, or the history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/task/aTaskId/comment/aTaskCommentId`
 
-#### Response
+## Response
 
 ```json
 {

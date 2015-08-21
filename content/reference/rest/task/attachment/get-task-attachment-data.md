@@ -5,24 +5,24 @@ weight: 220
 
 menu:
   main:
+    name: "Get (Binary)"
     identifier: "rest-api-task-get-task-attachment-data"
-    parent: "rest-api-task"
+    parent: "rest-api-task-attachment"
+    pre: "GET `/task/{id}/attachment/{attachmentId}/data`"
 
 ---
 
 Retrieves the binary content of a single task attachment by task id and attachment id.
 
 
-Method
-------
+# Method
 
 GET `/task/{id}/attachment/{attachmentId}/data`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,13 +40,11 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 Byte Stream.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -62,19 +60,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The attachment content for given task and attachment id does not exist or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The attachment content for given task and attachment id does not exist or the history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/task/aTaskId/attachment/aTaskAttachmentId/data`
 
-#### Response
+## Response
 
 Status 200.
 Byte Stream.

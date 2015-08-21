@@ -5,8 +5,10 @@ weight: 230
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-task-delete-task-attachment"
-    parent: "rest-api-task"
+    parent: "rest-api-task-attachment"
+    pre: "DELETE `/task/{id}/attachment/{attachmentId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Removes an attachment from a task.
 
 
-Method
-------
+# Method
 
 DELETE `/task/{id}/attachment/{attachmentId}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,23 +62,22 @@ Response codes
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Task attachment for given task id and attachment id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task attachment for given task id and attachment id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/task/aTaskId/attachment/aTaskAttachmentId`
 
-#### Response
+## Response
 
 Status 204. No content.

@@ -5,28 +5,28 @@ weight: 30
 
 menu:
   main:
+    name: "Get List (POST)"
     identifier: "rest-api-task-post-list"
     parent: "rest-api-task"
+    pre: "POST `/task`"
 
 ---
 
 
 Query for tasks that fulfill a given filter.
-This method is slightly more powerful than the [GET query](ref:#task-get-tasks) because it allows
+This method is slightly more powerful than the [GET query]({{< relref "reference/rest/task/get-query.md" >}}) because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)](ref:#task-get-tasks-count-post) method.
+The size of the result set can be retrieved by using [get tasks count (POST)]({{< relref "reference/rest/task/post-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 POST `/task`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -43,7 +43,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -140,7 +140,7 @@ A JSON object with the following properties:
   <tr>
     <td>assigneeExpression</td>
     <td>Restrict to tasks that the user described by the given expression is assigned to.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -151,7 +151,7 @@ A JSON object with the following properties:
   <tr>
     <td>assigneeLikeExpression</td>
     <td>Restrict to tasks that have an assignee that has the parameter value described by the given expression as a substring.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -162,7 +162,7 @@ A JSON object with the following properties:
   <tr>
     <td>ownerExpression</td>
     <td>Restrict to tasks that the user described by the given expression owns.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -173,7 +173,7 @@ A JSON object with the following properties:
   <tr>
     <td>candidateGroupExpression</td>
     <td>Only include tasks that are offered to the group described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -184,7 +184,7 @@ A JSON object with the following properties:
   <tr>
     <td>candidateUserExpression</td>
     <td>Only include tasks that are offered to the user described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
     </td>
   </tr>
@@ -204,7 +204,7 @@ A JSON object with the following properties:
     <td>involvedUserExpression</td>
     <td>Only include tasks that the user described by the given expression is involved in.
         A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">user
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user
         guide</a> for more information on available functions.
     </td>
   </tr>
@@ -264,7 +264,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueDateExpression</td>
     <td>Restrict to tasks that are due on the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -276,7 +276,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueAfterExpression</td>
     <td>Restrict to tasks that are due after the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -288,7 +288,7 @@ A JSON object with the following properties:
   <tr>
     <td>dueBeforeExpression</td>
     <td>Restrict to tasks that are due before the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -300,7 +300,7 @@ A JSON object with the following properties:
   <tr>
     <td>followUpDateExpression</td>
     <td>Restrict to tasks that have a followUp date on the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -312,7 +312,7 @@ A JSON object with the following properties:
   <tr>
     <td>followUpAfterExpression</td>
     <td>Restrict to tasks that have a followUp date after the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -324,7 +324,7 @@ A JSON object with the following properties:
   <tr>
     <td>followUpBeforeExpression</td>
     <td>Restrict to tasks that have a followUp date before the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -332,7 +332,7 @@ A JSON object with the following properties:
   <tr>
     <td>followUpBeforeOrNotExistent</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the given date.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -341,7 +341,7 @@ A JSON object with the following properties:
     <td>followUpBeforeOrNotExistentExpression</td>
     <td>Restrict to tasks that have no followUp date or a followUp date before the date described by the given
         expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -357,7 +357,7 @@ A JSON object with the following properties:
   <tr>
     <td>createdOnExpression</td>
     <td>Restrict to tasks that were created on the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -369,7 +369,7 @@ A JSON object with the following properties:
   <tr>
     <td>createdAfterExpression</td>
     <td>Restrict to tasks that were created after the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -381,7 +381,7 @@ A JSON object with the following properties:
   <tr>
     <td>createdBeforeExpression</td>
     <td>Restrict to tasks that were created before the date described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
@@ -397,7 +397,7 @@ A JSON object with the following properties:
   <tr>
     <td>candidateGroupsExpression</td>
     <td>Restrict to tasks that are offered to any of the candidate groups described by the given expression.
-        See the <a href="/guides/user-guide/#process-engine-expression-language-internal-context-functions">
+        See the <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">
         user guide</a> for more information on available functions.
         The expression must evaluate to <code>java.util.List</code> of Strings.
   </tr>
@@ -455,9 +455,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-      <p>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      </p>
       <table>
         <tr>
           <td>sortBy</td>
@@ -479,8 +477,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of task objects.
 Each task object has the following properties:
@@ -584,8 +581,7 @@ Each task object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -602,19 +598,18 @@ Response codes
     <td>400</td>
     <td>application/json</td>
     <td>
-      Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.
+      Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 POST `/task`
 
-Request body:
+Request Body:
 
     {"taskVariables":
         [{"name": "varName",
@@ -638,7 +633,7 @@ Request body:
         }}]
     }
 
-#### Response
+## Response
 
     [{"id":"anId",
      "name":"aName",

@@ -5,8 +5,10 @@ weight: 140
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-task-post-delete-identity-link"
-    parent: "rest-api-task"
+    parent: "rest-api-task-identity-links"
+    pre: "POST `/task/{id}/identity-links/delete`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Removes an identity link from a task.
 
 
-Method
-------
+# Method
 
 POST `/task/{id}/identity-links/delete`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,7 +37,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -60,14 +60,12 @@ A JSON object with the following properties:
   </tr>
 </table>
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -83,15 +81,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/task/anId/identityLinks/delete`
 
@@ -99,6 +96,6 @@ Request body:
 
     {"groupId": "theOldGroupId", "type": "candidate"}
 
-#### Response
+## Response
 
 Status 204. No content.

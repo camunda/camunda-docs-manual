@@ -5,8 +5,10 @@ weight: 310
 
 menu:
   main:
+    pre: "Get Form Variables"
     identifier: "rest-api-task-get-form-variables"
     parent: "rest-api-task"
+    pre: "GET `/task/{id}/form-variables`"
 
 ---
 
@@ -14,16 +16,14 @@ Retrieves the form variables for a task. The form variables take form data speci
 account. If form fields are defined, the variable types and
 default values of the form fields are taken into account.
 
-Method
---------------  
+# Method
 
 GET `/task/{id}/form-variables`
 
 
-Parameters
---------------  
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -54,21 +54,19 @@ Parameters
   <tr>
     <td>deserializeValues</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
-Result
---------------  
+# Result
 
 A JSON object containing a property for each variable returned. The key is the variable name, the
 value is a JSON object with the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValues'}) %>
+{{< rest-var-response deserializationParameter="deserializeValues" >}}
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -84,22 +82,21 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 GET `/task/anId/form-variables`
 
 GET `/task/anId/form-variables?variableNames=a,b,c`
 
 
-#### Response
+## Response
 
 ```json
 {

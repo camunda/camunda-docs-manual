@@ -5,23 +5,23 @@ weight: 330
 
 menu:
   main:
+    name: "Update"
     identifier: "rest-api-task-put-update"
     parent: "rest-api-task"
+    pre: "PUT `/task/{id}/`"
 
 ---
 
 
 Updates a task.
 
-Method
-------
+# Method
 
 PUT `/task/{id}/`
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -85,14 +85,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -108,7 +106,7 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if a not valid <code>delegationState</code> is supplied. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if a not valid <code>delegationState</code> is supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -117,14 +115,14 @@ Response codes
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 PUT `/task/aTaskId/`
 
-Request body:
+Request Body:
 
     {
       "name": "My Task",
@@ -139,6 +137,6 @@ Request body:
       "caseInstanceId" : "aCaseInstanceId"
     }
 
-#### Response
+## Response
 
 Status 204. No content.

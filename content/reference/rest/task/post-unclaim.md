@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Unclaim"
     identifier: "rest-api-task-post-unclaim"
     parent: "rest-api-task"
+    pre: "POST `/task/{id}/unclaim`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Resets a task's assignee. If successful, the task is not assigned to a user.
 
 
-Method
------- 
+# Method
 
 POST `/task/{id}/unclaim`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,14 +37,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -60,18 +58,17 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/task/anId/unclaim`
 
-#### Response
+## Response
 
 Status 204. No content.

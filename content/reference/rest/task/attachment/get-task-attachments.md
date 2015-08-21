@@ -1,29 +1,29 @@
 ---
 
-title: 'Get Single Task Attachment'
-weight: 200
+title: 'Get Task Attachments'
+weight: 190
 
 menu:
   main:
-    identifier: "rest-api-task-get-task-attachment"
-    parent: "rest-api-task"
+    name: "Get List"
+    identifier: "rest-api-task-get-task-attachments"
+    parent: "rest-api-task-attachment"
+    pre: "GET `/task/{id}/attachment`"
 
 ---
 
 
-Retrieves a single task attachment by task id and attachment id.
+Gets the attachments for a task.
 
 
-Method
-------
+# Method
 
-GET `/task/{id}/attachment/{attachmentId}`
+GET `/task/{id}/attachment`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -32,20 +32,13 @@ Parameters
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the task.</td>
-  </tr>
-  <tr>
-    <td>attachmentId</td>
-    <td>The id of the attachment to be retrieved.</td>
+    <td>The id of the task to retrieve the attachments for.</td>
   </tr>
 </table>
 
+# Result
 
-Result
-------
-
-A JSON object corresponding to the `Attachment` interface in the engine.
-Its properties are as follows:
+A JSON object containing a list of task attachments.
 
 <table class="table table-striped">
   <tr>
@@ -86,8 +79,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -103,27 +95,44 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The attachment for given task and attachment id does not exist or the history of the engine is disabled. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
-GET `/task/aTaskId/attachment/aTaskAttachmentId`
+GET `/task/aTaskId/attachment`
 
-#### Response
+## Response
 
 ```json
-{
+[
+  {
     "id": "attachmentId",
     "name": "attachmentName",
     "taskId": "aTaskId",
     "description": "attachmentDescription",
     "type": "attachmentType",
 	"url": "http://my-attachment-content-url.de"
-}
+  },
+  {
+    "id": "anotherAttachmentId",
+    "name": "anotherAttachmentName",
+    "taskId": "aTaskId",
+    "description": "anotherAttachmentDescription",
+    "type": "anotherAttachmentType",
+	"url": "http://my-another-attachment-content-url.de"
+  },
+  {
+    "id": "yetAnotherAttachmentId",
+    "name": "yetAnotherAttachmentName",
+    "taskId": "aTaskId",
+    "description": "yetAnotherAttachmentDescription",
+    "type": "yetAnotherAttachmentType",
+	"url": "http://yet-another-attachment-content-url.de"
+  }
+]
 ```

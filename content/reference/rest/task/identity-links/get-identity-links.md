@@ -5,8 +5,10 @@ weight: 120
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-task-post-get-identity-links"
-    parent: "rest-api-task"
+    parent: "rest-api-task-identity-links"
+    pre: "GET `/task/{id}/identity-links`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Gets the identity links for a task, which are the users and groups that are in *some* relation to it (including assignee and owner).
 
 
-Method
-------
+# Method
 
 GET `/task/{id}/identity-links`
 
 
-Parameters
----------- 
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -49,8 +49,7 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object containing the a list of identity links.
 
@@ -78,8 +77,7 @@ A JSON object containing the a list of identity links.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -95,19 +93,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/task/anId/identityLinks`
 
-#### Response
+## Response
 
     [{
         "userId": "userId",

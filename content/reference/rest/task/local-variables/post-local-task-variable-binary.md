@@ -5,23 +5,23 @@ weight: 290
 
 menu:
   main:
+    name: "Post (Binary)"
     identifier: "rest-api-task-post-local-variable-binary"
-    parent: "rest-api-task"
+    parent: "rest-api-task-local-variables"
+    pre: "POST `/task/{id}/localVariables/{varId}/data`"
 
 ---
 
 Sets the serialized value for a binary variable or the binary value for a file variable.
 
-Method
-------
+# Method
 
 POST `/task/{id}/localVariables/{varId}/data`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +38,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 For binary variables a multipart form submit with the following parts:
 
@@ -57,7 +57,7 @@ For binary variables a multipart form submit with the following parts:
     <td>data</td>
     <td>application/json</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
       <p>A JSON representation of a serialized Java Object. Form part <code>type</code> (see below) must be provided.</p>
     </td>
   </tr>
@@ -65,7 +65,7 @@ For binary variables a multipart form submit with the following parts:
     <td>type</td>
     <td>text/plain</td>
     <td>
-      <p><b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.</p>
+      <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
       <p>The canonical java type name of the variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
     </td>
   </tr>
@@ -87,14 +87,12 @@ For file variables a multipart form submit with the following parts:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -110,24 +108,24 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Variable name is null. Task id is null or does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Variable name is null. Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 (1) Post binary content of a byte array variable:
 
 POST `/task/aTaskId/localVariables/aVarName/data`
+
 
 ```
 ------------------------------354ddb6baeff
@@ -142,6 +140,7 @@ Content-Transfer-Encoding: binary
 (2) Post the JSON serialization of a Java Class (**deprecated**):
 
 POST `/task/aTaskId/localVariables/aVarName/data`
+
 
 ```
 ------------------------------1e838f8f632a
@@ -163,7 +162,7 @@ Content-Transfer-Encoding: 8bit
 
 POST `/task/aTaskId/localVariables/aVarName/data`
 
-Request body:
+Request Body:
 
 ```  
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -175,6 +174,6 @@ Content-Transfer-Encoding: binary
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
 
-#### Response
+## Response
 
 Status 204. No content.

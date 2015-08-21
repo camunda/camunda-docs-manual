@@ -5,8 +5,10 @@ weight: 160
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-task-get-task-comments"
-    parent: "rest-api-task"
+    parent: "rest-api-task-comment"
+    pre: "GET `/task/{id}/comment`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Gets the comments for a task.
 
 
-Method
-------
+# Method
 
 GET `/task/{id}/comment`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,8 +36,7 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object containing a list of task comments.
 
@@ -75,8 +74,7 @@ A JSON object containing a list of task comments.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -92,19 +90,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>No task exists for the given task id. See the <a href="#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/task/aTaskId/comment`
 
-#### Response
+## Response
 
 ```json
 [

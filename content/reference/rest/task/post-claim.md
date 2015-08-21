@@ -5,26 +5,26 @@ weight: 60
 
 menu:
   main:
+    name: "Claim"
     identifier: "rest-api-task-post-claim"
     parent: "rest-api-task"
+    pre: "POST `/task/{id}/claim`"
 
 ---
 
 
 Claim a task for a specific user.
 
-**Note:** The difference with [set a assignee](ref:#task-set-assignee) is that here a check is performed to see if the task already has a user assigned to it.
+**Note:** The difference with [set a assignee]({{< relref "reference/rest/task/post-assignee.md" >}}) is that here a check is performed to see if the task already has a user assigned to it.
 
-Method
-------
+# Method
 
 POST `/task/{id}/claim`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,7 +37,7 @@ Parameters
   </tr>
 </table>
   
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -53,14 +53,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -76,21 +74,20 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or claiming was not successful. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or claiming was not successful. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 POST `/task/anId/claim`
 
-Request body:
+Request Body:
 
     {"userId": "aUserId"}
 
-#### Response
+## Response
 
 Status 204. No content.

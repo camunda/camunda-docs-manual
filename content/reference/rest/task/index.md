@@ -1,6 +1,7 @@
 ---
 
 title: "Task"
+layout: "section-list"
 weight: 200
 
 menu:

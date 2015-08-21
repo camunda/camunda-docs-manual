@@ -5,24 +5,24 @@ weight: 150
 
 menu:
   main:
+    name: "Get Rendered Form"
     identifier: "rest-api-task-get-rendered-form"
     parent: "rest-api-task"
+    pre: "GET `/task/{id}/rendered-form`"
 
 ---
 
 
-Retrieves the rendered form for a task. This method can be used for getting the HTML rendering of a [Generated Task Form](ref:/guides/user-guide/#task-forms-generated-task-forms).
+Retrieves the rendered form for a task. This method can be used for getting the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
 
-Method
---------------
+# Method
 
 GET `/task/{id}/rendered-form`
 
 
-Parameters
---------------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,13 +36,11 @@ Parameters
 </table>
 
 
-Result
---------------
+# Result
 
 An HTML response body providing the rendered (generated) form content.
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -58,19 +56,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task with the given id does not exist or has no form field metadata defined for this task. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The task with the given id does not exist or has no form field metadata defined for this task. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
---------------
+# Example
 
-#### Request
+## Request
 
 GET `/task/anId/rendered-form`
 
-#### Response
+## Response
 
 ```xml
 <form class="form-horizontal">
