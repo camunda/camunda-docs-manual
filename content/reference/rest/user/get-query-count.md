@@ -5,24 +5,24 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-user-get-list-count"
     parent: "rest-api-user"
+    pre: "GET `/user/count`"
 
 ---
 
 
 Query for users using a list of parameters and retrieves the count.
 
-Method
-------
+# Method
 
 GET `/user/count`
 
 
-Parameters
-----------  
+# Parameters
   
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -64,8 +64,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -83,8 +82,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -100,19 +98,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/user/count?firstName=John`
   
-#### Response
+## Response
 
 Status 200.
 

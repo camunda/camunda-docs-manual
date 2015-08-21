@@ -5,24 +5,24 @@ weight: 10
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-user-delete"
     parent: "rest-api-user"
+    pre: "DELETE `/user/{id}`"
 
 ---
 
 Deletes a user by id.
 
 
-Method
-------
+# Method
 
 DELETE `/user/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,14 +36,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,17 +62,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>User cannot be found. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>User cannot be found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 DELETE `/user/jonny1`
 
-#### Response
+## Response
 
 Status 204. No content.

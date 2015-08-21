@@ -1,6 +1,7 @@
 ---
 
 title: "User"
+layout: "section-list"
 weight: 210
 
 menu:

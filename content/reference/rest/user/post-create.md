@@ -5,8 +5,10 @@ weight: 60
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-user-create"
     parent: "rest-api-user"
+    pre: "POST `/user/create`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Create a new user.
 
 
-Method
-------
+# Method
 
 POST `/user/create`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -52,14 +52,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -80,18 +78,18 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The user could not be created due to an internal server error. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The user could not be created due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 POST `/user/create`
 
-Request body:
+Request Body:
 
     {"profile": 
       {"id": "jonny1",
@@ -102,6 +100,6 @@ Request body:
       {"password":"s3cret"}
     }
 
-#### Response
+## Response
 
 Status 204. No content.

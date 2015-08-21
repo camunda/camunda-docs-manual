@@ -5,24 +5,26 @@ weight: 50
 
 menu:
   main:
+    name: "Options"
     identifier: "rest-api-user-options"
     parent: "rest-api-user"
+    pre: "OPTIONS `/user` for available interactions on resource
+          </br>
+          OPTIONS `/user/{id}` for available interactions on resource instance"
 
 ---
 
 
 The `/user` resource supports two custom OPTIONS requests, one for the resource as such and one for individual user instances. The OPTIONS request allows checking for the set of available operations that the currently authenticated user can perform on the `/user` resource. The fact whether the user can perform an operation or not may depend on various things, including the user's authorizations to interact with this resource and the internal configuration of the process engine.
 
-Method
-------
+# Method
 
 OPTIONS `/user` for available interactions on resource
 
 OPTIONS `/user/{id}` for available interactions on resource instance
 
 
-Result
-------
+# Result
 
 A JSON object with a single property named `links`, providing a list of resource links. Each link has the following properties
 
@@ -50,8 +52,7 @@ A JSON object with a single property named `links`, providing a list of resource
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -66,14 +67,14 @@ Response codes
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 OPTIONS `/user/aUserId`
   
-#### Response
+## Response
 
 Status 200.
 

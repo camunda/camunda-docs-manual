@@ -5,26 +5,26 @@ weight: 30
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-user-get-list"
     parent: "rest-api-user"
+    pre: "GET `/user`"
 
 ---
 
 
 Query for a list of users using a list of parameters.
-The size of the result set can be retrieved by using the [get users count](ref:#user-get-users-count) method.
+The size of the result set can be retrieved by using the [get users count]({{< relref "reference/rest/user/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/user`
 
 
-Parameters
-----------  
+# Parameters
   
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -85,8 +85,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of user objects.
 Each user object has the following properties:
@@ -120,8 +119,7 @@ Each user object has the following properties:
 </table>
 
 
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -137,19 +135,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/user?firstName=John`
   
-#### Response
+## Response
 
 Status 200.
 

@@ -5,8 +5,10 @@ weight: 40
 
 menu:
   main:
+    name: "Get Profile"
     identifier: "rest-api-user-get"
     parent: "rest-api-user"
+    pre: "GET `/user/{id}/profile`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single user's profile.
 
 
-Method
-------
+# Method
 
 GET `/user/{id}/profile`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of user objects.
 Each user object has the following properties:
@@ -77,8 +76,7 @@ Each user object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -94,18 +92,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/user/jonny1/profile`
   
-#### Response
+## Response
 
 Status 200.
 
