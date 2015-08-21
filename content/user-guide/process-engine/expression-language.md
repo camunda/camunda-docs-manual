@@ -60,7 +60,7 @@ usage of EL.
   </tr>
   <tr>
     <td>
-      <a href="ref:#specifying-priorities-in-bpmn-xml">
+      <a href="{{< relref "user-guide/process-engine/the-job-executor.md#specifying-priorities-in-bpmn-xml" >}}">
         All Flow Nodes, Process Definition
       </a>
     </td>

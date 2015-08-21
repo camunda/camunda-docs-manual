@@ -15,7 +15,7 @@ Welcome to the Camunda BPM user guide! Camunda BPM is a Java-based framework for
 
 Camunda BPM is built around the process engine component. The following illustration shows the most important components of Camunda BPM along with some typical user roles.
 
-{{< img src="architecture-overview.png" title="Camunda Components and Roles" >}}
+{{< img src="img/architecture-overview.png" title="Camunda Components and Roles" >}}
 
 
 # Process Engine & Infrastructure

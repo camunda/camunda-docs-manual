@@ -106,7 +106,7 @@ During the [setup]({{< relref "user-guide/admin/user-management.md#initial-user-
 To create an administrator account, there are several options:
 
 1. If you kept the group *camunda-admin* in your application, you can add the user to this group.
-2. If you use the [Administrator Authorization Plugin](ref:#process-engine-authorization-service-the-administrator-authorization-plugin), you can configure the plugin to grant the user or a certain group all permissions.
+2. If you use the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}), you can configure the plugin to grant the user or a certain group all permissions.
 3. You can create your own *administrator* group (also see [Groups]({{< relref "user-guide/admin/group-management.md#groups-menu" >}})), grant it all permissions and assign a user to it.
 4. Grant one certain user all permissions.
 

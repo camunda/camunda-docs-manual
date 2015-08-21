@@ -21,8 +21,8 @@ A process definition defines the structure of a process. You could say that the 
 {{< note title="BPMN 2.0 Reference" class="info" >}}
   Camunda BPM comes with two BPMN 2.0 References:
 
-  * The [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html#!/reference) introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the [Tutorial](http://camunda.org/bpmn/tutorial.html) as well.)
-  * The [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
+* The [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html#!/reference) introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the [Tutorial](http://camunda.org/bpmn/tutorial.html) as well.)
+* The [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
 {{< /note >}}
 
 
@@ -156,7 +156,7 @@ If your process instance contains multiple execution paths (like for instance af
 
 Internally, the process engine creates two concurrent executions inside the process instance, one for each concurrent path of execution. Executions are also created for scopes, for example if the process engine reaches a [Embedded Sub Process]({{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}) or in case of [Multi Instance]({{< relref "reference/bpmn20/tasks/task-markers.md" >}}).
 
-Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes](ref:#process-engine-process-variables), meaning that dynamic data can be associated with them.
+Executions are hierarchical and all executions inside a process instance span a tree, the process instance being the root-node in the tree. Note: the process instance itself is an execution. Executions are [variable scopes]({{< relref "user-guide/process-engine/variables.md" >}}), meaning that dynamic data can be associated with them.
 
 
 ## Query for Executions

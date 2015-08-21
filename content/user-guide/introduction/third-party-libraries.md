@@ -25,9 +25,9 @@ The process engine depends on the following third-party libraries:
 Additional **optional** dependencies:
 
 * [Apache Commons Email](http://commons.apache.org/proper/commons-email/) [(Apache License 2.0)][apache] for mail task support.
-* [Spring Framework Spring-Beans][spring] [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml).
-* [Spring Framework Spring-Core][spring] [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml).
-* [Spring Framework Spring-ASM][spring] [(Apache License 3.0)][apache] for configuration using [camunda.cfg.xml](ref:#process-engine-process-engine-bootstrapping-configure-process-engine-using-spring-xml).
+* [Spring Framework Spring-Beans][spring] [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
+* [Spring Framework Spring-Core][spring] [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
+* [Spring Framework Spring-ASM][spring] [(Apache License 3.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
 * [Groovy](http://groovy.codehaus.org/) [(Apache License 2.0)][apache] for groovy script task support.
 * [Jython](http://www.jython.org) [(Python License)][python] for Python script task support.
 * [JRuby](http://jruby.org/) [(Ruby License or GPL)][jruby] for Ruby script task support.
@@ -139,5 +139,6 @@ The Camunda Modeler depends on the following third-party libraries:
 [mpl]: https://www.mozilla.org/MPL/1.0/
 [mpl2]: https://www.mozilla.org/MPL/2.0/
 [spring]: http://projects.spring.io/spring-framework/
+[spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
 [python]: http://www.jython.org/license.html
 [tmate]: http://svnkit.com/license.html

@@ -116,7 +116,7 @@ around core thread count.
 
 In a clustered deployment, multiple job executors will work with each other (Note: see [Job
 Execution in Heterogeneous
-Clusters](ref:#process-engine-the-job-executor-job-execution-in-heterogeneous-clusters). On startup,
-each job executor allocates a UUID which is used for identifying locked job ownership in the job
+Clusters]({{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}).
+On startup, each job executor allocates a UUID which is used for identifying locked job ownership in the job
 table.  Hence in a two node cluster, the job executors may total up to 20 concurrent threads of
 execution.

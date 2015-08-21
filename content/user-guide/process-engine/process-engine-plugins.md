@@ -66,4 +66,4 @@ The following is a list of built-in process engine plugins:
 
 * [LDAP Identity Service Plugin]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}})
 * [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}})
-* [Process Application Event Listener Plugin](ref:#process-applications-process-application-event-listeners)
+* [Process Application Event Listener Plugin]({{< relref "user-guide/process-applications/process-application-event-listeners.md" >}})

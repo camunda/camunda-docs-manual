@@ -10,6 +10,7 @@ menu:
 
 ---
 
+
 Camunda BPM supports template engines which are implemented as script engines compatible with
 JSR-223. As a result, templates can be used everywhere where scripts can be used.
 
@@ -126,16 +127,14 @@ payload of a `camunda:connector`.
 
 # Use XSLT as Template Engine
 
-<div class="alert alert-warning">
-  <p><strong>Enterprise Feature</strong></p>
+{{< enterprise >}}
   Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
-  <p style="margin-top:10px">Check the <a href="http://camunda.com/bpm/enterprise/ ">Camunda enterprise homepage</a> for more information or get your <a href="http://camunda.com/bpm/enterprise/trial/">free trial version.</a></p>
-</div>
+{{< /enterprise >}}
 
 
 ## Install the XSLT Template Engine
 
-The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](ref:/enterprise/#downloads-enterprise-extensions).
+The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 

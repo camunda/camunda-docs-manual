@@ -156,7 +156,7 @@ continuation before or after an activity creates a transaction boundary before o
 {{< img src="../img/process-engine-async-transactions.png" title="" >}}
 
 What's more, asynchronous continuations are always executed by the [Job
-Executor](ref:#process-engine-the-job-executor).
+Executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}).
 
 
 # Rollback on Exception
@@ -232,4 +232,4 @@ integrate with
   transactional middleware like the web services stack.
 
 [tx-spring]: {{< relref "user-guide/spring-framework-integration/index.md#spring-transaction-integration" >}}
-[tx-jta]: {{< relref "user-guide/cdi-java-ee-integration/index.md" >}}ref:#cdi-and-java-ee-integration-jta-transaction-integration
+[tx-jta]: {{< relref "user-guide/cdi-java-ee-integration/index.md" >}}
