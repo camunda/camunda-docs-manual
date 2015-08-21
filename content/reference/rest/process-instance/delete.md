@@ -5,8 +5,10 @@ weight: 20
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-process-instance-delete"
     parent: "rest-api-process-instance"
+    pre: "DELETE `/process-instance/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a running process instance.
 
 
-Method
-------
+# Method
 
 DELETE `/process-instance/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,14 +36,12 @@ Parameters
   </tr>
 </table>
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -59,17 +57,17 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 DELETE `/process-instance/aProcessInstanceId`
 
-#### Response
+## Response
 
 Status 204. No content.

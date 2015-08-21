@@ -5,8 +5,10 @@ weight: 50
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-process-instance-get-query"
     parent: "rest-api-process-instance"
+    pre: "GET `/process-instance`"
 
 ---
 
@@ -14,19 +16,17 @@ menu:
 
 Query for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
-The size of the result set can be retrieved by using the [get instances count](ref:#process-instance-get-instances-count) method.
+The size of the result set can be retrieved by using the [get instances count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
-Method
-------
+# Method
 
 GET `/process-instance`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -129,8 +129,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of process instance objects.
 Each process instance object has the following properties:
@@ -177,8 +176,7 @@ Each process instance object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -194,19 +192,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 GET `/process-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadValue`
 
-#### Response
+## Response
 
     [{"links":[],
      "id":"anId",

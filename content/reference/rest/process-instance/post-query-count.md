@@ -5,27 +5,27 @@ weight: 110
 
 menu:
   main:
+    name: "Get List Count (POST)"
     identifier: "rest-api-process-instance-post-query-count"
     parent: "rest-api-process-instance"
+    pre: "POST `/process-instance/count`"
 
 ---
 
 
 Query for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [POST query](ref:#process-instance-get-instances-post)
-and therefore it is slightly more powerful than the [GET query count](ref:#process-instance-get-instances-count).
+This method takes the same message body as the [POST query]({{< relref "reference/rest/process-instance/post-query.md" >}})
+and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}).
 
 
-Method
-------
+# Method
 
 POST `/process-instance/count`
 
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -109,8 +109,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object that contains the count as the only property.
 
@@ -128,8 +127,7 @@ A JSON object that contains the count as the only property.
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -145,19 +143,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/process-instance/count`
 
-Request body:
+Request Body:
 
     {"variables": 
         [{"name": "myVariable",
@@ -169,6 +166,6 @@ Request body:
          "value": 124}],
     "processDefinitionId":"aProcessDefinitionId"}
 
-#### Response
+## Response
 
     {"count": 1}

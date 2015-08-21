@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "rest-api-process-instance-get-activity-instance"
     parent: "rest-api-process-instance"
+    pre: "GET `/process-instance/{id}/activity-instances`"
 
 ---
 
@@ -14,16 +15,14 @@ menu:
 Retrieves an Activity Instance (Tree) for a given process instance.
 
 
-Method
-------
+# Method
 
 GET `/process-instance/{id}/activity-instances`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +36,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the Activity Instance tree of the given process instance.
 
@@ -143,8 +141,7 @@ The properties of a transition instance are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -160,18 +157,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/process-instance/aProcessInstanceId/activity-instances`
 
-#### Response
+## Response
 
     {
       "id": "8f72bc9f-d505-11e2-bafa-3c970e140ef1",

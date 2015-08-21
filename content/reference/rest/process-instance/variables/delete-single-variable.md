@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-process-instance-delete-variable"
-    parent: "rest-api-process-instance"
+    parent: "rest-api-process-instance-variables"
+    pre: "DELETE `/process-instance/{id}/variables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Deletes a variable of a given process instance.
 
 
-Method
-------
+# Method
 
 DELETE `/process-instance/{id}/variables/{varId}`
 
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -41,14 +41,12 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,14 +62,13 @@ Response codes
 </table>
 
   
-Example
--------
+# Example
 
-#### Request
+## Request
 
 DELETE `/process-instance/aProcessInstanceId/variables/aVarName`
 
      
-#### Response
+## Response
     
 Status 204. No content.

@@ -5,8 +5,10 @@ weight: 100
 
 menu:
   main:
+    name: "Modify"
     identifier: "rest-api-process-instance-modify"
     parent: "rest-api-process-instance"
+    pre: "POST `/process-instance/{id}/modification`"
 
 ---
 
@@ -21,18 +23,16 @@ menu:
 
 <p>Instructions are executed immediately and in the order they are provided in this request's body. Variables can be provided with every starting instruction.</p>
 
-<p>The exact semantics of modification can be read about in the <a href="ref:/guides/user-guide/#process-engine-process-instance-modification">user guide</a>.</p>
+<p>The exact semantics of modification can be read about in the <a href="{{< relref "user-guide/process-engine/process-instance-modification.md" >}}">user guide</a>.</p>
 
-Method
-------
+# Method
 
 POST `/process-instance/{id}/modification`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -46,7 +46,7 @@ Parameters
 </table>
 
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -61,14 +61,12 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>skipIoMappings</td>
-    <td>Skip execution of <a href="ref:/guides/user-guide/#process-engine-process-variables-inputoutput-variable-mapping">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
+    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
   </tr>
   <tr>
     <td>instructions</td>
     <td>
-      <p>
         A JSON array of modification instructions. The instructions are executed in the order they are in. An instruction may have the following properties:
-      </p>
       <table>
         <tr>
           <td>type</td>
@@ -84,22 +82,22 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>activityInstanceId</td>
-          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
         </tr>
         <tr>
           <td>transitionInstanceId</td>
-          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</td>
+          <td><b>Can be used with instructions of type <code>cancel</code>.</b> Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</td>
         </tr>
         <tr>
           <td>ancestorActivityInstanceId</td>
-          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> Valid values are the activity instance IDs supplied by the <a href="ref:#process-instance-get-activity-instance">Get Activity Instance</a> request.</p>
+          <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> Valid values are the activity instance IDs supplied by the <a href="{{< relref "reference/rest/process-instance/get-activity-instances.md" >}}">Get Activity Instance</a> request.</p>
           <p>If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.</p>
           <p>Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specifiy under which subprocess instance the activity should be started.</p></td>
         </tr>
         <tr>
           <td>variables</td>
           <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-          <%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {additionalProperties: {local: 'Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity.'}}) %></td>
+          {{< rest-var-request local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
         </tr>
       </table>
     </td>
@@ -108,14 +106,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -140,14 +136,14 @@ Response codes
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 POST `/process-instance/aProcessInstanceId/modification`
 
-Request body:
+Request Body:
 
     {
     "skipCustomListeners": true,
@@ -174,6 +170,6 @@ Request body:
       ]
     }
 
-#### Response
+## Response
 
 Status 204. No content.

@@ -5,8 +5,10 @@ weight: 90
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-process-instance-get"
     parent: "rest-api-process-instance"
+    pre: "GET `/process-instance/{id}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves a single process instance according to the `ProcessInstance` interface in the engine.
 
 
-Method
-------
+# Method
 
 GET `/process-instance/{id}`
 
 
-Parameters
-----------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -37,8 +37,7 @@ Parameters
 </table>
 
 
-Result
-------
+# Result
 
 A JSON object corresponding to the ProcessInstance interface in the engine.
 Its properties are as follows:
@@ -85,8 +84,7 @@ Its properties are as follows:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -102,18 +100,18 @@ Response codes
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-Example
--------
 
-#### Request
+# Example
+
+## Request
 
 GET `/process-instance/aProcessInstanceId`
 
-#### Response
+## Response
 
     {"id":"aProcessInstanceId",
     "definitionId":"aProcDefId",

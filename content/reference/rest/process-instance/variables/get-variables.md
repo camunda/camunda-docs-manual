@@ -5,8 +5,10 @@ weight: 80
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-process-instance-get-variables"
-    parent: "rest-api-process-instance"
+    parent: "rest-api-process-instance-variables"
+    pre: "GET `/process-instance/{id}/variables`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Retrieves all variables of a given process instance.
 
 
-Method
-------
+# Method
 
 GET `/process-instance/{id}/variables`
 
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -36,7 +36,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -46,22 +46,20 @@ Parameters
   <tr>
     <td>deserializeValues</td>
     <td>
-      <%- @partial('api-references/rest/variables/variable-query-param-deserialize-object-value.html.md', @, {}) %>
+      {{< rest-var-query-param-deserialize-object-value >}}
     </td>
   </tr>
 </table>
 
-Result
-------
+# Result
 
 A JSON object of variables key-value pairs.
 Each key is a variable name and each value a variable value object that has the following properties:
 
-<%- @partial('api-references/rest/variables/variable-response.html.md.eco', @, {deserializationParameter: 'deserializeValues'}) %>
+{{< rest-var-response deserializationParameter="deserializeValues" >}}
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -77,29 +75,28 @@ Response codes
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example 1
----------
+# Example 1
 
-#### Request
+## Request
 
 GET `/process-instance/aProcessInstanceId/variables`
   
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variables-response-example-deserialized.html', @, {}) %>
+{{< rest-vars-response-example-deserialized >}}
+
     
-Example 2
----------
+# Example 2
 
-#### Request
+## Request
 
 GET `/process-instance/aProcessInstanceId/variables?deserializeValues=false`
   
-#### Response
+## Response
 
-<%- @partial('api-references/rest/variables/variables-response-example-serialized.html.md', @, {}) %>
+{{< rest-vars-response-example-serialized >}}

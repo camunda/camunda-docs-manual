@@ -5,23 +5,23 @@ weight: 170
 
 menu:
   main:
+    name: "Activate/Suspend By Process Definition Key"
     identifier: "rest-api-process-instance-suspend-by-process-definition-key"
     parent: "rest-api-process-instance"
+    pre: "PUT `/process-instance/suspended`"
 
 ---
 
 
 Activate or suspend process instances with the given process definition key.
 
-Method
-------
+# Method
 
 PUT `/process-instance/suspended`
 
-Parameters
-----------
+# Parameters
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -41,14 +41,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -64,15 +62,14 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>processDefinitionKey</code> parameter is null. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>processDefinitionKey</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
   
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/process-instance/suspended`
   
@@ -81,6 +78,6 @@ PUT `/process-instance/suspended`
       "suspended" : true
     }
      
-#### Response
+## Response
     
 Status 204. No content.

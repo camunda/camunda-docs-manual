@@ -5,23 +5,23 @@ weight: 150
 
 menu:
   main:
+    name: "Activate/Suspend By Id"
     identifier: "rest-api-process-instance-suspend-by-id"
     parent: "rest-api-process-instance"
+    pre: "PUT `/process-instance/{id}/suspended`"
 
 ---
 
 
 Activate or suspend a given process instance.
 
-Method
-------
+# Method
 
 PUT `/process-instance/{id}/suspended`
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -34,7 +34,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -50,14 +50,12 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -73,10 +71,9 @@ Response codes
 </table>
 
   
-Example
--------
+# Example
 
-#### Request
+## Request
 
 PUT `/process-instance/aProcessInstanceId/suspended`
   
@@ -84,6 +81,6 @@ PUT `/process-instance/aProcessInstanceId/suspended`
       "suspended" : true
     }
      
-#### Response
+## Response
     
 Status 204. No content.

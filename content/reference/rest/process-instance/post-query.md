@@ -5,27 +5,27 @@ weight: 120
 
 menu:
   main:
+    name: "Get List (POST)"
     identifier: "rest-api-process-instance-post-query"
     parent: "rest-api-process-instance"
+    pre: "POST `/process-instance`"
 
 ---
 
 
 Query for process instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query](ref:#process-instance-get-instances) because it allows
+This method is slightly more powerful than the [GET query]({{< relref "reference/rest/process-instance/get-query.md" >}}) because it allows
 filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
-Method
-------
+# Method
 
 POST `/process-instance`
 
 
-Parameters
-----------
+# Parameters
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -42,7 +42,7 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
 A JSON object with the following properties:
 
@@ -126,9 +126,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-      <p>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
-      </p>
       <table>
         <tr>
           <td>sortBy</td>
@@ -144,8 +142,7 @@ A JSON object with the following properties:
 </table>
 
 
-Result
-------
+# Result
 
 A JSON array of process instance objects.
 Each process instance object has the following properties:
@@ -192,8 +189,7 @@ Each process instance object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -209,19 +205,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Example
--------
+# Example
 
-#### Request
+## Request
 
 POST `/process-instance`
 
-Request body:
+Request Body:
 
     {"variables":
         [{"name": "myVariable",
@@ -241,7 +236,7 @@ Request body:
         }}]
     }
 
-#### Response
+## Response
 
     [{"links":[],
      "id":"anId",

@@ -1,6 +1,7 @@
 ---
 
 title: "Process Instance"
+layout: "section-list"
 weight: 190
 
 menu:

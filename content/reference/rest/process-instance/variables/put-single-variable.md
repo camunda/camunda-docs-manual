@@ -5,8 +5,10 @@ weight: 180
 
 menu:
   main:
+    name: "Update"
     identifier: "rest-api-process-instance-put-variable"
-    parent: "rest-api-process-instance"
+    parent: "rest-api-process-instance-variables"
+    pre: "PUT `/process-instance/{id}/variables/{varId}`"
 
 ---
 
@@ -14,16 +16,14 @@ menu:
 Sets a variable of a given process instance.
 
 
-Method
-------
+# Method
 
 PUT `/process-instance/{id}/variables/{varId}`
 
 
-Parameters
-----------
+# Parameters
   
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -40,19 +40,17 @@ Parameters
   </tr>
 </table>
 
-#### Request Body
+## Request Body
 
-<%- @partial('api-references/rest/variables/variable-request.html.md.eco', @, {}) %>
+{{< rest-var-request >}}
 
 
-Result
-------
+# Result
 
 This method returns no content.
 
   
-Response codes
---------------  
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -68,33 +66,32 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>    
 </table>
 
 
-Example 1
----------
+# Example 1
 
-#### Request
+## Request
 
 PUT `/process-instance/aProcessInstanceId/variables/aVarName`
   
     {"value" : "someValue", "type": "String"}
      
-#### Response
+## Response
     
 Status 204. No content.
 
-Example 2
----------
 
-#### Request
+# Example 2
+
+## Request
 
 PUT `/process-instance/aProcessInstanceId/variables/aVarName`
   
-<%- @partial('api-references/rest/variables/variable-request-example.md', @, {}) %>
+{{< rest-var-request-example >}}
      
-#### Response
+## Response
     
 Status 204. No content.
