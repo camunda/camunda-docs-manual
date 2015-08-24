@@ -5,8 +5,12 @@ weight: 60
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-case-definition-post-create-case-instance"
     parent: "rest-api-case-definition"
+    pre: "POST `/case-definition/{id}/create`
+          </br>
+          POST `/case-definition/key/{key}/create` (creates the latest version of the case definition)"
 
 ---
 

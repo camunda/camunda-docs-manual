@@ -5,8 +5,12 @@ weight: 50
 
 menu:
   main:
+    name: "Get Diagram"
     identifier: "rest-api-case-definition-get-diagram"
     parent: "rest-api-case-definition"
+    pre: "GET `/case-definition/{id}/diagram`
+          </br>
+          GET `/case-definition/key/{key}/diagram` (returns the diagram for the latest version of the case definition)"
 
 ---
 

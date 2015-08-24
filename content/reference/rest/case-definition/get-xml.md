@@ -5,8 +5,12 @@ weight: 40
 
 menu:
   main:
+    name: "Get XML"
     identifier: "rest-api-case-definition-get-xml"
     parent: "rest-api-case-definition"
+    pre: "GET `/case-definition/{id}/xml`
+          </br>
+          GET `/case-definition/key/{key}/xml` (returns the XML for the latest version of case definition)"
 
 ---
 

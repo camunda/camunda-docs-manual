@@ -5,8 +5,10 @@ weight: 40
 
 menu:
   main:
+    name: "Check"
     identifier: "rest-api-authorization-get-check"
     parent: "rest-api-authorization"
+    pre: "GET `/authorization/check`"
 
 ---
 

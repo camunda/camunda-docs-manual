@@ -5,8 +5,10 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-authorization-get-query-count"
     parent: "rest-api-authorization"
+    pre: "GET `/authorization/count`"
 
 ---
 

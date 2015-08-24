@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-authorization-get-query"
     parent: "rest-api-authorization"
+    pre: "GET `/authorization`"
 
 ---
 

@@ -5,8 +5,10 @@ weight: 80
 
 menu:
   main:
+    name: "Delete"
     identifier: "rest-api-authorization-delete"
     parent: "rest-api-authorization"
+    pre: "DELETE `/authorization/{id}`"
 
 ---
 

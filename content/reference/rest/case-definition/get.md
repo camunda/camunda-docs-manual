@@ -5,8 +5,12 @@ weight: 30
 
 menu:
   main:
+    name: "Get"
     identifier: "rest-api-case-definition-get"
     parent: "rest-api-case-definition"
+    pre: "GET `/case-definition/{id}`
+          </br>
+          GET `/case-definition/key/{key}` (returns the latest version of case definition)"
 
 ---
 

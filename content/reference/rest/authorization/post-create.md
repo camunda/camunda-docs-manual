@@ -5,8 +5,10 @@ weight: 60
 
 menu:
   main:
+    name: "Create"
     identifier: "rest-api-authorization-post-create"
     parent: "rest-api-authorization"
+    pre: "POST `/authorization/create`"
 
 ---
 

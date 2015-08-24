@@ -5,8 +5,10 @@ weight: 20
 
 menu:
   main:
+    name: "Get List Count"
     identifier: "rest-api-case-definition-get-query-count"
     parent: "rest-api-case-definition"
+    pre: "GET `/case-definition/count`"
 
 ---
 

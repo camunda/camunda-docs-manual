@@ -5,8 +5,12 @@ weight: 50
 
 menu:
   main:
+    name: "Options"
     identifier: "rest-api-authorization-options"
     parent: "rest-api-authorization"
+    pre: "OPTIONS `/authorization` for available interactions on resource
+          </br>
+          OPTIONS `/authorization/{id}` for available interactions on resource instance"
 
 ---
 

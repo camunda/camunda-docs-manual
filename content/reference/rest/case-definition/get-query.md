@@ -5,8 +5,10 @@ weight: 10
 
 menu:
   main:
+    name: "Get List"
     identifier: "rest-api-case-definition-get-query"
     parent: "rest-api-case-definition"
+    pre: "GET `/case-definition`"
 
 ---
 

@@ -5,8 +5,10 @@ weight: 70
 
 menu:
   main:
+    name: "Update"
     identifier: "rest-api-authorization-put-update"
     parent: "rest-api-authorization"
+    pre: "PUT `/authorization/{id}`"
 
 ---
 
