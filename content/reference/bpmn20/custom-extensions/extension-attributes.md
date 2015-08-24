@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following attributes are extension attributes for the `camunda` namespace `http://activiti.org/bpmn`.
+The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 # camunda:assignee
 
@@ -150,7 +150,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:calledElementBinding
+# camunda:calledElementBinding
 
 <table class="table table-striped">
   <tr>
@@ -183,7 +183,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:calledElementVersion
+# camunda:calledElementVersion
 
 <table class="table table-striped">
   <tr>
@@ -215,7 +215,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:candidateGroups
+# camunda:candidateGroups
 
 <table class="table table-striped">
   <tr>
@@ -246,7 +246,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:candidateStarterGroups
+# camunda:candidateStarterGroups
 
 <table class="table table-striped">
   <tr>
@@ -277,7 +277,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:candidateStarterUsers
+# camunda:candidateStarterUsers
 
 <table class="table table-striped">
   <tr>
@@ -308,7 +308,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:candidateUsers
+# camunda:candidateUsers
 
 <table class="table table-striped">
   <tr>
@@ -339,7 +339,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:caseBinding
+# camunda:caseBinding
 
 <table class="table table-striped">
   <tr>
@@ -372,7 +372,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:caseRef
+# camunda:caseRef
 
 <table class="table table-striped">
   <tr>
@@ -401,7 +401,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:caseVersion
+# camunda:caseVersion
 
 <table class="table table-striped">
   <tr>
@@ -432,7 +432,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:class
+# camunda:class
 
 <table class="table table-striped">
   <tr>
@@ -468,7 +468,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:collection
+# camunda:collection
 
 <table class="table table-striped">
   <tr>
@@ -502,7 +502,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:decisionRef
+# camunda:decisionRef
 
 <table class="table table-striped">
   <tr>
@@ -533,7 +533,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:decisionRefBinding
+# camunda:decisionRefBinding
 
 <table class="table table-striped">
   <tr>
@@ -566,7 +566,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:decisionRefVersion
+# camunda:decisionRefVersion
 
 <table class="table table-striped">
   <tr>
@@ -598,7 +598,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:delegateExpression
+# camunda:delegateExpression
 
 <table class="table table-striped">
   <tr>
@@ -634,7 +634,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:dueDate
+# camunda:dueDate
 
 <table class="table table-striped">
   <tr>
@@ -665,7 +665,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:elementVariable
+# camunda:elementVariable
 
 <table class="table table-striped">
   <tr>
@@ -701,7 +701,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-### camunda:errorCodeVariable
+# camunda:errorCodeVariable
 
 <table class="table table-striped">
   <tr>
@@ -717,7 +717,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      The error code of an error defined in the process definition.
+      The name of a process variable as <code>java.lang.String</code>
     </td>
   </tr>
   <tr>
@@ -732,7 +732,38 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:exclusive
+# camunda:escalationCodeVariable
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies a process variable which will be set if an escalation has been received by an escalation start or boundary event, see <a href="ref:#events-escalation-events">Escalation Events</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The name of a process variable as <code>java.lang.String</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="ref:#events-escalation-events">Escalation Events</a>
+    </td>
+  </tr>
+</table>
+
+# camunda:exclusive
 
 <table class="table table-striped">
   <tr>
@@ -786,7 +817,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:expression
+# camunda:expression
 
 <table class="table table-striped">
   <tr>
@@ -822,7 +853,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:formHandlerClass
+# camunda:formHandlerClass
 
 <table class="table table-striped">
   <tr>
@@ -855,7 +886,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:formKey
+# camunda:formKey
 
 <table class="table table-striped">
   <tr>
@@ -887,7 +918,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:initiator
+# camunda:initiator
 
 <table class="table table-striped">
   <tr>
@@ -918,7 +949,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:jobPriority
+# camunda:jobPriority
 
 <table class="table table-striped">
   <tr>
@@ -973,7 +1004,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:priority
+# camunda:priority
 
 <table class="table table-striped">
   <tr>
@@ -1004,7 +1035,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-### camunda:resource
+# camunda:resource
 
 <table class="table table-striped">
   <tr>
@@ -1042,7 +1073,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-### camunda:resultVariable
+# camunda:resultVariable
 
 <table class="table table-striped">
   <tr>
@@ -1085,7 +1116,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-### camunda:type
+# camunda:type
 
 <table class="table table-striped">
   <tr>

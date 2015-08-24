@@ -389,30 +389,42 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>
       <tr>
-        <td>Escalation</td>
+        <td><a href="ref:#events-escalation-events">Escalation</a></td>
         <td></td>
         <td>
-          <div data-bpmn-symbol="startevent/escalation"></div>
+          <div data-bpmn-symbol="startevent/escalation">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>
         <td>
-          <div data-bpmn-symbol="startevent/escalation-non"></div>
+          <div data-bpmn-symbol="startevent/escalation-non">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>         
         <td></td>
         <td>
-          <div data-bpmn-symbol="intermediatecatchevent/escalation"></div>
+          <div data-bpmn-symbol="intermediatecatchevent/escalation">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>
         <td>
-          <div data-bpmn-symbol="intermediatecatchevent/escalation-non"></div>
+          <div data-bpmn-symbol="intermediatecatchevent/escalation-non">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>
         <td>
-          <div data-bpmn-symbol="intermediatethrowevent/escalation"></div>
+          <div data-bpmn-symbol="intermediatethrowevent/escalation">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>
         <td>
-          <div data-bpmn-symbol="endevent/escalation"></div>
+          <div data-bpmn-symbol="endevent/escalation">
+            <div id="1" title="since 7.4"></div>
+          </div>
         </td>
       </tr> 
       <tr>
-        <td>Termination</td>
+        <td><a href="ref:#events-termination-events">Termination</a></td>
         <td></td>
         <td></td>
         <td></td>
