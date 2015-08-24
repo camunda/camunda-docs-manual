@@ -62,14 +62,25 @@
         <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
       {{ end }}
     </ul>
-    <input id="docs-site-search" type="text" name="search"></input>
+    <div class="search-field">
+      <input type="search" placeholder="Search docs.camunda.org" />
+    </div>
   </div>
 </nav>
+
+<div class="search-results">
+  <ul class="results-list">
+  </ul>
+  <footer>
+    <button class="search-close btn btn-default">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </footer>
+</div>
 
 <div class="site-menu">
   {{ cachedPartial "menu.html" . }}
 </div>
 
-<div id="docs-search-results"></div>
 
 <div class="page-wrapper">
