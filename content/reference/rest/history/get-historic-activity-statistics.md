@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "rest-api-history-get-historic-activity-statistics"
     parent: "rest-api-history"
+    pre: "GET `/history/process-definition/{id}/statistics`"
 
 ---
 
@@ -16,16 +17,14 @@ These statistics include the number of running activity instances, optionally th
 __Note:__ This only includes historic data.
 
 
-Method
---------------
+# Method
 
 GET `/history/process-definition/{id}/statistics`
 
 
-Parameters
---------------
+# Parameters
 
-#### Path Parameters
+## Path Parameters
 
 <table class="table table-striped">
   <tr>
@@ -38,7 +37,7 @@ Parameters
   </tr>
 </table>
 
-#### Query Parameters
+## Query Parameters
 
 <table class="table table-striped">
   <tr>
@@ -67,8 +66,7 @@ Parameters
 </table>
 
 
-Result
---------------
+# Result
 
 A JSON array containing statistics results per activity.
 Each object has the following properties:
@@ -107,8 +105,7 @@ Each object has the following properties:
 </table>
 
 
-Response codes
---------------
+# Response Codes
 
 <table class="table table-striped">
   <tr>
@@ -124,19 +121,18 @@ Response codes
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="ref:#overview-introduction">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
 
-Examples
---------
+# Examples
 
-#### Request with query parameter `canceled=true`
+## Request With Query Parameter `canceled=true`
 
 GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
 
-#### Response
+## Response
 
     [
       {
@@ -155,11 +151,11 @@ GET `history/process-definition/aProcessDefinitionId/statistics?canceled=true`
       }
     ]
 
-#### Request with query parameter `finished=true`
+## Request With Query Parameter `finished=true`
 
 GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
 
-#### Response
+## Response
 
     [
       {
@@ -178,11 +174,11 @@ GET `history/process-definition/aProcessDefinitionId/statistics?finished=true`
       }
     ]
 
-#### Request with query parameter `completeScope=true`
+## Request With Query Parameter `completeScope=true`
 
 GET `history/process-definition/aProcessDefinitionId/statistics?completeScope=true`
 
-#### Response
+## Response
 
     [
       {
