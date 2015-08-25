@@ -116,12 +116,12 @@ In this example, parallel instances will be created for each element of the assi
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacollection">camunda:collection</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaelementvariable">camunda:elementVariable</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-collection" >}}">camunda:collection</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-elementvariable" >}}">camunda:elementVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
@@ -176,4 +176,4 @@ In order to declare an activity to be a compensation handler, we need to set the
 ## Additional Resources
 
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-* [Transaction Subprocess](ref:#subprocesses-transaction-subprocess)
+* [Transaction Subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}})

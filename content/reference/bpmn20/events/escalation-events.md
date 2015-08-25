@@ -68,7 +68,7 @@ Two optional attributes can be added to the escalation start event, <code>escala
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaescalationcodevariable">camunda:escalationCodeVariable</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>
@@ -110,7 +110,7 @@ Two optional attributes can be added to the escalation boundary event, <code>esc
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaescalationcodevariable">camunda:escalationCodeVariable</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>

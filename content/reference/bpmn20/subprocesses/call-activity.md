@@ -40,7 +40,7 @@ CalledElementBinding has three different values:
 *   latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
 * 	deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
 *   version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be
-    specified in the BPMN XML or returned by an expression (see [custom extensions](ref:#custom-extensions-camunda-extension-attributes-camundacalledelementversion))
+    specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -126,7 +126,7 @@ There is nothing special about the process definition of the subprocess. It coul
 
 ## Create a Case Instance
 
-A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state [COMPLETED](ref:/api-references/cmmn10/#concepts-plan-item-lifecycles-case-instance-lifecycle) for the first time. In contrast to calling a BPMN process, the attribute `caseRef` instead of the attribute `calledElement` must be used to reference a case definition by its key. This means that the latest case definition version is always called.
+A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state `COMPLETED` for the first time. In contrast to calling a BPMN process, the attribute `caseRef` instead of the attribute `calledElement` must be used to reference a case definition by its key. This means that the latest case definition version is always called.
 
 To call another version of a case definition it is possible to define the attributes `caseBinding` and `caseVersion` in the call activity. Both attributes are optional.
 
@@ -149,23 +149,23 @@ CaseBinding has three different values:
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementbinding">camunda:calledElementBinding</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacalledelementversion">camunda:calledElementVersion</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacasebinding">camunda:caseBinding</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseref">camunda:caseRef</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseversion">camunda:caseVersion</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-calledelementbinding" >}}">camunda:calledElementBinding</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-calledelementversion" >}}">camunda:calledElementVersion</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-caseref" >}}">camunda:caseRef</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-caseversion" >}}">camunda:caseVersion</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
     </td>
   </tr>
   <tr>

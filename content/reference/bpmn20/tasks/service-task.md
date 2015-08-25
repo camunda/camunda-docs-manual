@@ -31,7 +31,7 @@ To specify a class that is called during process execution, the fully qualified 
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 ```
 
-Please refer to the [Java Delegate](ref:{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide](ref:/guides/user-guide/) for details on how to implement a Java Delegate.
+Please refer to the [Java Delegate]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}} for details on how to implement a Java Delegate.
 
 It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the `camunda:class` attribute is used.
@@ -51,12 +51,12 @@ Or an expression which calls a method or resolves to a value.
 ```
 
 For more information about expression language as delegation code please see the corresponding
-[section](ref:/guides/user-guide/#process-engine-expression-language-use-expression-language-as-delegation-code)
-of the [User Guide](ref:/guides/user-guide/).
+[section]({{< relref "user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
+of the [User Guide]({{< relref "user-guide/index.md" >}}.
 
 ## Generic Java Delegates & Field Injection
 
-You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection](ref:{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection) section of the [User Guide](ref:/guides/user-guide/) for details.
+You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection) section of the [User Guide]({{< relref "user-guide/index.md" >}} for details.
 
 ## Service task results
 
@@ -73,7 +73,7 @@ In the example above, the result of the service execution (the return value of t
 <div class="alert alert-warning">
   <strong>Result variables and multi-instance</strong>
   <p>
-    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a> for details.
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
   </p>
 </div>
 
@@ -83,24 +83,24 @@ In the example above, the result of the service execution (the return value of t
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundatype">camunda:type</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-class" >}}">camunda:class</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-expression" >}}">camunda:expression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-type" >}}">camunda:type</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-connector" >}}">camunda:connector</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>

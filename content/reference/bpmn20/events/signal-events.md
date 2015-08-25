@@ -133,7 +133,7 @@ When a token arrives at the signal intermediate catching event, it will wait the
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>
@@ -194,9 +194,9 @@ An asynchronous signal event would look like this:
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-failedjobretrytimecycle" >}}">
         camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">
         camunda:inputOutput</a>
     </td>
   </tr>

@@ -45,16 +45,16 @@ A message event definition is declared by using the `messageEventDefinition` ele
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -234,7 +234,7 @@ The following example shows different message events in a process model:
 </intermediateCatchEvent>
 ```
 
-Instead of the message intermediate catching event you might want to think about a <a href="ref:#tasks-receive-task">Receive Task</a> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <a href="ref:#gateways-event-based-gateway">Event-based Gateway</a>.
+Instead of the message intermediate catching event you might want to think about a <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">Receive Task</a> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event-based Gateway</a>.
 
 
 ### Message Boundary Event
@@ -251,7 +251,7 @@ Boundary events are catching events that are attached to an activity. This means
 
 ### Message Intermediate Throwing Event
 
-A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a [Service Task](ref:#tasks-service-task).
+A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
 
 <div data-bpmn-diagram="implement/event-message-throwing" > </div>
 
@@ -268,17 +268,17 @@ A Message Intermediate Throwing event sends a message to an external service. Th
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-class" >}}">camunda:class</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-expression" >}}">camunda:expression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-connector" >}}">camunda:connector</a>
     </td>
   </tr>
   <tr>
@@ -298,7 +298,7 @@ A Message Intermediate Throwing event sends a message to an external service. Th
 
 ### Message End Event
 
-When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a [Service Task](ref:#tasks-service-task).
+When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
 
 ```xml
 <endEvent id="end">
@@ -313,17 +313,17 @@ When process execution arrives at a Message End Event, the current path of execu
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-class" >}}">camunda:class</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-expression" >}}">camunda:expression</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaconnector">camunda:connector</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-connector" >}}">camunda:connector</a>
     </td>
   </tr>
   <tr>

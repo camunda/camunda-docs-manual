@@ -18,7 +18,7 @@ A BPMN error is meant for business errors - which are different than technical e
 
 <div class="alert alert-warning">
    <strong>Heads up!</strong><br>
-   You might want to check out the basics of <a href="ref:/guides/user-guide/#process-engine-transactions-in-processes-transaction-boundaries">Threading and Transactions</a> in the <a href="ref:/guides/user-guide/">User Guide</a> first.
+   You might want to check out the basics of <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}">Threading and Transactions</a> in the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> first.
 </div>
 
 <div data-bpmn-diagram="implement/event-error"></div>
@@ -39,7 +39,7 @@ An error event definition references an error element. The following is an examp
 ```
 
 You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
-[Throwing BPMN Errors from Delegation Code](ref:{{< relref "user-guide/process-engine/delegation-code.md" >}}-throwing-bpmn-errors-from-delegation-code) section of the [User Guide](ref:/guides/user-guide/) for more information.
+[Throwing BPMN Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}-throwing-bpmn-errors-from-delegation-code) section of the [User Guide]({{< relref "user-guide/index.md" >}} for more information.
 
 Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:
 
@@ -98,17 +98,17 @@ When process execution arrives at an error end event, the current path of execut
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaerrorcodevariable">camunda:errorCodeVariable</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-errorcodevariable" >}}">camunda:errorCodeVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -156,4 +156,4 @@ The errorCode is used to match the errors that are caught:
 ## Additional Resources
 
 *   [Error Events](http://camunda.org/bpmn/reference.html#events-error) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-*   [Incidents](ref:/guides/user-guide/#process-engine-incidents) in the [User Guide](red:/guides/user-guide/)
+*   [Incidents]({{< relref "user-guide/process-engine/incidents.md" >}}) in the [User Guide](red:/guides/user-guide/)

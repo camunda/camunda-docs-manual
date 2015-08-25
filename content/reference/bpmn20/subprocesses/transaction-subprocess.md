@@ -38,7 +38,7 @@ A transaction subprocess is represented in xml using the transaction element:
 <div class="alert alert-warning">
   <strong>Relation to ACID transactions:</strong>
 
-  It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in camunda BPM, read the <a href="ref:/guides/user-guide/#process-engine-transactions-in-processes">Transactions in Processes</a> section of the <a href="ref:/guides/user-guide/">User Guide</a>.
+  It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a>.
 </div>
 
 A BPMN transaction differs from a technical transaction in the following ways:
@@ -74,17 +74,17 @@ Consistency on top of ACID transactions and optimistic concurrency: A BPMN trans
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -98,4 +98,4 @@ Consistency on top of ACID transactions and optimistic concurrency: A BPMN trans
 
 ## Additional Resources
 
-*   [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes)
+*   [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}})

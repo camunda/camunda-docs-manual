@@ -42,22 +42,22 @@ Hover over the element to see since which version of the camunda BPM platform th
     <div class="col-md-9">
       <h3>Subprocesses</h3>
       <div data-bpmn-symbol="subprocess" data-bpmn-symbol-name="Subprocess">
-        <a href="ref:#subprocesses-embedded-subprocess">
+        <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="callactivity" data-bpmn-symbol-name="Call Activity">
-        <a href="ref:#subprocesses-call-activity">
+        <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="eventsubprocess" data-bpmn-symbol-name="Event Subprocess">
-        <a href="ref:#subprocesses-event-subprocess">
+        <a href="{{< relref "reference/bpmn20/subprocesses/event-subprocess.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="transaction" data-bpmn-symbol-name="Transaction">
-        <a href="ref:#subprocesses-transaction-subprocess">
+        <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
@@ -67,38 +67,38 @@ Hover over the element to see since which version of the camunda BPM platform th
     <div class="col-md-12">
       <h3>Tasks</h3>
       <div data-bpmn-symbol="servicetask" data-bpmn-symbol-name="Service Task">
-        <a href="ref:#tasks-service-task">
+        <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="usertask" data-bpmn-symbol-name="User Task">
-        <a href="ref:#tasks-user-task">
+        <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="scripttask" data-bpmn-symbol-name="Script Task">
-        <a href="ref:#tasks-script-task">
+        <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="businessruletask" data-bpmn-symbol-name="Business Rule Task">
-        <a href="ref:#tasks-business-rule-task">
+        <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="manualtask" data-bpmn-symbol-name="Manual Task">
-        <a href="ref:#tasks-manual-task">
+        <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task">
-        <a href="ref:#tasks-receive-task">
+        <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="task" data-bpmn-symbol-name="Undefined Task"></div>
       <div data-bpmn-symbol="sendtask" data-bpmn-symbol-name="Send Task">
-        <a href="ref:#tasks-send-task">
+        <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
@@ -109,22 +109,22 @@ Hover over the element to see since which version of the camunda BPM platform th
     <div class="col-md-5">
       <h3>Gateways</h3>
       <div data-bpmn-symbol="exclusivegateway" data-bpmn-symbol-name="XOR">
-        <a href="ref:#gateways-data-based-exclusive-gateway-xor">
+        <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="inclusivegateway" data-bpmn-symbol-name="OR">
-        <a href="ref:#gateways-inclusive-gateway">
+        <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="parallelgateway" data-bpmn-symbol-name="AND">
-        <a href="ref:#gateways-parallel-gateway">
+        <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
       <div data-bpmn-symbol="eventbasedgateway" data-bpmn-symbol-name="Event">
-        <a href="ref:#gateways-event-based-gateway">
+        <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">
           <div id="1" title="since 7.0"></div>
         </a>
       </div>
@@ -180,7 +180,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
     </thead>
     <tbody>
       <tr>
-        <td><a href="ref:#events-none-events">None</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/none-events.md" >}}">None</a></td>
         <td>
           <div data-bpmn-symbol="startevent">
             <div id="1" title="since 7.0"></div>    
@@ -203,7 +203,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#events-message-events">Message</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/message-events.md" >}}">Message</a></td>
         <td>
           <div data-bpmn-symbol="startevent/message">
             <div id="1" title="since 7.0"></div>
@@ -246,7 +246,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#events-timer-events">Timer</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/timer-events.md" >}}">Timer</a></td>
         <td>
           <div data-bpmn-symbol="startevent/timer">
             <div id="1" title="since 7.0"></div>
@@ -304,7 +304,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         <td></td>
       </tr> 
       <tr>
-        <td><a href="ref:#events-link-events">Link</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/link-events.md" >}}">Link</a></td>
         <td></td>
         <td></td>
         <td></td>       
@@ -323,7 +323,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         <td></td>
       </tr>   
       <tr>
-        <td><a href="ref:#events-signal-events">Signal</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Signal</a></td>
         <td>
           <div data-bpmn-symbol="startevent/signal">
           	<div id="1" title="since 7.4"></div>
@@ -366,7 +366,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#events-error-events">Error</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error</a></td>
         <td></td>
         <td>
           <div data-bpmn-symbol="startevent/error">
@@ -389,7 +389,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#events-escalation-events">Escalation</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/escalation-events.md" >}}">Escalation</a></td>
         <td></td>
         <td>
           <div data-bpmn-symbol="startevent/escalation">
@@ -424,7 +424,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr> 
       <tr>
-        <td><a href="ref:#events-termination-events">Termination</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/terminate-event.md" >}}">Termination</a></td>
         <td></td>
         <td></td>
         <td></td>
@@ -439,7 +439,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr> 
       <tr>
-        <td><a href="ref:#events-cancel-and-compensation-events">Compensation</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Compensation</a></td>
         <td></td>
         <td>
           <div data-bpmn-symbol="startevent/compensate">
@@ -466,7 +466,7 @@ In BPMN there are Start events, Intermediate events, and End events. These three
         </td>
       </tr>         
       <tr>
-        <td><a href="ref:#events-cancel-and-compensation-events">Cancel</a></td>
+        <td><a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Cancel</a></td>
         <td></td>
         <td></td>
         <td></td>

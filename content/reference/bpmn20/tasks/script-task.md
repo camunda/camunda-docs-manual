@@ -36,11 +36,11 @@ Alternatively, the source code can be specified as an expression or external res
 information on the possible ways of providing the script source code please see the corresponding
  [section][script-source] of the [User Guide][user-guide].
 
-For general information about scripting in the process engine, please see the [Scripting](ref:/guides/user-guide/#process-engine-scripting) section of the [User Guide][user-guide].
+For general information about scripting in the process engine, please see the [Scripting]({{< relref "user-guide/process-engine/scripting.md" >}}) section of the [User Guide][user-guide].
 
 {{< note title="Supported Script Languages" class="info" >}}
 
-Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="ref:/guides/user-guide/#introduction-third-party-libraries-process-engine">Third Party Dependencies</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
+Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< relref "user-guide/introduction/third-party-libraries.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
 
 {{< /note >}}
 
@@ -83,7 +83,7 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ### Enabling auto-storing of script variables
 
-By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide](ref:/guides/migration-guide/) for more information).
+By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
 
 In order to use this feature, you have to
 
@@ -117,7 +117,7 @@ In the above example, the result of the script execution (the value of the resol
 <div class="alert alert-warning">
   <strong>Result variables and multi-instance</strong>
   <p>
-    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a> for details.
+    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
   </p>
 </div>
 
@@ -132,19 +132,19 @@ be found in the [Business Rule Task][dmn-result-type] documentation.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncbefore">camunda:asyncBefore</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaasyncafter">camunda:asyncAfter</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexclusive">camunda:exclusive</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundajobpriority">camunda:jobPriority</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresultvariable">camunda:resultVariable</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresource">camunda:resource</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncbefore" >}}">camunda:asyncBefore</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-asyncafter" >}}">camunda:asyncAfter</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-exclusive" >}}">camunda:exclusive</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resource" >}}">camunda:resource</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafailedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundainputoutput">camunda:inputOutput</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}">camunda:inputOutput</a>
     </td>
   </tr>
   <tr>
@@ -157,7 +157,7 @@ be found in the [Business Rule Task][dmn-result-type] documentation.
 </table>
 
 
-[script-source]: ref:/guides/user-guide/#process-engine-scripting-script-source
-[user-guide]: ref:/guides/user-guide/
-[autostore-variables]: ref:/guides/migration-guide/#script-variable-storing
+[script-source]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
+[user-guide]: {{< relref "user-guide/index.md" >}}
+[autostore-variables]: {{< relref "update/minor/71-to-72/index.md#script-variable-storing" >}}
 [dmn-result-type]: {{< relref "business-rule-task.md#dmn-result-variable-type" >}}
