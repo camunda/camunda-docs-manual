@@ -1,6 +1,6 @@
 ---
 
-title: 'SOAP connector'
+title: 'SOAP Connector'
 weight: 20
 
 menu:
@@ -10,7 +10,7 @@ menu:
 
 ---
 
-In camunda Connect a `Connectors` class exists which automatically detects
+In Camunda Connect a `Connectors` class exists which automatically detects
 every connector in the classpath. It can be used to get the SOAP connector
 instance by connector ID.
 
@@ -18,13 +18,13 @@ instance by connector ID.
 SoapHttpConnector soap = Connectors.getConnector(SoapHttpConnector.ID);
 ```
 
-The SOAP connector extends the camunda Connect HTTP connector. Which uses
+The SOAP connector extends the Camunda Connect HTTP connector. Which uses
 the Apache HTTP client in the default implementation. To configure the
-client please see the corresponding section in the [HTTP connector docs][].
+client please see the corresponding section in the [HTTP connector docs]({{< relref "reference/connect/http-connector.md" >}}).
 
 # Request
 
-## Creating a request
+## Creating a Request
 
 The SOAP HTTP connector can be used to create a new request, set a URL, content type
 and payload.
@@ -38,7 +38,7 @@ connector.createRequest()
   .execute();
 ```
 
-## Adding HTTP headers to a request
+## Adding HTTP Headers to a Request
 
 To add own headers to the HTTP request the method `header` is
 available.
@@ -53,7 +53,7 @@ connector.createRequest()
   .execute();
 ```
 
-## Using the generic API
+## Using the Generic API
 
 Besides the configuration methods also a generic API exists to
 set parameters of a request. The following parameters are
@@ -107,7 +107,7 @@ After the response was processed it should be closed.
 response.close()
 ```
 
-## Using the generic API
+## Using the Generic API
 
 Besides the response methods a generic API is provided
 to gather the response parameters. The following parameters
@@ -139,4 +139,3 @@ response.getResponseParameter("statusCode");
 response.getResponseParameter("headers");
 response.getResponseParameter("response");
 ```
-[HTTP connector docs]: ref:#http-http-connector

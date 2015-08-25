@@ -1,6 +1,6 @@
 ---
 
-title: 'HTTP connector'
+title: 'HTTP Connector'
 weight: 10
 
 menu:
@@ -18,9 +18,10 @@ instance by connector ID.
 HttpConnector http = Connectors.getConnector(HttpConnector.ID);
 ```
 
-# Configure Apache HTTP client
 
-camunda Connect HTTP client uses the Apache HTTP client with its default configuration. If
+# Configure Apache HTTP Client
+
+Camunda Connect HTTP client uses the Apache HTTP client with its default configuration. If
 you want to configure another connection manager or similar the easiest way is to register
 a new connector configurator.
 
@@ -52,7 +53,7 @@ public class HttpConnectorConfigurator implements ConnectorConfigurator<HttpConn
 To enable auto detection of your new configurator please add a file called
 `org.camunda.bpm.connect.spi.ConnectorConfigurator` to your
 `resources/META-INF/services` directory with class name as content. For more
-information see the [extending Connect] section.
+information see the [extending Connect]({{< relref "reference/connect/extending-connect.md" >}}) section.
 
 ```
 org.camunda.connect.example.HttpConnectorConfigurator
@@ -60,7 +61,7 @@ org.camunda.connect.example.HttpConnectorConfigurator
 
 # Requests
 
-## Create a simple HTTP request
+## Create a Simple HTTP Request
 
 The HTTP connector can be used to create a new request, set a HTTP method, URL,
 content type and payload.
@@ -89,7 +90,7 @@ The HTTP methods PUT, DELETE, PATCH, HEAD, OPTIONS, TRACE
 are also available.
 
 
-## Adding HTTP headers to a request
+## Adding HTTP Headers to a Request
 
 To add own headers to the HTTP request the method `header` is
 available.
@@ -102,7 +103,7 @@ HttpResponse response = http.createRequest()
   .execute();
 ```
 
-## Using the generic API
+## Using the Generic API
 
 Besides the configuration methods also a generic API exists to
 set parameters of a request. The following parameters are
@@ -156,7 +157,7 @@ After the response was processed it should be closed.
 response.close()
 ```
 
-## Using the generic API
+## Using the Generic API
 
 Besides the response methods a generic API is provided
 to gather the response parameters. The following parameters
@@ -188,6 +189,3 @@ response.getResponseParameter("statusCode");
 response.getResponseParameter("headers");
 response.getResponseParameter("response");
 ```
-
-
-[extending Connect]: ref:#extending-connect
