@@ -559,6 +559,11 @@ Each task object has the following properties:
     <td>String</td>
     <td>The task's key.</td>
   </tr>
+  <tr>
+    <td>formKey</td>
+    <td>String</td>
+    <td>If not null, the form key for the task.</td>
+  </tr>
 </table>
 
 
@@ -613,4 +618,5 @@ Response
      "caseDefinitionId":"aCaseDefId",
      "caseInstanceId":"aCaseInstId",
      "caseExecutionId":"aCaseExecution",
-     "taskDefinitionKey":"aTaskDefinitionKey"}]
+     "taskDefinitionKey":"aTaskDefinitionKey",
+     "formKey":"aFormKey"}]
