@@ -144,11 +144,17 @@ There are certain invariants for a consistent execution tree. The following stat
 
 If you understand why these invariants hold, you have very likely understood the contents of this chapter :)
 
+## The role of the Process Virtual Machine (PVM)
+
+Above, we have considered the static execution tree at a specific point in time. Of course, this tree changes during the course of a process instance, for example when activities start or complete, or a parallel gateway is executed. This is the task of the Process Virtual Machine (PVM). It is responsible for transforming the execution tree such that it always represents the current execution state according to the four patterns. For example, before starting the execution of a scope activity, the PVM makes sure to create a new child execution of the current execution and sets the properties accordingly.
+
 ## Activity Instances and Executions
 
-Each execution has a property *activityInstanceId* for the id of the activity instance that is currently executed by this execution. When an execution starts an activity, the activity instance id is generated of the id of the activity and is set as property of the execution. When the execution leaf the activity, the property of the activity instance id is cleared.
+Since the PVM execute executions instead of [activity instances]({{< relref "user-guide/process-engine/process-engine-concepts.md#activity-instances" >}}), each execution must provide a reference of the activity instance that is currently executed by this execution. The reference is set as property *activityInstanceId* at the execution and is used to create the activity instance tree of the execution.
 
-The activity instance id is set on an execution following the rules:
+When an execution starts an activity, the activity instance id is generated of the id of the activity and is set as property of the execution. When the execution leaf the activity, the property of the activity instance id is cleared.
+
+The activity instance id is set on an execution following the first matching rule:
 
 * If the execution has no child executions, the execution has the activity instance id of the activity that is currently executed by this execution.
 * If the execution has child executions and execute a composite activity (e.g. subprocess, multi-instance activity), the execution has the activity instance id of the composite activity and the activity instance id is also set to the parent execution, if exists.
@@ -164,7 +170,3 @@ When both activities, **A** and **B**, are active, the execution tree looks as f
 <center><img src="ref:asset:/assets/img/developer-guide/10-process-engine/activity-instance-ids-on-execution-tree.PNG" class="img-responsive"/></center>
 
 Both executions **4** and **6** have no child executions and have the activity instance id of the user task **A** and **B**. The executions **3** and **5** have the same activity instance id because **5** execute the composite activity **Subprocess**. **1** is the execution of the process instance and has the id of the process instance as activity instance id. The execution **2** does not match the other patterns and take the activity instance id of the parent execution **1**.
-
-## The role of the Process Virtual Machine (PVM)
-
-Above, we have considered the static execution tree at a specific point in time. Of course, this tree changes during the course of a process instance, for example when activities start or complete, or a parallel gateway is executed. This is the task of the Process Virtual Machine (PVM). It is responsible for transforming the execution tree such that it always represents the current execution state according to the four patterns. For example, before starting the execution of a scope activity, the PVM makes sure to create a new child execution of the current execution and sets the properties accordingly.
