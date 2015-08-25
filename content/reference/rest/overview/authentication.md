@@ -1,6 +1,6 @@
 ---
 
-title: "Configuring Authentication"
+title: "Configure Authentication"
 weight: 10
 
 menu:

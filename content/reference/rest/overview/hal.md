@@ -138,7 +138,7 @@ Accept: application/hal+json
 ```
 
 
-# Caching of HAL relations
+# Caching of HAL Relations
 
 During the generation of a HAL response, linked resources are resolved to embed
 them.  Some of these resolved resources, like process definitions or users, are
@@ -254,7 +254,7 @@ options:
   </tr>
 </table>
 
-## List of Resources which support Caching
+## List of Resources Which Support Caching
 
 * Case Definition: `org.camunda.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition`
 * Group: `org.camunda.bpm.engine.rest.hal.group.HalGroup`

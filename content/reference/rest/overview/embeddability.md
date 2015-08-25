@@ -1,6 +1,6 @@
 ---
 
-title: "Embedding the API"
+title: "Embed the API"
 weight: 30
 
 menu:

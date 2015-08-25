@@ -1,6 +1,6 @@
 ---
 
-title: "Usage with a pre-built Distribution"
+title: "Usage with a Pre-Built Distribution"
 weight: 20
 
 menu:
