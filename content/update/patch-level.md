@@ -78,6 +78,13 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4037">CAM-4037</td>
     </tr>
+    <tr>
+      <td>7.3</td>
+      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3.sql</td>
+      <td>Add a missing index on ACT_RU_AUTHORIZATION#RESOURCE_ID_ to prevent deadlocks.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4440">CAM-4440</td>
+    </tr>
   </tbody>
 </table>
 
