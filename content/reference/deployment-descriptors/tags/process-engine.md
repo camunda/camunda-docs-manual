@@ -6,17 +6,17 @@ weight: 50
 menu:
   main:
     identifier: "descriptor-ref-process-engine"
-    parent: "descriptor-ref"
+    parent: "descriptor-ref-tags"
 
 ---
 
 
-The process engine configuration can be placed in both [processes.xml](ref:#descriptors-processesxml) and the [bpm-platform.xml](ref:#descriptors-bpm-platformxml) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
+The process engine configuration can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and the [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) files. If the process engine is configured in either or both of those files, it will be bootstrapped by the Camunda BPM platform infrastructure and be made available through `BpmPlatform.getProcessEngineService().getProcessEngine("name of process engine")`.
 
 
-## Example
+# Example
 
-The following example shows an XML snippet which can be placed in both [processes.xml](ref:#descriptors-processesxml) and/or [bpm-platform.xml](ref:#descriptors-bpm-platformxml).
+The following example shows an XML snippet which can be placed in both [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) and/or [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 
 ```xml
 <process-engine name="default">
@@ -34,7 +34,7 @@ The following example shows an XML snippet which can be placed in both [processe
 ```
 
 
-## Syntax Reference
+# Syntax Reference
 
 <table class="table table-striped">
   <tr>
@@ -48,9 +48,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-application&gt;</code> or <code>&lt;bpm-platform&gt;</code></td>
     <td>true</td>
     <td>
-      <p>
         Container element for the configuration of a process engine.
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -68,16 +66,14 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>true</td>
     <td>
-      <p>
         Assign the process engine to a job acquisition.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
       </p>
       <p>
         <strong>Text Content:</strong>
-        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="ref:#descriptors-bpm-platformxml">bpm-platform.xml</a> file.
+        The name of the job acquisition to be used for this process engine. Job acquisitions are configured in the <a href="{{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}">bpm-platform.xml</a> file.
       </p>
       <p>
         <strong>Example:</strong>
@@ -90,20 +86,18 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Provide the name of the process engine configuration class.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
       </p>
       <p>
         <strong>Text Content:</strong>
-        The fully qualified classname of the Process Engine Configuration class to be used for this process engine. The class must be a subclass of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
+        The fully qualified classname of the Process Engine Configuration class to be used for this process engine. The class must be a subclass of {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html" text="ProcessEngineConfigurationImpl" >}}".
       </p>
       <p>
         <strong>Default Value:</strong>
-        <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html">StandaloneProcessEngineConfiguration</a>.
+        {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html" text="StandaloneProcessEngineConfiguration" >}}
       </p>
       <p>
         <strong>Example:</strong>
@@ -116,9 +110,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Provide the JDBC name of the datasource to use for the process engine.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -142,9 +134,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code>, <code>&lt;plugin&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Container element for providing a set of process engine configuration (or plugin) properties.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -160,9 +150,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;properties&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Set value for process engine configuration property or of a process engine plugin.
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -184,9 +172,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;process-engine&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
-        Container element for providing a set of <a href="ref:/guides/user-guide/#process-engine-process-engine-plugins">process engine plugin</a> configurations.
-      </p>
+        Container element for providing a set of <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configurations.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -202,9 +188,7 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugins&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
-        Container element for providing an individual <a href="ref:/guides/user-guide/#process-engine-process-engine-plugins">process engine plugin</a> configuration.
-      </p>
+        Container element for providing an individual <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a> configuration.
       <p>
         <strong>Attributes:</strong>
         None.
@@ -220,23 +204,21 @@ The following example shows an XML snippet which can be placed in both [processe
     <td><code>&lt;plugin&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
-        Sets the classname of a <a href="ref:/guides/user-guide/#process-engine-process-engine-plugins">process engine plugin</a>.
-      </p>
+        Sets the classname of a <a href="{{< relref "user-guide/process-engine/process-engine-plugins.md" >}}">process engine plugin</a>.
       <p>
         <strong>Attributes:</strong>
         None.
       </p>
       <p>
         <strong>Text Content:</strong>
-        The fully qualified classname of a process engine plugin. Must be an implementation of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
+        The fully qualified classname of a process engine plugin. Must be an implementation of {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html" text="ProcessEnginePlugin" >}}
       </p>
     </td>
   </tr>
 </table>
 
 
-## Configuration Properties
+# Configuration Properties
 
 The following is a list with the most commonly used process engine configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
@@ -255,9 +237,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>databaseSchemaUpdate</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the value for process engine database schema creation.
-      </p>
       <p>
         <strong>Values:</strong> <code>false</code>, <code>create-drop</code>, <code>true</code>.
       </p>
@@ -268,9 +248,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jdbcDriver</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the fully qualified classname of the JDBC driver to use.
-      </p>
       <p>
         This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
@@ -280,9 +258,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jdbcUrl</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the JDBC url for the database connection.
-      </p>
       <p>
         This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
@@ -292,9 +268,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jdbcUsername</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the username of the JDBC connection.
-      </p>
       <p>
         This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
@@ -304,9 +278,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jdbcPassword</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the password of the JDBC connection.
-      </p>
       <p>
         This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
@@ -317,9 +289,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>history</code></td>
     <td>String</td>
     <td>
-      <p>
         Sets the level of the process engine history.
-      </p>
       <p>
         <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
       </p>
@@ -330,9 +300,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jobExecutorDeploymentAware</code></td>
     <td>Boolean</td>
     <td>
-      <p>
         Controls whether the job executor is deployment aware or not.
-      </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -343,11 +311,9 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jobExecutorPreferTimerJobs</code></td>
     <td>Boolean</td>
     <td>
-      <p>
         Controls whether the job executor prefers due timer jobs over other job types. Default value is <code>false</code>. See the
-        <a href="ref:/guides/user-guide/#process-engine-the-job-executor-the-job-order-of-job-acquisition">user guide</a>
+        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
-      </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -358,11 +324,9 @@ The following is a list with the most commonly used process engine configuration
     <td><code>jobExecutorAcquireByDueDate</code></td>
     <td>Boolean</td>
     <td>
-      <p>
         Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
-        <a href="ref:/guides/user-guide/#process-engine-the-job-executor-the-job-order-of-job-acquisition">user guide</a>
+        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
         for more details on this setting.
-      </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -373,10 +337,8 @@ The following is a list with the most commonly used process engine configuration
     <td><code>autoStoreScriptVariables</code></td>
     <td>Boolean</td>
     <td>
-      <p>
         Controls whether all global script variables should be automatically stored as process variables or not.
         Default value is <code>false</code>.
-      </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -387,9 +349,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>enableScriptCompilation</code></td>
     <td>Boolean</td>
     <td>
-      <p>
         Controls whether the process engine should attempt to compile script sources and cache the compilation result or not. Default value is <code>true</code>.
-      </p>
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -400,9 +360,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>defaultNumberOfRetries</code></td>
     <td>Integer</td>
     <td>
-      <p>
         Controls how many retries should be accomplished for a failed job. Default value: <code>3</code>
-      </p>
     </td>
   </tr>
 
@@ -410,9 +368,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>databaseTablePrefix</code></td>
     <td>String</td>
     <td>
-      <p>
         Specifies a prefix for any table name included in SQL statements made by the process engine. Can be used to point the engine to a specific schema by setting the value to <code>MY_SCHEMA.</code> or tables with a naming pattern by setting the value to <code>MY_TABLE_PREFIX_PATTERN_</code>.
-      </p>
     </td>
   </tr>
 

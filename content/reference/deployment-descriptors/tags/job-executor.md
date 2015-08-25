@@ -6,13 +6,14 @@ weight: 30
 menu:
   main:
     identifier: "descriptor-ref-job-executor"
-    parent: "descriptor-ref"
+    parent: "descriptor-ref-tags"
 
 ---
 
-The job executor tag is used to configure the job executor and can be placed in the [bpm-platform.xml](ref:#descriptors-bpm-platformxml) file.
+The job executor tag is used to configure the job executor and can be placed in the [bpm-platform.xml]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) file.
 
-## Example
+
+# Example
 
 The following example shows a job executor XML snippet:
 
@@ -36,7 +37,7 @@ The following example shows a job executor XML snippet:
 ```
 
 
-## Syntax Reference
+# Syntax Reference
 
 <table class="table table-striped">
   <tr>
@@ -50,9 +51,7 @@ The following example shows a job executor XML snippet:
     <td><code>&lt;bpm-platform&gt;</code></td>
     <td>true</td>
     <td>
-      <p>
         Container element for the configuration of a job executor.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -68,9 +67,7 @@ The following example shows a job executor XML snippet:
     <td><code>&lt;job-executor&gt;</code></td>
     <td>true</td>
     <td>
-      <p>
         Specifies a job acquisition thread.
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -88,9 +85,7 @@ The following example shows a job executor XML snippet:
     <td><code>&lt;job-acquisition&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Specifies the fully qualified classname of the job executor.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -110,9 +105,7 @@ The following example shows a job executor XML snippet:
     <td><code>&lt;job-acquisition&gt;</code> or <code>&lt;job-executor&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Container element for providing a set of thread configuration properties.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -128,9 +121,7 @@ The following example shows a job executor XML snippet:
     <td><code>&lt;properties&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Set value for job acquisition configuration property.
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -145,18 +136,14 @@ The following example shows a job executor XML snippet:
   </tr>
 </table>
 
-## Job-Executor Configuration Properties
+
+# Job-Executor Configuration Properties
 
 The following is a list with the available job acquisition thread configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
-<div class="alert alert-warning">
-  <p>
-    <strong>Limitation:</strong>
-  </p>
-  <p>
-    This properties only take effect in a Tomcat environment.
-  </p>
-</div>
+{{< note title="Limitation:" class="warning" >}}
+This properties only take effect in a Tomcat environment.
+{{< /note >}}
 
 <table class="table table-striped">
   <tr>
@@ -168,7 +155,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>queueSize</code></td>
     <td>Integer</td>
     <td>
-      <p>Sets the size of the queue which is used for holding tasks to be executed.</p>
+      Sets the size of the queue which is used for holding tasks to be executed.
       <p><strong>Default Value:</strong> 3</p>
     </td>
   </tr>
@@ -176,7 +163,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>corePoolSize</code></td>
     <td>Integer</td>
     <td>
-      <p>Sets the size of the core pool in the thread pool. This number of threads will always be present and wait to execute tasks.</p>
+      Sets the size of the core pool in the thread pool. This number of threads will always be present and wait to execute tasks.
       <p><strong>Default Value:</strong> 3</p>
     </td>
   </tr>
@@ -184,7 +171,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>maxPoolSize</code></td>
     <td>Integer</td>
     <td>
-      <p>Sets the maximum number of threads that can be present in the thread pool.</p>
+      Sets the maximum number of threads that can be present in the thread pool.
       <p><strong>Default Value:</strong> 10</p>
     </td>
   </tr>
@@ -192,14 +179,14 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>keepAliveTime</code></td>
     <td>Long</td>
     <td>
-      <p>Specify the time in milliseconds threads will be kept alive when there are no tasks present before threads are terminated until the core pool size is reached.</p>
+      Specify the time in milliseconds threads will be kept alive when there are no tasks present before threads are terminated until the core pool size is reached.
       <p><strong>Default Value:</strong> 0</p>
     </td>
   </tr>
 </table>
 
 
-## Job-Acquisition Configuration Properties
+# Job-Acquisition Configuration Properties
 
 The following is a list with the available job acquisition thread configuration properties, along with some explanations. The properties can be used in the `<property name="foo">bar</property>` tag, where `foo` is the name of the property and `bar` is the value of the property.
 
@@ -213,7 +200,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>maxJobsPerAcquisition</code></td>
     <td>Integer</td>
     <td>
-      <p>Sets the maximal number of jobs to be acquired at once.</p>
+      Sets the maximal number of jobs to be acquired at once.
       <p><strong>Default Value:</strong> 3</p>
     </td>
   </tr>
@@ -221,7 +208,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>waitTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      <p>Specify the wait time of the job acquisition thread in milliseconds. This value can be used to define how often the job acquisition thread should poll the database for jobs.</p>
+      Specify the wait time of the job acquisition thread in milliseconds. This value can be used to define how often the job acquisition thread should poll the database for jobs.
       <p><strong>Default Value:</strong> 5000</p>
     </td>
   </tr>
@@ -229,7 +216,7 @@ The following is a list with the available job acquisition thread configuration 
     <td><code>lockTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      <p>Specify the lock time of an acquired job in milliseconds.</p>
+      Specify the lock time of an acquired job in milliseconds.
       <p><strong>Default Value:</strong> 300000</p>
     </td>
   </tr>

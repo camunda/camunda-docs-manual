@@ -6,17 +6,17 @@ weight: 40
 menu:
   main:
     identifier: "descriptor-ref-process-archive"
-    parent: "descriptor-ref"
+    parent: "descriptor-ref-tags"
 
 ---
 
 
-The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml](ref:#descriptors-processesxml) file.
+The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) file.
 
-See the [processes.xml](ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor) section of the [User Guide](ref:/guides/user-guide/) for more details.
+See the [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more details.
 
 
-## Example
+# Example
 
 The following example shows a process-archive XML snippet:
 
@@ -34,7 +34,7 @@ The following example shows a process-archive XML snippet:
 ```
 
 
-## Syntax Reference
+# Syntax Reference
 
 <table class="table table-striped">
   <tr>
@@ -48,9 +48,7 @@ The following example shows a process-archive XML snippet:
     <td><code>&lt;process-application&gt;</code></td>
     <td>true</td>
     <td>
-      <p>
         Container element for the configuration of a process archive (deployment).
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -69,9 +67,7 @@ The following example shows a process-archive XML snippet:
     <td><code>&lt;process-archive&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Specifies the name of the process engine to which the deployment is performed. If the element is not provided, the default process engine is used.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -87,10 +83,8 @@ The following example shows a process-archive XML snippet:
     <td><code>&lt;process-archive&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Can be used to explicitly list the paths to resources that are part of this deployment. These
         can be process or case definitions but also additional files like script files.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -106,9 +100,7 @@ The following example shows a process-archive XML snippet:
     <td><code>&lt;process-engine&gt;</code>, <code>&lt;plugin&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Container element for providing a set of process archive configuration properties.
-      </p>
       <p>
         <strong>Attributes:</strong>
         None.
@@ -124,9 +116,7 @@ The following example shows a process-archive XML snippet:
     <td><code>&lt;properties&gt;</code></td>
     <td>false</td>
     <td>
-      <p>
         Set value for process archive configuration property
-      </p>
       <p>
         <strong>Attributes:</strong>
         <ul>
@@ -142,7 +132,7 @@ The following example shows a process-archive XML snippet:
 </table>
 
 
-## Configuration Properties
+# Configuration Properties
 
 The following is a list of all supported configuration properties.
 
@@ -156,9 +146,7 @@ The following is a list of all supported configuration properties.
     <td><code>isDeleteUponUndeploy</code></td>
     <td>boolean</td>
     <td>
-      <p>
         If true, the process engine deployment will be deleted (cascade = true) when the process application is undeployed.
-      </p>
       <p>
         <strong>Default value:</strong>
         false.
@@ -169,9 +157,7 @@ The following is a list of all supported configuration properties.
     <td><code>isScanForProcessDefinitions</code></td>
     <td>boolean</td>
     <td>
-      <p>
         If true, the process application will be scanned for process definitions (bpmn20 and bpmn20.xml files).
-      </p>
       <p>
         <strong>Default value:</strong>
         true.
@@ -182,9 +168,7 @@ The following is a list of all supported configuration properties.
     <td><code>isResumePreviousVersions</code></td>
     <td>boolean</td>
     <td>
-      <p>
-        If true, previous versions of the deployment are automatically resumed. See the <a href="ref:/guides/user-guide/#process-applications-the-processesxml-deployment-descriptor-process-application-deployment">Process Application Deployment</a> section of the <a href="ref:/guides/user-guide/">User Guide</a> for more details.
-      </p>
+        If true, previous versions of the deployment are automatically resumed. See the <a href="{{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
       <p>
         <strong>Default value:</strong>
         true.
@@ -195,9 +179,7 @@ The following is a list of all supported configuration properties.
     <td><code>isDeployChangedOnly</code></td>
     <td>boolean</td>
     <td>
-      <p>
         If true, only resources that have changed become part of the deployment. This check is performed against previous deployments of the same name. Every resource contained in the process archive is compared to the most recent resource of the same name that is part of one of the previous deployments. Activating this setting does not automatically resume previous versions of the deployment. 
-      </p>
       <p>
         <strong>Default value:</strong>
         false.
@@ -206,7 +188,7 @@ The following is a list of all supported configuration properties.
         <p>
           <strong>Note:</strong>
         </p>
-        <p>It is not advised to use this setting when process elements are bound against resources of the same deployment. A binding is required when resources like a process definition from a call activity or an external script are referenced (see the <a href="ref:/api-references/bpmn20/#subprocesses-call-activity-calledelement-binding">BPMN implementation reference</a>). For example, if a call activity uses the binding <code>deployment</code> and a certain process definition key, whether the process can be resolved depends on whether it was deployed. Thus it is recommended to use the binding <code>latest</code> or <code>version</code> when activating this setting.</p>
+        <p>It is not advised to use this setting when process elements are bound against resources of the same deployment. A binding is required when resources like a process definition from a call activity or an external script are referenced (see the <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">BPMN implementation reference</a>). For example, if a call activity uses the binding <code>deployment</code> and a certain process definition key, whether the process can be resolved depends on whether it was deployed. Thus it is recommended to use the binding <code>latest</code> or <code>version</code> when activating this setting.</p>
       </div>
     </td>
   </tr>
@@ -214,10 +196,8 @@ The following is a list of all supported configuration properties.
     <td><code>resourceRootPath</code></td>
     <td>string</td>
     <td>
-     <p>
       The resource root of the process archive. This property is used when scanning for process definitions
-      (if <code>isScanForProcessDefinitions</code> is set to true).</p>
-
+      (if <code>isScanForProcessDefinitions</code> is set to true).
       <p> The path is interpreted as
       <ul>
 
@@ -263,11 +243,8 @@ The following is a list of all supported configuration properties.
       <code>isScanForProcessDefinitions</code> property is set to <code>true</code>. It can be used
       to deploy additional resources beside process and case definitions, for example to add a
       script to the deployment and reference it as an external source (see the documentation about
-      <a href="ref:/guides/user-guide/#process-engine-scripting-script-source">script source</a> for more information). To specify multiple suffixes, a comma is
+      <a href="{{< relref "user-guide/process-engine/scripting.md#script-source" >}}">script source</a> for more information). To specify multiple suffixes, a comma is
       used as seperator, ie. <code>py,groovy,rb</code>.
     </td>
   </tr>
 </table>
-
-
-[call-activity-binding]: ref:/api-references/bpmn20/#subprocesses-call-activity-calledelement-binding
