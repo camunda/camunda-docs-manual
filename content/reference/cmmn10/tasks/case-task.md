@@ -7,12 +7,13 @@ menu:
   main:
     identifier: "cmmn-ref-tasks-case"
     parent: "cmmn-ref-tasks"
+    pre: "Allows invoking another CMMN Case."
 
 ---
 
 A *case task* can be used to call another CMMN 1.0 case.
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/case-task.png"/>
+{{< cmmn-symbol type="case-task" >}}
 
 A case task is a regular task that requires a `caseRef` attribute that references a case definition by its key. Such a case task can be defined as follows:
 
@@ -40,11 +41,11 @@ Note: The default value for the attribute `isBlocking` is `true`. To define a no
 <caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase" isBlocking="false" />
 ```
 
-## Transactional Behavior
+# Transactional Behavior
 
 The activation of the case task as well as the creation and execution of the case instance are performed in the same transaction.
 
-## Case Binding
+# Case Binding
 
 By default, the case task always creates a new case instance of the latest case definition with the specified key. In order to specify a different version of a case, it is possible to define a binding with the Camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
 
@@ -64,7 +65,7 @@ The following is an example of a case task that calls the `checkCreditCase` case
 
 Note: It is also possible to use an expression for the attribute `caseVersion` that must resolve to an integer at runtime.
 
-## Exchange Variables
+# Exchange Variables
 
 The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,
 
@@ -106,7 +107,7 @@ Furthermore, the case task can be configured to pass all variables to the called
 Note: The variables keeps their names.
 
 
-## Pass Business Key
+# Pass Business Key
 
 In addition to [exchanging variables](#tasks-case-task-exchange-variables), it is possible to pass a business key to the called case instance as well. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
@@ -130,23 +131,23 @@ If the business key of the called case instance should be different from the bus
 </caseTask>
 ```
 
-## Camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacasebinding">camunda:caseBinding</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseversion">camunda:caseVersion</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-caseversion" >}}">camunda:caseVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

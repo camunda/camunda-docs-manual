@@ -31,7 +31,7 @@ To specify a class that is called during process execution, the fully qualified 
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 ```
 
-Please refer to the [Java Delegate](ref:/guides/user-guide/#process-engine-delegation-code-java-delegate) section of the [User Guide](ref:/guides/user-guide/) for details on how to implement a Java Delegate.
+Please refer to the [Java Delegate](ref:{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide](ref:/guides/user-guide/) for details on how to implement a Java Delegate.
 
 It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the `camunda:class` attribute is used.
@@ -56,7 +56,7 @@ of the [User Guide](ref:/guides/user-guide/).
 
 ## Generic Java Delegates & Field Injection
 
-You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection](ref:/guides/user-guide/#process-engine-delegation-code-field-injection) section of the [User Guide](ref:/guides/user-guide/) for details.
+You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection](ref:{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection) section of the [User Guide](ref:/guides/user-guide/) for details.
 
 ## Service task results
 

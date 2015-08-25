@@ -7,16 +7,17 @@ menu:
   main:
     identifier: "cmmn-ref-markers-required"
     parent: "cmmn-ref-markers"
+    pre: "Controls whether a Task, Stage or Milestone is required to be performed."
 
 ---
 
-**Can be used with**: [Task](ref:#tasks), [Stage](ref:#grouping-tasks-stage) and [Milestone](ref:#milestones-milestone)
+**Can be used with**: [Task]({{< relref "reference/cmmn10/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}) and [Milestone]({{< relref "reference/cmmn10/milestone.md" >}})
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/required-marker.png"/>
+{{< cmmn-symbol type="marker-required" >}}
 
 A plan item may be *required*, meaning that it has to reach an end-like state before the containing stage can complete. Whether a plan item is required can be specified by a *required rule*.
 
-This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state <code>AVAILABLE</code>, and its result value of type `boolean` is maintained throughout the remainder of the case instance. If this rule evaluates to <code>true</code>, the plan item's parent stage instance must not transition to <code>COMPLETED</code> state unless the plan item is in the <code>COMPLETED</code>, <code>TERMINATED</code> or <code>DISABLED</code> state. For example, a task that has not yet been worked on, i.e., is in state <code>ENABLED</code>, prevents its containing stage to complete. If the rule is not present, then it is considered to be <code>false</code>.
+This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state `AVAILABLE`, and its result value of type `boolean` is maintained throughout the remainder of the case instance. If this rule evaluates to `true`, the plan item's parent stage instance must not transition to `COMPLETED` state unless the plan item is in the `COMPLETED`, `TERMINATED` or `DISABLED` state. For example, a task that has not yet been worked on, i.e., is in state `ENABLED`, prevents its containing stage to complete. If the rule is not present, then it is considered to be `false`.
 
 ```xml
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">

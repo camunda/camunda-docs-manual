@@ -12,7 +12,7 @@ menu:
 
 A *milestone* is used to represent achievable targets within the case. It is not associated with any work but rather marks that certain conditions have been reached within the case. As a milestone is a regular plan item definition, a milestone's completion may be used as entry criteria for other tasks and stages. This way, a milestone can be used to bring logical stages within a case into order.
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/milestone.png"/>
+{{< cmmn-symbol type="milestone" >}}
 
 In XML, a milestone is defined as follows:
 
@@ -73,7 +73,7 @@ milestoneInstance.isCompleted(); // true if milestone occurred
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>
     </td>
   </tr>
 </table>

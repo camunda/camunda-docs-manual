@@ -14,11 +14,11 @@ A *stage* can contain other plan items like a human task, a process task, a case
 
 If a stage is collapsed, only its name and a plus sign are displayed:
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/stage-collapsed.png"/>
+{{< cmmn-symbol type="stage-collapsed" >}}
 
 If a stage is expanded, its plan items are displayed within its boundaries:
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/stage-expanded.png"/>
+{{< cmmn-symbol type="stage-expanded" >}}
 
 A stage is defined in XML as follows:
 
@@ -82,14 +82,14 @@ caseService.manuallyStartCaseExecution("aCaseExecutionId");
 
 When the stage becomes `ACTIVE`, the contained plan items are instantiated and reach the state `AVAILABLE`. A stage in this state always contains at least one stage or task instance in the state `AVAILABLE`, `ENABLED`, or `ACTIVE`. In other words, a stage completes automatically if a user has no option to do further work on its contained plan items. This means that if a contained plan item completes or is disabled, the stage is notified about that state transition and checks if it is able to complete. A stage instance can only complete if there are no contained plan items in the state `ACTIVE`, and all are either in state `DISABLED` or `COMPLETED`. In case the check succeeds, the stage instance completes.
 
-## Camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
 </table>

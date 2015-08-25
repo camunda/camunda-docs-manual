@@ -7,13 +7,14 @@ menu:
   main:
     identifier: "cmmn-ref-tasks-human"
     parent: "cmmn-ref-tasks"
+    pre: "Work being done by a human user."
 
 ---
 
 
 A *human task* is used to model work that needs to be done by a human actor.
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/human-task.png"/>
+{{< cmmn-symbol type="human-task" >}}
 
 A human task is defined in XML as follows:
 
@@ -42,6 +43,8 @@ Instead of using the `CaseService` it is also possible to use the `TaskService` 
 ```java
 taskService.complete("aTaskId");
 ```
+
+# Properties
 
 In that case the associated human task is completed as well.
 
@@ -81,7 +84,7 @@ There is an extension attribute that allows you to specify an expression in a ta
 <humanTask id="theTask" name="Important task" camunda:followUpDate="${dateVariable}"/>
 ```
 
-## User Assignment
+# User Assignment
 
 A human task can be directly assigned to a user. This is done by using the attribute `performerRef` on a human task element. The defined `performerRef` attribute references an existing role. Such a role definition needs a name that defines the user.
 
@@ -112,7 +115,7 @@ When strictly following the CMMN standard, user and group assignments can be qui
   <humanTask id="theTask" name="my task" camunda:assignee="kermit" />
   ```
 
-  This is exactly the same as using a <code>perfomerRef</code> construct as defined [above](ref:#tasks-human-task-user-assignment).
+  This is exactly the same as using a <code>perfomerRef</code> construct as defined [above]({{< relref "reference/cmmn10/tasks/human-task.md" >}}-user-assignment).
 * `candidateUsers` attribute: this custom extension makes a user a candidate for a task.
 
   ```xml
@@ -156,7 +159,7 @@ public class FakeLdapService {
 }
 ```
 
-## Forms
+# Forms
 
 It is possible to provide information to render a human task form by using the `camunda:formKey`
 attribute:
@@ -171,19 +174,19 @@ The form key is a symbolic value which can be set in the CMMN XML file by using 
 attribute `formKey` and retrieved at runtime using the process engine API.
 
 If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
-special rules. [See the corresponding section in the user guide for details](ref:/guides/user-guide/#task-forms).
+special rules. [See the corresponding section in the user guide for details]({{< relref "user-guide/task-forms/index.md" >}}).
 
 In custom applications, the value of the form key can be chosen freely. In a custom application the
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
 
-### Retrieving the form key using the form service.
+## Retrieving the form key using the form service.
 
 ```java
 String formKey = formService.getTaskFormData(someTaskId).getFormKey();
 ```
 
-### Retrieving the form using the task service
+## Retrieving the form using the task service
 
 When performing a task query, it is possible to retrieve the form key as well. This is most useful
 if the form keys need to be retrieved for a complete list of tasks:
@@ -202,28 +205,28 @@ for(Task task : tasks) {
 Note that it is required to call the `.initializeFormKeys()` method on the `TaskQuery` object to
 make sure the form keys are initialized.
 
-## Camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaassignee">camunda:assignee</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacandidategroups">camunda:candidateGroups</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundacandidateusers">camunda:candidateUsers</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaduedate">camunda:dueDate</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaformkey">camunda:formKey</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundapriority">camunda:priority</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-assignee" >}}">camunda:assignee</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-candidategroups" >}}">camunda:candidateGroups</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-candidateusers" >}}">camunda:candidateUsers</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-duedate" >}}">camunda:dueDate</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-formkey" >}}">camunda:formKey</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-priority" >}}">camunda:priority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundatasklistener">camunda:taskListener</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

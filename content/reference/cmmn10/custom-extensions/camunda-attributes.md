@@ -7,18 +7,19 @@ menu:
   main:
     identifier: "cmmn-ref-extensions-attributes"
     parent: "cmmn-ref-extensions"
+    pre: "Reference of Camunda Extension Attributes for CMMN."
 
 ---
 
 The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 
-### camunda:assignee
+# camunda:assignee
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies a performer of a <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies a performer of a <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -38,19 +39,19 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
 
-### camunda:candidateGroups
+# camunda:candidateGroups
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies which group(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies which group(s) will be candidate for performing the <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -70,18 +71,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:candidateUsers
+# camunda:candidateUsers
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies which user(s) will be candidate for performing the <a href="ref:#tasks-human-task">Human Task</a>.
+      This attribute specifies which user(s) will be candidate for performing the <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>.
     </td>
   </tr>
   <tr>
@@ -101,12 +102,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:caseBinding
+# camunda:caseBinding
 
 <table class="table table-striped">
   <tr>
@@ -128,7 +129,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="ref:#custom-extensions-camunda-extension-attributes-camundacaseversion">camunda:caseVersion</a> is required, see <a href="ref:#custom-extensions-camunda-extension-attributes-camundacasebinding">Case Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-caseversion" >}}">camunda:caseVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-casebinding" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -138,12 +139,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-case-task">Case Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:caseVersion
+# camunda:caseVersion
 
 <table class="table table-striped">
   <tr>
@@ -169,18 +170,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-case-task">Case Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:class
+# camunda:class
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java delegate</a> interface.
+      The attribute specifies which Java class will be executed at runtime. The stated class must implement a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java delegate</a> interface.
     </td>
   </tr>
   <tr>
@@ -190,7 +191,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements a <a href="/guides/user-guide/#process-engine-delegation-code-java-delegate">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
+      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
     </td>
   </tr>
   <tr>
@@ -200,19 +201,19 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
-### camunda:delegateExpression
+# camunda:delegateExpression
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="/guides/user-guide/#process-engine-delegation-code">delegation code</a>).
+      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation code</a>).
     </td>
   </tr>
   <tr>
@@ -222,7 +223,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression which evaluates to a Java class implementing a <a href="/guides/user-guide/#process-engine-delegation-code">delegation</a> interface, e.g. <code>${myVariableListener}</code>.
+      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g. <code>${myVariableListener}</code>.
     </td>
   </tr>
   <tr>
@@ -232,20 +233,20 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
 
-### camunda:dueDate
+# camunda:dueDate
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies the initial due date of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
+      This attribute specifies the initial due date of a <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -265,13 +266,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
 
-### camunda:expression
+# camunda:expression
 
 <table class="table table-striped">
   <tr>
@@ -297,19 +298,19 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
-### camunda:formKey
+# camunda:formKey
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies a form resource. See <a href="ref:/guides/user-guide/#task-forms">task forms</a> for more information.
+      This attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/index.md" >}}">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -319,7 +320,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="ref:/guides/user-guide/#tasklist">Tasklist</a>
+      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "user-guide/tasklist/index.md" >}}">Tasklist</a>
     </td>
   </tr>
   <tr>
@@ -329,18 +330,18 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:priority
+# camunda:priority
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies the initial priority of a <a href="ref:#tasks-human-task">Human Task</a> when it is created.
+      This attribute specifies the initial priority of a <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a> when it is created.
     </td>
   </tr>
   <tr>
@@ -360,12 +361,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:processBinding
+# camunda:processBinding
 
 <table class="table table-striped">
   <tr>
@@ -387,7 +388,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="ref:#custom-extensions-camunda-extension-attributes-camundaprocessversion">camunda:processVersion</a> is required, see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaprocessbinding">Process Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processbinding" >}}">Process Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -397,12 +398,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-process-task">Process Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>
     </td>
   </tr>
 </table>
 
-### camunda:processVersion
+# camunda:processVersion
 
 <table class="table table-striped">
   <tr>
@@ -428,13 +429,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#tasks-process-task">Process Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>
     </td>
   </tr>
 </table>
 
 
-### camunda:resource
+# camunda:resource
 
 <table class="table table-striped">
   <tr>
@@ -466,7 +467,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>

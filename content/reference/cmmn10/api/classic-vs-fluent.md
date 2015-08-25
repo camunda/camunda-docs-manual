@@ -16,7 +16,7 @@ To interact with case instances and executions, the process engine offers the ca
 
 The `CaseService` offers two API variants. One is in the following referred to as the *classic* API, since it is very similar to the API offered by the `RuntimeService` for BPMN processes. The *fluent* API follows a different concept in that it allows composition of case service commands by method chaining.
 
-## Classic and Fluent API by Example
+# Classic and Fluent API by Example
 
 As an example, the `CaseService` offers two classic methods to manually start a task:
 
@@ -59,7 +59,7 @@ caseService
 ```
 
 
-## Entry Points to the Fluent API
+# Entry Points to the Fluent API
 
 The fluent API can be used to work with case definitions and case executions. The entry points are as follows:
 

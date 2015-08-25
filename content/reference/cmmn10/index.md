@@ -26,21 +26,21 @@ Hover over the element to see since which version of the Camunda BPM platform th
     <div class="col-md-12">
       <h3>Grouping</h3>
       <div class="bpmn-symbol-container">
-        <a href="ref:#grouping-tasks-stage">
+        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/case-plan-model-colored.png"/>
+            {{< cmmn-symbol type="case-plan-model" >}}
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
-        <a href="ref:#grouping-tasks-stage">
+        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/stage-collapsed-colored.png"/>
+            {{< cmmn-symbol type="stage-collapsed" >}}            
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/plan-fragment.png"/>
+        {{< cmmn-symbol type="plan-fragment" >}}
       </div>
     </div>
   </div>
@@ -48,34 +48,34 @@ Hover over the element to see since which version of the Camunda BPM platform th
     <div class="col-md-12">
       <h3>Tasks</h3>
       <div class="bpmn-symbol-container">
-        <a href="#tasks-human-task">
+        <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/human-task-colored.png"/>
+            {{< cmmn-symbol type="human-task" >}}            
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/manual-task.png"/>
+        {{< cmmn-symbol type="manual-task" >}}
       </div>
       <div class="bpmn-symbol-container">
-        <a href="#tasks-process-task">
+        <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/process-task-colored.png"/>
+            {{< cmmn-symbol type="process-task" >}}
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
         <a href="#tasks-case-task">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/case-task-colored.png"/>
+            {{< cmmn-symbol type="case-task" >}}
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/task.png"/>
+        {{< cmmn-symbol type="task" >}}
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/discretionary-task.png"/>
+        {{< cmmn-symbol type="discretionary-task" >}}
       </div>
     </div>
   </div>
@@ -83,26 +83,26 @@ Hover over the element to see since which version of the Camunda BPM platform th
     <div class="col-md-9">
       <h3>Event-Triggered Elements</h3>
       <div class="bpmn-symbol-container">
-        <a href="ref:#milestones-milestone">
+        <a href="{{< relref "reference/cmmn10/milestone.md" >}}">
           <div id="1" title="since 7.2">
-            <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/milestone-colored.png"/>
+            {{< cmmn-symbol type="milestone" >}}
           </div>
         </a>
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/event-listener.png"/>
+        {{< cmmn-symbol type="event-listener" >}}
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/event-listener-timer.png"/>
+        {{< cmmn-symbol type="event-listener-timer" >}}
       </div>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/event-listener-user.png"/>
+        {{< cmmn-symbol type="event-listener-user" >}}
       </div>
     </div>
     <div class="col-md-3">
       <h3>CaseFileItem</h3>
       <div class="bpmn-symbol-container">
-        <img class="img-responsive" src="ref:asset:/assets/cmmn/overview/case-file-item.png"/>
+        {{< cmmn-symbol type="case-file-item" >}}
       </div>
     </div>
   </div>
@@ -121,50 +121,50 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <th></th>
         <th>
           <p>Planning Table</p>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-planning-table.png"/></center>
+          {{< cmmn-symbol type="marker-planning-table" >}}
         </th>
         <th>
-          <p><a href="ref:#sentries-sentry">Entry Criterion</a></p>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-entry-criterion.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/sentry.md" >}}">Entry Criterion</a></p>
+          {{< cmmn-symbol type="marker-entry-criterion" >}}
         </th>
         <th>
-          <p><a href="ref:#sentries-sentry">Exit Criterion</a></p>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-exit-criterion.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/sentry.md" >}}">Exit Criterion</a></p>
+          {{< cmmn-symbol type="marker-exit-criterion" >}}
         </th>
         <th>
-          <p><a href="ref:#markers-auto-complete">AutoComplete</a></p>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-auto-complete.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/markers/auto-complete.md" >}}">AutoComplete</a></p>
+          {{< cmmn-symbol type="marker-auto-complete" >}}
         </th>
         <th>
-          <p><a href="ref:#markers-manual-activation-rule">Manual Activation</a></p>
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-manual-activation.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/markers/manual-activation-rule.md" >}}">Manual Activation</a></p>
+          {{< cmmn-symbol type="marker-manual-activation" >}}
           </th>
         <th>
-          <p><a href="ref:#markers-required-rule">Required</a></p>
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-required.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Required</a></p>
+          {{< cmmn-symbol type="marker-required" >}}
           </th>
         <th>
-          <p>Repetition</p>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/marker-repetition.png"/></center>
+          <p><a href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Repetition</a></p>
+          {{< cmmn-symbol type="marker-repetition" >}}
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a href="ref:#grouping-tasks-stage">Case Plan Model</a></td>
+        <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Case Plan Model</a></td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
         <td>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.3">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td></td>
@@ -172,75 +172,75 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <td></td>
       </tr>
       <tr>
-        <td><a href="ref:#grouping-tasks-stage">Stage</a></td>
+        <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a></td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.3">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.3">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#tasks">Task</a></td>
+        <td><a href="{{< relref "reference/cmmn10/tasks/index.md" >}}">Task</a></td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td></td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
           <div id="1" title="since 7.3">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
       </tr>
       <tr>
-        <td><a href="ref:#milestones-milestone">Milestone</a></td>
+        <td><a href="{{< relref "reference/cmmn10/milestone.md" >}}">Milestone</a></td>
         <td></td>
         <td>
           <div id="1" title="since 7.2">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td></td>
@@ -248,11 +248,11 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <td></td>
         <td>
           <div id="1" title="since 7.3">
-            <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/supported.png"/></center>
+            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
           </div>
         </td>
         <td>
-          <center><img class="img-responsive" src="ref:asset:/assets/cmmn/overview/unsupported.png"/></center>
+          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
         </td>
       </tr>
       <tr>

@@ -268,7 +268,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 <tr>
   <th>Description</th>
   <td colspan="2">
-    Defines an expression to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
   </td>
 </tr>
 <tr>
@@ -363,7 +363,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -1237,7 +1237,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines a String value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
     </td>
   </tr>
   <tr>

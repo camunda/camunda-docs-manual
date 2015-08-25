@@ -1,12 +1,13 @@
 ---
 
 title: 'Entry and Exit Criteria'
-weight: 20
+weight: 30
 
 menu:
   main:
     identifier: "cmmn-ref-concepts-entry-and-exit-criteria"
     parent: "cmmn-ref-concepts"
+    pre: "Understand how to define Conditions for Plan Item enabiling and termination."
 
 ---
 
@@ -39,10 +40,13 @@ Similarly, `PlanItem_HumanTask_1` with an exit criterion looks as follows:
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" exitCriteriaRefs="Sentry_1" />
 ```
 
-The conditions and events behind entry and exit criteria can be expressed by so-called *sentries*. Refer to the [Sentry](ref:#sentries-sentry) section on how sentries work and what kind of conditions can be expressed by them.
+The conditions and events behind entry and exit criteria can be expressed by so-called *sentries*. Refer to the [Sentry][sentry] section on how sentries work and what kind of conditions can be expressed by them.
 
 When any entry criterion is met, the plan item it is defined for performs the state transition from `AVAILABLE` to `ENABLED`. While the plan item is not in state `AVAILABLE`, entry criteria are not relevant.
 
 Similarly, when any exit criterion is met, a plan item performs a state transition from any of the states `AVAILABE`, `ENABLED`, `DISABLED`, or `ACTIVE` to state `TERMINATED`.
 
-The details of plan item states and transitions are provided in the [Plan Item Lifecycles](ref:#concepts-plan-item-lifecycles) section.
+The details of plan item states and transitions are provided in the [Plan Item Lifecycles][lifecycle] section.
+
+[sentry]: {{< relref "reference/cmmn10/sentry.md" >}}
+[lifecycle]: {{< relref "reference/cmmn10/concepts/lifecycle.md" >}}

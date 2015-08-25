@@ -7,12 +7,13 @@ menu:
   main:
     identifier: "cmmn-ref-markers-repetition-rule"
     parent: "cmmn-ref-markers"
+    pre: "Controls whether a Task, Stage or Milestone can have repetitions."
 
 ---
 
 **Can be used with**: [Task]({{< relref "reference/cmmn10/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}), [Milestone]({{< relref "reference/cmmn10/milestone.md" >}})
 
-{{< img src="../img/repetition-rule-marker.png" title="Repetition Rule Marker" >}}
+{{< cmmn-symbol type="marker-repetition" >}}
 
 Under which conditions a plan item is *repeatable* can be specified by a *repetition rule*.
 

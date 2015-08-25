@@ -7,12 +7,13 @@ menu:
   main:
     identifier: "cmmn-ref-tasks-process"
     parent: "cmmn-ref-tasks"
+    pre: "Allows invoking a BPMN 2.0 Process."
 
 ---
 
 A *process task* can be used to invoke a BPMN 2.0 process from a case.
 
-<img class="img-responsive" src="ref:asset:/assets/cmmn/process-task.png"/>
+{{< cmmn-symbol type="process-task" >}}
 
 A process task is a regular task that requires an attribute `processRef` which references a process definition by its key. Such a process task can be defined as follows:
 
@@ -40,11 +41,11 @@ Note: The default value for the attribute `isBlocking` is `true`. To define a `n
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess" isBlocking="false" />
 ```
 
-## Transactional Behavior
+# Transactional Behavior
 
-The activation of the process task as well as the creation and execution of the process instance are performed in the same transaction. The transaction is executed until a wait state or an asynchronous continuation is reached inside the called process instance (for further details read the [Transactions in Processes](ref:/guides/user-guide/#process-engine-transactions-in-processes) section of the user guide). To launch a process instance asynchronously it is possible to declare the process' start event as asynchronous with the XML attribute `asyncBefore="true"`  (see [Asynchronous Instantiation](ref:/api-references/bpmn20/#events-start-events-asynchronous-instantiation)).
+The activation of the process task as well as the creation and execution of the process instance are performed in the same transaction. The transaction is executed until a wait state or an asynchronous continuation is reached inside the called process instance (for further details read the [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) section of the user guide). To launch a process instance asynchronously it is possible to declare the process' start event as asynchronous with the XML attribute `asyncBefore="true"`  (see [Asynchronous Instantiation]({{< relref "reference/bpmn20/events/start-events.md" >}})).
 
-## Process Binding
+# Process Binding
 
 By default, the process task creates a new process instance of the latest process definition with the specified key. In order to specify a different version of a process, it is possible to define a binding with the Camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
 
@@ -63,7 +64,7 @@ The following is an example of a process task that calls the `checkCreditProcess
 
 Note: It is also possible to use an expression for the attribute `processVersion` that must resolve to an integer when the task is executed.
 
-## Exchange Variables
+# Exchange Variables
 
 The Camunda custom extensions elements `in` and `out` allow to exchange variables between the process task (in a case instance) and the process instance that it creates: `in` elements of a process task map case variables to input variables of the launched process instance and `out` mappings of a process task map output variables of the process instance to case variables, e.g.,
 
@@ -105,7 +106,7 @@ Furthermore, the process task can be configured to pass all variables to the cal
 Note: The variables keep their names.
 
 
-## Pass a Business Key
+# Pass a Business Key
 
 In addition to [exchanging variables](#tasks-process-task-exchange-variables), it is possible to pass a business key to the called process instance. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
@@ -129,23 +130,23 @@ If the business key of the called process instance should be different than the 
 </processTask>
 ```
 
-## Camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaprocessbinding">camunda:processBinding</a>,
-      <a href="ref:#custom-extensions-camunda-extension-attributes-camundaprocessversion">camunda:processVersion</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processbinding" >}}">camunda:processBinding</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processversion" >}}">camunda:processVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundain">camunda:in</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaout">camunda:out</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundacaseexecutionlistener">camunda:caseExecutionListener</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

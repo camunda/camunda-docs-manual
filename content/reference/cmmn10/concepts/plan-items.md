@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "cmmn-ref-concepts-plan-items-and-definitions"
     parent: "cmmn-ref-concepts"
+    pre: "Understand how to compose a Case out of different Tasks."
 
 ---
 

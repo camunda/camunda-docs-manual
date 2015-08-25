@@ -39,7 +39,7 @@ An error event definition references an error element. The following is an examp
 ```
 
 You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
-[Throwing BPMN Errors from Delegation Code](ref:/guides/user-guide/#process-engine-delegation-code-throwing-bpmn-errors-from-delegation-code) section of the [User Guide](ref:/guides/user-guide/) for more information.
+[Throwing BPMN Errors from Delegation Code](ref:{{< relref "user-guide/process-engine/delegation-code.md" >}}-throwing-bpmn-errors-from-delegation-code) section of the [User Guide](ref:/guides/user-guide/) for more information.
 
 Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:
 

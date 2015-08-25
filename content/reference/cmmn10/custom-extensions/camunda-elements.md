@@ -7,13 +7,14 @@ menu:
   main:
     identifier: "cmmn-ref-extensions-elements"
     parent: "cmmn-ref-extensions"
+    pre: "Reference of Camunda Extension Elements for CMMN."
 
 ---
 
 
 The following elements are extension elements for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 
-## camunda:caseExecutionListener
+# camunda:caseExecutionListener
 
 <table class="table table-striped">
   <tr>
@@ -33,21 +34,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -66,29 +67,29 @@ The following elements are extension elements for the `camunda` namespace `http:
     <th>Parent elements</th>
     <td colspan="2">
       Case,
-      <a href="ref:#tasks-human-task">Human Task</a>,
-      <a href="ref:#tasks-process-task">Process Task</a>,
-      <a href="ref:#tasks-case-task">Case Task</a>,
-      <a href="ref:#grouping-tasks-stage">Stage</a>,
-      <a href="ref:#milestones-milestone">Milestone</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>,
+      <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a>,
+      <a href="{{< relref "reference/cmmn10/milestone.md" >}}">Milestone</a>,
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
 
-## camunda:expression
+# camunda:expression
 
 <table class="table table-striped">
 <tr>
   <th>Description</th>
   <td colspan="2">
-    Defines an expression to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
   </td>
 </tr>
 <tr>
@@ -112,7 +113,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 <tr>
   <th>Parent elements</th>
   <td colspan="2">
-    <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+    <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>
   </td>
 </tr>
 <tr>
@@ -123,13 +124,13 @@ The following elements are extension elements for the `camunda` namespace `http:
 </tr>
 </table>
 
-## camunda:field
+# camunda:field
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -158,26 +159,26 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundaexpression">camunda:expression</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundastring">camunda:string</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-expression" >}}">camunda:expression</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-string" >}}">camunda:string</a>
     </td>
   </tr>
 </table>
 
-## camunda:in
+# camunda:in
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td colspan="2">
-      This element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}-exchange-variables">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}-exchange-variables">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>
@@ -230,8 +231,8 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#tasks-process-task">Process Task</a>,
-      <a href="ref:#tasks-case-task">Case Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>
     </td>
   </tr>
   <tr>
@@ -243,13 +244,13 @@ The following elements are extension elements for the `camunda` namespace `http:
 </table>
 
 
-## camunda:out
+# camunda:out
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td colspan="2">
-      This element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="ref:#tasks-process-task-exchange-variables">passing variables to called process</a> or <a href="ref:#tasks-case-task-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}-exchange-variables">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}-exchange-variables">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>
@@ -295,8 +296,8 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#tasks-process-task">Process Task</a>,
-      <a href="ref:#tasks-case-task">Case Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>
     </td>
   </tr>
   <tr>
@@ -307,7 +308,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-## camunda:repetitionCriterion
+# camunda:repetitionCriterion
 
 <table class="table table-striped">
   <tr>
@@ -339,7 +340,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-## camunda:script
+# camunda:script
 
 <table class="table table-striped">
   <tr>
@@ -359,7 +360,7 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>resource</code></td>
     <td>
-      equivalent to <a href="ref:#custom-extensions-camunda-extension-attributes-camundaresource">
+      equivalent to <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-resource" >}}">
       camunda:resource</a>
     </td>
   </tr>
@@ -378,7 +379,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundavariablelistener">
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">
         camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
@@ -392,13 +393,13 @@ The following elements are extension elements for the `camunda` namespace `http:
 </table>
 
 
-## camunda:string
+# camunda:string
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines a String value to inject in delegated classes (see <a href="/guides/user-guide/#process-engine-delegation-code-field-injection">Field Injection</a>).
+      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -422,7 +423,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>
     </td>
   </tr>
   <tr>
@@ -433,7 +434,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-## camunda:taskListener
+# camunda:taskListener
 
 <table class="table table-striped">
   <tr>
@@ -453,21 +454,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -485,19 +486,19 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="ref:#tasks-human-task">Human Task</a>
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
 
-## camunda:variableListener
+# camunda:variableListener
 
 <table class="table table-striped">
   <tr>
@@ -517,21 +518,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaclass">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundaexpression">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="ref:#custom-extensions-camunda-extension-attributes-camundadelegateexpression">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -550,17 +551,17 @@ The following elements are extension elements for the `camunda` namespace `http:
     <th>Parent elements</th>
     <td colspan="2">
       Case Plan Model,
-      <a href="ref:#grouping-tasks-stage">Stage</a>,
-      <a href="ref:#tasks-human-task">Human Task</a>,
-      <a href="ref:#tasks-process-task">Process Task</a>,
-      <a href="ref:#tasks-case-task">Case Task</a>
+      <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">Human Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">Process Task</a>,
+      <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}">Case Task</a>
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundafield">camunda:field</a>,
-      <a href="ref:#custom-extensions-camunda-extension-elements-camundascript">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>

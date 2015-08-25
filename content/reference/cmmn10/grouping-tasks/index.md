@@ -1,6 +1,7 @@
 ---
 title: "Grouping Tasks"
 weight: 40
+layout: "section-list"
 
 menu:
   main:
@@ -8,3 +9,5 @@ menu:
     parent: "cmmn-ref"
 
 ---
+
+Multiple tasks can be grouped together using a Stage.
