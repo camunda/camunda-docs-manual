@@ -131,7 +131,7 @@ The following APIs / behavior has changed:
 
 In the remainder of this section, we walk through these changes in detail.
 
-## The `form-field` directive
+## The `form-field` Directive
 
 The form field directive is not supported in 7.2. HTML controls using the `form-field` directive need to be migrated.
 
@@ -140,7 +140,7 @@ The `form-field` directive was replaced by
 * `cam-variable-name`: provides the name of the variable.
 * `cam-variable-type`: provides the type of the variable.
 
-### The `form-field` directive on Input Fields
+### The `form-field` Directive on Input Fields
 
 In 7.1, the `form-field` directive was used on input fields of the following form
 
@@ -291,15 +291,15 @@ In 7.2, it has the following form:
           cam-variable-type="String"></textarea>
 ```
 
-## Fetching additional variables
+## Fetching Additional Variables
 
 In 7.1 all variables from the process instance scope were fetched. In 7.2 the form needs to declare the variables it wants to fetch. This can be achieved declaratively or programmatically.
 
-### Fetching a variable using `cam-variable-name`
+### Fetching a Variable Using `cam-variable-name`
 
 If you use the `cam-variable-name` directive, the corresponding process variable will be fetched.
 
-### Fetching a variable using JavaScript
+### Fetching a Variable Using JavaScript
 
 Additional variables can be fetched by hooking into the form lifecycle.
 
@@ -333,7 +333,7 @@ As of version 7.2, Cockpit uses updated (and unpatched) versions of AngularJS (1
 
 First of all, __bootstrap.js is not used anymore__ (it has been replaced by the angular-ui/bootstrap project), Only the CSS parts are kept (and they are being rewritten in order to leverage less compilation and avoid unnecessary declarations).
 
-## JS promises
+## JS Promises
 
 The most critical change is probably the way JavaScript promises are implemented/used. If you had something like this in the 7.1 release:
 
@@ -353,7 +353,7 @@ SomeResource.$promise.then(function(response) {
 });
 ```
 
-## Dialogs / modal windows
+## Dialog/Modal Windows
 
 Also widely used in web interfaces, the dialogues (a.k.a. modal windows) were completely rewritten. With the 7.1 release, you might have something like:
 

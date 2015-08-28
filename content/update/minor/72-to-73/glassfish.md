@@ -60,7 +60,7 @@ Copy the following libraries from `$GLASSFISH_DISTRIBUTION/modules/lib` to the f
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 
-# 4. Maintain the BPM platform configuration
+# 4. Maintain the BPM Platform Configuration
 
 If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
 

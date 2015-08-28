@@ -46,12 +46,12 @@ The first step consists in updating the database.
 
     * `$DATABASENAME_engine_7.2_to_7.3.sql`
     * `$DATABASENAME_identity_7.2_to_7.3.sql`
- 
+
     The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
-## Special considerations
+## Special Considerations
 
 ### Microsoft SQL Server
 
@@ -124,7 +124,7 @@ Server side:
 
 * [Replacing Jackson 1 with Jackson 2]({{< relref "#replacing-jackson-1-with-jackson-2" >}})
 
-## Replace ngDefine with requireJS
+## Replace ngDefine With requireJS
 
 As of version 7.3, the use of [ngDefine][ng-define] in Cockpit and Admin Plugins is deprecated. You are encouraged to use [requireJS][requirejs] instead.
 
@@ -162,7 +162,7 @@ define([
 ```
 
 
-## Review usage of angular-ui
+## Review Usage of angular-ui
 
 In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, the [angular-ui][angular-ui], which is __not supported anymore__ has been partially replaced by [angular-bootstrap][angular-bootstrap].
 
@@ -201,7 +201,7 @@ Filters which are __not availabe anymore__:
 - `inflector`
 - `unique`
 
-## Review usage of bootstrap
+## Review Usage of bootstrap
 
 In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been upgraded from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
 
@@ -265,7 +265,7 @@ The following labels must be added to the Tasklist locale file:
 
 Have a look at the [english translation file](https://github.com/camunda/camunda-tasklist-translations/blob/master/locales/en.json) for a basis to translate.
 
-# Notewothy new Features
+# Notewothy New Features
 
 This section contains details and  considerations about new features which are noteworthy in the context of updates
 

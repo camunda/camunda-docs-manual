@@ -22,7 +22,7 @@ This guide uses a number of variables to denote common path names and constants:
 {{< /note >}}
 
 
-# Migrate your Database
+# Migrate Your Database
 
 For migration from **Camunda BPM 7.0** to **Camunda BPM 7.1**, the provided upgrade scripts that match your database have to be executed.
 With a pre-packaged distribution, the upgrade scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
@@ -32,7 +32,7 @@ Check for [available database patch scripts]({{< relref "update/patch-level.md#d
 Regardless of the version you are migrating from, the main upgrade script is `$DATABASE_engine_7.0_to_7.1.sql` and has to be executed next.
 
 
-# Migrate your Process Application
+# Migrate Your Process Application
 
 To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you need to follow these steps:
 
@@ -40,11 +40,12 @@ To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you
   There you have two choices: If you are using `camunda.taskForm` in your process application and don't want to update all your jsf pages and beans you should use `@Named("camunda.taskForm")`,
   otherwise you should use `@Named("camundaTaskForm")`. Your application server should write an error or a warning if you use the wrong one. So be careful! However, we recommend that you use the annotation `@Named("camundaTaskForm")`.
 
+
 # Migrate the Server
 
 ## JBoss AS 7.1.3 to 7.2.0
 
-### Upgrade the JBoss application server
+### Upgrade the JBoss Application Server
 
 Camunda BPM 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
 The preferred upgrade steps are:

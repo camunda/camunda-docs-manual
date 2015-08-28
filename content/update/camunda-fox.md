@@ -27,7 +27,7 @@ This guide uses a  number of variables to denote common path names and constants
 Before you can start with the migration from Camunda fox to Camunda BPM, we recommend that you [download](http://camunda.org/download) the pre-packaged distribution corresponding to your Camunda fox server.
 
 
-# Migrate your Process Application
+# Migrate Your Process Application
 
 To migrate your process application from Camunda fox to Camunda BPM, you need to follow these steps:
 
@@ -59,7 +59,7 @@ To migrate your process application from Camunda fox to Camunda BPM, you need to
         *   Old JNDI name: `java:global/camunda-fox-platform/process-engine/PlatformService!com.camunda.fox.platform.api.ProcessEngineService`
         *   New JNDI name: `java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService`
 
-## Which Camunda fox class names have changed?
+## Which Camunda fox Class Names Have Changed?
 
 <table class="table table-striped">
   <thead>
@@ -84,7 +84,7 @@ To migrate your process application from Camunda fox to Camunda BPM, you need to
 </table>
 
 
-# Migrate your Database
+# Migrate Your Database
 
 Be aware that there were major changes in our database structure. For migration from **Camunda fox EE 6.2** and **Camunda fox CE 1.34** we recommend to take a look at our migration scripts. These are located in the following folder of your downloaded pre-packaged distribution: `$DISTRIBUTION_PATH/sql/upgrade`. To perform the migration of your database, choose the corresponding upgrade script `$DATABASE_engine_6.2_to_7.0` according to your database platform and run it.
 
@@ -93,7 +93,7 @@ Be aware that there were major changes in our database structure. For migration 
 
 ## JBoss AS 7.1.3
 
-### Upgrade the application server modules (JBoss)
+### Upgrade the Application Server Modules (JBoss)
 
 * Delete the following folders:
   * `$FOX_HOME/modules/com/camunda/`
@@ -149,7 +149,7 @@ Add `authorizationEnabled` and `jobExecutorDeploymentAware` properties to the co
 
 Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
-### Replace the Camunda fox webapps with Camunda BPM webapps (JBoss)
+### Replace the Camunda fox Webapps With Camunda BPM Webapps (JBoss)
 
 * Undeploy the following Camunda fox webapps which are in the folder `$FOX_HOME/standalone/deployments`:
   * `fox-cockpit-$FOX_VERSION.war`
@@ -165,7 +165,7 @@ For more details about installing the Camunda BPM webapps read the [installation
 
 ## GlassFish 3.1
 
-### Clean up the `$FOX_HOME/glassfish/domains/<domain>/config/domain.xml`
+### Clean Up the `$FOX_HOME/glassfish/domains/<domain>/config/domain.xml`
 
 Remove the following applications:
 
@@ -294,7 +294,7 @@ to:
       </server>
     </servers>
 
-### Upgrade the application server modules (GlassFish)
+### Upgrade the Application Server Modules (GlassFish)
 
 * Delete the following modules from the folder `$FOX_HOME/glassfish/lib/`:
   * `fox-engine-$FOX_VERSION.jar`
@@ -312,7 +312,7 @@ to:
 
 Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
-### Replace the Camunda fox webapps with Camunda BPM webapps (GlassFish)
+### Replace the Camunda fox Webapps With Camunda BPM Webapps (GlassFish)
 
 * The Camunda fox webapps have been already deleted in the previous steps. So you can additionally clean up the `$FOX_HOME/glassfish/domains/<domain>/autodeploy/` folder and delete the following artifacts:
   * `fox-cockpit-glassfish-$FOX_VERSION.war`
@@ -326,13 +326,13 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
 ## IBM WebSphere Application Server
 
-### Undeploy Camunda fox webapps
+### Undeploy Camunda fox Webapps
 
 * Open the WebSphere Integrated Solutions Console.
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`
 * Select `fox-cockpit-was-$FOX_VERSION.war` and `fox-cycle-was-$FOX_VERSION.war` and uninstall them.
 
-### Upgrade the application server modules (IBM WebSphere Applicaton Server)
+### Upgrade the Application Server Modules (IBM WebSphere Applicaton Server)
 
 * Open the WebSphere Integrated Solutions Console.
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`
@@ -352,7 +352,7 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
 Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 
-### Deploy Camunda BPM webapps
+### Deploy Camunda BPM Webapps
 
 * Follow the installation instructions to deploy Camunda BPM webapps (like Cycle, Cockpit, etc.).
 * Furthermore, you can delete the corresponding Cockpit tables because they are not needed anymore.

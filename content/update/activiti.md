@@ -65,13 +65,13 @@ Make sure that you have the Camunda Maven Repository set correctly:
 ```
 
 
-# Adjust package names
+# Adjust Package Names
 
 Just do an **Organize Imports** in your IDE, that should do the trick as the API class names have not changed.
 Your IDE should figure out the rest for you.
 For Eclipse this can be done by clicking on the project and hitting `Ctrl-Shift-O`.
 
-## Which Activiti class names have changed?
+## Which Activiti Class Names Have Changed?
 
 <table class="table table-striped">
   <thead>

@@ -15,7 +15,7 @@ menu:
 This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.3.2` to `7.3.3`.
 
 {{< enterprise >}}
-Please note that Patch Level Upgrades are only provided to enterprise customers, they are not available in the community edition.  
+Please note that Patch Level Upgrades are only provided to enterprise customers, they are not available in the community edition.
 {{< /enterprise >}}
 
 {{< note title="Reading this Guide" class="info" >}}
@@ -98,9 +98,9 @@ Please note that the following procedure may differ for cluster scenarios. Conta
 * Exchange Camunda BPM libraries, tools and webapps (EAR, RAR, Subsystem (JBoss), Shared Libs) - essentially, follow the [installation guide]({{< relref "installation/full/index.md" >}}) for your server.
 * Restart the server
 
-# Application with Embedded Process Engine
+# Application With Embedded Process Engine
 
-In case you use an embedded process engine inside your Java Application, you need to 
+In case you use an embedded process engine inside your Java Application, you need to
 
 1. update the Process Engine librarayin your dependency management (Apache MAven, Gradle ...),
 2. re-package the application,
@@ -113,6 +113,6 @@ In case you installed the [Standalone Webapplication Distribution]({{< relref "u
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.
 
-# Applying multiple Patches at once
+# Applying Multiple Patches at Once
 
 It is possible to apply multiple patches in one go (e.g., updateing from `7.1.0` to `7.1.4`).

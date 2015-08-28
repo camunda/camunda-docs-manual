@@ -46,7 +46,7 @@ Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new
 
 In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, and Camunda Spin. If you use any of these extensions, the following upgrade steps apply:
 
-## LDAP integration
+## LDAP Integration
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/` if present:
 

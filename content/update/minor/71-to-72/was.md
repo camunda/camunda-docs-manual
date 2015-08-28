@@ -26,7 +26,7 @@ The upgrade procedure takes the following steps:
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 {{< note title="Changing Platform Configuration" class="info" >}}
-Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the 
+Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the
 [deployment descriptor reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 {{< /note >}}
 
@@ -48,7 +48,7 @@ After stopping the server, delete all Camunda BPM related libraries from the `$W
 
 Note that the non-Camunda artifacts may be depended on by other applications.
 
-## 2. Add the new Camunda Libraries
+## 2. Add the New Camunda Libraries
 
 Camunda BPM 7.2 ships a new installation approach for the Camunda BPM platform on IBM was. The Camunda BPM libraries are now available through a shared library the server administrator has to create.
 
@@ -77,7 +77,7 @@ There are artifacts for Camunda Connect, Camunda Spin, the Freemarker template l
 If you do not want to use Camunda Connect or Camunda Spin, you cannot use the default BPM platform configuration that is contained in the Camunda EAR. In this case, make sure to change the configuration location as described [here][configuration-location]. As a starting point, you can copy the default configuration from `$WAS_DISTRIBUTION/modules/camunda-ibm-was-ear-$PLATFORM_VERSION.ear/camunda-ibm-was-service-$PLATFORM_VERSION.jar/META-INF/bpm-platform.xml` and remove the `<plugin>` entries for the classes `ConnectProcessEnginePlugin` and `SpinProcessEnginePlugin`.
 {{< /note >}}
 
-#### Camunda Connect
+### Camunda Connect
 
 If Camunda Connect is intended to be used, copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
 
@@ -106,7 +106,7 @@ If you use a custom BPM platform configuration file, Camunda Connect functionali
 ```
 
 
-#### Camunda Spin
+### Camunda Spin
 
 If Camunda Spin is intended to be used, copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
 
@@ -134,13 +134,13 @@ If you use a custom BPM platform configuration file, Camunda Spin functionality 
 </bpm-platform>
 ```
 
-#### Groovy Scripting
+### Groovy Scripting
 
 If Groovy is to be used as a scripting language, add the following artifacts to the `Camunda` shared library folder:
 
 * `groovy-all-$GROOVY_VERSION.jar`
 
-#### Freemarker Integration
+### Freemarker Integration
 
 If the Camunda integration for Freemarker is intended to be used, add the following artifacts to the `Camunda` shared library folder:
 
@@ -152,7 +152,7 @@ If the Camunda integration for Freemarker is intended to be used, add the follow
 
 ## 4. Configure Process Engines
 
-#### Script Variable Storing
+### Script Variable Storing
 
 As of 7.2, the default behavior of script variables has changed. Script variables are set in e.g. a BPMN Script Task that uses a language such as JavaScript or Groovy. In previous versions, the process engine automatically stored all script variables as process variables. Starting with 7.2, this behavior has changed and the process engine does not automatically store script variables any longer. You can re-enable the legacy behavior by setting the boolean property `autoStoreScriptVariables` to `true` for any process engine in the `bpm-platform.xml`:
 
@@ -188,14 +188,14 @@ As of version 7.2, the Camunda job executor resource adapter (RAR) that you unin
 
 ## 7. Install the Camunda Web Applications
 
-#### Camunda REST API
+### Camunda REST API
 
 The following steps are required to upgrade the Camunda REST API on an IBM was instance:
 
 1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` to your IBM was instance.
 2. Associate the web application with the `Camunda` shared library.
 
-#### Camunda Cockpit, Tasklist, and Admin
+### Camunda Cockpit, Tasklist, and Admin
 
 The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on an IBM was instance:
 
