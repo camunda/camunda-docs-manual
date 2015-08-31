@@ -15,6 +15,7 @@ menu:
 
 A service task is used to invoke services. In camunda this is done by calling Java code.
 
+<div data-bpmn-symbol="task/servicetask"></div>
 <div data-bpmn-symbol="servicetask" data-bpmn-symbol-name="Service Task"></div>
 
 There are 4 ways of declaring how to invoke Java logic:

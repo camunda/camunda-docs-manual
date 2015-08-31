@@ -89,7 +89,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 <tr>
   <th>Description</th>
   <td colspan="2">
-    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
   </td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -178,7 +178,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      This element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}-exchange-variables">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed to the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md#exchange-variables" >}}">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md#exchange-variables" >}}">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>
@@ -250,7 +250,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      This element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}-exchange-variables">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}-exchange-variables">passing variables to called case</a> for more information.
+      This element specifies variables which should be passed back from the sub instance (process instance or case instance), see <a href="{{< relref "reference/cmmn10/tasks/process-task.md#exchange-variables" >}}">passing variables to called process</a> or <a href="{{< relref "reference/cmmn10/tasks/case-task.md#exchange-variables" >}}">passing variables to called case</a> for more information.
     </td>
   </tr>
   <tr>
@@ -399,7 +399,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>

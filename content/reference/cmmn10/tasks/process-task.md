@@ -108,7 +108,7 @@ Note: The variables keep their names.
 
 # Pass a Business Key
 
-In addition to [exchanging variables](#tasks-process-task-exchange-variables), it is possible to pass a business key to the called process instance. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
+In addition to [exchanging variables]({{< relref "reference/cmmn10/tasks/process-task.md#exchange-variables" >}}), it is possible to pass a business key to the called process instance. Since a business key is immutable, this is one way mapping. It is not possible to have output mapping for a business key.
 
 The following example shows how the business key of the calling case instance can be passed to the called process instance. In this case, the calling case instance and the called process instance end up with the same business key.
 
