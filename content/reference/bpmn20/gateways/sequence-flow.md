@@ -26,7 +26,7 @@ A sequence flow is the connector between two elements of a process. After an ele
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-executionlistener" >}}">camunda:executionListener</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListener</a>
     </td>
   </tr>
   <tr>
@@ -93,7 +93,7 @@ on [script source][script-source] for more information).
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resource" >}}">camunda:resource</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resource" >}}">camunda:resource</a>
     </td>
   </tr>
   <tr>

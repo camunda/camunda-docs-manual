@@ -159,7 +159,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which process definition version of the subprocess the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-calledelementversion" >}}">camunda:calledElementVersion</a>
+      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
       is required, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
@@ -191,7 +191,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which process definition version of the subprocess the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-calledelementbinding" >}}">camunda:calledElementBinding</a>
+      The attribute specifies which process definition version of the subprocess the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>
       is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
@@ -348,7 +348,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which case definition version of the subcase the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-caseversion" >}}">camunda:caseVersion</a>
+      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>
       is required, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
     </td>
   </tr>
@@ -409,7 +409,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which case definition version of the subcase the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-casebinding" >}}">camunda:caseBinding</a> is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
+      The attribute specifies which case definition version of the subcase the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a> is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -464,8 +464,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
       <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -542,7 +542,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which decision definition version the task evaluates.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-decisionrefversion" >}}">camunda:decisionRefVersion</a>
+      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>
       is required.
     </td>
   </tr>
@@ -574,7 +574,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which decision definition version the task evaluates if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-decisionrefbinding" >}}">camunda:decisionRefBinding</a>
+      The attribute specifies which decision definition version the task evaluates if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefbinding" >}}">camunda:decisionRefBinding</a>
       is set to <code>version</code>.
     </td>
   </tr>
@@ -630,8 +630,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
       <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -849,8 +849,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
       <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Message Event Definition of <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a> or <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-executionlistener" >}}">camunda:executionListner</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#executionlistener" >}}">camunda:executionListner</a>
     </td>
   </tr>
 </table>
@@ -1082,7 +1082,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       <p>
-      The attribute specifies the process variable to save the return value of a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-expression" >}}">camunda:expression</a>.
+      The attribute specifies the process variable to save the return value of a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>.
       </p>
       <p>
         Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes unless the variable is a <a href="{{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
