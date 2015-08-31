@@ -12,7 +12,8 @@ menu:
 
 The XML datatype supports writing XML to Strings, output streams or writers.
 
-## Writing to a String:
+
+# Writing to a String:
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -25,7 +26,7 @@ String xml = element.toString();
 String value = element.attr("id").toString();
 ```
 
-## Writing to an output stream:
+# Writing to an Output Stream:
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -45,7 +46,7 @@ ouputStream = attr.toStream();
 attr.writeToStream(outputStream);
 ```
 
-## Write to writer
+# Write to Writer
 
 ```java
 import static org.camunda.spin.Spin.XML;

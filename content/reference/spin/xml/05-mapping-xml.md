@@ -12,7 +12,8 @@ menu:
 
 Spin can deserialize XML to Java objects and serialize the annotated Java objects to XML by integrating mapping features into its fluent API. JAXB annotations can be added to the involved Java classes to configure the (de-)serialization process but are not required.
 
-## Mapping between Representations:
+
+# Mapping between Representations:
 
 Assume we have a class `Customer` defined as follows:
 
@@ -33,7 +34,7 @@ public class Customer {
 }
 ```
 
-### Mapping XML to Java:
+## Mapping XML to Java:
 
 We can map the following XML object
 
@@ -54,7 +55,7 @@ String xmlInput = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><customer xmlns=\"h
 Customer customer = XML(xmlInput).mapTo(Customer.class);
 ```
 
-### Mapping Java to XML:
+## Mapping Java to XML:
 
 We can map the `customer` back to XML as follows:
 

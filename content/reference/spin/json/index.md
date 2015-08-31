@@ -1,5 +1,6 @@
 ---
-title: "Handling XML"
+title: "Handling JSON"
+layout: "section-list"
 weight: 20
 
 menu:

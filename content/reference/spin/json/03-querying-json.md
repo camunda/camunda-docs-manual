@@ -10,9 +10,10 @@ menu:
 
 ---
 
-The JSON datatype supports querying with the [JSONPath][json-path] query language.
+The JSON datatype supports querying with the [JSONPath](http://goessner.net/articles/JsonPath/) query language.
 
-## Querying an element
+
+# Querying an Element
 
 ```java
 import static org.camunda.spin.Spin.JSON;
@@ -22,7 +23,8 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 SpinJsonNode child = JSON(json).jsonPath("$.child[0]").element();
 ```
 
-## Querying an element list
+
+# Querying an Element List
 
 ```java
 import static org.camunda.spin.Spin.JSON;
@@ -32,7 +34,8 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 SpinList<SpinJsonNode> childs = JSON(json).jsonPath("$.child").elementList();
 ```
 
-## Querying a String
+
+# Querying a String
 
 ```java
 import static org.camunda.spin.Spin.JSON;
@@ -42,7 +45,8 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 String value = JSON(json).jsonPath("$.child[0].name").stringValue();
 ```
 
-## Querying a Number
+
+# Querying a Number
 
 ```java
 import static org.camunda.spin.Spin.JSON;
@@ -52,7 +56,8 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 Double count = JSON(json).jsonPath("$.number").numberValue();
 ```
 
-## Querying a Boolean
+
+# Querying a Boolean
 
 ```java
 import static org.camunda.spin.Spin.JSON;
@@ -62,7 +67,8 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 Boolean exists = JSON(json).jsonPath("$.boolean").boolValue();
 ```
 
-## Filtering a Query
+
+# Filtering a Query
 
 Be aware that a filtering expression - the expression in the `()` - is not allowed to contain double quotes!
 
@@ -73,5 +79,3 @@ String json = "{\"child\": [{\"id\": 1,\"name\": \"Lucy\",\"sex\": \"female\"},{
 
 SpinList<SpinJsonNode> girls = JSON(json).jsonPath("$.child[?(@.sex == 'female')]").elementList();
 ```
-
-[json-path]: http://goessner.net/articles/JsonPath/

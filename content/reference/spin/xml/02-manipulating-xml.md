@@ -12,9 +12,10 @@ menu:
 
 The XML data type supports manipulation of XML attributes and child elements.
 
-## Attributes
 
-### Checking for attributes in XML
+# Attributes
+
+## Checking for Attributes in XML
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -28,7 +29,7 @@ hasAttr = XML(xml).hasAttrNs("http://camunda.org/example", "id");
 assertTrue(hasAttr);
 ```
 
-### Reading attributes from XML
+## Reading Attributes from XML
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -77,8 +78,7 @@ List<String> names = XML(xml).attrNames();
 names = XML(xml).attrNames("http://camunda.org/example");
 ```
 
-
-### Writing attributes to XML
+## Writing Attributes to XML
 
 It is possible to set a new attribute value directly from the element wrapper or on the attribute wrapper.
 
@@ -106,7 +106,7 @@ SpinXmlDomAttribute attribute = XML(xml).attrNs("http://camunda.org/example", "n
 attribute.value("newName");
 ```
 
-### Removing attributes from XML
+## Removing Attributes from XML
 
 It is possible to remove an attribute from the element directly or to remove the attribute itself.
 
@@ -138,7 +138,8 @@ element = attribute.remove()
 assertFalse(element.hasAttrNs("http://camunda.org/example", "name"));
 ```
 
-## Text Content
+
+# Text Content
 
 It is possible to read and write the text content of an XML element with the `textContent` method.
 
@@ -151,10 +152,9 @@ element.textContent("Bar");
 ```
 
 
-## Child Elements
+# Child Elements
 
-
-### Reading child elements from XML
+## Reading Child Elements from XML
 
 Besides attributes you can also get a unique or all child elements of a specific type. Optionally, a namespace can be passed to the methods as first parameter.
 
@@ -171,8 +171,7 @@ SpinCollection<SpinXmlDomElement> items = XML(xml).childElements("item");
 SpinCollection<SpinXmlDomElement> ops = XML(xml).childElements("http://camunda.org/example", "ops");
 ```
 
-
-### Append child elements
+## Append Child Elements
 
 The method `append` is used to append a single or multiple child elements to an XML element.
 
@@ -188,7 +187,7 @@ SpinXmlTreeElement child3 = XML("<child/>");
 root.append(child1, child2, child3);
 ```
 
-### Remove child elements
+## Remove Child Elements
 
 To remove child elements from an XML element the method `remove` is used. It accepts single or multiple child elements and removes them from the parent element.
 
@@ -200,8 +199,7 @@ SpinXmlTreeElement root = XML("<root><child/><child/><child/></root>");
 root.remove(root.childElements("child"));
 ```
 
-
-### Replace elements
+## Replace Elements
 
 To replace an element or a child element the methods `replace` and `replaceChild` are used.
 
@@ -218,7 +216,7 @@ root.childElement("order").replace(child2);
 ```
 
 
-## Manipulating XML using a Script Language
+# Manipulating XML using a Script Language
 
 XML can be manipulated from script languages in the same was as from Java. Since script languages use dynamic typing, you do not need to hint the data format but you can use autodetection. The following example demonstrates how to access an attribute and a child element from XML in Python:
 

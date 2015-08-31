@@ -13,7 +13,8 @@ menu:
 
 The JSON datatype supports reading JSON from Strings or Readers.
 
-## Reading JSON from a String:
+
+# Reading JSON from a String:
 
 ```java
 import static org.camunda.spin.Spin.*;
@@ -34,7 +35,8 @@ SpinJsonNode json = JSON("{\"customer\": \"Kermit\"}");
 
 String values that represent JSON primitive values can also be read. For example, `JSON("true")` returns a `SpinJsonNode` that represents the boolean value `true`.
 
-## Reading JSON from a Reader:
+
+# Reading JSON from a Reader:
 
 Spin also supports reading JSON from an instance of `java.io.Reader`:
 
@@ -55,7 +57,8 @@ InputStreamReader reader = new InputStreamReader(fis, "utf-8");
 SpinJsonNode json = JSON(reader);
 ```
 
-## Reading JSON using a Script Language
+
+# Reading JSON using a Script Language
 
 JSON can be read from script languages in the same way as from Java. Since script languages use dynamic typing, you do not need to hint the data format but you can use autodetection. The following example demonstrates how to read JSON in Javascript:
 
@@ -63,7 +66,8 @@ JSON can be read from script languages in the same way as from Java. Since scrip
 var customer = S('{"customer": "Kermit"}');
 ```
 
-## Reading JSON Properties
+
+# Reading JSON Properties
 
 To fetch properties from the JSON tree you can use `.prop("name")`. This will return the property as SpinJsonNode and you can use this to get the value of the property as the following examples will demonstrate:
 
@@ -83,14 +87,14 @@ var customerProperty = json.prop("customer");
 var customerName = customerProperty.value();
 ```
 
-### The different value types
+## The Different Value Types
 
 With `.value()` you will fetch a String representation of the value. There are also:
 
   * `.numberValue()` - will fetch a number representation of the value or throws an exception if the value is not a number
   * `.boolValue()` - will fetch a boolean representation of the value or throws an exception if the value is not a bool
 
-### Fetch array of data
+## Fetch Array of Data
 
 You can also fetch a list of items if your property is an array of data.
 
@@ -114,7 +118,7 @@ var customer = customers.get(0)
 var customerName = customer.value();
 ```
 
-### Fetch field names
+## Fetch Field Names
 
 Spin allows us to use the `.fieldNames()` method to fetch the names of all child nodes and properties in a node. The following example shows you how to use `.fieldNames()` in Java and Javascript.
 
@@ -134,7 +138,8 @@ var fieldNames = json.fieldNames();
 var fieldName1 = fieldNames.get(0)
 ```
 
-## Set JSON Properties
+
+# Set JSON Properties
 
 To set a property you can use the `.prop("name", object)` method. This allows you to set one of the following 5 simple types:
 
@@ -187,7 +192,8 @@ or one of the 2 following container types:
   json.prop("new_array", object);
   ```
 
-## Remove JSON Properties
+
+# Remove JSON Properties
 
 There are 2 ways to remove properties from a JSON object.
 
@@ -224,7 +230,8 @@ json.deleteProp("customer");
 json.deleteProp(list);
 ```
 
-## Work with JSON Arrays
+
+# Work with JSON Arrays
 
 JSON arrays represent a list of objects. Spin offers the following methods to manipulate this list:
 
@@ -257,7 +264,7 @@ These methods allow us to work with JSON arrays in a fast way. To show this, we 
 
 So let's see how we can manipulate this list in some examples.
 
-### Example 1 - Get the index of testdata2 and the last occurrence of '1':
+## Example 1 - Get the Index of 'testdata2' and the Last Occurrence of '1':
 
 ```java
 import static org.camunda.spin.Spin.*;
@@ -277,7 +284,7 @@ var i = list.indexOf("testdata2"); // should be 1
 var j = list.lastIndexOf(1); // Should be '7'
 ```
 
-### Example 2 - Add and Remove data the the list:
+## Example 2 - Add and Remove Data to/from the list:
 
 ```java
 import static org.camunda.spin.Spin.*;
@@ -308,5 +315,3 @@ list.removeAt(1, "test3"); // Aaaand now, it is gone ;)
 list.insertBefore(true, "test4"); // now there should be test4 on index 4
 list.insertAfter(true, 5); // So now 5 is on index 6
 ```
-
-[jackson-parser-features]: https://fasterxml.github.io/jackson-core/javadoc/2.4/com/fasterxml/jackson/core/JsonParser.Feature.html

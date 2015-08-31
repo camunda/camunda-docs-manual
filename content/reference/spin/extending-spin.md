@@ -21,6 +21,7 @@ In order to provide a custom configurator, you have to
 * Add the configurator's fully qualified classname to a file named `META-INF/services/org.camunda.spin.spi.DataFormatConfigurator`
 * Ensure that the artifact containing the configurator is reachable from Spin's classloader
 
+
 # Custom Dataformats
 
 A Spin data format is an implementation of the interface `org.camunda.spin.spi.DataFormat`. An implementation of this interface can be registered by implementing the SPI `org.camunda.spin.spi.DataFormatProvider`. Spin uses the Java platform's service loader mechanism to lookup provider implementations at runtime.

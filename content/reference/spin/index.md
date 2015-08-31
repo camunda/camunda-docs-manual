@@ -1,6 +1,7 @@
 ---
 
 title: 'Camunda Spin Dataformat Reference'
+layout: "section-list"
 weight: 60
 
 menu:
@@ -20,12 +21,12 @@ lightweight wrapper objects.
 Spin can be used in any Java-based application by adding the following maven
 dependency to your `pom.xml` file:
 
-<div class="alert alert-info">
+{{< note title="Camunda BOM" >}}
   If you use Spin in combination with other Camunda BPM projects (such as the Camunda process engine),
-  please import the <a class="alert-link" href="ref:/guides/getting-started-guides/#apache-maven-the-camunda-bom">
+  please import the <a class="alert-link" href="/get-started/apache-maven/">
   Camunda BOM</a> to ensure that you use the Camunda Spin version matching your process engine
   version.
-</div>
+{{< /note >}}
 
 ```xml
 <dependencyManagement>
@@ -55,6 +56,4 @@ dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-Camunda Spin is published to [maven central][1].
-
-[1]: http://search.maven.org/#search%7Cga%7C1%7Ccamunda-spin
+Camunda Spin is published to [maven central](http://search.maven.org/#search%7Cga%7C1%7Ccamunda-spin).

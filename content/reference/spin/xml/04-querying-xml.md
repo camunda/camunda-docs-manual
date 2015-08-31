@@ -12,7 +12,8 @@ menu:
 
 The XML datatype supports querying with the XPath 1.0 query language.
 
-## Querying an element
+
+# Querying an Element
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -22,7 +23,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 SpinXmlTreeElement child = XML(xml).xPath("/root/child").element();
 ```
 
-## Querying an element list
+
+# Querying an Element List
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -32,7 +34,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 SpinList<SpinXmlTreeElement> childs = XML(xml).xPath("/root/child/a").elementList();
 ```
 
-## Querying an attribute
+
+# Querying an Attribute
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -42,7 +45,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 SpinXmlTreeAttribute attribute = XML(xml).xPath("/root/child/@id").attribute();
 ```
 
-## Querying an attribute list
+
+# Querying an Attribute List
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -52,7 +56,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 SpinList<SpinXmlTreeAttribute> attributes = XML(xml).xPath("/root/child/a/@id").attributeList();
 ```
 
-## Querying a String
+
+# Querying a String
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -62,7 +67,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 String value = XML(xml).xPath("string(/root/child/@id)").string();
 ```
 
-## Querying a Number
+
+# Querying a Number
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -72,7 +78,8 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 Double count = XML(xml).xPath("count(/root/child/a)").number();
 ```
 
-## Querying a Boolean
+
+# Querying a Boolean
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -82,11 +89,12 @@ String xml = "<root><child id=\"child\"><a id=\"a\"/><a id=\"b\"/></child></root
 Boolean exists = XML(xml).xPath("boolean(/root/child)").bool();
 ```
 
-## Querying with namespaces
+
+# Querying with Namespaces
 
 To use namespaces in spin with xml you can choose one of the following methods or combine all 3 of them.
 
-### 1. Using auto detection
+## 1. Using Auto Detection
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -98,7 +106,7 @@ SpinXmlTreeElement child = XML(xml).xPath("/root/foo:child")
                                    .element();
 ```
 
-### 2. Using a single prefix - URI pair
+## 2. Using a Single Prefix - URI Pair
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -110,7 +118,7 @@ SpinXmlTreeElement child = XML(xml).xPath("/root/t:child")
                                    .element();
 ```
 
-### 3. Using a map of prefix - URI pairs
+## 3. Using a Map of Prefix - URI Pairs
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -126,8 +134,8 @@ SpinXmlTreeElement child = XML(xml).xPath("/root/t:child")
                                    .element();
 ```
 
-<div class="alert alert-info">
+{{< note class="info" >}}
   If you are using `xmlns="<URI>"` in your xml file, spin uses `DEFAULT` as prefix for the namespace.<br />
   E.g.: ```<root xmlns="http://camunda.org"></root>``` -- prefix: DEFAULT, namespace: http://camunda.org so you need
   to use `XML(xml).xPath("/DEFAULT:root")` to fetch the correct element.
-</dv>
+{{< /note >}}
