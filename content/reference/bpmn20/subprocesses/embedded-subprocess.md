@@ -7,9 +7,9 @@ menu:
   main:
     identifier: "bpmn-subprocess-embedded"
     parent: "bpmn-subprocess"
+    pre: "Group a set of flow nodes into a scope."
 
 ---
-
 
 A Subprocess is an activity that contains other activities, gateways, events, etc. which itself forms a process that is part of the bigger process. A Subprocess is completely defined inside a parent process (that's why it's often called an embedded Subprocess).
 
@@ -47,7 +47,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 </subProcess>
 ```
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -76,7 +76,7 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 </table>
 
 
-## Additional Resources
+# Additional Resources
 
 *   [Subprocesses](http://camunda.org/bpmn/reference.html#activities-subprocess) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 

@@ -7,16 +7,16 @@ menu:
   main:
     identifier: "bpmn-ref-events-cancel-and-compensation-events"
     parent: "bpmn-ref-events"
+    pre: "Events throwing / catching compensation and cancel transaction event."
 
 ---
 
-Cancel and compensation events occur in the context of the [transaction subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}). Please read that section first to understand the overall idea.
+# Cancel Events
 
 
 ## Cancel End Event
 
 The cancel end event can only be used in combination with a [transaction subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}). When the cancel end event is reached, a cancel event is thrown which must be caught by a cancel boundary event. The cancel boundary event then cancels the transaction and triggers compensation.
-
 
 ## Cancel Boundary Event
 
@@ -40,6 +40,7 @@ A cancel boundary event is defined as a typical boundary event:
 
 Since the cancel boundary event is always interrupting, the cancelActivity attribute is not required.
 
+# Compensation Events
 
 ## Intermediate Throwing Compensation Event
 
@@ -104,7 +105,7 @@ A compensation end event triggers compensation and the current path of execution
 </endEvent>
 ```
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>

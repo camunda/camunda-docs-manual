@@ -7,12 +7,13 @@ menu:
   main:
     identifier: "bpmn-ref-task-markers"
     parent: "bpmn-ref-tasks"
+    pre: "Markers control operational aspects like repetition."
 
 ---
 
 In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types.
 
-## Multiple Instance
+# Multiple Instance
 
 A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the `for each` construct: it allows execution of a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
 
@@ -110,7 +111,7 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -155,7 +156,7 @@ To get around this limitation the solution is to explicitly model the loop in yo
 
 Be assured that we have the loop marker in our backlog to be added to the engine.
 
-## Compensation
+# Compensation
 
 If an activity is used for compensating the effects of another activity it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.
 
@@ -173,7 +174,7 @@ In order to declare an activity to be a compensation handler, we need to set the
 <serviceTask id="undoBookHotel" isForCompensation="true" camunda:class="..." />
 ```
 
-## Additional Resources
+# Additional Resources
 
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 * [Transaction Subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}})

@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-events-signal-events"
     parent: "bpmn-ref-events"
-
+    pre: "Events catching / throwing signals."
 ---
 
 
@@ -23,8 +23,7 @@ This event can now be caught by all process instances which are interested. The 
 
 Note: It is important to understand that a signal event is broadcast to all active handlers. In of the example given above this means that all instances of the process catching the signal would receive the event.
 
-
-## Signal Event Definition
+# Signal Event Definition
 
 A signal event definition is declared using the signalEventDefinition element. The attribute `signalRef` references a signal element declared as a child element of the definitions root element. The following is an excerpt of a process in which a signal event is thrown and caught by intermediate events. The signalEventDefinitions reference the 'global' signal element.
 
@@ -51,7 +50,9 @@ A signal event definition is declared using the signalEventDefinition element. T
 
 __Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, event if they are part of different process instances.
 
-## Throwing Signal Events via API
+# Signal Api
+
+## Triggering (Throwing) Signals
 
 A signal can either be thrown by a process instance using a BPMN construct or programmatically using Java API. The following methods on the org.camunda.bpm.engine.RuntimeService can be used to throw a signal programmatically:
 
@@ -76,13 +77,11 @@ List<Execution> executions = runtimeService.createExecutionQuery()
 
 We could then use the signalEventReceived(String signalName, String executionId) method to deliver the signal to these executions.
 
-## Catching Signal Events
+# Catching Signal Events
 
-### Signal Start Event
+## Signal Start Event
 
-<p>
-<div data-bpmn-symbol="startevent/signal" />
-</p>
+<div data-bpmn-symbol="startevent/signal"></div>
 
 A signal start event can be used to start a process instance using a named signal.
 
@@ -109,11 +108,9 @@ The XML representation of a signal start event is the normal start event declara
 </startEvent>
 ```
 
-### Signal Intermediate Catching Event
+## Signal Intermediate Catching Event
 
-<p>
-<div data-bpmn-symbol="intermediatecatchevent/signal" />
-</p>
+<div data-bpmn-symbol="intermediatecatchevent/signal"></div>
 
 When a token arrives at the signal intermediate catching event, it will wait there until a signal with the proper name arrives.
 
@@ -123,7 +120,9 @@ When a token arrives at the signal intermediate catching event, it will wait the
 </intermediateCatchEvent>
 ```
 
-### camunda Extensions for Signal Intermediate Catching Event
+## Camunda Extensions
+
+The following extensions are supported for the Signal Intermediate Catching Event:
 
 <table class="table table-striped">
   <tr>
@@ -143,7 +142,7 @@ When a token arrives at the signal intermediate catching event, it will wait the
   </tr>
 </table>
 
-### Signal Boundary Event
+## Signal Boundary Event
 
 When an execution arrives in the activity to which the signal boundary event is attached, the signal boundary event catches signals with the proper name.
 
@@ -155,9 +154,9 @@ Note: Contrary to other events, such as the error boundary event, a signal bound
 </boundaryEvent>
 ```
 
-## Throwing Signal Events
+# Throwing Signal Events
 
-### Signal Intermediate Throwing Event
+## Signal Intermediate Throwing Event
 
 An intermediate throwing signal event throws a signal event for a defined signal.
 
@@ -184,7 +183,9 @@ An asynchronous signal event would look like this:
 </intermediateThrowEvent>
 ```
 
-### camunda Extensions for Signal Intermediate Throwing Event
+## Camunda Extensions
+
+The following extensions are spported for the Signal Intermediate Throwing Event:
 
 <table class="table table-striped">
   <tr>
@@ -207,7 +208,7 @@ An asynchronous signal event would look like this:
 </table>
 
 
-### Signal End Event
+## Signal End Event
 
 <div data-bpmn-symbol="endevent/signal"></div>
 
@@ -220,6 +221,6 @@ A signal end event throws a signal event for a defined signal and the current pa
 ```
 
 
-## Additional Resources
+# Additional Resources
 
 *   [Signal Events](http://camunda.org/bpmn/reference.html#events-signal) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

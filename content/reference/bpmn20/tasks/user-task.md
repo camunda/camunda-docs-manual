@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-user-task"
     parent: "bpmn-ref-tasks"
+    pre: "A task being performed by a human participant."
 
 ---
 
@@ -20,7 +21,7 @@ A user task is defined in XML as follows. The id attribute is required while the
 <userTask id="theTask" name="Important task" />
 ```
 
-## Description
+# Description
 
 A user task can have also a description. In fact, any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
 
@@ -36,6 +37,8 @@ The description text can be retrieved from the task in the standard Java way:
 ```java
 task.getDescription();
 ```
+
+# Properties
 
 ## Due Date
 
@@ -191,7 +194,7 @@ public class FakeLdapService {
 }
 ```
 
-## Forms
+# Forms
 
 It is possible to provide information to render a user task form by using the `camunda:formKey`
 attribute:
@@ -212,13 +215,13 @@ In custom applications, the value of the form key can be chosen freely. In a cus
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
 
-### Retrieving the form key using the form service.
+## Retrieving the form key using the form service.
 
 ```java
 String formKey = formService.getTaskFormData(someTaskId).getFormKey();
 ```
 
-### Retrieving the form using the task service
+## Retrieving the form using the task service
 
 When performing a task query, it is possible to retrieve the form key as well. This is most useful
 if the form keys need to be retrieved for a complete list of tasks:
@@ -237,7 +240,7 @@ for(Task task : tasks) {
 Note that it is required to call the `.initializeFormKeys()` method on the `TaskQuery` object to
 make sure the form keys are initialized.
 
-## camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

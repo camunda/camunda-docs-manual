@@ -7,9 +7,9 @@ menu:
   main:
     identifier: "bpmn-subprocess-call-activity"
     parent: "bpmn-subprocess"
+    pre: "Call a process from another process."
 
 ---
-
 
 BPMN 2.0 makes a distinction between an embedded subprocess and a call activity. From a conceptual point of view, both will call a subprocess when process execution arrives at the activity.
 
@@ -30,7 +30,7 @@ A call activity is a regular activity that requires a calledElement which refere
 Note that the process definition of the subprocess is resolved at runtime. This means that the subprocess can be deployed independently from the calling process, if needed.
 
 
-## CalledElement Binding
+# CalledElement Binding
 
 In a call activity the `calledElement` attribute contains the process definition key as reference to the subprocess. This means that the latest process definition version of the subprocess is always called.
 To call another version of the subprocess it is possible to define the attributes `calledElementBinding` and `calledElementVersion` in the call activity. Both attributes are optional.
@@ -50,7 +50,7 @@ CalledElementBinding has three different values:
 ```
 
 
-## Passing variables
+# Passing variables
 
 You can pass process variables to the subprocess and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
 
@@ -88,7 +88,7 @@ It is possible to use expressions here as well:
 So, in the end `z = y+5 = x+5+5`
 
 
-## Passing Business Key
+# Passing Business Key
 
 You can pass the business key to the subprocess. The data is copied into the subprocess when it is started. You can not give back the business key to the parent process because the business key is not changeable.
 
@@ -101,7 +101,7 @@ You can pass the business key to the subprocess. The data is copied into the sub
 ```
 
 
-## Example
+# Example
 
 The following process diagram shows a simple handling of an order. Since, for example, the billing could be common to many other processes, it is modeled as a call activity.
 
@@ -124,7 +124,7 @@ The XML looks as follows:
 
 There is nothing special about the process definition of the subprocess. It could also be used without being called from another process.
 
-## Create a Case Instance
+# Create a Case Instance
 
 A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state `COMPLETED` for the first time. In contrast to calling a BPMN process, the attribute `caseRef` instead of the attribute `calledElement` must be used to reference a case definition by its key. This means that the latest case definition version is always called.
 
@@ -143,7 +143,7 @@ CaseBinding has three different values:
 </callActivity>
 ```
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -198,7 +198,7 @@ CaseBinding has three different values:
   </tr>
 </table>
 
-## Additional Resources
+# Additional Resources
 
 *   [Call Activity](http://camunda.org/bpmn/reference.html#activities-call-activity) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 

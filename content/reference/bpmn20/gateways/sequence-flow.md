@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-gateways-sequence-flow"
     parent: "bpmn-ref-gateways"
+    pre: "Concurrency and decisions without Gateways."
 
 ---
 
@@ -15,7 +16,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 
 <div data-bpmn-diagram="implement/sequence-flow-parallel"></div>
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -35,7 +36,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 </table>
 
 
-## Conditional Sequence Flow
+# Conditional Sequence Flow
 
 A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flow. When a condition evaluates to 'true', that outgoing sequence flow is selected. When multiple sequence flow are selected that way, multiple executions will be generated and the process will be continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flow with conditions in specific ways, depending on the gateway type.
 
@@ -86,7 +87,7 @@ on [script source][script-source] for more information).
   camunda:resource="org/camunda/bpm/exampe/condition.groovy" />
 ```
 
-### camunda Extensions for conditionExpression
+# Extensions for conditionExpression
 
 <table class="table table-striped">
   <tr>
@@ -107,7 +108,7 @@ on [script source][script-source] for more information).
 
 
 
-## Default Sequence Flow
+# Default Sequence Flow
 
 All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is <strong>only</strong> selected as the outgoing sequence flow for that activity <strong>if</strong> and <strong>only if</strong> none of the other sequence flows could be selected. Conditions on a default sequence flow are always ignored.
 

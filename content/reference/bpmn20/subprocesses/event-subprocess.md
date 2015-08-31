@@ -7,9 +7,9 @@ menu:
   main:
     identifier: "bpmn-subprocess-event-subprocess"
     parent: "bpmn-subprocess"
+    pre: "Event-driven subprocess."
 
 ---
-
 
 The Event subprocess is a subprocess that is triggered by an event. An Event subprocess can be added at the process level or at any subprocess level. The event used to trigger an event subprocess is configured using a start event. Therefore, none start events are not supported for Event subprocesses. An Event subprocess might be triggered using events like message events, error events, signal events, timer events, or compensation events. The subscription to the start event is created when the scope (process instance or subprocess) hosting the Event subprocess is created. The subscription is removed when the scope is ended.
 
@@ -36,7 +36,7 @@ It is represented using XML in the same way as an embedded subprocess. Additiona
 </div>
 
 
-## Example
+# Example
 
 The following is an example of an Event subprocess triggered using an Error Start Event. The Event subprocess is located at the "process level", i.e., is scoped to the process instance:
 
@@ -69,7 +69,7 @@ In both cases the same tasks are executed. However, there are differences betwee
 
 These two differences can help you decide whether a boundary event or an embedded subprocess is better suited for solving a particular process modeling / implementation problem.
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -97,6 +97,6 @@ These two differences can help you decide whether a boundary event or an embedde
   </tr>
 </table>
 
-## Additional Resources
+# Additional Resources
 
 *   [Event subprocess](http://camunda.org/bpmn/reference.html#activities-event-subprocess) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

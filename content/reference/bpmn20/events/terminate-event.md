@@ -7,10 +7,9 @@ menu:
   main:
     identifier: "bpmn-ref-events-terminate-event"
     parent: "bpmn-ref-events"
+    pre: "End a scope."
 
 ---
-
-
 
 A terminate event ends the complete scope where the event is raised and all inner scopes.
 
@@ -21,7 +20,7 @@ If you use it on the process instance level, the whole process is terminated. On
 <div data-bpmn-diagram="implement/event-terminate"></div>
 
 
-## Terminate Event Definition
+# Terminate Event Definition
 
 A terminate event is modeled as a end event with an additional definition element to mark the termination:
 
@@ -35,7 +34,7 @@ A terminate event is modeled as a end event with an additional definition elemen
 </process>
 ```
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -60,8 +59,6 @@ A terminate event is modeled as a end event with an additional definition elemen
   </tr>
 </table>
 
-
 ## Additional Resources
 
 * [Terminate Events](http://camunda.org/bpmn/reference.html#events-termination) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-

@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-script-task"
     parent: "bpmn-ref-tasks"
+    pre: "Execute a Script."
 
 ---
 

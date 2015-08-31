@@ -1,12 +1,14 @@
 ---
 
-title: 'Extension Attributes'
+title: ' Camunda BPMN Extension Attributes'
 weight: 20
 
 menu:
   main:
+    name: "Extension Attributes"
     identifier: "bpmn-extensions-attributes"
     parent: "bpmn-extensions"
+    pre: "Reference of Camunda Extension Attributes for BPMN."
 
 ---
 

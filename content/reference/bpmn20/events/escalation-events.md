@@ -7,12 +7,14 @@ menu:
   main:
     identifier: "bpmn-ref-events-escalation-events"
     parent: "bpmn-ref-events"
-
+    pre: "Events catching / throwing escalation."
 ---
 
 Escalation events are events which reference a named escalation. They are mostly used to communicate from a subprocess to an upper process. Unlike an error, an escalation event is non critical and execution continues at the location of throwing. 
 
 <div data-bpmn-diagram="../bpmn/escalation-example"></div>
+
+# Defining Escalation
 
 An escalation event definition is declared by using the `escalationEventDefinition` element. The attribute `escalationRef` references an `escalation` element declared as a child element of the definitions root element. The following is an excerpt of a process in which an escalation event is declared and referenced by an intermediate throwing escalation event.
 
@@ -30,7 +32,7 @@ An escalation event definition is declared by using the `escalationEventDefiniti
 </definitions>
 ```
 
-# Receiving Escalation Events
+# Catching Escalation Events
 
 ## Escalation Start Event
 
@@ -62,7 +64,9 @@ Two optional attributes can be added to the escalation start event, <code>escala
 * If a start event has no `escalationRef` or `escalationCode` of referenced escalation then another event sub-process with an escalation start event is not supported.
 {{< /note >}}
 
-### camunda Extensions for `escalationEventDefinition`
+### Camunda Extensions
+
+The following extensions are supported for `escalationEventDefinition`.
 
 <table class="table table-striped">
   <tr>
@@ -104,7 +108,9 @@ Two optional attributes can be added to the escalation boundary event, <code>esc
 * If a boundary event has no `escalationRef` or `escalationCode` of referenced escalation then another escalation boundary event is not supported.
 {{< /note >}}
 
-### camunda Extensions for `escalationEventDefinition`
+### camunda Extensions
+
+The following extensions are supported for `escalationEventDefinition`.
 
 <table class="table table-striped">
   <tr>

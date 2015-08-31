@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-business-rule-task"
     parent: "bpmn-ref-tasks"
+    pre: "Execute an automated business decision."
 
 ---
 
@@ -14,7 +15,7 @@ A Business Rule task is used to synchronously execute one or more rules.
 
 <div data-bpmn-symbol="businessruletask" data-bpmn-symbol-name="Businss Rule Task"></div>
 
-## Using Camunda DMN engine
+# Using Camunda DMN engine
 
 You can use the Camunda DMN engine integration to evaluate a DMN decision table. You have
 to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally
@@ -27,8 +28,6 @@ The `camunda:decisionRefBinding` attribute defaults to `latest`.
 
 The output of the decision is saved in a variable which can be specified by the `camunda:resultVariable`
 attribute.
-
-
 
 ```xml
 <businessRuleTask id="businessRuleTask"
@@ -55,7 +54,7 @@ an expression which will be evaluated on execution of the task.
     camunda:resultVariable="decisionResult" />
 ```
 
-### DMN Result Variable Type
+## DMN Result Variable Type
 
 Please beware that depending of the structure of the decision result the result
 variable type will change. The following rules are applied to *unpack* the
@@ -72,7 +71,7 @@ decision result to be easy accessible in the process:
    maps.
 
 
-## Using a custom rule engine
+# Using a custom rule engine
 
 You can use the rule engine of your choice, on the open source side we have
 made good experiences with JBoss Drools. To do so, you have to plug in your
@@ -83,12 +82,12 @@ implementation of the rule task the same way as in a Service Task.
     camunda:delegateExpression="${MyRuleServiceDelegate}" />
 ```
 
-## Using Delegate Code
+# Using Delegate Code
 
 Alternatively a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the [Service Tasks][] documentation.
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -140,7 +139,7 @@ information on this please see the [Service Tasks][] documentation.
   </tr>
 </table>
 
-## Additional Resources
+# Additional Resources
 
 * [Service Tasks]({{< relref "reference/bpmn20/tasks/service-task.md" >}}))
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

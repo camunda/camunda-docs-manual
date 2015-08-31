@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-gateways-inclusive"
     parent: "bpmn-ref-gateways"
+    pre: "Model conditional fork / join concurrency."
 
 ---
 
@@ -82,7 +83,7 @@ When this task is completed, the second inclusive gateway will join the two exec
 
 Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flows for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -110,7 +111,7 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching n
   </tr>
 </table>
 
-## Additional Resources
+# Additional Resources
 
 *   [Inclusive Gateways](http://camunda.org/bpmn/reference.html#gateways-data-based-inclusive-gateways) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 *   [Conditional and Default Sequence Flows]({{< relref "reference/bpmn20/gateways/sequence-flow.md" >}})

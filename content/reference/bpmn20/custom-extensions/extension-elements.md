@@ -1,16 +1,18 @@
 ---
 
-title: 'Extension Elements'
+title: 'Camunda BPMN Extension Elements'
 weight: 10
 
 menu:
   main:
+    name: "Extension Elements"
     identifier: "bpmn-extensions-elements"
     parent: "bpmn-extensions"
+    pre: "Reference of Camunda Extension Attributes for BPMN."
 
 ---
 
-The following elements are extension elements for the `camunda` namespace `http://activiti.org/bpmn`.
+The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/bpmn`.
 
 
 # connector

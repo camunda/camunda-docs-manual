@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-receive-task"
     parent: "bpmn-ref-tasks"
+    pre: "Wait for a message to arrive."
 
 ---
 

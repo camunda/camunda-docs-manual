@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-gateways-parallel"
     parent: "bpmn-ref-gateways"
+    pre: "Model fork / join concurrency."
 
 ---
 
@@ -81,7 +82,7 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
 
 <div data-bpmn-diagram="implement/parallel-gateway-unbalanced"></div>
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -110,6 +111,6 @@ Note that a parallel gateway does not need to be 'balanced' (i.e. a matching num
 </table>
 
 
-## Additional Resources
+# Additional Resources
 
 *   [Parallel Gateways](http://camunda.org/bpmn/reference.html#gateways-parallel-gateways) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

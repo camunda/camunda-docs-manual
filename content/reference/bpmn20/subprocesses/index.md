@@ -2,6 +2,7 @@
 
 title: "Subprocess"
 weight: 40
+layout: "section-list"
 
 menu:
   main:
@@ -9,3 +10,5 @@ menu:
     parent: "bpmn-ref"
 
 ---
+
+Reusability and grouping.

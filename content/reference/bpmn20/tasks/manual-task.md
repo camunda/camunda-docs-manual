@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-manual-task"
     parent: "bpmn-ref-tasks"
+    pre: "A task which is performed externally."
 
 ---
 

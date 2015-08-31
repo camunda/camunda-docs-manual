@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-service-task"
     parent: "bpmn-ref-tasks"
+    pre: "Invoke or execute business logic."
 
 ---
 

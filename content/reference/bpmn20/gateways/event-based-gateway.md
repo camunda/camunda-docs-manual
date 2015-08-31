@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-gateways-event-based"
     parent: "bpmn-ref-gateways"
+    pre: "Model decisions based on events."
 
 ---
 
@@ -63,7 +64,7 @@ The corresponding xml looks like this:
 </definitions>
 ```
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -90,6 +91,6 @@ The corresponding xml looks like this:
   </tr>
 </table>
 
-## Additional Resources
+# Additional Resources
 
 *   [Event-based Gateways](http://camunda.org/bpmn/reference.html#gateways-event-based-gateways) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)

@@ -7,6 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-send-task"
     parent: "bpmn-ref-tasks"
+    pre: "Send a message."
 
 ---
 

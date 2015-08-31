@@ -7,34 +7,22 @@ menu:
   main:
     identifier: "bpmn-ref-events-start-event"
     parent: "bpmn-ref-events"
-
+    pre: "Start Events define where a Process or Sub Process starts."
 ---
 
 
-A start event is a trigger for starting a process instance.
+Start events define where a Process or Sub Process starts.
 
-The engine supports the following types of start events:<br>
+The process engine supports differnet types of start events:
 
-<p>
-	<div data-bpmn-symbol="startevent"><a href="{{< relref "reference/bpmn20/events/none-events.md" >}}">Blank</a></div>
-</p
-<p>
-	<div data-bpmn-symbol="startevent/timer"><a href="{{< relref "reference/bpmn20/events/timer-events.md" >}}">Timer</a></div>
-</p>
-<p>
-	<div data-bpmn-symbol="startevent/message"><a href="{{< relref "reference/bpmn20/events/message-events.md" >}}">Message</a></div>
-</p>
-<p>
-	<div data-bpmn-symbol="startevent/signal"><a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Signal</a></div>
-</p>
+* [Blank]({{< relref "reference/bpmn20/events/none-events.md" >}})
+* [Timer]({{< relref "reference/bpmn20/events/timer-events.md" >}})
+* [Message]({{< relref "reference/bpmn20/events/message-events.md" >}})
+* [Signal]({{< relref "reference/bpmn20/events/signal-events.md" >}})
 
+The engine requires at least one start event to instantiate a process. There can a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
 
-There can a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
-
-Although start events are not mandatory according to the BPMN 2.0 specification, the engine requires at least one start event to instantiate a process.
-
-
-## Asynchronous Instantiation
+# Asynchronous Instantiation
 
 A start event may be declared as asynchronous with `camunda:asyncBefore="true"`
 
@@ -42,9 +30,9 @@ A start event may be declared as asynchronous with `camunda:asyncBefore="true"`
 <startEvent id="startEvent" camunda:asyncBefore="true" />
 ```
 
-This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}. See the [Asynchronous Continuations]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}} for some background information.
+This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}. See the [Asynchronous Continuations]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for some background information.
 
-## camunda Extensions
+# camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -94,4 +82,3 @@ This will ensure that the process engine creates a process instance when the pro
     </td>
   </tr>
 </table>
-
