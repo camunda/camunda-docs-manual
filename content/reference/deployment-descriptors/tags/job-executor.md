@@ -5,8 +5,10 @@ weight: 30
 
 menu:
   main:
+    name: "<job-executor />"
     identifier: "descriptor-ref-job-executor"
     parent: "descriptor-ref-tags"
+    pre: "Configure the Job Executor"
 
 ---
 

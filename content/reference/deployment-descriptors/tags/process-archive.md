@@ -5,8 +5,10 @@ weight: 40
 
 menu:
   main:
+    name: "<process-archive />"
     identifier: "descriptor-ref-process-archive"
     parent: "descriptor-ref-tags"
+    pre: "Define a Deployment."
 
 ---
 

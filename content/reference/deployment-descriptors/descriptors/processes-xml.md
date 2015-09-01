@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "descriptor-ref-processes-xml"
     parent: "descriptor-ref"
-    pre: "Packaged as part of a process application and allows configuration of additional process engines and BPMN 2.0 process deployments."
+    pre: "Configure a deployment."
 
 ---
 

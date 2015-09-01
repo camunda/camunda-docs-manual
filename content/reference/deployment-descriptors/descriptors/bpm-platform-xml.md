@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "descriptor-ref-bpm-platform"
     parent: "descriptor-ref"
-    pre: "Packaged as part of the Camunda BPM platform and allows configuration of shared process engines and the job executor."
+    pre: "Configure a Shared Process Engine and the Job Executor."
 
 ---
 

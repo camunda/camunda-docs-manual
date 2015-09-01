@@ -5,8 +5,10 @@ weight: 50
 
 menu:
   main:
+    name: "<process-engine />"
     identifier: "descriptor-ref-process-engine"
     parent: "descriptor-ref-tags"
+    pre: "Configure a Process Engine."
 
 ---
 
