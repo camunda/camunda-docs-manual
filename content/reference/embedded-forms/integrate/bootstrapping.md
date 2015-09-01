@@ -10,7 +10,7 @@ menu:
 
 ---
 
-## Creating a Client
+# Creating a Client
 
 The Forms SDK uses an instance of the `CamSDK.Client` to communicate with the process engine (over the REST API):
 
@@ -21,7 +21,8 @@ var camClient = new CamSDK.Client({
 });
 ```
 
-## Creating a Form
+
+# Creating a Form
 
 In order to create a form, you need to create an instance of `CamSDK.Form`:
 
@@ -31,7 +32,7 @@ new CamSDK.Form({
 });
 ```
 
-### Providing a Task Id
+## Providing a Task Id
 
 In case the form is a task form (i.e., the submission of the form should trigger the completing of a task), you need to provide a `taskId`:
 
@@ -46,7 +47,7 @@ new CamSDK.Form({
 });
 ```
 
-### Providing a Process Definition Id
+## Providing a Process Definition Id
 
 In case the form is a start form (i.e., the submission of the form should trigger a new process instance to start), you need to provide a `processDefinitionId`:
 
@@ -61,7 +62,7 @@ new CamSDK.Form({
 });
 ```
 
-### Loading a Form from a URL
+## Loading a Form from a URL
 
 The Forms SDK can automatically load forms from a URL.
 The URL from which the form should be loaded is referenced using the `formElement` property.
@@ -93,7 +94,7 @@ new CamSDK.Form({
 });
 ```
 
-### Using a form existing in the DOM
+## Using a form existing in the DOM
 
 It is also possible to initialize the Form SDK for a form already existing in the DOM.
 

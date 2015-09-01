@@ -12,7 +12,8 @@ menu:
 
 The following examples show example scenarios of custom JavaScript in embedded forms.
 
-## Load Additional Resources
+
+# Load Additional Resources
 
 This example includes an image, which is located in the contextPath of the form (i.e., in the same directory). The URL of the image is retrieved via the _task form key_ method of the REST API:
 
@@ -33,9 +34,9 @@ This example includes an image, which is located in the contextPath of the form 
 </form>
 ```
 
-## Upload Large Files
+# Upload Large Files
 
-This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK][FileInput], this example can handle large files, but it also has some drawbacks:
+This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< relref "reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
 
 * Can not be used in the start form of a process (no process instance id exists at this time)
 * Does not take part in the form lifecycle (files could be saved even if the form is not submitted)
@@ -67,5 +68,3 @@ This example first retrieves the process instance id of the task for the form. I
   </script>
 </form>
 ```
-
-[FileInput]: ref:#supported-html-controls-file-input-fields

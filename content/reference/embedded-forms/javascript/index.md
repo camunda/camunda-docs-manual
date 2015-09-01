@@ -1,6 +1,7 @@
 ---
 
 title: "Javascript"
+layout: "section-list"
 weight: 20
 
 menu:

@@ -10,12 +10,7 @@ menu:
 
 ---
 
-Full examples of how to integrate the Forms SDK in a custom application can be found in the [Camunda BPM Examples Repository][examples-repo] in Github.
+Full examples of how to integrate the Forms SDK in a custom application can be found in the [Camunda BPM Examples Repository](https://github.com/camunda/camunda-bpm-examples) in Github.
 
-* [Example for standalone usage of the SDK][example-without-angular]
-* [Example for standalone usage of the SDK with AngularJS Integration][example-with-angular]
-
-
-[examples-repo]: https://github.com/camunda/camunda-bpm-examples
-[example-without-angular]: https://github.com/camunda/camunda-bpm-examples/tree/master/sdk-js/browser-forms
-[example-with-angular]: https://github.com/camunda/camunda-bpm-examples/tree/master/sdk-js/browser-forms-angular
+* [Example for standalone usage of the SDK](https://github.com/camunda/camunda-bpm-examples/tree/master/sdk-js/browser-forms)
+* [Example for standalone usage of the SDK with AngularJS Integration](https://github.com/camunda/camunda-bpm-examples/tree/master/sdk-js/browser-forms-angular)

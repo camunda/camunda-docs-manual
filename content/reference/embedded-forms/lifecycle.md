@@ -62,9 +62,10 @@ menu:
    * `submit-failed` is fired __after__ the server failed at treating the submission
      or when a network error happened
 
+
 # Event Listeners
 
-Event listeners can be registered from [custom JavaScript][JavaScript]:
+Event listeners can be registered from [custom JavaScript]({{< relref "reference/embedded-forms/javascript/index.md" >}}):
 
 ```html
 <form role="form" name="form">
@@ -116,5 +117,3 @@ Event listeners can be registered from [custom JavaScript][JavaScript]:
 
 </form>
 ```
-
-[JavaScript]: ref:#custom-javascript

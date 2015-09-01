@@ -10,12 +10,13 @@ menu:
 
 ---
 
-## Manual Download
+# Manual Download
 
 The Forms SDK library can be downloaded from
 [Github](https://github.com/camunda/bower-camunda-bpm-sdk-js/releases).
 
-## Bower
+
+# Bower
 
 Alternatively, the Forms SDK can be installed using the Bower package manager:
 
@@ -23,7 +24,8 @@ Alternatively, the Forms SDK can be installed using the Bower package manager:
 bower install camunda-bpm-sdk-js --save
 ```
 
-## Dependency Management
+
+# Dependency Management
 
 The Forms SDK depends on the following libraries:
 
@@ -33,7 +35,8 @@ The Forms SDK *optionally* depends on the following libraries:
 
 * AngularJS (v1.2.16).
 
-## Including the Library
+
+# Including the Library
 
 Next, you need to add the JavaScript Library to the page.
 

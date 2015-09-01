@@ -11,9 +11,10 @@ menu:
 ---
 
 It is possible to participate in the lifecycle of the form. See [Form Lifecycle and
-Events][lifecycle] for more details.
+Events]({{< relref "reference/embedded-forms/lifecycle.md" >}}) for more details.
 
-## Fetching additional Variables
+
+# Fetching Additional Variables
 
 When loading the form, the values of all variables used in the form will be fetched from the
 backend. This means that the form SDK will only fetch those variables which are actually used in the
@@ -45,7 +46,8 @@ useful to declare additional variables programmatically:
 </form>
 ```
 
-## Submitting additional Variables
+
+# Submitting Additional Variables
 
 Similar to fetching additional variables using a script, it is also possible to add additional
 variables to the submit:
@@ -75,7 +77,8 @@ variables to the submit:
 </form>
 ```
 
-## Implementing Custom Fields
+
+# Implementing Custom Fields
 
 The following is a small usage example which combines some of the features explained so far.
 It uses custom JavaScript to implement a custom interaction with a form field which does not
@@ -163,5 +166,3 @@ The above example uses jQuery for interacting with the HTML controls. If you use
 
 </form>
 ```
-
-[lifecycle]: ref:#lifecycle-and-events

@@ -10,12 +10,12 @@ menu:
 
 ---
 
-## Checkbox
+# Checkbox
 
 Checkboxes are HTML `<input type="checkbox">` controls. Checkbox controls can be used for boolean
 variable types.
 
-### Binding a Checkbox to a Process Variable
+## Binding a Checkbox to a Process Variable
 
 A checkbox input can be bound to a process variable using the `cam-variable-type` and `cam-variable-name` directives:
 
@@ -28,12 +28,13 @@ A checkbox input can be bound to a process variable using the `cam-variable-type
 In the example above, the checkbox is bound to the variable named `IS_VIP_CUSTOMER` of type
 `Boolean`.
 
-### Supported Variable Types for Checkboxes
+## Supported Variable Types for Checkboxes
 
 The checkbox input field only supports boolean variable types. A checked checkbox corresponds to
 the value `true`, an unchecked checkbox corresponds to the value `false`.
 
-## Boolean Select Box
+
+# Boolean Select Box
 
 In order to bind a `<select>` box to a Java `Boolean` variable, the directive
 `cam-variable-type="Boolean"` must be used.
@@ -49,7 +50,7 @@ Example:
 ```
 
 
-## Boolean text Input
+# Boolean text Input
 
 In order to bind a text input field to a Java `Boolean` variable, the directive
 `cam-variable-type="Boolean"` must be used.

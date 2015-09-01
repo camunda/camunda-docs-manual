@@ -12,7 +12,8 @@ menu:
 
 Date input is supported using a `<input type="text">` control.
 
-## Binding to a Process Variable
+
+# Binding to a Process Variable
 
 In order to bind the input field to a Java `Date` variable, the directive
 `cam-variable-type="Date"` must be used.
@@ -25,16 +26,20 @@ Example:
        cam-variable-type="Date" />
 ```
 
-## Date Format
+
+# Date Format
 
 Currently only the ISO Date Format `yyyy-MM-dd'T'HH:mm:ss` is supported.
 Example value: `2013-01-23T13:42:42`
 
-## Using a Date Picker
+
+# Using a Date Picker
 
 The Form SDK itself does not provide any custom components of widgets. As such it also does not provide a date picker. However, you are able to integrate third party libraries providing such widgets.
 
-> Inside Camunda Tasklist, datepicker support is provided through Angular UI.
+{{< note >}}
+Inside Camunda Tasklist, datepicker support is provided through Angular UI.
+{{< /note >}}
 
 You can use the [Angular UI datepicker](http://angular-ui.github.io/bootstrap/)
 directive to offer a datepicker for the date input field. The complete markup of the input field
@@ -61,7 +66,7 @@ including the datepicker button is shown below.
 ```
 
 In addition to the HTML markup, the following JavaScript must be included in the form file
-(see [Custom JavaScript][JavaScript]):
+(see [Custom JavaScript]({{< relref "reference/embedded-forms/javascript/index.md" >}})):
 
 ```html
 <script cam-script type="text/form-script">
@@ -90,5 +95,3 @@ when the datepicker button is clicked. It must be the function name of the JavaS
 which sets the `is-open` variable to true. If a form contains multiple date pickers, they
 must have different function names, or the name of the `is-open` variable must be passed to
 the function.
-
-[JavaScript]: ref:#custom-javascript

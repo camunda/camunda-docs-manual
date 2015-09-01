@@ -1,6 +1,7 @@
 ---
 
 title: 'Integrating the Forms SDK'
+layout: "section-list"
 weight: 60
 
 menu:

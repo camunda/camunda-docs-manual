@@ -12,9 +12,12 @@ menu:
 
 This section explains how to work with serialized Java Objects in embedded task forms.
 
-> NOTE: Out of the box, you can only work with Java Objects which are serialized in *JSON format*
-> If Java Classes are serialized using JAX-B, you need to add custom XML parsing and writing logic
-> to the embedded form. Java Objects serialized using Java Serialization cannot be used in forms.
+{{< note >}}
+Out of the box, you can only work with Java Objects which are serialized in *JSON format*
+If Java Classes are serialized using JAX-B, you need to add custom XML parsing and writing logic
+to the embedded form. Java Objects serialized using Java Serialization cannot be used in forms.
+{{< /note >}}
+
 
 # Fetching an existing Serialized Java Object Variable
 
@@ -34,6 +37,7 @@ We thus need to fetch the variable programatically:
   });
 </script>
 ```
+
 
 # Creating a new Serialized Java Object
 
@@ -64,8 +68,7 @@ In case the variable does not yet exist (for instance in a Start Form), you have
 </script>
 ```
 
+
 # Full Example
 
-A full example of this feature can be found in the [Camunda BPM Examples Repository][examples].
-
-[examples]: https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object
+A full example of this feature can be found in the [Camunda BPM Examples Repository](https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded-serialized-java-object).
