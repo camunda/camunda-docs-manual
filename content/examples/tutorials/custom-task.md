@@ -10,22 +10,23 @@ menu:
 
 ---
 
-By providing custom tasks to the camunda Modeler, vendors may provide special tasks to users through the Modelers palette. Along with these custom tasks, vendors may ship extensions to the properties panel through which task-specific properties can be maintained.
+By providing custom tasks to the Camunda Modeler, vendors may provide special tasks to users through the Modelers palette. Along with these custom tasks, vendors may ship extensions to the properties panel through which task-specific properties can be maintained.
 
 ![Custom task extension in action][1]
 
-This tutorial guides you through the creation of a custom task extension for the camunda Modeler.
+This tutorial guides you through the creation of a custom task extension for the Camunda Modeler.
 
 The source of custom task extension that is developed in this tutorial is [available as a sample application][2].
 
-## Before You Start
+
+# Before You Start
 
 In this tutorial, we take a deeper look at Eclipse extension points and plug-in development. Please refer to the [Extending the Eclipse IDE - Plug-in development][3] and [Eclipse Extension Points and Extensions][4] tutorials on the matter if you would like to learn more.
 
-Make sure you have the development environment for the camunda Modeler [set up][5]. This typically involves setting up the Eclipse instance with the necessary dependencies, checking out the Modeler sources and importing the project(s) into a workspace.
+Make sure you have the development environment for the Camunda Modeler [set up][5]. This typically involves setting up the Eclipse instance with the necessary dependencies, checking out the Modeler sources and importing the project(s) into a workspace.
 
 
-## Creating a Plug-in Project
+# Creating a Plug-in Project
 
 To extend the Modeler, you need to create an Eclipse plug-in project. Do so via `New > Project > Plug-in Project`.
 
@@ -41,12 +42,13 @@ as well vendor and versioning information.
 
 You may optionally choose to generate an activator for your project to hook into the plug-ins life cycle.
 
-## Building a Custom Task Plug-in
+
+# Building a Custom Task Plug-in
 
 The Modeler gives you the ability to contribute custom task types via the
 `org.camunda.bpm.modeler.plugin.customtask` extension point. Via this extension point you must provide information about the custom task through the [`ICustomTaskProvider`][9] interface.
 
-### Configure project dependencies
+## Configure Project Dependencies
 
 Add the following entry to your `META-INF/MANIFEST.MF` file to enable commonly used dependencies:
 
@@ -63,7 +65,7 @@ Require-Bundle: org.eclipse.emf,
  org.eclipse.graphiti.ui
 ```
 
-### Hook into the extension point
+## Hook into the Extension Point
 
 Create or edit the `plugin.xml` in your project root with the following contents:
 
@@ -131,19 +133,20 @@ What did we do? The class `MyCustomTaskProvider` provides the basic implementati
 
 The utility `PluginConstants` provides reusable utilities such as the implementation of the custom task check as well as the task name.
 
-### Activation of the extension
+## Activation of the extension
 
 The behavior shipped with a custom task provider will automatically activate whenever `ICustomTaskProvider#appliesTo(EObject)` returns as true. This means that our implementation `MyCustomTaskProvider` activates for all objects of type `ServiceTask` that have a `class` property set to `com.mycompany.services.MyService` (cf. `PluginConstants#isMyCustomTask(EObject)`).
 
-In other words: It is all plain old BPMN 2.0 with camunda extensions and any service task with an XML definition like
+In other words: It is all plain old BPMN 2.0 with Camunda extensions and any service task with an XML definition like
 
 ```xml
 <serviceTask camunda:class="com.mycompany.services.MyService" />
 ```
 
-will be recognized as a custom task once opened with the camunda Modeler and our installed plug-in.
+will be recognized as a custom task once opened with the Camunda Modeler and our installed plug-in.
 
-## Adding a Property Tab
+
+# Adding a Property Tab
 
 To show a special property section for a custom task, we must implement the method `ICustomTaskProvider#getTabSection()`. The method must return an instance of `ISection` that gets added to the property tabs for a task.
 
@@ -196,7 +199,7 @@ After we assigned the class `com.mycompany.services.MyService` to a service task
 
 When editing the input field labeled _Endpoint_ and saving the file, the BPMN 2.0 diagram file should reflect the changes.
 
-### Helpers available in property tabs
+## Helpers Available in Property Tabs
 
 There are two helpers that aid you in the creation of property sections:
 
@@ -205,7 +208,7 @@ There are two helpers that aid you in the creation of property sections:
 
 To learn more about what else is possible in property panels, browse the subclasses of [`AbstractTabCompositeFactory`][17].
 
-## Palette Integration
+# Palette Integration
 
 The way a custom task is integrated into the new element palette may be configured via `ICustomTaskProvider#getPaletteIntegration()`.
 
@@ -223,7 +226,8 @@ This specifies that a create handle for our custom task should be shown in a cat
 Now we must tell the Modeler how to create the custom task.
 This is done by exposing a custom set of modeling features, including a create feature via an [`IFeatureContainer`][18].
 
-## Defining Custom Task Features
+
+# Defining Custom Task Features
 
 Feature containers, implementing the interface [`IFeatureContainer`][19], tell the Modeler how certain modeling operations are implemented on diagram elements.
 
@@ -237,7 +241,7 @@ Custom task providers may ship their own feature containers by publishing them v
 
 You must configure a feature container in your custom task provider as soon as you want to be able to create a custom task via the palette _or_ want to change its graphical representation.
 
-### Expose a feature container
+## Expose a Feature Container
 
 Create the class `MyCustomTaskFeatureContainer` with the following definition
 
@@ -265,7 +269,7 @@ If you enabled the palette integration, you should now see the custom service ta
 
 ![Custom Service Task in Palette][20]
 
-### Add a custom create feature
+## Add a Custom Create Feature
 
 To be detected as a custom task, a newly created element must have the `class` attribute set to `com.mycompany.services.MyService`.
 We can achieve this by overriding the create feature provided by the `ServiceTaskFeatureContainer` with custom behavior that explicitly sets the attribute when the task is being created.
@@ -308,9 +312,10 @@ After restarting Eclipse, the palette entry should now display the name of your 
 
 ![Custom Service Task in Palette][21]
 
-## Building a Customized Modeler Distribution
 
-As a final step we need to build a customized Eclipse that contains the camunda Modeler and our custom task plug-in. One of the various ways to do this is via a product configuration that allows you to generate Eclipse applications as well as update sites.
+# Building a Customized Modeler Distribution
+
+As a final step we need to build a customized Eclipse that contains the Camunda Modeler and our custom task plug-in. One of the various ways to do this is via a product configuration that allows you to generate Eclipse applications as well as update sites.
 
 To start, create a new product configuration named `customModeler.product` via `New > Other... > Plug-in Configuration` and specify that you would like to create a configuration using basic settings.
 
@@ -318,7 +323,7 @@ Configure the resulting view similar to the following screenshot
 
 ![Basic custom task product configuration][22]
 
-Now add the camunda Modeler as well as the custom task plug-in to the list of dependencies (_Dependencies_ tab).
+Now add the Camunda Modeler as well as the custom task plug-in to the list of dependencies (_Dependencies_ tab).
 
 ![Required dependencies configuration][23]
 
@@ -326,11 +331,12 @@ Finally resolve the required dependencies via _Add Required Plug-ins_.
 
 You may now start, verify and export the product configuration using the handles at the top right.
 
-## Summary
 
-In this how-to we created a simple custom task extension for the camunda Modeler. This involved creating a plug-in project and writing a custom task extension for the camunda Modeler. Through the extension we were able to add a property panel tab as well as a palette entry for the custom task. Finally, we saw how an Eclipse distribution can be built that ships the camunda Modeler, including the custom task extension.
+# Summary
 
-### Advanced topics
+In this how-to we created a simple custom task extension for the Camunda Modeler. This involved creating a plug-in project and writing a custom task extension for the Camunda Modeler. Through the extension we were able to add a property panel tab as well as a palette entry for the custom task. Finally, we saw how an Eclipse distribution can be built that ships the Camunda Modeler, including the custom task extension.
+
+## Advanced Topics
 
 There are a number of further topics we did not touch yet. These include:
 
@@ -352,7 +358,7 @@ There are a number of further topics we did not touch yet. These include:
   [10]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/plugin/ICustomTaskProvider.java
   [11]: http://wiki.eclipse.org/Ecore/EObject
   [12]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
-  [13]: http://docs.camunda.org/latest/guides/user-guide/#process-engine-delegation-code-field-injection
+  [13]: {{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}
   [14]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/property-panel.png "Extended Property Panel"
   [15]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/FieldInjectionUtil.java
   [16]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/PropertyUtil.java

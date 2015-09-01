@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Sometimes it is desired to share one Camunda installation between multiple independent parties, also referred to as *tenants*. While sharing an installation means sharing computational resources, the tenants' data should be separated from each other. This tutorial shows how to work with the [one process engine per tenant approach](ref:/guides/user-guide/#process-engine-multi-tenancy-one-process-engine-per-tenant).
+Sometimes it is desired to share one Camunda installation between multiple independent parties, also referred to as *tenants*. While sharing an installation means sharing computational resources, the tenants' data should be separated from each other. This tutorial shows how to work with the [one process engine per tenant approach]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-per-tenant" >}}).
 
 In detail it explains how to:
 
@@ -18,13 +18,15 @@ In detail it explains how to:
 * develop a process application with tenant-specific deployments
 * access the correct process engine from a REST resource based on a tenant identifier
 
-See the [user guide](ref:/guides/user-guide/#process-engine-multi-tenancy) for a general introduction on multi-tenancy and the different options Camunda offers.
+See the [user guide]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) for a general introduction on multi-tenancy and the different options Camunda offers.
 
-## Before Starting
+
+# Before Starting
 
 Before starting, make sure to download the [Camunda BPM JBoss distribution](http://camunda.org/download/) and extract it to a folder. We will call this folder `$CAMUNDA_HOME` in the following explanations.
 
-## Configuring the Database
+
+# Configuring the Database
 
 Before configuring process engines, we have to set up a database schema for every tenant. In this section we will explain how to do so.
 
@@ -62,31 +64,23 @@ set schema TENANT2;
 
 The following screenshot illustrates how to create the tables inside the correct schema:
 
-<br>
-<center>
-  <img src="ref:asset:/assets/img/real-life/process-engine/multi-tenancy/create-schema1.png" class="img-responsive"/>
-</center>
-<br>
-
+{{< img src="../img/create-schema1.png" title="Multi Tenancy Create Schema" >}}
 
 Next, hit *run*.
 
 After creating the tables in the two schemas, the UI should show the following
 table structure:
 
-<br>
-<center>
-  <img src="ref:asset:/assets/img/real-life/process-engine/multi-tenancy/create-schema2.png" class="img-responsive"/>
-</center>
-<br>
+{{< img src="../img/create-schema2.png" title="Multi Tenancy Create Schema" >}}
 
 Now, stop JBoss.
 
-## Configuring Process Engines
+
+# Configuring Process Engines
 
 In this step, we configure a process engine for each tenant. We ensure that these engines access the database schemas we have previously created. This way, process data of a tenant cannot interfere with that of another.
 
-Open the file `$CAMUNDA_HOME/server/jboss-as-{version}/standalone/configuration/standalone.xml`. In that file, navigate to the configuration of the camunda jboss subsystem, declared in an XML element `<subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">`. In this file, add two entries to the `<process-engines>` section (do *not* remove default engine configuration):
+Open the file `$CAMUNDA_HOME/server/jboss-as-{version}/standalone/configuration/standalone.xml`. In that file, navigate to the configuration of the Camunda jboss subsystem, declared in an XML element `<subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">`. In this file, add two entries to the `<process-engines>` section (do *not* remove default engine configuration):
 
 The configuration of the process engine for tenant 1:
 
@@ -140,18 +134,17 @@ By having a look at the `datasource` configuration, you will notice that the dat
 
 The approach of configuring multiple engines also allows you to differ engine configurations apart from the database-related parameters. For example, you can activate process engine plugins for some tenants while excluding them for others.
 
-## Develop a Tenant-Aware Process Application
+
+# Develop a Tenant-Aware Process Application
 
 In this step, we describe a process application that deploys different processes for the two tenants. It also exposes a REST resource that returns a tenant's process definitions. To identify the tenant, we provide a user name in the REST request. In the implementation, we use CDI to transparently interact with the correct process engine based on the tenant identifier.
 
-<div class="alert alert-info">
-  <p>
-    <p>The following descriptions highlight the concepts related to implementing multi-tenancy but are not a step-by-step explanation to develop along. Instead, make sure to checkout the <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation">code on github</a>. The code can be built and deployed to JBoss right away and contains all the snippets explained in the following sections.</p>
-  </p>
-</div>
+{{< note >}}
+The following descriptions highlight the concepts related to implementing multi-tenancy but are not a step-by-step explanation to develop along. Instead, make sure to checkout the <a href="https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation">code on github</a>. The code can be built and deployed to JBoss right away and contains all the snippets explained in the following sections.
+{{< /note >}}
 
 
-### Set Up the Process Application
+## Set Up the Process Application
 
 In the project, we have set up a plain Camunda EJB process application.
 
@@ -171,7 +164,8 @@ In [pom.xml](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-t
 
 These are required to inject process engines via CDI.
 
-### Configure a Tenant-specific Deployment
+
+## Configure a Tenant-specific Deployment
 
 In the folder `src/main/resources`, we have added a folder `processes` and two subfolders `tenant1` and `tenant2`. These folders contain a [process for tenant 1](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation/src/main/resources/processes/tenant1) and a [process for tenant 2](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation/src/main/resources/processes/tenant2), respectively.
 
@@ -207,7 +201,8 @@ In order to deploy the two definitions to the two different engines, we have add
 
 This file declares two *process archives*. By the `process-engine` element, we can specify the engine to which an archive should be deployed. By the `resourceRootPath`, we can assign different portions of the contained process definitions to different process archives.
 
-### Build a Simple JAX-RS Resource
+
+## Build a Simple JAX-RS Resource
 
 To showcase the programming model for multi-tenancy with CDI, we have added a simple REST resource that returns all deployed process definitions for a process engine. The resource has the following [source code](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-tenancy/schema-isolation/src/main/java/org/camunda/bpm/tutorial/multitenancy/ProcessDefinitionResource.java):
 
@@ -231,7 +226,8 @@ public class ProcessDefinitionResource {
 
 Note that the distinction between tenants is not made in this resource.
 
-### Make CDI Injection Tenant-aware
+
+## Make CDI Injection Tenant-aware
 
 We want the injected process engine to always be the one that matches the current tenant making a REST request. For this matter, we have added a request-scoped [tenant bean](https://github.com/camunda/camunda-bpm-examples/blob/master/multi-tenancy/schema-isolation/src/main/java/org/camunda/bpm/tutorial/multitenancy/Tenant.java):
 
@@ -329,7 +325,8 @@ public class TenantAwareProcessEngineServicesProducer extends ProcessEngineServi
 
 The producer determines the engine based on the current tenant. It encapsulates the logic of resolving the process engine for the current tenant entirely. Every bean can simply declare `@Inject ProcessEngine` without specifying which specific engine is addressed to work with the current tenant's engine.
 
-## Deploy the Application to JBoss
+
+# Deploy the Application to JBoss
 
 Start up JBoss. Build the process application and deploy the resulting war file to JBoss.
 

@@ -10,7 +10,7 @@ menu:
 
 ---
 
-## Why custom queries?
+# Why Custom Queries?
 
 The process engine offers a pretty straightforward and easy to use Java Query API. If you want to build a task list you just write something like this:
 
@@ -33,9 +33,7 @@ Let us give you a simple use case example, which we implemented in the [custom-q
 *   You have a process variable "customer" holding the customerId
 *   You have your own entity "Customer" with all the details
 
-<center>
-  <img src="ref:asset:/assets/img/real-life/custom-query-domain-example.png" class="img-responsive"/>
-</center>
+{{< img src="../img/custom-query-domain-example.png" title="Custom Query Domain Example" >}}
 
 So far, a pretty common situation (please note that the object diagram has been simplified to show the relevant aspects and doesn't precisely correspond to the implementation classes). What would be easy now is to query all process instances for a customer:
 
@@ -55,7 +53,8 @@ But imagine you want to query
 
 How to do this?
 
-## The "naive" implementation
+
+# The "naive" Implementation
 
 Something we see very often is what we call the "naive" implementation, the easiest way you can think of: use the existing query capabilities and add an own filter to your Java code. This is easy to write for any Java developer. However, it normally queries too much information from the Process Engine's database and therefore **might cause serious performance issues - so please check the alternatives below first.**
 
@@ -98,28 +97,30 @@ So, the code above might work in small environments, but can cause serious perfo
 Given this, what are the alternatives? To show you other approaches used to solve this, we want to take a quick look at some persistence internals first.
 
 
-## Background: Persistence in the process engine
+# Background: Persistence in the Process Engine
 
 The process engine uses [MyBatis](http://mybatis.org/) for persistence: "The MyBatis data mapper framework makes it easier to use a relational database with object-oriented applications. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor. Simplicity is the biggest advantage of the MyBatis data mapper over object relational mapping tools.".
 
-In a nutshell, we parse an XML mapping file with all the SQL statements we need and set up a so called SessionFactory to talk to MyBatis (which then talks to the database via JDBC). The used mapping file can be found in the sources of the camunda BPM platform: [mappings.xml](https://github.com/camunda/camunda-bpm-platform/blob/master/engine/src/main/resources/org/camunda/bpm/engine/impl/mapping/mappings.xml). Basically, it "just" includes the other mapping files.
+In a nutshell, we parse an XML mapping file with all the SQL statements we need and set up a so called SessionFactory to talk to MyBatis (which then talks to the database via JDBC). The used mapping file can be found in the sources of the Camunda BPM platform: [mappings.xml](https://github.com/camunda/camunda-bpm-platform/blob/master/engine/src/main/resources/org/camunda/bpm/engine/impl/mapping/mappings.xml). Basically, it "just" includes the other mapping files.
 
 When creating a query via the Query API it is executed as Command object, which then delegates to MyBatis with the right query and the correct parameters. Not much magic involved here.
 
-## Possible Solution Approaches
+
+# Possible Solution Approaches
 
 In order to solve the requirements stated in the introduction, we can think of a couple of possible approaches:
 
  *   The **naive implementation**, as already explained: **not recommended**.
  *   Write custom **SQL** code to do your own queries: possible, but you have to mess around with SQL yourself: **not recommended**.
- *   Leverage **MyBatis** for your custom queries: That is actually a really powerful approach and **our recommendation**: see the [example below](ref:#process-engine-custom-queries-custom-mybatis-queries).
+ *   Leverage **MyBatis** for your custom queries: That is actually a really powerful approach and **our recommendation**: see the [example below]({{< relref "examples/tutorials/custom-queries.md#custom-mybatis-queries" >}}).
  *   Use **JPA**: We experimented with JPA mappings for the core engine entities to allow JPA queries. If these mappings exist and you can use them in your own application combined with your own JPA stuff, then it is a possible approach. However, you have to maintain the JPA mappings yourself which involves a lot of work and we have already experienced problems with it in the past, so, basically: **not recommended**.
  *   Add **redundant information**, an easy, but often sufficient, approach to improve queries, which doesn't need a lot of understanding of the persistence implementation:
      *   Add process variables for all query parameters. In our example that would mean to add the region as its own process variable. This approach is **recommended**.
      *   Add process information to the domain mode. In our example this could mean to add a seperate entity task which is synchronized with the process engine task management. This is possible but requires some work which must be done carefully to make sure that the process engine and your domain objects are always in sync.
  * Add a materialized view that joins the required database tables into one flat table.
 
-## Custom MyBatis Queries
+
+# Custom MyBatis Queries
 
 **Precondition:** In order to use your own MyBatis (or all types of SQL) queries, your domain data and the process engine data must be stored in the same database. Otherwise you cannot technically construct a single SQL query, which is our goal in terms of performance optimization. If you have separate databases, discuss if you really need them (which is the case less often than you think). If the answer is 'yes' or you even work with entities only over remote service interfaces, you have to "fall back" to the redundant information approach. Maybe you can use your own entities for that redundant information.
 
@@ -285,6 +286,7 @@ We hope that this is somehow self-explanatory, otherwise best take a look at the
 
 This is all you have to do. Please check out the full code in the example, you can to run it directly on the JBoss distribution. You can easily play around with it to check if it serves your needs or to compare query performance to an implementation you had until now, maybe something similar to the naive implementation we mentioned at the beginning (and be assured: we see that really often out there ;-)).
 
-## Performance Experiences
+
+# Performance Experiences
 
 It was really important to us to write this article because sometimes we hear that the process engine performs badly and almost every time this is related to wrongly designed queries. One customer had his project status turned to "dark yellow" (which is close to red) because of these performance issues. This solution improved performance by a factor greater than 10 and fixed paging and sorting issues, bringing the project back on track. So we think everybody should know about it!
