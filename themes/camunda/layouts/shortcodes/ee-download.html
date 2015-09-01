@@ -1,0 +1,61 @@
+<div class="cam-downloads nojs">
+  <ul class="application-servers" data-select="div.application-server">
+    {{ range $index, $server := sort .Page.Params.downloads.server "weight" }}
+    <li class="{{ $server.path }}"><a href="#{{ $server.path }}">{{ $server.name }}</a></li>
+    {{ end }}
+  </ul>
+
+  {{ range $index, $server := sort .Page.Params.downloads.server "weight" }}
+  <div class="application-server {{ $server.path }}">
+    <h3>{{ $server.name }}</h3>
+
+    <ul class="versions" data-select="div.version">
+      {{ range $version, $info := sort $.Page.Params.downloads.versions "number" "desc" }}
+      <li class="version-{{ $version }}"><a href>{{ $info.number }}</a></li>
+      {{ end }}
+
+      <li class="alpha"><a href>{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}</a></li>
+    </ul>
+
+    {{ range $version, $info := sort $.Page.Params.downloads.versions "number" "desc" }}
+    <div class="version version-{{ $version }}">
+      <h4 class="number"><span>Stable version:</span> {{ $info.number }}</h4>
+
+      <p>
+        Released on <span class="release-date">{{ $info.date }}</span>,
+        <a href="{{ $info.note }}" class="release-notes" target="_blank">Release notes</a>.
+      </p>
+
+      <ul class="links">
+      {{ range $.Page.Params.downloads.formats }}
+        <li class="type-{{ . }}">
+          <a class="btn btn-primary" title="Download the latest version of the {{ substr $info.number 0 3 }} branch for '{{ $server.name }}' as '{{ . }}' file" href="http://camunda.org/enterprise-release/camunda-bpm/{{ $server.path }}/{{ substr $info.number 0 3 }}/{{ $info.number }}/camunda-bpm-ee-{{ $server.path }}-{{ $info.number }}-ee.{{ . }}">.{{ . }}</a>
+        </li>
+      {{ end }}<!-- end format -->
+      </ul>
+    </div>
+    {{ end }}<!-- end version -->
+
+    <div class="version alpha">
+      <h4 class="number"><span>Development version:</span> {{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}</h4>
+
+
+      <ul class="links">
+      {{ range $.Page.Params.downloads.formats }}
+        <li class="type-{{ . }}">
+          <a class="btn btn-primary" title="Download the latest development version for '{{ $server.name }}' as '{{ . }}' file" href="http://camunda.org/enterprise-release/camunda-bpm/{{ $server.path }}/nightly/{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}/camunda-bpm-ee-{{ $server.path }}-{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}-ee.{{ . }}">.{{ . }}</a>
+        </li>
+      {{ end }}
+      </ul>
+    </div>
+
+    <div class="version active help">
+      Please, select a version above.
+    </div>
+  </div>
+  {{ end }}<!-- end server -->
+
+  <div class="application-server active help">
+    Please, select an application server on the left.
+  </div>
+</div>
