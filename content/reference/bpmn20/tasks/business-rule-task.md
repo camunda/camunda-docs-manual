@@ -145,6 +145,6 @@ information on this please see the [Service Tasks][] documentation.
 
 # Additional Resources
 
-* [Service Tasks]({{< relref "reference/bpmn20/tasks/service-task.md" >}}))
+* [Service Tasks]({{< relref "reference/bpmn20/tasks/service-task.md" >}})
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-* [Demo using Drools on the Business Rule Task](https://github.com/camunda/camunda-consulting/tree/master/showcases/order-confirmation-rules)
+* [Demo using Drools on the Business Rule Task](https://github.com/camunda/camunda-consulting/tree/master/one-time-examples/order-confirmation-rules)

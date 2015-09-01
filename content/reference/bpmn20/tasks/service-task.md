@@ -32,7 +32,7 @@ To specify a class that is called during process execution, the fully qualified 
              camunda:class="org.camunda.bpm.MyJavaDelegate" />
 ```
 
-Please refer to the [Java Delegate]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}} for details on how to implement a Java Delegate.
+Please refer to the [Java Delegate]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for details on how to implement a Java Delegate.
 
 It is also possible to use an expression that resolves to an object. This object must follow the
 same rules as objects that are created when the `camunda:class` attribute is used.
@@ -53,7 +53,7 @@ Or an expression which calls a method or resolves to a value.
 
 For more information about expression language as delegation code please see the corresponding
 [section]({{< relref "user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
-of the [User Guide]({{< relref "user-guide/index.md" >}}.
+of the [User Guide]({{< relref "user-guide/index.md" >}}).
 
 
 # Generic Java Delegates & Field Injection
@@ -74,7 +74,7 @@ The return value of a service execution (for a service task exclusively using ex
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
 
 {{< note title="Result variables and multi-instance" class="warning" >}}
-Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
+Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
 {{< /note >}}
 
 

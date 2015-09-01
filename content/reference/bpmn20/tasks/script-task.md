@@ -113,7 +113,7 @@ The return value of a script task can be assigned to a previously existing or to
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
 {{< note title="Result variables and multi-instance" class="warning" >}}
-Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
+Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
 {{< /note >}}
 
 In case you evaluate a DMN decision using a Script Task the decision result
