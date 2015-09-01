@@ -7,7 +7,7 @@ weight: 120
 menu:
   main:
     identifier: "user-guide-cockpit"
-    parent: "user-guide"
+    parent: "webapps"
 
 ---
 
@@ -18,4 +18,4 @@ The Cockpit architecture allows you to use [plugins][cockpit-plugins] to extend 
 {{< img src="img/cockpit-start-page-view.png" title="Cockpit Dashboard" >}}
 
 
-[cockpit-plugins]: {{< relref "user-guide/cockpit/cockpit-plugins.md" >}}
+[cockpit-plugins]: {{< relref "webapps/cockpit/cockpit-plugins.md" >}}

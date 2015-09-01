@@ -7,7 +7,7 @@ weight: 110
 menu:
   main:
     identifier: "user-guide-admin"
-    parent: "user-guide"
+    parent: "webapps"
 
 ---
 

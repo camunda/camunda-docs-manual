@@ -5,8 +5,8 @@ weight: 70
 
 menu:
   main:
-    identifier: "user-guide-tasklist-configuration"
-    parent: "user-guide-tasklist"
+    identifier: "webapps-tasklist-configuration"
+    parent: "webapps-tasklist"
 
 ---
 

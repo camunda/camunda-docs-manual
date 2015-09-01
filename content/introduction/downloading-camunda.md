@@ -23,7 +23,7 @@ server does not support Java 8 (like JBoss Application Server 7).
 # Download the Runtime
 
 Camunda is a flexible framework which can be used in different contexts. See [Architecture Overview]
-({{< relref "user-guide/introduction/architecture.md" >}}) for more details. Based on how you want
+({{< relref "introduction/architecture.md" >}}) for more details. Based on how you want
 to use Camunda, you can choose a different distribution.
 
 
@@ -93,7 +93,7 @@ the [community download page][community-download-page].
 [get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [community-download-page]: http://camunda.org/download
 [enterprise-download-page]: /enterprise/download
-[shared-engine]: {{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}}
-[embedded-engine]: {{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}
+[shared-engine]: {{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}}
+[embedded-engine]: {{< relref "introduction/architecture.md#embedded-process-engine" >}}
 [installation-guide-standalone]: {{< relref "installation/standalone-webapplication.md" >}}
 [installation-guide-full]: {{< relref "installation/index.md" >}}

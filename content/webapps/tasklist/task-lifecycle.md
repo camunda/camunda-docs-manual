@@ -5,8 +5,8 @@ weight: 50
 
 menu:
   main:
-    identifier: "user-guide-tasklist-task-lifecycle"
-    parent: "user-guide-tasklist"
+    identifier: "webapps-tasklist-task-lifecycle"
+    parent: "webapps-tasklist"
 
 ---
 

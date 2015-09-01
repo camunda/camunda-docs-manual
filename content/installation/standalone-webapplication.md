@@ -14,14 +14,14 @@ menu:
 
 
 This document will guide you through the installation and configuration of the Camunda standalone web application.
-The Camunda web application combines [Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) and [Tasklist]({{< relref "user-guide/tasklist/index.md" >}}). The web application is self-contained and includes
-an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
+The Camunda web application combines [Cockpit]({{< relref "webapps/cockpit/index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/index.md" >}}). The web application is self-contained and includes
+an [embedded process engine]({{< relref "introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
 Spring Framework and will automatically start when the application is deployed. The process engine must be configured
 to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
 identity service, which can be replaced with LDAP (see the [LDAP configuration]({{< relref "#ldap-configuration" >}}) section).
 
 {{< note title="Embedded vs. Shared Process Engine" >}}
-Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "user-guide/introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "user-guide/introduction/architecture.md#shared-container-managed-process-engine" >}})
+Note: Since the Camunda standalone web application uses an [embedded process engine]({{< relref "introduction/architecture.md#embedded-process-engine" >}}) it must not be installed to an application server from a Camunda distribution download. Application servers contained in Camunda distributions already provide a [shared process engine]({{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}})
 {{< /note >}}
 
 

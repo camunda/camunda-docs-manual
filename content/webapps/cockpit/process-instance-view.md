@@ -15,7 +15,7 @@ menu:
 Open the Process Instance View by selecting a process instance from the [Process Definition View][process-definition-view] instance list. This view allows you to drill down into a single process instance and explore its running activities as well as the variables, tasks, jobs, etc.
 Beside the diagram view the process will be displayed as an [Activity Instance Tree View]({{< relref "#activity-instance-tree" >}}). Variables that belong to the instance will be listed in a variables table of the [Detailed Information Panel]({{< relref "#detailed-information-panel" >}}). Now you can select single or multiple ('ctrl + click') flow nodes in the interactive BPMN 2.0 diagram or you can select an activity instance within the activity tree view. As diagram, tree view and variables table correspond with each other the selected flow node will also be selected in the tree and the associated variables will be shown and vice versa.
 
-[process-definition-view]: {{< relref "user-guide/cockpit/process-definition-view.md" >}}
+[process-definition-view]: {{< relref "webapps/cockpit/process-definition-view.md" >}}
 
 
 # Activity Instance Tree

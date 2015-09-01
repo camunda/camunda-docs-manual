@@ -13,7 +13,7 @@ menu:
 
 Camunda BPM is a Java-based framework. The main components are written in Java and we have a general focus on providing Java developers with the tools they need for designing, implementing and running business processes and workflows on the JVM. Nevertheless, we also want to make the process engine technology available to Non-Java developers. This is why Camunda BPM also provides a REST API which allows you to build applications connecting to a remote process engine.
 
-Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< relref "user-guide/introduction/third-party-libraries.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}).
+Camunda BPM can be used both as a standalone process engine server or embedded inside custom Java applications. The embeddability requirement is at the heart of many architecture decisions within Camunda BPM. For instance, we work hard to make the process engine component a lightweight component with as little dependencies on [third-party libraries]({{< relref "introduction/third-party-libraries.md" >}}) as possible. Furthermore, the embeddability motivates programming model choices such as the capabilities of the process engine to participate in Spring Managed or JTA [transactions and the threading model]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}).
 
 
 # Process Engine Architecture
@@ -28,7 +28,7 @@ Camunda BPM can be used both as a standalone process engine server or embedded i
 
 ## Required Third-Party Libraries
 
-See section on [third-party libraries]({{< relref "user-guide/introduction/third-party-libraries.md" >}}).
+See section on [third-party libraries]({{< relref "introduction/third-party-libraries.md" >}}).
 
 
 # Camunda BPM Platform Architecture

@@ -20,9 +20,9 @@ The tab `Called Process Definitions` displays the called child processes. In the
 The tab `Job Definitions` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information)
 
 
-[failed-activities]: {{< relref "user-guide/cockpit/failed-jobs.md" >}}
-[process-instance-view]: {{< relref "user-guide/cockpit/process-instance-view.md" >}}
-[job-definition-suspension]: {{< relref "user-guide/cockpit/suspension.md#job-definition-suspension" >}}
+[failed-activities]: {{< relref "webapps/cockpit/failed-jobs.md" >}}
+[process-instance-view]: {{< relref "webapps/cockpit/process-instance-view.md" >}}
+[job-definition-suspension]: {{< relref "webapps/cockpit/suspension.md#job-definition-suspension" >}}
 
 
 # Filter
@@ -102,7 +102,7 @@ Add a filter to the [Process Definition History View][process-definition-history
 Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [Process Definition History View][process-definition-history-view].
 
 
-[process-definition-history-view]: {{< relref "user-guide/cockpit/process-history-views.md" >}}
+[process-definition-history-view]: {{< relref "webapps/cockpit/process-history-views.md" >}}
 
 
 # Cancel Multiple Process Instances

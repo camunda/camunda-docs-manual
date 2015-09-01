@@ -35,7 +35,7 @@ Database, schema or table level
 * Strict data separation
 * Hardly any performance overhead for application servers due to resource sharing
 * In case one tenant's database state is inconsistent, no other tenant is affected
-* Camunda Cockpit, Tasklist, and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "user-guide/cockpit/dashboard.md#multi-tenancy" >}})
+* Camunda Cockpit, Tasklist, and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-tenancy" >}})
 
 
 ## Disadvantages

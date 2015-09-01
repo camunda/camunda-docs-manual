@@ -5,15 +5,15 @@ weight: 60
 
 menu:
   main:
-    identifier: "user-guide-tasklist-plugins"
-    parent: "user-guide-tasklist"
+    identifier: "webapps-tasklist-plugins"
+    parent: "webapps-tasklist"
 
 ---
 
 
 Tasklist uses the concept of plugins to add own functionality without being forced to extend or hack the Tasklist web application.
 
-For further details about the concepts behind plugins please read the [Cockpit plugins section]({{< relref "user-guide/cockpit/cockpit-plugins.md" >}}).
+For further details about the concepts behind plugins please read the [Cockpit plugins section]({{< relref "webapps/cockpit/cockpit-plugins.md" >}}).
 
 {{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
   * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.

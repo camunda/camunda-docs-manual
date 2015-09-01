@@ -64,7 +64,7 @@ This script is the same as patch `$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql`
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -285,8 +285,8 @@ The upgrade script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statement
 If these authorizations are not desired and you want to restrict access to the listed resources, you have the following options:
 
 * Before executing the upgrade script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
-* Use the [Camunda Admin application]({{< relref "user-guide/admin/authorization-management.md" >}}) to delete the created authorizations.
-* Use the [Camunda Admin application]({{< relref "user-guide/admin/authorization-management.md" >}}) to add authorizations that restrict access.
+* Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to delete the created authorizations.
+* Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to add authorizations that restrict access.
 
 {{< note title="Note" class="warning" >}}
 If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.

@@ -13,6 +13,6 @@ menu:
 
 ---
 
-This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or [Wildfly 8 Application Server](http://www.wildfly.org).
+This document describes the installation of the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) for [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or [Wildfly 8 Application Server](http://www.wildfly.org).
 
 There are different options for installing the Full Distribution:

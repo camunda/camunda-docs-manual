@@ -1,13 +1,13 @@
 ---
 
-title: 'Camunda Modeler Eclipse Plugin'
-weight: 150
+title: 'Camunda BPMN Modeler Eclipse Plugin'
+weight: 60
+
 
 menu:
   main:
-    name: "Camunda Modeler"
-    identifier: "user-guide-eclipse-plugin"
-    parent: "user-guide"
+    name: "BPMN Modeler"
+    identifier: "bpmn-modeler"
 
 ---
 

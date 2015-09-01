@@ -13,7 +13,7 @@ menu:
 
 ---
 
-This document describes the installation of the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) for IBM WebSphere Application Server.
+This document describes the installation of the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) for IBM WebSphere Application Server.
 
 {{< enterprise >}}
 The Full Distribution for IBM Websphere is only available in the Enterprise Edition.

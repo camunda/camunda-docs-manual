@@ -5,8 +5,8 @@ weight: 10
 
 menu:
   main:
-    identifier: "user-guide-tasklist-working"
-    parent: "user-guide-tasklist"
+    identifier: "webapps-tasklist-working"
+    parent: "webapps-tasklist"
 
 ---
 
@@ -31,10 +31,10 @@ See [this section][tasklist-filters] for more information about Filters in Taskl
 
 # Working on Tasks
 
-After creating the filter, we now want to start working on a task. We can do so by selecting the task in the [filter results]({{< relref "user-guide/tasklist/dashboard.md#filter-results" >}}). On the right side, you will see the task form to work on as an embedded form.
+After creating the filter, we now want to start working on a task. We can do so by selecting the task in the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}). On the right side, you will see the task form to work on as an embedded form.
 
 In our example task form you are asked to assign an approver for your invoice. In our example, select the *demo* user from the dropdown menu and
-complete the task. Then have a look at the [filter results]({{< relref "user-guide/tasklist/dashboard.md#filter-results" >}}). Now you will see that the *Assign Approver* task has been completed and a new task, *Approve Invoice* has been created and assigned to the *demo* user.
+complete the task. Then have a look at the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}). Now you will see that the *Assign Approver* task has been completed and a new task, *Approve Invoice* has been created and assigned to the *demo* user.
 
 When you submit the task form, the task is completed and the process continues in the engine. Furthermore, you can visualize the process model by clicking on the *Diagram* tab in the [task view][tasklist-dashboard-task-view] section of the dashboard.
 
@@ -52,14 +52,14 @@ See [this section][tasklist-dashboard-follow-up] for more information about sett
 
 Next we will reassign this task to another user (e.g., *Mary*) for further handling. To do so, click on the user name *Demo Demo* in the [task view section][tasklist-dashboard-task-view] and insert the user that this task should be assigned to, e.g., *Mary*.
 
-See [this section]({{< relref "user-guide/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) for more information about claiming, unclaiming and reassigning tasks.
+See [this section]({{< relref "webapps/tasklist/dashboard.md#claim-unclaim-and-reassign-tasks" >}}) for more information about claiming, unclaiming and reassigning tasks.
 
 
 # Comment a Task
 
 Now that we have assigned the task to *Mary*, we want to add a comment for her to see. To do so, click on *Add Comment* at the top of the [task view section][tasklist-dashboard-task-view] and insert the comment, e.g., "Hi Mary, please handle this task". The comment can now be seen in the task history.
 
-See [this section]({{< relref "user-guide/tasklist/dashboard.md#comments" >}}) for more information about comments in tasks.
+See [this section]({{< relref "webapps/tasklist/dashboard.md#comments" >}}) for more information about comments in tasks.
 
 
 # Set Due Date
@@ -71,7 +71,7 @@ See [this section][tasklist-dashboard-follow-up] for more information about sett
 This concludes our example task. Now we will elaborate on the functions that Tasklist offers.
 
 
-[tasklist-dashboard]: {{< relref "user-guide/tasklist/dashboard.md" >}}
-[tasklist-dashboard-task-view]: {{< relref "user-guide/tasklist/dashboard.md#task-view" >}}
-[tasklist-dashboard-follow-up]: {{< relref "user-guide/tasklist/dashboard.md#set-due-dates-and-follow-up-dates" >}}
-[tasklist-filters]: {{< relref "user-guide/tasklist/filters.md" >}}
+[tasklist-dashboard]: {{< relref "webapps/tasklist/dashboard.md" >}}
+[tasklist-dashboard-task-view]: {{< relref "webapps/tasklist/dashboard.md#task-view" >}}
+[tasklist-dashboard-follow-up]: {{< relref "webapps/tasklist/dashboard.md#set-due-dates-and-follow-up-dates" >}}
+[tasklist-filters]: {{< relref "webapps/tasklist/filters.md" >}}

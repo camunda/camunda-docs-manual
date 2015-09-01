@@ -11,7 +11,7 @@ menu:
 ---
 
 
-The dashboard of Cockpit is your entry point for process monitoring. It comes with a pre-installed plugin, which lets you see deployed process defintions. Additional [plugins]({{< relref "user-guide/cockpit/cockpit-plugins.md" >}}) can be added to the dashboard.
+The dashboard of Cockpit is your entry point for process monitoring. It comes with a pre-installed plugin, which lets you see deployed process defintions. Additional [plugins]({{< relref "webapps/cockpit/cockpit-plugins.md" >}}) can be added to the dashboard.
 
 
 # Deployed Processes
@@ -26,8 +26,8 @@ With this plugin you can easily observe the state of a processes definition. Gre
 You can also switch to the preview tab which includes the rendered process model of each deployed process. Additionally, you get information about how many instances of the process are currently running and about the process state. Green and red dots signalize running and [failed jobs][failed-jobs]. Click on the model to go to the [Process Definition View][process-definition-view].
 
 
-[process-definition-view]: {{< relref "user-guide/cockpit/process-definition-view.md" >}}
-[failed-jobs]: {{< relref "user-guide/cockpit/failed-jobs.md" >}}
+[process-definition-view]: {{< relref "webapps/cockpit/process-definition-view.md" >}}
+[failed-jobs]: {{< relref "webapps/cockpit/failed-jobs.md" >}}
 
 
 # Multi Tenancy

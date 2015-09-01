@@ -90,7 +90,7 @@ The following list is an overview of all currently available patch scripts:
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
+This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
 
 Please note that the following procedure may differ for cluster scenarios. Contact our [support team](https://app.camunda.com/jira/browse/SUPPORT) if you need further assistance.
 
@@ -108,7 +108,7 @@ In case you use an embedded process engine inside your Java Application, you nee
 
 # Standalone Webapplication Distribution
 
-In case you installed the [Standalone Webapplication Distribution]({{< relref "user-guide/introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
+In case you installed the [Standalone Webapplication Distribution]({{< relref "introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
 1. undeploy the previous version of the webapplication,
 2. deploy the new version of the webapplication.

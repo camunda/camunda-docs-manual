@@ -6,14 +6,13 @@ weight: 10
 menu:
   main:
     identifier: "user-guide-introduction"
-    parent: "user-guide"
 
 ---
 
 
-Welcome to the Camunda BPM user guide! Camunda BPM is a Java-based framework for process automation. This document contains information about the features provided by the Camunda BPM platform.
+Welcome to the Camunda BPM Manual! Camunda is a Java-based framework for process automation. This document contains information about the features provided by the Camunda BPM platform.
 
-Camunda BPM is built around the process engine component. The following illustration shows the most important components of Camunda BPM along with some typical user roles.
+to give you an overview of Camunda, the following illustration shows the most important components along with some typical user roles.
 
 {{< img src="img/architecture-overview.png" title="Camunda Components and Roles" >}}
 
@@ -29,10 +28,10 @@ Camunda BPM is built around the process engine component. The following illustra
 # Web Applications
 
 * [REST API]({{< relref "reference/rest/index.md" >}}) The REST API allows you to use the process engine from a remote application or a JavaScript application. (Note: The documentation of the REST API is factored out into an own document.)
-* [Camunda Tasklist]({{< relref "user-guide/tasklist/index.md" >}}) A web application for human workflow management and user tasks that allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
-* [Camunda Cockpit]({{< relref "user-guide/cockpit/index.md" >}}) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
-* [Camunda Admin]({{< relref "user-guide/admin/index.md" >}}) A web application that allows you to manage users, groups and authorizations.
-* [Camunda Cycle]({{< relref "user-guide/cycle/index.md" >}}) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
+* [Camunda Tasklist]({{< relref "webapps/tasklist/index.md" >}}) A web application for human workflow management and user tasks that allows process participants to inspect their workflow tasks and navigate to task forms in order to work on the tasks and provide data input.
+* [Camunda Cockpit]({{< relref "webapps/cockpit/index.md" >}}) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
+* [Camunda Admin]({{< relref "webapps/admin/index.md" >}}) A web application that allows you to manage users, groups and authorizations.
+* [Camunda Cycle]({{< relref "webapps/cycle/index.md" >}}) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
 
 
 # Additional Tools

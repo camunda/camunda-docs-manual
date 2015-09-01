@@ -41,7 +41,7 @@ For general information about scripting in the process engine, please see the [S
 
 {{< note title="Supported Script Languages" class="info" >}}
 
-Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< relref "user-guide/introduction/third-party-libraries.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
+Camunda BPM should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="{{< relref "introduction/third-party-libraries.md#process-engine" >}}">Third Party Dependencies</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
 
 {{< /note >}}
 

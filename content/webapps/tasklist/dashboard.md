@@ -5,8 +5,8 @@ weight: 20
 
 menu:
   main:
-    identifier: "user-guide-tasklist-dashboard"
-    parent: "user-guide-tasklist"
+    identifier: "webapps-tasklist-dashboard"
+    parent: "webapps-tasklist"
 
 ---
 
@@ -96,4 +96,4 @@ In the lower section of the task view there are several tabs which can be select
 
 [task-view]: {{< relref "#task-view" >}}
 [filter-results]: {{< relref "#filter-results" >}}
-[tasklist-filters]: {{< relref "user-guide/tasklist/filters.md" >}}
+[tasklist-filters]: {{< relref "webapps/tasklist/filters.md" >}}

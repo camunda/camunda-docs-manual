@@ -2,7 +2,7 @@
 
 title: "Update and Migration"
 layout: "section-list"
-weight: 50
+weight: 70
 
 menu:
   main:
