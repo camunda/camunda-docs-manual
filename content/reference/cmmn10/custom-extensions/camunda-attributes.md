@@ -13,7 +13,7 @@ menu:
 
 The following attributes are extension attributes for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 
-# camunda:assignee
+# assignee
 
 <table class="table table-striped">
   <tr>
@@ -45,7 +45,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-# camunda:candidateGroups
+# candidateGroups
 
 <table class="table table-striped">
   <tr>
@@ -76,7 +76,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:candidateUsers
+# candidateUsers
 
 <table class="table table-striped">
   <tr>
@@ -107,7 +107,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:caseBinding
+# caseBinding
 
 <table class="table table-striped">
   <tr>
@@ -129,7 +129,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-caseversion" >}}">camunda:caseVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-casebinding" >}}">Case Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#caseversion" >}}">camunda:caseVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#casebinding" >}}">Case Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:caseVersion
+# caseVersion
 
 <table class="table table-striped">
   <tr>
@@ -175,7 +175,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:class
+# class
 
 <table class="table table-striped">
   <tr>
@@ -201,13 +201,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
-# camunda:delegateExpression
+# delegateExpression
 
 <table class="table table-striped">
   <tr>
@@ -233,14 +233,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
 
-# camunda:dueDate
+# dueDate
 
 <table class="table table-striped">
   <tr>
@@ -272,7 +272,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-# camunda:expression
+# expression
 
 <table class="table table-striped">
   <tr>
@@ -298,13 +298,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
 </table>
 
-# camunda:formKey
+# formKey
 
 <table class="table table-striped">
   <tr>
@@ -335,7 +335,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:priority
+# priority
 
 <table class="table table-striped">
   <tr>
@@ -366,7 +366,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:processBinding
+# processBinding
 
 <table class="table table-striped">
   <tr>
@@ -388,7 +388,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processbinding" >}}">Process Binding</a> for more information.
+      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#processbinding" >}}">Process Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -403,7 +403,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# camunda:processVersion
+# processVersion
 
 <table class="table table-striped">
   <tr>
@@ -435,7 +435,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 </table>
 
 
-# camunda:resource
+# resource
 
 <table class="table table-striped">
   <tr>
@@ -467,7 +467,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>CMMN 1.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>

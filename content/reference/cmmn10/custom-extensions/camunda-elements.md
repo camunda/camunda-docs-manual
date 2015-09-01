@@ -14,7 +14,7 @@ menu:
 
 The following elements are extension elements for the `camunda` namespace `http://camunda.org/schema/1.0/cmmn`.
 
-# camunda:caseExecutionListener
+# caseExecutionListener
 
 <table class="table table-striped">
   <tr>
@@ -34,21 +34,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -77,13 +77,13 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
 
-# camunda:expression
+# expression
 
 <table class="table table-striped">
 <tr>
@@ -113,7 +113,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 <tr>
   <th>Parent elements</th>
   <td colspan="2">
-    <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>
+    <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#field" >}}">camunda:field</a>
   </td>
 </tr>
 <tr>
@@ -124,7 +124,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 </tr>
 </table>
 
-# camunda:field
+# field
 
 <table class="table table-striped">
   <tr>
@@ -159,20 +159,20 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
   </tr>
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-expression" >}}">camunda:expression</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-string" >}}">camunda:string</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#expression" >}}">camunda:expression</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#string" >}}">camunda:string</a>
     </td>
   </tr>
 </table>
 
-# camunda:in
+# in
 
 <table class="table table-striped">
   <tr>
@@ -244,7 +244,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 </table>
 
 
-# camunda:out
+# out
 
 <table class="table table-striped">
   <tr>
@@ -308,7 +308,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-# camunda:repetitionCriterion
+# repetitionCriterion
 
 <table class="table table-striped">
   <tr>
@@ -340,7 +340,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-# camunda:script
+# script
 
 <table class="table table-striped">
   <tr>
@@ -360,7 +360,7 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>resource</code></td>
     <td>
-      equivalent to <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-resource" >}}">
+      equivalent to <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#resource" >}}">
       camunda:resource</a>
     </td>
   </tr>
@@ -379,7 +379,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">
         camunda:variableListener</a>,
       camunda:caseExecutionListener
     </td>
@@ -393,7 +393,7 @@ The following elements are extension elements for the `camunda` namespace `http:
 </table>
 
 
-# camunda:string
+# string
 
 <table class="table table-striped">
   <tr>
@@ -423,7 +423,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#field" >}}">camunda:field</a>
     </td>
   </tr>
   <tr>
@@ -434,7 +434,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
-# camunda:taskListener
+# taskListener
 
 <table class="table table-striped">
   <tr>
@@ -454,21 +454,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -492,13 +492,13 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
 
-# camunda:variableListener
+# variableListener
 
 <table class="table table-striped">
   <tr>
@@ -518,21 +518,21 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>class</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-class" >}}">camunda:class</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#class" >}}">camunda:class</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>expression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-expression" >}}">camunda:expression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#expression" >}}">camunda:expression</a>
     </td>
   </tr>
   <tr>
     <td></td>
     <td><code>delegateExpression</code></td>
     <td>
-      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-delegateexpression" >}}">camunda:delegateExpression</a>
+      see <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#delegateexpression" >}}">camunda:delegateExpression</a>
     </td>
   </tr>
   <tr>
@@ -560,8 +560,8 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Child elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-field" >}}">camunda:field</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-script" >}}">camunda:script</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#field" >}}">camunda:field</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#script" >}}">camunda:script</a>
     </td>
   </tr>
 </table>
