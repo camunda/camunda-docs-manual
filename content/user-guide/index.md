@@ -9,3 +9,5 @@ menu:
     identifier: "user-guide"
 
 ---
+
+This document targets Developers who want to use Camunda Process Engine in their applications.
