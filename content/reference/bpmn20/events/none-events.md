@@ -18,7 +18,8 @@ ProcessInstance processInstance = runtimeService.startProcessInstanceByKey('invo
 
 Note: a subprocess must always have a none start event.
 
-<div data-bpmn-diagram="implement/event-none"></div>
+<div data-bpmn-diagram="../bpmn/event-none"></div>
+
 
 # None End Event
 
@@ -32,7 +33,7 @@ A 'none' end event means that the result thrown when the event is reached is uns
 
 The following process diagram shows a simple example of an intermediate none event, which is often used to indicate some state achieved in the process.
 
-<div data-bpmn-diagram="implement/event-none-intermediate" ></div>
+<div data-bpmn-diagram="../bpmn/event-none-intermediate" ></div>
 
 
 This can be a good hook to monitor some KPI's, basically by adding an execution listener
@@ -47,7 +48,8 @@ This can be a good hook to monitor some KPI's, basically by adding an execution 
 
 You can add some own code to the execution listener to maybe send some event to your BAM tool or DWH. The engine itself doesn't do anything in the event, it just passes through it.
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

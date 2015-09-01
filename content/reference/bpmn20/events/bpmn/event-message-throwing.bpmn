@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sid-0b487b84-1ebb-423a-b69f-860f5e37adfc" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="7.2.0" targetNamespace="http://activiti.org/bpmn">
+  <globalTask id="sid-975db1db-6ac3-4119-b5de-6d60487b1e5d" name="order fullfillment"/>
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="StartEvent_1" name="Order&#xD;&#xA;received">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+      <outgoing>SequenceFlow_1</outgoing>
+      <messageEventDefinition id="sid-86ac3c69-d168-4c31-8990-ba2f9ba768f9"/>
+    </startEvent>
+    <intermediateCatchEvent id="IntermediateCatchEvent_1" name="Payment&#xD;&#xA;received">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+      <incoming>sid-0F456E5C-C088-4007-9356-C78AD01272AE</incoming>
+      <outgoing>SequenceFlow_3</outgoing>
+      <messageEventDefinition id="sid-22902f9b-3632-41ba-83e7-ba7ced8b0cec"/>
+    </intermediateCatchEvent>
+    <callActivity id="CallActivity_1" name="Order fulfillment" calledElement="sid-975db1db-6ac3-4119-b5de-6d60487b1e5d">
+      <extensionElements>
+        <signavio:signavioStencil id="Task"/>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue=""/>
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue=""/>
+        <signavio:signavioMetaData metaKey="test" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue=""/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue=""/>
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue=""/>
+        <signavio:signavioMetaData metaKey="risiko" metaValue=""/>
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue=""/>
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue=""/>
+      </extensionElements>
+      <incoming>SequenceFlow_3</incoming>
+      <outgoing>SequenceFlow_4</outgoing>
+    </callActivity>
+    <endEvent id="EndEvent_1" name="Order fulfilled">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+      <incoming>SequenceFlow_4</incoming>
+    </endEvent>
+    <boundaryEvent id="BoundaryEvent_2" name="Order&#xD;&#xA;canceled" attachedToRef="CallActivity_1">
+      <outgoing>SequenceFlow_5</outgoing>
+      <messageEventDefinition id="sid-ee82440f-a113-4016-b633-53f65fa3d8f2"/>
+    </boundaryEvent>
+    <task id="Task_2" name="Handle cancelation">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+        <signavio:signavioMetaData metaKey="adaptereventtype" metaValue=""/>
+        <signavio:signavioMetaData metaKey="documentationlink" metaValue=""/>
+        <signavio:signavioMetaData metaKey="test" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adaptertype" metaValue=""/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adapterconfiguration" metaValue=""/>
+        <signavio:signavioMetaData metaKey="adapterclassname" metaValue=""/>
+        <signavio:signavioMetaData metaKey="servicereferenz" metaValue=""/>
+        <signavio:signavioMetaData metaKey="risiko" metaValue=""/>
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue=""/>
+        <signavio:signavioMetaData metaKey="riskandcontrols" metaValue=""/>
+      </extensionElements>
+      <incoming>SequenceFlow_5</incoming>
+      <outgoing>SequenceFlow_6</outgoing>
+    </task>
+    <endEvent id="EndEvent_2" name="Order canceled">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+      <incoming>SequenceFlow_6</incoming>
+    </endEvent>
+    <intermediateThrowEvent id="sid-B1E7C718-9514-4820-888B-01DF4C978217" name="Send order&#xD;&#xA;confirmation">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+      <incoming>SequenceFlow_1</incoming>
+      <outgoing>sid-0F456E5C-C088-4007-9356-C78AD01272AE</outgoing>
+      <messageEventDefinition id="sid-0b4b64b8-0123-4f5d-a7de-a76eaf711187"/>
+    </intermediateThrowEvent>
+    <sequenceFlow id="SequenceFlow_1" isImmediate="true" sourceRef="StartEvent_1" targetRef="sid-B1E7C718-9514-4820-888B-01DF4C978217">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_3" isImmediate="true" sourceRef="IntermediateCatchEvent_1" targetRef="CallActivity_1">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_4" isImmediate="true" sourceRef="CallActivity_1" targetRef="EndEvent_1">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_5" isImmediate="true" sourceRef="BoundaryEvent_2" targetRef="Task_2">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_6" isImmediate="true" sourceRef="Task_2" targetRef="EndEvent_2">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-0F456E5C-C088-4007-9356-C78AD01272AE" sourceRef="sid-B1E7C718-9514-4820-888B-01DF4C978217" targetRef="IntermediateCatchEvent_1">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="sid-658e1390-a7a9-4d5c-ba2a-448d75de169a">
+    <bpmndi:BPMNPlane id="sid-ae92af02-633d-422b-9f92-5fe1334fb075" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_gui" bpmnElement="StartEvent_1">
+        <omgdc:Bounds height="30.0" width="30.0" x="105.0" y="85.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_1_gui" bpmnElement="IntermediateCatchEvent_1">
+        <omgdc:Bounds height="30.0" width="30.0" x="285.0" y="85.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="CallActivity_1_gui" bpmnElement="CallActivity_1">
+        <omgdc:Bounds height="80.0" width="100.0" x="384.0" y="60.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_gui" bpmnElement="EndEvent_1">
+        <omgdc:Bounds height="28.0" width="28.0" x="665.0" y="85.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_2_gui" bpmnElement="BoundaryEvent_2">
+        <omgdc:Bounds height="30.0" width="30.0" x="448.18918" y="125.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="38.0" width="58.0" x="405.0" y="154.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_gui" bpmnElement="Task_2">
+        <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="200.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_2_gui" bpmnElement="EndEvent_2">
+        <omgdc:Bounds height="28.0" width="28.0" x="665.0" y="225.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-B1E7C718-9514-4820-888B-01DF4C978217_gui" bpmnElement="sid-B1E7C718-9514-4820-888B-01DF4C978217">
+        <omgdc:Bounds height="30.0" width="30.0" x="195.0" y="85.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="sid-0F456E5C-C088-4007-9356-C78AD01272AE_gui" bpmnElement="sid-0F456E5C-C088-4007-9356-C78AD01272AE">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="225.0" y="100.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="285.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_6_gui" bpmnElement="SequenceFlow_6">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="610.0" y="240.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="665.0" y="239.2029"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_4_gui" bpmnElement="SequenceFlow_4">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="484.0" y="100.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="665.0" y="99.07179"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_5_gui" bpmnElement="SequenceFlow_5">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="463.31082" y="155.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="464.0" y="240.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="510.0" y="240.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_3_gui" bpmnElement="SequenceFlow_3">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="315.0" y="100.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="384.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1_gui" bpmnElement="SequenceFlow_1">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="135.0" y="100.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="195.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

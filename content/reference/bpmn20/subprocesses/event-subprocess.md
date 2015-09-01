@@ -19,7 +19,7 @@ An Event subprocess may not have any incoming or outgoing sequence flows. As an 
 
 The Event subprocess is visualized as an embedded subprocess with a dotted outline.
 
-<div data-bpmn-diagram="tutorial/subprocess_event"> </div>
+<div data-bpmn-diagram="../bpmn/subprocess_event"> </div>
 
 It is represented using XML in the same way as an embedded subprocess. Additionally, the attribute triggeredByEvent must have the value `true`:
 
@@ -29,18 +29,18 @@ It is represented using XML in the same way as an embedded subprocess. Additiona
 </subProcess>
 ```
 
-<div class="alert alert-info">
-  <ul>
-    <li>Event subprocesses triggered using an Error Start Event, Signal Start Event, Compensation Start Event, Timer Start Event and Message Start Event are supported.</li>
-  </ul>
-</div>
+{{< note title="" class="info" >}}
+<ul>
+  <li>Event subprocesses triggered using an Error Start Event, Signal Start Event, Compensation Start Event, Timer Start Event and Message Start Event are supported.</li>
+</ul>
+{{< /note >}}
 
 
 # Example
 
 The following is an example of an Event subprocess triggered using an Error Start Event. The Event subprocess is located at the "process level", i.e., is scoped to the process instance:
 
-<div data-bpmn-diagram="implement/event-subprocess"></div>
+<div data-bpmn-diagram="../bpmn/event-subprocess"></div>
 
 This is what the Event subprocess looks like in XML:
 
@@ -56,11 +56,11 @@ This is what the Event subprocess looks like in XML:
 
 As already stated, an Event subprocess can also be added to an embedded subprocess. If it is added to an embedded subprocess, it becomes an alternative to a boundary event. Consider the two following process diagrams. In both cases the embedded subprocess throws an error event. Both times the error is caught and handled using a user task.
 
-<div data-bpmn-diagram="implement/event-subprocess-alternative1"></div>
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
 
 as opposed to:
 
-<div data-bpmn-diagram="implement/event-subprocess-alternative2"></div>
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 
 In both cases the same tasks are executed. However, there are differences between both modeling options:
 
@@ -69,7 +69,8 @@ In both cases the same tasks are executed. However, there are differences betwee
 
 These two differences can help you decide whether a boundary event or an embedded subprocess is better suited for solving a particular process modeling / implementation problem.
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -96,6 +97,7 @@ These two differences can help you decide whether a boundary event or an embedde
     </td>
   </tr>
 </table>
+
 
 # Additional Resources
 

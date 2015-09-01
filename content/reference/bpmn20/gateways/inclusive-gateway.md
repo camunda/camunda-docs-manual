@@ -21,7 +21,7 @@ The functionality of the inclusive gateway is based on the incoming and outgoing
 
 Note that an inclusive gateway can have _both_ fork _and_ join behavior, if there are multiple incoming and outgoing sequence flows for the same inclusive gateway. In that case, the gateway will first join all incoming sequence flows that have a process token, before splitting into multiple concurrent paths of executions for the outgoing sequence flows that have a condition that evaluates to 'true'.
 
-<div data-bpmn-diagram="implement/inclusive-gateway"></div>
+<div data-bpmn-diagram="../bpmn/inclusive-gateway"></div>
 
 Defining an inclusive gateway needs one line of XML:
 
@@ -83,7 +83,8 @@ When this task is completed, the second inclusive gateway will join the two exec
 
 Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flows for corresponding inclusive gateways). An inclusive gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model.
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -110,6 +111,7 @@ Note that an inclusive gateway does not need to be 'balanced' (i.e. a matching n
     </td>
   </tr>
 </table>
+
 
 # Additional Resources
 

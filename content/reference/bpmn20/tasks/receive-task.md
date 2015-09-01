@@ -13,7 +13,7 @@ menu:
 
 A Receive Task is a simple task that waits for the arrival of a certain message. When the process execution arrives at a Receive Task, the process state is committed to the persistence storage. This means that the process will stay in this wait state until a specific message is received by the engine, which triggers the continuation of the process beyond the Receive Task.
 
-<div data-bpmn-symbol="receivetask" data-bpmn-symbol-name="Receive Task"></div>
+{{< bpmn-symbol type="receive-task" >}}
 
 A Receive Task with a message reference can be triggered like an ordinary event:
 
@@ -36,9 +36,9 @@ runtimeService.correlateMessage(subscription.getEventName());
 runtimeService.messageEventReceived(subscription.getEventName(), subscription.getExecutionId());
 ```
 
-<div class="alert alert-warning">
-  Correlation of a parallel multi instance isn't possible because the subscription can't be identified unambiguously.
-</div>
+{{< note title="" class="warning" >}}
+Correlation of a parallel multi instance isn't possible because the subscription can't be identified unambiguously.
+{{< /note >}}
 
 To continue a process instance that is currently waiting at a Receive Task without a message reference, the `runtimeService.signal(executionId)` can be called, using the id of the execution that arrived in the Receive Task.
 
@@ -56,7 +56,8 @@ Execution execution = runtimeService.createExecutionQuery()
 runtimeService.signal(execution.getId());
 ```
 
-## camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -84,8 +85,9 @@ runtimeService.signal(execution.getId());
   </tr>
 </table>
 
-## Additional Resources
+
+# Additional Resources
 
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-* [Message Receive Events]({{< relref "reference/bpmn20/events/message-events.md" >}}))
-* [Trigger a subscription via REST]({{< relref "reference/rest/execution/post-signal.md" >}}))
+* [Message Receive Events]({{< relref "reference/bpmn20/events/message-events.md" >}})
+* [Trigger a subscription via REST]({{< relref "reference/rest/execution/post-signal.md" >}})

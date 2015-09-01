@@ -17,7 +17,7 @@ It is useful if you had a parallel split in your process before and you want to 
 
 If you use it on the process instance level, the whole process is terminated. On a subprocess level the current scope and all inner processes will be terminated.
 
-<div data-bpmn-diagram="implement/event-terminate"></div>
+<div data-bpmn-diagram="../bpmn/event-terminate"></div>
 
 
 # Terminate Event Definition
@@ -34,7 +34,8 @@ A terminate event is modeled as a end event with an additional definition elemen
 </process>
 ```
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

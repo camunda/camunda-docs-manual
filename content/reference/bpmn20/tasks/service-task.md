@@ -13,10 +13,9 @@ menu:
 
 
 
-A service task is used to invoke services. In camunda this is done by calling Java code.
+A service task is used to invoke services. In Camunda this is done by calling Java code.
 
-<div data-bpmn-symbol="task/servicetask"></div>
-<div data-bpmn-symbol="servicetask" data-bpmn-symbol-name="Service Task"></div>
+{{< bpmn-symbol type="service-task" >}}
 
 There are 4 ways of declaring how to invoke Java logic:
 
@@ -56,11 +55,13 @@ For more information about expression language as delegation code please see the
 [section]({{< relref "user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
 of the [User Guide]({{< relref "user-guide/index.md" >}}.
 
-## Generic Java Delegates & Field Injection
 
-You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection) section of the [User Guide]({{< relref "user-guide/index.md" >}} for details.
+# Generic Java Delegates & Field Injection
 
-## Service task results
+You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+
+
+# Service Task Results
 
 The return value of a service execution (for a service task exclusively using expression) can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a service task definition. Any existing value for a specific process variable will be overwritten by the result value of the service execution. When not specifying a result variable name, the service execution result value is ignored.
 
@@ -72,14 +73,12 @@ The return value of a service execution (for a service task exclusively using ex
 
 In the example above, the result of the service execution (the return value of the `doSomething()` method invocation on object `myService`) is set to the process variable named `myVar` after the service execution completes.
 
-<div class="alert alert-warning">
-  <strong>Result variables and multi-instance</strong>
-  <p>
-    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
-  </p>
-</div>
+{{< note title="Result variables and multi-instance" class="warning" >}}
+Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
+{{< /note >}}
 
-## camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -129,7 +128,7 @@ In the example above, the result of the service execution (the return value of t
 </table>
 
 
-## Additional Resources
+# Additional Resources
 
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html) section
 * [How to call a Webservice from BPMN](http://www.bpm-guide.de/2010/12/09/how-to-call-a-webservice-from-bpmn/). Please note that this article is outdated. However, it is still valid regarding how you would call a Web Service using the process engine.

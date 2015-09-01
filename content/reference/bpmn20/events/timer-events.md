@@ -13,11 +13,13 @@ menu:
 
 Timer events are events which are triggered by a defined timer. They can be used as start event, intermediate event or boundary event. Boundary events can be interrupting or not.
 
-<div data-bpmn-diagram="implement/event-timer" ></div>
+<div data-bpmn-diagram="../bpmn/event-timer" ></div>
+
 
 # Configuration
 
 Timers are only fired when the [Job Executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}) is enabled.
+
 
 # Defining a Timer
 
@@ -114,6 +116,7 @@ The configuration `2016-03-11T12:13:14` does not specify a time zone. At runtime
   </tr>
 </table>
 
+
 # Timer Start Event
 
 A timer start event is used to create process instance at a given time. It can be used both for processes which should start only once and for processes that should start in specific time intervals.
@@ -143,6 +146,7 @@ and this process will start once, on a selected date:
 </startEvent>
 ```
 
+
 # Timer Intermediate Catching Event
 
 A timer intermediate event acts as a stopwatch. When an execution arrives in catching event activity, a timer is started. When the timer fires (e.g. after a specified interval), the sequence flow going out of the timer intermediate event is followed.
@@ -156,6 +160,7 @@ A timer intermediate event is defined as a intermediate catching event. The spec
   </timerEventDefinition>
 </intermediateCatchEvent>
 ```
+
 
 # Timer Boundary Event
 

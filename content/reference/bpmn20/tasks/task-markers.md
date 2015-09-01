@@ -13,6 +13,7 @@ menu:
 
 In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types.
 
+
 # Multiple Instance
 
 A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the `for each` construct: it allows execution of a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
@@ -34,7 +35,7 @@ A Gateway or Event can not become multi-instance.
 
 If an activity is multi-instance, this is indicated by three short lines at the bottom of that activity. Three vertical lines indicates that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate **sequential** execution.
 
-<div data-bpmn-diagram="implement/multiple-instance"></div>
+<div data-bpmn-diagram="../bpmn//multiple-instance"></div>
 
 As required by the spec, each parent execution of the created executions for each instance will have following variables:
 
@@ -111,6 +112,7 @@ A multi-instance activity ends when all instances are finished. However, it is p
 
 In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.
 
+
 ## Camunda Extensions
 
 <table class="table table-striped">
@@ -138,13 +140,15 @@ In this example, parallel instances will be created for each element of the assi
   </tr>
 </table>
 
-## Boundary events and multi-instance
+
+## Boundary Events and Multi-Instance
 
 Since a multi-instance is a regular activity, it is possible to define a boundary event on its boundary. In case of an interrupting boundary event, when the event is caught, all instances that are still active will be destroyed. For example, take the following multi-instance subprocess:
 
-<div data-bpmn-diagram="implement/multiple-instance-boundary"></div>
+<div data-bpmn-diagram="../bpmn/multiple-instance-boundary"></div>
 
 Here all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not completed yet.
+
 
 ## Loops
 
@@ -152,15 +156,16 @@ The loop marker is not natively supported yet by the engine. For Multiple Instan
 
 To get around this limitation the solution is to explicitly model the loop in your BPMN process:
 
-<div data-bpmn-diagram="implement/loop-alternative"></div>
+<div data-bpmn-diagram="../bpmn/loop-alternative"></div>
 
 Be assured that we have the loop marker in our backlog to be added to the engine.
+
 
 # Compensation
 
 If an activity is used for compensating the effects of another activity it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.
 
-<div data-bpmn-diagram="implement/compensation-marker"></div>
+<div data-bpmn-diagram="../bpmn/compensation-marker"></div>
 
 Notice the compensation handler icon in the bottom center area of the "cancel hotel reservation" service task.
 
@@ -173,6 +178,7 @@ In order to declare an activity to be a compensation handler, we need to set the
 ```xml
 <serviceTask id="undoBookHotel" isForCompensation="true" camunda:class="..." />
 ```
+
 
 # Additional Resources
 

@@ -13,14 +13,14 @@ menu:
 
 A Manual Task defines a task that is external to the BPM engine. It is used to model work that is done by somebody who the engine does not need to know of and is there no known system or UI interface. For the engine, a manual task is handled as a pass-through activity, automatically continuing the process at the moment the process execution arrives at it.
 
-<div data-bpmn-symbol="manualtask" data-bpmn-symbol-name="Manual Task"></div>
+{{< bpmn-symbol type="manual-task" >}}
 
 ```xml
 <manualTask id="myManualTask" name="Manual Task" />
 ```
 
 
-## camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

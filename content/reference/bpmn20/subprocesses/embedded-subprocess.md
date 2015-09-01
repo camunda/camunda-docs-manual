@@ -25,15 +25,15 @@ Using a subprocess does impose some constraints:
 
 A subprocess is visualized as a typical activity, i.e., a rounded rectangle. In case the subprocess is collapsed, only the name and a plus-sign are displayed, giving a high-level overview of the process:
 
-<div data-bpmn-diagram="tutorial/subprocess"></div>
+<div data-bpmn-diagram="../bpmn/subprocess"></div>
 
 In case the subprocess is expanded, the steps of the subprocess are displayed within the subprocess boundaries:
 
-<div data-bpmn-diagram="tutorial/subprocess_expanded"></div>
+<div data-bpmn-diagram="../bpmn/subprocess_expanded"></div>
 
 One of the main reasons to use a subprocess is to define a scope for a certain event. The following process model shows this: both the investigate software and investigate hardware tasks need to be done in parallel, but both tasks need to be done within a certain time, before Level 2 support is consulted. Here, the scope of the timer (i.e., which activities must be done in time) is constrained by the subprocess.
 
-<div data-bpmn-diagram="tutorial/subprocess_attached"></div>
+<div data-bpmn-diagram="../bpmn/subprocess_attached"></div>
 
 A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess, need to be enclosed within this element.
 
@@ -47,7 +47,8 @@ A subprocess is defined by the subprocess element. All activities, gateways, eve
 </subProcess>
 ```
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

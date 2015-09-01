@@ -13,9 +13,10 @@ menu:
 
 A Business Rule task is used to synchronously execute one or more rules.
 
-<div data-bpmn-symbol="businessruletask" data-bpmn-symbol-name="Businss Rule Task"></div>
+{{< bpmn-symbol type="business-rule-task" >}}
 
-# Using Camunda DMN engine
+
+# Using Camunda DMN Engine
 
 You can use the Camunda DMN engine integration to evaluate a DMN decision table. You have
 to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally
@@ -71,7 +72,7 @@ decision result to be easy accessible in the process:
    maps.
 
 
-# Using a custom rule engine
+# Using a Custom Rule Engine
 
 You can use the rule engine of your choice, on the open source side we have
 made good experiences with JBoss Drools. To do so, you have to plug in your
@@ -82,12 +83,14 @@ implementation of the rule task the same way as in a Service Task.
     camunda:delegateExpression="${MyRuleServiceDelegate}" />
 ```
 
+
 # Using Delegate Code
 
 Alternatively a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the [Service Tasks][] documentation.
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -138,6 +141,7 @@ information on this please see the [Service Tasks][] documentation.
     </td>
   </tr>
 </table>
+
 
 # Additional Resources
 

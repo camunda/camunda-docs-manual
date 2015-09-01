@@ -12,13 +12,15 @@ menu:
 
 Error events are events which are triggered by a defined error.
 
-<div data-bpmn-diagram="implement/event-error"></div>
+<div data-bpmn-diagram="../bpmn/event-error"></div>
+
 
 # Business Errors vs. Techincal Errors
 
 A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.
 
 You might also want to check out the basics of [Threading and Transactions]({{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}}) first.
+
 
 # Defining an Error
 
@@ -64,7 +66,7 @@ An error event handler references the same error element to declare that it catc
 
 An error start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. The error start event is always interrupting.
 
-<div data-bpmn-diagram="implement/event-subprocess-alternative1"></div>
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
 
 Two optional attributes can be added to the error start event, <code>errorRef</code> and <code>camunda:errorCodeVariable</code>:
 ```xml
@@ -86,11 +88,12 @@ Two optional attributes can be added to the error start event, <code>errorRef</c
 * If `errorRef` is omitted, the subprocess will start for every error event that occurs.
 * The `camunda:errorCodeVariable` will contain the error code that was specified with the error. The value can be retrieved like any other process variable, but only if the attribute was set.
 
+
 # Error End Event
 
 When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate boundary error event. In case no matching boundary error event is found, the execution semantics defaults to the none end event semantics.
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -124,7 +127,7 @@ Defining a boundary error event makes most sense on an embedded subprocess, or a
 
 When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g. concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.
 
-<div data-bpmn-diagram="implement/event-subprocess-alternative2"></div>
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 
 A boundary error event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:
 

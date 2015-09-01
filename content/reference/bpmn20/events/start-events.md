@@ -22,6 +22,7 @@ The process engine supports differnet types of start events:
 
 The engine requires at least one start event to instantiate a process. There can a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
 
+
 # Asynchronous Instantiation
 
 A start event may be declared as asynchronous with `camunda:asyncBefore="true"`
@@ -32,7 +33,8 @@ A start event may be declared as asynchronous with `camunda:asyncBefore="true"`
 
 This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}. See the [Asynchronous Continuations]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for some background information.
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

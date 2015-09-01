@@ -14,9 +14,9 @@ menu:
 
 A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flows will be followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flows will create two separate, parallel paths of execution.</strong>
 
-<div data-bpmn-diagram="implement/sequence-flow-parallel"></div>
+<div data-bpmn-diagram="../bpmn/sequence-flow-parallel"></div>
 
-# camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -40,7 +40,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 
 A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flow. When a condition evaluates to 'true', that outgoing sequence flow is selected. When multiple sequence flow are selected that way, multiple executions will be generated and the process will be continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flow with conditions in specific ways, depending on the gateway type.
 
-<div data-bpmn-diagram="implement/sequence-flow-conditional"></div>
+<div data-bpmn-diagram="../bpmn/sequence-flow-conditional"></div>
 
 A conditional sequence flow is represented in XML as a regular sequence flow, containing a conditionExpression sub-element. Note that at the moment only tFormalExpressions are supported. Omitting the xsi:type="" definition will simply default to this type of expression.
 
@@ -80,12 +80,13 @@ In this example a simple groovy script is used to evaluate a process variable `s
 ```
 
 Similar to a script task also an external script resource can be specified (see documentation
-on [script source][script-source] for more information).
+on [script source]({{< relref "user-guide/process-engine/scripting.md#script-source" >}}) for more information).
 
 ```xml
 <conditionExpression xsi:type="tFormalExpression" language="groovy"
   camunda:resource="org/camunda/bpm/exampe/condition.groovy" />
 ```
+
 
 # Extensions for conditionExpression
 
@@ -114,7 +115,7 @@ All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence 
 
 A default sequence flow for a certain activity is defined by the default attribute on that activity. The following example shows an exclusive gateway with a default sequence flow. Only when x is neither 1 nor 2 it will be selected as outgoing sequence flow for the gateway.
 
-<div data-bpmn-diagram="implement/exclusive-gateway"></div>
+<div data-bpmn-diagram="../bpmn/exclusive-gateway"></div>
 
 Note the 'slash' marker at the beginning of the default sequence flow. The corresponding XML snippet shows how flow4 is configured as a default sequence flow.
 
@@ -132,5 +133,3 @@ Note the 'slash' marker at the beginning of the default sequence flow. The corre
 <sequenceFlow id="flow4" sourceRef="exclusiveGw" targetRef="theTask3" name="else">
 </sequenceFlow>
 ```
-
-[script-source]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}

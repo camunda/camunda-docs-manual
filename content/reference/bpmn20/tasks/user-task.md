@@ -13,13 +13,14 @@ menu:
 
 A `user task` is used to model work that needs to be done by a human actor. When the process execution arrives at such a user task, a new task is created in the task list of the user(s) or group(s) assigned to that task.
 
-<div data-bpmn-symbol="usertask" data-bpmn-symbol-name="User Task"></div>
+{{< bpmn-symbol type="user-task" >}}
 
 A user task is defined in XML as follows. The id attribute is required while the name attribute is optional.
 
 ```xml
 <userTask id="theTask" name="Important task" />
 ```
+
 
 # Description
 
@@ -37,6 +38,7 @@ The description text can be retrieved from the task in the standard Java way:
 ```java
 task.getDescription();
 ```
+
 
 # Properties
 
@@ -114,7 +116,7 @@ If no specifics are given whether the given text string is a user or a group, th
 <formalExpression>accountancy</formalExpression>
 <formalExpression>group(accountancy)</formalExpression>
 ```
-## User Assignment using custom extensions
+## User Assignment using Custom Extensions
 
 It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the user task are possible.
 
@@ -194,6 +196,7 @@ public class FakeLdapService {
 }
 ```
 
+
 # Forms
 
 It is possible to provide information to render a user task form by using the `camunda:formKey`
@@ -215,13 +218,13 @@ In custom applications, the value of the form key can be chosen freely. In a cus
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
 
-## Retrieving the form key using the form service.
+## Retrieving the Form Key using the Form Service.
 
 ```java
 String formKey = formService.getTaskFormData(someTaskId).getFormKey();
 ```
 
-## Retrieving the form using the task service
+## Retrieving the Form using the Task Service
 
 When performing a task query, it is possible to retrieve the form key as well. This is most useful
 if the form keys need to be retrieved for a complete list of tasks:

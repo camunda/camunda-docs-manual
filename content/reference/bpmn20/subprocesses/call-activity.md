@@ -17,7 +17,7 @@ The difference is that the call activity references a process that is external t
 
 When process execution arrives at the call activity, a new process instance is created, which is used to execute the subprocess, potentially creating parallel child executions as within a regular process. The main process instance waits until the subprocess is completely ended, and continues the original process afterwards.
 
-<div data-bpmn-diagram="implement/call-activity"></div>
+<div data-bpmn-diagram="../bpmn/call-activity"></div>
 
 A call activity is visualized the same way as a collapsed embedded subprocess, however with a thick border. Depending on the modeling tool, a call activity can also be expanded, but the default visualization is the collapsed representation.
 
@@ -50,7 +50,7 @@ CalledElementBinding has three different values:
 ```
 
 
-# Passing variables
+# Passing Variables
 
 You can pass process variables to the subprocess and vice versa. The data is copied into the subprocess when it is started and copied back into the main process when it ends.
 
@@ -105,7 +105,7 @@ You can pass the business key to the subprocess. The data is copied into the sub
 
 The following process diagram shows a simple handling of an order. Since, for example, the billing could be common to many other processes, it is modeled as a call activity.
 
-<div data-bpmn-diagram="implement/call-activity"></div>
+<div data-bpmn-diagram="../bpmn/call-activity"></div>
 
 The XML looks as follows:
 
@@ -143,7 +143,7 @@ CaseBinding has three different values:
 </callActivity>
 ```
 
-# camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

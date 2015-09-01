@@ -14,6 +14,7 @@ Escalation events are events which reference a named escalation. They are mostly
 
 <div data-bpmn-diagram="../bpmn/escalation-example"></div>
 
+
 # Defining Escalation
 
 An escalation event definition is declared by using the `escalationEventDefinition` element. The attribute `escalationRef` references an `escalation` element declared as a child element of the definitions root element. The following is an excerpt of a process in which an escalation event is declared and referenced by an intermediate throwing escalation event.
@@ -32,11 +33,14 @@ An escalation event definition is declared by using the `escalationEventDefiniti
 </definitions>
 ```
 
+
 # Catching Escalation Events
 
 ## Escalation Start Event
 
-<div data-bpmn-symbol="startevent/escalation"></div>
+* {{< bpmn-symbol type="escalation-event-subprocess-start-event" >}}
+
+* {{< bpmn-symbol type="escalation-event-subprocess-nonint-start-event" >}}
 
 An escalation start event can only be used to trigger an event sub-process - it __cannot__ be used to start a process instance.
 
@@ -87,7 +91,9 @@ The following extensions are supported for `escalationEventDefinition`.
 
 ## Escalation Boundary Event
 
-<div data-bpmn-symbol="intermediatecatchevent/escalation"></div>
+* {{< bpmn-symbol type="escalation-intermediate-boundary-event" >}}
+
+* {{< bpmn-symbol type="escalation-intermediate-boundary-nonint-event" >}}
 
 An intermediate catching escalation event on the boundary of an activity, or boundary escalation event for short, catches escalations that are thrown within the scope of the activity on which it is defined.
 
@@ -108,7 +114,7 @@ Two optional attributes can be added to the escalation boundary event, <code>esc
 * If a boundary event has no `escalationRef` or `escalationCode` of referenced escalation then another escalation boundary event is not supported.
 {{< /note >}}
 
-### camunda Extensions
+### Camunda Extensions
 
 The following extensions are supported for `escalationEventDefinition`.
 
@@ -129,11 +135,12 @@ The following extensions are supported for `escalationEventDefinition`.
   </tr>
 </table>
 
+
 # Throwing Escalation Events
 
 ## Escalation Intermediate Throw Event
 
-<div data-bpmn-symbol="intermediatethrowevent/escalation"></div>
+{{< bpmn-symbol type="escalation-intermediate-throw-event" >}}
 
 When process execution arrives an escalation intermediate throw event, a named escalation is thrown. This escalation can be caught by an escalation boundary event or an event sub-process with an escalation start event which has the same or none escalation code. 
 
@@ -149,7 +156,7 @@ Like an error event, an escalation event is propagated to upper scopes (e.g. fro
 
 ## Escalation End Event
 
-<div data-bpmn-symbol="endevent/escalation"></div>
+{{< bpmn-symbol type="escalation-end-event" >}}
 
 When process execution arrives at an escalation end event, the current path of execution is ended and a named escalation is thrown. It has the same behavior as an [escalation intermediate throw event]({{< relref "#escalation-intermediate-throw-event" >}}).
 

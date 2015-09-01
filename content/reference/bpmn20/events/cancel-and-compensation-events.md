@@ -22,7 +22,8 @@ The cancel end event can only be used in combination with a [transaction subproc
 
 An attached intermediate catching cancel event on the boundary of a transaction subprocess, or, for short, a cancel boundary event, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
 
-<div data-bpmn-symbol="intermediatecatchevent/cancel"></div>
+{{< bpmn-symbol type="cancel-intermediate-catch-event" >}}
+
 
 Note: Only a single cancel boundary event is allowed for a transaction subprocess.
 
@@ -40,13 +41,14 @@ A cancel boundary event is defined as a typical boundary event:
 
 Since the cancel boundary event is always interrupting, the cancelActivity attribute is not required.
 
+
 # Compensation Events
 
 ## Intermediate Throwing Compensation Event
 
 An intermediate throwing compensation event can be used to trigger compensation.
 
-<div data-bpmn-symbol="intermediatethrowevent/compensate"></div>
+{{< bpmn-symbol type="compensation-intermediate-throw-event" >}}
 
 Triggering compensation: Compensation can either be triggered for a designated activity or for the scope that hosts the compensation event. Compensation is performed through execution of the compensation handler associated with an activity.
 
@@ -59,7 +61,7 @@ Triggering compensation: Compensation can either be triggered for a designated a
 
 Note: If compensation is thrown within a scope which contains a subprocess and the subprocess contains activities with compensation handlers, compensation is only propagated to the subprocess if it has completed successfully when compensation is thrown. If some of the activities nested inside the subprocess have completed and have attached compensation handlers, the compensation handlers are not executed if the subprocess containing these activities is not completed yet. Consider the following example:
 
-<div data-bpmn-diagram="implement/event-compensation-throw"></div>
+<div data-bpmn-diagram="../bpmn/compensation-intermediate-throw-event"></div>
 
 In this process we have two concurrent executions, one executing the embedded subprocess and one executing the "charge credit card" activity. Lets assume both executions are started and the first concurrent execution is waiting for a user to complete the "review bookings" task. The second execution performs the "charge credit card" activity and an error is thrown, which causes the "cancel reservations" event to trigger compensation. At this point the parallel subprocess is not yet completed which means that the compensation event is not propagated to the subprocess and thus the "cancel hotel reservation" compensation handler is not executed. If the user task (and thus the embedded subprocess) completes before the "cancel reservations" is performed, compensation is propagated to the embedded subprocess.
 
@@ -95,7 +97,7 @@ Additionally, the optional argument `activityRef` can be used to trigger compens
 
 ## Compensation End Event
 
-<div data-bpmn-symbol="endevent/compensate"></div>
+{{< bpmn-symbol type="compensation-end-event" >}}
 
 A compensation end event triggers compensation and the current path of execution is ended. It has the same behavior and limitations as a compensation intermediate throwing event.
 
@@ -135,7 +137,7 @@ A compensation end event triggers compensation and the current path of execution
 
 An attached intermediate catching compensation on the boundary of an activity, or, for short, a compensation boundary event, can be used to attach a compensation handler to an activity or an embedded subprocess.
 
-<div data-bpmn-symbol="intermediatecatchevent/compensate"></div>
+{{< bpmn-symbol type="compensation-intermediate-boundary-event" >}}
 
 The compensation boundary event must reference a single compensation handler using a directed association.
 
@@ -162,7 +164,7 @@ As the compensation boundary event is activated after the activity has completed
 
 ## Compensation Start Event
 
-<div data-bpmn-symbol="startevent/compensate"></div>
+{{< bpmn-symbol type="compensation-event-subprocess-start-event" >}}
 
 A compensation start event can only be used to trigger an Event Sub-Process - it __cannot__ be used to start a process instance. This kind of event subprocess is called compensation event subprocess.
 
@@ -176,7 +178,7 @@ A compensation event subprocess can be used as a compensation handler for the em
 
 Contrary to a compensation boundary event attached to a subprocess, a compensation event subprocess *consumes* a thrown compensation event. That means, activities contained in the subprocess are not compensated by default. Instead, the compensation event subprocess can recursively trigger compensation for activities contained in its parent.
 
-<div data-bpmn-diagram="implement/event-compensation-event-subprocess"></div>
+<div data-bpmn-diagram="../bpmn/compensation-event-subprocess"></div>
 
 The above process contains an embedded subprocess with a compensation event subprocess, triggered by a compensation start event. Note that this compensation handler deviates from default compensation in that it triggers compensation activities in an specific order independent from the order of execution; it also contains an additional activity adding process logic that cannot be derived from the body of the subprocess itself.
 

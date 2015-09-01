@@ -22,7 +22,7 @@ Note the sequence flows running out of an event-based Gateway are different than
 
 The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. Additionally, the process instance subscribes to the alert signal event and creats a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal event occurs within 10 minutes the timer is canceled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is canceled.
 
-<div data-bpmn-diagram="implement/event-based-gateway"></div>
+<div data-bpmn-diagram="../bpmn/event-based-gateway"></div>
 
 The corresponding xml looks like this:
 
@@ -64,7 +64,8 @@ The corresponding xml looks like this:
 </definitions>
 ```
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -90,6 +91,7 @@ The corresponding xml looks like this:
     </td>
   </tr>
 </table>
+
 
 # Additional Resources
 

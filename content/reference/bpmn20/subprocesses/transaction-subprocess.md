@@ -26,7 +26,7 @@ A transaction can have three different outcomes, with these three possible outco
 
 The following diagram illustrates the three different outcomes:
 
-<div data-bpmn-diagram="implement/business-transaction"></div>
+<div data-bpmn-diagram="../bpmn/business-transaction"></div>
 
 A transaction subprocess is represented in xml using the transaction element:
 
@@ -36,11 +36,9 @@ A transaction subprocess is represented in xml using the transaction element:
 </transaction>
 ```
 
-<div class="alert alert-warning">
-  <strong>Relation to ACID transactions:</strong>
-
-  It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a>.
-</div>
+{{< note title="Relation to ACID Transactions" class="warning" >}}
+It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. In order to understand transaction management in Camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a>.
+{{< /note >}}
 
 A BPMN transaction differs from a technical transaction in the following ways:
 
@@ -61,15 +59,14 @@ Since BPMN transactions are long-running in nature, the lack of isolation and a 
 
 To sum it up: while ACID transactions offer a generic solution to such problems (rollback, isolation levels and heuristic outcomes), we need to find domain specific solutions to these problems when implementing business transactions.
 
-<div class="alert alert-warning">
-  <strong>Current limitations:</strong>
+{{< note title="Current Limitations" class="warning" >}}
+The BPMN specification requires that the process engine reacts to events issued by the underlying transaction protocol and, in case a transaction is canceled, if a cancel event occurs, in the underlying protocol. As an embeddable engine, the Camunda engine currently does not support this. (For some ramifications of this, see the paragraph on consistency below.)
+{{< /note >}}
 
-  The BPMN specification requires that the process engine reacts to events issued by the underlying transaction protocol and, in case a transaction is canceled, if a cancel event occurs, in the underlying protocol. As an embeddable engine, the camunda engine currently does not support this. (For some ramifications of this, see the paragraph on consistency below.)
-</div>
+Consistency on top of ACID transactions and optimistic concurrency: A BPMN transaction guarantees consistency in the sense that either all activities compete successfully, or, if some activity cannot be performed, the effects of all other successful activities are compensated. So either way, we end up in a consistent state. However, it is important to recognize that in Camunda BPM, the consistency model for BPMN transactions is superposed on top of the consistency model for process execution. The Camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine BPMN, error, cancel and compensation events are built on top of the same ACID transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. The effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Also, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing BPMN transactions in the core engine, the same set of rules apply as when implementing "ordinary" processes and subprocesses. So, to effectively guarantee consistency, it is important to implement processes in a way that takes the optimistic, transactional execution model into consideration.
 
-Consistency on top of ACID transactions and optimistic concurrency: A BPMN transaction guarantees consistency in the sense that either all activities compete successfully, or, if some activity cannot be performed, the effects of all other successful activities are compensated. So either way, we end up in a consistent state. However, it is important to recognize that in camunda BPM, the consistency model for BPMN transactions is superposed on top of the consistency model for process execution. The camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine BPMN, error, cancel and compensation events are built on top of the same ACID transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. The effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Also, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing BPMN transactions in the core engine, the same set of rules apply as when implementing "ordinary" processes and subprocesses. So, to effectively guarantee consistency, it is important to implement processes in a way that takes the optimistic, transactional execution model into consideration.
 
-# camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -96,6 +93,7 @@ Consistency on top of ACID transactions and optimistic concurrency: A BPMN trans
     </td>
   </tr>
 </table>
+
 
 # Additional Resources
 

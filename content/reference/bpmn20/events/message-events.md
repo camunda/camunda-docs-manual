@@ -12,6 +12,7 @@ menu:
 
 Message events are events which reference a named message. A message has a name and a payload. Unlike a signal, a message event is always directed at a single recipient.
 
+
 # Defining a Message
 
 A message event definition is declared by using the `messageEventDefinition` element. The attribute `messageRef` references a message element declared as a child element of the definitions root element. The following is an excerpt of a process in which two message events are declared and referenced by a start event and an intermediate catching message event.
@@ -42,7 +43,7 @@ A message event definition is declared by using the `messageEventDefinition` ele
 </definitions>
 ```
 
-## camunda Extensions
+## Camunda Extensions
 
 <table class="table table-striped">
   <tr>
@@ -69,11 +70,11 @@ A message event definition is declared by using the `messageEventDefinition` ele
 
 # Message Api
 
-As an embeddable process engine, the camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entails platform-specific activities such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
+As an embeddable process engine, the Camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entails platform-specific activities such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.
 
 After you have received a message, you can choose whether you employ the engine's built-in correlation or explicitly deliver the message to start a new process instance or trigger a waiting execution.
 
-## Using the runtime service's correlation methods
+## Using the Runtime Service's Correlation Methods
 
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. You can choose from these methods in the runtime service:
 
@@ -110,7 +111,7 @@ Accordingly, variables that are defined in the scope of a child execution (e.g.,
 In case of successful correlation, the correlated or newly created process instance is updated with the variables from the `processVariables` map.
 
 
-## Explicitly triggering a message
+## Explicitly Triggering a Message
 
 Alternatively, you can explicitly deliver a message to start a process instance or trigger a waiting execution.
 
@@ -133,7 +134,7 @@ void messageEventReceived(String messageName, String executionId, HashMap<String
 
 
 
-## Querying for Message Event subscriptions
+## Querying for Message Event Subscriptions
 
 The engine supports message start events and intermediate message events.
 
@@ -157,6 +158,7 @@ Execution execution = runtimeService.createExecutionQuery()
 ```
 
 Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be a maximum of one process instance for a given orderId).
+
 
 # Message Start Event
 
@@ -211,7 +213,7 @@ The XML representation of a message start event is the normal start event declar
 
 A process can be started using one of two different messages, this is useful if the process needs alternative ways to react to different start events but eventually continues in a uniform way.
 
-<div data-bpmn-diagram="implement/event-message-start-alternative" > </div>
+<div data-bpmn-diagram="../bpmn/event-message-start-alternative" > </div>
 
 
 # Message Intermediate Catching Event
@@ -221,7 +223,7 @@ When a token arrives at the message intermediate catching event it will wait the
 
 The following example shows different message events in a process model:
 
-<div data-bpmn-diagram="implement/event-message"></div>
+<div data-bpmn-diagram="../bpmn/event-message"></div>
 
 ```xml
 <intermediateCatchEvent id="message">
@@ -239,11 +241,12 @@ Boundary events are catching events that are attached to an activity. This means
 * Interrupting boundary event: The activity is interrupted and the sequence flow going out of the event is followed.
 * Non-interrupting boundary event: One token stays in the activity and an additional token is created which follows the sequence flow going out of the event.
 
+
 # Message Intermediate Throwing Event
 
 A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
 
-<div data-bpmn-diagram="implement/event-message-throwing" > </div>
+<div data-bpmn-diagram="../bpmn/event-message-throwing" > </div>
 
 ```xml
 <intermediateThrowEvent id="message">
@@ -252,7 +255,7 @@ A Message Intermediate Throwing event sends a message to an external service. Th
 ```
 
 
-## camunda Extensions for `messageEventDefinition`
+## Camunda Extensions for `messageEventDefinition`
 
 <table class="table table-striped">
   <tr>
@@ -297,7 +300,7 @@ When process execution arrives at a Message End Event, the current path of execu
 ```
 
 
-## camunda Extensions for `messageEventDefinition`
+## Camunda Extensions for `messageEventDefinition`
 
 <table class="table table-striped">
   <tr>

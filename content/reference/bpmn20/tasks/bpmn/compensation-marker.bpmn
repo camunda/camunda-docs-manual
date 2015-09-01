@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="sid-1b9599d5-cfa0-47c7-82f0-81943686b83f" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="6.7.0" targetNamespace="http://www.signavio.com/bpmn20">
+  <process id="sid-e114229a-3022-4a91-ac38-e5c8763f3831" isExecutable="false">
+    <serviceTask id="sid-53316A0A-EC2B-49F0-81CE-8C9A8CE33ED4" name="Book hotel" implementation="webService"/>
+    <serviceTask id="sid-95341231-83E4-4D99-8038-67A6CF0AD4C2" name="Cancel hotel reservation" isForCompensation="true" implementation="webService"/>
+    <boundaryEvent id="sid-07A4A2ED-FECE-41D9-BE81-92014D6C1C63" attachedToRef="sid-53316A0A-EC2B-49F0-81CE-8C9A8CE33ED4">
+      <compensateEventDefinition id="sid-cbb72e97-c47e-4766-828e-f1143b6b5cc7" waitForCompletion="true"/>
+    </boundaryEvent>
+    <association id="sid-1E3EA196-B091-4DA5-98D2-1F0536433B0A" associationDirection="One" sourceRef="sid-07A4A2ED-FECE-41D9-BE81-92014D6C1C63" targetRef="sid-95341231-83E4-4D99-8038-67A6CF0AD4C2">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="userstory" metaValue=""/>
+      </extensionElements>
+    </association>
+  </process>
+  <bpmndi:BPMNDiagram id="sid-4e37eee2-c2cb-4963-9d3f-1b07108533a5">
+    <bpmndi:BPMNPlane id="sid-01ac68a2-f344-46cf-a448-bf3c941d28da" bpmnElement="sid-e114229a-3022-4a91-ac38-e5c8763f3831">
+      <bpmndi:BPMNShape id="sid-53316A0A-EC2B-49F0-81CE-8C9A8CE33ED4_gui" bpmnElement="sid-53316A0A-EC2B-49F0-81CE-8C9A8CE33ED4">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="75.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-95341231-83E4-4D99-8038-67A6CF0AD4C2_gui" bpmnElement="sid-95341231-83E4-4D99-8038-67A6CF0AD4C2">
+        <omgdc:Bounds height="80.0" width="100.0" x="285.0" y="180.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-07A4A2ED-FECE-41D9-BE81-92014D6C1C63_gui" bpmnElement="sid-07A4A2ED-FECE-41D9-BE81-92014D6C1C63">
+        <omgdc:Bounds height="30.0" width="30.0" x="232.10527" y="140.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="sid-1E3EA196-B091-4DA5-98D2-1F0536433B0A_gui" bpmnElement="sid-1E3EA196-B091-4DA5-98D2-1F0536433B0A">
+        <omgdi:waypoint xsi:type="omgdc:Point" x="247.0" y="170.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="247.10527" y="220.0"/>
+        <omgdi:waypoint xsi:type="omgdc:Point" x="285.0" y="220.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

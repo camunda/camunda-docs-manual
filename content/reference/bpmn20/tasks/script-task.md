@@ -13,7 +13,7 @@ menu:
 
 A script task is an automated activity. When a process execution arrives at the script task, the corresponding script is executed.
 
-<div data-bpmn-symbol="scripttask" data-bpmn-symbol-name="Script Task"></div>
+{{< bpmn-symbol type="script-task" >}}
 
 A script task is defined by specifying the script and the scriptFormat.
 
@@ -56,7 +56,8 @@ Beside normal script languages you can also use Script Task to evaluate a DMN de
 
 {{< /note >}}
 
-## Variables in scripts
+
+# Variables in Scripts
 
 All process variables that are accessible through the execution that arrives in the script task can be used within the script. In the example below, the script variable `inputArray` is in fact a process variable (an array of integers).
 
@@ -82,28 +83,24 @@ It's also possible to set process variables in a script. Variables can be set by
 </script>
 ```
 
-### Enabling auto-storing of script variables
+## Enabling auto-storing of Script Variables
 
-By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
+By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
 
 In order to use this feature, you have to
 
 * set `autoStoreScriptVariables` to `true` in the process engine configuration,
 * prefix all script variables that should not be stored as script variables using the `def` keyword: `def sum = 0`. In this case the variable `sum` will not be stored as process variable.
 
-
-<div class="alert alert-info">
-  <strong>Groovy-Support only:</strong>
-  <p>
-    The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks.
-  </p>
-</div>
+{{< note title="Groovy-Support only" class="info" >}}
+The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks.
+{{< /note >}}
 
 Note: the following names are reserved and cannot be used as variable names:
 `out`, `out:print`, `lang:import`, `context`, `elcontext`.
 
 
-## Script results
+# Script Results
 
 The return value of a script task can be assigned to a previously existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When a result variable name is not specified, the script result value gets ignored.
 
@@ -115,19 +112,16 @@ The return value of a script task can be assigned to a previously existing or to
 
 In the above example, the result of the script execution (the value of the resolved expression `#{echo}`) is set to the process variable named `myVar` after the script completes.
 
-<div class="alert alert-warning">
-  <strong>Result variables and multi-instance</strong>
-  <p>
-    Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
-  </p>
-</div>
+{{< note title="Result variables and multi-instance" class="warning" >}}
+Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resultvariable" >}}">camunda:resultVariable</a> for details.
+{{< /note >}}
 
 In case you evaluate a DMN decision using a Script Task the decision result
 will be *unpacked* to be easy accessible in the process.  The applied rules can
 be found in the [Business Rule Task][dmn-result-type] documentation.
 
 
-## camunda Extensions
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>

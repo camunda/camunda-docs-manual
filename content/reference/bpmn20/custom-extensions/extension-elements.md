@@ -99,7 +99,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata of an individual validation constraint for a form field (see <a href="{{< relref "user-guide/task-forms/index.md" >}}-generated-task-forms-form-field-validation">Form Field Validation</a>).
+      Metadata of an individual validation constraint for a form field (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -270,7 +270,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
 <tr>
   <th>Description</th>
   <td colspan="2">
-    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+    Defines an expression to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
   </td>
 </tr>
 <tr>
@@ -365,7 +365,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+      Defines the value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -417,7 +417,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< relref "user-guide/task-forms/index.md" >}}-generated-task-forms">Generated Task Forms</a>).
+      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -453,7 +453,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a single form field (see <a href="{{< relref "user-guide/task-forms/index.md" >}}-generated-task-forms">Generated Task Forms</a>).
+      Metadata to define a single form field (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -1239,7 +1239,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}-field-injection">Field Injection</a>).
+      Defines a String value to inject in delegated classes (see <a href="{{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}">Field Injection</a>).
     </td>
   </tr>
   <tr>
@@ -1344,7 +1344,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a list of validation constraints for form fields (see <a href="{{< relref "user-guide/task-forms/index.md" >}}-generated-task-forms-form-field-validation">Form Field Validation</a>).
+      Metadata to define a list of validation constraints for form fields (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>

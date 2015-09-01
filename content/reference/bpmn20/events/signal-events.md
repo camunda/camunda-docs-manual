@@ -15,13 +15,14 @@ Signal events are events which reference a named signal. A signal is an event of
 
 The following is an example of two separate processes communicating using signals. The first process is started if an insurance policy is updated or changed. After the changes have been reviewed by a human participant, a signal event is thrown, signaling that a policy has changed:
 
-<div data-bpmn-diagram="implement/event-signal-throwing"></div>
+<div data-bpmn-diagram="../bpmn/event-signal-throwing"></div>
 
 This event can now be caught by all process instances which are interested. The following is an example of a process subscribing to the event.
 
-<div data-bpmn-diagram="implement/event-signal-catching"></div>
+<div data-bpmn-diagram="../bpmn/event-signal-catching"></div>
 
 Note: It is important to understand that a signal event is broadcast to all active handlers. In of the example given above this means that all instances of the process catching the signal would receive the event.
+
 
 # Signal Event Definition
 
@@ -50,6 +51,7 @@ A signal event definition is declared using the signalEventDefinition element. T
 
 __Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, event if they are part of different process instances.
 
+
 # Signal Api
 
 ## Triggering (Throwing) Signals
@@ -65,7 +67,7 @@ The difference between `signalEventReceived(String signalName)` and `signalEvent
 
 Note: The signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to exclusively deliver a signal to a specific process instance, do not use the throwing signal event but perform correlation manually and use `signalEventReceived(String signalName, String executionId)` using the appropriate query mechanisms.
 
-## Querying for Signal Event subscriptions
+## Querying for Signal Event Subscriptions
 
 It is possible to query for all executions which have subscribed to a specific signal event:
 
@@ -77,11 +79,12 @@ List<Execution> executions = runtimeService.createExecutionQuery()
 
 We could then use the signalEventReceived(String signalName, String executionId) method to deliver the signal to these executions.
 
+
 # Catching Signal Events
 
 ## Signal Start Event
 
-<div data-bpmn-symbol="startevent/signal"></div>
+{{< bpmn-symbol type="signal-start-event" >}}
 
 A signal start event can be used to start a process instance using a named signal.
 
@@ -110,7 +113,7 @@ The XML representation of a signal start event is the normal start event declara
 
 ## Signal Intermediate Catching Event
 
-<div data-bpmn-symbol="intermediatecatchevent/signal"></div>
+{{< bpmn-symbol type="signal-intermediate-catch-event" >}}
 
 When a token arrives at the signal intermediate catching event, it will wait there until a signal with the proper name arrives.
 
@@ -160,7 +163,7 @@ Note: Contrary to other events, such as the error boundary event, a signal bound
 
 An intermediate throwing signal event throws a signal event for a defined signal.
 
-<div data-bpmn-symbol="intermediatethrowevent/signal"></div>
+{{< bpmn-symbol type="signal-intermediate-throw-event" >}}
 
 The signal is broadcast to all active handlers (i.e. all catching signal events). Signals can be published synchronously or asynchronously.
 
@@ -210,7 +213,7 @@ The following extensions are spported for the Signal Intermediate Throwing Event
 
 ## Signal End Event
 
-<div data-bpmn-symbol="endevent/signal"></div>
+{{< bpmn-symbol type="signal-end-event" >}}
 
 A signal end event throws a signal event for a defined signal and the current path of execution is ended. It has the same behavior as a signal intermediate throwing event.
 

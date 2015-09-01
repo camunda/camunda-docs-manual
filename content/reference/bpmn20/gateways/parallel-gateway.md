@@ -14,7 +14,7 @@ menu:
 
 Gateways can also be used to model concurrency in a process. The most straightforward gateway to introduce concurrency in a process model is the Parallel Gateway, which allows forking into multiple paths of execution or joining multiple incoming paths of execution.
 
-<div data-bpmn-diagram="implement/parallel-gateway"></div>
+<div data-bpmn-diagram="../bpmn/parallel-gateway"></div>
 
 The functionality of the parallel gateway is based on the incoming and outgoing sequence flow(s):
 
@@ -80,9 +80,10 @@ When these two tasks are completed the second parallel gateway will join the two
 
 Note that a parallel gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flows for corresponding parallel gateways). A parallel gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model. So, the following process is legal in BPMN 2.0:
 
-<div data-bpmn-diagram="implement/parallel-gateway-unbalanced"></div>
+<div data-bpmn-diagram="../bpmn/parallel-gateway-unbalanced"></div>
 
-# camunda Extensions
+
+# Camunda Extensions
 
 <table class="table table-striped">
   <tr>
