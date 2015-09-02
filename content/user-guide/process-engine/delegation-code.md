@@ -241,12 +241,12 @@ The following process definition contains 3 execution listeners:
   </process>
 ```
 
-The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the `org.camunda.bpm.engine.delegate.ExecutionListener` interface. When the event occurs (in this case end event) the method `notify(ExecutionListenerExecution execution)` is called.
+The first execution listener is notified when the process starts. The listener is an external Java-class (like ExampleExecutionListenerOne) and should implement the `org.camunda.bpm.engine.delegate.ExecutionListener` interface. When the event occurs (in this case end event) the method `notify(DelegateExecution execution)` is called.
 
 ```java
   public class ExampleExecutionListenerOne implements ExecutionListener {
 
-    public void notify(ExecutionListenerExecution execution) throws Exception {
+    public void notify(DelegateExecution execution) throws Exception {
       execution.setVariable("variableSetInExecutionListener", "firstValue");
       execution.setVariable("eventReceived", execution.getEventName());
     }
@@ -378,7 +378,7 @@ The actual listener implementation may look as follows:
 
     private Expression dynamicValue;
 
-    public void notify(ExecutionListenerExecution execution) throws Exception {
+    public void notify(DelegateExecution execution) throws Exception {
       String value =
         fixedValue.getValue(execution).toString() +
         dynamicValue.getValue(execution).toString();
