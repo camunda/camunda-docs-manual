@@ -106,11 +106,11 @@ GET `/job/count`
   </tr>
   <tr>
     <td>priorityLowerThanOrEquals</td>
-    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid integer.</td>
+    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
   <tr>
     <td>priorityHigherThanOrEquals</td>
-    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid integer.</td>
+    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
 </table>
 

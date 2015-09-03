@@ -81,11 +81,11 @@ GET `/history/job-log/count`
   </tr>
   <tr>
     <td>jobPriorityLowerThanOrEquals</td>
-    <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid integer.</td>
+    <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
   <tr>
     <td>jobPriorityHigherThanOrEquals</td>
-    <td>Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid integer.</td>
+    <td>Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
   <tr>
     <td>creationLog</td>

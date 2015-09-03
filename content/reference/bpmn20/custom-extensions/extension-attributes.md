@@ -962,12 +962,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+    <td>A number in the range of a Java <code>long</code> value or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression must resolve to an integer.
+      An expression must resolve to a valid Java <code>long</code> value.
     </td>
   </tr>
   <tr>

@@ -61,7 +61,7 @@ In general, there are two types of use cases that can be tackled with job priori
 
 ## The Job Priority
 
-A priority is a natural number in the integer range. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future.
+A priority is a natural number in the range of a Java `long` value. A higher number represents a higher priority. Once assigned, the priority is static, meaning that the process engine will not go through the process of assigning a priority for that job again at any point in the future.
 
 Job priorities affect two phases during process execution: job creation and job acquisition. During job creation, a job is assigned a priority. During job acquisition, the process engine can evaluate the given job priorities to order their execution accordingly. That means, jobs are strictly acquired by the order of priorities.
 
@@ -76,7 +76,7 @@ Job priorities affect two phases during process execution: job creation and job 
 
 This section explains how to enable and disable job priorities in the configuration. There are two relevant configuration properties which can be set on the process engine configuration:
 
-`producePrioritizedJobs`: Controls whether the process engine assigns priorities to jobs. The default value is `true`. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of `0`.
+`producePrioritizedJobs`: Controls whether the process engine assigns priorities to jobs. The default value is `true`. If priorities are not needed, the process engine configuration property `producePrioritizedJobs` can be set to `false`. In this case, all jobs receive a priority of 0.
 For details on how to specify job priorities and how the process engine assigns them, see the following section on [Specifying Job Priorities]({{< relref "#specify-job-priorities" >}}).
 
 `jobExecutorAcquireByPriority`: Controls whether jobs are acquired according to their priority. The default value is `false` which means that it needs to be explicitly enabled. Hint: when enabling this, additional database indexes should be created as well: See the section [The Order of Job Acquisition]({{< relref "#the-job-order-of-job-acquisition" >}}) for details.
@@ -91,8 +91,8 @@ Job priorities can be specified in the BPMN model as well as overridden at runti
 
 Job Priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:jobPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or actitiy. Expression must evaluate to a number in the integer range.
-The concreate value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
+For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
+The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
 
 #### Priorities at the Process Level
@@ -184,7 +184,7 @@ JobDefinition jobDefinition = managementService
   .singleResult();
 
 // set an overriding priority
-managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0);
+managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0L);
 ```
 
 Setting an overriding priority makes sure that every new job that is created based on this definition receives the given priority. This setting overrides any priority specified in the BPMN XML.
@@ -192,7 +192,7 @@ Setting an overriding priority makes sure that every new job that is created bas
 Optionally, the overriding priority can be applied to all the existing jobs of that definition by using the `cascade` parameter:
 
 ```java
-managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0, true);
+managementService.setOverridingJobPriorityForJobDefinition(jobDefinition.getId(), 0L, true);
 ```
 
 Note that this will not lead to preemption of jobs that are currently executed.
@@ -218,7 +218,7 @@ The following diagram sums up the precedence of priority sources when a job's pr
 
 ### Set Job Priorities via ManagementService API
 
-The ManagementService also offers a method to change a single job's priority via `ManagementService#setJobPriority(String jobId, int priority)`.
+The ManagementService also offers a method to change a single job's priority via `ManagementService#setJobPriority(String jobId, long priority)`.
 
 
 # Job Acquisition
