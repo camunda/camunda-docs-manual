@@ -1,61 +1,70 @@
-<div class="cam-downloads nojs">
-  <ul class="application-servers" data-select="div.application-server">
-    {{ range $index, $server := sort .Page.Params.downloads.server "weight" }}
-    <li class="{{ $server.path }}"><a href="#{{ $server.path }}">{{ $server.name }}</a></li>
-    {{ end }}
-  </ul>
+<script type="text/javascript">
+  var camDownloads = {};
 
-  {{ range $index, $server := sort .Page.Params.downloads.server "weight" }}
-  <div class="application-server {{ $server.path }}">
-    <h3>{{ $server.name }}</h3>
-
-    <ul class="versions" data-select="div.version">
-      {{ range $version, $info := sort $.Page.Params.downloads.versions "number" "desc" }}
-      <li class="version-{{ $version }}"><a href>{{ $info.number }}</a></li>
-      {{ end }}
-
-      <li class="alpha"><a href>{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}</a></li>
-    </ul>
-
-    {{ range $version, $info := sort $.Page.Params.downloads.versions "number" "desc" }}
-    <div class="version version-{{ $version }}">
-      <h4 class="number"><span>Stable version:</span> {{ $info.number }}</h4>
-
-      <p>
-        Released on <span class="release-date">{{ $info.date }}</span>,
-        <a href="{{ $info.note }}" class="release-notes" target="_blank">Release notes</a>.
-      </p>
-
-      <ul class="links">
-      {{ range $.Page.Params.downloads.formats }}
-        <li class="type-{{ . }}">
-          <a class="btn btn-primary" title="Download the latest version of the {{ substr $info.number 0 3 }} branch for '{{ $server.name }}' as '{{ . }}' file" href="http://camunda.org/enterprise-release/camunda-bpm/{{ $server.path }}/{{ substr $info.number 0 3 }}/{{ $info.number }}/camunda-bpm-ee-{{ $server.path }}-{{ $info.number }}-ee.{{ . }}">.{{ . }}</a>
-        </li>
-      {{ end }}<!-- end format -->
-      </ul>
-    </div>
-    {{ end }}<!-- end version -->
-
-    <div class="version alpha">
-      <h4 class="number"><span>Development version:</span> {{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}</h4>
+  camDownloads.branches = {};
+  {{ range $branch := sort $.Page.Params.downloads.branches "branch" "desc" }}
+  camDownloads.branches['{{ $branch.branch }}'] = [
+    {{ range $info := sort $branch.releases "date" "desc" }}{
+      number: '{{ $info.number }}',
+      note:   '{{ $info.note }}',
+      date:   '{{ $info.date }}'{{ if $info.excludeservers }},
+      excludeServers: [{{ range $info.excludeservers }}'{{ . }}',{{ end }}false]{{ end }}
+      {{ if $info.excludeformats }},
+      excludeFormats: [{{ range $info.excludeformats }}'{{ . }}',{{ end }}false]{{ end }}
+    },{{ end }}false
+  ];
+  {{ end }}
 
 
-      <ul class="links">
-      {{ range $.Page.Params.downloads.formats }}
-        <li class="type-{{ . }}">
-          <a class="btn btn-primary" title="Download the latest development version for '{{ $server.name }}' as '{{ . }}' file" href="http://camunda.org/enterprise-release/camunda-bpm/{{ $server.path }}/nightly/{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}/camunda-bpm-ee-{{ $server.path }}-{{ $.Page.Params.downloads.currentdev }}-{{ $.Page.Params.downloads.currentalpha }}-ee.{{ . }}">.{{ . }}</a>
-        </li>
-      {{ end }}
-      </ul>
-    </div>
+  camDownloads.servers = {};
+  {{ range $info := sort $.Page.Params.downloads.servers "weight" }}
+  camDownloads.servers['{{ $info.path }}'] = '{{ $info.name }}';{{ end }}
 
-    <div class="version active help">
-      Please, select a version above.
+  camDownloads.formats = [];
+  {{ range $.Page.Params.downloads.formats }}
+  camDownloads.formats.push('{{ . }}');{{ end }}
+</script>
+
+<section class="cam-downloads">
+  <ul class="major"></ul>
+
+  <div class="selected-major">
+    <div class="wrapper">
+      <ul class="patch"></ul>
+
+      <div class="selected-patch">
+        <div class="wrapper">
+          <ul class="server"></ul>
+
+          <div class="selected-server">
+            <div class="info">
+              Released on <span class="date"></span>, <a class="notes">release notes</a>.
+            </div>
+
+            <div class="full">
+              <h4>Full Distribution</h4>
+
+              <a class="details" href="http://docs.camunda.org/7.3/guides/user-guide/#introduction-download-full-distribution">What is the Full Distribution?</a>
+
+              <div class="links">
+                <a class="tar-gz btn btn-primary">.tar.gz</a>
+
+                <a class="zip btn btn-primary">.zip</a>
+              </div>
+            </div>
+
+            <div class="standalone">
+              <h4>Standalone Web Application</h4>
+
+              <a class="details" href="http://docs.camunda.org/7.3/guides/user-guide/#introduction-download-standalone-web-application-distribution">What is the Standalone Webapplication Distribution?</a>
+
+              <div class="links">
+                <a class="war btn btn-primary">.war</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  {{ end }}<!-- end server -->
-
-  <div class="application-server active help">
-    Please, select an application server on the left.
-  </div>
-</div>
+</section>
