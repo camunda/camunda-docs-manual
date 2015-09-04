@@ -29,7 +29,17 @@ GET `/metrics/{metrics-name}/sum`
   </tr>
   <tr>
     <td>metrics-name</td>
-    <td>The name of the metric. Supported names:<code>activity-instance-end</code></td>
+    <td>The name of the metric. Supported names:
+      <code>activity-instance-end</code>,
+      <code>job-acquisition-attempt</code>,
+      <code>job-acquired-success</code>,
+      <code>job-acquired-failure</code>,
+      <code>job-execution-rejected</code>,
+      <code>job-successful</code>,
+      <code>job-failed</code>,
+      <code>job-locked-exclusive</code>,
+      <code>executed-decision-elements</code>
+    </td>
   </tr>
 </table>
 
