@@ -21,23 +21,17 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
 
 Hover over the element to see since which version of the Camunda BPM platform they are supported.
 
-<div>
+<div class="cmmn-symbols">
   <div class="row">
     <div class="col-md-12">
       <h3>Grouping</h3>
-      <div class="bpmn-symbol-container">
-        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="case-plan-model" >}}
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="case-plan-model-colored" >}}
       </div>
-      <div class="bpmn-symbol-container">
-        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="stage-collapsed" >}}            
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="stage-collapsed-colored" >}}            
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="plan-fragment" >}}
@@ -47,29 +41,20 @@ Hover over the element to see since which version of the Camunda BPM platform th
   <div class="row">
     <div class="col-md-12">
       <h3>Tasks</h3>
-      <div class="bpmn-symbol-container">
-        <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="human-task" >}}            
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="human-task-colored" >}} 
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="manual-task" >}}
       </div>
-      <div class="bpmn-symbol-container">
-        <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="process-task" >}}
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="process-task-colored" >}}
       </div>
-      <div class="bpmn-symbol-container">
-        <a href="#tasks-case-task">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="case-task" >}}
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="case-task-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="task" >}}
@@ -82,12 +67,9 @@ Hover over the element to see since which version of the Camunda BPM platform th
   <div class="row">
     <div class="col-md-9">
       <h3>Event-Triggered Elements</h3>
-      <div class="bpmn-symbol-container">
-        <a href="{{< relref "reference/cmmn10/milestone.md" >}}">
-          <div id="1" title="since 7.2">
-            {{< cmmn-symbol type="milestone" >}}
-          </div>
-        </a>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn10/milestone.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="milestone-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="event-listener" >}}
@@ -110,181 +92,154 @@ Hover over the element to see since which version of the Camunda BPM platform th
 
 ## Markers
 
-<div class="table-responsive">
-  <table class="table table-bordered table-bpmn-events">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th colspan="7">Marker</th>
-      </tr>
-      <tr>
-        <th></th>
-        <th>
-          <p>Planning Table</p>
-          {{< cmmn-symbol type="marker-planning-table" >}}
-        </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/sentry.md" >}}">Entry Criterion</a></p>
-          {{< cmmn-symbol type="marker-entry-criterion" >}}
-        </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/sentry.md" >}}">Exit Criterion</a></p>
-          {{< cmmn-symbol type="marker-exit-criterion" >}}
-        </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/markers/auto-complete.md" >}}">AutoComplete</a></p>
-          {{< cmmn-symbol type="marker-auto-complete" >}}
-        </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/markers/manual-activation-rule.md" >}}">Manual Activation</a></p>
-          {{< cmmn-symbol type="marker-manual-activation" >}}
-          </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Required</a></p>
-          {{< cmmn-symbol type="marker-required" >}}
-          </th>
-        <th>
-          <p><a href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Repetition</a></p>
-          {{< cmmn-symbol type="marker-repetition" >}}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Case Plan Model</a></td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-        <td>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.3">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a></td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.3">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.3">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="{{< relref "reference/cmmn10/tasks/index.md" >}}">Task</a></td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td></td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <div id="1" title="since 7.3">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="{{< relref "reference/cmmn10/milestone.md" >}}">Milestone</a></td>
-        <td></td>
-        <td>
-          <div id="1" title="since 7.2">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <div id="1" title="since 7.3">
-            <center>{{< cmmn-symbol type="overview/supported" >}}</center>
-          </div>
-        </td>
-        <td>
-          <center>{{< cmmn-symbol type="overview/unsupported" >}}</center>
-        </td>
-      </tr>
-      <tr>
-        <td>EventListener</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>CaseFileItem</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>PlanFragment</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+<table class="table table-bordered table-responsive table-cmmn-events">
+  <thead>
+    <tr>
+      <td>Type</td>
+      <td colspan="7">Marker</td>
+    </tr>
+    <tr class="collapse-bottom">
+      <td></td>
+      <td>
+        <span class="text">Planning Table</span>
+        {{< cmmn-symbol type="marker-planning-table" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/sentry.md" >}}">Entry Criterion</a>
+        {{< cmmn-symbol type="marker-entry-criterion" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/sentry.md" >}}">Exit Criterion</a>
+        {{< cmmn-symbol type="marker-exit-criterion" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/markers/auto-complete.md" >}}">AutoComplete</a>
+        {{< cmmn-symbol type="marker-auto-complete" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/markers/manual-activation-rule.md" >}}">Manual Activation</a>
+        {{< cmmn-symbol type="marker-manual-activation" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Required</a>
+        {{< cmmn-symbol type="marker-required" >}}
+      </td>
+      <td>
+        <a class="text" href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Repetition</a>
+        {{< cmmn-symbol type="marker-repetition" >}}
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Case Plan Model</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="{{< relref "reference/cmmn10/tasks/index.md" >}}">Task</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="{{< relref "reference/cmmn10/milestone.md" >}}">Milestone</a></td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>EventListener</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>CaseFileItem</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>PlanFragment</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
