@@ -32,7 +32,7 @@ In this guide, a number of variables are used to denote common path names and co
 Between patch levels, the structure of the database schema is not changed. The database structure of all patch releases is backwards compatible to the corresponding minor version. Example: the database schema of all `7.3.x` versions is backwards compatible to the `7.3.0` schema.
 
 The one exception to this are bugs in the database schema itself. If you are affected by such a bug, you have the option to run a patch script.
-Patch scripts are shipped inside the distribution at the following location: `$DISTRIBUTION_PATH/sql/upgrade`, named: `$DATABASE_engine_$VERSION_patch_$A_to_$B`.
+Patch scripts are shipped inside the distribution at the following location: `$DISTRIBUTION_PATH/sql/upgrade`, named: `engine_$VERSION_patch_$A_to_$B`.
 If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your upgrade path. This means if your current patch version is `X.X.1` and you upgrade to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
 Each patch script contains a comment what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
@@ -52,50 +52,50 @@ The following list is an overview of all currently available patch scripts:
   <tbody>
     <tr>
       <td>7.1</td>
-      <td>$DATABASE_engine_7.1_patch_7.1.4_to_7.1.5.sql</td>
+      <td>engine_7.1_patch_7.1.4_to_7.1.5.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks</td>
       <td>H2, MySQL, Oracle, PostgreSQL</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-2567">CAM-2567</td>
     </tr>
     <tr>
       <td>7.1</td>
-      <td>$DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql</td>
+      <td>engine_7.1_patch_7.1.9_to_7.1.10.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks</td>
       <td>DB2, SQL Server</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</td>
     </tr>
     <tr>
       <td>7.2</td>
-      <td>$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql</td>
-      <td>Add a missing index on foreign key to prevent deadlocks. <strong>This is the same patch as $DATABASE_engine_7.1_patch_7.1.9_to_7.1.10.sql</strong>.</td>
+      <td>engine_7.2_patch_7.2.4_to_7.2.5.sql</td>
+      <td>Add a missing index on foreign key to prevent deadlocks. <strong>This is the same patch as engine_7.1_patch_7.1.9_to_7.1.10.sql</strong>.</td>
       <td>DB2, SQL Server</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</td>
     </tr>
     <tr>
       <td>7.2</td>
-      <td>$DATABASE_engine_7.2_patch_7.2.6_to_7.2.7.sql</td>
+      <td>engine_7.2_patch_7.2.6_to_7.2.7.sql</td>
       <td>Add indices to improve deployment performance.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
     <tr>
       <td>7.3</td>
-      <td>$DATABASE_engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
+      <td>engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
       <td>Adjust column size of ACT_HI_JOB_LOG.ACT_ID_ to 255.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4037">CAM-4037</td>
     </tr>
     <tr>
       <td>7.3</td>
-      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3_1.sql</td>
+      <td>engine_7.3_patch_7.3.2_to_7.3.3_1.sql</td>
       <td>Add a missing index on ACT_RU_AUTHORIZATION#RESOURCE_ID_ to prevent deadlocks.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4440">CAM-4440</td>
     </tr>
     <tr>
       <td>7.3</td>
-      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3_2.sql</td>
-      <td>Add indices to improve deployment performance. <strong>This is the same patch as $DATABASE_engine_7.2_patch_7.2.6_to_7.2.7.sql</strong>.</td>
+      <td>engine_7.3_patch_7.3.2_to_7.3.3_2.sql</td>
+      <td>Add indices to improve deployment performance. <strong>This is the same patch as engine_7.2_patch_7.2.6_to_7.2.7.sql</strong>.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
