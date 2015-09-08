@@ -1,7 +1,7 @@
 ---
 
 title: "Get Job Logs Count (POST)"
-weight: 360
+weight: 50
 
 menu:
   main:

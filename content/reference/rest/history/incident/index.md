@@ -2,7 +2,7 @@
 
 title: "Incident"
 layout: "section-list"
-weight: 110
+weight: 60
 
 menu:
   main:

@@ -1,7 +1,7 @@
 ---
 
 title: "Get Process Instances"
-weight: 220
+weight: 10
 
 menu:
   main:

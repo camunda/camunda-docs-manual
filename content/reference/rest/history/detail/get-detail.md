@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Historic Detail"
-weight: 130
+weight: 30
 
 menu:
   main:

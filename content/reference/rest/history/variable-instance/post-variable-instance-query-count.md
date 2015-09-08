@@ -1,7 +1,7 @@
 ---
 
 title: "Get Variable Instances Count (POST)"
-weight: 420
+weight: 60
 
 menu:
   main:

@@ -2,7 +2,7 @@
 
 title: "Task"
 layout: "section-list"
-weight: 110
+weight: 100
 
 menu:
   main:

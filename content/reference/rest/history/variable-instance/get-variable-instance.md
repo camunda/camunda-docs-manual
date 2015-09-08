@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Variable Instance"
-weight: 310
+weight: 30
 
 menu:
   main:

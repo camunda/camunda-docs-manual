@@ -1,7 +1,7 @@
 ---
 
 title: "Get Variable Instances"
-weight: 300
+weight: 10
 
 menu:
   main:

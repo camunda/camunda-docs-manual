@@ -1,7 +1,7 @@
 ---
 
 title: "Get Job Logs (POST)"
-weight: 370
+weight: 60
 
 menu:
   main:

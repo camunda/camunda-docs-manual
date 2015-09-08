@@ -2,7 +2,7 @@
 
 title: "Activity Instance"
 layout: "section-list"
-weight: 110
+weight: 10
 
 menu:
   main:

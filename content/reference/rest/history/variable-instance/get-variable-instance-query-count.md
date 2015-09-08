@@ -1,7 +1,7 @@
 ---
 
 title: "Get Variable Instances Count"
-weight: 290
+weight: 20
 
 menu:
   main:

@@ -2,7 +2,7 @@
 
 title: "Variable Instance"
 layout: "section-list"
-weight: 110
+weight: 120
 
 menu:
   main:

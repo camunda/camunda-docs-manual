@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Variable Instance (Binary)"
-weight: 280
+weight: 40
 
 menu:
   main:

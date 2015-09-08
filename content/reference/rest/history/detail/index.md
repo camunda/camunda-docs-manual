@@ -2,7 +2,7 @@
 
 title: "Detail"
 layout: "section-list"
-weight: 110
+weight: 50
 
 menu:
   main:

@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Instances Count"
-weight: 70
+weight: 20
 
 menu:
   main:

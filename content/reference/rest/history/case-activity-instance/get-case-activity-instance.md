@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Case Activity Instance (Historic)"
-weight: 60
+weight: 30
 
 menu:
   main:

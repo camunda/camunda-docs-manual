@@ -1,7 +1,7 @@
 ---
 
 title: "Get Job Logs Count"
-weight: 170
+weight: 20
 
 menu:
   main:

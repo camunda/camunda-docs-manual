@@ -1,7 +1,7 @@
 ---
 
 title: "Get Job Logs"
-weight: 180
+weight: 10
 
 menu:
   main:

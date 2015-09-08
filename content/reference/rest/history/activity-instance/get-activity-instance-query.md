@@ -1,7 +1,7 @@
 ---
 
 title: "Get Activity Instances (Historic)"
-weight: 20
+weight: 10
 
 menu:
   main:

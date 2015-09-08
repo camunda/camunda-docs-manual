@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Instances Count (POST)"
-weight: 340
+weight: 50
 
 menu:
   main:

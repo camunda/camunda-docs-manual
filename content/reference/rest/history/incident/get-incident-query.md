@@ -1,7 +1,7 @@
 ---
 
 title: "Get Incidents"
-weight: 160
+weight: 10
 
 menu:
   main:

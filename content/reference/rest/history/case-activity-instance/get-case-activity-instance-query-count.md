@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Activity Instances Count"
-weight: 40
+weight: 20
 
 menu:
   main:

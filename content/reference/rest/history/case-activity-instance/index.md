@@ -2,7 +2,7 @@
 
 title: "Case Activity Instance"
 layout: "section-list"
-weight: 110
+weight: 30
 
 menu:
   main:

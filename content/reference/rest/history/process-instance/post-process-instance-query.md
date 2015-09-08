@@ -1,7 +1,7 @@
 ---
 
 title: "Get Process Instances (POST)"
-weight: 390
+weight: 40
 
 menu:
   main:

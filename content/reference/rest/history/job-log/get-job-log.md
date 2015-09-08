@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Job Log"
-weight: 200
+weight: 30
 
 menu:
   main:

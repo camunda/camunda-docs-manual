@@ -1,12 +1,12 @@
 ---
 
 title: "Get Historic Activity Statistics"
-weight: 140
+weight: 10
 
 menu:
   main:
     identifier: "rest-api-history-get-historic-activity-statistics"
-    parent: "rest-api-history"
+    parent: "rest-api-history-process-definition"
     pre: "GET `/history/process-definition/{id}/statistics`"
 
 ---

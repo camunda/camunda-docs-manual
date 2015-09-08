@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Case Instance"
-weight: 90
+weight: 30
 
 menu:
   main:

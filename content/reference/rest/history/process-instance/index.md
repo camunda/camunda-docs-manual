@@ -2,7 +2,7 @@
 
 title: "Process Instance"
 layout: "section-list"
-weight: 110
+weight: 90
 
 menu:
   main:

@@ -1,7 +1,7 @@
 ---
 
 title: "Get Historic Details Count"
-weight: 110
+weight: 20
 
 menu:
   main:

@@ -2,7 +2,7 @@
 
 title: "Job Log"
 layout: "section-list"
-weight: 110
+weight: 70
 
 menu:
   main:

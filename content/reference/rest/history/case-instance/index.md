@@ -2,7 +2,7 @@
 
 title: "Case Instance"
 layout: "section-list"
-weight: 110
+weight: 20
 
 menu:
   main:

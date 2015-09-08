@@ -1,7 +1,7 @@
 ---
 
 title: "Get Single Historic Detail (Binary)"
-weight: 100
+weight: 40
 
 menu:
   main:

@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Instances (POST)"
-weight: 350
+weight: 40
 
 menu:
   main:

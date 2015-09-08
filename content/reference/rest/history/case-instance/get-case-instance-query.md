@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Instances"
-weight: 80
+weight: 10
 
 menu:
   main:

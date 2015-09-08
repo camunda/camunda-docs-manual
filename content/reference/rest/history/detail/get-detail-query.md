@@ -1,7 +1,7 @@
 ---
 
 title: "Get Historic Details"
-weight: 120
+weight: 10
 
 menu:
   main:

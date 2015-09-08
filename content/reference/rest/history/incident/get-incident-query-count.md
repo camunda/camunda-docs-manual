@@ -1,7 +1,7 @@
 ---
 
 title: "Get Incidents Count"
-weight: 150
+weight: 20
 
 menu:
   main:

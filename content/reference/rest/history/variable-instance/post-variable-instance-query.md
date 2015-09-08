@@ -1,7 +1,7 @@
 ---
 
 title: "Get Variable Instances (POST)"
-weight: 430
+weight: 50
 
 menu:
   main:

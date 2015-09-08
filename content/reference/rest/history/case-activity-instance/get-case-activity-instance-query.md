@@ -1,7 +1,7 @@
 ---
 
 title: "Get Case Activity Instances (Historic)"
-weight: 50
+weight: 10
 
 menu:
   main:
