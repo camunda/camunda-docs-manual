@@ -278,22 +278,58 @@ for [script tasks]({{< relref "#script-source" >}}).
   </camunda:inputParameter>
 </camunda:inputOutput>
 ```
+# Script Engine Caching
+
+Whenever the process engine reaches a point where a script has to be executed, the process engine looks up for a Script Engine by a language name. The default behavior is that when it is the first request a new Script Engine is created. If the Script Engine declares to be thread safe it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.
+
+By default the caching of Script Engines happens at Process Application level. So that each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. In consequence, the Script Engines are cached globally at process engine level and they are shared between each Process Application.
+
+If it is not desired to cache Script Engines in general, it can be disabled by setting the process engine configuration flag name `enableScriptEngineCaching` to false.
 
 
-## Script Compilation
+# Script Compilation
 
 Most script engines compile script source code either to a Java class or to a different
 intermediary format prior to executing the script. Script engines implementing the Java `Compilable`
 interface allow programs to retrieve and cache the script compilation. The default setting of the
-process engine is to check if a Script Engine supports the compile feature and, if true, have the
-script engine compile the script and then cache the compilation result.  This prevents the process
-engine from compiling a script source each time the same script task is executed.
+process engine is to check if a Script Engine supports the compile feature. If true and the caching of Script Engines is enabled, the script engine compiles the script and then cache the compilation result. This prevents the process engine from compiling a script source each time the same script task is executed.
 
-By default, compilation of scripts is enabled. If you need to disable script compilation, you can set
-the process engine configuration flag named `enableScriptCompilation` to false.
+By default, compilation of scripts is enabled. If you need to disable script compilation, you can set the process engine configuration flag named `enableScriptCompilation` to false.
+
+# Load Script Engine
+
+If the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` is set to true, it is also possible to load Script Engines from the classpath of the process application. Therefore the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally as well.
+
+In case the Script Engine module should be installed globally and a Jboss is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a `jboss-deployment-structure.xml` to the process application for example:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+  <deployment>
+    <dependencies>
+      <module name="org.codehaus.groovy.groovy-all"
+              services="import" />
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>
+```
 
 
-## Variables Available During Script Execution
+# Reference Process Application Provided Classes
+
+The script can reference to process application provided classes by importing them like in the following groovy script example.
+
+```java
+import my.process.application.CustomClass
+
+sum = new CustomClass().calculate()
+execution.setVariable('sum', sum)
+```
+
+In order to avoid possible class loading problems during the script execution it is recommended to set the process engine configuration flag name `enableFetchScriptEngineFromProcessApplication` to true.
+
+
+# Variables Available During Script Execution
 
 During the execution of scripts, all process variables visible in the current scope are available.
 They can be accessed directly by the name of the variable (i.e. `sum`). This does not apply for
@@ -322,7 +358,7 @@ task = execution.getProcessEngineServices().getTaskService()
 ```
 
 
-## Script Source
+# Script Source
 
 The standard way to specify the script source code in the BPMN XML model is to add it directly to
 the XML file. Nonetheless, Camunda BPM provides additional ways to specify the script source.
