@@ -73,7 +73,7 @@ The following example shows a job executor XML snippet:
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: allows you to define the name of the job acquisition thread.</li>
+          <li><code>name</code>: Defines the name of the job acquisition thread.</li>
         </ul>
       </p>
       <p>
@@ -207,19 +207,59 @@ The following is a list with the available job acquisition thread configuration 
     </td>
   </tr>
   <tr>
+    <td><code>lockTimeInMillis</code></td>
+    <td>Integer</td>
+    <td>
+      Specifies the time in milliseconds an acquired job is locked for execution. During that time, no other job executor can acquire the job.
+      <p><strong>Default Value:</strong> 300000</p>
+    </td>
+  </tr>
+  <tr>
     <td><code>waitTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      Specify the wait time of the job acquisition thread in milliseconds. This value can be used to define how often the job acquisition thread should poll the database for jobs.
+      Specifies the wait time of the job acquisition thread in milliseconds in case there are less jobs available for execution than requested during acquisition. If this is repeatedly the case, the wait time is increased exponentially by the factor <code>waitIncreaseFactor</code>. The wait time is capped by <code>maxWait</code>.
       <p><strong>Default Value:</strong> 5000</p>
     </td>
   </tr>
   <tr>
-    <td><code>lockTimeInMillis</code></td>
+    <td><code>maxWait</code></td>
+    <td>Long</td>
+    <td>
+      Specifies the maximum wait time of the job acquisition thread in milliseconds in case there are less jobs available for execution than requested during acquisition.
+      <p><strong>Default Value:</strong> 60000</p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>backoffTimeInMillis</code></td>
     <td>Integer</td>
     <td>
-      Specify the lock time of an acquired job in milliseconds.
-      <p><strong>Default Value:</strong> 300000</p>
+      Specifies the wait time of the job acquisition thread in milliseconds in case jobs were acquired but could not be locked. This condition indicates that there are other job acquisition threads acquiring jobs in parallel. If this is repeatedly the case, the backoff time is increased exponentially by the factor <code>waitIncreaseFactor</code>. The time is capped by <code>maxBackoff</code>. With every increase in backoff time, the number of jobs acquired increases by <code>waitIncreaseFactor</code> as well.
+      <p><strong>Default Value:</strong> 0</p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>maxBackoff</code></td>
+    <td>Long</td>
+    <td>
+      Specifies the maximum wait time of the job acquisition thread in milliseconds in case jobs were acquired but could not be locked.
+      <p><strong>Default Value:</strong> 0</p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>backoffDecreaseThreshold</code></td>
+    <td>Integer</td>
+    <td>
+      Specifies the number of successful job acquisition cycles without a job locking failure before the backoff time is decreased again. In that case, the backoff time is reduced by <code>waitIncreaseFactor</code>.
+      <p><strong>Default Value:</strong> 100</p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>waitIncreaseFactor</code></td>
+    <td>Float</td>
+    <td>
+      Specifies the factor by which wait and backoff time are increased in case their activation conditions are repeatedly met.
+      <p><strong>Default Value:</strong> 2</p>
     </td>
   </tr>
 
