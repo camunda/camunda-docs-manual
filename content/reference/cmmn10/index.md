@@ -19,8 +19,6 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
 
 ## Definitions
 
-Hover over the element to see since which version of the Camunda BPM platform they are supported.
-
 <div class="cmmn-symbols">
   <div class="row">
     <div class="col-md-12">
@@ -170,7 +168,7 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <span class="glyphicon glyphicon-ok"></span>
       </td>
       <td>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-ok"></span>
       </td>
     </tr>
     <tr>
@@ -192,7 +190,7 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <span class="glyphicon glyphicon-ok"></span>
       </td>
       <td>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-ok"></span>
       </td>
     </tr>
     <tr>
@@ -208,7 +206,7 @@ Hover over the element to see since which version of the Camunda BPM platform th
         <span class="glyphicon glyphicon-ok"></span>
       </td>
       <td>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-ok"></span>
       </td>
     </tr>
     <tr>

@@ -88,8 +88,8 @@ When the stage becomes `ACTIVE`, the contained plan items are instantiated and r
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
 </table>

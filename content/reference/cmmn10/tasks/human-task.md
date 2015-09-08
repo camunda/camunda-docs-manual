@@ -211,22 +211,22 @@ make sure the form keys are initialized.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-assignee" >}}">camunda:assignee</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-candidategroups" >}}">camunda:candidateGroups</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-candidateusers" >}}">camunda:candidateUsers</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-duedate" >}}">camunda:dueDate</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-formkey" >}}">camunda:formKey</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-priority" >}}">camunda:priority</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#assignee" >}}">camunda:assignee</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#duedate" >}}">camunda:dueDate</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#priority" >}}">camunda:priority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

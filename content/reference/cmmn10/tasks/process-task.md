@@ -136,17 +136,17 @@ If the business key of the called process instance should be different than the 
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processbinding" >}}">camunda:processBinding</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#camunda-processversion" >}}">camunda:processVersion</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#processbinding" >}}">camunda:processBinding</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-attributes.md#processversion" >}}">camunda:processVersion</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#camunda-variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

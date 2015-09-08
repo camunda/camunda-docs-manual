@@ -282,7 +282,7 @@ This example can be easily extended to limit the number of repetitions by using 
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="../../custom-extensions/camunda-elements/">camunda:repetitionCriterion</a>
+      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#repetitioncriterion" >}}">camunda:repetitionCriterion</a>
     </td>
   </tr>
   <tr>
