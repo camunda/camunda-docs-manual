@@ -33,7 +33,7 @@ The history level controls the amount of data the process engine provides via th
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
 
-If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
+If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/reference/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
 ## Setting the History Level
 
@@ -192,7 +192,7 @@ Once the event has reached the History Event Handler, it can be processed and st
 
 Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. In order to do so, two main steps are required:
 
-* Provide a custom implementation of the [HistoryEventHandler](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html) interface.
+* Provide a custom implementation of the [HistoryEventHandler](ref:/reference/javadoc/?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html) interface.
 * Wire the custom implementation in the process engine configuration.
 
 Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you need to write a composite History Event Handler which dispatches events a collection of handlers.

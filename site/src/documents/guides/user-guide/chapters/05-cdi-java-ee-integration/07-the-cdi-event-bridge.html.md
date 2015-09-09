@@ -117,7 +117,7 @@ for modifying variables.
 
 ### The Cdi Event Bridge in a Process Application
 
-In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiEventListener](ref:/api-references/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener.html) needs to be added as a [Process Application Execution Event Listener](ref:#process-applications-process-application-event-listeners).
+In order to use the Cdi Event Bridge in combination with a multi-application deployment and the shared process engine, the [CdiEventListener](ref:/reference/javadoc/?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener.html) needs to be added as a [Process Application Execution Event Listener](ref:#process-applications-process-application-event-listeners).
 
 Example configuration for [Servlet Process Application](ref:#process-applications-the-process-application-class-the-servletprocessapplication):
 
