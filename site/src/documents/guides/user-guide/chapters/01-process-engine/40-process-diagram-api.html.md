@@ -64,7 +64,7 @@ The BPMN 2.0 XML file of your process must contain Diagram Interchange data. Thi
 
 ### Getting the Process Diagram
 
-If you have deployed a process diagram into the engine, you can retrieve it using the method `getProcessDiagram()` of the [RepositoryService](/api-references/javadoc/?org/camunda/bpm/engine/RepositoryService.html), which takes a process definition id as an argument and returns an `InputStream` with the content of the process diagram image.
+If you have deployed a process diagram into the engine, you can retrieve it using the method `getProcessDiagram()` of the [RepositoryService](/reference/javadoc/?org/camunda/bpm/engine/RepositoryService.html), which takes a process definition id as an argument and returns an `InputStream` with the content of the process diagram image.
 
 In a Web application you can, e.g., write a Servlet to provide process diagrams (this code is taken from the Invoice Showcase, see [ProcessDiagramServlet.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/servlet/ProcessDiagramServlet.java)):
 
@@ -85,7 +85,7 @@ In a Web application you can, e.g., write a Servlet to provide process diagrams 
 
 ### Getting Coordinates of Process Diagram Elements
 
-The method `getProcessDiagramLayout()` of the [RepositoryService](/api-references/javadoc/?org/camunda/bpm/engine/RepositoryService.html) takes a process definition id as an argument and returns a [DiagramLayout](/api-references/javadoc/?org/camunda/bpm/engine/repository/DiagramLayout.html) object. This object provides `x` and `y` coordinates as well as `width` and `height` for all elements of the process diagram.
+The method `getProcessDiagramLayout()` of the [RepositoryService](/reference/javadoc/?org/camunda/bpm/engine/RepositoryService.html) takes a process definition id as an argument and returns a [DiagramLayout](/reference/javadoc/?org/camunda/bpm/engine/repository/DiagramLayout.html) object. This object provides `x` and `y` coordinates as well as `width` and `height` for all elements of the process diagram.
 
     DiagramLayout processDiagramLayout = repositoryService.getProcessDiagramLayout(processInstance.getProcessDefinitionId());
     List<DiagramNode> nodes = processDiagramLayout.getNodes();
@@ -106,7 +106,7 @@ These coordinates are given as pixels relative to the upper left corner of the i
 
 To give you some inspiration of what you can do with the Process Diagram API, we have another look at the code of the [Invoice Showcase](https://github.com/camunda/camunda-consulting/tree/master/showcases/invoice-en) . It uses JSF, HTML and CSS to highlight the current activity of a given process instance.
 
-A CDI bean looks up the currently active activities in the [RuntimeService](/api-references/javadoc/?org/camunda/bpm/engine/RuntimeService.html) and gets position and dimension of these activities using `DiagramLayout.getNode()` (see [ProcessDiagramController.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/diagram/ProcessDiagramController.java)):
+A CDI bean looks up the currently active activities in the [RuntimeService](/reference/javadoc/?org/camunda/bpm/engine/RuntimeService.html) and gets position and dimension of these activities using `DiagramLayout.getNode()` (see [ProcessDiagramController.java](https://github.com/camunda/camunda-consulting/blob/master/showcases/invoice-en/src/main/java/org/camunda/bpm/demo/invoice/ui/diagram/ProcessDiagramController.java)):
 
     @Named
     public class ProcessDiagramController {
