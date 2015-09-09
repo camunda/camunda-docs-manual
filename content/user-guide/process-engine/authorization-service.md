@@ -85,6 +85,7 @@ Resources are the entities the user interacts with.
   * Process Definition
   * Process Instance
   * Task
+  * Decision Definition
 
 {{< /note >}}
 
