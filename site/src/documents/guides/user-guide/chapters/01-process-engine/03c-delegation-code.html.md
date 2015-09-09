@@ -32,7 +32,7 @@ interface, which requires us to implement the <code>execute(DelegateExecution)</
 method. It's this operation that will be called by the engine and
 which needs to contain the business logic. Process instance
 information such as process variables and other information can be accessed and
-manipulated through the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a> interface (click on the link for
+manipulated through the <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a> interface (click on the link for
 a detailed Javadoc of its operations).
 
 ```java

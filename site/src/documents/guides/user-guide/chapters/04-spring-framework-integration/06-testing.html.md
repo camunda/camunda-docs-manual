@@ -36,7 +36,7 @@ public class MyBusinessProcessTest {
 }
 ```
 
-Note that for this to work, you need to define a <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/test/ProcessEngineRule.html">ProcessEngineRule</a> bean in the Spring configuration (which is injected by auto-wiring in the example above).
+Note that for this to work, you need to define a <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/test/ProcessEngineRule.html">ProcessEngineRule</a> bean in the Spring configuration (which is injected by auto-wiring in the example above).
 
 ```xml
 <bean id="processEngineRule" class="org.camunda.bpm.engine.test.ProcessEngineRule">

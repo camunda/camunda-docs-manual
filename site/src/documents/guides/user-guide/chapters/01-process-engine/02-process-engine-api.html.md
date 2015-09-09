@@ -56,7 +56,7 @@ The **ManagementService** is typically not needed when coding custom application
 
 <div class="alert alert-warning">
   <strong>Javadocs:</strong>
-  <p>For more detailed information on the service operations and the engine API, see the <a href="ref:/api-references/javadoc/">Javadocs</a>.</p>
+  <p>For more detailed information on the service operations and the engine API, see the <a href="ref:/reference/javadoc/">Javadocs</a>.</p>
 </div>
 
 
@@ -82,7 +82,7 @@ List<Task> tasks = taskService.createTaskQuery()
   .list();
 ```
 
-You can find more information on this in the [Javadocs](ref:/api-references/javadoc/).
+You can find more information on this in the [Javadocs](ref:/reference/javadoc/).
 
 ### REST Query API
 

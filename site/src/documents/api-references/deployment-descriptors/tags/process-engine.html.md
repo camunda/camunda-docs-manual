@@ -94,11 +94,11 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        The fully qualified classname of the Process Engine Configuration class to be used for this process engine. The class must be a subclass of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
+        The fully qualified classname of the Process Engine Configuration class to be used for this process engine. The class must be a subclass of <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEngineConfigurationImpl.html">ProcessEngineConfigurationImpl</a>.
       </p>
       <p>
         <strong>Default Value:</strong>
-        <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html">StandaloneProcessEngineConfiguration</a>.
+        <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html">StandaloneProcessEngineConfiguration</a>.
       </p>
       <p>
         <strong>Example:</strong>
@@ -224,7 +224,7 @@ The following example shows an XML snippet which can be placed in both [processe
       </p>
       <p>
         <strong>Text Content:</strong>
-        The fully qualified classname of a process engine plugin. Must be an implementation of <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
+        The fully qualified classname of a process engine plugin. Must be an implementation of <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/impl/cfg/ProcessEnginePlugin.html">ProcessEnginePlugin</a>
       </p>
     </td>
   </tr>
