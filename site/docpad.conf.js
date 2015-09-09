@@ -43,8 +43,8 @@ module.exports = {
           { id: '7.3', name: '7.3 (stable)' },
           { id: '7.2', name: '7.2 (stable)' },
           { id: '7.1', name: '7.1 (stable)' },
-          { id: '7.0', name: '7.0 (stable)' }
-          { id: 'develop', name: 'develop (unstable)' },
+          { id: '7.0', name: '7.0 (stable)' },
+          { id: 'develop', name: 'develop (unstable)' }
         ]
       },
 
