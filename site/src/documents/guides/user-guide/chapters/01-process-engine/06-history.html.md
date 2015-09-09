@@ -36,7 +36,7 @@ The history level controls the amount of data the process engine provides via th
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
 
-If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
+If you need to customize the amount of history events logged, you can provide a custom implementation [HistoryEventProducer](ref:/reference/javadoc/?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html) and wire it in the process engine configuration.
 
 ## Setting the History Level
 
@@ -272,9 +272,9 @@ The log consists of *operations* and *entries*. An operation corresponds to one 
 
 A user operation log entry has the following properties:
 
-* **Operation Type**: An identifier of the operation performed. Available operation types are listed in the interface [org.camunda.bpm.engine.history.UserOperationLogEntry](ref:/api-references/javadoc/org/camunda/bpm/engine/history/UserOperationLogEntry.html).
+* **Operation Type**: An identifier of the operation performed. Available operation types are listed in the interface [org.camunda.bpm.engine.history.UserOperationLogEntry](ref:/reference/javadoc/org/camunda/bpm/engine/history/UserOperationLogEntry.html).
 * **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
-* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class [org.camunda.bpm.engine.EntityTypes](ref:/api-references/javadoc/org/camunda/bpm/engine/EntityTypes.html).
+* **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class [org.camunda.bpm.engine.EntityTypes](ref:/reference/javadoc/org/camunda/bpm/engine/EntityTypes.html).
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
 * **Timestamp**: The time at which the operation was performed.
@@ -559,7 +559,7 @@ Once the event has reached the History Event Handler, it can be processed and st
 
 Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. In order to do so, two main steps are required:
 
-* Provide a custom implementation of the [HistoryEventHandler](ref:/api-references/javadoc/?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html) interface.
+* Provide a custom implementation of the [HistoryEventHandler](ref:/reference/javadoc/?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html) interface.
 * Wire the custom implementation in the process engine configuration.
 
 Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you need to write a composite History Event Handler which dispatches events a collection of handlers.
@@ -619,5 +619,5 @@ event for some instances of an event it must still return `true` if `entity` is 
 Please have a look at this [complete example][2] to get a better overview.
 
 
-[1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
+[1]: http://docs.camunda.org/latest/reference/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level

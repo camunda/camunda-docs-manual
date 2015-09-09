@@ -24,7 +24,7 @@ The ProcessEngine can be configured as a regular Spring bean. The starting point
 ```
 
 
-Note that the processEngineConfiguration bean uses the <a href="ref:/api-references/javadoc/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class.
+Note that the processEngineConfiguration bean uses the <a href="ref:/reference/javadoc/?org/camunda/bpm/engine/spring/SpringProcessEngineConfiguration.html">SpringProcessEngineConfiguration</a> class.
 
 ### Configuring a container-managed Process Engine as a Spring Bean
 

@@ -9,7 +9,7 @@ The process engine reports runtime metrics to the database that can help with dr
 
 # Built-in Metrics
 
-The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class [org.camunda.bpm.engine.management.Metrics](/api-references/javadoc/org/camunda/bpm/engine/management/Metrics.html).
+The following table describes the built-in metrics. The identifiers of all built-in metrics are available as constants of the class [org.camunda.bpm.engine.management.Metrics](/reference/javadoc/org/camunda/bpm/engine/management/Metrics.html).
 
 <table class="table table-striped">
   <tr>
@@ -26,7 +26,7 @@ The following table describes the built-in metrics. The identifiers of all built
 
 # Querying
 
-Metrics can be queried by making a [MetricsQuery](/api-references/javadoc/org/camunda/bpm/engine/management/MetricsQuery.html) offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
+Metrics can be queried by making a [MetricsQuery](/reference/javadoc/org/camunda/bpm/engine/management/MetricsQuery.html) offered by the `ManagementService`. For example, the following query retrieves the number of all executed activity instances throughout the entire history of reporting:
 
 ```java
 long numCompletedActivityInstances = managementService
