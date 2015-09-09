@@ -23,6 +23,12 @@
   camDownloads.formats = [];
   {{ range $.Page.Params.downloads.formats }}
   camDownloads.formats.push('{{ . }}');{{ end }}
+
+  camDownloads.selected = {
+    branch: '{{ $.Page.Params.downloads.selected.branch }}',
+    version: '{{ $.Page.Params.downloads.selected.version }}',
+    server: '{{ $.Page.Params.downloads.selected.server }}'
+  };
 </script>
 
 <section class="cam-downloads">
