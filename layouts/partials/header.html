@@ -32,7 +32,7 @@
           <span></span>
         </button>
 
-        <a href="/">
+        <a href="{{ if $.Site.Params.section.version }}{{.Site.BaseURL}}{{else}}/{{end}}">
           <span class="icon icon-bpmn-io"></span>
           <span class="brand-name">docs.camunda.org</span>
         </a>
