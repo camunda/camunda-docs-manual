@@ -35,7 +35,7 @@ Additionally, the process engine can be integrated with:
 * [JRuby](http://jruby.org/) {{< OD >}}, [(Ruby License or GPL)][jruby] for Ruby script task support.
 * [Freemarker](http://freemarker.org/) {{< OD >}}, [(Apache License 2.0)][apache] for freemarker template engine support.
 * [Apache Velocity](http://velocity.apache.org/) {{< OD >}}, [(Apache License 2.0)][apache] for apache velocity template engine support.
-* [SAXON](http://saxon.sourceforge.net/) {{< OD >}}, [(Mozilla Public License 1.0)][mpl] for XSLT template engine support.
+* [SAXON](http://saxon.sourceforge.net/) {{< OD >}}, [(Mozilla Public License 1.0)][mpl] for XSLT and XQuery template engine support.
 
 
 # REST API
