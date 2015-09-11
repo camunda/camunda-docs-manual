@@ -88,7 +88,7 @@ The following Entity Relationship Diagrams visualize the database tables and the
 
 ## Engine BPMN
 
-{{< img src="../img/erd_oracle_73_bpmn.svg" title="BPMN Tables" >}}
+{{< img src="../img/erd_oracle_73_bpmn.png" title="BPMN Tables" >}}
 
 
 ## Engine CMMN
