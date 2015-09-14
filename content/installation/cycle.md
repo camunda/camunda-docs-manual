@@ -36,7 +36,7 @@ Download a Camunda Cycle from our [NEXUS repository](https://app.camunda.com/nex
 
 ## Database Scripts
 
-Download scripts to create the database schema on our [NEXUS repositopry](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
+Download scripts to create the database schema from our [NEXUS repository](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/cycle/camunda-cycle-sql-scripts/). Choose the correct version named `$CYCLE_VERSION/camunda-cycle-sql-scripts-$CYCLE_VERSION.jar`.
 
 
 # Create the Database Schema
