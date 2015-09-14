@@ -29,7 +29,7 @@ Note: Since the Camunda standalone web application uses an [embedded process eng
 
 Download the Camunda standalone webapp matching your application server from
 our [download page](http://camunda.org/download). Enterprise subscription
-customers use the [enterprise download page](ref:/enterprise/#downloads).
+customers use the [enterprise download page](/enterprise/download/#full-distributions-and-standalone-web-applications).
 
 # Deploy
 
