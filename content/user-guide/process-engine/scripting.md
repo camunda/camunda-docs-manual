@@ -205,6 +205,16 @@ process variable which is available inside the script.
 </sequenceFlow>
 ```
 
+Besides scripts you can also reference a DMN XML file which contains a decision table. The decision table
+must return one single result output which is of type boolean.
+
+```xml
+<sequenceFlow>
+  <conditionExpression xsi:type="tFormalExpression" language="dmn"
+      camunda:resource="org/camunda/bpm/condition.dmn10.xml" />
+</sequenceFlow>
+```
+
 
 # Use Scripts as inputOutput Parameters
 
