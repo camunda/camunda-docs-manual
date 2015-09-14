@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This section will describe how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 7](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 7 distribution](http://camunda.org/download/) to use the required modules.
+This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 8](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 8 distribution](http://camunda.org/download/) to fetch the required Camunda modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
@@ -72,14 +72,14 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
               url="jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0"
               username="sa"
               password=""
-              maxPoolSize="20"
-              minPoolSize="5" />
+              maxActive="20"
+              minIdle="5" />
   </GlobalNamingResources>
 </Server>
 ```
 
 
-## Add necessary Libraries to vanilla Tomcat 7
+## Add Required Libraries
 
 Copy all libraries from the `$TOMCAT_DISTRIBUTION/lib/` folder to the Tomcat library folder `$TOMCAT_HOME/lib`:
 

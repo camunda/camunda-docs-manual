@@ -20,7 +20,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 # Container/Application Server for Runtime Components (Excluding Camunda Cycle)
 
-* Apache Tomcat 6 / 7
+* Apache Tomcat 6 / 7 / 8
 * JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2 / 6.3 / 6.4
 * Wildfly 8.1 / 8.2 Application Server
 * GlassFish 3.1

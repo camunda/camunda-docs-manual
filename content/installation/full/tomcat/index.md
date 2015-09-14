@@ -13,6 +13,6 @@ menu:
 
 ---
 
-This document describes the installation of the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) for [Apache Tomcat 7 Application Server](http://tomcat.apache.org/).
+This document describes the installation of the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) for [Apache Tomcat 8 Application Server](http://tomcat.apache.org/).
 
 There are different options for installing the Full Distribution:
