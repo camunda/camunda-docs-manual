@@ -282,7 +282,7 @@ for [script tasks]({{< relref "#script-source" >}}).
 
 Whenever the process engine reaches a point where a script has to be executed, the process engine looks up for a Script Engine by a language name. The default behavior is that when it is the first request a new Script Engine is created. If the Script Engine declares to be thread safe it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.
 
-By default the caching of Script Engines happens at Process Application level. So that each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. In consequence, the Script Engines are cached globally at process engine level and they are shared between each Process Application.
+By default the caching of Script Engines happens at Process Application level. So that each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. In consequence, the Script Engines are cached globally at process engine level and they are shared between each Process Application. For further details about the process engine configuration flag `enableFetchScriptEngineFromProcessApplication` please read the section about [referencing process application classes]({{< relref "user-guide/process-engine/scripting.md#reference-process-application-provided-classes" >}}).
 
 If it is not desired to cache Script Engines in general, it can be disabled by setting the process engine configuration flag name `enableScriptEngineCaching` to false.
 
@@ -328,6 +328,7 @@ execution.setVariable('sum', sum)
 
 In order to avoid possible class loading problems during the script execution it is recommended to set the process engine configuration flag name `enableFetchScriptEngineFromProcessApplication` to true.
 
+Be aware that the process engine flag `enableFetchScriptEngineFromProcessApplication` is only relevant in a shared engine scenario.
 
 # Variables Available During Script Execution
 
