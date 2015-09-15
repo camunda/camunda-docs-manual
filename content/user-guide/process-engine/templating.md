@@ -28,7 +28,7 @@ The script engine wrapper implementations can be found in the
 
 Additionally, the following template engines are supported as enterprise extension:
 
-* XSLT
+* [XSLT](/enterprise/download/#xslt-extension)
 
 
 # Install a Template Engine
@@ -72,7 +72,7 @@ classpath. The procedure for achieving this depends on the application server. I
 libraries have to be added to the shared `lib/` folder.
 
 {{< note title="" class="info" >}}
-  [FreeMarker][freemarker] is pre-installed in the Camunda pre-packaged distribution.
+  [FreeMarker](http://freemarker.org/) is pre-installed in the Camunda pre-packaged distribution.
 {{< /note >}}
 
 
@@ -134,7 +134,7 @@ payload of a `camunda:connector`.
 
 ## Install the XSLT Template Engine
 
-The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download).
+The XSLT Template Engine can be downloaded from the [Enterprise Edition Download page](/enterprise/download/#xslt-extension).
 
 Instructions on how to install the template engine can be found inside the downloaded distribution.
 
