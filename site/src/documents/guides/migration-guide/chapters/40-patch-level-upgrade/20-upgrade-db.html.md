@@ -53,6 +53,13 @@ Each patch script contains a comment what the fixes are related to and a link to
       <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</td>
     </tr>
     <tr>
+      <td>7.2</td>
+      <td>$DATABASE_engine_7.2_patch_7.2.6_to_7.2.7.sql</td>
+      <td>Add indices to improve deployment performance.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
+    </tr>
+    <tr>
       <td>7.3</td>
       <td>$DATABASE_engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
       <td>Adjust column size of ACT_HI_JOB_LOG.ACT_ID_ to 255.</td>
@@ -61,10 +68,17 @@ Each patch script contains a comment what the fixes are related to and a link to
     </tr>
     <tr>
       <td>7.3</td>
-      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3.sql</td>
+      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3_1.sql</td>
       <td>Add a missing index on ACT_RU_AUTHORIZATION#RESOURCE_ID_ to prevent deadlocks.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4440">CAM-4440</td>
+    </tr>
+    <tr>
+      <td>7.3</td>
+      <td>$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3_2.sql</td>
+      <td>Add indices to improve deployment performance. <strong>This is the same patch as $DATABASE_engine_7.2_patch_7.2.6_to_7.2.7.sql</strong>.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
   </tbody>
 </table>
