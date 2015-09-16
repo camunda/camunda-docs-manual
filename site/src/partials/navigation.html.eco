@@ -47,8 +47,8 @@
               <li data-active-link="/api-references/rest">
                 <a href="<%= @docUrl("api-references/rest/") %>">REST API</a>
               </li>
-              <li data-active-link="/api-references/javadoc">
-                <a href="<%= @docUrl("api-references/javadoc/") %>">Javadoc</a>
+              <li data-active-link="reference/javadoc/">
+                <a href="<%= @docUrl("reference/javadoc/") %>">Javadoc</a>
               </li>
               <li data-active-link="/api-references/deployment-descriptors">
                 <a href="<%= @docUrl("api-references/deployment-descriptors/") %>">
