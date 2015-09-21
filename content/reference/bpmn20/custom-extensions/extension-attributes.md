@@ -957,7 +957,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies the priority a job receives that is created in the context of executing the given process element (e.g. a timer event, or in the case of [asyncBefore]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}) and [asyncAfter]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}})). See the user guide on [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}) for details.
+      Specifies the priority a job receives that is created in the context of executing the given process element (e.g., a timer event, or in the case of <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}})">asyncBefore</a> and <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}))">asyncAfter</a>. See the user guide on <a href="({{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}})">Job Prioritization</a> for details.
     </td>
   </tr>
   <tr>

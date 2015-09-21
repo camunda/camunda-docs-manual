@@ -48,14 +48,14 @@ During creation, jobs can receive a priority for acquisition and execution.
 
 ## Job Prioritization
 
-In practice, the amount of jobs processed is seldom spread evenly across the day. Instead there are peaks of high load, for example when batch operations are run overnight. In such a situation, the job executor can be temporarily overloaded: the database contains much more jobs than the job executor can handle at a time. *Job Prioritization* can help cope with these situations in a well-defined matter by defining an order of importance and enabling execution by that order.
+In practice, the amount of jobs processed is seldomly spread evenly across the day. Instead, there are peaks of high load, for example when batch operations are run overnight. In such a situation, the job executor can be temporarily overloaded: the database contains many more jobs than the job executor can handle at a time. *Job Prioritization* can help cope with these situations in a well-defined matter by defining an order of importance and enabling execution by that order.
 
 In general, there are two types of use cases that can be tackled with job prioritization:
 
 * **Anticipating priorities at Design Time**: In many cases, a high-load scenario can be anticipated when designing a process model. In these scenarios, it is often important to prioritize job execution according to certain business objectives. Examples:
   * A retail store has casual and VIP customers. In case of high load, it is desired to handle orders of VIP customers with higher priority since their satisfaction is more important to the company's business goals.
   * A furniture store has human-centric processes for consulting customers in buying furniture as well as non-time-critical processes for delivery. Prioritization can be used to ensure fast response times in the consulting processes, improving user and customer satisfaction.
-* **Prioritization as a Response to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help dealing gracefully with these kind of situations. Examples:
+* **Prioritization as a Response to Runtime Conditions**:  Some scenarios for high job executor load result from unforeseen conditions at runtime that cannot be dealt with during process design. Temporarily overriding priorities can help deal with these kind of situations gracefully. Example:
   * A service task accesses a web service to process a payment. The payment service encounters an overload and responds very slowly. To avoid occupying all the job executor's resources with waiting for the service to respond, the respective jobs' priorities can be temporarily reduced. This way, unrelated process instances and jobs are not slowed down. After the service recovers, the overriding priority can be cleared again.
 
 
@@ -143,7 +143,7 @@ When using a constant value, as shown in the above example, the same priority is
   camunda:jobPriority="${customer.status == 'VIP' ? 10 : 0}" />
 ```
 
-In the above example the priority is determied baed on the property `status` of the current customer.
+In the above example the priority is determined based on the property `status` of the current customer.
 
 
 #### Resolution Context of Priority Expressions
