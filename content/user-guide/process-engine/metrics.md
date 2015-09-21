@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help with drawing conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consists of a metric identifier, a value that the metric took in a certain timespan, and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help with drawing conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 
@@ -30,7 +30,7 @@ The following table describes the built-in metrics. The identifiers of all built
   <tr>
     <td><b>DMN Execution</b></td>
     <td>executed-decision-elements</td>
-    <td>The number of decision elements executed during evaluation of DMN decision tables. For one table, this is calculated as the number of clauses times the number of rules.</td>
+    <td>The number of decision elements executed during evaluation of DMN decision tables. For one table, this is calculated as the number of clauses multiplied by the number of rules.</td>
   </tr>
   <tr>
     <td><b>Job Executor</b></td>
@@ -40,7 +40,7 @@ The following table describes the built-in metrics. The identifiers of all built
   <tr>
     <td></td>
     <td>job-failed</td>
-    <td>The number of jobs failed to execute and submitted for retry. Every failing try to execute a job is counted.</td>
+    <td>The number of jobs that failed to execute and that were submitted for retry. Every failed attempt to execute a job is counted.</td>
   </tr>
   <tr>
     <td></td>
@@ -86,7 +86,7 @@ The metrics query offers filters `#startDate(Date date)` and `#endDate(Date date
 
 ## Metrics Reporter
 
-The process engine flushes the collected metrics to the runtime database tables in an interval of 15 minutes. The behavior of metrics reporting can be changed by replacing the `dbMetricsReporter` instance of the process engine configuration. For example, to change the reporting interval a process engine plugin replacing the reporter can be employed:
+The process engine flushes the collected metrics to the runtime database tables in an interval of 15 minutes. The behavior of metrics reporting can be changed by replacing the `dbMetricsReporter` instance of the process engine configuration. For example, to change the reporting interval, a process engine plugin replacing the reporter can be employed:
 
 ```java
 public class MetricsConfigurationPlugin implements ProcessEnginePlugin {
