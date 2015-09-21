@@ -136,9 +136,9 @@ In our example, the following steps might take place:
 
 # Repetition Criteria
 
-Additionally to the entry criteria it is possible to use `repetition criteria` to define on which condition a `repetition` of a task (or stage or milestone) should transition from state `AVAILABLE` either to `ENABLED` or `ACTIVE`.
+In addition to the entry criteria it is possible to use `repetition criteria` to define on which condition a `repetition` of a task (or stage or milestone) should transition from state `AVAILABLE` either to `ENABLED` or `ACTIVE`.
 
-A repetition criterion behaves in the same way like an [entry criterion]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md">}}). The difference is that a repetition criterion is only used by an instance which is a `repetition` of a task. While the *first* instance of a task (which is not a repetition) only takes the defined entry criteria into account to get enabled or active.
+A repetition criterion behaves in the same way as an [entry criterion]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md">}}). The difference is that a repetition criterion is only used by an instance which is a `repetition` of a task. While the *first* instance of a task (which is not a repetition) only takes the defined entry criteria into account to get enabled or active.
 
 Note the repetition criteria is a Camunda extension which is not part of the CMMN specification.
 
@@ -220,24 +220,24 @@ For a plan item definition, the following XML can be used:
 For a better understanding it is necessary to distinguish between a `first` instance and an instance which is a `repetition`:
 
 - `first instance`: The `first` instance is the one which is created when the parent stage gets active.
-- `repetition`: It is an instance which repeats the `first` instance. There could be more than one repetitions of the `first` instance.
+- `repetition`: It is an instance which repeats the `first` instance. There could be more than one repetition of the `first` instance.
 
-The repetition and entry criteria can be used in different combinations. The following remarks explains when any instance performs the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`:
+The repetition and entry criteria can be used in different combinations. The following remarks explain when any instance performs the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`:
 
 1. Only entry criteria are present:
 Each instance (`first` and every `repetition`) performs the state transition, when any *entry* criterion is met.
 2. Only repetition criteria are present:
-The `first` instance performs immediately the state transition. While each `repetition` performs the transition, when any *repetition* criterion is met.
+The `first` instance immediately performs the state transition while each `repetition` performs the transition when any *repetition* criterion is met.
 3. Entry and repetition criteria are present:
-The `first` instance performs the state transition, when any *entry* criterion is met. Each `repetition` performs the state transition, when any *repetition* criterion is met.
+The `first` instance performs the state transition when any *entry* criterion is met. Each `repetition` performs the state transition when any *repetition* criterion is met.
 4. Neither entry nor repetition criteria are present:
-Each instance (`first`and every `repetition`) performs immediately the state transition. But this could lead to undesired situations, for example it is possible to create an infinite loop. In such a combination the repetition rule should evaluate after a given number of repetitions to `true`. This would allow to instantiate for example 5 instance in parallel (whereby one instance is the `first` instance and the other four instances are the `repetitions`).
+Each instance (`first` and every `repetition`) immediately performs the state transition. However, this can lead to undesired situations. For example, it is possible to create an infinite loop. In such a combination, the repetition rule should evaluate to `true` after a given number of repetitions. This would for example allow to instantiate 5 instances in parallel (whereby one instance is the `first` instance and the other four instances are the `repetitions`).
 
 ## Example
 
-The repetition rule gives the opportunity to implement the following use case: Whenever the task *A* completes a new instance of task *A* should be offered to repeat the task.
+The repetition rule gives the opportunity to implement the following use case: Whenever the task *A* completes, a new instance of task *A* should be offered to repeat the task.
 
-Therefore the CMMN could look like as follows:
+Therefore the CMMN could look as follows:
 
 ```xml
 <definitions>
@@ -272,7 +272,7 @@ Therefore the CMMN could look like as follows:
   </case>
 </defintions>
 ```
-So the `first` instance of task *A* would immediately perform the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`. This state transition would create a new instance *A'* which remains in the state `AVAILABLE`. The instance *A'* waits that the defined *repetition* criterion is met. Once the instance *A* gets completed by a user the sentry is satisfied and the instance *A'* performs the state transition out of `AVAILABLE`. Furthermore a new instance *A''* is also created.
+So the `first` instance of task *A* would immediately perform the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`. This state transition would create a new instance *A'* which remains in the state `AVAILABLE`. The instance *A'* waits for the defined *repetition* criterion to be met. Once the instance *A* gets completed by a user, the sentry is satisfied and the instance *A'* performs the state transition out of `AVAILABLE`. Furthermore a new instance *A''* is also created.
 
 This example can be easily extended to limit the number of repetitions by using another expression as repetition rule.
 
