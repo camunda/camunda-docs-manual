@@ -232,9 +232,22 @@ The following is a list with the most commonly used process engine configuration
   </tr>
   <tr>
     <td><code>authorizationEnabled</code></td>
-    <td>boolean</td>
-    <td>Turns on authorization checks.</td>
+    <td>Boolean</td>
+    <td>Activates authorization checks.</td>
   </tr>
+
+  <tr>
+    <td><code>autoStoreScriptVariables</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls whether all global script variables should be automatically stored as process variables or not.
+        Default value is <code>false</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
   <tr>
     <td><code>databaseSchemaUpdate</code></td>
     <td>String</td>
@@ -247,10 +260,80 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>databaseTablePrefix</code></td>
+    <td>String</td>
+    <td>
+        Specifies a prefix for any table name included in SQL statements made by the process engine. Can be used to point the engine to a specific schema by setting the value to <code>MY_SCHEMA.</code> or tables with a naming pattern by setting the value to <code>MY_TABLE_PREFIX_PATTERN_</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>defaultNumberOfRetries</code></td>
+    <td>Integer</td>
+    <td>
+        Controls how many retries should be accomplished for a failed job. Default value: <code>3</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>enableExpressionsInAdhocQueries</code></td>
+    <td>Boolean</td>
+    <td>
+      If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>enableExpressionsInStoredQueries</code></td>
+    <td>Boolean</td>
+    <td>
+      If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>enableScriptCompilation</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls whether the process engine should attempt to compile script sources and cache the compilation result or not. Default value is <code>true</code>.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>history</code></td>
+    <td>String</td>
+    <td>
+        Sets the level of the process engine history.
+      <p>
+        <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>jdbcDriver</code></td>
     <td>String</td>
     <td>
         Sets the fully qualified classname of the JDBC driver to use.
+      <p>
+        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>jdbcPassword</code></td>
+    <td>String</td>
+    <td>
+        Sets the password of the JDBC connection.
       <p>
         This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
       </p>
@@ -276,24 +359,16 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
   </tr>
-  <tr>
-    <td><code>jdbcPassword</code></td>
-    <td>String</td>
-    <td>
-        Sets the password of the JDBC connection.
-      <p>
-        This is usually used if the process engine is NOT configured using a <code>&lt;datasource&gt;</code> (see above) but using the built-in mybatis connection pool instead.
-      </p>
-    </td>
-  </tr>
 
   <tr>
-    <td><code>history</code></td>
-    <td>String</td>
+    <td><code>jobExecutorAcquireByDueDate</code></td>
+    <td>Boolean</td>
     <td>
-        Sets the level of the process engine history.
+        Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
+        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
+        for more details on this setting.
       <p>
-        <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
   </tr>
@@ -322,56 +397,5 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
-  <tr>
-    <td><code>jobExecutorAcquireByDueDate</code></td>
-    <td>Boolean</td>
-    <td>
-        Controls whether the job executor acquires the next jobs to execute ordered by due date. Default value is <code>false</code>. See the
-        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#the-job-order-of-job-acquisition" >}}">user guide</a>
-        for more details on this setting.
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>autoStoreScriptVariables</code></td>
-    <td>Boolean</td>
-    <td>
-        Controls whether all global script variables should be automatically stored as process variables or not.
-        Default value is <code>false</code>.
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>enableScriptCompilation</code></td>
-    <td>Boolean</td>
-    <td>
-        Controls whether the process engine should attempt to compile script sources and cache the compilation result or not. Default value is <code>true</code>.
-      <p>
-        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>defaultNumberOfRetries</code></td>
-    <td>Integer</td>
-    <td>
-        Controls how many retries should be accomplished for a failed job. Default value: <code>3</code>
-    </td>
-  </tr>
-
-  <tr>
-    <td><code>databaseTablePrefix</code></td>
-    <td>String</td>
-    <td>
-        Specifies a prefix for any table name included in SQL statements made by the process engine. Can be used to point the engine to a specific schema by setting the value to <code>MY_SCHEMA.</code> or tables with a naming pattern by setting the value to <code>MY_TABLE_PREFIX_PATTERN_</code>.
-    </td>
-  </tr>
 
 </table>

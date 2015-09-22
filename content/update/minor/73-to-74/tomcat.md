@@ -32,4 +32,10 @@ Should you want to upgrade Tomcat along with Camunda, perform the following step
 See the [Tomcat migration guide](https://tomcat.apache.org/migration-8.html#Migrating_from_7.0.x_to_8.0.x) for any Tomcat-specific migration notes and procedures.
 {{< /note >}}
 
+# 3. Configure Process Engines
+
+## Task Query Expressions
+
+As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
+
 [upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}

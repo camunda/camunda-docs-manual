@@ -16,6 +16,9 @@ menu:
 Query for tasks that fulfill a given filter.
 The size of the result set can be retrieved by using [get tasks count]({{< relref "reference/rest/task/get-query-count.md" >}}) method.
 
+{{< note title="Security Consideration" class="warning" >}}
+  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+{{</note>}}
 
 # Method
 
@@ -312,7 +315,7 @@ GET `/task`
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistent</td>
-    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. 
+    <td>Restrict to tasks that have no followUp date or a followUp date before the given date.
     The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
     The typical use case is to query all "active" tasks for a user for a given date.</td>
   </tr>
@@ -324,7 +327,7 @@ GET `/task`
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr>  
+  </tr>
   <tr>
     <td>createdOn</td>
     <td>

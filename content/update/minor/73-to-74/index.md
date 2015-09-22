@@ -51,9 +51,9 @@ The first step deals with upgrading the database schema.
 
 ## Special Considerations
 
-...
-
 <!-- TODO: anything to consider? e.g. patch scripts that a user may or may not have already executed (compare to 7.2 to 7.3 upgrade)? -->
+
+
 
 # Full Distribution
 
@@ -94,6 +94,14 @@ For every process application, the Camunda dependencies have to be updated to th
 # Application with Embedded Process Engine
 
 ...
+
+## Special Considerations
+
+This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+
+### Task Query Expressions
+
+As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
 [ng-define]: http://nikku.github.io/requirejs-angular-define
 [requirejs]: http://requirejs.org

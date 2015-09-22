@@ -16,6 +16,9 @@ menu:
 Get the number of tasks that fulfill the given filter.
 Corresponds to the size of the result set of the [get tasks (POST)]({{< relref "reference/rest/task/post-query.md" >}}) method and takes the same parameters.
 
+{{< note title="Security Consideration" class="warning" >}}
+  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+{{</note>}}
 
 # Method
 
@@ -323,7 +326,7 @@ expression as a substring.
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr> 
+  </tr>
   <tr>
     <td>createdOn</td>
     <td>
@@ -489,7 +492,7 @@ Request Body:
         {"name": "anotherVarName",
         "value": 30,
         "operator": "neq"}],
-    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey", 
+    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
     "priority":10}
 
 ## Response

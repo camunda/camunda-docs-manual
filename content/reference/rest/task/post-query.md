@@ -18,6 +18,9 @@ This method is slightly more powerful than the [GET query]({{< relref "reference
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
 The size of the result set can be retrieved by using [get tasks count (POST)]({{< relref "reference/rest/task/post-query-count.md" >}}) method.
 
+{{< note title="Security Consideration" class="warning" >}}
+  There are several parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+{{</note>}}
 
 # Method
 
@@ -624,7 +627,7 @@ Request Body:
         {"name": "anotherVarName",
         "value": 30,
         "operator": "neq"}],
-    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",    
+    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
     "priority":10,
     "sorting":
         [{"sortBy": "dueDate",

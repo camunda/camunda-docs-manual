@@ -16,6 +16,9 @@ menu:
 Get the number of tasks that fulfill a provided filter.
 Corresponds to the size of the result set when using the [get tasks]({{< relref "reference/rest/task/get-query.md" >}}) method.
 
+{{< note title="Security Consideration" class="warning" >}}
+  There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+{{</note>}}
 
 # Method
 
@@ -322,7 +325,7 @@ GET `/task/count`
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr>  
+  </tr>
   <tr>
     <td>createdOn</td>
     <td>
