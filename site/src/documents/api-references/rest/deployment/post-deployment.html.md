@@ -9,6 +9,11 @@ keywords: 'post create deployment'
 
 Create a deployment.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>Deployments can contain custom code in form of scripts or EL expressions to customize process behavior. This may be abused for remote execution of arbitrary code. See the section on <a href="ref:/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide for details.</p>
+</div>
+
 Method
 ------
 
