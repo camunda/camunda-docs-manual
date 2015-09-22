@@ -11,6 +11,10 @@ keywords: 'get query list'
 Get the number of tasks that fulfill a provided filter.
 Corresponds to the size of the result set when using the [get tasks](ref:#task-get-tasks) method.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>There are several query parameters (such as <code>assigneeExpression</code>) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide for details.</p>
+</div>
 
 Method
 ------
@@ -294,7 +298,7 @@ Parameters
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr>  
+  </tr>
   <tr>
     <td>created</td>
     <td>

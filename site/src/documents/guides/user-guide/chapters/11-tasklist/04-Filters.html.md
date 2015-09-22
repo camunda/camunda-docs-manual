@@ -26,6 +26,10 @@ category: 'Tasklist'
 
 Several of the filter criteria accept expressions as values. These expressions are in the [JUEL](http://juel.sourceforge.net/) language. In filters which are related to times and dates, you can use the dateTime class, which returns a [Joda-Time](http://www.joda.org/joda-time/) DateTime object.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>Filter expressions can be abused to execute arbitrary code when the query is evaluated. It is therefore required that any user authorized to create filters is trusted in this respect. The default behavior of evaluating filter expressions can be deactivated in the process engine configuration. See the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> for details.</p>
+</div>
 
 ### Common Filters
 

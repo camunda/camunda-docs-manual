@@ -11,6 +11,11 @@ Executes the saved query of the filter and returns the single result. This metho
 powerful then the [GET query](ref:#filter-execute-filter-single-result) because it allows to extend
 the saved query of the filter.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>The request body of this method takes a JSON-serialized query. Some query types (e.g. task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a>security considerations for custom code</a> in the user guide for details.</p>
+</div>
+
 Method
 ------
 

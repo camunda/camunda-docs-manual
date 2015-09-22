@@ -11,6 +11,11 @@ keywords: 'post query list'
 Get the number of tasks that fulfill the given filter.
 Corresponds to the size of the result set of the [get tasks (POST)](ref:#task-get-tasks-post) method and takes the same parameters.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>There are several query parameters (such as <code>assigneeExpression</code>) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide for details.</p>
+</div>
+
 
 Method
 ------
@@ -295,7 +300,7 @@ expression as a substring.
         user guide</a> for more information on available functions.
         The expression must evaluate to a <code>java.util.Date</code> or <code>org.joda.time.DateTime</code> object.
     </td>
-  </tr> 
+  </tr>
   <tr>
     <td>createdOn</td>
     <td>

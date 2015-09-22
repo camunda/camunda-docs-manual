@@ -10,6 +10,10 @@ keywords: 'put'
 
 Update an existing filter.
 
+<div class="alert alert-warning">
+  <strong>Security Consideration</strong>
+  <p>The <code>query</code> parameter of the request body takes a JSON-serialized query. Some query types (e.g. task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide for details.</p>
+</div>
 
 Method
 ------
