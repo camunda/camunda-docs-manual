@@ -88,6 +88,7 @@ The Camunda Webapp (Cockpit, Tasklist, Admin) inculdes the following third-party
 * [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
 * [bpmn-js](http://bpmn.io) {{< RD >}}, [(Custom license)](https://raw.githubusercontent.com/bpmn-io/bower-bpmn-js/v0.5.1/LICENSE)
 * [domReady](https://github.com/requirejs/domReady) {{< RD >}}, [(MIT or new BSD)](https://raw.githubusercontent.com/requirejs/domReady/master/LICENSE)
+* [heatmap.js](https://github.com/pa7/heatmap.js) {{< RD >}}, [(MIT)][mit]
 * [Placeholder.js](https://github.com/jamesallardice/Placeholders.js) {{< RD >}}, [(MIT)][mit]
 * [jQuery](http://jquery.com/) {{< RD >}}, [(MIT)][mit]
 * [jQuery UI](https://jqueryui.com/) {{< RD >}}, [(MIT)][mit]
