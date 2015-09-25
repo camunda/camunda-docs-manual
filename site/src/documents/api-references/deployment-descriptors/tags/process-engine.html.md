@@ -416,6 +416,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
       If set to <code>true</code>, expressions can be used when creating and executing adhoc queries. For details, see the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide.
+      Default value is <code>false</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
@@ -427,6 +428,7 @@ The following is a list with the most commonly used process engine configuration
     <td>Boolean</td>
     <td>
       If set to <code>true</code>, expressions can be used when creating and executing stored queries. For details, see the section on <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security considerations for custom code</a> in the user guide.
+      Default value is <code>true</code>.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
