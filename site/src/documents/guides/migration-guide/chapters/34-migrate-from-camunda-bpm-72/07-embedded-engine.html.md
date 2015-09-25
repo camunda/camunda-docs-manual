@@ -25,6 +25,24 @@ Prerequisites:
   </div>
 </div>
 
+<div class="alert alert-warning">
+  <p><strong>Task Query Expressions</strong></p>
+  <p>
+    As of 7.3.3, the default handling of expressions submitted as
+    parameters of task queries has changed. Passing EL expressions in a
+    task query enables execution of arbitrary code when the query is
+    evaluated. The process engine no longer evaluates these expressions by
+    default and throws an exception instead. This behavior can be toggled
+    in the process engine configuration using the properties
+    enableExpressionsInAdhocQueries (default false) and
+    enableExpressionsInStoredQueries (default true). To restore the
+    engine’s previous behavior, set both flags to true. See the user guide
+    on  <a href="ref:/guides/user-guide/#process-engine-custom-code-and-security">security
+    considerations for custom code</a> for details. This is already the
+    default for Camunda BPM versions after and including 7.2.8.
+  </p>
+</div>
+
 ## 1. Upgrade Camunda Dependencies
 
 Upgrade the dependencies declared in your application's `pom.xml` file to the new Camunda version you are using. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
