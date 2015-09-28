@@ -53,6 +53,10 @@ GET `/process-instance/count`
     <td>Filter by the key of the process definition the instances run on.</td>
   </tr>
   <tr>
+    <td>deploymentId</td>
+    <td>Filter by the deployment the id belongs to.</td>
+  </tr>
+  <tr>
     <td>superProcessInstance</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
