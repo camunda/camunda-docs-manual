@@ -46,8 +46,11 @@ DELETE `/deployment/{id}`
     <td>cascade</td>
     <td><code>true</code>, if all process instances, historic process instances and jobs for this deployment should be deleted.</td>
   </tr>
+  <tr>
+    <td>skipCustomListeners</td>
+    <td><code>true</code>, if only the built-in ExecutionListeners should be notified with the end event.</td>
+  </tr>
 </table>
-
 
 # Result
 
