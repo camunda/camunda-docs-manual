@@ -12,7 +12,6 @@ menu:
 
 # Fetching an existing JSON Variable
 
-```
 The Form SDK will only fetch those variables which are actually used in a form. Since a JSON object is usually not bound to a single input field, we cannot use the `cam-variable-name` directive.
 We thus need to fetch the variable programatically:
 
