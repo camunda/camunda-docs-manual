@@ -5,10 +5,10 @@ category: 'Process Engine'
 
 ---
 
-The process engine offers numerous extension points for customization of process behavior by using [Java Code](ref:#delegation-code), [Expression Lanaguage](ref:#expression-language), [Scripts](ref:#scripting), and [Templates](ref:#templating). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API):
+The process engine offers numerous extension points for customization of process behavior by using [Java Code](ref:#delegation-code), [Expression Language](ref:#expression-language), [Scripts](ref:#scripting), and [Templates](ref:#templating). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API):
 
 * **Deployment**: Most of the custom logic is submitted with the deployment of a process, case, or decision model. For example, an execution listener invocation is defined in the BPMN 2.0 XML.
-* **Queries**: Queries offer the ability to include expressions for certain parameters (currently task queries only). This enables users to define reusable queries that can be repeatedly executed and dynamically adapt to changing circumstances. For example, a task query `taskService.createTaskQuery().dueBeforeExpression(${now()}).list();` uses an expression to always return the tasks currently due. Camunda [Tasklist](ref:#tasklist) makes use of this feature in the form of [task filters](ref:#tasklist-filters).
+* **Queries**: Queries offer the ability to include expressions for certain parameters (currently task queries only). This enables users to define reusable queries that can be repeatedly executed and dynamically adapted to changing circumstances. For example, a task query `taskService.createTaskQuery().dueBeforeExpression(${now()}).list();` uses an expression to always return the tasks currently due. Camunda [Tasklist](ref:#tasklist) makes use of this feature in the form of [task filters](ref:#tasklist-filters).
 
 Only trusted users should be authorized to interact with these endpoints. How access can be restricted is outlined in the next sections.
 
@@ -22,7 +22,7 @@ In order to secure deployments, accessing deployment API should be restricted to
 
 # Queries
 
-The process engine configuration offers two flags to toggle expression evaluation in *adhoc* and *stored* queries. Adhoc queries are directly submitted queries. For example, `taskService.createTaskQuery().list();` creates and executes an adhoc query. In contrast, a stored query is persisted along with a filter and executed when the filter is executed. Expressions in adhoc queries can be disabled by setting the configuration property `enableExpressionsInAdhocQueries` to `false`. Accordingly, the property `enableExpressionsInStoredQueries` disables expressions in stored queries. If an expression is used although expression evaluation is disabled the process engine raises an exception before evaluating any expression, thereby preventing malicious code from being executed.
+The process engine configuration offers two flags to toggle expression evaluation in *adhoc* and *stored* queries. Adhoc queries are directly submitted queries. For example, `taskService.createTaskQuery().list();` creates and executes an adhoc query. In contrast, a stored query is persisted along with a filter and executed when the filter is executed. Expressions in adhoc queries can be disabled by setting the configuration property `enableExpressionsInAdhocQueries` to `false`. Accordingly, the property `enableExpressionsInStoredQueries` disables expressions in stored queries. If an expression is used although expression evaluation is disabled, the process engine raises an exception before evaluating any expression, thereby preventing malicious code from being executed.
 
 The following configuration combinations exist:
 
