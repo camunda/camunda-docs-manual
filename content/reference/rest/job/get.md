@@ -137,7 +137,7 @@ GET `/job/aJobId`
 
     {
       "id": "aJobId",
-      "dueDate": "2013-07-17'T'17:00:00",
+      "dueDate": "2013-07-17T17:00:00",
       "processInstanceId": "aProcessInstanceId",
       "executionId": "anExecutionId",
       "retries": 0,

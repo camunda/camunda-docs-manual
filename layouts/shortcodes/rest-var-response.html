@@ -8,7 +8,7 @@
 	<td>value</td>
 	<td>String/Number/Boolean/Object</td>
 	<td>
-	  The variable's value. Value differs depending on the variable's type and on the <code>{{ .Get "deserializationParameter" }}</code> parameter.
+	  The variable's value. {{ if (.Get "deserializationParameter") }} Value differs depending on the variable's type and on the <code>{{ .Get "deserializationParameter" }}</code> parameter.{{ end }}
 	</td>
   </tr>
   <tr>

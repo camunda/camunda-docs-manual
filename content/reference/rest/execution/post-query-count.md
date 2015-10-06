@@ -8,7 +8,7 @@ menu:
     name: "Get List Count (POST)"
     identifier: "rest-api-execution-post-query-count"
     parent: "rest-api-execution"
-    pre: "POST `/process-instance/count`"
+    pre: "POST `/execution/count`"
 
 ---
 
@@ -18,7 +18,7 @@ Query for the number of executions that fulfill given parameters. This method ta
 
 # Method
 
-POST `/process-instance/count`
+POST `/execution/count`
 
 
 # Parameters
