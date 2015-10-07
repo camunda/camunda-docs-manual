@@ -34,7 +34,7 @@ To perform such an operation, the process engine offers the *process instance mo
 
 As an example, consider the following process model:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example1"></div>
+<div data-bpmn-diagram="../bpmn/example1"></div>
 
 The model shows a simple process for processing a loan application. Let us assume that a loan application has arrived, the loan application has been evaluated, and it was determined to decline the application. That means, the process instance has the following activity instance state:
 
@@ -121,7 +121,7 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
 
 The following sections specify the exact semantics of process instance modification and should be read in order to understand the modification effects in varying circumstances. If not otherwise noted, the following examples refer to the following process model for illustration:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example1"></div>
+<div data-bpmn-diagram="../bpmn/example1"></div>
 
 
 ## Modification Instruction Types
@@ -272,7 +272,7 @@ ProcessInstance
 
 Apart from instantiating these parent scopes, the engine also ensures to register the event subscriptions and jobs in these scopes. For example, consider the following process:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example2"></div>
+<div data-bpmn-diagram="../bpmn/example2"></div>
 
 Starting the activity *Assess Credit Worthiness* also registers an event subscription for the message boundary event *Cancelation Notice Received* such that it is possible to cancel the sub process this way.
 
@@ -414,7 +414,7 @@ Due to the [default ancestor selection]({{< relref "#ancestor-selection-for-inst
 
 Process instance modification respects any interrupting or canceling semantics of the activities to be started. In particular, starting an interrupting boundary event or an interrupting event sub process will cancel/interrupt the activity it is defined on/in. Consider the following process:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example3"></div>
+<div data-bpmn-diagram="../bpmn/example3"></div>
 
 Assume that the activity *Assess Credit Worthiness* is currently active. The event sub process can be started with the following code:
 
@@ -460,7 +460,7 @@ Modification also works for multi-instance activities. We distinguish in the fol
 
 With this distinction, it is possible to start the entire multi-instance body, as well as start a single inner activity instance for a running parallel multi-instance activity. Consider the following process model:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example4"></div>
+<div data-bpmn-diagram="../bpmn/example4"></div>
 
 Let's assume the multi-instance activity is active and has three instances:
 
@@ -528,7 +528,7 @@ It is possible to skip invocations of execution and task listeners as well as in
 
 Process instance modification is a very powerful tool and allows to start and cancel activities at will. Thus, it is easy to create situations that are unreachable by normal process execution. Assume the following process model:
 
-<div data-bpmn-diagram="guides/user-guide/process-engine/process-instance-modification/example5"></div>
+<div data-bpmn-diagram="../bpmn/example5"></div>
 
 Assume that activity *Decline Loan Approval* is active. With modification, the activity *Assess Credit Worthiness* can be started. After that activity is completed, execution gets stuck at the joining parallel gateway because there will never arrive a token at the other incoming sequence flow such that the parallel gateway is activated. This is one of the most obvious situations where the process instance cannot continue execution and there are certainly many others, depending on the concrete process model.
 
