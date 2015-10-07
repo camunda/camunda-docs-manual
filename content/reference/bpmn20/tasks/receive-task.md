@@ -25,14 +25,23 @@ A Receive Task with a message reference can be triggered like an ordinary event:
   ...
 ```
 
+You can then either correlate the message:
+
+```java
+// correlate the message
+runtimeService.createMessageCorrelation(subscription.getEventName())
+  .processInstanceBusinessKey("AB-123")
+  .correlate();
+```
+
+Or explicitly query for the subscription and trigger it:
+
 ```java
 ProcessInstance pi = runtimeService.startProcessInstanceByKey("processWaitingInReceiveTask");
+
 EventSubscription subscription = runtimeService.createEventSubscriptionQuery()
   .processInstanceId(pi.getId()).eventType("message").singleResult();
 
-// correlate the message
-runtimeService.correlateMessage(subscription.getEventName());
-// or receive the event
 runtimeService.messageEventReceived(subscription.getEventName(), subscription.getExecutionId());
 ```
 
