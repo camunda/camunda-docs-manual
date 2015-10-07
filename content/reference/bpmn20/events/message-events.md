@@ -76,15 +76,24 @@ After you have received a message, you can choose whether you employ the engine'
 
 ## Using the Runtime Service's Correlation Methods
 
-The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. You can choose from these methods in the runtime service:
+The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. The `RuntimeService` provides a fluent message correlation API:
 
 ```java
-void correlateMessage(String messageName);
-void correlateMessage(String messageName, String businessKey);
-void correlateMessage(String messageName, Map<String, Object> correlationKeys);
-void correlateMessage(String messageName, String businessKey, Map<String, Object> processVariables);
-void correlateMessage(String messageName, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
-void correlateMessage(String messageName, String businessKey, Map<String, Object> correlationKeys, Map<String, Object> processVariables);
+// correlate the message
+runtimeService.createMessageCorrelation("messageName")
+  .processInstanceBusinessKey("AB-123")
+  .setVariable("payment_type", "creditCard")
+  .correlate();
+```
+You can also explicitly query for the subscription and trigger it:
+
+```java
+ProcessInstance pi = runtimeService.startProcessInstanceByKey("processWaitingInReceiveTask");
+
+EventSubscription subscription = runtimeService.createEventSubscriptionQuery()
+  .processInstanceId(pi.getId()).eventType("message").singleResult();
+
+runtimeService.messageEventReceived(subscription.getEventName(), subscription.getExecutionId());
 ```
 
 The `messageName` identifies the message as defined in the message name attribute in the process definition xml.
