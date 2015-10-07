@@ -26,9 +26,19 @@ The upgrade procedure takes the following steps:
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-...
+{{< note title="Upgraded Wildfly Version" class="info" >}}
+The pre-built Camunda 7.4 distribution ships with Wildfly 8.2.1.Final, whereas 7.3 comes with Wildfly 8.2.0.Final.
+The patch version of Wildfly contains some security bug fixes and component upgrades.
+Camunda 7.4 is supported on Wildfly 8.1 and 8.2 such that an upgrade is not required when migrating from 7.3 to 7.4.
 
-<!-- TODO: a note about Wildfly versions as in the 7.2 to 7.3 guide? -->
+Should you want to upgrade Wildfly along with Camunda, perform the following steps either before or after upgrading Camunda:
+
+* Copy all your Camunda-related modules from `$WILDFLY_HOME/modules` to the new Wildfly server's `module`-directory.
+* Apply all modifications to Wildfly configuration files such as `standalone.xml` to the files located in the new Wildfly server's directory.
+* Undeploy all process applications and copy them to the new Wildfly server's directory for redeployment.
+
+See the [Wildfly 8.2.1.Final release notes](https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12327667) for any relevant changes compared to 8.2.0.Final.
+{{< /note >}}
 
 
 # 3. Configure Process Engines
