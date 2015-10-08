@@ -58,6 +58,11 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
     <td>The name of the deployment.</td>
   </tr>
   <tr>
+    <td>source</td>
+    <td>String</td>
+    <td>The source of the deployment.</td>
+  </tr>
+  <tr>
     <td>deploymentTime</td>
     <td>Date</td>
     <td>The date time of the deployment.</td>
@@ -100,6 +105,7 @@ Status 200.
 {
   "id": "someDeploymentId",
   "name": "deploymentName",
+  "source": "process application",
   "deploymentTime": "2013-04-23T13:42:43"
 }
 ```

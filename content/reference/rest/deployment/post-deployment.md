@@ -55,6 +55,13 @@ A multipart form submit with the following parts:
     </td>
   </tr>
   <tr>
+    <td>deployment-source</td>
+    <td>text/plain</td>
+    <td>
+      The source for the deployment to be created.
+    </td>
+  </tr>
+  <tr>
     <td>*</td>
     <td>application/octet-stream</td>
     <td>The binary data to create the deployment resource. It is possible to have more than one form part with different form part names for the binary data to create a deployment.</td>
@@ -87,6 +94,11 @@ Its properties are as follows:
     <td>name</td>
     <td>String</td>
     <td>The name of the deployment.</td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>String</td>
+    <td>The source of the deployment.</td>
   </tr>
   <tr>
     <td>deploymentTime</td>
@@ -130,6 +142,10 @@ Content-Disposition: form-data; name="enable-duplicate-filtering"
 
 true
 --28319d96a8c54b529aa9159ad75edef9
+Content-Disposition: form-data; name="deployment-source"
+
+process application
+--28319d96a8c54b529aa9159ad75edef9
 Content-Disposition: form-data; name="data"; filename="test.bpmn"
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -154,6 +170,7 @@ Status 200.
   ],
   "id": "aDeploymentId",
   "name": "aName",
+  "source": "process application",
   "deploymentTime": "2013-01-23T13:59:43"
 }
 ```

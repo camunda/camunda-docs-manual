@@ -46,6 +46,14 @@ GET `/deployment`
     <td>Filter by the deployment name that the parameter is a substring of. The parameter can include the wildcard <code>%</code> to express like-strategy such as: starts with (<code>%</code>name), ends with (name<code>%</code>) or contains (<code>%</code>name<code>%</code>).</td>
   </tr>
   <tr>
+    <td>source</td>
+    <td>Filter by the deployment source.</td>
+  </tr>
+  <tr>
+    <td>withoutSource</td>
+    <td>Filter by the deployment source whereby source is equal to <code>null</code>.</td>
+  </tr>
+  <tr>
     <td>after</td>
     <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
   </tr>
@@ -97,6 +105,11 @@ A JSON array of deployment objects. Each deployment object has the following pro
     <td>The name of the deployment.</td>
   </tr>
   <tr>
+    <td>source</td>
+    <td>String</td>
+    <td>The source of the deployment.</td>
+  </tr>
+  <tr>
     <td>deploymentTime</td>
     <td>Date</td>
     <td>The date time of the deployment.</td>
@@ -139,6 +152,7 @@ GET `/deployment?name=deploymentName`
   {
     "id": "someId",
     "name": "deploymentName",
+    "source": "process application",
     "deploymentTime": "2013-04-23T13:42:43"
   }
 ]
