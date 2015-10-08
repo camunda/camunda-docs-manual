@@ -1117,14 +1117,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-
-# type
+# topic
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies which built-in task implementation to use. Currently an email and a shell service task exists.
+      The attribute specifies the topic of an external task instance. The task is going to be offered to workers polling for that topic. It is only relevant when <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a> is set to <code>external</code>.
     </td>
   </tr>
   <tr>
@@ -1134,7 +1133,39 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      <code>mail</code>, <code>shell</code>
+      Any value that has a meaning as a topic identifier.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>
+    </td>
+  </tr>
+</table>
+
+
+# type
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which built-in task implementation to use. Currently an email, a shell service, and an external task exists.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>external</code>, <code>mail</code>, <code>shell</code>
     </td>
   </tr>
   <tr>

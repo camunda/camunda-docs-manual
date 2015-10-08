@@ -13,9 +13,11 @@ menu:
 
 
 
-A service task is used to invoke services. In Camunda this is done by calling Java code.
+A service task is used to invoke services. In Camunda this is done by calling Java code or providing a work item for an external worker to complete asynchronously.
 
 {{< bpmn-symbol type="service-task" >}}
+
+# Calling Java Code
 
 There are 4 ways of declaring how to invoke Java logic:
 
@@ -56,12 +58,12 @@ For more information about expression language as delegation code please see the
 of the [User Guide]({{< relref "user-guide/index.md" >}}).
 
 
-# Generic Java Delegates & Field Injection
+## Generic Java Delegates & Field Injection
 
 You can easily write generic Java Delegate classes which can be configured later on via the BPMN 2.0 XML in the Service Task. Please refer to the [Field Injection]({{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
 
 
-# Service Task Results
+## Service Task Results
 
 The return value of a service execution (for a service task exclusively using expression) can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a service task definition. Any existing value for a specific process variable will be overwritten by the result value of the service execution. When not specifying a result variable name, the service execution result value is ignored.
 
@@ -77,6 +79,17 @@ In the example above, the result of the service execution (the return value of t
 Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
 {{< /note >}}
 
+# External Tasks
+
+In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a service task outside of the process engine's boundaries in the form of an external task. When a service task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the [user guide on external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) for details on the concept and the relevant API.
+
+To declare a service task to be handled externally, the attribute `camunda:type` can be set to `external` and the attribute `camunda:topic` specifies the external task's topic. For example, the following XML snippet defines an external service task with topic `ShipmentProcessing`:
+
+```xml
+<serviceTask id="anExternalServiceTask"
+           camunda:type="external"
+           camunda:topic="ShipmentProcessing" />
+```
 
 # Camunda Extensions
 
@@ -92,6 +105,7 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>
     </td>
   </tr>
@@ -123,6 +137,12 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
       <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:topic</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
     </td>
   </tr>
 </table>
