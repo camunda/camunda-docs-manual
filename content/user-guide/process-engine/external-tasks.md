@@ -92,7 +92,7 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-The result tasks then contain the current values of the requested variables. Note that the variable values are the values that are visible in the scope hiearchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/process-variables.md#variable-scopes-and-variable-visibility" >}}) for details.
+The result tasks then contain the current values of the requested variables. Note that the variable values are the values that are visible in the scope hiearchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
 ### Completing Tasks
 

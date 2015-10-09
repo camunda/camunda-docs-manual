@@ -211,6 +211,13 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
   <tr>
     <td></td>
+    <td><code>local</code></td>
+    <td>
+      Can be set to <code>true</code> to pass only local variables of the case execution that executes this case/process task instance.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
     <td><code>businessKey</code></td>
     <td>
       Set the business key of the sub instance

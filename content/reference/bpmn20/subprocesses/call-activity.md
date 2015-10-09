@@ -63,6 +63,8 @@ You can pass process variables to the subprocess and vice versa. The data is cop
 </callActivity>
 ```
 
+By default, variables declared in `out` elements are set in the highest possible variable scope.
+
 Furthermore, you can configure the call activity so that all process variables are passed to the subprocess and vice versa. The process variables have the same name in the main process as in the subprocess.
 
 ```xml
@@ -85,8 +87,59 @@ It is possible to use expressions here as well:
 </callActivity>
 ```
 
-So, in the end `z = y+5 = x+5+5`
+So in the end `z = y+5 = x+5+5` holds.
 
+## Combination with Input/Output parameters
+
+Call activities can be combined with [Input/Output parameters]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) as well. This allows for an even more flexible mapping of variables into the called process. In order to only map variables that are declared in the `inputOutput` mapping, the attribute `local` can be used. Consider the following XML:
+
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+  <extensionElements>
+    <!-- Input/Output parameters -->
+    <camunda:inputOutput>
+      <camunda:inputParameter name="var1">
+        <camunda:script scriptFormat="groovy">
+          <![CDATA[
+            sum = a + b + c
+          ]]>
+        </camunda:script>
+      </camunda:inputParameter>
+      <camunda:inputParameter name="var2"></camunda:inputParameter>
+    </camunda:inputOutput>
+
+    <!-- Mapping to called instance -->
+    <camunda:in variables="all" local="true" />
+  </extensionElements>
+</callActivity>
+```
+
+Setting `local="true"` means that all local variables of the execution executing the call activity are mapped into the called process instance. These are exactly the variables that are declared as input parameters.
+
+The same can be done with output parameters:
+
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess" >
+  <extensionElements>
+    <!-- Input/Output parameters -->
+    <camunda:inputOutput>
+      <camunda:outputParameter name="var1">
+        <camunda:script scriptFormat="groovy">
+          <![CDATA[
+            sum = a + b + c
+          ]]>
+        </camunda:script>
+      </camunda:outputParameter>
+      <camunda:outputParameter name="var2"></camunda:outputParameter>
+    </camunda:inputOutput>
+
+    <!-- Mapping from called instance -->
+    <camunda:out variables="all" local="true" />
+  </extensionElements>
+</callActivity>
+```
+
+When the called process instance ends, due to `local="true"` in the `camunda:out` parameter all variables are mapped to local variables of the execution executing the call activity. These variables can be mapped to process instance variables by using an output mapping. Any variable that is not declared by a `camunda:outputParameter` element will not be available anymore after the call activity ends.
 
 # Passing Business Key
 

@@ -106,6 +106,28 @@ Furthermore, the case task can be configured to pass all variables to the called
 
 Note: The variables keeps their names.
 
+It is possible to decide at runtime which variables are mapped into the called case instance. This can be declared with the `local` attribute on the `camunda:in` element as follows:
+
+```xml
+<caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase">
+  <extensionElements>
+    <camunda:in variables="all" local="true" />
+  </extensionElements>
+</caseTask>
+```
+
+With this setting, only local variables are going to be mapped. These can be set via the `CaseService` before starting the case instance. Consider the following code to manually start a case task:
+
+```
+caseService
+  .withCaseExecution(caseTaskExecutionId)
+  .setVariable("var1", "abc")
+  .setVariableLocal("var2", "def")
+  .manualStart();
+```
+
+With `local="true"` for the `in` mapping, only `var2` is mapped into the called case instance.
+
 
 # Pass Business Key
 

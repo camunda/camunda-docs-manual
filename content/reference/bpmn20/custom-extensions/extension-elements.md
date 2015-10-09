@@ -700,6 +700,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <td></td>
+    <td><code>local</code></td>
+    <td>
+      Can be set to <code>true</code> to pass only local variables of the execution that executes the call activity.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
     <td><code>businessKey</code></td>
     <td>
       Set the business key of the subprocess process instance
@@ -961,6 +968,13 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td><code>target</code></td>
     <td>
       Name of the process variable inside the subprocess instance
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>local</code></td>
+    <td>
+      Can be set to <code>true</code> to pass variables from the called case/process instance to local variables of the execution executing the call activity.
     </td>
   </tr>
   <tr>

@@ -105,6 +105,27 @@ Furthermore, the process task can be configured to pass all variables to the cal
 
 Note: The variables keep their names.
 
+It is possible to decide at runtime which variables are mapped into the called process instance. This can be declared with the `local` attribute on the `camunda:in` element as follows:
+
+```xml
+<processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">
+  <extensionElements>
+    <camunda:in variables="all" local="true"/>
+  </extensionElements>
+</processTask>
+```
+
+With this setting, only local variables are going to be mapped. These can be set via the `CaseService` before starting the process instance. Consider the following code to manually start a process task:
+
+```
+caseService
+  .withCaseExecution(processTaskExecutionId)
+  .setVariable("var1", "abc")
+  .setVariableLocal("var2", "def")
+  .manualStart();
+```
+
+With `local="true"` for the `in` mapping, only `var2` is mapped into the called process instance.
 
 # Pass a Business Key
 
