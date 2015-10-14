@@ -56,8 +56,11 @@ Byte Stream.
   </tr>
   <tr>
     <td>200</td>
-    <td>application/octet-stream</td>
-    <td>Request successful.</td>
+    <td>*</td>
+    <td>
+      Request successful. The media type of the response depends on the filename. For example a <code>process.bpmn</code> resource will have
+      the media type <code>application/xml</code>. If the filetype is unknown it defaults to <code>application/octet-stream</code>.
+    </td>
   </tr>
   <tr>
     <td>404</td>
