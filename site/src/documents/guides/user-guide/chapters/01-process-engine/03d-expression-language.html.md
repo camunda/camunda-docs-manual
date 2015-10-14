@@ -244,7 +244,7 @@ for more information. The following example shows the usage of a bean which impl
 With the expression attribute any method of a bean can be called.
 
 ```xml
-<serviceTask id="task2" camunda:delegateExpression="${myBean.myMethod(execution)}" />
+<serviceTask id="task2" camunda:expression="${myBean.myMethod(execution)}" />
 ```
 
 ### Internal context functions
