@@ -260,6 +260,17 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>forceCloseMybatisConnectionPool</code></td>
+    <td>Boolean</td>
+    <td>
+      Controls whether a Mybatis-managed database connection pool is force closed when the process engine is closed. Closing the pool closes all active and idle database connections.
+      <p>
+        <strong>Values:</strong> <code>true</code> (default), <code>false</code>.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>jdbcDriver</code></td>
     <td>String</td>
     <td>
