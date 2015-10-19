@@ -51,8 +51,17 @@ For binary variables a multipart form submit with the following parts:
   <tr>
     <td>data</td>
     <td>application/octet-stream</td>
-    <td>The binary data to be set.</td>
+    <td>
+      <p>The binary data to be set.</p>
+      <p>For <code>File</code> variables, this multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</p>
+    </td>
   </tr>
+  <tr>
+    <td>valueType</td>
+    <td>text/plain</td>
+    <td>The name of the variable type. Either <code>Bytes</code> for a byte array variable or <code>File</code> for a file variable.</td>
+  </tr>
+  <tr>
   <tr>
     <td>data</td>
     <td>application/json</td>
@@ -70,22 +79,6 @@ For binary variables a multipart form submit with the following parts:
     </td>
   </tr>
 </table>
-
-For file variables a multipart form submit with the following parts:
-
-<table class="table table-striped">
-  <tr>
-    <th>Form Part Name</th>
-    <th>Content Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>arbitrary</td>
-    <td>This multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</td>
-  </tr>
-</table>
-
 
 # Result
 
@@ -108,7 +101,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. Also, if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if no filename is set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -122,13 +115,19 @@ This method returns no content.
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```  
+```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
 Content-Disposition: form-data; name="data"; filename="unspecified"
 Content-Type: application/octet-stream
 Content-Transfer-Encoding: binary
 
 <<Byte Stream ommitted>>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="valueType"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+Bytes
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
 
@@ -136,7 +135,7 @@ Content-Transfer-Encoding: binary
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```  
+```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
 Content-Disposition: form-data; name="data"
 Content-Type: application/json; charset=US-ASCII
@@ -156,12 +155,18 @@ java.util.ArrayList<java.lang.Object>
 
 POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
-```  
+```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
 Content-Disposition: form-data; name="data"; filename="myFile.txt"
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: binary
 
 <<Byte Stream ommitted>>
+---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
+Content-Disposition: form-data; name="valueType"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+
+File
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y--
 ```
