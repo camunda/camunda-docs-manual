@@ -116,10 +116,6 @@ In the above example, the result of the script execution (the value of the resol
 Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a> for details.
 {{< /note >}}
 
-In case you evaluate a DMN decision using a Script Task the decision result
-will be *unpacked* to be easy accessible in the process.  The applied rules can
-be found in the [Business Rule Task][dmn-result-type] documentation.
-
 
 # Camunda Extensions
 
@@ -155,4 +151,3 @@ be found in the [Business Rule Task][dmn-result-type] documentation.
 [script-source]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [user-guide]: {{< relref "user-guide/index.md" >}}
 [autostore-variables]: {{< relref "update/minor/71-to-72/index.md#script-variable-storing" >}}
-[dmn-result-type]: {{< relref "business-rule-task.md#dmn-result-variable-type" >}}

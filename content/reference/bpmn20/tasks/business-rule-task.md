@@ -55,22 +55,6 @@ an expression which will be evaluated on execution of the task.
     camunda:resultVariable="decisionResult" />
 ```
 
-## DMN Result Variable Type
-
-Please beware that depending of the structure of the decision result the result
-variable type will change. The following rules are applied to *unpack* the
-decision result to be easy accessible in the process:
-
-1. If **only one** rule matches and has **only one** output the result variable will
-   contain this output value.
-2. If **only one** rule matches and has **more than one** output the result variable
-   will be a map of the output values.
-3. If **more than one** rule matches but **all** matched rules have **only one** output the
-   result variable will be a list of these output values.
-4. If **more than one** rule matches and **at least one** matched rule has **more than one** output
-   the result variable will be the complete decision result which is a list of
-   maps.
-
 
 # Using a Custom Rule Engine
 
