@@ -213,7 +213,7 @@ The following elements are extension elements for the `camunda` namespace `http:
     <td></td>
     <td><code>local</code></td>
     <td>
-      Can be set to <code>true</code> to pass only local variables of the case execution that executes this case/process task instance.
+      Can be set to <code>true</code> to only pass local variables of the case execution that executes this case/process task instance.
     </td>
   </tr>
   <tr>

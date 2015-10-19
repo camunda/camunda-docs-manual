@@ -702,7 +702,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td><code>local</code></td>
     <td>
-      Can be set to <code>true</code> to pass only local variables of the execution that executes the call activity.
+      Can be set to <code>true</code> to only pass local variables of the execution that executes the call activity.
     </td>
   </tr>
   <tr>

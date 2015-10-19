@@ -106,7 +106,7 @@ Furthermore, the case task can be configured to pass all variables to the called
 
 Note: The variables keeps their names.
 
-It is possible to decide at runtime which variables are mapped into the called case instance. This can be declared with the `local` attribute on the `camunda:in` element as follows:
+It is possible, at runtime, to decide which variables are mapped into the called case instance. This can be declared with the `local` attribute on the `camunda:in` element as follows:
 
 ```xml
 <caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase">
