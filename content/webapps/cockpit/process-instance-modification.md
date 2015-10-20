@@ -19,7 +19,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 In the detail view, you have the ability to modify the process instance's execution state. A modification can be one or multiple of the following operations:
 
-* Starting execution before an activit
+* Starting execution before an activity
 * Starting execution after an activity on its single outgoing squence flow
 * Canceling an activity instance or all instances of an activity
 
