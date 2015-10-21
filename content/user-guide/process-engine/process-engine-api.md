@@ -60,6 +60,8 @@ The **HistoryService** exposes all historical data gathered by the engine. When 
 
 The **ManagementService** is typically not needed when coding custom applications. It allows to retrieve information about the database tables and table metadata. Furthermore, it exposes query capabilities and management operations for jobs. Jobs are used in the engine for various things such as timers, asynchronous continuations, delayed suspension/activation, etc. Later on, these topics will be discussed in more detail.
 
+The **DecisionService** allows to evaluate decisions that are deployed in the engine. It is an alternative to evaluate a decision within a business rule task that is independent from a process definition.
+
 {{< note title="Java Docs" class="warning" >}}
   For more detailed information on the service operations and the engine API, see the {{< javadocref page="" text="Java Docs" >}}.
 {{< /note >}}
