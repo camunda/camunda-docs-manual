@@ -86,7 +86,14 @@ There is an extension attribute that allows you to specify an expression in a ta
 
 # User Assignment
 
-A human task can be directly assigned to a user. This is done by using the attribute `performerRef` on a human task element. The defined `performerRef` attribute references an existing role. Such a role definition needs a name that defines the user.
+A human task can be directly assigned to a single user, a list of users or a list of groups.
+
+## Assignement using CMMN Case Role
+
+CMMN defines some native assignment concepts which can be used in Camunda.
+As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).
+
+The CMMN concept of `performerRef` can be used to assign a task to a single user. The `performerRef` attribute references an existing role. Such a role definition needs a name that defines the user.
 
 ```xml
 <case ... >
@@ -105,59 +112,12 @@ Tasks directly assigned to users can be retrieved through the task service as fo
 List<Task> tasks = taskService.createTaskQuery().taskAssignee("kermit").list();
 ```
 
-## User Assignment using custom extensions
+## User Assignment using Camunda Extensions
 
 When strictly following the CMMN standard, user and group assignments can be quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the human task element can be set.
 
-* `assignee` attribute: this custom extension allows direct assignment of a human task to a given user.
-
-  ```xml
-  <humanTask id="theTask" name="my task" camunda:assignee="kermit" />
-  ```
-
-  This is exactly the same as using a <code>perfomerRef</code> construct as defined [above]({{< relref "reference/cmmn10/tasks/human-task.md" >}}-user-assignment).
-* `candidateUsers` attribute: this custom extension makes a user a candidate for a task.
-
-  ```xml
-  <humanTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
-  ```
-
-* `candidateGroups` attribute: this custom extension allows makes a group a candidate for a task.
-
-  ```xml
-  <humanTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
-  ```
-
-* `candidateUsers` and `candidateGroups` can both be defined for the same human task.
-
-Note: Although the Camunda engine provides an identity management component, which is exposed through the `IdentityService`, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
-
-When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above and delegate to a bean with an expression that listens to task create events. In the following example, the assignee will be set by calling the <code>findManagerOfEmployee()</code> on the <code>ldapService</code> Spring/CDI bean. The <code>emp</code> parameter is a variable of the case instance.
-
-```xml
-<humanTask id="task" name="My Task" camunda:assignee="${ldapService.findManagerForEmployee(emp)}"/>
-```
-
-It works in a similar way for candidate users and groups:
-
-```xml
-<humanTask id="task" name="My Task" camunda:candidateUsers="${ldapService.findAllSales()}"/>
-```
-
-Note that this only works if the return type of the invoked methods is String or Collection<String> (for candidate users and groups):
-
-```java
-public class FakeLdapService {
-
-  public String findManagerForEmployee(String employee) {
-    return "Kermit The Frog";
-  }
-
-  public List<String> findAllSales() {
-    return Arrays.asList("kermit", "gonzo", "fozzie");
-  }
-}
-```
+The CMMN Human task supports the same assignment extensions and concepts as the BPMN User Task.
+You can read up on these extensions in the [BPMN User Task Section]({{< relref "reference/bpmn20/tasks/user-task.md#user-assignment-using-camunda-extensions" >}}). Same as for the BPMN User task, [assignment based on data and service logic]({{< relref "reference/bpmn20/tasks/user-task.md#assignment-based-on-data-and-service-logic" >}}) is supported for the CMMN Human Task as well.
 
 # Forms
 

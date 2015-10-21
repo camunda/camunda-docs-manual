@@ -64,9 +64,18 @@ There is an activity extension which allows you to specify an expression in your
 <userTask id="theTask" name="Important task" camunda:followUpDate="${dateVariable}"/>
 ```
 
-## User Assignment
+# User Assignment
 
-A user task can be directly assigned to a user. This is done by defining a humanPerformer sub element. Such a humanPerformer definition needs a resourceAssignmentExpression that actually defines the user. Currently, only formalExpressions are supported.
+A user task can be directly assigned to a single user, a list of users or a list of groups.
+
+## Assignement using BPMN Resource Assignments
+
+BPMN defines some native assignment concepts which can be used in camunda.
+As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).
+
+### Human Performer
+
+This is done by defining a humanPerformer sub element. Such a humanPerformer definition needs a resourceAssignmentExpression that actually defines the user. Currently, only formalExpressions are supported.
 
 ```xml
 <process ... >
@@ -87,6 +96,8 @@ Tasks directly assigned to users can be retrieved through the TaskService as fol
 ```java
 List<Task> tasks = taskService.createTaskQuery().taskAssignee("kermit").list();
 ```
+
+### Potential Owner
 
 Tasks can also be put in the so-called candidate task list of people. In that case, the potentialOwner construct must be used. The usage is similar to the humanPerformer construct. Please note that for each element in the formal expression it is required to specifically define if it is a user or a group (the engine cannot guess this).
 
@@ -116,60 +127,77 @@ If no specifics are given whether the given text string is a user or a group, th
 <formalExpression>accountancy</formalExpression>
 <formalExpression>group(accountancy)</formalExpression>
 ```
-## User Assignment using Custom Extensions
+
+## User Assignment using Camunda Extensions
 
 It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the user task are possible.
 
-* `assignee` attribute: this custom extension allows direct assignment of a user task to a given user.
+### Assignee
 
-  ```xml
-  <userTask id="theTask" name="my task" camunda:assignee="kermit" />
-  ```
-
-  This is exactly the same as using a humanPerformer construct as defined above.
-* `candidateUsers` attribute: this custom extension allows you to make a user a candidate for a task.
-
-  ```xml
-  <userTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
-  ```
-
-  This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the `user(kermit)` declaration as is the case with the potential owner construct, since this attribute can only be used for users.
-* `candidateGroups` attribute: this custom extension allows you to make a group a candidate for a task.
-
-  ```xml
-  <userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
-  ```
-  This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the `group(management)` declaration as is the case with the potential owner construct, since this attribute can only be used for groups.
-
-* `candidateUsers` and `candidateGroups` can both be defined for the same user task.
-
-Note: Although the camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
-
-In case the previous approaches are not sufficient, it is possible to delegate to custom assignment logic using a task listener on the create event:
+`assignee` attribute: this custom extension allows direct assignment of a user task to a given user.
 
 ```xml
-<userTask id="task1" name="My task" >
-  <extensionElements>
-    <camunda:taskListener event="create" class="org.camunda.bpm.MyAssignmentHandler" />
-  </extensionElements>
-</userTask>
+<userTask id="theTask" name="my task" camunda:assignee="kermit" />
 ```
-The DelegateTask that is passed to the TaskListener implementation, allows you to set the assignee and candidate-users/groups:
+This is exactly the same as using a humanPerformer construct as defined above.
 
-```java
-public class MyAssignmentHandler implements TaskListener {
-  public void notify(DelegateTask delegateTask) {
-    // Execute custom identity lookups here
-    // and then for example call following methods:
-    delegateTask.setAssignee("kermit");
-    delegateTask.addCandidateUser("fozzie");
-    delegateTask.addCandidateGroup("management");
-    ...
-  }
-}
+### Candidate Users
+
+`candidateUsers` attribute: this custom extension allows you to make a user a candidate for a task.
+
+```xml
+<userTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
 ```
 
-When using Spring or CDI it is possible to use the custom assignment attributes as described in the section above and delegate to a bean using a task listener with an expression that listens to task create events. In the following example, the assignee will be set by calling the findManagerOfEmployee on the ldapService Spring/CDI bean. The emp parameter that is passed is a process variable>.
+This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the `user(kermit)` declaration as is the case with the potential owner construct, since this attribute can only be used for users.
+
+### Candidate Groups
+
+`candidateGroups` attribute: this custom extension allows you to make a group a candidate for a task.
+
+```xml
+<userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
+```
+
+This is exactly the same as using a potentialOwner construct as defined above. Note that it is not required to use the `group(management)` declaration as is the case with the potential owner construct, since this attribute can only be used for groups.
+
+### Combining Candidate Users and Groups
+
+`candidateUsers` and `candidateGroups` can both be defined for the same user task.
+
+
+## Assignment based on Data and Service Logic
+
+In the above examples, constant values such as `kermit` or `management` are used. But what if the exact name of an assignee or a candidate group is not known at design time? And what if the assignee is not a constant value but depends on data such as _"The person who started the process"_? Maybe the assigment logic is also more complex and needs to access an external data source such as LDAP to implement a lookup such as _"The manager of the employee who started the process"_.
+
+Such things can be implemented using assignement expressions or task listeners.
+
+### Assignment Expressions
+
+Assignment expressions allow accessing process variables or calling out to beans and services.
+
+#### Using Process Variables
+
+Process variables are useful for assignments based on data which has been collected or calculated up front.
+
+The following example shows how to assign a user task to the person who started the process:
+
+```xml
+<startEvent id="startEvent" camunda:initiator="starter" />
+...
+<userTask id="task" name="Clarify Invoice" camunda:assignee="${ starter }"/>
+...
+```
+
+First, the the `camunda:initiator` extension is used to bind the user id of the person who started (_"initiated"_) the process to the variable `starter`. Then the expression `${ starter }` retrieves that value and uses it as assignee for the task.
+
+It is possible to use all process variables [visible]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the user task in the expression.
+
+#### Invoking a Service / Bean
+
+When using Spring or CDI, it is possible to delegate to a bean or service implementation. This way it is possible to call out to complex assignment logic without modeling it as an explicit service task in the process which would then produce a variable used in the assignment.
+
+In the following example, the assignee will be set by calling the `findManagerOfEmployee()` on the `ldapService` Spring/CDI bean. The `emp` parameter that is passed is a process variable.
 
 ```xml
 <userTask id="task" name="My Task" camunda:assignee="${ldapService.findManagerForEmployee(emp)}"/>
@@ -196,6 +224,38 @@ public class FakeLdapService {
 }
 ```
 
+### Assignments in Listeners
+
+It is also possible to use [task listeners]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}) for handling assignments. The following example demonstrates a a listeners on the `create` event:
+
+```xml
+<userTask id="task1" name="My task" >
+  <extensionElements>
+    <camunda:taskListener event="create" class="org.camunda.bpm.MyAssignmentHandler" />
+  </extensionElements>
+</userTask>
+```
+
+The DelegateTask that is passed to the TaskListener implementation, allows you to set the assignee and candidate-users/groups:
+
+```java
+public class MyAssignmentHandler implements TaskListener {
+  public void notify(DelegateTask delegateTask) {
+    // Execute custom identity lookups here
+    // and then for example call following methods:
+    delegateTask.setAssignee("kermit");
+    delegateTask.addCandidateUser("fozzie");
+    delegateTask.addCandidateGroup("management");
+    ...
+  }
+}
+```
+
+## Assignments and Identity Service
+
+Although the camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
+
+Note however that you can use the identity service in an service / bean or listener to query your user repository if this is useful to you.
 
 # Forms
 
