@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
   <bpmn:process id="Process_1" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1">
+    <bpmn:startEvent id="StartEvent_1" name="Loan Application arrived">
       <bpmn:outgoing>SequenceFlow_0zvqope</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:subProcess id="SubProcess_138nnao" name="Evaluate Loan Application">
@@ -35,10 +35,10 @@
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="SequenceFlow_0sls8cr" sourceRef="UserTask_10hfqug" targetRef="EndEvent_0hslok9" />
     </bpmn:subProcess>
-    <bpmn:endEvent id="EndEvent_0r7nlxq">
+    <bpmn:endEvent id="EndEvent_0r7nlxq" name="Loan application declined">
       <bpmn:incoming>SequenceFlow_08niqu9</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:endEvent id="EndEvent_0ngvzwe">
+    <bpmn:endEvent id="EndEvent_0ngvzwe" name="Loan Application accepted">
       <bpmn:incoming>SequenceFlow_1f4n492</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1f4n492" sourceRef="UserTask_0ehddn8" targetRef="EndEvent_0ngvzwe" />

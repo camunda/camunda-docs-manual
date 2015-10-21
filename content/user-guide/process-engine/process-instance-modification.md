@@ -116,6 +116,22 @@ runtimeService.createProcessInstanceModification(processInstance.getId())
   .execute();
 ```
 
+## Process Instance Modification in JUnit Tests
+
+Process instance modification can be very useful in JUnit Tests. You can skip the long part to run through the process from the start to the point you want to test and jump directly to the activity or gateway to test.
+
+For this you can start a process instance with a modification and place the token directly inside the process instance.
+
+Assume, you want to skip the subprocess *Evaluate Loan Application* and test the gateway  *Application OK?* with your process variable, you can start the process instance with
+
+```java
+ProcessInstance processInstance = runtimeService.createProcessInstanceByKey("Loan_Application")
+  .startBeforeActivity("application_OK")
+  .setVariable("approved", true)
+  .execute();
+```
+
+In a JUnit test, you can assert that the processInstance is waiting at 'Accept Loan Application', now.
 
 # Operational Semantics
 
