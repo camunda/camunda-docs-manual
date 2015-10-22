@@ -62,8 +62,7 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON object representing the result of the newly evaluated decision.
-The result contains a list of ```decisionOutputs```, one for each matched rule. A decision output contains the ```outputValues``` of the rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties: 
+A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties: 
 
 {{< rest-var-response >}}
 
@@ -115,13 +114,9 @@ Request body:
 ## Response
 
 ```json
-{
-  "decisionOutputs": [
-    {
-      "outputValues": {
-        "result": { "value" : "management", "type" : "String", "valueInfo" : null }
-      }
-    }
-  ]
-}
+[
+  {
+    "result": { "value" : "management", "type" : "String", "valueInfo" : null }
+  }
+]
 ```
