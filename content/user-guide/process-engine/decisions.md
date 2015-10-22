@@ -16,7 +16,7 @@ Decisions can be deployed as DMN Decision Tables to the Camunda BPM platform.
 # Decisions inside BPMN
 
 Inside BPMN processes they can be references by Business Rule Tasks. For more information
-on this please refer to the [BPMN 2.0 reference][businessRuleTask].
+on this please refer to the [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}).
 
 ```xml
 <businessRuleTask id="businessRuleTask"

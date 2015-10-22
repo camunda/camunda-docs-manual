@@ -71,7 +71,7 @@ implementation of the rule task the same way as in a Service Task.
 # Using Delegate Code
 
 Alternatively a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
-information on this please see the [Service Tasks][] documentation.
+information on this please see the [Service Tasks]({{< relref "service-task.md" >}}) documentation.
 
 
 # Camunda Extensions
@@ -129,6 +129,7 @@ information on this please see the [Service Tasks][] documentation.
 
 # Additional Resources
 
+* [Decisions]({{< relref "user-guide/process-engine/decisions.md" >}})
 * [Service Tasks]({{< relref "reference/bpmn20/tasks/service-task.md" >}})
 * [Tasks](http://camunda.org/bpmn/reference.html#activities-task) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
 * [Demo using Drools on the Business Rule Task](https://github.com/camunda/camunda-consulting/tree/master/one-time-examples/order-confirmation-rules)
