@@ -15,7 +15,7 @@ The process engine supports two ways of executing service tasks:
 1. Internal Service tasks: Synchronous invocation of code deployed along with a process application
 2. External tasks: Providing a unit of work in a list that can be pulled by workers
 
-The first option is used when code is implemented as [Delegateion Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) or as a Script "user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
+The first option is used when code is implemented as [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) or as a [Script]({{< relref  "user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
 
 Note that the above distinction does not say whether the actual "business logic" is implemented locally or as a remote service. The Java Delegate invoked by an internal service task may either implement the business logic itself or it may call out to a web/rest service, send a message to another system and so forth. The same is true for an external worker. The worker can implement the business logic directly or again delegate to a remote system.
 
@@ -33,7 +33,7 @@ When the process engine encounters a service task that is configured to be exter
 
 {{< note class="info" title="The User Task Analogy" >}}
 External tasks are conceptually very similar to user tasks and when first trying to understand the external task pattern, it can be helpful to think about it in analogy to user tasks:
-User tasks are created by the process engine and added to a "task list". The process engine then waits for a human user to query the list, claim a task and then complete it. External tasks are similar: an external task is created and then added to a topic. An external application then queries the topic and locks the task. After the task is locked, the application can work on it and complete it.
+User tasks are created by the process engine and added to a task list. The process engine then waits for a human user to query the list, claim a task and then complete it. External tasks are similar: An external task is created and then added to a topic. An external application then queries the topic and locks the task. After the task is locked, the application can work on it and complete it.
 {{< /note >}}
 
 The essence of this pattern is that the entities performing the actual work are independent of the process engine and receive work items by polling the process engine's API. This has the following benefits:
@@ -46,7 +46,7 @@ The essence of this pattern is that the entities performing the actual work are 
 
 # Working with External Tasks
 
-To work with external tasks they have to be declared in BPMN XML. At runtime, external task instances can be accessed via Java and REST API. The following explains the API concepts and focuses on the Java API. Often times the REST API is more suitable in this context, especially when implementing workers running in different environments with different technologies. See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
+To work with external tasks they have to be declared in BPMN XML. At runtime, external task instances can be accessed via Java and REST API. The following explains the API concepts and focuses on the Java API. Often times the REST API is more suitable in this context, especially when implementing workers running in different environments with different technologies.
 
 ## BPMN
 
@@ -73,7 +73,6 @@ works on these tasks in a loop and for each task, either completes the task or m
 ```java
 List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
   .topic("AddressValidation", 60L * 1000L)
-  .topic("ShipmentScheduling", 120L * 1000L)
   .execute();
 
 for (LockedExternalTask task : tasks) {
@@ -83,7 +82,7 @@ for (LockedExternalTask task : tasks) {
     // work on task for that topic
     ...
 
-    // if the work is successful, mark the task as completed  
+    // if the work is successful, mark the task as completed
     if(success) {
       externalTaskService.complete(task.getId(), variables);
     }
@@ -122,7 +121,7 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-This code fetches at most 10 tasks of the topics `AddresValidation` and `ShipmentScheduling`. The result tasks are locked exclusively for the worker with id `externalWorkerId`. Locking means that the task is reserved for this worker for a certain duration beginning with the time of fetching and prevents that another worker can fetch the same task while the lock is valid. If the lock expires and the task has not been completed meanwhile, a different worker can fetch it such that silently failing workers do not block execution indefinitely. The exact duration is given in the single topic fetch instructions: Tasks for `AddressValidation` are locked for 60 seconds (`60L * 1000L` milliseconds) while tasks for `ShipmentScheduling` are locked for 120 seconds (`120L * 1000L` milliseconds). The lock expiration duration should not be shorter than than the expected execution time. It should also not be too high if that implies a too long timeout until the task is retried in case the worker fails silently.
+This code fetches at most 10 tasks of the topics `AddressValidation` and `ShipmentScheduling`. The result tasks are locked exclusively for the worker with id `externalWorkerId`. Locking means that the task is reserved for this worker for a certain duration beginning with the time of fetching and prevents that another worker can fetch the same task while the lock is valid. If the lock expires and the task has not been completed meanwhile, a different worker can fetch it such that silently failing workers do not block execution indefinitely. The exact duration is given in the single topic fetch instructions: Tasks for `AddressValidation` are locked for 60 seconds (`60L * 1000L` milliseconds) while tasks for `ShipmentScheduling` are locked for 120 seconds (`120L * 1000L` milliseconds). The lock expiration duration should not be shorter than than the expected execution time. It should also not be too high if that implies a too long timeout until the task is retried in case the worker fails silently.
 
 Variables that are required to perform a task can be fetched along. For example, assume that the `AddressValiation` task requires an `address` variable. Fetching tasks with these variables could look like:
 
