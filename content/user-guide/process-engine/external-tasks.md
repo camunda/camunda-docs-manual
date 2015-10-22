@@ -10,12 +10,14 @@ menu:
 
 ---
 
-The process engine's purpose is to orchestrate activities of multiple participants. These activities may be implemented in the form of a human worker performing a user task as well as in the form of code performing an automated task. In order to trigger a user task, the process engine provides a task list that users can access to check if there is work to do. In order to trigger an automated task, the process engine has two ways:
+The process engine supports two ways of executing service tasks:
 
-1. Synchronous invocation of code deployed along with a process application
-2. Providing a unit of work in a list that can be pulled by workers
+1. Internal Service tasks: Synchronous invocation of code deployed along with a process application
+2. External tasks: Providing a unit of work in a list that can be pulled by workers
 
-The first option is used when code is implemented in the form of a [JavaDelegate]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}) for a service task or in the form of a script for a [script task]({{< relref "user-guide/process-engine/scripting.md#use-script-tasks" >}}). The second way is more similar to the way how the process engine offers work to human users. That means, instead of synchronously executing code it offers a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
+The first option is used when code is implemented as [Delegateion Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}) or as a Script "user-guide/process-engine/scripting.md" >}}). By contrast, external (service) tasks work in a way that the process engine publishes a unit of work to a worker to fetch and complete. We refer to this as the *external task pattern*.
+
+Note that the above distinction does not say whether the actual "business logic" is implemented locally or as a remote service. The Java Delegate invoked by an internal service task may either implement the business logic itself or it may call out to a web/rest service, send a message to another system and so forth. The same is true for an external worker. The worker can implement the business logic directly or again delegate to a remote system.
 
 # The External Task Pattern
 
@@ -28,6 +30,11 @@ The flow of executing external tasks can be conceptually separated into three st
 3. **External Worker & Process Engine**: Complete external task instance
 
 When the process engine encounters a service task that is configured to be externally handled, it creates an external task instance and adds it to a list of external tasks (step 1). The task instance receives a *topic* that identifies the nature of the work to be performed. At a time in the future, an external worker may fetch and lock tasks for a specific set of topics (step 2). In order to prevent that one task is fetched by multiple workers at the same time, a task has a timestamp-based lock that is set when the task is acquired. Only when the lock expires can another worker fetch the task again. When an external worker has completed the desired work, it can signal the process engine to continue process execution after the service task (step 3).
+
+{{< note class="info" title="The User Task Analogy" >}}
+External tasks are conceptually very similar to user tasks and when first trying to understand the external task pattern, it can be helpful to think about it in analogy to user tasks:
+User tasks are created by the process engine and added to a "task list". The process engine then waits for a human user to query the list, claim a task and then complete it. External tasks are similar: an external task is created and then added to a topic. An external application then queries the topic and locks the task. After the task is locked, the application can work on it and complete it.
+{{< /note >}}
 
 The essence of this pattern is that the entities performing the actual work are independent of the process engine and receive work items by polling the process engine's API. This has the following benefits:
 
@@ -52,9 +59,50 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
   camunda:topic="AddressValidation" />
 ```
 
+## Rest API
+
+See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
+
 ## Java API
 
 The entry point to the Java API for external tasks is the `ExternalTaskService`. It can be accessed via `processEngine.getExternalTaskService()`.
+
+The following is an example of an interaction which fetches 10 tasks,
+works on these tasks in a loop and for each task, either completes the task or marks it as failed.
+
+```java
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
+  .topic("AddressValidation", 60L * 1000L)
+  .topic("ShipmentScheduling", 120L * 1000L)
+  .execute();
+
+for (LockedExternalTask task : tasks) {
+  try {
+    String topic = task.getTopic();
+
+    // work on task for that topic
+    ...
+
+    // if the work is successful, mark the task as completed  
+    if(success) {
+      externalTaskService.complete(task.getId(), variables);
+    }
+    else {
+      // if the work was not successful, mark it as failed
+      externalTaskService.handleFailure(
+        task.getId(),
+        "externalWorkerId",
+        "Address could not be validated: Address database not reachable",
+        1, 60L * 10000L);
+    }
+  }
+  catch(Exception e) {
+    //... handle exception
+  }
+}
+```
+
+The following sections address the different interactions with the `ExternalTaskService` in greater detail.
 
 ### Fetching Tasks
 
