@@ -98,6 +98,14 @@ The Camunda Webapp (Cockpit, Tasklist, Admin) inculdes the following third-party
 
 Most of those libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed to ease the development of browser based user interfaces.
 
+# Camunda Javascript SDK
+
+The Camunda Javascript SDK (including the Forms SDK) integrates with the following third-party libraries:
+
+* [Super Agent](https://github.com/visionmedia/superagent) {{< RD >}}, [(MIT)][mit]
+* [jQuery](http://jquery.com/) {{< RD >}}, [(MIT)][mit]
+* [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
+* [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
 
 # Camunda Cycle Web Application
 
