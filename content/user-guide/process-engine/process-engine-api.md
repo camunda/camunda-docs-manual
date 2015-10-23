@@ -60,6 +60,12 @@ The **HistoryService** exposes all historical data gathered by the engine. When 
 
 The **ManagementService** is typically not needed when coding custom applications. It allows to retrieve information about the database tables and table metadata. Furthermore, it exposes query capabilities and management operations for jobs. Jobs are used in the engine for various things such as timers, asynchronous continuations, delayed suspension/activation, etc. Later on, these topics will be discussed in more detail.
 
+The **FilterService** allows to create and manage [filters]({{< relref "webapps/tasklist/filters.md" >}}). Filters are stored queries that are used by the task list to filter user tasks.
+
+The **ExternalTaskService** provides access to [external task instances]({{< relref "external-tasks.md" >}}). External tasks represent work items that are processed externally and independently of the process engine.
+
+The **CaseService** is like the RuntimeService but for case instances. It deals with starting new case instances of case definitions and managing the lifecycle of case executions. The service is also used to retrieve and update process variables of case instances.
+
 The **DecisionService** allows to evaluate [decisions]({{< relref "decisions.md" >}}) that are deployed in the engine. It is an alternative to evaluate a decision within a business rule task that is independent from a process definition.
 
 {{< note title="Java Docs" class="warning" >}}
