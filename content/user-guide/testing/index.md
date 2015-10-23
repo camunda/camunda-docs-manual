@@ -10,16 +10,8 @@ menu:
 
 ---
 
-When testing Process Applications you first have to be clear on what scope you want to test. Often Process Applications orchestrate various existing services which means that a Process Application test quickly becomes an integration test. The following picture show the scopes we differentiate when testing Process Applications:
-
-{{< img src="img/testing-scopes.png" title="Testing Scopes" >}}
-
-1. Testing process definitions only, as isolated as possible.
-2. Testing your process application including e.g. CDI or EJB beans.
-3. Integration testing of your applications with other deployments or services (maybe deployed as mock services) on your application server.
-4. End-to-end integration test including all external systems.
-
-Business processes are an integral part of software projects and they should be tested in the same way normal application logic is tested: with unit tests. Since the Camunda engine is an embeddable Java engine, writing unit tests for business processes is as simple as writing regular unit tests.
+Testing BPMN processes, CMMN cases (and also DMN decisions) is just as important as testing code.
+This section explains how to write Unit tests and Integration Tests with Camunda and explains some best practice and guidelines.
 
 
 # Unit Tests
@@ -105,6 +97,9 @@ You can now see the engine database and use it to understand how and why your un
 
 {{< img src="img/api-test-debug-h2-tables.png" title="API Test Debugging" >}}
 
+# Camunda Assertions
+
+Apart from JUnit assertions, there is the community extension [camunda-bpm-assert](https://github.com/camunda/camunda-bpm-assert) that adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
 # Arquillian Tests
 
@@ -117,10 +112,30 @@ In Java EE environments we recently use JBoss Arquillian pretty often to test Pr
 
 # Best Practice
 
-## Assertions
-
-Apart from JUnit assertions, there is the community extension [camunda-bpm-assert](https://github.com/camunda/camunda-bpm-assert) that adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
-
 ## Write Focused Tests
 
 The feature to [start a process instance at a set of activities]({{< relref "user-guide/process-engine/process-engine-concepts.md#start-a-process-instance-at-any-set-of-activities" >}}) can be used to to create a very specific scenario without much setup. Similarly, certain activities can be skipped by using [process instance modification]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}).
+
+## Scoping Tests
+
+BPMN processes, CMMN cases and DMN decisions do not exist in isolation. Consider the example of a BPMN prcess: firstly, the process itself is executed by the Camunda engine which requires a database. Next, the process is "not just the process". It can contain expressions, scripts and often calls out to custom Java classes which may in turn again call out to services, either locally or remotely. In order to test the process, all these things need to be present, otherwise, the test cannot work.
+
+In order to manage this complexity, it has proven useful to scope tests. Scoping the test means limiting the amount of infrastructure required to run the test. Things outside of the scope of the test are mocked.
+
+### Example: Scoping Tests for a Java EE Application
+
+This is best explained using an example. Assume you are building a typical Java EE Application containing a BPMN process. The process uses Java Expression Language (EL) for conditions, it invokes Java Delegate implementations as CDI Beans, these Beans may in turn call out to the actual Business Logic implemented as EJBs. The Business Logic uses JPA for maintaining additional business objects in a secondary database. It also sends out messages using JMS to interact with external systems and has a nice Web UI. The application runs inside a Java EE Application Server like Wildfly.
+
+In order to test this application, all components including the Applications Server itself need to be present and the external systems need to process the JMS messages. This makes it hard to write focused test. But looking at the process itself, we find that there are may aspects of it that we can test without having the complete infrastructure in place. For example, if the process data is present, the Expression Language conditions can usually be tested without any additional infrastructure. This already allows asserting that the process "takes the right turn" at a gateway given a set of input data. Next, If the EJBs are mocked, the delegation logic can be included in such tests as well. This allows asserting that wiring of the delegation logic is correct and that it performs correct data transformation and mapping and invokes the business logic with the correct parameters. Given that Camunda engine can work with an in-memory database, it now becomes possible to test the BPMN process "in isolation", as a unit test and assert its local functional correctness. The same principle can be applied to the next "outer layers" of the system, including the business logic and external systems.
+
+The following drawing shows a schematic representation of what this looks like for our example of a Java EE Application:
+
+{{< img src="img/test-scopes.png" title="Testing Scopes" >}}
+
+Three test scopes are defined:
+
+* Scope 1: Local, functional correctness of the process model with data, conditions and delegation code, usually implemented as a unit test.
+* Scope 2: Integration with business logic inside the runtime container, for Java EE Applications usually implemented as am Arquillian-based integration test. 
+* Scope 3: Integration with external systems and UI.
+
+Note that the above is just an example for a Java EE Application, other applications may require different test scopes. However the principle remains the same.
