@@ -20,18 +20,30 @@ The Java API is the most common way of interacting with the engine. The central 
 ```java
 ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 
-RuntimeService runtimeService = processEngine.getRuntimeService();
 RepositoryService repositoryService = processEngine.getRepositoryService();
+RuntimeService runtimeService = processEngine.getRuntimeService();
 TaskService taskService = processEngine.getTaskService();
-ManagementService managementService = processEngine.getManagementService();
 IdentityService identityService = processEngine.getIdentityService();
-HistoryService historyService = processEngine.getHistoryService();
 FormService formService = processEngine.getFormService();
+HistoryService historyService = processEngine.getHistoryService();
+ManagementService managementService = processEngine.getManagementService();
+FilterService filterService = processEngine.getFilterService();
+ExternalTaskService externalTaskService = processEngine.getExternalTaskService();
+CaseService caseService = processEngine.getCaseService();
+DecisionService decisionService = processEngine.getDecisionService();
 ```
 
 `ProcessEngines.getDefaultProcessEngine()` will initialize and build a process engine the first time it is called and afterwards always returns the same process engine. Proper creation and closing of all process engines can be done with `ProcessEngines.init()` and `ProcessEngines.destroy()`.
 
-The ProcessEngines class will scan for all camunda.cfg.xml and activiti.cfg.xml files. For all `camunda.cfg.xml` files, the process engine will be built in the typical way: `ProcessEngineConfiguration.createProcessEngineConfigurationFromInputStream(inputStream).buildProcessEngine()`. For all `activiti.cfg.xml` files, the process engine will be built in the Spring way: First the Spring application context is created and then the process engine is obtained from that application context.
+The ProcessEngines class will scan for all camunda.cfg.xml and activiti.cfg.xml files. For all `camunda.cfg.xml` files, the process engine will be built in the typical way:
+
+```java
+ProcessEngineConfiguration
+  .createProcessEngineConfigurationFromInputStream(inputStream)
+  .buildProcessEngine()
+```
+
+For all `activiti.cfg.xml` files, the process engine will be built in the Spring way: First the Spring application context is created and then the process engine is obtained from that application context.
 
 All services are stateless. This means that you can easily run Camunda BPM on multiple nodes in a cluster, each going to the same database, without having to worry about which machine actually executed previous calls. Any call to any service is idempotent regardless of where it is executed.
 
@@ -60,7 +72,7 @@ The **HistoryService** exposes all historical data gathered by the engine. When 
 
 The **ManagementService** is typically not needed when coding custom applications. It allows to retrieve information about the database tables and table metadata. Furthermore, it exposes query capabilities and management operations for jobs. Jobs are used in the engine for various things such as timers, asynchronous continuations, delayed suspension/activation, etc. Later on, these topics will be discussed in more detail.
 
-The **FilterService** allows to create and manage [filters]({{< relref "webapps/tasklist/filters.md" >}}). Filters are stored queries that are used by the task list to filter user tasks.
+The **FilterService** allows to create and manage filters. Filters are stored queries like task queries. For example filters are used by the task list to [filter user tasks]({{< relref "webapps/tasklist/filters.md" >}}).
 
 The **ExternalTaskService** provides access to [external task instances]({{< relref "external-tasks.md" >}}). External tasks represent work items that are processed externally and independently of the process engine.
 
