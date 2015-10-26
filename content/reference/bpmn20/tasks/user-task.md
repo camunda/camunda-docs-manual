@@ -68,7 +68,7 @@ There is an activity extension which allows you to specify an expression in your
 
 A user task can be directly assigned to a single user, a list of users or a list of groups.
 
-## Assignement using BPMN Resource Assignments
+## Assignment using BPMN Resource Assignments
 
 BPMN defines some native assignment concepts which can be used in camunda.
 As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).
@@ -189,7 +189,7 @@ The following example shows how to assign a user task to the person who started 
 ...
 ```
 
-First, the the `camunda:initiator` extension is used to bind the user id of the person who started (_"initiated"_) the process to the variable `starter`. Then the expression `${ starter }` retrieves that value and uses it as assignee for the task.
+First, the `camunda:initiator` extension is used to bind the user id of the person who started (_"initiated"_) the process to the variable `starter`. Then the expression `${ starter }` retrieves that value and uses it as assignee for the task.
 
 It is possible to use all process variables [visible]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the user task in the expression.
 
