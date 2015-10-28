@@ -23,6 +23,7 @@ Java API:
 * `camunda-engine`: all non implementation Java packages (package name does not contain `impl`)
 * `camunda-engine-spring`: all non implementation Java packages (package name does not contain `impl`)
 * `camunda-engine-cdi`: all non implementation Java packages (package name does not contain `impl`)
+* `camunda-commons-typed-values`:  all non implementation Java packages (package name does not contain `impl`)
 
 HTTP API (REST API):
 
