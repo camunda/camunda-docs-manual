@@ -116,4 +116,6 @@ This is already the default for Camunda BPM versions after and including 7.3.3 a
 
 # User Operation Log
 
-The behavior of logging user operations changes, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `legacyUserOperationLog` (default `false`). To restore the engine's previous behavior, set the flag to `true`.
+The behavior of logging user operations has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `legacyUserOperationLog` (default `false`). To restore the engine's previous behavior, set the flag to `true`.
+
+Furthermore with 7.4 task events are only logged when they happened in the context of a logged in user. If this behavior is not desired, the previous behavior can be restored by setting the flag `legacyUserOperationLog` to `true`.
