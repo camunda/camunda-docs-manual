@@ -297,8 +297,11 @@ activity instances is arbitrary and is not guaranteed.
 
 # User Operation Log
 
-The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged regardless whether the operation is performed in the context of a logged in user or not (e.g., during job execution). To use the operation log, the process engine history level must be set to `FULL`.
+The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged when the operation is performed in the context of a logged in user. To use the operation log, the process engine history level must be set to `FULL`.
 
+## Enable Legacy User Operation Log
+
+If it is desired that operations are logged regardless whether they are performed in the context of a logged in user or not, then the process engine configuration flag named `legacyUserOperationLogEnabled` has to be set to `true`.
 
 ## Access the User Operation Log
 

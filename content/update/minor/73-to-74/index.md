@@ -112,3 +112,7 @@ This is already the default for Camunda BPM versions after and including 7.3.3 a
 [angular-bootstrap]: https://github.com/angular-ui/bootstrap
 [bootstrap]: http://getbootstrap.com/
 [bootstrap-changenotes]: https://github.com/twbs/bootstrap/releases/tag/v3.3.1
+
+# User Operation Log
+
+The behavior of logging user operations changes, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `legacyUserOperationLog` (default `false`). To restore the engine's previous behavior, set the flag to `true`.
