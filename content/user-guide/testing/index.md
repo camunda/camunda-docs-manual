@@ -118,9 +118,9 @@ The feature to [start a process instance at a set of activities]({{< relref "use
 
 ## Scoping Tests
 
-BPMN processes, CMMN cases and DMN decisions do not exist in isolation. Consider the example of a BPMN prcess: firstly, the process itself is executed by the Camunda engine which requires a database. Next, the process is "not just the process". It can contain expressions, scripts and often calls out to custom Java classes which may in turn again call out to services, either locally or remotely. In order to test the process, all these things need to be present, otherwise, the test cannot work.
+BPMN processes, CMMN cases and DMN decisions do not exist in isolation. Consider the example of a BPMN process: firstly, the process itself is executed by the Camunda engine which requires a database. Next, the process is "not just the process". It can contain expressions, scripts and often calls out to custom Java classes which may in turn again call out to services, either locally or remotely. In order to test the process, all these things need to be present, otherwise, the test cannot work.
 
-In order to manage this complexity, it has proven useful to scope tests. Scoping the test means limiting the amount of infrastructure required to run the test. Things outside of the scope of the test are mocked.
+Setting all of this up just in order to run a unit test is expensive. This is why, in practice it makes sense to apply a concept which we call test scoping. Scoping the test means limiting the amount of infrastructure required to run the test. Things outside of the scope of the test are mocked.
 
 ### Example: Scoping Tests for a Java EE Application
 
