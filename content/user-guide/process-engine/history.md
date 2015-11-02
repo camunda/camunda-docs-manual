@@ -612,6 +612,15 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+  <tr>
+    <td></td>
+    <td>Delete</td>
+    <td>
+      <ul>
+        <li><strong>cascade</strong>: if the value is set to <code>true</code>, then all instances including history are also deleted.</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
