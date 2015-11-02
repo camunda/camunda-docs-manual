@@ -32,6 +32,10 @@ GET `/history/user-operation/count`
     <th>Description</th>
   </tr>
   <tr>
+    <td>deploymentId</td>
+    <td>Filter by deployment id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by process definition id.</td>
   </tr>

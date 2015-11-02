@@ -34,6 +34,10 @@ GET `/history/user-operation`
     <th>Description</th>
   </tr>
   <tr>
+    <td>deploymentId</td>
+    <td>Filter by deployment id.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>Filter by process definition id.</td>
   </tr>
@@ -179,6 +183,11 @@ Each log entry has the following properties:
   </tr>
 
   <tr>
+    <td>deploymentId</td>
+    <td>String</td>
+    <td>If not null, the operation is restricted to entities in relation to this deployment.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>If not null, the operation is restricted to entities in relation to this process definition.</td>
@@ -264,6 +273,7 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
 ## Response
 
     [{"id": "anUserOperationLogEntryId",
+    "deploymentId": "aDeploymentId",
     "processDefinitionId": "aProcessDefinitionId",
     "processDefinitionKey": null,
     "processInstanceId": "aProcessInstanceId",
@@ -289,6 +299,7 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
 ## Response
 
     [{"id": "anUserOperationLogEntryId",
+    "deploymentId": "aDeploymentId",
     "processDefinitionId": "aProcessDefinitionId",
     "processDefinitionKey": "aProcessDefinitionKey",
     "processInstanceId": null,
