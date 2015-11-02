@@ -17,6 +17,7 @@ This document guides you through the update from Camunda BPM `7.3.x` to `7.4.0`.
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
+4. For administrators and developers: [User Operation Log]({{< relref "#user-operation-log" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.4.
 
