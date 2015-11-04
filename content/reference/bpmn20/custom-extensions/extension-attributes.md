@@ -1006,6 +1006,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# mapDecisionResult
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute references which <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#built-in-decision-result-mapper" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a process variable. It should be used in combination with <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      singleValue, singleOutput, collectValues, outputList
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>outputList</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+    </td>
+  </tr>
+</table>
+
 # priority
 
 <table class="table table-striped">

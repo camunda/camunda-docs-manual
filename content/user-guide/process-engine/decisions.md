@@ -21,7 +21,8 @@ on this please refer to the [BPMN 2.0 reference]({{< relref "reference/bpmn20/ta
 ```xml
 <businessRuleTask id="businessRuleTask"
     camunda:decisionRef="myDecision"
-    camunda:resultVariable="decisionResult" />
+    camunda:mapDecisionResult="singleValue"
+    camunda:resultVariable="result" />
 ```
 
 # Decision Service
@@ -42,7 +43,7 @@ VariableMap variables = Variables.createVariables()
 DmnDecisionResult decisionResult = decisionService
   .evaluateDecisionByKey("decision", variables);
 
-String result = decisionResult.getFirstOutput().getValue("result");
+String result = decisionResult.getFirstOutput().get("result");
 ```
 
 # Decision History
