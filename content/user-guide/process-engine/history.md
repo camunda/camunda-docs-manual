@@ -607,8 +607,8 @@ The following describes the operations logged in the user operation log and the 
     <td>Create</td>
     <td>
       <ul>
-        <li><strong>duplicateFilterEnabled</strong>: if the value is set to <code>true</code>, then during the creation of the deployment the given resources has been checked for duplicates in the set of previous deployments. Otherwise the duplicate filtering has been not exected.</li>
-        <li><strong>deployChangedOnly</strong>: this property is only logged when <code>duplicateFilterEnabled</code> is set to <code>true</code>. If the property value is set to <code>true</code> then only changed resources has been deployed. Otherwise all resources are redeployed if any resource has changed.</li>
+        <li><strong>duplicateFilterEnabled</strong>: if the value is set to <code>true</code>, then during the creation of the deployment the given resources have been checked for duplicates in the set of previous deployments. Otherwise, the duplicate filtering has been not executed.</li>
+        <li><strong>deployChangedOnly</strong>: this property is only logged when <code>duplicateFilterEnabled</code> is set to <code>true</code>. If the property value is set to <code>true</code> then only changed resources have been deployed. Otherwise, all resources are redeployed if any resource has changed.</li>
       </ul>
     </td>
   </tr>
