@@ -94,7 +94,7 @@ The Camunda Webapp (Cockpit, Tasklist, Admin) inculdes the following third-party
 * [jQuery UI](https://jqueryui.com/) {{< RD >}}, [(MIT)][mit]
 * [RequireJS](http://requirejs.org/) {{< RD >}}, [(MIT)][mit]
 * [Snap.svg](http://snapsvg.io/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) {{< RD >}}, [(Apache License 2.0)][apache]
+* [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(Apache License 2.0)][apache]
 
 Most of those libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed to ease the development of browser based user interfaces.
 
