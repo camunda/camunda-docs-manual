@@ -6,7 +6,7 @@ weight: 200
 
 menu:
   main:
-    identifier: "user-guide-decision-engine"
+    identifier: "user-guide-dmn-engine"
     parent: "user-guide"
 
 ---
