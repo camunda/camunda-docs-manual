@@ -17,7 +17,6 @@ This document guides you through the update from Camunda BPM `7.3.x` to `7.4.0`.
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
-4. For administrators and developers: [User Operation Log]({{< relref "#user-operation-log" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.4.
 
@@ -98,7 +97,7 @@ For every process application, the Camunda dependencies have to be updated to th
 
 ## Special Considerations
 
-This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
 
 ### Task Query Expressions
 
@@ -114,8 +113,8 @@ This is already the default for Camunda BPM versions after and including 7.3.3 a
 [bootstrap]: http://getbootstrap.com/
 [bootstrap-changenotes]: https://github.com/twbs/bootstrap/releases/tag/v3.3.1
 
-# User Operation Log
+### User Operation Log
 
-The behavior of logging user operations has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `legacyUserOperationLog` (default `false`). To restore the engine's previous behavior, set the flag to `true`.
+The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e. to write log entries regardless of user context, set the flag to `false`.
 
-Furthermore with 7.4 task events are only logged when they happened in the context of a logged in user. If this behavior is not desired, the previous behavior can be restored by setting the flag `legacyUserOperationLog` to `true`.
+Furthermore, with 7.4 task events are only logged when they occur in the context of a logged in user. Task events are accessible via the deprecated API `TaskService#getTaskEvents`. If you rely on this API method, the previous behavior can be restored by setting the flag `restrictUserOperationLogToAuthenticatedUsers` to `false`.

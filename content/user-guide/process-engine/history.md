@@ -84,18 +84,18 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricIncidents` containing information about current and past (i.e., deleted or resolved) incidents.
 * `UserOperationLogEntry` log entry containing information about an operation performed by a user. This is used for logging actions such as creating a new task, completing a task, etc.
 * `HistoricJobLog` containing information about the job execution. The log provides details about the lifecycle of a job.
-* `HistoricDecisionInstance` containing information about a single evaluation of a decision, including the input and output values. 
+* `HistoricDecisionInstance` containing information about a single evaluation of a decision, including the input and output values.
 
 ## Query History
 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricProcessVariableQuery()`, `createHistoricCaseInstanceQuery()`,
 `createHistoricActivityInstanceQuery()`, `createHistoricCaseActivityInstanceQuery()`,
-`createHistoricDetailQuery()`, 
-`createHistoricTaskInstanceQuery()`, 
+`createHistoricDetailQuery()`,
+`createHistoricTaskInstanceQuery()`,
 `createHistoricIncidentQuery()`,
 `createUserOperationLogQuery()`,
-`createHistoricJobLogQuery()` and 
+`createHistoricJobLogQuery()` and
 `createHistoricDecisionInstanceQuery()`
 which can be used for querying history.
 
@@ -249,7 +249,7 @@ historyService.createHistoricDecisionInstanceQuery()
 
 Get all HistoricDecisionInstances from decisions that were evaluated during the execution of the process instance with id 'xxx'. The HistoricDecisionInstances contains the input values on which the decision was evaluated and the output values of the matched rules.
 
-```java    
+```java
 historyService.createHistoricDecisionInstanceQuery()
   .processInstanceId("xxx")
   .includeInputs()
@@ -299,9 +299,9 @@ activity instances is arbitrary and is not guaranteed.
 
 The user operation log contains entries for many API operations and can be used for auditing purposes. It provides data on what kind of operations are performed as well as details on the changes involved in the operation. Operations are logged when the operation is performed in the context of a logged in user. To use the operation log, the process engine history level must be set to `FULL`.
 
-## Enable Legacy User Operation Log
+## Write Log Entries Regardless of User Authentication Context
 
-If it is desired that operations are logged regardless whether they are performed in the context of a logged in user or not, then the process engine configuration flag named `legacyUserOperationLogEnabled` has to be set to `true`.
+If it is desired that operations are logged regardless whether they are performed in the context of a logged in user or not, then the process engine configuration flag named `restrictUserOperationLogToAuthenticatedUsers` can be set to `false`.
 
 ## Access the User Operation Log
 
