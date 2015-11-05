@@ -45,18 +45,6 @@ Camunda BPM should work with most of the JSR-223 compatible script engine implem
 
 {{< /note >}}
 
-{{< note title="Decision Script Task" class="info" >}}
-Beside normal script languages you can also use Script Task to evaluate a DMN decision.
-
-```xml
-<scriptTask id="dmnScriptTask" name="Check order" scriptFormat="dmn"
-    camunda:resource="org/camunda/bpm/DmnScriptTaskTest.dmn10.xml"
-    camunda:resultVariable="decisionResult" />
-```
-
-{{< /note >}}
-
-
 # Variables in Scripts
 
 All process variables that are accessible through the execution that arrives in the script task can be used within the script. In the example below, the script variable `inputArray` is in fact a process variable (an array of integers).
