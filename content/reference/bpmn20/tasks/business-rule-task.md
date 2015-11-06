@@ -68,8 +68,7 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Using a Custom Rule Engine
 
-You can use the rule engine of your choice, on the open source side we have
-made good experiences with JBoss Drools. To do so, you have to plug in your
+You can integrate with other Rule Engines. To do so, you have to plug in your
 implementation of the rule task the same way as in a Service Task.
 
 ```xml
