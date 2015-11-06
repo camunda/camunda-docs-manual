@@ -5,7 +5,7 @@ weight: 110
 
 menu:
   main:
-    name: "Start"
+    name: "Start Instance"
     identifier: "rest-api-process-definition-start-process-instance"
     parent: "rest-api-process-definition"
     pre: "POST `/process-definition/{id}/start`
