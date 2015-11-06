@@ -198,7 +198,7 @@ FileValue typedFileValue = Variables
   .create();
 runtimeService.setVariable(execution.getId(), "fileVariable", typedFileValue);
 
-FileValue retrievedTypedFileValue = runtimeService.getVariableType(execution.getId(), "fileVariable");
+FileValue retrievedTypedFileValue = runtimeService.getVariableTyped(execution.getId(), "fileVariable");
 InputStream fileContent = retrievedTypedFileValue.getValue(); // a byte stream of the file contents
 String fileName = retrievedTypedFileValue.getFilename(); // equals "addresses.txt"
 String mimeType = retrievedTypedFileValue.getMimeType(); // equals "text/plain"
