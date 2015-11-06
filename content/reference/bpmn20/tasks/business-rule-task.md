@@ -29,16 +29,14 @@ allows you to specify a specific version to execute with the `camunda:decisionRe
 <businessRuleTask id="businessRuleTask"
     camunda:decisionRef="myDecision"
     camunda:decisionRefBinding="version"
-    camunda:decisionRefVersion="12"
-    camunda:resultVariable="result" />
+    camunda:decisionRefVersion="12" />
 ```
 
 The `camunda:decisionRefBinding` attribute defaults to `latest`.
 
 ```xml
 <businessRuleTask id="businessRuleTask"
-    camunda:decisionRef="myDecision"
-    camunda:resultVariable="result" />
+    camunda:decisionRef="myDecision" />
 ```
 
 The attributes `camunda:decisionRef` and `camunda:decisionRefVersion` can both be specified as
@@ -48,26 +46,12 @@ an expression which will be evaluated on execution of the task.
 <businessRuleTask id="businessRuleTask"
     camunda:decisionRef="${decisionKey}"
     camunda:decisionRefBinding="version"
-    camunda:decisionRefVersion="${decisionVersion}"
-    camunda:resultVariable="result" />
+    camunda:decisionRefVersion="${decisionVersion}" />
 ```
 
-The output of the decision, also called decision result, is a complex object of type `DmnDecisionResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output values of this rule are represented by the key-value pairs. 
+The output of the decision, also called decision result, is not saved as process variable automatically. It has to pass into a process variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-of-the-decision-result" >}}) mapping of the decision result. 
 
-The decision result is not saved as process variable automatically. It has to pass into a process variable by using one of the followings ways:
-
-* built-in decision result mapper
-* custom output variable mapping
-* custom mapping with execution listener
-
-## Built-in Decision Result Mapper
-
-A decision result mapper is a predefined function for an output variable mapping. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. The `camunda:mapDecisionResult` attribute references the mapper and accepts one of the following values:
-
-* singleValue
-* singleOutput
-* collectValues
-* outputList 
+In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `outputList` mapper is used by default. 
 
 ```xml
 <businessRuleTask id="businessRuleTask"
@@ -76,93 +60,11 @@ A decision result mapper is a predefined function for an output variable mapping
     camunda:resultVariable="result" />
 ```
 
-The mapper `singleValue` is used for decisions which can have only one matched rule with one output value. For example, a decision table with hit policy `unique`, `first` or `collect` with an aggregator function like `sum`. The result of the mapping is a single typed value.
-
-If the decision can have more than one output value then the `singleOutput` mapper should be used. The result of the mapping is a map which contains the output values of the matched rule. 
-
-The `collectValues` mapper can be used for decision which can have multiple matched rules with exactly one output value. For example, a decision tables with hit policy `rule order`, `output order` or `collect` without aggregator function. The result is a list that contains the output value of each matched rule. 
-
-If none of the above mappers is suitable for the decision then the `outputList` mapper can be used. The result of the mapping is a list of maps that represents the matched rules with their output values. In contrast to `DmnDecisionResult`, it used collection classes from the JDK only.
-
-In case that the `camunda:mapDecisionResult` attribute is not set then the `outputList` mapper is used by default. 
-
-Note that the mapper throw an exception if the decision is not suitable. For example, the `singleValue` mapper throw an exception if the decision result contains more than one matched rule.
+See the [User Guide]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
 
 {{< note title="Name of the Result Variable" class="warning" >}}
-The result variable should not have the name `decisionResult` since the decision result is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
+The result variable should not have the name `decisionResult` since the decision result itself is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
 {{< /note >}}
-
-{{< note title="Limitations of Serialization" class="warning" >}}
-If you are using one of the built-in decision result mappers `singleOutput`, `collectValues` or `outputList` then you should consider the [limitations of serialization]({{< relref "#limitations-of-serialization" >}}).
-{{< /note >}}
-
-## Custom Output Variable Mapping
-
-In addition to the built-in mappers, a custom [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) can be used. For example, the decision result have multiple output values which should be saved in separate process variables. 
-
-```xml
-<businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision">
-  <extensionElements>
-    <camunda:inputOutput>
-      <camunda:outputParameter name="result">
-        ${decisionResult.getSingleOutput().result}
-      </camunda:outputParameter>
-      <camunda:outputParameter name="reason">
-        ${decisionResult.getSingleOutput().reason}
-      </camunda:outputParameter>
-    </camunda:inputOutput>
-  </extensionElements>
-</businessRuleTask>
-```
-
-The decision result of type `DmnDecisionResult` is available in the process variable `decisionResult`. It provides different convenience methods like `getSingleOutput()`, `getSingleValue()` and `getFirstValue()`. For a complete list of methods, see the {{< javadocref page="org.camunda.bpm.dmn.engine.DmnDecisionResult" text="Java Docs" >}} of this class.
-
-The decision result also provide methods to get typed output values, for example `getSingleValueTyped()`. Please refer to the [Typed Value API]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) section of the User Guide for details about typed values. 
-
-{{< note title="Limitations of Serialization" class="warning" >}}
-If you map a collection or a complex object to a process variable then you should consider the [limitations of serialization]({{< relref "#limitations-of-serialization" >}}).
-{{< /note >}}
-
-## Custom Mapping with Execution Listener
-
-The decision result can also processed by an [execution listener]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}) which is attached to the business rule task. Like in case of custom output variable mapping, the decision result is available is the process variable `decisionResult`.
-
-```xml
-<businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision">
-  <extensionElements>
-    <camunda:executionListener event="end"
-      delegateExpression="${myDecisionResultListener}" />
-  </extensionElements>
-</businessRuleTask>
-```
-
-```java
-public class MyDecisionResultListener implements ExecutionListener {
-
-  @Override
-  public void notify(DelegateExecution execution) throws Exception {
-    DmnDecisionResult decisionResult = execution.getVariable("decisionResult");
-    String result = decisionResult.getSingleOutput().get("result");
-    String reason = decisionResult.getSingleOutput().get("reason");
-    // ...
-  }
-  
-}
-```
-
-{{< note title="Limitations of Serialization" class="warning" >}}
-If you save a collection or a complex object to a process variable then you should consider the [limitations of serialization]({{< relref "#limitations-of-serialization" >}}).
-{{< /note >}}
-
-## Limitations of Serialization
-
-The built-in decision result mappers `singleOutput`, `collectValues` and `outputList` map the result to collections. The implementation of the collections are from the JDK and contains untyped values. When a collection is saved as process variable then it is serialized as object value because there is no suitable primitive value type. Depends on your [object value serialization]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}), this can lead to deserialization problems. 
-
-In case you are using the default build-in object serialization, the variable can not be deserialized if the JDK is upgraded or changed and contains an incompatible version of the collection class. Otherwise, if you are using another serialization like JSON then you should consider that the untyped value is deserializable. For example, a collection of date values can not be deserialized using JSON because JSON has no mapper for date by default.
-
-The same problems can occur by using a custom output variable mapping since `DmnDecisionResult` and `DmnDecisionOutput` have methods that returns the same collections as the built-in mappers. Additionally, it is not recommended to save a `DmnDecisionResult` or a `DmnDecisionOutput` as process variable because the implementation can change in a new version of Camunda BPM.
-
-To be aware of these problems, you can use primitive variables only. Alternatively, you can use a custom object for serialization that you can control by yourself. 
 
 # Using a Custom Rule Engine
 
