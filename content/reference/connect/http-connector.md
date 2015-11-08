@@ -12,7 +12,7 @@ menu:
 
 In Connect a `Connectors` class exists which automatically detects
 every connector in the classpath. It can be used to get the HTTP connector
-instance by connector ID.
+instance by its connector ID, which is `http-connector`.
 
 ```java
 HttpConnector http = Connectors.getConnector(HttpConnector.ID);
