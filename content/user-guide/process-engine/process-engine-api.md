@@ -78,7 +78,7 @@ The **ExternalTaskService** provides access to [external task instances]({{< rel
 
 The **CaseService** is like the RuntimeService but for case instances. It deals with starting new case instances of case definitions and managing the lifecycle of case executions. The service is also used to retrieve and update process variables of case instances.
 
-The **DecisionService** allows to evaluate [decisions]({{< relref "user-guide/process-engine/decisions/index.md" >}}) that are deployed in the engine. It is an alternative to evaluate a decision within a business rule task that is independent from a process definition.
+The **[DecisionService]({{< relref "user-guide/process-engine/decisions/decision-service.md" >}})** allows to evaluate decisions that are deployed in the engine. It is an alternative to evaluate a decision within a business rule task that is independent from a process definition.
 
 {{< note title="Java Docs" class="warning" >}}
   For more detailed information on the service operations and the engine API, see the {{< javadocref page="" text="Java Docs" >}}.
