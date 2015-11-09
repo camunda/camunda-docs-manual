@@ -97,19 +97,7 @@ On top of the built-in resources, the Camunda BPM framework supports defining cu
 Not every possible permission can be granted for every possible resource.
 For the "Application" resource you can exclusively grant the "Access" permission.
 
-The "Process Definition" resource is the only resource for which you can grant the permissions
-
-  * Read Task
-  * Update Task
-  * Create Instance
-  * Read Instance
-  * Update Instance
-  * Delete Instance
-  * Read History
-  * Delete History
-
-
-The remaining, valid combinations can be found in the following table.
+The valid combinations can be found in the following table.
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
 <thead>
@@ -122,13 +110,34 @@ The remaining, valid combinations can be found in the following table.
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>User</th>
+     <tr>
+      <th>Authorization</th>
       <td>X</td>
       <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
+    <tr>
+      <th>Decision Definition</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr> 
+    <tr>
+      <th>Filter</th>
+      <td>X</td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>   
     <tr>
       <th>Group</th>
       <td>X</td>
@@ -142,34 +151,13 @@ The remaining, valid combinations can be found in the following table.
       <td></td>
       <td>X</td>
       <td>X</td>
-    </tr>
-    <tr>
-      <th>Authorization</th>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr>
-      <th>Filter</th>
-      <td>X</td>
-      <td>X</td>
-      <td></td>
-      <td>X</td>
-    </tr>
+    </tr>  
     <tr>
       <th>Process Definition</th>
       <td>X</td>
       <td></td>
       <td></td>
       <td></td>
-    </tr>
-    <tr>
-      <th>Task</th>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Process Instance</th>
@@ -179,15 +167,40 @@ The remaining, valid combinations can be found in the following table.
       <td>X</td>
     </tr>
     <tr>
-      <th>Deployment</th>
-      <td>X</td>
-      <td></td>
+      <th>Task</th>
       <td>X</td>
       <td>X</td>
-    </tr>
+      <td>X</td>
+      <td>X</td>
+    </tr> 
+    <tr>
+      <th>User</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>    
   </tbody>
 </table>
 
+## Additional Authorizations for Process Definition
+
+* Read Task
+* Update Task
+* Create Instance
+* Read Instance
+* Update Instance
+* Delete Instance
+* Read History
+* Delete History
+  
+## Additional Authorizations for Decision Definition
+
+* Create Instance
+* Read History
+* Delete History
+
+The "Create Instance" permission is required for evaluating decisions with the decision service.
 
 # Authorization Type
 

@@ -38,6 +38,10 @@ String result = decisionResult.getFirstOutput().get("result");
 
 # Authorizations for Evaluating Decisions
 
+The user need the permission `CREATE_INSTANCE` on the resource `DECISION_DEFINITION` to evaluate decisions. The resource id of the authorization is the key of the decision definition.
+
+For more information about authorization please refer to the [Authorization Service]({{< relref "user-guide/process-engine/authorization-service.md" >}}).
+
 # Working with the Decision Result
 
 # History of Evaluated Decisions
