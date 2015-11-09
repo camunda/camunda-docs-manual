@@ -24,16 +24,23 @@ While jobs are created during process execution, job acquisition and execution a
 
 # Job Executor Activation
 
-By default, the Job Executor is activated when the process engine boots. For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (`ManagementService.createJobQuery`) and execute jobs (`ManagementService.executeJob`) *by hand*, which allows to control job execution from within a unit test. To avoid interference with the job executor, it can be switched off.
+When using an **embedded process engine**, by default, the Job Executor is not activated when the process engine boots. Specify
 
-Specify
+```xml
+<property name="jobExecutorActivate" value="true" />
+```
+
+in the process engine configuration when you want the JobExecutor to be activated upon booting the process engine.
+
+When using a **shared process engine**, the default is reversed: if you do not specify the `jobExecutorActivate` property on the process engine configuration, the job executor is automatically started. In order to turn it off, you have to explicitly set the property to false:
 
 ```xml
 <property name="jobExecutorActivate" value="false" />
 ```
 
-in the process engine configuration when you don't want the JobExecutor to be activated upon booting the process engine.
+# Job Executor in a Unit Test
 
+For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (`ManagementService.createJobQuery`) and execute jobs (`ManagementService.executeJob`) *by hand*, which allows to control job execution from within a unit test. 
 
 # Job Creation
 
