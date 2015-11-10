@@ -12,7 +12,7 @@ menu:
 
 In Camunda Connect a `Connectors` class exists which automatically detects
 every connector in the classpath. It can be used to get the SOAP connector
-instance by connector ID.
+instance by its connector ID, which is `soap-http-connector`.
 
 ```java
 SoapHttpConnector soap = Connectors.getConnector(SoapHttpConnector.ID);
