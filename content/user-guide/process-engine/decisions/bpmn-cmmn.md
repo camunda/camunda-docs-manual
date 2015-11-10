@@ -103,7 +103,7 @@ The decision result is available in the process variable `decisionResult`. It pr
 
 The decision result also provide methods to get typed output entries like `getSingleValueTyped()`. Please refer to the [User Guide]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) for details about typed values. 
 
-A complete list of all methods can be found in the {{< javadocref page="org.camunda.bpm.dmn.engine.DmnDecisionResult" text="Java Docs" >}}.
+A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
 
 
 In addition to an output variable mapping, the decision result can also be processed by an [execution listener]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}) which is attached to the business rule task.
