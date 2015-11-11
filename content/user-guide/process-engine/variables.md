@@ -205,7 +205,9 @@ String mimeType = retrievedTypedFileValue.getMimeType(); // equals "text/plain"
 String encoding = retrievedTypedFileValue.getEncoding(); // equals "UTF-8"
 ```
 
-To change a `file` value, you have to create a new `FileValue` with the same name and the new content, because all typed values are immutable:
+### Changing a File Value
+
+To change or update a `file` value, you have to create a new `FileValue` with the same name and the new content, because all typed values are immutable:
 
 ```java
 InputStream newContent = new FileInputStream("path/to/the/new/file.txt");
