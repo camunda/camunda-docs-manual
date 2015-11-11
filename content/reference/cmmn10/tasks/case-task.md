@@ -91,7 +91,9 @@ In addition, it is also possible to use expressions:
 </caseTask>
 ```
 
-Assuming `y` is not updated by the called case instance, the following holds after the case task completes: `z = y+5 = x+5+5`
+Assuming `y` is not updated by the called case instance, the following holds after the case task completes: `z = y+5 = x+5+5`.
+
+Source expressions are evaluated in the context of the called case instance. That means, in cases where calling and called case definition belong to different process applications, context like Java classes, Spring or CDI beans are resolved from the process application the called case definition belongs to.
 
 Furthermore, the case task can be configured to pass all variables to the called case instance, and to pass all variables of the case instance back to the associated case task:
 
