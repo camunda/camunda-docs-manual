@@ -86,7 +86,9 @@ In addition, it is possible to use expressions:
 </processTask>
 ```
 
-Assuming `y` is not updated by the process instance, the following holds after the process task completes: `z = y+5 = x+5+5`
+Assuming `y` is not updated by the process instance, the following holds after the process task completes: `z = y+5 = x+5+5`.
+
+Source expressions are evaluated in the context of the called process instance. That means, in cases where calling and called case/process definition belong to different process applications, context like Java classes, Spring or CDI beans is resolved from the process application the called process definition belongs to.
 
 Furthermore, the process task can be configured to pass all variables to the called process instance and to pass all variables of the process instance back to the associated process task:
 
