@@ -44,7 +44,6 @@ The decision result is not saved as process variable automatically. It has to pa
 The engine includes predefined mappings of the decision result for common use cases. The mapping is similar to an output variable mapping and extract a value from the decision result which is passed to a process variable. The following mappings are available:
 
 <table class="table table-striped">
-  <thead
   <tr>
     <th>Mapper</th>
     <th>Result</th>
