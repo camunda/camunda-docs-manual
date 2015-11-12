@@ -22,7 +22,7 @@
         <bpmn:outgoing>SequenceFlow_0meidkj</bpmn:outgoing>
       </bpmn:exclusiveGateway>
       <bpmn:sequenceFlow id="SequenceFlow_1s1wm16" sourceRef="Task_0x8010p" targetRef="ExclusiveGateway_065vlwb" />
-      <bpmn:task id="Task_03n5kz5" name="wait for order">
+      <bpmn:task id="Task_03n5kz5" name="receive order">
         <bpmn:incoming>SequenceFlow_16gjyqm</bpmn:incoming>
         <bpmn:incoming>SequenceFlow_0meidkj</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_10ee1ef</bpmn:outgoing>
