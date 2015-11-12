@@ -109,6 +109,7 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
       <property name="history">full</property>
       <property name="databaseSchemaUpdate">true</property>
       <property name="authorizationEnabled">true</property>
+      <property name="jobExecutorDeploymentAware">true</property>
     </properties>
 
   </process-engine>
