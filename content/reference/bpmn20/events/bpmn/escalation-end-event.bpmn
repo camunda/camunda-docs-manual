@@ -15,7 +15,7 @@
       <bpmn:outgoing>SequenceFlow_0des752</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_00n34rm</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:task id="Task_0h4y1zc" name="wait for order">
+    <bpmn:task id="Task_0h4y1zc" name="receive goods">
       <bpmn:incoming>SequenceFlow_0des752</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0wi1ago</bpmn:outgoing>
     </bpmn:task>
