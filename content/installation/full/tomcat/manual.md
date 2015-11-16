@@ -32,14 +32,20 @@ Before you can install the Camunda components, you need to perform a number of r
 
 ## Create the Database Schema
 
-If you do not want to use the H2 database, you first have to create a database schema for the Camunda BPM platform. The Camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you first have to create a database schema for the Camunda BPM platform. The Camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
 
-The database creation scripts reside in the `sql/create` folder:
+The database creation scripts are reside in the `sql/create` folder:
 
 `$TOMCAT_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
 `$TOMCAT_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
 
-There is an individual SQL script for each supported database. Select the appropriate script for your database type and run it with your database administration tool. (e.g. SqlDeveloper for Oracle).
+There is an individual SQL script for each supported database. Select the appropriate script for your database type and run it with your database administration tool. (e.g., SqlDeveloper for Oracle).
+
+When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In Tomcat, this is done in the `bpm-platform.xml`, located in the `$TOMCAT_DISTRIBUTION\server\apache-tomcat-$VERSION\conf\` folder.
+
+{{< note title="Heads Up!" class="info" >}}
+If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
+{{< /note >}}
 
 
 ## Add BPM Bootstrap Server Listener

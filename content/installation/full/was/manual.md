@@ -47,6 +47,24 @@ In order to perform the steps listed in this guide, make sure you understand the
 {{< img src="../img/scope-highlight.png" title="Scope" >}}
 
 
+## Create the Database Schema
+
+By default, the database schema is automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you first have to create a database schema for the Camunda BPM platform. The Camunda BPM distribution ships with a set of SQL create scripts that can be executed by a database administrator.
+
+The database creation scripts are reside in the `sql/create` folder:
+
+`$WAS_DISTRIBUTION/sql/create/*_engine_$PLATFORM_VERSION.sql`
+`$WAS_DISTRIBUTION/sql/create/*_identity_$PLATFORM_VERSION.sql`
+
+There is an individual SQL script for each supported database. Select the appropriate script for your database type and run it with your database administration tool. (e.g., SqlDeveloper for Oracle).
+
+When you create the tables manually, then you can also configure the engine to **not** create tables at startup by setting the `databaseSchemaUpdate` property to `false` (or, in case you are using Oracle, to `noop`). In WebSphere, this is done in the `bpm-platform.xml`, located in the `$WAS_HOME\modules\camunda-ibm-websphere-ear-$VERSION.ear\camunda-ibm-websphere-service.jar\META-INF\` folder.
+
+{{< note title="Heads Up!" class="info" >}}
+If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
+{{< /note >}}
+
+
 ## JDBC/Datasource Configuration
 
 The Camunda BPM engine uses one or multiple process engines. Use your application server management tooling for the configuration of the datasources.
