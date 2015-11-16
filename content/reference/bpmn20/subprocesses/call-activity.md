@@ -89,7 +89,7 @@ It is possible to use expressions here as well:
 
 So in the end `z = y+5 = x+5+5` holds.
 
-Source expressions are evaluated in the context of the called process instance. That means, in cases where calling and called process definition belong to different process applications, context like Java classes, Spring or CDI beans is resolved from the process application the called process definition belongs to.
+Source expressions are evaluated in the context of the called process instance. That means, in cases where calling and called process definitions belong to different process applications, context like Java classes, Spring or CDI beans is resolved from the process application the called process definition belongs to.
 
 ## Combination with Input/Output parameters
 
