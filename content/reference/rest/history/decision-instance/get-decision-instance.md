@@ -128,6 +128,21 @@ Its properties are as follows:
     <td>The id of the process instance that this decision instance belongs to.</td>
   </tr>
   <tr>
+    <td>caseDefinitionId</td>
+    <td>String</td>
+    <td>The id of the case definition that this decision instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition that this decision instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseInstanceId</td>
+    <td>String</td>
+    <td>The id of the case instance that this decision instance belongs to.</td>
+  </tr>
+  <tr>
     <td>activityId</td>
     <td>String</td>
     <td>The id of the activity that this decision instance belongs to.</td>
@@ -248,6 +263,9 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     ],
     "processDefinitionId": "invoice:1:4c6e3197-579d-11e5-9848-f0def1e59da8",
     "processDefinitionKey": "invoice",
-    "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8"
+    "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
+    "caseDefinitionId": null,
+    "caseDefinitionKey": null,
+    "caseInstanceId": null
 }
 ```

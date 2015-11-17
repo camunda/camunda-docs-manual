@@ -64,6 +64,18 @@ GET `/history/decision-instance/count`
     <td>Filter by the process instance the instances belongs to.</td>
   </tr>
   </tr>
+    <td>caseDefinitionId</td>
+    <td>Filter by the case definition the instances belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>Filter by the key of the case definition the instances belongs to.</td>
+  </tr>
+  </tr>
+    <td>caseInstanceId</td>
+    <td>Filter by the case instance the instances belongs to.</td>
+  </tr>
+  </tr>
     <td>activityIdIn</td>
     <td>
       Filter by the activity ids the instances belongs to.
