@@ -30,7 +30,9 @@ DmnDecisionTableResult decisionResult = decisionService
 
 ## The Decision Key
 
-The key of a decision definition is specified by the `id` attribute of the `decision` element. The different naming is related to the [Versioning of Decisions]({{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}). Since the key can specifies multiple versions of a decision definition, the id specifies exactly one version. 
+<!-- DMN-TODO: explain where the Id, Key, Version comes from -->
+
+The key of a decision definition is specified by the `id` attribute of the `decision` element. The different naming is related to the [Versioning of Decisions]({{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}). Since the key can specifies multiple versions of a decision definition, the id specifies exactly one version.
 
 ## Passing Data
 
@@ -44,24 +46,24 @@ For more information about authorization please refer to the [Authorization Serv
 
 # Working with the Decision Result
 
-The result of an evaluation is called decision result which is a complex object of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output entries of this rule are represented by the key-value pairs. The key of a pair is specified by the name of the output. 
+The result of an evaluation is called decision result which is a complex object of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output entries of this rule are represented by the key-value pairs. The key of a pair is specified by the name of the output.
 
 The decision result provides methods from interface List\<Map\<String, Object\>\> and some convenience methods.
 
 ```java
 DmnDecisionTableResult decisionResult = // ...
 
-// get the value of the single output entry of the only matched rule 
-String singleValue = decisionResult.getSingleOutput().getSingleValue();
+// get the value of the single entry of the only matched rule
+String singleEntry = decisionResult.getSingleResult().getSingleEntry();
 
-// get the value of the output with name 'result' of the only matched rule
-String result = decisionResult.getSingleOutput().get("result");
+// get the value of the result entry with name 'result' of the only matched rule
+String result = decisionResult.getSingleResult().getEntry("result");
 
-// get the value of the first output of the second matched rule
-String firstValue = decisionResult.get(1).getFirstValue();
+// get the value of the first entry of the second matched rule
+String firstValue = decisionResult.get(1).getFirstEntry();
 
-// get a list of all values of outputs with name 'result' of all matched rules
-List<String> results = decisionResult.collectValues("result");
+// get a list of all entries with the output name 'result' of all matched rules
+List<String> results = decisionResult.collectEntries("result");
 ```
 
 Note that the decision result also provide methods to get typed output entries. A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.

@@ -19,7 +19,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies the name of the variable there the input value is stored in.
+      This attribute specifies the variable name which can be used to access the result
+      of the input expression in an input entry expression.
     </td>
   </tr>
   <tr>
@@ -34,7 +35,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Default Value</th>
-    <td>cellInput</td>
+    <td><code>cellInput</code></td>
   </tr>
   <tr>
     <th>DMN 1.1 Elements</th>

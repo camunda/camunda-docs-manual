@@ -17,12 +17,12 @@ are saved in the History. The history entity is of type `HistoricDecisionInstanc
 For details about the history mechanism please refer to the [History and Audit Event Log]({{< relref "user-guide/process-engine/history.md" >}}).
 
 {{< note title="History Level" class="info" >}}
-Please note that a history level of **FULL** is required. Otherwise, no history is created.
+Please note that a history level of **FULL** is required. Otherwise, no history for DMN decisions is created.
 {{< /note >}}
 
 # Query for evaluated Decisions
 
-The History Service can be used to query for `HistoricDecisionInstances`. For example, use the following query to get all history from a decision with key `checkOrder` ordered by the time when the decision was evaluated.
+The History Service can be used to query for `HistoricDecisionInstances`. For example, use the following query to get all history entries for a decision with key `checkOrder` ordered by the time when the decision was evaluated.
 
 ```java
 List<HistoricDecisionInstance> historicDecisions = processEngine
@@ -58,7 +58,7 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
 
 # The Historic Decision Instance
 
-The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionInstance" text="HistoricDecisionInstance" >}} containing informations about a single evaluation of a decision. 
+The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionInstance" text="HistoricDecisionInstance" >}} contains information about a single evaluation of a decision.
 
 ```java
 HistoricDecisionInstance historicDecision = // ...
@@ -72,9 +72,9 @@ String decisionDefinitionName = historicDecision.getDecisionDefinitionName();
 // time when the decision was evaluated
 Date evaluationTime = historicDecision.getEvaluationTime();
 
-// inputs of the decision
+// inputs of the decision (if includeInputs was specified in the query)
 List<HistoricDecisionInputInstance> inputs = historicDecision.getInputs();
-// outputs of the decision
+// outputs of the decision (if includeOutputs was specified in the query)
 List<HistoricDecisionOutputInstance> outputs = historicDecision.getOutputs();
 ```
 
@@ -82,9 +82,11 @@ In case the decision was evaluated from a process, informations of the process d
 
 Additionally, if the decision is a decision table with hit policy `collect` and an aggregator function then the result of the aggregation can be retrieved by the `getCollectResultValue()` method.
 
+<!-- DMN-TODO: link to hitpolicy docs -->
+
 ## Historic Decision Input Instance
 
-The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionInputInstance" text="HistoricDecisionInputInstance" >}} represents one input clause of an evaluated decision. 
+The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionInputInstance" text="HistoricDecisionInputInstance" >}} represents one input clause of an evaluated decision.
 
 ```java
 HistoricDecisionInputInstance input = // ...
@@ -99,13 +101,13 @@ Object value = input.getValue();
 TypedValue typedValue = input.getTypedValue();
 ```
 
-Note that the value may the result of a type transformation in case the input expression specifies a type. 
+Note that the value may the result of a type transformation in case the input expression specifies a type.
 
 ## Historic Decision Output Instance
 
-The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionOutputInstance" text="HistoricDecisionOutputInstance" >}} represents one output entry of an evaluated decision. So the Historic Decision Instance contains one Historic Decision Output Instance for each output clause and matched rule. 
+The {{< javadocref page="org/camunda/bpm/engine/history/HistoricDecisionOutputInstance" text="HistoricDecisionOutputInstance" >}} represents one output entry of an evaluated decision. So the Historic Decision Instance contains one Historic Decision Output Instance for each output clause and matched rule.
 
-Like Historic Decision Input Instance, it contains a reference to the output clause and the evaluated value of the output entry's expression. Additionally, the id of rule and 
+Like Historic Decision Input Instance, it contains a reference to the output clause and the evaluated value of the output entry's expression. Additionally, the id of rule and
 their position in the decision result can be retrieved.
 
 # Cockpit

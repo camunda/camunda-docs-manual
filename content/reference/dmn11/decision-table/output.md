@@ -12,14 +12,14 @@ menu:
 
 ---
 
-A decision table have one or more outputs, also called output clauses or output components. An output clause is represented by an `output` element in XML.
+A decision table can have one or more outputs, also called output clauses or output components. An output clause is represented by an `output` element in XML.
 
 ```xml
 <decision>
   <decisionTable>
-    <!-- ... -->  
+    <!-- ... -->
     <output label="Dish" name="desiredDish" typeRef="string" />
-    <!-- ... -->    
+    <!-- ... -->
   </decisionTable>
 </decision>
 ```
@@ -34,9 +34,9 @@ An output label is a short description of the output. It is set on the `output` 
 
 # Output Name
 
-The name of the output is specified by the `name` attribute on the `output` element. It is used to reference the value of the output in the [decision result]({{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}). 
+The name of the output is specified by the `name` attribute on the `output` element. It is used to reference the value of the output in the [decision result]({{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}).
 
-If the decision table have more than one outputs then all outputs must have an unique name.
+If the decision table has more than one output then all outputs must have an unique name.
 
 ```xml
 <output name="desiredDish" />

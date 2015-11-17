@@ -16,13 +16,13 @@ A decision table can have one or more inputs, also called input clauses. An inpu
 
 ```xml
 <decision>
-  <decisionTable>  
+  <decisionTable>
     <input label="How many guests">
       <inputExpression typeRef="integer">
         <text>guestCount</text>
       </inputExpression>
-    </input>    
-    <!-- ... -->    
+    </input>
+    <!-- ... -->
   </decisionTable>
 </decision>
 ```
@@ -37,7 +37,7 @@ An input label is a short description of the input. It is set on the `input` ele
 
 # Input Expressions
 
-An input expression is an expression in an expression language that specifies the value of the input. It is usually simple and reference a variable which is available at runtime. The expressions is set inside a `text` element that is a child of the `inputExpression` element.  
+An input expression is an expression in an expression language that specifies the value of the input. It is usually simple and reference a variable which is available at runtime. The expression is set inside a `text` element that is a child of the `inputExpression` element.
 
 ```xml
 <inputExpression>
@@ -65,7 +65,7 @@ When the input expression is evaluated then the value is stored in a variable. T
 <input camunda:inputVariable="guestCount" />
 ```
 
-The variable can be used in an expression of an input entry if the expression language is not FEEL. For example, the JUEL expression `${guestCount <= 8}` checks if the input value is less than 1000.
+The variable can be used in an expression of an input entry. For example, the JUEL expression `guestCount <= 8` checks if the input value is less than 8.
 
 ## Input Type Definitions
 
@@ -90,5 +90,5 @@ Input values allows to specify the expected values of the input. The expected va
 {{< note title="Not Supported" class="warning" >}}
 Currently, input values are not supported and will be ignored.
 
-Alternatively, a [custom data type]({{< relref "user-guide/dmn-engine/data-types.md#implement-a-custom-data-type" >}}) can be used. For example, the expression `>= 0` can be replaced by a custom type `PositiveInteger`.  
+Alternatively, a [custom data type]({{< relref "user-guide/dmn-engine/data-types.md#implement-a-custom-data-type" >}}) can be used. For example, the expression `>= 0` can be replaced by a custom type `PositiveInteger`.
 {{< /note >}}
