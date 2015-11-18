@@ -78,7 +78,7 @@ The corresponding XML representation could look like this:
       </planItem>
 
       <planItem id="PlanItem_HumanTask_A" name="A"
-                definitionRef="HumanTask"
+                definitionRef="HumanTask">
         <entryCriterion sentryRef="Sentry_2" />
       </planItem>
 
