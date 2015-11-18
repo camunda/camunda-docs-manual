@@ -54,6 +54,10 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
         <a href="{{< relref "reference/cmmn11/tasks/case-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="case-task-colored" >}}
       </div>
+      <div class="bpmn-symbol-container implemented">
+        <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        {{< cmmn-symbol type="decision-task-colored" >}}
+      </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="task" >}}
       </div>
