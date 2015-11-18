@@ -47,7 +47,7 @@ Parameters
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by case definition key, i.e. the id in the CMMN 1.0 XML. Exact match.</td>
+    <td>Filter by case definition key, i.e. the id in the CMMN XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>

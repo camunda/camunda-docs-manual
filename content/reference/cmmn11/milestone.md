@@ -27,7 +27,9 @@ When referenced in a case plan, a milestone gets completed as soon as its entry 
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
       <planItem id="PlanItem_HumanTask" definitionRef="HumanTask_1"/>
-      <planItem id="PlanItem_Milestone" definitionRef="Milestone_1" entryCriteriaRefs="Sentry_1"/>
+      <planItem id="PlanItem_Milestone" definitionRef="Milestone_1">
+        <entryCriterion sentryRef="Sentry_1" />
+      </planItem>
 
       <sentry id="Sentry_1">
         <planItemOnPart sourceRef="PlanItem_HumanTask">
@@ -73,7 +75,7 @@ milestoneInstance.isCompleted(); // true if milestone occurred
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>
     </td>
   </tr>
 </table>

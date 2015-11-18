@@ -11,11 +11,11 @@ menu:
 
 ---
 
-**Can be used with**: [Task]({{< relref "reference/cmmn10/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn10/grouping-tasks/stage.md" >}})
+**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}})
 
 {{< cmmn-symbol type="marker-manual-activation" >}}
 
-Whether the actual work of a task or stage can be performed depends on its [entry criteria]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md" >}}). Given that an entry criterion is fulfilled, there are two ways to activate a task:
+Whether the actual work of a task or stage can be performed depends on its [entry criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Given that an entry criterion is fulfilled, there are two ways to activate a task:
 
 * By manual activation
 * By automatic activation
@@ -28,9 +28,7 @@ In XML, a manual activation rule can be specified for an individual plan item or
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
   <itemControl>
     <manualActivationRule>
-      <condition>
-        <body>${false}</body>
-      </condition>
+      <condition>${false}</condition>
     </manualActivationRule>
   </itemControl>
 </planItem>
@@ -50,9 +48,7 @@ For a plan item definition, the following XML can be used:
 <humanTask id="HumanTask_1">
   <defaultControl>
     <manualActivationRule>
-      <condition>
-        <body>${false}</body>
-      </condition>
+      <condition>${false}</condition>
     </manualActivationRule>
   </defaultControl>
 </humanTask>
@@ -68,10 +64,8 @@ As with any expression, you can use case variables to determine the result of a 
 
 ```xml
 <manualActivationRule>
-  <condition>
-    <body>${var > 100}</body>
-  </condition>
+  <condition>${var > 100}</condition>
 </manualActivationRule>
 ```
 
-In terms of the [task/stage lifecycle]({{< relref "reference/cmmn10/concepts/lifecycle.md" >}}), manual activation corresponds to the transition from `AVAILABLE` to `ENABLED` when an entry criterion occurs, and from `ENABLED` to `ACTIVE` when the task is manually activated. In contrast, automatic activation corresponds to the direct transition from `AVAILABLE` to `ACTIVE` that fires immediately when an entry criterion occurs.
+In terms of the [task/stage lifecycle]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}), manual activation corresponds to the transition from `AVAILABLE` to `ENABLED` when an entry criterion occurs, and from `ENABLED` to `ACTIVE` when the task is manually activated. In contrast, automatic activation corresponds to the direct transition from `AVAILABLE` to `ACTIVE` that fires immediately when an entry criterion occurs.

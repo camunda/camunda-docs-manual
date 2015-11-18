@@ -335,5 +335,5 @@ If the Camunda Spin process engine plugin is activated, the Spin functions `S`,
 [Spring]: {{< relref "user-guide/spring-framework-integration/index.md#expression-resolving" >}}
 [CDI]: {{< relref "user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
 [BPMN]: {{< relref "reference/bpmn20/index.md" >}}
-[CMMN]: {{< relref "reference/cmmn10/index.md" >}}
+[CMMN]: {{< relref "reference/cmmn11/index.md" >}}
 [spin-section]: {{< relref "user-guide/data-formats/index.md" >}}

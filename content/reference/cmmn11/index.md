@@ -1,17 +1,17 @@
 ---
 
-title: 'CMMN 1.0 Implementation Reference'
+title: 'CMMN 1.1 Implementation Reference'
 weight: 40
 
 menu:
   main:
-    name: "CMMN 1.0"
+    name: "CMMN 1.1"
     identifier: "cmmn-ref"
     parent: "references"
 
 ---
 
-This page provides an overview of the CMMN 1.0 elements and the current coverage of the process engine.
+This page provides an overview of the CMMN 1.1 elements and the current coverage of the process engine.
 
 # Coverage
 
@@ -24,11 +24,11 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
     <div class="col-md-12">
       <h3>Grouping</h3>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="case-plan-model-colored" >}}
       </div>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="stage-collapsed-colored" >}}            
       </div>
       <div class="bpmn-symbol-container">
@@ -40,18 +40,18 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
     <div class="col-md-12">
       <h3>Tasks</h3>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/tasks/human-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/tasks/human-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="human-task-colored" >}} 
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="manual-task" >}}
       </div>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/tasks/process-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/tasks/process-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="process-task-colored" >}}
       </div>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/tasks/case-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/tasks/case-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="case-task-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
@@ -66,7 +66,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
     <div class="col-md-9">
       <h3>Event-Triggered Elements</h3>
       <div class="bpmn-symbol-container implemented">
-        <a href="{{< relref "reference/cmmn10/milestone.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <a href="{{< relref "reference/cmmn11/milestone.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
         {{< cmmn-symbol type="milestone-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
@@ -104,34 +104,34 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
         {{< cmmn-symbol type="marker-planning-table" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/sentry.md" >}}">Entry Criterion</a>
+        <a class="text" href="{{< relref "reference/cmmn11/sentry.md" >}}">Entry Criterion</a>
         {{< cmmn-symbol type="marker-entry-criterion" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/sentry.md" >}}">Exit Criterion</a>
+        <a class="text" href="{{< relref "reference/cmmn11/sentry.md" >}}">Exit Criterion</a>
         {{< cmmn-symbol type="marker-exit-criterion" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/markers/auto-complete.md" >}}">AutoComplete</a>
+        <a class="text" href="{{< relref "reference/cmmn11/markers/auto-complete.md" >}}">AutoComplete</a>
         {{< cmmn-symbol type="marker-auto-complete" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/markers/manual-activation-rule.md" >}}">Manual Activation</a>
+        <a class="text" href="{{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}}">Manual Activation</a>
         {{< cmmn-symbol type="marker-manual-activation" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Required</a>
+        <a class="text" href="{{< relref "reference/cmmn11/markers/required-rule.md" >}}">Required</a>
         {{< cmmn-symbol type="marker-required" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn10/markers/required-rule.md" >}}">Repetition</a>
+        <a class="text" href="{{< relref "reference/cmmn11/markers/required-rule.md" >}}">Repetition</a>
         {{< cmmn-symbol type="marker-repetition" >}}
       </td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Case Plan Model</a></td>
+      <td><a href="{{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}">Case Plan Model</a></td>
       <td>
         <span class="glyphicon glyphicon-remove"></span>
       </td>
@@ -148,7 +148,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       <td></td>
     </tr>
     <tr>
-      <td><a href="{{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}">Stage</a></td>
+      <td><a href="{{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}">Stage</a></td>
       <td>
         <span class="glyphicon glyphicon-remove"></span>
       </td>
@@ -172,7 +172,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       </td>
     </tr>
     <tr>
-      <td><a href="{{< relref "reference/cmmn10/tasks/index.md" >}}">Task</a></td>
+      <td><a href="{{< relref "reference/cmmn11/tasks/index.md" >}}">Task</a></td>
       <td>
         <span class="glyphicon glyphicon-remove"></span>
       </td>
@@ -194,7 +194,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       </td>
     </tr>
     <tr>
-      <td><a href="{{< relref "reference/cmmn10/milestone.md" >}}">Milestone</a></td>
+      <td><a href="{{< relref "reference/cmmn11/milestone.md" >}}">Milestone</a></td>
       <td></td>
       <td>
         <span class="glyphicon glyphicon-ok"></span>

@@ -10,7 +10,7 @@ menu:
 
 ---
 
-A *sentry* captures the occurrence of a certain event occurring or a condition being fulfilled within a case. Sentries are used as [entry and exit criteria]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md" >}}). Note that the black and white diamonds represent the criteria. A sentry itself has no graphical representation.
+A *sentry* captures the occurrence of a certain event occurring or a condition being fulfilled within a case. Sentries are used as [entry and exit criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Note that the black and white diamonds represent the criteria. A sentry itself has no graphical representation.
 
 {{< cmmn-symbol type="marker-entry-criterion" >}}
 
@@ -20,23 +20,23 @@ In XML, a sentry can be specified as follows:
 
 ```xml
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1"/>
-<planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1" entryCriteriaRefs="Sentry_1" />
+<planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1">
+  <entryCriterion sentryRef="Sentry_1" />
+</planItem>
 
 <sentry id="Sentry_1">
   <planItemOnPart sourceRef="PlanItem_HumanTask_1">
     <standardEvent>complete</standardEvent>
   </planItemOnPart>
   <ifPart>
-    <condition>
-      <body>${myVar > 100}</body>
-    </condition>
+    <condition>${myVar > 100}</condition>
   </ifPart>
 </sentry>
 
 <humanTask id="HumanTask_1"/>
 ```
 
-The above example defines a sentry that is fulfilled when the plan item `PlanItem_HumanTask_1` performs the state transition `complete` (note the `planItemOnPart` element) and a variable named `myVar` has a value greater than 100 (note the `ifPart` element). Furthermore, it serves as an [entry criterion]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md" >}}) for the plan item `PlanItem_HumanTask_2` that becomes `ENABLED` as soon as the sentry is fulfilled (note the `entryCriteriaRefs` attribute of the element `PlanItem_HumanTask_2`).
+The above example defines a sentry that is fulfilled when the plan item `PlanItem_HumanTask_1` performs the state transition `complete` (note the `planItemOnPart` element) and a variable named `myVar` has a value greater than 100 (note the `ifPart` element). Furthermore, it serves as an [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}) for the plan item `PlanItem_HumanTask_2` that becomes `ENABLED` as soon as the sentry is fulfilled (note the `entryCriterion` child element of the element `PlanItem_HumanTask_2`).
 
 As conditions or event triggers, sentries may define the following elements:
 
@@ -56,7 +56,7 @@ OnParts are defined on lifecycle transitions for plan items or case file items. 
 ```
 
 
-A `planItemOnPart` must always reference a plan item by the attribute `sourceRef`. This plan item must be contained by the same stage the sentry is defined in. The child element `standardEvent` can the identifier of any lifecycle transition from that plan item's lifecycle and that is supported by the camunda engine. Note that different plan item definitions define different lifecycles. For details on valid lifecycle transitions, see the [Lifecycles]({{< relref "reference/cmmn10/concepts/lifecycle.md" >}}) section.
+A `planItemOnPart` must always reference a plan item by the attribute `sourceRef`. This plan item must be contained by the same stage the sentry is defined in. The child element `standardEvent` can the identifier of any lifecycle transition from that plan item's lifecycle and that is supported by the camunda engine. Note that different plan item definitions define different lifecycles. For details on valid lifecycle transitions, see the [Lifecycles]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}) section.
 
 As an alternative to `sourceRef`, the CMMN specification allows to define an attribute `sentryRef` responsible for referencing another sentry such that the onPart is fulfilled when the plan item that sentry references performs the *exit* state transition. This attribute is currently not supported by the Camunda engine.
 
@@ -69,9 +69,7 @@ An IfPart defines an additional condition that is checked when all OnParts of th
 ```xml
 <sentry id="Sentry_1">
   <ifPart>
-    <condition>
-      <body>${myVar > 100}</body>
-    </condition>
+    <condition>${myVar > 100}</condition>
   </ifPart>
 </sentry>
 ```
@@ -83,9 +81,7 @@ In addition to variable names, the identifier `caseExecution` can be used to acc
 ```xml
 <sentry id="Sentry_1">
   <ifPart>
-    <condition>
-      <body>${caseExecution.getVariableLocal("myVar") > 100}</body>
-    </condition>
+    <condition>${caseExecution.getVariableLocal("myVar") > 100}</condition>
   </ifPart>
 </sentry>
 ```

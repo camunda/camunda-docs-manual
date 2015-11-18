@@ -11,15 +11,15 @@ menu:
 
 ---
 
-**Can be used with**: [Task]({{< relref "reference/cmmn10/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}), [Milestone]({{< relref "reference/cmmn10/milestone.md" >}})
+**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}), [Milestone]({{< relref "reference/cmmn11/milestone.md" >}})
 
 {{< cmmn-symbol type="marker-repetition" >}}
 
 Under which conditions a plan item is *repeatable* can be specified by a *repetition rule*.
 
-This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state `AVAILABLE`. Its result value of type `boolean` is maintained for the rest of the life of the plan item instance and cannot be changed. If this rule evaluates to `true`, the plan item can be repeated. The trigger for the repetition is a [sentry]({{< relref "reference/cmmn10/sentry.md" >}}), that is referenced as entry criterion. Once a referenced entry criteria is satisfied the repeatable task moves into the next state (`ENABLED` or `ACTIVE`) and a new instance of the plan item is created. The new instance transitions to the state `AVAILABLE` and also evaluates the repetition rule.
+This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state `AVAILABLE`. Its result value of type `boolean` is maintained for the rest of the life of the plan item instance and cannot be changed. If this rule evaluates to `true`, the plan item can be repeated. The trigger for the repetition is a [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as entry criterion. Once a referenced entry criteria is satisfied the repeatable task moves into the next state (`ENABLED` or `ACTIVE`) and a new instance of the plan item is created. The new instance transitions to the state `AVAILABLE` and also evaluates the repetition rule.
 
-The details of plan item states and transitions are provided in the [Plan Item Lifecycles]({{< relref "reference/cmmn10/concepts/lifecycle.md" >}}) section. And the details of entry criteria are provided in the [Entry and Exit Criteria]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md" >}}) section.
+The details of plan item states and transitions are provided in the [Plan Item Lifecycles]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}) section. And the details of entry criteria are provided in the [Entry and Exit Criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}) section.
 
 In XML, a repetition rule can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:
 
@@ -27,9 +27,7 @@ In XML, a repetition rule can be specified for an individual plan item or for a 
 <planItem id="PlanItem_HumanTask" definitionRef="HumanTask">
   <itemControl>
     <repetitionRule>
-      <condition>
-        <body>${true}</body>
-      </condition>
+      <condition>${true}</condition>
     </repetitionRule>
   </itemControl>
 </planItem>
@@ -45,9 +43,7 @@ For a plan item definition, the following XML can be used:
 <humanTask id="HumanTask_1">
   <defaultControl>
     <repetitionRule>
-      <condition>
-        <body>${true}</body>
-      </condition>
+      <condition>${true}</condition>
     </repetitionRule>
   </defaultControl>
 </humanTask>
@@ -59,9 +55,7 @@ The shown examples can lead to a infinite number of repetitions, because for eac
 
 ```xml
 <manualActivationRule>
-  <condition>
-    <body><![CDATA[${var < 100}]]></body>
-  </condition>
+  <condition><![CDATA[${var < 100}]]></condition>
 </manualActivationRule>
 ```
 
@@ -79,12 +73,14 @@ The corresponding XML representation could look like this:
     <casePlanModel id="CasePlanModel_1">
 
       <planItem id="PlanItem_HumanTask_B" name="B"
-                definitionRef="HumanTask"
-                entryCriteriaRefs="Sentry_1" />
+                definitionRef="HumanTask">
+        <entryCriterion sentryRef="Sentry_1" />
+      </planItem>
 
       <planItem id="PlanItem_HumanTask_A" name="A"
                 definitionRef="HumanTask"
-                entryCriteriaRefs="Sentry_2" />
+        <entryCriterion sentryRef="Sentry_2" />
+      </planItem>
 
       <sentry id="Sentry_1">
       	...
@@ -99,9 +95,7 @@ The corresponding XML representation could look like this:
       <humanTask id="HumanTask">
       	<defaultControl>
       	  <repetitionRule>
-      	    <condition>
-      	      <body><![CDATA[${score < 50}]]></body>
-      	    </condition>
+      	    <condition><![CDATA[${score < 50}]]></condition>
       	  </repetitionRule>
       	</defaultControl>
       </humanTask>
@@ -138,7 +132,7 @@ In our example, the following steps might take place:
 
 In addition to the entry criteria it is possible to use `repetition criteria` to define on which condition a `repetition` of a task (or stage or milestone) should transition from state `AVAILABLE` either to `ENABLED` or `ACTIVE`.
 
-A repetition criterion behaves in the same way as an [entry criterion]({{< relref "reference/cmmn10/concepts/entry-exit-criteria.md">}}). The difference is that a repetition criterion is only used by an instance which is a `repetition` of a task. While the *first* instance of a task (which is not a repetition) only takes the defined entry criteria into account to get enabled or active.
+A repetition criterion behaves in the same way as an [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md">}}). The difference is that a repetition criterion is only used by an instance which is a `repetition` of a task. While the *first* instance of a task (which is not a repetition) only takes the defined entry criteria into account to get enabled or active.
 
 Note the repetition criteria is a Camunda extension which is not part of the CMMN specification.
 
@@ -159,9 +153,7 @@ In XML, a repetition criteria can be specified for an individual plan item or fo
       	        Sentry
               </camunda:repetitionCriterion>
             </extensionElements>
-            <condition>
-              <body>${true}</body>
-            </condition>
+            <condition>${true}</condition>
           </repetitionRule>
         </itemControl>
       </planItem>
@@ -202,9 +194,7 @@ For a plan item definition, the following XML can be used:
       	        Sentry
               </camunda:repetitionCriterion>
             </extensionElements>
-            <condition>
-              <body>${true}</body>
-            </condition>
+            <condition>${true}</condition>
           </repetitionRule>
         </defaultControl>
       </humanTask>
@@ -261,9 +251,7 @@ Therefore the CMMN could look as follows:
       	        Sentry
               </camunda:repetitionCriterion>
             </extensionElements>
-      	    <condition>
-      	      <body>${true}</body>
-      	    </condition>
+      	    <condition>${true}</condition>
       	  </repetitionRule>
       	</defaultControl>
       </humanTask>
@@ -282,7 +270,7 @@ This example can be easily extended to limit the number of repetitions by using 
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn10/custom-extensions/camunda-elements.md#repetitioncriterion" >}}">camunda:repetitionCriterion</a>
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#repetitioncriterion" >}}">camunda:repetitionCriterion</a>
     </td>
   </tr>
   <tr>

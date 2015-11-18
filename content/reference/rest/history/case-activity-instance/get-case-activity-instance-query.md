@@ -46,15 +46,15 @@ GET `/history/case-activity-instance`
   </tr>
   <tr>
     <td>caseActivityId</td>
-    <td>Filter by the case activity id (according to CMMN 1.0 XML).</td>
+    <td>Filter by the case activity id (according to CMMN XML).</td>
   </tr>
   <tr>
     <td>caseActivityName</td>
-    <td>Filter by the case activity name (according to CMMN 1.0 XML).</td>
+    <td>Filter by the case activity name (according to CMMN XML).</td>
   </tr>
   <tr>
     <td>caseActivityType</td>
-    <td>Filter by the case activity type (according to CMMN 1.0 XML).</td>
+    <td>Filter by the case activity type (according to CMMN XML).</td>
   </tr>
   <tr>
     <td>createdBefore</td>

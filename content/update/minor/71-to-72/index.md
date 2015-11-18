@@ -30,7 +30,7 @@ Noteworthy new Features in 7.2:
 
 Before migrating, decide whether you additionally want to enable Spin/Connect and Freemarker. Based on this decision, you may have to carry out additional migration steps.
 
-[cmmn-ref]: {{< relref "reference/cmmn10/index.md" >}}
+[cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
 [connect-ref]: {{< relref "user-guide/process-engine/connectors.md" >}}
 [spin-ref]: {{< relref "user-guide/data-formats/index.md" >}}
 [freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}

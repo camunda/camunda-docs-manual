@@ -33,5 +33,5 @@ In Camunda Tasklist, a user can ony work on a task (ie. filling in the task form
 Claiming a task sets the assignee of the task to the user who claimed the task.
 
 [bpmn-user-assignment]: {{< relref "reference/bpmn20/tasks/user-task.md#user-assignment" >}}
-[cmmn-user-assignment]: {{< relref "reference/cmmn10/tasks/human-task.md#user-assignment" >}}
+[cmmn-user-assignment]: {{< relref "reference/cmmn11/tasks/human-task.md#user-assignment" >}}
 [filter]: {{< relref "webapps/tasklist/filters.md" >}}

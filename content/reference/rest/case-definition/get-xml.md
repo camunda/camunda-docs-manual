@@ -1,6 +1,6 @@
 ---
 
-title: "Get CMMN 1.0 XML"
+title: "Get CMMN XML"
 weight: 40
 
 menu:
@@ -15,7 +15,7 @@ menu:
 ---
 
 
-Retrieves the CMMN 1.0 XML of this case definition.
+Retrieves the CMMN XML of this case definition.
 
 
 # Method
@@ -47,7 +47,7 @@ GET `/case-definition/key/{key}/xml` (returns the XML for the latest version of 
 
 # Result
 
-A JSON object containing the id of the case definition and the CMMN 1.0 XML.
+A JSON object containing the id of the case definition and the CMMN XML.
 
 <table class="table table-striped">
   <tr>

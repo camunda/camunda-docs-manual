@@ -11,7 +11,7 @@ menu:
 
 ---
 
-**Can be used with**: [Task]({{< relref "reference/cmmn10/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn10/grouping-tasks/stage.md" >}}) and [Milestone]({{< relref "reference/cmmn10/milestone.md" >}})
+**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}) and [Milestone]({{< relref "reference/cmmn11/milestone.md" >}})
 
 {{< cmmn-symbol type="marker-required" >}}
 
@@ -23,9 +23,7 @@ This rule is evaluated when the milestone, stage or task is instantiated and tra
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
   <itemControl>
     <requiredRule>
-      <condition>
-        <body>${true}</body>
-      </condition>
+      <condition>${true}</condition>
     </requiredRule>
   </itemControl>
 </planItem>
@@ -45,9 +43,7 @@ For a plan item definition, the following XML can be used:
 <humanTask id="HumanTask_1">
   <defaultControl>
     <requiredRule>
-      <condition>
-        <body>${true}</body>
-      </condition>
+      <condition>${true}</condition>
     </requiredRule>
   </defaultControl>
 </humanTask>
@@ -59,8 +55,6 @@ As with any expression, you can use case variables to determine the result of a 
 
 ```xml
 <requiredRule>
-  <condition>
-    <body>${var > 100}</body>
-  </condition>
+  <condition>${var > 100}</condition>
 </requiredRule>
 ```

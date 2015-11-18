@@ -53,7 +53,7 @@ GET `/case-definition`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by case definition key, i.e. the id in the CMMN 1.0 XML. Exact match.</td>
+    <td>Filter by case definition key, i.e. the id in the CMMN XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -124,7 +124,7 @@ Each case definition object has the following properties:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the case definition, i.e. the id of the CMMN 1.0 XML case definition.</td>
+    <td>The key of the case definition, i.e. the id of the CMMN XML case definition.</td>
   </tr>
   <tr>
     <td>category</td>

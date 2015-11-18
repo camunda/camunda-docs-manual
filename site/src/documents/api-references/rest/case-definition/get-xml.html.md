@@ -1,6 +1,6 @@
 ---
 
-title: 'Get CMMN 1.0 XML'
+title: 'Get CMMN XML'
 category: 'Case Definition'
 
 keywords: 'get'
@@ -8,7 +8,7 @@ keywords: 'get'
 ---
 
 
-Retrieves the CMMN 1.0 XML of this case definition.
+Retrieves the CMMN XML of this case definition.
 
 
 Method
@@ -43,7 +43,7 @@ Parameters
 Result
 ------
 
-A JSON object containing the id of the case definition and the CMMN 1.0 XML.
+A JSON object containing the id of the case definition and the CMMN XML.
 
 <table class="table table-striped">
   <tr>

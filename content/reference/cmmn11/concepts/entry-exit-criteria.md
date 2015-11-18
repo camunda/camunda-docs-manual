@@ -19,7 +19,9 @@ Similar changes in the state of a case instance may be driven by events occurrin
 <definitions>
   <case id="case" name="Case">
     <casePlanModel id="CasePlanModel_1">
-      <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" entryCriteriaRefs="Sentry_1" />
+      <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
+        <entryCriterion sentryRef="Sentry_1" />
+      </planItem>
       <planItem id="PlanItem_HumanTask_2" definitionRef="HumanTask_1"/>
 
       <sentry id="Sentry_1">
@@ -37,7 +39,9 @@ Similar changes in the state of a case instance may be driven by events occurrin
 Similarly, `PlanItem_HumanTask_1` with an exit criterion looks as follows:
 
 ```xml
-<planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1" exitCriteriaRefs="Sentry_1" />
+<planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
+  <exitCriterion sentryRef="Sentry_1" />
+</planItem>
 ```
 
 The conditions and events behind entry and exit criteria can be expressed by so-called *sentries*. Refer to the [Sentry][sentry] section on how sentries work and what kind of conditions can be expressed by them.
@@ -48,5 +52,5 @@ Similarly, when any exit criterion is met, a plan item performs a state transiti
 
 The details of plan item states and transitions are provided in the [Plan Item Lifecycles][lifecycle] section.
 
-[sentry]: {{< relref "reference/cmmn10/sentry.md" >}}
-[lifecycle]: {{< relref "reference/cmmn10/concepts/lifecycle.md" >}}
+[sentry]: {{< relref "reference/cmmn11/sentry.md" >}}
+[lifecycle]: {{< relref "reference/cmmn11/concepts/lifecycle.md" >}}
