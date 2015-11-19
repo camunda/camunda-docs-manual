@@ -18,9 +18,9 @@ This section explains how to write Unit tests and Integration Tests with Camunda
 
 Camunda supports both JUnit versions 3 and 4 styles of unit testing. In the JUnit 3 style, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the setup() of the test, the processEngine will be initialized by default with the camunda.cfg.xml resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
 
-By extending ProcessEngineTestCase, you can annotate test methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="Deployment" >}}. Before the test is run, a resource file of the form testClassName.testMethod.bpmn20.xml, in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The Deployment annotation also supports setting the resource location explicitly. See the Javadocs for more details.
+By extending ProcessEngineTestCase, you can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly. Method-level annotations override class-level annotations. See the Javadocs for more details.
 
-Taking all that into account, a JUnit 3 style test looks as follows:
+Taking all that into account, a JUnit 3 style test can look as follows:
 
 ```java
 public class MyBusinessProcessTest extends ProcessEngineTestCase {
@@ -135,7 +135,7 @@ The following drawing shows a schematic representation of what this looks like f
 Three test scopes are defined:
 
 * Scope 1: Local, functional correctness of the process model with data, conditions and delegation code, usually implemented as a unit test.
-* Scope 2: Integration with business logic inside the runtime container, for Java EE Applications usually implemented as am Arquillian-based integration test. 
+* Scope 2: Integration with business logic inside the runtime container, for Java EE Applications usually implemented as am Arquillian-based integration test.
 * Scope 3: Integration with external systems and UI.
 
 Note that the above is just an example for a Java EE Application, other applications may require different test scopes. However the principle remains the same.

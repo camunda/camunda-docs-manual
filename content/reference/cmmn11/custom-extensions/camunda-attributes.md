@@ -207,6 +207,74 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# decisionBinding
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      This attribute specifies which decision definition version should be evaluated inside the <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">decision task</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>latest</code>, <code>deployment</code>, <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionversion" >}}">camunda:decisionVersion</a> is required.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>latest</code></td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">Decision Task</a>
+    </td>
+  </tr>
+</table>
+
+# decisionVersion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      This attribute <strong>explicitly</strong> defines which decision definition version should be called inside the <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">decision task</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      All deployed version numbers of the decision definition to call or an expression which evaluates to a <code>java.lang.Integer</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">Decision Task</a>
+    </td>
+  </tr>
+</table>
+
 # delegateExpression
 
 <table class="table table-striped">
@@ -331,6 +399,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>CMMN 1.1 Elements</th>
     <td>
       <a href="{{< relref "reference/cmmn11/tasks/human-task.md" >}}">Human Task</a>
+    </td>
+  </tr>
+</table>
+
+# mapDecisionResult
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute references which <a href="{{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}">built-in Decision Result Mapper</a> is used to pass the result of an evaluated decision to a case variable. It should be used in combination with <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#resultvariable" >}}">camunda:resultVariable</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      singleEntry, singleResult, collectEntries, resultList
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>resultList</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">Decision Task</a>
     </td>
   </tr>
 </table>
@@ -469,6 +568,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td>
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>,
       camunda:caseExecutionListener
+    </td>
+  </tr>
+</table>
+
+# resultVariable
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the case variable in which the returned decision result is saved. It can be used in combination with <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a> to define a decision result mapping.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The name of a case variable to save the return value
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">Decision Task</a>
     </td>
   </tr>
 </table>

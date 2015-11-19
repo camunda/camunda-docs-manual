@@ -1,7 +1,7 @@
 ---
 
 title: 'Case Task'
-weight: 20
+weight: 30
 
 menu:
   main:
@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A *case task* can be used to call another CMMN 1.1 case.
+A *case task* can be used to call another CMMN case.
 
 {{< cmmn-symbol type="case-task" >}}
 

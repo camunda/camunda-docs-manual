@@ -12,9 +12,9 @@ menu:
 ---
 
 
-# BPMN Integration
+# BPMN & CMMN Integration
 
-Inside a BPMN process a decision can be invoked by a Business Rule Task.
+A decision can be invoked inside a BPMN process or a CMMN case.
 
 ## DMN Business Rule Task
 
@@ -29,19 +29,29 @@ A DMN Business Rule Task references a decision table which is deployed inside th
 
 For more information on this please refer to the [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}).
 
-# CMMN Integration
+## DMN Decision Task
 
-Nothing yet :)
+A DMN Decision Task references a decision table which is deployed inside the engine. The decision table is invoked when the task is activated. 
+
+```xml
+<decisionTask id="businessRuleTask" decisionRef="myDecision"
+    camunda:mapDecisionResult="singleValue"
+    camunda:resultVariable="result" />
+```
+
+For more information on this please refer to the [CMMN 1.1 reference]({{< relref "reference/cmmn11/tasks/decision-task.md" >}}).
 
 # The Decision Result
 
 The output of the decision, also called decision result, is a complex object of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output entries of this rule are represented by the key-value pairs.
 
-The decision result is not saved as process variable automatically. It has to pass into a process variable by using a predefined or a custom mapping of the decision result.
+The type `DmnDecisionTableResult` provides methods from List interface and some convenience methods like `getSingleOutput()` or `getFirstOutput()` to get the output entries of a matched rule. The output entries provides methods from Map interface and also convenience methods like `getSingleValue()` or `getFirstValue()`. For example, `decisionResult.getSingleOutput().result` returns the output entry with name `result` of the only matched rule. It also provides methods to get typed output entries like `getSingleValueTyped()`. Please refer to the [User Guide]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) for details about typed values. A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
+
+The decision result is available in the local scope of the executing task as a transient variable named `decisionResult`. It can be passed into a variable by using a predefined or a custom mapping of the decision result, if necessary.
 
 ## Predefined Mapping of the Decision Result
 
-The engine includes predefined mappings of the decision result for common use cases. The mapping is similar to an output variable mapping and extract a value from the decision result which is passed to a process variable. The following mappings are available:
+The engine includes predefined mappings of the decision result for common use cases. The mapping is similar to an output variable mapping and extract a value from the decision result which is passed to a variable. The following mappings are available:
 
 <table class="table table-striped">
   <tr>
@@ -81,7 +91,15 @@ If you are using one of the predefined mappers `singleOutput`, `collectValues` o
 
 ## Custom Mapping of the Decision Result
 
-Instead of a predefined mapping, a custom [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}) can be used to pass the decision result into process variables. For example, the decision result have multiple output values which should be saved in separate process variables. 
+Instead of a predefined mapping, a custom desision result mapping can be used to pass the decision result into variables.
+
+{{< note title="Limitations of Serialization" class="warning" >}}
+If you pass a collection or a complex object to a variable then you should consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
+{{< /note >}}
+
+### Custom Mapping into Process Variables
+
+If a business rule task is used to invoke a decision inside a BPMN process, then the decision result can be passed into process variables by using [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}). For example, the decision result have multiple output values which should be saved in separate process variables. 
 
 ```xml
 <businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision">
@@ -97,13 +115,6 @@ Instead of a predefined mapping, a custom [output variable mapping]({{< relref "
   </extensionElements>
 </businessRuleTask>
 ```
-
-The decision result is available in the process variable `decisionResult`. It provides methods from List interface and some convenience methods like `getSingleOutput()` or `getFirstOutput()` to get the output entries of a matched rule. The output entries provides methods from Map interface and also convenience methods like `getSingleValue()` or `getFirstValue()`. For example, `decisionResult.getSingleOutput().result` returns the output entry with name `result` of the only matched rule.
-
-The decision result also provide methods to get typed output entries like `getSingleValueTyped()`. Please refer to the [User Guide]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) for details about typed values. 
-
-A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
-
 
 In addition to an output variable mapping, the decision result can also be processed by an [execution listener]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}) which is attached to the business rule task.
 
@@ -130,9 +141,34 @@ public class MyDecisionResultListener implements ExecutionListener {
 }
 ```
 
-{{< note title="Limitations of Serialization" class="warning" >}}
-If you pass a collection or a complex object to a process variable then you should consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
-{{< /note >}}
+### Custom Mapping into Case Variables
+
+If a decision task is used to invoke a decision inside a CMMN case, the decision result can be passed to a case variable by using a case execution listener which is attached to the decision task.
+
+```xml
+<decisionTask id="decisionTask" decisionRef="myDecision">
+  <extensionElements>
+    <camunda:caseExecutionListener event="complete"
+      class="org.camunda.bpm.example.MyDecisionResultListener" />
+  </extensionElements>
+</businessRuleTask>
+```
+
+```java
+public class MyDecisionResultListener implements CaseExecutionListener {
+
+  @Override
+  public void notify(DelegateCaseExecution caseExecution) throws Exception;
+    DmnDecisionResult decisionResult = caseExecution.getVariable("decisionResult");
+    String result = decisionResult.getSingleOutput().get("result");
+    String reason = decisionResult.getSingleOutput().get("reason");
+    // ...
+    caseExecution.setVariable("result", result);
+    // ...
+  }
+
+}
+```
 
 ## Limitations of the Serialization of the Mapping Result
 
