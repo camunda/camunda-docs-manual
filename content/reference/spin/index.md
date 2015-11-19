@@ -6,7 +6,7 @@ weight: 60
 
 menu:
   main:
-    name: "Dataformats"
+    name: "Spin Dataformats"
     identifier: "spin-ref"
     parent: "references"
 

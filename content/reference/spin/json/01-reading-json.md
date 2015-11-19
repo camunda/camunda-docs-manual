@@ -72,6 +72,7 @@ var customer = S('{"customer": "Kermit"}');
 To fetch properties from the JSON tree you can use `.prop("name")`. This will return the property as SpinJsonNode and you can use this to get the value of the property as the following examples will demonstrate:
 
 in Java:
+
 ```java
 import static org.camunda.spin.Spin.*;
 
@@ -81,6 +82,7 @@ String customerName = customerProperty.stringValue();
 ```
 
 in Javascript:
+
 ```javascript
 var json = S('{"customer": "Kermit"}');
 var customerProperty = json.prop("customer");
@@ -89,16 +91,18 @@ var customerName = customerProperty.value();
 
 ## The Different Value Types
 
-With `.value()` you will fetch a String representation of the value. There are also:
+The method `SpinJsonNode#value()` can be used to get the Java equivalent of a String/Boolean/Number or `null` JSON property. It throws an exception for Object and Array properties. There are also:
 
-  * `.numberValue()` - will fetch a number representation of the value or throws an exception if the value is not a number
-  * `.boolValue()` - will fetch a boolean representation of the value or throws an exception if the value is not a bool
+  * `#stringValue()` - gets a Java `String` representation of the value or throws an exception if the value is not a String
+  * `#numberValue()` - gets a Java `Number` representation of the value or throws an exception if the value is not a Number
+  * `#boolValue()` - gets a Java `Boolean` representation of the value or throws an exception if the value is not a Boolean
 
 ## Fetch Array of Data
 
 You can also fetch a list of items if your property is an array of data.
 
 in Java:
+
 ```java
 import static org.camunda.spin.Spin.*;
 
@@ -110,6 +114,7 @@ String customerName = customer.stringValue();
 ```
 
 in Javascript:
+
 ```javascript
 var json = S('{"customer": ["Kermit", "Waldo"]}');
 var customerProperty = json.prop("customer");
@@ -123,6 +128,7 @@ var customerName = customer.value();
 Spin allows us to use the `.fieldNames()` method to fetch the names of all child nodes and properties in a node. The following example shows you how to use `.fieldNames()` in Java and Javascript.
 
 in Java:
+
 ```java
 import static org.camunda.spin.Spin.*;
 
@@ -132,6 +138,7 @@ String fieldName1 = fieldNames.get(0)
 ```
 
 in Javascript:
+
 ```javascript
 var json = S('{"customer": ["Kermit", "Waldo"]}');
 var fieldNames = json.fieldNames();
@@ -152,45 +159,51 @@ To set a property you can use the `.prop("name", object)` method. This allows yo
 or one of the 2 following container types:
 
   * Array - Could contain a number of simple and container types
-  Example in Java:
-  ```java
-  import static org.camunda.spin.Spin.*;
 
-  SpinJsonNode json = JSON("{\"customer\": \[\"Kermit\", \"Waldo\"\]}");
-  ArrayList<Object> list = new ArrayList<Object>();
-  list.add("new entry");
-  list.add("new entry2");
-  json.prop("new_array", list);
-  ```
+    Example in Java:
 
-  Example in Javascript:
-  ```javascript
-  var json = S('{"customer": ["Kermit", "Waldo"]}');
-  var list = ["new entry", "new entry2"];
-  json.prop("new_array", list);
-  ```
+    ```java
+    import static org.camunda.spin.Spin.*;
+
+    SpinJsonNode json = JSON("{\"customer\": \[\"Kermit\", \"Waldo\"\]}");
+    ArrayList<Object> list = new ArrayList<Object>();
+    list.add("new entry");
+    list.add("new entry2");
+    json.prop("new_array", list);
+    ```
+
+    Example in Javascript:
+
+    ```javascript
+    var json = S('{"customer": ["Kermit", "Waldo"]}');
+    var list = ["new entry", "new entry2"];
+    json.prop("new_array", list);
+    ```
 
   * Object - Could contain a number of simple and container types
-  Example in Java:
-  ```java
-  import static org.camunda.spin.Spin.*;
 
-  SpinJsonNode json = JSON("{\"customer\": \[\"Kermit\", \"Waldo\"\]}");
-  Map<String, Object> object = new HashMap<String, Object>();
-  object.put("new_entry", 42);
-  object.put("new_entry2", "Yeah!");
-  json.prop("new_object", object);
-  ```
+    Example in Java:
 
-  Example in Javascript:
-  ```javascript
-  var json = S('{"customer": ["Kermit", "Waldo"]}');
-  var object = {
-    "new_entry": 1,
-    "new_entry2": "Yeah!"
-  };
-  json.prop("new_array", object);
-  ```
+    ```java
+    import static org.camunda.spin.Spin.*;
+
+    SpinJsonNode json = JSON("{\"customer\": \[\"Kermit\", \"Waldo\"\]}");
+    Map<String, Object> object = new HashMap<String, Object>();
+    object.put("new_entry", 42);
+    object.put("new_entry2", "Yeah!");
+    json.prop("new_object", object);
+    ```
+
+    Example in Javascript:
+
+    ```javascript
+    var json = S('{"customer": ["Kermit", "Waldo"]}');
+    var object = {
+      "new_entry": 1,
+      "new_entry2": "Yeah!"
+    };
+    json.prop("new_array", object);
+    ```
 
 
 # Remove JSON Properties
@@ -203,6 +216,7 @@ There are 2 ways to remove properties from a JSON object.
 For more Details see the following Examples for Javascript and Java.
 
 Java:
+
 ```java
 import static org.camunda.spin.Spin.*;
 
@@ -219,6 +233,7 @@ json.deleteProp(list);
 ```
 
 Javascript:
+
 ```javascript
 var json = S('{"customer": ["Kermit", "Waldo"], "language": "en"}');
 var list = ["customer", "en"];
