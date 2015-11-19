@@ -73,7 +73,7 @@ Note: It is also possible to use an expression for the attribute `decisionVersio
 
 # Decision Result
 
-The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-of-the-decision-result" >}}) mapping of the decision result. 
+The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-into-case-variables" >}}) mapping of the decision result.
 
 In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default. 
 
