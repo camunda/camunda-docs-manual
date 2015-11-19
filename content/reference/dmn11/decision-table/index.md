@@ -13,8 +13,9 @@ menu:
 
 ---
 
-{{< img src="img/dish-table.png" class="no-lightbox" >}}
-<script type="text/javascript" src="./js/dish-table.js"></script>
+
+{{< img src="img/dish-table.svg" class="no-lightbox" >}}
+<script type="text/javascript" src="./img/map.js"></script>
 
 # The Name of the Decision Table
 
