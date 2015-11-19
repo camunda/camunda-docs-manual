@@ -533,6 +533,39 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# repeatOnStandardEvent
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies a transition in which the repetition rule of a stage or task is evaluated.
+      <br>
+      <br>
+      Note that this attribute is omitted when the stage or task to repeat has a least one entry criterion.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      <code>create</code>, <code>enable</code>, <code>disable</code>, <code>reenable</code>, <code>manualStart</code>, <code>start</code>, <code>complete</code>, <code>exit</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>complete</code></td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/markers/repetition-rule.md" >}}">Repetition Rule</a>
+    </td>
+  </tr>
+</table>
 
 # resource
 

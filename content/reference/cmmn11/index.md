@@ -128,7 +128,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
         {{< cmmn-symbol type="marker-required" >}}
       </td>
       <td>
-        <a class="text" href="{{< relref "reference/cmmn11/markers/required-rule.md" >}}">Repetition</a>
+        <a class="text" href="{{< relref "reference/cmmn11/markers/repetition-rule.md" >}}">Repetition</a>
         {{< cmmn-symbol type="marker-repetition" >}}
       </td>
     </tr>

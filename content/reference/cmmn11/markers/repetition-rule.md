@@ -17,17 +17,13 @@ menu:
 
 Under which conditions a plan item is *repeatable* can be specified by a *repetition rule*.
 
-This rule is evaluated when the milestone, stage or task is instantiated and transitions to the state `AVAILABLE`. Its result value of type `boolean` is maintained for the rest of the life of the plan item instance and cannot be changed. If this rule evaluates to `true`, the plan item can be repeated. The trigger for the repetition is a [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as entry criterion. Once a referenced entry criteria is satisfied the repeatable task moves into the next state (`ENABLED` or `ACTIVE`) and a new instance of the plan item is created. The new instance transitions to the state `AVAILABLE` and also evaluates the repetition rule.
-
-The details of plan item states and transitions are provided in the [Plan Item Lifecycles]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}) section. And the details of entry criteria are provided in the [Entry and Exit Criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}) section.
-
 In XML, a repetition rule can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:
 
 ```xml
 <planItem id="PlanItem_HumanTask" definitionRef="HumanTask">
   <itemControl>
     <repetitionRule>
-      <condition>${true}</condition>
+      <condition><![CDATA[${var < 100}]]></condition>
     </repetitionRule>
   </itemControl>
 </planItem>
@@ -43,7 +39,7 @@ For a plan item definition, the following XML can be used:
 <humanTask id="HumanTask_1">
   <defaultControl>
     <repetitionRule>
-      <condition>${true}</condition>
+      <condition><![CDATA[${var < 100}]]></condition>
     </repetitionRule>
   </defaultControl>
 </humanTask>
@@ -51,19 +47,92 @@ For a plan item definition, the following XML can be used:
 
 The rule specified in the `humanTask` element is valid for all plan items that reference it, here `PlanItem_HumanTask_1`.
 
-The shown examples can lead to a infinite number of repetitions, because for each new instance the rule evaluates to `true`. In same cases it might be desirable to limit the number of repetitions, for example if a certain value is reached. As with any expression, you can use case variables to determine the result of a repetition rule. The following snippet expresses that repetition is required when a variable `var` has a value less than `100`:
+The behavior of the repetition relies on the presence of entry criteria. If there is no entry criteria defined, then the repetition rule is evaluated by default in the transition into the `COMPLETED` state. Otherwise the repetition rule is only evaluated, when an entry criterion is satisfied and the plan item instance transitions away from the state `AVAILABLE` into the next state.
+
+
+# Repetition on completion
+
+To repeat a task or stage when it gets completed a repetition rule must be defined and the task or stage must not have any entry criteria. Whenever a task or stage instance transitions into the `COMPLETED` state, the repetition rule is evaluated and if it evaluates to `true` a new instance of the task or stage is created. The new instance transitions into the `AVAILABLE` state.
+
+{{< note title="Heads Up!" class="info" >}}
+It is not advisable to define a repetition rule without entry criteria on a milestone. Since a milestone without entry criteria gets fulfilled upon its instantiation, this would lead to an infinite loop.
+{{< /note >}}
+
+Consider the following excerpt of a CMMN case definition:
+
+{{< img src="../img/repetition-on-completion/repetition-rule-example.png" >}}
+
+The corresponding XML representation could look like this:
 
 ```xml
-<manualActivationRule>
-  <condition><![CDATA[${var < 100}]]></condition>
-</manualActivationRule>
+<definitions>
+  <case id="case" name="Case">
+    <casePlanModel id="CasePlanModel_1">
+
+      <planItem id="PlanItem_HumanTask_A" name="A"
+                definitionRef="HumanTask" />
+
+      <humanTask id="HumanTask">
+        <defaultControl>
+          <repetitionRule>
+            <condition><![CDATA[${score < 50}]]></condition>
+          </repetitionRule>
+        </defaultControl>
+      </humanTask>
+
+    </casePlanModel>
+  </case>
+</defintions>
 ```
 
-# Repetition Rule By Example
+This case contains a human tasks *A*. Task *A* has repetition rule indicating that the task is repeatable as long as the variable `score` is less than `50`.
 
-Consider the following excerpt of a CMMN Case Definition:
+In our example, the following steps might take place:
 
-{{< img src="../img/repetition-rule-example.png" >}}
+1. A user instantiates the case and sets the variable `score` to the value `10`.
+2. A instance *A* for the human task is created. The instance *A* transitions in state `ENABLED`.
+{{< img src="../img/repetition-on-completion/state-1.png" >}}
+3. A user manually starts task *A* and the instance reaches the state `ACTIVE`.
+4. A user completes task *A*. During the transition in state `COMPLETED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50` a new instance `A'` of the corresponding task is created. The new instance moves into state `ENABLED`.
+{{< img src="../img/repetition-on-completion/state-2.png" >}}
+5. Once again a user manually starts and completes task *A'*. Since the variable `score` is still less than `50` the repetition rule evaluates to `true` when *A'* transitions in state `COMPLETED`. As a result, a new instance *A''* is created.
+{{< img src="../img/repetition-on-completion/state-3.png" >}}
+6. A user changes the value of the variable `score` to `55`.
+7. A user manually starts and completes task *A''* and the instance reaches the state `COMPLETED`. Since the variable `score` has been set to `55` the repetition rule evaluates to `false` and a new instance is not created.
+{{< img src="../img/repetition-on-completion/state-4.png" >}}
+
+The transition in which the repetition rule is evaluated can be changed by a Camunda extension attribute named `camunda:repeatOnStandardEvent`. For a task it looks as follows:
+
+```xml
+<definitions>
+  <case id="case" name="Case">
+    <casePlanModel id="CasePlanModel_1">
+
+      <planItem id="PlanItem_HumanTask_A" name="A"
+                definitionRef="HumanTask" />
+
+      <humanTask id="HumanTask">
+        <defaultControl>
+          <repetitionRule camunda:repeatOnStandardEvent="disable">
+            <condition><![CDATA[${score < 50}]]></condition>
+          </repetitionRule>
+        </defaultControl>
+      </humanTask>
+
+    </casePlanModel>
+  </case>
+</defintions>
+```
+
+This means that the repetition rule is  evaluated in the transition `disable`. So, whenever an instance of the defined human task gets disabled, the repetition rule is evaluated and if this rule evaluates to `true`, a new instance is created. As a consequence, the repetition rule is not evaluated when an instance transitions in state `COMPLETED` anymore.
+
+# Repetition triggered by entry criteria
+
+A trigger for a repetition of a milestone, stage or task is a satisfied [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Whenever an entry criterion is satisfied the repetition rule is evaluated and if it evaluates to `true` a new instance of the milestone, stage or task is created. The new instance transitions into the `AVAILABLE` state. The *previous* instance transitions in case of a milestone instance in state `COMPLETED` and in case of a stage or task instance into the `ACTIVE` or `ENABLED` state (depending on the [manual activation rule]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}})), because the entry criterion is satisfied.
+
+Consider the following excerpt of a CMMN case definition, whereby the repetition of the tasks depends on the occurrence of an entry criterion:
+
+{{< img src="../img/repetition-by-entry-criteria/repetition-rule-example.png" >}}
 
 The corresponding XML representation could look like this:
 
@@ -107,176 +176,37 @@ The corresponding XML representation could look like this:
 
 This case contains two human tasks *A* and *B* that are connected by a sentry. Task *B* gets `ENABLED` if any conditions are fulfilled and task *A* gets `ENABLED` if an instance of `B` completes. Furthermore both tasks are repeatable as long as the variable `score` is less than `50`.
 
-The following illustrations contains a property named `repeatable`: If `repeatable == true`(repetition rule evaluates to true), then the instance creates a new instance when performing a transition from state `AVAILABLE` to either `ENABLED` or `ACTIVE` (depending on the manual activation rule).
-
 In our example, the following steps might take place:
 
 1. A user instantiates the case and sets the variable `score` to the value `10`.
-2. Two instances for each human task are automatically created and both transition in state `AVAILABLE`. During the transition for each instance the repetition rule will be evaluated. As a consequence that the variable `score` is less than `50` the instances (*A* and *B*) are `repeatable`.
-{{< img src="../img/state-1.png" >}}
-3. When the entry criterion (*Sentry_1*) of instance *B* is satisfied, the task *B* reaches the state `ENABLED`. Based on the fact that *B* is `repeatable` a new instance *B'* of the corresponding task is created. The instance *B'* moves into the state `AVAILABLE` and the repetition rule evaluates to `true`, because the variable `score` is still less than `50`.
-{{< img src="../img/state-2.png" >}}
+2. Two instances for each human task are automatically created and both transition in state `AVAILABLE`.
+{{< img src="../img/repetition-by-entry-criteria/state-1.png" >}}
+3. When the entry criterion (*Sentry_1*) of instance *B* is satisfied, the task *B* reaches the state `ENABLED`. During the transition to the state `ENABLED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50` a new instance *B'* of the corresponding task is created. The instance *B'* moves into state `AVAILABLE`.
+{{< img src="../img/repetition-by-entry-criteria/state-2.png" >}}
 4. A user manually starts and completes task *B* and the instance reaches the state `COMPLETED`.
-5. The completion of instance *B* satisfies the entry criterion (*Sentry_2*) of *A*. In consequence, task *A* becomes `ENABLED` and a new instance *A'* is created. The instance *A'* moves into the `AVAILABLE` state and the repetition rule evaluates to `true`. So that *A'* is `repeatable`.
-{{< img src="../img/state-3.png" >}}
-6. A user changes the value of the variable `score` to `55`. This does not have any effect on the instance *A'* and *B'*, both stay `repeatable`.
-7. The entry criterion (*Sentry_1*) of instance *B'* is satisfied (once again). The instance *B'* reaches the state `ENABLED` and a new instance *B''* is created. Now the repetition rule evaluates to `false`, so that *B''* is not `repeatable` anymore.
-{{< img src="../img/state-4.png" >}}
+5. The completion of instance *B* satisfies the entry criterion (*Sentry_2*) of *A*. In consequence, task *A* becomes `ENABLED` and a new instance *A'* is created, because the evaluation of the repetition rule during the transition returns `true`.
+{{< img src="../img/repetition-by-entry-criteria/state-3.png" >}}
+6. A user changes the value of the variable `score` to `55`.
+7. The entry criterion (*Sentry_1*) of instance *B'* is satisfied (once again). The instance *B'* reaches the state `ENABLED`. As a consequence that the variable `score` has been set to `55`, the repetition rule evaluates to `false`. So, a new instance is not created.
+{{< img src="../img/repetition-by-entry-criteria/state-4.png" >}}
 8. A user manually starts and completes task *B'* and the instance reaches the state `COMPLETED`.
-9. The completion of instance *B'* satisfies the entry criterion (*Sentry_2*) of *A'*. So that *A'* becomes `ENABLED` and a new instance *A''* is created. The new instance *A''* is `AVAILABLE` but not `repeatable`, because the repetition rule evaluates to `false`.
-{{< img src="../img/state-5.png" >}}
-10. If the entry criterion (*Sentry_1*) of *B''* gets satisfied and a user starts and completes *B''*, the instance *A''* becomes `ENABLED`. As a consequence that *A''* and *B''* are not repeatable no new instances are created.
-{{< img src="../img/state-6.png" >}}
+9. The completion of instance *B'* satisfies the entry criterion (*Sentry_2*) of *A'*. So that *A'* becomes `ENABLED` and a new instance of the corresponding task is not created, because the repetition rule evaluates to `false`.
+{{< img src="../img/repetition-by-entry-criteria/state-5.png" >}}
 
-# Repetition Criteria
-
-In addition to the entry criteria it is possible to use `repetition criteria` to define on which condition a `repetition` of a task (or stage or milestone) should transition from state `AVAILABLE` either to `ENABLED` or `ACTIVE`.
-
-A repetition criterion behaves in the same way as an [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md">}}). The difference is that a repetition criterion is only used by an instance which is a `repetition` of a task. While the *first* instance of a task (which is not a repetition) only takes the defined entry criteria into account to get enabled or active.
-
-Note the repetition criteria is a Camunda extension which is not part of the CMMN specification.
-
-In XML, a repetition criteria can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:
-
-```xml
-<definitions xmlns:camunda="http://camunda.org/schema/1.0/cmmn">
-
-  <case id="case" name="Case">
-    <casePlanModel id="CasePlanModel_1">
-
-      <planItem id="PlanItem_HumanTask"
-                definitionRef="HumanTask">
-        <itemControl>
-          <repetitionRule>
-            <extensionElements>
-              <camunda:repetitionCriterion>
-      	        Sentry
-              </camunda:repetitionCriterion>
-            </extensionElements>
-            <condition>${true}</condition>
-          </repetitionRule>
-        </itemControl>
-      </planItem>
-
-      <sentry id="Sentry">
-        ...
-      </sentry>
-
-      <humanTask id="HumanTask" />
-
-    </casePlanModel>
-  </case>
-
-</definitions>
-```
-
-For a plan item definition, the following XML can be used:
-
-
-```xml
-<definitions xmlns:camunda="http://camunda.org/schema/1.0/cmmn">
-
-  <case id="case" name="Case">
-    <casePlanModel id="CasePlanModel_1">
-
-      <planItem id="PlanItem_HumanTask"
-                definitionRef="HumanTask"/>
-
-      <sentry id="Sentry">
-        ...
-      </sentry>
-
-      <humanTask id="HumanTask_1">
-        <defaultControl>
-          <repetitionRule>
-            <extensionElements>
-      	      <camunda:repetitionCriterion>
-      	        Sentry
-              </camunda:repetitionCriterion>
-            </extensionElements>
-            <condition>${true}</condition>
-          </repetitionRule>
-        </defaultControl>
-      </humanTask>
-
-    </casePlanModel>
-  </case>
-
-</definitions>
-```
-
-## Entry Criteria vs Repetition Criteria
-
-For a better understanding it is necessary to distinguish between a `first` instance and an instance which is a `repetition`:
-
-- `first instance`: The `first` instance is the one which is created when the parent stage gets active.
-- `repetition`: It is an instance which repeats the `first` instance. There could be more than one repetition of the `first` instance.
-
-The repetition and entry criteria can be used in different combinations. The following remarks explain when any instance performs the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`:
-
-1. Only entry criteria are present:
-Each instance (`first` and every `repetition`) performs the state transition, when any *entry* criterion is met.
-2. Only repetition criteria are present:
-The `first` instance immediately performs the state transition while each `repetition` performs the transition when any *repetition* criterion is met.
-3. Entry and repetition criteria are present:
-The `first` instance performs the state transition when any *entry* criterion is met. Each `repetition` performs the state transition when any *repetition* criterion is met.
-4. Neither entry nor repetition criteria are present:
-Each instance (`first` and every `repetition`) immediately performs the state transition. However, this can lead to undesired situations. For example, it is possible to create an infinite loop. In such a combination, the repetition rule should evaluate to `true` after a given number of repetitions. This would for example allow to instantiate 5 instances in parallel (whereby one instance is the `first` instance and the other four instances are the `repetitions`).
-
-## Example
-
-The repetition rule gives the opportunity to implement the following use case: Whenever the task *A* completes, a new instance of task *A* should be offered to repeat the task.
-
-Therefore the CMMN could look as follows:
-
-```xml
-<definitions>
-  <case id="case" name="Case">
-    <casePlanModel id="CasePlanModel_1">
-
-      <planItem id="PlanItem_HumanTask" name="A"
-                definitionRef="HumanTask" />
-
-      <sentry id="Sentry">
-        <planItemOnPart sourceRef="PlanItem_HumanTask">
-          <standardEvent>complete</standardEvent>
-        </planItemOnPart>
-      </sentry>
-
-      <humanTask id="HumanTask">
-      	<defaultControl>
-      	  <repetitionRule>
-            <extensionElements>
-      	      <camunda:repetitionCriterion>
-      	        Sentry
-              </camunda:repetitionCriterion>
-            </extensionElements>
-      	    <condition>${true}</condition>
-      	  </repetitionRule>
-      	</defaultControl>
-      </humanTask>
-
-    </casePlanModel>
-  </case>
-</defintions>
-```
-So the `first` instance of task *A* would immediately perform the state transition from `AVAILABLE` to either `ENABLED` or `ACTIVE`. This state transition would create a new instance *A'* which remains in the state `AVAILABLE`. The instance *A'* waits for the defined *repetition* criterion to be met. Once the instance *A* gets completed by a user, the sentry is satisfied and the instance *A'* performs the state transition out of `AVAILABLE`. Furthermore a new instance *A''* is also created.
-
-This example can be easily extended to limit the number of repetitions by using another expression as repetition rule.
 
 # Camunda Extensions
 
 <table class="table table-striped">
   <tr>
-    <th>Extension Elements</th>
+    <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#repetitioncriterion" >}}">camunda:repetitionCriterion</a>
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#repeatonstandardevent" >}}">camunda:repeatOnStandardEvent</a>
     </td>
   </tr>
   <tr>
-    <th>Constraints</th>
+    <th>Note</th>
     <td>
-      The element <code>camunda:repetitionCriterion</code> should only be set if a repetition rule is present.
+      The attribute <code>camunda:repeatOnStandardEvent</code> is ignored when a milestone, stage or task has at least one entry criterion.
     </td>
   </tr>
 </table>
