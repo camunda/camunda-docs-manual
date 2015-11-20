@@ -90,12 +90,12 @@ This case contains a human task *A*. Task *A* has a repetition rule indicating t
 In our example, the following steps might take place:
 
 1. A user instantiates the case and sets the variable `score` to the value `10`.
-2. A instance *A* for the human task is created. The instance *A* transitions in state `ENABLED`.
+2. An instance *A* for the human task is created. The instance *A* transitions into state `ENABLED`.
 {{< img src="../img/repetition-on-completion/state-1.png" >}}
 3. A user manually starts task *A* and the instance reaches the state `ACTIVE`.
-4. A user completes task *A*. During the transition in state `COMPLETED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50` a new instance `A'` of the corresponding task is created. The new instance moves into state `ENABLED`.
+4. A user completes task *A*. During the transition into state `COMPLETED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50`, a new instance `A'` of the corresponding task is created. The new instance moves into state `ENABLED`.
 {{< img src="../img/repetition-on-completion/state-2.png" >}}
-5. Once again a user manually starts and completes task *A'*. Since the variable `score` is still less than `50` the repetition rule evaluates to `true` when *A'* transitions in state `COMPLETED`. As a result, a new instance *A''* is created.
+5. Once again, a user manually starts and completes task *A'*. Since the variable `score` is still less than `50`, the repetition rule evaluates to `true` when *A'* transitions into state `COMPLETED`. As a result, a new instance *A''* is created.
 {{< img src="../img/repetition-on-completion/state-3.png" >}}
 6. A user changes the value of the variable `score` to `55`.
 7. A user manually starts and completes task *A''* and the instance reaches the state `COMPLETED`. Since the variable `score` has been set to `55` the repetition rule evaluates to `false` and a new instance is not created.
@@ -129,7 +129,7 @@ This means that the repetition rule is  evaluated in the transition `disable`. S
 
 # Repetition triggered by entry criteria
 
-A trigger for a repetition of a milestone, stage or task is a satisfied [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Whenever an entry criterion is satisfied the repetition rule is evaluated and if it evaluates to `true` a new instance of the milestone, stage or task is created. The new instance transitions into the `AVAILABLE` state. The *previous* instance transitions in case of a milestone instance in state `COMPLETED` and in case of a stage or task instance into the `ACTIVE` or `ENABLED` state (depending on the [manual activation rule]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}})), because the entry criterion is satisfied.
+A trigger for a repetition of a milestone, stage or task is a satisfied [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Whenever an entry criterion is satisfied, the repetition rule is evaluated and if it evaluates to `true`, a new instance of the milestone, stage or task is created. The new instance transitions into the `AVAILABLE` state. The *previous* instance, in case of a milestone instance, transitions in state `COMPLETED` and, in case of a stage or task instance, into the `ACTIVE` or `ENABLED` state (depending on the [manual activation rule]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}})) because the entry criterion is satisfied.
 
 Consider the following excerpt of a CMMN case definition, where the repetition of the tasks depends on the occurrence of an entry criterion:
 
@@ -182,7 +182,7 @@ In our example, the following steps might take place:
 1. A user instantiates the case and sets the variable `score` to the value `10`.
 2. Two instances for each human task are automatically created and both transition in state `AVAILABLE`.
 {{< img src="../img/repetition-by-entry-criteria/state-1.png" >}}
-3. When the entry criterion (*Sentry_1*) of instance *B* is satisfied, the task *B* reaches the state `ENABLED`. During the transition to the state `ENABLED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50` a new instance *B'* of the corresponding task is created. The instance *B'* moves into state `AVAILABLE`.
+3. When the entry criterion (*Sentry_1*) of instance *B* is satisfied, the task *B* reaches the state `ENABLED`. During the transition to the state `ENABLED`, the repetition rule is evaluated. As a consequence that the variable `score` is less than `50`, a new instance *B'* of the corresponding task is created. The instance *B'* moves into state `AVAILABLE`.
 {{< img src="../img/repetition-by-entry-criteria/state-2.png" >}}
 4. A user manually starts and completes task *B* and the instance reaches the state `COMPLETED`.
 5. The completion of instance *B* satisfies the entry criterion (*Sentry_2*) of *A*. In consequence, task *A* becomes `ENABLED` and a new instance *A'* is created, because the evaluation of the repetition rule during the transition returns `true`.
