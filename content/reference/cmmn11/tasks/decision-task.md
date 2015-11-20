@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A *decision task* can be used to invoke a [DMN 1.1]({{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}) decision table.
+A *decision task* can be used to invoke a [DMN 1.1] decision table.
 
 {{< cmmn-symbol type="decision-task" >}}
 
@@ -63,7 +63,7 @@ The following is an example of a decision task that calls the `checkCreditDecisi
 
 ```xml
 <decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
-  camunda:decisionBinding="latest|deployment|version"
+  camunda:decisionBinding="version"
   camunda:decisionVersion="3">
 </decisionTask>
 ```
@@ -75,7 +75,12 @@ Note: It is also possible to use an expression for the attribute `decisionVersio
 
 The output of the decision, also called decision result, is not saved as case variable automatically. It has to pass into a case variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-into-case-variables" >}}) mapping of the decision result.
 
-In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default. 
+In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default.
+
+The following example calls the latest version of the `checkCreditDecision` and
+maps the `singleEntry` of the decision result into the case variable `result`.
+The mapper `singleEntry` assumes that the decision result only contains one
+entry or none at all.
 
 ```xml
 <decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
@@ -92,7 +97,7 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Limitations of the Decision Task
 
-To evaluate a referenced decision the integration of the Camunda DMN engine is used. As a result, only [DMN 1.1]({{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}) decision tables can be evaluated with a decision task. There is no option to integrate with other rule engines.
+To evaluate a referenced decision the integration of the Camunda DMN engine is used. As a result, only [DMN 1.1] decision tables can be evaluated with a decision task. There is no option to integrate with other rule engines.
 
 
 # Camunda Extensions
@@ -122,3 +127,5 @@ To evaluate a referenced decision the integration of the Camunda DMN engine is u
     </td>
   </tr>
 </table>
+
+[DMN 1.1]: {{< relref "reference/dmn11/index.md" >}}
