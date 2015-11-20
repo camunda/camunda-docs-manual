@@ -47,7 +47,7 @@ For a plan item definition, the following XML can be used:
 
 The rule specified in the `humanTask` element is valid for all plan items that reference it, here `PlanItem_HumanTask_1`.
 
-The behavior of the repetition relies on the presence of entry criteria. If there is no entry criteria defined, then the repetition rule is evaluated by default in the transition into the `COMPLETED` state. Otherwise the repetition rule is only evaluated, when an entry criterion is satisfied and the plan item instance transitions away from the state `AVAILABLE` into the next state.
+The behavior of the repetition relies on the presence of entry criteria. If there is no entry criterion defined, then the repetition rule is evaluated by default in the transition into the `COMPLETED` state. Otherwise the repetition rule is only evaluated, when an entry criterion is satisfied and the plan item instance transitions away from the state `AVAILABLE` into the next state.
 
 
 # Repetition on completion
@@ -85,7 +85,7 @@ The corresponding XML representation could look like this:
 </defintions>
 ```
 
-This case contains a human tasks *A*. Task *A* has repetition rule indicating that the task is repeatable as long as the variable `score` is less than `50`.
+This case contains a human task *A*. Task *A* has a repetition rule indicating that the task is repeatable as long as the variable `score` is less than `50`.
 
 In our example, the following steps might take place:
 
@@ -100,6 +100,7 @@ In our example, the following steps might take place:
 6. A user changes the value of the variable `score` to `55`.
 7. A user manually starts and completes task *A''* and the instance reaches the state `COMPLETED`. Since the variable `score` has been set to `55` the repetition rule evaluates to `false` and a new instance is not created.
 {{< img src="../img/repetition-on-completion/state-4.png" >}}
+8. From now on, no more repetitions of *A* can occur.
 
 The transition in which the repetition rule is evaluated can be changed by a Camunda extension attribute named `camunda:repeatOnStandardEvent`. For a task it looks as follows:
 
@@ -130,7 +131,7 @@ This means that the repetition rule is  evaluated in the transition `disable`. S
 
 A trigger for a repetition of a milestone, stage or task is a satisfied [sentry]({{< relref "reference/cmmn11/sentry.md" >}}), that is referenced as [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Whenever an entry criterion is satisfied the repetition rule is evaluated and if it evaluates to `true` a new instance of the milestone, stage or task is created. The new instance transitions into the `AVAILABLE` state. The *previous* instance transitions in case of a milestone instance in state `COMPLETED` and in case of a stage or task instance into the `ACTIVE` or `ENABLED` state (depending on the [manual activation rule]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}})), because the entry criterion is satisfied.
 
-Consider the following excerpt of a CMMN case definition, whereby the repetition of the tasks depends on the occurrence of an entry criterion:
+Consider the following excerpt of a CMMN case definition, where the repetition of the tasks depends on the occurrence of an entry criterion:
 
 {{< img src="../img/repetition-by-entry-criteria/repetition-rule-example.png" >}}
 
@@ -192,6 +193,7 @@ In our example, the following steps might take place:
 8. A user manually starts and completes task *B'* and the instance reaches the state `COMPLETED`.
 9. The completion of instance *B'* satisfies the entry criterion (*Sentry_2*) of *A'*. So that *A'* becomes `ENABLED` and a new instance of the corresponding task is not created, because the repetition rule evaluates to `false`.
 {{< img src="../img/repetition-by-entry-criteria/state-5.png" >}}
+10. From now on, no more repetitions of *A* or *B* can occur.
 
 
 # Camunda Extensions

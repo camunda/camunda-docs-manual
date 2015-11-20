@@ -542,7 +542,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       The attribute specifies a transition in which the repetition rule of a stage or task is evaluated.
       <br>
       <br>
-      Note that this attribute is omitted when the stage or task to repeat has a least one entry criterion.
+      Note that this attribute is omitted when the stage or task to repeat has at least one entry criterion.
     </td>
   </tr>
   <tr>
