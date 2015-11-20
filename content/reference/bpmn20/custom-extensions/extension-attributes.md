@@ -1022,12 +1022,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      singleValue, singleOutput, collectValues, outputList
+      singleEntry, singleResult, collectEntries, resultList
     </td>
   </tr>
   <tr>
     <th>Default Value</th>
-    <td>outputList</td>
+    <td>resultList</td>
   </tr>
   <tr>
     <th>BPMN 2.0 Elements</th>

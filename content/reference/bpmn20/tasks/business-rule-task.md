@@ -51,12 +51,12 @@ an expression which will be evaluated on execution of the task.
 
 The output of the decision, also called decision result, is not saved as process variable automatically. It has to pass into a process variable by using a [predefined]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#predefined-mapping-of-the-decision-result" >}}) or a [custom]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-into-process-variables" >}}) mapping of the decision result.
 
-In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `outputList` mapper is used by default. 
+In case of a predefined mapping, the `camunda:mapDecisionResult` attribute references the mapper to use. The result of the mapping is saved in the variable which is specified by the `camunda:resultVariable` attribute. If no predefined mapper is set then the `resultList` mapper is used by default.
 
 ```xml
 <businessRuleTask id="businessRuleTask"
     camunda:decisionRef="myDecision"
-    camunda:mapDecisionResult="singleValue"
+    camunda:mapDecisionResult="singleEntry"
     camunda:resultVariable="result" />
 ```
 

@@ -18,12 +18,12 @@ A decision can be invoked inside a BPMN process or a CMMN case.
 
 ## DMN Business Rule Task
 
-A DMN Business Rule Task references a decision table which is deployed inside the engine. The decision table is invoked when the task is entered. 
+A DMN Business Rule Task references a decision table which is deployed inside the engine. The decision table is invoked when the task is entered.
 
 ```xml
 <businessRuleTask id="businessRuleTask"
     camunda:decisionRef="myDecision"
-    camunda:mapDecisionResult="singleValue"
+    camunda:mapDecisionResult="singleEntry"
     camunda:resultVariable="result" />
 ```
 
@@ -31,11 +31,11 @@ For more information on this please refer to the [BPMN 2.0 reference]({{< relref
 
 ## DMN Decision Task
 
-A DMN Decision Task references a decision table which is deployed inside the engine. The decision table is invoked when the task is activated. 
+A DMN Decision Task references a decision table which is deployed inside the engine. The decision table is invoked when the task is activated.
 
 ```xml
 <decisionTask id="businessRuleTask" decisionRef="myDecision"
-    camunda:mapDecisionResult="singleValue"
+    camunda:mapDecisionResult="singleEntry"
     camunda:resultVariable="result" />
 ```
 
@@ -45,7 +45,7 @@ For more information on this please refer to the [CMMN 1.1 reference]({{< relref
 
 The output of the decision, also called decision result, is a complex object of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output entries of this rule are represented by the key-value pairs.
 
-The type `DmnDecisionTableResult` provides methods from List interface and some convenience methods like `getSingleOutput()` or `getFirstOutput()` to get the output entries of a matched rule. The output entries provides methods from Map interface and also convenience methods like `getSingleValue()` or `getFirstValue()`. For example, `decisionResult.getSingleOutput().result` returns the output entry with name `result` of the only matched rule. It also provides methods to get typed output entries like `getSingleValueTyped()`. Please refer to the [User Guide]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) for details about typed values. A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
+The type `DmnDecisionTableResult` provides methods from List interface and some convenience methods like `getSingleResult()` or `getFirstResult()` to get the result of a matched rule. The rule results provides methods from Map interface and also convenience methods like `getSingleEntry()` or `getFirstEntry()`. For example, `decisionResult.getSingleResult().getEntry("result")` returns the output entry with name `result` of the only matched rule. It also provides methods to get typed output entries like `getSingleEntryTyped()`. Please refer to the [User Guide]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) for details about typed values. A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
 
 The decision result is available in the local scope of the executing task as a transient variable named `decisionResult`. It can be passed into a variable by using a predefined or a custom mapping of the decision result, if necessary.
 
@@ -60,33 +60,33 @@ The engine includes predefined mappings of the decision result for common use ca
     <th>Is suitable for decision tables with</th>
   </tr>
   <tr>
-    <td>singleValue</td>
-    <td>single typed value</td>
+    <td>singleEntry</td>
+    <td>single typed entry</td>
     <td>single output entry and hit policy unique, first, priority or collect with an aggregator function</td>
   </tr>
   <tr>
-    <td>singleOutput</td>
+    <td>singleResult</td>
     <td>Map of String and Object</td>
     <td>multiple output entries and hit policy unique, first, priority or collect with an aggregator function</td>
   </tr>
   <tr>
-    <td>collectValues</td>
+    <td>collectEntries</td>
     <td>List of Objects</td>
-    <td>single output entry and hit policy rule order, output order or collect without an aggregator function</td>
+    <td>single output and hit policy rule order, output order or collect without an aggregator function</td>
   </tr>
   <tr>
-    <td>outputList</td>
+    <td>resultList</td>
     <td>List of Maps of String and Object</td>
     <td>multiple output entries and hit policy rule order, output order or collect without an aggregator function</td>
   </tr>
 </table>
 
-Only the `singleValue` mapper returns a [typed value]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) that contains the value of the output entry and additional type informations. The other mappers returns a collection which contains the value of the output entry as pure object.
+Only the `singleEntry` mapper returns a [typed value]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) that contains the value of the output entry and additional type informations. The other mappers returns a collection which contains the value of the output entry as pure object.
 
-Note that the mapper throw an exception if the decision result is not suitable. For example, the `singleValue` mapper throw an exception if the decision result contains more than one matched rule.
+Note that the mapper throw an exception if the decision result is not suitable. For example, the `singleEntry` mapper throw an exception if the decision result contains more than one matched rule.
 
 {{< note title="Limitations of Serialization" class="warning" >}}
-If you are using one of the predefined mappers `singleOutput`, `collectValues` or `outputList` then you should consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
+If you are using one of the predefined mappers `singleResult`, `collectEntries` or `resultList` then you should consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
 {{< /note >}}
 
 ## Custom Mapping of the Decision Result
@@ -99,17 +99,17 @@ If you pass a collection or a complex object to a variable then you should consi
 
 ### Custom Mapping into Process Variables
 
-If a business rule task is used to invoke a decision inside a BPMN process, then the decision result can be passed into process variables by using [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}). For example, the decision result have multiple output values which should be saved in separate process variables. 
+If a business rule task is used to invoke a decision inside a BPMN process, then the decision result can be passed into process variables by using [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}). For example, the decision result have multiple output values which should be saved in separate process variables.
 
 ```xml
 <businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision">
   <extensionElements>
     <camunda:inputOutput>
       <camunda:outputParameter name="result">
-        ${decisionResult.getSingleOutput().result}
+        ${decisionResult.getSingleResult().result}
       </camunda:outputParameter>
       <camunda:outputParameter name="reason">
-        ${decisionResult.getSingleOutput().reason}
+        ${decisionResult.getSingleResult().reason}
       </camunda:outputParameter>
     </camunda:inputOutput>
   </extensionElements>
@@ -133,11 +133,11 @@ public class MyDecisionResultListener implements ExecutionListener {
   @Override
   public void notify(DelegateExecution execution) throws Exception {
     DmnDecisionResult decisionResult = execution.getVariable("decisionResult");
-    String result = decisionResult.getSingleOutput().get("result");
-    String reason = decisionResult.getSingleOutput().get("reason");
+    String result = decisionResult.getSingleResult().get("result");
+    String reason = decisionResult.getSingleResult().get("reason");
     // ...
   }
-  
+
 }
 ```
 
@@ -160,8 +160,8 @@ public class MyDecisionResultListener implements CaseExecutionListener {
   @Override
   public void notify(DelegateCaseExecution caseExecution) throws Exception;
     DmnDecisionResult decisionResult = caseExecution.getVariable("decisionResult");
-    String result = decisionResult.getSingleOutput().get("result");
-    String reason = decisionResult.getSingleOutput().get("reason");
+    String result = decisionResult.getSingleResult().get("result");
+    String reason = decisionResult.getSingleResult().get("reason");
     // ...
     caseExecution.setVariable("result", result);
     // ...
@@ -172,13 +172,13 @@ public class MyDecisionResultListener implements CaseExecutionListener {
 
 ## Limitations of the Serialization of the Mapping Result
 
-The predefined mappings `singleOutput`, `collectValues` and `outputList` map the decision result to collections. The implementation of the collections are from the JDK and contains untyped values as Objects. When a collection is saved as process variable then it is serialized as object value because there is no suitable primitive value type. Depends on your [object value serialization]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}), this can lead to deserialization problems. 
+The predefined mappings `singleResult`, `collectEntries` and `resultList` map the decision result to collections. The implementation of the collections are from the JDK and contains untyped values as Objects. When a collection is saved as process variable then it is serialized as object value because there is no suitable primitive value type. Depends on your [object value serialization]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}), this can lead to deserialization problems.
 
 In case you are using the default build-in object serialization, the variable can not be deserialized if the JDK is upgraded or changed and contains an incompatible version of the collection class. Otherwise, if you are using another serialization like JSON then you should consider that the untyped value is deserializable. For example, a collection of date values can not be deserialized using JSON because JSON has no registered mapper for date by default.
 
 The same problems can occur by using a custom output variable mapping since `DmnDecisionTableResult` have methods that returns the same collections as the predefined mappers. Additionally, it is not recommended to save a `DmnDecisionTableResult` or a `DmnRuleResult` as process variable because the implementation can change in a new version of Camunda BPM.
 
-To be aware of these problems, you can use primitive variables only. Alternatively, you can use a custom object for serialization that you can control by yourself. 
+To be aware of these problems, you can use primitive variables only. Alternatively, you can use a custom object for serialization that you can control by yourself.
 
 # Accessing Process Variables from Decision Tables
 
