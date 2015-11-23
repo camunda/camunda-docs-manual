@@ -12,21 +12,157 @@ menu:
 
 ---
 
+The Camunda DMN engine allows you to evaluate DMN 1.1 [decision
+tables][decision table]. Multiple cells of the decision table contain
+expressions which are evaluated by the DMN engine. This section describes which
+expressions exists. And which expression languages are supported. Also it will
+demonstrate how to change the used expression language for an expression.
+
 # Expressions in DMN
 
-Input Exressions, Input Entries, Output Entries
-Links ...
+As show in the [decision table] reference the Camunda DMN engine supports
+three types of expressions:
+
+- *Input Expression*: which result sets the input value for an input column
+  of the decision table
+- *Input Entry*: which result is used to determine if a rule of the decision
+  table is applicable
+- *Output Entry*: which result is part of the output of a matched rule
+  of the decision table
+
+You can read more on this in the [DMN 1.1 reference][decision table]. In
+the DMN 1.1 XML these expressions can be found in the following XML
+elements `inputExpression`, `inputEntry` and `outputEntry`:
+
+```xml
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Decision">
+    <decisionTable>
+      <input id="input">
+        <!-- the input expressions determines the input value of a column -->
+        <inputExpression>
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <output id="output"/>
+      <rule id="rule1">
+      <!-- the input entry determines if the rule is applicable -->
+        <inputEntry>
+          <text>[18..30]</text>
+        </inputEntry>
+        <!-- the output entry determines the rule if it is applicable -->
+        <outputEntry>
+          <text>"okay"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
+```
 
 # Supported Expression Languages
 
-## Configuring the Default Expression Language
+The Camunda DMN engine supports two expression languages out of the box:
 
-## FEEL
+- `JUEL`: An [implementation][juel] of the Java [Unified Expression Language][EL]
+- `FEEL`: The Friendly Enough Expression Language of the [DMN 1.1] standard.
+  **Note**: `FEEL` is only supported for Input Entries in the Camunda DMN
+  engine. Please see the [reference][FEEL] for more information.
 
-### Configuring the Feel Provider
+Depending on the JDK you use there may also be a `Javascript` implementation
+available like [Rhino] or [Nashhorn].
 
-## Java Expression Lanaguage
+You can also use every other script language which provides a [JSR-223]
+implementation. This includes `groovy`, `python` and `ruby`. To use this
+languages you have to add the corresponding dependency to your project.
 
-### Configuring the Java EL Provider
+For example to use `grooy` as languages for expressions add this dependency
+to your project `pom.xml`:
 
-## Other Script Languages
+```xml
+<dependency>
+  <groupId>org.codehaus.groovy</groupId>
+  <artifactId>groovy-all</artifactId>
+  <!-- please update this version if needed -->
+  <version>2.4.5</version>
+</dependency>
+```
+
+# Default Expression Languages
+
+The default expression languages of the different expression types in the
+DMN engine are as follows:
+
+- *Input Expression*: `JUEL`
+- *Input Entry*: `FEEL`
+- *Output Entry*: `JUEL`
+
+You can change the default language for all expression by setting it
+directly in the DMN 1.1 XML with the `expressionLanguage` attribute of
+the `definitions` element:
+
+```xml
+<!-- this sets the default expression language for all expressions in this file to javascript -->
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
+  <decision  id="decision" name="Decision">
+    <decisionTable>
+      <!-- ... -->
+    </decisionTable>
+  </decision>
+</definitions>
+```
+
+Additionally you can change the default expression language for every
+expression type in the default DMN engine configuration as described
+in the [user guide][default EL].
+
+
+# Configuring the Expression Language
+
+The DMN 1.1 standard allows you to individually specify the expression language
+of every expression. The expression language of an expression can be
+change by the `expressionLanguage` attribute:
+
+```xml
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Decision">
+    <decisionTable>
+      <input id="input">
+        <!-- use javascript for this input expression -->
+        <inputExpression expressionLanguage="javascript">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <output id="output"/>
+      <rule id="rule1">
+        <!-- use juel for this input entry -->
+        <inputEntry expressionLanguage="juel">
+          <text>[18..30]</text>
+        </inputEntry>
+        <!-- use javascript for this output entry -->
+        <outputEntry expressionLanguage="javascript">
+          <text>"okay"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
+```
+
+If you want to use another Java Unified Expression Language or FEEL
+implementation you can replace the default implementations in the
+[DMN engine configuration][configure EL]. This way you can also change
+the JSR-223 script engine resolving, for example if you want to configure
+the script engine before using it.
+
+
+[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[juel]: http://juel.sourceforge.net/
+[EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
+[DMN 1.1]: http://www.omg.org/spec/DMN/
+[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
+[Rhino]: https://developer.mozilla.org/de/docs/Rhino
+[Nashhorn]: https://blogs.oracle.com/nashorn/
+[JSR-223]: https://www.jcp.org/en/jsr/detail?id=223
+[default EL]: {{< relref "user-guide/dmn-engine/embed.md#change-default-expression-languages" >}}
+[configure EL]: {{< relref "user-guide/dmn-engine/embed.md#customize-expression-and-script-resolving" >}}
