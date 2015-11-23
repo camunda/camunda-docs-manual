@@ -17,13 +17,14 @@ This document guides you through the update from Camunda BPM `7.3.x` to `7.4.0`.
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
-3. For developers: [CMMN 1.1 Support]({{< relref "#cmmn-1-1-support" >}})
+3. For developers: [CMMN Model API]({{< relref "#cmmn-model-api" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.4.
 
 Noteworthy new Features in 7.4:
 
-* **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4.
+* **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. Nevertheless the execution of CMMN 1.0 is still supported by Camunda BPM.
+
 
 
 [cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
@@ -124,10 +125,6 @@ The behavior of the [user operation log]({{< relref "user-guide/process-engine/h
 Furthermore, with 7.4 task events are only logged when they occur in the context of a logged in user. Task events are accessible via the deprecated API `TaskService#getTaskEvents`. If you rely on this API method, the previous behavior can be restored by setting the flag `restrictUserOperationLogToAuthenticatedUsers` to `false`.
 
 
-## CMMN 1.1 Support
+### CMMN Model API
 
-With Camunda BPM 7.4 the emerging OMG standard CMMN 1.1 is supported, so that CMMN 1.1 XML files can be deployed to the engine and executed by the engine.
-
-It is not necessary to update existing CMMN XML files from 1.0 to 1.1, since the execution of CMMN 1.0 is still supported. However, if there is a need to update existing CMMN 1.0 XML files, the required adjustments can be found in the section about updating [CMMN 1.0 XMLs to 1.1]({{< relref "reference/cmmn11/update-from-10-to-11.md" >}}) inside the [CMMN 1.1 reference]({{< relref "reference/cmmn11/index.md" >}}).
-
-As a consequence of supporting CMMN 1.1 the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN models.
+As a consequence of supporting CMMN 1.1 the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN models. To avoid the limitations we recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
