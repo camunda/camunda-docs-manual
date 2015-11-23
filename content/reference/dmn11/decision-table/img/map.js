@@ -24,39 +24,41 @@ function mkEl(tagName, attrs) {
 
 var regions = {
   name: {
-    title: 'Table name',
+    title: 'Decision Name & Id',
     href: '#the-name-of-the-decision-table',
+    description: '',
     coords: [
       {
-        top: 14,
-        left: 0.5,
-        width: 9.2,
-        height: 17
+        top: 0,
+        left: 9.5,
+        width: 23,
+        height: 4
       },
       {
-        top: 0,
-        left: 2.5,
-        width: 21,
-        height: 5
+        top: 13,
+        left: 0,
+        width: 14,
+        height: 15
       }
     ]
   },
 
   hitPolicy: {
-    title: 'Hit policies',
+    title: 'Hit policy',
     href: 'hit-policy/',
+    description: '',
     coords: [
       {
-        top: 31,
-        left: 0.5,
-        width: 5,
-        height: 23
+        top: 7,
+        left: 12,
+        width: 11,
+        height: 4
       },
       {
-        top: 8,
-        left: 11,
-        width: 11.2,
-        height: 5
+        top: 28,
+        left: 0,
+        width: 7,
+        height: 20
       }
     ]
   },
@@ -64,17 +66,18 @@ var regions = {
   inputExpression: {
     title: 'Input Expression',
     href: 'input/#input-expressions',
+    description: '',
     coords: [
       {
-        top: 42,
-        left: 5,
-        width: 24,
-        height: 7
+        top: 14,
+        left: 22,
+        width: 19,
+        height: 4
       },
       {
-        top: 16,
-        left: 23,
-        width: 17.2,
+        top: 38.5,
+        left: 7,
+        width: 23,
         height: 5
       }
     ]
@@ -83,17 +86,18 @@ var regions = {
   inputTypeDefinition: {
     title: 'Input Type Definition',
     href: 'input/#input-type-definitions',
+    description: '',
     coords: [
       {
-        top: 47.5,
-        left: 28.5,
+        top: 20,
+        left: 30,
         width: 24,
-        height: 7
+        height: 4
       },
       {
-        top: 23,
-        left: 31,
-        width: 21,
+        top: 43,
+        left: 30,
+        width: 23,
         height: 5
       }
     ]
@@ -102,17 +106,18 @@ var regions = {
   rule: {
     title: 'Rule',
     href: 'rule',
+    description: '',
     coords: [
       {
-        top: 58,
-        left: 0.5,
-        width: 99,
-        height: 7
+        top: 96,
+        left: 46,
+        width: 5,
+        height: 4
       },
       {
-        top: 95,
-        left: 39,
-        width: 5,
+        top: 53,
+        left: 0,
+        width: 100,
         height: 5
       }
     ]
@@ -121,17 +126,18 @@ var regions = {
   conditions: {
     title: 'Input Entries (Conditions)',
     href: 'rule/#input-entries-conditions',
+    description: '',
     coords: [
       {
-        top: 69,
-        left: 5,
-        width: 24,
-        height: 7
+        top: 96,
+        left: 1,
+        width: 27,
+        height: 4
       },
       {
-        top: 95,
-        left: 5,
-        width: 22,
+        top: 66,
+        left: 6,
+        width: 24,
         height: 5
       }
     ]
@@ -140,17 +146,18 @@ var regions = {
   conclusions: {
     title: 'Output Entries (Conclusions)',
     href: 'rule/#output-entries-conclusions',
+    description: '',
     coords: [
       {
-        top: 73.5,
-        left: 52,
-        width: 24,
-        height: 7
+        top: 96,
+        left: 64,
+        width: 30,
+        height: 4
       },
       {
-        top: 95,
-        left: 52,
-        width: 22,
+        top: 66,
+        left: 53,
+        width: 24,
         height: 5
       }
     ]
@@ -159,17 +166,18 @@ var regions = {
   outputName: {
     title: 'Output Name',
     href: 'output/#output-name',
+    description: '',
     coords: [
       {
-        top: 42,
-        left: 52,
-        width: 24,
-        height: 7
+        top: 14,
+        left: 59,
+        width: 16,
+        height: 4
       },
       {
-        top: 16,
-        left: 56,
-        width: 13.2,
+        top: 38,
+        left: 53,
+        width: 24,
         height: 5
       }
     ]
@@ -178,17 +186,18 @@ var regions = {
   outputTypeDefinition: {
     title: 'Output Type Definition',
     href: 'output/#output-type-definitions',
+    description: '',
     coords: [
       {
-        top: 47.5,
-        left: 52,
-        width: 24,
-        height: 7
+        top: 20,
+        left: 67,
+        width: 26,
+        height: 4
       },
       {
-        top: 23,
-        left: 64,
-        width: 22,
+        top: 43,
+        left: 53,
+        width: 24,
         height: 5
       }
     ]
@@ -210,12 +219,13 @@ holder.appendChild(wrapper);
 holder.style.position = 'relative';
 
 keys(regions).forEach(function (name) {
-  regions[name].coords.forEach(function (coords) {
+  regions[name].coords.forEach(function (coords/*, c*/) {
     var el = mkEl('a', {
       href:   regions[name].href,
       title:  regions[name].title,
       style:  'position:absolute;' +
               'display:block;' +
+              // 'background-color:rgba('+ (c ? '0,122' : '122,0') +',0,0.5);' +
               'cursor:pointer;' +
               'top:' + coords.top + '%;' +
               'left:' + coords.left + '%;' +
