@@ -5,8 +5,8 @@ weight: 60
 
 menu:
   main:
-    identifier: "user-guide-model-api-extension-elements"
-    parent: "user-guide-model-api"
+    identifier: "user-guide-bpmn-model-api-extension-elements"
+    parent: "user-guide-bpmn-model-api"
 
 ---
 

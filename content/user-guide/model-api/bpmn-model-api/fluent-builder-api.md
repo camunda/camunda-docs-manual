@@ -5,8 +5,8 @@ weight: 40
 
 menu:
   main:
-    identifier: "user-guide-model-api-fluent"
-    parent: "user-guide-model-api"
+    identifier: "user-guide-bpmn-model-api-fluent"
+    parent: "user-guide-bpmn-model-api"
 
 ---
 

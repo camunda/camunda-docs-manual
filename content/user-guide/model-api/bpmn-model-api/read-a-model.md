@@ -5,8 +5,8 @@ weight: 10
 
 menu:
   main:
-    identifier: "user-guide-model-api-reading-a-model"
-    parent: "user-guide-model-api"
+    identifier: "user-guide-bpmn-model-api-reading-a-model"
+    parent: "user-guide-bpmn-model-api"
 
 ---
 

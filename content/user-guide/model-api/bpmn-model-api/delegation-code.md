@@ -5,8 +5,8 @@ weight: 20
 
 menu:
   main:
-    identifier: "user-guide-model-api-delegation"
-    parent: "user-guide-model-api"
+    identifier: "user-guide-bpmn-model-api-delegation"
+    parent: "user-guide-bpmn-model-api"
 
 ---
 

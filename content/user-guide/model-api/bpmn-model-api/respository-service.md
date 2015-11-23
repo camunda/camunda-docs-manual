@@ -5,8 +5,8 @@ weight: 50
 
 menu:
   main:
-    identifier: "user-guide-model-api-repository-service"
-    parent: "user-guide-model-api"
+    identifier: "user-guide-bpmn-model-api-repository-service"
+    parent: "user-guide-bpmn-model-api"
 
 ---
 
