@@ -34,7 +34,7 @@ You can also redeploy only a single resource within the deployment: Navigate to 
 
 # Definition Resources
 
-For resources that contain definitions (bpmn, dmn and cmmn files), a preview of the diagram or the table is displayed on the right side of the page as well as the version number of the definitions contained in this resource. On the bottom of the page, there is a list of definitions with a link to the respective definition pages. The enterprise version also includes the possibility to [edit DMN tables directly on the page]({{< relref "webapps/cockpit/dmn-live-editing.md" >}}).
+For resources that contain definitions (bpmn, dmn and cmmn files), a preview of the diagram or the table is displayed on the right side of the page as well as the version number of the definitions contained in this resource. On the bottom of the page, there is a list of definitions with a link to the respective definition pages. The enterprise version also includes the possibility to [edit DMN tables directly on the page]({{< relref "webapps/cockpit/deployment-view.md#dmn-live-editing" >}}).
 
 # DMN Live Editing
 
