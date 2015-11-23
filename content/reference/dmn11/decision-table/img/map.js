@@ -24,9 +24,8 @@ function mkEl(tagName, attrs) {
 
 var regions = {
   name: {
-    title: 'Decision Name & Id',
+    title: 'Decision Name & ID',
     href: '#the-name-of-the-decision-table',
-    description: '',
     coords: [
       {
         top: 0,
@@ -46,7 +45,6 @@ var regions = {
   hitPolicy: {
     title: 'Hit policy',
     href: 'hit-policy/',
-    description: '',
     coords: [
       {
         top: 7,
@@ -66,7 +64,6 @@ var regions = {
   inputExpression: {
     title: 'Input Expression',
     href: 'input/#input-expressions',
-    description: '',
     coords: [
       {
         top: 14,
@@ -86,7 +83,6 @@ var regions = {
   inputTypeDefinition: {
     title: 'Input Type Definition',
     href: 'input/#input-type-definitions',
-    description: '',
     coords: [
       {
         top: 20,
@@ -106,7 +102,6 @@ var regions = {
   rule: {
     title: 'Rule',
     href: 'rule',
-    description: '',
     coords: [
       {
         top: 96,
@@ -124,9 +119,8 @@ var regions = {
   },
 
   conditions: {
-    title: 'Input Entries (Conditions)',
+    title: 'Input Entry (Condition)',
     href: 'rule/#input-entries-conditions',
-    description: '',
     coords: [
       {
         top: 96,
@@ -144,9 +138,8 @@ var regions = {
   },
 
   conclusions: {
-    title: 'Output Entries (Conclusions)',
+    title: 'Output Entry (Conclusion)',
     href: 'rule/#output-entries-conclusions',
-    description: '',
     coords: [
       {
         top: 96,
@@ -166,7 +159,6 @@ var regions = {
   outputName: {
     title: 'Output Name',
     href: 'output/#output-name',
-    description: '',
     coords: [
       {
         top: 14,
@@ -186,7 +178,6 @@ var regions = {
   outputTypeDefinition: {
     title: 'Output Type Definition',
     href: 'output/#output-type-definitions',
-    description: '',
     coords: [
       {
         top: 20,
