@@ -23,6 +23,7 @@ The process engine depends on the following third-party libraries:
 * [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) {{< RD >}}, [(Apache License 2.0)][apache] for object-relational mapping.
 * [Joda Time](http://www.joda.org/joda-time/) {{< RD >}}, [(Apache License 2.0)][apache] for parsing date formats.
 * [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome), {{< OD >}}, [(Apache License 2.0)][apache] Id Generator. See documentation on Id-Generators.
+* [SLF4J](http://www.slf4j.org/), {{< RD >}}, [(MIT)][mit] Logging Facade
 
 Additionally, the process engine can be integrated with:
 
