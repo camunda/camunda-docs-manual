@@ -80,7 +80,7 @@ See [Installation Guide][installation-guide-standalone] for additional details.
 
 # Download Camunda Modeler
 
-Camunda Modeler is an Eclipse based modeling Tool for BPMN 2.0. Camunda Modeler can be downloaded
+Camunda Modeler is a modeling Tool for BPMN 2.0 and DMN 1.1. Camunda Modeler can be downloaded
 from the [community download page][community-download-page].
 
 

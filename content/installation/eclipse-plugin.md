@@ -5,16 +5,14 @@ weight: 30
 
 menu:
   main:
-    name: "Modeler Eclipse Plugin"
-    identifier: "installation-guide-modeler"
+    name: "Camunda Modeler Eclipse Plugin"
+    identifier: "installation-guide-modeler-eclipse"
     parent: "installation-guide"
     pre: "Install the BPMN 2.0 Modeler Plugin for Eclipse."
 
 ---
 
-
-This page explains how to install the Camunda Modeler is a BPMN 2.0 modeling plugin for the Eclipse IDE. This document will guide you through the installation process step by step and gives you information about download pages, requirements and troubleshooting.
-
+This page explains how to install the Camunda Modeler Eclipse Plugin for modeling BPMN 2.0 diagrams. This document will guide you through the installation process step by step and gives you information about download pages, requirements and troubleshooting.
 
 # Installation
 

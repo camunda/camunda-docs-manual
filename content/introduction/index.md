@@ -36,5 +36,5 @@ to give you an overview of Camunda, the following illustration shows the most im
 
 # Additional Tools
 
-* [Camunda Modeler](http://camunda.org/bpmn/tool/): Eclipse plugin for process modeling.
+* [Camunda Modeler](http://camunda.org/bpmn/tool/): Modeling tool for BPMN 2.0 diagrams and DMN 1.1 decision tables.
 * [bpmn.io](http://bpmn.io/): BPMN web modeler which is used in our web applications Cockpit and Tasklist for rendering BPMN 2.0 process models in a browser. Although [bpmn.io](http://bpmn.io/) is still under development, its API is rather stable.

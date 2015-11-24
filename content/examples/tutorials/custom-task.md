@@ -1,6 +1,6 @@
 ---
 
-title: 'Creating Custom Tasks for the Camunda Modeler'
+title: 'Creating Custom Tasks for the Camunda Modeler Eclipse Plugin'
 weight: 70
 
 menu:
@@ -10,11 +10,11 @@ menu:
 
 ---
 
-By providing custom tasks to the Camunda Modeler, vendors may provide special tasks to users through the Modelers palette. Along with these custom tasks, vendors may ship extensions to the properties panel through which task-specific properties can be maintained.
+By providing custom tasks to the Camunda Modeler Eclipse Plugin, vendors may provide special tasks to users through the Modeler's palette. Along with these custom tasks, vendors may ship extensions to the properties panel through which task-specific properties can be maintained.
 
 ![Custom task extension in action][1]
 
-This tutorial guides you through the creation of a custom task extension for the Camunda Modeler.
+This tutorial guides you through the creation of a custom task extension for the Camunda Modeler Eclipse Plugin.
 
 The source of custom task extension that is developed in this tutorial is [available as a sample application][2].
 
