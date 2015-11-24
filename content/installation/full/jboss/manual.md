@@ -254,7 +254,6 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `org/camunda/connect/camunda-connect-http-client`
 * `org/camunda/connect/camunda-connect-soap-http-client`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
-* `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-utils`
 * `org/apache/httpcomponents/httpclient`
 * `org/apache/httpcomponents/httpcore`
@@ -291,7 +290,6 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
 * `org/camunda/bpm/camunda-engine-plugin-spin`
-* `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-utils`
 * `com/fasterxml/jackson/core/jackson-core`
 * `com/fasterxml/jackson/core/jackson-databind`

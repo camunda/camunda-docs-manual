@@ -293,9 +293,7 @@ In some situations, you have to start the web application manually from the **Ap
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib` to the `Camunda` shared library folder:
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in the BPM platform configuration as follows:
 
@@ -324,9 +322,7 @@ Note that this requires a custom `bpm-platform.xml` file.
 Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION/modules/lib/` to the `Camunda` shared library folder:
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
 
 In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in the BPM platform configuration as follows:
 
@@ -364,9 +360,7 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
 * `freemarker-2.3.20.jar`
-* `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
 
 
 # Process Applications
