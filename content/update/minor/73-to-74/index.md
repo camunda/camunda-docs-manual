@@ -110,6 +110,12 @@ There are no new mandatory dependencies but some artifacts have new transitive d
 
 This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
 
+### Logging
+
+As of 7.4 the process engine uses SLF4J for logging. The SLF4J api is pulled in transitively by the process engine maven module.
+However, in order for any actual logging to occur, you need to add an slf4j compatible logging backend. Please refer to the user guide for
+[Information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
+
 ### Task Query Expressions
 
 As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.

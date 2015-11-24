@@ -53,10 +53,13 @@ Add or replace (if already present) the following libraries:
 * `camunda-commons-typed-values-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
-Add or replace (if already present) the following SLF4J libraries unless you use SLF4J anyway. In that case, make sure that this version is compatible with Camunda's version (TODO: welche Version setzen wir minimal voraus? Auf die Logging-Sektion linken, die Daniel noch schreiben will?)
+Starting from 7.4 SLF4J is a mandatory dependency. Add the SLF4J libraries (if not already present):
 
 * `slf4j-api-$SLF4J_VERSION.jar`
 * `slf4j-jdk14-$SLF4J_VERSION.jar`
+
+Camunda needs slf4j-api-1.7.7 or better.
+See the User Guide for [Information on Logging in Camunda]({{< relref "user-guide/logging.md" >}}).
 
 # 2. Upgrade Optional Camunda BPM Libraries
 
