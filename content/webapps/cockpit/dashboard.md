@@ -11,7 +11,7 @@ menu:
 ---
 
 
-The dashboard of Cockpit is your entry point for process monitoring. It comes with a pre-installed plugin, which lets you see deployed process defintions. Additional [plugins]({{< relref "webapps/cockpit/cockpit-plugins.md" >}}) can be added to the dashboard.
+The dashboard of Cockpit is your entry point for process monitoring. It comes with pre-installed plugins, which let you see deployed process and decision defintions. Additional [plugins]({{< relref "webapps/cockpit/cockpit-plugins.md" >}}) can be added to the dashboard.
 
 
 # Deployed Processes
@@ -28,6 +28,13 @@ You can also switch to the preview tab which includes the rendered process model
 
 [process-definition-view]: {{< relref "webapps/cockpit/process-definition-view.md" >}}
 [failed-jobs]: {{< relref "webapps/cockpit/failed-jobs.md" >}}
+
+
+# Deployed Decisions
+
+{{< img src="../img/cockpit-decision-definition-list.png" title="Deployed Decision Definitions" >}}
+
+This plugin provides you with a list of deployed decision definitions. You can click on the name of a decision to go to the decision definition view page and access more details about it, like the dmn table or executed decision instances.
 
 
 # Multi Tenancy

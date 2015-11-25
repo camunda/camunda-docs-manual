@@ -52,6 +52,9 @@ In the Variables tab you can see an overview of the variables used within the pr
 **Called Process Instances**
 In the Called Process Instances tab you can find an overview of other process instances which were called by this specific process instance. You can see the Name of the called process instances, the process definition and the activity.
 
+**Executed Decision Instances**
+In the Executed Decision Instances tab you can find an overview of all decision instances which were evaluated in this process instance. You can filter the listing by selecting business rule tasks. It then shows only decisions of the currently selected task. Clicking on the id of the decision instance will take you to the decision instance view page of this instance. Clicking on the decision definition key will take you to the decision definition page of the definition for this decision instance.
+
 **Incidents**
 In the Incidents tab you can find a listing of all incidents related to this process instance and the details thereof. This includes the message type, the time the incident was created, the end time, the actual activity, the cause process instance ID, the root cause process instance ID, the incident type and the current state.
 
