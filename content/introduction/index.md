@@ -10,7 +10,7 @@ menu:
 ---
 
 
-Welcome to the Camunda BPM Manual! Camunda is a Java-based framework supporting BPMN for workflow and process automation, CMMN for Case Management and DMN for Business Decision Management. See also: [Supported Standards]({{< relref "introduction/supported-standards.md" >}}).
+Welcome to the Camunda BPM Manual! Camunda is a Java-based framework supporting BPMN for workflow and process automation, CMMN for Case Management and DMN for Business Decision Management. See also: [Implemented Standards]({{< relref "introduction/implemented-standards.md" >}}).
 
 This document contains information about the features provided by the Camunda BPM platform.
 
