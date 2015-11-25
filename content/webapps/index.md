@@ -1,7 +1,7 @@
 ---
 
 title: "Web Applications"
-weight: 60
+weight: 50
 layout: "section-list"
 
 menu:

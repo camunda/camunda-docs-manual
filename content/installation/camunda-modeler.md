@@ -14,9 +14,7 @@ menu:
 
 This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diagrams and DMN 1.1 decision tables.
 
-# Installation
-
-## Requirements
+# Requirements
 
 Operation Systems
 
@@ -32,10 +30,10 @@ Operation Systems
   There are currently issues with using the 64-bit version of the modeler on Windows 10. We therefore recommend Windows 10 users to install the 32-bit version.
 {{< /note >}}
 
-## Download
+# Download
 
 The latest Camunda Modeler release can be downloaded on [camunda.org](https://camunda.org/download/modeler/).
 
-## Instructions
+# Instructions
 
 After downloading unpack the modeler. It can then be started by running the executable named *camunda-modeler*.
