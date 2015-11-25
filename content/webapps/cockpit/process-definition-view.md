@@ -17,7 +17,7 @@ In the tab `Process Instances` all running instances are listed in a tabular vie
 
 The tab `Called Process Definitions` displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the Process Definition View. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the column *Activity* you can select the instance that is calling the child process.
 
-The tab `Job Definitions` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information)
+The tab `Job Definitions` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< relref "webapps/cockpit/process-definition-view.md#set-job-priority">}}).
 
 
 [failed-activities]: {{< relref "webapps/cockpit/failed-jobs.md" >}}
@@ -114,3 +114,12 @@ Please note that this feature is only included in the enterprise edition of the 
 {{< img src="../img/cockpit-bulk-cancel.png" title="Bulk Cancel" >}}
 
 Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right hand side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
+
+
+# Set Job priority
+
+{{< img src="../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}
+
+You can change the job priority by overriding the priority specified in the BPMN 2.0 XML. To do so, click on the {{< glyphicon name="cog">}} icon in the `Job Definitions` tab. In the opened dialog you can override the job priority. If an override priority is already set, you can clear it to use the priority specified in the XML again. It is also possible to include existing jobs when changing the priority.
+
+By using the {{< glyphicon name="cog">}} button to the right of the process diagram, you can set the job priority of all jobs contained in the process definition at once.
