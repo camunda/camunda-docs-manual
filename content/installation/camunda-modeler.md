@@ -13,7 +13,6 @@ menu:
 ---
 
 This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diagrams and DMN 1.1 decision tables.
-It provides information about download pages, requirements, and known problems.
 
 # Installation
 
@@ -39,4 +38,4 @@ The latest Camunda Modeler release can be downloaded on [camunda.org](https://ca
 
 ## Instructions
 
-After downloading, make sure to unpack the modeler. It can then be started by running the executable named *camunda-modeler*.
+After downloading unpack the modeler. It can then be started by running the executable named *camunda-modeler*.
