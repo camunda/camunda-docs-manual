@@ -10,9 +10,11 @@ menu:
 ---
 
 
-Welcome to the Camunda BPM Manual! Camunda is a Java-based framework for process automation. This document contains information about the features provided by the Camunda BPM platform.
+Welcome to the Camunda BPM Manual! Camunda is a Java-based framework supporting BPMN for workflow and process automation, CMMN for Case Management and DMN for Business Decision Management. See also: [Supported Standards]({{< relref "introduction/supported-standards.md" >}}).
 
-to give you an overview of Camunda, the following illustration shows the most important components along with some typical user roles.
+This document contains information about the features provided by the Camunda BPM platform.
+
+To give you an overview of Camunda, the following illustration shows the most important components along with some typical user roles.
 
 {{< img src="img/architecture-overview.png" title="Camunda Components and Roles" >}}
 
@@ -24,6 +26,10 @@ to give you an overview of Camunda, the following illustration shows the most im
 * [CDI/Java EE Integration]({{< relref "user-guide/cdi-java-ee-integration/index.md" >}})
 * [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) (Integration with application server infrastructure.)
 
+# Modeler
+
+* [Camunda Modeler]({{< relref "modeler/index.md" >}}): Modeling tool for BPMN 2.0 diagrams and DMN 1.1 decision tables.
+* [bpmn.io](http://bpmn.io/): Upstream open-source project for the modeling framework and toolkits.
 
 # Web Applications
 
@@ -32,9 +38,3 @@ to give you an overview of Camunda, the following illustration shows the most im
 * [Camunda Cockpit]({{< relref "webapps/cockpit/index.md" >}}) A web application for process monitoring and operations that allows you to search for process instances, inspect their state and repair broken instances.
 * [Camunda Admin]({{< relref "webapps/admin/index.md" >}}) A web application that allows you to manage users, groups and authorizations.
 * [Camunda Cycle]({{< relref "webapps/cycle/index.md" >}}) A web application for synchronizing BPMN 2.0 process models between different modeling tools and modelers.
-
-
-# Additional Tools
-
-* [Camunda Modeler](http://camunda.org/bpmn/tool/): Modeling tool for BPMN 2.0 diagrams and DMN 1.1 decision tables.
-* [bpmn.io](http://bpmn.io/): BPMN web modeler which is used in our web applications Cockpit and Tasklist for rendering BPMN 2.0 process models in a browser. Although [bpmn.io](http://bpmn.io/) is still under development, its API is rather stable.
