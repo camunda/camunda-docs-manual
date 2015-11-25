@@ -16,12 +16,24 @@ This page provides information about logging in Camunda.
 
 Most Camunda Modules including the Camunda Engine use [slf4j] as logging "facade". This allows users to direct logging output to the logging "backend" of their choice, such as [logback] or [log4j].
 
+## Preconfigured Logging with a Shared Process Engine
+
+When installing Camunda as a shared process engine in an Application Server, Camunda logging is pre-configured.
+
+On all application servers except JBoss and Wildfly, logging is pre-configured using the slf4j-jdk14 bridge.
+This means that Camunda effectively re-directs all it's logging to Java Util Logging.
+Both SLF4J Api and the slf4j-jdk14 bridge are available in shared classpath which means that they are available in the classpath of all applications deployed on these servers.
+
+On JBoss / Wildfly, logging is directed to the JBoss logging infrastructure. SLF4J Api is not available in the classpath of custom applications by default.
+
 ## Adding a Logging Backend for Embedded use
 
 When using the Camunda Maven Modules in a custom application, only the [slf4j] api is pulled in transitively.
 If you do not provide any backend, nothing will be actually logged.
 
-See the [SLF4J Documentation](slf4j-backends) for information on how to add a logging backend.
+In the following, we provide two alternative examples of how to setup logging. See the [SLF4J Documentation](slf4j-backends) for more detailed information on how to add a logging backend.
+
+### Example using Java Util Logging
 
 If you do not care for a specific logging backend, the simplest option is to direct logging to Java Util Logging by adding the following
 maven dependency:
@@ -34,19 +46,82 @@ maven dependency:
 </dependency>
 ```
 
-Dependencies for other backends such as log4j or logback can be found in the [SLF4J Documentation][slf4j-backends].
+### Example using Logback
 
-## Preconfigured Logging with a Shared Process Engine
+For a more sophisticated logging setup we recommend using Logback. In order to do so, the following steps are necessary:
 
-When installing Camunda as a shared process engine in an Application Server, Camunda logging is pre-configured.
+Add the logback dependency
 
-On all application servers except JBoss and Wildfly, logging is pre-configured using the slf4j-jdk14 bridge.
-This means that Camunda effectively re-directs all it's logging to Java Util Logging.
-Both SLF4J Api and the slf4j-jdk14 bridge are available in shared classpath which means that they are available in the classpath of all applications deployed on these servers.
+```xml
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-classic</artifactId>
+  <version>1.1.2</version>
+</dependency>
+```
 
-On JBoss / Wildfly, logging is directed to the JBoss logging infrastructure. SLF4J Api is not available in the classpath of custom applications by default.
+Add a file named `logback.xml`. Example configuration:
 
-# Java Util Logging
+```xml
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- camunda -->
+  <logger name="org.camunda" level="info" />
+
+  <!-- common dependencies -->
+  <logger name="org.apache.ibatis" level="info" />
+  <logger name="javax.activation" level="info" />
+  <logger name="org.springframework" level="info" />
+
+  <root level="debug">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+</configuration>
+```
+
+Also make sure to make mybatis use SLF4J as logger by adding
+
+```java
+LogFactory.useSlf4jLogging();
+```
+
+somewhere in your setup code.
+
+# Logging Categories
+
+## Process Engine
+
+The process engine logs on the following categories
+
+* org.camunda.bpm.engine.test
+* org.camunda.bpm.engine.bpmn.parser
+* org.camunda.bpm.engine.bpmn.behavior
+* org.camunda.bpm.engine.cmmn.transformer
+* org.camunda.bpm.engine.cmmn.behavior
+* org.camunda.bpm.engine.cmmn.operation
+* org.camunda.bpm.engine.cmd
+* org.camunda.bpm.engine.persistence
+* org.camunda.bpm.engine.tx
+* org.camunda.bpm.engine.cfg
+* org.camunda.bpm.engine.jobexecutor
+* org.camunda.bpm.engine.context
+* org.camunda.bpm.engine.core
+* org.camunda.bpm.engine.pvm
+* org.camunda.bpm.engine.metrics
+* org.camunda.bpm.engine.util
+* org.camunda.bpm.application
+* org.camunda.bpm.container
+
+# Legacy: Java Util Logging
 
 Some Camunda modules still use Java Util Logging directly.
 The use of Java Util Logging in these modules is considered deprecated and will be gradually migrated to [slf4j] in future releases.
