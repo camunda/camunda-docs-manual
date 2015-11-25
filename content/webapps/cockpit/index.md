@@ -13,7 +13,7 @@ menu:
 ---
 
 
-With Camunda BPM Cockpit is a web application for monitoring and operations. It provides access to deployed BPMN Processes and DMN Decisions, allows to search though running and ended instances and perform operations on these.
+Camunda BPM Cockpit is a web application for monitoring and operations. It provides access to deployed BPMN Processes and DMN Decisions, allows to search though running and ended instances and perform operations on these.
 
 {{< img src="img/cockpit-start-page-view.png" title="Cockpit Dashboard" >}}
 
