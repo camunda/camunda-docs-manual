@@ -15,7 +15,7 @@ In this how-to we will walk through the steps needed to develop a Cockpit plug-i
 {{< img src="../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
 
 {{< note title="Heads-Up" class="warning" >}}
-Please take a look at the <a href="{{< relref "webapps/cockpit/cockpit-plugins.md" >}}">Cockpit Plug-ins</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for the basics first.
+Please take a look at the <a href="{{< relref "webapps/cockpit/extend/plugins.md" >}}">Cockpit Plug-ins</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for the basics first.
 {{< /note >}}
 
 

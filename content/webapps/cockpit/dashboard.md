@@ -7,11 +7,12 @@ menu:
   main:
     identifier: "user-guide-cockpit-dashboard"
     parent: "user-guide-cockpit"
+    pre: "Entry Point to Cockpit, provides overview and search"
 
 ---
 
 
-The dashboard of Cockpit is your entry point for process monitoring. It comes with pre-installed plugins, which let you see deployed process and decision defintions. Additional [plugins]({{< relref "webapps/cockpit/cockpit-plugins.md" >}}) can be added to the dashboard.
+The dashboard of Cockpit is your entry point for process monitoring. It comes with pre-installed plugins, which let you see deployed process and decision defintions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
 
 
 # Deployed Processes
@@ -26,8 +27,8 @@ With this plugin you can easily observe the state of a processes definition. Gre
 You can also switch to the preview tab which includes the rendered process model of each deployed process. Additionally, you get information about how many instances of the process are currently running and about the process state. Green and red dots signalize running and [failed jobs][failed-jobs]. Click on the model to go to the [Process Definition View][process-definition-view].
 
 
-[process-definition-view]: {{< relref "webapps/cockpit/process-definition-view.md" >}}
-[failed-jobs]: {{< relref "webapps/cockpit/failed-jobs.md" >}}
+[process-definition-view]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md" >}}
+[failed-jobs]: {{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}
 
 
 # Deployed Decisions

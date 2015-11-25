@@ -162,7 +162,7 @@ First of all, we have to grant the *accounting* group `READ` permission for filt
 
 {{< img src="../img/admin_task_acc_edit.png" title="Edit Access" >}}
 
-Next we go into Cockpit and [assign the desired task]({{< relref "webapps/cockpit/process-instance-view.md#detailed-information-panel" >}}) to the *accounting* group.
+Next we go into Cockpit and [assign the desired task]({{< relref "webapps/cockpit/bpmn/process-instance-view.md#detailed-information-panel" >}}) to the *accounting* group.
 This will automatically create an entry for the task with the task id as resource id in Admin and grant the `READ` and `UPDATE` permissions.
 
 

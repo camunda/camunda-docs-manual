@@ -180,7 +180,7 @@ The activity instance concept is similar to the execution concept but takes a di
 
 Activity instances also span a tree, following the scope structure provided by BPMN 2.0. Activities that are "on the same level of subprocess" (i.e., part of the same scope, contained in the same subprocess) will have their activity instances at the same level in the tree.
 
-For example, Activity Instances are used for [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) and the [Activity Instance Tree in Cockpit]({{< relref "webapps/cockpit/process-instance-view.md#activity-instance-tree" >}}).
+For example, Activity Instances are used for [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) and the [Activity Instance Tree in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-view.md#activity-instance-tree" >}}).
 
 Examples:
 

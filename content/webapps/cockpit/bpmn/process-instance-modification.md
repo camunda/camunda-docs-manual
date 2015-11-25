@@ -6,7 +6,9 @@ weight: 50
 menu:
   main:
     identifier: "user-guide-cockpit-pi-modification"
-    parent: "user-guide-cockpit"
+    parent: "user-guide-cockpit-bpmn"
+    pre: "Modify the execution state of a running process instnace."
+    name: "Instance Modification"
 
 ---
 
@@ -15,7 +17,7 @@ menu:
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-{{< img src="../img/cockpit-modification.png" title="Process Instance Modification" >}}
+{{< img src="../../img/cockpit-modification.png" title="Process Instance Modification" >}}
 
 In the detail view, you have the ability to modify the process instance's execution state. A modification can be one or multiple of the following operations:
 
@@ -39,7 +41,7 @@ In the modification tab you can then configure the specification of the instruct
 
 ## Cancel Running Activity Instances
 
-{{< img src="../img/cockpit-modification-cancel.png" title="Cancel Modification" >}}
+{{< img src="../../img/cockpit-modification-cancel.png" title="Cancel Modification" >}}
 
 When canceling activity instances you can select the instances of the activity you want to cancel. You can select them by their instance ID using the Select Instances button on the right. To better distinguish between activity instances, you can also show variables assigned to this instance using the {{< glyphicon name="eye-open" >}} button.
 
@@ -48,7 +50,7 @@ When canceling all instances of an activity using the {{< glyphicon name="plus-s
 
 ## Start New Activity Instances
 
-{{< img src="../img/cockpit-modification-start.png" title="Modification Start" >}}
+{{< img src="../../img/cockpit-modification-start.png" title="Modification Start" >}}
 
 When starting a new activity instance, you have the option to start before or start after the activity. Using startBefore, the activity will be executed. StartAfter is only possible if there is only one sequence flow going out of the activity. In both cases you have the option to create new variables which are created or updated with the creation of the activity. Starting an activity instantiates all parent scopes (e.g., embedded sub process that contains the activity) that are not instantiated yet before the actual activity is executed.
 
@@ -59,7 +61,7 @@ When starting activities with a multi-instance flag, there is the option to eith
 
 # Review Modification Instructions
 
-{{< img src="../img/cockpit-modification-review.png" title="Modification Review" >}}
+{{< img src="../../img/cockpit-modification-review.png" title="Modification Review" >}}
 
 At any point during the creation of the modification, you can show the payload of the modification by clicking the {{< glyphicon name="eye-open" >}} button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/index.md" >}}).
 

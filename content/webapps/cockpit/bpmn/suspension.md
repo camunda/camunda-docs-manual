@@ -6,7 +6,8 @@ weight: 70
 menu:
   main:
     identifier: "user-guide-cockpit-suspension"
-    parent: "user-guide-cockpit"
+    parent: "user-guide-cockpit-bpmn"
+    pre: "Suspend and activate processes and jobs."
 
 ---
 

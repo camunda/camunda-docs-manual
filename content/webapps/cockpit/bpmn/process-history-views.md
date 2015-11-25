@@ -1,12 +1,14 @@
 ---
 
-title: 'Process History View'
+title: 'History in Cockpit'
 weight: 40
 
 menu:
   main:
     identifier: "user-guide-cockpit-history-view"
-    parent: "user-guide-cockpit"
+    parent: "user-guide-cockpit-bpmn"
+    name: "History"
+    pre: "Audit ended process instances."
 
 ---
 
@@ -20,7 +22,7 @@ At the top right of the Process Definition View and the Process Instance View, y
 
 # Process Definition History View
 
-{{< img src="../img/cockpit-history-view-process-definition-history.png" title="Process Definition History" >}}
+{{< img src="../../img/cockpit-history-view-process-definition-history.png" title="Process Definition History" >}}
 
 In the history view of the Process Definition you see an overview of all of the running and completed process instances. On the left side of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in a specific state. Running and completed instances can be selected.
 
@@ -28,7 +30,7 @@ At the bottom of the screen you can also select the Job Log tab to see jobs rela
 
 ## Heatmap
 
-{{< img src="../img/cockpit-heatmap.png" title="Process Definition Heatmap" >}}
+{{< img src="../../img/cockpit-heatmap.png" title="Process Definition Heatmap" >}}
 
 The history view of a process definition contains a `Heat` button in the top-right corner of the process diagram. Clicking this button activates the heatmap view. In this view, a heatmap is overlayed on the bpmn diagram showing which nodes and sequence flows have the most activity. Activity is measured by the number of tokens which have been processed by the node or sequence flow.
 
@@ -37,7 +39,7 @@ It is still possible to interact with the diagram while the heatmap is shown (e.
 
 # Process Instance History View
 
-{{< img src="../img/cockpit-history-view-process-instance-history.png" title="Process Instance History" >}}
+{{< img src="../../img/cockpit-history-view-process-instance-history.png" title="Process Instance History" >}}
 
 In the history view of the process instance you see instance-specific information. On the left side of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in specific states. Running, completed and canceled process instances can be viewed as well as task-specific activity states.
 
@@ -65,4 +67,4 @@ In the User Tasks tab you can find an overview of all the user tasks related to 
 In the Job Log tab you can find an overview of all job related events of this process instance and the details of the specific jobs, such as state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stracktrace of a failed job.
 
 
-[process-definition-view-filter]: {{< relref "webapps/cockpit/process-definition-view.md#filter" >}}
+[process-definition-view-filter]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md#filter" >}}

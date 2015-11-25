@@ -1,19 +1,19 @@
 ---
 
 title: 'Cockpit Plugins'
-weight: 90
+weight: 20
 
 menu:
   main:
     name: "Plugins"
     identifier: "user-guide-cockpit-plugins"
-    parent: "user-guide-cockpit"
+    parent: "user-guide-cockpit-extend"
 
 ---
 
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the dashboard as shown in the following example:
 
-{{< img src="../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
+{{< img src="../../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
 
 
 # The Nature of a Cockpit Plugin
@@ -22,7 +22,7 @@ A cockpit plugin is a maven jar project that is included in the cockpit webappli
 
 The integration of a plugin into the overall cockpit architecture is depicted in the following figure.
 
-{{< img src="../img/cockpit-plugins/architecture.png" title="Plugin Architecture" >}}
+{{< img src="../../img/cockpit-plugins/architecture.png" title="Plugin Architecture" >}}
 
 On the server-side, it can extend cockpit with custom SQL queries and JAX-RS resource classes. Queries (defined via [MyBatis](http://www.mybatis.org/)) may be used to squeeze additional intel out of an engine database or to execute custom engine operations. JAX-RS resources on the other hand extend the cockpit API and expose data to the client-side part of the plugin.
 
@@ -130,112 +130,112 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 **Name:** `cockpit.dashboard`
 
-{{< img src="../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
 
 ## Process Definition Runtime Tab
 
 **Name:** `cockpit.processDefinition.runtime.tab`
 
-{{< img src="../img/plugin-points/plugin-point-process-definition-details.png" title="Process Definition Runtime Tab" >}}
+{{< img src="../../img/plugin-points/plugin-point-process-definition-details.png" title="Process Definition Runtime Tab" >}}
 
 ## Process Instance Runtime Tab
 
 **Name:** `cockpit.processInstance.runtime.tab`
 
-{{< img src="../img/plugin-points/plugin-point-process-instance-details.png" title="Process Instance Runtime Tab" >}}
+{{< img src="../../img/plugin-points/plugin-point-process-instance-details.png" title="Process Instance Runtime Tab" >}}
 
 ## Process Definition Runtime Action
 
 **Name:** `cockpit.processDefinition.runtime.action`
 
-{{< img src="../img/plugin-points/plugin-point-process-definition-runtime-action.png" title="Process Definition Runtime Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-process-definition-runtime-action.png" title="Process Definition Runtime Action" >}}
 
 ## Process Instance Runtime Action
 
 **Name:** `cockpit.processInstance.runtime.action`
 
-{{< img src="../img/plugin-points/plugin-point-process-instance-runtime-action.png" title="Process Instance Runtime Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-process-instance-runtime-action.png" title="Process Instance Runtime Action" >}}
 
 
 ## Process Definition View
 
 **Name:** `cockpit.processDefinition.view`
 
-{{< img src="../img/plugin-points/plugin-point-cockpit-process-definition-view.png" title="Process Definition View" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-process-definition-view.png" title="Process Definition View" >}}
 
 
 ## Process Instance View
 
 **Name:** `cockpit.processInstance.view`
 
-{{< img src="../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
 
 
 ## Process Definition Diagram Overlay
 
 **Name:** `cockpit.processDefinition.diagram.overlay`
 
-{{< img src="../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
+{{< img src="../../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
 
 
 ## Process Instance Diagram Overlay
 
 **Name:** `cockpit.processInstance.diagram.overlay`
 
-{{< img src="../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
+{{< img src="../../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
 
 ## Job Definition Action
 
 **Name:** `cockpit.jobDefinition.action`
 
-{{< img src="../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}
 
 
 ## Decision Definition Tab
 
 **Name:** `cockpit.decisionDefinition.tab`
 
-{{< img src="../img/plugin-points/plugin-point-decision-definition-tab.png" title="Decision Definition Tab" >}}
+{{< img src="../../img/plugin-points/plugin-point-decision-definition-tab.png" title="Decision Definition Tab" >}}
 
 
 ## Decision Definition Action
 
 **Name:** `cockpit.decisionDefinition.action`
 
-{{< img src="../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
 
 
 ## Decision Instance Tab
 
 **Name:** `cockpit.decisionInstance.tab`
 
-{{< img src="../img/plugin-points/plugin-point-decision-instance-tab.png" title="Decision Instance Tab" >}}
+{{< img src="../../img/plugin-points/plugin-point-decision-instance-tab.png" title="Decision Instance Tab" >}}
 
 
 ## Decision Instance Action
 
 **Name:** `cockpit.decisionInstance.action`
 
-{{< img src="../img/plugin-points/plugin-point-decision-instance-action.png" title="Decision Instance Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-decision-instance-action.png" title="Decision Instance Action" >}}
 
 
 ## Decision Instance Table
 
 **Name:** `cockpit.decisionInstance.table`
 
-{{< img src="../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
+{{< img src="../../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
 
 
 ## Repository Resource Action
 
 **Name:** `cockpit.repository.resource.action`
 
-{{< img src="../img/plugin-points/plugin-point-repository-resource-action.png" title="Repository Resource Action" >}}
+{{< img src="../../img/plugin-points/plugin-point-repository-resource-action.png" title="Repository Resource Action" >}}
 
 
 ## Repository Resource Detail
 
 **Name:** `cockpit.repository.resource.detail`
 
-{{< img src="../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
+{{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}

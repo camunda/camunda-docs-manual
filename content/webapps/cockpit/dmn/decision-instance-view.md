@@ -1,0 +1,20 @@
+---
+
+title: 'Decision Instance View'
+weight: 20
+
+menu:
+  main:
+    identifier: "user-guide-cockpit-dmn-instance"
+    parent: "user-guide-cockpit-dmn"
+    pre: "Inspect an executed decision instance"
+
+---
+
+On the decision instance page you find the table of the decision that was executed as well as the values for the input variables and the decision result.
+
+{{< img src="../../img/cockpit-decision-instance-view.png" title="Decision Instance View" >}}
+
+The input and output values for this decision instance are shown directly on the table in the corresponding cells as well as in the Input and Output tab below the table. Complex variables like Objects, Files and Bytes are not displayed on the table. You have to use the Input and Output tabs to access the values of these variables.
+
+Rules that have matched during the execution of the decision table are highlighted.

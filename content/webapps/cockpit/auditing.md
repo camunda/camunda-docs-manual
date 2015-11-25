@@ -1,12 +1,14 @@
 ---
 
 title: 'Auditing of Cockpit Operations'
-weight: 80
+weight: 45
 
 menu:
   main:
     identifier: "user-guide-cockpit-operations"
     parent: "user-guide-cockpit"
+    name: "Auditing"
+    pre: "Audit operations performed in Cockpit"
 
 ---
 
@@ -33,67 +35,67 @@ The following table serves as an index that relates operations in the Cockpit us
     <th>Entity Type</th>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#process-definition-suspension" >}}">Activate a Process Definition</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#process-definition-suspension" >}}">Activate a Process Definition</a></td>
     <td>ActivateProcessDefinition</td>
     <td>ProcessDefinition</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#process-definition-suspension" >}}">Suspend a Process Definition</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#process-definition-suspension" >}}">Suspend a Process Definition</a></td>
     <td>SuspendProcessDefinition</td>
     <td>ProcessDefinition</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#process-instance-suspension" >}}">Activate a Process Instance</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#process-instance-suspension" >}}">Activate a Process Instance</a></td>
     <td>Activate</td>
     <td>ProcessInstance</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#process-instance-suspension" >}}">Suspend a Process Instance</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#process-instance-suspension" >}}">Suspend a Process Instance</a></td>
     <td>Suspend</td>
     <td>ProcessInstance</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#job-definition-suspension" >}}">Activate a Job Definition</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}">Activate a Job Definition</a></td>
     <td>ActivateJobDefinition</td>
     <td>JobDefinition</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/suspension.md#job-definition-suspension" >}}">Suspend a Job Definition</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}">Suspend a Job Definition</a></td>
     <td>SuspendJobDefinition</td>
     <td>JobDefinition</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/process-instance-view.md#cancel-a-process-instance" >}}">Cancel a Process Instance</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/process-instance-view.md#cancel-a-process-instance" >}}">Cancel a Process Instance</a></td>
     <td>Delete</td>
     <td>ProcessInstance</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/process-definition-view.md#cancel-multiple-process-instances" >}}">Cancel Multiple Process Instances</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/process-definition-view.md#cancel-multiple-process-instances" >}}">Cancel Multiple Process Instances</a></td>
     <td>Delete</td>
     <td>ProcessInstance</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/process-instance-view.md#adding-variables" >}}">Add Process Instance Variables</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/process-instance-view.md#adding-variables" >}}">Add Process Instance Variables</a></td>
     <td>SetVariable</td>
     <td>Variable</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/process-instance-view.md#editing-variables" >}}">Edit Process Instance Variables</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/process-instance-view.md#editing-variables" >}}">Edit Process Instance Variables</a></td>
     <td>ModifyVariable</td>
     <td>Variable</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/failed-jobs.md#retry-a-failed-job" >}}">Retry a Failed Job</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/failed-jobs.md#retry-a-failed-job" >}}">Retry a Failed Job</a></td>
     <td>SetJobRetries</td>
     <td>Job</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/failed-jobs.md#bulk-retry" >}}">Bulk Retry of Failed Jobs</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/failed-jobs.md#bulk-retry" >}}">Bulk Retry of Failed Jobs</a></td>
     <td>SetJobRetries</td>
     <td>Job</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/process-instance-modification.md" >}}">Process Instance Modification</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}}">Process Instance Modification</a></td>
     <td>ModifyProcessInstance</td>
     <td>ProcessInstance</td>
   </tr>

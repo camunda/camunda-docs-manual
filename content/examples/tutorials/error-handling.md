@@ -71,7 +71,7 @@ As mentioned above, the simplest error handling strategy is to throw the excepti
 
 If you use Jobs (`async`), you can leverage Cockpit as monitoring tool to handle failed jobs, in this case no end user sees the exception. Then you normally see failures in cockpit when the retries are depleted (see the [Failed Jobs]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/index.md" >}}) for more information).
 
-See the [Failed Jobs in Cockpit]({{< relref "webapps/cockpit/failed-jobs.md" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/index.md" >}}) for more details.
+See the [Failed Jobs in Cockpit]({{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/index.md" >}}) for more details.
 
 If you don't want to use Cockpit, you can also find the failed jobs via the API yourself:
 

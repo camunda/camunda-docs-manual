@@ -26,7 +26,7 @@ To perform such an operation, the process engine offers the *process instance mo
 * set variables with each of the instructions
 
 {{< enterprise >}}
-  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< relref "webapps/cockpit/process-instance-modification.md" >}})
+  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}})
 {{< /enterprise >}}
 
 

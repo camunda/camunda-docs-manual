@@ -1,12 +1,12 @@
 ---
 
 title: 'Configuration'
-weight: 100
+weight: 10
 
 menu:
   main:
     identifier: "user-guide-cockpit-configuration"
-    parent: "user-guide-cockpit"
+    parent: "user-guide-cockpit-extend"
 
 ---
 
