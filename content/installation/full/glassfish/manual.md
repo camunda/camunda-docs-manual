@@ -197,7 +197,6 @@ Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRI
 
 * `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
 
 In order to activate Camunda Connect functionality for a process engine, a process engine plugin has to be registered in the BPM platform configuration as follows:
 
@@ -225,7 +224,6 @@ Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRI
 
 * `camunda-spin-core-$SPIN_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
 
 In order to activate Camunda Spin functionality for a process engine, a process engine plugin has to be registered in BPM platform configuration as follows:
 
@@ -263,5 +261,3 @@ Add the following artifacts (if not existing) from the folder `$GLASSFISH_DISTRI
 * `freemarker-2.3.20.jar`
 * `camunda-commons-logging-$COMMONS_VERSION.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-* `slf4j-api-$SLF4J_VERSION.jar`
-* `slf4j-jdk14-$SLF4J_VERSION.jar`
