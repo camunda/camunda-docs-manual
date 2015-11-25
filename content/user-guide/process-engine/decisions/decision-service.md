@@ -8,14 +8,18 @@ menu:
     name: "Decision Service"
     identifier: "user-guide-process-engine-decisions-service"
     parent: "user-guide-process-engine-decisions"
-    pre: "Evaluate Decisions"
+    pre: "Evaluate Decisions using the Services API"
 ---
 
-The decision service is a part of the process engine's services API. It allows to evaluate a decision independent from BPMN and CMMN.
+The decision service is a part of the process engine's [Services API]. It allows
+to evaluate a deployed decision definition independent from BPMN and CMMN.
 
 # Evaluating a Decision
 
-A deployed decision definition can be evaluated using the decision service. The decision definition is referenced by id or a combination of key and version. If no version is specified then the latest version of decision definition with the given key is evaluated.
+A deployed decision definition can be evaluated using the decision service. The
+decision definition is referenced by id or a combination of key and version. If
+a key is used but no version is specified then the latest version of decision
+definition with the given key is evaluated.
 
 ```java
 DecisionService decisionService = processEngine.getDecisionService();
@@ -30,28 +34,42 @@ DmnDecisionTableResult decisionResult = decisionService
 
 ## The Decision Key
 
-<!-- DMN-TODO: explain where the Id, Key, Version comes from -->
-
-The key of a decision definition is specified by the `id` attribute of the `decision` element. The different naming is related to the [Versioning of Decisions]({{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}). Since the key can specifies multiple versions of a decision definition, the id specifies exactly one version.
+The key of a decision definition is specified by the `id` attribute of the
+`decision` element in the DMN XML. The different naming is related to the
+[Versioning of Decisions]. Since a key can reference multiple versions of a
+decision definition, the id specifies exactly one version.
 
 ## Passing Data
 
-A decision may reference one or more variables. For example, a variable can be referenced in an input expression or an input entry of a decision table. The variables have to pass to the decision service as key-value pairs. Each pair specifies the name and the value of a variable.
+A decision may reference one or more variables. For example, a variable can be
+referenced in an input expression or an input entry of a decision table. The
+variables have to pass to the decision service as key-value pairs. Each pair
+specifies the name and the value of a variable.
+
+For more information on the different expressions see the [DMN 1.1 reference].
 
 # Authorizations for Evaluating Decisions
 
-The user need the permission `CREATE_INSTANCE` on the resource `DECISION_DEFINITION` to evaluate decisions. The resource id of the authorization is the key of the decision definition.
+The user need the permission `CREATE_INSTANCE` on the resource
+`DECISION_DEFINITION` to evaluate decisions. The resource id of the
+authorization is the decision definition key.
 
-For more information about authorization please refer to the [Authorization Service]({{< relref "user-guide/process-engine/authorization-service.md" >}}).
+For more information about authorization please refer to the [Authorization
+Service].
 
 # Working with the Decision Result
 
-The result of an evaluation is called decision result which is a complex object of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each entry in the list represents one matched rule. The output entries of this rule are represented by the key-value pairs. The key of a pair is specified by the name of the output.
+The result of an evaluation is called decision result which is a complex object
+of type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs.
+Each entry in the list represents one matched rule. The output entries of this
+rule are represented by the key-value pairs. The key of a pair is specified by
+the name of the output.
 
-The decision result provides methods from interface List\<Map\<String, Object\>\> and some convenience methods.
+The decision result provides methods from interface `List<Map<String,
+Object>>` and some convenience methods.
 
 ```java
-DmnDecisionTableResult decisionResult = // ...
+DmnDecisionTableResult decisionResult = ...;
 
 // get the value of the single entry of the only matched rule
 String singleEntry = decisionResult.getSingleResult().getSingleEntry();
@@ -66,11 +84,15 @@ String firstValue = decisionResult.get(1).getFirstEntry();
 List<String> results = decisionResult.collectEntries("result");
 ```
 
-Note that the decision result also provide methods to get typed output entries. A complete list of all methods can be found in the {{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
+Note that the decision result also provide methods to get typed output entries.
+A complete list of all methods can be found in the {{< javadocref
+page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
 
 # History of Evaluated Decisions
 
-When a decision is evaluated then a new history entry of type `HistoricDecisionInstance` is created which contains the inputs and outputs of the decision. The history can be queried by the history service.
+When a decision is evaluated then a new history entry of type
+`HistoricDecisionInstance` is created which contains the inputs and outputs of
+the decision. The history can be queried by the history service.
 
 ```java
 List<HistoricDecisionInstance> historicDecisions = processEngine
@@ -82,4 +104,11 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
   .list();
 ```
 
-For more information about this please refer to the [History for DMN Decisions]({{< relref "user-guide/process-engine/decisions/history.md" >}}).
+For more information about this please refer to the [History for DMN Decisions].
+
+
+[Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
+[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[Versioning of Decisions]: {{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}
+[Authorization Service]: {{< relref "user-guide/process-engine/authorization-service.md" >}}
+[History for DMN Decisions]: {{< relref "user-guide/process-engine/decisions/history.md" >}}
