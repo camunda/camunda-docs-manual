@@ -166,13 +166,6 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 ## Process Instance View
 
-**Name:** `cockpit.processDefinition.view`
-
-{{< img src="../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Process Instance View" >}}
-
-
-## Process Instance View
-
 **Name:** `cockpit.processInstance.view`
 
 {{< img src="../img/plugin-points/plugin-point-cockpit-process-instance-view.png" title="Process Instance View" >}}
@@ -197,3 +190,52 @@ For more information on creating and configuring your own plugin, please see [Ho
 **Name:** `cockpit.jobDefinition.action`
 
 {{< img src="../img/plugin-points/plugin-point-job-definition-action.png" title="Job Definition Action" >}}
+
+
+## Decision Definition Tab
+
+**Name:** `cockpit.decisionDefinition.tab`
+
+{{< img src="../img/plugin-points/plugin-point-decision-definition-tab.png" title="Decision Definition Tab" >}}
+
+
+## Decision Definition Action
+
+**Name:** `cockpit.decisionDefinition.action`
+
+{{< img src="../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
+
+
+## Decision Instance Tab
+
+**Name:** `cockpit.decisionInstance.tab`
+
+{{< img src="../img/plugin-points/plugin-point-decision-instance-tab.png" title="Decision Instance Tab" >}}
+
+
+## Decision Instance Action
+
+**Name:** `cockpit.decisionInstance.action`
+
+{{< img src="../img/plugin-points/plugin-point-decision-instance-action.png" title="Decision Instance Action" >}}
+
+
+## Decision Instance Table
+
+**Name:** `cockpit.decisionInstance.table`
+
+{{< img src="../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
+
+
+## Repository Resource Action
+
+**Name:** `cockpit.repository.resource.action`
+
+{{< img src="../img/plugin-points/plugin-point-repository-resource-action.png" title="Repository Resource Action" >}}
+
+
+## Repository Resource Detail
+
+**Name:** `cockpit.repository.resource.detail`
+
+{{< img src="../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
