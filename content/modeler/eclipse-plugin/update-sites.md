@@ -30,19 +30,19 @@ The update site depends on
   <tr>
     <td><strong>7.4.0+</strong>, 7.3.3+, 7.2.6+</td>
     <td>
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/kepler/archive/3.0.0/">3.0.0</a> or
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/kepler/latest/">latest</a>
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/kepler/archive/3.0.0/">3.0.0</a> or
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/kepler/latest/">latest</a>
     <td>
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/archive/3.0.0/">3.0.0</a> or
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/latest/">latest</a>
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/juno/archive/3.0.0/">3.0.0</a> or
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/juno/latest/">latest</a>
   </tr>
   <tr>
     <td>Older versions
     <td>
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/kepler/archive/2.7.0/">2.70</a>
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/kepler/archive/2.7.0/">2.70</a>
     </td>
     <td>
-      <a href="https://camunda.org/release/camunda-modeler/update-sites/archive/2.7.0/">2.70</a>
+      <a href="https://camunda.org/release/eclipse-plugin/update-sites/juno/archive/2.7.0/">2.70</a>
     </td>
   </tr>
 </table>

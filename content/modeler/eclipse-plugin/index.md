@@ -10,7 +10,7 @@ menu:
     name: "Eclipse Plugin (Deprecated)"
     identifier: "eclipse-plugin"
     parent: "modeler"
-    pre: "Plugin for modeling BPMN inside Eclipse. *The Eclipse Plugin is deprecated, consider using the Camunda Modeler instead.*"
+    pre: "Plugin for modeling BPMN inside Eclipse. *Deprecated, consider using the Camunda Modeler instead.*"
 
 ---
 
