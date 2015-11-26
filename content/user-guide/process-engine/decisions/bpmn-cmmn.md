@@ -51,7 +51,7 @@ The decision result is available in the local scope of the executing task as a t
 
 ## Predefined Mapping of the Decision Result
 
-The engine includes predefined mappings of the decision result for common use cases. The mapping is similar to an output variable mapping and extract a value from the decision result which is passed to a variable. The following mappings are available:
+The engine includes predefined mappings of the decision result for common use cases. The mapping is similar to an output variable mapping and extracts a value from the decision result which is passed to a variable. The following mappings are available:
 
 <table class="table table-striped">
   <tr>
@@ -81,9 +81,9 @@ The engine includes predefined mappings of the decision result for common use ca
   </tr>
 </table>
 
-Only the `singleEntry` mapper returns a [typed value]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) that contains the value of the output entry and additional type informations. The other mappers returns a collection which contains the value of the output entry as pure object.
+Only the `singleEntry` mapper returns a [typed value]({{< relref "user-guide/process-engine/variables.md#typed-value-api" >}}) that contains the value of the output entry and additional type information. The other mappers return a collection which contains the value of the output entry as pure object.
 
-Note that the mapper throw an exception if the decision result is not suitable. For example, the `singleEntry` mapper throw an exception if the decision result contains more than one matched rule.
+Note that the mapper throws an exception if the decision result is not suitable. For example, the `singleEntry` mapper throws an exception if the decision result contains more than one matched rule.
 
 {{< note title="Limitations of Serialization" class="warning" >}}
 If you are using one of the predefined mappers `singleResult`, `collectEntries` or `resultList` then you should consider the [limitations of serialization]({{< relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
@@ -99,7 +99,7 @@ If you pass a collection or a complex object to a variable then you should consi
 
 ### Custom Mapping into Process Variables
 
-If a business rule task is used to invoke a decision inside a BPMN process, then the decision result can be passed into process variables by using [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}). For example, the decision result have multiple output values which should be saved in separate process variables.
+If a business rule task is used to invoke a decision inside a BPMN process, then the decision result can be passed into process variables by using [output variable mapping]({{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}). For example, the decision result has multiple output values which should be saved in separate process variables.
 
 ```xml
 <businessRuleTask id="businessRuleTask" camunda:decisionRef="myDecision">
@@ -172,13 +172,13 @@ public class MyDecisionResultListener implements CaseExecutionListener {
 
 ## Limitations of the Serialization of the Mapping Result
 
-The predefined mappings `singleResult`, `collectEntries` and `resultList` map the decision result to collections. The implementation of the collections are from the JDK and contains untyped values as Objects. When a collection is saved as process variable then it is serialized as object value because there is no suitable primitive value type. Depends on your [object value serialization]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}), this can lead to deserialization problems.
+The predefined mappings `singleResult`, `collectEntries` and `resultList` map the decision result to collections. The implementation of the collections are from the JDK and contains untyped values as Objects. When a collection is saved as process variable then it is serialized as object value because there is no suitable primitive value type. Depending on your [object value serialization]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}), this can lead to deserialization problems.
 
-In case you are using the default build-in object serialization, the variable can not be deserialized if the JDK is upgraded or changed and contains an incompatible version of the collection class. Otherwise, if you are using another serialization like JSON then you should consider that the untyped value is deserializable. For example, a collection of date values can not be deserialized using JSON because JSON has no registered mapper for date by default.
+In case you are using the default built-in object serialization, the variable can not be deserialized if the JDK is upgraded or changed and contains an incompatible version of the collection class. Otherwise, if you are using another serialization like JSON, you should consider that the untyped value is deserializable. For example, a collection of date values can not be deserialized using JSON because JSON by default has no registered mapper for date values.
 
-The same problems can occur by using a custom output variable mapping since `DmnDecisionTableResult` have methods that returns the same collections as the predefined mappers. Additionally, it is not recommended to save a `DmnDecisionTableResult` or a `DmnRuleResult` as process variable because the implementation can change in a new version of Camunda BPM.
+The same problems can occur by using a custom output variable mapping since `DmnDecisionTableResult` has methods that return the same collections as the predefined mappers. Additionally, it is not recommended to save a `DmnDecisionTableResult` or a `DmnRuleResult` as process variable because the implementation can change in a new version of Camunda BPM.
 
-To be aware of these problems, you can use primitive variables only. Alternatively, you can use a custom object for serialization that you can control by yourself.
+To be wary of these problems, you can use primitive variables only. Alternatively, you can use a custom object for serialization that you can control yourself.
 
 # Accessing Process Variables from Decision Tables
 
