@@ -39,7 +39,7 @@ On any such *external* trigger (i.e. start a process, complete a task, signal an
 
 The [Event Based Gateway]({{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}):
 
-<div data-bpmn-diagram="implement/event-based-gateway" > </div>
+<div data-bpmn-diagram="../bpmn/event-based-gateway"></div>
 
 Keep in mind that [Asynchronous Continuations]({{< relref "#asynchronous-continuations" >}}) can add transaction boundaries to other tasks as well.
 
