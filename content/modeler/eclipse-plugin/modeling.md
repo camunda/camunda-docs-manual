@@ -13,7 +13,7 @@ menu:
 
 ---
 
-# Finding your way around the Eclipse Plugin
+# Finding your way around
 
 ## Project Explorer
 

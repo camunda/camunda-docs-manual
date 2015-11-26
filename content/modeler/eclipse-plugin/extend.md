@@ -361,29 +361,29 @@ There are a number of further topics we did not touch yet. These include:
 
 [Check out][24] the advanced custom task example project that showcases these features.
 
-  [1]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/overview.png
-  [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-simple
-  [3]: http://www.vogella.com/articles/EclipsePlugIn/article.html
-  [4]: http://www.vogella.com/articles/EclipseExtensionPoint/article.html
-  [5]: https://github.com/camunda/camunda-modeler/blob/master/CONTRIBUTING.md
-  [6]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/new-project-01.png "New Project Dialog - Choose Plug-in Project"
-  [7]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/new-project-02.png "New Project Dialog - Configure Project Location"
-  [8]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/new-project-03.png "New Project Dialog - Configure Qualifier"
-  [9]: https://github.com/camunda/camunda-modeler/blob/master/CONTRIBUTING.md
-  [10]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/plugin/ICustomTaskProvider.java
-  [11]: http://wiki.eclipse.org/Ecore/EObject
-  [12]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
-  [13]: {{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}
-  [14]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/property-panel.png "Extended Property Panel"
-  [15]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/FieldInjectionUtil.java
-  [16]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/PropertyUtil.java
-  [17]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
-  [18]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/core/features/api/container/IFeatureContainer.java
-  [19]: https://github.com/camunda/camunda-modeler/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/core/features/api/container/IFeatureContainer.java
-  [20]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/palette-integration-01.png "Palette integration"
-  [21]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/palette-integration-02.png "Palette integration with custom name"
-  [22]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-01.png
-  [23]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-02.png
-  [24]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-advanced
+[1]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/overview.png
+[2]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-simple
+[3]: http://www.vogella.com/articles/EclipsePlugIn/article.html
+[4]: http://www.vogella.com/articles/EclipseExtensionPoint/article.html
+[5]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/CONTRIBUTING.md
+[6]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/new-project-01.png "New Project Dialog - Choose Plug-in Project"
+[7]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/new-project-02.png "New Project Dialog - Configure Project Location"
+[8]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/new-project-03.png "New Project Dialog - Configure Qualifier"
+[9]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/CONTRIBUTING.md
+[10]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/plugin/ICustomTaskProvider.java
+[11]: http://wiki.eclipse.org/Ecore/EObject
+[12]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
+[13]: {{< relref "user-guide/process-engine/delegation-code.md#field-injection" >}}
+[14]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/property-panel.png "Extended Property Panel"
+[15]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/FieldInjectionUtil.java
+[16]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/util/PropertyUtil.java
+[17]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/ui/property/tabs/AbstractTabCompositeFactory.java
+[18]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/core/features/api/container/IFeatureContainer.java
+[19]: https://github.com/camunda/camunda-eclipse-plugin/blob/master/org.camunda.bpm.modeler/src/org/camunda/bpm/modeler/core/features/api/container/IFeatureContainer.java
+[20]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/palette-integration-01.png "Palette integration"
+[21]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/palette-integration-02.png "Palette integration with custom name"
+[22]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/product-01.png
+[23]: https://raw.github.com/camunda/camunda-eclipse-plugin/master/documentation/custom-task/images/product-02.png
+[24]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-advanced
 
 
