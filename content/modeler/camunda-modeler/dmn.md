@@ -1,6 +1,6 @@
 ---
 
-title: 'DMN'
+title: 'Editing DMN in Camunda Modeler'
 weight: 20
 
 menu:

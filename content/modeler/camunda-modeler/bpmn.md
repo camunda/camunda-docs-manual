@@ -1,6 +1,6 @@
 ---
 
-title: 'BPMN'
+title: 'Modeling BPMN in Camunda Modeler'
 weight: 10
 
 menu:
