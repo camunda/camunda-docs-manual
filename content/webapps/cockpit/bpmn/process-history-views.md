@@ -34,7 +34,7 @@ At the bottom of the screen you can also select the Job Log tab to see jobs rela
 
 The history view of a process definition contains a `Heat` button in the top-right corner of the process diagram. Clicking this button activates the heatmap view. In this view, a heatmap is overlayed on the bpmn diagram showing which nodes and sequence flows have the most activity. Activity is measured by the number of tokens which have been processed by the node or sequence flow.
 
-It is still possible to interact with the diagram while the heatmap is shown (e.g. to select activities).
+It is still possible to interact with the diagram while the heatmap is shown (e.g., to select activities).
 
 
 # Process Instance History View
