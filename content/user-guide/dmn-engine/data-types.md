@@ -113,6 +113,13 @@ element.
 
 # Implement a custom Data Type
 
+{{< note title="Use of Internal API" class="warning" >}}
+
+Please be aware that these APIs are **not** part of the [public API]({{< relref
+"introduction/public-api.md" >}}) and may change in later releases.
+
+{{< /note >}}
+
 The default data types of the DMN engine can be extended or replaced by custom
 types. For example, you can add a new type for time or change the
 transformation to support a different date format or localized boolean
@@ -120,7 +127,7 @@ constants.
 
 You therefore have to implement a new {{< javadocref
 page="org/camunda/bpm/dmn/engine/impl/spi/type/DmnDataTypeTransformer.html"
-text="DataTypeTransformer" >}}. The transformation is processed in the
+text="DmnDataTypeTransformer" >}}. The transformation is processed in the
 `transform()` method and return a typed value. If a value can not be
 transformed successfully then an `IllegalArgumentException` should be thrown.
 

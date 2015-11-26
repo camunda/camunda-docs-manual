@@ -137,7 +137,7 @@ change by the `expressionLanguage` attribute:
       <rule id="rule1">
         <!-- use juel for this input entry -->
         <inputEntry expressionLanguage="juel">
-          <text>[18..30]</text>
+          <text><![CDATA[cellInput >= 18 && cellInput <= 30]]></text>
         </inputEntry>
         <!-- use javascript for this output entry -->
         <outputEntry expressionLanguage="javascript">

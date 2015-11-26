@@ -192,7 +192,7 @@ The decision table returns for every matched rule two outputs.
 Assuming the input is:
 
 - `amount`: 350
-- `invoiceCategory`: "Consumables"
+- `invoiceCategory`: "Travel Expenses"
 
 The decision rules 1 and 2 with match. So the `DmnDecisionTableResult` consist
 of two `DmnDecisionRuleResults`. Whereas both `DmnDecisionRuleResult` will

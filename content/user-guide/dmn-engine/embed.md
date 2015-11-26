@@ -112,12 +112,17 @@ configuration.setEngineMetricCollector(metricCollector);
 
 # Customizing and Extending the DMN Engine
 
+{{< note title="Use of Internal API" class="warning" >}}
+
+Please be aware that these APIs are **not** part of the [public API]({{< relref
+"introduction/public-api.md" >}}) and may change in later releases.
+
+{{< /note >}}
+
 The {{< javadocref
 page="?org/camunda/bpm/dmn/engine/impl/DefaultDmnEngineConfiguration.html"
 text="default DMN engine configuration" >}} has further customization and
-extension points. Please be aware that these APIs are **not** part of the
-[public API] and may change in later releases.
-
+extension points.
 
 ## Customize DMN Transformation
 
@@ -355,7 +360,6 @@ For more information on how to configure and use SLF4J please referee to the
 
 
 [evaluation listener]: {{< javadocref page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
-[public API]: {{< relref "introduction/public-api.md" >}}
 [DMN model API]: https://github.com/camunda/camunda-dmn-model
 [data types]: {{< relref "user-guide/dmn-engine/data-types.md" >}}
 [hit policies]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
