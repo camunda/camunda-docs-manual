@@ -25,6 +25,7 @@ Noteworthy new Features and Changes in 7.4:
 * **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decision and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use CMMN, the DMN-related tables will stay empty.
 * **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. The execution of CMMN 1.0 models is still supported by Camunda BPM.
 * **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
+* **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
 
 [dmn-ref]: {{< relref "reference/dmn11/index.md" >}}
 [cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
@@ -130,3 +131,50 @@ Furthermore, with 7.4 task events are only logged when they occur in the context
 ### CMMN Model API
 
 As a consequence of supporting CMMN 1.1 the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
+
+# Changed URL of BPMN Extensions Namespace
+
+With Camunda 7.4 the default namespace URL of BPMN extensions is changed from
+
+http://activiti.org/bpmn (refered to as legacy namespace)
+
+to
+
+http://camunda.org/schema/1.0/bpmn
+
+This section explains the implications of this change for the different components of Camunda.
+
+## Implications by Component
+
+### Eclipse Plugin
+
+There is a new version of the eclipse plugin available (3.0.0) which supports the new namespace.
+It does not fully support the legacy namespace anymore.
+
+If you use a 3.0.0+ version of the plugin,
+
+* all newly created bpmn processes use the new namespace url.
+* If you open an existing model which uses the legacy namespace, a warning dialog is shown asking you to update the namespace URL. If you click "yes", the plugin automatically migrates the legacy namespace to the new URL.
+
+If you do not upgrade the Eclipse plugin, the old version of the plugin continues to work with the legacy namespace.
+Since the process engine maintains backwards compatibility with the legacy namespace, this is fine. It is only a problem if you want to roundtrip models with the new Camunda Modeler.
+
+### Process Engine
+
+The process engine maintains backwards compatibility with the legacy namespace. This means that if a BPMN process using the legacy namespace is deployed, the process engine is able to parse and execute it.
+
+### BPMN Model API
+
+The BPMN model API maintains backwards compatibility with the legacy namespace for reading usecases. This means that if the model api is used for reading properties from the model, both namespaces can be used interchangeably without problems.
+
+When creating new models with the model api the new namespace is used.
+
+Editing existing models using the legacy namespace with the model api, and then adding new extensions is unsupported.
+You need to update the namespace to the new namespace manually.
+
+### Camunda Modeler (New)
+
+The new Camunda Modeler is based on [bpmn.io](http://bpmn.io). It is a desktop application editing files stored on the local file system.
+
+The Camunda Modeler works with the new namespace exclusively. If you open an existing model which uses the legacy namespace, a warning dialog is shown asking you to update the namespace URL. If you click "yes", the modeler automatically migrates the legacy namespace to the new URL.
+If you click "No", the modeler does not migrate the namespace and you will not be able to edit the existing extension elements in the model.
