@@ -11,10 +11,13 @@ menu:
 
 ---
 
-Migrating an existing application from Activiti 5.x (or Camunda fox 6.x - see below) is straightforward.
+Migrating an existing application from Activiti <= 5.11 (or Camunda fox 6.x - see below) to Camunda BPM 7.0 is straightforward.
 This page describes the necessary steps.
+Once done with the migration, the [minor version update guides]({{< relref "update/minor/index.md" >}}) show how to update from 7.0 to the latest Camunda version.
 
-**Getting Help:** If you have any trouble, ask for assistance in the [Forum](http://camunda.org/community/forum.html).
+{{< note class="info" title="Getting Help" >}}
+If you are on a more recent Activiti version or if you have any trouble migrating, ask for assistance in the [Forum](http://camunda.org/community/forum.html) or turn to our [Consulting services](http://camunda.com/bpm/consulting/). We are happy to help you!
+{{< /note >}}
 
 The changes in short are:
 
