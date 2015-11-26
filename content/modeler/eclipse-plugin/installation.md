@@ -27,7 +27,7 @@ This section guides you through the installation process step by step and gives 
 You can either install the eclipse plugin into your existing IDE using the Camunda Update Sites or download a pre-packaged distribution which has the plugin already installed:
 
 * Install using an update site: read content on this page below.
-* [Download pre-packaged distribution](http://camunda.org/release/camunda-modeler/kepler/camunda-modeler-kepler-latest.zip). (Eclipse Kepler, Windows 32bit only).
+* [Download pre-packaged distribution](https://camunda.org/release/camunda-eclipse-plugin/prepackaged/kepler/). (Eclipse Kepler, Windows 32bit only).
 
 
 # Step by Step Installation
