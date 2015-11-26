@@ -119,7 +119,7 @@ Cancel multiple process instances at once by using this feature. In the process 
 
 # Set Job priority
 
-{{< img src="../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}
+{{< img src="../../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}
 
 You can change the job priority by overriding the priority specified in the BPMN 2.0 XML. To do so, click on the {{< glyphicon name="cog">}} icon in the `Job Definitions` tab. In the opened dialog you can override the job priority. If an override priority is already set, you can clear it to use the priority specified in the XML again. It is also possible to include existing jobs when changing the priority.
 
