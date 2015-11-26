@@ -30,19 +30,19 @@ The update site depends on
   <tr>
     <td><strong>7.4.0+</strong>, 7.3.3+, 7.2.6+</td>
     <td>
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/3.0.0/">3.0.0</a> or
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/latest/">latest</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/3.0.0/">3.0.0</a> or
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/latest/site/">latest</a>
     <td>
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/3.0.0/">3.0.0</a> or
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/latest/">latest</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/3.0.0/">3.0.0</a> or
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/latest/site/">latest</a>
   </tr>
   <tr>
     <td>Older versions
     <td>
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/2.7.0/">2.70</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/2.7.0/">2.70</a>
     </td>
     <td>
-      <a href="https://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/2.7.0/">2.70</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/2.7.0/">2.70</a>
     </td>
   </tr>
 </table>

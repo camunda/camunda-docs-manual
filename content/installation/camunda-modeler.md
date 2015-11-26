@@ -30,9 +30,11 @@ This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diag
   There are currently issues with using the 64-bit version of the modeler on Windows 10. We therefore recommend Windows 10 users to install the 32-bit version.
 {{< /note >}}
 
-## Camunda Process Engine
+## Matching Camunda Process Engine Version
 
-Camunda Modeler requires a Process Engine version 7.4, 7.3.3, 7.2.6 and above.
+For executing BPMN Diagrams created using Camunda Modeler, Process Engine version 7.4.0, 7.3.3, 7.2.6 and above is required.
+
+Note that you do not need to install the Process Engine if you do not want to execute the BPMN Models.
 
 # Download
 
