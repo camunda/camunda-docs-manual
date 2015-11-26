@@ -1,14 +1,30 @@
 ---
 
-title: 'Creating Custom Tasks for the Camunda Modeler Eclipse Plugin'
-weight: 70
+title: 'Extending the Eclipse Plugin'
+weight: 50
+
 
 menu:
   main:
-    identifier: "examples-tutorials-custom-tasks"
-    parent: "examples-tutorials"
+    name: "Extensions"
+    identifier: "eclipse-plugin-extensions"
+    parent: "eclipse-plugin"
+    pre: "Learn how to extend and customize the eclipse plugin"
 
 ---
+
+You can extend the modeler to ship reusable custom tasks through custom task providers.
+
+{{< img src="../img/custom-servicetask.png" title="Modeler" >}}
+
+The following functionality is exposed to custom task providers and thus usable when implementing custom tasks:
+
+* Add extension to properties panel
+* Create task from palette
+* Add custom actions to task
+* Change color and icon
+
+# Creating a Custom Task
 
 By providing custom tasks to the Camunda Modeler Eclipse Plugin, vendors may provide special tasks to users through the Modeler's palette. Along with these custom tasks, vendors may ship extensions to the properties panel through which task-specific properties can be maintained.
 
@@ -19,14 +35,13 @@ This tutorial guides you through the creation of a custom task extension for the
 The source of custom task extension that is developed in this tutorial is [available as a sample application][2].
 
 
-# Before You Start
+## Before You Start
 
 In this tutorial, we take a deeper look at Eclipse extension points and plug-in development. Please refer to the [Extending the Eclipse IDE - Plug-in development][3] and [Eclipse Extension Points and Extensions][4] tutorials on the matter if you would like to learn more.
 
 Make sure you have the development environment for the Camunda Modeler [set up][5]. This typically involves setting up the Eclipse instance with the necessary dependencies, checking out the Modeler sources and importing the project(s) into a workspace.
 
-
-# Creating a Plug-in Project
+## Creating a Plug-in Project
 
 To extend the Modeler, you need to create an Eclipse plug-in project. Do so via `New > Project > Plug-in Project`.
 
@@ -43,12 +58,12 @@ as well vendor and versioning information.
 You may optionally choose to generate an activator for your project to hook into the plug-ins life cycle.
 
 
-# Building a Custom Task Plug-in
+## Building a Custom Task Plug-in
 
 The Modeler gives you the ability to contribute custom task types via the
 `org.camunda.bpm.modeler.plugin.customtask` extension point. Via this extension point you must provide information about the custom task through the [`ICustomTaskProvider`][9] interface.
 
-## Configure Project Dependencies
+### Configure Project Dependencies
 
 Add the following entry to your `META-INF/MANIFEST.MF` file to enable commonly used dependencies:
 
@@ -65,7 +80,7 @@ Require-Bundle: org.eclipse.emf,
  org.eclipse.graphiti.ui
 ```
 
-## Hook into the Extension Point
+### Hook into the Extension Point
 
 Create or edit the `plugin.xml` in your project root with the following contents:
 
@@ -133,7 +148,7 @@ What did we do? The class `MyCustomTaskProvider` provides the basic implementati
 
 The utility `PluginConstants` provides reusable utilities such as the implementation of the custom task check as well as the task name.
 
-## Activation of the extension
+### Activation of the extension
 
 The behavior shipped with a custom task provider will automatically activate whenever `ICustomTaskProvider#appliesTo(EObject)` returns as true. This means that our implementation `MyCustomTaskProvider` activates for all objects of type `ServiceTask` that have a `class` property set to `com.mycompany.services.MyService` (cf. `PluginConstants#isMyCustomTask(EObject)`).
 
@@ -146,7 +161,7 @@ In other words: It is all plain old BPMN 2.0 with Camunda extensions and any ser
 will be recognized as a custom task once opened with the Camunda Modeler and our installed plug-in.
 
 
-# Adding a Property Tab
+## Adding a Property Tab
 
 To show a special property section for a custom task, we must implement the method `ICustomTaskProvider#getTabSection()`. The method must return an instance of `ISection` that gets added to the property tabs for a task.
 
@@ -199,7 +214,7 @@ After we assigned the class `com.mycompany.services.MyService` to a service task
 
 When editing the input field labeled _Endpoint_ and saving the file, the BPMN 2.0 diagram file should reflect the changes.
 
-## Helpers Available in Property Tabs
+### Helpers Available in Property Tabs
 
 There are two helpers that aid you in the creation of property sections:
 
@@ -208,7 +223,7 @@ There are two helpers that aid you in the creation of property sections:
 
 To learn more about what else is possible in property panels, browse the subclasses of [`AbstractTabCompositeFactory`][17].
 
-# Palette Integration
+## Palette Integration
 
 The way a custom task is integrated into the new element palette may be configured via `ICustomTaskProvider#getPaletteIntegration()`.
 
@@ -227,7 +242,7 @@ Now we must tell the Modeler how to create the custom task.
 This is done by exposing a custom set of modeling features, including a create feature via an [`IFeatureContainer`][18].
 
 
-# Defining Custom Task Features
+## Defining Custom Task Features
 
 Feature containers, implementing the interface [`IFeatureContainer`][19], tell the Modeler how certain modeling operations are implemented on diagram elements.
 
@@ -241,7 +256,7 @@ Custom task providers may ship their own feature containers by publishing them v
 
 You must configure a feature container in your custom task provider as soon as you want to be able to create a custom task via the palette _or_ want to change its graphical representation.
 
-## Expose a Feature Container
+### Expose a Feature Container
 
 Create the class `MyCustomTaskFeatureContainer` with the following definition
 
@@ -269,7 +284,7 @@ If you enabled the palette integration, you should now see the custom service ta
 
 ![Custom Service Task in Palette][20]
 
-## Add a Custom Create Feature
+### Add a Custom Create Feature
 
 To be detected as a custom task, a newly created element must have the `class` attribute set to `com.mycompany.services.MyService`.
 We can achieve this by overriding the create feature provided by the `ServiceTaskFeatureContainer` with custom behavior that explicitly sets the attribute when the task is being created.
@@ -313,7 +328,7 @@ After restarting Eclipse, the palette entry should now display the name of your 
 ![Custom Service Task in Palette][21]
 
 
-# Building a Customized Modeler Distribution
+## Building a Customized Modeler Distribution
 
 As a final step we need to build a customized Eclipse that contains the Camunda Modeler and our custom task plug-in. One of the various ways to do this is via a product configuration that allows you to generate Eclipse applications as well as update sites.
 
@@ -332,11 +347,11 @@ Finally resolve the required dependencies via _Add Required Plug-ins_.
 You may now start, verify and export the product configuration using the handles at the top right.
 
 
-# Summary
+## Summary
 
 In this how-to we created a simple custom task extension for the Camunda Modeler. This involved creating a plug-in project and writing a custom task extension for the Camunda Modeler. Through the extension we were able to add a property panel tab as well as a palette entry for the custom task. Finally, we saw how an Eclipse distribution can be built that ships the Camunda Modeler, including the custom task extension.
 
-## Advanced Topics
+# Advanced Topics
 
 There are a number of further topics we did not touch yet. These include:
 
@@ -370,3 +385,5 @@ There are a number of further topics we did not touch yet. These include:
   [22]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-01.png
   [23]: https://raw.github.com/camunda/camunda-modeler/master/documentation/custom-task/images/product-02.png
   [24]: https://github.com/camunda/camunda-bpm-examples/tree/master/modeler/custom-task-advanced
+
+
