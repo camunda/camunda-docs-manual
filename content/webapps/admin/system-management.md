@@ -13,14 +13,14 @@ menu:
 
 {{< img src="../img/admin-system-management.png" title="System Management" >}}
 
-The System Settings menu gives you some general information about the process engine and allows you to access the *Flow Node Count* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*
+The System Settings menu gives you some general information about the process engine and allows you to access the *Execution Metrics* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*
 
 
-# Flow Node Count
+# Execution Metrics
 
-{{< img src="../img/admin-flow-node-count.png" title="Flow Node Count" >}}
+{{< img src="../img/admin-execution-metrics.png" title="Execution Metrics" >}}
 
-The Flow Node Count menu in Admin displays an approximate number of flow nodes that have been executed by the engine within a specified time range.
+The Execution Metrics menu in Admin displays an approximate number of *Flow Nodes Instances (FNI)* and *Executed Decision Elements (EDE)* that have been processed by the engine within a specified time range.
 
 
 # Camunda License Key
