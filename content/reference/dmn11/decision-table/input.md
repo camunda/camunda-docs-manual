@@ -12,6 +12,8 @@ menu:
 
 ---
 
+{{< img src="../img/input.png" title="Input" class="no-lightbox" >}}
+
 A decision table can have one or more inputs, also called input clauses. An input clause is represented by an `input` element in XML.
 
 ```xml
@@ -27,7 +29,9 @@ A decision table can have one or more inputs, also called input clauses. An inpu
 </decision>
 ```
 
-# Input Labels
+# Input Label
+
+{{< img src="../img/input-label.png" title="Input Label" class="no-lightbox" >}}
 
 An input label is a short description of the input. It is set on the `input` element in the `label` attribute. Note that the label is not required but recommended since it helps to understand the decision.
 
@@ -35,7 +39,9 @@ An input label is a short description of the input. It is set on the `input` ele
 <input label="How many guests" />
 ```
 
-# Input Expressions
+# Input Expression
+
+{{< img src="../img/input-expression.png" title="Input Expression" class="no-lightbox" >}}
 
 An input expression is an expression in an expression language that specifies the value of the input. It is usually simple and reference a variable which is available at runtime. The expression is set inside a `text` element that is a child of the `inputExpression` element.
 
@@ -67,7 +73,9 @@ When the input expression is evaluated then the value is stored in a variable. T
 
 The variable can be used in an expression of an input entry. For example, the JUEL expression `guestCount <= 8` checks if the input value is less than 8.
 
-## Input Type Definitions
+## Input Type Definition
+
+{{< img src="../img/input-type-definition.png" title="Input Type Definition" class="no-lightbox" >}}
 
 The type of the input value can be specified by the `typeRef` attribute on the `inputExpression` element. After the input expression is evaluated the DMN engine checks if the type of the value matches the specified type. The supported types are listed in the [User Guide]({{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}).
 
@@ -76,19 +84,3 @@ The type of the input value can be specified by the `typeRef` attribute on the `
 ```
 
 Note that the type is not required but recommended since it helps to understand the possible input values and provide a type safety to be aware of unexpected input values.
-
-# Input Values
-
-Input values allows to specify the expected values of the input. The expected values are specified by the `inputValues` element which contains an expression in an `text` element.
-
-```xml
-<inputValues>
-  <text> <![CDATA[ >= 0 ]]> </text>
-<inputValues>
-```
-
-{{< note title="Not Supported" class="warning" >}}
-Currently, input values are not supported and will be ignored.
-
-Alternatively, a [custom data type]({{< relref "user-guide/dmn-engine/data-types.md#implement-a-custom-data-type" >}}) can be used. For example, the expression `>= 0` can be replaced by a custom type `PositiveInteger`.
-{{< /note >}}

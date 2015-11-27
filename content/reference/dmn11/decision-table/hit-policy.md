@@ -12,6 +12,8 @@ menu:
 
 ---
 
+{{< img src="../img/hit-policy.png" title="Hit Policy" class="no-lightbox" >}}
+
 A decision table have a hit policy that specifies what is part of the result of a Decision Table Evaluation. The hit policy is set in the `hitPolicy` attribute on the `decisionTable` element. If no hit policy is set then the default hit policy `UNIQUE` is used.
 
 ```xml
@@ -51,7 +53,7 @@ In the visual representation of the decision table the hit policy is specified b
 
 # Unique Hit Policy
 
-Only a single rule can be matched. The decision result contains the output entries of the matched rule. 
+Only a single rule can be matched. The decision result contains the output entries of the matched rule.
 
 If more than one rule matched then an exception is thrown.
 
@@ -65,7 +67,7 @@ If more than one rule matched then an exception is thrown.
 
 # Collect Hit Policy
 
-Many rules can be matched but the decision table may only have one output. An aggregation function can be specified in the `aggregation` attribute on the `decisionTable` element to apply a simple function to the output values. If no aggregator is set, the decision result is the list of all the output values. 
+Many rules can be matched but the decision table may only have one output. An aggregation function can be specified in the `aggregation` attribute on the `decisionTable` element to apply a simple function to the output values. If no aggregator is set, the decision result is the list of all the output values.
 
 ```xml
 <decisionTable hitPolicy="COLLECT" aggregation="SUM">

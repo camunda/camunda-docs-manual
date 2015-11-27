@@ -12,14 +12,16 @@ menu:
 
 ---
 
+{{< img src="../img/rule.png" title="Rule" class="no-lightbox" >}}
+
 A decision table have one or more rules. Each rule contains input and output entries. The input entries are the condition and the output entries the conclusion of the rule. If each input entry is satisfied then the rule matches and the decision result contains the output entries of this rule.
 
 A rule is represented by a `rule` element in XML.
- 
+
 ```xml
 <decision>
   <decisionTable>
-    <!-- ... -->  
+    <!-- ... -->
     <rule>
       <inputEntry>
         <text><![CDATA[ "Fall" ]]></text>
@@ -30,12 +32,14 @@ A rule is represented by a `rule` element in XML.
       <outputEntry>
         <text><![CDATA[ "Spareribs" ]]></text>
       </outputEntry>
-    </rule> 
+    </rule>
   </decisionTable>
 </decision>
 ```
 
-# Input Entries (Conditions)
+# Input Entry (Condition)
+
+{{< img src="../img/input-entry.png" title="Input Entry" class="no-lightbox" >}}
 
 A rule can have one or more input entries which are the condition of the rule. Each input entry contains an expression in a `text` element inside an `inputEntry` element.
 
@@ -47,9 +51,9 @@ The input entry is satisfied when the expression returns `true` or it is empty.
 </inputEntry>
 ```
 
-## Empty Input Entries
+## Empty Input Entry
 
-In case an input is irrelevant for a rule, this rule contains an empty input entry which is always satisfied.  
+In case an input is irrelevant for a rule, this rule contains an empty input entry which is always satisfied.
 
 If FEEL is used as expression language then an empty input entry is represented by a `-`. Otherwise, the expression is empty.
 
@@ -63,7 +67,9 @@ The expression language of the expression can be specified by the `expressionLan
 
 If no expression language is set then the global expression language is used which is set on the `definitions` element. In case no global expression language is set, the default expression language is used instead, by default [FEEL]({{< relref "reference/dmn11/feel/index.md" >}}). Please refer to the [User Guide]({{< relref "user-guide/dmn-engine/expressions-and-scripts.md#configuring-the-default-expression-language" >}}) how to configure the default expression language.
 
-# Output Entries (Conclusions)
+# Output Entry (Conclusion)
+
+{{< img src="../img/output-entry.png" title="Output Entry" class="no-lightbox" >}}
 
 A rule have one or more output entries which are the conclusions of the rule. Each output entry contains an expression in a `text` element inside an `outputEntry` element.
 
@@ -75,6 +81,10 @@ A rule have one or more output entries which are the conclusions of the rule. Ea
 
 In case JUEL is used as expression language, the expression `${"Spareribs"}` is equals to `"Spareribs"`. It is a short way to specify that the output value is the String `Spareribs`.
 
+## Empty Output Entry
+
+If the output entry is empty or contains an empty expression then the output is ignored and no part of the decision result.
+
 ## Expression Language of an Output Entry
 
 The expression language of the expression can be specified by the `expressionLanguage` attribute on the `outputEntry` element. The supported expression languages are listed in the [User Guide]({{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}).
@@ -85,11 +95,9 @@ The expression language of the expression can be specified by the `expressionLan
 
 If no expression language is set then the global expression language is used which is set on the `definitions` element. In case no global expression language is set, the default expression language is used instead, by default JUEL. Please refer to the [User Guide]({{< relref "user-guide/dmn-engine/expressions-and-scripts.md#configuring-the-default-expression-language" >}}) how to configure the default expression language.
 
-## Empty Output Entries
+# Description
 
-If the output entry is empty or contains an empty expression then the output is ignored and no part of the decision result. 
-
-# Descriptions
+{{< img src="../img/description.png" title="Description" class="no-lightbox" >}}
 
 A rule can contains a description that provide additional informations. The description, also called annotation, is set inside the `description` element.
 

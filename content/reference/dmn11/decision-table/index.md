@@ -19,11 +19,15 @@ menu:
 
 # The Name of the Decision Table
 
+{{< img src="img/decision-name.png" title="Decision Name" class="no-lightbox" >}}
+
 The name is set in the `name` attribute on the `decision` element. It describes the decision which the decision table provides the decision logic.
 
 # The Id of the Decision Table
 
-The id is the technical identifier of the decision table. It is set in the `id` attribute on the `decision` element. 
+{{< img src="img/decision-id.png" title="Decision Id" class="no-lightbox" >}}
+
+The id is the technical identifier of the decision table. It is set in the `id` attribute on the `decision` element.
 
 Each decision table should have an unique id when it is deployed in the Process Engine Repository. The engine use the id as the decision key of the deployed `DecisionDefinition`. Whenever a decision is deployed then the version of the `DecisionDefinition` with the given decision key is increased. Please refer to the [User Guide]({{< relref "user-guide/process-engine/decisions/repository.md#deploying-a-decision" >}}) to read more about deploying a decision table.
 
