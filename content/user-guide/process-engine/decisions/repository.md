@@ -13,7 +13,7 @@ menu:
 ---
 
 To evaluate a DMN decision in Camunda BPM platform it has to be part of
-a [Deployment]. After a decision is deployed it can be reference
+a [Deployment]. After a decision is deployed it can be referenced
 by its key and version. The platform supports [DMN 1.1] XML files.
 
 # Deploying a Decision
@@ -24,7 +24,7 @@ a Process Application. The platform will recognize all files with a `.dmn` or
 
 ## Deploying a decision using the Repository Service
 
-You can use the Repository Service to create a new Deployment and add your
+Use the Repository Service to create a new Deployment and add
 DMN resources to it. For example the following code will create a new
 deployment for a DMN file in the classpath.
 
@@ -95,16 +95,18 @@ decision in the DMN XML.
 </definitions>
 ```
 
-If this DMN XML will be deployed a Decision Definition with a generated unique
-id, the key `my-decision`, the name `My Decision` and version `1` will be
-generated.
+When deploying the above DMN XML fily, a decision definition having the following properties is created:
+
+- `id`: GENERATED
+- `key`: `my-decision`
+- `name`: `My Decision`
+- `version`: 1
 
 ## The Decision Definition Version
 
-If a decision is deployed the platform will check if already a decision
-definition with the same key is deployed. If not the decision definition will
-become version `1` for this key. If already a decision definition with the same
-key exists the newly deployed decision definition will become a new version of
+When a decision is deployed, it is checked whether a definition with the same key is already deployed.
+If not, the decision definition is assigned version `1` for this key. If a decision definition with the same
+key already exists, the newly deployed decision definition will become a new version of
 the exiting one. Increasing its version by one.
 
 This versioning of decision definitions allows the user to update decisions,
@@ -182,7 +184,7 @@ InputStream diagramInputStream = repositoryService
   .getDecisionDiagram("decisionDefinitionId");
 ```
 
-# Authorizations for Query Decisions
+# Authorizations for Querying Decisions
 
 The user need the permission `READ` on the resource `DECISION_DEFINITION` to
 query decision definitions. This permission is also required for retrieve decision

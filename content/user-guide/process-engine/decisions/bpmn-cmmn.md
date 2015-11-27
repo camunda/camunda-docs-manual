@@ -14,14 +14,12 @@ menu:
 
 # BPMN & CMMN Integration
 
-A DMN decision definition can be referenced from a BPMN using a
-[business rule task] or a CMMN case using a [decision task].
+This section explains how to invoke DMN decision tables from BPMN and CMMN.
 
-## DMN Business Rule Task
+## BPMN Business Rule Task
 
-In a BPMN process a business rule task can reference a decision
-definition which is [deployed] inside the platform. The decision definition is
-evaluated when the task is entered.
+The BPMN business rule task can reference a [deployed] decision
+definition. The decision definition is evaluated when the task is executed.
 
 ```xml
 <definitions id="taskAssigneeExample"
@@ -44,13 +42,13 @@ evaluated when the task is entered.
 </definitions>
 ```
 
-For more information on how to reference a decision definition from a business
+For more information on how to references a decision definition from a business
 rule task please refer to the [BPMN 2.0 reference][business rule task].
 
 ## DMN Decision Task
 
-In a CMMN case a decision task can references a decision table which is deployed inside the
-engine. The decision table is invoked when the task is activated.
+The CMMN decision task references a [deployed] decision table.
+The decision table is invoked when the task is activated.
 
 ```xml
 <definitions id="definitions"
@@ -71,7 +69,7 @@ engine. The decision table is invoked when the task is activated.
 ```
 
 For more information on how to reference a decision definition from a decision
-task please refer to the [CMMN 1.1 reference][decision task].
+task, please refer to the [CMMN 1.1 reference][decision task].
 
 # The Decision Result
 
@@ -200,7 +198,7 @@ consider the [limitations of serialization]({{< relref
 
 {{< /note >}}
 
-### Custom Mapping into Process Variables
+### Custom Mapping to Process Variables
 
 If a business rule task is used to invoke a decision inside a BPMN process,
 then the decision result can be passed into process variables by using an
@@ -252,7 +250,7 @@ public class MyDecisionResultListener implements ExecutionListener {
 }
 ```
 
-### Custom Mapping into Case Variables
+### Custom Mapping to Case Variables
 
 If a decision task is used to invoke a decision inside a CMMN case, the
 decision result can be passed to a case variable by using a case execution
@@ -375,7 +373,7 @@ section in the [Spring] and [CDI] guides.
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that these APIs are **not** part of the [public API]({{< relref
+These APIs are **not** part of the [public API]({{< relref
 "introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
@@ -386,6 +384,7 @@ page="?org/camunda/bpm/engine/impl/javax/el/FunctionMapper.html"
 text="FunctionMapper" >}} has to be implemented. The function mapper than
 has to be added to the process engine configuration after it was
 initialized.
+
 ```java
 ProcessEngineConfigurationImpl processEngineConfiguration = (ProcessEngineConfigurationImpl) processEngine
   .getProcessEngineConfiguration();
@@ -399,8 +398,6 @@ This can be done by creating a [process engine plugin] for example.
 
 Please **note** that these functions are available in all JUEL expressions
 in the platform. And not only in DMN decision tables.
-
-
 
 [deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
 [business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}
