@@ -12,11 +12,29 @@ menu:
 
 ---
 
-The DMN engine provides a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html" text="interface" >}} to parse and evaluate DMN decisions.
+The DMN engine {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html" text="interface" >}} exposes methods
+for parsing and evaluating DMN Decisions.
 
 # Parse Decisions
 
-To parse a decision you can either pass a `InputStream` or a {{< javadocref page="?org/camunda/bpm/model/dmn/DmnModelInstance.html" text="DmnModelInstance" >}} to the DMN engine.
+Decisions can be parsed from an `InputStream` or transformed from a {{< javadocref page="?org/camunda/bpm/model/dmn/DmnModelInstance.html" text="DmnModelInstance" >}}.
+
+This example shows how to parse a decision from an input stream:
+
+```java
+// create a default DMN engine
+DmnEngine dmnEngine = DmnEngineConfiguration
+  .createDefaultDmnEngineConfiguration()
+  .buildEngine();
+
+InputStream inputStream = ...
+
+// parse all decision from the input stream
+List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
+```
+
+The next example uses the DMN Model Api to first create a
+DmnModelInstance and then transform the decisions:
 
 ```java
 // create a default DMN engine
@@ -27,13 +45,8 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 // read a DMN model instance from a file
 DmnModelInstance dmnModelInstance = Dmn.readModelFromFile(...);
 
-// parse all decision from the DMN model instance
+// parse the decisions
 List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
-
-// or read the DMN XML file as input stream
-InputStream inputStream = ...
-// and parse all decision from the input stream
-decisions = dmnEngine.parseDecisions(dmnModelInstance);
 ```
 
 ## The Decision Key
@@ -58,9 +71,8 @@ every decision should have an `id` attribute.
 ```
 
 The `id` of a decision in the XML is called `key` in the context of the DMN
-engine. So if you want to parse a specific decision from a DMN file you
-have to specify the decision key which corresponds to the `id` attribute in
-the XML file.
+engine. To only parse a specific decision from a DMN file you, specify the decision
+key which corresponds to the `id` attribute in the XML file.
 
 ```java
 // create a default DMN engine
@@ -78,8 +90,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 ## Decision Tables only
 
 Currently the DMN engine only supports DMN 1.1 [decision tables]. Other decisions
-will be ignored. If you want to test that a decision actually is a decision
-table you can use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
+will be ignored. Use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}} for testing if a parsed decision is actually a decision table.
 
 ```java
 // create a default DMN engine
@@ -104,14 +115,9 @@ if (decision.isDecisionTable()) {
 
 # Evaluate Decision Tables
 
-The DMN engine can evaluated DMN 1.1 [decision tables]. To evaluate a decision
-table you can either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}}. Or you can use a DMN model instance
-or Input Stream in combination with a decision key.
+In orer to evaluate (or "execute") a decision table, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}}. Or use a DMN model instance or Input Stream in combination with a decision key.
 
-As the decision table consist of multiple expressions you have to specify the
-set of input variables which are used to evaluate these expression. For more
-information on the supported expressions see the corresponding
-[section][expressions].
+As input to the evaluation, a set of input variables must be provided.
 
 ```java
 // create a default DMN engine
@@ -122,11 +128,8 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 // load DMN file
 InputStream inputStream = ...;
 
-// or read a DMN model instance from a file
-DmnModelInstance dmnModelInstance = Dmn.readModelFromFile(...);
-
 // or parse a DMN decision
-DmnDecision decision = dmnEngine.parseDecision(...);
+DmnDecision decision = dmnEngine.parseDecision(inputStream);
 
 // create the input variables
 VariableMap variables = Variables.createVariables()
@@ -134,10 +137,6 @@ VariableMap variables = Variables.createVariables()
   .putValue("y", 2015);
 
 // evaluate decision tables
-DmnDecisionTableResult result = dmnEngine
-  .evaluateDecisionTable("myDecision", inputStream, variables);
-result = dmnEngine
-  .evaluateDecisionTable("myDecision", dmnModelInstance, variables);
 result = dmnEngine
   .evaluateDecisionTable(decision, variables);
 ```
@@ -145,9 +144,9 @@ result = dmnEngine
 ## Pass Variables
 
 To provide the input variables for a decision evaluation you can either use a
-Java `Map<String, Object>` resp. a `VariableMap` or a `VariableContext`. A
-`VariableContext` should be used if it is desirable to implement lazy-loading
-of variables.
+Java `Map<String, Object>` resp. a `VariableMap` or a `VariableContext`.
+
+The following example shows how to 
 
 ```java
 // create a default DMN engine
@@ -159,18 +158,17 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 DmnDecision decision = dmnEngine.parseDecision(...);
 
 // create the input variables
-VariableMap variables = ...;
-
-// or a variable context
-VariableContext variableContext = ...;
+VariableMap variables = Variables.createVariables()
+  .putValue("x", "camunda")
+  .putValue("y", 2015);
 
 // evaluate decision tables
 DmnDecisionTableResult result = dmnEngine
   .evaluateDecisionTable(decision, variables);
-result = dmnEngine
-  .evaluateDecisionTable(decision, variableContext);
 ```
 
+Alternatively, a `VariableContext` can be used.
+Use the `VariableContext` to support lazy-loading of variables.
 
 ## Interpret the DmnDecisionTableResult
 
@@ -189,16 +187,16 @@ approve an invoice.
 
 The decision table returns for every matched rule two outputs.
 
-Assuming the input is:
+Assume that the decision table is executed with the following input variables:
 
 - `amount`: 350
 - `invoiceCategory`: "Travel Expenses"
 
-The decision rules 1 and 2 with match. So the `DmnDecisionTableResult` consist
-of two `DmnDecisionRuleResults`. Whereas both `DmnDecisionRuleResult` will
-contain the keys `result` and `reason`.
+Since the conditions are true, both rules in the decision table will match.
+The `DmnDecisionTableResult` thus consists of two `DmnDecisionRuleResults`.
+Both `DmnDecisionRuleResult`s contain the keys `result` and `reason`.
 
-You can access them in Java using normal list and map methods:
+To access these values, the default `java.util.List` and `java.util.Map` methods can be used:
 
 ```java
 DmnDecisionTableResult tableResult = dmnEngine.evaluateDecisionTable(decision, variables);
@@ -214,30 +212,28 @@ Object result = ruleResult.get("result");
 Object reason = ruleResult.get("reason");
 ```
 
-Additionally the result objects have methods to easily access common result
-cases.
+The result objects expose additional convenience methods:
 
 ```java
 DmnDecisionTableResult tableResult = dmnEngine.evaluateDecisionTable(decision, variables);
 
-// will return first rule result
+// returns the first rule result
 DmnDecisionRuleResult ruleResult = tableResult.getFirstResult();
 
-// will also return first rule result
-// but asserts that only one exists
+// returns first rule result
+// but asserts that only a single one exists
 tableResult.getSingleResult();
 
-// collect only the entries for on output column
+// collects only the entries for on output column
 tableResult.collectEntries("result");
 
-// will return first output entry
+// returns the first output entry
 ruleResult.getFirstEntry();
 
-// will also return first output entry
-// but asserts that only one exists
+// also returns the first output entry
+// but asserts that only a single one exists
 ruleResult.getSingleEntry();
 ```
-
 
 [decision tables]: {{< relref "reference/dmn11/decision-table/index.md" >}}
 [expressions]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}

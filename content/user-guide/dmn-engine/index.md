@@ -12,12 +12,12 @@ menu:
 ---
 
 The Camunda DMN engine is a Java library which can evaluate decision tables
-based on the [DMN 1.1] OMG standard.  It can be used as library embedded in your
-own application or in combination with the Camunda BPM platform. This section
+based on the [DMN 1.1] OMG standard.  It can be used as library embedded in an
+application or in combination with the Camunda BPM platform. This section
 covers how to embed the library and use it to evaluate decisions. For more
 information of the integration in the Camunda BPM platform please see the
 [corresponding section][platform]. You can read more about the DMN 1.1 standard
-in our [reference].
+in the [reference].
 
 A complete example how to embed the decision engine and test
 decisions can be found on [GitHub].

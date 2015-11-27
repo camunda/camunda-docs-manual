@@ -12,16 +12,17 @@ menu:
 
 ---
 
-The Camunda DMN engine can be used as a library in your own application. In
-order to achieve this, you have to include the `camunda-engine-dmn` artifact,
+The Camunda DMN engine can be used as a library in a custom application. In
+order to achieve this, add the `camunda-engine-dmn` artifact to the classpath of the application and then
 configure and build a decision engine instance. This section provides the
 required maven coordinates to add the DMN engine as a dependency to your
 project. It then shows how to configure and build a new DMN engine instance.
 
 # Maven Coordinates
 
-The Camunda DMN engine is released to Maven Central and provides a BOM which we
-recommend to import.
+The Camunda DMN engine is released to Maven Central.
+
+Start by importing the BOM to ensure correct dependency management.
 
 ```xml
 <dependencyManagement>
@@ -37,9 +38,7 @@ recommend to import.
 </dependencyManagement>
 ```
 
-After that you have to include the `camunda-engine-dmn` artifact in your
-`dependencies` section. Alternative you can skip the BOM import and specify
-the version of the `camunda-engine-dmn` artifact.
+Next, include the `camunda-engine-dmn` artifact in the `dependencies` section.
 
 ```xml
 <dependencies>
@@ -52,7 +51,7 @@ the version of the `camunda-engine-dmn` artifact.
 
 # Building a DMN Engine
 
-To build a new DMN engine you have to create a DMN engine configuration.
+To build a new DMN engine, create a DMN engine configuration. 
 Configure it if needed and than build a new DMN engine from it.
 
 ```java
@@ -69,11 +68,13 @@ DmnEngine dmnEngine = configuration.buildEngine();
 
 # Configuration of the DMN Engine
 
-The DMN engine configuration allows you add own decision table {{< javadocref
+## Decision Evaluation Listeners
+
+The DMN engine configuration allows you add a custom decision table {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html"
 text="evaluation listener" >}}. A decision table evaluation listener is
 notified after a decision table was evaluated. It receives a evaluation event
-which contains the result of the evaluation. You can decided whether your
+which contains the result of the evaluation. You can decide whether the
 listener should be notified before or after the default listeners.
 
 ```java
@@ -81,7 +82,7 @@ listener should be notified before or after the default listeners.
 DmnEngineConfiguration configuration = DmnEngineConfiguration
     .createDefaultDmnEngineConfiguration();
 
-// create your listener
+// instantiate the listener
 DmnDecisionTableEvaluationListener myListener = ...;
 
 // notify before default listeners
@@ -126,7 +127,7 @@ extension points.
 
 ## Customize DMN Transformation
 
-You can customize the transformation of DMN by providing an own {{< javadocref
+It is possible to customize the transformation of DMN by providing a {{< javadocref
 page="?org/camunda/bpm/dmn/engine/impl/spi/transform/DmnTransformer.html"
 text="DMN transformer" >}} or configure the {{< javadocref
 page="?org/camunda/bpm/dmn/engine/impl/transform/DefaultDmnTransformer.html"
@@ -136,34 +137,33 @@ text="default one" >}}.
 
 The simplest customization is to provide a {{< javadocref
 page="?org/camunda/bpm/dmn/engine/impl/spi/transform/DmnTransformListener.html"
-text="transform listener" >}} which will be notified after a DMN element was
-transformed. You can then modify the transformed object.
+text="transform listener" >}}. The Listener is notified after a DMN element is
+transformed. The listener can modify the transformed object.
 
 ```java
 // with a default dmn engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// and your own transfrom listner
+// instantiate transform listener
 DmnTransformListener myTransformListener = ... ;
 
-// you can add it to the transformer
+// add the transform listener
 configuration.getTransformer()
   .getTransformListeners()
   .add(myTransformListener);
 ```
 
 ### Register DMN Element Transform Handler
-If you want that the transformation creates objects from your own classes you
-can register new {{< javadocref
+
+While the transform listener allows modifying the the transformed objects, it does not support instantiating custom subclasses.
+This can be achieved using a custom {{< javadocref
 page="?org/camunda/bpm/dmn/engine/impl/spi/transform/DmnElementTransformHandler.html"
-text="transform handlers" >}}. These are registered for elements of the [DMN
-model API].
+text="transform handler" >}}.
 
-For example if you want that the transformer omits an extended decision table
-object you can register your own handler in the registry.
+A transform handler is registered for a given [DMN model API] type like a `DecisionTable`.
 
-First you have to implement a transform handler which can transform a {{<
+First, implement a transform handler which can transform a {{<
 javadocref page="?org/camunda/bpm/model/dmn/instance/DecisionTable.html"
 text="decision table" >}}.
 
@@ -176,15 +176,14 @@ public  class MyDecisionTableHandler extends DmnElementTransformHandler<Decision
 }
 ```
 
-Then you can register an instance of your handler in the default DMN transformer
-element handler registry.
+Then, register an instance of the handler in the default DMN transformer element handler registry.
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can add your own element handler
+// add the handler
 configuration.getTransformer()
   .getElementTransformHandlerRegistry()
   .addHandler(DecisionTable.class, new MyDecisionTableHandler());
@@ -192,11 +191,10 @@ configuration.getTransformer()
 
 ### Register DMN Data Type Transformers
 
-The DMN engine supports some build-in [data types]. You can either override
-an existing one or add own types.
+The DMN engine supports a set of build-in [data types]. It is possible to override existing types of a new types.
 
-For example if you want to support a local date format you can
-override the existing date transformer by implementing an own transformer:
+Assume you want to support a local date format type.
+To achieve this, override the existing date transformer by implementing a custom transformer:
 
 ```java
 public class GermanDateDataTypeTransformer extends DateDataTypeTransformer {
@@ -214,65 +212,59 @@ public class GermanDateDataTypeTransformer extends DateDataTypeTransformer {
 }
 ```
 
-Then you can register an instance of your handler in the default DMN transformer
-element handler registry.
+Then, register an instance of the handler in the default DMN transformer element handler registry:
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can add your own data type transformer
+// add the data type transformer,
+// overriding the existing type "date":
 configuration
   .getTransformer()
   .getDataTypeTransformerRegistry()
   .addTransformer("date", new GermanDateDataTypeTransformer());
 ```
-
-You can also add own data types by implementing corresponding transformers:
-
+It is also possible to add a new data type by implementing a new transformer and registering it for a non-existing type name:
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can add your own custom data type transformer
+// add the data type transformer for custom type "currency"
 configuration
   .getTransformer()
   .getDataTypeTransformerRegistry()
-  .addTransformer("custom", new CustomDataTypeTransformer());
+  .addTransformer("currency", new currencyTypeTransformer());
 ```
 
 ### Register Hit Policy Handlers
 
-The DMN engine supports a subset of the DMN 1.1 [hit policies]. You
-can either extend this support or replace existing hit policy handlers.
+The DMN engine supports a subset of the DMN 1.1 [hit policies]. It is possible to implement new hit policies or
+override an existing hit policy implementation.
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can get the default hit policy regsitry
+// get the DmnHitPolicyHandlerRegistry
 DmnHitPolicyHandlerRegistry hitPolicyHandlerRegistry = configuration
   .getTransformer()
   .getHitPolicyHandlerRegistry();
 
-// add you own priority hit policy handler
+// register handler you own priority hit policy handler
 hitPolicyHandlerRegistry
   .addHandler(HitPolicy.PRIORITY, null, new MyPriorityHitPolicyHandler());
-
-// override the existing collect sum hit policy handler
-hitPolicyHandlerRegistry
-  .addHandler(HitPolicy.COLLECT, BuiltinAggregator.SUM, new MyCollectSumHitPolicyHandler());
 ```
 
 ## Change default expression languages
 
-A [DMN decision table] consists of multiple expressions which will be evaluated
-by the DMN engine. The default expression language for every expression type
-can be configured. The following expression types exist:
+A [DMN decision table] has multiple expressions which are evaluated when the table is executed.
+The default expression language for every expression type can be configured.
+The following expression types exist:
 
 - *Input Expression*: Use to specify the input of a column in a decision
   table. The default language for input expressions in the DMN engine is
@@ -284,29 +276,27 @@ can be configured. The following expression types exist:
   table. The default language for output entries in the DMN engine is
   `JUEL`.
 
-You can read more about the default expressions in the corresponding
-[section][expressions].
+Read more about the default expressions in the corresponding [section][expressions].
 
-To can change the default expression language on the default DMN engine
-configuration:
+It is possible to change the default expression language on the DMN engine configuration:
 
 ```java
-// with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can set the defaul input expression language
 configuration
   .setDefaultInputExpressionExpressionLanguage("javascript");
 ```
 
 Please note that the chosen language must be available in the classpath. Per
-default `JUEL` and `FEEL` are available. But the default `FEEL` implementation
-is only supported for input entries. If your JDK includes a javascript
-implementation like Rhino or Nashhorn also `javascript` should be available.
+default `JUEL` and `FEEL` are available. The default `FEEL` implementation
+is only supported for input entries.
 
-If you want to other script languages like `groovy`, `python` or `ruby` please
-make sure that the corresponding library dependencies are added to your project.
+If the JDK includes a javascript
+implementation like Rhino or `javascript` is available as well.
+
+It is also possible to use other script languages like `groovy`, `python` or `ruby`.
+Just make sure that the corresponding libraries are available on the classpath at runtime.
 
 ## Customize Expression and Script Resolving
 
@@ -314,38 +304,36 @@ The default DMN engine resolves the supported expression and script languages
 using different providers.
 
 To evaluate `JUEL` expressions the DMN engine uses the {{< javadocref page="?org/camunda/bpm/dmn/engine/impl/spi/el/ElProvider.html" text="ElProvider" >}} configured on the
-DMN engine configuration. If you want to use another implementation of the
-Unified Expression Language you can replace this implementation.
+DMN engine configuration. In order to use another implementation of the Unified Expression Language, replace this implementation.
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can use another EL provider
+// set a custom el provider
 configuration.setElProvider(new MyElProvider());
 ```
 
-To configure the `FEEL` engine used you can provide an own {{< javadocref page="?org/camunda/bpm/dmn/feel/impl/FeelEngineFactory.html" text="FeelEngineFactory" >}}.
+To configure the `FEEL` engine used you can provide an custom {{< javadocref page="?org/camunda/bpm/dmn/feel/impl/FeelEngineFactory.html" text="FeelEngineFactory" >}}.
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can use another FEEL engine factory
+// set a custom feel engine factory
 configuration.setFeelEngineFactory(new MyFeelEngineFactory());
 ```
 
-Script languages will be resolved by the {{< javadocref page="?org/camunda/bpm/dmn/engine/impl/spi/el/DmnScriptEngineResolver.html" text="DmnScriptEngineResolver" >}}. If you want
-to customize the script engine resolving you can provide an own implementation.
+Script languages are resolved by the {{< javadocref page="?org/camunda/bpm/dmn/engine/impl/spi/el/DmnScriptEngineResolver.html" text="DmnScriptEngineResolver" >}}. In order to customize the script engine resolving, provide an own implementation.
 
 ```java
 // with a default DMN engine configuration
 DefaultDmnEngineConfiguration configuration = (DefaultDmnEngineConfiguration) DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration();
 
-// you can use another script engine resolver
+// set custom script engine resolver
 configuration.setScriptEngineResolver(new MyScriptEngineResolver());
 ```
 
