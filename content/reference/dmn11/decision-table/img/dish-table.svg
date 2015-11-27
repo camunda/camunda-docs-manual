@@ -462,16 +462,6 @@
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
          id="path4444-1-3-4" />
     </marker>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter6756">
-      <feBlend
-         inkscape:collect="always"
-         mode="lighten"
-         in2="BackgroundImage"
-         id="feBlend6758" />
-    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -484,7 +474,7 @@
      inkscape:cx="300.01805"
      inkscape:cy="212.37029"
      inkscape:document-units="px"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="g4357"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -528,6 +518,28 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Collect Hit Policy"
+     style="display:none">
+    <image
+       y="135.71007"
+       x="8.6274166"
+       id="image4354"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAaCAIAAAArNqveAAAAA3NCSVQICAjb4U/gAAABV0lEQVRI
+S2P8//8/A7UBE7UNBJk3aij1Q3XohCkLds9/eXBky44Td15+/cvAzC9t4BDgYSCCQykWAxixJP4f
+dzZMWXrxK7JqZuXgghgdHqjQjxtzOlc+ZZAOL0/R4MBiKGaY/nmxZwPIRGHj8Ozy6uJ4Z2lmBoa/
+d/ccefEHi36sQhh++vPmwg2gkdz6AR4aIB8rWAQ43NjwQsfBgnj/YxjK8OUFyOM8KjAzWERsUlLA
+DoL6Gu64pys7G8Ec9HDA9D5cD/kMTJfyiHAzPPz64c6bPzoyIFlgGC/Y8kHHwcVERSOlvh5kFckR
+xSJioMLOwPDz4oY9Nz78+fPlwYENR58+vbpzw4k35EcUA4uMS4D6jZU3355cOfEkLAiYlT1sJDB9
+hSOEsKVToNIvd/Zs2HHm7tufDMDEL2/g4uOhQ3zkM+AwFIcTiBSmSeyPGkpk6JOgbOiEKQAUKn19
+e1S7qwAAAABJRU5ErkJggg==
+"
+       preserveAspectRatio="none"
+       height="26"
+       width="28" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="Extra"
      style="display:inline">
@@ -564,43 +576,6 @@
          id="path5260"
          d="m 657.35284,462.2044 c 12.8068,-28.00777 11.32378,-92.38885 5.88252,-117.02332"
          style="fill:none;fill-rule:evenodd;stroke:#b5152b;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5262)" />
-    </g>
-    <g
-       inkscape:groupmode="layer"
-       id="layer11"
-       inkscape:label="Rule"
-       style="display:none">
-      <rect
-         transform="translate(0.33536768,124.51939)"
-         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#b5152b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect4446-1"
-         width="688.25226"
-         height="22.50354"
-         x="0.66463232"
-         y="134.43414" />
-      <text
-         transform="translate(0.33536768,124.51939)"
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.9375px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#b5152b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="318.25391"
-         y="360.10397"
-         id="table-name-id-text-0-1-3"
-         sodipodi:linespacing="125%"
-         inkscape:label="#text4885"
-         onmouseover="document.getElementById('table-name-id').style.display='block';"
-         onmouseout="document.getElementById('table-name-id').style.display='none';"><tspan
-           sodipodi:role="line"
-           id="tspan4887-4-9-3"
-           x="318.25391"
-           y="360.10397"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.9375px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#b5152b;fill-opacity:1">Rule</tspan></text>
-      <path
-         transform="translate(0.33536768,124.51939)"
-         style="fill:none;fill-rule:evenodd;stroke:#b5152b;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6952)"
-         d="m 319.85728,336.28572 c -18,-23 -20.48301,-130.82234 -20.0835,-178.61603"
-         id="path4152-9-40"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cc" />
     </g>
     <g
        style="display:none"
@@ -890,6 +865,43 @@
     </g>
     <g
        inkscape:groupmode="layer"
+       id="layer11"
+       inkscape:label="Rule"
+       style="display:inline">
+      <rect
+         transform="translate(0.33536768,124.51939)"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#b5152b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4446-1"
+         width="688.25226"
+         height="22.50354"
+         x="0.66463232"
+         y="134.43414" />
+      <text
+         transform="translate(0.33536768,124.51939)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.9375px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#b5152b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="318.25391"
+         y="360.10397"
+         id="table-name-id-text-0-1-3"
+         sodipodi:linespacing="125%"
+         inkscape:label="#text4885"
+         onmouseover="document.getElementById('table-name-id').style.display='block';"
+         onmouseout="document.getElementById('table-name-id').style.display='none';"><tspan
+           sodipodi:role="line"
+           id="tspan4887-4-9-3"
+           x="318.25391"
+           y="360.10397"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.9375px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#b5152b;fill-opacity:1">Rule</tspan></text>
+      <path
+         transform="translate(0.33536768,124.51939)"
+         style="fill:none;fill-rule:evenodd;stroke:#b5152b;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6952)"
+         d="m 319.85728,336.28572 c -18,-23 -20.48301,-130.82234 -20.0835,-178.61603"
+         id="path4152-9-40"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
        id="layer10"
        inkscape:label="Output Type Definition"
        style="display:inline">
@@ -1147,15 +1159,15 @@
     </g>
     <g
        inkscape:groupmode="layer"
-       id="layer3"
+       id="g4357"
        inkscape:label="Top Left"
-       style="display:none;filter:url(#filter6756)">
+       style="display:none">
       <rect
          style="opacity:0.1;fill:#d40000;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:2, 6;stroke-dashoffset:0"
-         id="rect6580"
+         id="rect4359"
          width="366.28131"
          height="231.22391"
-         x="6.4712779e-08"
+         x="0"
          y="27.087711"
          inkscape:export-xdpi="72"
          inkscape:export-ydpi="72" />
