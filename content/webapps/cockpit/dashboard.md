@@ -35,8 +35,10 @@ You can also switch to the preview tab which includes the rendered process model
 
 {{< img src="../img/cockpit-decision-definition-list.png" title="Deployed Decision Definitions" >}}
 
-This plugin provides you with a list of deployed decision definitions. You can click on the name of a decision to go to the decision definition view page and access more details about it, like the dmn table or executed decision instances.
+This plugin provides you with a list of deployed decision definitions. You can click on the name of a decision to go to the [Decision Definition View][decision-definition-view] page and access more details about it, like the dmn table or executed [Decision Instances View][decision-instance-view].
 
+[decision-definition-view]: {{< relref "webapps/cockpit/dmn/decision-definition-view.md" >}}
+[decision-instance-view]: {{< relref "webapps/cockpit/dmn/decision-instance-view.md" >}}
 
 # Multi Tenancy
 
