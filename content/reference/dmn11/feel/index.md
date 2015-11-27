@@ -1,6 +1,6 @@
 ---
 
-title: 'FEEL (Friendly Enough Expression Language)'
+title: 'Friendly Enough Expression Language (FEEL)'
 weight: 20
 layout: "section-list"
 
@@ -13,7 +13,11 @@ menu:
 
 ---
 
-# Coverage
+The Decision Model and Notation (DMN) defines a Friendly Enough Expression
+Language (FEEL). It can be used to evaluate expressions in a decision table.
 
-Partial Support for Simple Unary Tests.
+The Camunda DMN engine **only** supports FEEL for [input entries] of a
+decision table. This corresponds to FEEL simple unary tests.
 
+
+[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
