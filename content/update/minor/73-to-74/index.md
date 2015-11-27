@@ -22,7 +22,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.4:
 
-* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decision and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use CMMN, the DMN-related tables will stay empty.
+* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decision and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use DMN, the DMN-related tables will stay empty.
 * **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. The execution of CMMN 1.0 models is still supported by Camunda BPM.
 * **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
