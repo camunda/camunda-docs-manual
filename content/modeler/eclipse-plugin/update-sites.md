@@ -39,10 +39,10 @@ The update site depends on
   <tr>
     <td>Older versions
     <td>
-      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/2.7.0/">2.70</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/kepler/archive/2.7.1/">2.7.1</a>
     </td>
     <td>
-      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/2.7.0/">2.70</a>
+      <a href="http://camunda.org/release/camunda-eclipse-plugin/update-sites/indigo/archive/2.7.1/">2.7.1</a>
     </td>
   </tr>
 </table>
