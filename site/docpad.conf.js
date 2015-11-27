@@ -40,6 +40,7 @@ module.exports = {
         current: process.env.DOCS_VERSION || '7.2',
         all: [
           { id: 'latest', name: 'Latest' },
+          { id: '7.4', name: '7.4 (stable)' },
           { id: '7.3', name: '7.3 (stable)' },
           { id: '7.2', name: '7.2 (stable)' },
           { id: '7.1', name: '7.1 (stable)' },
