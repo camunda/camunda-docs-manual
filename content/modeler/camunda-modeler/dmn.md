@@ -18,7 +18,7 @@ menu:
 
 {{< img src="img/quickstart-1.png" title="New BPMN Diagram" >}}
 
-In order to start with a new table, create a new DMN 1.1 table by selecting *File / New File / DMN Table* in the top-level menu.
+To start with a new table, create a new DMN 1.1 table by selecting *File / New File / DMN Table* in the top-level menu.
 
 ## Start Editing
 
@@ -34,4 +34,4 @@ Add Input, Output and Rule elements by clicking the plus signs. Edit a table cel
 
 {{< img src="img/quickstart-4.png" title="New BPMN Diagram" >}}
 
-In order to save your work, , click *File / Save File As...* in the top-level menu. You can then select a location on your file system to store the diagram in the DMN 1.1 XML format. In the future, you can load that file again by clicking *File / Open File...*.
+To save your work, , click *File / Save File As...* in the top-level menu. Then select a location on your file system to store the diagram in the DMN 1.1 XML format. You can load that file again by clicking *File / Open File...*.

@@ -13,11 +13,11 @@ menu:
 
 ---
 
-This page explains which update site to choose for installing the eclipse plugin.
+This page explains which update site to choose for installing the Eclipse plugin.
 The update site depends on
 
 * the version of Camunda Process Engine you are using
-* the version of eclipse you are using
+* the version of Eclipse you are using
 
 **Right click on the links in the Table below** to copy the correct update site URL.
 
@@ -54,15 +54,15 @@ your Process Engine version. See Section "Automatic Updates" below for details.
 
 # Automatic Updates with "Latest"
 
-The "Latest Version" update sites always point to the latest released version of the eclipse plugin. Choosing these update sites has the advantage that if you run the "Check for Updates" Wizard in Eclipse, you will be able to update to a new version of the Camunda eclipse plugin. However, this advantage can also lead to problems: if you update to a newer version of the eclipse modeler without updating the process engine as well, the eclipse plugin may produce models which are incompatible with the version of the process engine you use.
-In case you accidentally updated to an incompatible version of the eclipse plugin, you have to downgrade again. See the corresponding section on "Downgrading the Eclipse Plugin" futher down on this page.
+The "Latest Version" update sites always point to the latest released version of the Eclipse plugin. Choosing these update sites has the advantage that if you run the "Check for Updates" Wizard in Eclipse, you will be able to update to a new version of the Camunda Eclipse plugin. However, this advantage can also lead to problems: if you update to a newer version of the Eclipse modeler without updating the process engine as well, the Eclipse plugin may produce models which are incompatible with the version of the process engine you use.
+In case you accidentally updated to an incompatible version of the Eclipse plugin, you have to downgrade again. See the corresponding section on "Downgrading the Eclipse Plugin" further down on this page.
 
 # Downgrading the Eclipse Plugin
 
-If you installed an incompatible version of the eclipse plugin (version of eclipse plugin not matching Camunda process engine version) then you have to downgrade the eclipse plugin.
+If you installed an incompatible version of the Eclipse plugin (version of Eclipse plugin not matching Camunda process engine version) then you have to downgrade the Eclipse plugin.
 
-In order to downgrade the eclipse plugin, the following steps are necessary:
+To downgrade the Eclipse plugin, the following steps are necessary:
 
-1. Uninstall the incompatible version of the eclipse plugin,
+1. Uninstall the incompatible version of the Eclipse plugin,
 2. Change the update site URL to point to the correct version (See table at the top of this page),
 3. Install a compatible version from the update site.

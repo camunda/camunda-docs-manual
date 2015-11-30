@@ -18,7 +18,7 @@ menu:
 
 {{< img src="img/quickstart-1.png" title="New BPMN Diagram" >}}
 
-In order to start modeling, create a new BPMN 2.0 diagram by selecting *File / New File / BPMN Diagram* in the top-level menu.
+To start modeling, create a new BPMN 2.0 diagram by selecting *File / New File / BPMN Diagram* in the top-level menu.
 
 ## Start Modeling
 
@@ -40,4 +40,4 @@ The panel can be hidden and restored by clicking the tab on its left border.
 
 {{< img src="img/quickstart-5.png" title="Save BPMN Diagram" >}}
 
-In order to save your state of work, click *File / Save File As...* in the top-level menu. You can then select a location on your file system to store the diagram in the BPMN 2.0 XML format. In the future, you can load that file again by clicking *File / Open File...*.
+To save your state of work, click *File / Save File As...* in the top-level menu. Then select a location on your file system to store the diagram in the BPMN 2.0 XML format. You can load that file again by clicking *File / Open File...*.
