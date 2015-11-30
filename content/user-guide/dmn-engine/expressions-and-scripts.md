@@ -94,11 +94,12 @@ DMN engine are as follows:
 - *Input Entry*: `FEEL`
 - *Output Entry*: `JUEL`
 
-The default language can be changed by setting it directly in the DMN 1.1 XML with the `expressionLanguage` attribute of
+The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
 
 ```xml
-<!-- this sets the default expression language for all expressions in this file to javascript -->
+<!-- this sets the default expression language for all expressions -->
+<!-- in this file to javascript -->
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" expressionLanguage="javascript">
   <decision  id="decision" name="Decision">
     <decisionTable>

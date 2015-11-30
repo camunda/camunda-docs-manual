@@ -30,7 +30,7 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 InputStream inputStream = ...
 
 // parse all decision from the input stream
-List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
+List<DmnDecision> decisions = dmnEngine.parseDecisions(inputStream);
 ```
 
 The next example uses the DMN Model Api to first create a
@@ -71,7 +71,7 @@ every decision should have an `id` attribute.
 ```
 
 The `id` of a decision in the XML is called `key` in the context of the DMN
-engine. To only parse a specific decision from a DMN file you, specify the decision
+engine. To only parse a specific decision from a DMN file, you specify the decision
 key which corresponds to the `id` attribute in the XML file.
 
 ```java
@@ -101,8 +101,8 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 // read the DMN XML file as input stream
 InputStream inputStream = ...
 
-// parse all decision from the DMN model instance
-List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
+// parse all decision from the input stream
+List<DmnDecision> decisions = dmnEngine.parseDecisions(inputStream);
 
 // get the first decision
 DmnDecision decision = decisions.get(0);
@@ -125,18 +125,16 @@ DmnEngine dmnEngine = DmnEngineConfiguration
   .createDefaultDmnEngineConfiguration()
   .buildEngine();
 
-// load DMN file
+// read the DMN XML file as input stream
 InputStream inputStream = ...;
 
-// or parse a DMN decision
+// parse the DMN decision from the input stream
 DmnDecision decision = dmnEngine.parseDecision(inputStream);
 
 // create the input variables
-VariableMap variables = Variables.createVariables()
-  .putValue("x", "camunda")
-  .putValue("y", 2015);
+VariableMap variables = ...;
 
-// evaluate decision tables
+// evaluate the decision table
 result = dmnEngine
   .evaluateDecisionTable(decision, variables);
 ```
@@ -146,23 +144,15 @@ result = dmnEngine
 To provide the input variables for a decision evaluation you can either use a
 Java `Map<String, Object>` resp. a `VariableMap` or a `VariableContext`.
 
-The following example shows how to 
+The following example shows how to use a `VariableMap`.
 
 ```java
-// create a default DMN engine
-DmnEngine dmnEngine = DmnEngineConfiguration
-  .createDefaultDmnEngineConfiguration()
-  .buildEngine();
-
-// parse a DMN decision
-DmnDecision decision = dmnEngine.parseDecision(...);
-
 // create the input variables
 VariableMap variables = Variables.createVariables()
   .putValue("x", "camunda")
   .putValue("y", 2015);
 
-// evaluate decision tables
+// evaluate the decision table with the input variables
 DmnDecisionTableResult result = dmnEngine
   .evaluateDecisionTable(decision, variables);
 ```
@@ -192,7 +182,7 @@ Assume that the decision table is executed with the following input variables:
 - `amount`: 350
 - `invoiceCategory`: "Travel Expenses"
 
-Since the conditions are true, both rules in the decision table will match.
+Since the conditions are true, the first and the second rule in the decision table will match.
 The `DmnDecisionTableResult` thus consists of two `DmnDecisionRuleResults`.
 Both `DmnDecisionRuleResult`s contain the keys `result` and `reason`.
 
@@ -224,7 +214,7 @@ DmnDecisionRuleResult ruleResult = tableResult.getFirstResult();
 // but asserts that only a single one exists
 tableResult.getSingleResult();
 
-// collects only the entries for on output column
+// collects only the entries for one output column
 tableResult.collectEntries("result");
 
 // returns the first output entry

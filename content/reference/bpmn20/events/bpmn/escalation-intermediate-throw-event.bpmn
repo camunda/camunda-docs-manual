@@ -9,13 +9,8 @@
       <bpmn:outgoing>SequenceFlow_1n8fu6n</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_1ye4dnb" sourceRef="StartEvent_1" targetRef="Task_1vbdoy1" />
-    <bpmn:sequenceFlow id="SequenceFlow_1n8fu6n" sourceRef="Task_1vbdoy1" targetRef="IntermediateCatchEvent_12lgnmx" />
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_12lgnmx" name="order shipped">
-      <bpmn:incoming>SequenceFlow_1n8fu6n</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1o4xcey</bpmn:outgoing>
-      <bpmn:escalationEventDefinition />
-    </bpmn:intermediateCatchEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1o4xcey" sourceRef="IntermediateCatchEvent_12lgnmx" targetRef="SubProcess_1i98faq" />
+    <bpmn:sequenceFlow id="SequenceFlow_1n8fu6n" sourceRef="Task_1vbdoy1" targetRef="IntermediateThrowEvent_1rvtfxd" />
+    <bpmn:sequenceFlow id="SequenceFlow_1o4xcey" sourceRef="IntermediateThrowEvent_1rvtfxd" targetRef="SubProcess_1i98faq" />
     <bpmn:endEvent id="EndEvent_1dkbelp">
       <bpmn:incoming>SequenceFlow_0d6ploq</bpmn:incoming>
     </bpmn:endEvent>
@@ -24,6 +19,11 @@
       <bpmn:incoming>SequenceFlow_1o4xcey</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0d6ploq</bpmn:outgoing>
     </bpmn:subProcess>
+    <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1rvtfxd" name="order shipped">
+      <bpmn:incoming>SequenceFlow_1n8fu6n</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1o4xcey</bpmn:outgoing>
+      <bpmn:escalationEventDefinition />
+    </bpmn:intermediateThrowEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
@@ -50,12 +50,6 @@
           <dc:Bounds x="178" y="47" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="IntermediateCatchEvent_12lgnmx_di" bpmnElement="IntermediateCatchEvent_12lgnmx">
-        <dc:Bounds x="255" y="39" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="228" y="75" width="90" height="20" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1o4xcey_di" bpmnElement="SequenceFlow_1o4xcey">
         <di:waypoint xsi:type="dc:Point" x="291" y="57" />
         <di:waypoint xsi:type="dc:Point" x="352" y="57" />
@@ -78,6 +72,12 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="SubProcess_1i98faq_di" bpmnElement="SubProcess_1i98faq">
         <dc:Bounds x="352" y="17" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="IntermediateThrowEvent_1rvtfxd_di" bpmnElement="IntermediateThrowEvent_1rvtfxd">
+        <dc:Bounds x="255" y="39" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="228" y="75" width="90" height="20" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
