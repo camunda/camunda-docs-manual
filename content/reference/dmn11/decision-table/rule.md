@@ -102,7 +102,7 @@ which is set on the `definitions` XML element.
 ```
 
 In case no global expression language is set, the default expression language
-is used instead. The default expression language for input entries is FEEL.
+is used instead. The default expression language for input entries is [FEEL].
 Please refer to the [User Guide][default EL] to read more about expression
 languages.
 
@@ -180,3 +180,4 @@ information. The description text is set inside the `description` XML element.
 
 [supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
+[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
