@@ -39,7 +39,7 @@ Numeric types support all [comparison] operators and [ranges].
 {{< img src="../img/boolean-type.png" title="Boolean" class="no-lightbox" >}}
 
 FEEL supports the boolean value `true` and `false`. The boolean type only
-supports the equal [comparsion] operator.
+supports the equal [comparison] operator.
 
 # Date
 
@@ -57,5 +57,5 @@ the format `yyyy-MM-dd'T'HH:mm:ss`.
 Date types support all [comparison] operators and [ranges].
 
 
-[comparison]: {{< relref "reference/dmn11/feel/language-elements.md#comparisons" >}}
+[comparison]: {{< relref "reference/dmn11/feel/language-elements.md#comparison" >}}
 [ranges]: {{< relref "reference/dmn11/feel/language-elements.md#range" >}}
