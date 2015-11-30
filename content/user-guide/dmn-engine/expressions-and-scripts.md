@@ -12,13 +12,13 @@ menu:
 
 ---
 
-Decision tables allow specifyng different types of expressions.
-This section describes which types of expressions exists.
+Decision tables allow specifying different types of expressions.
+This section describes which types of expressions exist.
 It lists which expression languages are supported and demonstrates how to change the used expression language for an expression.
 
 # Expressions in DMN
 
-As show in the [decision table] reference, three types of expressions are supported:
+As shown in the [decision table] reference, three types of expressions are supported:
 
 - *Input Expression*: sets the input value for an input column
   of the decision table
@@ -28,7 +28,7 @@ As show in the [decision table] reference, three types of expressions are suppor
   of the decision table
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
-the DMN 1.1 XML expressions can be found in the following XML
+the DMN 1.1 XML, expressions can be found in the following XML
 elements `inputExpression`, `inputEntry` and `outputEntry`:
 
 ```xml
@@ -36,7 +36,7 @@ elements `inputExpression`, `inputEntry` and `outputEntry`:
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
-        <!-- the input expressions determines the input value of a column -->
+        <!-- the input expression determines the input value of a column -->
         <inputExpression>
           <text>age</text>
         </inputExpression>
@@ -70,10 +70,10 @@ Depending on the JDK you use there may also be a `Javascript` implementation
 available like [Rhino] or [Nashhorn].
 
 You can also use every other script language which provides a [JSR-223]
-implementation. This includes `groovy`, `python` and `ruby`. To use this
+implementation. This includes `groovy`, `python` and `ruby`. To use these
 languages you have to add the corresponding dependency to your project.
 
-For example to use `grooy` as languages for expressions add this dependency
+For example, to use `groovy` as language for expressions add this dependency
 to your project `pom.xml`:
 
 ```xml
@@ -143,7 +143,7 @@ It is also possible to set the language for each expression individually using t
 ```
 
 If you want to use another Java Unified Expression Language or FEEL
-implementation you can replace the default implementations in the
+implementation, you can replace the default implementations in the
 [DMN engine configuration][configure EL]. This way you can also change
 the JSR-223 script engine resolving, for example if you want to configure
 the script engine before using it.

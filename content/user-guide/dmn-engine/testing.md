@@ -12,7 +12,7 @@ menu:
 
 ---
 
-To easily test DMN decisions in a JUnit test the DMN engine provides a
+To easily test DMN decisions in a JUnit test, the DMN engine provides a
 JUnit Rule. The {{< javadocref page="?org/camunda/bpm/dmn/engine/test/DmnEngineRule.html" text="DmnEngineRule" >}} creates a new default DMN engine. The DMN engine can be used in test cases to parse and evaluate decisions.
 
 ```java
@@ -39,7 +39,7 @@ public class DecisionTest {
 }
 ```
 
-If you want to create a DMN engine with a custom configuration you can pass
+If you want to create a DMN engine with a custom configuration, you can pass
 this to the DMN engine rule.
 
 
@@ -68,5 +68,5 @@ page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html"
 text="DmnDecisionTableResult" >}} implements the interface
 `List<DmnDecisionRuleResult>`. Whereas the {{< javadocref
 page="?org/camunda/bpm/dmn/engine/DmnDecisionRuleResult.html"
-text="DmnDecisionRuleResult" >}} the `Map<String, Object>` interface
-implements. This allows you to use common `List` or `Map` asserts.
+text="DmnDecisionRuleResult" >}} implements the interface `Map<String, Object>`. 
+This allows you to use common `List` or `Map` asserts.
