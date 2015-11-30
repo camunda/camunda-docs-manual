@@ -13,7 +13,7 @@ menu:
 
 ---
 
-Camunda Modeler is a desktop application for modeling BPMN and DMN. It allows you to model files directly located on your local file system.
+Camunda Modeler is a desktop application for modeling BPMN and DMN. It allows you to model files located directly on your local file system.
 
 {{< img src="../img/camunda-modeler.png" title="Camunda Modeler" >}}
 

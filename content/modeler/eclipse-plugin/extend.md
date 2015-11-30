@@ -51,7 +51,7 @@ The next steps ask you for the location of the project
 
 ![The new plug-in project dialog][7]
 
-as well vendor and versioning information.
+as well as vendor and versioning information.
 
 ![The new plug-in project dialog][8]
 

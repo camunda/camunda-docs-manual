@@ -18,13 +18,13 @@ This section guides you through the installation process step by step and gives 
 # Prerequisites
 
 * We recommend to use Eclipse Indigo. The edition (32bit/64bit) must match your Java edition.
-* Please note that you cannot install the Activiti Designer and the Camunda Modeler in the same Eclipse. It will cause both designers to not work properly.
+* Please note that you cannot install the Activiti Designer and the Camunda Modler in the same Eclipse. It will cause both designers to not work properly.
 * If you are using the fox-designer, please uninstall the fox-designer plugin before using the **Camunda Modeler**. You can uninstall already installed plugins in the following menu: `Help` -> `Install New Software...` -> `What is already installed?`.
 
 
 # Download & Update Sites
 
-You can either install the eclipse plugin into your existing IDE using the Camunda Update Sites or download a pre-packaged distribution which has the plugin already installed:
+You can either install the Eclipse plugin into your existing IDE using the Camunda Update Sites or download a pre-packaged distribution which has the plugin already installed:
 
 * Install using an update site: read content on this page below.
 * [Download pre-packaged distribution](https://camunda.org/release/camunda-eclipse-plugin/prepackaged/kepler/). (Eclipse Kepler, Windows 32bit only).
@@ -89,7 +89,7 @@ After the installation has finished you will be prompted to restart your Eclipse
 
 {{< img src="../img/modeler-exception-graphiti.png" title="Item" >}}
 
-If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the **Camunda Modeler**. This rarely happens, however it can occur if you had another plug-in installed using  a different version of graphiti before the Camunda Modeler (one common example would be the Activiti Designer).
+If you experience NoClassDefFoundErrors like the one shown here, graphiti was not properly installed. Graphiti is a framework used by the **Camunda Modeler**. This rarely happens, however it can occur if you had another plug-in installed using a different version of graphiti before the Camunda Modeler (one common example would be the Activiti Designer).
 
 {{< img src="../img/modeler-exception-graphiti.png" title="Item" >}}
 
