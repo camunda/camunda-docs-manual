@@ -20,12 +20,7 @@ params:
       url: "/enterprise"
   section:
     id: "manual"
-<<<<<<< HEAD
     version: "7.4"
-=======
-    version: "develop"
-    versionAlias: "7.5"
->>>>>>> master
     versions:
       - "latest"
       - "7.4"
