@@ -11,7 +11,7 @@ menu:
     pre: "Audit evaluated Decisions"
 ---
 
-After a decision definition was evaluated, either from a BPMN process, CMMN
+After a decision definition was evaluated either from a BPMN process, CMMN
 case or through the Decision Service, the inputs and outputs are saved in the
 History of the platform. The history entity is of type
 `HistoricDecisionInstance` and has the event type `evaluate`.
@@ -130,14 +130,14 @@ List<HistoricDecisionInputInstance> inputs = historicDecision.getInputs();
 List<HistoricDecisionOutputInstance> outputs = historicDecision.getOutputs();
 ```
 
-In case the decision was evaluated from a process, informations of the process
-definition, the process instance and the activity are set in the
-`HistoricDecisionInstance`. The same applies for decision evaluated from
+In case the decision was evaluated from a process, information of the process
+definition, the process instance and the activity is set in the
+`HistoricDecisionInstance`. The same applies for decisions evaluated from
 a case, where the history instance will reference the corresponding case
 instances.
 
 Additionally, if the decision is a decision table with hit policy `collect` and
-an aggregator function then the result of the aggregation can be retrieved by
+an aggregator function, then the result of the aggregation can be retrieved by
 the `getCollectResultValue()` method.
 
 For more information on supported hit policies please see the [DMN 1.1

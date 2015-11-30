@@ -42,8 +42,8 @@ definition. The decision definition is evaluated when the task is executed.
 </definitions>
 ```
 
-For more information on how to references a decision definition from a business
-rule task please refer to the [BPMN 2.0 reference][business rule task].
+For more information on how to reference a decision definition from a business
+rule task, please refer to the [BPMN 2.0 reference][business rule task].
 
 ## DMN Decision Task
 
@@ -80,11 +80,11 @@ are represented by the key-value pairs.
 
 The type `DmnDecisionTableResult` provides methods from the `List` interface
 and some convenience methods like `getSingleResult()` or `getFirstResult()` to
-get the result of a matched rule. The rule results provides methods from the
+get the result of a matched rule. The rule results provide methods from the
 `Map` interface and also convenience methods like `getSingleEntry()` or
 `getFirstEntry()`.
 
-For example the following code returns the output entry with name `result` of
+For example, the following code returns the output entry with name `result` of
 the only matched rule.
 
 ```java
@@ -158,7 +158,7 @@ relref "#limitations-of-the-serialization-of-the-mapping-result" >}}).
 {{< /note >}}
 
 To specify the name of the process/case variable to store the result of the
-mapping the `camunda:resultVariable` attribute is used.
+mapping, the `camunda:resultVariable` attribute is used.
 
 BPMN:
 ```xml
@@ -186,7 +186,7 @@ exception is thrown while saving the result variable.
 
 ## Custom Mapping of the Decision Result
 
-Instead of a predefined mapping, a custom desision result mapping can be used
+Instead of a predefined mapping, a custom decision result mapping can be used
 to pass the decision result into variables.
 
 {{< note title="Limitations of Serialization" class="warning" >}}
@@ -224,7 +224,7 @@ output mapping on the business rule task.
 ```
 
 In addition to an output variable mapping, the decision result can also be
-processed by an [execution listener] which is attached to the business rule
+processed by an [execution listener], which is attached to the business rule
 task.
 
 ```xml
@@ -288,9 +288,9 @@ the decision result to Java collections. The implementation of the collections
 depend on the used JDK and contain untyped values as Objects. When a collection
 is saved as process/case variable then it is serialized as object value because
 there is no suitable primitive value type. Depending on the used [object value
-serialization] this can lead to deserialization problems.
+serialization], this can lead to deserialization problems.
 
-In case you are using the default build-in object serialization, the variable
+In case you are using the default built-in object serialization, the variable
 can not be deserialized if the JDK is upgraded or changed and contains an
 incompatible version of the collection class. Otherwise, if you are using
 another serialization like JSON then you should ensure that the untyped value
@@ -299,7 +299,7 @@ deserialized using JSON because JSON has no registered mapper for date by
 default.
 
 The same problems can occur by using a custom output variable mapping since
-`DmnDecisionTableResult` have methods that returns the same collections as the
+`DmnDecisionTableResult` has methods that returns the same collections as the
 predefined mappers. Additionally, it is not recommended to save a
 `DmnDecisionTableResult` or a `DmnRuleResult` as process/case variable because
 the underlying implementation can change in a new version of Camunda BPM.
@@ -316,8 +316,8 @@ please see our [DMN 1.1 reference][decision table]. These expressions can
 access all process/case variables which are available in the scope of the
 calling task. The variables are provided through a read-only variable context.
 
-As a shorthand process/case variables can be directly referenced by name in
-expressions.  For example if a process variable `foo` exists, then this
+As a shorthand, process/case variables can be directly referenced by name in
+expressions. For example, if a process variable `foo` exists, then this
 variable can be used in an input expression, input entry and output entry by
 its name.
 
@@ -335,8 +335,8 @@ its name.
 
 The returned value of the process/case variable in the expression will
 be a normal Object and not a [typed value][Typed Value API]. If you want
-to use the typed value in your expression you have to get variable
-from the variable context. To following snippet does the same as the above
+to use the typed value in your expression, you have to get the variable
+from the variable context. The following snippet does the same as the above
 example. It gets the variable `foo` from the variable context and returns
 its unwrapped value.
 
@@ -356,17 +356,17 @@ its unwrapped value.
 
 # Expression Language Integration
 
-Per default the DMN engine uses [JUEL] as expression language for input
-expressions and output entries.  And [FEEL] as expression language for input
+By default, the DMN engine uses [JUEL] as expression language for input
+expressions and output entries. It uses [FEEL] as expression language for input
 entries. Please see the [DMN engine][expression languages] guide for more
 information about expression languages.
 
 ## Accessing Beans
 
-If the DMN engine is invoked by the Camunda BPM platform it uses the same
-JUEL configuration as the Camunda BPM engine. Therefore it is also
+If the DMN engine is invoked by the Camunda BPM platform, it uses the same
+JUEL configuration as the Camunda BPM engine. Therefore, it is also
 possible to access Spring and CDI Beans from JUEL expressions in decision
-tables. For more information on this integration please see the corresponding
+tables. For more information on this integration, please see the corresponding
 section in the [Spring] and [CDI] guides.
 
 ## Extending the Expression Language
@@ -394,10 +394,10 @@ processEngineConfiguration
   .addFunctionMapper(new MyFunctionMapper());
 ```
 
-This can be done by creating a [process engine plugin] for example.
+This can be done, for example, by creating a [process engine plugin].
 
 Please **note** that these functions are available in all JUEL expressions
-in the platform. And not only in DMN decision tables.
+in the platform, not only in DMN decision tables.
 
 [deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
 [business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}

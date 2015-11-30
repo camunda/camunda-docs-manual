@@ -16,7 +16,7 @@ to evaluate a deployed decision definition independently from BPMN and CMMN.
 
 # Evaluating a Decision
 
-To evaluate a deployed decision, referece it by id or a combination of key and version. If
+To evaluate a deployed decision, reference it by id or a combination of key and version. If
 a key is used but no version is specified then the latest version of decision
 definition with the given key is evaluated.
 
@@ -53,8 +53,8 @@ The user needs the permission `CREATE_INSTANCE` on the resource
 `DECISION_DEFINITION` to evaluate decisions. The resource id of the
 authorization is the decision definition key.
 
-For more information about authorization please refer to the [Authorization
-Service].
+For more information about authorizations please refer to the [Authorization
+Service] section.
 
 # Working with the Decision Result
 
@@ -83,7 +83,7 @@ String firstValue = decisionResult.get(1).getFirstEntry();
 List<String> results = decisionResult.collectEntries("result");
 ```
 
-Note that the decision result also provide methods to get typed output entries.
+Note that the decision result also provides methods to get typed output entries.
 A complete list of all methods can be found in the {{< javadocref
 page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
 
@@ -103,7 +103,7 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
   .list();
 ```
 
-For more information about this please refer to the [History for DMN Decisions].
+For more information about this, please refer to the [History for DMN Decisions].
 
 
 [Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
