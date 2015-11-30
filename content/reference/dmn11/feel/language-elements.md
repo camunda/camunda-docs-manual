@@ -179,3 +179,4 @@ Examples:
 [negation]: #negation
 [FEEL data types]: {{< relref "reference/dmn11/feel/data-types.md" >}}
 [date types]: {{< relref "reference/dmn11/feel/data-types.md#date" >}}
+[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
