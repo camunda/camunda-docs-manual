@@ -33,7 +33,7 @@ InputStream inputStream = ...
 List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
 ```
 
-The next example uses the DMN Model Api to first create a
+The next example uses the DMN Model API to first create a
 DmnModelInstance and then transform the decisions:
 
 ```java
@@ -51,7 +51,7 @@ List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
 
 ## The Decision Key
 
-A DMN XML file can contain multiple decisions. To distinguish the decisions
+A DMN XML file can contain multiple decisions. To distinguish the decisions,
 every decision should have an `id` attribute.
 
 ```xml
@@ -90,7 +90,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 ## Decision Tables only
 
 Currently the DMN engine only supports DMN 1.1 [decision tables]. Other decisions
-will be ignored. Use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}} for testing if a parsed decision is actually a decision table.
+will be ignored. Use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}} to test if a parsed decision is actually a decision table.
 
 ```java
 // create a default DMN engine
@@ -115,7 +115,7 @@ if (decision.isDecisionTable()) {
 
 # Evaluate Decision Tables
 
-In orer to evaluate (or "execute") a decision table, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}}. Or use a DMN model instance or Input Stream in combination with a decision key.
+To evaluate (or "execute") a decision table, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or Input Stream in combination with a decision key.
 
 As input to the evaluation, a set of input variables must be provided.
 
@@ -185,7 +185,7 @@ approve an invoice.
 
 {{< img src="../img/assign-approver.png" title="Assign Approver" >}}
 
-The decision table returns for every matched rule two outputs.
+The decision table returns two outputs for every matched rule.
 
 Assume that the decision table is executed with the following input variables:
 
@@ -224,7 +224,7 @@ DmnDecisionRuleResult ruleResult = tableResult.getFirstResult();
 // but asserts that only a single one exists
 tableResult.getSingleResult();
 
-// collects only the entries for on output column
+// collects only the entries for an output column
 tableResult.collectEntries("result");
 
 // returns the first output entry
