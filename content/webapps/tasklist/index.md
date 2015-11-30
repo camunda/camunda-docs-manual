@@ -8,7 +8,7 @@ menu:
   main:
     identifier: "webapps-tasklist"
     parent: "webapps"
-
+    pre: "Web application for human task management"
 ---
 
 Tasklist is a web application that provides you with the possibility to work on User Tasks. Tasklist is part of the Camunda BPM distribution and ready to use by opening [http://localhost:8080/camunda/app/tasklist](http://localhost:8080/camunda/app/tasklist).

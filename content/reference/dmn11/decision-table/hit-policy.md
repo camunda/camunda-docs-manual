@@ -1,24 +1,38 @@
 ---
 
-title: 'DMN Hit Policies'
+title: 'DMN Hit Policy'
 weight: 40
 
 menu:
   main:
-    name: "Hit Policies"
+    name: "Hit Policy"
     identifier: "dmn-ref-decision-table-hp"
     parent: "dmn-ref-decision-table"
     pre: "Specify what is part of the result of a Decision Table Evaluation"
 
 ---
 
-A decision table have a hit policy that specifies what is part of the result of a Decision Table Evaluation. The hit policy is set in the `hitPolicy` attribute on the `decisionTable` element. If no hit policy is set then the default hit policy `UNIQUE` is used.
+{{< img src="../img/hit-policy.png" title="Hit Policy" class="no-lightbox" >}}
+
+A decision table can have a hit policy that specifies what is part of the
+result of the evaluation of a decision table.
+
+The hit policy is set in the `hitPolicy` attribute on the `decisionTable` XML
+element. If no hit policy is set then the default hit policy `UNIQUE` is used.
 
 ```xml
-<decisionTable hitPolicy="UNIQUE">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Dish">
+    <decisionTable id="decisionTable" hitPolicy="RULE ORDER">
+      <!-- .. -->
+    </decisionTable>
+  </decision>
+</definitions>
 ```
 
-In the visual representation of the decision table the hit policy is specified by the initial letter of the hit policy. The following hit policies are supported:
+In the visual representation of the decision table the hit policy is specified
+by the initial letter of the hit policy. The following hit policies are
+supported by the Camunda DMN engine:
 
 <table class="table table-striped">
   <tr>
@@ -47,35 +61,67 @@ In the visual representation of the decision table the hit policy is specified b
   </tr>
 </table>
 
-# The Role of Hit Policies
+# The Role of a Hit Policy
+
+A hit policy specifies how many rules of a decision table can be satisfied. And
+which of the satisfied rules are included in the [decision table result]. The
+hit policies [Unique], [Any] and [First] will always return maximal one
+satisfied rule. Whereas the hit policies [Rule Order] and [Collect] can return
+multiple satisfied rules.
 
 # Unique Hit Policy
 
-Only a single rule can be matched. The decision result contains the output entries of the matched rule. 
+Only a single rule can be satisfied. The decision table result contains the
+output entries of the satisfied rule.
 
-If more than one rule matched then an exception is thrown.
+If more than one rule is satisfied the Unique hit policy is violated.
 
 # Any Hit Policy
 
+Multiple rules can be satisfied. But all satisfied rules must generate the same
+output. The decision table result contains only the output of one of the
+satisfied rules.
 
+If multiple rules are satisfied which generate different outputs the hit policy
+is violated.
 
 # First Hit Policy
 
+Multiple rules can be satisfied. The decision table result contains only
+the output of the first satisfied rule.
+
 # Rule Order Hit Policy
+
+Multiple rules can be satisfied. The decision table result contains the output
+of all satisfied rules in the order of the rules in the decision table.
 
 # Collect Hit Policy
 
-Many rules can be matched but the decision table may only have one output. An aggregation function can be specified in the `aggregation` attribute on the `decisionTable` element to apply a simple function to the output values. If no aggregator is set, the decision result is the list of all the output values. 
+Multiple rules can be satisfied. The decision table result contains the output
+of all satisfied rules in an arbitrary order.
+
+Additionally an aggregator can be specified for the Collect hit policy. If an
+aggregator is specified the decision table result will only contain a single
+output entry. The aggregator will generate the output entry from all satisfied
+rules. **Note** if the Collect hit policy is used with an aggregator the
+decision table can only have one output.
+
+The aggregator is set as the `aggregation` attribute of the `descisionTable`
+XML element.
 
 ```xml
-<decisionTable hitPolicy="COLLECT" aggregation="SUM">
+<decisionTable id="decisionTable" hitPolicy="COLLECT" aggregation="SUM">
+  <!-- .. -->
+</decisionTable>
 ```
-
-If the decision table contains more than one output then an exception is thrown.
 
 ## Aggregators for Collect Hit Policy
 
-The aggregator function is applied to the output values and the result is used as decision result. The following aggregators are supported.
+{{< img src="../img/collect-aggregator.png" title="Hit Policy Collect with Aggregation" class="no-lightbox" >}}
+
+In the visual representation of the decision table the aggregator is specified
+by a marker after the hit policy. The following aggregators are supported by
+the Camunda DMN engine:
 
 <table class="table table-striped">
   <tr>
@@ -104,3 +150,11 @@ The aggregator function is applied to the output values and the result is used a
     <td>the number of output values</td>
   </tr>
 </table>
+
+
+[decision table result]: {{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
+[Unique]: #unique-hit-policy
+[Any]: #any-hit-policy
+[First]: #first-hit-policy
+[Rule Order]: #rule-order-hit-policy
+[Collect]: #collect-hit-policy

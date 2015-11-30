@@ -12,26 +12,23 @@ menu:
 
 ---
 
-The Camunda DMN engine allows you to evaluate DMN 1.1 [decision
-tables][decision table]. Multiple cells of the decision table contain
-expressions which are evaluated by the DMN engine. This section describes which
-expressions exists. And which expression languages are supported. Also it will
-demonstrate how to change the used expression language for an expression.
+Decision tables allow specifyng different types of expressions.
+This section describes which types of expressions exists.
+It lists which expression languages are supported and demonstrates how to change the used expression language for an expression.
 
 # Expressions in DMN
 
-As show in the [decision table] reference the Camunda DMN engine supports
-three types of expressions:
+As show in the [decision table] reference, three types of expressions are supported:
 
-- *Input Expression*: which result sets the input value for an input column
+- *Input Expression*: sets the input value for an input column
   of the decision table
-- *Input Entry*: which result is used to determine if a rule of the decision
+- *Input Entry*: used to determine if a rule of the decision
   table is applicable
-- *Output Entry*: which result is part of the output of a matched rule
+- *Output Entry*: returns a value which is added to the output of a matched rule
   of the decision table
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
-the DMN 1.1 XML these expressions can be found in the following XML
+the DMN 1.1 XML expressions can be found in the following XML
 elements `inputExpression`, `inputEntry` and `outputEntry`:
 
 ```xml
@@ -67,7 +64,7 @@ The Camunda DMN engine supports two expression languages out of the box:
 - `JUEL`: An [implementation][juel] of the Java [Unified Expression Language][EL]
 - `FEEL`: The Friendly Enough Expression Language of the [DMN 1.1] standard.
   **Note**: `FEEL` is only supported for Input Entries in the Camunda DMN
-  engine. Please see the [reference][FEEL] for more information.
+  engine. See the [reference][FEEL] for more information.
 
 Depending on the JDK you use there may also be a `Javascript` implementation
 available like [Rhino] or [Nashhorn].
@@ -97,8 +94,7 @@ DMN engine are as follows:
 - *Input Entry*: `FEEL`
 - *Output Entry*: `JUEL`
 
-You can change the default language for all expression by setting it
-directly in the DMN 1.1 XML with the `expressionLanguage` attribute of
+The default language can be changed by setting it directly in the DMN 1.1 XML with the `expressionLanguage` attribute of
 the `definitions` element:
 
 ```xml
@@ -112,16 +108,12 @@ the `definitions` element:
 </definitions>
 ```
 
-Additionally you can change the default expression language for every
-expression type in the default DMN engine configuration as described
-in the [user guide][default EL].
+Additionally, it is possible to change the default expression language in the default DMN engine configuration as described in the [user guide][default EL].
 
 
 # Configuring the Expression Language
 
-The DMN 1.1 standard allows you to individually specify the expression language
-of every expression. The expression language of an expression can be
-change by the `expressionLanguage` attribute:
+It is also possible to set the language for each expression individually using the `expressionLanguage` attribute:
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">

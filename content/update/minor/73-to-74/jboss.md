@@ -15,7 +15,7 @@ The following steps describe how to upgrade the Camunda artifacts on a JBoss AS
 procedure, refer to the [upgrade guide][upgrade-guide]. If not
 already done, make sure to download the [Camunda BPM 7.4 JBoss distribution][jboss-distro]
 or [Camunda BPM 7.4 Wildfly distribution][wildfly-distro]. In the following instructions
-`$APP_SERVER` should be replaced with either `jboss` or `wildfly` depending on
+`$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
 The upgrade procedure takes the following steps:
@@ -69,19 +69,19 @@ If you use any of these extensions, the following upgrade steps apply:
 
 ## LDAP Integration
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
 ## Camunda Connect
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 
 ## Camunda Spin
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
+Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/spin/camunda-spin-core`
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
@@ -105,7 +105,7 @@ This is already the default for Camunda BPM versions after and including 7.3.3 a
 
 ## User Operation Log
 
-The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e. to write log entries regardless of user context, set the flag to `false`.
+The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e., to write log entries regardless of user context, set the flag to `false`.
 
 Furthermore, with 7.4 task events are only logged when they occur in the context of a logged in user. Task events are accessible via the deprecated API `TaskService#getTaskEvents`. If you rely on this API method, the previous behavior can be restored by setting the flag `restrictUserOperationLogToAuthenticatedUsers` to `false`.
 
@@ -115,16 +115,16 @@ This section describes changes in behavior of API methods that your process appl
 
 ## CMMN Model API
 
-As a consequence of supporting CMMN 1.1 the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
+As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
 
 # 5. Upgrade Camunda Web Applications
 
 ## Upgrade REST API
 
-The following steps are required to upgrade the camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to upgrade the Camunda REST API on a JBoss/Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
-2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Or switch to the private repository for
+2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
@@ -134,12 +134,12 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
-   Or switch to the private repository for the enterprise version (User and password from license required).
+   Alternatively, switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
-It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the camunda web applications make. This can be especially useful when you use camunda in combination with LDAP. To activate caching, the camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
+It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
 {{< /note >}}
 
 [upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}

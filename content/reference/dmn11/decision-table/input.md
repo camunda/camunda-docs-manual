@@ -1,6 +1,6 @@
 ---
 
-title: 'Input'
+title: 'DMN Decision Table Input'
 weight: 10
 
 menu:
@@ -12,83 +12,167 @@ menu:
 
 ---
 
-A decision table can have one or more inputs, also called input clauses. An input clause is represented by an `input` element in XML.
+{{< img src="../img/input.png" title="Input" class="no-lightbox" >}}
+
+A decision table can have one or more inputs, also called input clauses. An
+input clause defines the id, label, expression and type of a decision table
+input.
+
+A input clause is represented by an `input` element inside a `decisionTable`
+XML element.
 
 ```xml
-<decision>
-  <decisionTable>
-    <input label="How many guests">
-      <inputExpression typeRef="integer">
-        <text>guestCount</text>
-      </inputExpression>
-    </input>
-    <!-- ... -->
-  </decisionTable>
-</decision>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Dish">
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Season">
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text>season</text>
+        </inputExpression>
+      </input>
+      <!-- ... -->
+    </decisionTable>
+  </decision>
+</definitions>
 ```
 
-# Input Labels
+# Input Id
 
-An input label is a short description of the input. It is set on the `input` element in the `label` attribute. Note that the label is not required but recommended since it helps to understand the decision.
+The input id is an unique identifier of the decision table input. It is used by
+the Camunda BPMN platform to reference the input in the history of evaluated
+decisions. Therefore it is required by the Camunda DMN engine. It is set as
+the `id` attribute of the `input` XML element.
 
 ```xml
-<input label="How many guests" />
+<input id="input1" label="Season">
+  <inputExpression id="inputExpression1" typeRef="string">
+    <text>season</text>
+  </inputExpression>
+</input>
 ```
 
-# Input Expressions
+# Input Label
 
-An input expression is an expression in an expression language that specifies the value of the input. It is usually simple and reference a variable which is available at runtime. The expression is set inside a `text` element that is a child of the `inputExpression` element.
+{{< img src="../img/input-label.png" title="Input Label" class="no-lightbox" >}}
+
+An input label is a short description of the input. It is set on the `input`
+XML element in the `label` attribute. Note that the label is not required but
+recommended since it helps to understand the decision.
 
 ```xml
-<inputExpression>
-  <text>guestCount</text>
-</inputExpression>
+<input id="input1" label="Season">
+  <inputExpression id="inputExpression1" typeRef="string">
+    <text>season</text>
+  </inputExpression>
+</input>
 ```
 
-In case JUEL is used as expression language, the expression `${guestCount}` is equals to `guestCount`. It is a short way to specify that a variable with name `guestCount` is set as value of the input.
+# Input Expression
 
-## Input Expression Language
+{{< img src="../img/input-expression.png" title="Input Expression" class="no-lightbox" >}}
 
-The expression language of the input expression can be specified by the `expressionLanguage` attribute on the `inputExpression` element. The supported expression languages are listed in the [User Guide]({{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}).
+An input expression specifies how the value of the input clause is generated.
+It is an expression which will be evaluated by the DMN engine. It is usually
+simple and reference a variable which is available during the evaluation. The
+expression is set inside a `text` element that is a child of the
+`inputExpression` XML element.
 
 ```xml
-<inputExpression expressionLanguage="groovy" />
+<input id="input1" label="Season">
+  <inputExpression id="inputExpression1" typeRef="string">
+    <text>season</text>
+  </inputExpression>
+</input>
 ```
 
-If no expression language is set then the global expression language is used which is set on the `definitions` element. In case no global expression language is set, the default expression language is used instead, by default JUEL. Please refer to the [User Guide]({{< relref "user-guide/dmn-engine/expressions-and-scripts.md#configuring-the-default-expression-language" >}}) how to configure the default expression language.
+# Input Type Definition
 
-## Input Variable Name
+{{< img src="../img/input-type-definition.png" title="Input Type Definition" class="no-lightbox" >}}
 
-When the input expression is evaluated then the value is stored in a variable. The name of the variable can be specified by the `camunda:inputVariable` [extension attribute]({{< relref "reference/dmn11/custom-extensions/camunda-attributes.md#inputvariable" >}}) on the `input` element. By default, the name is `cellInput`.
+The type of the input clause can be specified by the `typeRef` attribute on the
+`inputExpression` XML element. After the input expression is evaluated by the
+DMN engine it converts the result to the specified type. The supported types
+are listed in the [User Guide][supported DT].
 
 ```xml
-<input camunda:inputVariable="guestCount" />
+<input id="input1" label="Season">
+  <inputExpression id="inputExpression1" typeRef="string">
+    <text>season</text>
+  </inputExpression>
+</input>
 ```
 
-The variable can be used in an expression of an input entry. For example, the JUEL expression `guestCount <= 8` checks if the input value is less than 8.
+Note that the type is not required but recommended since it helps to understand
+the possible input values and provide a type safety to be aware of unexpected
+input values.
 
-## Input Type Definitions
+# Input Expression Language
 
-The type of the input value can be specified by the `typeRef` attribute on the `inputExpression` element. After the input expression is evaluated the DMN engine checks if the type of the value matches the specified type. The supported types are listed in the [User Guide]({{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}).
+The expression language of the input expression can be specified by the
+`expressionLanguage` attribute on the `inputExpression` XML element. The
+supported expression languages are listed in the [User Guide][supported EL].
 
 ```xml
-<inputExpression typeRef="integer" />
+<input id="input1" label="Season">
+  <inputExpression id="inputExpression1" typeRef="string" expressionLanguage="groovy">
+    <text>season</text>
+  </inputExpression>
+</input>
 ```
 
-Note that the type is not required but recommended since it helps to understand the possible input values and provide a type safety to be aware of unexpected input values.
-
-# Input Values
-
-Input values allows to specify the expected values of the input. The expected values are specified by the `inputValues` element which contains an expression in an `text` element.
+If no expression language is set then the global expression language is used
+which is set on the `definitions` XML element.
 
 ```xml
-<inputValues>
-  <text> <![CDATA[ >= 0 ]]> </text>
-<inputValues>
+<definitions id="definitions"
+             name="definitions"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             expressionLanguage="groovy"
+             namespace="http://camunda.org/schema/1.0/dmn">
+  <!-- ... -->
+</definitions>
 ```
 
-{{< note title="Not Supported" class="warning" >}}
-Currently, input values are not supported and will be ignored.
+In case no global expression language is set, the default expression language
+is used instead. The default expression language for input expressions is JUEL.
+Please refer to the [User Guide][default EL] to read more about expression
+languages.
 
-Alternatively, a [custom data type]({{< relref "user-guide/dmn-engine/data-types.md#implement-a-custom-data-type" >}}) can be used. For example, the expression `>= 0` can be replaced by a custom type `PositiveInteger`.
-{{< /note >}}
+# Input Variable Name
+
+When the input expression is evaluated then the return value is stored in a variable.
+The name of the variable can be specified by the `camunda:inputVariable`
+[extension attribute][inputVariable] on the `input` element. By default, the
+name is `cellInput`.
+
+To use the attribute you have to define the Camunda DMN namespace
+`xmlns:camunda="http://camunda.org/schema/1.0/dmn` in the XML.
+
+```xml
+<definitions id="definitions"
+             name="definitions"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns:camunda="http://camunda.org/schema/1.0/dmn"
+             namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Dish">
+    <decisionTable id="decisionTable">
+      <input id="input1"
+             label="Season"
+             camunda:inputVariable="currentSeason">
+        <!-- ... -->
+      </input>
+      <!-- ... -->
+    </decisionTable>
+  </decision>
+</definitions>
+```
+
+The variable can be used in an expression of an [input entry]. For example, the
+JUEL expression `currentSeason != "Fall"` checks if the season input is not
+`"Fall"`.
+
+[supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
+[default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
+[supported DT]: {{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}
+[inputVariable]: {{< relref "reference/dmn11/custom-extensions/camunda-attributes.md#inputvariable" >}}
+[input entry]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

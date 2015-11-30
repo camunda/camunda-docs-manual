@@ -13,17 +13,61 @@ menu:
 
 ---
 
-
 {{< img src="img/dish-table.svg" class="no-lightbox" >}}
 <script type="text/javascript" src="./img/map.js"></script>
 
-# The Name of the Decision Table
+A decision table represents decision logic which can be depicted as a table in
+DMN 1.1. It consists of [inputs], [outputs] and [rules].
 
-The name is set in the `name` attribute on the `decision` element. It describes the decision which the decision table provides the decision logic.
+A decision table is represented by a `decisionTable` element inside a
+`decision` XML element.
 
-# The Id of the Decision Table
+```xml
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Dish">
+    <decisionTable id="decisionTable">
+    <!-- ... -->
+    </decisionTable>
+  </decision>
+</definitions>
+```
 
-The id is the technical identifier of the decision table. It is set in the `id` attribute on the `decision` element. 
+# Decision Name
 
-Each decision table should have an unique id when it is deployed in the Process Engine Repository. The engine use the id as the decision key of the deployed `DecisionDefinition`. Whenever a decision is deployed then the version of the `DecisionDefinition` with the given decision key is increased. Please refer to the [User Guide]({{< relref "user-guide/process-engine/decisions/repository.md#deploying-a-decision" >}}) to read more about deploying a decision table.
+{{< img src="img/decision-name.png" title="Decision Name" class="no-lightbox" >}}
 
+The name describes the decision for which the decision table provides the
+decision logic. It is set as the `name` attribute on the `decision` element.
+
+```xml
+<decision id="decision" name="Dish">
+  <decisionTable id="decisionTable">
+  <!-- ... -->
+  </decisionTable>
+</decision>
+```
+
+# Decision Id
+
+{{< img src="img/decision-id.png" title="Decision Id" class="no-lightbox" >}}
+
+The id is the technical identifier of the decision. It is set in the `id`
+attribute on the `decision` element.
+
+Each decision should have an unique id when it is [deployed] to the Camunda BPM
+platform. The engine use the id as the decision key of the deployed
+`DecisionDefinition`.
+
+```xml
+<decision id="decision" name="Dish">
+  <decisionTable id="decisionTable">
+  <!-- ... -->
+  </decisionTable>
+</decision>
+```
+
+
+[inputs]: {{< relref "reference/dmn11/decision-table/input.md" >}}
+[outputs]: {{< relref "reference/dmn11/decision-table/output.md" >}}
+[rules]: {{< relref "reference/dmn11/decision-table/rule.md" >}}
+[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}

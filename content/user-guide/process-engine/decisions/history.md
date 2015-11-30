@@ -12,16 +12,16 @@ menu:
 ---
 
 After a decision definition was evaluated, either from a BPMN process, CMMN
-case or through the Decision Service, its inputs and outputs are saved in the
+case or through the Decision Service, the inputs and outputs are saved in the
 History of the platform. The history entity is of type
 `HistoricDecisionInstance` and has the event type `evaluate`.
 
-For details about the history mechanism please refer to the [History and Audit
+For details about the history mechanism as such, refer to the [History and Audit
 Event Log].
 
 {{< note title="History Level" class="info" >}}
 
-Please note that a history level of **FULL** is required. Otherwise, no history
+History level of **FULL** is required. Otherwise, no history
 for decisions is created.
 
 {{< /note >}}
@@ -175,7 +175,7 @@ input expression specifies a type.
 The {{< javadocref
 page="org/camunda/bpm/engine/history/HistoricDecisionOutputInstance"
 text="HistoricDecisionOutputInstance" >}} represents one output entry of an
-evaluated decision. So the Historic Decision Instance contains one Historic
+evaluated decision. The Historic Decision Instance contains one Historic
 Decision Output Instance for each output clause and matched rule.
 
 ```java

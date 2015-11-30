@@ -13,8 +13,8 @@ menu:
 ---
 
 A decision table allows to specify the types of inputs and outputs. When the
-DMN engine evaluates an input or an output then it checks if the type of the
-value matches the specified type. If the types do not match then the engine
+DMN engine evaluates an input or an output, it checks if the type of the
+value matches the specified type. If the types do not match, the engine
 tries to transform the value into the specified type or throws an exception.
 
 The DMN engine supports basic types which can be extended by custom types.
@@ -62,7 +62,7 @@ The following types are supported by the DMN engine:
   </tr>
 </table>
 
-Each data type transformer produce a Typed Value which contains the value and
+Each data type transformer produces a Typed Value which contains the value and
 additional type informations.
 
 If the given type does not match one of the above types then the value is
@@ -72,11 +72,10 @@ transformed into an untyped value by default.
 
 The DMN engine supports a `date` type which is a combination of date and time.
 By default, the data type transformer accept objects of the type
-`java.util.Date` and Strings  which have the format `yyyy-MM-dd'T'HH:mm:ss`.
+`java.util.Date` and Strings having the format `yyyy-MM-dd'T'HH:mm:ss`.
 
-If you prefer another format or different representation of a date then you
-should implement a custom type and [replace the default
-transformer][data-type-transformer].
+If you prefer another format or different representation of a date,
+implement a custom type and [replace the default transformer][data-type-transformer].
 
 # Setting the Data Type of an Input
 
@@ -125,11 +124,11 @@ types. For example, you can add a new type for time or change the
 transformation to support a different date format or localized boolean
 constants.
 
-You therefore have to implement a new {{< javadocref
+To do this, implement a new {{< javadocref
 page="org/camunda/bpm/dmn/engine/impl/spi/type/DmnDataTypeTransformer.html"
 text="DmnDataTypeTransformer" >}}. The transformation is processed in the
-`transform()` method and return a typed value. If a value can not be
-transformed successfully then an `IllegalArgumentException` should be thrown.
+`transform()` method and returns a typed value. If it cannot successfully transform a value,
+it must throw an `IllegalArgumentException`.
 
 ```java
 public class CustomDataTypeTransformer implements DataTypeTransformer {
@@ -141,7 +140,7 @@ public class CustomDataTypeTransformer implements DataTypeTransformer {
 }
 ```
 
-To use this data type transformer in the DMN engine you have to add it to the
+To use this data type transformer in the DMN engine, add it to the
 [DMN engine configuration][data-type-transformer].
 
 

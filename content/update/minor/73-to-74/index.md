@@ -22,9 +22,9 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.4:
 
-* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decision and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use CMMN, the DMN-related tables will stay empty.
+* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decisions and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use DMN, the DMN-related tables will stay empty.
 * **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. The execution of CMMN 1.0 models is still supported by Camunda BPM.
-* **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
+* **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< relref "user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
 
 [dmn-ref]: {{< relref "reference/dmn11/index.md" >}}
@@ -37,7 +37,7 @@ It is not possible to migrate process engines from Camunda 7.3 to 7.4 in a rolli
 
 # Database Updates
 
-Every Camunda installation that uses requires a database schema upgrade.
+Every Camunda installation requires a database schema upgrade.
 
 ## Procedure
 
@@ -97,7 +97,7 @@ There are no new mandatory dependencies for process applications.
 
 This section is applicable if you have a custom application with an **embedded process engine**.
 
-Updating an application with embedded process engineUpgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+Upgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -113,7 +113,7 @@ This section describes changes in the engine's default behavior. While the chang
 
 ### Logging
 
-As of 7.4 the process engine uses SLF4J for logging. The SLF4J api is pulled in transitively by the process engine maven module.
+As of 7.4 the process engine uses SLF4J for logging. The SLF4J API is pulled in transitively by the process engine maven module.
 However, in order for any actual logging to occur, you need to add an slf4j compatible logging backend. Please refer to the user guide for
 [Information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
 
@@ -124,19 +124,19 @@ This is already the default for Camunda BPM versions after and including 7.3.3 a
 
 ### User Operation Log
 
-The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e. to write log entries regardless of user context, set the flag to `false`.
+The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e., to write log entries regardless of user context, set the flag to `false`.
 
 Furthermore, with 7.4 task events are only logged when they occur in the context of a logged in user. Task events are accessible via the deprecated API `TaskService#getTaskEvents`. If you rely on this API method, the previous behavior can be restored by setting the flag `restrictUserOperationLogToAuthenticatedUsers` to `false`.
 
 ### CMMN Model API
 
-As a consequence of supporting CMMN 1.1 the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
+As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
 
 # Changed URL of BPMN Extensions Namespace
 
 With Camunda 7.4 the default namespace URL of BPMN extensions is changed from
 
-http://activiti.org/bpmn (refered to as legacy namespace)
+http://activiti.org/bpmn (referred to as legacy namespace)
 
 to
 
@@ -165,16 +165,16 @@ The process engine maintains backwards compatibility with the legacy namespace. 
 
 ### BPMN Model API
 
-The BPMN model API maintains backwards compatibility with the legacy namespace for reading usecases. This means that if the model api is used for reading properties from the model, both namespaces can be used interchangeably without problems.
+The BPMN model API maintains backwards compatibility with the legacy namespace for reading usecases. This means that if the model API is used for reading properties from the model, both namespaces can be used interchangeably without problems.
 
-When creating new models with the model api the new namespace is used.
+When creating new models with the model API, the new namespace is used.
 
-Editing existing models using the legacy namespace with the model api, and then adding new extensions is unsupported.
+Editing existing models using the legacy namespace with the model API and then adding new extensions is not supported.
 You need to update the namespace to the new namespace manually.
 
 ### Camunda Modeler (New)
 
 The new Camunda Modeler is based on [bpmn.io](http://bpmn.io). It is a desktop application editing files stored on the local file system.
 
-The Camunda Modeler works with the new namespace exclusively. If you open an existing model which uses the legacy namespace, a warning dialog is shown asking you to update the namespace URL. If you click "yes", the modeler automatically migrates the legacy namespace to the new URL.
+The Camunda Modeler exclusively works with the new namespace. If you open an existing model which uses the legacy namespace, a warning dialog is shown asking you to update the namespace URL. If you click "yes", the modeler automatically migrates the legacy namespace to the new URL.
 If you click "No", the modeler does not migrate the namespace and you will not be able to edit the existing extension elements in the model.

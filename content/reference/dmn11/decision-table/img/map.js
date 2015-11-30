@@ -25,7 +25,7 @@ function mkEl(tagName, attrs) {
 var regions = {
   name: {
     title: 'Decision Name & ID',
-    href: '#the-name-of-the-decision-table',
+    href: '#decision-name',
     coords: [
       {
         top: 0,
@@ -63,7 +63,7 @@ var regions = {
 
   inputExpression: {
     title: 'Input Expression',
-    href: 'input/#input-expressions',
+    href: 'input/#input-expression',
     coords: [
       {
         top: 14,
@@ -82,7 +82,7 @@ var regions = {
 
   inputTypeDefinition: {
     title: 'Input Type Definition',
-    href: 'input/#input-type-definitions',
+    href: 'input/#input-type-definition',
     coords: [
       {
         top: 20,
@@ -120,7 +120,7 @@ var regions = {
 
   conditions: {
     title: 'Input Entry (Condition)',
-    href: 'rule/#input-entries-conditions',
+    href: 'rule/#input-entry-condition',
     coords: [
       {
         top: 96,
@@ -139,7 +139,7 @@ var regions = {
 
   conclusions: {
     title: 'Output Entry (Conclusion)',
-    href: 'rule/#output-entries-conclusions',
+    href: 'rule/#output-entry-conclusion',
     coords: [
       {
         top: 96,
@@ -177,7 +177,7 @@ var regions = {
 
   outputTypeDefinition: {
     title: 'Output Type Definition',
-    href: 'output/#output-type-definitions',
+    href: 'output/#output-type-definition',
     coords: [
       {
         top: 20,
