@@ -372,12 +372,12 @@ In the scenario of an embedded process engine, the default implementation for th
 
 Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor moves on to the next job. This means that the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
-In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the Camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
+In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the Camunda engine, this can be configured as an [extension element]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}) of a task in the BPMN 2.0 XML:
 
 ```xml
-<definitions ... xmlns:camunda="http://activiti.org/bpmn">
+<definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
   ...
-  <serviceTask id="failingServiceTask" camunda:asyncBefore="true" camunda:class="org.camunda.engine.test.cmd.FailingDelegate">
+  <serviceTask id="failingServiceTask" camunda:class="org.camunda.engine.test.cmd.FailingDelegate" camunda:asyncBefore="true">
     <extensionElements>
       <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
     </extensionElements>
@@ -388,10 +388,25 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
-Similarly, the following example defines three retries after 5 seconds each for a boundary timer event:
+The retry configuration can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses.
+
+{{< note title="" class="info" >}}
+While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
+{{< /note >}}
+
+### Configure Job Retry of Events 
+
+The job retries can also be configured for the following events:
+
+* Timer Start Event
+* Boundary Timer Event
+* Intermediate Timer Catch Event
+* Intermediate Signal Throw Event
+
+Similar to tasks, the retries can be configured as an extension element of the event. The following example defines three retries after 5 seconds each for a boundary timer event:
 
 ```xml
-<definitions ... xmlns:camunda="http://activiti.org/bpmn">
+<definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
   ...
   <boundaryEvent id="BoundaryEvent_1" name="Boundary event" attachedToRef="Freigebenden_zuordnen_143">
     <extensionElements>
@@ -408,10 +423,31 @@ Similarly, the following example defines three retries after 5 seconds each for 
 
 Recap: a retry may be required if there are any failures during the transaction which follows the timer.
 
-{{< note title="" class="info" >}}
-  While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
-{{< /note >}}
+### Configure Job Retry of Multi-Instance Activities
 
+If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element. 
+
+The following example defines the retries of a multi-instance service task with asynchronous continuation of the multi-instance body and the inner activity. If a failure occur during one of the five parallel instances then the job of the failed instance will be retried up to 3 times with a delay of 5 seconds. In case all instances ended successful and a failure occur during the transaction which follows the task, the job will be retried up to 5 times with a delay of 5 minutes.
+
+```xml
+<definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
+  ...
+  <serviceTask id="failingServiceTask" camunda:class="org.camunda.engine.test.cmd.FailingDelegate" camunda:asyncAfter="true" >
+    <extensionElements>
+      <!-- configuration for multi-instance body, e.g. after task ended -->
+      <camunda:failedJobRetryTimeCycle>R5/PT5M</camunda:failedJobRetryTimeCycle>
+    </extensionElements>
+    <multiInstanceLoopCharacteristics isSequential="false" camunda:asyncBefore="true">
+      <extensionElements>
+        <!-- configuration for inner activities, e.g. before each instance started -->
+        <camunda:failedJobRetryTimeCycle>R3/PT5S</camunda:failedJobRetryTimeCycle>
+      </extensionElements>
+      <loopCardinality>5</loopCardinality>
+    </multiInstanceLoopCharacteristics>
+  </serviceTask>
+  ...
+</definitions>
+```
 
 # Concurrent Job Execution
 
