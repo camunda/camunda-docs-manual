@@ -13,7 +13,7 @@ menu:
 
 ---
 
-{{< img src="img/dish-table.svg" class="no-lightbox" >}}
+{{< img src="img/dish-table.png" class="no-lightbox" >}}
 <script type="text/javascript" src="./img/map.js"></script>
 
 A decision table represents decision logic which can be depicted as a table in
