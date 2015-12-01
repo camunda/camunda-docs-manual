@@ -348,7 +348,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Intermediate Signal Throw Event</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
-      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>
+      <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
     </td>
   </tr>
   <tr>
