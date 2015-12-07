@@ -35,7 +35,9 @@ Example value: `2013-01-23T13:42:42`
 
 # Using a Date Picker
 
-The Form SDK itself does not provide any custom components of widgets. As such it also does not provide a date picker. However, you are able to integrate third party libraries providing such widgets.
+The Form SDK itself does not provide any custom components or widgets. As such it also does not provide a date picker. However, you can integrate third party libraries providing such widgets or write one yourself (see [Custom JavaScript]({{< relref "reference/embedded-forms/javascript/index.md" >}})).
+
+<!--
 
 {{< note >}}
 Inside Camunda Tasklist, datepicker support is provided through Angular UI.
@@ -95,3 +97,5 @@ when the datepicker button is clicked. It must be the function name of the JavaS
 which sets the `is-open` variable to true. If a form contains multiple date pickers, they
 must have different function names, or the name of the `is-open` variable must be passed to
 the function.
+
+-->
