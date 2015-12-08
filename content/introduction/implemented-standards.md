@@ -41,6 +41,7 @@ Camunda supports the 1.1 version of CMMN.
 Decision Model and Notation (DMN) is a standard for Business Decision Management.
 Camunda supports the 1.1 version of DMN.
 
+* Getting started implementing DMN decision tables: [DMN Getting Started]
 * Getting to Know DMN: [DMN Modeling Tutorial]
 * Tool for editing DMN: [DMN Editor][modelers]
 * Implementing DMN Decisions: [DMN Implementation Reference]
@@ -55,6 +56,7 @@ Camunda supports the 1.1 version of DMN.
 [BPMN Implementation Reference]: {{< relref "reference/bpmn20/index.md" >}}
 [CMMN Implementation Reference]: {{< relref "reference/cmmn11/index.md" >}}
 [CMMN Getting Started]: /get-started/cmmn11/
+[DMN Getting Started]: /get-started/dmn11/
 [DMN Implementation Reference]: {{< relref "reference/dmn11/index.md" >}}
 [DMN Modeling Tutorial]: https://camunda.org/dmn/tutorial/
 [Process Engine]: {{< relref "user-guide/process-engine/index.md" >}}
