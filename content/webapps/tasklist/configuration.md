@@ -147,7 +147,7 @@ To change visual aspects of Tasklist, you can edit the user stylesheet file loca
 and can override the standard styles.
 
 To display your own logo in the top-left corner, edit the `background-image` property of the
-`.navbar-brand` to point to the URL of your logo image.
+`[cam-widget-header] .navbar-brand` to point to the URL of your logo image.
 
 To set the color of the navigation bar (header), multiple properties have to be overwritten. You
 can find an example in the default `user-styles.css` file.
@@ -168,8 +168,8 @@ and re-compile the source.
 
 ## Compiling with Grunt
 
-From within the `camunda-tasklist-ui` directory:
+From within the `camunda-bpm-webapp/webapp` directory:
+```sh
+grunt build:tasklist
 ```
-grunt build
-```
-The command will build the whole frontend assets, styles included.
+The command will build the frontend assets (of the tasklist), styles included.
