@@ -41,7 +41,10 @@ To connect Cycle to a suitable repository you can set up one of the following co
 * [Subversion Connector]({{< relref "#subversion-connector" >}})
 * [File System Connector]({{< relref "#file-system-connector" >}})
 
-Cycle also ships with a gitHub connector. In addition more BPMN 2.0 tool vendors contribute their connectors in the [Cycle Community Extension](https://github.com/camunda/camunda-cycle-connectors).
+Cycle also ships with a GitHub connector. In addition, more BPMN 2.0 tool vendors contribute their connectors as community extensions:
+
+* [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
+* [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
 
 Furthermore you get information about how to configure [User Credentials]({{< relref "#user-credentials" >}}) for your connector.
 
