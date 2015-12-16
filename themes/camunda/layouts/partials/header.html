@@ -34,19 +34,20 @@
 
         <a href="{{ if $.Site.Params.section.version }}{{.Site.BaseURL}}{{else}}/{{end}}">
           <span class="icon icon-bpmn-io"></span>
-          <span class="brand-name">docs.camunda.org</span>
+          <span class="brand-name">docs</span>
         </a>
       </div>
     </div><!-- / .navbar-header -->
 
     <ul class="main-menu">
+      <li><a href="https://camunda.org">Camunda.org</a></li>
       {{range $.Site.Params.sections }}
         <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
       {{ end }}
     </ul><!-- / .main-menu -->
 
     <div class="search-field">
-      <input type="search" placeholder="Search docs.camunda.org" />
+      <input type="search" class="search-input" placeholder="Search docs.camunda.org" />
     </div><!-- / .search-field -->
   </div>
 </nav>
