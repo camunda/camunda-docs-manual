@@ -30,7 +30,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
     <div class="col-md-12">
       <h3>Participants</h3>
       <div style="position: relative">
-        <div class="bpmn-symbol-container">
+        <div class="bpmn-symbol-container implemented">
           <svg height="90" version="1.1" width="130" xmlns="http://www.w3.org/2000/svg">
             <rect x="5" y="5" width="120" height="80" r="0" rx="0" ry="0" fill="none" stroke="#333333" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1"></rect>
             <text x="15" y="45" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" transform="matrix(0,-1,1,0,-30.0156,59.9844)" font-size="12px" font-family="Arial, Helvetica, sans-serif">
@@ -41,7 +41,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
         <div style="position: absolute; top: 0; left: 24px; z-index: 2" class="bpmn-symbol-container implemented">
           <svg height="90" version="1.1" width="106" xmlns="http://www.w3.org/2000/svg">
             <rect x="5" y="5" width="96" height="80" r="0" rx="0" ry="0" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></rect>
-            <text x="15" y="45" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" transform="matrix(0,-1,1,0,-30.0078,59.9922)" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+            <text x="15" y="45" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" style="text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif; color:black;" transform="matrix(0,-1,1,0,-30.0078,59.9922)" font-size="12px" font-family="Arial, Helvetica, sans-serif">
               <tspan dy="4">Lane</tspan>
             </text>
           </svg>
