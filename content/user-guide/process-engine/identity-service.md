@@ -94,6 +94,8 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
     <property name="groupIdAttribute" value="ou" />
     <property name="groupNameAttribute" value="cn" />
     <property name="groupMemberAttribute" value="member" />
+
+    <property name="authorizationCheckEnabled" value="false" />
   </bean>
 </beans>
 ```
@@ -134,6 +136,8 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
         <property name="groupNameAttribute">cn</property>
 
         <property name="groupMemberAttribute">member</property>
+
+        <property name="authorizationCheckEnabled">false</property>
 
       </properties>
     </plugin>
@@ -287,7 +291,7 @@ The LDAP Identity Provider provides the following configuration properties:
     </td>
   </tr>
   <tr>
-    <td><code>allowAnonymousLogin</td>
+    <td><code>allowAnonymousLogin</code></td>
     <td>
       <p>
         Allows to login anonymously without a password. <em>Default:</em> <code>false</code>
@@ -295,6 +299,18 @@ The LDAP Identity Provider provides the following configuration properties:
       <p>
         <strong>Warning:</strong> we strongly advise against using this property. You should configure your LDAP
         to use simple authentication without anonymous login.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>authorizationCheckEnabled</code></td>
+    <td>
+      <p>
+        If this property is set to <code>true</code>, then authorization checks are performed when querying for users or groups. Otherwise authorization checks are not performed when querying for users or groups. <em>Default:</em> <code>true</code>
+      </p>
+      <p>
+        <strong>Note:</strong> if you have a huge amount of LDAP users or groups we advise to set this property to <code>false</code> to improve
+        the performance of the user and group query.
       </p>
     </td>
   </tr>
