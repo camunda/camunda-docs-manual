@@ -35,9 +35,10 @@ The following is a list of current (unsupported) community extensions:
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
 * [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
-* [Cycle Connectors](https://github.com/camunda/camunda-cycle-connectors)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
 * [Camunda BPM Platform Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
+* [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
+* [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
 
 
 ## Building a Community Extension
