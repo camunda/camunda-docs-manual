@@ -387,6 +387,19 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>jobExecutorActivate</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls whether the process engine starts with an active job executor or not. For a shared process engine configuration, the default value is <code>true</code>. For an embedded process engine configuration, the default value is <code>false</code>. See the
+        <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-executor-activation" >}}">user guide</a>
+        for more details on this setting.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>jobExecutorDeploymentAware</code></td>
     <td>Boolean</td>
     <td>
