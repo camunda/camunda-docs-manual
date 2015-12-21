@@ -1,7 +1,7 @@
 ---
 
 title: 'History for DMN Decisions'
-weight: 40
+weight: 50
 
 menu:
   main:
