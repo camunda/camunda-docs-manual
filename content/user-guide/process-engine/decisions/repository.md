@@ -1,7 +1,7 @@
 ---
 
 title: 'Decisions in the Process Engine Repository'
-weight: 10
+weight: 20
 
 menu:
   main:

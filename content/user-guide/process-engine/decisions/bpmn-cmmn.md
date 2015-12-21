@@ -1,7 +1,7 @@
 ---
 
 title: 'Invoke Decisions from Processes and Cases'
-weight: 30
+weight: 40
 
 menu:
   main:
