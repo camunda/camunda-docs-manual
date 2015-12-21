@@ -129,7 +129,7 @@ DmnEngine dmnEngine = DmnEngineConfiguration
 InputStream inputStream = ...;
 
 // parse the DMN decision from the input stream
-DmnDecision decision = dmnEngine.parseDecision(inputStream);
+DmnDecision decision = dmnEngine.parseDecision("decisionID", inputStream);
 
 // create the input variables
 VariableMap variables = ...;
