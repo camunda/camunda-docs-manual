@@ -13,7 +13,7 @@ menu:
 
 # Prerequisites
 
-Before downloading Camunda, make sure you have a JRE (Java Runtime Environment) or better a JDK
+Before downloading Camunda, make sure you have a JRE (Java Runtime Environment), or better, a JDK
 (Java Development Kit) installed. We recommend using Java 8 unless your container/application
 server does not support Java 8 (like JBoss Application Server 7).
 
@@ -56,7 +56,7 @@ The full distribution bundles
   and IBM WebSphere downloads. These downloads do not include the application servers themselves.
 {{< /note >}}
 
-See [Installation Guide][installation-guide-full] for additional details.
+See the [Installation Guide][installation-guide-full] for additional details.
 
 
 ## Standalone Web Application Distribution
@@ -72,10 +72,10 @@ The standalone web application distribution bundles
 
 The standalone web application can be deployed to any of the supported application servers.
 
-The Process engine configuration is based on the Spring Framework. If you want to change the
+The process engine configuration is based on the Spring Framework. If you want to change the
 database configuration, edit the `WEB_INF/applicationContext.xml` file inside the WAR file.
 
-See [Installation Guide][installation-guide-standalone] for additional details.
+See the [Installation Guide][installation-guide-standalone] for additional details.
 
 
 # Download Camunda Modeler
