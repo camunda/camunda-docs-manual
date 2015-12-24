@@ -16,14 +16,14 @@ The Camunda platform provides a public API. This section covers the definition o
 
 # Definition of Public API
 
-Camunda BPM public API is limited to the following items:
+The Camunda BPM public API is limited to the following items:
 
 Java API:
 
-* `camunda-engine`: all non implementation Java packages (package name does not contain `impl`)
-* `camunda-engine-spring`: all non implementation Java packages (package name does not contain `impl`)
-* `camunda-engine-cdi`: all non implementation Java packages (package name does not contain `impl`)
-* `camunda-commons-typed-values`:  all non implementation Java packages (package name does not contain `impl`)
+* `camunda-engine`: All non-implementation Java packages (package name does not contain `impl`)
+* `camunda-engine-spring`: All non-implementation Java packages (package name does not contain `impl`)
+* `camunda-engine-cdi`: All non-implementation Java packages (package name does not contain `impl`)
+* `camunda-commons-typed-values`: All non-implementation Java packages (package name does not contain `impl`)
 
 HTTP API (REST API):
 

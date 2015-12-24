@@ -10,7 +10,7 @@ menu:
 
 ---
 
-This section covers third party libraries and their use in Camunda. For each component of Camunda the third party libraries are listed. For each library, it is explained whether the library is a _required dependency_ or an _optional dependency_.
+This section covers third party libraries and their use in Camunda. For each component of Camunda, the third party libraries are listed. For each library, it is explained whether the library is a _required dependency_ or an _optional dependency_.
 
 Required dependencies are libraries Camunda depends on to provide core functionality. In the list below marked as {{< RD >}}.
 
@@ -22,7 +22,7 @@ The process engine depends on the following third-party libraries:
 
 * [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) {{< RD >}}, [(Apache License 2.0)][apache] for object-relational mapping.
 * [Joda Time](http://www.joda.org/joda-time/) {{< RD >}}, [(Apache License 2.0)][apache] for parsing date formats.
-* [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome), {{< OD >}}, [(Apache License 2.0)][apache] Id Generator. See documentation on Id-Generators.
+* [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome), {{< OD >}}, [(Apache License 2.0)][apache] Id Generator. See the [documentation on Id-Generators][id-generator]
 * [SLF4J](http://www.slf4j.org/), {{< RD >}}, [(MIT)][mit] Logging Facade
 
 Additionally, the process engine can be integrated with:
@@ -83,7 +83,7 @@ Camunda Connect depends on the following third-party libraries:
 
 # Camunda Wepapp
 
-The Camunda Webapp (Cockpit, Tasklist, Admin) inculdes the following third-party libraries:
+The Camunda Webapp (Cockpit, Tasklist, Admin) includes the following third-party libraries:
 
 * [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
 * [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
@@ -98,7 +98,7 @@ The Camunda Webapp (Cockpit, Tasklist, Admin) inculdes the following third-party
 * [Snap.svg](http://snapsvg.io/) {{< RD >}}, [(Apache License 2.0)][apache]
 * [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(Apache License 2.0)][apache]
 
-Most of those libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed to ease the development of browser based user interfaces.
+Most of these libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed at easing development of browser based user interfaces.
 
 # Camunda Javascript SDK
 
@@ -172,3 +172,4 @@ The Camunda Modeler Eclipse Plugin depends on the following third-party librarie
 [spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
 [python]: http://www.jython.org/license.html
 [tmate]: http://svnkit.com/license.html
+[id-generator]: {{< relref "user-guide/process-engine/id-generator.md" >}}

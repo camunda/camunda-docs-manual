@@ -14,7 +14,7 @@ menu:
 Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is supported with our QA infrastructure in the following environments. Here you can find more information about our [enterprise support](http://camunda.com/bpm/enterprise/).
 
 {{< note title="Supported Environments" class="info" >}}
-  Please note that the environment listed in this section depends on the version of the Camunda BPM platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda BPM platform. e.g. [supported environment for version 7.3](http://docs.camunda.org/7.3/guides/user-guide/#introduction-supported-environments)
+  Please note that the environments listed in this section depend on the version of the Camunda BPM platform. Please select the corresponding version of this documentation to see the environment that fits to your version of the Camunda BPM platform. e.g., [supported environments for version 7.3](http://docs.camunda.org/7.3/guides/user-guide/#introduction-supported-environments)
 {{< /note >}}
 
 
@@ -44,7 +44,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * H2 1.3
 
 
-# Webbrowser
+# Web Browser
 
 * Google Chrome latest
 * Mozilla Firefox latest
