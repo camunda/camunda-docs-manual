@@ -38,21 +38,24 @@ Note that the processEngineConfiguration bean uses the {{< javadocref page="?org
 # Configure a Container-Managed Process Engine as a Spring Bean
 
 If you want the process engine to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
-1) that none of your webapps include camunda-webapp\*.jar within their own lib folder, this should be at a shared level.
-2) that your server.xml contains JNDI entries for the 'ProcessEngineService' and 'ProcessApplicationService' as below:
+
+1. That none of your webapps include camunda-webapp\*.jar within their own lib folder, this should be at a shared level.
+2. That your server.xml contains JNDI entries for the 'ProcessEngineService' and 'ProcessApplicationService' as below:
 
 ```xml
 <!-- Global JNDI resources
-       Documentation at /docs/jndi-resources-howto.html
-  -->
+     Documentation at /docs/jndi-resources-howto.html
+-->
   <GlobalNamingResources>
 
-    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService" auth="Container"
+    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService"
+              auth="Container"
               type="org.camunda.bpm.ProcessEngineService"
               description="camunda BPM platform Process Engine Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
 
-    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService" auth="Container"
+    <Resource name="java:global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService"
+              auth="Container"
               type="org.camunda.bpm.ProcessApplicationService"
               description="camunda BPM platform Process Application Service"
               factory="org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory" />
@@ -73,7 +76,8 @@ In Sping you can configure a process engine plugin by setting a list value to th
   ...
   <property name="processEnginePlugins">
     <list>
-      <bean id="spinPlugin" class="org.camunda.spin.plugin.impl.SpinProcessEnginePlugin" />
+      <bean id="spinPlugin"
+            class="org.camunda.spin.plugin.impl.SpinProcessEnginePlugin" />
     </list>
   </property>
 </bean>
@@ -89,9 +93,11 @@ public class ExampleProcessEngineConfiguration {
 
   @Bean
   public DataSource dataSource() {
-     // use a JNDI data source or read the properties from env or a properties file
-     // - the following shows only a simple data source for In-Memory H2 database  
-  
+     // Use a JNDI data source or read the properties from
+     // env or a properties file.
+     // Note: The following shows only a simple data source
+     // for In-Memory H2 database.
+
     SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
     dataSource.setDriverClass(org.h2.Driver.class);
     dataSource.setUrl("jdbc:h2:mem:camunda;DB_CLOSE_DELAY=-1");
@@ -111,7 +117,7 @@ public class ExampleProcessEngineConfiguration {
 
     config.setDataSource(dataSource());
     config.setTransactionManager(transactionManager());
-    
+
     config.setDatabaseSchemaUpdate("true");
     config.setHistory("audit");
     config.setJobExecutorActivate(true);

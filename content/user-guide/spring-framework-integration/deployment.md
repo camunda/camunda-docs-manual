@@ -17,9 +17,11 @@ Spring integration also has a special feature for deploying resources. In the pr
 Here's an example:
 
 ```xml
-<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+<bean id="processEngineConfiguration"
+      class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
   ...
-  <property name="deploymentResources" value="classpath*:/mytest/autodeploy.*.bpmn20" />
+  <property name="deploymentResources"
+            value="classpath*:/mytest/autodeploy.*.bpmn20" />
   <property name="deploymentResources">
     <list>
       <value>classpath*:/mytest/autodeploy.*.bpmn20</value>
@@ -28,7 +30,8 @@ Here's an example:
   </property>
 </bean>
 
-<bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+<bean id="processEngine"
+      class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
   <property name="processEngineConfiguration" ref="processEngineConfiguration" />
 </bean>
 ```

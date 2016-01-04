@@ -86,7 +86,7 @@ or, since it is a test:
 @ContextConfiguration("classpath:mytest/SpringTransactionIntegrationTest-context.xml")
 ```
 
-Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies Propagation.REQUIRED transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:
+Then we can get the service beans and invoke methods on them. The ProcessEngineFactoryBean will have added an extra interceptor to the services that applies `Propagation.REQUIRED` transaction semantics on the engine service methods. So, for example, we can use the repositoryService to deploy a process like this:
 
 ```java
 RepositoryService repositoryService = (RepositoryService) applicationContext.getBean("repositoryService");
@@ -98,14 +98,14 @@ String deploymentId = repositoryService
   .getId();
 ```
 
-The other way around also works. In this case, the Spring transaction will be around the userBean.hello() method and the engine service method invocation will join that same transaction.
+The other way around also works. In this case, the Spring transaction will be around the `userBean.hello()` method and the engine service method invocation will join that same transaction.
 
 ```java
 UserBean userBean = (UserBean) applicationContext.getBean("userBean");
 userBean.hello();
 ```
 
-The UserBean looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.
+The `UserBean` looks like this. Remember from above in the Spring bean configuration we injected the repositoryService into the userBean.
 
 ```java
 public class UserBean {
