@@ -20,13 +20,15 @@ category: 'BPM Platform'
 
 Here we describe the changes necessary in the `$JBOSS_HOME/standalone/configuration/standalone.xml`. These are already done in the pre-packaged server.
 
-Add the camunda subsystem as extension:
+Add the Camunda subsystem as extension. Also add the `org.jboss.as.threads` extension if not already present to the `extension` section of the `standalone.xml`:
 
 ```xml
 <server xmlns="urn:jboss:domain:1.1">
   <extensions>
     ...
     <extension module="org.camunda.bpm.jboss.camunda-jboss-subsystem"/>
+    <!-- Add the 'org.jboss.as.threads' extension if not already exists -->
+    <extension module="org.jboss.as.threads"/>
 ```
 
 Add the following elements in order to create a thread pool for the Job Executor in the `<subsystem xmlns="urn:jboss:domain:threads:1.1">` section:
