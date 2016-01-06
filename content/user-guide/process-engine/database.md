@@ -163,24 +163,29 @@ Note that Camunda does not ship with a library that allows to define such a data
 
 The following properties can be set, regardless of whether you are using the JDBC or data source approach:
 
-* `databaseType`: it's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2}. This property is required when not using the default H2 database. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
+* `databaseType`: it's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
 * `databaseSchemaUpdate`: allows to set the strategy to handle the database schema on process engine boot and shutdown.
   * `false` (default): Checks the version of the DB schema against the library when the process engine is being created and throws an exception if the versions don't match.
   * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if necessary. If the schema doesn't exist, it is created.
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
-{{< note title="Suported Databases" class="warning" >}}
+{{< note title="Using MariaDB" class="warning" >}}
+  The automatic detection of MariaDB fails since it returns `MySQL` as database product name. So it is necessary to set the property `datebaseType` to `mariadb`.
+{{< /note >}}
+
+{{< note title="Suported Databases" class="info" >}}
   For information on supported databases please refer to [Supported Environments]({{< relref "introduction/supported-environments.md#databases" >}})
 {{< /note >}}
 
 Here are some sample JDBC urls:
 
-* h2: jdbc:h2:tcp://localhost/camunda
-* mysql: jdbc:mysql://localhost:3306/camunda?autoReconnect=true
-* oracle: jdbc:oracle:thin:@localhost:1521:xe
-* postgres: jdbc:postgresql://localhost:5432/camunda
-* db2: jdbc:db2://localhost:50000/camunda
-* mssql: jdbc:sqlserver://localhost:1433/camunda
+* h2: `jdbc:h2:tcp://localhost/camunda`
+* mysql: `jdbc:mysql://localhost:3306/camunda?autoReconnect=true`
+* oracle: `jdbc:oracle:thin:@localhost:1521:xe`
+* postgres: `jdbc:postgresql://localhost:5432/camunda`
+* db2: `jdbc:db2://localhost:50000/camunda`
+* mssql: `jdbc:sqlserver://localhost:1433/camunda`
+* mariadb: `jdbc:mariadb://localhost:3306/camunda`
 
 
 ## Additional Database Schema Configuration
