@@ -32,6 +32,10 @@ hugo server -w
 You can then browse the docs under [http://localhost:1313/](http://localhost:1313/).
 Hugo will automatically detect when you change a file and refresh the page in the browser.
 
+## License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png"></a> The content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+
 ## Writing Docs
 
 Some guidelines for writing docs
@@ -91,6 +95,7 @@ This can be achieved using the `enterprise` shortcode:
 The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
+
 
 ## Writing Guidelines
 
