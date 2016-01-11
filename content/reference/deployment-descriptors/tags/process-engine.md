@@ -102,8 +102,10 @@ The following example shows an XML snippet which can be placed in both [processe
         {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/StandaloneProcessEngineConfiguration.html" text="StandaloneProcessEngineConfiguration" >}}
       </p>
       <p>
-        <strong>Example:</strong>
-        <code>&lt;configuration&gt;my.custom.ProcessEngineConfiguration&lt;/configuration&gt;</code>
+        <strong>Example:</strong><br/>
+        <code>&lt;configuration&gt;<br/>
+        &nbsp;&nbsp;my.custom.ProcessEngineConfiguration<br/>
+        &lt;/configuration&gt;</code>
       </p>
     </td>
   </tr>
