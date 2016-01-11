@@ -111,4 +111,4 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 2. Associate the web application with the `Camunda` shared library.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}

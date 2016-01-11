@@ -113,7 +113,7 @@ The following steps are required to upgrade the Camunda web applications Cockpit
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
 [jboss-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/
 [wildfly-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/

@@ -107,4 +107,4 @@ Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATF
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}

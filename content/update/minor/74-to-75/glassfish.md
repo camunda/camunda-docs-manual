@@ -109,4 +109,4 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 2. Deploy the web application archive to your Glassfish instance.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}

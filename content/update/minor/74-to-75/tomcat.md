@@ -101,5 +101,5 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 2. Download the Camunda web application archive from our [Maven Nexus Server][nexus]). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
 [nexus]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
