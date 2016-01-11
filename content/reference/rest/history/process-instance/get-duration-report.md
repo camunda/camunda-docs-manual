@@ -111,6 +111,11 @@ Each object has the following properties:
     <td>Request successful.</td>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/csv or text/csv</td>
+    <td>Request successful. In case of an expected <code>application/csv</code> or <code>text/csv</code> response to retrieve the result as a csv file.</td>
+  </tr>
+  <tr>
     <td>400</td>
     <td>application/json</td>
     <td>Returned if some of the query parameters are invalid or mandatory parameters are not supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
