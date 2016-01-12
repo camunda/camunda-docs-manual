@@ -82,7 +82,7 @@ Supported classes:
 
 * `info`
 * `warning`
-*
+
 
 ### How can I add an "EE only note"?
 
@@ -96,6 +96,31 @@ The FOO Feature is only available in the Enterprise Edition.
 {{< /enterprise >}}
 ```
 
+### How can I highlight code lines
+
+By using the `code` which can highlight 1 line or a range of lines (and you can set that mutliple times).
+
+```html
+{{< code language="xml" line="3-5,13" >}}<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cmmn:definitions id="_d7e7cad4-86f1-4c04-9dff-a9aace3afb61"
+        targetNamespace="http://cmmn.org"
+        xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:camunda="http://camunda.org/schema/1.0/cmmn">
+
+  <cmmn:case id="loan_application">
+    <cmmn:casePlanModel autoComplete="false"
+                        name="Loan Application"
+                        id="CasePlanModel">
+      <!-- Plan Items -->
+      <cmmn:planItem definitionRef="HumanTask_1" id="PI_HumanTask_1"/>
+
+      <!-- ... -->
+    </cmmn:casePlanModel>
+  </cmmn:case>
+
+</cmmn:definitions>{{< /code >}}
+```
 
 ## Writing Guidelines
 
