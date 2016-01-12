@@ -54,6 +54,14 @@ GET `/deployment`
     <td>Filter by the deployment source whereby source is equal to <code>null</code>.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>Filter by the tenant id.</td>
+  </tr>
+   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A deployment must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>after</td>
     <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
   </tr>
@@ -64,7 +72,7 @@ GET `/deployment`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>id</code>, <code>name</code> and <code>deploymentTime</code>.
+    <code>id</code>, <code>name</code>, <code>deploymentTime</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -110,6 +118,11 @@ A JSON array of deployment objects. Each deployment object has the following pro
     <td>The source of the deployment.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the deployment.</td>
+  </tr>
+  <tr>
     <td>deploymentTime</td>
     <td>Date</td>
     <td>The date time of the deployment.</td>
@@ -153,6 +166,7 @@ GET `/deployment?name=deploymentName`
     "id": "someId",
     "name": "deploymentName",
     "source": "process application",
+    "tenantId": null,
     "deploymentTime": "2013-04-23T13:42:43"
   }
 ]

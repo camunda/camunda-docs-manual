@@ -13,10 +13,10 @@ menu:
 
 *Multi-Tenancy* regards the case in which a single Camunda installation should serve more than one tenant. For each tenant, certain guarantees of isolation should be made. For example, one tenant's process instances should not interfere with those of another tenant.
 
-Multi-tenancy can be achieved on different levels of data isolation. On the one end of the spectrum, different tenants' data can be stored in [different databases]({{< relref "#one-process-engine-per-tenant" >}}) by configuring multiple process engines, while on the other end of the spectrum, runtime entities can be associated with [tenant markers]({{< relref "#a-tenant-marker-per-process-instance" >}}) and are stored in the same tables. In between these two extremes, it is possible to separate tenant data into different schemas or tables.
+Multi-tenancy can be achieved on different levels of data isolation. On the one end of the spectrum, different tenants' data can be stored in [different databases]({{< relref "#one-process-engine-per-tenant" >}}) by configuring multiple process engines, while on the other end of the spectrum, data can be associated with [tenant identifiers]({{< relref "#one-deployment-per-tenant" >}}) and are stored in the same tables. In between these two extremes, it is possible to separate tenant data into different schemas or tables.
 
 {{< note title="Recommended Approach" class="info" >}}
-  We recommend the approach of multiple process engines (i.e., isolation into different databases/schemas/tables) over the tenant marker approach as it is more robust and easier to use.
+  If you have many tenants which have only less data (e.g. process definitions, process instances, tasks etc.) and don't need a strict isolation from each other (e.g. data and resources) then we recommend the approach of one process engine with tenant-specific deployments over the multiple process engines (i.e., isolation into different databases/schemas/tables) approach as it is more resource-efficient.
 {{< /note >}}
 
 
@@ -39,10 +39,9 @@ Database, schema or table level
 
 
 ## Disadvantages
-
+ 
 * Additional process engine configuration necessary
 * No out-of-the-box support for tenant-independent queries
-
 
 ## Implementation
 
@@ -152,65 +151,70 @@ In order to access a specific tenant's process engine at runtime, it has to be i
 * **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
 
 
-# A Tenant Marker Per Process Instance
+# One Deployment Per Tenant
 
-The least isolated approach is to add tenant-specific markers in form of a process variable to running processes. This marker identifies the tenant in which context the process instance is running. In order to access only data for a specific tenant, many process engine queries allow to filter by process variables. A calling application must make sure to filter according to the correct tenant.
-
+A process engine can handle multiple tenants by adding a tenant identifier (e.g. tenant-id) to the deployment. This identifier is propagated to all data that are created from the deployment (e.g. process definitions, process instances etc.). In order to access only data for a specific tenant, the process engine queries allow to filter by a tenant-id. A calling application must make sure to filter according to the correct tenant.    
 
 ## Data isolation
 
-Row level with applications responsible for filtering
+Row level with tenant identifier for filtering
 
 
 ## Advantages
 
-* Straightforward querying for data across multiple tenants as the data for all tenants is organized in the same tables.
-
+* Straightforward querying for data across multiple tenants as the data for all tenants is organized in the same tables
+* Resource-efficient for a huge number of tenants with less data
 
 ## Disadvantages
 
-* Requires tenant-aware queries
-* Querying with process variables may reduce performance.
-* Risk of disclosing data that belong to other tenants because of bugs or careless application programming.
-
+* Shared resources for all tenants that can lead to bottlenecks 
+* No strict data separation, risk of disclosing data that belong to other tenants
 
 ## Implementation
 
-Working with tenant markers comprises the following aspects:
+Working with multiple tenants in a process engine comprises the following aspects:
 
-* **Instantiating** tenant markers
+* **Deployment** of process definitions for different tenants
 * **Querying** for process entities of different tenants
 
+{{< note title="Tutorial" class="info" >}}
+  Coming soon!
+{{< /note >}}
 
-### Instantiating
+### Deployment
 
-A tenant marker can be added to a process instance by passing it as a process variable on instantiation:
+Each tenant has his own deployment. The id of the tenant is set while deploying the resources (e.g. process definitions).
+
+Using the Java API:
 
 ```java
-Map<String, Object> variables = new HashMap<String, Object>();
-variables.put("TENANT_ID", "tenant1");
-
-runtimeService.startProcessInstanceByKey("some process", variables);
+repositoryService
+      .createDeployment()
+      .tenantId("tenant1")
+      .addZipInputStream(inputStream)
+      .deploy()
 ```
-
-For process definitions that are specific to a single tenant, it is also possible to use an [execution listener]({{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}) on the start event that immediately sets the variable after instantiation.
-
 
 ### Querying
 
-Process applications that retrieve tenant-specific data must ensure that they filter by the tenant marker in order to isolate data between tenants. The following is a query that retrieves all process instances for tenant `tenant1`:
+The process engine queries allow to filter by a specific tenant-id. The following snippet shows a query that retrieves all deployments for tenant `tenant1`:
 
 ```java
-List<ProcessInstance> processInstances =
-  runtimeService.createProcessInstanceQuery()
-    .variableValueEquals("TENANT_ID", "tenant1")
-    .list();
+List<Deployment> deployments = repositoryService
+        .createDeploymentQuery()
+        .tenantId("tenant1")
+        .list();
 ```
 
-Other queries like task and execution queries offer the same filtering capabilities. For correlation via the `RuntimeService#correlateMessage` methods, tenant-specific correlation can be achieved by adding the tenant marker as a correlation key like:
+It is also possible to filter by a list of tenant-ids. For example, retrieve all deployments from tenant `tenant1` and `tenant2`:
 
 ```java
-runtimeService.createMessageCorrelation("someMessage")
-  .processInstanceVariableEquals("TENANT_ID", "tenant1")
-  .correlate();
+List<Deployment> deployments = repositoryService
+        .createDeploymentQuery()
+        .tenantIdIn("tenant1", "tenant2")
+        .orderByTenantId()
+        .asc()
+        .list();
 ```
+
+To retrieve the data from all tenants, no criteria for tenant-id have to be set on the query.

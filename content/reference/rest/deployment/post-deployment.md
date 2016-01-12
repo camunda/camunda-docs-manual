@@ -62,6 +62,13 @@ A multipart form submit with the following parts:
     </td>
   </tr>
   <tr>
+    <td>tenant-id</td>
+    <td>text/plain</td>
+    <td>
+      The tenant id for the deployment to be created.
+    </td>
+  </tr>
+  <tr>
     <td>*</td>
     <td>application/octet-stream</td>
     <td>The binary data to create the deployment resource. It is possible to have more than one form part with different form part names for the binary data to create a deployment.</td>
@@ -99,6 +106,11 @@ Its properties are as follows:
     <td>source</td>
     <td>String</td>
     <td>The source of the deployment.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the deployment.</td>
   </tr>
   <tr>
     <td>deploymentTime</td>
@@ -171,6 +183,7 @@ Status 200.
   "id": "aDeploymentId",
   "name": "aName",
   "source": "process application",
-  "deploymentTime": "2013-01-23T13:59:43"
+  "tenantId": null,
+  "deploymentTime": "2013-01-23T13:59:43"  
 }
 ```
