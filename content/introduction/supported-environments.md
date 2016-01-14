@@ -25,7 +25,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * Wildfly 8.1 / 8.2 Application Server
 * GlassFish 3.1
 * IBM WebSphere Application Server 8.0 / 8.5 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
-*	Oracle WebLogic Server 12c ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
+*	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 
 
 # Container for Camunda Cycle
