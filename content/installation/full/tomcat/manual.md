@@ -65,7 +65,7 @@ Add the entry `org.camunda.bpm.container.impl.tomcat.TomcatBpmPlatformBootstrap`
 ```
 
 
-## Confige a JDBC Resource
+## Configure a JDBC Resource
 
 To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server.xml`. This could look like the following example for an H2 database:
 
