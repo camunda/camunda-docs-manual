@@ -43,6 +43,7 @@ GET `/process-definition/key/{key}/diagram` (returns the diagram for the latest 
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 # Result
 
@@ -69,8 +70,7 @@ The image diagram of this process.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value or the process definition with given id does not exist.
-        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value or the process definition with given id does not exist.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

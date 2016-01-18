@@ -111,6 +111,14 @@ GET `/process-definition/count`
     <td>incidentMessageLike</td>
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>Filter by the tenant id.</td>
+  </tr>
+   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A process definition must have one of the given tenant ids.</td>
+  </tr>
 </table>
 
 

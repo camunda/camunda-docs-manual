@@ -24,7 +24,6 @@ GET `/process-definition/{id}`
 
 GET `/process-definition/key/{key}` (returns the latest version of process definition)
 
-
 # Parameters
 
 ## Path Parameters
@@ -44,6 +43,7 @@ GET `/process-definition/key/{key}` (returns the latest version of process defin
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key. 
 
 # Result
 
@@ -106,6 +106,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>A flag indicating whether the definition is suspended or not.</td>
   </tr>
+   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process definition.</td>
+  </tr>
 </table>
 
 
@@ -125,7 +130,7 @@ Its properties are as follows:
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/> If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
@@ -155,4 +160,5 @@ GET `/process-definition/key/aProcessDefinitionKey`
     "resource":"aResourceName",
     "deploymentId":"aDeploymentId",
     "diagram":"aResourceName",
-    "suspended":true}
+    "suspended":true,
+    "tenantId":null}

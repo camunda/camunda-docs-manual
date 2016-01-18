@@ -44,6 +44,7 @@ POST `/process-definition/key/{key}/start` (starts the latest version of process
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 ## Request Body
 
@@ -178,7 +179,7 @@ Properties are:
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+	<td>The path parameter "key" has no value.<br/>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

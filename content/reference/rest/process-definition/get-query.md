@@ -112,9 +112,17 @@ GET `/process-definition`
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>Filter by the tenant id.</td>
+  </tr>
+   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A process definition must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code> and <code>deploymentId</code>.
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -194,6 +202,11 @@ Each process definition object has the following properties:
     <td>Boolean</td>
     <td>A flag indicating whether the definition is suspended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process definition.</td>
+  </tr>
 </table>
 
 
@@ -227,6 +240,7 @@ GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
 
 ## Response
 
+```json
     [{"id":"aProcessDefinitionId",
     "key":"aKey",
     "category":"aCategory",
@@ -236,4 +250,7 @@ GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
     "resource":"aResourceName",
     "deploymentId":"aDeploymentId",
     "diagram":"aResourceName",
-    "suspended":true}]
+    "suspended":true,
+    "tenantId":null}]
+```
+

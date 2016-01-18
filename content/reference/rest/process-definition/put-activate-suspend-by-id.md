@@ -43,6 +43,8 @@ PUT `/process-definition/key/{key}/suspended` (suspend latest version of process
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
+
 ## Request Body
 
 A JSON object with the following properties:
@@ -88,7 +90,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value.<br/>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
