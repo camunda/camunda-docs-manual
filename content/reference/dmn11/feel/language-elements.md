@@ -126,6 +126,13 @@ Examples:
 - `3,5,7`: Test if the input is either 3, 5 or 7
 - `<2,>10`: Test if the input is either less then 2 or greater then 10
 - `10,[20..30]`: Test if the input is either 10 or between 20 and 30
+- `"Spareribs","Steak","Stew"`: Test if the input is either the String
+  Spareribs, Streak or Stew
+- `date and time("2015-11-30T12:00:00"),date and time("2015-12-01T12:00:00")]`:
+  Test if the input is either the date  November 30th, 2015 at 12:00:00 o'clock or
+  December 1st, 2015 at 12:00:00 o'clock
+- `>customer.age,>21`: Test if the input is either greater than the `age`
+  property of the variable `customer` or greater than 21
 
 # Negation
 
