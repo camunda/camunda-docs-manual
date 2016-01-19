@@ -24,6 +24,10 @@ When executing a process instance, the process engine has to know which process 
 
 For example, before invoking a Java delegate, the process engine performs a context switch into the respective process application. It is therefore able to set the thread context classloader to the process application classloader. If no context switch is performed, only those resources are available that accessible on the process engine level. This is typically a different classloader and a different set of managed resources.
 
+{{< note title="Mechanics behind the Context Switch" >}}
+Note that the actual mechanics behind the context switch are platform dependent. For example: in a servlet container like Apache Tomcat, it is only necessary to set the Thread's current Context Classloader to the web application Classloader. Context specific operations like the resolution of application-local JNDI names all build on this. In an EJB container, this is more complex. This is why the ProcessApplication class is an EJB itself in that environment (see: [Ejb Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#invocation-semantics-of-the-ejbprocessapplication" >}})). The process engine can then add an invocation of a business method of that EJB to the call stack and have the Application Server perform its specific logic behind the scenes.
+{{</ note >}}
+
 A context switch is guaranteed in the following cases:
 
 * **Delegation Code Invocation**: Whenever delegation code like Java delegates, execution/task listeners (Java codes or scripts), etc. is called by the process engine
