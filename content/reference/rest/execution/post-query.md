@@ -104,6 +104,10 @@ A JSON object with the following properties:
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An execution must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include executions that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
@@ -136,7 +140,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionKey</code> and <code>definitionId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -173,6 +177,11 @@ Each execution object has the following properties:
     <td>ended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the execution has ended or not.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the execution.</td>
   </tr>
 </table>
 
@@ -230,4 +239,5 @@ Status 200.
 
     [{"id":"anId",
      "processInstanceId":"aProcInstId",
-     "ended":false}]
+     "ended":false,
+     "tenantId":null}]

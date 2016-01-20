@@ -85,6 +85,10 @@ A JSON object with the following properties:
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An execution must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include executions that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.

@@ -85,6 +85,10 @@ GET `/execution`
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An execution must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -113,7 +117,7 @@ GET `/execution`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionKey</code> and <code>definitionId</code>.
+    <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -158,6 +162,11 @@ Each execution object has the following properties:
     <td>Boolean</td>
     <td>A flag indicating whether the execution has ended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the execution.</td>
+  </tr>
 </table>
 
 
@@ -194,4 +203,5 @@ Status 200.
 
     [{"id":"anId",
      "processInstanceId":"aProcInstId",
-     "ended":false}]
+     "ended":false,
+     "tenantId":null}]

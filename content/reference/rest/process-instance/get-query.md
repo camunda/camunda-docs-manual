@@ -98,6 +98,10 @@ GET `/process-instance`
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -114,7 +118,7 @@ GET `/process-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionKey</code> and <code>definitionId</code>.
+    <code>instanceId</code>, <code>definitionKey</code>, <code>definitionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -177,6 +181,11 @@ Each process instance object has the following properties:
     <td>Boolean</td>
     <td>A flag indicating whether the process instance is suspended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
 </table>
 
 
@@ -215,4 +224,5 @@ GET `/process-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBad
      "businessKey":"aKey",
      "caseInstanceId":"aCaseInstanceId",
      "ended":false,
-     "suspended":false}]
+     "suspended":false,
+     "tenantId":null}]

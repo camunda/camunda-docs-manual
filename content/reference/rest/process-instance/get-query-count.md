@@ -97,6 +97,10 @@ GET `/process-instance/count`
     <td>Filter by the incident message that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

@@ -63,6 +63,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>A flag indicating whether the execution has ended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the execution.</td>
+  </tr>
 </table>
 
 
@@ -96,4 +101,5 @@ GET `/execution/anExecutionId`
 
     {"id":"anExecutionId",
     "processInstanceId":"aProcInstId",
-    "ended":false}
+    "ended":false,
+    "tenantId":null}

@@ -54,12 +54,8 @@ GET `/deployment`
     <td>Filter by the deployment source whereby source is equal to <code>null</code>.</td>
   </tr>
   <tr>
-    <td>tenantId</td>
-    <td>Filter by the tenant id.</td>
-  </tr>
-   <tr>
     <td>tenantIdIn</td>
-    <td>Filter by a list of tenant ids. A deployment must have one of the given tenant ids.</td>
+    <td>Filter by a comma-separated list of tenant ids. A deployment must have one of the given tenant ids.</td>
   </tr>
   <tr>
     <td>after</td>

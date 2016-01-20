@@ -13,7 +13,7 @@ menu:
 
 *Multi-Tenancy* regards the case in which a single Camunda installation should serve more than one tenant. For each tenant, certain guarantees of isolation should be made. For example, one tenant's process instances should not interfere with those of another tenant.
 
-Multi-tenancy can be achieved on different levels of data isolation. On the one end of the spectrum, different tenants' data can be stored in [different databases]({{< relref "#one-process-engine-per-tenant" >}}) by configuring multiple process engines, while on the other end of the spectrum, data can be associated with [tenant identifiers]({{< relref "#one-deployment-per-tenant" >}}) and are stored in the same tables. In between these two extremes, it is possible to separate tenant data into different schemas or tables.
+Multi-tenancy can be achieved on different levels of data isolation. On the one end of the spectrum, different tenants' data can be stored in [different databases]({{< relref "#one-process-engine-with-tenant-identifiers" >}}) by configuring multiple process engines, while on the other end of the spectrum, data can be associated with [tenant identifiers]({{< relref "#one-deployment-per-tenant" >}}) and are stored in the same tables. In between these two extremes, it is possible to separate tenant data into different schemas or tables.
 
 {{< note title="Recommended Approach" class="info" >}}
   If you have many tenants which have only less data (e.g. process definitions, process instances, tasks etc.) and don't need a strict isolation from each other (e.g. data and resources) then we recommend the approach of one process engine with tenant-specific deployments over the multiple process engines (i.e., isolation into different databases/schemas/tables) approach as it is more resource-efficient.
@@ -151,7 +151,7 @@ In order to access a specific tenant's process engine at runtime, it has to be i
 * **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
 
 
-# One Deployment Per Tenant
+# One Process Engine With Tenant-Identifiers
 
 A process engine can handle multiple tenants by adding a tenant identifier (e.g. tenant-id) to the deployment. This identifier is propagated to all data that are created from the deployment (e.g. process definitions, process instances etc.). In order to access only data for a specific tenant, the process engine queries allow to filter by a tenant-id. A calling application must make sure to filter according to the correct tenant.    
 
@@ -202,7 +202,7 @@ The process engine queries allow to filter by a specific tenant-id. The followin
 ```java
 List<Deployment> deployments = repositoryService
         .createDeploymentQuery()
-        .tenantId("tenant1")
+        .tenantIdIn("tenant1")
         .list();
 ```
 

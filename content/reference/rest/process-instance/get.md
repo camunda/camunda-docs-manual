@@ -81,6 +81,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>A flag indicating whether the process instance is suspended or not.</td>
   </tr>
+   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
 </table>
 
 
@@ -118,4 +123,5 @@ GET `/process-instance/aProcessInstanceId`
     "businessKey":"aKey",
     "caseInstanceId":"aCaseInstanceId",
     "ended":false,
-    "suspended":false}
+    "suspended":false,
+    "tenantId":null}
