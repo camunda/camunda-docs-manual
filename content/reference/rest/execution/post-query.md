@@ -105,7 +105,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Filter by a comma-separated list of tenant ids. An execution must have one of the given tenant ids.</td>
+    <td>Filter by a list of tenant ids. An execution must have one of the given tenant ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
     <td>variables</td>
