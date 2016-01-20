@@ -41,3 +41,7 @@ Whenever custom Java objects are set as process variables, they have to be persi
 # Extending Serialization
 
 Spin offers two interfaces that can be implemented to [provide custom data formats]({{< relref "reference/spin/extending-spin.md#custom-dataformats" >}}) and to [configure serialization]({{< relref "reference/spin/extending-spin.md#configuring-data-formats" >}}). Every process application may provide a different set of data format providers and configurators. The BPM platform then instantiates process-application-specific data formats and ensures that they are only accessible when code is executed within the process application's context. See the section on [process application resource access]({{< relref "user-guide/process-applications/process-application-resources.md" >}}) to understand when the process engine operates in the context of a process application and how a context switch can be enforced.
+
+{{< note title="Limitation" class="info" >}}
+Data formats provided or configured on process application level currently only apply to the serialization of Object-type variables. Native Spin variables and the Spin standalone API (e.g. `S("{...}").prop("...")`) only use globally configured data formats.
+{{< /note >}}
