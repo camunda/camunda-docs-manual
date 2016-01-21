@@ -74,7 +74,7 @@ Now, the process engine knows in which context to execute the `#setVariable` cal
 
 ## Java API
 
-The methods `ProcessApplicationContext#setCurrentProcessApplication` declare process application context for all following API invocations until `ProcessApplicationContext#clear` is called. It is therefore advised to use a try-finally block to ensure clearance even when exceptions are raised. In addition, the methods `ProcessApplicationContext#executeInProcessApplication` execute a Callable and declare the context during the Callable's execution.
+The methods `ProcessApplicationContext#setCurrentProcessApplication` declare process application context for all following API invocations until `ProcessApplicationContext#clear` is called. It is therefore advised to use a try-finally block to ensure clearance even when exceptions are raised. In addition, the methods `ProcessApplicationContext#withProcessApplicationContext` execute a Callable and declare the context during the Callable's execution.
 
 ## Programming Model Integration
 
