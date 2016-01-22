@@ -56,7 +56,7 @@ The *key* of a process definition (`invoice` in the example above) is the logica
 </process>
 ```
 
-If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine.
+If you deploy multiple processes with the same key, they are treated as individual versions of the same process definition by the process engine. Please refer to [Process Versioning]({{< relref "user-guide/process-engine/process-versioning.md" >}}) for details.
 
 
 ## Suspend Process Definitions

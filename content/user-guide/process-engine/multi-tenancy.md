@@ -175,6 +175,7 @@ Row level with tenant identifier for filtering
 Working with multiple tenants in a process engine comprises the following aspects:
 
 * **Deployment** of process definitions for different tenants
+* **Versioning** of process definitions for different tenants 
 * **Querying** for process entities of different tenants
 
 {{< note title="Tutorial" class="info" >}}
@@ -194,6 +195,10 @@ repositoryService
       .addZipInputStream(inputStream)
       .deploy()
 ```
+
+### Versioning
+
+Each tenant has his own definitions (e.g. process definitions) which have versions independent from other tenants. For example, if a new process definition is deployed for two tenants then both definitions get the version `1`. The versioning within one tenant works like the [versioning for non multi-tenancy]({{< relref "user-guide/process-engine/process-versioning.md" >}}).
 
 ### Querying
 
