@@ -54,8 +54,9 @@ The following example shows a process-archive XML snippet:
       <p>
         <strong>Attributes:</strong>
         <ul>
-          <li><code>name</code>: Allows you to define the name of the process archive (Required). The name will be used for the
+          <li><code>name</code>: Allows you to define the name of the process archive. The name will be used for the
             process engine deployment.</li>
+          <li><code>tenantId</code>: Allows you to define the tenant-id of the process archive. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. See the User Guide for details about <a href="{{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}">Multi-Tenancy</a>.</li>
         </ul>
       </p>
       <p>

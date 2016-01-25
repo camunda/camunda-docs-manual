@@ -196,6 +196,24 @@ repositoryService
       .deploy()
 ```
 
+Using the [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) Deployment Descriptor:
+
+```xml
+<process-application
+  xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <process-archive tenantId="tenant1">
+    <process-engine>default</process-engine>
+    <properties>
+      <property name="isDeleteUponUndeploy">false</property>
+      <property name="isScanForProcessDefinitions">true</property>
+    </properties>
+  </process-archive>
+
+</process-application>
+```
+
 ### Versioning
 
 Each tenant has his own definitions (e.g. process definitions) which have versions independent from other tenants. For example, if a new process definition is deployed for two tenants then both definitions get the version `1`. The versioning within one tenant works like the [versioning for non multi-tenancy]({{< relref "user-guide/process-engine/process-versioning.md" >}}).

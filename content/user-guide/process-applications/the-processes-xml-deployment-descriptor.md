@@ -111,6 +111,27 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 The `<configuration>...</configuration>` property allows specifying the name of a process engine configuration class to be used when building the process engine.
 
+# Specify Tenant-Ids for Process Archives in the processes.xml File
+
+For [Multi-Tenancy with Tenant-Identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}), you can specify a tenant-id of a process archive by setting the attribute `tenantId`. If a tenant-id is set then all containing resources will be deployed for the given tenant-id. The following is an example of a processes.xml file which contains one process archive with a tenant-id:
+
+```xml
+<process-application
+xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <process-archive name="loan-approval" tenandId="tenant1">
+    <process-engine>default</process-engine>
+    <properties>
+      <property name="isDeleteUponUndeploy">false</property>
+      <property name="isScanForProcessDefinitions">false</property>
+    </properties>
+  </process-archive>
+
+</process-application>
+```
+
+Note that the processes.xml file can contain multiple process archives with different tenant-ids. 
 
 # Process Application Deployment
 
