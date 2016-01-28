@@ -135,6 +135,10 @@ A JSON object with the following properties:
     <td>activityInstanceIdIn</td>
     <td>Only include tasks which belong to one of the passed activity instance ids.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Only include tasks which belong to one of the passed tenant ids.</td>
+  </tr>
 
   <tr>
     <td>assignee</td>
@@ -586,6 +590,11 @@ Each task object has the following properties:
     <td>String</td>
     <td>If not null, the form key for the task.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>If not null, the tenant id for the task.</td>
+  </tr>
 </table>
 
 
@@ -661,4 +670,5 @@ Request Body:
      "caseInstanceId":"aCaseInstId",
      "caseExecutionId":"aCaseExecution",
      "taskDefinitionKey":"aTaskDefinitionKey",
-     "formKey":"aFormKey"}]
+     "formKey":"aFormKey",
+     "tenantId":"aTenantId"}]

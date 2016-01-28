@@ -115,6 +115,10 @@ GET `/task/count`
     <td>Only include tasks which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include tasks which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
   </tr>

@@ -145,6 +145,11 @@ Its properties are as follows:
     <td>String</td>
     <td>If not null, the form key for the task.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>If not null, the tenantId for the task.</td>
+  </tr>
 </table>
 
 
@@ -200,4 +205,5 @@ GET `/task/anId`
     "caseInstanceId":"aCaseInstId",
     "caseExecutionId":"aCaseExecution",
     "taskDefinitionKey":"aTaskDefinitionKey",
-    "formKey":"aFormKey"}
+    "formKey":"aFormKey",
+    "tenantId":"aTenantId"}

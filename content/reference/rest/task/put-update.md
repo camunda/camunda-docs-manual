@@ -82,6 +82,11 @@ A JSON object with the following properties:
     <td>String</td>
     <td>The id of the case instance the task belongs to.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the task. <em>Note:</em> the tenant id cannot be changed; only the existing tenant id can be passed.</td>
+  </tr>
 </table>
 
 
@@ -134,7 +139,8 @@ Request Body:
       "due" : "2014-08-30T10:00:00",
       "followUp" : "2014-08-25T10:00:00",
       "parentTaskId" : "aParentTaskId",
-      "caseInstanceId" : "aCaseInstanceId"
+      "caseInstanceId" : "aCaseInstanceId",
+      "tenantId" : "tenantId"
     }
 
 ## Response
