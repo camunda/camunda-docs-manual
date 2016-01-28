@@ -85,7 +85,7 @@ List<String> results = decisionResult.collectEntries("result");
 
 Note that the decision result also provides methods to get typed output entries.
 A complete list of all methods can be found in the {{< javadocref
-page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
+page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
 
 # History of Evaluated Decisions
 

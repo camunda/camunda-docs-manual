@@ -22,7 +22,7 @@ The previous Javascript BPMN renderer can still be found at [camunda-bpmn.js](ht
 
 # bpmn.io Diagram Renderer
 
-In order to render a process diagram, you need to retrieve the diagram XML via the {{< javadocref page="index.html?org/camunda/bpm/engine/RepositoryService.html" text="Java-" >}} or [REST]({{< relref "reference/rest/process-definition/get-xml.md" >}}) API. The following example shows how to render the process xml using bpmn.io. For more documentation regarding the annotation of the diagram and user interaction, please refer to the [bpmn.io](https://github.com/bpmn-io/bpmn-js) page.
+In order to render a process diagram, you need to retrieve the diagram XML via the {{< javadocref page="?org/camunda/bpm/engine/RepositoryService.html" text="Java-" >}} or [REST]({{< relref "reference/rest/process-definition/get-xml.md" >}}) API. The following example shows how to render the process xml using bpmn.io. For more documentation regarding the annotation of the diagram and user interaction, please refer to the [bpmn.io](https://github.com/bpmn-io/bpmn-js) page.
 
 ```javascript
 var BpmnViewer = require('bpmn-js');

@@ -98,7 +98,7 @@ Object value = decisionResult
 It also provides methods to get typed output entries like
 `getSingleEntryTyped()`. Please refer to the [User Guide][Typed Value API] for
 details about typed values. A complete list of all methods can be found in the
-{{< javadocref page="org/camunda/bpm/dmn/engine/DmnDecisionTableResult"
+{{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult"
 text="Java Docs" >}}.
 
 The decision result is available in the local scope of the executing task as a
