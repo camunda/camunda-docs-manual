@@ -75,6 +75,10 @@ A JSON object with the following properties:
     <td>The id of the activity that the event subscription belongs to. Corresponds to the id in the process model.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>The id of the tenant the subscription belongs to.</td>
+  </tr>
+  <tr>
     <td>createdDate</td>
     <td>The time the subscription was created by the engine. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
@@ -118,5 +122,6 @@ GET `/execution/anExecutionId/messageSubscriptions/someMessage`
     "executionId": "anExecutionId",
     "processInstanceId": "aProcInstId",
     "activityId": "anActivity",
+    "tenantId": null,
     "createdDate": "2013-01-23T13:59:43"}
 
