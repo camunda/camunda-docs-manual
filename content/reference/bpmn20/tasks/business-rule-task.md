@@ -68,7 +68,7 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Using a Custom Rule Engine
 
-You can integrate with other Rule Engines. To do so, you have to plug in your
+You can integrate with other rule engines. To do so, you have to plug in your
 implementation of the rule task the same way as in a Service Task.
 
 ```xml
@@ -79,8 +79,13 @@ implementation of the rule task the same way as in a Service Task.
 
 # Using Delegate Code
 
-Alternatively a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
+Alternatively a business rule task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the [Service Tasks]({{< relref "service-task.md" >}}) documentation.
+
+
+# Implementing as an External Task
+
+In addition to the above, a business rule task can be implemented via the [external task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [service tasks](({{< relref "service-task.md#external-tasks" >}})) how to configure an external task.
 
 
 # Camunda Extensions
@@ -101,6 +106,7 @@ information on this please see the [Service Tasks]({{< relref "service-task.md" 
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#resultvariable" >}}">camunda:resultVariable</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#topic" >}}">camunda:topic</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#type" >}}">camunda:type</a>
     </td>
   </tr>
@@ -132,6 +138,12 @@ information on this please see the [Service Tasks]({{< relref "service-task.md" 
     <td>
       The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
       <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:topic</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
     </td>
   </tr>
 </table>
