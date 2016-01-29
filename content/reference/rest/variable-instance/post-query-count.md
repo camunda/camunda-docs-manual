@@ -65,6 +65,10 @@ A JSON object with the following properties:
     <td>Only include variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>variableValues</td>
     <td>A JSON array to only include variable instances that have the certain values.<br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -79,7 +83,7 @@ A JSON object with the following properties:
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.
+    <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>

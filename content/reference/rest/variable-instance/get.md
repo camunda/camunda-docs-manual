@@ -117,6 +117,11 @@ A json object with the following properties:
     <td>The id of the activity instance that this variable instance belongs to.</td>
   </tr>  
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>errorMessage</td>
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
@@ -165,5 +170,6 @@ Status 200.
       "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
       "caseExecutionId": null,
       "caseInstanceId": null,
+      "tenantId": null,
       "errorMessage": null
     }

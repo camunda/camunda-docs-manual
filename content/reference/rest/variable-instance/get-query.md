@@ -63,6 +63,10 @@ GET `/variable-instance`
     <td>Only include variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>variableValues</td>
     <td>Only include variable instances that have the certain values.
     Value filtering expressions are comma-separated and are structured as follows:<br/>
@@ -79,7 +83,7 @@ GET `/variable-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.
+    <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -170,6 +174,11 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>String</td>
     <td>The id of the activity instance that this variable instance belongs to.</td>
   </tr>  
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
 </table>
 
 
@@ -215,7 +224,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       },
       {
         "id": "someOtherId",
@@ -229,7 +239,8 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       },
       {
         "id": "yetAnotherId",
@@ -243,6 +254,7 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
         "caseExecutionId": null,
         "caseInstanceId": null,
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       }      
     ]

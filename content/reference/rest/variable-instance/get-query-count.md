@@ -62,6 +62,10 @@ GET `/variable-instance/count`
     <td>Only include variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>variableValues</td>
     <td>Only include variable instances that have the certain values.
     Value filtering expressions are comma-separated and are structured as follows:<br/>
@@ -78,7 +82,7 @@ GET `/variable-instance/count`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.
+    <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>

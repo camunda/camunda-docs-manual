@@ -89,6 +89,10 @@ A JSON object with the following properties:
     <td>Only include variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>variableValues</td>
     <td>A JSON array to only include variable instances that have the certain values.<br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -109,7 +113,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>variableName</code>, <code>variableType</code> and <code>activityInstanceId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>variableName</code>, <code>variableType</code>, <code>activityInstanceId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -186,6 +190,11 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>String</td>
     <td>The id of the activity instance that this variable instance belongs to.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
 </table>
 
 
@@ -246,7 +255,8 @@ Request Body:
         "executionId": "b68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       },
       {
         "id": "someOtherId",
@@ -258,7 +268,8 @@ Request Body:
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
         "activityInstanceId": "Task_1:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       },
       {
         "id": "yetAnotherId",
@@ -270,6 +281,7 @@ Request Body:
         "executionId": "68b71c9-e310-11e2-beb0-f0def1557726",
         "taskId": null,
         "activityInstanceId": "Task_2:b68b71ca-e310-11e2-beb0-f0def1557726",
-        "serializationConfig": null
+        "serializationConfig": null,
+        "tenantId": null
       }
     ]
