@@ -41,10 +41,11 @@
       </button>
 
       <ul class="main-menu">
-        <li><a href="https://camunda.org">Camunda.org</a></li>
         {{range $.Site.Params.sections }}
           <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
         {{ end }}
+        <li class="divider"></li>
+        <li><a href="https://camunda.org">Camunda.org</a></li>
       </ul><!-- / .main-menu -->
 
       <div class="search-field">
