@@ -16,10 +16,17 @@ instance by connector ID.
 HttpConnector http = Connectors.getConnector(HttpConnector.ID);
 ```
 
-## Configure Apache HTTP client
+## Configure Apache HTTP Client
 
-camunda Connect HTTP client uses the Apache HTTP client with its default configuration. If
-you want to configure another connection manager or similar the easiest way is to register
+Camunda Connect HTTP client uses the Apache HTTP client to make HTTP requests. Accordingly, it supports the same configuration options.
+
+### Default Configuration
+
+By default, the HTTP client uses Apache's default configuration and respects the [system properties that are supported by HTTP client](https://hc.apache.org/httpcomponents-client-4.3.x/httpclient/apidocs/org/apache/http/impl/client/HttpClientBuilder.html).
+
+### Custom Configuration
+
+If you want to reconfigure the client going beyond the default configuration options, e.g. you want to configure another connection manager, the easiest way is to register
 a new connector configurator.
 
 ```java

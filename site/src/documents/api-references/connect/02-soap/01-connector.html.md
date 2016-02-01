@@ -16,7 +16,7 @@ instance by connector ID.
 SoapHttpConnector soap = Connectors.getConnector(SoapHttpConnector.ID);
 ```
 
-The SOAP connector extends the camunda Connect HTTP connector. Which uses
+The SOAP connector extends the camunda Connect HTTP connector, which uses
 the Apache HTTP client in the default implementation. To configure the
 client please see the corresponding section in the [HTTP connector docs][].
 
