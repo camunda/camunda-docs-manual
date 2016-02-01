@@ -115,9 +115,13 @@ GET `/job`
     <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, and <code>jobDueDate</code>.
+    <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -202,6 +206,11 @@ Each job object has the following properties:
     <td>Number</td>
     <td>The job's priority for execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant which this job belongs to.</td>
+  </tr>
 </table>
 
 
@@ -244,7 +253,8 @@ GET `/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
         "retries": 0,
         "exceptionMessage": "An exception Message",
         "suspended": false,
-        "priority": 10
+        "priority": 10,
+        "tenantId": null
       },
       {
         "id": "anotherJobId",
@@ -254,6 +264,7 @@ GET `/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
         "retries": 0,
         "exceptionMessage": "Another exception Message",
         "suspended": true,
-        "priority": 8
+        "priority": 8,
+        "tenantId": null
       }
     ]

@@ -133,13 +133,17 @@ A JSON object with the following properties:
     <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, and <code>jobDueDate</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>jobId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>jobPriority</code>, <code>jobRetries</code>, <code>jobDueDate</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -217,6 +221,11 @@ Each job object has the following properties:
     <td>Number</td>
     <td>The job's priority for execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant which this job belongs to.</td>
+  </tr>
 </table>
 
 
@@ -286,7 +295,8 @@ Request Body:
         "retries": 0,
         "exceptionMessage": "An exception Message",
         "suspended": false,
-        "priority": 10
+        "priority": 10,
+        "tenantId": null
       },
       {
         "id": "anotherJobId",
@@ -296,6 +306,7 @@ Request Body:
         "retries": 0,
         "exceptionMessage": "Another exception Message",
         "suspended": true,
-        "priority": 8
+        "priority": 8,
+        "tenantId": null
       }
     ]

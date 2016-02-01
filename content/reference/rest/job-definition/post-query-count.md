@@ -69,16 +69,9 @@ A JSON object with the following properties:
     <td>Only include job definitions that have an overriding job priority defined. The only effective value is <code>true</code>. If set to <code>false</code>, this filter is not applied.</td>
   </tr>
   <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
+    <td>tenantIdIn</td>
+    <td>Only include job definitions which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>  
 </table>
 
 

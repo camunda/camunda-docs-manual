@@ -86,13 +86,17 @@ A JSON object with the following properties:
     <td>Only include job definitions that have an overriding job priority defined. The only effective value is <code>true</code>. If set to <code>false</code>, this filter is not applied.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include job definitions which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code> and <code>jobConfiguration</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>jobDefinitionId</code>, <code>activityId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>jobType</code>, <code>jobConfiguration</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -155,6 +159,11 @@ Each job definition object has the following properties:
     <td>Boolean</td>
     <td>Indicates whether this job definition is suspended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant this job definition is associated with.</td>
+  </tr>
 </table>
 
 
@@ -212,7 +221,8 @@ Request Body:
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
         "suspended": false,
-        "overridingJobPriority": 15
+        "overridingJobPriority": 15,
+        "tenantId": null
       },
       {
         "id": "aJobDefId",
@@ -222,6 +232,7 @@ Request Body:
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
         "suspended": true,
-        "overridingJobPriority": null
+        "overridingJobPriority": null,
+        "tenantId": null
       }
     ]

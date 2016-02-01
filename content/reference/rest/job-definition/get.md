@@ -88,6 +88,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>Indicates whether this job definition is suspended or not.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant this job definition is associated with.</td>
+  </tr>
 </table>
 
 
@@ -129,5 +134,6 @@ GET `/job-definition/aJobDefinitionId`
         "jobType": "asynchronous-continuation",
         "jobConfiguration": "",
         "suspended": false,
-        "overridingJobPriority": 15
+        "overridingJobPriority": 15,
+        "tenantId": null
       }

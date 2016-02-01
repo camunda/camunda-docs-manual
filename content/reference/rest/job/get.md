@@ -103,6 +103,11 @@ Its properties are as follows:
     <td>Number</td>
     <td>The job's priority for execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant which this job belongs to.</td>
+  </tr>
 </table>
 
 
@@ -143,5 +148,6 @@ GET `/job/aJobId`
       "retries": 0,
       "exceptionMessage": "An exception Message",
       "suspended": false,
-      "priority": 10
+      "priority": 10,
+      "tenantId": null
     }

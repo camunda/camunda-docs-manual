@@ -115,6 +115,10 @@ A JSON object with the following properties:
     <td>priorityHigherThanOrEquals</td>
     <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
 </table>
 
 
