@@ -179,7 +179,7 @@ Working with multiple tenants in a process engine comprises the following aspect
 * **Querying** for process entities of different tenants
 
 {{< note title="Examples" class="info" >}}
-You can find examples on [GitHub](https://github.com/camunda/camunda-bpm-examples) that shows how to use multi-tenancy for
+You can find examples on [GitHub](https://github.com/camunda/camunda-bpm-examples) that show how to use multi-tenancy for
   
 * [Embedded Process Engine](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-embedded)    
 * [Shared Process Engine](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared)
