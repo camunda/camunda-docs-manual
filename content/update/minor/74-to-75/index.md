@@ -119,4 +119,7 @@ This section describes changes in the engine's default behavior. While the chang
   Add engine changes!
 {{< /note >}}
 
+### Incident Handler
+
+The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
 

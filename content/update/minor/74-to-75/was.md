@@ -90,6 +90,10 @@ This section describes changes in behavior of API methods that your process appl
 
 << Add necessary application changes as subsections here >>
 
+## Incident Handler
+
+The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
+
 # 7. Install the Camunda Archive
 
 Install the Camunda EAR, i.e., the file `$WAS_DISTRIBUTION/modules/camunda-ibm-websphere-ear-$PLATFORM_VERSION.ear`. During the installation, the EAR will try to reference the `Camunda` shared library.
