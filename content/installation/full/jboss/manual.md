@@ -159,6 +159,8 @@ Add the Camunda subsystem as extension:
   <extensions>
     ...
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
+    <!-- Add below extension if not already exists -->
+    <extension module="org.jboss.as.threads"/>
 ```
 
 Add the following elements in order to create a thread pool for the Job Executor:
