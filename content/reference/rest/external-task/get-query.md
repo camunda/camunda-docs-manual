@@ -85,6 +85,10 @@ GET `/external-task`
     <td>Filter by the id of the process definition that an external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
@@ -95,7 +99,7 @@ GET `/external-task`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, and <code>processDefinitionKey</code>.
+    <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -171,6 +175,11 @@ Each external task object has the following properties:
     <td>The id of the process instance the external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant the external task belongs to.</td>
+  </tr>
+  <tr>
     <td>retries</td>
     <td>Number</td>
     <td>The number of retries the task currently has left.</td>
@@ -233,6 +242,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
@@ -248,6 +258,7 @@ Status 200.
       "processDefinitionId": "anotherProcessDefinitionId",
       "processDefinitionKey": "anotherProcessDefinitionKey",
       "processInstanceId": "anotherProcessInstanceId",
+      "tenantId": null,
       "retries": 1,
       "suspended": false,
       "workerId": "aWorkerId",

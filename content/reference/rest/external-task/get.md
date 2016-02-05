@@ -94,6 +94,11 @@ Its properties are as follows:
     <td>The id of the process instance the external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant the external task belongs to.</td>
+  </tr>
+  <tr>
     <td>retries</td>
     <td>Number</td>
     <td>The number of retries the task currently has left.</td>
@@ -154,6 +159,7 @@ GET `/external-task/anExternalTaskId`
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
