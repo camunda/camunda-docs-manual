@@ -66,8 +66,21 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The migration was unsuccesful for at least on process instance. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
-      for the error response format.
+      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+    </td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>
+      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+    </td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>
+      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

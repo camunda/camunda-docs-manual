@@ -37,11 +37,24 @@ You may prepend `/engine/{name}` to any of the methods (unless otherwise documen
 
 For every method this documentation gives possible HTTP status codes. The error code explanations do not cover all possible error causes that may arise when the request is served, for example, most of the requests will not work properly if there are problems with database access. Any of these undocumented errors will be translated to a HTTP 500 error.
 
-All errors also provide a JSON response body of the form `{"type" : "SomeExceptionClass", "message" : "a detailed message"}`.
+All errors also provide a JSON response body of the form:
 
-# Authorization Exceptions
+```json
+  {
+    "type" : "SomeExceptionClass",
+    "message" : "a detailed message"
+  }
+```
 
-If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to `403, Forbidden` and details about the unauthorized interaction are provided in the response body:
+## Authorization Exceptions
+
+If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to `403, Forbidden`. Details about the unauthorized interaction are provided in the response body.
+
+#### Type
+
+`AuthorizationException`
+
+#### Response Body
 
 ```json
 {"type" : "AuthorizationException",
@@ -52,6 +65,110 @@ If an already authenticated user interacts with a resource in an unauthorized wa
  "resourceId" : "Mary"}
 ```
 
+## Migration Validation Exceptions
+
+If a migration plan from one process definition version to another is not valid, a migration exception is thrown. It can be a *migration plan validation exception* where the plan itself is not valid, or a *migration instruction instance validation exception* where a migration instruction that is generally valid cannot be applied to a specific activity instance.
+
+### Migration Plan Validation Exceptions
+
+#### Type
+
+`MigrationPlanValidationException`
+
+#### Response Body
+
+A JSON object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of exception, here <code>MigrationPlanValidationException</code>.</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>String</td>
+    <td>The error message.</td>
+  </tr>
+  <tr>
+    <td>errorReport</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing details about all detected validation errors.
+      It has the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>validationErrors</td>
+          <td>Array</td>
+          <td>A JSON array describing a single validation errors. Each validation error consists of a <code>message</code> and the <code>instruction</code> that is invalid.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+### Migration Instruction Instance Validation Exceptions
+
+#### Type
+
+`MigrationInstructionInstanceValidationException`
+
+#### Response Body
+
+A JSON object with the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of exception, here <code>MigrationInstructionInstanceValidationException</code>.</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>String</td>
+    <td>The error message.</td>
+  </tr>
+  <tr>
+    <td>errorReport</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing details about all detected validation errors.
+      It has the following properties:
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>processInstanceId</td>
+          <td>String</td>
+          <td>The id of the process instance that cannot be migrated when following the migration plan.</td>
+        </tr>
+        <tr>
+          <td>validationErrors</td>
+          <td>Array</td>
+          <td>An array of JSON objects describing the single validation errors. Each validation error consists of a <code>message</code>, an <code>instruction</code> that is invalid, and an array of <code>activityInstanceIds</code> that the instruction cannot be applied to.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 # Authentication
 
