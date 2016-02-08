@@ -220,6 +220,7 @@ CaseBinding has three different values:
     <td>
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
     </td>
   </tr>

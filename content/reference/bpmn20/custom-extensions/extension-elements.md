@@ -818,6 +818,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td colspan="2">
       <a href="{{< relref "reference/bpmn20/tasks/index.md" >}}">All Tasks</a>,
       <a href="{{< relref "reference/bpmn20/events/index.md" >}}">All Events</a> (except Start and Boundary Events),
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#connector" >}}">
