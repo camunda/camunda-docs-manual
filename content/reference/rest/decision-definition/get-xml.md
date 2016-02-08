@@ -44,6 +44,7 @@ GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a decision definition with the given key.
 
 # Result
 
@@ -85,7 +86,8 @@ A JSON object containing the id of the decision definition and the DMN 1.0 XML.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The path parameter "key" has no value.
+      The path parameter "key" has no value.<br/>
+      If more than one tenant has a decision definition with the given key.
       See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>

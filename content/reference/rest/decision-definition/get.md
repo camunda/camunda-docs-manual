@@ -44,6 +44,7 @@ GET `/decision-definition/key/{key}` (returns the latest version of decision def
   </tr>
 </table>
 
+Note that the path parameter `key` cannot be used when more than one tenant has a decision definition with the given key.
 
 # Result
 
@@ -91,6 +92,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The deployment id of the decision definition.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the decision definition.</td>
+  </tr>
 </table>
 
 
@@ -106,6 +112,15 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>
+      The path parameter "key" has no value. <br/>
+      If more than one tenant has a decision definition with the given key.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+    </td>
   </tr>
   <tr>
     <td>404</td>
@@ -136,6 +151,7 @@ GET `/decision-definition/key/aDecisionDefinitionKey`
   "name":"aName",
   "version":42,
   "resource":"aResourceName",
-  "deploymentId":"aDeploymentId"
+  "deploymentId":"aDeploymentId",
+  "tenantId": null
 }
 ```

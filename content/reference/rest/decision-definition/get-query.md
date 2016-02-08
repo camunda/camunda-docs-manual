@@ -86,9 +86,13 @@ GET `/decision-definition`
     <td>Filter by names of those decision definition resources that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A decision definition must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code> and <code>deploymentId</code>.
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -153,6 +157,11 @@ Each decision definition object has the following properties:
     <td>String</td>
     <td>The deployment id of the decision definition.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the decision definition.</td>
+  </tr>
 </table>
 
 
@@ -197,7 +206,8 @@ GET `/decision-definition?key=myDecisionKey&sortBy=category&sortOrder=asc`
     "name":"aName",
     "version":2,
     "resource":"aResourceName",
-    "deploymentId":"aDeploymentId"
+    "deploymentId":"aDeploymentId",
+    "tenantId": null
   }
 ]
 ```
