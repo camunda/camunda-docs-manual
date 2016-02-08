@@ -81,3 +81,10 @@ You might have spotted that two different columns exist in the process definitio
     ```
 
 * Id: The id is the database primary key and an artificial key normally combined out of the key, the version and a generated id (note that the ID may be shortened to fit into the database column, so there is no guarantee that the id is built this way).
+
+
+# Process Instance Migration
+
+By default, when a new process version is deployed, process instances running on previous versions are not affected.
+[Process instance migration]({{< relref "user-guide/process-engine/process-instance-migration.md" >}}) can be used
+to migrate process instances to a new version.
