@@ -177,6 +177,7 @@ Working with multiple tenants in a process engine comprises the following aspect
 * **Deployment** of process definitions for different tenants
 * **Versioning** of process definitions for different tenants 
 * **Querying** for process entities of different tenants
+* **Start** a process instances of different tenants
 
 {{< note title="Examples" class="info" >}}
 You can find examples on [GitHub](https://github.com/camunda/camunda-bpm-examples) that show how to use multi-tenancy for
@@ -223,7 +224,7 @@ Each tenant has his own definitions (e.g. process definitions) which have versio
 
 ### Querying
 
-The process engine queries allow to filter by a specific tenant-id. The following snippet shows a query that retrieves all deployments for tenant `tenant1`:
+The process engine queries allow to filter by a specific tenant-id. The following snippet shows how to retrieve all deployments for tenant `tenant1`:
 
 ```java
 List<Deployment> deployments = repositoryService
@@ -244,3 +245,42 @@ List<Deployment> deployments = repositoryService
 ```
 
 To retrieve the data from all tenants, no criteria for tenant-id have to be set on the query.
+
+### Start a Process Instance
+
+A new process instance of a process definition which is deployed for a specific tenant can be started using the `RuntimeService`. For example, retrieve the process definition first and then start the process instance by the id of the definition.
+
+```java
+ProcessDefinition processDefinition = repositoryService
+  .createProcessDefinitionQuery()
+  .processDefinitionKey("KEY")
+  .tenantIdIn("tenant1")
+  .singleResult();
+
+runtimeService
+  .startProcessInstanceById(processDefinition.getId());
+// or        
+runtimeService
+  .createProcessInstanceById(processDefinition.getId())
+  .execute();
+```
+  
+Alternatively, a process instance can be started using the key of the process definition and the id of the tenant which the definition belongs to.
+
+```java
+runtimeService
+  .createProcessInstanceByKey("KEY")
+  .tenantId("tenant1")
+  .execute();
+```
+
+If only one tenant has a process definition with the given key then the id of the tenant can be omitted.
+
+```java
+runtimeService
+  .startProcessInstanceByKey("KEY");
+// or
+runtimeService
+  .createProcessInstanceByKey("KEY")
+  .execute();
+```
