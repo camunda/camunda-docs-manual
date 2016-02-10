@@ -84,6 +84,10 @@ GET `/case-definition/count`
     <td>resourceNameLike</td>
     <td>Filter by names of those case definition resources that the parameter is a substring of.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case definition must have one of the given tenant ids.</td>
+  </tr>
 </table>
 
 
