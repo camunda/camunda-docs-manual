@@ -39,11 +39,9 @@ POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of 
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be evaluated.</td>
+    <td>The key of the decision definition (the latest version thereof) to be evaluated. Cannot be used when more than one tenant has a decision definition with the given key.</td>
   </tr>
 </table>
-
-Note that the path parameter `key` cannot be used when more than one tenant has a decision definition with the given key.
 
 ## Request Body
 
@@ -64,7 +62,7 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties: 
+A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties:
 
 {{< rest-var-response >}}
 

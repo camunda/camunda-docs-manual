@@ -25,7 +25,7 @@ PUT `/process-definition/key/{key}/suspended` (suspend latest version of process
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -39,11 +39,10 @@ PUT `/process-definition/key/{key}/suspended` (suspend latest version of process
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to activate or suspend.</td>
+    <td>The key of the process definition (the latest version thereof) to activate or suspend. Cannot be used when more than one tenant has a process definition with the given key.</td>
   </tr>
 </table>
 
-Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 ## Request Body
 
@@ -65,7 +64,7 @@ A JSON object with the following properties:
   <tr>
     <td>executionDate</td>
     <td>The date on which the given process definition will be activated or suspended. If null, the suspension state of the given process definition is updated immediately. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -73,7 +72,7 @@ A JSON object with the following properties:
 
 This method returns no content.
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -99,7 +98,7 @@ This method returns no content.
   </tr>
 </table>
 
-  
+
 # Example
 
 ## Request
@@ -107,13 +106,13 @@ This method returns no content.
 PUT `/process-definition/aProcessDefinitionId/suspended`
 
 PUT `/process-definition/key/aProcessDefinitionKey/suspended`
-  
+
     {
       "suspended" : true,
       "includeProcessInstances" : true,
       "executionDate" : "2013-11-21T10:49:45"
     }
-     
+
 ## Response
-    
+
 Status 204. No content.

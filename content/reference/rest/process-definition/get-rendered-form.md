@@ -37,11 +37,10 @@ GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to get the rendered start form for.</td>
+    <td>The key of the process definition (the latest version thereof) to get the rendered start form for. Cannot be used when more than one tenant has a process definition with the given key.</td>
   </tr>
 </table>
 
-Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 # Result
 
