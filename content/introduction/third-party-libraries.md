@@ -81,7 +81,7 @@ Camunda Connect depends on the following third-party libraries:
 
 * [Apache Http Components](http://wiki.fasterxml.com/JacksonHome) {{< RD >}}, [(Apache License 2.0)][apache] for REST and SOAP support.
 
-# Camunda Wepapp
+# Camunda Webapp
 
 The Camunda Webapp (Cockpit, Tasklist, Admin) includes the following third-party libraries:
 
