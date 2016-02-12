@@ -270,7 +270,7 @@ Alternatively, a process instance can be started using the key of the process de
 ```java
 runtimeService
   .createProcessInstanceByKey("KEY")
-  .tenantId("tenant1")
+  .processDefinitionTenantId("tenant1")
   .execute();
 ```
 
