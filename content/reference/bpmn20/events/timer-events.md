@@ -39,7 +39,7 @@ Example:
 
 ## Time Duration
 
-To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. The format used is the [ISO 8601 Durations](http://en.wikipedia.org/wiki/ISO_8601#Durations) format (as required by the BPMN 2.0 specification). 
+To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. The format used is the [ISO 8601 Durations](http://en.wikipedia.org/wiki/ISO_8601#Durations) format (as required by the BPMN 2.0 specification).
 
 Example (interval lasting 10 days):
 
@@ -73,7 +73,7 @@ Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
 The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
 
-## Expresisons
+## Expressions
 
 You can use expressions for the timer event definitions. By doing so you can influence the timer definition based on process variables. The process variables must contain the [ISO 8601][iso-8601] (or cron for cycle type) string for the appropriate timer type.
 
@@ -166,7 +166,7 @@ A timer intermediate event is defined as a intermediate catching event. The spec
 
 A timer boundary event acts as a stopwatch and as an alarm clock. When an execution arrives in the activity to which the boundary event is attached, a timer is started. When the timer fires (e.g. after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
 
-There is the difference between an interrupting and a non interrupting timer event. The interrupting event is the default. The non-interruptingevent leads to the original activity not being interrupted, the activity stays there. Instead, an additional execution is created and sent over the outgoing transition of the event. In the XML representation, the cancelActivity attribute is set to false:
+There is the difference between an interrupting and a non interrupting timer event. The interrupting event is the default. The non-interrupting event leads to the original activity not being interrupted, the activity stays there. Instead, an additional execution is created and sent over the outgoing transition of the event. In the XML representation, the cancelActivity attribute is set to false:
 
 ```xml
 <boundaryEvent id="escalationTimer" cancelActivity="false" />
