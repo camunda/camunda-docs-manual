@@ -205,6 +205,45 @@ Migration is successful if all process instance can be migrated. Confer the
 a migration plan is executed.
 
 
+# BPMN-specific Effects
+
+Depending on the type of the activities a process model contains, migration has varying effects.
+
+## User Tasks
+
+When a user task is migrated, the task instance (i.e. `org.camunda.bpm.engine.task.Task`) is preserved as it is apart
+its process definition id. The task is not reinitialized: Attributes like assignee or name do not change.
+
+## Embedded Sub Processes
+
+If a migration instruction applies to an embedded sub process, it is migrated to its target sub process in the target process definition.
+In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
+contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
+
+## Boundary Events
+
+Boundary events of types timer, message, and signal manifest themselves at runtime as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
+and `org.camunda.bpm.engine.runtime.Job`. They capture the state about the event to be received. For a timer, the corresponding job
+contains the time elapsed until the event triggers.
+
+If there is no migration instruction for a boundary event, then its representing entity is removed. In order to preserve its
+entity, a migration instruction from a boundary event to another boundary event can be provided. In this case, there must
+also be a mapping from the activity the source boundary event is attached to, to the activity the target boundary event is attached to.
+
+Consider the following two processes where the configuration of the boundary event changes:
+
+Process `timerBoundary:1`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer1"></div>
+
+Process `timerBoundary:2`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer2"></div>
+
+Applying a migration plan that does not contain the instruction `.mapActivities("timer", "timer")` is going to remove the timer job and re-create it.
+In effect, the boundary event fires ten days after migration. In contrast, if that instruction is provided then the timer job instance is preserved. However, its
+payload is not updated to the target boundary event's duration. In effect, it is going to trigger five days after the activity was started.
+
 # Operational Semantics
 
 In the following, the exact semantics of migration are documented. Reading this section is recommended to fully understand the effects, power, and limitations of process instance migration.
@@ -215,9 +254,9 @@ Migration of a process instance follows these steps:
 
 1. Assignment of migration instructions to activity instances
 2. Validation of the instruction assignment
-3. Cancellation of unmapped activity instances
+3. Cancellation of unmapped activity instances and event handler entities
 4. Migration of mapped activity instances and their dependent instances,
-  and instantiation of newly introduced BPMN scopes
+  instantiation of newly introduced BPMN scopes, and handler creation for newly introduced events
 
 
 ### Assignment of Migration Instructions
@@ -236,16 +275,17 @@ ensured by the validation step. In particular, the following conditions must hol
 * The overall assignment must be executable. See the [validation chapter]({{< relref "#validation" >}}) for details.
 
 
-### Cancellation of Unmapped Activity Instances
+### Cancellation of Unmapped Activity Instances and Event-Handler Entities
 
-Non-leaf activity instances to which no migration instructions apply are cancelled. In particular,
-this means that a sub process instance is cancelled when it is not migrated. Cancellation is performed
-before any migration instruction is applied, so the process instance is still in the pre-migration state.
+Non-leaf activity instances to which no migration instructions apply are cancelled. Event handler entities
+(e.g. message event subscriptions or timer jobs) are removed when their BPMN elements (e.g. boundary events)
+are not migrated. Cancellation is performed before any migration instruction is applied,
+so the process instance is still in the pre-migration state.
 
 The semantics are:
 
 * The activity instance tree is traversed in a bottom-up fashion and unmapped instances are cancelled
-* Cancellation invokes the activity's end execution listeners and output variable mappings
+* Activity instance cancellation invokes the activity's end execution listeners and output variable mappings
 
 
 ### Migration/Creation of Activity Instances
@@ -264,17 +304,12 @@ The semantics are:
 #### Activity instance migration
 
 Migrating an activity instance updates the references to the activity and process definition
-in the activity instance tree and its execution representation. Furthermore, it migrates
+in the activity instance tree and its execution representation. Furthermore, it migrates or removes
 *dependent* instances that belong to the activity instance. Dependent instances are:
 
 * Variable instances
 * Task instances (for user tasks)
-
-**Variable instances**: Variable instances are migrated when they are local to a scope
-
-**Task instances**: Task instance migration updates activity and process definition references.
-It does not re-initialize the task. For example, if the target activity has a different
-assignee configured, a migrated task instance does not receive this assignee.
+* Event subscription instances
 
 
 ## Validation
