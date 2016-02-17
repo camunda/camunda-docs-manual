@@ -28,18 +28,20 @@ i.e. the definition process instances are migrated to. A migration instruction e
 activity is migrated into an instance of the target activity. A migration plan is complete when there are instructions for
 all active source activities.
 
+The following following process models are used to illustrate the API and effects of migration unless otherwise noted:
 
-# Process Instance Migration by Example
-
-As an example, consider the following source process definition `exampleProcess:1`:
+Process `exampleProcess:1`:
 
 <div data-bpmn-diagram="../bpmn/process-instance-migration/example1"></div>
 
-And the following target process definition `exampleProcess:2`:
+Process `exampleProcess:2`:
 
 <div data-bpmn-diagram="../bpmn/process-instance-migration/example2"></div>
 
-We can now define a migration plan using the API entrance point `RuntimeService#createMigrationPlan`.
+
+# Process Instance Migration by Example
+
+We can define a migration plan using the API entrance point `RuntimeService#createMigrationPlan`.
 It returns a fluent builder to create a migration plan. For our example, the code looks like:
 
 ```java
@@ -58,9 +60,9 @@ Let us assume that we have a process instance in the following activity instance
 
 ```
 ProcessInstance
-  Archive Application
-  Assess Credit Worthiness
-    Validate Address
+├── Archive Application
+└── Assess Credit Worthiness
+    └── Validate Address
 ```
 
 In order to migrate this process instance according to the defined migration plan, the API method
@@ -77,10 +79,10 @@ The resulting activity instance state is:
 
 ```
 ProcessInstance
-  Handle Application Receipt
-    Archive Application
-  Assess Credit Worthiness
-    Validate Postal Address
+├── Handle Application Receipt
+│   └── Archive Application
+└── Assess Credit Worthiness
+    └── Validate Postal Address
 ```
 
 The following things have happened:
@@ -92,25 +94,17 @@ What does the second point mean in particular? Since there is a migration instru
 migrated. References to the new activity and process definition are updated. Activity instances, task instances and
 variable instances are preserved other than that. Before migration, there was a task instance
 in the tasklist of an accountant to perform the *Validate Address* activity. After migration, the same task instance still exists and can be completed
-successfully. From the accountant's perspective, migration is completely transparent while working on a task.
+successfully. It still has the same properties such as assignee or name.
+From the accountant's perspective, migration is completely transparent while working on a task.
 
 Also note that the name of the *Validate Address* activity has changed to *Validate Postal Address* (and it's ID as well). This can
 be handled by the migration API when there is an according migration instruction.
 
 
-# Operational Semantics
+# API
 
-The following sections specify the exact semantics of process instance migration and should be read in order to understand the
-migration effects in varying circumstances. If not otherwise noted, the following examples refer to the following process models for illustration.
-
-Process `exampleProcess:1`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example1"></div>
-
-Process `exampleProcess:2`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example2"></div>
-
+The following gives a structured overview of the Java API for process instance migration. Note that these operations are also available
+via [REST]({{< relref "reference/rest/migration/index.md" >}}).
 
 ## Creating a Migration Plan
 
@@ -184,7 +178,7 @@ For example consider the following code snippet:
 
 ```Java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .createMigrationPlan("testProcess:1", "testProcess:2")
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
   .mapEqualActivities()
   .mapActivities("validateAddress", "validateProcessAddress")
   .build();
@@ -210,6 +204,10 @@ Migration is successful if all process instance can be migrated. Confer the
 [chapter on validation]({{< relref "#validation" >}}) to learn which kind of validation is performed before
 a migration plan is executed.
 
+
+# Operational Semantics
+
+In the following, the exact semantics of migration are documented. Reading this section is recommended to fully understand the effects, power, and limitations of process instance migration.
 
 ## Migration Procedure
 
@@ -320,7 +318,7 @@ Migration can only be meaningful a migration instruction applies to every instan
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .createMigrationPlan("testProcess:1", "testProcess:2")
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
   .mapActivities("archiveApplication", "archiveApplication")
   .build();
 ```
@@ -329,7 +327,7 @@ Now consider a process instance in the following activity instance state:
 
 ```
 ProcessInstance
-  Archive Application
+└── Archive Application
 ```
 
 The plan is complete with respect to this process instance because there is a migration instruction for the activity *Archive Application*.
@@ -338,9 +336,9 @@ Now consider another process instance:
 
 ```
 ProcessInstance
-  Archive Application
-  Assess Credit Worthiness
-    Validate Address
+├── Archive Application
+└── Assess Credit Worthiness
+    └── Validate Address
 ```
 
 The migration plan is not valid with respect to this instance because there is no instruction that applies to the instance of *Validate Address*.
@@ -353,7 +351,7 @@ Consider the following migration plan:
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .createMigrationPlan("testProcess:1", "testProcess:2")
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
   .mapActivities("assessCreditWorthiness", "handleApplicationReceipt")
   .mapActivities("validateAddress", "validatePostalAddress")
   .build();
@@ -363,8 +361,8 @@ And a process instance in the following state:
 
 ```
 ProcessInstance
-  Assess Credit Worthiness
-    Validate Address
+└── Assess Credit Worthiness
+    └── Validate Address
 ```
 
 The migration plan cannot be applied to the process instance, because the hierarchy preservation requirement is violated: The instance of *Validate Address* is supposed to be migrated to *Validate Postal Address*. However, the parent activity instance of *Assess Credit Worthiness* is migrated to *Handle Application Receipt* which does not contain *Validate Postal Address*.
