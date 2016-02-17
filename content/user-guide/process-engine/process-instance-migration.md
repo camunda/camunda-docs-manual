@@ -306,20 +306,35 @@ validation errors.
 When a migration plan is applied to a process instance, it is validated beforehand
 that the plan is applicable. In particular, the following aspects are checked:
 
-* There must be a migration instruction for every instance of leaf activities
+* **Completeness**: There must be a migration instruction for every instance of leaf activities
   (i.e. activities that do not contain other activities)
-* Migration of an activity instance must be *vertical* (see below for a definition)
+* **Hierarchy Preservation**: Every activity instance must stay a descendant of its closest migrating ancestor activity instance
 
 If validation reports errors, migration fails with a `MigrationInstructionInstanceValidationException`
 providing a `MigrationInstructionInstanceValidationReport` object with details on the
 validation errors.
 
+#### Completeness
 
-#### Vertical Migration
+Migration can only be meaningful a migration instruction applies to every instance of a leaf activity. Assume a migration plan as follows:
 
-Activity instances are organized in a tree structure that follows the hierarchy of BPMN scopes
-in the process definition. When starting process definition `exampleProcess:1`,
-the activity instance tree is:
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("testProcess:1", "testProcess:2")
+  .mapActivities("archiveApplication", "archiveApplication")
+  .build();
+```
+
+Now consider a process instance in the following activity instance state:
+
+```
+ProcessInstance
+  Archive Application
+```
+
+The plan is complete with respect to this process instance because there is a migration instruction for the activity *Archive Application*.
+
+Now consider another process instance:
 
 ```
 ProcessInstance
@@ -328,9 +343,28 @@ ProcessInstance
     Validate Address
 ```
 
-The activity instance for `Validate Address` is a child of `Assess Credit Worthiness` and so on. This way, it is possible to
-describe the path from an activity instance to the root activity instance. For `Validate Adress`, this is
-`Validate Address -> Assess Credit Worthiness -> ProcessInstance`. *Vertical* migration means that after migration, the order
-of the migrated instances must still be the same with respect to this path. For example, the `Validate Address` instance must be migrated into
-an activity that is a descendant of the activity that the `Assess Credit Worthiness` instance is migrated into. Note that this definition
-allows to add and remove sub process scopes because these do not change the order of the activity instances in the path.
+The migration plan is not valid with respect to this instance because there is no instruction that applies to the instance of *Validate Address*.
+
+#### Hierarchy Preservation
+
+An activity instance must stay a descendant of its closest ancestor activity instance that migrates (i.e. that is not cancelled during migration).
+
+Consider the following migration plan:
+
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("testProcess:1", "testProcess:2")
+  .mapActivities("assessCreditWorthiness", "handleApplicationReceipt")
+  .mapActivities("validateAddress", "validatePostalAddress")
+  .build();
+```
+
+And a process instance in the following state:
+
+```
+ProcessInstance
+  Assess Credit Worthiness
+    Validate Address
+```
+
+The migration plan cannot be applied to the process instance, because the hierarchy preservation requirement is violated: The instance of *Validate Address* is supposed to be migrated to *Validate Postal Address*. However, the parent activity instance of *Assess Credit Worthiness* is migrated to *Handle Application Receipt* which does not contain *Validate Postal Address*.
