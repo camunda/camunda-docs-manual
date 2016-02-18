@@ -39,11 +39,10 @@ GET `/process-definition/key/{key}/form-variables` (returns the form variables f
   <tr>
     <td>key</td>
     <td>The key of the process definition to retrieve the variable for. Will select the latest
-version of the process definition by key.</td>
+version of the process definition by key. Cannot be used when more than one tenant has a process definition with the given key.</td>
   </tr>
 </table>
 
-Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 ## Query Parameters
 
@@ -54,8 +53,8 @@ Note that the path parameter `key` cannot be used when more than one tenant has 
   </tr>
   <tr>
     <td>variableNames</td>
-    <td>A comma-separated list of variable names. Allows restricting the list of requested 
-        variables to the variable names in the list. It is best practice to restrict the list of 
+    <td>A comma-separated list of variable names. Allows restricting the list of requested
+        variables to the variable names in the list. It is best practice to restrict the list of
         variables to the variables actually required by the form in order to minimize fetching of
         data. If the query parameter is ommitted all variables are fetched. If the query parameter
         contains non-existent variable names, the variable names are ignored.</td>

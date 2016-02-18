@@ -103,6 +103,10 @@ A JSON object with the following properties:
     <td>Filter by the id of the process definition that an external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
@@ -119,7 +123,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, and <code>processDefinitionKey</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -186,6 +190,11 @@ Each external task object has the following properties:
     <td>processInstanceId</td>
     <td>String</td>
     <td>The id of the process instance the external task belongs to.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant the external task belongs to.</td>
   </tr>
   <tr>
     <td>retries</td>
@@ -264,6 +273,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
@@ -279,6 +289,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "anotherProcessDefinitionKey",
       "processInstanceId": "anotherProcessInstanceId",
+      "tenantId": null,
       "retries": 1,
       "suspended": false,
       "workerId": "aWorkerId",

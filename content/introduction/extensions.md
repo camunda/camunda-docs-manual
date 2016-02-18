@@ -39,6 +39,7 @@ The following is a list of current (unsupported) community extensions:
 * [Camunda BPM Platform Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
+* [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
 
 
 ## Building a Community Extension

@@ -124,6 +124,11 @@ Each locked external task object has the following properties:
     <td>The id of the process instance the external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant the external task belongs to.</td>
+  </tr>
+  <tr>
     <td>retries</td>
     <td>Number</td>
     <td>The number of retries the task currently has left.</td>
@@ -202,6 +207,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
       "topicName": "createOrder",
@@ -223,6 +229,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
       "topicName": "createOrder",

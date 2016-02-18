@@ -36,15 +36,13 @@ GET `/process-definition/statistics`
   </tr>
   <tr>
     <td>incidents</td>
-    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result.</td>
+    <td>Valid values for this property are <code>true</code> or <code>false</code>. If this property has been set to <code>true</code> the result will include the corresponding number of incidents for each occurred incident type. If it is set to <code>false</code>, the incidents will not be included in the result. Cannot be used in combination with <code>incidentsForType</code>.</td>
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e. a string value) the result will only include the number of incidents for the assigned incident type.</td>
-  </tr>  
+    <td>If this property has been set with any incident type (i.e. a string value) the result will only include the number of incidents for the assigned incident type. Cannot be used in combination with <code>incidents</code>.</td>
+  </tr>
 </table>
-
-__Note:__ The query parameters `incidents` and `incidentsForType` are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
 
 # Result
 
@@ -109,7 +107,7 @@ Each object has the following properties:
     <td>400</td>
     <td>application/json</td>
     <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -152,7 +150,7 @@ GET `/process-definition/statistics?failedJobs=true`
         "deploymentId":null,
         "diagram":null,
         "suspended":false},
-      "incidents:" []        
+      "incidents:" []
     }]
 
 ## Request with Query Parameter `incidents=true`
@@ -179,8 +177,8 @@ GET `/process-definition/statistics?incidents=true`
       "incidents":
       [
         {"incidentType":"failedJob", "incidentCount": 42 },
-        {"incidentType":"anIncident", "incidentCount": 20 }        
-      ]        
+        {"incidentType":"anIncident", "incidentCount": 20 }
+      ]
      },
      {"id":"aProcessDefinitionId:2",
       "instances":124,
@@ -201,7 +199,7 @@ GET `/process-definition/statistics?incidents=true`
         { "incidentType":"failedJob", "incidentCount": 43 },
         { "incidentType":"anIncident", "incidentCount": 22 }
         { "incidentType":"anotherIncident", "incidentCount": 15 }
-      ]        
+      ]
     }]
 
 ## Request with Query Parameter `incidentsForType=anIncident`
@@ -227,8 +225,8 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "suspended":false},
       "incidents":
       [
-        {"incidentType":"anIncident", "incidentCount": 20 }        
-      ]        
+        {"incidentType":"anIncident", "incidentCount": 20 }
+      ]
      },
      {"id":"aProcessDefinitionId:2",
       "instances":124,
@@ -244,5 +242,5 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "deploymentId":null,
         "diagram":null,
         "suspended":false},
-      "incidents": []        
+      "incidents": []
     }]

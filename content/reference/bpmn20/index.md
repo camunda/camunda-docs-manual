@@ -303,7 +303,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
     </div>
     <div class="col-md-3">
       <h3>Artifacts</h3>
-      <div class="bpmn-symbol-container implemented">
+      <div class="bpmn-symbol-container">
         <svg height="110" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg">
           <path fill="none" stroke="#333333" d="M15,5L5,5L5,65L15,65" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
           <text x="10" y="35" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
@@ -313,7 +313,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
         </svg>
       </div>
-      <div class="bpmn-symbol-container implemented">
+      <div class="bpmn-symbol-container">
         <svg height="70" version="1.1" width="110" xmlns="http://www.w3.org/2000/svg">
           <rect x="5" y="5" width="100" height="60" r="5" rx="5" ry="5" fill="none" stroke="#333333" stroke-width="2" stroke-opacity="1" stroke-dasharray="8,6,2,6" style="stroke-opacity: 1;"></rect>
           <text x="10" y="15" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">

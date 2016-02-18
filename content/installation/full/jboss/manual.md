@@ -34,13 +34,15 @@ First, you need to [download the Camunda jboss distribution](https://app.camunda
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
-Add the Camunda subsystem as extension:
+Add the Camunda subsystem as extension. Also add the `org.jboss.as.threads` extension if not already present to the `extension` section of the `standalone.xml`:
 
 ```xml
 <server xmlns="urn:jboss:domain:1.1">
   <extensions>
     ...
     <extension module="org.camunda.bpm.jboss.camunda-jboss-subsystem"/>
+    <!-- Add the 'org.jboss.as.threads' extension if not already exists -->
+    <extension module="org.jboss.as.threads"/>
 ```
 
 Add the following elements in order to create a thread pool for the Job Executor in the `<subsystem xmlns="urn:jboss:domain:threads:1.1">` section:
@@ -152,13 +154,15 @@ First, you need to [download the Camunda jboss distribution](https://app.camunda
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
-Add the Camunda subsystem as extension:
+Add the Camunda subsystem as extension. Also add the `org.jboss.as.threads` extension if not already present to the `extension` section of the `standalone.xml`:
 
 ```xml
 <server xmlns="urn:jboss:domain:2.1">
   <extensions>
     ...
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
+    <!-- Add the 'org.jboss.as.threads' extension if not already exists -->
+    <extension module="org.jboss.as.threads"/>
 ```
 
 Add the following elements in order to create a thread pool for the Job Executor:

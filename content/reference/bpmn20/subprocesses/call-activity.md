@@ -82,7 +82,7 @@ It is possible to use expressions here as well:
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
   <extensionElements>
     <camunda:in sourceExpression="${x+5}" target="y" />
-    <camunda:out source="${y+5}" target="z" />
+    <camunda:out sourceExpression="${y+5}" target="z" />
   </extensionElements>
 </callActivity>
 ```
@@ -220,6 +220,7 @@ CaseBinding has three different values:
     <td>
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">camunda:inputOutput</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">camunda:failedJobRetryTimeCycle</a>
     </td>
   </tr>

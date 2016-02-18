@@ -40,11 +40,10 @@ POST `/process-definition/key/{key}/start` (starts the latest version of process
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a process definition with the given key.</td>
   </tr>
 </table>
 
-Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key.
 
 ## Request Body
 
@@ -146,6 +145,11 @@ Properties are:
     <td>The case instance id of the process instance.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
+  <tr>
     <td>ended</td>
     <td>Boolean</td>
     <td>A flag indicating whether the instance is still running or not.</td>
@@ -218,6 +222,7 @@ Request body:
     "id":"anId",
     "definitionId":"aProcessDefinitionId",
     "businessKey":"myBusinessKey",
+    "tenantId":null,
     "ended":false,
     "suspended":false}
 
@@ -265,5 +270,6 @@ Request Body:
     "id":"anId",
     "definitionId":"aProcessDefinitionId",
     "businessKey":"myBusinessKey",
+    "tenantId":null,
     "ended":false,
     "suspended":false}

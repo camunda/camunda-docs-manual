@@ -84,31 +84,16 @@ GET `/external-task/count`
     <td>Filter by the id of the process definition that an external task belongs to.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>suspended</td>
     <td>Only include suspended tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
-  </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionKey</code> and <code>definitionId</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 

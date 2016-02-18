@@ -41,11 +41,10 @@ GET `/process-definition/key/{key}/statistics` (returns statistics for the lates
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a process definition with the given key.</td>
   </tr>
 </table>
 
-Note that the path parameter `key` cannot be used when more than one tenant has a process definition with the given key. 
 
 ## Query Parameters
 
@@ -65,7 +64,7 @@ Note that the path parameter `key` cannot be used when more than one tenant has 
   <tr>
     <td>incidentsForType</td>
     <td>If this property has been set with any incident type (i.e. a String value) the result will only include the number of incidents for the assigned incident type.</td>
-  </tr>  
+  </tr>
 </table>
 
 __Note:__ The query parameters `incidents` and `incidentsForType` are exclusive. It is not possible to send a request with both query parameters. In that case the response will be a bad request.
@@ -173,7 +172,7 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidents=true`
      "incidents":
       [
         {"incidentType":"failedJob", "incidentCount": 42 },
-        {"incidentType":"anIncident", "incidentCount": 20 }        
+        {"incidentType":"anIncident", "incidentCount": 20 }
       ]
      },
      {"id":"anotherActivity",
@@ -201,12 +200,12 @@ GET `/process-definition/key/aProcessDefinitionKey/statistics?incidentsForType=a
      "failedJobs":0,
      "incidents":
       [
-        {"incidentType":"anIncident", "incidentCount": 20 }        
-      ]        
+        {"incidentType":"anIncident", "incidentCount": 20 }
+      ]
      },
      {"id":"anotherActivity",
      "instances":124,
      "failedJobs":0,
-     "incidents": []    
+     "incidents": []
     }]
 

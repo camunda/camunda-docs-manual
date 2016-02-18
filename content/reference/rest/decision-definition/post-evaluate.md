@@ -39,7 +39,7 @@ POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of 
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be evaluated.</td>
+    <td>The key of the decision definition (the latest version thereof) to be evaluated. Cannot be used when more than one tenant has a decision definition with the given key.</td>
   </tr>
 </table>
 
@@ -62,7 +62,7 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties: 
+A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties:
 
 {{< rest-var-response >}}
 
@@ -82,7 +82,9 @@ A JSON array representing the result of the newly evaluated decision. The array 
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The path parameter "key" has no value. <br/>
+      If more than one tenant has a decision definition with the given key.
+      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>

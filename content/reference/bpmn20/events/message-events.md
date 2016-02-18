@@ -124,7 +124,17 @@ In case of successful correlation, the correlated or newly created process insta
 
 Alternatively, you can explicitly deliver a message to start a process instance or trigger a waiting execution.
 
-If the message should trigger the starting of a new process instance, choose between the following methods offered by the runtime service:
+If the message should trigger the starting of a new process instance then you can use the correlation API:
+
+```java
+runtimeService
+  .createMessageCorrelation("messageName")
+  .processInstanceBusinessKey("businessKey")
+  .setVariable("name", "value")
+  .correlateStartMessage();
+```
+
+Or you can use one of the following methods offered by the runtime service:
 
 ```java
 ProcessInstance startProcessInstanceByMessage(String messageName);
