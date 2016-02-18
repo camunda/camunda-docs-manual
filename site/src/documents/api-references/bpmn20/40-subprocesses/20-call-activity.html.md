@@ -76,7 +76,7 @@ It is possible to use expressions here as well:
 <callActivity id="callSubProcess" calledElement="checkCreditProcess" >
   <extensionElements>
     <camunda:in sourceExpression="${x+5}" target="y" />
-    <camunda:out source="${y+5}" target="z" />
+    <camunda:out sourceExpression="${y+5}" target="z" />
   </extensionElements>
 </callActivity>
 ```
