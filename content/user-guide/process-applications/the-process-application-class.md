@@ -238,7 +238,7 @@ The fact that the EjbProcessApplication exposes itself as a Session Bean Compone
  * the invocation semantics when invoking code from the process application and
  * the nature of the `ProcessApplicationReference` held by the process engine.
 
-When the process engine invokes the Ejb Process Application, it gets EJB invocation semantics. For example, if your process application provides a `JavaDelegate` implementation, the process engine will call the EjbProcessApplication's `execute(java.util.concurrent.Callable)` method and from that method invoke `JavaDelegate`. This makes sure that
+When the process engine invokes the Ejb Process Application, it gets EJB invocation semantics. For example, if your process application provides a `JavaDelegate` implementation, the process engine will call the EjbProcessApplication's `execute(Callable)` method and from that method invoke the `JavaDelegate`. This makes sure that
 
   * the call is intercepted by the EJB container and "enters" the process application legally.
   * the `JavaDelegate` may take advantage of the EjbProcessApplication's invocation context and resolve resources from the component's environment (such as a `java:comp/BeanManager`).
@@ -255,8 +255,24 @@ When the process engine invokes the Ejb Process Application, it gets EJB invocat
                                    +--------------------+
 </pre>
 
-When the EjbProcessApplication registers with a process engine (see `ManagementService#registerProcessApplication(String, ProcessApplicationReference)`, the process application passes a reference to itself to the process engine. This reference allows the process engine to reference the process application. The EjbProcessApplication takes advantage of the Ejb Containers naming context and passes a reference containing the EJBProcessApplication's Component Name to the process engine. Whenever the process engine needs access to process application, the actual component instance is looked up and invoked.
+The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g. the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked. 
 
+```java
+public class MyEjbProcessApplication extends EjbProcessApplication {
+
+  @Override
+  public <T> T execute(Callable<T> callable, InvocationContext invocationContext) {
+    
+    if(invocationContext != null) {
+      // execute custom code (e.g. initialize the security context)
+    }
+    
+    return execute(callable);
+  }
+}
+```
+
+When the EjbProcessApplication registers with a process engine (see `ManagementService#registerProcessApplication(String, ProcessApplicationReference)`, the process application passes a reference to itself to the process engine. This reference allows the process engine to reference the process application. The EjbProcessApplication takes advantage of the Ejb Containers naming context and passes a reference containing the EJBProcessApplication's Component Name to the process engine. Whenever the process engine needs access to process application, the actual component instance is looked up and invoked.
 
 # The EmbeddedProcessApplication
 
