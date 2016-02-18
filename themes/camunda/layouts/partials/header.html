@@ -25,41 +25,32 @@
 <nav class="navbar navbar-fixed-top">
   <div class="navbar-container">
     <div class="navbar-header">
-      <div class="navbar-text">
-        <a href="{{ if $.Site.Params.section.version }}{{.Site.BaseURL}}{{else}}/{{end}}">
-          <span class="icon icon-bpmn-io"></span>
-          <span class="brand-name">Camunda</span>
-          <span class="site-name">Docs</span>
-        </a>
-      </div>
+      <a href="{{ if $.Site.Params.section.version }}{{.Site.BaseURL}}{{else}}/{{end}}">
+        <span class="brand-logo"></span>
+        <span class="brand-name">Camunda</span>
+        <span class="site-name">Docs</span>
+      </a>
     </div><!-- / .navbar-header -->
 
-    <div class="push-right">
-      <button class="site-menu-toggle show-small">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <ul class="header-menu">
+      {{range $.Site.Params.sections }}
+      <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
+      {{ end }}
+    </ul><!-- / .header-menu -->
 
-      <ul class="main-menu">
-        {{range $.Site.Params.sections }}
-          <li {{ if eq $.Site.Params.section.id .id }} class="active" {{ end }} ><a href="{{.url}}">{{.name}}</a></li>
-        {{ end }}
-        <li class="divider"></li>
-        <li class="external"><a href="https://camunda.org">Camunda.org</a></li>
-        <!-- <li class="divider"></li> -->
-      </ul><!-- / .main-menu -->
+    <button class="site-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <div class="search-field">
-        <input type="search" class="search-input" placeholder="Search…" />
-      </div><!-- / .search-field -->
+    <div class="search-field">
+      <input type="search" class="search-input" placeholder="Search…" />
+    </div><!-- / .search-field -->
 
-      <button class="site-menu-toggle show-medium">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <ul class="external-menu">
+      <li class="external"><a href="https://camunda.org">Camunda.org</a></li>
+    </ul><!-- / .external-menu -->
   </div>
 </nav>
 
