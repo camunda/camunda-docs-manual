@@ -18,12 +18,12 @@ Manage authorizations for a variety of resources (e.g., *Applications*, *Groups*
 
 # Grant Basic Permissions
 
-In this use case, we'll grant some basic permissions. To start out, we'll need some users and a group. Create two users in the  [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}), create a group called *support* in the [groups menu]({{< relref "webapps/admin/group-management.md#groups-menu" >}}) and add the new users to the group in the [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}).
+In this use case we'll grant some basic permissions. To start out we'll need some users and a group. Create two users in the  [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}), create a group called *support* in the [groups menu]({{< relref "webapps/admin/group-management.md#groups-menu" >}}) and add the new users to the group in the [users menu]({{< relref "webapps/admin/user-management.md#user-menu" >}}).
 
 
 ## Application Access
 
-Set the authorizations for the new group and the created users. First, you have to define which application the members of your new group have access to. Select the *Application* menu and create a new `Application Authorization` rule. The group members should be able to access Tasklist, so add the following rule:
+Set the authorizations for the new group and the created users. First you have to define which application the members of your new group have access to. Select the *Application* menu and create a new `Application Authorization` rule. The group members should be able to access Tasklist, so add the following rule:
 
 {{< img src="../img/admin-authorization-application-new-group.png" title="New Group" >}}
 
@@ -84,7 +84,7 @@ Now that we have one group that can see everything in Cockpit, we want to have a
 
 # Restrict Process Permissions
 
-Not every process has to be managed by every user/group and with regards to different organizational levels not every group should be aware of every process present in the process engine. Therefore it might be necessary to restrict the access of users/groups to certain processes.
+Not every process has to be managed by every user/group and with regards to different organizational levels, not every group should be aware of every process present in the process engine. Therefore it might be necessary to restrict the access of users/groups to certain processes.
 
 In this use case we want to give the group *accounting*, which we will assume is already present and has access to Cockpit (see [Application-Specific Permission]({{< relref "webapps/admin/authorization-management.md#application-specific-permissions" >}}) and [Application Access]({{< relref "#application-acces" >}})), full access to the "invoice" process and only to this process.
 
@@ -92,7 +92,7 @@ For groups and users to be able to see process definitions they need at least `R
 
 {{< img src="../img/admin_proc_def_group_full_access.png" title="Process Definition Authorization" >}}
 
-We grant the *accounting* group all permissions for the *invoice* process because they shall be able to manage their process completely. The resource id references to the key of the process definition.
+We grant the *accounting* group all permissions for the *invoice* process because they shall be able to manage their process completely. The resource id references the key of the process definition.
 
 Now that we know how to grant certain permissions, we might need a second user who serves as an administrator.
 
@@ -108,7 +108,7 @@ To create an administrator account, there are several options:
 1. If you kept the group *camunda-admin* in your application, you can add the user to this group.
 2. If you use the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}), you can configure the plugin to grant the user or a certain group all permissions.
 3. You can create your own *administrator* group (also see [Groups]({{< relref "webapps/admin/group-management.md#groups-menu" >}})), grant it all permissions and assign a user to it.
-4. Grant one certain user all permissions.
+4. Grant one specific user all permissions.
 
 Now, after creating a new administrator account, we may want to start working and start processes.
 
@@ -128,14 +128,14 @@ Next, we grant the *accounting* group the `READ` and `CREATE_INSTANCE` permissio
 
 {{< img src="../img/admin_proc_inst_acc_create.png" title="Create Access" >}}
 
-After that, we grant the `CREATE` permssion for process instances. The `CREATE` permission is necessary for the group to be able to create new process instances. The resource id references the generated process instance ids, therefore we use the asterisk, because we can't know the generated id in advance.
+After that, we grant the `CREATE` permission for process instances. The `CREATE` permission is necessary for the group to be able to create new process instances. The resource id references the generated process instance ids, therefore we use the asterisk, because we can't know the generated id in advance.
 
 Now that we know how to start a process, we may want to restrict permissions to certain running processes.
 
 
 # Grant Permission for Single Process Instance
 
-It is possible to restrict a group's/user's permissions to a single process instance, i.e., after the process ends, the group/user will not be able to change any other running process instances. We will use the *accounting* group again in this example. We assume that the group has access to Cockpit (see also [Application Access]({{< relref "#application-access" >}})) and that a process with the name and key *OrderProcess* is present.
+It is possible to restrict a group's/user's permissions to a single process instance, i.e., after the process ends, the group/user will not be able to change any other running process instances. We will use the *accounting* group again in this example. We assume that the group has access to Cockpit (also see [Application Access]({{< relref "#application-access" >}})) and that a process with the name and key *OrderProcess* is present.
 
 {{< img src="../img/admin_proc_def_acc_read.png" title="Definition Access" >}}
 

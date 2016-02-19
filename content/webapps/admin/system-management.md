@@ -31,7 +31,7 @@ The Execution Metrics menu in Admin displays an approximate number of *Flow Node
 
 Some features (enterprise plugins) require a license key. The license will be provided as a string by the Camunda support team. The license mechanism has no impact on the engine or other runtime components. The following section explains how to activate a license.
 
-Whenever you see the following message you have to enter a valid license key.
+Whenever you see the following message, you have to enter a valid license key.
 
 {{< img src="../img/admin-license-prompt.png" title="License Prompt" >}}
 
