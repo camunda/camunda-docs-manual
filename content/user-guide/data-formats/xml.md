@@ -189,5 +189,5 @@ customerXml matches:
 ```
 
 {{< note title="Default Serialization Format" class="info" >}}
-  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/xml`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as XML without explicit declaration of the format.
+  The engine can be configured to persist all objects for which no explicit data format is specified as XML. The process engine configuration offers a property `defaultSerializationFormat`. To configure default XML serialization, set this property to `application/xml`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as XML without explicit declaration of the format.
 {{< /note >}}
