@@ -8,7 +8,7 @@ menu:
   main:
     identifier: "user-guide-admin"
     parent: "webapps"
-    pre: "User management"
+    pre: "Web application for user management"
 ---
 
 
