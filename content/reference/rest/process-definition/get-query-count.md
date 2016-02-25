@@ -115,6 +115,14 @@ GET `/process-definition/count`
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A process definition must have one of the given tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>includeProcessDefinitionsWithoutTenantId</td>
+    <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 

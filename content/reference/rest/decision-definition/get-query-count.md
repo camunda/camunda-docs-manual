@@ -89,6 +89,14 @@ GET `/decision-definition/count`
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A decision definition must have one of the given tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include decision definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>includeDecisionDefinitionsWithoutTenantId</td>
+    <td>Include decision definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 
