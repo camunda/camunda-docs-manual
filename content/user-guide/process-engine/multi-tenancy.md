@@ -177,7 +177,8 @@ Working with multiple tenants in a process engine comprises the following aspect
 * **Deployment** of process definitions for different tenants
 * **Versioning** of process definitions for different tenants 
 * **Querying** for process entities of different tenants
-* **Start** a process instances of different tenants
+* **Start process instances** for different tenants
+* **Send signals** for different tenants
 
 {{< note title="Examples" class="info" >}}
 You can find examples on [GitHub](https://github.com/camunda/camunda-bpm-examples) that show how to use multi-tenancy for
@@ -284,3 +285,25 @@ runtimeService
   .createProcessInstanceByKey("KEY")
   .execute();
 ```
+
+### Send a Signal
+
+The [Signal API]({{< relref "reference/bpmn20/events/signal-events.md#signal-api" >}}) can be used to deliver a signal for a specific tenant.
+
+```java
+runtimeService
+  .createSignalEvent("signalName")
+  .tenantId("tenant1")
+  .send();
+```
+
+Additionally, the API allows to deliver a signal to executions and signal start events which belongs to no single tenant.
+
+```java
+runtimeService
+  .createSignalEvent("signalName")
+  .withoutTenantId()
+  .send();
+```
+
+If only one tenant can receive a signal with the given name then the id of the tenant can be omitted.
