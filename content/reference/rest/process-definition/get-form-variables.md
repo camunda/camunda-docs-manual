@@ -9,7 +9,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "GET `/process-definition/{id}/form-variables`
           </br>
-          GET `/process-definition/key/{key}/form-variables` (returns the form variables for the latest process definition by key)."
+          GET `/process-definition/key/{key}/form-variables`
+          </br>
+          GET `/process-definition/key/{key}/tenant-id/{tenant-id}/form-variables`"
 
 ---
 
@@ -20,7 +22,9 @@ account. If form fields are defined, the variable types and default values of th
 
 GET `/process-definition/{id}/form-variables`
 
-GET `/process-definition/key/{key}/form-variables` (returns the form variables for the latest process definition by key).
+GET `/process-definition/key/{key}/form-variables` (returns the form variables for the latest process definition which belongs to no tenant).
+
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/form-variables` (returns the form variables for the latest version of process definition for tenant)
 
 
 # Parameters
@@ -38,8 +42,11 @@ GET `/process-definition/key/{key}/form-variables` (returns the form variables f
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition to retrieve the variable for. Will select the latest
-version of the process definition by key. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -86,11 +93,6 @@ value is a JSON object with the following properties:
     <td>200</td>
     <td>application/xhtml+xml</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

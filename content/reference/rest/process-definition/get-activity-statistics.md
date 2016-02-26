@@ -9,7 +9,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "GET `/process-definition/{id}/statistics`
           </br>
-          GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition)"
+          GET `/process-definition/key/{key}/statistics`
+          </br>
+          GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics`"
 
 ---
 
@@ -23,8 +25,9 @@ __Note:__ This does not include historic data.
 
 GET `/process-definition/{id}/statistics`
 
-GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition)
+GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition which belongs to no tenant)
 
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics` (returns statistics for the latest version of process definition for tenant)
 
 # Parameters
 
@@ -41,7 +44,11 @@ GET `/process-definition/key/{key}/statistics` (returns statistics for the lates
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -126,7 +133,7 @@ Each object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

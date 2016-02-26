@@ -9,7 +9,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "POST `/process-definition/{id}/submit-form`
           </br>
-          POST `/process-definition/key/{key}/submit-form` (starts the latest version of process definition)"
+          POST `/process-definition/key/{key}/submit-form`
+          </br>
+          POST `/process-definition/key/{key}/tenant-id/{tenant-id}/submit-form`"
 
 ---
 
@@ -21,7 +23,9 @@ Start a process instance using a set of process variables and the business key. 
 
 POST `/process-definition/{id}/submit-form`
 
-POST `/process-definition/key/{key}/submit-form` (starts the latest version of process definition)
+POST `/process-definition/key/{key}/submit-form` (starts the latest version of process definition which belongs to no tenant)
+
+POST `/process-definition/key/{key}/tenant-id/{tenant-id}/submit-form` (starts the latest version of process definition for tenant)
 
 
 # Parameters
@@ -39,7 +43,11 @@ POST `/process-definition/key/{key}/submit-form` (starts the latest version of p
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to submit the form for. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -87,7 +95,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

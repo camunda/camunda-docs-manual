@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "GET `/process-definition/{id}/xml`
           </br>
-          GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition)"
+          GET `/process-definition/key/{key}/xml`
+          </br>
+          GET `/process-definition/key/{key}/tenant-id/{tenant-id}/xml`"
 
 ---
 
@@ -22,7 +24,9 @@ Retrieves the BPMN 2.0 XML of this process definition.
 
 GET `/process-definition/{id}/xml`
 
-GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition)
+GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition which belongs to no tenant)
+
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML for the latest version of process definition for tenant)
 
 
 # Parameters
@@ -40,7 +44,11 @@ GET `/process-definition/key/{key}/xml` (returns the XML for the latest version 
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -80,11 +88,6 @@ A JSON object containing the id of the definition and the BPMN 2.0 XML.
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

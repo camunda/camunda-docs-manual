@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-decision-definition"
     pre: "POST `/decision-definition/{id}/evaluate`
           </br>
-          POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of decision definition)"
+          POST `/decision-definition/key/{key}/evaluate`
+          </br>
+          POST `/decision-definition/key/{key}/tenant-id/{tenant-id}/evaluate`"
 
 ---
 
@@ -21,7 +23,9 @@ Evaluates a given decision and returns the result. The input values of the decis
 
 POST `/decision-definition/{id}/evaluate`
 
-POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of decision definition)
+POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of decision definition which belongs to no tenant)
+
+POST `/decision-definition/key/{key}/tenant-id/{tenant-id}/evaluate` (evaluates the latest version of the decision definition for tenant)
 
 
 # Parameters
@@ -39,7 +43,11 @@ POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of 
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be evaluated. Cannot be used when more than one tenant has a decision definition with the given key.</td>
+    <td>The key of the decision definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the decision definition belongs to.</td>
   </tr>
 </table>
 
@@ -78,13 +86,6 @@ A JSON array representing the result of the newly evaluated decision. The array 
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>The path parameter "key" has no value. <br/>
-      If more than one tenant has a decision definition with the given key.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>

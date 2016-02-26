@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "PUT `/process-definition/{id}/suspended`
           </br>
-          PUT `/process-definition/key/{key}/suspended` (suspend latest version of process definition)"
+          PUT `/process-definition/key/{key}/suspended`
+          </br>
+          PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended`"
 
 ---
 
@@ -21,7 +23,9 @@ Activate or suspend a given process definition by id or by latest version of pro
 
 PUT `/process-definition/{id}/suspended`
 
-PUT `/process-definition/key/{key}/suspended` (suspend latest version of process definition)
+PUT `/process-definition/key/{key}/suspended` (suspend the latest version of process definition which belongs to no tenant)
+
+PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of process definition for tenant)
 
 
 # Parameters
@@ -39,7 +43,11 @@ PUT `/process-definition/key/{key}/suspended` (suspend latest version of process
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to activate or suspend. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -89,7 +97,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
