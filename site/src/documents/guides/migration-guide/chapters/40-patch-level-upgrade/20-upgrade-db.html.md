@@ -80,5 +80,12 @@ Each patch script contains a comment what the fixes are related to and a link to
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
+    <tr>
+      <td>7.3</td>
+      <td>$DATABASE_engine_7.3_patch_7.3.5_to_7.3.6.sql</td>
+      <td>Add indices to improve performance of group authorizations.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
+    </tr>
   </tbody>
 </table>
