@@ -18,11 +18,11 @@ The deployment view of Cockpit shows an overview of all deployments, their resou
 
 # Search
 
-Use the search field at the top of the list of deployments to find specific deployments. Similar to the search on the [cockpit dashboard]({{< relref "webapps/cockpit/dashboard.md#search" >}}) and the [tasklist]({{< relref "webapps/tasklist/dashboard.md#search-for-tasks" >}}), it is possible to search deployments using an array of available criteria.
+Use the search field at the top of the list of deployments to find specific deployments. Similar to the search on the [cockpit dashboard]({{< relref "webapps/cockpit/dashboard.md#search" >}}) and in [tasklist]({{< relref "webapps/tasklist/dashboard.md#search-for-tasks" >}}), it is possible to search deployments using an array of available criteria.
 
-Valid search criteria are unique ID, name (which does not need to be unique across all deployments), time of deployment and source. The deployment source can be provided when a deployment is created. A deployment that is created by the application during startup will have this property set to `process application`. If a deployment is made directly in Cockpit (for example using the [dmn live editing]({{< relref "webapps/cockpit/deployment-view.md#dmn-live-editing" >}}) feature), the property will be set to `cockpit`, and so on. You can also search for deployments that have no deployment source set using the `Source undefined` criterion.
+Valid search criteria are unique ID, name (which does not need to be unique across all deployments), time of deployment and source. The deployment source can be provided when a deployment is created. A deployment that is created by the application during startup will have this property set to `process application`. If a deployment is made directly in Cockpit (for example using the [dmn live editing]({{< relref "webapps/cockpit/dmn/live-editing/" >}}) feature), the property will be set to `cockpit`, and so on. You can also search for deployments that have no deployment source set using the `Source undefined` criterion.
 
-Independently of the search, ordering for the deployment list can be set using the sorting parameter above the search field. It is possible to order by ID, Name and deployment time. Clicking on the arrow on the right side of the sorting criterion changes the ordering (ascending and descending).
+Independently of the search, ordering for the deployment list can be set using the sorting parameter above the search field. It is possible to order by ID, name and deployment time. Clicking on the arrow on the right side of the sorting criterion changes the ordering (ascending and descending).
 
 # Delete
 
@@ -40,4 +40,4 @@ You can also only redeploy a single resource within the deployment: Navigate to 
 
 # Definition Resources
 
-For resources that contain definitions (BPMN, DMN and CMMN files), a preview of the diagram or the table is displayed on the right side of the page as well as the version number of the definitions contained in this resource. At the bottom of the page, there is a list of definitions with a link to the respective definition pages. The enterprise version also includes the possibility to [edit DMN tables directly on the page]({{< relref "webapps/cockpit/deployment-view.md#dmn-live-editing" >}}).
+For resources that contain definitions (BPMN, DMN and CMMN files), a preview of the diagram or the table is displayed on the right side of the page as well as the version number of the definitions contained in this resource. At the bottom of the page, there is a list of definitions with a link to the respective definition pages. The enterprise version also includes the possibility to [edit DMN tables directly on the page]({{< relref "webapps/cockpit/dmn/live-editing/" >}}).

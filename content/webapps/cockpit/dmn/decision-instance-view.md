@@ -15,6 +15,6 @@ On the decision instance page you find the table of the decision that was execut
 
 {{< img src="../../img/cockpit-decision-instance-view.png" title="Decision Instance View" >}}
 
-The input and output values for this decision instance are shown directly on the table in the corresponding cells as well as in the Input and Output tab below the table. Complex variables like Objects, Files and Bytes are not displayed on the table. You have to use the Input and Output tabs to access the values of these variables.
+The input and output values for this decision instance are shown directly on the table in the corresponding cells as well as in the Inputs and Outputs tabs below the table. Complex variables like Objects, Files and Bytes are not displayed on the table. You have to use the Inputs and Outputs tabs to access the values of these variables.
 
 Rules that have matched during the execution of the decision table are highlighted.

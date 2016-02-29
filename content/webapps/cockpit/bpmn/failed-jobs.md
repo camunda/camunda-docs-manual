@@ -19,7 +19,7 @@ Unresolved incidents of a process instance or a sub process instance are indicat
 
 # Retry a Failed Job
 
-To resolve a failed job you can use the {{< glyphicon name="repeat" >}} button on the right hand side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
+To resolve a failed job you can use the {{< glyphicon name="repeat" >}} button on the right side. Select the corresponding instance in the confirmation dialog so the engine will re-trigger this job and increment its retry value in the database.
 
 
 # Bulk Retry
@@ -30,4 +30,4 @@ To resolve a failed job you can use the {{< glyphicon name="repeat" >}} button o
 
 {{< img src="../../img/cockpit-bulk-retry.png" title="Bulk Retry" >}}
 
-You can also perform a bulk Retry of failed jobs. This feature is available in the [Process Definition View]({{< relref "webapps/cockpit/bpmn/process-definition-view.md" >}}) in the Job Definitions tab. If you hit this button, you will increment the number of retries for all of the defined jobs of the process definition.
+You can also perform a bulk retry of failed jobs. This feature is available in the [process definition view]({{< relref "webapps/cockpit/bpmn/process-definition-view.md" >}}) in the Job Definitions tab. If you hit this button, you will increment the number of retries for all of the defined jobs of the process definition.
