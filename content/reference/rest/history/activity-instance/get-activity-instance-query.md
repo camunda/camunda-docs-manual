@@ -96,9 +96,13 @@ GET `/history/activity-instance`
     <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. An activity instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>activityInstanceID</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>, <code>occurrence</code>.
+    <code>activityInstanceID</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>, <code>occurrence</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -218,6 +222,11 @@ Each historic activity instance object has the following properties:
     <td>Boolean</td>
     <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the activity instance.</td>
+  </tr>
 </table>
 
 
@@ -269,7 +278,8 @@ GET `/history/activity-instance?activityType=userTask&taskAssignee=peter`
     "processDefinitionId": "aProcDefId",
     "processInstanceId": "aProcInstId",
     "startTime": "2013-04-23T11:20:43",
-    "taskId": "aTaskId"
+    "taskId": "aTaskId",
+    "tenantId":null
   }
 ]
 ```
