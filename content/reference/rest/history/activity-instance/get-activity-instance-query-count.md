@@ -97,7 +97,7 @@ GET `/history/activity-instance/count`
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Filter by a list of tenant ids. An activity instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+    <td>Filter by a list of tenant ids. An activity instance must have one of the given tenant ids.</td>
   </tr>
 </table>
 
