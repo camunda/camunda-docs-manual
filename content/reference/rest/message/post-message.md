@@ -43,6 +43,10 @@ A JSON object with the following properties:
     <td>Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belongs to the tenant. If no tenant is set, the message will correlate to executions and process definitions which belongs to no tenant.</td>
+  </tr>
+  <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.

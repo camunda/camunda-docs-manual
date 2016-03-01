@@ -178,6 +178,7 @@ Working with multiple tenants in a process engine comprises the following aspect
 * **Versioning** of process definitions for different tenants 
 * **Querying** for process entities of different tenants
 * **Start process instances** for different tenants
+* **Correlate messages** for different tenants
 * **Send signals** for different tenants
 
 {{< note title="Examples" class="info" >}}
@@ -285,6 +286,28 @@ runtimeService
   .createProcessInstanceByKey("KEY")
   .execute();
 ```
+
+### Correlate a Message
+
+The [Message API]({{< relref "reference/bpmn20/events/message-events.md#message-api" >}}) can be used to correlate a message for a specific tenant.
+
+```java
+runtimeService
+  .createMessageCorrelation("messageName")
+  .tenantId("tenant1")
+  .correlate();
+```
+
+Additionally, the API allows to correlate a message to an execution or a message start event which belongs to no single tenant.
+
+```java
+runtimeService
+  .createMessageCorrelation("messageName")
+  .withoutTenantId()
+  .correlate();
+```
+
+If only one tenant can receive a message with the given name then the id of the tenant can be omitted.
 
 ### Send a Signal
 
