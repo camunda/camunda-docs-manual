@@ -14,17 +14,17 @@ menu:
 {{< img src="../img/tasklist-create-filter.png" title="Create Filter" >}}
 
 
-In the Tasklist, you can create and select Filters. You can use these Filters to create lists of tasks, sorted by specified criteria. To create a filter, select *Create a Filter*. You will then see a screen as depicted in the image to the left. You have several options to configure your filter:
+In Tasklist, you can create and select filters. You can use these filters to create lists of tasks, sorted by specified criteria. To create a filter, select *Create a Filter*. You will then see a screen as depicted in the above image. You have several options to configure your filter:
 
 * **General** - Specify the name and description of the filter as well as assigning a color. Assign a priority to determine the order in which the filters are displayed on the dashboard. You can choose to have the filter automatically refresh the filter results by selecting the checkbox *Auto-Refresh*.
 * **Permissions** - Specify which users or groups can see the filter. You can set the filter as globally accessible by selecting the checkbox *Accessible by all users*. A permission that is set here is equivalent to a *READ* permission which can also be set in [Camunda Admin]({{< relref "webapps/admin/index.md" >}}). In case you want to assign other permissions, you can do so in the [Authorizations]({{< relref "webapps/admin/authorization-management.md" >}}) tab in Camunda Admin.
-* **Criteria** - Specify which tasks will be displayed when selecting the filter. A Key and a Value must be inserted. There are various Keys which can be selected from the categories *Process Instance (ID, Business Key)*, *Process Definition (ID, Key, Name)*, *Case Instance (ID, Business Key)*, *Case Definition (ID, Key, Name)*, *Other (Process Instance state, Activity instance ID, Execution ID)*, *User/Group (Assignee, Owner, Candidate User or Group, Involved user, Unassigned, Delegation State)*, *Task (Definition Key, Name, Description, Priority)* and *Dates (Created date, Due date, Follow up date)*. Keys marked with a * accept expressions as value.
+* **Criteria** - Specify which tasks will be displayed when selecting the filter. A key and a value must be inserted. There are various keys which can be selected from the categories *Process Instance (ID, Business Key)*, *Process Definition (ID, Key, Name)*, *Case Instance (ID, Business Key)*, *Case Definition (ID, Key, Name)*, *Other (Process Instance state, Activity instance ID, Execution ID)*, *User/Group (Assignee, Owner, Candidate User or Group, Involved user, Unassigned, Delegation State)*, *Task (Definition Key, Name, Description, Priority)* and *Dates (Created date, Due date, Follow up date)*. Keys marked with a * accept expressions as value.
 * **Variables** - Specify which variables are displayed in the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}) section of the [dashboard]({{< relref "webapps/tasklist/dashboard.md" >}}). Setting variables here has no influence on which tasks are displayed. To set the variables, you need to insert a *Name*, which is the coded name of the variable, and a *Label*, which defines what the variable will be named in the [filter results]({{< relref "webapps/tasklist/dashboard.md#filter-results" >}}).
 
 
 # Expressions in Filters
 
-Several of the filter criteria accept expressions as values. These expressions are in the [JUEL](http://juel.sourceforge.net/) language. In filters which are related to times and dates, you can use the dateTime class, which returns a [Joda-Time](http://www.joda.org/joda-time/) DateTime object.
+Several of the filter criteria accept expressions as values. These expressions are written in [JUEL](http://juel.sourceforge.net/). In filters which are related to times and dates, you can use the dateTime class, which returns a [Joda-Time](http://www.joda.org/joda-time/) DateTime object.
 
 {{< note title="Security Consideration" class="warning" >}}
   Filter expressions can be abused to execute arbitrary code when the query is evaluated. It is therefore required that any user authorized to create filters is trusted in this respect. The default behavior of evaluating filter expressions can be deactivated in the process engine configuration. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> for details.
@@ -35,7 +35,7 @@ Several of the filter criteria accept expressions as values. These expressions a
 
 {{< img src="../img/tasklist-filter-detail.png" title="Filter Details" >}}
 
-In the table below we list some of the more common and useful filters that you can create in Camunda Tasklist and how to set them up.
+In the table below we list some of the more common and useful filters that you can create in Tasklist and how to set them up.
 
 
 <section class="row">
@@ -203,7 +203,7 @@ In the table below we list some of the more common and useful filters that you c
             Due Before
           </td>
           <td>
-            Expressions specifying the timespans<br>
+            Expressions specifying the timespan<br>
             (e.g., <code>${ now() }</code>, <br>
             <code>${ dateTime().plusDays(2) }</code>)
           </td>
