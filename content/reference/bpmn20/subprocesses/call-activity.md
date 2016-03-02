@@ -77,7 +77,7 @@ Note that the tenant id of the calling process instance is not taken into accoun
 
 ## Explicit Tenant Resolution
 
-In some situations it may be useful to override this default behavior and specify the tenant id explicity.
+In some situations it may be useful to override this default behavior and specify the tenant id explicitly.
 
 The `camunda:calledElementTenantId` attribute allows to explicitly specify a tenant id: 
 
@@ -260,7 +260,7 @@ The call activity must take into account multi tenancy when resolving the case d
 
 The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (ie. the tenant id of the calling process definition is used to resolve the called case definition.)
 
-In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the `caseTenantId` attribute:
+In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the `camunda:caseTenantId` attribute:
 
 ```xml
 <callActivity id="callSubProcess" camunda:caseRef="checkCreditCase"
