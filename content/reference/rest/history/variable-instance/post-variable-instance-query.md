@@ -90,13 +90,18 @@ A JSON object with the following properties:
     <td>Only include historic variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code> and <code>variableName</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code> and <code>variableName</code> and <code>tenantId</code>.
+          </td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -194,6 +199,11 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The id of the task the variable instance belongs to.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
 </table>
 
 
@@ -260,6 +270,7 @@ Request Body:
     "caseInstanceId": null,
     "caseExecutionId": null,
     "taskId": null,
+    "tenantId": null,
     "errorMessage": null
   }
 ]

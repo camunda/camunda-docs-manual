@@ -69,6 +69,10 @@ A JSON object with the following properties:
     <td>activityInstanceIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
 </table>
 
 

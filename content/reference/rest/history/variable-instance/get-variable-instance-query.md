@@ -68,8 +68,12 @@ GET `/history/variable-instance`
     <td>Only include historic variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are <code>instanceId</code>, <code>variableName</code>.
+    <td>Sort the results by a given criterion. Valid values are <code>instanceId</code>, <code>variableName</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -181,6 +185,11 @@ Each historic activity instance object has the following properties:
     <td>The id of the task the variable instance belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this variable instance belongs to.</td>
+  </tr>
+  <tr>
     <td>errorMessage</td>
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
@@ -234,6 +243,7 @@ GET `/history/variable-instance?variableName=my_variable`
     "caseInstanceId": null,
     "caseExecutionId": null,
     "taskId": null,
+    "tenantId": null,
     "errorMessage": null
   }
 ]
