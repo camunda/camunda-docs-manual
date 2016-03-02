@@ -116,6 +116,14 @@ GET `/job/count`
     <td>tenantIdIn</td>
     <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
   </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>includeJobsWithoutTenantId</td>
+    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 
