@@ -37,15 +37,69 @@ To call another version of the subprocess it is possible to define the attribute
 
 CalledElementBinding has three different values:
 
-*   latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
-* 	deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
-*   version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be
-    specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
+* latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
+* deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
+* version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
   camunda:calledElementBinding="latest|deployment|version"
   camunda:calledElementVersion="17">
+</callActivity>
+```
+
+# CalledElement Tenant Id
+
+When the call activity resolves the process definition to be called it must take into account multi tenancy.
+
+## Default Tenant Resolution
+By default, the tenant id of the calling process definition is used to resolve the called process definition.
+That is, if the calling process definition has no tenant id, then the call activity resolves a process definition using the provided key, binding and without a tenant id (tenant id = null).
+If the calling process definition has a tenant id, a process definition with the provided key and the same tenant id is resolved.
+
+<table class="table">
+<caption>Default Tenant Resolution Behavior (<code>calledElementTenantId</code> is not used):</caption>
+<tr>
+<th>Calling Process Definition Tenant Id</th>
+<th>Called Process Definition Tenant Id</th>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>someValue</code></td>
+<td><code>someValue</code></td>
+</tr>
+</table>
+
+Note that the tenant id of the calling process instance is not taken into account in the default behavior.
+
+## Explicit Tenant Resolution
+
+In some situations it may be useful to override this default behavior and specify the tenant id explicity.
+
+The `camunda:calledElementTenantId` attribute allows to explicitly specify a tenant id: 
+
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementTenantId="TENANT_1">
+</callActivity>
+```
+
+If the tenant id is not known at design time, an expression can be used as well:
+
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementTenantId="${ myBean.calculateTenantId(variable) }">
+</callActivity>
+```
+
+An expression also allows using the tenant id of the calling process instance instead of the calling process definition:
+
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementTenantId="${ execution.tenantId }">
 </callActivity>
 ```
 
@@ -183,6 +237,8 @@ There is nothing special about the process definition of the subprocess. It coul
 
 A call activity can also be used to create a new CMMN case instance as a subordinate of the corresponding process instance. The call activity completes as soon as the created case instance reaches the state `COMPLETED` for the first time. In contrast to calling a BPMN process, the attribute `caseRef` instead of the attribute `calledElement` must be used to reference a case definition by its key. This means that the latest case definition version is always called.
 
+## Case Binding
+
 To call another version of a case definition it is possible to define the attributes `caseBinding` and `caseVersion` in the call activity. Both attributes are optional.
 
 CaseBinding has three different values:
@@ -198,6 +254,36 @@ CaseBinding has three different values:
 </callActivity>
 ```
 
+## Case Tenant Id
+
+The call activity must take into account multi tenancy when resolving the case definition to be called.
+
+The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (ie. the tenant id of the calling process definition is used to resolve the called case definition.)
+
+In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the `caseTenantId` attribute:
+
+```xml
+<callActivity id="callSubProcess" camunda:caseRef="checkCreditCase"
+  camunda:caseTenantId="TENANT_1">
+</callActivity>
+```
+
+If the tenant id is not known at design time, an expression can be used as well:
+
+```xml
+<callActivity id="callSubProcess" camunda:caseRef="checkCreditCase"
+  camunda:caseTenantId="${ myBean.calculateTenantId(variable) }">
+</callActivity>
+```
+
+An expression also allows using the tenant id of the calling process instance instead of the calling process definition:
+
+```xml
+<callActivity id="callSubProcess" camunda:caseRef="checkCreditCase"
+  camunda:caseTenantId="${ execution.tenantId }">
+</callActivity>
+```
+
 # Camunda Extensions
 
 <table class="table table-striped">
@@ -208,9 +294,11 @@ CaseBinding has three different values:
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementtenantid" >}}">camunda:calledElementTenantId</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>

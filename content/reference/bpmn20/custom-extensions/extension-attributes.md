@@ -217,6 +217,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# calledElementTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the process definition which is to be resolved by a call activity, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id" >}}">Called Element Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
 # candidateGroups
 
 <table class="table table-striped">
@@ -430,6 +461,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
+# caseTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the case definition which is to be resolved by a call activity, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#case-tenant-id" >}}">Case  Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
     </td>
   </tr>
 </table>
