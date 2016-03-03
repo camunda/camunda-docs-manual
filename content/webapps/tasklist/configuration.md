@@ -174,4 +174,4 @@ From within the `camunda-bpm-webapp/webapp` directory:
 grunt build:tasklist
 ```
 
-The command will build the frontend assets (of the tasklist), styles included.
+The command will build the frontend assets (of Tasklist), styles included.
