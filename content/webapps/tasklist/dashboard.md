@@ -46,7 +46,7 @@ Now the standalone task becomes visible in the filter results and can be handled
 
 Here you can see an overview of all tasks for the selected [filter][tasklist-filters]. The filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default it is sorted by the creation date). You can change the sorting of the tasks by clicking on the name of the sorting property. You can toggle between ascending and descending order.
 
-You can sort by more than one property by adding additional properties with the *plus* button. Please note that the sorting is performed in a hierarchical manner (i.e., first by the property displayed first, then by the second, etc). You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.
+You can sort by more than one property by adding additional properties with the *plus* button. The sorting is performed in a hierarchical manner (i.e., first by the property displayed first, then by the second, etc). You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.
 
 To start working on the task, simply select the task.
 
