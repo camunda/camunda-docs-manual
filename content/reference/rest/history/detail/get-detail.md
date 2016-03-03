@@ -122,6 +122,11 @@ An object having the following properties:
     <td>The id of the task the historic detail belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this historic detail belongs to.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>String</td>
     <td>The time when this historic detail occurred, has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
@@ -238,6 +243,7 @@ Status 200.
   "variableType": "String",
   "value": "aVariableValue",
   "revision": 1,
-  "errorMessage": null
+  "errorMessage": null,
+  "tenantId": null
 }
 ```
