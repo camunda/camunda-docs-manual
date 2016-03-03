@@ -57,22 +57,6 @@ By default, the tenant id of the calling process definition is used to resolve t
 That is, if the calling process definition has no tenant id, then the call activity resolves a process definition using the provided key, binding and without a tenant id (tenant id = null).
 If the calling process definition has a tenant id, a process definition with the provided key and the same tenant id is resolved.
 
-<table class="table">
-<caption>Default Tenant Resolution Behavior (<code>calledElementTenantId</code> is not used):</caption>
-<tr>
-<th>Calling Process Definition Tenant Id</th>
-<th>Called Process Definition Tenant Id</th>
-</tr>
-<tr>
-<td><code>null</code></td>
-<td><code>null</code></td>
-</tr>
-<tr>
-<td><code>someValue</code></td>
-<td><code>someValue</code></td>
-</tr>
-</table>
-
 Note that the tenant id of the calling process instance is not taken into account in the default behavior.
 
 ## Explicit Tenant Resolution
