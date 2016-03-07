@@ -71,6 +71,10 @@ GET `/history/incident/count`
     <td>Restricts to incidents that have the given parameter set as configuration.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>open</td>
     <td>Restricts to incidents that are open.</td>
   </tr>
@@ -85,7 +89,7 @@ GET `/history/incident/count`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code> and <code>configuration</code>.
+    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code>, <code>configuration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
