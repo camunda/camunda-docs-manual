@@ -51,6 +51,10 @@ A JSON object with the following properties:
     <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>processInstanceId</td>
+    <td>Used to correlate the message to the process instance with the given id. Must not be supplied in conjunction with a <code>tenantId</code>. </td>
+  </tr>
+  <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.
