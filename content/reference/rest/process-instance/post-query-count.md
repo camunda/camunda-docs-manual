@@ -103,6 +103,10 @@ A JSON object with the following properties:
     <td>Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
