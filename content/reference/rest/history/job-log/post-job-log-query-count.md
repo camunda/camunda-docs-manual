@@ -82,6 +82,10 @@ A JSON object with the following properties:
     <td>Filter by deployment id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic job log entries which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>jobPriorityLowerThanOrEquals</td>
     <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
