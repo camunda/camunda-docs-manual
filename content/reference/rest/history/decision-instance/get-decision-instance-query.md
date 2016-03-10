@@ -104,12 +104,6 @@ GET `/history/decision-instance`
     </td>
   </tr>
   <tr>
-    <td>userId</td>
-    <td>
-      Restrict to instances that were evaluated by the given user.
-    </td>
-  </tr>
-  <tr>
     <td>includeInputs</td>
     <td>
       Include input values in the result.
@@ -240,12 +234,6 @@ Each historic decision instance object has the following properties:
     <td>The id of the activity instance that this decision instance belongs to.</td>
   </tr>
   <tr>
-    <td>userId</td>
-    <td>String</td>
-    <td>The id of the authenticated user that has evaluated this decision instance without 
-	a process or case instance.</td>
-  </tr>
-  <tr>
     <td>inputs</td>
     <td>List of decision inputs</td>
     <td>
@@ -361,8 +349,7 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
-    "caseInstanceId": null,
-	"userId": null
+    "caseInstanceId": null
   }
 ]
 ```
