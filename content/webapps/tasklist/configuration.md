@@ -139,6 +139,14 @@ And finally, in your UI or embedded forms, you can use the new features like thi
 </div>
 ```
 
+# Shortcuts
+
+If you want to change the keyboard shortcuts for certain tasklist operations, you can change the key-combination and the description of the shortcuts in the `shortcuts` section of the config file.
+
+Removing an existing entry from the list will disable this shortcut (you can still perform the operation normally within the tasklist, i.e. removing the _Claim Task_ shortcut will not remove the ability to claim a task either with the mouse or with the normal keyboard navigation).
+
+You can also add additional shortcuts. If you do so, whenever the user presses the registered combination of keys, an angular event in the form of `shortcut:{{nameOfShortcut}}` will be broadcasted across the application. A Tasklist plugin can then react to this event.
+
 
 # Logo and Header Color
 
