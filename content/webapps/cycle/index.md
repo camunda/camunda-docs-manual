@@ -40,8 +40,9 @@ In this section we explain how to set up a connector to connect Cycle to a suita
 * [Signavio Connector]({{< relref "#signavio-connector" >}})
 * [Subversion Connector]({{< relref "#subversion-connector" >}})
 * [File System Connector]({{< relref "#file-system-connector" >}})
+* [GitHub Connector]({{< relref "#github-connector" >}})
 
-Cycle also ships with a GitHub connector. In addition, more BPMN 2.0 tool vendors contribute their connectors as community extensions:
+In addition, more BPMN 2.0 tool vendors contribute their connectors as community extensions:
 
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
@@ -74,6 +75,15 @@ Hit *Test* to check if Cycle can find the folder you specified.
 Use the File System Connector to use models stored on your local system. Select the File System Connector as connector plugin. The variable `${user.home}` points to the directory of your OS user account. You can also choose an absolute path like `C:\MyFolder`.
 
 Hit *Test* to check if Cycle can find the folder you specified.
+
+
+## GitHub Connector
+
+{{< img src="img/cycle-add-github-connector.png" title="Cycle" >}}
+
+Use the GitHub Connector to connect to a GitHub repository. You must specify the URL. If [user credentials]({{< relref "#user-credentials" >}}) are mandatory, you can provide them either globally or individually for each Cycle user. In the image above you see a connector setup for a GitHub repository. The user credentials are provided globally.
+
+Hit *Test* to check if Cycle can find the repository you specified.
 
 
 ## User Credentials
