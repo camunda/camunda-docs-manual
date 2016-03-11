@@ -10,8 +10,9 @@ To connect Cycle to a suitable repository you can set up one of the following co
 * [Signavio Connector](ref:#cycle-connector-configuration-signavio-connector) 
 * [Subversion Connector](ref:#cycle-connector-configuration-subversion-connector)
 * [File System Connector](ref:#cycle-connector-configuration-file-system-connector)
+* [GitHub Connector](ref:#cycle-connector-configuration-github-connector)
 
-Cycle also ships with a gitHub connector. In addition more BPMN 2.0 tool vendors contribute their connectors in the <a href="https://github.com/camunda/camunda-cycle-connectors">cycle community extension</a>.
+In addition, more BPMN 2.0 tool vendors contribute their connectors in the <a href="https://github.com/camunda/camunda-cycle-connectors">cycle community extension</a>.
 
 Furthermore you get information about how to configure [User Credentials](ref:#cycle-connector-configuration-user-credentials) for your connector.
 
@@ -61,6 +62,22 @@ Furthermore you get information about how to configure [User Credentials](ref:#c
       Hit <code>Test</code> to check if Cycle can find the folder you specified.
     </p>
   </div>    
+</div>
+
+## GitHub Connector
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3">
+    <img data-img-thumb src="ref:asset:/assets/img/cycle/cycle-add-github-connector.png" />
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-9">
+    <p>
+      Use the GitHub Connector to connect to a GitHub repository. You must specify the URL. If [user credentials]({{< relref "#user-credentials" >}}) are mandatory, you can provide them either globally or individually for each Cycle user. In the image above you see a connector setup for a GitHub repository. The user credentials are provided globally.
+    </p>
+    <p>
+      Hit <code>Test</code> to check if Cycle can find the repository you specified.
+    </p>
+  </div>
 </div>
 
 ## User Credentials
