@@ -153,6 +153,11 @@ Its properties are as follows:
     <td>The id of the activity instance that this decision instance belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the historic decision instance.</td>
+  </tr>
+  <tr>
     <td>inputs</td>
     <td>List of decision inputs</td>
     <td>
@@ -266,6 +271,7 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
-    "caseInstanceId": null
+    "caseInstanceId": null,
+    "tenantId": null
 }
 ```
