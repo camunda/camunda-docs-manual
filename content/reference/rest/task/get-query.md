@@ -119,6 +119,10 @@ GET `/task`
     <td>Only include tasks which belong to one of the passed and comma-separated tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
   </tr>

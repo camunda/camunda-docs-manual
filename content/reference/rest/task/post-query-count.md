@@ -118,9 +118,13 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantIdIn</td>
-    <td>Only include tasks which belong to one of the passed tenant ids.</td>
+    <td>Restrict to tasks that belong to one of the given tenant ids.
+        The ids need to be in a comma-separated list.</td>
   </tr>
-
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
   <tr>
     <td>assignee</td>
     <td>Restrict to tasks that the given user is assigned to.</td>
