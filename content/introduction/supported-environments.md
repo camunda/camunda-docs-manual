@@ -66,5 +66,5 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 # Camunda Modeler
 
 * Windows 7 / 10
-* Mac OS X 10.9
+* Mac OS X 10.11
 * Linux
