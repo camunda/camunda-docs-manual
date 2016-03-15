@@ -43,6 +43,18 @@ A JSON object with the following properties:
     <td>Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belongs to the tenant.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>Used to correlate the message to the process instance with the given id. Must not be supplied in conjunction with a <code>tenantId</code>. </td>
+  </tr>
+  <tr>
     <td>correlationKeys</td>
     <td>Used for correlation of process instances that wait for incoming messages.
     Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation.
@@ -87,7 +99,8 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>No <code>messageName</code> was supplied or the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If no <code>messageName</code> was supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied.</br>
+    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

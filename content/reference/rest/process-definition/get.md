@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "GET `/process-definition/{id}`
           </br>
-          GET `/process-definition/key/{key}` (returns the latest version of process definition)"
+          GET `/process-definition/key/{key}`
+          </br>
+          GET `/process-definition/key/{key}/tenant-id/{tenant-id}`"
 
 ---
 
@@ -22,7 +24,9 @@ Retrieves a single process definition according to the ProcessDefinition interfa
 
 GET `/process-definition/{id}`
 
-GET `/process-definition/key/{key}` (returns the latest version of process definition)
+GET `/process-definition/key/{key}` (returns the latest version of process definition which belongs to no tenant)
+
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of process definition for tenant)
 
 # Parameters
 
@@ -39,7 +43,11 @@ GET `/process-definition/key/{key}` (returns the latest version of process defin
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -124,11 +132,6 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-	<td>The path parameter "key" has no value.<br/> If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

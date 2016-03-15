@@ -18,8 +18,8 @@ available:
 # Date Format
 
 Dates can be configured by specifying a `dateFormat` object. The values of the properties of this
-object must be strings representing date formats in accordance to
-[moment.js](http://momentjs.com). Following date formats are used within the tasklist:
+object must be strings representing date formats in accordance with
+[moment.js](http://momentjs.com). Following date formats are used within Tasklist:
 
 * `monthName` represents the name of a month (e.g., January).
 * `day` represents the number of a day in a month (1..31).
@@ -43,7 +43,7 @@ object must be strings representing date formats in accordance to
 
 The localization of Tasklist is contained in the `app/tasklist/locales/` directory. This
 directory contains a separate localization file for every available language. The file name
-consists of the language code and the suffix `.json` (e.g. `en.json`).
+consists of the language code and the suffix `.json` (e.g., `en.json`).
 
 Tasklist uses a locale file corresponding to the language settings of the browser. You can
 set the `availableLocales` property in the configuration file to provide a list of available
@@ -67,9 +67,9 @@ available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
-If you want to add scripts (in order to add new [AngularJS](https://angularjs.org) directives or
+If you want to add scripts (to add new [AngularJS](https://angularjs.org) directives or
 other libraries) you should add a `customScripts` property to the `app/tasklist/scripts/config.js`
-file with something like that:
+file with something like this:
 
 ```javascript
 var camTasklistConf = {
@@ -101,7 +101,7 @@ require(config.deps, callback);
 ```
 
 
-In your scripts, you can add a controller and directive like that:
+In your scripts, you can add a controller and directive like this:
 
 ```javascript
 'use strict';
@@ -131,13 +131,21 @@ define('custom-ng-module', [
 });
 ```
 
-And finally, in your UI or embedded forms, you can use the new features like that:
+And finally, in your UI or embedded forms, you can use the new features like this:
 
 ```html
 <div ng-controller="customController">
   <div custom-directive> - (in this case; will be overwritten) - </div>
 </div>
 ```
+
+# Shortcuts
+
+If you want to change the keyboard shortcuts for certain tasklist operations, you can change the key-combination and the description of the shortcuts in the `shortcuts` section of the config file.
+
+Removing an existing entry from the list will disable this shortcut (you can still perform the operation normally within the tasklist, i.e. removing the _Claim Task_ shortcut will not remove the ability to claim a task either with the mouse or with the normal keyboard navigation).
+
+You can also add additional shortcuts. If you do so, whenever the user presses the registered combination of keys, an angular event in the form of `shortcut:{{nameOfShortcut}}` will be broadcasted across the application. A Tasklist plugin can then react to this event.
 
 
 # Logo and Header Color
@@ -169,7 +177,9 @@ and re-compile the source.
 ## Compiling with Grunt
 
 From within the `camunda-bpm-webapp/webapp` directory:
+
 ```sh
 grunt build:tasklist
 ```
-The command will build the frontend assets (of the tasklist), styles included.
+
+The command will build the frontend assets (of Tasklist), styles included.

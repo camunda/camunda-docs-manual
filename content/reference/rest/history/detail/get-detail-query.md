@@ -56,6 +56,10 @@ GET `/history/detail`
     <td>Filter by variable instance id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids.</td>
+  </tr>
+  <tr>
     <td>formFields</td>
     <td>Only include <strong>HistoricFormFields</strong>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -69,7 +73,7 @@ GET `/history/detail`
   </tr>
   <tr>
     <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid values are <code>processInstanceId</code>, <code>variableName</code>, <code>variableType</code>, <code>variableRevision</code>, <code>formPropertyId</code>, <code>time</code> or <code>occurrence</code>.
+    <td>Sort the results by a given criterion. Valid values are <code>processInstanceId</code>, <code>variableName</code>, <code>variableType</code>, <code>variableRevision</code>, <code>formPropertyId</code>, <code>time</code> or <code>occurrence</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -164,6 +168,11 @@ Each historic detail object has the following properties:
     <td>taskId</td>
     <td>String</td>
     <td>The id of the task the historic detail belongs to.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -282,7 +291,8 @@ GET `/history/detail?processInstanceId=aProcInstId`
     "variableType": "String",
     "value": "aVariableValue",
     "revision": 1,
-    "errorMessage": null
+    "errorMessage": null,
+    "tenantId": null
   },
   {
     "id": "12345",
@@ -294,7 +304,8 @@ GET `/history/detail?processInstanceId=aProcInstId`
     "taskId": "aTaskId",
     "time": "2014-02-28T15:00:00",
     "fieldId": "aFieldId",
-    "fieldValue": "aFieldValue"
+    "fieldValue": "aFieldValue",
+    "tenantId": null
   }
 ]
 ```

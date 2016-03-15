@@ -67,6 +67,10 @@ GET `/history/variable-instance/count`
     <td>activityInstanceIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated activity instance ids.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
 </table>
 
 

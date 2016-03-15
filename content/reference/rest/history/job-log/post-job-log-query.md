@@ -96,6 +96,10 @@ A JSON object with the following properties:
     <td>Filter by deployment id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Only include historic job log entries which belong to one of the passed and comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>jobPriorityLowerThanOrEquals</td>
     <td>Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
   </tr>
@@ -128,7 +132,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>timestamp</code>, <code>jobId</code>, <code>jobDefinitionId</code>, <code>jobDueDate</code>, <code>jobRetries</code>, <code>jobPriority</code>, <code>activityId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>deploymentId</code> and <code>occurrence</code>.</td>
+          <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>timestamp</code>, <code>jobId</code>, <code>jobDefinitionId</code>, <code>jobDueDate</code>, <code>jobRetries</code>, <code>jobPriority</code>, <code>activityId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>deploymentId</code> and <code>occurrence</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -232,6 +236,11 @@ Each historic job log object has the following properties:
     <td>The id of the deployment which the associated job belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this historic job log entry belongs to.</td>
+  </tr>
+  <tr>
     <td>creationLog</td>
     <td>boolean</td>
     <td>A flag indicating whether this log represents the creation of the associated job.</td>
@@ -310,9 +319,10 @@ Request Body:
     "processDefinitionId" : "aProcessDefinitionId",
     "processDefinitionKey" : "aProcessDefinitionKey",
     "deploymentId" : "aDeploymentId",
+    "tenantId": null,
     "creationLog" : true,
     "failureLog" : false,
-    "successLog" : fase,
+    "successLog" : false,
     "deletionLog" : false
   }
 ]

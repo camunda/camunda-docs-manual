@@ -118,6 +118,10 @@ A JSON object with the following properties:
     <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A json array to only include process instances that have/had variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.

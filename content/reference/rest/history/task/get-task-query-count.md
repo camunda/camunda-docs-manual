@@ -172,6 +172,10 @@ GET `/history/task/count`
     <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A task instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>Only include tasks that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

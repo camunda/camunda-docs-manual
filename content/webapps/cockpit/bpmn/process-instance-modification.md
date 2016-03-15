@@ -19,10 +19,10 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/cockpit-modification.png" title="Process Instance Modification" >}}
 
-In the detail view, you have the ability to modify the process instance's execution state. A modification can be one or multiple of the following operations:
+In the detail view, you can modify the process instance's execution state. A modification can be one or multiple of the following operations:
 
 * Starting execution before an activity
-* Starting execution after an activity on its single outgoing squence flow
+* Starting execution after an activity on its single outgoing sequence flow
 * Canceling an activity instance or all instances of an activity
 
 
@@ -54,7 +54,7 @@ When canceling all instances of an activity using the {{< glyphicon name="plus-s
 
 When starting a new activity instance, you have the option to start before or start after the activity. Using startBefore, the activity will be executed. StartAfter is only possible if there is only one sequence flow going out of the activity. In both cases you have the option to create new variables which are created or updated with the creation of the activity. Starting an activity instantiates all parent scopes (e.g., embedded sub process that contains the activity) that are not instantiated yet before the actual activity is executed.
 
-Additionally, you can specify the ancestor of the new activity instance if it is created in an embedded sub-process or part of a multi-instance scenario. For every ancestor, the variables are displayed. When an activity is instantiated with a specific ancestor activity instance, all scopes <i>between</i> the ancestor's activity and the target activity are instantiated.
+Additionally, you can specify the ancestor of the new activity instance if it is created in an embedded sub-process or as part of a multi-instance scenario. For every ancestor, the variables are displayed. When an activity is instantiated with a specific ancestor activity instance, all scopes <i>between</i> the ancestor's activity and the target activity are instantiated.
 
 When starting activities with a multi-instance flag, there is the option to either start a new multi-instance body of the activity (which executes the entire multi-instance construct and therefore creates the number of child activities specified in the multi-instance configuration for this task) or a new single instance of the activity in an already existing multi-instance body.
 
@@ -65,8 +65,8 @@ When starting activities with a multi-instance flag, there is the option to eith
 
 At any point during the creation of the modification, you can show the payload of the modification by clicking the {{< glyphicon name="eye-open" >}} button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/index.md" >}}).
 
-To perform the modification, you have to click on the *Apply modifications* button. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.
+To perform the modification, you have to click on *Apply modifications*. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.
 
 {{< note title="Semantics of Process Instance Modification" class="warning">}}
-  The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the [Process Instance Modification section]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) of this guide.
+  The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the [Process Instance Modification section]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) of the user guide.
 {{< /note >}}

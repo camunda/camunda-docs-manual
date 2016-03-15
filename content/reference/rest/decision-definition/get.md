@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-decision-definition"
     pre: "GET `/decision-definition/{id}`
           </br>
-          GET `/decision-definition/key/{key}` (returns the latest version of decision definition)"
+          GET `/decision-definition/key/{key}`
+          </br>
+          GET `/decision-definition/key/{key}/tenant-id/{tenant-id}`"
 
 ---
 
@@ -22,7 +24,9 @@ Retrieves a single decision definition according to the DecisionDefinition inter
 
 GET `/decision-definition/{id}`
 
-GET `/decision-definition/key/{key}` (returns the latest version of decision definition)
+GET `/decision-definition/key/{key}` (returns the latest version of the decision definition which belongs to no tenant)
+
+GET `/decision-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of the decision definition for tenant)
 
 
 # Parameters
@@ -40,7 +44,11 @@ GET `/decision-definition/key/{key}` (returns the latest version of decision def
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a decision definition with the given key.</td>
+    <td>The key of the decision definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the decision definition belongs to.</td>
   </tr>
 </table>
 
@@ -110,15 +118,6 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>
-      The path parameter "key" has no value. <br/>
-      If more than one tenant has a decision definition with the given key.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
-    </td>
   </tr>
   <tr>
     <td>404</td>

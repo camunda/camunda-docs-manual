@@ -137,6 +137,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the activity instance.</td>
+  </tr>
 </table>
 
 
@@ -187,6 +192,7 @@ GET `/history/activity-instance/aActivityInstId`
   "processDefinitionId": "aProcDefId",
   "processInstanceId": "aProcInstId",
   "startTime": "2013-04-23T11:20:43",
-  "taskId": "aTaskId"
+  "taskId": "aTaskId",
+  "tenantId":null
 }
 ```

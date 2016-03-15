@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-case-definition"
     pre: "GET `/case-definition/{id}`
           </br>
-          GET `/case-definition/key/{key}` (returns the latest version of case definition)"
+          GET `/case-definition/key/{key}`
+          </br>
+          GET `/case-definition/key/{key}/tenant-id/{tenant-id}`"
 
 ---
 
@@ -22,7 +24,9 @@ Retrieves a single case definition according to the CaseDefinition interface in 
 
 GET `/case-definition/{id}`
 
-GET `/case-definition/key/{key}` (returns the latest version of case definition)
+GET `/case-definition/key/{key}` (returns the latest version of the case definition which belongs to no tenant)
+
+GET `/case-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of the case definition for tenant)
 
 
 # Parameters
@@ -40,7 +44,11 @@ GET `/case-definition/key/{key}` (returns the latest version of case definition)
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the case definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a case definition with the given key.</td>
+    <td>The key of the case definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the case definition belongs to.</td>
   </tr>
 </table>
 
@@ -110,13 +118,6 @@ Its properties are as follows:
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>
-        If more than one tenant has a case definition with the given key.<br/>
-        See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

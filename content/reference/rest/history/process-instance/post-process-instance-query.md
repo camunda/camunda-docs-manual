@@ -132,6 +132,10 @@ A JSON object with the following properties:
     <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include process instances that have/had variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -150,7 +154,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -238,6 +242,11 @@ Each historic process instance object has the following properties:
     <td>String</td>
     <td>The provided delete reason in case the process instance was canceled during execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
 </table>
 
 
@@ -315,7 +324,8 @@ Request Body:
     "startTime": "2013-03-23T13:42:43",
     "startUserId": "aStartUserId",
     "superProcessInstanceId": "aSuperProcessInstanceId",
-    "superCaseInstanceId": null
+    "superCaseInstanceId": null,
+    "tenantId":null
   }
 ]
 ```

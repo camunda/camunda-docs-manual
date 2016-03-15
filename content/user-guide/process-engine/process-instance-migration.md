@@ -126,8 +126,10 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
 
 Activity types that can be mapped:
 
-* Embedded sub process
-* User task
+* Embedded Sub Process
+* Multi-instance Body
+* User Task
+* Boundary Event
 
 Migration instructions must map between activities of the same type.
 
@@ -243,6 +245,21 @@ Process `timerBoundary:2`:
 Applying a migration plan that does not contain the instruction `.mapActivities("timer", "timer")` is going to remove the timer job and re-create it.
 In effect, the boundary event fires ten days after migration. In contrast, if that instruction is provided then the timer job instance is preserved. However, its
 payload is not updated to the target boundary event's duration. In effect, it is going to trigger five days after the activity was started.
+
+## Multi-Instance
+
+Active multi-instance activities can be migrated if
+
+* the target activity is multi-instance of the same type (parallel or sequential)
+* the target activity is not a multi-instance activity.
+
+### Migrating a Multi-instance Activity
+
+When migrating instances of a multi-instance activity to another multi-instance activity, the migration plan needs to contain two instructions: One for the *inner activity*, i.e. the activity that has multi-instance loop characteristics. And another one for the *multi-instance body*. The body is an artificial activity that contains the inner activity. By convention, it has the id `<id of inner activity>#multiInstanceBody`. When migrating a multi-instance body and its inner activity, the multi-instance state is preserved. That means, if a parallel multi-instance activity is migrated with two instances out of five being active, then the state is the same after migration.
+
+### Removing a Multi-Instance Marker
+
+If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, any multi-instance variables are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration.
 
 # Operational Semantics
 

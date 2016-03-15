@@ -1,6 +1,6 @@
 ---
 
-title: "Get DMN 1.0 XML"
+title: "Get DMN XML"
 weight: 40
 
 menu:
@@ -10,19 +10,23 @@ menu:
     parent: "rest-api-decision-definition"
     pre: "GET `/decision-definition/{id}/xml`
           </br>
-          GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition)"
+          GET `/decision-definition/key/{key}/xml`
+          </br>
+          GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/xml`"
 
 ---
 
 
-Retrieves the DMN 1.0 XML of this decision definition.
+Retrieves the DMN XML of this decision definition.
 
 
 # Method
 
 GET `/decision-definition/{id}/xml`
 
-GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition)
+GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition which belongs to no tenant)
+
+GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML of the latest version of the decision definition for tenant)
 
 
 # Parameters
@@ -40,7 +44,11 @@ GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a decision definition with the given key.</td>
+    <td>The key of the decision definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the decision definition belongs to.</td>
   </tr>
 </table>
 
@@ -79,15 +87,6 @@ A JSON object containing the id of the decision definition and the DMN 1.0 XML.
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>
-      The path parameter "key" has no value.<br/>
-      If more than one tenant has a decision definition with the given key.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
-    </td>
   </tr>
   <tr>
     <td>404</td>

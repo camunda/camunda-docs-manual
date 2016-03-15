@@ -128,6 +128,11 @@ A JSON object with the following properties:
     <td>The id of the deployment which the associated job belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant that this historic job log entry belongs to.</td>
+  </tr>
+  <tr>
     <td>creationLog</td>
     <td>boolean</td>
     <td>A flag indicating whether this log represents the creation of the associated job.</td>
@@ -199,9 +204,10 @@ Status 200.
   "processDefinitionId" : "aProcessDefinitionId",
   "processDefinitionKey" : "aProcessDefinitionKey",
   "deploymentId" : "aDeploymentId",
+  "tenantId": null,
   "creationLog" : true,
   "failureLog" : false,
-  "successLog" : fase,
+  "successLog" : false,
   "deletionLog" : false
 }
 ```

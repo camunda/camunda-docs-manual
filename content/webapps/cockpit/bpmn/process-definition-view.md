@@ -13,12 +13,12 @@ menu:
 
 {{< img src="../../img/cockpit-process-definitions-view.png" title="Process Definition View" >}}
 
-The Process Definition View provides you with information about the definition and the status of a process. On the left hand side you can easily survey the versions of the process and how many instances of the version are running. Incidents of all running process instances are displayed together with an instances counter label in the corresponding rendered diagram. So it is easy to locate [failed activities][failed-activities] in the process. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button pressed to pan the diagram in the desired direction.
-In the tab `Process Instances` all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [Process Instance View][process-instance-view].
+The process definition view provides you with information about the definition and the status of a process. On the left side you can easily survey the versions of the process and how many instances of the versions are running. Incidents of all running process instances are displayed together with an instance counter label in the corresponding rendered diagram. So it is easy to locate [failed activities][failed-activities] in the process. Use the mouse to navigate through the diagram. By turning the mouse wheel you can zoom in out. Hold the left mouse button to pan the diagram in the desired direction.
+In the `Process Instances` tab all running instances are listed in a tabular view. Besides information about start time, business key and state you can select an instance by ID and go down to the [process instance view][process-instance-view].
 
-The tab `Called Process Definitions` displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the Process Definition View. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the column *Activity* you can select the instance that is calling the child process.
+The `Called Process Definitions` tab displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the process definition view. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the *Activity* column you can select the instance that is calling the child process.
 
-The tab `Job Definitions` displays the Job Definitions that are linked to this Process Definition. Observe the name of the activity, the type of job, the configuration thereof and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< relref "webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
+The `Job Definitions` tab displays the job definitions that are linked to this process definition. Observe the name of the activity, the type of job, the configuration and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< relref "webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
 
 
 [failed-activities]: {{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}
@@ -28,11 +28,11 @@ The tab `Job Definitions` displays the Job Definitions that are linked to this P
 
 # Filter
 
-The filter function on the left hand side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
+The filter function on the left side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
 The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in `" "`.
 
 {{< note title="Complexe Datatypes" class="info" >}}
-  Please be aware that complex data types are not supported in this feature.
+  Please be aware that this feature does not support complex data types.
 {{< /note >}}
 
 
@@ -40,14 +40,14 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
 
 {{< img src="../../img/filter-examples/add-filter.png" title="Filter Example" >}}
 
-Add a filter to the Process Definition View. Select a filter for variables, the start date and time or the business key of process instances.
+Add a filter to the process definition view. Select a filter for variables, the start date and time or the business key of process instances.
 
 
 **Business Key**
 
 {{< img src="../../img/filter-examples/business-key.png" title="Filter Example" >}}
 
-Add a filter for process instances by Business Key.
+Add a filter for process instances by business key.
 
 
 **Start Date and Time**
@@ -93,17 +93,17 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/filter-examples/history-filter.png" title="Filter Example" >}}
 
-Add a filter to the [Process Definition History View][process-definition-history-view]. Select filters for variables, the start date and time, the end date and time or the business key of process instances.
+Add a filter to the [process definition history view][process-definition-history-view]. Select filters for variables, the start date and time, the end date and time or the business key of process instances.
 
 
 **End Date and Time**
 
 {{< img src="../../img/filter-examples/end-date.png" title="Filter Example" >}}
 
-Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [Process Definition History View][process-definition-history-view].
+Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view].
 
 
-[process-definition-history-view]: {{< relref "webapps/cockpit/bpmn/process-history-views.md" >}}
+[process-definition-history-view]: {{< relref "webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}
 
 
 # Cancel Multiple Process Instances
@@ -114,7 +114,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/cockpit-bulk-cancel.png" title="Bulk Cancel" >}}
 
-Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right hand side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
+Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right side. This opens a confirmation screen in which you can select which process instances to cancel. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
 
 
 # Set Job priority

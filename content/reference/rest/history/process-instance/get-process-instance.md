@@ -112,6 +112,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The provided delete reason in case the process instance was canceled during execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
 </table>
 
 
@@ -157,6 +162,7 @@ GET `/history/process-instance/aProcInstId`
   "deleteReason": "aDeleteReason",
   "superProcessInstanceId": "aSuperProcessInstanceId",
   "superCaseInstanceId": null,
-  "caseInstanceId": "aCaseInstanceId"
+  "caseInstanceId": "aCaseInstanceId",
+  "tenantId":null
 }
 ```

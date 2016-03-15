@@ -56,16 +56,33 @@ __Note__: Contrary to other events, such error events, a signal is not consumed 
 
 ## Triggering (Throwing) Signals
 
-A signal can either be thrown by a process instance using a BPMN construct or programmatically using Java API. The following methods on the org.camunda.bpm.engine.RuntimeService can be used to throw a signal programmatically:
+A signal can either be thrown by a process instance using a BPMN construct or programmatically using Java API. The `RuntimeService` provides a fluent API to throw a signal programmatically:
+
+```java
+// broadcast signal
+runtimeService
+  .createSignalEvent("signalName")
+  .setVariables(variables)
+  .send();
+  
+// deliver a signal to a single execution
+runtimeService
+  .createSignalEvent("signalName")
+  .executionId(executionId)
+  .setVariables(variables)
+  .send();  
+```
+
+Additionally, you can use one of the following methods offered by the `RuntimeService`:
 
 ```java
 RuntimeService.signalEventReceived(String signalName);
 RuntimeService.signalEventReceived(String signalName, String executionId);
 ```
 
-The difference between `signalEventReceived(String signalName)` and `signalEventReceived(String signalName, String executionId)` is that the first method throws the signal globally to all subscribed handlers (broadcast semantics) and the second method only delivers the signal to a specific execution.
+If an execution id is specified then the signal is only delivered to the specific execution. Otherwise, the signal is thrown globally to all subscribed handlers (broadcast semantics).
 
-Note: The signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to exclusively deliver a signal to a specific process instance, do not use the throwing signal event but perform correlation manually and use `signalEventReceived(String signalName, String executionId)` using the appropriate query mechanisms.
+Note: The signal event does not perform any kind of correlation to a specific process instance. On the contrary, it is broadcast to all process instances. If you need to exclusively deliver a signal to a specific process instance, do not use the throwing signal event. Instead, perform the correlation manually using the appropriate query mechanisms and deliver the signal to a specific execution programmatically.
 
 ## Querying for Signal Event Subscriptions
 
@@ -77,8 +94,7 @@ List<Execution> executions = runtimeService.createExecutionQuery()
     .list();
 ```
 
-We could then use the signalEventReceived(String signalName, String executionId) method to deliver the signal to these executions.
-
+You could then use the signal API to deliver the signal to these executions.
 
 # Catching Signal Events
 

@@ -46,7 +46,7 @@ Now the standalone task becomes visible in the filter results and can be handled
 
 Here you can see an overview of all tasks for the selected [filter][tasklist-filters]. The filter with the lowest priority is displayed first. After selecting the appropriate filter, you will see an overview of all tasks, sorted by a specified criteria (by default it is sorted by the creation date). You can change the sorting of the tasks by clicking on the name of the sorting property. You can toggle between ascending and descending order.
 
-You can sort by more than one property by adding additional properties with the *plus* button. You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.
+You can sort by more than one property by adding additional properties with the *plus* button. The sorting is performed in a hierarchical manner (i.e., first by the property displayed first, then by the second, etc). You can also sort by the value of variables, which allows for use cases like sorting invoices by the value of their amount.
 
 To start working on the task, simply select the task.
 
@@ -91,7 +91,7 @@ In the lower section of the task view there are several tabs which can be select
 * **Task form view** - The *Form* tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.
 * **Task history** - The *History* tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks. Comments are also displayed here.
 * **Diagram view** - The *Diagram* tab shows the diagram of the process definition. The current user task is highlighted in this diagram.
-* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at [bpmn 2.0 reference]({{< relref "reference/bpmn20/tasks/user-task.md#description" >}}) for more information about description of tasks.
+* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at the [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/user-task.md#description" >}}) for more information about descriptions of tasks.
 
 
 [task-view]: {{< relref "#task-view" >}}

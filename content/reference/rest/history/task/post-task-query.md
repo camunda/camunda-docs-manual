@@ -194,6 +194,10 @@ A JSON object with the following properties:
     <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A task instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>A JSON array to only include tasks that have variables with certain values. <br/>
 
@@ -225,7 +229,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>, <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>, <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, and <code>caseExecutionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -363,6 +367,11 @@ Each historic task object has the following properties:
     <td>String</td>
     <td>The follow-up date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the task instance.</td>
+  </tr>
 </table>
 
 
@@ -435,5 +444,6 @@ Response
      "priority":10,
      "due":"2013-01-23T13:49:42",
      "parentTaskId":"aParentId",
-     "followUp:":"2013-01-23T13:44:42"}]
+     "followUp:":"2013-01-23T13:44:42",
+     "tenantId":null}]
 

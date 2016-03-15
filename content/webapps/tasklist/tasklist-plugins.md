@@ -11,13 +11,13 @@ menu:
 ---
 
 
-Tasklist uses the concept of plugins to add own functionality without being forced to extend or hack the Tasklist web application.
+Tasklist uses the concept of plugins to add own functionality without having to extend or hack the Tasklist web application.
 
-For further details about the concepts behind plugins please read the [Cockpit plugins section]({{< relref "webapps/cockpit/extend/plugins.md" >}}).
+For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< relref "webapps/cockpit/extend/plugins.md" >}}).
 
 {{< note title="Difference between Cockpit and Tasklist plugins:" class="warning">}}
   * To publish the plugin with Tasklist, its class name must be put into a file called ```org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin``` that resides in the directory ```META-INF/services```.
-  * The plugin mechanism of Tasklist does not allow to provide additinal SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
+  * The plugin mechanism of Tasklist does not allow to provide additional SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
 {{< /note >}}
 
 
@@ -50,7 +50,7 @@ Here you can see the various points at which you are able to add your own plugin
 
 ---
 
-Place your plugin as shown in the following example:
+Configure where to place your plugin as shown in the following example:
 
 ```html
 var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
@@ -62,7 +62,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 }];
 ```
 
-For more information on creating and configuring your own plugin, please have a look into the followings examples:
+For more information on creating and configuring your own plugin, please have a look at the following examples:
 
 * [How to build the server side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/java/org/camunda/bpm/tasklist/impl/plugin/standalonetask)
 * [How to build the client side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/resources-plugin/standaloneTask/app)

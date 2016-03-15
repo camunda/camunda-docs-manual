@@ -137,6 +137,14 @@ A JSON object with the following properties:
     <td>Only include jobs which belong to one of the passed and comma-separated tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>includeJobsWithoutTenantId</td>
+    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:

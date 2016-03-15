@@ -116,6 +116,10 @@ GET `/history/process-instance`
     <td>Restrict to instances that were finished after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have/had variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -132,7 +136,7 @@ GET `/history/process-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>.
+    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -227,6 +231,11 @@ Each historic process instance object has the following properties:
     <td>String</td>
     <td>The provided delete reason in case the process instance was canceled during execution.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process instance.</td>
+  </tr>
 </table>
 
 
@@ -273,7 +282,8 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=
     "startTime": "2013-03-23T13:42:43",
     "startUserId": "aStartUserId",
     "superProcessInstanceId": "aSuperProcessInstanceId",
-    "superCaseInstanceId": null
+    "superCaseInstanceId": null,
+    "tenantId":null
   }
 ]
 ```

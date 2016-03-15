@@ -9,7 +9,9 @@ menu:
     parent: "rest-api-process-definition"
     pre: "GET `/process-definition/{id}/rendered-form`
           </br>
-          GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition)"
+          GET `/process-definition/key/{key}/rendered-form`
+          </br>
+          GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form`"
 
 ---
 
@@ -19,8 +21,9 @@ Retrieves the rendered form for a process definition. This method can be used fo
 
 GET `/process-definition/{id}/rendered-form`
 
-GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition)
+GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition which belongs to no tenant)
 
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form` (returns the rendered form for the latest version of process definition for tenant)
 
 # Parameters
 
@@ -37,7 +40,11 @@ GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the process definition (the latest version thereof) to get the rendered start form for. Cannot be used when more than one tenant has a process definition with the given key.</td>
+    <td>The key of the process definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the process definition belongs to.</td>
   </tr>
 </table>
 
@@ -62,7 +69,7 @@ An HTML response body providing the rendered (generated) form content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The path parameter "key" has no value.<br/>Process definition with given id does not exist or has no form field metadata defined.<br/>If more than one tenant has a process definition with the given key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition has no form field metadata defined. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>

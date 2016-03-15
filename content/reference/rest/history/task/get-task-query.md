@@ -172,6 +172,10 @@ GET `/history/task`
     <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A task instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>taskVariables</td>
     <td>Only include tasks that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -204,7 +208,7 @@ GET `/history/task`
     <td>Sort the results by a given criterion. Valid values are
     <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>,
     <code>duration</code>, <code>endTime</code>, <code>startTime</code>, <code>taskName</code>, <code>taskDescription</code>, <code>assignee</code>, <code>owner</code>, <code>dueDate</code>,
-    <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>.
+    <code>followUpDate</code>, <code>deleteReason</code>, <code>taskDefinitionKey</code>, <code>priority</code>, <code>caseDefinitionId</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -349,6 +353,11 @@ Each historic task object has the following properties:
     <td>String</td>
     <td>The follow-up date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the task instance.</td>
+  </tr>
 </table>
 
 
@@ -401,5 +410,6 @@ Response
      "priority":42,
      "due":"2013-01-23T13:49:42",
      "parentTaskId":"aParentId",
-     "followUp:":"2013-01-23T13:44:42"}]
+     "followUp:":"2013-01-23T13:44:42",
+     "tenantId":null}]
 

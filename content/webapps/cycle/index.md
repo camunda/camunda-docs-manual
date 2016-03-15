@@ -12,11 +12,11 @@ menu:
 
 
 {{< note title="Version Information" class="warning" >}}
-  With Camunda BPM 7.2.0 we have migrated Camunda Cycle into a standalone project. We did this to reduce the tight coupling between Camunda Cycle and the Camunda BPM platform. This eases our development efforts for Cycle and allows others to increase participation.
+  With Camunda BPM 7.2.0 we migrated Camunda Cycle into a standalone project. We did this to reduce the tight coupling between Camunda Cycle and the Camunda BPM platform. This eases our development efforts for Cycle and allows others to increase participation.
   Find more information in the [Cycle Installation Guide]({{< relref "installation/cycle.md" >}}).
 {{< /note >}}
 
-With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their modeler (e.g. in Eclipse). Depending on your tool we can realize forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g. SVN, file system or FTP servers).
+With Cycle you can synchronize the BPMN diagrams in your business analyst's BPMN tool with the technically executable BPMN 2.0 XML files your developers edit with their modeler (e.g., the [Camunda Modeler](http://camunda.org/bpmn/tool/)). Depending on your tool we can realize forward- and a reverse engineering, while you can store your BPMN 2.0 XML files in different repositories (e.g., SVN, file system or FTP servers).
 
 {{< img src="img/cycle-start-page-view.png" title="Cycle Dashboard" >}}
 
@@ -29,19 +29,20 @@ The typical use cases are:
 * Create executable diagrams out of the BPMN 2.0 diagram (Forward Engineering)
 
 Cycle is a standalone application and must be downloaded separately from the Camunda BPM distribution.
-After the installation of cycle it is ready to use by opening http://localhost:8180/cycle. At the first start up you will be prompted to create an admin user.
-If you are new to Cycle have a look at our Hands-On [Cycle Tutorial](/get-started/cycle/).
+After the installation of Cycle it is ready to use by opening http://localhost:8180/cycle. At the first start up you will be prompted to create an admin user.
+If you are new to Cycle have a look at our hands-on [Cycle Tutorial](/get-started/cycle/).
 
 
 # Connector Configuration
 
-To connect Cycle to a suitable repository you can set up one of the following connectors:
+In this section we explain how to set up a connector to connect Cycle to a suitable repository. You can set up the following connectors:
 
 * [Signavio Connector]({{< relref "#signavio-connector" >}})
 * [Subversion Connector]({{< relref "#subversion-connector" >}})
 * [File System Connector]({{< relref "#file-system-connector" >}})
+* [GitHub Connector]({{< relref "#github-connector" >}})
 
-Cycle also ships with a GitHub connector. In addition, more BPMN 2.0 tool vendors contribute their connectors as community extensions:
+In addition, more BPMN 2.0 tool vendors contribute their connectors as community extensions:
 
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
@@ -53,7 +54,7 @@ Furthermore you get information about how to configure [User Credentials]({{< re
 
 {{< img src="img/cycle-add-signavio-connector.png" title="Cycle" >}}
 
-For directly accessing your process models stored in Signavio, you must set up a Signavio Connector. The picture to the left shows a connector setup for Signavio's SaaS edition with globally provided [user credentials]({{< relref "#user-credentials" >}}), meaning that every Cycle user connects to the repository with the same credentials. If you are behind a proxy, you could configure that here as well.
+To directly access your process models stored in Signavio, you must set up a Signavio Connector. The image above shows a connector setup for Signavio's SaaS edition with globally provided [user credentials]({{< relref "#user-credentials" >}}), meaning that every Cycle user connects to the repository with the same credentials. If you are behind a proxy, you could configure that here as well.
 
 Hit *Test* to check if Cycle can find the folder you specified.
 
@@ -62,7 +63,7 @@ Hit *Test* to check if Cycle can find the folder you specified.
 
 {{< img src="img/cycle-add-svn-connector.png" title="Cycle" >}}
 
-Use the subversion plugin to connect to a subversion repository like SVN. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If [user credentials]({{< relref "#user-credentials" >}}) are mandatory, you can provide them either globally or individually for each Cycle user. In the picture to the left you see a connector setup for a GitHub repository. The user credentials are provided globally.
+Use the subversion plugin to connect to a subversion repository like SVN. You must specify the URL (including subfolders, if you want to directly point to a certain folder in the subversion repository). If [user credentials]({{< relref "#user-credentials" >}}) are mandatory, you can provide them either globally or individually for each Cycle user. In the image above you see a connector setup for a SVN repository. The user credentials are provided globally.
 
 Hit *Test* to check if Cycle can find the folder you specified.
 
@@ -76,11 +77,20 @@ Use the File System Connector to use models stored on your local system. Select 
 Hit *Test* to check if Cycle can find the folder you specified.
 
 
+## GitHub Connector
+
+{{< img src="img/cycle-add-github-connector.png" title="Cycle" >}}
+
+Use the GitHub Connector to connect to a GitHub repository. You must specify the URL. If [user credentials]({{< relref "#user-credentials" >}}) are mandatory, you can provide them either globally or individually for each Cycle user. In the image above you see a connector setup for a GitHub repository. The user credentials are provided globally.
+
+Hit *Test* to check if Cycle can find the repository you specified.
+
+
 ## User Credentials
 
 {{< img src="img/cycle-globally-credentials.png" title="Cycle" >}}
 
-If your repository requires a login you can choose between credentials provided by user or globally provided ones. Globally provided credentials can be set directly in the connector setup menu and are valid for every cycle user.
+If your repository requires a login, you can choose between credentials provided by the user or globally provided ones. Globally provided credentials can be set directly in the connector setup menu and are valid for every Cycle user.
 
 {{< img src="img/cycle-user-credentials.png" title="Cycle" >}}
 
@@ -98,7 +108,7 @@ When we are talking about a Roundtrip we are talking about the synchronization o
 
 {{< img src="img/cycle-signavio-connector.png" title="Cycle" >}}
 
-Set up a suitable connector for your repository as described in the section [Connector Configuration]({{< relref "#connector-configuration" >}}). In this walkthrough we use a Signavio Connector with user provided credentials.
+Set up a suitable connector for your repository as described in the [Connector Configuration]({{< relref "#connector-configuration" >}}) section. In this walkthrough we use a Signavio Connector with user provided credentials.
 
 Hit *Test* to check if Cycle can access your Signavio account.
 
@@ -124,7 +134,7 @@ Hit *Create* and choose the location you want the BPMN 2.0 XML file to be stored
 {{< img src="img/signavio-created.png" title="Cycle" >}}
 
 Now Cycle shows you that your roundtrip consists of the BPMN diagram stored in Signavio (left side) and the BPMN 2.0 file stored in your file repository (right side). You can also see that the two process models are currently in sync, and the date and time since the last sync has been made.
-You can now either check out the BPMN 2.0 - XML from your subversion or open it directly on your local drive. In both cases, you can now edit it inside your Eclipse IDE using the [Camunda Modeler](http://camunda.org/bpmn/tool/).
+You can now either check out the BPMN 2.0 - XML from your subversion or open it directly on your local drive. In both cases, you can now edit it using the [Camunda Modeler](http://camunda.org/bpmn/tool/).
 
 
 ## Step 5: Reverse Engineering
@@ -136,16 +146,16 @@ You can now hit the sync button in the corresponding direction (in our case from
 Now both models are synchronized again, indicated by green labels "in sync" on both sites.
 
 {{< note title="BPMN 2.0 Support" class="warning" >}}
-  The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section "roundtrip with other tools" in our [Cycle Tutorial](/get-started/cycle.md/).
+  The BPMN 2.0 modeling tool must support the complete BPMN 2.0 standard and must be able to export/serialize process diagrams in valid BPMN 2.0 XML files. For more detailed information about requirements and suitable tools check the section "roundtrip with other tools" in our [Cycle Tutorial](/get-started/cycle/).
 {{< /note >}}
 
 
 ## Pool Extraction
 
-During a roundtrip from a business perspective to a technical process diagram Cycle checks which pools are flagged as "executable". Only those pools will actually be synchronized for the executable process model, so you don't have to bother with huge diagrams describing manual flows. We call this feature "Pool Extraction".
+During a roundtrip from a business perspective to a technical process diagram, Cycle checks which pools are flagged as "executable". Only those pools will actually be synchronized for the executable process model, so you don't have to bother with huge diagrams describing manual flows. We call this feature "Pool Extraction".
 When you synchronize the executable diagram again with the origin diagram the "non-executable" pools will be merged back into the diagram. No information gets lost.
 
-The following example shows a relevant xml tag:
+The following example shows a relevant XML tag:
 
 ```xml
 <process id="sid-8E90631B-169F-4CD8-9C6B-1F31121D0702" name="MyPool" isExecutable="true">
@@ -153,11 +163,11 @@ The following example shows a relevant xml tag:
 
 ## Engine Attributes
 
-An executable process model usually contains engine specific attributes in the BPMN 2.0 XML. So we have to make sure that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means that a proper BPMN 2.0 import and export functionality must maintain the engine attributes, even if they are added as an engine extension.
+An executable process model usually contains engine-specific attributes in the BPMN 2.0 XML. So we have to make sure that these attributes are not lost during a roundtrip with an other tool. The BPMN 2.0 Standard explicitly defines an extension mechanism for these attributes in the XML. That means that a proper BPMN 2.0 import and export functionality must maintain the engine attributes, even if they are added as an engine extension.
 
-The Camunda BPM Process Engine uses multitude attributes for configuration purposes which can be set up in the [Camunda Modeler](http://camunda.org/bpmn/tool/). Cycle retains these attributes during the roundtrip. Here is an example:
+The Camunda BPM Process Engine uses multiple attributes for configuration purposes which can be set up in the [Camunda Modeler](http://camunda.org/bpmn/tool/). Cycle retains these attributes during the roundtrip. Here is an example:
 
-The xml export from Signavio modeler contains no engine attributes:
+The XML export from Signavio modeler contains no engine attributes:
 
 ```xml
 <serviceTask completionQuantity="1" id="sid-01234"
@@ -167,7 +177,7 @@ The xml export from Signavio modeler contains no engine attributes:
                    startQuantity="1"/>
 ```
 
- After the update with Camunda Modeler, class and failedJobRetryTimeCycle were added as Camunda specific engine attributes:
+ After the update with Camunda Modeler, class and failedJobRetryTimeCycle were added as Camunda engine-specific attributes:
 
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">
@@ -186,7 +196,7 @@ The xml export from Signavio modeler contains no engine attributes:
 </definitions>
 ```
 
-After synchronization back to Signavio the original Signavio-information like completionQuantity, isForCompensation and startQuantity were merged back:
+After synchronization back to Signavio the original Signavio-information like completionQuantity, isForCompensation and startQuantity was merged back:
 
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn" xmlns:fox="http://www.camunda.com/fox">

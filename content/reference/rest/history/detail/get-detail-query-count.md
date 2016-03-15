@@ -55,6 +55,10 @@ GET `/history/detail/count`
     <td>Filter by variable instance id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids.</td>
+  </tr>
+  <tr>
     <td>formFields</td>
     <td>Only include <strong>HistoricFormFields</strong>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>

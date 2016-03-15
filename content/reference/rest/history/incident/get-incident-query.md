@@ -72,6 +72,10 @@ GET `/history/incident`
     <td>Restricts to incidents that have the given parameter set as configuration.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
+  </tr>
+  <tr>
     <td>open</td>
     <td>Restricts to incidents that are open.</td>
   </tr>
@@ -86,7 +90,7 @@ GET `/history/incident`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code> and <code>configuration</code>.
+    <code>incidentId</code>, <code>createTime</code>, <code>endTime</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code>, <code>configuration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -174,6 +178,11 @@ Each historic incident object has the following properties:
     <td>The message of this incident.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant this incident is associated with.</td>
+  </tr>
+  <tr>
     <td>open</td>
     <td>Boolean</td>
     <td>If true, this incident is open.</td>
@@ -235,6 +244,7 @@ GET <code>/history/incident?processInstanceId=aProcInstId</code>
         "rootCauseIncidentId": "aRootCauseIncidentId",
         "configuration": "aConfiguration",
         "incidentMessage": "anIncidentMessage",
+        "tenantId": null,
         "open": true,
         "deleted": false,
         "resolved": false
@@ -252,6 +262,7 @@ GET <code>/history/incident?processInstanceId=aProcInstId</code>
         "rootCauseIncidentId": "anotherRootCauseIncidentId",
         "configuration": "anotherConfiguration",
         "incidentMessage": "anotherIncidentMessage",
+        "tenantId": null,
         "open": false,
         "deleted": false,
         "resolved": true

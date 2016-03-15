@@ -10,7 +10,9 @@ menu:
     parent: "rest-api-decision-definition"
     pre: "GET `/decision-definition/{id}/diagram`
           </br>
-          GET `/decision-definition/key/{key}/diagram` (returns the diagram for the latest version of the decision definition)"
+          GET `/decision-definition/key/{key}/diagram`
+          </br>
+          GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/diagram`"
 
 ---
 
@@ -22,7 +24,9 @@ Retrieves the diagram of a decision definition.
 
 GET `/decision-definition/{id}/diagram`
 
-GET `/decision-definition/key/{key}/diagram` (returns the diagram for the latest version of the decision definition)
+GET `/decision-definition/key/{key}/diagram` (returns the diagram for the latest version of the decision definition which belongs to no tenant)
+
+GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/diagram` (returns the diagram of the latest version of the decision definition for tenant)
 
 
 # Parameters
@@ -40,7 +44,11 @@ GET `/decision-definition/key/{key}/diagram` (returns the diagram for the latest
   </tr>
   <tr>
     <td>key</td>
-    <td>The key of the decision definition (the latest version thereof) to be retrieved. Cannot be used when more than one tenant has a decision definition with the given key.</td>
+    <td>The key of the decision definition (the latest version thereof) to be retrieved.</td>
+  </tr>
+  <tr>
+    <td>tenant-id</td>
+    <td>The id of the tenant the decision definition belongs to.</td>
   </tr>
 </table>
 
@@ -65,15 +73,6 @@ The image diagram of this decision.
     <td>204</td>
     <td></td>
     <td>The decision definition doesn't have an associated diagram.</td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>
-      The path parameter "key" has no value or the decision definition with given id does not exist. <br/>
-      If more than one tenant has a decision definition with the given key.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
-    </td>
   </tr>
   <tr>
     <td>404</td>

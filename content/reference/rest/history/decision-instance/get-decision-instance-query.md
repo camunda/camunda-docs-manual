@@ -90,6 +90,10 @@ GET `/history/decision-instance`
     </td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>evaluatedBefore</td>
     <td>
       Restrict to instances that were evaluated before the given date.
@@ -134,7 +138,7 @@ GET `/history/decision-instance`
   <tr>
     <td>sortBy</td>
     <td>
-      Sort the results by a given criterion. Valid values are <code>evaluationTime</code>.
+      Sort the results by a given criterion. Valid values are <code>evaluationTime</code> and <code>tenantId</code>.
       Must be used in conjunction with the <code>sortOrder</code> parameter.
     </td>
   </tr>
@@ -232,6 +236,11 @@ Each historic decision instance object has the following properties:
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance that this decision instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the historic decision instance.</td>
   </tr>
   <tr>
     <td>inputs</td>
@@ -349,7 +358,8 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
-    "caseInstanceId": null
+    "caseInstanceId": null,
+    "tenantId":null
   }
 ]
 ```
