@@ -22,8 +22,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 * Apache Tomcat 6 / 7 / 8
 * JBoss Application Server 7.2 and JBoss EAP 6.1 / 6.2 / 6.3 / 6.4
-* Wildfly 8.1 / 8.2 Application Server
-* GlassFish 3.1
+* Wildfly Application Server 8.2
 * IBM WebSphere Application Server 8.0 / 8.5 ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 *	Oracle WebLogic Server 12c (12R1,12R2) ([Enterprise Edition only](http://camunda.com/bpm/enterprise/))
 
@@ -35,7 +34,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 # Databases
 
-* MySQL 5.1 / 5.5 / 5.6
+* MySQL 5.6
 * MariaDB 10.0
 * Oracle 10g / 11g / 12c
 * IBM DB2 9.7 /10.1 / 10.5 (excluding IBM z/OS for all versions)
@@ -60,10 +59,12 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 * Sun/Oracle Hot Spot 6 / 7 / 8
 * IBM® J9 virtual machine (JVM) 6 / 7 / 8
-* OpenJDK 6 / 7
+* OpenJDK 7
 * Oracle JRockit 6 - R28.2.7
 
 
-# Eclipse (for Camunda Modeler)
+# Camunda Modeler
 
-* Eclipse Indigo/Juno/Kepler
+* Windows 7 / 10
+* Mac OS X 10.9
+* Linux
