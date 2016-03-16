@@ -662,6 +662,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# decisionRefTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the decision definition which is to be resolved by a business rule task, see <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id" >}}">DecisionRef Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>
+    </td>
+  </tr>
+</table>
+
 # delegateExpression
 
 <table class="table table-striped">

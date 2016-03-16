@@ -66,6 +66,45 @@ See the [User Guide]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.m
 The result variable should not have the name `decisionResult` since the decision result itself is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
 {{< /note >}}
 
+# DecisionRef Tenant Id
+
+When the business rule task resolves the decision definition to be evaluated it must take into account multi tenancy.
+
+## Default Tenant Resolution
+By default, the tenant id of the calling process definition is used to evaluate the decision definition.
+That is, if the calling process definition has no tenant id, then the business rule task evaluate a decision definition using the provided key, binding and without a tenant id (tenant id = null).
+If the calling process definition has a tenant id, a decision definition with the provided key and the same tenant id is evaluated.
+
+Note that the tenant id of the calling process instance is not taken into account in the default behavior.
+
+## Explicit Tenant Resolution
+
+In some situations it may be useful to override this default behavior and specify the tenant id explicitly.
+
+The `camunda:decisionRefTenantId` attribute allows to explicitly specify a tenant id:
+
+```xml
+<businessRuleTask id="businessRuleTask" decisionRef="myDecision"
+  camunda:decisionRefTenantId="TENANT_1">
+</businessRuleTask>
+```
+
+If the tenant id is not known at design time, an expression can be used as well:
+
+```xml
+<businessRuleTask id="businessRuleTask" decisionRef="myDecision"
+  camunda:decisionRefTenantId="${ myBean.calculateTenantId(variable) }">
+</businessRuleTask>
+```
+
+An expression also allows using the tenant id of the calling process instance instead of the calling process definition:
+
+```xml
+<businessRuleTask id="businessRuleTask" decisionRef="myDecision"
+  camunda:decisionRefTenantId="${ execution.tenantId }">
+</businessRuleTask>
+```
+
 # Using a Custom Rule Engine
 
 You can integrate with other rule engines. To do so, you have to plug in your
