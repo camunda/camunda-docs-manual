@@ -147,7 +147,7 @@ execution flow:
 * an asynchronous continuation BEFORE an activity breaks the execution flow between the invocation
   of the incoming sequence flow's TAKE listeners and the execution of the activity's START
 listeners.
-* an asynchronous continuation AFTER an activity breaks the execution flow after the invocation of
+* an asynchronous continuation AFTER an activity breaks the execution flow between the invocation of
   the activity's END listeners and the outgoing sequence flow's TAKE listeners.
 
 Asynchronous continuations directly relate to transaction boundaries: putting an asynchronous
