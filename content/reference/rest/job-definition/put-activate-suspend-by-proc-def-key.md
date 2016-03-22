@@ -35,6 +35,14 @@ A JSON object with the following properties:
     <td>The process definition key of the job definitions to activate or suspend.</td>
   </tr>
   <tr>
+    <td>processDefinitionTenantId</td>
+    <td>Only activate or suspend job definitions of a process definition which belongs to a tenant with the given id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only activate or suspend job definitions of a process definition which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>A <code>Boolean</code> value which indicates whether to activate or suspend all job definitions with the given process definition key. When the value is set to <code>true</code>, all job definitions with the given process definition key will be suspended and when the value is set to <code>false</code>, all job definitions with the given process definition key will be activated.</td>
   </tr>
