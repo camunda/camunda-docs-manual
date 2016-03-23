@@ -259,7 +259,7 @@ When migrating instances of a multi-instance activity to another multi-instance 
 
 ### Removing a Multi-Instance Marker
 
-If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, any multi-instance variables are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration.
+If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, the multi-instance variables `nrOfInstances`, `nrOfActiveInstances` and `nrOfCompletedInstances` are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration. In addition, their `loopCounter` and collection element variables are kept.
 
 # Operational Semantics
 
