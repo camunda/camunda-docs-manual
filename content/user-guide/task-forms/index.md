@@ -35,7 +35,7 @@ Out of the box, the Camunda Tasklist supports four different kinds of task forms
 
 Embedded task forms are HTML and JavaScript forms which can be displayed directly inside the tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< relref "reference/embedded-forms/index.md" >}}).
 
-To add an embedded form to your application, simply create an HTML file and attach it to a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model.  Add a folder `src/main/webapp/forms` to your project folder and create a FORM_NAME.html file containing the relevant content for your form. The following example shows a simple form with two input fields:
+To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example you can create a FORM_NAME.html file containing the relevant content for your form, e.g. a simple form with two input fields:
 
 ```html
 <form role="form" name="form">
@@ -55,7 +55,12 @@ To add an embedded form to your application, simply create an HTML file and atta
 </form>
 ```
 
-To configure the form in your process, open the process in your Eclipse IDE with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties view and enter `embedded:app:forms/FORM_NAME.html` as Form Key. The relevant XML tag looks like this:
+The file containing the form can referenced in two ways:
+
+* *app:*: Add the file to your development project in a folder `src/main/webapp/forms`. The HTML file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.
+* *deployment:*: The file is part of your deployment (e.g. [by adding it to your process archive]({{< relref "reference/deployment-descriptors/tags/process-archive.md" >}})), that means it is stored in the Camunda database. Then it can be loaded from there. Note that this allows to version your form alongside with the process model.
+
+To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties view and enter `embedded:app:forms/FORM_NAME.html` (or `embedded:deployment:forms/FORM_NAME.html`) as Form Key. The relevant XML tag looks like this:
 
 ```xml
 <userTask id="theTask" camunda:formKey="embedded:app:forms/FORM_NAME.html"
