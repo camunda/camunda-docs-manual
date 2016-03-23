@@ -108,6 +108,12 @@ GET `/history/decision-instance/count`
     </td>
   </tr>
   <tr>
+    <td>userId</td>
+    <td>
+      Restrict to instances that were evaluated by the given user.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>
       Sort the results by a given criterion. Valid values are <code>evaluationTime</code> and <code>tenantId</code>.

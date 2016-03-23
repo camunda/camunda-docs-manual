@@ -158,6 +158,11 @@ Its properties are as follows:
     <td>The tenant id of the historic decision instance.</td>
   </tr>
   <tr>
+    <td>userId</td>
+    <td>String</td>
+    <td>The id of the authenticated user that has evaluated this decision instance without a process or case instance.</td>
+  </tr>
+  <tr>
     <td>inputs</td>
     <td>List of decision inputs</td>
     <td>
@@ -273,5 +278,6 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "caseDefinitionKey": null,
     "caseInstanceId": null,
     "tenantId": null
+    "userId": null
 }
 ```

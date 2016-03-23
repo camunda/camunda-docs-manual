@@ -108,6 +108,12 @@ GET `/history/decision-instance`
     </td>
   </tr>
   <tr>
+    <td>userId</td>
+    <td>
+      Restrict to instances that were evaluated by the given user.
+    </td>
+  </tr>
+  <tr>
     <td>includeInputs</td>
     <td>
       Include input values in the result.
@@ -243,6 +249,12 @@ Each historic decision instance object has the following properties:
     <td>The tenant id of the historic decision instance.</td>
   </tr>
   <tr>
+    <td>userId</td>
+    <td>String</td>
+    <td>The id of the authenticated user that has evaluated this decision instance without 
+	a process or case instance.</td>
+  </tr>
+  <tr>
     <td>inputs</td>
     <td>List of decision inputs</td>
     <td>
@@ -359,7 +371,8 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
     "caseInstanceId": null,
-    "tenantId":null
+    "tenantId":null,
+    "userId": null
   }
 ]
 ```
