@@ -33,6 +33,14 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>The process definition key of the process instances to activate or suspend.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionTenantId</td>
+    <td>Only activate or suspend process instances of a process definition which belongs to a tenant with the given id.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionWithoutTenantId</td>
+    <td>Only activate or suspend process instances of a process definition which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>  
   <tr>
     <td>suspended</td>
