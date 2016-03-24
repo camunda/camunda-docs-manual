@@ -77,6 +77,14 @@ GET `/case-instance`
     <td>Only include completed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include case instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -93,7 +101,7 @@ GET `/case-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>caseInstanceId</code>, <code>casedefinitionKey</code> and <code>caseDefinitionId</code>.
+    <code>caseInstanceId</code>, <code>casedefinitionKey</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -152,6 +160,11 @@ Each case instance object has the following properties:
       A flag indicating whether the case instance is completed or not.
     </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case instance.</td>
+  </tr>
 </table>
 
 
@@ -192,6 +205,7 @@ GET `/case-instance?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVal
         "caseDefinitionId" : "aCaseDefId",
         "businessKey"      : "aKey",
         "active"           : true,
-        "completed"        : false
+        "completed"        : false,
+        "tenantId"         : null
       }
     ]

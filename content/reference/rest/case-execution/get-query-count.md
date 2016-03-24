@@ -80,6 +80,10 @@ GET `/case-execution/count`
     <td>Only include disabled case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case execution must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

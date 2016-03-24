@@ -77,6 +77,11 @@ Its properties are as follows:
       A flag indicating whether the case instance is completed or not.
     </td>
   </tr>
+   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case instance.</td>
+  </tr>
 </table>
 
 
@@ -114,5 +119,6 @@ GET `/case-instance/aCaseInstanceId`
       "caseDefinitionId" : "aCaseDefId",
       "businessKey"      : "aKey",
       "active"           : true,
-      "completed"        : false
+      "completed"        : false,
+      "tenantId"         : null
     }

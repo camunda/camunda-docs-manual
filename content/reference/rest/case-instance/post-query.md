@@ -96,6 +96,14 @@ A JSON object with the following properties:
     <td>Only include completed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A case instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include case instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include case instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -116,7 +124,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>caseInstanceId</code>, <code>caseDefinitionKey</code> and <code>caseDefinitionId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>caseInstanceId</code>, <code>caseDefinitionKey</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -167,6 +175,11 @@ Each case instance object has the following properties:
     <td>
       A flag indicating whether the case instance is completed or not.
     </td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case instance.</td>
   </tr>
 </table>
 
@@ -237,6 +250,7 @@ Request Body:
         "caseDefinitionId" : "aCaseDefinitionId",
         "businessKey" : "aKey",
         "active" : false,
-        "completed" : false
+        "completed" : false,
+        "tenantId"  : null
       }
     ]
