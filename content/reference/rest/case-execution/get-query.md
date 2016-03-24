@@ -81,6 +81,10 @@ GET `/case-execution`
     <td>Only include disabled case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case execution must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case executions that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
@@ -111,7 +115,7 @@ GET `/case-execution`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>caseExecutionId</code>, <code>caseDefinitionKey</code> and <code>caseDefinitionId</code>.
+    <code>caseExecutionId</code>, <code>caseDefinitionKey</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -223,6 +227,11 @@ Each case execution object has the following properties:
       A flag indicating whether the case execution is disabled or not.
     </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case execution.</td>
+  </tr>
 </table>
 
 
@@ -267,6 +276,7 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
         "repetition"       : false,
         "active"           : true,
         "enabled"          : false,
-        "disabled"         : false
+        "disabled"         : false,
+        "tenantId"         : null
       }
     ]

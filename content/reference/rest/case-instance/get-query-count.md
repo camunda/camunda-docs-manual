@@ -77,6 +77,14 @@ GET `/case-instance/count`
     <td>Only include completed case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include case instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include case instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>

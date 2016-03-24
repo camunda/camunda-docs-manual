@@ -130,6 +130,11 @@ Its properties are as follows:
       A flag indicating whether the case execution is disabled or not.
     </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case execution.</td>
+  </tr>
 </table>
 
 
@@ -169,5 +174,6 @@ GET `/case-execution/aCaseExecutionId`
       "repetition"       : false,
       "active"           : true,
       "enabled"          : false,
-      "disabled"         : false
+      "disabled"         : false,
+      "tenantId"         : null
     }

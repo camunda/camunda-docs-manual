@@ -100,6 +100,10 @@ A JSON object with the following properties:
     <td>Only include disabled case executions. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A case execution must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include case instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
@@ -132,7 +136,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>caseExecutionId</code>, <code>caseDefinitionKey</code> and <code>caseDefinitionId</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>caseExecutionId</code>, <code>caseDefinitionKey</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -237,6 +241,11 @@ Each case execution object has the following properties:
       A flag indicating whether the case execution is disabled or not.
     </td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case execution.</td>
+  </tr>
 </table>
 
 
@@ -309,6 +318,7 @@ Request Body:
         "repetition"       : false,
         "active"           : true,
         "enabled"          : false,
-        "disabled"         : false
+        "disabled"         : false,
+        "tenantId"         : null
       }
     ]
