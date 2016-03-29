@@ -128,7 +128,48 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 ## Dashboard
 
-**Name:** `cockpit.dashboard`
+**Name:** `cockpit.dashboard.section` (previously `cockpit.dashboard`)
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+
+Since 7.5, the dashboard and sections of the Cockpit have been re-organized and new names have been
+given to the plugin points.
+
+
+_Old_ plugins will still be visible on the dashboard until you change their namespace
+(from `cockpit.dasboard` to `cockpit.dashboard.section`).
+
+### Setup
+
+The dashboard section plugins have some additional properties / options you can set to control the way 
+they integrate in the application.  
+You can find some [examples of those plugins here](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/dashboard/).
+
+#### `pagePath`
+
+A menu link will be shown in the header of the Cockpit if you set this property.
+The `label` property of the plugin is used as the "text".
+
+#### `checkActive`
+
+This property can be used to control when the menu link is set to be _atcive_.
+You can set a function in order to set the `active` CSS class properly.
+
+#### `noDashboardSection`
+
+You can set this property to `true` on your plugin if you do not want them to be shown
+on the dashboard (but still want a menu point in the header).
+
+
+## Processes Dashboard
+
+**Name:** `cockpit.processes.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+
+## Decisions Dashboard
+
+**Name:** `cockpit.decisions.dashboard`
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
 
