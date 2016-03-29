@@ -34,34 +34,34 @@ On the client-side a plugin may include [AngularJS](http://angularjs.org/) modul
 The basic skeleton of a cockpit plugin looks as follows:
 
     cockpit-plugin/
-    ├── src/
-    |   ├── main/
-    |   |   ├── java/
-    |   |   |   └── org/my/plugin/
-    |   |   |       ├── db/
-    |   |   |       |   └── MyDto.java                                    (5)
-    |   |   |       ├── resource/
-    |   |   |       |   ├── MyPluginRootResource.java                     (3)
-    |   |   |       |   └── ...                                           (4)
-    |   |   |       └── MyPlugin.java                                     (1)
-    |   |   └── resources/
-    |   |       ├── META-INF/services/
-    |   |       |   └── org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
-    |   |       └── org/my/plugin/
-    |   |           ├── queries/
-    |   |           |   └── sample.xml                                    (6)
-    |   |           └── assets/app/                                       (7)
-    |   |               └── app/
-    |   |                   ├── plugin.js                                 (8)
-    |   |                   ├── view.html
-    |   |                   └── ...
-    |   └── test/
-    |       ├── java/
-    |       |   └── org/my/plugin/
-    |       |       └── MyPluginTest.java
-    |       └── resources/
-    |           └── camunda.cfg.xml
-    └── pom.xml
+    ├─ src/
+    |   ├─ main/
+    |   |   ├─ java/
+    |   |   |   └─ org/my/plugin/
+    |   |   |       ├─ db/
+    |   |   |       |   └─ MyDto.java                                    (5)
+    |   |   |       ├─ resource/
+    |   |   |       |   ├─ MyPluginRootResource.java                     (3)
+    |   |   |       |   └─ ...                                           (4)
+    |   |   |       └─ MyPlugin.java                                     (1)
+    |   |   └─ resources/
+    |   |       ├─ META-INF/services/
+    |   |       |   └─ org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
+    |   |       └─ org/my/plugin/
+    |   |           ├─ queries/
+    |   |           |   └─ sample.xml                                    (6)
+    |   |           └─ assets/app/                                       (7)
+    |   |               └─ app/
+    |   |                   ├─ plugin.js                                 (8)
+    |   |                   ├─ view.html
+    |   |                   └─ ...
+    |   └─ test/
+    |       ├─ java/
+    |       |   └─ org/my/plugin/
+    |       |       └─ MyPluginTest.java
+    |       └─ resources/
+    |           └─ camunda.cfg.xml
+    └─ pom.xml
 
 As runtime relevant resource it defines
 
@@ -128,7 +128,48 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 ## Dashboard
 
-**Name:** `cockpit.dashboard`
+**Name:** `cockpit.dashboard.section` (previously, now deprecate `cockpit.dashboard`)
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+
+Since 7.5, the dashboard and sections of the Cockpit have been re-organized and new names have been
+given to the plugin points.
+
+
+_Old_ plugins will still be visible on the dashboard until you change their namespace
+(from `cockpit.dasboard` to `cockpit.dashboard.section`).
+
+### Setup
+
+The dashboard section plugins have some additional properties / options you can set to control the way 
+they integrate in the application.  
+You can find some [examples of those plugins here](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/dashboard/).
+
+#### `pagePath`
+
+A menu link will be shown in the header of the Cockpit if you set this property.
+The `label` property of the plugin is used as the "text".
+
+#### `checkActive`
+
+This property can be used to control when the menu link is set to be _atcive_.
+You can set a function in order to set the `active` CSS class properly.
+
+#### `noDashboardSection`
+
+You can set this property to `true` on your plugin if you do not want them to be shown
+on the dashboard (but still want a menu point in the header).
+
+
+## Processes Dashboard
+
+**Name:** `cockpit.processes.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+
+## Decisions Dashboard
+
+**Name:** `cockpit.decisions.dashboard`
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
 
