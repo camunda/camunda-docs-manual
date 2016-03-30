@@ -123,6 +123,14 @@ GET `/process-definition/count`
     <td>includeProcessDefinitionsWithoutTenantId</td>
     <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
+  <tr>
+    <td>semanticVersion</td>
+    <td>Filter by the semantic version.</td>
+  </tr>
+  <tr>
+    <td>semanticVersionLike</td>
+    <td>Filter by the semantic version that the parameter is a substring of.</td>
+  </tr>
 </table>
 
 

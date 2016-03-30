@@ -1241,6 +1241,39 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# semanticVersion
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      <p>
+      The attribute specifies a semantic version for the process definition.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Any value that has a meaning as semantic version for the process definition. 
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Process
+    </td>
+  </tr>
+</table>
+
 # topic
 
 <table class="table table-striped">

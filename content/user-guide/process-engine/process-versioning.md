@@ -82,6 +82,46 @@ You might have spotted that two different columns exist in the process definitio
 
 * Id: The id is the database primary key and an artificial key normally combined out of the key, the version and a generated id (note that the ID may be shortened to fit into the database column, so there is no guarantee that the id is built this way).
 
+# Semantic Versioning
+
+It is possible to tag a process definition with a semantic version attribute. This can be done by adding the 
+[camunda:semanticVersion]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#semanticversion" >}})
+extension attribute to the process:
+
+```xml
+<bpmn2:process camunda:semanticVersion="1.5-patch2" ...
+```
+
+The `ProcessDefintion` will now provide a semanticVersion field which you can fetch:
+
+```java
+ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
+    .processDefinitionKey("invoice")
+    .processDefinitionVersion(1).singleResult();
+        
+pd.getSemanticVersion();
+```
+  
+or to fetch a list of all deployed process definitions which contain the specified version:
+
+```java
+List<ProcessDefinition> pdList = processEngine.getRepositoryService().createProcessDefinitionQuery()
+    .semanticVersion("1.5-patch2")
+    .list();
+```
+
+You can also use `semanticVersionLike` to query for a range of versions:
+
+```java
+List<ProcessDefinition> pdList = processEngine.getRepositoryService().createProcessDefinitionQuery()
+    .semanticVersion("1.5-%")
+    .list();
+```
+
+{{< note title="Semantic Versioning" class="info" >}} 
+the semantic versioning is only for tagging and will neither influence the `startProcessInstanceByKey`
+nor the `startProcessInstanceById` behavior.
+{{< /note >}}
 
 # Process Instance Migration
 

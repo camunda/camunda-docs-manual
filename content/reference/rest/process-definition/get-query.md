@@ -124,9 +124,17 @@ GET `/process-definition`
     <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>semanticVersion</td>
+    <td>Filter by the semantic version.</td>
+  </tr>
+  <tr>
+    <td>semanticVersionLike</td>
+    <td>Filter by the semantic version that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code> and <code>tenantId</code>.
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>semanticVersion</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -211,6 +219,10 @@ Each process definition object has the following properties:
     <td>String</td>
     <td>The tenant id of the process definition.</td>
   </tr>
+  <tr>
+    <td>semanticVersion</td>
+    <td>String</td>
+    <td>The semantic version of the process or <i>null</i> when no semantic version is set</td>
 </table>
 
 
