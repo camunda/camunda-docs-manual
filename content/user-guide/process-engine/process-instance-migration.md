@@ -66,13 +66,15 @@ ProcessInstance
 ```
 
 In order to migrate this process instance according to the defined migration plan, the API method
-`RuntimeService#executeMigrationPlan` can be used:
+`RuntimeService#newMigration` can be used:
 
 ```java
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeService.executeMigrationPlan(migrationPlan, processInstanceIds);
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(processInstanceIds)
+  .execute();
 ```
 
 The resulting activity instance state is:
@@ -187,18 +189,47 @@ It creates generated migration instructions for the equal activities
 ## Executing a migration plan
 
 Migration plans can be applied to a set of process instances of the source process
-definition by using the API Method `RuntimeService#executeMigrationPlan`.
+definition by using the API Method `RuntimeService#newMigration`.
 
 ```Java
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
 
-runtimeService.executeMigrationPlan(migrationPlan, processInstances);
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(processInstanceIds)
+  .execute();
 ```
 
 Migration is successful if all process instances can be migrated. Confer the
 [chapter on validation]({{< relref "#validation" >}}) to learn which kind of validation is performed before
 a migration plan is executed.
+
+
+## Create and start a migration batch
+
+Besides the synchronous (blocking) executing of the migration it can also
+be executed as [batch][].
+
+```Java
+MigrationPlan migrationPlan = ...;
+List<String> processInstanceIds = ...;
+
+Batch batch = runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(processInstanceIds)
+  .executeAsync();
+```
+
+This splits the process instance migration into several jobs which are executed
+asynchronous and returns a batch reference. These batch jobs are executed by
+the job execute. See the [batch][] section for more information. A batch is
+completed if all batch execution jobs are successfully completed. But in
+contrast to the synchronous migration it is not guaranteed that either all or
+none process instance is migrated. As the migration is split into several
+independent batch execution jobs every single job can fail or succeed.
+
+If a batch execution migration job fails it is retried by the job executor
+and if no retries are left an incident is created. In this case manual actions
+are necessary to complete the batch migration.
 
 
 # BPMN-specific Effects
@@ -442,3 +473,5 @@ ProcessInstance
 ```
 
 The migration plan cannot be applied to the process instance, because the hierarchy preservation requirement is violated: The instance of *Validate Address* is supposed to be migrated to *Validate Postal Address*. However, the parent activity instance of *Assess Credit Worthiness* is migrated to *Handle Application Receipt* which does not contain *Validate Postal Address*.
+
+[batch]: {{< relref "user-guide/process-engine/batch.md" >}}
