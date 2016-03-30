@@ -34,34 +34,34 @@ On the client-side a plugin may include [AngularJS](http://angularjs.org/) modul
 The basic skeleton of a cockpit plugin looks as follows:
 
     cockpit-plugin/
-    ├─ src/
-    |   ├─ main/
-    |   |   ├─ java/
-    |   |   |   └─ org/my/plugin/
-    |   |   |       ├─ db/
-    |   |   |       |   └─ MyDto.java                                    (5)
-    |   |   |       ├─ resource/
-    |   |   |       |   ├─ MyPluginRootResource.java                     (3)
-    |   |   |       |   └─ ...                                           (4)
-    |   |   |       └─ MyPlugin.java                                     (1)
-    |   |   └─ resources/
-    |   |       ├─ META-INF/services/
-    |   |       |   └─ org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
-    |   |       └─ org/my/plugin/
-    |   |           ├─ queries/
-    |   |           |   └─ sample.xml                                    (6)
-    |   |           └─ assets/app/                                       (7)
-    |   |               └─ app/
-    |   |                   ├─ plugin.js                                 (8)
-    |   |                   ├─ view.html
-    |   |                   └─ ...
-    |   └─ test/
-    |       ├─ java/
-    |       |   └─ org/my/plugin/
-    |       |       └─ MyPluginTest.java
-    |       └─ resources/
-    |           └─ camunda.cfg.xml
-    └─ pom.xml
+    ├── src/
+    |   ├── main/
+    |   |   ├── java/
+    |   |   |   └── org/my/plugin/
+    |   |   |       ├── db/
+    |   |   |       |   └── MyDto.java                                    (5)
+    |   |   |       ├── resource/
+    |   |   |       |   ├── MyPluginRootResource.java                     (3)
+    |   |   |       |   └── ...                                           (4)
+    |   |   |       └── MyPlugin.java                                     (1)
+    |   |   └── resources/
+    |   |       ├── META-INF/services/
+    |   |       |   └── org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin  (2)
+    |   |       └── org/my/plugin/
+    |   |           ├── queries/
+    |   |           |   └── sample.xml                                    (6)
+    |   |           └── assets/app/                                       (7)
+    |   |               └── app/
+    |   |                   ├── plugin.js                                 (8)
+    |   |                   ├── view.html
+    |   |                   └── ...
+    |   └── test/
+    |       ├── java/
+    |       |   └── org/my/plugin/
+    |       |       └── MyPluginTest.java
+    |       └── resources/
+    |           └── camunda.cfg.xml
+    └── pom.xml
 
 As runtime relevant resource it defines
 
