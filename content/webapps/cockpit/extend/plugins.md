@@ -132,7 +132,7 @@ For more information on creating and configuring your own plugin, please see [Ho
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
 
-Since 7.5, the dashboard and sections of the Cockpit have been re-organized and new names have been
+With Camunda BPM 7.5, the dashboard and sections of Cockpit have been re-organized and new names have been
 given to the plugin points.
 
 
@@ -152,12 +152,12 @@ The `label` property of the plugin is used as the "text".
 
 #### `checkActive`
 
-This property can be used to control when the menu link is set to be _atcive_.
+This property can be used to control when the menu link is set to be _active_.
 You can set a function in order to set the `active` CSS class properly.
 
 #### `noDashboardSection`
 
-You can set this property to `true` on your plugin if you do not want them to be shown
+You can set this property to `true` on your plugin if you do not want it to be shown
 on the dashboard (but still want a menu point in the header).
 
 
