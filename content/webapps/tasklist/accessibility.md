@@ -19,7 +19,7 @@ To make working with the Tasklist easier, you can use keyboard shortcuts to jump
 
 * Claim the currently selected task: *CTRL + ALT + C*
 * Set the keyboard focus to the first filter in the filter list: *CTRL + SHIFT + F*
-* Set the keyboard focus to the first task in the list of tasks: *CTRL + SHIFT + L*
+* Set the keyboard focus to the first task in the list of tasks: *CTRL + ALT + L*
 * Set the keyboard focus to the first input field in an embedded task form: *CTRL + ALT + F*
 * Open the start process modal dialog: *CTRL + ALT + P*
 
