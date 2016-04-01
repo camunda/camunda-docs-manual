@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-process-instance-get-variable-binary"
     parent: "rest-api-process-instance-variables"
-    pre: "POST `/process-instance/{id}/variables/{varId}/data`"
+    pre: "POST `/process-instance/{id}/variables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/process-instance/{id}/variables/{varId}/data`
+POST `/process-instance/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -33,7 +33,7 @@ POST `/process-instance/{id}/variables/{varId}/data`
     <td>The id of the process instance to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

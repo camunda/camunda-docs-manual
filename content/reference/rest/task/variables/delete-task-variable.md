@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-task-delete-variable"
     parent: "rest-api-task-variables"
-    pre: "DELETE `/task/{id}/variables/{varId}`"
+    pre: "DELETE `/task/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Removes a variable visible from a task. A variable is visible from a task if it 
 
 # Method
 
-DELETE `/task/{id}/variables/{varId}`
+DELETE `/task/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/task/{id}/variables/{varId}`
     <td>The id of the task.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to be removed.</td>
   </tr>
 </table>

@@ -8,7 +8,7 @@ menu:
     name: Get
     identifier: "rest-api-task-get-variable"
     parent: "rest-api-task-variables"
-    pre: "GET `/task/{id}/variables/{varId}`"
+    pre: "GET `/task/{id}/variables/{varName}`"
 
 ---
 
@@ -19,7 +19,7 @@ The variable must be visible from the task. It is visible from the task if it is
 
 # Method
 
-GET `/task/{id}/variables/{varId}`
+GET `/task/{id}/variables/{varName}`
 
 
 # Parameters
@@ -36,7 +36,7 @@ GET `/task/{id}/variables/{varId}`
     <td>The id of the task to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>
@@ -93,7 +93,7 @@ A JSON object with the following properties:
 
 ## Request
 
-GET `/task/aTaskId/variables/aVarName`
+GET `/task/aTaskId/variables/myObject123`
   
 ## Response
 
@@ -103,7 +103,7 @@ GET `/task/aTaskId/variables/aVarName`
 
 ## Request
 
-GET `/task/aTaskId/variables/aVarName?deserializeValue=false`
+GET `/task/aTaskId/variables/myObject123?deserializeValue=false`
   
 ## Response
 

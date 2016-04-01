@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-case-instance-put-single-variable"
     parent: "rest-api-case-instance-variables"
-    pre: "PUT `/case-instance/{id}/variables/{varId}`"
+    pre: "PUT `/case-instance/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable of a given case instance.
 
 # Method
 
-PUT `/case-instance/{id}/variables/{varId}`
+PUT `/case-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/case-instance/{id}/variables/{varId}`
     <td>The id of the case instance to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

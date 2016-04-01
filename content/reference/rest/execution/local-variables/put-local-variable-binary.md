@@ -8,7 +8,7 @@ menu:
     name: "Post (Binary)"
     identifier: "rest-api-execution-put-local-variable-binary"
     parent: "rest-api-execution-local-variables"
-    pre: "POST `/execution/{id}/localVariables/{varId}/data`"
+    pre: "POST `/execution/{id}/localVariables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/execution/{id}/localVariables/{varId}/data`
+POST `/execution/{id}/localVariables/{varName}/data`
 
 
 # Parameters
@@ -33,7 +33,7 @@ POST `/execution/{id}/localVariables/{varId}/data`
     <td>The id of the execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

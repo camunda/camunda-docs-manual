@@ -8,7 +8,7 @@ menu:
     name: "Post (Binary)"
     identifier: "rest-api-case-execution-post-single-variable-binary"
     parent: "rest-api-case-execution-variables"
-    pre: "POST `/case-execution/{id}/variables/{varId}/data`"
+    pre: "POST `/case-execution/{id}/variables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/case-execution/{id}/variables/{varId}/data`
+POST `/case-execution/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -33,7 +33,7 @@ POST `/case-execution/{id}/variables/{varId}/data`
     <td>The id of the case execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

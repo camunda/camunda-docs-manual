@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-task-get-variable-binary"
     parent: "rest-api-task-variables"
-    pre: "GET `/task/{id}/variables/{varId}/data`"
+    pre: "GET `/task/{id}/variables/{varName}/data`"
 
 ---
 
@@ -18,7 +18,7 @@ The variable must be visible from the task. It is visible from the task if it is
 
 # Method
 
-GET `/task/{id}/variables/{varId}/data`
+GET `/task/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/task/{id}/variables/{varId}/data`
     <td>The id of the task to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

@@ -8,7 +8,7 @@ menu:
     name: "Get"
     identifier: "rest-api-case-execution-get-local-variable"
     parent: "rest-api-case-execution-local-variables"
-    pre: "GET `/case-execution/{id}/localVariables/{varId}`"
+    pre: "GET `/case-execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable from the context of a given case execution. Does not traver
 
 # Method
 
-GET `/case-execution/{id}/localVariables/{varId}`
+GET `/case-execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/case-execution/{id}/localVariables/{varId}`
     <td>The id of the case execution to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

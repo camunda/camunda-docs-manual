@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-task-put-local-variable"
     parent: "rest-api-task-local-variables"
-    pre: "PUT `/task/{id}/localVariables/{varId}`"
+    pre: "PUT `/task/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable in the context of a given task.
 
 # Method
 
-PUT `/task/{id}/localVariables/{varId}`
+PUT `/task/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/task/{id}/localVariables/{varId}`
     <td>The id of the task to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

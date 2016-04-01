@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-task-get-local-variable-binary"
     parent: "rest-api-task-local-variables"
-    pre: "GET `/task/{id}/localVariables/{varId}/data`"
+    pre: "GET `/task/{id}/localVariables/{varName}/data`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a binary variable from the context of a given task. Applicable for byt
 
 # Method
 
-GET `/task/{id}/localVariables/{varId}/data`
+GET `/task/{id}/localVariables/{varName}/data`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/task/{id}/localVariables/{varId}/data`
     <td>The id of the task to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>
