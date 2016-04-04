@@ -70,6 +70,44 @@ The following is an example of a decision task that calls the `checkCreditDecisi
 
 Note: It is also possible to use an expression for the attribute `decisionVersion` that must resolve to an integer at runtime.
 
+# Decision Tenant Id
+
+When the decision task resolves the decision definition to be evaluated it must take into account multi tenancy.
+
+## Default Tenant Resolution
+By default, the tenant id of the calling case definition is used to evaluate the decision definition.
+That is, if the calling case definition has no tenant id, then the decision task evaluate a decision definition using the provided key, binding and without a tenant id (tenant id = null).
+If the calling case definition has a tenant id, a decision definition with the provided key and the same tenant id is evaluated.
+
+Note that the tenant id of the calling case instance is not taken into account in the default behavior.
+
+## Explicit Tenant Resolution
+
+In some situations it may be useful to override this default behavior and specify the tenant id explicitly.
+
+The `camunda:decisionTenantId` attribute allows to explicitly specify a tenant id:
+
+```xml
+<decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
+  camunda:decisionTenantId="TENANT_1">
+</decisionTask>
+```
+
+If the tenant id is not known at design time, an expression can be used as well:
+
+```xml
+<decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
+  camunda:decisionTenantId="${ myBean.calculateTenantId(variable) }">
+</decisionTask>
+```
+
+An expression also allows using the tenant id of the calling case instance instead of the calling case definition:
+
+```xml
+<decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
+  camunda:decisionTenantId="${ execution.tenantId }">
+</decisionTask>
+```
 
 # Decision Result
 
@@ -107,6 +145,7 @@ To evaluate a referenced decision, the integration of the Camunda DMN engine is 
     <th>Attributes</th>
     <td>
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionbinding" >}}">camunda:decisionBinding</a>,
+            <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisiontenantid" >}}">camunda:decisionTenantId</a>,
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#decisionversion" >}}">camunda:decisionVersion</a>,
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#mapdecisionresult" >}}">camunda:mapDecisionResult</a>,
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#resultvariable" >}}">camunda:resultVariable</a>

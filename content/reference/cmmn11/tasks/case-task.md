@@ -65,6 +65,45 @@ The following is an example of a case task that calls the `checkCreditCase` case
 
 Note: It is also possible to use an expression for the attribute `caseVersion` that must resolve to an integer at runtime.
 
+# Case Tenant Id
+
+When the case task resolves the case definition to be called it must take into account multi tenancy.
+
+## Default Tenant Resolution
+By default, the tenant id of the calling case definition is used to resolve the called case definition.
+That is, if the calling case definition has no tenant id, then the case task resolves a case definition using the provided key, binding and without a tenant id (tenant id = null).
+If the calling case definition has a tenant id, a case definition with the provided key and the same tenant id is resolved.
+
+Note that the tenant id of the calling case instance is not taken into account in the default behavior.
+
+## Explicit Tenant Resolution
+
+In some situations it may be useful to override this default behavior and specify the tenant id explicitly.
+
+The `camunda:caseTenantId` attribute allows to explicitly specify a tenant id:
+
+```xml
+<caseTask id="checkCreditCase" caseRef="checkCreditCase"
+  camunda:caseTenantId="TENANT_1">
+</casetask>
+```
+
+If the tenant id is not known at design time, an expression can be used as well:
+
+```xml
+<caseTask id="checkCreditCase" caseRef="checkCreditCase"
+  camunda:caseTenantId="${ myBean.calculateTenantId(variable) }">
+</caseTask>
+```
+
+An expression also allows using the tenant id of the calling case instance instead of the calling case definition:
+
+```xml
+<caseTask id="checkCreditCase" caseRef="checkCreditCase"
+  camunda:caseTenantId="${ execution.tenantId }">
+</caseTask>
+```
+
 # Exchange Variables
 
 The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,
@@ -162,6 +201,7 @@ If the business key of the called case instance should be different from the bus
     <th>Attributes</th>
     <td>
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
       <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#caseversion" >}}">camunda:caseVersion</a>
     </td>
   </tr>

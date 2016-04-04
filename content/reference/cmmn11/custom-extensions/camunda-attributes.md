@@ -144,6 +144,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# caseTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the case definition which is to be resolved by a case task, see <a href="{{< relref "reference/cmmn11/tasks/case-task.md#case-tenant-id" >}}">Case Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/case-task.md" >}}">Case Task</a>
+    </td>
+  </tr>
+</table>
+
 # caseVersion
 
 <table class="table table-striped">
@@ -235,6 +266,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Default Value</th>
     <td><code>latest</code></td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/decision-task.md" >}}">Decision Task</a>
+    </td>
+  </tr>
+</table>
+
+# decisionTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the decision definition which is to be evaluated by a decision task, see <a href="{{< relref "reference/cmmn11/tasks/decision-task.md#decision-tenant-id" >}}">Decision Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
   </tr>
   <tr>
     <th>CMMN 1.1 Elements</th>
@@ -488,6 +550,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Constraints</th>
     <td colspan="2">
       If the value is set to <code>version</code> the attribute <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#processversion" >}}">camunda:processVersion</a> is required, see <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#processbinding" >}}">Process Binding</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>CMMN 1.1 Elements</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/tasks/process-task.md" >}}">Process Task</a>
+    </td>
+  </tr>
+</table>
+
+# processTenantId
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the tenant id of the process definition which is to be resolved by a process task, see <a href="{{< relref "reference/cmmn11/tasks/process-task.md#process-tenant-id" >}}">Process Tenant Id</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
     </td>
   </tr>
   <tr>
