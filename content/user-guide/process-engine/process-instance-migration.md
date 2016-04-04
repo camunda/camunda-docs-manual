@@ -124,26 +124,20 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
   .build();
 ```
 
-Activity types that can be mapped:
-
-* Embedded Sub Process
-* Multi-instance Body
-* User Task
-* Boundary Event
-
-Migration instructions must map between activities of the same type.
+All activities can be mapped. Migration instructions must map between activities of the same type.
 
 Supported activity relationships are:
 
 * One-to-one relation
 
-A migration plan is validated after creation if it contains migration
+A migration plan is *validated after creation* to detect migration
 instructions that are not supported by the engine. See the [chapter on
-validation]({{< relref "#validation" >}}) for details.
+creation time validation]({{< relref "#creation-time-validation" >}}) for details.
 
-{{< note title="Limitations" class="warning" >}}
-Multi instance activities and activities with boundary events are currently not supported.
-{{< /note >}}
+In addition, a migration plan is *validated before execution* to ensure that it can be applied to a given process instance. For example,
+migration instructions for some activity types are only supported for transition instances (i.e. active asynchronous continuations) but not for
+activity instances. See the [chapter on execution time validation]({{< relref "#execution-time-validation" >}}) for details.
+
 
 ### One-to-One Relation Instruction
 
@@ -202,7 +196,7 @@ List<String> processInstanceIds = ...;
 runtimeService.executeMigrationPlan(migrationPlan, processInstances);
 ```
 
-Migration is successful if all process instance can be migrated. Confer the
+Migration is successful if all process instances can be migrated. Confer the
 [chapter on validation]({{< relref "#validation" >}}) to learn which kind of validation is performed before
 a migration plan is executed.
 
@@ -260,6 +254,17 @@ When migrating instances of a multi-instance activity to another multi-instance 
 ### Removing a Multi-Instance Marker
 
 If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, the multi-instance variables `nrOfInstances`, `nrOfActiveInstances` and `nrOfCompletedInstances` are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration. In addition, their `loopCounter` and collection element variables are kept.
+
+## Asynchronous Continuations
+
+When an asynchronous continuation is active, i.e. the corresponding job has not been completed by the job executor yet, it is represented in the form of a *transition instance*. For example, this is the case when job execution failed and an incident has been created. For transition instances the mapping instructions apply just like for activity instances. That means, when there is an instruction from activity `userTask` to activity `newUserTask`, all transition instances that represent an asynchronous continuation before or after `userTask` are migrated to `newUserTask`. In order for this to succeed, the target activity must be asynchronous as well.
+
+{{< note title="Limitation with asyncAfter" class="warning" >}}
+  When migrating a transition instance that represents an asynchronous continuation *after* an activity, migration is only successful if the following limitations hold:
+
+  * If the source activity has no outgoing sequence flow, the target activity must not have more than one outgoing sequence flow
+  * If the source activity has an outgoing sequence flow, the target activity must have an outgoing sequence flow with the same ID or must not have more than one outgoing sequence flow
+{{< /note >}}
 
 # Operational Semantics
 
@@ -336,6 +341,9 @@ instructions are validated for static aspects. When it is applied to a
 process instance, its instructions are matched to activity instances
 and this assignment is validated.
 
+Validation ensures that none of the limimations stated in this guide lead
+to an inconsistent process instance state with undefined behavior after migration.
+
 
 ### Creation Time Validation
 
@@ -343,7 +351,6 @@ For an instruction to be valid when a migration plan is created, it has to fulfi
 the following requirements:
 
 * It has to map activities of the same type
-* It has to map activities of the supported types
 * It has to be an one-to-one mapping
 
 If validation reports errors, migration fails with a `MigrationPlanValidationException`
@@ -358,6 +365,8 @@ that the plan is applicable. In particular, the following aspects are checked:
 
 * **Completeness**: There must be a migration instruction for every instance of leaf activities
   (i.e. activities that do not contain other activities)
+* **Instruction Applicability**: For certain activity types, only transition instances but not
+  activity instances can be migrated
 * **Hierarchy Preservation**: Every activity instance must stay a descendant of its closest migrating ancestor activity instance
 
 If validation reports errors, migration fails with a `MigrationInstructionInstanceValidationException`
@@ -366,7 +375,7 @@ validation errors.
 
 #### Completeness
 
-Migration can only be meaningful a migration instruction applies to every instance of a leaf activity. Assume a migration plan as follows:
+Migration is only meaningful if a migration instruction applies to every instance of a leaf activity. Assume a migration plan as follows:
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -394,6 +403,21 @@ ProcessInstance
 ```
 
 The migration plan is not valid with respect to this instance because there is no instruction that applies to the instance of *Validate Address*.
+
+
+#### Instruction Applicability
+
+Migration instructions are used to migrate activity instances as well as transition instances (i.e. active asynchronous continuations). Some
+instructions can only be used to migrate transition instances but not activity instances. In general, activity instances can only be
+migrated if they are instances of the following activity types:
+
+* Embedded Sub Process
+* Multi-instance Body
+* User Task
+* Boundary Event
+
+Transition instances can be migrated for any activity type.
+
 
 #### Hierarchy Preservation
 
