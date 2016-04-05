@@ -191,6 +191,30 @@ It creates generated migration instructions for the equal activities
 Migration plans can be applied to a set of process instances of the source process
 definition by using the API Method `RuntimeService#newMigration`.
 
+The migration can either be executed synchronously (blocking) or asynchronously
+(non-blocking) using a [batch][].
+
+The following are some reasons to prefer either one or the other:
+
+- Use synchronous migration if:
+  - the number of process instances is small
+  - the migration should be atomic, i.e. it should be executed
+    immediately and should fail if at least one process instances cannot
+    be migrated
+
+
+- Use asynchronous migration if:
+  - the number of process instances is large
+  - all process instances should be migrated decoupled from the other
+    instances, i.e. every instance is migrated in its own transaction
+  - the migration should be executed by another thread, i.e. the job
+    executor should handle the execution
+
+### Synchronous migration execution
+
+To execute the migration synchronous the `execute` method is used. It will
+block until the migration is completed.
+
 ```Java
 MigrationPlan migrationPlan = ...;
 List<String> processInstanceIds = ...;
@@ -205,10 +229,10 @@ Migration is successful if all process instances can be migrated. Confer the
 a migration plan is executed.
 
 
-## Create and start a migration batch
+### Asynchronous batch migration execution
 
-Besides the synchronous (blocking) executing of the migration it can also
-be executed as [batch][].
+To execute the migration asynchronous the `executeAsync` method is used. It will
+return immediately with a reference to the batch which executes the migration.
 
 ```Java
 MigrationPlan migrationPlan = ...;
@@ -219,13 +243,13 @@ Batch batch = runtimeSerivce.newMigration(migrationPlan)
   .executeAsync();
 ```
 
-This splits the process instance migration into several jobs which are executed
-asynchronous and returns a batch reference. These batch jobs are executed by
-the job execute. See the [batch][] section for more information. A batch is
-completed if all batch execution jobs are successfully completed. But in
-contrast to the synchronous migration it is not guaranteed that either all or
-none process instance is migrated. As the migration is split into several
-independent batch execution jobs every single job can fail or succeed.
+Using a batch the process instance migration is split into several jobs which
+are executed asynchronous. These batch jobs are executed by the job executer.
+See the [batch][] section for more information. A batch is completed if all
+batch execution jobs are successfully completed. But in contrast to the
+synchronous migration it is not guaranteed that either all or none process
+instance is migrated. As the migration is split into several independent batch
+execution jobs every single job can fail or succeed.
 
 If a batch execution migration job fails it is retried by the job executor
 and if no retries are left an incident is created. In this case manual actions
