@@ -100,7 +100,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 ```xml
 <caseTask id="checkCreditCase" caseRef="checkCreditCase"
-  camunda:caseTenantId="${ execution.tenantId }">
+  camunda:caseTenantId="${ caseExecution.tenantId }">
 </caseTask>
 ```
 

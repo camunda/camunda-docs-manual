@@ -105,7 +105,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 ```xml
 <decisionTask id="checkCreditDecision" decisionRef="checkCreditDecision"
-  camunda:decisionTenantId="${ execution.tenantId }">
+  camunda:decisionTenantId="${ caseExecution.tenantId }">
 </decisionTask>
 ```
 
