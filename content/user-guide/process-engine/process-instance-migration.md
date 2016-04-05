@@ -236,18 +236,23 @@ are necessary to complete the batch migration.
 
 Depending on the type of the activities a process model contains, migration has varying effects.
 
-## User Tasks
+## Tasks
 
-When a user task is migrated, the task instance (i.e. `org.camunda.bpm.engine.task.Task`) is preserved as it is apart
-its process definition id. The task is not reinitialized: Attributes like assignee or name do not change.
+### User Task
 
-## Embedded Sub Processes
+When a user task is migrated, all properties of the task instance (i.e. `org.camunda.bpm.engine.task.Task`) are preserved apart
+from the process definition id. The task is not reinitialized: Attributes like assignee or name do not change.
 
-If a migration instruction applies to an embedded sub process, it is migrated to its target sub process in the target process definition.
-In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
-contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
+### Receive Task
 
-## Boundary Events
+When a receive task instance is migrated, the corresponding event subscription remains as it is apart from the activity it references.
+That means that the name of the message the instance waits for does not change, even if
+the target process definition defines a different message.
+
+
+## Events
+
+### Boundary Event
 
 Boundary events of types timer, message, and signal manifest themselves at runtime as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
 and `org.camunda.bpm.engine.runtime.Job`. They capture the state about the event to be received. For a timer, the corresponding job
@@ -271,12 +276,21 @@ Applying a migration plan that does not contain the instruction `.mapActivities(
 In effect, the boundary event fires ten days after migration. In contrast, if that instruction is provided then the timer job instance is preserved. However, its
 payload is not updated to the target boundary event's duration. In effect, it is going to trigger five days after the activity was started.
 
-## Multi-Instance
+### Intermediate Message Catch Event
 
-Active multi-instance activities can be migrated if
+When a an intermediate message catch event instance is migrated, the corresponding event subscription remains as it is apart from the activity it references.
+That means that the name of the message the instance waits for does not change, even if
+the target process definition defines a different message.
 
-* the target activity is multi-instance of the same type (parallel or sequential)
-* the target activity is not a multi-instance activity.
+
+## Subprocess
+
+### Embedded Sub Process
+
+If a migration instruction applies to an embedded sub process, it is migrated to its target sub process in the target process definition.
+In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
+contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
+
 
 ### Migrating a Multi-instance Activity
 
@@ -286,7 +300,17 @@ When migrating instances of a multi-instance activity to another multi-instance 
 
 If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, the multi-instance variables `nrOfInstances`, `nrOfActiveInstances` and `nrOfCompletedInstances` are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration. In addition, their `loopCounter` and collection element variables are kept.
 
-## Asynchronous Continuations
+
+## Flow Node Markers
+
+### Multi-Instance
+
+Active multi-instance activities can be migrated if
+
+* the target activity is multi-instance of the same type (parallel or sequential)
+* the target activity is not a multi-instance activity.
+
+### Asynchronous Continuations
 
 When an asynchronous continuation is active, i.e. the corresponding job has not been completed by the job executor yet, it is represented in the form of a *transition instance*. For example, this is the case when job execution failed and an incident has been created. For transition instances the mapping instructions apply just like for activity instances. That means, when there is an instruction from activity `userTask` to activity `newUserTask`, all transition instances that represent an asynchronous continuation before or after `userTask` are migrated to `newUserTask`. In order for this to succeed, the target activity must be asynchronous as well.
 
@@ -296,6 +320,7 @@ When an asynchronous continuation is active, i.e. the corresponding job has not 
   * If the source activity has no outgoing sequence flow, the target activity must not have more than one outgoing sequence flow
   * If the source activity has an outgoing sequence flow, the target activity must have an outgoing sequence flow with the same ID or must not have more than one outgoing sequence flow
 {{< /note >}}
+
 
 # Operational Semantics
 
@@ -442,10 +467,16 @@ Migration instructions are used to migrate activity instances as well as transit
 instructions can only be used to migrate transition instances but not activity instances. In general, activity instances can only be
 migrated if they are instances of the following activity types:
 
-* Embedded Sub Process
-* Multi-instance Body
-* User Task
-* Boundary Event
+* Task
+  * User Task
+  * Receive Task
+* Subprocess
+  * Embedded Sub Process
+* Events
+  * Boundary Event
+  * Intermediate Catch Event (Message)
+* Misc
+  * Multi-instance Body
 
 Transition instances can be migrated for any activity type.
 
