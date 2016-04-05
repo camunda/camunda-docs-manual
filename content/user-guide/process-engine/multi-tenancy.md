@@ -330,3 +330,47 @@ runtimeService
 ```
 
 If only one tenant can receive a signal with the given name then the id of the tenant can be omitted.
+
+### Create a Case Instance
+
+A new case instance of a case definition which is deployed for a specific tenant can be created using the `CaseService`.
+
+```java
+caseService
+  .withCaseDefinitionByKey("KEY")
+  .caseDefinitionTenantId("tenant1")
+  .execute();
+```
+
+Additionally, the API allows to create a case instance which belongs to no single tenant.
+
+```java
+caseService
+  .withCaseDefinitionByKey("KEY")
+  .caseDefinitionWithoutTenantId()
+  .execute();
+```
+
+If only one tenant has a case definition with the given key then the id of the tenant can be omitted.
+
+### Evaluate a Decision Table
+
+A decision table of a decision definition which is deployed for a specific tenant id can be evaluated using the `DecisionService`.
+
+```java
+decisionService
+  .evaluateDecisionTableByKey("KEY")
+  .decisionDefinitionTenantId("tenant1")
+  .evaluate();
+```
+
+Additionally, the API allows to evaluate a decision table which belongs to no single tenant.
+
+```java
+decisionService
+  .evaluateDecisionTableByKey("KEY")
+  .decisionDefinitionWithoutTenantId
+  .evaluate();
+```
+
+If only one tenant has a decision definition with the given key then the id of the tenant can be omitted.
