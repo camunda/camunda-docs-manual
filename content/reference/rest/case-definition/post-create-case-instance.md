@@ -97,6 +97,11 @@ Properties are:
     <td>The id of the case definition this case instance belongs to.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant this case instance belongs to.</td>
+  </tr>
+  <tr>
     <td>businessKey</td>
     <td>String</td>
     <td>The business key of the case instance.</td>
@@ -171,6 +176,7 @@ Request Body:
       "links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
       "id":"anId",
       "caseDefinitionId":"aCaseDefinitionId",
+      "tenantId":null,
       "businessKey":"myBusinessKey",
       "active":true
     }
