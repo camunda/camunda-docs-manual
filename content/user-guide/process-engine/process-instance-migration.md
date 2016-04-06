@@ -300,16 +300,16 @@ Applying a migration plan that does not contain the instruction `.mapActivities(
 In effect, the boundary event fires ten days after migration. In contrast, if that instruction is provided then the timer job instance is preserved. However, its
 payload is not updated to the target boundary event's duration. In effect, it is going to trigger five days after the activity was started.
 
-### Intermediate Message Catch Event
+### Intermediate Catch Event
 
-When a an intermediate message catch event instance is migrated, the corresponding event subscription remains as it is apart from the activity it references.
-That means that the name of the message the instance waits for does not change, even if
-the target process definition defines a different message.
+When a an intermediate catch event instance is migrated, the corresponding entity that represents the waiting state
+(i.e. event subscription for message and signal events, job for timer events) remains as it is apart from the activity
+and process definition it references.
 
-### Intermediate Timer Catch Event
-
-When a an intermediate message timer event instance is migrated, the corresponding timer job remains as it is apart from the activity it references.
-That means that the due date of the timer does not change, even if the target activity has a different configuration.
+That means, the event configuration does not change even if the target process definition defines a different configuration. For example,
+if a message catch event is configured for message `Message_A` and is mapped to a message catch event that is configured for message `Message_B`,
+then a process instance with an active instance of that event still waits for `Message_A` after migration. Similarly, the
+due date of a timer does not change during migration.
 
 
 ## Subprocess
@@ -508,7 +508,7 @@ migrated if they are instances of the following activity types:
   * Call Activity
 * Events
   * Boundary Event
-  * Intermediate Catch Event (Message, Timer)
+  * Intermediate Catch Event
 * Misc
   * Multi-instance Body
 
