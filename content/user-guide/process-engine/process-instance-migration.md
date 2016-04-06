@@ -306,6 +306,11 @@ When a an intermediate message catch event instance is migrated, the correspondi
 That means that the name of the message the instance waits for does not change, even if
 the target process definition defines a different message.
 
+### Intermediate Timer Catch Event
+
+When a an intermediate message timer event instance is migrated, the corresponding timer job remains as it is apart from the activity it references.
+That means that the due date of the timer does not change, even if the target activity has a different configuration.
+
 
 ## Subprocess
 
@@ -503,7 +508,7 @@ migrated if they are instances of the following activity types:
   * Call Activity
 * Events
   * Boundary Event
-  * Intermediate Catch Event (Message)
+  * Intermediate Catch Event (Message, Timer)
 * Misc
   * Multi-instance Body
 
