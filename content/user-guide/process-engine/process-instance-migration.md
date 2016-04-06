@@ -315,14 +315,9 @@ If a migration instruction applies to an embedded sub process, it is migrated to
 In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
 contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
 
+### Call Activity
 
-### Migrating a Multi-instance Activity
-
-When migrating instances of a multi-instance activity to another multi-instance activity, the migration plan needs to contain two instructions: One for the *inner activity*, i.e. the activity that has multi-instance loop characteristics. And another one for the *multi-instance body*. The body is an artificial activity that contains the inner activity. By convention, it has the id `<id of inner activity>#multiInstanceBody`. When migrating a multi-instance body and its inner activity, the multi-instance state is preserved. That means, if a parallel multi-instance activity is migrated with two instances out of five being active, then the state is the same after migration.
-
-### Removing a Multi-Instance Marker
-
-If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, the multi-instance variables `nrOfInstances`, `nrOfActiveInstances` and `nrOfCompletedInstances` are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration. In addition, their `loopCounter` and collection element variables are kept.
+Call activities are migrated like any other activity. The called instance, be it a BPMN process or a CMMN case, is not changed. It can be migrated separately.
 
 
 ## Flow Node Markers
@@ -333,6 +328,15 @@ Active multi-instance activities can be migrated if
 
 * the target activity is multi-instance of the same type (parallel or sequential)
 * the target activity is not a multi-instance activity.
+
+#### Migrating a Multi-instance Activity
+
+When migrating instances of a multi-instance activity to another multi-instance activity, the migration plan needs to contain two instructions: One for the *inner activity*, i.e. the activity that has multi-instance loop characteristics. And another one for the *multi-instance body*. The body is an artificial activity that contains the inner activity. By convention, it has the id `<id of inner activity>#multiInstanceBody`. When migrating a multi-instance body and its inner activity, the multi-instance state is preserved. That means, if a parallel multi-instance activity is migrated with two instances out of five being active, then the state is the same after migration.
+
+#### Removing a Multi-Instance Marker
+
+If the target activity is not a multi-instance activity, it is sufficient to have an instruction for the inner activity. During migration, the multi-instance variables `nrOfInstances`, `nrOfActiveInstances` and `nrOfCompletedInstances` are removed. The number of inner activity instances is preserved. That means, if there are two out of five active instances before migration, then there are going to be two instances of the target activity after migration. In addition, their `loopCounter` and collection element variables are kept.
+
 
 ### Asynchronous Continuations
 
@@ -496,6 +500,7 @@ migrated if they are instances of the following activity types:
   * Receive Task
 * Subprocess
   * Embedded Sub Process
+  * Call Activity
 * Events
   * Boundary Event
   * Intermediate Catch Event (Message)
