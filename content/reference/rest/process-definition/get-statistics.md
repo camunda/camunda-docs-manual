@@ -134,7 +134,8 @@ GET `/process-definition/statistics?failedJobs=true`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":"1.0.0"},
       "incidents:" []
      },
      {"id":"aProcessDefinitionId:2",
@@ -151,7 +152,8 @@ GET `/process-definition/statistics?failedJobs=true`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":null},
       "incidents:" []
     }]
 
@@ -176,7 +178,8 @@ GET `/process-definition/statistics?incidents=true`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":"1.0.0"},
       "incidents":
       [
         {"incidentType":"failedJob", "incidentCount": 42 },
@@ -197,7 +200,8 @@ GET `/process-definition/statistics?incidents=true`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":null},
       "incidents":
       [
         { "incidentType":"failedJob", "incidentCount": 43 },
@@ -227,7 +231,8 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":"1.0.0"},
       "incidents":
       [
         {"incidentType":"anIncident", "incidentCount": 20 }
@@ -247,6 +252,7 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "deploymentId":null,
         "diagram":null,
         "suspended":false,
-        "tenantId":null},
+        "tenantId":null,
+        "semanticVersion":null},
       "incidents": []
     }]

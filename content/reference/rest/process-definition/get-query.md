@@ -135,7 +135,8 @@ GET `/process-definition`
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>semanticVersion</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
+    Must be used in conjunction with the <code>sortOrder</code> parameter.
+    <strong>Note:</strong> Sorting by semanticVersion is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0</td>
   </tr>
   <tr>
     <td>sortOrder</td>
@@ -267,6 +268,7 @@ GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
     "deploymentId":"aDeploymentId",
     "diagram":"aResourceName",
     "suspended":true,
-    "tenantId":null}]
+    "tenantId":null,
+    "semanticVersion":"1.0.0"}]
 ```
 
