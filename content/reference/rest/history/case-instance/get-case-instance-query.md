@@ -103,6 +103,10 @@ GET `/history/case-instance`
     <td>Restrict query to one case instance that has a sub process instance with the given id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -139,7 +143,7 @@ GET `/history/case-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code>.
+    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -215,6 +219,11 @@ Each historic case instance object has the following properties:
     <td>The id of the parent process instance, if it exists.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case instance.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Boolean</td>
     <td>If true, this case instance is active.</td>
@@ -278,6 +287,7 @@ GET `/history/case-instance?closedAfter=2013-01-01T00:00:00&closedBefore=2013-04
     "createUserId": "aStartUserId",
     "superCaseInstanceId": "aSuperCaseInstanceId",
     "superProcessInstanceId": null,
+    "tenantId": null,
     "active": true,
     "completed": false,
     "terminated": false,

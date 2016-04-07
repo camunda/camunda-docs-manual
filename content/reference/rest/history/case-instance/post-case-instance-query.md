@@ -118,6 +118,10 @@ A JSON object with the following properties:
     <td>Restrict query to one case instance that has a sub process instance with the given id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A case instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -156,7 +160,7 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code>.</td>
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>createTime</code>, <code>closeTime</code>, <code>duration</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
           <td>sortOrder</td>
@@ -223,6 +227,11 @@ Each historic case instance object has the following properties:
     <td>superProcessInstanceId</td>
     <td>String</td>
     <td>The id of the parent process instance, if it exists.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case instance.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -308,6 +317,7 @@ Request Body:
     "createUserId": "aCreateUserId",
     "superCaseInstanceId": "aSuperCaseInstanceId",
     "superProcessInstanceId": null,
+    "tenantId": null,
     "active": true,
     "completed": false,
     "terminated": false,

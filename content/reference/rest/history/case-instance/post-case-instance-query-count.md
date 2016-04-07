@@ -105,6 +105,10 @@ A JSON object with the following properties:
     <td>Restrict query to one case instance that has a sub process instance with the given id.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A case instance must have one of the given tenant ids. Must be a JSON array of Strings.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active case instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
