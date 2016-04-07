@@ -273,6 +273,28 @@ When a receive task instance is migrated, the corresponding event subscription r
 That means that the name of the message the instance waits for does not change, even if
 the target process definition defines a different message.
 
+## Gateways
+
+### Event-based Gateway
+
+In order to migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
+The events that the gateway's event triggers are represented in the engine API as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
+and `org.camunda.bpm.engine.runtime.Job`. In order to migrate the state of the triggers, there additional migration instructions between
+the respective intermediate catch events must be provided. In order to reinitialize the event triggers, such instructions must be omitted.
+
+Consider the following two processes where the configuration of the intermediate timer event changes:
+
+Process `eventBasedGateway:1`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-based-gw1"></div>
+
+Process `eventBasedGateway:2` (note the timer configuration):
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-based-gw2"></div>
+
+If there is an instruction that maps the intermediate timer events, the timer job and its configuration is preserved, i.e. the timer fires after five days after
+the event-based gateway was enabled. If there is no such instruction, the original timer job is removed and a new timer job is created. It will trigger ten days after migration.
+
 
 ## Events
 
@@ -506,6 +528,8 @@ migrated if they are instances of the following activity types:
 * Subprocess
   * Embedded Sub Process
   * Call Activity
+* Gateways
+  * Event-based Gateway
 * Events
   * Boundary Event
   * Intermediate Catch Event
