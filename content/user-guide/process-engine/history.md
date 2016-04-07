@@ -41,6 +41,7 @@ The history level controls the amount of data the process engine provides via th
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
     * Decision Instance EVALUATE: fired when a decision is evaluated from the DMN engine.
     * Batch START, END: fired as batches are being started and ended
+    * Identity links ADD, DELETE: fired when an identity link is being added, deleted or when an assignee is set or changed to a user task and owner is set or changed to a user task.
 * `AUTO`: The level `auto` is useful if you are planning to run multiple engines on the same database. In that case, all engines have to use the same history level. Instead of manually keeping your configurations in sync, use the level `auto` and the engine determines the level already configured in the database automatically. If none is found, the default value `audit` is used. Keep in mind: If you are planning to use custom history levels, you have to register the custom levels for every configuration, otherwise an exception is thrown.
 
 If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
@@ -87,6 +88,7 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricJobLog` containing information about the job execution. The log provides details about the lifecycle of a job.
 * `HistoricDecisionInstance` containing information about a single evaluation of a decision, including the input and output values.
 * `HistoricBatch` containing information about current and past batches.
+* `HistoricIdentityLink` containing information about current and past (added, deleted, assignee is set or changed and owner is set or changed) identity links.
 
 ## Query History
 
@@ -98,8 +100,8 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricIncidentQuery()`,
 `createUserOperationLogQuery()`,
 `createHistoricJobLogQuery()`,
-`createHistoricDecisionInstanceQuery()` and
-`createHistoricBatchQuery()`
+`createHistoricDecisionInstanceQuery()`,
+`createHistoricBatchQuery()` and `createHistoricIdentityLinkQuery()`
 which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the javadocs, in the `org.camunda.bpm.engine.history` package.
@@ -269,6 +271,15 @@ historyService.createHistoricBatchQuery()
   .type(Batch.TYPE_PROCESS_INSTANCE_MIGRATION)
   .orderById().desc()
   .list();
+```
+**HistoricIdentityLinkQuery**
+
+Query for all identity links that is related to the user "demo".
+
+```java
+historyService.createHistoricIdentityLinkQuery()
+  .userId("demo")
+  .list(); 
 ```
 
 ## Partially Sorting History Events by Their Occurrence
