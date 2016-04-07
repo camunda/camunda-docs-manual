@@ -207,7 +207,7 @@ ProcessInstance
     ship order
 ```
 
-Note: A multi-instance activity consists of a multi-instance body and an inner activity. The multi-instance body is a scope around the inner activity and collect the activity instances of the inner activity.
+Note: a multi-instance activity consists of a multi-instance body and an inner activity. The multi-instance body is a scope around the inner activity and collects the activity instances of the inner activity.
 
 * User Task inside an embedded subprocess:
 
@@ -231,7 +231,7 @@ ProcessInstance
 
 ## Retrieve an Activity Instance
 
-Currently activity instances can only be retrieved for a process instance:
+Currently, activity instances can only be retrieved for a process instance:
 
 ```java
 ActivityInstance rootActivityInstance = runtimeService.getActivityInstance(processInstance.getProcessInstanceId());

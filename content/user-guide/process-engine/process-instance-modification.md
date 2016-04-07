@@ -546,6 +546,6 @@ Process instance modification is a very powerful tool and allows to start and ca
 
 <div data-bpmn-diagram="../bpmn/example5"></div>
 
-Assume that activity *Decline Loan Approval* is active. With modification, the activity *Assess Credit Worthiness* can be started. After that activity is completed, execution gets stuck at the joining parallel gateway because there will never arrive a token at the other incoming sequence flow such that the parallel gateway is activated. This is one of the most obvious situations where the process instance cannot continue execution and there are certainly many others, depending on the concrete process model.
+Assume that activity *Decline Loan Approval* is active. With modification, the activity *Assess Credit Worthiness* can be started. After that activity is completed, execution gets stuck at the joining parallel gateway because no token will ever arrive at the other incoming sequence flow such that the parallel gateway is activated. This is one of the most obvious situations where the process instance cannot continue execution and there are certainly many others, depending on the concrete process model.
 
 The process engine is **not** able to detect modifications that create such situations. It is up to the user of this API to make modifications that do not leave the process instance in an undesired state. However, process instance modification is also the tool to repair these situations :-)

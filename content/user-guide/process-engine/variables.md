@@ -100,7 +100,7 @@ Depending on the actual value of a variable, a different type is assigned. Out o
 
 Primitive values differ from other variable values in that they can be used in API queries such as process instance queries as filtering conditions.
 
-The type `file` can be used to store the contents of a file or input stream along with metadata such as a file name, an encoding, and the mime type the file contents correspond to.
+The type `file` can be used to store the contents of a file or input stream along with metadata such as a file name, an encoding, and the MIME type the file contents correspond to.
 
 The value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
 
@@ -128,11 +128,11 @@ execution.setVariable("someVariable", customerDataValue);
  On top of that, the process engine configuration has an option `defaultSerializationFormat` that is used when no specific format is requested. This option defaults to `application/x-java-serialized-object`.
 
 {{< note title="Using Custom Objects in Task Forms" class="info" >}}
-  Note that the built-in serializer converts objects to byte streams that can only be interpreted with the Java class at hand. When implementing task forms that are based on complex objects, a text-based serialization format should be used since the tasklist cannot interpret these byte streams. See the box *Serializing Objects to XML and JSON* for details on how to integrate serialization formats like XML and JSON.
+  Note that the built-in serializer converts objects to byte streams that can only be interpreted with the Java class at hand. When implementing task forms that are based on complex objects, a text-based serialization format should be used since Tasklist cannot interpret these byte streams. See the box *Serializing Objects to XML and JSON* for details on how to integrate serialization formats like XML and JSON.
 {{< /note >}}
 
 {{< note title="Serializing Objects to XML and JSON" class="info" >}}
-  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class.When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
+  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class. When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
 {{< /note >}}
 
 

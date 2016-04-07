@@ -11,7 +11,7 @@ menu:
 ---
 
 
-You have a number of options to configure and create a process engine depending on whether you use a application managed or a shared, container managed process engine.
+You have a number of options to configure and create a process engine depending on whether you use an application managed or a shared, container managed process engine.
 
 
 # Application Managed Process Engine
@@ -32,10 +32,14 @@ A container of your choice (e.g., Tomcat, JBoss, GlassFish or IBM WebSphere) man
 
 The Camunda engine uses the {{< javadocref page="?org/camunda/bpm/engine/ProcessEngineConfiguration.html" text="ProcessEngineConfiguration bean" >}} to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the process engine configuration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class that matches (most of) your environment to minimize the number of properties needed to configure the engine. The following classes are currently available:
 
-* `org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration` The process engine is used in a standalone way. The engine itself will take care of the transactions. By default the database will only be checked when the engine boots (an exception is thrown if there is no database schema or the schema version is incorrect).
-* `org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration` This is a convenience class for unit testing purposes. The engine itself will take care of the transactions. An H2 in-memory database is used by default. The database will be created and dropped when the engine boots and shuts down. When using this, probably no additional configuration is needed (except, for example, when using the job executor or mail capabilities).
-* `org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration` To be used when the process engine is used in a Spring environment. See the Spring integration section for more information.
-* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration` To be used when the engine runs in standalone mode, with JTA transactions.
+* `org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`  
+The process engine is used in a standalone way. The engine itself will take care of the transactions. By default the database will only be checked when the engine boots (an exception is thrown if there is no database schema or the schema version is incorrect).
+* `org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration`  
+This is a convenience class for unit testing purposes. The engine itself will take care of the transactions. An H2 in-memory database is used by default. The database will be created and dropped when the engine boots and shuts down. When using this, probably no additional configuration is needed (except, for example, when using the job executor or mail capabilities).
+* `org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration`  
+To be used when the process engine is used in a Spring environment. See the Spring integration section for more information.
+* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration`  
+To be used when the engine runs in standalone mode, with JTA transactions.
 
 
 ## Bootstrap a Process Engine Using the Java API
@@ -66,13 +70,13 @@ The easiest way to configure your Process Engine is through an XML file called `
 ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine()
 ```
 
-The `camunda.cfg.xml` must contain a bean that has the id `processEngineConfiguration`, select the best fitting `ProcessEngineConfiguration` class suiting your needs:
+The `camunda.cfg.xml` must contain a bean that has the id `processEngineConfiguration`, select the `ProcessEngineConfiguration` class best suited to your needs:
 
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
 ```
 
-This will look for an `camunda.cfg.xml` file on the classpath and construct an engine based on the configuration in that file. The following snippet shows an example configuration:
+This will look for a `camunda.cfg.xml` file on the classpath and construct an engine based on the configuration in that file. The following snippet shows an example configuration:
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -155,11 +159,11 @@ The `<process-engine ... />` xml tag allows you to define a process engine:
 </bpm-platform>
 ```
 
-See [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
+See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
 
 
 ## Configure Process Engine in the processes.xml
 
 The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
 
-See [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.
+See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.

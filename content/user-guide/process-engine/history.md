@@ -58,7 +58,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration
   .buildProcessEngine();
 ```
 
-Or it can be set using Spring Xml or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
+Or it can be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
 
 ```xml
 <property name="history">audit</property>
