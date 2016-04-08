@@ -172,6 +172,11 @@ Its properties are as follows:
     <td>Boolean</td>
     <td>If true, this case activity instance is terminated.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case activity instance.</td>
+  </tr>
 </table>
 
 
@@ -229,6 +234,7 @@ GET `/history/case-activity-instance/aCaseActivityInstId`
   "terminated": false,
   "required": false,
   "repeatable": true,
-  "repetition": false
+  "repetition": false,
+  "tenantId": null
 }
 ```

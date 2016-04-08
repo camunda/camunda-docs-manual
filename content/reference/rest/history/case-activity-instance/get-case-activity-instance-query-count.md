@@ -117,6 +117,10 @@ GET `/history/case-activity-instance/count`
     <td>terminated</td>
     <td>Only include terminated case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
+  </tr>
 </table>
 
 

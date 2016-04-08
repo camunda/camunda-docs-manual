@@ -117,9 +117,13 @@ GET `/history/case-activity-instance`
     <td>Only include terminated case activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case activity instance must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>caseActivityInstanceID</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>, <code>caseActivityId</code>, <code>caseActivityName</code>, <code>createTime</code>, <code>endTime</code>, <code>duration</code>, <code>caseDefinitionId</code>.
+    <code>caseActivityInstanceID</code>, <code>caseInstanceId</code>, <code>caseExecutionId</code>, <code>caseActivityId</code>, <code>caseActivityName</code>, <code>createTime</code>, <code>endTime</code>, <code>duration</code>, <code>caseDefinitionId</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -264,6 +268,11 @@ Each historic activity instance object has the following properties:
     <td>Boolean</td>
     <td>If true, this case activity instance is terminated.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case activity instance.</td>
+  </tr>
 </table>
 
 
@@ -320,7 +329,8 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "terminated": false,
     "required": false,
     "repeatable": true,
-    "repetition": false
+    "repetition": false,
+    "tenantId": null
   }
 ]
 ```
