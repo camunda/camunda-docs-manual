@@ -15,8 +15,8 @@ menu:
 
 The System Settings menu gives you some general information about the process engine and allows you to access the *Execution Metrics* and, provided that you are using the Enterprise Edition of the Camunda BPM platform, you can insert your *License Key*
 
-{{< note title="Accessing the System Settings menu" class="info" >}} 
-The System Settings menu are only usable by users which are granted with *All* permission for authorizations.
+{{< note title="Accessing the System Settings menu" class="info" >}}
+The System Settings menu is only usable by users which are granted with *All* permission for authorizations.
 {{< /note >}}
 
 # Execution Metrics
