@@ -16,11 +16,13 @@ This section explains how to write Unit tests and Integration Tests with Camunda
 
 # Unit Tests
 
-Camunda supports both JUnit versions 3 and 4 styles of unit testing. In the JUnit 3 style, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the setup() of the test, the processEngine will be initialized by default with the camunda.cfg.xml resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
+Camunda supports both JUnit versions 3 and 4 styles of unit testing.
 
-By extending ProcessEngineTestCase, you can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly. Method-level annotations override class-level annotations. See the Javadocs for more details.
+## JUnit 3
 
-Taking all that into account, a JUnit 3 style test can look as follows:
+In the JUnit 3 style, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the `setup()` of the test, the processEngine will be initialized by default with the `camunda.cfg.xml` resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
+
+A JUnit 3 style test can look as follows:
 
 ```java
 public class MyBusinessProcessTest extends ProcessEngineTestCase {
@@ -38,7 +40,9 @@ public class MyBusinessProcessTest extends ProcessEngineTestCase {
 }
 ```
 
-To get the same functionality when using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} Rule must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this Rule will enable the use of the Deployment annotation (see above for an explanation of its use and configuration) and it will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
+## JUnit 4
+
+Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} Rule must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this Rule will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
 
 The following code snippet shows an example of using the JUnit 4 style of testing and the usage of the ProcessEngineRule.
 
@@ -68,6 +72,43 @@ public class MyBusinessProcessTest {
   Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
 {{< /note >}}
 
+## Deploy Test Resources
+
+You can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly. Method-level annotations override class-level annotations. See the Javadocs for more details.
+
+The Annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing.
+
+## Specify the required History Level
+
+If a test requires a specific history level (e.g. because it uses the HistoryService) then you can annotate the test class or method with {{< javadocref page="?org/camunda/bpm/engine/test/RequiredHistoryLevel.html" text="@RequiredHistoryLevel" >}} and specify the required history level (e.g. "activity", "full"). Before the test is run, it checks the current history level of the process engine and skip the test if the history level is lower than the specified one.  
+
+A JUnit 4 style test can look as follows:
+
+```java
+public class MyBusinessProcessTest {
+
+  @Rule
+  public ProcessEngineRule processEngineRule = new ProcessEngineRule();
+
+  @Test
+  @Deployment
+  @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_ACTIVITY)
+  public void ruleUsageExample() {
+    RuntimeService runtimeService = processEngineRule.getRuntimeService();
+    runtimeService.startProcessInstanceByKey("ruleUsage");
+
+    HistoryService historyService = processEngineRule.getHistoryService();
+    // requires history level >= "activity"
+    HistoricVariableInstance variable = historyService
+      .createHistoricVariableInstanceQuery()
+      .singleResult();
+      
+    assertEquals("value", variable.getValue());
+  }
+}
+```
+
+The Annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.  
 
 ## Debug Unit Tests
 
