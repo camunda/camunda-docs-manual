@@ -39,6 +39,10 @@ A JSON object with the following properties:
     <td><b>Mandatory.</b> The maximum number of tasks to return.</td>
   </tr>
   <tr>
+	<td>usePriority</td>
+	<td>A boolean value, which indicates whether the task should be fetched regarding on there priority or arbitrary.</td>
+  </tr>
+  <tr>
     <td>topics</td>
     <td>
       <p>
@@ -139,6 +143,11 @@ Each locked external task object has the following properties:
     <td>The id of the worker that posesses or posessed the most recent lock.</td>
   </tr>
   <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The priority if the external task.</td>
+  </tr>
+  <tr>
     <td>topicName</td>
     <td>String</td>
     <td>The external task's topic name.</td>
@@ -186,6 +195,7 @@ Request Body:
     {
       "workerId":"aWorkerId",
       "maxTasks":2,
+	  "usePriority":true,
       "topics":
           [{"topicName": "createOrder",
           "lockDuration": 10000,
@@ -210,6 +220,7 @@ Status 200.
       "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
+	  "priority": 4,
       "topicName": "createOrder",
       "variables": {
         "orderId": {
@@ -232,6 +243,7 @@ Status 200.
       "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
+	  "priority": 0,
       "topicName": "createOrder",
       "variables": {
         "orderId": {

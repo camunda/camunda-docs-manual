@@ -143,6 +143,25 @@ for (LockedExternalTask task : tasks) {
 
 The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
+To fetch external tasks regarding on there priority the overloaded method `ExternalTaskService#fetchAndLock` with the parameter `usePriority` can be used.
+The method without the boolean parameter returns arbitary the external tasks. If the parameter is given the returned external tasks are ordered descending.
+See the following example which regards the priority of the external tasks:
+
+```java
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId", true)
+  .topic("AddressValidation", 60L * 1000L)
+  .topic("ShipmentScheduling", 120L * 1000L)
+  .execute();
+
+for (LockedExternalTask task : tasks) {
+  String topic = task.getTopic();
+
+  // work on task for that topic
+  ...
+}
+```
+
+
 ### Completing Tasks
 
 After fetching and performing the requested work, a worker can complete an external task by calling the `ExternalTaskService#complete` method. A worker can only complete tasks that it fetched and locked before. If the task has been locked by a different worker in the meantime, an exception is raised.
@@ -206,4 +225,6 @@ A query for external tasks can be made via `ExternalTaskService#createExternalTa
 
 ### Managing Operations
 
-Additional management operations are `ExternalTaskService#unlock` and `ExternalTaskService#setRetries` to clear the current lock and to reset the retries of an external task. The latter is useful when a task has 0 retries left and must be manually resumed.
+Additional management operations are `ExternalTaskService#unlock`, `ExternalTaskService#setRetries` and `ExternalTaskService#setPriority` to clear the current lock, to reset the retries and to set the priority of an external task. 
+Resetting the retries is useful when a task has 0 retries left and must be manually resumed. With the last method the priority can 
+be set to a higher value for more important or to a lower value for less important external tasks.

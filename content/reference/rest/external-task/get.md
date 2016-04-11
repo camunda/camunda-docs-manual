@@ -114,6 +114,11 @@ Its properties are as follows:
     <td>The id of the worker that posesses or posessed the most recent lock.</td>
   </tr>
   <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The priority if the external task.</td>
+  </tr>
+  <tr>
     <td>topicName</td>
     <td>String</td>
     <td>The external task's topic name.</td>
@@ -163,5 +168,6 @@ GET `/external-task/anExternalTaskId`
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
+	  "priority":0,
       "topicName": "aTopic"
     }
