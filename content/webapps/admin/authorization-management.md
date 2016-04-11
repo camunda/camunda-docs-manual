@@ -15,8 +15,8 @@ menu:
 
 Manage authorizations for a variety of resources (e.g., *Applications*, *Groups*, *Filters*). In the following sections you will learn how to use an administrator account with the help of some simple use cases.
 
-{{< note title="Accessing the Authorization Management menu" class="info" >}} 
-the Authorization Management menu is only usable by users which are granted with *All* permission for authorizations.
+{{< note title="Accessing the Authorization Management menu" class="info" >}}
+The Authorization Management menu is only usable by users which are granted with *All* permission for authorizations.
 {{< /note >}}
 
 # Grant Basic Permissions
