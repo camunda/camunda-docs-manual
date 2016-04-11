@@ -8,7 +8,7 @@ menu:
     name: Get
     identifier: "rest-api-task-get-local-variable"
     parent: "rest-api-task-local-variables"
-    pre: "GET `/task/{id}/localVariables/{varId}`"
+    pre: "GET `/task/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable from the context of a given task.
 
 # Method
 
-GET `/task/{id}/localVariables/{varId}`
+GET `/task/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/task/{id}/localVariables/{varId}`
     <td>The id of the task to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

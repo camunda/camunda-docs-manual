@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-case-execution-delete-single-variable"
     parent: "rest-api-case-execution-variables"
-    pre: "DELETE `/case-execution/{id}/variables/{varId}`"
+    pre: "DELETE `/case-execution/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Deletes a variable of a given case execution.
 
 # Method
 
-DELETE `/case-execution/{id}/variables/{varId}`
+DELETE `/case-execution/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/case-execution/{id}/variables/{varId}`
     <td>The id of the case execution to delete the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to delete.</td>
   </tr>
 </table>

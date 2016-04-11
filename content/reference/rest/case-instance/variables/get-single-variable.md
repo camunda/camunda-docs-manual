@@ -8,7 +8,7 @@ menu:
     name: "Get"
     identifier: "rest-api-case-instance-get-single-variable"
     parent: "rest-api-case-instance-variables"
-    pre: "GET `/case-instance/{id}/variables/{varId}`"
+    pre: "GET `/case-instance/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable of a given case instance.
 
 # Method
 
-GET `/case-instance/{id}/variables/{varId}`
+GET `/case-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/case-instance/{id}/variables/{varId}`
     <td>The id of the case instance to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

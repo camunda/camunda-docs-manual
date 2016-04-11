@@ -8,7 +8,7 @@ menu:
     name: "Post (Binary)"
     identifier: "rest-api-task-post-local-variable-binary"
     parent: "rest-api-task-local-variables"
-    pre: "POST `/task/{id}/localVariables/{varId}/data`"
+    pre: "POST `/task/{id}/localVariables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/task/{id}/localVariables/{varId}/data`
+POST `/task/{id}/localVariables/{varName}/data`
 
 
 # Parameters
@@ -33,7 +33,7 @@ POST `/task/{id}/localVariables/{varId}/data`
     <td>The id of the task to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

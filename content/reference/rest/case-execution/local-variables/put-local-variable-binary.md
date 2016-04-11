@@ -8,7 +8,7 @@ menu:
     name: "Update (Binary)"
     identifier: "rest-api-case-execution-put-local-varibale-binary"
     parent: "rest-api-case-execution-local-variables"
-    pre: "POST `/case-execution/{id}/localVariables/{varId}/data`"
+    pre: "POST `/case-execution/{id}/localVariables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/case-execution/{id}/localVariables/{varId}/data`
+POST `/case-execution/{id}/localVariables/{varName}/data`
 
 # Parameters
 
@@ -32,7 +32,7 @@ POST `/case-execution/{id}/localVariables/{varId}/data`
     <td>The id of the case execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

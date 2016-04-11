@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-process-instance-delete-variable"
     parent: "rest-api-process-instance-variables"
-    pre: "DELETE `/process-instance/{id}/variables/{varId}`"
+    pre: "DELETE `/process-instance/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Deletes a variable of a given process instance.
 
 # Method
 
-DELETE `/process-instance/{id}/variables/{varId}`
+DELETE `/process-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/process-instance/{id}/variables/{varId}`
     <td>The id of the process instance to delete the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to delete.</td>
   </tr>
 </table>

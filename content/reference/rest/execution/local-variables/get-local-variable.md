@@ -8,7 +8,7 @@ menu:
     name: "Get"
     identifier: "rest-api-execution-get-local-variable"
     parent: "rest-api-execution-local-variables"
-    pre: "GET `/execution/{id}/localVariables/{varId}`"
+    pre: "GET `/execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable from the context of a given execution. Does not traverse th
 
 # Method
 
-GET `/execution/{id}/localVariables/{varId}`
+GET `/execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/execution/{id}/localVariables/{varId}`
     <td>The id of the execution to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

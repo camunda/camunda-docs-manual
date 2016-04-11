@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-case-execution-put-single-variable"
     parent: "rest-api-case-execution-variables"
-    pre: "PUT `/case-execution/{id}/variables/{varId}`"
+    pre: "PUT `/case-execution/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable of a given case execution.
 
 # Method
 
-PUT `/case-execution/{id}/variables/{varId}`
+PUT `/case-execution/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/case-execution/{id}/variables/{varId}`
     <td>The id of the case execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

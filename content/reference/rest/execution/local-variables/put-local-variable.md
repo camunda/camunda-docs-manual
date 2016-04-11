@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-execution-put-local-variable"
     parent: "rest-api-execution-local-variables"
-    pre: "PUT `/execution/{id}/localVariables/{varId}`"
+    pre: "PUT `/execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable in the context of a given execution. Update does not propagate u
 
 # Method
 
-PUT `/execution/{id}/localVariables/{varId}`
+PUT `/execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/execution/{id}/localVariables/{varId}`
     <td>The id of the execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

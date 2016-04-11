@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-execution-get-local-variable-binary"
     parent: "rest-api-execution-local-variables"
-    pre: "GET `/execution/{id}/localVariables/{varId}/data`"
+    pre: "GET `/execution/{id}/localVariables/{varName}/data`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a binary variable from the context of a given execution. Does not trav
 
 # Method
 
-GET `/execution/{id}/localVariables/{varId}/data`
+GET `/execution/{id}/localVariables/{varName}/data`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/execution/{id}/localVariables/{varId}/data`
     <td>The id of the execution to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-process-instance-put-variable"
     parent: "rest-api-process-instance-variables"
-    pre: "PUT `/process-instance/{id}/variables/{varId}`"
+    pre: "PUT `/process-instance/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable of a given process instance.
 
 # Method
 
-PUT `/process-instance/{id}/variables/{varId}`
+PUT `/process-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/process-instance/{id}/variables/{varId}`
     <td>The id of the process instance to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>
