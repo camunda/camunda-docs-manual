@@ -4,10 +4,9 @@
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:userTask id="UserTask_1" name="User Task MI (parallel)">
-      <!-- bpmn rendering library does not accept bpmn2 namespace for multiInstanceLoopCharacteristics -->
-      <multiInstanceLoopCharacteristics isSequential="false">
-      </multiInstanceLoopCharacteristics>
+    <bpmn2:userTask id="UserTask_1" name="Contact Customer">
+      <bpmn2:multiInstanceLoopCharacteristics isSequential="false">
+      </bpmn2:multiInstanceLoopCharacteristics>
     </bpmn2:userTask>
     <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="UserTask_1"/>
     <bpmn2:endEvent id="EndEvent_1">
