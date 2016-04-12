@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Report a business error from a running external task to the process engine. The error code must be specified to identify the BPMN error handler.
+Report a business error in the context of a running external task. The error code must be specified to identify the BPMN error handler.
 
 # Method
 
@@ -31,7 +31,7 @@ POST `/external-task/{id}/bpmnError`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the external task that reports a BPMN error.</td>
+    <td>The id of the external task in which context a BPMN error is reported.</td>
   </tr>
 </table>
 
