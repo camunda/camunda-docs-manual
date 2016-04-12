@@ -1,11 +1,11 @@
 ---
 
-title: 'Handle External Task Bpmn Error'
+title: 'Handle External Task BPMN Error'
 weight: 80
 
 menu:
   main:
-    name: "Handle Bpmn Error"
+    name: "Handle BPMN Error"
     identifier: "rest-api-external-task-post-bpmn-error"
     parent: "rest-api-external-task"
     pre: "POST `/external-task/{id}/bpmnError`"
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Report a business error to a running external task. The error code must be specified to identify the error boundary event.
+Report a business error from a running external task to the process engine. The error code must be specified to identify the BPMN error handler.
 
 # Method
 
@@ -31,7 +31,7 @@ POST `/external-task/{id}/bpmnError`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the external task to report a bpmn error.</td>
+    <td>The id of the external task that reports a BPMN error.</td>
   </tr>
 </table>
 
@@ -50,7 +50,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>errorCode</td>
-    <td>A error code that indicates the predefined error. Is used to identify an error boundary event.</td>
+    <td>A error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
   </tr>
 </table>
 
@@ -81,7 +81,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g. due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>

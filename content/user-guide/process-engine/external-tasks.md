@@ -195,10 +195,10 @@ A failure is reported for the locked task such that it can be retried once more 
 
 See the documentation for [Error Boundary Events]({{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
-For some reason a business error can appear at the execution. In this case the worker can report a bpmn error to the process engine by using `ExternalTaskService#handleBpmnError`. 
-Like `#complete` or `#handleFailure` it can only be invoked by the worker possessing the most recent lock for a task. 
+For some reason a business error can appear during execution. In this case, the worker can report a BPMN error to the process engine by using `ExternalTaskService#handleBpmnError`. 
+Like `#complete` or `#handleFailure`, it can only be invoked by the worker possessing the most recent lock for a task. 
 The `#handleBpmnError` method takes one additional argument: `errorCode`. 
-The error code identifies an error which was defined before. If the given `errorCode` does not exist or there is no boundary event defined,
+The error code identifies a predefined error. If the given `errorCode` does not exist or there is no boundary event defined,
 the current activity instance simply ends and the error is not handled.
 
 See the following example:
@@ -218,11 +218,11 @@ externalTaskService.handleBpmnError(
   "bpmn-error"); //errorCode
 ```
 
-A bpmn error with the error code `bpmn-error` is propagated. If there exists a boundary event with this error code the bpmn error will be catched and handled.
+A BPMN error with the error code `bpmn-error` is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
 
 ### Querying Tasks
 
-A query for external tasks can be made via `ExternalTaskService#createExternalTaskQuery`. Opposed to `#fetchAndLock`, this is a reading query that does not set any locks.
+A query for external tasks can be made via `ExternalTaskService#createExternalTaskQuery`. Contrary to `#fetchAndLock`, this is a reading query that does not set any locks.
 
 ### Managing Operations
 
