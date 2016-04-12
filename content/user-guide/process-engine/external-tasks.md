@@ -143,6 +143,88 @@ for (LockedExternalTask task : tasks) {
 
 The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
+
+### External Task Prioritization
+The external task prioritization is similar to the job prioritization. There exists the same problem with starvation which should be considered. 
+See for further details [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
+
+### Configure the Process Engine for External Task Priorities
+
+This section explains how to enable and disable external task priorities in the configuration. There are two relevant configuration properties which can be set on the process engine configuration:
+
+`producePrioritizedExternalTasks`: Controls whether the process engine assigns priorities to external tasks. The default value is `true`.
+If priorities are not needed, the process engine configuration property `producePrioritizedExternalTasks` can be set to `false`. In this case, all external tasks receive a priority of 0.
+For details on how to specify external task priorities and how the process engine assigns them, see the following section on [Specifying External Task Priorities]({{< relref "#specify-external-task-priorities" >}}).
+
+### Specify External Task Priorities
+
+External task priorities can be specified in the BPMN model as well as overridden at runtime via API.
+
+#### Priorities in BPMN XML
+
+External task priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:taskPriority` can be used.
+
+For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. 
+When using a constant value, the same priority is assigned to all instances of the process or activity. 
+Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
+The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
+
+
+#### Priorities at the Process Level
+
+When configuring external task priorities at the process instance level, the `camunda:taskPriority` attribute needs to be applied to the bpmn `<process ...>` element:
+
+```xml
+<bpmn:process id="Process_1" isExecutable="true" camunda:taskPriority="8">
+  ...
+</bpmn:process>
+```
+
+The effect is that all external tasks inside the process inherit the same priority (unless it is overridden locally).
+The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process. 
+If different process instances need to be executed with different priorities, an expression can be used:
+
+```xml
+<bpmn:process id="Process_1" isExecutable="true" camunda:taskPriority="${order.priority}">
+  ...
+</bpmn:process>
+```
+
+In the above example the priority is determined based on the property `priority` of the variable `order`.
+
+#### Priorities at the Service Task Level
+
+When configuring external task priorities at the service task level, the `camunda:taskPriority` attribute needs to be applied to the bpmn `<serviceTask ...>` element.
+The service task must be an external task with the attribute `camunda:type="external"`.
+
+```xml
+  ...
+  <serviceTask id="externalTaskWithPrio" 
+               camunda:type="external" 
+			   camunda:topic="externalTaskTopic" 
+			   camunda:taskPriority="8"/>
+  ...
+```
+
+The effect is that the priority is set to the defined external task (overrides the process taskPriority).
+The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to the external task in different instances of the process.
+If different process instances need to be executed with different external task priorities, an expression can be used:
+
+```xml
+  ...
+  <serviceTask id="externalTaskWithPrio" 
+               camunda:type="external" 
+			   camunda:topic="externalTaskTopic" 
+			   camunda:taskPriority="${order.priority}"/>
+  ...
+```
+
+In the above example the priority is determined based on the property `priority` of the variable `order`.
+
+
+
+### Fetch External Task with Priority
+
 To fetch external tasks regarding on there priority the overloaded method `ExternalTaskService#fetchAndLock` with the parameter `usePriority` can be used.
 The method without the boolean parameter returns arbitary the external tasks. If the parameter is given the returned external tasks are ordered descending.
 See the following example which regards the priority of the external tasks:

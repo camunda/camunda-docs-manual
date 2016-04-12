@@ -78,7 +78,7 @@ This method returns no content.
 
 ## Request
 
-PUT `external-taskanIdpriority`
+PUT `/external-task/{anId}/priority`
 
 Request Body:
 

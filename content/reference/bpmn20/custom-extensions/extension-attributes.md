@@ -1161,6 +1161,38 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# taskPriority
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the initial priority of a <a href="{{< relref "reference/bpmn20/tasks/service-task.md#external-tasks" >}}">External Task</a> when it is created.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td>A number in the range of a Java <code>long</code> value or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      An expression must resolve to a valid Java <code>long</code> value.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>0</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+      Process
+    </td>
+  </tr>
+</table>
+
 # resource
 
 <table class="table table-striped">
