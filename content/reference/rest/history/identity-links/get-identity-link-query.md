@@ -32,12 +32,8 @@ GET `/history/identity-links`
     <th>Description</th>
   </tr>
   <tr>
-    <td>identityLinkId</td>
-    <td>Restricts to identity links that has the given id.</td>
-  </tr>
-  <tr>
-    <td>identityLinkType</td>
-    <td>Restricts to identity links that have the given type.</td>
+    <td>type</td>
+    <td>Restricts to identity links that have the given type (candidate/assignee/owner).</td>
   </tr>
   <tr>
     <td>userId</td>
@@ -60,7 +56,7 @@ GET `/history/identity-links`
     <td>Restricts to identity links that have the given task id.</td>
   </tr>
   <tr>
-    <td>processDefId</td>
+    <td>processDefinitionId</td>
     <td>Restricts to identity links that have the given process definition id.</td>
   </tr>
   <tr>
@@ -74,7 +70,7 @@ GET `/history/identity-links`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>identityLinkId</code>, <code>identityLinkType</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefId</code>, <code>operationType</code>, <code>assignerId</code>.
+    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>operationType</code>, <code>assignerId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -97,7 +93,7 @@ Each historic identity link object has the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>identityLinkId</td>
+    <td>id</td>
     <td>String</td>
     <td>Id of the Historic identity link entry.</td>
   </tr>
@@ -107,7 +103,7 @@ Each historic identity link object has the following properties:
     <td>The time when the identity link is logged. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
   </tr>
    <tr>
-    <td>identityLinkType</td>
+    <td>type</td>
     <td>String</td>
     <td>The type of identity link (candidate/assignee/owner).</td>
   </tr>
@@ -127,7 +123,7 @@ Each historic identity link object has the following properties:
     <td>The id of the task.</td>
   </tr>
   <tr>
-    <td>processDefId</td>
+    <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition.</td>
   </tr>
@@ -176,24 +172,24 @@ GET <code>/history/identity-links?taskId=aTaskId</code>
 
     [
       {
-	    "identityLinkId": null,
+	    "id": "1",
         "time": "2014-03-01T08:00:00",
-        "identityLinkType": "candidate",
+        "type": "candidate",
         "userId": "aUserId",
         "groupId": "aGroupId",
         "taskId": "aTaskId",
-		"processDefId": null,
+		"processDefinitionId": null,
         "operationType": "add",
         "assignerId": "aAssignerId"
       },
       {
-	    "identityLinkId": null,
+	    "id": "2",
         "time": "2014-03-05T10:00:00",
-        "identityLinkType": "candidate",
+        "type": "candidate",
         "userId": "aUserId",
         "groupId": "aGroupId",
         "taskId": "aTaskId",
-		"processDefId": null,
+		"processDefinitionId": null,
         "operationType": "delete",
         "assignerId": "aAssignerId"
       }

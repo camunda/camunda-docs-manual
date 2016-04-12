@@ -203,6 +203,22 @@ GET `/history/task/count`
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+   <tr>
+    <td>taskInvolvedUser</td>
+    <td>Restrict on the historic identity links of any type of user.</td>
+  </tr>
+  <tr>
+    <td>taskInvolvedGroup</td>
+    <td>Restrict on the historic identity links of any type of group.</td>
+  </tr>
+  <tr>
+    <td>taskHadCandidateUser</td>
+    <td>Restrict on the historic identity links of type candidate user.</td>
+  </tr>
+  <tr>
+    <td>taskHadCandidateGroup</td>
+    <td>Restrict on the historic identity links of type candidate group.</td>
+  </tr>
 </table>
 
 

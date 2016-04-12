@@ -31,12 +31,8 @@ GET `/history/identity-links/count`
     <th>Description</th>
   </tr>
   <tr>
-    <td>identityLinkId</td>
-    <td>Restricts to identity link that has the given id.</td>
-  </tr>
-  <tr>
-    <td>identityLinkType</td>
-    <td>Restricts to identity links that have the given type.</td>
+    <td>type</td>
+    <td>Restricts to identity links that have the given type(candidate/assignee/owner).</td>
   </tr>
   <tr>
     <td>userId</td>
@@ -59,7 +55,7 @@ GET `/history/identity-links/count`
     <td>Restricts to identity links that have the given task id.</td>
   </tr>
   <tr>
-    <td>processDefId</td>
+    <td>processDefinitionId</td>
     <td>Restricts to identity links that have the given process definition id.</td>
   </tr>
   <tr>
@@ -73,7 +69,7 @@ GET `/history/identity-links/count`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>identityLinkId</code>, <code>identityLinkType</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefId</code>, <code>operationType</code>, <code>assignerId</code>.
+    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>operationType</code>, <code>assignerId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
