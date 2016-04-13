@@ -116,7 +116,7 @@ Its properties are as follows:
   <tr>
     <td>priority</td>
     <td>Number</td>
-    <td>The priority if the external task.</td>
+    <td>The priority of the external task.</td>
   </tr>
   <tr>
     <td>topicName</td>

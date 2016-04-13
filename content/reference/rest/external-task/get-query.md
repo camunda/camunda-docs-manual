@@ -93,13 +93,21 @@ GET `/external-task`
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
+    <td>priorityHigherThanOrEquals</td>
+    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
+  </tr>
+  <tr>
+    <td>priorityLowerThanOrEquals</td>
+    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
+  </tr>
+  <tr>
     <td>suspended</td>
     <td>Only include suspended tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code> and <code>tenantId</code>.
+    <code>id</code>, <code>lockExpirationTime</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>tenantId</code> and <code>taskPriority</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -199,6 +207,11 @@ Each external task object has the following properties:
     <td>String</td>
     <td>The external task's topic name.</td>
   </tr>
+  <tr>
+    <td>priority</td>
+    <td>Number</td>
+    <td>The priority of the external task.</td>
+  </tr>  
 </table>
 
 # Response Codes
@@ -246,7 +259,8 @@ Status 200.
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
-      "topicName": "aTopic"
+      "topicName": "aTopic",
+	  "priority": 9
     },
     {
       "activityId": "anotherActivityId",
@@ -262,5 +276,6 @@ Status 200.
       "retries": 1,
       "suspended": false,
       "workerId": "aWorkerId",
-      "topicName": "aTopic"
+      "topicName": "aTopic",
+	  "priority": 3
     }]

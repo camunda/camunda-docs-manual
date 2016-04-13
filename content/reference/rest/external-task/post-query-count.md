@@ -96,6 +96,14 @@ A JSON object with the following properties:
     <td>suspended</td>
     <td>Only include suspended tasks. Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
+  <tr>
+    <td>priorityHigherThanOrEquals</td>
+    <td>Only include jobs with a priority higher than or equal to the given value. Value must be a valid <code>long</code> value.</td>
+  </tr>
+  <tr>
+    <td>priorityLowerThanOrEquals</td>
+    <td>Only include jobs with a priority lower than or equal to the given value. Value must be a valid <code>long</code> value.</td>
+  </tr>
 </table>
 
 
