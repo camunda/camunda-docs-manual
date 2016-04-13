@@ -220,6 +220,24 @@ Using the [processes.xml]({{< relref "user-guide/process-applications/the-proces
 </process-application>
 ```
 
+Using the [Automatic Resource Deployment]({{< relref "user-guide/spring-framework-integration/deployment.md" >}}) of the Spring Framework Integration:
+
+```xml
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration">
+    <property name="deploymentResources">
+      <array>
+        <value>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.cmmn</value>
+        <value>classpath*:/org/camunda/bpm/engine/spring/test/autodeployment/autodeploy.*.bpmn20.xml</value>
+      </array>
+    </property>
+    <property name="deploymentTenantId" value="tenant1" />
+  </bean>
+
+  <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
+    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+  </bean>
+```
+
 ### Versioning
 
 Each tenant has his own definitions (e.g. process definitions) which have versions independent from other tenants. For example, if a new process definition is deployed for two tenants then both definitions get the version `1`. The versioning within one tenant works like the [versioning for non multi-tenancy]({{< relref "user-guide/process-engine/process-versioning.md" >}}).
