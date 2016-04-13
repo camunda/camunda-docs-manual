@@ -4,22 +4,22 @@
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:userTask id="UserTask_1" name="Contact Customer">
+    <bpmn2:userTask id="contactCustomer" name="Contact Customer">
       <bpmn2:multiInstanceLoopCharacteristics isSequential="false">
       </bpmn2:multiInstanceLoopCharacteristics>
     </bpmn2:userTask>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="UserTask_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="contactCustomer"/>
     <bpmn2:endEvent id="EndEvent_1">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="UserTask_1" targetRef="EndEvent_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="contactCustomer" targetRef="EndEvent_1"/>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_41" bpmnElement="StartEvent_1">
         <dc:Bounds height="36.0" width="36.0" x="58.0" y="89.0"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_UserTask_4" bpmnElement="UserTask_1">
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_4" bpmnElement="contactCustomer">
         <dc:Bounds height="80.0" width="100.0" x="144.0" y="67.0"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_41" targetElement="_BPMNShape_UserTask_4">
