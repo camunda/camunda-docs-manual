@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity-Link"
+title: "Get Identity-Links-Log"
 weight: 10
 
 menu:
@@ -13,13 +13,13 @@ menu:
 ---
 
 
-Query for historic identity link that fulfill given parameters.
-The size of the result set can be retrieved by using the [get identity-links count]({{< relref "reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
+Query for historic identity link logs that fulfill given parameters.
+The size of the result set can be retrieved by using the [get identity-links-log count]({{< relref "reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
 
 
 # Method
 
-GET `/history/identity-links`
+GET `/history/identity-links-log`
 
 
 # Parameters
@@ -83,8 +83,8 @@ GET `/history/identity-links`
 
 # Result
 
-A JSON array of historic identity link objects.
-Each historic identity link object has the following properties:
+A JSON array of historic identity link log objects.
+Each historic identity link log object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -166,7 +166,7 @@ Each historic identity link object has the following properties:
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/history/identity-links?taskId=aTaskId</code>
+GET <code>/history/identity-links-log?taskId=aTaskId</code>
 
 ## Response
 

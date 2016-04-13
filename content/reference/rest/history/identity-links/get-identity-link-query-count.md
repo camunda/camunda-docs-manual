@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity links Count"
+title: "Get Identity links log Count"
 weight: 20
 
 menu:
@@ -12,13 +12,13 @@ menu:
 
 ---
 
-Query for the number of historic identity links that fulfill the given parameters.
-Takes the same parameters as the [get identity-links]({{< relref "reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
+Query for the number of historic identity links log that fulfill the given parameters.
+Takes the same parameters as the [get identity-links-log]({{< relref "reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
 
 
 # Method
 
-GET `/history/identity-links/count`
+GET `/history/identity-links-log/count`
 
 
 # Parameters
@@ -124,7 +124,7 @@ A JSON object that contains the count as the only property.
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/history/identity-links/count?taskId=aTaskId</code>
+GET <code>/history/identity-links-log/count?taskId=aTaskId</code>
 
 ## Response
 

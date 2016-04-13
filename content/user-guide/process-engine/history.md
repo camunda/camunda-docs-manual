@@ -88,7 +88,7 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricJobLog` containing information about the job execution. The log provides details about the lifecycle of a job.
 * `HistoricDecisionInstance` containing information about a single evaluation of a decision, including the input and output values.
 * `HistoricBatch` containing information about current and past batches.
-* `HistoricIdentityLink` containing information about current and past (added, deleted, assignee is set or changed and owner is set or changed) identity links.
+* `HistoricIdentityLinkLog` containing information about current and past (added, deleted, assignee is set or changed and owner is set or changed) identity links.
 
 ## Query History
 
@@ -101,7 +101,7 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createUserOperationLogQuery()`,
 `createHistoricJobLogQuery()`,
 `createHistoricDecisionInstanceQuery()`,
-`createHistoricBatchQuery()` and `createHistoricIdentityLinkQuery()`
+`createHistoricBatchQuery()` and `createHistoricIdentityLinkLogQuery()`
 which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the javadocs, in the `org.camunda.bpm.engine.history` package.
@@ -272,12 +272,12 @@ historyService.createHistoricBatchQuery()
   .orderById().desc()
   .list();
 ```
-**HistoricIdentityLinkQuery**
+**HistoricIdentityLinkLogQuery**
 
 Query for all identity links that is related to the user "demo".
 
 ```java
-historyService.createHistoricIdentityLinkQuery()
+historyService.createHistoricIdentityLinkLogQuery()
   .userId("demo")
   .list(); 
 ```
