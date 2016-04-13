@@ -277,10 +277,10 @@ the target process definition defines a different message.
 
 ### Event-based Gateway
 
-In order to migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
+To migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
 The events that the gateway's event triggers are represented in the engine API as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
 and `org.camunda.bpm.engine.runtime.Job`. To migrate the state of the triggers, additional migration instructions between
-the respective intermediate catch events must be provided. In order to reinitialize the event triggers, such instructions must be omitted.
+the respective intermediate catch events must be provided. To reinitialize the event triggers, such instructions must be omitted.
 
 Consider the following two processes where the configuration of the intermediate timer event changes:
 
