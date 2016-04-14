@@ -92,7 +92,7 @@ Each batch object has the following properties:
     <td>The size of the batch.</td>
   </tr>
   <tr>
-    <td>batchJobsPerSedd</td>
+    <td>batchJobsPerSeed</td>
     <td>Number</td>
     <td>The number of batch jobs created per batch seed job invocation.</td>
   </tr>
