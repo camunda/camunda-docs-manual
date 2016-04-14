@@ -7,8 +7,8 @@ menu:
   main:
     name: "Get List"
     identifier: "rest-api-history-get-identity-link-query"
-    parent: "rest-api-history-identity-links"
-    pre: "GET `/history/identity-links`"
+    parent: "rest-api-history-identity-link-log"
+    pre: "GET `/history/identity-link-log`"
 
 ---
 
@@ -19,7 +19,7 @@ The size of the result set can be retrieved by using the [get identity-links-log
 
 # Method
 
-GET `/history/identity-links-log`
+GET `/history/identity-link-log`
 
 
 # Parameters
@@ -165,8 +165,7 @@ Each historic identity link log object has the following properties:
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET <code>/history/identity-links-log?taskId=aTaskId</code>
+GET <code>/history/identity-link-log?taskId=aTaskId</code>
 
 ## Response
 

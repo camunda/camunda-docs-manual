@@ -7,8 +7,8 @@ menu:
   main:
     name: "Get List Count"
     identifier: "rest-api-history-get-identity-link-query-count"
-    parent: "rest-api-history-identity-links"
-    pre: "GET `/history/identity-links/count`"
+    parent: "rest-api-history-identity-link-log"
+    pre: "GET `/history/identity-link-log/count`"
 
 ---
 
@@ -18,7 +18,7 @@ Takes the same parameters as the [get identity-links-log]({{< relref "reference/
 
 # Method
 
-GET `/history/identity-links-log/count`
+GET `/history/identity-link-log/count`
 
 
 # Parameters
@@ -123,8 +123,7 @@ A JSON object that contains the count as the only property.
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET <code>/history/identity-links-log/count?taskId=aTaskId</code>
+GET <code>/history/identity-link-log/count?taskId=aTaskId</code>
 
 ## Response
 

@@ -6,8 +6,8 @@ weight: 60
 
 menu:
   main:
-    identifier: "rest-api-history-identity-links"
+    identifier: "rest-api-history-identity-link-log"
     parent: "rest-api-history"
-    pre: "`/history/identity-links` (Subresource)"
+    pre: "`/history/identity-link-log` (Subresource)"
 
 ---
