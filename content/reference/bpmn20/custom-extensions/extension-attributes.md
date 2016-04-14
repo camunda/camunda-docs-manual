@@ -1188,6 +1188,10 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>,
       Process
     </td>
   </tr>
@@ -1333,7 +1337,11 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>BPMN 2.0 Elements</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>
+      <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
+	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
     </td>
   </tr>
 </table>
@@ -1366,7 +1374,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
-      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">Business Rule Task</a>,
+	  <a href="{{< relref "reference/bpmn20/events/message-events.md#message-end-event" >}}">Message End Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-intermediate-throwing-event" >}}">Message Intermediate Throwing Event</a>,
+      <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md#implementing-as-an-external-task" >}}">Business Rule Task</a>,
       <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">Send Task</a>
     </td>
   </tr>
