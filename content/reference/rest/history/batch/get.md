@@ -59,18 +59,30 @@ Its properties are as follows:
   <tr>
     <td>size</td>
     <td>Number</td>
-    <td>The size of the batch.</td>
+    <td>
+      The size of a batch is the number of batch execution jobs required to
+      complete the batch.
+    </td>
   </tr>
   <tr>
     <td>batchJobsPerSeed</td>
     <td>Number</td>
-    <td>The number of batch jobs created per batch seed job invocation.</td>
+    <td>
+      The batch seed job creates everytime it is invoked
+      <code>batchJobsPerSeed</code> number of batch execution jobs. The batch
+      seed job is invoked until it created all batch execution jobs required by
+      the batch (see <code>size</code> property).
+    </td>
   </tr>
   <tr>
     <td>invocationsPerBatchJob</td>
     <td>Number</td>
-    <td>The number of invocations per batch job.</td>
-  </tr>
+    <td>
+      Every batch execution job invokes the command executed by the batch
+      <code>invocationsPerBatchJob</code> times. E.g. for a process instance
+      migration batch this specifies the number of process instances which
+      are migrated per batch execution job.
+    </td>
   <tr>
     <td>seedJobDefinitionId</td>
     <td>String</td>
