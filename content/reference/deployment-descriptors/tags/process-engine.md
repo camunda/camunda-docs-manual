@@ -423,6 +423,18 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
+    
+    <tr>
+    <td><code>tenantCheckEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls whether the process engine performs tenant checks to ensure that an authenticated user can only access data that belongs to one of his tenants. Default value is <code>true</code>. 
+        See the <a href="{{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}">user guide</a> for more details.
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+    
   </tr>
 
 
