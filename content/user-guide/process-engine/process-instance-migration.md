@@ -346,6 +346,22 @@ contain new sub processes that no existing instance migrates to, then these are 
 
 Call activities are migrated like any other activity. The called instance, be it a BPMN process or a CMMN case, is not changed. It can be migrated separately.
 
+### Event Sub Process
+
+Event Sub Processes can be migrated like [embedded sub processes]({{< relref "#embedded-sub-process" >}}). It is possible to map an event sub process to an embedded sub process and vice versa.
+
+Regarding its event trigger, the same rules apply like for [boundary events]({{< relref "#embedded-sub-process" >}}). If there is a mapping between the event-trigerring activities, the event trigger (timer job or event subscription) is preserved. In particular, consider the following process models:
+
+Process `eventSubProcess:1`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-sub-process-message1"></div>
+
+Process `eventSubProcess:2`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-sub-process-message2"></div>
+
+Note that the event definition of the message start event has changed. Now, when migrating a process instance from `eventSubProcess:1` to `eventSubProcess:2`, the event trigger for *Complaint Received* is preserved if there is a migration instruction between the two message start events. In consequence, the event subprocess is still triggered by a message *Complaint Received* after migration. If such a migration instruction does not exist, the event trigger is recreated, now waiting for the updated message *Internal Revision Note Received* after migration.
+
 
 ## Flow Node Markers
 
@@ -528,6 +544,7 @@ migrated if they are instances of the following activity types:
 * Subprocess
   * Embedded Sub Process
   * Call Activity
+  * Event Sub Process
 * Gateways
   * Event-based Gateway
 * Events
