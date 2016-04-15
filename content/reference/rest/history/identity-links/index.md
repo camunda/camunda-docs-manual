@@ -1,6 +1,6 @@
 ---
 
-title: "Identity link"
+title: "Identity link log"
 layout: "section-list"
 weight: 60
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity-Links-Log"
+title: "Get Identity-Link-Logs"
 weight: 10
 
 menu:
@@ -60,6 +60,10 @@ GET `/history/identity-link-log`
     <td>Restricts to identity links that have the given process definition id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>Restricts to identity links that have the given process definition key.</td>
+  </tr>
+  <tr>
     <td>operationType</td>
     <td>Restricts to identity links that have the given operationType (add/delete).</td>
   </tr>
@@ -70,7 +74,7 @@ GET `/history/identity-link-log`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>operationType</code>, <code>assignerId</code>.
+    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -128,6 +132,11 @@ Each historic identity link log object has the following properties:
     <td>The id of the process definition.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the process definition.</td>
+  </tr>
+  <tr>
     <td>operationType</td>
     <td>String</td>
     <td>Type of operation (add/delete).</td>
@@ -177,9 +186,10 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
         "userId": "aUserId",
         "groupId": "aGroupId",
         "taskId": "aTaskId",
-		"processDefinitionId": null,
+		"processDefinitionId": "12",
         "operationType": "add",
-        "assignerId": "aAssignerId"
+        "assignerId": "aAssignerId",
+		"processDefinitionKey": "oneTaskProcess"
       },
       {
 	    "id": "2",
@@ -188,8 +198,9 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
         "userId": "aUserId",
         "groupId": "aGroupId",
         "taskId": "aTaskId",
-		"processDefinitionId": null,
+		"processDefinitionId": "12",
         "operationType": "delete",
         "assignerId": "aAssignerId"
+		"processDefinitionKey": "oneTaskProcess"
       }
     ]

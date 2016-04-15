@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity links log Count"
+title: "Get Identity-Link-Logs Count"
 weight: 20
 
 menu:
@@ -59,6 +59,10 @@ GET `/history/identity-link-log/count`
     <td>Restricts to identity links that have the given process definition id.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>Restricts to identity links that have the given process definition key.</td>
+  </tr>
+  <tr>
     <td>operationType</td>
     <td>Restricts to identity links that have the given operationType (add/delete).</td>
   </tr>
@@ -69,7 +73,7 @@ GET `/history/identity-link-log/count`
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>operationType</code>, <code>assignerId</code>.
+    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
