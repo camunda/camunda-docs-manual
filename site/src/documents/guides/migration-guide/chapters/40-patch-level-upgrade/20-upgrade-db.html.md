@@ -59,5 +59,12 @@ Each patch script contains a comment what the fixes are related to and a link to
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
+	<tr>
+      <td>7.2</td>
+      <td>engine_7.2_patch_7.2.8_to_7.2.9.sql</td>
+      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
+    </tr>
   </tbody>
 </table>
