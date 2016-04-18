@@ -79,6 +79,13 @@ The following list is an overview of all currently available patch scripts:
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
     <tr>
+      <td>7.2</td>
+      <td>engine_7.2_patch_7.2.8_to_7.2.9.sql</td>
+      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
+    </tr>
+    <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
       <td>Adjust column size of ACT_HI_JOB_LOG.ACT_ID_ to 255.</td>
@@ -101,7 +108,14 @@ The following list is an overview of all currently available patch scripts:
     </tr>
     <tr>
       <td>7.3</td>
-      <td>engine_7.3_patch_7.3.5_to_7.3.6.sql</td>
+      <td>engine_7.3_patch_7.3.5_to_7.3.6_1.sql</td>
+      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
+    </tr>
+    <tr>
+      <td>7.3</td>
+      <td>engine_7.3_patch_7.3.5_to_7.3.6_2.sql</td>
       <td>Add indices to improve performance of group authorizations.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
@@ -126,6 +140,13 @@ The following list is an overview of all currently available patch scripts:
       <td>Add indices to improve performance of group authorizations. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6.sql</strong>.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
+    </tr>
+    <tr>
+      <td>7.4</td>
+      <td>engine_7.4_patch_7.4.5_to_7.4.6.sql</td>
+      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
     </tr>
   </tbody>
 </table>
