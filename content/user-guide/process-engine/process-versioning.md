@@ -82,44 +82,58 @@ You might have spotted that two different columns exist in the process definitio
 
 * Id: The id is the database primary key and an artificial key normally combined out of the key, the version and a generated id (note that the ID may be shortened to fit into the database column, so there is no guarantee that the id is built this way).
 
-# Semantic Versioning
+# Version Tag
 
-It is possible to tag a process definition with a semantic version attribute. This can be done by adding the 
-[camunda:semanticVersion]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#semanticversion" >}})
+It is possible to tag a process definition with a version tag attribute. This can be done by adding the
+[camunda:versionTag]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#versionTag" >}})
 extension attribute to the process:
 
 ```xml
-<bpmn2:process camunda:semanticVersion="1.5-patch2" ...
+<bpmn2:process camunda:versionTag="1.5-patch2" ...
 ```
 
-The `ProcessDefintion` will now provide a semanticVersion field which you can fetch:
+The `ProcessDefintion` will now provide a versionTag field which you can fetch:
 
 ```java
 ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
     .processDefinitionKey("invoice")
     .processDefinitionVersion(1).singleResult();
-        
-pd.getSemanticVersion();
+
+pd.getVersionTag();
 ```
-  
+
 or to fetch a list of all deployed process definitions which contain the specified version:
 
 ```java
 List<ProcessDefinition> pdList = processEngine.getRepositoryService().createProcessDefinitionQuery()
-    .semanticVersion("1.5-patch2")
+    .versionTag("1.5-patch2")
     .list();
+
 ```
 
-You can also use `semanticVersionLike` to query for a range of versions:
+You can also use `versionTagLike` to query for a range of versions:
 
 ```java
 List<ProcessDefinition> pdList = processEngine.getRepositoryService().createProcessDefinitionQuery()
-    .semanticVersion("1.5-%")
+    .versionTagLike("1.5-%")
     .list();
 ```
 
-{{< note title="Semantic Versioning" class="info" >}} 
-the semantic versioning is only for tagging and will neither influence the `startProcessInstanceByKey`
+The following example shows how to start a process instance of the latest process
+definition for a version tag:
+
+```java
+ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
+    .processDefinitionKey("invoice")
+    .versionTag("1.5-patch2")
+    .latest()
+    .singleResult();
+
+processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
+```
+
+{{< note title="Version Tag" class="info" >}}
+the version tag is only for tagging and will neither influence the `startProcessInstanceByKey`
 nor the `startProcessInstanceById` behavior.
 {{< /note >}}
 

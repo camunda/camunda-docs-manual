@@ -1277,14 +1277,14 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
-# semanticVersion
+# versionTag
 
 <table class="table table-striped">
   <tr>
     <th>Description</th>
     <td>
       <p>
-      The attribute specifies a semantic version for the process definition.
+      The attribute specifies a version tag for the process definition.
       </p>
     </td>
   </tr>
@@ -1295,8 +1295,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Any value that has a meaning as semantic version for the process definition. 
-      <strong>Note:</strong> Sorting by semanticVersion is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0
+      Any value that has a meaning as version tag for the process definition.
+      <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0
     </td>
   </tr>
   <tr>

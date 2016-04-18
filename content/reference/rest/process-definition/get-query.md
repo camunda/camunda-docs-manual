@@ -124,19 +124,19 @@ GET `/process-definition`
     <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
-    <td>semanticVersion</td>
-    <td>Filter by the semantic version.</td>
+    <td>versionTag</td>
+    <td>Filter by the version tag.</td>
   </tr>
   <tr>
-    <td>semanticVersionLike</td>
-    <td>Filter by the semantic version that the parameter is a substring of.</td>
+    <td>versionTagLike</td>
+    <td>Filter by the version tag that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>semanticVersion</code>.
+    <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>versionTag</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.
-    <strong>Note:</strong> Sorting by semanticVersion is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0</td>
+    <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0</td>
   </tr>
   <tr>
     <td>sortOrder</td>
@@ -221,9 +221,9 @@ Each process definition object has the following properties:
     <td>The tenant id of the process definition.</td>
   </tr>
   <tr>
-    <td>semanticVersion</td>
+    <td>versionTag</td>
     <td>String</td>
-    <td>The semantic version of the process or <i>null</i> when no semantic version is set</td>
+    <td>The version tag of the process or <i>null</i> when no version tag is set</td>
 </table>
 
 
@@ -269,6 +269,6 @@ GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
     "diagram":"aResourceName",
     "suspended":true,
     "tenantId":null,
-    "semanticVersion":"1.0.0"}]
+    "versionTag":"1.0.0"}]
 ```
 

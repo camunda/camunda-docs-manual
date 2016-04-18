@@ -118,9 +118,9 @@ Its properties are as follows:
     <td>The tenant id of the process definition.</td>
   </tr>
   <tr>
-    <td>semanticVersion</td>
+    <td>versionTag</td>
     <td>String</td>
-    <td>The semantic version of the process definition.</td>
+    <td>The version tag of the process definition.</td>
   </tr>
 </table>
 
@@ -168,4 +168,4 @@ GET `/process-definition/key/aProcessDefinitionKey`
     "diagram":"aResourceName",
     "suspended":true,
     "tenantId":null,
-    "semanticVersion":"1.0.0"}
+    "versionTag":"1.0.0"}
