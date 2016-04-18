@@ -273,6 +273,13 @@ When a receive task instance is migrated, the corresponding event subscription r
 That means that the name of the message the instance waits for does not change, even if
 the target process definition defines a different message.
 
+### External Task
+
+When an active [external task]({{< relref "external-tasks.md" >}}) is migrated, all properties of the external task instance (i.e., `org.camunda.bpm.engine.externaltask.ExternalTask`) are preserved
+apart from activity id, process definition key, and process definition id. In particular, this means that attributes like topic and lock state do not change.
+
+It is possible to map activities that are implemented as external tasks to each other even if they have different types. For example, an external send task can be mapped to an external service task.
+
 ## Gateways
 
 ### Event-based Gateway
@@ -541,6 +548,7 @@ migrated if they are instances of the following activity types:
 * Task
   * User Task
   * Receive Task
+  * External Task
 * Subprocess
   * Embedded Sub Process
   * Call Activity
