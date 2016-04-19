@@ -141,8 +141,8 @@ _Old_ plugins will still be visible on the dashboard until you change their name
 
 ### Setup
 
-The dashboard section plugins have some additional properties / options you can set to control the way 
-they integrate in the application.  
+The dashboard section plugins have some additional properties / options you can set to control the way
+they integrate in the application.
 You can find some [examples of those plugins here](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/dashboard/).
 
 #### `pagePath`
@@ -246,6 +246,30 @@ on the dashboard (but still want a menu point in the header).
 
 {{< img src="../../img/plugin-points/plugin-point-decision-definition-action.png" title="Decision Definition Action" >}}
 
+
+## Decision Definition Table
+
+**Name:** `cockpit.decisionDefinition.table`
+
+{{< img src="../../img/plugin-points/plugin-point-decision-definition-table.png" title="Decision Definition Table" >}}
+
+This plugin should contain an initialize function recieving a data object with the following fields:
+
+* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< relref "reference/rest/decision-definition/get.md#result" >}})
+* `decisionData`: The data-depend object for the decision definition
+* `tableControl`: Control object for the rendered dmn-table corresponding to the [dmn-table widget](http://camunda.github.io/camunda-commons-ui/cam-widget-dmn-viewer.html)
+
+Example:
+
+```
+ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
+  id: 'my-plugin',
+  initialize: function(data) {
+    var viewer = data.tableControl.getViewer();
+    // ...
+  }
+});
+```
 
 ## Decision Instance Tab
 
