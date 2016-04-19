@@ -1167,7 +1167,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies the initial priority of a <a href="{{< relref "reference/bpmn20/tasks/service-task.md#external-tasks" >}}">External Task</a> when it is created.
+      The attribute specifies the initial priority of an <a href="{{< relref "reference/bpmn20/tasks/service-task.md#external-tasks" >}}">External Task</a> when it is created.
     </td>
   </tr>
   <tr>

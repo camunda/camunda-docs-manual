@@ -145,8 +145,8 @@ The resulting tasks then contain the current values of the requested variable. N
 
 
 ### External Task Prioritization
-The external task prioritization is similar to the job prioritization. There exists the same problem with starvation which should be considered. 
-See for further details [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
+External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered. 
+For further details, see the section on [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
 
 ### Configure the Process Engine for External Task Priorities
 
@@ -162,7 +162,7 @@ External task priorities can be specified in the BPMN model as well as overridde
 
 #### Priorities in BPMN XML
 
-External task priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:taskPriority` can be used.
+External task priorities can be assigned at the process or the activity level. To achieve this, the Camunda extension attribute `camunda:taskPriority` can be used.
 
 For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. 
 When using a constant value, the same priority is assigned to all instances of the process or activity. 
@@ -206,7 +206,7 @@ The service task must be an external task with the attribute `camunda:type="exte
   ...
 ```
 
-The effect is that the priority is set to the defined external task (overrides the process taskPriority).
+The effect is that the priority is set for the defined external task (overrides the process taskPriority).
 The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to the external task in different instances of the process.
 If different process instances need to be executed with different external task priorities, an expression can be used:
 
@@ -225,8 +225,8 @@ In the above example the priority is determined based on the property `priority`
 
 ### Fetch External Task with Priority
 
-To fetch external tasks regarding on there priority the overloaded method `ExternalTaskService#fetchAndLock` with the parameter `usePriority` can be used.
-The method without the boolean parameter returns arbitary the external tasks. If the parameter is given the returned external tasks are ordered descending.
+To fetch external tasks based on their priority, the overloaded method `ExternalTaskService#fetchAndLock` with the parameter `usePriority` can be used.
+The method without the boolean parameter returns the external tasks arbitrarily. If the parameter is given, the returned external tasks are ordered descendingly.
 See the following example which regards the priority of the external tasks:
 
 ```java
@@ -308,6 +308,6 @@ A query for external tasks can be made via `ExternalTaskService#createExternalTa
 
 ### Managing Operations
 
-Additional management operations are `ExternalTaskService#unlock`, `ExternalTaskService#setRetries` and `ExternalTaskService#setPriority` to clear the current lock, to reset the retries and to set the priority of an external task. 
-Resetting the retries is useful when a task has 0 retries left and must be manually resumed. With the last method the priority can 
+Additional management operations are `ExternalTaskService#unlock`, `ExternalTaskService#setRetries` and `ExternalTaskService#setPriority` to clear the current lock, to set the retries and to set the priority of an external task. 
+Setting the retries is useful when a task has 0 retries left and must be resumed manually. With the last method the priority can 
 be set to a higher value for more important or to a lower value for less important external tasks.

@@ -40,7 +40,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
 	<td>usePriority</td>
-	<td>A boolean value, which indicates whether the task should be fetched regarding on there priority or arbitrary.</td>
+	<td>A boolean value, which indicates whether the task should be fetched based on its priority or arbitrarily.</td>
   </tr>
   <tr>
     <td>topics</td>
@@ -145,7 +145,7 @@ Each locked external task object has the following properties:
   <tr>
     <td>priority</td>
     <td>Number</td>
-    <td>The priority if the external task.</td>
+    <td>The priority of the external task.</td>
   </tr>
   <tr>
     <td>topicName</td>
