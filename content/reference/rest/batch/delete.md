@@ -45,7 +45,7 @@ DELETE `/batch/{id}`
   </tr>
   <tr>
     <td>cascade</td>
-    <td><code>true</code>, if also the historic batch and historic job logs for this batch should be deleted.</td>
+    <td><code>true</code>, if the historic batch and historic job logs for this batch should also be deleted.</td>
   </tr>
 </table>
 

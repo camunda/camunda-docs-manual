@@ -13,11 +13,11 @@ menu:
 ---
 
 Execute a migration plan synchronously for multiple process instances. To
-execute a migration plan asynchronously use [POST /migration/executeAsync][].
+execute a migration plan asynchronously, use [POST /migration/executeAsync][].
 
-For more information about the difference between synchronously and
-asynchronously execution of a migration plan please refer to the related
-[user guide][] section.
+For more information about the difference between synchronous and
+asynchronous execution of a migration plan, please refer to the related
+section of the [user guide][].
 
 
 # Method
@@ -71,21 +71,21 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid for a specific process instance it is applied to, so an exception of type <code>MigrationInstructionInstanceValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

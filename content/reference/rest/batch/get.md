@@ -68,9 +68,8 @@ Its properties are as follows:
     <td>batchJobsPerSeed</td>
     <td>Number</td>
     <td>
-      The batch seed job creates everytime it is invoked
-      <code>batchJobsPerSeed</code> number of batch execution jobs. The batch
-      seed job is invoked until it created all batch execution jobs required by
+      The number of batch execution jobs created per seed job invocation.
+      The batch seed job is invoked until it created all batch execution jobs required by
       the batch (see <code>size</code> property).
     </td>
   </tr>
@@ -79,7 +78,7 @@ Its properties are as follows:
     <td>Number</td>
     <td>
       Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g. for a process instance
+      <code>invocationsPerBatchJob</code> times. E.g., for a process instance
       migration batch this specifies the number of process instances which
       are migrated per batch execution job.
     </td>

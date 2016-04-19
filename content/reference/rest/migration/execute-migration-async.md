@@ -13,11 +13,11 @@ menu:
 ---
 
 Execute a migration plan asynchronously (batch) for multiple process instances.
-To execute a migration plan synchronously use [POST /migration/execute][].
+To execute a migration plan synchronously, use [POST /migration/execute][].
 
-For more information about the difference between synchronously and
-asynchronously execution of a migration plan please refer to the related
-[user guide][] section.
+For more information about the difference between synchronous and
+asynchronous execution of a migration plan, please refer to the related
+section of the [user guide][].
 
 
 
@@ -84,9 +84,8 @@ properties are as follows:
     <td>batchJobsPerSeed</td>
     <td>Number</td>
     <td>
-      The batch seed job creates everytime it is invoked
-      <code>batchJobsPerSeed</code> number of batch execution jobs. The batch
-      seed job is invoked until it created all batch execution jobs required by
+      The number of batch execution jobs created per seed job invocation.
+      The batch seed job is invoked until it created all batch execution jobs required by
       the batch (see <code>size</code> property).
     </td>
   </tr>
@@ -95,7 +94,7 @@ properties are as follows:
     <td>Number</td>
     <td>
       Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g. for a process instance
+      <code>invocationsPerBatchJob</code> times. E.g., for a process instance
       migration batch this specifies the number of process instances which
       are migrated per batch execution job.
     </td>
@@ -140,14 +139,14 @@ properties are as follows:
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
