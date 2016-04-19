@@ -210,6 +210,39 @@ The following are some reasons to prefer either one or the other:
   - the migration should be executed by another thread, i.e., the job
     executor should handle the execution
 
+
+### Selecting process instances to migrate
+
+The process instances which should be migrated by a migration plan can either
+be specified as a list of the process instance ids.
+
+```Java
+MigrationPlan migrationPlan = ...;
+
+List<String> processInstanceIds = ...;
+
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(processInstanceIds)
+  .execute();
+```
+
+Or the process instances can be selected by a process instance query.
+
+```Java
+MigrationPlan migrationPlan = ...;
+
+ProcessInstanceQuery processInstanceQuery = runtimeService
+  .createProcessInstanceQuery()
+  .processDefinitionId(migrationPlan.getSourceProcessDefinitionId());
+
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceQuery(processInstanceQuery)
+  .execute();
+```
+
+It is also possible to specify both, a list of process instance ids and a query.
+The process instances to migrated will then be the union of the specified sets.
+
 ### Synchronous migration execution
 
 To execute the migration synchronously, the `execute` method is used. It will
