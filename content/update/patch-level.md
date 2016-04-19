@@ -130,14 +130,14 @@ The following list is an overview of all currently available patch scripts:
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.2_to_7.4.3_3.sql</td>
-      <td>Add indices to improve performance of group authorizations. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6.sql</strong>.</td>
+      <td>Add indices to improve performance of group authorizations. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6_2.sql</strong>.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
     </tr>
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.5_to_7.4.6.sql</td>
-      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
+      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6_1.sql</strong>.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
     </tr>
