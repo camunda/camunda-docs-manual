@@ -48,6 +48,15 @@ A JSON object with the following properties:
     <td>processInstanceIds</td>
     <td>A list of process instance ids to migrate.</td>
   </tr>
+  <tr>
+    <td>processInstanceQuery</td>
+    <td>
+      A process instance query like the request body described by
+      <a href="{{< relref "reference/rest/process-instance/post-query.md#request-body" >}}">
+        <code>POST /process-instance</code>
+      </a>.
+    </td>
+  </tr>
 </table>
 
 
@@ -179,7 +188,10 @@ Request Body:
   "processInstanceIds": [
     "aProcessInstance",
     "anotherProcessInstance"
-  ]
+  ],
+  "processInstanceQuery": {
+    "processDefinitionId": "aProcessDefinitionId1"
+  }
 }
 ```
 
