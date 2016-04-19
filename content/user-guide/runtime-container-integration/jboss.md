@@ -14,23 +14,48 @@ menu:
 {{< note title="Installation Guide" class="info" >}}
   If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss/WildFly subsystem is readily installed into the application server.
 
-  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) in order to learn how to install the Camunda JBoss/WildFly subsystem into your JBoss AS 7/Wildfly 8 Server.
+  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) in order to learn how to install the Camunda JBoss/WildFly subsystem into your JBoss AS 7/Wildfly 8/10 Server.
 {{< /note >}}
 
-Camunda BPM provides advanced integration for JBoss AS 7/Wildfly 8 in the form of a custom [JBoss Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
+Camunda BPM provides advanced integration for JBoss AS 7/Wildfly 8/10 in the form of a custom [JBoss Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
 
 The most prominent features are:
 
-* Deploy the process engine as shared jboss module.
+* Deploy the process engine as shared JBoss module.
 * Configure the process engine in standalone.xml / domain.xml and administer it though the JBoss Management System.
 * Process Engines are native JBoss Services with service lifecycle and dependencies.
 * Automatic deployment of BPMN 2.0 processes (through the Process Application API).
-* Use a managed Thread Pool provided by JBoss Threads in combination with the Job Executor.
+* (JBoss AS 7 only) - Use a managed Thread Pool provided by JBoss Threads in combination with the Job Executor.
+* (Wildfly 8/10 only) - Use a managed Thread Pool for the Job Executor configured through the Camunda BPM Subsystem.
 
+# Configure the Job Executor in standalone.xml/domain.xml
+
+{{< note title="This section only applies for Wildfly 8/10!" class="info" >}}
+The thread pool for JBoss AS 7 can be configured through the JBoss Threads subsystem. See [Manual Installation]({{<relref "installation/full/jboss/manual.md" >}}).
+{{< /note >}}
+
+Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the `Camunda` subsystem, not in the `Threads` subsystem anymore like it was done before 7.5.  
+The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
+You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem xml configuration.
+
+Mandatory configuration elements are:  
+
+* ```<core-threads>3</core-threads>```
+* ```<max-threads>5</max-threads>```
+* ```<queue-length>10</queue-length>```
+
+Optional configuration elements are:
+
+* ```<keepalive-time>10</keepalive-time>``` (in seconds)
+* ```<allow-core-timeout>true</allow-core-timeout>```
+
+Shown values are the default ones.
 
 # Configure a Process Engine in standalone.xml/domain.xml
 
-Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7/Wildfly 8 Server:
+
+
+Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7/Wildfly 8/10 Server:
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -46,10 +71,11 @@ Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manag
         </process-engine>
     </process-engines>
     <job-executor>
-        <thread-pool-name>job-executor-tp</thread-pool-name>
+        <core-threads>3</core-threads>
+        <max-threads>5</max-threads>
+        <queue-length>10</queue-length>
         <job-acquisitions>
             <job-acquisition name="default">
-                <acquisition-strategy>SEQUENTIAL</acquisition-strategy>
                 <properties>
                     <property name="lockTimeInMillis">300000</property>
                     <property name="waitTimeInMillis">5000</property>
@@ -63,12 +89,12 @@ Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manag
 
 It should be easy to see that the configuration consists of a single process engine which uses the Datasource `java:jboss/datasources/ProcessEngine` and is configured to be the `default` process engine. In addition, the Job Executor currently uses a single Job Acquisition also named default.
 
-If you start up your JBoss AS 7/Wildfly 8 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
+If you start up your JBoss AS 7/Wildfly 8/10 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
 
 
 # Provide a Custom Process Engine Configuration Class
 
-It is possible to provide a custom Process Engine Configuration class on JBoss AS 7/Wildfly 8 Application Server. To this extent, provide the fully qualified classname of the class in the `standalone.xml` file:
+It is possible to provide a custom Process Engine Configuration class on JBoss AS 7/Wildfly 8/10 Application Server. To this extent, provide the fully qualified classname of the class in the `standalone.xml` file:
 
 ```xml
 <process-engine name="default" default="true">
@@ -164,7 +190,7 @@ A declarative mechanism like `@Resource` could be
     @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
 
 {{< note title="Look Up a Process Engine From JNDI Using Spring" class="warning" >}}
-  On JBoss AS 7/Wildfly 8, spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
+  On JBoss AS 7/Wildfly 8/10, spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
 {{< /note >}}
 
 
@@ -239,7 +265,7 @@ It is also possible to start a new process engine at runtime:
 {"outcome" => "success"}
 ```
 
-One of the nice features of the JBoss AS 7/Wildfly 8 Management System is that it will
+One of the nice features of the JBoss AS 7/Wildfly 8/10 Management System is that it will
 
 * persist any changes to the model in the underlying configuration file. This means that if you start a process engine using the command line interface, the configuration will be added to `standalone.xml`/`domain.xml` such that it is available when the server is restarted.
 * distribute the configuration in the cluster and start / stop the process engine on all servers part of the same domain.
@@ -274,7 +300,7 @@ When using the Process Application API (i.e., when deploying either a ServletPro
 ## Explicit Module Dependencies
 
 If an application does not use the process application API but still needs the process engine classes to be added to its classpath, an explicit module dependency is required.
-JBoss AS 7/Wildfly 8 has [different mechanisms for achieving this](https://docs.jboss.org/author/display/AS72/Class+Loading+in+AS7). The simplest way is to add a manifest entry to the MANIFEST.MF file of the deployment. The following example illustrates how to generate such a dependency using the maven WAR plugin:
+JBoss AS 7/Wildfly 8/10 has [different mechanisms for achieving this](https://docs.jboss.org/author/display/AS72/Class+Loading+in+AS7). The simplest way is to add a manifest entry to the MANIFEST.MF file of the deployment. The following example illustrates how to generate such a dependency using the maven WAR plugin:
 
     <build>
        ...

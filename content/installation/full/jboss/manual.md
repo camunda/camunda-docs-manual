@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8/10 Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
@@ -24,9 +24,9 @@ This guide uses a number of variables to denote common path names and constants:
 
 # Required Setup for JBoss
 
-This section explains how to perfom the required setup steps for JBoss Application Server.
+This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to [download the Camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to [download the Camunda JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
 
 ## Adjust the Configuration
@@ -94,7 +94,7 @@ This also configures the default process engine.
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -144,9 +144,9 @@ These links point you to resources for other databases:
 
 # Required Setup for Wildfly
 
-This section explains how to perfom the required setup steps for Wildfly Application Server.
+This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to [download the Camunda jboss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to [download the Camunda Wildfly distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/).
 
 
 ## Adjust the Configuration
@@ -154,32 +154,36 @@ First, you need to [download the Camunda jboss distribution](https://app.camunda
 Next, a number of changes need to be performed in the application server's configuration file.
 In most cases this is `$JBOSS_HOME/standalone/configuration/standalone.xml`.
 
-Add the Camunda subsystem as extension. Also add the `org.jboss.as.threads` extension if not already present to the `extension` section of the `standalone.xml`:
+Add the Camunda subsystem as extension:
 
 ```xml
 <server xmlns="urn:jboss:domain:2.1">
   <extensions>
     ...
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
-    <!-- Add the 'org.jboss.as.threads' extension if not already exists -->
-    <extension module="org.jboss.as.threads"/>
 ```
 
-Add the following elements in order to create a thread pool for the Job Executor:
 
-```xml
-<subsystem xmlns="urn:jboss:domain:threads:1.1">
-  <bounded-queue-thread-pool name="job-executor-tp" allow-core-timeout="true">
-    <core-threads count="3" />
-    <queue-length count="3" />
-    <max-threads count="10" />
-    <keepalive-time time="10" unit="seconds" />
-  </bounded-queue-thread-pool>
-</subsystem>
-```
+Configure the thread pool for the Camunda BPM platform Job Executor:
 
-The name of the thread pool is then referenced in the Camunda bpm subsystem job executor configuration.
-This also configures the default process engine.
+Since Camunda BPM 7.5, the configuration of the thread pool is done in the `Camunda` subsystem, not in the `Threads` subsystem anymore like it was done before 7.5.  
+The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
+You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem xml configuration.
+
+Mandatory configuration elements are:  
+
+* ```<core-threads>3</core-threads>```
+* ```<max-threads>5</max-threads>```
+* ```<queue-length>10</queue-length>```
+
+Optional configuration elements are:
+
+* ```<keepalive-time>10</keepalive-time>``` (in seconds)
+* ```<allow-core-timeout>true</allow-core-timeout>```
+
+Shown values are the default ones.
+
+The below example also configures the default process engine.
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -196,10 +200,11 @@ This also configures the default process engine.
     </process-engine>
   </process-engines>
   <job-executor>
-    <thread-pool-name>job-executor-tp</thread-pool-name>
+    <core-threads>3</core-threads>
+    <max-threads>5</max-threads>
+    <queue-length>10</queue-length>
     <job-acquisitions>
       <job-acquisition name="default">
-        <acquisition-strategy>SEQUENTIAL</acquisition-strategy>
         <properties>
           <property name="lockTimeInMillis">300000</property>
           <property name="waitTimeInMillis">5000</property>
