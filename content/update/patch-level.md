@@ -79,13 +79,6 @@ The following list is an overview of all currently available patch scripts:
       <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
     <tr>
-      <td>7.2</td>
-      <td>engine_7.2_patch_7.2.8_to_7.2.9.sql</td>
-      <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
-      <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
-    </tr>
-    <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
       <td>Adjust column size of ACT_HI_JOB_LOG.ACT_ID_ to 255.</td>
