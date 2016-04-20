@@ -72,9 +72,13 @@ GET `/history/identity-link-log`
     <td>Restricts to identity links that have the given assigner id.</td>
   </tr>
   <tr>
+    <td>tenantId</td>
+    <td>Restricts to identity links that have the given tenant id.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>.
+    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>, <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -146,6 +150,11 @@ Each historic identity link log object has the following properties:
     <td>String</td>
     <td>The id of the assigner.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The id of the tenant.</td>
+  </tr>
 </table>
 
 
@@ -189,7 +198,8 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
 		"processDefinitionId": "12",
         "operationType": "add",
         "assignerId": "aAssignerId",
-		"processDefinitionKey": "oneTaskProcess"
+		"processDefinitionKey": "oneTaskProcess",
+		"tenantId": "tenant1"
       },
       {
 	    "id": "2",
@@ -201,6 +211,7 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
 		"processDefinitionId": "12",
         "operationType": "delete",
         "assignerId": "aAssignerId"
-		"processDefinitionKey": "oneTaskProcess"
+		"processDefinitionKey": "oneTaskProcess",
+		"tenantId": "tenant1"
       }
     ]
