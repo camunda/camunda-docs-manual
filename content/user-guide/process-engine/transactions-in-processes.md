@@ -101,6 +101,19 @@ when the execution listener class is not available on the node that instantiates
 <startEvent id="theStart" name="Invoice Received" camunda:asyncBefore="true" />
 ```
 
+With the help of custom parse listeners the asyncBefore and asyncAfter attributes can also be set.
+They overrides the value which was given by the xml. 
+In the following example is showed how to set the attribute asyncBefore and asyncAfter for a service task activity.
+
+```java
+new AbstractBpmnParseListener(){  
+	@Override
+	public void parseServiceTask(Element serviceTaskElement, ScopeImpl scope, ActivityImpl activity) {
+		activity.setAsyncBefore(false);
+		activity.setAsyncAfter(true);
+	}
+});
+```
 
 ## Asynchronous Continuations of Multi-Instance Activities
 
