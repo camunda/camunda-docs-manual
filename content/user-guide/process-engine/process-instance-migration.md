@@ -387,11 +387,11 @@ due date of a timer does not change during migration.
 
 ## Subprocess
 
-### Embedded Sub Process
-
-If a migration instruction applies to an embedded sub process, it is migrated to its target sub process in the target process definition.
+If a migration instruction applies to an embedded/event/transaction sub process, it is migrated to its target sub process in the target process definition.
 In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
 contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
+
+Embedded/Event/Transaction sub processes can be mapped interchangeably. For example, it is possible to map an embedded sub process to an event sub process.
 
 ### Call Activity
 
@@ -595,8 +595,9 @@ migrated if they are instances of the following activity types:
   * External Task
 * Subprocess
   * Embedded Sub Process
-  * Call Activity
   * Event Sub Process
+  * Transaction Sub Process
+  * Call Activity
 * Gateways
   * Parallel Gateway
   * Inclusive Gateway
