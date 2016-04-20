@@ -315,6 +315,17 @@ It is possible to map activities that are implemented as external tasks to each 
 
 ## Gateways
 
+### Inclusive & Parallel Gateway
+
+Instances of inclusive and parallel gateways represent waiting tokens before the gateway is able to trigger.
+They can be migrated to a gateway of the same type in the target process by supplying an according migration instruction.
+
+In addition, the following conditions must hold:
+
+* The target gateway must have at least the same number of incoming sequence flows as the source gateway
+* There must be a valid migration instruction for the scope in which the gateway is contained in
+* At most one gateway of the source process definition can be mapped to every gateway in the target process definition
+
 ### Event-based Gateway
 
 To migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
@@ -587,6 +598,8 @@ migrated if they are instances of the following activity types:
   * Call Activity
   * Event Sub Process
 * Gateways
+  * Parallel Gateway
+  * Inclusive Gateway
   * Event-based Gateway
 * Events
   * Boundary Event
