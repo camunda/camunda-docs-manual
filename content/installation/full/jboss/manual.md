@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8/10 Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 / 10 Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
@@ -22,11 +22,11 @@ This guide uses a number of variables to denote common path names and constants:
 {{< /note >}}
 
 
-# Required Setup for JBoss
+# Required Setup for JBoss AS 7 / JBoss EAP 6
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to [download the Camunda JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to download the [Camunda JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
 
 ## Adjust the Configuration
@@ -142,11 +142,12 @@ These links point you to resources for other databases:
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
-# Required Setup for Wildfly
+# Required Setup for Wildfly 8 / 10
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to [download the Camunda Wildfly distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/).
+First, you need to download either the [Camunda Wildfly 10 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/) or 
+the [Camunda Wildfly 8 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/).
 
 
 ## Adjust the Configuration
@@ -166,7 +167,7 @@ Add the Camunda subsystem as extension:
 
 Configure the thread pool for the Camunda BPM platform Job Executor:
 
-Since Camunda BPM 7.5, the configuration of the thread pool is done in the `Camunda` subsystem, not in the `Threads` subsystem anymore like it was done before 7.5.  
+Since Camunda BPM 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.  
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
 You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem xml configuration.
 
