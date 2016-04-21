@@ -17,8 +17,8 @@ the separate command invocations from each other.
 
 For example the [process instance migration][migration] command can be
 [executed using a batch][batch-migration]. This allows to migrate
-process instances asynchronously. In a synchronous process instance migration, 
-all migrations are executed in a single transaction.  First of all, this 
+process instances asynchronously. In a synchronous process instance migration,
+all migrations are executed in a single transaction.  First of all, this
 requires all of them to succeed to commit the transaction. For a
 large set of process instances, the transaction can also become too large to even be
 committed to the database. With batch migration both of these traits change.
@@ -84,6 +84,19 @@ for all running process instance migration batches.
 ```java
 List<Batch> migrationBatches = processEngine.getManagementService()
   .createBatchQuery()
+  .type(Batch.TYPE_PROCESS_INSTANCE_MIGRATION)
+  .list();
+```
+
+## Batch Statistics
+
+You can query for statistics of batches by using the management service.
+The batch statistics will contain information about the remaining,
+completed and failed batch execution jobs.
+
+```java
+List<BatchStatistics> migrationBatches = processEngine.getManagementService()
+  .createBatchStatisticsQuery()
   .type(Batch.TYPE_PROCESS_INSTANCE_MIGRATION)
   .list();
 ```
