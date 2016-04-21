@@ -72,8 +72,8 @@ GET `/history/identity-link-log`
     <td>Restricts to identity links that have the given assigner id.</td>
   </tr>
   <tr>
-    <td>tenantId</td>
-    <td>Restricts to identity links that have the given tenant id.</td>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
     <td>sortBy</td>

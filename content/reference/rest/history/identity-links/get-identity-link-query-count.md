@@ -71,19 +71,8 @@ GET `/history/identity-link-log/count`
     <td>Restricts to identity links that have the given assigner id.</td>
   </tr>
   <tr>
-    <td>tenantId</td>
-    <td>Restricts to identity links that have the given tenant id.</td>
-  </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results lexicographically by a given criterion. Valid values are
-    <code>time</code>, <code>type</code>, <code>userId</code>, <code>groupId</code>, <code>taskId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>operationType</code>, <code>assignerId</code>, <code>tenantId</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
 </table>
 
