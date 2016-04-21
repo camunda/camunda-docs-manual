@@ -65,6 +65,13 @@ Its properties are as follows:
     </td>
   </tr>
   <tr>
+    <td>jobsCreated</td>
+    <td>Number</td>
+    <td>
+      The number of batch execution jobs already created by the seed job.
+    </td>
+  </tr>
+  <tr>
     <td>batchJobsPerSeed</td>
     <td>Number</td>
     <td>
@@ -146,6 +153,7 @@ Status 200.
   "type": "aBatchType",
   "size": 10,
   "batchJobsPerSeed": 10,
+  "jobsCreated": 10,
   "invocationsPerBatchJob": 1,
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",

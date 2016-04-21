@@ -1,27 +1,27 @@
 ---
 
-title: "Get Batches"
-weight: 10
+title: "Get Batch Statistics"
+weight: 50
 
 menu:
   main:
-    name: "Get List"
-    identifier: "rest-api-batch-get-query"
+    name: "Get Statistics"
+    identifier: "rest-api-batch-get-statistics-query"
     parent: "rest-api-batch"
-    pre: "GET `/batch`"
+    pre: "GET `/batch/statistics`"
 
 ---
 
 
-Query for batches that fulfill given parameters. Parameters may be
-the properties of batches, such as the id or type.  The
-size of the result set can be retrieved by using the [GET query count]({{<
-relref "reference/rest/batch/get-query-count.md" >}}).
+Query for batch statistics that fulfill given parameters. Parameters may be the
+properties of batches, such as the id or type.  The size of the result set can
+be retrieved by using the [GET statistics query count]({{< relref
+"reference/rest/batch/get-statistics-query-count.md" >}}).
 
 
 # Method
 
-GET `/batch`
+GET `/batch/statistics`
 
 
 # Parameters
@@ -67,8 +67,8 @@ GET `/batch`
 
 # Result
 
-A JSON array of batch objects.
-Each batch object has the following properties:
+A JSON array of batch statistics objects.
+Each batch statistics object has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -140,6 +140,31 @@ Each batch object has the following properties:
     <td>String</td>
     <td>The tenant id of the batch.</td>
   </tr>
+  <tr>
+    <td>remainingJobs</td>
+    <td>Number</td>
+    <td>
+      The number of remaining batch execution jobs. This does include failed
+      batch execution jobs and batch execution jobs which still have to be
+      created by the seed job.
+    </td>
+  </tr>
+  <tr>
+    <td>completedJobs</td>
+    <td>Number</td>
+    <td>
+      The number of completed batch execution jobs. This does include
+      aborted/deleted batch execution jobs.
+    </td>
+  </tr>
+  <tr>
+    <td>failedJobs</td>
+    <td>Number</td>
+    <td>
+       The number of failed batch execution jobs. This does not include
+       aborted or deleted batch execution jobs.
+    </td>
+  </tr>
 </table>
 
 
@@ -171,7 +196,7 @@ Each batch object has the following properties:
 
 ## Request
 
-GET `/batch?type=aBatchType&sortBy=batchId&sortOrder=asc`
+GET `/batch/statistics/?type=aBatchType&sortBy=batchId&sortOrder=asc`
 
 ## Response
 
@@ -183,13 +208,16 @@ Status 200.
     "id": "aBatchId",
     "type": "aBatchType",
     "size": 10,
-    "jobsCreated": 10,
     "batchJobsPerSeed": 10,
+    "jobsCreated": 10,
     "invocationsPerBatchJob": 1,
     "seedJobDefinitionId": "aSeedJobDefinitionId",
     "monitorJobDefinitionId": "aMonitorJobDefinitionId",
     "batchJobDefinitionId": "aBatchJobDefinitionId",
-    "tenantId": "aTenantId"
+    "tenantId": "aTenantId",
+    "remainingJobs": 3,
+    "completedJobs": 7,
+    "failedJobs": 1
   }
 ]
 ```
