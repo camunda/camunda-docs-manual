@@ -232,7 +232,7 @@ GET `/process-definition/statistics?incidentsForType=anIncident`
         "diagram":null,
         "suspended":false,
         "tenantId":null,
-        "semanticVersion":"1.0.0"},
+        "versionTag":"1.0.0"},
       "incidents":
       [
         {"incidentType":"anIncident", "incidentCount": 20 }
