@@ -45,6 +45,8 @@ A Permission defines the way an identity is allowed to interact with a certain r
   * Access
   * Read Task
   * Update Task
+  * Task Work
+  * Task Assign  
   * Create Instance
   * Read Instance
   * Update Instance
@@ -169,7 +171,7 @@ The valid combinations can be found in the following table.
     <tr>
       <th>Task</th>
       <td>X</td>
-      <td>X</td>
+      <td>X (*)</td>
       <td>X</td>
       <td>X</td>
     </tr> 
@@ -183,10 +185,123 @@ The valid combinations can be found in the following table.
   </tbody>
 </table>
 
+\* Additional permissions are supported for authorizing individual task actions. See Section "Task Permissions" below.
+
+# Task permissions
+
+A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
+If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task action.
+If more fine granular authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
+The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (ie. claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
+
+The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
+
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Task Work</th>
+    <th>Task Assign</th>
+    <th>Update</th>
+    <th>Update Task</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <th>Claim</th>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Complete</th>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Add Candidate User</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr> 
+    <tr>
+      <th>Delete Candidate User</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>   
+    <tr>
+      <th>Set Assignee</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Owner</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>  
+    <tr>
+      <th>Add Candidate Group</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Delete Candidate Group</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Save Task</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr> 
+    <tr>
+      <th>Set Task Priority</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+	<tr>
+      <th>Set Task Variable</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+	<tr>
+      <th>Remove Task Variable</th>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+GRANT and REVOKE authorization with Task Work and Task Assign permissions precedes over Update and Update Task.
+
 ## Additional Authorizations for Process Definition
 
 * Read Task
 * Update Task
+* Task Work
+* Task Assign
 * Create Instance
 * Read Instance
 * Update Instance
