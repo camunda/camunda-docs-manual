@@ -41,6 +41,15 @@ GET `/history/batch/count`
     <td>type</td>
     <td>Filter by batch type.</td>
   </tr>
+  <tr>
+    <td>completed</td>
+    <td>
+      Filter completed or not completed batches. If the value is
+      <code>true</code> only completed batches, i.e. end time is set, are
+      counted. Otherwise if the value is <code>false</code> only running
+      batches, i.e. end time is null, are counted.
+    </td>
+  </tr>
 </table>
 
 

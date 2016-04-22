@@ -42,10 +42,20 @@ GET `/history/batch`
     <td>Filter by batch type.</td>
   </tr>
   <tr>
+    <td>completed</td>
+    <td>
+      Filter completed or not completed batches. If the value is
+      <code>true</code> only completed batches, i.e. end time is set, are
+      returned. Otherwise if the value is <code>false</code> only running
+      batches, i.e. end time is null, are returned.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>
       Sort the results lexicographically by a given criterion.
-      Valid values are <code>batchId</code>.
+      Valid values are <code>batchId</code>, <code>startTime</code and
+      <code>endTime</code>.
       Must be used in conjunction with the <code>sortOrder</code> parameter.
     </td>
   </tr>
