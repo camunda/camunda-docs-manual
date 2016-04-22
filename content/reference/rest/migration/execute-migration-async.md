@@ -180,8 +180,9 @@ Request Body:
         "targetActivityIds": ["aUserTask"]
       },
       {
-        "sourceActivityIds": ["anotherUserTask"],
-        "targetActivityIds": ["anotherUserTask"]
+        "sourceActivityIds": ["anEvent"],
+        "targetActivityIds": ["anotherEvent"],
+        "updateEventTrigger": true
       }
     ]
   },

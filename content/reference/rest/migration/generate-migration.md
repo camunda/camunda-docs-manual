@@ -41,6 +41,10 @@ A JSON object with the following properties:
     <td>targetProcessDefinitionId</td>
     <td>The id of the target process definition for the migration.</td>
   </tr>
+  <tr>
+    <td>updateEventTriggers</td>
+    <td>A boolean flag indicating whether instructions between events should have be configured to update the event triggers.</td>
+  </tr>
 </table>
 
 
@@ -70,8 +74,31 @@ Its properties are as follows:
     <td>Array</td>
     <td>
       A list of migration instructions which map equal activities. Each
-      migration instruction contains a list of sources activity and target
-      activity ids.
+      migration instruction is a JSON object with the following properties:
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>sourceActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the source process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>targetActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the target process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>updateEventTrigger</td>
+            <td>Boolean</td>
+            <td>
+              Configuration flag whether event triggers defined are going to be update during migration.
+            </td>
+          </tr>
+        </table>
     </td>
   </tr>
 </table>
@@ -112,7 +139,8 @@ Request Body:
 ```json
 {
   "sourceProcessDefinitionId": "aProcessDefinitionId1",
-  "targetProcessDefinitionId": "aProcessDefinitionId2"
+  "targetProcessDefinitionId": "aProcessDefinitionId2",
+  "updateEventTriggers": true
 }
 ```
 
@@ -127,11 +155,13 @@ Status 200.
   "instructions": [
     {
       "sourceActivityIds": ["aUserTask"],
-      "targetActivityIds": ["aUserTask"]
+      "targetActivityIds": ["aUserTask"],
+      "updateEventTrigger": false
     },
     {
-      "sourceActivityIds": ["anotherUserTask"],
-      "targetActivityIds": ["anotherUserTask"]
+      "sourceActivityIds": ["anEvent"],
+      "targetActivityIds": ["anotherEvent"],
+      "updateEventTrigger": true
     }
   ]
 }
