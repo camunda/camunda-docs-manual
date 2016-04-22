@@ -185,6 +185,22 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
 It creates generated migration instructions for the equal activities
 `assessCreditWorthiness`. It adds an additional mapping for `validateAddress` to `validateProcessAddress`.
 
+### Updating Event Triggers
+
+When migrating events, it is possible to decide whether the corresponding event triggers should be updated or not.
+See the [BPMN-specific considerations on events]({{< relref "#events" >}}) for details. When generating a migration plan,
+it is possible to define this setting for generated instructions between events by using the method `#mapEventTriggers`.
+
+For example, the following code generates a migration plan where all instructions between events are going to use the `updateEventTrigger` option:
+
+```Java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
+  .mapEqualActivities()
+  .updateEventTriggers()
+  .build();
+```
+
 
 ## Executing a migration plan
 
@@ -289,7 +305,7 @@ and if no retries are left an incident is created. In this case, manual action
 is necessary to complete the batch migration.
 
 
-# BPMN-specific Effects
+# BPMN-specific API and Effects
 
 Depending on the type of the activities a process model contains, migration has varying effects.
 
@@ -302,9 +318,13 @@ from the process definition id. The task is not reinitialized: Attributes like a
 
 ### Receive Task
 
-When a receive task instance is migrated, the corresponding event subscription remains as it is apart from the activity it references.
-That means that the name of the message the instance waits for does not change, even if
-the target process definition defines a different message.
+A receive task defines a persistent event trigger, namely an event subscription. There are two options for migrating it:
+
+1. **The event trigger remains the same**: Even if the target event defines a different message, the migrated task
+  instance is going to wait for the message defined by the source task. This is the default behavior
+  when calling `migrationBuilder.mapActivities("sourceTask", "targetTask")`
+2. **The event trigger is updated**: The migrated task instance is going to wait for the message of the target task.
+  This behavior can be specified by calling `migrationBuilder.mapActivities("sourceTask", "targetTask").updateEventTrigger()`
 
 ### External Task
 
@@ -329,60 +349,55 @@ In addition, the following conditions must hold:
 ### Event-based Gateway
 
 To migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
-The events that the gateway's event triggers are represented in the engine API as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
-and `org.camunda.bpm.engine.runtime.Job`. To migrate the state of the triggers, additional migration instructions between
-the respective intermediate catch events must be provided. To reinitialize the event triggers, such instructions must be omitted.
-
-Consider the following two processes where the configuration of the intermediate timer event changes:
-
-Process `eventBasedGateway:1`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-based-gw1"></div>
-
-Process `eventBasedGateway:2` (note the timer configuration):
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-based-gw2"></div>
-
-If there is an instruction that maps the intermediate timer events, the timer job and its configuration is preserved, i.e., the timer fires after five days after
-the event-based gateway was enabled. If there is no such instruction, the original timer job is removed and a new timer job is created. It will trigger ten days after migration.
+In order to migrate the gateway's event triggers (event subscriptions, jobs), the events following to the gateway can be mapped as well.
+See the [events section]({{< relref "#embedded-sub-process" >}}) for the semantics of instructions between events.
 
 
 ## Events
 
+For all kinds of catching events (start, intermediate, boundary), a migration instruction can be supplied if they define a persistent event
+trigger. This is the case for message, timer, and signal events.
+
+When mapping events, there are two configuration options:
+
+1. **The event trigger remains the same**: Even if the target event defines a different trigger (e.g. changed timer configuration),
+  the migrated event instance is triggered according to the source definition. This is the default behavior
+  when calling `migrationBuilder.mapActivities("sourceTask", "targetTask")`
+2. **The event trigger is updated**: The migrated event instance can is triggered according to the target definition.
+  This behavior can be specified by calling `migrationBuilder.mapActivities("sourceTask", "targetTask").updateEventTrigger()`
+
+{{< note title="Timer Events" class="info" >}}
+  Using `#updateEventTrigger` with a timer event does not take into account that a certain amount of time has already elapsed before migration.
+  In consequence, the event trigger is reset according to the target event.
+
+  Consider the following two processes where the configuration of the boundary event changes:
+
+  Process `timerBoundary:1`:
+
+  <div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer1"></div>
+
+  Process `timerBoundary:2`:
+
+  <div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer2"></div>
+
+  Specifying the instruction `migrationBuilder.mapActivities("timer", "timer").updateEventTrigger()` is going to reinitialize the timer job.
+  In effect, the boundary event fires ten days after migration. In contrast, if `updateEventTrigger` is not used, then the
+  timer job configuration is preserved. In effect, it is going to trigger five days after the activity was started regardless of when the migration is performed.
+{{< /note >}}
+
+
 ### Boundary Event
 
-Boundary events of types timer, message, and signal manifest themselves at runtime as instances of `org.camunda.bpm.engine.runtime.EventSubscription`
-and `org.camunda.bpm.engine.runtime.Job`. They capture the state about the event to be received. For a timer, the corresponding job
-contains the time elapsed until the event triggers.
+Boundary events can be mapped from the source to the target process definition along with the activity that they are attached to. The following applies:
 
-If there is no migration instruction for a boundary event, then its representing entity is removed. In order to preserve its
-entity, a migration instruction from a boundary event to another boundary event can be provided. In this case, there must
-also be a mapping from the activity the source boundary event is attached to, to the activity the target boundary event is attached to.
+* If a boundary event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a boundary event in the source process definition is not mapped, then its event trigger is deleted during migration
+* If a boundary event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
-Consider the following two processes where the configuration of the boundary event changes:
-
-Process `timerBoundary:1`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer1"></div>
-
-Process `timerBoundary:2`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer2"></div>
-
-Applying a migration plan that does not contain the instruction `.mapActivities("timer", "timer")` is going to remove the timer job and re-create it.
-In effect, the boundary event fires ten days after migration. In contrast, if that instruction is provided then the timer job instance is preserved. However, its
-payload is not updated to the target boundary event's duration. In effect, it is going to trigger five days after the activity was started.
 
 ### Intermediate Catch Event
 
-When an intermediate catch event instance is migrated, the corresponding entity that represents the waiting state
-(i.e., event subscription for message and signal events, job for timer events) remains as it is apart from the activity
-and process definition it references.
-
-That means, the event configuration does not change even if the target process definition defines a different configuration. For example,
-if a message catch event is configured for message `Message_A` and is mapped to a message catch event that is configured for message `Message_B`,
-then a process instance with an active instance of that event still waits for `Message_A` after migration. Similarly, the
-due date of a timer does not change during migration.
+Intermediate catch events must be mapped if a process instance is waiting for that event during migration.
 
 
 ## Subprocess
@@ -401,17 +416,7 @@ Call activities are migrated like any other activity. The called instance, be it
 
 Event Sub Processes can be migrated like [embedded sub processes]({{< relref "#embedded-sub-process" >}}). It is possible to map an event sub process to an embedded sub process and vice versa.
 
-Regarding its event trigger, the same rules apply like for [boundary events]({{< relref "#embedded-sub-process" >}}). If there is a mapping between the event-trigerring activities, the event trigger (timer job or event subscription) is preserved. In particular, consider the following process models:
-
-Process `eventSubProcess:1`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-sub-process-message1"></div>
-
-Process `eventSubProcess:2`:
-
-<div data-bpmn-diagram="../bpmn/process-instance-migration/example-event-sub-process-message2"></div>
-
-Note that the event definition of the message start event has changed. Now, when migrating a process instance from `eventSubProcess:1` to `eventSubProcess:2`, the event trigger for *Complaint Received* is preserved if there is a migration instruction between the two message start events. In consequence, the event subprocess is still triggered by a message *Complaint Received* after migration. If such a migration instruction does not exist, the event trigger is recreated, now waiting for the updated message *Internal Revision Note Received* after migration.
+Regarding their event triggers, their start events can be mapped by providing a migration instruction. See the [events section]({{< relref "#events" >}}) for the semantics of migration instructions between events.
 
 
 ## Flow Node Markers
