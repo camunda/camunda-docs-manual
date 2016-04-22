@@ -333,7 +333,8 @@ Authorizations may range over all users, an individual user or a group of users 
 * An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
 * An authorization for an individual user precedes over an authorization for a group.
 * A Group authorization precedes over a GLOBAL authorization.
-* A Group REVOKE authorization precedes over a Group GRANT authorization.
+* A Group GRANT authorization precedes over a Group REVOKE authorization.
+* A User GRANT authorization precedes over a User REVOKE authorization.
 
 ## Create an Authorization
 
