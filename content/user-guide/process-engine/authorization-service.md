@@ -280,14 +280,14 @@ The table below shows a detailed overview on which permissions authorize a user 
 	<tr>
       <th>Set Task Variable</th>
       <td></td>
-      <td>X</td>
+      <td></td>
       <td>X</td>
       <td>X</td>
     </tr>
 	<tr>
       <th>Remove Task Variable</th>
       <td></td>
-      <td>X</td>
+      <td></td>
       <td>X</td>
       <td>X</td>
     </tr>
