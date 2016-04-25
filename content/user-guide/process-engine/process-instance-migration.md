@@ -187,11 +187,26 @@ It creates generated migration instructions for the equal activities
 
 ### Updating Event Triggers
 
-When migrating events, it is possible to decide whether the corresponding event triggers should be updated or not.
-See the [BPMN-specific considerations on events]({{< relref "#events" >}}) for details. When generating a migration plan,
-it is possible to define this setting for generated instructions between events by using the method `#mapEventTriggers`.
+When migrating events, it is possible to decide whether the corresponding event
+triggers should be updated or not.  See the [BPMN-specific considerations on
+events]({{< relref "#events" >}}) for details. When generating a migration
+plan, it is possible to define this setting for generated instructions between
+events by using the method `updateEventTrigger`.  For example, the following
+code generates a migration instruction for a boundary event and updates its
+event trigger during the migration it.
 
-For example, the following code generates a migration plan where all instructions between events are going to use the `updateEventTrigger` option:
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
+  .mapActivities("userTask", "userTask")
+  .mapActivities("boundary", "boundary")
+    .updateEventTrigger()
+  .build();
+```
+
+It is also possible to set the default behavior for the migration instruction
+generation with the `updateEventTriggers` method. This is equal to calling
+`updateEventTrigger` on all event migration instructions which are generated.
 
 ```Java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -350,7 +365,7 @@ In addition, the following conditions must hold:
 
 To migrate an event-based gateway instance, a migration instruction to another event-based gateway must be part of the migration plan.
 In order to migrate the gateway's event triggers (event subscriptions, jobs), the events following to the gateway can be mapped as well.
-See the [events section]({{< relref "#embedded-sub-process" >}}) for the semantics of instructions between events.
+See the [events section]({{< relref "#events" >}}) for the semantics of instructions between events.
 
 
 ## Events
@@ -363,7 +378,7 @@ When mapping events, there are two configuration options:
 1. **The event trigger remains the same**: Even if the target event defines a different trigger (e.g. changed timer configuration),
   the migrated event instance is triggered according to the source definition. This is the default behavior
   when calling `migrationBuilder.mapActivities("sourceTask", "targetTask")`
-2. **The event trigger is updated**: The migrated event instance can is triggered according to the target definition.
+2. **The event trigger is updated**: The migrated event instance is triggered according to the target definition.
   This behavior can be specified by calling `migrationBuilder.mapActivities("sourceTask", "targetTask").updateEventTrigger()`
 
 {{< note title="Timer Events" class="info" >}}
@@ -414,10 +429,7 @@ Call activities are migrated like any other activity. The called instance, be it
 
 ### Event Sub Process
 
-Event Sub Processes can be migrated like [embedded sub processes]({{< relref "#embedded-sub-process" >}}). It is possible to map an event sub process to an embedded sub process and vice versa.
-
-Regarding their event triggers, their start events can be mapped by providing a migration instruction. See the [events section]({{< relref "#events" >}}) for the semantics of migration instructions between events.
-
+The start events of a event sub process can be mapped by providing a migration instruction. See the [events section]({{< relref "#events" >}}) for the semantics of migration instructions between events.
 
 ## Flow Node Markers
 
