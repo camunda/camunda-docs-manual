@@ -415,6 +415,32 @@ Boundary events can be mapped from the source to the target process definition a
 Intermediate catch events must be mapped if a process instance is waiting for that event during migration.
 
 
+### Compensation Boundary Event
+
+Migrating process instances with compensation event subscriptions or active compensation handlers is not yet supported.
+
+New compensation boundary events contained in the target process definition only take effect for activity instances that are not started or finished yet.
+For example, consider the following two processes:
+
+Process `compensation:1`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation1"></div>
+
+Process `compensation:2`:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation2"></div>
+
+Furthermore, assume that before migration a process instance is in the following state:
+
+```
+ProcessInstance
+└── Assess Credit Worthiness
+```
+
+If this process instance is migrated (with *Assess Credit Worthiness* being mapped to its equivalent), then triggering compensation
+afterwards is **not** going to compensate *Archive Application*.
+
+
 ## Subprocess
 
 If a migration instruction applies to an embedded/event/transaction sub process, it is migrated to its target sub process in the target process definition.
