@@ -196,7 +196,7 @@ Each batch statistics object has the following properties:
 
 ## Request
 
-GET `/batch/statistics/?type=aBatchType&sortBy=batchId&sortOrder=asc`
+GET `/batch/statistics?type=aBatchType&sortBy=batchId&sortOrder=asc`
 
 ## Response
 
