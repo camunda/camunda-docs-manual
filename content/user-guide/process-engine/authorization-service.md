@@ -79,16 +79,17 @@ Resources are the entities the user interacts with.
 
   * Application (cockpit, tasklist, ...)
   * Authorization
+  * Decision Definition
+  * Deployment
+  * Filter
   * Group
   * Group Membership
-  * User
-  * Filter
-  * Deployment
   * Process Definition
   * Process Instance
   * Task
-  * Decision Definition
-
+  * Tenant
+  * User
+  
 {{< /note >}}
 
 On top of the built-in resources, the Camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
@@ -175,6 +176,13 @@ The valid combinations can be found in the following table.
       <td>X</td>
       <td>X</td>
     </tr> 
+    <tr>
+      <th>Tenant</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
     <tr>
       <th>User</th>
       <td>X</td>

@@ -1,24 +1,24 @@
 ---
 
-title: "Get Single Group"
+title: "Get Single Tenant"
 weight: 30
 
 menu:
   main:
     name: "Get"
-    identifier: "rest-api-group-get"
-    parent: "rest-api-group"
-    pre: "GET `/group/{id}`"
+    identifier: "rest-api-tenant-get"
+    parent: "rest-api-tenant"
+    pre: "GET `/tenant/{id}`"
 
 ---
 
 
-Retrieves a single group.
+Retrieves a single tenant.
 
 
 # Method
 
-GET `/group/{id}`
+GET `/tenant/{id}`
 
 
 # Parameters
@@ -32,7 +32,7 @@ GET `/group/{id}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the group to be retrieved.</td>
+    <td>The id of the tenant to be retrieved.</td>
   </tr>
 </table>
 
@@ -50,17 +50,12 @@ A JSON object with the following properties:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The id of the group.</td>
+    <td>The id of the tenant.</td>
   </tr>
   <tr>
     <td>name</td>
     <td>String</td>
-    <td>The name of the group.</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>String</td>
-    <td>The type of the group.</td>
+    <td>The name of the tenant.</td>
   </tr>
 </table>
 
@@ -81,7 +76,7 @@ A JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Group with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Tenant with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -89,12 +84,13 @@ A JSON object with the following properties:
 
 ## Request
 
-GET `/group/sales`
+GET `/tenant/tenantOne`
 
 ## Response
 
 Status 200.
 
-    {"id":"sales",
-     "name":"Sales",
-     "type":"Organizational Unit"}
+    {
+     "id":"tenantOne",
+     "name":"Tenant One"
+    }
