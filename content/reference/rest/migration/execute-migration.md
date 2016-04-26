@@ -40,7 +40,7 @@ A JSON object with the following properties:
     <td>migrationPlan</td>
     <td>
       The migration plan to execute. A JSON object corresponding to the
-      migration plan interface in the engine.
+      migration plan interface in the engine as explained below.
     </td>
   </tr>
   <tr>
@@ -57,6 +57,55 @@ A JSON object with the following properties:
     </td>
   </tr>
 </table>
+
+The migration plan JSON object has the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>sourceProcessDefinitionId</td>
+    <td>The id of the source process definition for the migration.</td>
+  </tr>
+  <tr>
+    <td>targetProcessDefinitionId</td>
+    <td>The id of the target process definition for the migration.</td>
+  </tr>
+  <tr>
+    <td>instructions</td>
+    <td>
+      A list of migration instructions which map equal activities. Each
+      migration instruction is a JSON object with the following properties:
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>sourceActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the source process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>targetActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the target process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>updateEventTrigger</td>
+            <td>Boolean</td>
+            <td>
+              Configuration flag whether event triggers defined are going to be update during migration.
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+
 
 
 # Result
