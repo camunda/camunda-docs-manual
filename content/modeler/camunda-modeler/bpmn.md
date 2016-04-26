@@ -26,6 +26,16 @@ To start modeling, create a new BPMN 2.0 diagram by selecting *File / New File /
 
 Now you can start to create a BPMN 2.0 model. Add the desired elements from the palette on the left hand side by dragging and dropping them onto the diagram canvas. Alternatively, you can add new elements by using the context menu that appears when you select an element in the diagram. Using the wrench icon in the context menu, you can change the type of an element in place.
 
+## Demo
+
+{{< img src="img/demo.gif" title="Demo" >}}
+
+The demo above shows how to create more BPMN 2.0 elements like lanes, task types and event definitions.
+
+## BPMN 2.0 Coverage
+
+The Camunda Modeler covers all BPMN 2.0 elements for modeling processes and collaborations. 
+
 ## BPMN 2.0 Properties for Execution
 
 {{< img src="img/quickstart-3.png" title="Save BPMN Diagram" >}}
