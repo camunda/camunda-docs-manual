@@ -57,10 +57,10 @@ Its properties are as follows:
     <td>The type of the batch.</td>
   </tr>
   <tr>
-    <td>size</td>
+    <td>totalJobs</td>
     <td>Number</td>
     <td>
-      The size of a batch is the number of batch execution jobs required to
+      The total jobs of a batch is the number of batch execution jobs required to
       complete the batch.
     </td>
   </tr>
@@ -77,7 +77,7 @@ Its properties are as follows:
     <td>
       The number of batch execution jobs created per seed job invocation.
       The batch seed job is invoked until it created all batch execution jobs required by
-      the batch (see <code>size</code> property).
+      the batch (see <code>totalJObs</code> property).
     </td>
   </tr>
   <tr>
@@ -151,7 +151,7 @@ Status 200.
 {
   "id": "aBatchId",
   "type": "aBatchType",
-  "size": 10,
+  "totalJobs": 10,
   "batchJobsPerSeed": 10,
   "jobsCreated": 10,
   "invocationsPerBatchJob": 1,

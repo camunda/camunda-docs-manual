@@ -167,7 +167,7 @@ processEngine.getManagementService()
 ## Execution Jobs
 
 The execution of a batch is split into several execution jobs. The specific
-number of jobs depends on the size of the batch and the process engine
+number of jobs depends on the total jobs of the batch and the process engine
 configuration (see [seed job][]). Every execution job executes the actual batch
 command for a given number of invocations, e.g., migrate a number of process
 instances. The execution jobs will be executed by the [job executor][].  They
