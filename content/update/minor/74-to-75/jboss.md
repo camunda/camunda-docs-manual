@@ -133,8 +133,8 @@ This leads to that you must transfer your existing Thread Pool configuration fro
        <max-threads count="10" />
        <queue-length count="3" />
        <keepalive-time time="10" unit="seconds" />
-     <!-- Hint: END DELETION -->
      </bounded-queue-thread-pool>
+     <!-- Hint: END DELETION -->
    </subsystem>
    ```
 
@@ -245,9 +245,6 @@ The following steps are required to upgrade the Camunda web applications Cockpit
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-
-http://localhost:1313/manual/develop/update/minor/74-to-75/jboss/jboss-threads-to-camunda-mapping-table
-http://localhost:1313/manual/develop/update/minor/74-to-75/jboss/#jboss-threads-to-camunda-subsystem-mapping-table
 
 [jboss-threads-to-camunda-mapping-table]: {{< relref "update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
 [upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
