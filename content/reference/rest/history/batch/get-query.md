@@ -54,7 +54,7 @@ GET `/history/batch`
     <td>sortBy</td>
     <td>
       Sort the results lexicographically by a given criterion.
-      Valid values are <code>batchId</code>, <code>startTime</code and
+      Valid values are <code>batchId</code>, <code>startTime</code> and
       <code>endTime</code>.
       Must be used in conjunction with the <code>sortOrder</code> parameter.
     </td>
@@ -184,7 +184,7 @@ Each historic batch object has the following properties:
 
 ## Request
 
-GET `/history/batch?type=aBatchType&sortBy=batchId&sortOrder=asc`
+GET `/history/batch?type=aBatchType&completed=true&sortBy=batchId&sortOrder=asc`
 
 ## Response
 
