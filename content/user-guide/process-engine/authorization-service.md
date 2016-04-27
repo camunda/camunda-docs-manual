@@ -46,10 +46,11 @@ A Permission defines the way an identity is allowed to interact with a certain r
   * Read Task
   * Update Task
   * Task Work
-  * Task Assign  
+  * Task Assign
   * Create Instance
   * Read Instance
   * Update Instance
+  * Migrate Instance
   * Delete Instance
   * Read History
   * Delete History
@@ -89,7 +90,7 @@ Resources are the entities the user interacts with.
   * Task
   * Tenant
   * User
-  
+
 {{< /note >}}
 
 On top of the built-in resources, the Camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
@@ -133,14 +134,14 @@ The valid combinations can be found in the following table.
       <td></td>
       <td>X</td>
       <td>X</td>
-    </tr> 
+    </tr>
     <tr>
       <th>Filter</th>
       <td>X</td>
       <td>X</td>
       <td></td>
       <td>X</td>
-    </tr>   
+    </tr>
     <tr>
       <th>Group</th>
       <td>X</td>
@@ -154,7 +155,7 @@ The valid combinations can be found in the following table.
       <td></td>
       <td>X</td>
       <td>X</td>
-    </tr>  
+    </tr>
     <tr>
       <th>Process Definition</th>
       <td>X</td>
@@ -175,7 +176,7 @@ The valid combinations can be found in the following table.
       <td>X (*)</td>
       <td>X</td>
       <td>X</td>
-    </tr> 
+    </tr>
     <tr>
       <th>Tenant</th>
       <td>X</td>
@@ -189,7 +190,7 @@ The valid combinations can be found in the following table.
       <td>X</td>
       <td>X</td>
       <td>X</td>
-    </tr>    
+    </tr>
   </tbody>
 </table>
 
@@ -235,14 +236,14 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td>X</td>
       <td>X</td>
       <td>X</td>
-    </tr> 
+    </tr>
     <tr>
       <th>Delete Candidate User</th>
       <td></td>
       <td>X</td>
       <td>X</td>
       <td>X</td>
-    </tr>   
+    </tr>
     <tr>
       <th>Set Assignee</th>
       <td></td>
@@ -256,7 +257,7 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td>X</td>
       <td>X</td>
       <td>X</td>
-    </tr>  
+    </tr>
     <tr>
       <th>Add Candidate Group</th>
       <td></td>
@@ -277,7 +278,7 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td>X</td>
       <td>X</td>
       <td>X</td>
-    </tr> 
+    </tr>
     <tr>
       <th>Set Task Priority</th>
       <td></td>
@@ -313,10 +314,11 @@ GRANT and REVOKE authorization with Task Work and Task Assign permissions preced
 * Create Instance
 * Read Instance
 * Update Instance
+* Migrate Instance
 * Delete Instance
 * Read History
 * Delete History
-  
+
 ## Additional Authorizations for Decision Definition
 
 * Create Instance
