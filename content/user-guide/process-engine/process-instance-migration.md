@@ -274,6 +274,30 @@ runtimeSerivce.newMigration(migrationPlan)
 It is also possible to specify both, a list of process instance ids and a query.
 The process instances to migrated will then be the union of the specified sets.
 
+### Skipping Listeners and Input/Output Mappings
+
+During migration, activity instances may be ended or new activity instances may be created.
+Per default, these activities' execution listeners and input/output mappings
+are going to be invoked as appropriate. This may not always be the desired behavior.
+
+For example, if an execution listener expects the existence of a variable to function
+properly but that variable does not exist in instances of the source process definition,
+then skipping listener invocation can be useful.
+
+In the API, the two methods `#skipCustomListeners` and `#skipIoMappings`
+can be used for this purpose:
+
+```Java
+MigrationPlan migrationPlan = ...;
+List<String> processInstanceIds = ...;
+
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(processInstanceIds)
+  .skipCustomListeners()
+  .skipIoMappings()
+  .execute();
+```
+
 ### Synchronous migration execution
 
 To execute the migration synchronously, the `execute` method is used. It will
