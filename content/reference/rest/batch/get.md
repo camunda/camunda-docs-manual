@@ -77,7 +77,7 @@ Its properties are as follows:
     <td>
       The number of batch execution jobs created per seed job invocation.
       The batch seed job is invoked until it created all batch execution jobs required by
-      the batch (see <code>totalJObs</code> property).
+      the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
   <tr>
