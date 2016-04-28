@@ -279,7 +279,7 @@ Query for all identity links that is related to the user "demo".
 ```java
 historyService.createHistoricIdentityLinkLogQuery()
   .userId("demo")
-  .list(); 
+  .list();
 ```
 
 ## Partially Sorting History Events by Their Occurrence
@@ -474,6 +474,17 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>suspensionState</strong>: The new suspension state, <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Migrate</td>
+    <td>
+      <ul>
+        <li><strong>processDefinitionId</strong>: The id of the process definition that instances are migrated to</li>
+        <li><strong>nrOfInstances</strong>: The amount of process instances migrated</li>
+        <li><strong>async</strong>: <code>true</code> if migration was performed asynchronously as a batch, <code>false</code> if migration was performed synchronously</li>
       </ul>
     </td>
   </tr>
