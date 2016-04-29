@@ -15,7 +15,6 @@ The `bpm-platform.xml` file is part of the Camunda BPM platform distribution and
 It is used to configure the Camunda BPM platform in the following distributions:
 
 *   [Apache Tomcat]({{< relref "installation/full/tomcat/index.md" >}})
-*   [Glassfish Application Server]({{< relref "installation/full/glassfish/index.md" >}})
 *   [IBM WebSphere Application Server]({{< relref "installation/full/was/index.md" >}})
 *   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
 
@@ -92,10 +91,9 @@ The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/
 
 You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy upgrade path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
 
-This feature is available for:  
+This feature is available for:
 
 *   [Apache Tomcat]({{< relref "installation/full/tomcat/index.md" >}})
-*   [Glassfish Application Server]({{< relref "installation/full/glassfish/index.md" >}})
 *   [IBM WebSphere Application Server]({{< relref "installation/full/was/index.md" >}})
 *   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
 

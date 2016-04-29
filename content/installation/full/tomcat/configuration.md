@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This page explains how to configure the full distribution for glassfish application server.
+This page explains how to configure the full distribution for Tomcat Application Server.
 
 # LDAP
 
