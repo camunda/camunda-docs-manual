@@ -112,6 +112,18 @@ A JSON object with the following properties:
     <td>Only include unfinished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withIncidents</td>
+    <td>Only include process instances which have an incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>incidentMessage</td>
+    <td>Filter by the incident message. Exact match.</td>
+  </tr>
+  <tr>
+    <td>incidentMessageLike</td>
+    <td>Filter by the incident message that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>startedBy</td>
     <td>Only include process instances that were started by the given user.</td>
   </tr>
