@@ -305,6 +305,13 @@ The table below shows a detailed overview on which permissions authorize a user 
 
 GRANT and REVOKE authorization with Task Work and Task Assign permissions precedes over Update and Update Task.
 
+## Default task permission
+
+When a user is related to a task by being an assignee or a candidate user or a part of a candidate group or an owner, then these users
+get the default permission as either "Task Work" or "Update" based on the configuration setting "defaultTaskPermissionForUser". 
+
+If the "defaultTaskPermissionForUser" is not set, then by default UPDATE permission is granted.
+
 ## Additional Authorizations for Process Definition
 
 * Read Task
