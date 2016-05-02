@@ -89,6 +89,7 @@ Resources are the entities the user interacts with.
   * Process Instance
   * Task
   * Tenant
+  * Tenant Membership
   * User
 
 {{< /note >}}

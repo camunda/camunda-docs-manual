@@ -53,7 +53,7 @@ GET `/tenant`
   </tr>  
   <tr>
     <td>includingGroupsOfUser</td>
-    <td>Select only tenants where the user or one of his groups is a member of. Can only be used in combination with the <code>userMember</code> parameter.</td>
+    <td>Select only tenants where the user or one of his groups is a member of. Can only be used in combination with the <code>userMember</code> parameter. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr> 
   <tr>
     <td>sortBy</td>
