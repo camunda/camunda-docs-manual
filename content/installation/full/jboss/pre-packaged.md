@@ -22,7 +22,7 @@ menu:
 
 # Accessing the H2 console
 
-In JBoss / Wildfly you can easily access the H2 console to inspect your local H2 database (used in demo/evaluation scenarios):
+In JBoss/Wildfly you can easily access the H2 console to inspect your local H2 database (used in demo/evaluation scenarios):
 
 1.  Go to http://localhost:8080/h2/h2
 2.  Login with the following data:

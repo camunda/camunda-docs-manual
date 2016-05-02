@@ -22,7 +22,7 @@ In the following section, we walk through the different implementations and disc
 
 # The ServletProcessApplication
 
-**Supported on:** Apache Tomcat, JBoss / WildFly, GlassFish. The Servlet Process Application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-the-servletprocessapplication-inside-an-ejb-java-ee-container-such-as-glassfish-or-jboss" >}})
+**Supported on:** Apache Tomcat, JBoss/Wildfly, GlassFish. The Servlet Process Application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-the-servletprocessapplication-inside-an-ejb-java-ee-container-such-as-glassfish-or-jboss" >}})
 
 **Packaging**: WAR (or embedded WAR inside EAR)
 
@@ -85,7 +85,7 @@ If your application does not use such features, it is perfectly fine to use the 
 
 # The EjbProcessApplication
 
-**Supported on:** JBoss / WildFly, GlassFish. The EjbProcessApplication is supported on Java EE 6 containers or higher. It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
+**Supported on:** JBoss/Wildfly, GlassFish. The EjbProcessApplication is supported on Java EE 6 containers or higher. It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
 **Packaging:** JAR, WAR, EAR
 
@@ -276,7 +276,7 @@ When the EjbProcessApplication registers with a process engine (see `ManagementS
 
 # The EmbeddedProcessApplication
 
-**Supported on:** JVM, Apache Tomcat, JBoss / WildFly, GlassFish
+**Supported on:** JVM, Apache Tomcat, JBoss/Wildfly, GlassFish
 
 **Packaging:** JAR, WAR, EAR
 
@@ -314,7 +314,7 @@ public class MyProcessApplication extends EmbeddedProcessApplication {
 
 # The SpringProcessApplication
 
-**Supported on:** JVM, Apache Tomcat, GlassFish. The spring process application is currently not supported on JBoss AS 7 / Wildfly 8
+**Supported on:** JVM, Apache Tomcat, GlassFish. The spring process application is currently not supported on JBoss AS 7/Wildfly 8
 
 **Packaging:** JAR, WAR, EAR
 

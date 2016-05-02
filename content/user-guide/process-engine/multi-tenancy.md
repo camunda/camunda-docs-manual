@@ -148,7 +148,7 @@ In order to access a specific tenant's process engine at runtime, it has to be i
 
 * **Plain Java API**: Via the [ProcessEngineService]({{< relref "user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
 * **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< relref "user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
-* **Via JNDI on JBoss / Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
+* **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
 
 
 # One Process Engine With Tenant-Identifiers

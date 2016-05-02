@@ -8,16 +8,16 @@ menu:
     name: "Manual Installation"
     identifier: "installation-guide-full-jboss-install-vanilla"
     parent: "installation-guide-full-jboss"
-    pre: "Install and configure the Full Distribution on a vanilla JBoss / Wildfly Application Server."
+    pre: "Install and configure the Full Distribution on a vanilla JBoss/Wildfly Application Server."
 
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8 / 10 Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8/10 Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
-`$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss / Wildfly application server main directory.
+`$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss/Wildfly application server main directory.
 `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
@@ -142,7 +142,7 @@ These links point you to resources for other databases:
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
-# Required Setup for Wildfly 8 / 10
+# Required Setup for Wildfly 8/10
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
@@ -275,7 +275,7 @@ The following steps are required to deploy the web application:
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
     Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-4. Startup JBoss AS / Wildfly.
+4. Startup JBoss AS/Wildfly.
 5. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
 
@@ -289,7 +289,7 @@ The following steps are required to deploy the REST API:
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-4. Startup JBoss AS / Wildfly.
+4. Startup JBoss AS/Wildfly.
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.
