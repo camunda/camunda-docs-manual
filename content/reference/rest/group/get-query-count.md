@@ -49,6 +49,10 @@ GET `/group/count`
     <td>member</td>
     <td>Only retrieve groups where the given user id is a member of.</td>
   </tr>
+  <tr>
+    <td>memberOfTenant</td>
+    <td>Only retrieve groups which are members of the given tenant.</td>
+  </tr>
 </table>
 
 

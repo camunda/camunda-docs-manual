@@ -40,6 +40,18 @@ GET `/tenant/count`
   <tr>
     <td>nameLike</td>
     <td>Filter by the name that the parameter is a substring of.</td>
+  </tr>
+  <tr>
+    <td>userMember</td>
+    <td>Select only tenants where the given user is a member of.</td>
+  </tr>  
+  <tr>
+    <td>groupMember</td>
+    <td>Select only tenants where the given group is a member of.</td>
+  </tr>  
+  <tr>
+    <td>includingGroupsOfUser</td>
+    <td>Select only tenants where the user or one of his groups is a member of. Can only be used in combination with the <code>userMember</code> parameter. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>  
 </table>
 

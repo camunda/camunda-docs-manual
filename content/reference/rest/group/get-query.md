@@ -52,6 +52,10 @@ GET `/group`
     <td>Only retrieve groups where the given user id is a member of.</td>
   </tr>
   <tr>
+    <td>memberOfTenant</td>
+    <td>Only retrieve groups which are members of the given tenant.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>id</code>, <code>name</code> and <code>type</code>.

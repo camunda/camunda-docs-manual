@@ -56,6 +56,14 @@ A JSON object with the following properties:
       </a>.
     </td>
   </tr>
+  <tr>
+    <td>skipCustomListeners</td>
+    <td>A boolean value to control whether execution listeners should be invoked during migration.</td>
+  </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td>A boolean value to control whether input/output mappings should be executed during migration.</td>
+  </tr>
 </table>
 
 The migration plan JSON object has the following properties:
@@ -180,7 +188,8 @@ Request Body:
   ],
   "processInstanceQuery": {
     "processDefinitionId": "aProcessDefinitionId1"
-  }
+  },
+  "skipCustomListeners": true
 }
 ```
 

@@ -17,17 +17,17 @@ Business Processes are by nature long running. The process instances will maybe 
 
 This is supported by the process engine:
 
-* If you redeploy a changed process definition you get a new version in the database.
+* If you redeploy a changed process definition, you get a new version in the database.
 * Running process instances will continue to run in the version they were started in.
 * New process instances will run in the new version - unless specified explicitly.
 * Support for migrating process instances to new a version is supported within certain limits.
 
-So you can see different versions in the process definition table and the process instances are linked to this:
+You can see different versions in the process definition table and the process instances are linked to this:
 
 {{< img src="../img/versioning.png" title="Versioning" >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}) then each tenant has his own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md#versioning" >}}) for details.
+If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}) then each tenant has its own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md#versioning" >}}) for details.
 {{< /note >}}
 
 
@@ -35,10 +35,10 @@ If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/
 
 When you start a process instance
 
-* by **key**: It starts an instance of the **latest deployed version** of the process definition with the key.
-* by **id**: It starts an instance of the deployed process definition with the database id. By using this you can start a **specific version**.
+* By **key**: It starts an instance of the **latest deployed version** of the process definition with the key.
+* By **id**: It starts an instance of the deployed process definition with the database id. By using this you can start a **specific version**.
 
-The default and recommended usage is to just use `startProcessInstanceByKey` and always use the latest version:
+The default and recommended usage is to use `startProcessInstanceByKey` and always use the latest version:
 
 ```java
 processEngine.getRuntimeService().startProcessInstanceByKey("invoice");
@@ -65,9 +65,9 @@ When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/cal
 
 The options are
 
-* latest: use the latest version of the process definition (as with `startProcessInstanceByKey`).
-* deployment: use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as then they are always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
-* version: specify the version hard coded in the XML.
+* latest: Use the latest version of the process definition (as with `startProcessInstanceByKey`).
+* deployment: Use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as they are then always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
+* version: Specify the version hard coded in the XML.
 
 
 # Key vs. ID of a Process Definition

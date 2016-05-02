@@ -11,14 +11,14 @@ menu:
 ---
 
 
-The process engine is a piece of passive Java Code which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
+The process engine is a piece of passive Java code which works in the Thread of the client. For instance, if you have a web application allowing users to start a new process instance and a user clicks on the corresponding button, some thread from the application server's http-thread-pool will invoke the API method `runtimeService.startProcessInstanceByKey(...)`, thus *entering* the process engine and starting a new process instance. We call this "borrowing the client thread".
 
-On any such *external* trigger (i.e. start a process, complete a task, signal an execution), the engine runtime will advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}), which is able to fetch registered jobs and process them asynchronously.
+On any such *external* trigger (i.e., start a process, complete a task, signal an execution), the engine runtime will advance in the process until it reaches wait states on each active path of execution. A wait state is a task which is performed *later*, which means that the engine persists the current execution to the database and waits to be triggered again. For example in case of a user task, the external trigger on task completion causes the runtime to execute the next bit of the process until wait states are reached again (or the instance ends). In contrast to user tasks, a timer event is not triggered externally. Instead it is continued by an *internal* trigger. That is why the engine also needs an active component, the [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}), which is able to fetch registered jobs and process them asynchronously.
 
 
 # Wait States
 
- We talked about wait states as transaction boundaries where the process state is stored to the database, the Thread returns to the client and the transaction is committed. The following BPMN elements are always wait states:
+ We talked about wait states as transaction boundaries where the process state is stored to the database, the thread returns to the client and the transaction is committed. The following BPMN elements are always wait states:
 
 
 <div class="row"><div class="col-xs-12 col-md-6">
@@ -46,7 +46,7 @@ Keep in mind that [Asynchronous Continuations]({{< relref "#asynchronous-continu
 
 # Transaction Boundaries
 
-The transition from one such stable state to another stable state is always part of one transaction, meaning that it succeeds as a whole or is rolled back on any kind of exception occuring during its execution. This is illustrated in the following example:
+The transition from one such stable state to another stable state is always part of a single transaction, meaning that it succeeds as a whole or is rolled back on any kind of exception occuring during its execution. This is illustrated in the following example:
 
 {{< img src="../img/transactions-1.png" title="Transaction Boundaries" >}}
 
@@ -121,7 +121,7 @@ Declaring asynchronous continuation of the inner activity makes each instance of
 
 ## Understand Asynchronous Continuations
 
-In order to understand how asynchronous continuations work, we first need to understand how an activity is
+To understand how asynchronous continuations work, we first need to understand how an activity is
 executed:
 
 {{< img src="../img/process-engine-activity-execution.png" title="Asynchronous Continuations" >}}
@@ -129,11 +129,11 @@ executed:
 The above illustration shows how a regular activity which is entered and left by a sequence flow is
 executed:
 
-1. the "TAKE" listeners are invoked on the sequence flow entering the activity.
-2. the "START" listeners are invoked on the activity itself.
-3. the behavior of the activity is executed: the actual behavior depends on the type of the
-   activity: in case of a `Service Task` the behavior consists in invoking [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}), in case of a `User Task`, the behavior consists in creating a `Task` instance in the task list etc...
-4. the "END" listeners are invoked on the activity.
+1. The "TAKE" listeners are invoked on the sequence flow entering the activity.
+2. The "START" listeners are invoked on the activity itself.
+3. The behavior of the activity is executed: the actual behavior depends on the type of the
+   activity: in case of a `Service Task` the behavior consists of invoking [Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md" >}}), in case of a `User Task`, the behavior consists of creating a `Task` instance in the task list etc...
+4. The "END" listeners are invoked on the activity.
 5. The "TAKE" listeners of the outgoing sequence flow are invoked.
 
 Asynchronous Continuations allow putting break points between the execution of the sequence flows
@@ -144,14 +144,14 @@ and the execution of the activity:
 The above illustration shows where the different types of asynchronous continuations break the
 execution flow:
 
-* an asynchronous continuation BEFORE an activity breaks the execution flow between the invocation
+* An asynchronous continuation BEFORE an activity breaks the execution flow between the invocation
   of the incoming sequence flow's TAKE listeners and the execution of the activity's START
 listeners.
-* an asynchronous continuation AFTER an activity breaks the execution flow between the invocation of
+* An asynchronous continuation AFTER an activity breaks the execution flow between the invocation of
   the activity's END listeners and the outgoing sequence flow's TAKE listeners.
 
 Asynchronous continuations directly relate to transaction boundaries: putting an asynchronous
-continuation before or after an activity creates a transaction boundary before or after an activity:
+continuation before or after an activity creates a transaction boundary before or after the activity:
 
 {{< img src="../img/process-engine-async-transactions.png" title="" >}}
 
@@ -161,7 +161,7 @@ Executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}).
 
 # Rollback on Exception
 
-We want to emphasize that in case of a non handled exception the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
+We want to emphasize that in case of a non handled exception, the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
 
 {{< img src="../img/transactions-3.png" title="Rollback" >}}
 
@@ -170,20 +170,20 @@ If an exception occurs when calling `startProcessInstanceByKey` the process inst
 
 # Reasoning for This Design
 
-The above sketched solution normally leads to discussion as people expect the process engine to stop in case the task caused an exception. Also, other BPM suites often implement every task as a wait state. But this approach has a couple of **advantages**:
+The above sketched solution normally leads to discussion, as people expect the process engine to stop in case the task caused an exception. Also, other BPM suites often implement every task as a wait state. However, this approach has a couple of **advantages**:
 
- * In Testcases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
- * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end as shown in the tutorial "UI Mediator".
+ * In test cases you know the exact state of the engine after the method call, which makes assertions on process state or service call results easy.
+ * In production code the same is true; allowing you to use synchronous logic if required, for example because you want to present a synchronous user experience in the front-end.
  * The execution is plain Java computing which is very efficient in terms of performance.
  * You can always switch to 'asyncBefore/asyncAfter=true' if you need different behavior.
 
-But there are consequences which you should keep in mind:
+However, there are consequences which you should keep in mind:
 
- * In case of Exceptions the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client.
+ * In case of exception,s the state is rolled back to the last persistent wait state of the process instance. It might even mean that the process instance will never be created! You cannot easily trace the exception back to the node in the process causing the exception. You have to handle the exception in the client.
  * Parallel process paths are not executed in parallel in terms of Java Threads, the different paths are executed sequentially, since we only have and use one Thread.
- * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. But in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
+ * Timers cannot fire before the transaction is committed to the database. Timers are explained in more detail later, but they are triggered by the only active part of the Process Engine where we use own Threads: The Job Executor. Hence they run in an own thread which receives the due timers from the database. However, in the database the timers are not visible before the current transaction is visible. So the following timer will never fire:
 
-{{< img src="../img/NotWorkingTimerOnServiceTimeout.png" title="Not Workin Tiemout" >}}
+{{< img src="../img/NotWorkingTimerOnServiceTimeout.png" title="Not Working Timeout" >}}
 
 
 # Transaction Integration
@@ -205,12 +205,12 @@ ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration()
   .buildProcessEngine();
 ```
 
-The usecases for standalone transaction management are situations where the process engine does not
+The use cases for standalone transaction management are situations where the process engine does not
 have to integrate with other transactional resources such as secondary datasources or messaging
 systems.
 
 {{< note title="" class="info" >}}
-  In the tomcat distribution the process engine is configured using standalone transaction management.
+  In the Tomcat distribution the process engine is configured using standalone transaction management.
 {{< /note >}}
 
 
@@ -223,7 +223,7 @@ transaction management. More information can be found in the following chapters:
 * [Section on Spring Transaction Management][tx-spring]
 * [Section on JTA Transaction Management][tx-jta]
 
-The usecase for transaction manager integration are situations where the process engine needs to
+The use cases for transaction manager integration are situations where the process engine needs to
 integrate with
 
 * transaction focused programming models such as Java EE or Spring (think about transaction scoped

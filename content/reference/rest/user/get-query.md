@@ -64,6 +64,10 @@ GET `/user`
     <td>Filter for users which are members of a group.</td>
   </tr> 
   <tr>
+    <td>memberOfTenant</td>
+    <td>Filter for users which are members of the given tenant.</td>
+  </tr>  
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>userId</code>, <code>firstName</code>, <code>lastName</code> and <code>email</code>.

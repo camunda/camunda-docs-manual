@@ -1,6 +1,6 @@
 ---
 
-title: "Update a JBoss / Wildfly Installation from 7.4 to 7.5"
+title: "Update a JBoss/Wildfly Installation from 7.4 to 7.5"
 
 menu:
   main:
