@@ -33,15 +33,15 @@ The history level controls the amount of data the process engine provides via th
     * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (i.e., re-assigned, delegated etc.), completed and deleted.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
     * Variable Instance CREATE, UPDATE, DELETE, as process variables are created, updated and deleted. The default history backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
-* `FULL`: in addition to the events provided by history level `AUDIT`, the following additional events are fired:
+* `FULL`: in addition to the events provided by history level `AUDIT`, the following events are fired:
     * Form property UPDATE: fired as form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
     * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
-    * Decision Instance EVALUATE: fired when a decision is evaluated from the DMN engine.
+    * Decision Instance EVALUATE: fired when a decision is evaluated by the DMN engine.
     * Batch START, END: fired as batches are being started and ended
-    * Identity links ADD, DELETE: fired when an identity link is being added, deleted or when an assignee is set or changed to a user task and owner is set or changed to a user task.
+    * Identity links ADD, DELETE: fired when an identity link is being added, deleted or when an assignee of a user task is set or changed and when the owner of a user task is set or changed.
 * `AUTO`: The level `auto` is useful if you are planning to run multiple engines on the same database. In that case, all engines have to use the same history level. Instead of manually keeping your configurations in sync, use the level `auto` and the engine determines the level already configured in the database automatically. If none is found, the default value `audit` is used. Keep in mind: If you are planning to use custom history levels, you have to register the custom levels for every configuration, otherwise an exception is thrown.
 
 If you need to customize the amount of history events logged, you can provide a custom implementation {{< javadocref page="?org/camunda/bpm/engine/impl/history/producer/HistoryEventProducer.html" text="HistoryEventProducer" >}} and wire it in the process engine configuration.
@@ -49,7 +49,7 @@ If you need to customize the amount of history events logged, you can provide a 
 
 # Set the History Level
 
-The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java Code
+The history level can be provided as a property in the process engine configuration. Depending on how the process engine is configured, the property can be set using Java code:
 
 ```java
 ProcessEngine processEngine = ProcessEngineConfiguration
@@ -58,7 +58,7 @@ ProcessEngine processEngine = ProcessEngineConfiguration
   .buildProcessEngine();
 ```
 
-Or it can be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda jBoss Subsystem, the property can be set through jBoss configuration (standalone.xml, domain.xml).
+It can also be set using Spring XML or a deployment descriptor (bpm-platform.xml, processes.xml). When using the Camunda JBoss Subsystem, the property can be set through JBoss configuration (standalone.xml, domain.xml).
 
 ```xml
 <property name="history">audit</property>
@@ -69,7 +69,7 @@ Note that when using the default history backend, the history level is stored in
 
 # The Default History Implementation
 
-The default history database writes History Events to the appropriate database tables. The database tables can then be queried using the `History Service` or using the REST API.
+The default history database writes History Events to the appropriate database tables. The database tables can then be queried using the `HistoryService` or using the REST API.
 
 
 ## History Entities
@@ -77,7 +77,7 @@ The default history database writes History Events to the appropriate database t
 There are the following History entities, which - in contrast to the runtime data - will also remain present in the DB after process and case instances have been completed:
 
 * `HistoricProcessInstances` containing information about current and past process instances.
-* `HistoricProcessVariables` containing information about the latest state a variable held in a  process instance.
+* `HistoricProcessVariables` containing information about the latest state a variable held in a process instance.
 * `HistoricCaseInstances` containing information about current and past case instances.
 * `HistoricActivityInstances` containing information about a single execution of an activity.
 * `HistoriCasecActivityInstances` containing information about a single execution of a case activity.
@@ -104,11 +104,11 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createHistoricBatchQuery()` and `createHistoricIdentityLinkLogQuery()`
 which can be used for querying history.
 
-Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the javadocs, in the `org.camunda.bpm.engine.history` package.
+Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the Javadocs, in the `org.camunda.bpm.engine.history` package.
 
 **HistoricProcessInstanceQuery**
 
-Get the ten `HistoricProcessInstances` that are finished and which took the most time to complete (the longest duration) of all finished processes with definition 'XXX'.
+Get the ten `HistoricProcessInstances` that are finished and that took the most time to complete (the longest duration) of all finished processes with definition 'XXX'.
 
 ```java
 historyService.createHistoricProcessInstanceQuery()
@@ -120,7 +120,7 @@ historyService.createHistoricProcessInstanceQuery()
 
 **HistoricCaseInstanceQuery**
 
-Get the ten `HistoricCaseInstances` that are closed and which took the most time to be closed (the longest duration) of all closed cases with definition 'XXX'.
+Get the ten `HistoricCaseInstances` that are closed and that took the most time to be closed (the longest duration) of all closed cases with definition 'XXX'.
 
 ```java
 historyService.createHistoricCaseInstanceQuery()
@@ -133,7 +133,7 @@ historyService.createHistoricCaseInstanceQuery()
 
 **HistoricActivityInstanceQuery**
 
-Get the last `HistoricActivityInstance` of type 'serviceTask' that has been finished in any process that uses the processDefinition with id XXX.
+Get the last `HistoricActivityInstance` of type 'serviceTask' that has been finished in any process that uses the processDefinition with id 'XXX'.
 
 ``` java
 historyService.createHistoricActivityInstanceQuery()
@@ -146,7 +146,7 @@ historyService.createHistoricActivityInstanceQuery()
 
 **HistoricCaseActivityInstanceQuery**
 
-Get the last `HistoricCaseActivityInstance` that has been finished in any case that uses the caseDefinition with id XXX.
+Get the last `HistoricCaseActivityInstance` that has been finished in any case that uses the caseDefinition with id 'XXX'.
 
 ``` java
 historyService.createHistoricCaseActivityInstanceQuery()
@@ -158,7 +158,7 @@ historyService.createHistoricCaseActivityInstanceQuery()
 
 **HistoricProcessVariableQuery**
 
-Get all HistoricProcessVariables from a finished process instance with id 'xxx' ordered by variable name.
+Get all HistoricProcessVariables from a finished process instance with id 'XXX', ordered by variable name.
 
 ```java
 historyService.createHistoricProcessVariableQuery()
@@ -169,7 +169,7 @@ historyService.createHistoricProcessVariableQuery()
 
 **HistoricDetailQuery**
 
-The next example gets all variable-updates that have been done in process with id 123. Only HistoricVariableUpdates will be returned by this query. Note that it's possible for a certain variable name to have multiple HistoricVariableUpdate entries, one for each time the variable was updated in the process. You can use orderByTime (the time the variable update was done) or orderByVariableRevision (revision of runtime variable at the time of updating) to find out in what order they occurred.
+The next example gets all variable-updates that have been done in process with id '123'. Only HistoricVariableUpdates will be returned by this query. Note that it's possible for a certain variable name to have multiple HistoricVariableUpdate entries, one for each time the variable was updated in the process. You can use orderByTime (the time the variable update was done) or orderByVariableRevision (revision of runtime variable at the time of updating) to find out in what order they occurred.
 
 ```java
 historyService.createHistoricDetailQuery()
@@ -179,7 +179,7 @@ historyService.createHistoricDetailQuery()
   .list()
 ```
 
-The last example gets all variable updates that were performed on the task with id "123". This returns all HistoricVariableUpdates for variables that were set on the task (task local variables), and NOT on the process instance.
+The next example gets all variable updates that were performed on the task with id '123'. This returns all HistoricVariableUpdates for variables that were set on the task (task local variables), and NOT on the process instance.
 
 ```java
 historyService.createHistoricDetailQuery()
@@ -191,7 +191,7 @@ historyService.createHistoricDetailQuery()
 
 **HistoricTaskInstanceQuery**
 
-Get the ten HistoricTaskInstances that are finished and which took the most time to complete (the longest duration) of all tasks.
+Get the ten HistoricTaskInstances that are finished and that took the most time to complete (the longest duration) of all tasks.
 
 ```java
 historyService.createHistoricTaskInstanceQuery()
@@ -200,7 +200,7 @@ historyService.createHistoricTaskInstanceQuery()
   .listPage(0, 10);
 ```
 
-Get HistoricTaskInstances that are deleted with a delete reason that contains "invalid", which were last assigned to user 'jonny'.
+Get HistoricTaskInstances that are deleted with a delete reason that contains 'invalid' and that were last assigned to user 'jonny'.
 
 ```java
 historyService.createHistoricTaskInstanceQuery()
@@ -222,7 +222,7 @@ historyService.createHistoricIncidentQuery()
 
 **UserOperationLogQuery**
 
-Query for all operations performed by user "jonny":
+Query for all operations performed by user 'jonny':
 
 ```java
 historyService.createUserOperationLogQuery()
@@ -252,11 +252,11 @@ historyService.createHistoricDecisionInstanceQuery()
   .list();
 ```
 
-Get all HistoricDecisionInstances from decisions that were evaluated during the execution of the process instance with id 'xxx'. The HistoricDecisionInstances contains the input values on which the decision was evaluated and the output values of the matched rules.
+Get all HistoricDecisionInstances from decisions that were evaluated during the execution of the process instance with id 'XXX'. The HistoricDecisionInstances contains the input values on which the decision was evaluated and the output values of the matched rules.
 
 ```java
 historyService.createHistoricDecisionInstanceQuery()
-  .processInstanceId("xxx")
+  .processInstanceId("XXX")
   .includeInputs()
   .includeOutputs()
   .list();
@@ -274,7 +274,7 @@ historyService.createHistoricBatchQuery()
 ```
 **HistoricIdentityLinkLogQuery**
 
-Query for all identity links that is related to the user "demo".
+Query for all identity links that are related to the user 'demo'.
 
 ```java
 historyService.createHistoricIdentityLinkLogQuery()
@@ -284,14 +284,14 @@ historyService.createHistoricIdentityLinkLogQuery()
 
 ## Partially Sorting History Events by Their Occurrence
 
-Sometimes you are interested in sorting history events according to the order in which they
+Sometimes you want to sort history events in the order in which they
 occurred. Please note that timestamps cannot be used for that.
 
 Most history events contain a timestamp which marks the point in time at which the action signified
 by the event occurred. However, this timestamp can, in general, not be used for sorting the history
 events. The reason is that the process engine can be run on multiple cluster nodes:
 
-* on a single machine, the clock may change due to network synch at runtime,
+* on a single machine, the clock may change due to network sync at runtime,
 * in a cluster, events happening in a single process instance may be generated on different nodes
   among which the clock may not be synced accurately down to nanoseconds.
 
@@ -300,7 +300,7 @@ sort history events by their occurrence.
 
 At a BPMN level this means that instances of concurrent activities (example: activities on different
 parallel branches after a parallel gateway) cannot be compared to each other. Instances of
-activities which are part of happens-before relation at the BPMN level will be ordered in respect to
+activities that are part of happens-before relation at the BPMN level will be ordered in respect to
 that relation.
 
 Example:
@@ -315,7 +315,7 @@ List<HistoricActivityInstance> result = historyService
 ```
 
 Please note the returned list of historic activity instances in the example is
-only partial sorted as explained above. It guarantees that related
+only partially sorted, as explained above. It guarantees that related
 activity instances are sorted by their occurrence. The ordering of unrelated
 activity instances is arbitrary and is not guaranteed.
 
@@ -335,17 +335,17 @@ The user operation log can be accessed via the Java API. The history service can
 
 ## User Operation Log Entries
 
-The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of many entries, one at least. Entries contain the detailed changes being part of the operation. When making a user operation log query the returned entities are of type `UserOperationLogEntry`, corresponding to entries. All entries of one operation are linked by an operation id.
+The log consists of *operations* and *entries*. An operation corresponds to one performed action and consists of multiple entries, at least one. Entries contain the detailed changes being part of the operation. When making a user operation log query, the returned entities are of type `UserOperationLogEntry`, corresponding to entries. All entries of one operation are linked by an operation id.
 
 A user operation log entry has the following properties:
 
 * **Operation ID**: A generated id that uniquely identifies a performed operation. Multiple log entries that are part of one operation reference the same operation ID.
-* **Operation Type**: A name of the operation performed. Available operation types are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
+* **Operation Type**: The name of the performed operation. Available operation types are listed in the interface {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="org.camunda.bpm.engine.history.UserOperationLogEntry" >}}. Note that one operation can consist of multiple types, for example a cascading API operation is one user operation, but is split into multiple types of operations.
 * **Entity Type**: An identifier of the type of the entity that was addressed by the operation. Available entity types are listed in the class {{< javadocref page="?org/camunda/bpm/engine/EntityTypes.html" text="org.camunda.bpm.engine.EntityTypes" >}}. Like the operation type, one operation may address more than one type of entity.
 * **Entity IDs**: A job log entry contains the entity IDs that serve to identify the entities addressed by the operation. For example, an operation log entry on a task contains the id of the task as well as the id of the process instance the task belongs to. As a second example, a log entry for suspending all process instances of a process definition does not contain individual process instance IDs but only the process definition ID.
 * **User ID**: The ID of the user who performed the operation.
 * **Timestamp**: The time at which the operation was performed.
-* **Changed Property**: A user operation may change multiple properties. For example, suspension of a process instance changes the suspension state property. A log entry is created for each property changed involved in an operation.
+* **Changed Property**: A user operation may change multiple properties. For example, suspension of a process instance changes the suspension state property. A log entry is created for each changed property involved in an operation.
 * **Old Property Value**: The previous value of the changed property. A  `null` value either indicates that the property was previously `null` or is not known.
 * **New Property Value**: The new value of the changed property.
 
@@ -396,7 +396,7 @@ The following describes the operations logged in the user operation log and the 
     <td></td>
     <td>Delegate</td>
     <td>
-      When delegating a task three log entries are created, containing one of the following properties:
+      When delegating a task, three log entries are created, containing one of the following properties:
       <ul>
         <li><strong>delegation</strong>: The resulting delegation state, <code>PENDING</code></li>
         <li><strong>owner</strong>: The original owner of the task</li>
@@ -407,7 +407,11 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
-    <td><strong>delete</strong>: The new delete state, <code>true</code></td>
+    <td>
+      <ul>
+      <li><strong>delete</strong>: The new delete state, <code>true</code></li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -672,13 +676,13 @@ The event is next delivered to the History Event Handler which constitutes the *
 
 Once the event has reached the History Event Handler, it can be processed and stored in some kind of datastore. The default implementation writes events to the History Database so that they can be queried using the History Service.
 
-Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. In order to do so, two main steps are required:
+Exchanging the History Event Handler with a custom implementation allows users to plug in a custom History Backend. To do so, two main steps are required:
 
 * Provide a custom implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/history/handler/HistoryEventHandler.html" text="HistoryEventHandler" >}} interface.
 * Wire the custom implementation in the process engine configuration.
 
 {{< note title="Composite History Handling" class="info" >}}
-  Note that if you provide a custom implementation of the HistoryEventHandler and wire it with the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
+  Note that if you provide a custom implementation of the HistoryEventHandler and wire it to the process engine, you override the default DbHistoryEventHandler. The consequence is that the process engine will stop writing to the history database and you will not be able to use the history service for querying the audit log. If you do not want to replace the default behavior but only provide an additional event handler, you can use the class `org.camunda.bpm.engine.impl.history.handler.CompositeHistoryEventHandler` that dispatches events to a collection of handlers.
 {{< /note >}}
 
 
@@ -706,7 +710,7 @@ then has to be added to the process engine configuration, either by configuratio
 </beans>
 ```
 
-The custom history level has to provide an unique id and name for the new history level.
+The custom history level has to provide a unique id and name for the new history level.
 
 ```java
 public int getId() {
@@ -725,11 +729,11 @@ boolean isHistoryEventProduced(HistoryEventType eventType, Object entity)
 ```
 
 is called for every history event to determine if the event should be saved to the history. The event types used in the
-engine can be found in `org.camunda.bpm.engine.impl.history.event.HistoryEventTypes` (see [java docs][1]).
+engine can be found in `org.camunda.bpm.engine.impl.history.event.HistoryEventTypes` (see [Javadocs][1]).
 
 The second argument is the entity for which the event is triggered, e.g., a process instance, activity
 instance or variable instance. If the `entity` is null the engine tests if the history level in general
-handles such history events. If the method returns `false` in this case, the engine will not generate
+handles such history events. If the method returns `false`, the engine will not generate
 any history events of this type again. This means that if your history level only wants to generate the history
 event for some instances of an event it must still return `true` if `entity` is `null`.
 

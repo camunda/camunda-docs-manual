@@ -14,19 +14,19 @@ menu:
 Camunda BPM supports template engines which are implemented as script engines compatible with
 JSR-223. As a result, templates can be used everywhere where scripts can be used.
 
-In community distributions of Camunda BPM, the following template engines are provided out of the
+In community distributions of Camunda BPM, the following template engine is provided out of the
 box:
 
 * [FreeMarker][freemarker]
 
-The following template engines are provided as optional add-ons:
+The following template engine is provided as optional add-on:
 
 * [Apache Velocity][velocity]
 
 The script engine wrapper implementations can be found in the
 [camunda-template-engines][camunda-template-engines] repository.
 
-Additionally, the following template engines are supported as enterprise extension:
+Additionally, the following template engine is supported as enterprise extension:
 
 * [XSLT](/enterprise/download/#xslt-extension)
 
@@ -68,7 +68,7 @@ dependencies must be added as dependencies to the maven `pom.xml` file:
 ## Install a Template Engine for a Shared Process Engine
 
 When using a shared process engine, the template engine must be added to the shared process engine
-classpath. The procedure for achieving this depends on the application server. In Apache Tomcat, the
+classpath. The procedure for this depends on the application server. In Apache Tomcat, the
 libraries have to be added to the shared `lib/` folder.
 
 {{< note title="" class="info" >}}
@@ -163,7 +163,7 @@ dependency must be added as dependencies to the maven `pom.xml` file:
 
 ## Use XSLT Templates
 
-The following is an example of a BPMN ScriptTask used to execute a XSLT Template:
+The following is an example of a BPMN ScriptTask used to execute an XSLT Template:
 
 ```xml
 <bpmn2:scriptTask id="ScriptTask_1" name="convert input"

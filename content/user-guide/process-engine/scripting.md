@@ -12,11 +12,11 @@ menu:
 
 
 Camunda BPM supports scripting with JSR-223 compatible script engine implementations. Currently we
-test the integration for Groovy, Javascript, JRuby and Jython. To use a scripting engine
+test the integration for Groovy, JavaScript, JRuby and Jython. To use a scripting engine
 it is necessary to add the corresponding jar to the classpath.
 
 {{< note title="" class="info" >}}
-  **Javascript** is part of the Java Runtime (JRE) and thus available out ot the box.
+  **JavaScript** is part of the Java Runtime (JRE) and thus available out ot the box.
 
   We include **Groovy** in the pre-packaged Camunda distributions.
 {{< /note >}}
@@ -36,7 +36,7 @@ scripts.
   <tr>
     <td>
       <a href="#use-scripts-as-execution-listeners">
-        Process, Activities, Sequence Flows, Gateways and Events
+        Processes, Activities, Sequence Flows, Gateways and Events
       </a>
     </td>
     <td>Script as an execution listener</td>
@@ -60,7 +60,7 @@ scripts.
   <tr>
     <td>
         <a href="#use-scripts-as-inputoutput-parameters">
-          All Tasks, All Events, Transaction, Subprocess and Connector
+          All Tasks, All Events, Transactions, Subprocesses and Connectors
         </a>
     </td>
     <td>Script inside an inputOutput parameter mapping</td>
@@ -70,7 +70,7 @@ scripts.
 
 # Use Script Tasks
 
-With a BPMN 2.0 script task you can add a script to your BPM process (see for more information the
+With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
 [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/script-task.md" >}}).
 
 The following process is a simple example with a Groovy script task that sums up the elements of an array.
@@ -101,7 +101,7 @@ The following process is a simple example with a Groovy script task that sums up
 </definitions>
 ```
 
-To start the process a variable `inputArray` is necessary.
+To start the process, a variable `inputArray` is necessary.
 
 ```java
 Map<String, Object> variables = new HashMap<String, Object>();
@@ -159,11 +159,11 @@ The following example shows usage of scripts as execution listeners.
 # Use Scripts as Task Listeners
 
 Similar to execution listeners, task listeners can also be implemented as scripts. For general
-information about execution listeners see the corresponding
+information about task listeners see the corresponding
 [section]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}).
 
 To use a script as a task listener, a `camunda:script` element has to be added as a child element of
-the `camunda:taskListener`. Inside the script, the variable `task` is available, which corresponds to
+the `camunda:taskListener` element. Inside the script, the variable `task` is available, which corresponds to
 the `DelegateTask` interface.
 
 The following example shows usage of scripts as task listeners.
@@ -213,7 +213,7 @@ the Groovy variable `sum` to the process variable `x` for a Java delegate.
 
 {{< note title="Script Return Value" class="info" >}}
   Please note that the last statement of the script is returned. This applies to Groovy,
-  Javascript and JRuby but not to Jython. If you want to use Jython, your script has to be a
+  JavaScript and JRuby but not to Jython. If you want to use Jython, your script has to be a
   single expression like `a + b` or `a > b` where `a` and
   `b` are already process variables. Otherwise, the Jython scripting engine will not return a value.
 {{< /note >}}
@@ -279,9 +279,9 @@ for [script tasks]({{< relref "#script-source" >}}).
 ```
 # Script Engine Caching
 
-Whenever the process engine reaches a point where a script has to be executed, the process engine looks up for a Script Engine by a language name. The default behavior is that when it is the first request a new Script Engine is created. If the Script Engine declares to be thread safe it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.
+Whenever the process engine reaches a point where a script has to be executed, the process engine looks for a Script Engine by a language name. The default behavior is that if it is the first request, a new Script Engine is created. If the Script Engine declares to be thread safe, it is also cached. The caching prevents the process engine from creating a new Script Engine for each request for the same script language.
 
-By default the caching of Script Engines happens at Process Application level. So that each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. In consequence, the Script Engines are cached globally at process engine level and they are shared between each Process Application. For further details about the process engine configuration flag `enableFetchScriptEngineFromProcessApplication` please read the section about [referencing process application classes]({{< relref "user-guide/process-engine/scripting.md#reference-process-application-provided-classes" >}}).
+By default the caching of Script Engines happens at Process Application level. Each Process Application holds an own instance of a Script Engine for a given language. This behavior can be disabled by setting the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` to false. Consequently, the Script Engines are cached globally at process engine level and they are shared between each Process Application. For further details about the process engine configuration flag `enableFetchScriptEngineFromProcessApplication`, please read the section about [referencing process application classes]({{< relref "user-guide/process-engine/scripting.md#reference-process-application-provided-classes" >}}).
 
 If it is not desired to cache Script Engines in general, it can be disabled by setting the process engine configuration flag name `enableScriptEngineCaching` to false.
 
@@ -291,15 +291,15 @@ If it is not desired to cache Script Engines in general, it can be disabled by s
 Most script engines compile script source code either to a Java class or to a different
 intermediary format prior to executing the script. Script engines implementing the Java `Compilable`
 interface allow programs to retrieve and cache the script compilation. The default setting of the
-process engine is to check if a Script Engine supports the compile feature. If true and the caching of Script Engines is enabled, the script engine compiles the script and then cache the compilation result. This prevents the process engine from compiling a script source each time the same script task is executed.
+process engine is to check if a Script Engine supports the compile feature. If true and the caching of Script Engines is enabled, the script engine compiles the script and then caches the compilation result. This prevents the process engine from compiling a script source each time the same script task is executed.
 
 By default, compilation of scripts is enabled. If you need to disable script compilation, you can set the process engine configuration flag named `enableScriptCompilation` to false.
 
 # Load Script Engine
 
-If the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` is set to true, it is also possible to load Script Engines from the classpath of the process application. Therefore the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally as well.
+If the process engine configuration flag named `enableFetchScriptEngineFromProcessApplication` is set to true, it is also possible to load Script Engines from the classpath of the process application. For that, the Script Engine can be packaged as a library within the process application. It is also possible to install the Script Engine globally.
 
-In case the Script Engine module should be installed globally and a Jboss is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a `jboss-deployment-structure.xml` to the process application for example:
+In case the Script Engine module should be installed globally and JBoss is used, it is necessary to add a module dependency to the Script Engine. This can be done by adding a `jboss-deployment-structure.xml` to the process application, e.g.,:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -325,21 +325,21 @@ sum = new CustomClass().calculate()
 execution.setVariable('sum', sum)
 ```
 
-In order to avoid possible class loading problems during the script execution it is recommended to set the process engine configuration flag name `enableFetchScriptEngineFromProcessApplication` to true.
+To avoid possible class loading problems during the script execution, it is recommended to set the process engine configuration flag name `enableFetchScriptEngineFromProcessApplication` to true.
 
 Be aware that the process engine flag `enableFetchScriptEngineFromProcessApplication` is only relevant in a shared engine scenario.
 
 # Variables Available During Script Execution
 
 During the execution of scripts, all process variables visible in the current scope are available.
-They can be accessed directly by the name of the variable (i.e. `sum`). This does not apply for
+They can be accessed directly by the name of the variable (i.e., `sum`). This does not apply for
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
-i.e. `$sum`)
+i.e., `$sum`)
 
-There are also special variables like `execution` which is always available if the script is
-executed in an execution scope (e.g. in a script task), `task` which is available if the script is
-executed in a task scope (e.g. a task listener) and `connector` which is available if the script is
-executed in a connector variable scope (e.g. outputParameter of a camunda:connector). These
+There are also special variables like `execution`, which is always available if the script is
+executed in an execution scope (e.g., in a script task), `task`, which is available if the script is
+executed in a task scope (e.g., a task listener) and `connector`, which is available if the script is
+executed in a connector variable scope (e.g., outputParameter of a camunda:connector). These
 variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means that it can be used to get and set variables or access process engine services.
 

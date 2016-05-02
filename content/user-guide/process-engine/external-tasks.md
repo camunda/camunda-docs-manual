@@ -107,7 +107,7 @@ The following sections address the different interactions with the `ExternalTask
 
 ### Fetching Tasks
 
-In order to implement a polling worker, a fetching operation by using the method `ExternalTaskService#fetchAndLock` can be executed. This method returns a fluent builder that allows to define a set of topics to fetch tasks for. Consider the following code snippet:
+In order to implement a polling worker, a fetching operation can be executed by using the method `ExternalTaskService#fetchAndLock`. This method returns a fluent builder that allows to define a set of topics to fetch tasks for. Consider the following code snippet:
 
 ```java
 List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")

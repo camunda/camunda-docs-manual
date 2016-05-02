@@ -11,8 +11,8 @@ menu:
 ---
 
 Camunda BPM supports Unified Expression Language (EL), specified as part of the JSP 2.1 standard
-([JSR-245][]). It therefore uses the open source [JUEL][] implementation. To get more general
-information about the usage of Expression Language please read the [official documentation][].
+([JSR-245][]). To do so, it uses the open source [JUEL][] implementation. To get more general
+information about the usage of Expression Language, please read the [official documentation][].
 Especially the provided [examples][examples] give a good overview of the syntax of expressions.
 
 Within Camunda BPM, EL can be used in many circumstances to evaluate small script-like
