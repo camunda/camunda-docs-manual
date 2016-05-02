@@ -121,22 +121,22 @@ As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the 
 
 ## Upgrade REST API
 
-The following steps are required to upgrade the Camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to upgrade the Camunda REST API on a JBoss / Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+3. Deploy the web application archive to your JBoss / Wildfly instance.
 
 ## Upgrade Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss / Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+3. Deploy the web application archive to your JBoss / Wildfly instance.
 
 {{< note title="LDAP Entity Caching" class="info" >}}
 It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.

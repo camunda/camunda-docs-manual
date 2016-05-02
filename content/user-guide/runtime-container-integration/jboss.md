@@ -12,18 +12,18 @@ menu:
 ---
 
 {{< note title="Installation Guide" class="info" >}}
-  If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss/WildFly subsystem is readily installed into the application server.
+  If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss / WildFly subsystem is readily installed into the application server.
 
-  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) in order to learn how to install the Camunda JBoss/WildFly subsystem into your JBoss AS 7 or Wildfly 8 / 10 Server.
+  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) to learn how to install the Camunda JBoss / WildFly subsystem into your JBoss AS 7 or Wildfly 8 / 10 Server.
 {{< /note >}}
 
-Camunda BPM provides advanced integration for JBoss AS 7 and Wildfly 8 / 10 in the form of a custom [JBoss/Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
+Camunda BPM provides advanced integration for JBoss AS 7 and Wildfly 8 / 10 in the form of a custom [JBoss / Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
 
 The most prominent features are:
 
 * Deploy the process engine as shared JBoss module.
 * Configure the process engine in standalone.xml / domain.xml and administer it though the JBoss Management System.
-* Process Engines are native JBoss Services with service lifecycle and dependencies.
+* Process Engines are native JBoss Services with service lifecycles and dependencies.
 * Automatic deployment of BPMN 2.0 processes (through the Process Application API).
 * (JBoss AS 7 only) - Use a managed Thread Pool provided by JBoss Threads in combination with the Job Executor.
 * (Wildfly 8 / 10 only) - Use a managed Thread Pool for the Job Executor configured through the Camunda BPM Subsystem.
@@ -34,9 +34,9 @@ The most prominent features are:
 On JBoss AS 7, the thread pool is configured through the JBoss Threads subsystem. See [Manual Installation]({{<relref "installation/full/jboss/manual.md" >}}).
 {{< /note >}}
 
-Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.  
+Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
-You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem xml configuration.
+You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem XML configuration.
 
 Mandatory configuration elements are:  
 
@@ -55,7 +55,7 @@ Shown values are the default ones.
 
 
 
-Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7/Wildfly 8 / 10 Server:
+Using the Camunda JBoss / WildFly subsystem, it is possible to configure and manage the process engine through the JBoss Management Model. The most straightforward way is to add the process engine configuration to the `standalone.xml` file of the JBoss AS 7 / Wildfly 8 / 10 Server:
 
 ```xml
 <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
@@ -89,7 +89,7 @@ Using the Camunda JBoss/WildFly subsystem, it is possible to configure and manag
 
 It should be easy to see that the configuration consists of a single process engine which uses the Datasource `java:jboss/datasources/ProcessEngine` and is configured to be the `default` process engine. In addition, the Job Executor currently uses a single Job Acquisition also named default.
 
-If you start up your JBoss AS 7/Wildfly 8 / 10 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
+If you start up your JBoss AS 7 / Wildfly 8 / 10 server with this configuration, it will automatically create the corresponding services and expose them through the management model.
 
 
 # Provide a Custom Process Engine Configuration Class
@@ -174,7 +174,7 @@ The restrictions, which apply for [providing a custom process engine configurati
 
 # Look Up a Process Engine in JNDI
 
-The Camunda JBoss/WildFly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< relref "user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss/WildFly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
+The Camunda JBoss / WildFly subsystem provides the same [JNDI bindings for the ProcessApplicationService and the ProcessEngineService]({{< relref "user-guide/runtime-container-integration/jndi-bindings-for-bpmn-platform-services.md" >}}) as provided on other containers. In addition, the Camunda JBoss / WildFly subsystem creates JNDI Bindings for all managed process engines, allowing us to look them up directly.
 
 The global JNDI bindings for process engines follow the pattern
 
@@ -190,7 +190,7 @@ A declarative mechanism like `@Resource` could be
     @Resource(mappedName = "java:global/camunda-bpm-platform/process-engine/$PROCESS_ENGINE_NAME"
 
 {{< note title="Look Up a Process Engine From JNDI Using Spring" class="warning" >}}
-  On JBoss AS 7/Wildfly 8 / 10, spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
+  On JBoss AS 7 / Wildfly 8 / 10, spring users should always [create a resource-ref for the process engine in web.xml]({{< relref "#manage-service-dependencies" >}})</a> and then lookup the local name in the `java:comp/env/` namespace. [For an example, see this Quickstart](https://github.com/camunda/camunda-bpm-examples/tree/master/deployment/spring-jboss-non-pa)</a>
 {{< /note >}}
 
 
@@ -286,7 +286,7 @@ The JConsole plugin allows you to inspect the management model graphically and b
    Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
 {{< /note >}}
 
-When using the Camunda JBoss/WildFly subsystem, the process engine classes are deployed as jboss module. The module is named
+When using the Camunda JBoss / WildFly subsystem, the process engine classes are deployed as jboss module. The module is named
 `org.camunda.bpm.camunda-engine` and is deployed in the folder `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine`.
 
 By default, the Application server will not add this module to the classpath of applications. If an application needs to interact with the process engine, we must declare a module dependency in the application. This can be achieved using either an implicit or an explicit module dependency.
@@ -294,7 +294,7 @@ By default, the Application server will not add this module to the classpath of 
 
 ## Implicit Module Dependencies with the Process Application API
 
-When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss/WildFly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an [implicit module dependency](https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments) because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
+When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss / WildFly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a module dependency between the application and the process engine module. As a result, we don't have to declare the dependency ourselves. It is called an [implicit module dependency](https://docs.jboss.org/author/display/AS72/Implicit+module+dependencies+for+deployments) because it is not explicitly declared but can be derived by inspecting the application and seeing that it provides a `@ProcessApplication` class.
 
 
 ## Explicit Module Dependencies
@@ -328,7 +328,7 @@ As a result, the Application Service will add the process engine module to the c
    Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
 {{< /note >}}
 
-The Camunda JBoss/WildFly subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
+The Camunda JBoss / WildFly subsystem manages process engines as JBoss Services in the JBoss Module Service Container. In order for the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:
 
 {{< img src="../img/jboss-service-dependencies.png" title="JBoss Service Dependencies" >}}
 
@@ -337,7 +337,7 @@ There are three applications deployed and two process engine services exist. App
 
 ## Implicit Service Dependencies
 
-When using the Process Application API (i.e. when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss/WildFly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
+When using the Process Application API (i.e., when deploying either a ServletProcessApplication or an EjbProcessApplication), the Camunda JBoss / WildFly subsystem will detect the `@ProcessApplication` class in the deployment and automatically add a service dependency between the process application component and the process engine module. This makes sure the process engine is available when the process application is deployed.
 
 
 ## Explicit Service Dependencies

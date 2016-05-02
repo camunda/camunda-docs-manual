@@ -228,22 +228,22 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ## Upgrade REST API
 
-The following steps are required to upgrade the Camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to upgrade the Camunda REST API on a JBoss / Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+3. Deploy the web application archive to your JBoss / Wildfly instance.
 
 ## Upgrade Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss / Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
    Alternatively, switch to the private repository for the enterprise version (User and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
-3. Deploy the web application archive to your JBoss/Wildfly instance.
+3. Deploy the web application archive to your JBoss / Wildfly instance.
 
 
 [jboss-threads-to-camunda-mapping-table]: {{< relref "update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}

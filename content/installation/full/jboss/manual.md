@@ -17,7 +17,7 @@ This document describes the installation of Camunda BPM and its components on a 
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
-`$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss/Wildfly application server main directory.
+`$JBOSS_HOME`/`$WILDFLY_HOME` points to the JBoss / Wildfly application server main directory.
 `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
@@ -146,8 +146,7 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download either the [Camunda Wildfly 10 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/) or 
-the [Camunda Wildfly 8 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/).
+First, you need to download either the [Camunda Wildfly 8 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/) or the [Camunda Wildfly 10 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/).
 
 
 ## Adjust the Configuration
@@ -169,7 +168,7 @@ Configure the thread pool for the Camunda BPM platform Job Executor:
 
 Since Camunda BPM 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.  
 The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
-You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem xml configuration.
+You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem XML configuration.
 
 Mandatory configuration elements are:  
 
@@ -276,7 +275,7 @@ The following steps are required to deploy the web application:
 2. Optionally, you may change the context path to which the application will be deployed (default is `/camunda`).
     Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-4. Startup JBoss AS/Wildfly.
+4. Startup JBoss AS / Wildfly.
 5. Access Cockpit and Tasklist via `/camunda/app/cockpit` and `/camunda/app/tasklist` or under the context path you configured.
 
 
@@ -290,7 +289,7 @@ The following steps are required to deploy the REST API:
 2. Optionally, you may change the context path to which the REST API will be deployed (default is `/engine-rest`).
    Edit the file `WEB-INF/jboss-web.xml` in the war file and update the `context-root` element accordingly.
 3. Copy the war file to `$JBOSS_HOME/standalone/deployments`.
-4. Startup JBoss AS/Wildfly.
+4. Startup JBoss AS / Wildfly.
 5. Access the REST API on the context path you configured.
    For example, <a href="http://localhost:8080/engine-rest/engine">http://localhost:8080/engine-rest/engine</a> should return the names of all engines of the platform,
    provided that you deployed the application in the context `/engine-rest`.
