@@ -17,6 +17,7 @@ The identity service is an API abstraction over various user/group repositories.
 * Group: a group identified by a unique Id
 * Membership: the relationship between users and groups
 * Tenant: a tenant identified by a unique Id
+* Tenant Membership: the relationship between tenants and users / groups
 
 Example:
 

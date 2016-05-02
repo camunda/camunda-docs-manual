@@ -44,6 +44,18 @@ GET `/tenant`
     <td>Filter by the name that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>userMember</td>
+    <td>Select only tenants where the given user is a member of.</td>
+  </tr>  
+  <tr>
+    <td>groupMember</td>
+    <td>Select only tenants where the given group is a member of.</td>
+  </tr>  
+  <tr>
+    <td>includingGroupsOfUser</td>
+    <td>Select only tenants where the user or one of his groups is a member of. Can only be used in combination with the <code>userMember</code> parameter.</td>
+  </tr> 
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>id</code> and <code>name</code>.

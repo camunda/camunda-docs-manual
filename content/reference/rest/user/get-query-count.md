@@ -59,7 +59,11 @@ GET `/user/count`
   </tr>
   <tr>
     <td>memberOfGroup</td>
-    <td>Filter for users which are members of a group.</td>
+    <td>Filter for users which are members of the given group.</td>
+  </tr>
+  <tr>
+    <td>memberOfTenant</td>
+    <td>Filter for users which are members of the given tenant.</td>
   </tr>  
 </table>
 
