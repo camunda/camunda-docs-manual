@@ -141,7 +141,7 @@ instance. In sum the seed job will be invoked 100 times, until it has created th
 1000 execution jobs required to complete the batch.
 
 The number of jobs created by every seed job invocation `batchJobsPerSeed`
-(default: 10) and the number of invocations per batch execution job
+(default: 100) and the number of invocations per batch execution job
 `invocationsPerBatchJob` (default: 1) can be configured on the [process engine
 configuration][].
 

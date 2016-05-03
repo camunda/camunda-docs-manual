@@ -154,7 +154,7 @@ Status 200.
   "id": "aBatchId",
   "type": "aBatchType",
   "size": 10,
-  "batchJobsPerSeed": 10,
+  "batchJobsPerSeed": 100,
   "invocationsPerBatchJob": 1,
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
