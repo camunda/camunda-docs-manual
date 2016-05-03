@@ -75,6 +75,10 @@ GET `/incident/count`
     <td>tenantIdIn</td>
     <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
   </tr>
+  <tr>
+    <td>jobDefinitionIdIn</td>
+    <td>Restricts to incidents that have one of the given comma-separated job definition ids.</td>
+  </tr>
 </table>
 
 # Result
@@ -120,8 +124,12 @@ A JSON object that contains the count as the only property.
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/incident/count?processInstanceId=aProcInstId</code>
+GET `/incident/count?processInstanceId=aProcInstId`
 
 ## Response
 
-    {"count": 2}
+```json
+{
+  "count": 2
+}
+```

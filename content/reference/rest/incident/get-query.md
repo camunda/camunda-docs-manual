@@ -76,6 +76,10 @@ GET `/incident`
     <td>Restricts to incidents that have one of the given comma-separated tenant ids.</td>
   </tr>
   <tr>
+    <td>jobDefinitionIdIn</td>
+    <td>Restricts to incidents that have one of the given comma-separated job definition ids.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>incidentId</code>, <code>incidentTimestamp</code>, <code>incidentType</code>, <code>executionId</code>, <code>activityId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>causeIncidentId</code>, <code>rootCauseIncidentId</code>, <code>configuration</code> and <code>tenantId</code>.
@@ -160,6 +164,11 @@ Each incident object has the following properties:
     <td>String</td>
     <td>The message of this incident.</td>
   </tr>
+  <tr>
+    <td>jobDefinitionId</td>
+    <td>String</td>
+    <td>The job definition id the incident is associated with.</td>
+  </tr>
 </table>
 
 
@@ -189,37 +198,41 @@ Each incident object has the following properties:
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET <code>/incident?processInstanceId=aProcInstId</code>
+GET `/incident?processInstanceId=aProcInstId`
 
 ## Response
 
-    [
-      {
-        "id": "anIncidentId",
-        "processDefinitionId": "aProcDefId",
-        "processInstanceId": "aProcInstId",
-        "executionId": "anExecutionId",
-        "incidentTimestamp": "2014-03-01T08:00:00",
-        "incidentType": "failedJob",
-        "activityId": "serviceTask",
-        "causeIncidentId": "aCauseIncidentId",
-        "rootCauseIncidentId": "aRootCauseIncidentId",
-        "configuration": "aConfiguration",
-        "tenantId": null,
-        "incidentMessage": "anIncidentMessage"
-      },
-      {
-        "id": "anIncidentId",
-        "processDefinitionId": "aProcDefId",
-        "processInstanceId": "aProcInstId",
-        "executionId": "anotherExecutionId",
-        "incidentTimestamp": "2014-03-01T09:00:00",
-        "incidentType": "customIncidentType",
-        "activityId": "userTask",
-        "causeIncidentId": "anotherCauseIncidentId",
-        "rootCauseIncidentId": "anotherRootCauseIncidentId",
-        "configuration": "anotherConfiguration",
-        "tenantId": null,
-        "incidentMessage": "anotherIncidentMessage"
-      }
-    ]
+```json
+[
+  {
+    "id": "anIncidentId",
+    "processDefinitionId": "aProcDefId",
+    "processInstanceId": "aProcInstId",
+    "executionId": "anExecutionId",
+    "incidentTimestamp": "2014-03-01T08:00:00",
+    "incidentType": "failedJob",
+    "activityId": "serviceTask",
+    "causeIncidentId": "aCauseIncidentId",
+    "rootCauseIncidentId": "aRootCauseIncidentId",
+    "configuration": "aConfiguration",
+    "tenantId": null,
+    "incidentMessage": "anIncidentMessage",
+    "jobDefinitionId": "aJobDefinitionId"
+  },
+  {
+    "id": "anIncidentId",
+    "processDefinitionId": "aProcDefId",
+    "processInstanceId": "aProcInstId",
+    "executionId": "anotherExecutionId",
+    "incidentTimestamp": "2014-03-01T09:00:00",
+    "incidentType": "customIncidentType",
+    "activityId": "userTask",
+    "causeIncidentId": "anotherCauseIncidentId",
+    "rootCauseIncidentId": "anotherRootCauseIncidentId",
+    "configuration": "anotherConfiguration",
+    "tenantId": null,
+    "incidentMessage": "anotherIncidentMessage",
+    "jobDefinitionId": null
+  }
+]
+```
