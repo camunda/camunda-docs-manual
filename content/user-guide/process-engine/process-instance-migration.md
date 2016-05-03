@@ -245,7 +245,7 @@ The following are some reasons to prefer either one or the other:
 ### Selecting process instances to migrate
 
 The process instances which should be migrated by a migration plan can either
-be specified as a list of the process instance ids.
+be specified as a list of the process instance ids:
 
 ```Java
 MigrationPlan migrationPlan = ...;
@@ -257,7 +257,7 @@ runtimeSerivce.newMigration(migrationPlan)
   .execute();
 ```
 
-Or the process instances can be selected by a process instance query.
+or the process instances can be selected by a process instance query:
 
 ```Java
 MigrationPlan migrationPlan = ...;
@@ -272,7 +272,7 @@ runtimeSerivce.newMigration(migrationPlan)
 ```
 
 It is also possible to specify both, a list of process instance ids and a query.
-The process instances to migrated will then be the union of the specified sets.
+The process instances to be migrated will then be the combination of the specified sets.
 
 ### Skipping Listeners and Input/Output Mappings
 
@@ -441,7 +441,7 @@ Intermediate catch events must be mapped if a process instance is waiting for th
 
 ### Compensation Boundary Event
 
-Migrating process instances with compensation event subscriptions or active compensation handlers is not yet supported.
+Migrating process instances with compensation event subscriptions or active compensation handlers is not supported yet.
 
 New compensation boundary events contained in the target process definition only take effect for activity instances that are not started or finished yet.
 For example, consider the following two processes:
