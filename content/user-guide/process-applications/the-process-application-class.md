@@ -311,6 +311,13 @@ public class MyProcessApplication extends EmbeddedProcessApplication {
 }
 ```
 
+Remember that to make a manually managed EmbeddedProcessApplication work, you will have to register your ProcessEngine on the RuntimContainer:
+
+```java
+RuntimeContainerDelegate runtimeContainerDelegate = RuntimeContainerDelegate.INSTANCE.get();
+runtimeContainerDelegate.registerProcessEngine(processEngine);
+```
+
 
 # The SpringProcessApplication
 
@@ -342,6 +349,8 @@ The following shows an example of how to bootstrap a SpringProcessApplication in
 ```
 
 (Remember that you additionally need a `META-INF/processes.xml` file.
+
+> If you are manually managing your processEngine, you will have to register it on the RuntimeContainerDelegate as described in the EmbeddedProcessEngine section.
 
 
 ## Process Application Name
