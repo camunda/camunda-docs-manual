@@ -381,6 +381,39 @@ Given the above setup the resource class extends the Cockpit API with the follow
 GET $cockpit_api_root/plugin/sample/$engine/process-instance
 ```
 
+### Use Tenant Check
+
+It is possible to use the tenant check in the sub-resource of the cockpit plugin. Therefore, the sub-resource may extend `org.camunda.bpm.cockpit.plugin.resource.AbstractPluginResource` to configure the custom query with the tenant check. See the following example for the tenant check usage.
+
+```java
+package org.camunda.bpm.cockpit.plugin.sample.resources;
+
+import java.util.List;
+import javax.ws.rs.POST;
+
+import org.camunda.bpm.cockpit.db.QueryParameters;
+import org.camunda.bpm.cockpit.plugin.resource.AbstractPluginResource;
+import org.camunda.bpm.cockpit.plugin.sample.db.ProcessInstanceCountDto;
+
+public class ProcessInstanceResource extends AbstractPluginResource {
+
+  public ProcessInstanceResource(String engineName) {
+    super(engineName);
+  }
+
+  @GET
+  public List<ProcessInstanceCountDto> getProcessInstanceCounts() {
+    QueryParameters<ProcessInstanceCountDto> queryParameters = new QueryParameters<ProcessInstanceCountDto>();
+
+    configureTenantCheck(queryParameters);
+
+    return getQueryService()
+        .executeQuery(
+          "cockpit.sample.selectProcessInstanceCountsByProcessDefinition", queryParameters);
+  }
+}
+```
+
 ### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plug-in test case. Alternatively, you can write a real API test using [arquillian](http://arquillian.org/).
