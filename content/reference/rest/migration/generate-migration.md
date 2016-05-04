@@ -43,7 +43,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>updateEventTriggers</td>
-    <td>A boolean flag indicating whether instructions between events should have be configured to update the event triggers.</td>
+    <td>A boolean flag indicating whether instructions between events should be configured to update the event triggers.</td>
   </tr>
 </table>
 
@@ -95,7 +95,7 @@ Its properties are as follows:
             <td>updateEventTrigger</td>
             <td>Boolean</td>
             <td>
-              Configuration flag whether event triggers defined are going to be update during migration.
+              Configuration flag whether event triggers defined are going to be updated during migration.
             </td>
           </tr>
         </table>

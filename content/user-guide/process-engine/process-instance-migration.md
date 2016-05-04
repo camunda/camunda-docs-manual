@@ -193,7 +193,7 @@ events]({{< relref "#events" >}}) for details. When generating a migration
 plan, it is possible to define this setting for generated instructions between
 events by using the method `updateEventTrigger`.  For example, the following
 code generates a migration instruction for a boundary event and updates its
-event trigger during the migration it.
+event trigger during migration.
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -399,7 +399,7 @@ trigger. This is the case for message, timer, and signal events.
 
 When mapping events, there are two configuration options:
 
-1. **The event trigger remains the same**: Even if the target event defines a different trigger (e.g. changed timer configuration),
+1. **The event trigger remains the same**: Even if the target event defines a different trigger (e.g.,  changed timer configuration),
   the migrated event instance is triggered according to the source definition. This is the default behavior
   when calling `migrationBuilder.mapActivities("sourceTask", "targetTask")`
 2. **The event trigger is updated**: The migrated event instance is triggered according to the target definition.
