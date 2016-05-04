@@ -423,19 +423,52 @@ The following is a list with the most commonly used process engine configuration
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
-    
+
     <tr>
     <td><code>tenantCheckEnabled</code></td>
     <td>Boolean</td>
     <td>
-        Controls whether the process engine performs tenant checks to ensure that an authenticated user can only access data that belongs to one of his tenants. Default value is <code>true</code>. 
+        Controls whether the process engine performs tenant checks to ensure that an authenticated user can only access data that belongs to one of his tenants. Default value is <code>true</code>.
         See the <a href="{{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}">user guide</a> for more details.
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
     </td>
-    
   </tr>
 
+  <tr>
+    <td><code>batchJobsPerSeed</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the number of batch execution jobs created per batch seed job
+        invocation.
+        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        user guide</a> for more information on batch execution.
+        Default value: <code>100</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>invocationsPerBatchJob</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the number of invocations a single batch execution job executes.
+        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        user guide</a> for more information on batch execution.
+        Default value: <code>1</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>batchPollTime</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the poll interval of the batch monitor job to check for batch
+        completion in seconds.
+        See the <a href="{{< relref "user-guide/process-engine/batch.md#job-definitions" >}}">
+        user guide</a> for more information on batch execution.
+        Default value: <code>30</code>
+    </td>
+  </tr>
 
 </table>
