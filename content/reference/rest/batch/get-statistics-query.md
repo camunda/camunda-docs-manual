@@ -42,10 +42,18 @@ GET `/batch/statistics`
     <td>Filter by batch type.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A batch matches if it has one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include batches which belong to no tenant. Value can effectively only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>
       Sort the results lexicographically by a given criterion.
-      Valid values are <code>batchId</code>.
+      Valid values are <code>batchId</code> and <code>tenantId</code>.
       Must be used in conjunction with the <code>sortOrder</code> parameter.
     </td>
   </tr>

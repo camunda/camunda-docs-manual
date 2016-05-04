@@ -41,6 +41,14 @@ GET `/batch/statistics/count`
     <td>type</td>
     <td>Filter by batch type.</td>
   </tr>
+  <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A batch matches if it has one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include batches which belong to no tenant. Value can effectively only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 
