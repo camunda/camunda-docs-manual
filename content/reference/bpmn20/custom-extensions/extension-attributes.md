@@ -1296,7 +1296,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Possible Values</th>
     <td>
       Any value that has a meaning as version tag for the process definition.
-      <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. For example the sorting would return v0.1.0, v0.10.0, v0.2.0
+      <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. As an example, the sorting could return v0.1.0, v0.10.0, v0.2.0.
     </td>
   </tr>
   <tr>

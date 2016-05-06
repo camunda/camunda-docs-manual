@@ -89,10 +89,10 @@ It is possible to tag a process definition with a version tag attribute. This ca
 extension attribute to the process:
 
 ```xml
-<bpmn2:process camunda:versionTag="1.5-patch2" ...
+<bpmn2:process camunda:versionTag="1.5-patch2" ..
 ```
 
-The `ProcessDefintion` will now provide a versionTag field which you can fetch:
+The `ProcessDefinition` will now provide a versionTag field which you can fetch:
 
 ```java
 ProcessDefinition pd = processEngine.getRepositoryService().createProcessDefinitionQuery()
@@ -119,7 +119,7 @@ List<ProcessDefinition> pdList = processEngine.getRepositoryService().createProc
     .list();
 ```
 
-The following example shows how to start a process instance of the latest process
+The following example shows how to start a process instance of the latest process 
 definition for a version tag:
 
 ```java
@@ -133,7 +133,7 @@ processEngine.getRuntimeService().startProcessInstanceById(pd.getId());
 ```
 
 {{< note title="Version Tag" class="info" >}}
-the version tag is only for tagging and will neither influence the `startProcessInstanceByKey`
+The version tag is only for tagging and will neither influence the `startProcessInstanceByKey`
 nor the `startProcessInstanceById` behavior.
 {{< /note >}}
 
