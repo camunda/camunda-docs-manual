@@ -89,9 +89,9 @@ This section describes changes in the engine’s default behavior. While the cha
 Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Camunda BPM Wildfly subsystem instead of the JBoss Threads subsystem.
 The reason is the deprecation and removal of the JBoss Threads subsystem since Wildfly 9. 
 To be compatible with Wildfly 8-10, Camunda rewrote the existing subsystem.   
-This leads to that you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Camunda subsystem using the following steps.
+As a consequence, you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Camunda subsystem using the following steps.
 
-1. First, transfer the JBoss Threads configuration to the Camunda BPM subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similiar to this example one:
+1. First, transfer the JBoss Threads configuration to the Camunda BPM subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
 
 	 ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -123,7 +123,7 @@ This leads to that you must transfer your existing Thread Pool configuration fro
    </subsystem>
 	 ```
 
-2. As second step, since now you have configured the Thread Pool in the Camunda subsystem, remove the JBoss Threads subsystem configuration entry related to the Camunda Job Executor Thread Pool. 
+2. As second step, since you have now configured the Thread Pool in the Camunda subsystem, remove the JBoss Threads subsystem configuration entry related to the Camunda Job Executor Thread Pool. 
    When there is no other thread-pool configuration entry left, you could also delete the JBoss Threads subsystem entirely.
    ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -164,7 +164,7 @@ The following mapping table shows the JBoss Threads properties and their counter
   <td><code>name="job-executor-tp"</code></td>
   <td><code>&lt;thread-pool-name&gt;<br/>job-executor-tp<br/>&lt;/thread-pool-name&gt;</code></td>
   <td>
-    Specify the name of the thread pool. Can be discard because it is not longer needed.
+    Specify the name of the thread pool. Can be discarded because it is not longer needed.
     <p><strong>Default Value:</strong> job-executor-tp</p>
   </td>
 </tr>
@@ -188,7 +188,7 @@ The following mapping table shows the JBoss Threads properties and their counter
   <td><code>&lt;queue-length count="3" /&gt;</code></td>
   <td><code>&lt;queue-length&gt;<br/>3<br/>&lt;/queue-length&gt;</code></td>
   <td>
-    Sets the size of the queue for the thread pool => maximum number of tasks storeable in the queue until it signals it is full.
+    Sets the size of the queue for the thread pool => maximum number of tasks storeable in the queue until it signals that it is full.
     <p><strong>Default Value:</strong> 10</p>
   </td>
 </tr>
@@ -196,7 +196,7 @@ The following mapping table shows the JBoss Threads properties and their counter
   <td><code>&lt;keepalive-time time="10" unit="seconds" /&gt;</code></td>
   <td><code>&lt;keepalive-time&gt;<br/>10<br/>&lt;/keepalive-time&gt;</code></td>
   <td>
-    Specify the time in seconds threads will be kept alive when there are no tasks present before threads are terminated until the core-threads number is reached.
+    Specify the time in seconds that threads will be kept alive for when there are no tasks present, before threads are terminated until the core-threads number is reached.
     <p><strong>Default Value:</strong> 10</p>
   </td>
 </tr>
@@ -204,7 +204,7 @@ The following mapping table shows the JBoss Threads properties and their counter
   <td><code>allow-core-timeout="true"</code></td>
   <td><code>&lt;allow-core-timeout&gt;<br/>true<br/>&lt;/allow-core-timeout&gt;</code></td>
   <td>
-    Are core threads allowed to timeout and shutdown, when they idle for the amount specified by keepalive-time.
+    Specify if core threads are allowed to timeout and shutdown when they idle for the timespan specified by keepalive-time.
     <p><strong>Default Value:</strong> true</p>
   </td>
 </tr>
@@ -218,11 +218,11 @@ This section describes changes in behavior of API methods that your process appl
 
 ## Incident Handler
 
-The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
+The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required information, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
 
 ## Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it have to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
 
 # 5. Upgrade Camunda Web Applications
 
@@ -232,7 +232,7 @@ The following steps are required to upgrade the Camunda REST API on a JBoss/Wild
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
-   the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+   the enterprise version (username and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 ## Upgrade Cockpit, Tasklist, and Admin
@@ -241,7 +241,7 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
-   Alternatively, switch to the private repository for the enterprise version (User and password from license required).
+   Alternatively, switch to the private repository for the enterprise version (username and password from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
