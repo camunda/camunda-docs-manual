@@ -27,3 +27,14 @@ All you have to do to create a new tenant is:
 3. Click the *Create new Tenant* button
   
 This creates a new tenant. 
+
+## Add an user to a tenant
+
+To add an user to a tenant you have to go to the users account settings and click on the *Tenants* menu on the left side.
+
+In this menu you can click the *Add to a tenant* button and select the tenants where the user should be a member.
+
+## Add a group to a tenant
+To add a group to a tenant you have to go to the group settings and click on the *Tenants* menu on the left side.
+
+In this menu you can click the *Add to a tenant* button and select the tenants where the group should be a member.
