@@ -11,7 +11,7 @@ The camunda-engine-cdi module provides programming model integration with Cdi (C
  * Support for @BusinessProcessScoped beans (Cdi beans the lifecycle of which is bound to a process instance),
  * Declarative control over a process instance using annotations,
  * The Process Engine is hooked-up to the Cdi event bus,
- * Works with both Java EE and Java SE, works with Spring,
+ * Works with both Java EE and Java SE,
  * Support for unit testing.
 
 ## Maven Dependency
