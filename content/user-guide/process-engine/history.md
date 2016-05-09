@@ -26,13 +26,13 @@ The history level controls the amount of data the process engine provides via th
 
 * `NONE`: no history events are fired.
 * `ACTIVITY`: the following events are fired:
-    * Process Instance START, UPDATE, END: fired as process instances are being started, updated and ended
+    * Process Instance START, UPDATE, END, MIGRATE: fired as process instances are being started, updated, ended and migrated
     * Case Instance CREATE, UPDATE, CLOSE: fired as case instances are being created, updated and closed
-    * Activity Instance START, UPDATE, END: fired as activity instances are being started, updated and ended
+    * Activity Instance START, UPDATE, END, MIGRATE: fired as activity instances are being started, updated, ended and migrated
     * Case Activity Instance CREATE, UPDATE, END: fired as case activity instances are being created, updated and ended
-    * Task Instance CREATE, UPDATE, COMPLETE, DELETE: fired as task instances are being created, updated (i.e., re-assigned, delegated etc.), completed and deleted.
+    * Task Instance CREATE, UPDATE, COMPLETE, DELETE, MIGRATE: fired as task instances are being created, updated (i.e., re-assigned, delegated etc.), completed, deleted and migrated.
 * `AUDIT`: in addition to the events provided by history level `ACTIVITY`, the following events are fired:
-    * Variable Instance CREATE, UPDATE, DELETE, as process variables are created, updated and deleted. The default history backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
+    * Variable Instance CREATE, UPDATE, DELETE, MIGRATE: fired as process variables are created, updated, deleted and migrated. The default history backend (DbHistoryEventHandler) writes variable instance events to the historic variable instance database table. Rows in this table are updated as variable instances are updated, meaning that only the last value of a process variable will be available.
 * `FULL`: in addition to the events provided by history level `AUDIT`, the following events are fired:
     * Form property UPDATE: fired as form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
