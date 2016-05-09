@@ -34,11 +34,17 @@ The Execution Metrics menu in Admin displays an approximate number of *Flow Node
 
 Some features (enterprise plugins) require a license key. The license will be provided as a string by the Camunda support team. The license mechanism has no impact on the engine or other runtime components. The following section explains how to activate a license.
 
-Whenever you see the following message, you have to enter a valid license key.
+Whenever you see one of the following messages, a valid license key must be entered.
 
-{{< img src="../img/admin-license-prompt.png" title="License Prompt" >}}
+{{< img src="../img/admin-license-prompt.png" title="License Prompt for Admins" >}}
+{{< img src="../img/admin-license-prompt-noAdmin.png" title="License Prompt for Non-Admins" >}}
 
-Insert your company's license key for the Camunda BPM platform and view some License Key details such as the Company Id and the validity of the license key.  The Admin system setting menu offers the possibility to enter additional licenses, for instance when your existing license is expiring and you want to enter a new license key.
+If you have administrator authorizations, insert your company's license key for the Camunda BPM platform and view some License Key details such as the Company Id and the validity of the license key. The Admin system setting menu offers the possibility to enter additional licenses, for instance when your existing license is expiring and you want to enter a new license key.
+
+If you do not have administrator authorizations, please contact your administrator so that they can enter the license.
+
+In case you are running Camunda BPM locally, you can use this URL to enter the license key:
+http://localhost:8080/camunda/app/admin/default/#/system?section=system-settings-license
 
 {{< img src="../img/admin-license-key.png" title="License Key" >}}
 
