@@ -20,7 +20,7 @@ This works as follows:
 
 # Implementing Inital Assignment
 
-{{< img src="../img/tasklist-task-forms-eclipse.png" title="User Task Assignment" >}}
+{{< img src="../img/tasklist-task-form-modeler.png" title="User Task Assignment" >}}
 
 You can read up on how to implement the inital user assignment for BPMN User Tasks and CMMN Human Tasks in the corresponding reference sections:
 
