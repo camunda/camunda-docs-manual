@@ -387,8 +387,22 @@ Additionally, the API allows to evaluate a decision table which belongs to no si
 ```java
 decisionService
   .evaluateDecisionTableByKey("KEY")
-  .decisionDefinitionWithoutTenantId
+  .decisionDefinitionWithoutTenantId()
   .evaluate();
 ```
 
 If only one tenant has a decision definition with the given key then the id of the tenant can be omitted.
+
+### Disable the Tenant Check for a Command
+
+Since the tenant check is enabled by default, it can be useful to disable the check for specific commands (e.g. for maintenance tasks). Use the `CommandContext` to disable and enable the check for the current command.
+
+```java
+commandContext.disableTenantCheck();
+
+// e.g. do maintenance tasks over all tenants
+
+commandContext.enableTenantCheck();
+```
+
+
