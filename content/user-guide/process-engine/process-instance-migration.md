@@ -343,6 +343,19 @@ If a batch execution migration job fails, it is retried by the job executor
 and if no retries are left an incident is created. In this case, manual action
 is necessary to complete the batch migration.
 
+#### Batch migration in a heterogeneous cluster
+
+As described in the [job executor][] section of the user guide it is possible
+to use the process engine in a heterogeneous cluster. A deployment aware job
+executor will only execute jobs for registered deployments. During a batch
+migration jobs are used to execute the migration. These [execution jobs][] will
+be executed by the job executor registered for the deployment of the source
+process definition. This creates the limitation that if custom code is executed
+during the migration in a heterogeneous cluster it is requires that the source
+and target deployment are registered for the job executor executing the batch
+execution jobs. It is also possible to
+[skip the execution of custom code](#skipping-listeners-and-input-output-mappings)
+during migration.
 
 # BPMN-specific API and Effects
 
@@ -703,3 +716,5 @@ ProcessInstance
 The migration plan cannot be applied to the process instance, because the hierarchy preservation requirement is violated: The instance of *Validate Address* is supposed to be migrated to *Validate Postal Address*. However, the parent activity instance of *Assess Credit Worthiness* is migrated to *Handle Application Receipt*,  which does not contain *Validate Postal Address*.
 
 [batch]: {{< relref "user-guide/process-engine/batch.md" >}}
+[job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
+[execution jobs]: {{< relref "user-guide/process-engine/batch.md#execution-jobs" >}}
