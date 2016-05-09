@@ -414,6 +414,12 @@ public class ProcessInstanceResource extends AbstractPluginResource {
 }
 ```
 
+Additionally, it is necessary to include the tenant check query to the custom query XML file. For it, add the following line to the custom query.
+
+```xml
+<include refid="org.camunda.bpm.engine.impl.persistence.entity.TenantEntity.queryTenantCheck" />
+```
+
 ### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plug-in test case. Alternatively, you can write a real API test using [arquillian](http://arquillian.org/).
