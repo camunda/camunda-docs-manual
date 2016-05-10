@@ -60,9 +60,24 @@ Working with different process engines for multiple tenants comprises the follow
 
 Multiple process engines can be configured in a configuration file or via Java API. Each engine should be given a name that is related to a tenant such that it can be identified based on the tenant. For example, each engine can be named after the tenant it serves. See the [Process Engine Bootstrapping]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md" >}}) section for details.
 
-The process engine configuration can be adapted to achieve either database-, schema- or table-based isolation of data. If different tenants should work on entirely different databases, they have to use different jdbc settings or different data sources. For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+#### Multiple Datasources
+
+If different tenants should work on entirely different databases, they have to use different jdbc settings or different data sources. 
+
+#### Same Datasource, Multiple Schema Prefixes
+
+For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+
+#### Use shared SqlSessionFactory
+
+When starting many process engines for different tenants, it is recommended to turn on the setting `useSharedSqlSessionFactory`.
+The setting controls whether each process engine instance should parse and maintain a local copy of the mybatis mapping files or whehter a single, shared copy can be used. Since the mappings require a lot of heap (>30MB), it is recommended to switch this on. This way only one copy needs to be allocated.
+
+#### Job Executor
 
 For background execution of processes and tasks, the process engine has a component called [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-executor-and-multiple-process-engines" >}}) for details.
+
+#### Configuration Example
 
 Multi-tenancy settings can be applied in the various ways of configuring a process engine. The following is an example of a [bpm-platform.xml]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-in-bpm-platformxml" >}}) file that specifies engines for two tenants that share the same database but work on different schemas:
 
@@ -87,6 +102,7 @@ Multi-tenancy settings can be applied in the various ways of configuring a proce
       <property name="history">full</property>
       <property name="databaseSchemaUpdate">true</property>
       <property name="authorizationEnabled">true</property>
+      <property name="useSharedSqlSessionFactory">true</property>
     </properties>
   </process-engine>
 
@@ -101,6 +117,7 @@ Multi-tenancy settings can be applied in the various ways of configuring a proce
       <property name="history">full</property>
       <property name="databaseSchemaUpdate">true</property>
       <property name="authorizationEnabled">true</property>
+      <property name="useSharedSqlSessionFactory">true</property>
     </properties>
   </process-engine>
 </bpm-platform>
