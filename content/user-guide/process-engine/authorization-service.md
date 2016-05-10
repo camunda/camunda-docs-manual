@@ -80,6 +80,7 @@ Resources are the entities the user interacts with.
 
   * Application (cockpit, tasklist, ...)
   * Authorization
+  * Batch
   * Decision Definition
   * Deployment
   * Filter
@@ -115,8 +116,15 @@ The valid combinations can be found in the following table.
     </tr>
   </thead>
   <tbody>
-     <tr>
+    <tr>
       <th>Authorization</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Batch</th>
       <td>X</td>
       <td>X</td>
       <td>X</td>
@@ -309,7 +317,7 @@ GRANT and REVOKE authorization with Task Work and Task Assign permissions preced
 ## Default task permission
 
 When a user is related to a task by being an assignee or a candidate user or a part of a candidate group or an owner, then these users
-get the default permission as either "Task Work" or "Update" based on the configuration setting "defaultTaskPermissionForUser". 
+get the default permission as either "Task Work" or "Update" based on the configuration setting "defaultTaskPermissionForUser".
 
 If the "defaultTaskPermissionForUser" is not set, then by default UPDATE permission is granted.
 
