@@ -405,6 +405,8 @@ commandContext.disableTenantCheck();
 commandContext.enableTenantCheck();
 ```
 
+Note that the tenant check can't be enabled for a command if the check is disabled at the process engine configuration.  
+
 ### Access all Tenants as Administrator
 
 Users who are a member of the group `camunda-admin` can access the data of all tenants, even if they don't belongs to the tenants. This is useful for an administrator of a multi-tenancy application since he has to manage the data over all tenants.
