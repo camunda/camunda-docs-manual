@@ -170,7 +170,11 @@ In order to access a specific tenant's process engine at runtime, it has to be i
 
 # One Process Engine With Tenant-Identifiers
 
-A process engine can handle multiple tenants by adding a tenant identifier (e.g. tenant-id) to the deployment. This identifier is propagated to all data that are created from the deployment (e.g. process definitions, process instances etc.). In order to access only data for a specific tenant, the process engine queries allow to filter by a tenant-id. A calling application must make sure to filter according to the correct tenant.    
+A process engine can handle multiple tenants by adding a tenant identifier (e.g. tenant-id) to the deployment. This identifier is propagated to all data that are created from the deployment (e.g. process definitions, process instances etc.). In order to access only data for a specific tenant, the process engine queries allow to filter by a tenant-id. A calling application must make sure to filter according to the correct tenant.
+
+{{< note title="LDAP Identity Service" class="warning" >}}
+Currently, the [LDPA Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support multi-tenancy. That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions doesn't work by default.
+{{< /note >}}    
 
 ## Data isolation
 

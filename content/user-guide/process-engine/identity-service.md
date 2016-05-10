@@ -60,7 +60,6 @@ In order to use the LDAP identity service, the `camunda-identity-ldap.jar` libra
 </dependency>
 ```
 
-
 ## Activate the LDAP Plugin
 
 The following is an example of how to configure the LDAP Identity Provider Plugin using Spring XML:
@@ -152,6 +151,9 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
   The LDAP Identity Provider Plugin is usually used in combination with the [Administrator Authorization Plugin]({{< relref "user-guide/process-engine/authorization-service.md#the-administrator-authorization-plugin" >}}) which allows you to grant administrator authorizations for a particular LDAP User/Group.
 {{< /note >}}
 
+{{< note title="Multi-Tenancy" class="info" >}}
+Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions doesn't work by default.
+{{< /note >}}
 
 ## Configuration Properties of the LDAP Plugin
 
