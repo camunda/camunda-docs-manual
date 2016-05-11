@@ -244,6 +244,12 @@ The following are some reasons to prefer either one or the other:
 
 ### Selecting process instances to migrate
 
+Process instances can be selected for migration by either providing a set of process instance IDs
+or providing a process instance query. It is also possible to specify both, a list of process instance ids and a query.
+The process instances to be migrated will then be the combination of the resulting sets.
+
+#### List of process instances
+
 The process instances which should be migrated by a migration plan can either
 be specified as a list of the process instance ids:
 
@@ -257,7 +263,22 @@ runtimeSerivce.newMigration(migrationPlan)
   .execute();
 ```
 
-or the process instances can be selected by a process instance query:
+For a static number of process instances, there is a convenience varargs method:
+
+```Java
+MigrationPlan migrationPlan = ...;
+
+ProcessInstance instance1 = ...;
+ProcessInstance instance2 = ...;
+
+runtimeSerivce.newMigration(migrationPlan)
+  .processInstanceIds(instance1.getId(), instance2.getId())
+  .execute();
+```
+
+#### Process Instance Query
+
+If the instances are not known beforehand, the process instances can be selected by a process instance query:
 
 ```Java
 MigrationPlan migrationPlan = ...;
@@ -271,8 +292,6 @@ runtimeSerivce.newMigration(migrationPlan)
   .execute();
 ```
 
-It is also possible to specify both, a list of process instance ids and a query.
-The process instances to be migrated will then be the combination of the specified sets.
 
 ### Skipping Listeners and Input/Output Mappings
 
