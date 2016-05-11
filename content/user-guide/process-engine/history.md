@@ -37,7 +37,7 @@ The history level controls the amount of data the process engine provides via th
     * Form property UPDATE: fired as form properties are being created and/or updated.
     * The default history backend (DbHistoryEventHandler) writes historic variable updates to the database. This makes it possible to inspect the intermediate values of a process variable using the history service.
     * User Operation Log UPDATE: fired when a user performs an operation like claiming a user task, delegating a user task etc.
-    * Incidents CREATE, DELETE, RESOLVE: fired as incidents are being created, deleted or resolved
+    * Incidents CREATE, DELETE, RESOLVE, MIGRATE: fired as incidents are being created, deleted, resolved and migrated
     * Historic Job Log CREATE, FAILED, SUCCESSFUL, DELETED: fired as a job is being created, a job execution failed or was successful or a job was deleted
     * Decision Instance EVALUATE: fired when a decision is evaluated by the DMN engine.
     * Batch START, END: fired as batches are being started and ended
