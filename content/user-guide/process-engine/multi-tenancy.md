@@ -66,12 +66,24 @@ If different tenants should work on entirely different databases, they have to u
 
 #### Same Datasource, Multiple Schema Prefixes
 
-For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines. The configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines.
+To achieve this,
 
-#### Use shared SqlSessionFactory
+* use the configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+* consider switching on the setting `useSharedSqlSessionFactory`. The setting controls whether each process engine instance should parse and maintain a local copy of the mybatis mapping files or whether a single, shared copy can be used. Since the mappings require a lot of heap (>30MB), it is recommended to switch this on. This way only one copy needs to be allocated.
 
-When starting many process engines for different tenants, it is recommended to turn on the setting `useSharedSqlSessionFactory`.
-The setting controls whether each process engine instance should parse and maintain a local copy of the mybatis mapping files or whehter a single, shared copy can be used. Since the mappings require a lot of heap (>30MB), it is recommended to switch this on. This way only one copy needs to be allocated.
+{{< note title="Considerations for useSharedSqlSessionFactory setting" class="warning" >}}
+The `useSharedSqlSessionFactory` setting causes caching of the mybatis sql session factory in a static field, once built.
+When using this configuration setting, you need to be aware that
+
+* it can only be used if all process engines which use the setting share the same datasource and transaction factory,
+* the reference in the field, once set, is never cleared. This is usually not a problem but if it is, users must clear the field
+manually by setting it to null explicitly via 
+
+```java
+ProcessEngineConfigurationImpl.cachedSqlSessionFactory = null
+```
+{{< /note >}}
 
 #### Job Executor
 
