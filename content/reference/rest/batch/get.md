@@ -106,6 +106,11 @@ Its properties are as follows:
     <td>The job definition id for the batch execution jobs of this batch.</td>
   </tr>
   <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>Indicates wheter this batch is suspened or not.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the batch.</td>
@@ -158,6 +163,7 @@ Status 200.
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
+  "suspened": false,
   "tenantId": "aTenantId"
 }
 ```

@@ -127,6 +127,52 @@ List<HistoricJobLog> batchExecutionJobLogs = processEngine.getHistoryService()
   .list();
 ```
 
+## Suspend a Batch
+
+To pause the execution of a batch and all corresponding jobs a batch
+can be suspended using the management service.
+
+```java
+processEngine.getManagementService()
+  .suspendBatchById("myBatch");
+```
+
+A suspended batch can then be activated again also using the management
+service.
+
+```java
+processEngine.getManagementService()
+  .activateBatchById("myBatch");
+```
+
+## Delete a Batch
+
+A running batch can be deleted using the management service.
+
+```java
+// Delete a batch preserving the history of the batch
+processEngine.getManagementService()
+  .deleteBatch("myBatch", false);
+
+// Delete a batch include history of the batch
+processEngine.getManagementService()
+  .deleteBatch("myBatch", true);
+```
+
+A historic batch can be deleted using the history service.
+
+```java
+processEngine.getHistoryService()
+  .deleteHistoricBatch("myBatch");
+```
+
+{{< note title="" class="info" >}}
+For a running batch which still executes jobs it is recommend
+to suspend the batch before deleting it.
+See section [Suspend a Batch](#suspend-a-batch) for more information.
+{{< /note >}}
+
+
 
 # Job Definitions
 

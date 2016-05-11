@@ -1,7 +1,7 @@
 ---
 
 title: "Delete Single Batch"
-weight: 40
+weight: 50
 
 menu:
   main:

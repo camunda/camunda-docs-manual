@@ -1,7 +1,7 @@
 ---
 
 title: "Get Batch Statistics"
-weight: 50
+weight: 60
 
 menu:
   main:
@@ -144,6 +144,11 @@ Each batch statistics object has the following properties:
     <td>The job definition id for the batch execution jobs of this batch.</td>
   </tr>
   <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>Indicates wheter this batch is suspened or not.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the batch.</td>
@@ -222,6 +227,7 @@ Status 200.
     "seedJobDefinitionId": "aSeedJobDefinitionId",
     "monitorJobDefinitionId": "aMonitorJobDefinitionId",
     "batchJobDefinitionId": "aBatchJobDefinitionId",
+    "suspened": false,
     "tenantId": "aTenantId",
     "remainingJobs": 3,
     "completedJobs": 7,

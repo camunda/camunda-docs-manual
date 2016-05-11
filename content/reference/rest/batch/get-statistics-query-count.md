@@ -1,7 +1,7 @@
 ---
 
 title: "Get Batch Statistics Count"
-weight: 60
+weight: 70
 
 menu:
   main:
