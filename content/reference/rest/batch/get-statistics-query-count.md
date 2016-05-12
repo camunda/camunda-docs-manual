@@ -49,6 +49,15 @@ GET `/batch/statistics/count`
     <td>withoutTenantId</td>
     <td>Only include batches which belong to no tenant. Value can effectively only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
+  <tr>
+    <td>suspended</td>
+    <td>
+      A <code>Boolean</code> value which indicates whether only active or
+      suspended batches should be included. When the value is set to
+      <code>true</code>, only suspended batches will be returned and when the
+      value is set to <code>false</code>, only active batches will be returned.
+    </td>
+  </tr>
 </table>
 
 
