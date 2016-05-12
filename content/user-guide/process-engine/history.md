@@ -661,6 +661,24 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>Batch</td>
+    <td>ActivateBatch</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>active</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SuspendBatch</td>
+    <td>
+      <ul>
+        <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
 
