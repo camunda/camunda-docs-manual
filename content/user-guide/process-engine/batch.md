@@ -172,6 +172,25 @@ to suspend the batch before deleting it.
 See section [Suspend a Batch](#suspend-a-batch) for more information.
 {{< /note >}}
 
+## Priority of a Batch
+
+As all batch jobs are executed using the job executor it is possible to use the
+[job prioritization][] feature to adjust the importance of batch jobs.  The
+default batch job priority is set by the process engine configuration
+`batchJobPriority`.
+
+It is possible to adjust the priority of a specific batch [job
+definition][job-definition-priority] or even a single batch [job][job-priority]
+using the management service.
+
+```java
+Batch batch = ...;
+
+String batchJobDefinitionId = batch.getBatchJobDefinitionId();
+
+processEngine.getManagementService()
+  .setOverridingJobPriorityForJobDefinition(batchJobDefinitionId, 100, true);
+```
 
 
 # Job Definitions
@@ -276,3 +295,6 @@ processEngine.getManagementService()
 [retry]: {{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
 [incidents]: {{< relref "user-guide/process-engine/incidents.md" >}}
 [history level]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
+[job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
+[job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
+[job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}

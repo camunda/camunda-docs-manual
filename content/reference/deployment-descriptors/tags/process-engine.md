@@ -471,4 +471,15 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><code>batchJobPriority</code></td>
+    <td>Integer</td>
+    <td>
+        Sets the default batch job priority.
+        See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}">
+        user guide</a> for more information on job prioritization.
+        Default value: <code>0</code>
+    </td>
+  </tr>
+
 </table>
