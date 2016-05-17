@@ -629,10 +629,42 @@ the following requirements:
 
 * It has to map activities of the same type
 * It has to be a one-to-one mapping
+* A migrated activity must remain a descendant of its closest migrating ancestor scope (**Hierarchy Preservation**)
 
 If validation reports errors, migration fails with a `MigrationPlanValidationException`
 providing a `MigrationPlanValidationReport` object with details on the
 validation errors.
+
+
+#### Hierarchy Preservation
+
+An activity must stay a descendant of its closest ancestor scope that migrates (i.e., that is not cancelled during migration).
+
+Consider the following migration plan for the examples processes show at the
+[beginning of this chapter]({{<
+relref="user-guide/process-engine/process-instance-migration.md" >}}):
+
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
+  .mapActivities("assessCreditWorthiness", "handleApplicationReceipt")
+  .mapActivities("validateAddress", "validatePostalAddress")
+  .build();
+```
+
+And a process instance in the following state:
+
+```
+ProcessInstance
+└── Assess Credit Worthiness
+    └── Validate Address
+```
+
+The migration plan cannot be applied, because the
+hierarchy preservation requirement is violated: The activity *Validate
+Address* is supposed to be migrated to *Validate Postal Address*. However, the
+parent scope *Assess Credit Worthiness* is migrated to *Handle
+Application Receipt*,  which does not contain *Validate Postal Address*.
 
 
 ### Execution Time Validation
@@ -644,7 +676,6 @@ that the plan is applicable. In particular, the following aspects are checked:
   (i.e., activities that do not contain other activities)
 * **Instruction Applicability**: For certain activity types, only transition instances but not
   activity instances can be migrated
-* **Hierarchy Preservation**: Every activity instance must remain a descendant of its closest migrating ancestor activity instance
 
 If validation reports errors, migration fails with a `MigrationInstructionInstanceValidationException`
 providing a `MigrationInstructionInstanceValidationReport` object with details on the
@@ -708,31 +739,6 @@ migrated if they are instances of the following activity types:
   * Multi-instance Body
 
 Transition instances can be migrated for any activity type.
-
-
-#### Hierarchy Preservation
-
-An activity instance must stay a descendant of its closest ancestor activity instance that migrates (i.e., that is not cancelled during migration).
-
-Consider the following migration plan:
-
-```java
-MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
-  .mapActivities("assessCreditWorthiness", "handleApplicationReceipt")
-  .mapActivities("validateAddress", "validatePostalAddress")
-  .build();
-```
-
-And a process instance in the following state:
-
-```
-ProcessInstance
-└── Assess Credit Worthiness
-    └── Validate Address
-```
-
-The migration plan cannot be applied to the process instance, because the hierarchy preservation requirement is violated: The instance of *Validate Address* is supposed to be migrated to *Validate Postal Address*. However, the parent activity instance of *Assess Credit Worthiness* is migrated to *Handle Application Receipt*,  which does not contain *Validate Postal Address*.
 
 [batch]: {{< relref "user-guide/process-engine/batch.md" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
