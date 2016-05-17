@@ -642,7 +642,7 @@ An activity must stay a descendant of its closest ancestor scope that migrates (
 
 Consider the following migration plan for the examples processes show at the
 [beginning of this chapter]({{<
-relref="user-guide/process-engine/process-instance-migration.md" >}}):
+relref "user-guide/process-engine/process-instance-migration.md" >}}):
 
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
