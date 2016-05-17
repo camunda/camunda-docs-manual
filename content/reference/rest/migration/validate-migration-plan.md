@@ -76,7 +76,71 @@ A JSON object with the following properties:
 
 # Result
 
-This method returns no content.
+A JSON object which contains a list of instruction reports
+if any errors are detected, other wise it is empty.
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>instructionReports</td>
+    <td>Array</td>
+    <td>
+      The list of instruction validation reports. If no validation errors are
+      detected it is an empty list.
+    </td>
+  </tr>
+</table>
+
+
+The properties of a instruction report are as follows:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>instruction</td>
+    <td>Object</td>
+    <td>
+      A migration instruction JSON object with the following properties:
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>sourceActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the source process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>targetActivityIds</td>
+            <td>Array</td>
+            <td>The activity ids from the target process definition being mapped.</td>
+          </tr>
+          <tr>
+            <td>updateEventTrigger</td>
+            <td>Boolean</td>
+            <td>
+              Configuration flag whether event triggers defined are going to be updated during migration.
+            </td>
+          </tr>
+        </table>
+      </td>
+  </tr>
+  <tr>
+    <td>failures</td>
+    <td>Array</td>
+    <td>A list of instruction validation report messages.</td>
+  </tr>
+</table>
 
 # Response codes
 
@@ -87,22 +151,18 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
+    <td>200</td>
     <td></td>
-    <td>Request successful. The migration plan is valid.</td>
+    <td>Request successful. The validation report was returned.</td>
   </tr>
   <tr>
     <td>400</td>
     <td>application/json</td>
     <td>
-      The provided migration plan is not valid, so an exception of type <code>MigrationPlanValidationException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
-    </td>
-  </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>
-      In case additional parameters of the request are unexpected, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case additional parameters of the request are unexpected, an exception
+      of type <code>InvalidRequestException</code> is returned. See the <a
+      href="{{< relref "reference/rest/overview/index.md#error-handling">}}">
+      Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -136,7 +196,44 @@ Request Body:
 
 ## Response
 
-Status 204. No content.
+Status 200.
+
+```json
+{
+  "instructionReports": [
+    {
+      "instruction": {
+        "sourceActivityIds": [
+          "aUserTask"
+        ],
+        "targetActivityIds": [
+          "aUserTask"
+        ],
+        "updateEventTrigger": false
+      },
+      "failures": [
+        "failure1",
+        "failure2"
+      ]
+    },
+    {
+      "instruction": {
+        "sourceActivityIds": [
+          "anEvent"
+        ],
+        "targetActivityIds": [
+          "anotherEvent"
+        ],
+        "updateEventTrigger": true
+      },
+      "failures": [
+        "failure1",
+        "failure2"
+      ]
+    }
+  ]
+}
+```
 
 [user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
 [POST /migration/executeAsync]: {{< relref "reference/rest/migration/execute-migration-async.md" >}}
