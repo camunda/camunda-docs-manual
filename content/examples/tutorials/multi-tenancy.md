@@ -295,17 +295,25 @@ public class TenantAwareProcessEngineServicesProducer extends ProcessEngineServi
   @Produces
   @RequestScoped
   public ProcessEngine processEngine() {
-    String processEngineName = tenant.getId();
+    CommandContext commandContext = Context.getCommandContext();
 
-    if (processEngineName != null) {
-      ProcessEngine processEngine = BpmPlatform.getProcessEngineService().getProcessEngine(processEngineName);
+    if (commandContext == null) {
+      return getProcessEngineByTenantId(tenant.getId());
 
+    } else {
+      // used within the process engine (e.g. by the job executor)
+      return commandContext.getProcessEngineConfiguration().getProcessEngine();
+    }
+  }
+
+  protected ProcessEngine getProcessEngineByTenantId(String tenantId) {
+    if (tenantId != null) {
+      ProcessEngine processEngine = BpmPlatform.getProcessEngineService().getProcessEngine(tenantId);
       if (processEngine != null) {
         return processEngine;
       } else {
-        throw new ProcessEngineException("No process engine found for tenant id '" + processEngineName + "'.");
+        throw new ProcessEngineException("No process engine found for tenant id '" + tenantId + "'.");
       }
-
     } else {
       throw new ProcessEngineException("No tenant id specified. A process engine can only be retrieved based on a tenant.");
     }
