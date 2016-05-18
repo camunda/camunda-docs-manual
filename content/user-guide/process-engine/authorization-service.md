@@ -10,10 +10,11 @@ menu:
 
 ---
 
-Camunda BPM provides a resource oriented authorization framework.
+Camunda provides a resource oriented authorization framework.
 
+# Basic Principles
 
-# Authorizations
+## Authorizations
 
 An Authorization assigns a set of Permissions to an identity to interact with a given Resource.
 
@@ -23,39 +24,35 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 * Group 'marketing' is not authorized to delete the Group 'sales'
 * Group 'marketing' is not allowed to use the tasklist application.
 
-
-# Identities
+## Identities
 
 Camunda BPM distinguished two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual User or a Group of users.
 
 
-# Permissions
+## Permissions
 
 A Permission defines the way an identity is allowed to interact with a certain resource.
 
-{{< note title="Buit-In Permissions" class="info" >}}
-  The following permissions are currently supported by the authorization framework:
+The following permissions are available:
 
-  * None
-  * All
-  * Read
-  * Update
-  * Create
-  * Delete
-  * Access
-  * Read Task
-  * Update Task
-  * Task Work
-  * Task Assign
-  * Create Instance
-  * Read Instance
-  * Update Instance
-  * Migrate Instance
-  * Delete Instance
-  * Read History
-  * Delete History
-
-{{< /note >}}
+* None
+* All
+* Read
+* Update
+* Create
+* Delete
+* Access
+* Read Task
+* Update Task
+* Task Work
+* Task Assign
+* Create Instance
+* Read Instance
+* Update Instance
+* Migrate Instance
+* Delete Instance
+* Read History
+* Delete History
 
 Please note that the permission "None" does not mean that no permissions are granted, it stands for "no action".
 Also, the "All" permission will vanish from a user if a single permission is revoked.
@@ -68,42 +65,74 @@ authorization.addPermission(Permissions.UPDATE);
 authorization.addPermission(Permissions.DELETE);
 ```
 
-On top of the built-in permissions, Camunda BPM allows using custom permission types.
-
-
-# Resources
+## Resources
 
 Resources are the entities the user interacts with.
 
-{{< note title="Built-In Resources" class="info" >}}
-  The following resources are currently supported by the authorization framework:
+The following resources are available:
 
-  * Application (cockpit, tasklist, ...)
-  * Authorization
-  * Batch
-  * Decision Definition
-  * Deployment
-  * Filter
-  * Group
-  * Group Membership
-  * Process Definition
-  * Process Instance
-  * Task
-  * Tenant
-  * Tenant Membership
-  * User
+* Application (cockpit, tasklist, ...)
+* Authorization
+* Batch
+* Decision Definition
+* Deployment
+* Filter
+* Group
+* Group Membership
+* Process Definition
+* Process Instance
+* Task
+* Tenant
+* Tenant Membership
+* User
 
+## Authorization Type
+
+There are three types of authorizations:
+
+* Global Authorizations (`AUTH_TYPE_GLOBAL`) range over all users and groups (`userId = ANY`) and are usually used for fixing the "base" permission for a resource.
+* Grant Authorizations (`AUTH_TYPE_GRANT`) range over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.
+* Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
+
+{{< note class="warning" title="Performance of REVOKE Authorizations" >}}
+See Section "Perormance Considerations" on this Page.
 {{< /note >}}
 
-On top of the built-in resources, the Camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
+## Authorization Precedence
 
+Authorizations may range over all users, an individual user or a group of users or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
 
-# Combination of authorizations and resources
+* An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
+* An authorization for an individual user precedes over an authorization for a group.
+* A Group authorization precedes over a GLOBAL authorization.
+* A Group GRANT authorization precedes over a Group REVOKE authorization.
+* A User GRANT authorization precedes over a User REVOKE authorization.
 
-Not every possible permission can be granted for every possible resource.
-For the "Application" resource you can exclusively grant the "Access" permission.
+## When are Authorizations are Checked?
 
-The valid combinations can be found in the following table.
+Authorizations are checked if
+
+* the configuration option `authorizationEnabled` is set to `true` (default value is `false`).
+* there is a currently authenticated user.
+
+The last item means that even if authorization is enabled, authorization checks are only performed if a user is currently authenticated.
+If no user is authenticated, then the engine does not perform any checks.
+
+When using the Camunda Webapps, it is always ensured that a user is authenticated before the user can access any restricted resources.
+When embedding the process engine into a custom application, the application needs to take care of authentication if it needs authorization checks to be performed.
+
+{{< note class="info" title="Authentication vs. Authorization" >}}
+Authentication and Authorization are two distinct concepts as explained [here](https://en.wikipedia.org/wiki/Authentication#Authorization).
+{{< /note >}}
+
+# Permissions by Resource
+
+This section explains which permissions are available on which resources.
+
+## Read, Update, Create, Delete
+
+The permissions Read, Update, Create and Delete are available for most of the resources.
+The following table gives an overview for which resources they are available:
 
 <table class="table matrix-table table-condensed table-hover table-bordered">
 <thead>
@@ -182,7 +211,7 @@ The valid combinations can be found in the following table.
     <tr>
       <th>Task</th>
       <td>X</td>
-      <td>X (*)</td>
+      <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
@@ -203,9 +232,9 @@ The valid combinations can be found in the following table.
   </tbody>
 </table>
 
-\* Additional permissions are supported for authorizing individual task actions. See Section "Task Permissions" below.
+## Additional Task Permissions
 
-# Task permissions
+This section explains the additional permissions that are available on the Task resource (in addition to Create, Update, Read and Delete).
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
 If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task action.
@@ -221,7 +250,6 @@ The table below shows a detailed overview on which permissions authorize a user 
     <th>Task Work</th>
     <th>Task Assign</th>
     <th>Update</th>
-    <th>Update Task</th>
     </tr>
   </thead>
   <tbody>
@@ -230,19 +258,16 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td>X</td>
       <td></td>
       <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Complete</th>
       <td>X</td>
       <td></td>
       <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Add Candidate User</th>
       <td></td>
-      <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
@@ -251,12 +276,10 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td>X</td>
       <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Set Assignee</th>
       <td></td>
-      <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
@@ -265,12 +288,10 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td>X</td>
       <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Add Candidate Group</th>
       <td></td>
-      <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
@@ -279,12 +300,10 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td>X</td>
       <td>X</td>
-      <td>X</td>
     </tr>
     <tr>
       <th>Save Task</th>
       <td></td>
-      <td>X</td>
       <td>X</td>
       <td>X</td>
     </tr>
@@ -293,13 +312,11 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td>X</td>
       <td>X</td>
-      <td>X</td>
     </tr>
 	<tr>
       <th>Set Task Variable</th>
       <td></td>
       <td></td>
-      <td>X</td>
       <td>X</td>
     </tr>
 	<tr>
@@ -307,21 +324,22 @@ The table below shows a detailed overview on which permissions authorize a user 
       <td></td>
       <td></td>
       <td>X</td>
-      <td>X</td>
     </tr>
   </tbody>
 </table>
 
 GRANT and REVOKE authorization with Task Work and Task Assign permissions precedes over Update and Update Task.
 
-## Default task permission
+### Default task permissions
 
 When a user is related to a task by being an assignee or a candidate user or a part of a candidate group or an owner, then these users
 get the default permission as either "Task Work" or "Update" based on the configuration setting "defaultUserPermissionNameForTask". 
 
 If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE permission is granted.
 
-## Additional Authorizations for Process Definition
+## Additional Process Definition Permissions
+
+In Addition to Update, Read and Delete, the follwing permissions are available on the Process Definition Resource:
 
 * Read Task
 * Update Task
@@ -335,7 +353,11 @@ If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE per
 * Read History
 * Delete History
 
-## Additional Authorizations for Decision Definition
+The "Create Instance" permission is required for starting new process instances.
+
+## Additional Decision Definition Permissions
+
+In Addition to Update, Read and Delete, the follwing permissions are available on the Decision Definition Resource:
 
 * Create Instance
 * Read History
@@ -343,26 +365,100 @@ If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE per
 
 The "Create Instance" permission is required for evaluating decisions with the decision service.
 
-# Authorization Type
+## Application Permissions
 
-There are three types of authorizations:
+The resource "Application" uniquely suppots the "Access" permission.
+The Access permission controls whehter a user has access to a camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
 
-Global Authorizations (`AUTH_TYPE_GLOBAL`) range over all users and groups (`userId = ANY`) and are usually used for fixing the "base" permission for a resource.
-Grant Authorizations (`AUTH_TYPE_GRANT`) range over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.
-Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
+* `admin`
+* `cockpit`
+* `tasklist`
+* `*` (Any / All)
 
+# Administrators
 
-# Authorization Precedence
+Camunda BPM has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
 
-Authorizations may range over all users, an individual user or a group of users or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
+## The "camunda-admin" Group
 
-* An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
-* An authorization for an individual user precedes over an authorization for a group.
-* A Group authorization precedes over a GLOBAL authorization.
-* A Group GRANT authorization precedes over a Group REVOKE authorization.
-* A User GRANT authorization precedes over a User REVOKE authorization.
+When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
-## Create an Authorization
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, if asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
+
+{{< note title="LDAP" >}}
+The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read only way). See also: The Administrator Authorization Plugin.
+{{< /note >}}
+
+## The Administrator Authorization Plugin
+
+The Administrator Authorization Plugin is a process engine plugin with the following functionality: when the process engine is started, it grants adminitrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.
+
+Usually this is used to bootstrap an LDAP installation: granting administrative access to an initial user who can then login to Admin and configure additional authorizations using the UI.
+
+The following is an example of how to configure the Administrator Authorization Plugin in bpm-platform.xml / processes.xml:
+
+```xml
+<process-engine name="default">
+  ...
+  <plugins>
+    <plugin>
+      <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+      <properties>
+        <property name="administratorUserName">admin</property>
+      </properties>
+    </plugin>
+  </plugins>
+</process-engine>
+```
+
+The plugin will make sure that administrator authorizations (ALL permissions) are granted on all resources whenever the process engine is started.
+
+{{< note title="" class="info" >}}
+  It is not necessary to configure all LDAP users and groups which should have administrator authorization. It is usually enough to configure a single user and use that user to log into the webapplication and create additional authorizations using the User Interface.
+{{< /note >}}
+
+Complete list of configuration properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>administratorUserName</code></td>
+    <td>The name of the administrator user. If this name is set to a non-null and non-empty value, the plugin will create user-level Administrator authorizations on all built-in resources.</td>
+  </tr>
+  <tr>
+    <td><code>administratorGroupName</code></td>
+    <td>The name of the administrator group. If this name is set to a non-null and non-empty value, the plugin will create group-level Administrator authorizations on all built-in resources.</td>
+  </tr>
+</table>
+
+# Configuration Options
+
+This section expains available process engine configuration options related to authorization.
+
+## Enabling Authorization Checks
+
+Authorization checks can be globally enabled or disabled using the configuration option `authorizationEnabled`. The default setting for this configuration option is `false`.
+
+## Enabling Authorization Checks for User Code
+
+The configuration option `authorizationEnabledForCustomCode` controls whether authorization checks are performed for commands executed by delegation code (ie. a Java Delegate). The default setting for this configuration option is `false`.
+
+## Checking Revoke Authorizations
+
+The configuration option `authorizationCheckRevokes` controls whether authorization checks take into account authorizations of type `Revoke`.
+
+Available values are:
+
+* `always`: Always enables check for revoke authorizations. This mode is equal to the &lt; 7.5 behavior. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases. You are therefore strongly discouraged from using this mode.
+* `never`: Never checks for revoke authorizations. This mode has best performance effectively disables the use of revoke authorizations. *Note*: It is strongly recommended to use this mode.
+* `auto`:  This mode only checks for revoke authorizations if at least one revoke authorization currently exits for the current user or one of the groups the user is a member of. To achieve this it is checked once per command whether potentially applicable revoke authorizations exist. Based on the outcome, the authorization check then uses revoke or not. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases.
+
+Also see: "Performance Considerations" on this Page.
+
+# Java API Example
 
 An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, UPDATE, DELETE the resource. (See Authorization for details).
 
@@ -419,52 +515,10 @@ authProcessInstance.addPermission(Permissions.CREATE);
 authorizationService.saveAuthorization(authProcessDefinition);
 authorizationService.saveAuthorization(authProcessInstance);
 ```
+# Camunda Admin Webapp
 
-## The Administrator Authorization Plugin
+The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< relref "webapps/admin/authorization-management.md" >}}).
 
-Camunda BPM has no explicit concept of "administrator". An administrator in Camunda BPM is a user who has been granted all authorizations on all resources.
+# Performance Considerations
 
-When downloading the Camunda BPM distribution, the invoice example application creates a user with id `demo` and assigns administrator authorizations to this user. In addition, the [Camunda Admin web application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}) allows you to create an initial administrator user if no user is present in the database (when using the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) or a custom implementation providing READ / UPDATE access to the user repository).
-
-This is not the case when using the [LDAP Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}). The LDAP identity service only has read access to the user repository and the "Create Initial User" dialog will not be displayed.
-
-In this case you can use the *Administrator Authorization Plugin* for making sure administrator authorizations are created for a particular LDAP User or Group.
-
-The following is an example of how to configure the Administrator Authorization Plugin in bpm-platform.xml / processes.xml:
-
-```xml
-<process-engine name="default">
-  ...
-  <plugins>
-    <plugin>
-      <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
-      <properties>
-        <property name="administratorUserName">admin</property>
-      </properties>
-    </plugin>
-  </plugins>
-</process-engine>
-```
-
-The plugin will make sure that administrator authorizations (ALL permissions) are granted on all resources whenever the process engine is started.
-
-{{< note title="" class="info" >}}
-  It is not necessary to configure all LDAP users and groups which should have administrator authorization. It is usually enough to configure a single user and use that user to log into the webapplication and create additional authorizations using the User Interface.
-{{< /note >}}
-
-Complete list of configuration properties:
-
-<table class="table table-striped">
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>administratorUserName</code></td>
-    <td>The name of the administrator user. If this name is set to a non-null and non-empty value, the plugin will create user-level Administrator authorizations on all built-in resources.</td>
-  </tr>
-  <tr>
-    <td><code>administratorGroupName</code></td>
-    <td>The name of the administrator group. If this name is set to a non-null and non-empty value, the plugin will create group-level Administrator authorizations on all built-in resources.</td>
-  </tr>
-</table>
+TODO
