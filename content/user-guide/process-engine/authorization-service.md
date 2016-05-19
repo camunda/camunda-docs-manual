@@ -223,6 +223,13 @@ The following table gives an overview for which resources they are available:
       <td>X</td>
     </tr>
     <tr>
+      <th>Tenant Membership</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
       <th>User</th>
       <td>X</td>
       <td>X</td>
