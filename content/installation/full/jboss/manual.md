@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly 8/10 Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
@@ -142,11 +142,26 @@ These links point you to resources for other databases:
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
-# Required Setup for Wildfly 8/10
+# Required Setup for Wildfly
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
 First, you need to download either the [Camunda Wildfly 8 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/) or the [Camunda Wildfly 10 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/).
+
+## Copy Modules
+
+Copy the modules from the `modules/` folder of the Camunda distribution to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
+
+{{< note title="Replace H2 Database" >}}
+The wildfly distribution ships a different version of H2Database than the one that is shipped with Wildfly itself.
+The version shipped by Camunda is the version the process engine is tested on and it is stronly recommended to use Camunda's version.
+In order to do so, **make sure to delete the folder**
+
+```
+$WILDFLY_HOME/modules/system/layers/base/com/h2database
+```
+
+{{< /note >}}
 
 
 ## Adjust the Configuration
