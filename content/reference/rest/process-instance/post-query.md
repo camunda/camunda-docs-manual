@@ -124,6 +124,10 @@ A JSON object with the following properties:
     <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>activityIdIn</td>
+    <td>Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.

@@ -105,6 +105,10 @@ GET `/process-instance/count`
     <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>activityIdIn</td>
+    <td>Filter by a comma-separated list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
