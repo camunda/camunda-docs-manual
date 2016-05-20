@@ -471,11 +471,65 @@ Boundary events can be mapped from the source to the target process definition a
 Intermediate catch events must be mapped if a process instance is waiting for that event during migration.
 
 
-### Compensation Boundary Event
+### Compensation Event
 
-Migrating process instances with compensation event subscriptions or active compensation handlers is not supported yet.
+#### Migrating Compensation Events
 
-New compensation boundary events contained in the target process definition only take effect for activity instances that are not started or finished yet.
+When migrating process instances with active compensation subscriptions, the following rules apply:
+
+* The corresponding compensation catch events must be mapped
+* After migration, compensation can be triggered from the same migrated scope as before migration or its closest migrated ancestor
+* In order to preserve the variable snapshots of parent scopes, those scopes must be mapped as well.
+
+Process instances with active compensation subscriptions can be migrated by mapping the corresponding catching compensation events.
+This tells the migration API which compensation handler of the source process model corresponds to which handler in the target process model.
+
+Consider this source process:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation5"></div>
+
+And this target process:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation6"></div>
+
+Assume a process instance in the following state:
+
+```
+ProcessInstance
+└── Assess Credit Worthiness
+```
+
+The process instance has a compensation subscription for *Archive Application*. A valid migration plan must
+therefore contain a mapping for the compensation boundary event. For example:
+
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("compensationProcess:1", "compensationProcess:2")
+  .mapActivities("archiveApplication", "archiveApplication")
+  .mapActivities("compensationBoundary", "compensationBoundary")
+  .build();
+```
+
+After migration, compensation can be triggered from the same scope as before migration (or in case that scope is removed, the closest ancestor scope that migrates).
+For illustration, consider the following source process:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation3"></div>
+
+And this target process:
+
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation4"></div>
+
+When migrating the same process instance state as in the above example, the inner compensation event is **not** going to
+trigger compensation of the *Archive Application* activity but only the outer compensation event.
+
+{{< note title="Active Compensation" class="info" >}}
+  Migrating process instances with active compensation handlers is not supported yet.
+{{< /note >}}
+
+
+#### Adding Compensation Events
+
+New compensation boundary events contained in the target process definition only take effect for activity instances that are not started or not finished yet.
 For example, consider the following two processes:
 
 Process `compensation:1`:
