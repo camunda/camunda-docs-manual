@@ -19,7 +19,7 @@ Multi-Tenancy can be achieved in two different ways. One way is to use [one proc
 
 Multi-Tenancy can be achieved by providing one process engine per tenant. Each process engine is configured to use a different data source which connects the data of the tenant. The data of the tenants can be stored in different databases, in one database with different schemas or in one schema with different tables.
 
-{{< img src="../../introduction/img/multi-tenancy-process-engine.png" title="One Process Engine per Tenant Architecture" >}}
+{{< img src="../../../introduction/img/multi-tenancy-process-engine.png" title="One Process Engine per Tenant Architecture" >}}
 
 The process engines can run on the same server so that all share the same computational resources such as a data source (when isolating via schemas or tables) or a thread pool for asynchronous job execution. 
 
