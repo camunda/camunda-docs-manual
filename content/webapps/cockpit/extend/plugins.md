@@ -160,6 +160,23 @@ You can set a function in order to set the `active` CSS class properly.
 You can set this property to `true` on your plugin if you do not want it to be shown
 on the dashboard (but still want a menu point in the header).
 
+#### `access`
+
+You can dynamically determine if a section is accessible using the following notation
+
+```js
+// …
+access: ['angularDependency', function (angularDependency) {
+  return function (callback) {
+    var bool = angularDependency.something; // would hide the dashboard section / header link if `bool` is false
+    cb(null, bool);
+  };
+}]
+// …
+```
+You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/blob/f270dee14046448ad0d2afb44eef75aabc82e15b/ui/cockpit/plugins/base/app/views/dashboard/reports.js#L21-L32) in which the plugin is hidden when no report types are found.
+
+
 
 ## Processes Dashboard
 
