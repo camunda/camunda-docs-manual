@@ -127,3 +127,7 @@ The interface of an [Incident Handler]({{< relref "user-guide/process-engine/inc
 
 A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it have to be adjusted.
 
+# Custom styles
+
+The HTML markup of the front-ends changed and some adjustments may be needed. 
+Read the [customization section]({{< relref "webapps/tasklist/configuration.md" >}}#logo-and-header-color) for more information.

@@ -73,7 +73,7 @@ file with something like this:
 
 ```javascript
 var camTasklistConf = {
-  // ...
+  // …
   customScripts: {
     // names of angular modules defined in your custom script files.
     // will be added to the 'cam.tasklist.custom' as dependencies
@@ -113,13 +113,13 @@ define('custom-ng-module', [
   // see the config.js entry above
   var customModule = angular.module('my.custom.module', []);
 
-  // ...so now, you can safely add your controllers...
+  // …so now, you can safely add your controllers…
   customModule.controller('customController', ['$scope', function ($scope) {
     $scope.var1 = 'First variable';
     $scope.var2 = 'Second variable';
   }]);
 
-  // ...directives or else.
+  // …directives or else.
   customModule.directive('customDirective', function () {
     return {
       template: 'Directive example: "{{ var1 }}", "{{ var2 }}"'
@@ -154,29 +154,50 @@ To change visual aspects of Tasklist, you can edit the user stylesheet file loca
 `app/tasklist/styles/user-styles.css`. This file contains CSS which is loaded into Tasklist
 and can override the standard styles.
 
-To display your own logo in the top-left corner, edit the `background-image` property of the
-`[cam-widget-header] .navbar-brand` to point to the URL of your logo image.
+```css
+.navbar-brand {
+  /* hides the "Camunda Tasklist" text */
+  text-indent: -999em;
+  /* put your logo */
+  background-image: url(./path/to/the/logo.png);
+  /* sets the width to match the logo's width */
+  width: 80px;
+}
 
-To set the color of the navigation bar (header), multiple properties have to be overwritten. You
-can find an example in the default `user-styles.css` file.
+/* changes the header bottom border color  */
+[cam-widget-header] {
+  border-bottom-color: blue;
+}
+```
 
+**Note:** you can also change the app name (*Tasklist*) and vendor (*Camunda*)
+by changing the `app/tasklist/scripts/config.js` configuration file as follow:
+
+```js
+// …
+app: {
+  name: 'Todos',
+  vendor: 'Company'
+},
+// …
+```
 
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
 using [less](http://lesscss.org/) to change the overall appearance of Tasklist.
 
-If you want to customize the interface with `less`, you should probably start by having a look at the variables defined in the `client/styles/styles.less` and `client/bower_components/bootstrap/less/variables.less` files.
+If you want to customize the interface with `less`, you should probably start by having a look
+at the variables defined in the following files:
 
-A sample file with variable overrides is available in the `client/styles` directory. To enable it,
-uncomment the line:
-`// @import "_variables-override";` in `client/styles/styles.less`
-and re-compile the source.
-
+ - `node_modules/camunda-commons-ui/node_modules/bootstrap/less/variables.less`   
+   defines the original Bootstrap variables
+ - `node_modules/camunda-commons-ui/resources/less/cam-variables.less`   
+   overrides some Bootstrap variables (above) and add some custom ones
 
 ## Compiling with Grunt
 
-From within the `camunda-bpm-webapp/webapp` directory:
+From within the `camunda-bpm-webapp` directory:
 
 ```sh
 grunt build:tasklist
