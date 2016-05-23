@@ -154,7 +154,7 @@ Copy the modules from the `modules/` folder of the Camunda distribution to the `
 
 {{< note title="Replace H2 Database" >}}
 The wildfly distribution ships a different version of H2Database than the one that is shipped with Wildfly itself.
-The version shipped by Camunda is the version the process engine is tested on and it is stronly recommended to use Camunda's version.
+The version shipped by Camunda is the version the process engine is tested on and it is strongly recommended to use Camunda's version.
 In order to do so, **make sure to delete the folder**
 
 ```
