@@ -34,7 +34,7 @@ The demo above shows how to create more CMMN 1.1 elements like a human task with
 
 ## CMMN 1.1 Coverage
 
-The Camunda Modeler covers all CMMN 1.1 elements for modeling cases which can be executed in Camunda BPM
+The Camunda Modeler covers all CMMN 1.1 elements for modeling cases which can be executed in Camunda BPM.
 
 ## Save a Diagram
 
