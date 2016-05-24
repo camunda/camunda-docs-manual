@@ -152,7 +152,7 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
 {{< /note >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions doesn't work by default.
+Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions doesn't work by default.
 {{< /note >}}
 
 ## Configuration Properties of the LDAP Plugin

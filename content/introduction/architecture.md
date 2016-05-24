@@ -68,9 +68,7 @@ The individual process engine instances do not maintain session state across tra
 The process engine [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters]({{< relref "user-guide/process-engine/the-job-executor.md#cluster-setups" >}}).
 
 
-# Multi-Tenancy Model
-
-{{< img src="../img/multi-tenancy-process-engine.png" title="Multi Tenancy Process Engine" >}}
+# Multi-Tenancy Models
 
 To serve multiple, independent parties with one Camunda installation, the process engine supports
 multi-tenancy. The following multi tenancy models are supported:

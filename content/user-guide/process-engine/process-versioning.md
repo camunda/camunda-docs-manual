@@ -27,7 +27,7 @@ You can see different versions in the process definition table and the process i
 {{< img src="../img/versioning.png" title="Versioning" >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#one-process-engine-with-tenant-identifiers" >}}) then each tenant has its own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md#versioning-of-tenant-specific-definitions" >}}) for details.
+If you are using [multi-tenancy with tenant identifiers]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}) then each tenant has its own process definitions which have versions independent from other tenants. See the [multi-tenancy section]({{< relref "user-guide/process-engine/multi-tenancy.md#versioning-of-tenant-specific-definitions" >}}) for details.
 {{< /note >}}
 
 
