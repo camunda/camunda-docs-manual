@@ -28,7 +28,7 @@ i.e., the definition process instances are migrated to. A migration instruction 
 activity is migrated into an instance of the target activity. A migration plan is complete when there are instructions for
 all active source activities.
 
-The following following process models are used to illustrate the API and effects of migration unless otherwise noted:
+The following process models are used to illustrate the API and effects of migration unless otherwise noted:
 
 Process `exampleProcess:1`:
 
@@ -93,14 +93,13 @@ The following things have happened:
 * The activity instances for *Archive Application*, *Assess Credit Worthiness*, and *Validate Postal Address* have been migrated
 
 What does the second point mean in particular? Since there is a migration instruction for these activity instances they are
-migrated. References to the new activity and process definition are updated. Activity instances, task instances and
-variable instances are preserved other than that. Before migration, there was a task instance
+migrated. The entities that comprise this instance are updated to reference the new activity and process definition. Activity instances, task instances and
+variable instances are preserved other than that.
+
+Before migration, there was a task instance
 in the tasklist of an accountant to perform the *Validate Address* activity. After migration, the same task instance still exists and can be completed
 successfully. It still has the same properties such as assignee or name.
 From the accountant's perspective, migration is completely transparent while working on a task.
-
-Also note that the name of the *Validate Address* activity has changed to *Validate Postal Address* (and it's ID as well). This can
-be handled by the migration API when there is an according migration instruction.
 
 
 # API
@@ -110,9 +109,9 @@ via [REST]({{< relref "reference/rest/migration/index.md" >}}).
 
 ## Creating a Migration Plan
 
-A migration plan can be created using the API `RuntimeService#createMigrationPlan`
-and defines how migration should be performed.
-A migration plan contains the ids of the source and target process definition
+A migration plan can be created by using the API `RuntimeService#createMigrationPlan`.
+It defines how migration should be performed.
+A migration plan contains the IDs of the source and target process definition
 as well as a list of migration instructions. A migration instruction is a mapping from activities in
 the source process definition to activities in the target process definition.
 
@@ -133,10 +132,10 @@ Supported activity relationships are:
 * One-to-one relation
 
 A migration plan is *validated after creation* to detect migration
-instructions that are not supported by the engine. See the [chapter on
+instructions that are not supported by the process engine. See the [chapter on
 creation time validation]({{< relref "#creation-time-validation" >}}) for details.
 
-In addition, a migration plan is *validated before execution* to ensure that it can be applied to a given process instance. For example,
+In addition, a migration plan is *validated before execution* to ensure that it can be applied to a specific process instance. For example,
 migration instructions for some activity types are only supported for transition instances (i.e., active asynchronous continuations) but not for
 activity instances. See the [chapter on execution time validation]({{< relref "#execution-time-validation" >}}) for details.
 
@@ -150,6 +149,26 @@ MigrationPlanBuilder#mapActivities(String sourceActivityId, String targetActivit
 Defining a one-to-one relation instruction means that an instance of the source activity
 is migrated into an instance of the target activity. Activity instance, task instance and variable
 instance state is preserved when migration is executed.
+
+
+### Updating Event Triggers
+
+When migrating events, it is possible to decide whether the corresponding event
+triggers should be updated or not.  See the [BPMN-specific considerations on
+events]({{< relref "#events" >}}) for details. When generating a migration
+plan, it is possible to define this setting for generated instructions between
+events by using the method `updateEventTrigger`.  For example, the following
+code generates a migration instruction for a boundary event and updates its
+event trigger during migration.
+
+```java
+MigrationPlan migrationPlan = processEngine.getRuntimeService()
+  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
+  .mapActivities("userTask", "userTask")
+  .mapActivities("boundary", "boundary")
+    .updateEventTrigger()
+  .build();
+```
 
 
 ## Generating a migration plan
@@ -177,30 +196,14 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
 ```
 
 It creates generated migration instructions for the equal activities
-`assessCreditWorthiness`. It adds an additional mapping for `validateAddress` to `validateProcessAddress`.
+`assessCreditWorthiness`. It adds an additional mapping from `validateAddress` to `validateProcessAddress`.
 
 ### Updating Event Triggers
 
-When migrating events, it is possible to decide whether the corresponding event
-triggers should be updated or not.  See the [BPMN-specific considerations on
-events]({{< relref "#events" >}}) for details. When generating a migration
-plan, it is possible to define this setting for generated instructions between
-events by using the method `updateEventTrigger`.  For example, the following
-code generates a migration instruction for a boundary event and updates its
-event trigger during migration.
-
-```java
-MigrationPlan migrationPlan = processEngine.getRuntimeService()
-  .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
-  .mapActivities("userTask", "userTask")
-  .mapActivities("boundary", "boundary")
-    .updateEventTrigger()
-  .build();
-```
-
-It is also possible to set the default behavior for the migration instruction
-generation with the `updateEventTriggers` method. This is equal to calling
-`updateEventTrigger` on all event migration instructions which are generated.
+Like for individual instructions, it is possible to specify the event trigger update flag
+for generated migration instructions by using the `updateEventTriggers` method.
+This is equal to calling `updateEventTrigger` on all event migration instructions
+which are generated.
 
 ```Java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
@@ -239,13 +242,13 @@ The following are some reasons to prefer either one or the other:
 ### Selecting process instances to migrate
 
 Process instances can be selected for migration by either providing a set of process instance IDs
-or providing a process instance query. It is also possible to specify both, a list of process instance ids and a query.
-The process instances to be migrated will then be the combination of the resulting sets.
+or providing a process instance query. It is also possible to specify both, a list of process instance IDs and a query.
+The process instances to be migrated will then be the union of the resulting sets.
 
 #### List of process instances
 
 The process instances which should be migrated by a migration plan can either
-be specified as a list of the process instance ids:
+be specified as a list of the process instance IDs:
 
 ```Java
 MigrationPlan migrationPlan = ...;
@@ -289,8 +292,8 @@ runtimeSerivce.newMigration(migrationPlan)
 
 ### Skipping Listeners and Input/Output Mappings
 
-During migration, activity instances may be ended or new activity instances may be created.
-Per default, these activities' execution listeners and input/output mappings
+During migration, activity instances may end or new activity instances may emerge.
+Per default, their activities' execution listeners and input/output mappings
 are going to be invoked as appropriate. This may not always be the desired behavior.
 
 For example, if an execution listener expects the existence of a variable to function
@@ -349,24 +352,28 @@ are executed asynchronously. These batch jobs are executed by the job executor.
 See the [batch][] section for more information. A batch is completed if all
 batch execution jobs are successfully completed. However, in contrast to the
 synchronous migration, it is not guaranteed that either all or no process
-instances are migrated. As the migration is split into several independent batch
-execution jobs, every single job can fail or succeed.
+instances are migrated. As the migration is split into several independent jobs,
+every single job may fail or succeed.
 
-If a batch execution migration job fails, it is retried by the job executor
+If a migration job fails, it is retried by the job executor
 and if no retries are left an incident is created. In this case, manual action
-is necessary to complete the batch migration.
+is necessary to complete the batch migration: The job's retries may can be incremented
+or the job can be deleted. Deletion cancels migration of the specific instance but
+does not affect the batch beyond that.
 
 #### Batch migration in a heterogeneous cluster
 
-As described in the [job executor][] section of the user guide it is possible
-to use the process engine in a heterogeneous cluster. A deployment aware job
-executor will only execute jobs for registered deployments. During a batch
-migration jobs are used to execute the migration. These [execution jobs][] will
-be executed by the job executor registered for the deployment of the source
-process definition. This creates the limitation that if custom code is executed
-during the migration in a heterogeneous cluster it is requires that the source
-and target deployment are registered for the job executor executing the batch
-execution jobs. It is also possible to
+As described in the [job executor][] section of the user guide, the process engine
+can be used in a heterogeneous cluster where deployments are unevenly distributed across cluster nodes.
+The *deployment-aware* job executor only executes jobs for deployments registered with it.
+In a heterogeneous cluster, this avoids problems with accessing deployment resources.
+
+When executing a migration batch, the batch execution jobs are therefore restricted
+to the job executor that has a registeration for the deployment of the source
+process definition. This introduces the requirement that
+source and target deployment are registered with the same job executor or else
+migration may fail when executing custom code (e.g. execution listeners) in the context
+of the target process. Note that it is also possible to
 [skip the execution of custom code](#skipping-listeners-and-input-output-mappings)
 during migration.
 
@@ -383,13 +390,8 @@ from the process definition id. The task is not reinitialized: Attributes like a
 
 ### Receive Task
 
-A receive task defines a persistent event trigger, namely an event subscription. There are two options for migrating it:
-
-1. **The event trigger remains the same**: Even if the target event defines a different message, the migrated task
-  instance is going to wait for the message defined by the source task. This is the default behavior
-  when calling `migrationBuilder.mapActivities("sourceTask", "targetTask")`
-2. **The event trigger is updated**: The migrated task instance is going to wait for the message of the target task.
-  This behavior can be specified by calling `migrationBuilder.mapActivities("sourceTask", "targetTask").updateEventTrigger()`
+A receive task defines a persistent event trigger that can be updated or preserved during migration.
+The considerations for [intermediate catch events]({{< relref "#events" >}}) apply here as well.
 
 ### External Task
 
@@ -403,7 +405,7 @@ It is possible to map activities that are implemented as external tasks to each 
 ### Inclusive & Parallel Gateway
 
 Instances of inclusive and parallel gateways represent waiting tokens before the gateway is able to trigger.
-They can be migrated to a gateway of the same type in the target process by supplying an according migration instruction.
+They can be migrated to a gateway of the same type in the target process by supplying a migration instruction.
 
 In addition, the following conditions must hold:
 
@@ -458,6 +460,15 @@ Boundary events can be mapped from the source to the target process definition a
 * If a boundary event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
 * If a boundary event in the source process definition is not mapped, then its event trigger is deleted during migration
 * If a boundary event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
+
+
+### Start Event
+
+Start events of event sub processes can be mapped from source to target with similar semantics as boundary events. In particular:
+
+* If a start event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a start event in the source process definition is not mapped, then its event trigger is deleted during migration
+* If a start event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
 
 ### Intermediate Catch Event
@@ -548,8 +559,8 @@ afterwards is **not** going to compensate *Archive Application*.
 ## Subprocess
 
 If a migration instruction applies to an embedded/event/transaction sub process, it is migrated to its target sub process in the target process definition.
-In case no instruction applies, the instance is cancelled before migration is performed. Should the target process definition
-contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
+This preserves sub process state such as variables. In case no instruction applies, the instance is cancelled before migration is performed.
+Should the target process definition contain new sub processes that no existing instance migrates to, then these are instantiated as needed during migration.
 
 Embedded/Event/Transaction sub processes can be mapped interchangeably. For example, it is possible to map an embedded sub process to an event sub process.
 
@@ -557,9 +568,6 @@ Embedded/Event/Transaction sub processes can be mapped interchangeably. For exam
 
 Call activities are migrated like any other activity. The called instance, be it a BPMN process or a CMMN case, is not changed. It can be migrated separately.
 
-### Event Sub Process
-
-The start events of a event sub process can be mapped by providing a migration instruction. See the [events section]({{< relref "#events" >}}) for the semantics of migration instructions between events.
 
 ## Flow Node Markers
 
@@ -572,7 +580,7 @@ Active multi-instance activities can be migrated if
 
 #### Migrating a Multi-instance Activity
 
-When migrating instances of a multi-instance activity to another multi-instance activity, the migration plan needs to contain two instructions: One for the *inner activity*, i.e., the activity that has multi-instance loop characteristics. And another one for the *multi-instance body*. The body is an artificial activity that contains the inner activity. By convention, it has the id `<id of inner activity>#multiInstanceBody`. When migrating a multi-instance body and its inner activity, the multi-instance state is preserved. That means, if a parallel multi-instance activity is migrated with two instances out of five being active, then the state is the same after migration.
+When migrating instances of a multi-instance activity to another multi-instance activity, the migration plan needs to contain two instructions: One for the *inner activity*, i.e., the activity that has multi-instance loop characteristics. And another one for the *multi-instance body*. The body is a BPMN scope that contains the inner activity and that is not visually represented. By convention, it has the id `<id of inner activity>#multiInstanceBody`. When migrating a multi-instance body and its inner activity, the multi-instance state is preserved. That means, if a parallel multi-instance activity is migrated with two instances out of five being active, then the state is the same after migration.
 
 #### Removing a Multi-Instance Marker
 
@@ -678,6 +686,7 @@ the following requirements:
 * It has to map activities of the same type
 * It has to be a one-to-one mapping
 * A migrated activity must remain a descendant of its closest migrating ancestor scope (**Hierarchy Preservation**)
+* The migration plan adheres to [BPMN-element-specific considerations]({{< relref "#bpmn-specific-api-and-effects" >}})
 
 If validation reports errors, migration fails with a `MigrationPlanValidationException`
 providing a `MigrationPlanValidationReport` object with details on the
@@ -688,7 +697,7 @@ validation errors.
 
 An activity must stay a descendant of its closest ancestor scope that migrates (i.e., that is not cancelled during migration).
 
-Consider the following migration plan for the examples processes show at the
+Consider the following migration plan for the example processes shown at the
 [beginning of this chapter]({{<
 relref "user-guide/process-engine/process-instance-migration.md" >}}):
 
@@ -765,7 +774,7 @@ The migration plan is not valid with respect to this instance because there is n
 
 Migration instructions are used to migrate activity instances as well as transition instances (i.e., active asynchronous continuations). Some
 instructions can only be used to migrate transition instances but not activity instances. In general, activity instances can only be
-migrated if they are instances of the following activity types:
+migrated if they are instances of the following element types:
 
 * Task
   * User Task
