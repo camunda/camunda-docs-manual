@@ -93,8 +93,8 @@ The following things have happened:
 * The activity instances for *Archive Application*, *Assess Credit Worthiness*, and *Validate Postal Address* have been migrated
 
 What does the second point mean in particular? Since there is a migration instruction for these activity instances they are
-migrated. The entities that comprise this instance are updated to reference the new activity and process definition. Activity instances, task instances and
-variable instances are preserved other than that.
+migrated. The entities that comprise this instance are updated to reference the new activity and process definition. Besides that, activity instances, task instances and
+variable instances are preserved.
 
 Before migration, there was a task instance
 in the tasklist of an accountant to perform the *Validate Address* activity. After migration, the same task instance still exists and can be completed
@@ -356,8 +356,8 @@ instances are migrated. As the migration is split into several independent jobs,
 every single job may fail or succeed.
 
 If a migration job fails, it is retried by the job executor
-and if no retries are left an incident is created. In this case, manual action
-is necessary to complete the batch migration: The job's retries may can be incremented
+and if no retries are left, an incident is created. In this case, manual action
+is necessary to complete the batch migration: The job's retries can be incremented
 or the job can be deleted. Deletion cancels migration of the specific instance but
 does not affect the batch beyond that.
 
