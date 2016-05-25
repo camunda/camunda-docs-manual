@@ -51,6 +51,8 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOMCAT_HOME/lib/`, if present:
 
+* `camunda-connect-connectors-all-$CONNECT_VERSION.jar`
+* `camunda-connect-core-$CONNECT_VERSION.jar`
 * `camunda-engine-plugin-connect-$PLATFORM_VERSION.jar`
 
 ## Camunda Spin
@@ -69,7 +71,7 @@ Copy the following libraries from `$TOMCAT_DISTRIBUTION/lib` to the folder `$TOM
 
 # 3. Maintain Process Applications
 
-This section describes changes in behavior of API methods that your process applications may rely on.
+This section describes changes in the internal API of the engine. If you have implemented one of the APIs and replaced the default implementation then you have to adjust your custom implementation. Otherwise, you can skip this section.
 
 ## Incident Handler
 
@@ -78,6 +80,10 @@ The interface of an [Incident Handler]({{< relref "user-guide/process-engine/inc
 ## Correlation Handler
 
 A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it have to be adjusted.
+
+## Job Handler
+
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
 # 4. Upgrade Web Applications
 

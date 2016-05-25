@@ -66,6 +66,9 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
+* `org/camunda/connect/camunda-connect-core`
+* `org/camunda/connect/camunda-connect-http`
+* `org/camunda/connect/camunda-connect-soap-http`
 * `org/camunda/bpm/camunda-engine-plugin-connect`
 
 ## Camunda Spin
@@ -76,6 +79,12 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/spin/camunda-spin-dataformat-json-jackson`
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
 * `org/camunda/bpm/camunda-engine-plugin-spin`
+
+Additionally, replace also the following dependent modules:
+
+* `com/fasterxml/jackson/core/jackson-annotations`
+* `com/fasterxml/jackson/core/jackson-core`
+* `com/fasterxml/jackson/core/jackson-databind`
 
 ## Groovy Scripting
 
@@ -217,7 +226,7 @@ For further information on available configuration for the Job Executor Thread P
 
 # 4. Maintain Process Applications
 
-This section describes changes in behavior of API methods that your process applications may rely on.
+This section describes changes in the internal API of the engine. If you have implemented one of the APIs and replaced the default implementation then you have to adjust your custom implementation. Otherwise, you can skip this section.
 
 ## Incident Handler
 
@@ -226,6 +235,10 @@ The interface of an [Incident Handler]({{< relref "user-guide/process-engine/inc
 ## Correlation Handler
 
 A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it has to be adjusted.
+
+## Job Handler
+
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
 # 5. Upgrade Camunda Web Applications
 

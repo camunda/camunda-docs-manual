@@ -22,9 +22,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.5:
 
-* **Process Instance Migration:** With 7.5, it is possible to move existing process instances from one version of a process to another. So long running process instances no longer lag behind changing processes. The [migration]({{< relref "user-guide/process-engine/process-instance-migration.md" >}}) can be planed and executed via API or visually via new Process Instance Migration View in Cockpit (Camunda Enterprise Edition only).
 * **Multi-Tenancy:** In addition to the existing approach for [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) with multiple process engines and database, schema or table isolation, Camunda 7.5 offers a new approach using a single process engine. The engine stores the data of all tenants in one table and separates them by a tenant-identifier which makes it easier to manage a large tenant base.
-* **Reporting:** Camunda 7.5 provides a new API for Reporting which allows to create a report of process instance durations (minimum, average and maximum duration). The report can be displayed as chart or table on the new Report View in Cockpit (Camunda Enterprise Edition only).
 
 {{< note title="No Rolling Upgrades" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.4 to 7.5 in a rolling fashion. This means, it is not possible to run process engines of version 7.4 and 7.5 in parallel with the same database configuration. The reason is that a 7.4 engine may not be able to execute process instances that have been previously executed by a 7.5 engine, as these may use features that were not available yet in 7.4.
@@ -113,15 +111,19 @@ There are no new mandatory dependencies. That means, upgrading the version shoul
 
 ## Special Considerations
 
-This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes changes in the internal API of the engine. If you have implemented one of the APIs and replaced the default implementation then you have to adjust your custom implementation. Otherwise, you can skip this section.
 
 ### Incident Handler
 
-The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
+The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. 
 
 ### Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it have to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. 
+
+### Job Handler
+
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
 
 # Custom styles
 
