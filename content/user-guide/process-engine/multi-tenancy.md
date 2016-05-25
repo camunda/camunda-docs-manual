@@ -13,17 +13,17 @@ menu:
 
 *Multi-Tenancy* regards the case in which a single Camunda installation should serve more than one tenant. For each tenant, certain guarantees of isolation should be made. For example, one tenant's process instances should not interfere with those of another tenant.
 
-Multi-Tenancy can be achieved in two different ways. One way is to use [one process engine per tenant]({{< relref "#one-process-engine-per-tenant" >}}). The other way is to use just one process engine and associate the data with [tenant identifiers]({{< relref "#single-process-engine-with-tenant-identifiers" >}}). The two ways differ each other in the level of data isolation, the effort of maintenance and the scalability. A combination of both ways is also possible.
+Multi-Tenancy can be achieved in two different ways. One way is to use [one process engine per tenant]({{< relref "#one-process-engine-per-tenant" >}}). The other way is to use just one process engine and associate the data with [tenant identifiers]({{< relref "#single-process-engine-with-tenant-identifiers" >}}). The two ways differ from each other in the level of data isolation, the effort of maintenance and the scalability. A combination of both ways is also possible.
 
 # Single Process Engine With Tenant-Identifiers
 
-Multi-Tenancy can be achieved with one process engine which uses tenant identifiers (i.e. tenant-ids). The data of all tenants is stored in one table (same database and schema). Isolation is provided by the means of a tenant identifier that is stored in a column.
+Multi-Tenancy can be achieved with one process engine which uses tenant identifiers (i.e., tenant-ids). The data of all tenants is stored in one table (same database and schema). Isolation is provided by the means of a tenant identifier that is stored in a column.
 
 {{< img src="../img/multi-tenancy-tenant-identifiers.png" title="One Process Engine with Tenant-Identifiers Architecture" >}}
 
-The tenant identifier is specified on the deployment and is propagated to all data that is created from the deployment (e.g. process definitions, process instances, tasks, etc.). In order to access the data for a specific tenant, the process engine allows to filter queries by a tenant identifier or specify a tenant identifier for a command (e.g. create a process instance). Additionally, the process engine provides a transparent access restrictions in combination with the Identity Service that allows to omit the tenant identifier.
+The tenant identifier is specified on the deployment and is propagated to all data that is created from the deployment (e.g., process definitions, process instances, tasks, etc.). To access the data for a specific tenant, the process engine allows to filter queries by a tenant identifier or specify a tenant identifier for a command (e.g., create a process instance). Additionally, the process engine provides transparent access restrictions in combination with the Identity Service that allows to omit the tenant identifier.
 
-It is also possible for all tenants to share the same definitions without deploying them for each tenant. Shared definitions can simplify the management of the deployments in case of a larger number of tenants.
+It is also possible for all tenants to share the same definitions without deploying them for each tenant. Shared definitions can simplify management of the deployments in case of a larger amount of tenants.
 
 {{< note title="Examples" class="info" >}}
 Find [examples on GitHub](https://github.com/camunda/camunda-bpm-examples) that show how to use tenant-identifiers with
@@ -36,7 +36,7 @@ Find [examples on GitHub](https://github.com/camunda/camunda-bpm-examples) that 
 
 To deploy definitions for a single tenant, the tenant identifier has to be set on the deployment. The given identifier is propagated to all definitions of the deployment so that they belong to the tenant.
 
-If no tenant identifier is set then the deployment and its definitions belongs to all tenants. In this case, all tenants can access the deployment and the definitions. See [this section]({{< relref "#shared-definitions-for-all-tenants" >}}) to read more about how to use shared definitions.
+If no tenant identifier is set then the deployment and its definitions belong to all tenants. In this case, all tenants can access the deployment and the definitions. See [this section]({{< relref "#shared-definitions-for-all-tenants" >}}) to read more about how to use shared definitions.
 
 ### Specify the Tenant Identifier via Java API
 
@@ -52,7 +52,7 @@ repositoryService
 
 ### Specify the Tenant Identifier via Deployment Descriptor
 
-In case of a process application, the deployment is specified by a [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) Deployment Descriptor. Since the descriptor can contain multiple process-archives (i.e. deployments), the tenant identifier can be set on each process-archive as `tenantId` attribute.
+In case of a process application, the deployment is specified by a [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) Deployment Descriptor. Since the descriptor can contain multiple process-archives (i.e., deployments), the tenant identifier can be set on each process-archive as `tenantId` attribute.
 
 ```xml
 <process-application
@@ -88,11 +88,11 @@ When the [Automatic Resource Deployment]({{< relref "user-guide/spring-framework
 
 ### Versioning of Tenant-Specific Definitions
 
-When a definition is deployed for a tenant then it is assigned a version which is independent from definitions of other tenants. For example, if a new process definition is deployed for two tenants then both definitions are assigned the version `1`. The versioning within one tenant works like the [versioning of definitions]({{< relref "user-guide/process-engine/process-versioning.md" >}}) that belongs to no tenant.
+When a definition is deployed for a tenant then it is assigned a version which is independent from definitions of other tenants. For example, if a new process definition is deployed for two tenants then both definitions are assigned the version `1`. The versioning within one tenant works like the [versioning of definitions]({{< relref "user-guide/process-engine/process-versioning.md" >}}) that belong to no tenant.
 
 ## Query Data of a Tenant
 
-The process engine queries of tenant-specific data (e.g. Deployment Query, Process Definition Query) allows to filter by one or more tenant identifiers. If no identifier is set then the result contains the data of all tenants.
+The process engine queries of tenant-specific data (e.g., Deployment Query, Process Definition Query) allows to filter by one or more tenant identifiers. If no identifier is set then the result contains the data of all tenants.
 
 Note that the [transparent access restrictions]({{< relref "#transparent-access-restrictions-for-tenants" >}}) of tenants can influence the result of a query if a user is not allowed to see the data of a tenant.
 
@@ -109,7 +109,7 @@ List<Deployment> deployments = repositoryService
   .list();
 ```
 
-In case of [shared definitions]({{< relref "#shared-definitions-for-all-tenants" >}}), it can be useful to filter by deployments which belongs to no tenant by calling `withoutTenantId()`. 
+In case of [shared definitions]({{< relref "#shared-definitions-for-all-tenants" >}}), it can be useful to filter by deployments which belong to no tenant by calling `withoutTenantId()`. 
 
 ```java
 List<Deployment> deployments = repositoryService
@@ -118,7 +118,7 @@ List<Deployment> deployments = repositoryService
   .list();
 ```
 
-It is also possible to filter by deployments which belongs to a specific tenant or no tenant by calling `includeDeploymentsWithoutTenantId()`.
+It is also possible to filter by deployments which belong to a specific tenant or no tenant by calling `includeDeploymentsWithoutTenantId()`.
 
 ```java
 List<Deployment> deployments = repositoryService
@@ -130,7 +130,7 @@ List<Deployment> deployments = repositoryService
 
 ### Query Definitions of a Tenant
 
-Similar to the `DeploymentQuery`, the definition queries allows to filter by one or more tenants and by definitions which belongs to no tenant.
+Similar to the `DeploymentQuery`, the definition queries allow to filter by one or more tenants and by definitions which belong to no tenant.
 
 ```java
 List<ProcessDefinition> processDefinitions = repositoryService
@@ -142,13 +142,13 @@ List<ProcessDefinition> processDefinitions = repositoryService
 
 ## Run Commands for a Tenant
 
-When a definition is deployed for multiple tenants then a command can be ambiguous (e.g. start a process instance by key). If such a command is executed then a `ProcessEngineException` is thrown. To run the command successfully, the tenant identifier has to be passed to the command.
+When a definition is deployed for multiple tenants, a command can be ambiguous (e.g., start a process instance by key). If such a command is executed, a `ProcessEngineException` is thrown. To run the command successfully, the tenant identifier has to be passed to the command.
 
 Note that the [transparent access restrictions]({{< relref "#transparent-access-restrictions-for-tenants" >}}) of tenants can omit the tenant identifier if a user is only allowed to see one of the definitions.
 
 ### Create a Process Instance
 
-To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to pass to the {{< javadocref page="?org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
+To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
 
 ```java
 runtimeService
@@ -187,11 +187,11 @@ runtimeService
   .send();
 ```
 
-When a signal is thrown within a process (i.e. intermediate signal event or signal end event) then the signal is delivered to definitions and executions which belongs to same tenant as the calling execution or no tenant.
+When a signal is thrown within a process (i.e., intermediate signal event or signal end event) then the signal is delivered to definitions and executions which belong to the same tenant as the calling execution or no tenant.
 
 ### Create a Case Instance
 
-To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to pass to the {{< javadocref page="?org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
+To create an instance by key of a case definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/CaseInstanceBuilder.html" text="CaseInstanceBuilder" >}}.
 
 ```java
 caseService
@@ -202,7 +202,7 @@ caseService
 
 ### Evaluate a Decision Table
 
-To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to pass to the {{< javadocref page="?org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
+To evaluate a decision table by key which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/dmn/DecisionEvaluationBuilder.html" text="DecisionEvaluationBuilder" >}}.
 
 ```java
 decisionService
@@ -213,7 +213,7 @@ decisionService
 
 ## Transparent Access Restrictions for Tenants
 
-When integrating Camunda into an application, it can be cumbersome to pass the tenant Id to each camunda API call. Since such an application usually also has a concept of an "authenticated user", it is possible to set the list of tenant ids along when setting the authentication:
+When integrating Camunda into an application, it can be cumbersome to pass the tenant Id to each camunda API call. Since such an application usually also has a concept of an "authenticated user", it is possible to set the list of tenant ids when setting the authentication:
 
 ```java
 try {
@@ -272,7 +272,7 @@ finally {
 ### Getting a user's Tenant Ids from the Identity Service
 
 The process engine's Identity Service can be used to manage users, groups and tenants as well as their relationships.
-The following example shows how to, for a given user retreive the list of groups and tenants and then use these lists when setting the authentication:
+The following example shows how to retreive the lists of groups and tenants for a given user and then use these lists when setting the authentication:
 
 ```java
 List<Tenant> groups = identityService.createGroupQuery()
@@ -297,26 +297,26 @@ finally {
 ```
 
 {{< note title="LDAP Identity Service" class="info" >}}
-The above example only works with the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) (i.e. the default implementation). The [LDPA Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support tenants.
+The above example only works with the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) (i.e., the default implementation). The [LDPA Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support tenants.
 {{< /note >}}  
 
 
 ### Camunda Rest API and Web Applications
 
-The Camunda [Rest API]({{< relref "reference/rest/index.md" >}}) and the Web Applications Cockpit and Tasklist support the transparent access restrictions. When a user log in then he only see and can access the data (e.g. process definitions) that belongs to one of his tenants.
+The Camunda [Rest API]({{< relref "reference/rest/index.md" >}}) and the web applications Cockpit and Tasklist support the transparent access restrictions. When a user logs in then he only sees and can only access the data (e.g., process definitions) that belongs to one of his tenants.
 
-Tenants and their memberships can be managed in the [Admin]({{< relref "webapps/admin/tenant-management.md" >}}) Web Application.
+Tenants and their memberships can be managed in the [Admin]({{< relref "webapps/admin/tenant-management.md" >}}) web application.
 
 ### Disable the Transparent Access Restrictions 
 
 The transparent access restrictions are enabled by default. To disable the restrictions, set the `tenantCheckEnabled` property in the [ProcessEngineConfiguration]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#processengineconfiguration-bean" >}}) to `false`.
 
-Additionally, it is also possible to disable the restrictions for a single command (e.g. for a maintenance task). Use the `CommandContext` to disable and enable the restrictions for the current command.
+Additionally, it is also possible to disable the restrictions for a single command (e.g., for a maintenance task). Use the `CommandContext` to disable and enable the restrictions for the current command.
 
 ```java
 commandContext.disableTenantCheck();
 
-// e.g. do maintenance tasks over all tenants
+// e.g., do maintenance tasks over all tenants
 
 commandContext.enableTenantCheck();
 ```
@@ -325,7 +325,7 @@ Note that the restrictions can't be enabled for a command if they are disabled i
 
 ### Access all Tenants as Administrator
 
-Users who are a member of the group `camunda-admin` can access the data of all tenants, even if they don't belongs to the tenants. This is useful for an administrator of a multi-tenancy application since he has to manage the data over all tenants.
+Users who are a member of the group `camunda-admin` can access the data of all tenants, even if they don't belong to the tenants. This is useful for an administrator of a multi-tenancy application since he has to manage the data over all tenants.
 
 ## Shared Definitions for all Tenants
 
@@ -360,14 +360,14 @@ If different tenants should work on entirely different databases, they have to u
 For schema- or table-based isolation, a single data source can be used which means that resources like a connection pool can be shared among multiple engines.
 To achieve this,
 
-* the configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access in this case.
+* the configuration option [databaseTablePrefix]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-protperties" >}}) can be used to configure database access.
 * consider switching on the setting `useSharedSqlSessionFactory`. The setting controls whether each process engine instance should parse and maintain a local copy of the mybatis mapping files or whether a single, shared copy can be used. Since the mappings require a lot of heap (>30MB), it is recommended to switch this on. This way only one copy needs to be allocated.
 
 {{< note title="Considerations for useSharedSqlSessionFactory setting" class="warning" >}}
 The `useSharedSqlSessionFactory` setting causes caching of the mybatis sql session factory in a static field, once built.
 When using this configuration setting, you need to be aware that
 
-* it can only be used if all process engines which use the setting share the same datasource and transaction factory,
+* it can only be used if all process engines which use the setting share the same datasource and transaction factory
 * the reference in the field, once set, is never cleared. This is usually not a problem but if it is, users must clear the field
 manually by setting it to null explicitly via 
 
@@ -378,7 +378,7 @@ ProcessEngineConfigurationImpl.cachedSqlSessionFactory = null
 
 ### Job Executor for Multiple Process Engines
 
-For background execution of processes and tasks, the process engine has a component called [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large number of process engines is used. See the section [The Job Executor and Multiple Process Engines]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-executor-and-multiple-process-engines" >}}) for details.
+For background execution of processes and tasks, the process engine has a component called [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}). The job executor periodically acquires jobs from the database and submits them to a thread pool for execution. For all process applications on one server, one thread pool is used for job execution. Furthermore, it is possible to share the acquisition thread between multiple engines. This way, resources are still manageable even when a large amount of process engines are used. See the section [The Job Executor and Multiple Process Engines]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-executor-and-multiple-process-engines" >}}) for details.
 
 ### Example Configuration for Schema Isolation
 
@@ -464,11 +464,11 @@ The following is an example that deploys different process definitions for two t
 
 ## Access the Process Engine of a Tenant
 
-In order to access a specific tenant's process engine at runtime, it has to be identified by its name. The Camunda engine offers access to named engines in various programming models:
+To access a specific tenant's process engine at runtime, it has to be identified by its name. The Camunda engine offers access to named engines in various programming models:
 
 * **Plain Java API**: Via the [ProcessEngineService]({{< relref "user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
 * **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< relref "user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
 * **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
 
-The Camunda Web Applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-tenancy" >}}).
+The Camunda web applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-tenancy" >}}).
 
