@@ -423,7 +423,6 @@ Additionally, it is necessary to include the tenant check query to the custom qu
 ### Testing JAX-RS Resources
 
 To test your JAX-RS resources you can instantiate them directly during a plug-in test case. Alternatively, you can write a real API test using [arquillian](http://arquillian.org/).
-See [PluginApiTest](https://github.com/camunda/camunda-bpm-webapp/blob/master/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) for an example.
 
 Now we are done with the server-side parts of the plug-in. Next, we will go ahead and write the client-side extension that exposes the functionality to the user.
 
