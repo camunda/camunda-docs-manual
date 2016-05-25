@@ -25,7 +25,7 @@ We will walk through the important aspects of developing the server-side parts o
 
 ## Plug-in Archive
 
-As a first step we create a maven jar project that represents our plug-in library. Inside the projects `pom.xml` we must declare a dependency to the Camunda webapp core with the maven coordinates `org.camunda.bpm.webapp:camunda-webapp-core`. The project contains all the infrastructure necessary to create and test the server-side parts of a plug-in.
+As a first step we create a maven jar project that represents our plug-in library. Inside the projects `pom.xml` we must declare a dependency to the Camunda webapp with the maven coordinates `org.camunda.bpm.webapp:camunda-webapp`. The project contains all the infrastructure necessary to create and test the server-side parts of a plug-in.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -39,12 +39,12 @@ As a first step we create a maven jar project that represents our plug-in librar
 
   <name>cockpit-sample-plugin</name>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.camunda.bpm.webapp</groupId>
-      <artifactId>camunda-webapp-core</artifactId>
-      <version>${camunda.version}</version>
-    </dependency>
+  <dependency>
+    <groupId>org.camunda.bpm.webapp</groupId>
+    <artifactId>camunda-webapp</artifactId>
+    <classifier>classes</classifier>
+    <version>${camunda.version}</version>
+  </dependency>
 
     <dependency>
       <groupId>junit</groupId>
@@ -447,7 +447,7 @@ FOO BAR
 
 ### Testing Assets
 
-To test that the assets are served, we can either [implement a test case](https://github.com/camunda/camunda-bpm-webapp/blob/master/core/src/test/java/org/camunda/bpm/cockpit/test/plugin/resources/PluginApiTest.java) or test the matter manually after we integrated the plug-in into the Cockpit webapp.
+To test that the assets are served, we can either implement a test case or test the matter manually after we integrated the plug-in into the Cockpit webapp.
 
 ## Integration into Cockpit
 
