@@ -10,7 +10,32 @@ menu:
 
 ---
 
-Camunda provides a resource oriented authorization framework.
+Camunda allows users to authorize access to the data it manages. This makes it possible to configure which user can access which process instances, tasks etc...
+
+Authorization has a performance cost and introduces some complexity. It should only be used if it is required.
+
+# When is Authorization required?
+
+Not every Camunda setup needs to enable authorization. In many scenarios, Camunda is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine api directly. If you embedd the process engine into a Java application, usually, you do not need to enable authorization. The application can control how the Api is accessed.
+
+Situations in which authorization is required:
+
+* Camunda Rest API is made accessible to users who should not have full access even after authentication.
+* Camunda Webapplication is made accessible to users who should not have full access even after authentication.
+* Other situations in which an untrusted user can directly construct the queries and commands executed on the process engine.
+
+Situations in which authorization is *not* required
+
+* An application completely controls the Api methods invoked on the process engine.
+* Camunda Webapplication is made accessible to users who can have full access after authentication.
+
+**Example**
+
+Assume that you have the following authorization requirement: *As a regular user, I can only see the tasks that are assigned to me.*
+
+If the engine is embedded into a Java Application, the application can easily ensure this by restricting the task query on the `assignee` property. The application can guarantee this since the Camunda Api is not directly exposed to the user.
+
+By contrast, if the Camunda Rest API is directly exposed over the network to a Javascript application, then a malicious user, once authenticated, can send a request to the server querying all tasks, even the ones that are not assigned to this user. In this case, authorization needs to be turned on to ensure the user only sees the tasks which he is authorized to see, regardless of the query parameters.
 
 # Basic Principles
 
@@ -460,7 +485,9 @@ The configuration option `authorizationCheckRevokes` controls whether authorizat
 Available values are:
 
 * `always`: Always enables check for revoke authorizations. This mode is equal to the &lt; 7.5 behavior. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases. You are therefore strongly discouraged from using this mode.
+
 * `never`: Never checks for revoke authorizations. This mode has best performance effectively disables the use of revoke authorizations. *Note*: It is strongly recommended to use this mode.
+
 * `auto`:  This mode only checks for revoke authorizations if at least one revoke authorization currently exits for the current user or one of the groups the user is a member of. To achieve this it is checked once per command whether potentially applicable revoke authorizations exist. Based on the outcome, the authorization check then uses revoke or not. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases.
 
 Also see: "Performance Considerations" on this Page.
@@ -528,4 +555,19 @@ The Camunda Admin Webapplication provides an out of the box [UI for configuring 
 
 # Performance Considerations
 
-TODO
+Authorizations are calculated by the database which is most efficient. Example: when performing a task query, the database query only returns the tasks for which the user has a READ authorization.
+
+## Perfomance of Checking Grant Authorizations
+
+When only Grant authorizations are used, the check is very efficient since the authorization table can be joined with the resource table (task table, process instance table etc...).
+
+## Perfomance of Checking Revoke Authorizations
+
+Revoke authorizations are expensive to check. The check needs to consider the precedence of authorizations. Example: a User-level Grant is stronger than a group level Revoke. A sequence of nested SQL `CASE` statements and a subselect is used to account for the precedence. This has two downsides:
+
+* The check scales linearly with the cardinality of the resource table (doubling the number of tasks makes the query twice as slow)
+* The particular construct based on `CASE` statments performs extremely pooly on the following databases: PostgreSQL, DB2
+
+On these databases, revoke authorizations are effectively unusable.
+
+See also: [Configuration Options](#checking-revoke-authorizations).
