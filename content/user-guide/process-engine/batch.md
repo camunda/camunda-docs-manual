@@ -129,7 +129,7 @@ List<HistoricJobLog> batchExecutionJobLogs = processEngine.getHistoryService()
 
 ## Suspend a Batch
 
-To pause the execution of a batch and all corresponding jobs a batch
+To pause the execution of a batch and all corresponding jobs, a batch
 can be suspended using the management service.
 
 ```java
