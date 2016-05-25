@@ -14,7 +14,7 @@ The following steps describe how to upgrade the Camunda artifacts on a JBoss AS
 7 and Wildfly 8 server in a shared process engine scenario. For the entire
 procedure, refer to the [upgrade guide][upgrade-guide]. If not
 already done, make sure to download the [Camunda BPM 7.5 JBoss distribution][jboss-distro]
-or [Camunda BPM 7.5 Wildfly 8 distribution][wildfly-distro]. In the following instructions
+or [Camunda BPM 7.5 Wildfly 10 distribution][wildfly-distro]. In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
@@ -28,6 +28,12 @@ The upgrade procedure takes the following steps:
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
+{{< note title="Upgraded Wildfly Version" class="info" >}}
+The pre-built Camunda 7.5 distribution ships with Wildfly 10, whereas 7.4 comes with Wildfly 8. Camunda 7.5 is supported on Wildfly 8.2 version such that a Wildfly upgrade is not required when migrating from 7.4 to 7.5.
+
+See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
+{{< /note >}}
+
 # 1. Upgrade the Camunda BPM Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
@@ -36,14 +42,11 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/bpm/$APP_SERVER/camunda-$APP_SERVER-subsystem`
 * `org/camunda/bpm/model/camunda-bpmn-model`
 * `org/camunda/bpm/model/camunda-cmmn-model`
+* `org/camunda/bpm/model/camunda-dmn-model`
 * `org/camunda/bpm/model/camunda-xml-model`
-
-Add or replace (if already present) the following modules:
-
 * `org/camunda/bpm/dmn/camunda-engine-dmn`
 * `org/camunda/bpm/dmn/camunda-engine-feel-api`
 * `org/camunda/bpm/dmn/camunda-engine-feel-juel`
-* `org/camunda/bpm/model/camunda-dmn-model`
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-typed-values`
 * `org/camunda/commons/camunda-commons-utils`

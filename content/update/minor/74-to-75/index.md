@@ -22,12 +22,12 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.5:
 
-{{< note title="TODO" class="info" >}}
-  Add Features and Changes!
-{{< /note >}}
+* **Process Instance Migration:** With 7.5, it is possible to move existing process instances from one version of a process to another. So long running process instances no longer lag behind changing processes. The [migration]({{< relref "user-guide/process-engine/process-instance-migration.md" >}}) can be planed and executed via API or visually via new Process Instance Migration View in Cockpit (Camunda Enterprise Edition only).
+* **Multi-Tenancy:** In addition to the existing approach for [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) with multiple process engines and database, schema or table isolation, Camunda 7.5 offers a new approach using a single process engine. The engine stores the data of all tenants in one table and separates them by a tenant-identifier which makes it easier to manage a large tenant base.
+* **Reporting:** Camunda 7.5 provides a new API for Reporting which allows to create a report of process instance durations (minimum, average and maximum duration). The report can be displayed as chart or table on the new Report View in Cockpit (Camunda Enterprise Edition only).
 
-{{< note title="TODO" class="info" >}}
-  Add warning if no rolling upgrades!
+{{< note title="No Rolling Upgrades" class="warning" >}}
+It is not possible to migrate process engines from Camunda 7.4 to 7.5 in a rolling fashion. This means, it is not possible to run process engines of version 7.4 and 7.5 in parallel with the same database configuration. The reason is that a 7.4 engine may not be able to execute process instances that have been previously executed by a 7.5 engine, as these may use features that were not available yet in 7.4.
 {{< /note >}}
 
 # Database Updates
@@ -78,10 +78,6 @@ Please choose the application server you are working with from the following lis
 * [IBM WebSphere]({{< relref "update/minor/74-to-75/was.md" >}})
 * [Oracle WebLogic]({{< relref "update/minor/74-to-75/wls.md" >}})
 
-{{< note title="TODO" class="info" >}}
-  Add sections for application servers.
-{{< /note >}}
-
 ## Custom Process Applications
 
 For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
@@ -107,17 +103,9 @@ Upgrade the dependencies declared in your application's `pom.xml` file to the ne
 
 There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
 
-{{< note title="TODO" class="info" >}}
-  Add new mandatory or transitive dependencies if necessary!
-{{< /note >}}
-
 ## Special Considerations
 
 This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
-
-{{< note title="TODO" class="info" >}}
-  Add engine changes!
-{{< /note >}}
 
 ### Incident Handler
 
