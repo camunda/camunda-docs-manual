@@ -57,6 +57,14 @@ Since 7.5.0 there are separate SQL scripts for MariaDB. If you use MariaDB and u
 
 Additionally, you have to adjust the [database configuration]({{< relref "user-guide/process-engine/database.md#database-configuration" >}}) of your process engine configuration and set the property `databaseType` to `mariadb`.
 
+### Wildfly 10
+
+The pre-built Camunda 7.5 distribution ships with Wildfly 10, whereas 7.4 comes with Wildfly 8. Camunda 7.5 is supported on Wildfly 8.2 and 10.0 such that a Wildfly upgrade is not required when migrating from 7.4 to 7.5.
+
+### Oracle WebLogic Server 12c R2
+
+Since 7.4.2, the second release (R2) of Oracle WebLogic Server 12c is also a supported application server.
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
