@@ -369,10 +369,10 @@ The *deployment-aware* job executor only executes jobs for deployments registere
 In a heterogeneous cluster, this avoids problems with accessing deployment resources.
 
 When executing a migration batch, the batch execution jobs are therefore restricted
-to the job executor that has a registeration for the deployment of the source
+to the job executor that has a registration for the deployment of the source
 process definition. This introduces the requirement that
 source and target deployment are registered with the same job executor or else
-migration may fail when executing custom code (e.g. execution listeners) in the context
+migration may fail when executing custom code (e.g., execution listeners) in the context
 of the target process. Note that it is also possible to
 [skip the execution of custom code](#skipping-listeners-and-input-output-mappings)
 during migration.
