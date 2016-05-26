@@ -13,7 +13,7 @@ menu:
 
 # Users Menu
 
-{{< img src="../img/admin-start-page-view.png" title="User Menu" >}}
+{{< img src="../img/admin-users.png" title="User Menu" >}}
 
 The Users menu allows you to add, edit and delete user profiles. Furthermore, you can manage group membership and change passwords.
 
