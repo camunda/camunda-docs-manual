@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The Camunda DMN engine can be used as a library in a custom application. To achieve this, 
+The Camunda DMN engine can be used as a library in a custom application. To achieve this,
 add the `camunda-engine-dmn` artifact to the classpath of the application and then
 configure and build a decision engine instance. This section provides the
 required maven coordinates to add the DMN engine as a dependency to your
@@ -22,36 +22,15 @@ project. It then shows how to configure and build a new DMN engine instance.
 
 The Camunda DMN engine is released to Maven Central.
 
-Start by importing the BOM to ensure correct dependency management.
+Start by importing the [`camunda-engine-dmn` BOM](/get-started/apache-maven/#camunda-dmn-engine-bom)
+to ensure correct dependency management.
 
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>org.camunda.bpm.dmn</groupId>
-      <artifactId>camunda-engine-dmn-bom</artifactId>
-      <version>7.4.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
-
-Next, include the `camunda-engine-dmn` artifact in the `dependencies` section.
-
-```xml
-<dependencies>
-  <dependency>
-    <groupId>org.camunda.bpm.dmn</groupId>
-    <artifactId>camunda-engine-dmn</artifactId>
-  </dependency>
-</dependencies>
-```
+Next, include the [`camunda-engine-dmn`](/get-started/apache-maven/#camunda-dmn)
+artifact in the `dependencies` section.
 
 # Building a DMN Engine
 
-To build a new DMN engine, create a DMN engine configuration. 
+To build a new DMN engine, create a DMN engine configuration.
 Configure it as needed and than build a new DMN engine from it.
 
 ```java
