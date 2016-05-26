@@ -73,7 +73,7 @@ It's also possible to set process variables in a script. Variables can be set by
 
 ## Enabling auto-storing of Script Variables
 
-By setting the propery `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
+By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
 
 In order to use this feature, you have to
 
@@ -81,7 +81,9 @@ In order to use this feature, you have to
 * prefix all script variables that should not be stored as script variables using the `def` keyword: `def sum = 0`. In this case the variable `sum` will not be stored as process variable.
 
 {{< note title="Groovy-Support only" class="info" >}}
-The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks.
+The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks. If enabled for other script languages
+is not guaranteed which variables will be exported by the script engine. For
+example Ruby will not export any of the script variables at all.
 {{< /note >}}
 
 Note: the following names are reserved and cannot be used as variable names:
