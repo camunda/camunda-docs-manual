@@ -396,7 +396,7 @@ Depending on the type of the activities a process model contains, migration has 
 ### User Task
 
 When a user task is migrated, all properties of the task instance (i.e., `org.camunda.bpm.engine.task.Task`) are preserved apart
-from the process definition id. The task is not reinitialized: Attributes like assignee or name do not change.
+from the process definition id and task definition key. The task is not reinitialized: Attributes like assignee or name do not change.
 
 ### Receive Task
 
