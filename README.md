@@ -120,6 +120,41 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 </cmmn:definitions>{{< /code >}}
 ```
 
+## How do I make screenshots for documentation
+
+### Setup
+
+* Download and install [OpenOffice][openoffice]
+* Download and install [Open Sans font][opensans]
+* Create a new drawing in OpenOffice Draw
+* Configure document:
+** Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
+** Page Setup (Format menu -> Page)
+*** Format: Screen (this will change back to "User" after further modifications)
+*** Width: 30,00 cm
+*** Height: 20,00 cm
+*** Orientation: Landscape
+
+### Taking the screenshots
+
+* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing
+* Take screenshot
+* Paste screenshot into the drawing
+
+### Adding annotations
+
+* Add rectangle shapes for text boxes
+* Use the Open Sans font for text
+* If possible, utilize the whitespaces within the image
+* Use shadows
+
+### Exporting the image
+* Export (File menu -> Export)
+* Select PNG format and name the file
+* Compression: 1
+* Resolution: 96 pixels/inch
+
+
 ## Writing Guidelines
 
 * Use short sentences. Full stop is better than comma.
@@ -134,3 +169,5 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 [hugo-installation]: http://gohugo.io/overview/installing/
 [Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
 [title converter]: http://individed.com/code/to-title-case/
+[openoffice]: https://www.openoffice.org/download/index.html
+[opensans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
