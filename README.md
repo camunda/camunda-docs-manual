@@ -135,20 +135,21 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 *** Height: 20,00 cm
 *** Orientation: Landscape
 
-### Taking the screenshots
+### Take the screenshots
 
 * Hover over the drawing with your browser and adjust the browser screen size to fit the drawing
 * Take screenshot
 * Paste screenshot into the drawing
+* Right click on the image and select 'Original Size'
 
-### Adding annotations
+### Add annotations
 
 * Add rectangle shapes for text boxes
 * Use the Open Sans font for text
 * If possible, utilize the whitespaces within the image
 * Use shadows
 
-### Exporting the image
+### Export the image
 * Export (File menu -> Export)
 * Select PNG format and name the file
 * Compression: 1
