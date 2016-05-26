@@ -169,10 +169,6 @@ The following properties can be set, regardless of whether you are using the JDB
   * `true`: Upon building the process engine, a check is performed and an update of the schema is performed if necessary. If the schema doesn't exist, it is created.
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
-{{< note title="Using MariaDB" class="warning" >}}
-  The automatic detection of MariaDB fails since it returns `MySQL` as database product name. So it is necessary to set the property `datebaseType` to `mariadb`.
-{{< /note >}}
-
 {{< note title="Supported Databases" class="info" >}}
   For information on supported databases please refer to [Supported Environments]({{< relref "introduction/supported-environments.md#databases" >}})
 {{< /note >}}
