@@ -16,7 +16,7 @@ Authorization has a performance cost and introduces some complexity. It should o
 
 # When is Authorization required?
 
-Not every Camunda setup needs to enable authorization. In many scenarios, Camunda is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine api directly. If you embedd the process engine into a Java application, usually, you do not need to enable authorization. The application can control how the Api is accessed.
+Not every Camunda setup needs to enable authorization. In many scenarios, Camunda is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine api directly. If you embed the process engine into a Java application, usually, you do not need to enable authorization. The application can control how the api is accessed.
 
 Situations in which authorization is required:
 
@@ -400,7 +400,7 @@ The "Create Instance" permission is required for evaluating decisions with the d
 ## Application Permissions
 
 The resource "Application" uniquely suppots the "Access" permission.
-The Access permission controls whehter a user has access to a camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
+The Access permission controls whehter a user has access to a Camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -411,14 +411,14 @@ The Access permission controls whehter a user has access to a camunda webapplica
 
 Camunda BPM has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
 
-## The "camunda-admin" Group
+## The "Camunda-admin" Group
 
-When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
+When downloading the Camunda BPM distribution, the invoice example application creates a group with id `Camunda-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, if asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, if asks you to perform the "initial setup". In this process, the `Camunda-admin` group is created and granted all permissions on all resources. 
 
 {{< note title="LDAP" >}}
-The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read only way). See also: The Administrator Authorization Plugin.
+The group "Camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read only way). See also: The Administrator Authorization Plugin.
 {{< /note >}}
 
 ## The Administrator Authorization Plugin
@@ -434,7 +434,7 @@ The following is an example of how to configure the Administrator Authorization 
   ...
   <plugins>
     <plugin>
-      <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+      <class>org.Camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
       <properties>
         <property name="administratorUserName">admin</property>
       </properties>
@@ -557,16 +557,16 @@ The Camunda Admin Webapplication provides an out of the box [UI for configuring 
 
 Authorizations are calculated by the database which is most efficient. Example: when performing a task query, the database query only returns the tasks for which the user has a READ authorization.
 
-## Perfomance of Checking Grant Authorizations
+## Performance of Checking Grant Authorizations
 
 When only Grant authorizations are used, the check is very efficient since the authorization table can be joined with the resource table (task table, process instance table etc...).
 
-## Perfomance of Checking Revoke Authorizations
+## Performance of Checking Revoke Authorizations
 
 Revoke authorizations are expensive to check. The check needs to consider the precedence of authorizations. Example: a User-level Grant is stronger than a group level Revoke. A sequence of nested SQL `CASE` statements and a subselect is used to account for the precedence. This has two downsides:
 
 * The check scales linearly with the cardinality of the resource table (doubling the number of tasks makes the query twice as slow)
-* The particular construct based on `CASE` statments performs extremely pooly on the following databases: PostgreSQL, DB2
+* The particular construct based on `CASE` statements performs extremely poorly on the following databases: PostgreSQL, DB2
 
 On these databases, revoke authorizations are effectively unusable.
 

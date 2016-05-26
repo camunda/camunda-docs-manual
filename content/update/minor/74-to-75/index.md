@@ -123,7 +123,14 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ### Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
+
+### Authorizations
+
+7.5.0 introduces a new authorization check algorithm which scales a lot better than the algorithm used before. The new algorithm can only be used if no Revoke authorizations are used. Consider refraining from the use of Revoke authorizations and adjust the process engine configuration as explained in the Authorization Section:
+
+* [New authorization related Configuration Options]({{< relref "user-guide/process-engine/authorization-service.md#configuration-options" >}})
+* [Authorization related  Performance Considerations]({{< relref "user-guide/process-engine/authorization-service.md#performance-considerations" >}})
 
 # Custom styles
 
