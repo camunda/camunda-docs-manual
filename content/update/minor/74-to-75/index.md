@@ -16,6 +16,7 @@ This document guides you through the update from Camunda BPM `7.4.x` to `7.5.0`.
 
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
+2. For administrators: [Standalone Web Application]({{< relref "#standalone-web-application" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.5.
@@ -95,26 +96,26 @@ There are no new mandatory dependencies for process applications.
 
 # Standalone Web Application
 
-If you use the standalone web application you have to replace the old
-version with the new one.
+If the standalone web application is in use, the current `war` artifact must be replaced by its new version.
 
-If you use another database than the default
-configured H2 in memory you have to follow these steps:
+If a database other than the default H2 database is used, the following steps must be taken:
 
-1. Undeploy the old version of the standalone web application
+1. Undeploy the current version of the standalone web application
 2. Upgrade the database to the new schema as described in the [database
    update](#database-updates) section
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
-4. **Important:** The configured history level was changed to `full` with 7.5.0.
-   Therefore the database level as to be set to **audit** in the process engine
-   configuration found in
+4. **Important:** The configured history level of the embedded process engine
+   was changed to `full` with 7.5.0.
+   In order to restore the previous default configuration,
+   the `historyLevel` property of the embedded process engine must be set to `audit`
+   in the process engine configuration found in
 
     ```
     WEB-INF/applicationContext.xml
     ```
 
-    of the war file
+    of the new version of the standalone web application file
 
     ```
     camunda-webapp-SERVER-standalone-VERSION.war
@@ -142,11 +143,11 @@ This section describes changes in the internal API of the engine. If you have im
 
 ### Incident Handler
 
-The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. 
+The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id.
 
 ### Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. 
+A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition.
 
 ### Job Handler
 
@@ -161,5 +162,5 @@ The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor
 
 # Custom styles
 
-The HTML markup of the front-ends changed and some adjustments may be needed. 
+The HTML markup of the front-ends changed and some adjustments may be needed.
 Read the [customization section]({{< relref "webapps/tasklist/configuration.md" >}}#logo-and-header-color) for more information.
