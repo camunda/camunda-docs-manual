@@ -17,7 +17,7 @@ menu:
 
 **Name:** `admin.dashboard.section`
 
-{{< img src="../../img/plugin-points/plugin-point-admin-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/admin-start-page-view.png" title="Dashboard" >}}
 
 With Camunda BPM 7.5, the Admin webapp gets a dashboard based on plugins similar to the [Cockpit dashboard ones]({{< relref "webapps/cockpit/extend/plugins.md" >}}#dashboard).
 
