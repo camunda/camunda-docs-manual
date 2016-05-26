@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "user-guide-cockpit-pi-modification"
     parent: "user-guide-cockpit-bpmn"
-    pre: "Modify the execution state of a running process instnace."
+    pre: "Modify the execution state of a running process instance."
     name: "Instance Modification"
 
 ---
