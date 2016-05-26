@@ -93,6 +93,35 @@ For every process application, the Camunda dependencies should be updated to the
 
 There are no new mandatory dependencies for process applications.
 
+# Standalone Web Application
+
+If you use the standalone web application you have to replace the old
+version with the new one.
+
+If you use another database than the default
+configured H2 in memory you have to follow these steps:
+
+1. Undeploy the old version of the standalone web application
+2. Upgrade the database to the new schema as described in the [database
+   update](#database-updates) section
+3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+   section
+4. **Important:** The configured history level was changed to `full` with 7.5.0.
+   Therefore the database level as to be set to **audit** in the process engine
+   configuration found in
+
+    ```
+    WEB-INF/applicationContext.xml
+    ```
+
+    of the war file
+
+    ```
+    camunda-webapp-SERVER-standalone-VERSION.war
+    ```
+5. Deploy the new and configured standalone web application to the server
+
+
 # Application with Embedded Process Engine
 
 This section is applicable if you have a custom application with an **embedded process engine**.
