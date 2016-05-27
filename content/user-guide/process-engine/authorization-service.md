@@ -120,7 +120,7 @@ There are three types of authorizations:
 * Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
 
 {{< note class="warning" title="Performance of REVOKE Authorizations" >}}
-See Section "Perormance Considerations" on this Page.
+See Section [Performance Considerations]({{< relref "#performance-considerations" >}}) on this Page.
 {{< /note >}}
 
 ## Authorization Precedence
@@ -133,7 +133,7 @@ Authorizations may range over all users, an individual user or a group of users 
 * A Group GRANT authorization precedes over a Group REVOKE authorization.
 * A User GRANT authorization precedes over a User REVOKE authorization.
 
-## When are Authorizations are Checked?
+## When are Authorizations checked?
 
 Authorizations are checked if
 
@@ -411,14 +411,14 @@ The Access permission controls whehter a user has access to a Camunda webapplica
 
 Camunda BPM has no explicit concept of "administrator" beyond it being a user who has been granted all authorizations on all resources.
 
-## The "Camunda-admin" Group
+## The "camunda-admin" Group
 
-When downloading the Camunda BPM distribution, the invoice example application creates a group with id `Camunda-admin` and grants all authorizations on all resources to this group.
+When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, if asks you to perform the "initial setup". In this process, the `Camunda-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
 
-{{< note title="LDAP" >}}
-The group "Camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read only way). See also: The Administrator Authorization Plugin.
+{{< note title="LDAP" class="info" >}}
+The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). See also: The Administrator Authorization Plugin.
 {{< /note >}}
 
 ## The Administrator Authorization Plugin
@@ -490,7 +490,7 @@ Available values are:
 
 * `auto`:  This mode only checks for revoke authorizations if at least one revoke authorization currently exits for the current user or one of the groups the user is a member of. To achieve this it is checked once per command whether potentially applicable revoke authorizations exist. Based on the outcome, the authorization check then uses revoke or not. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases.
 
-Also see: "Performance Considerations" on this Page.
+Also see: [Performance Considerations]({{< relref "#performance-considerations" >}}) on this page.
 
 # Java API Example
 
