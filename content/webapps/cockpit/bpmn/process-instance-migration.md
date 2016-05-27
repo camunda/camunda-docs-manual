@@ -37,7 +37,7 @@ Performing a migration consists of four steps:
 
 When accessing the migration page from the process definition or instance page, an appropriate source and target definition key and version is already set. Otherwise you can set the process definition key and version for both the source and target at the top of the page. After selecting a source and a target, the diagrams for these process definition versions are displayed. Also, a first draft of a migration plan is [generated]({{< relref "user-guide/process-engine/process-instance-migration.md#generating-a-migration-plan" >}}) and successfully mapped activities are highlighted with a green checkmark symbol <span class="badge" style="border: 1px solid #4cae4c; background-color: #5cb85c;">
   <span class="glyphicon glyphicon-ok"></span>
-</span>. Hovering over an activity will highlight the corresponding source and target activities for the mapping.
+</span>. Hovering over an activity highlights the corresponding source and target activities for the mapping.
 
 Activities that have running instances, but are not mapped to a target activity, have a yellow warning marker <span class="badge" style="background-color: #f0ad4e; border: 1px solid #eea236;">
   <span class="glyphicon glyphicon-warning-sign"></span>
@@ -54,12 +54,12 @@ You can only create a mapping for activities that are not mapped yet.
 
 ## Remove an existing mapping
 
-You can remove an existing mapping by clicking the <button class="btn btn-xs"><i class="glyphicon glyphicon-remove"></i></button> button in the lower right corner of the activity.
+You can remove an existing mapping by hovering over the mapped activity and clicking the <button class="btn btn-xs"><i class="glyphicon glyphicon-remove"></i></button> button in the lower right corner.
 
 
 ## Link diagrams navigation
 
-Checking the link diagrams navigation checkbox causes view changes of one diagram to be displayed on the other diagram, too. If you move, zoom or reset one diagram, the other diagram is moved, too. To move both diagrams independently from each other, uncheck this box.
+Checking the link diagrams navigation checkbox causes view changes of one diagram to be displayed on the other diagram, too. If you move, zoom or reset one diagram, the same change is applied to the other diagram, too. To move both diagrams independently from each other, uncheck this box.
 
 
 ## Check incorrect mappings
@@ -96,9 +96,9 @@ If you do not select any instances explicitely, all instances of the source proc
 
 {{< img src="../../img/migration/step3.png" title="Confirm Migration" >}}
 
-In the next step, you see an overview of the migration that you are about the execute. This page displays the exact id of the source and target process definition as well as the number of process instances you are about to migrate. It also contains a tabular display of the migration plan. You can also configure options for the migration such as whether the migration should be performed asynchronously as a batch and whether custom listeners and IO mappings should be skipped.
+In the next step, you see an overview of the migration that you are about the execute. This page displays the exact id of the source and target process definition as well as the number of process instances you are about to migrate. It also contains a tabular display of the migration plan. You can configure options for the migration such as whether the migration should be performed asynchronously as a batch and whether custom listeners and IO mappings should be skipped.
 
-By clicking on the `Show request payload` button on the bottom of the page, you can assess the request payload that is send to the server to perform the migration.
+By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button> button on the bottom of the page, you can assess the request payload that is send to the server to perform the migration.
 
 
 # Check Migration Result
