@@ -134,11 +134,12 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/set-zoom.PNG)
 
-    * Page Setup (Format menu -> Page)
-        * Format: Screen (this will change back to "User" after further modifications)
-        * Width: 30,00 cm
-        * Height: 20,00 cm
-        * Orientation: Landscape
+
+* Page Setup (Format menu -> Page)
+    * Format: Screen (this will change back to "User" after further modifications)
+    * Width: 30,00 cm
+    * Height: 20,00 cm
+    * Orientation: Landscape
 
 ![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
 
