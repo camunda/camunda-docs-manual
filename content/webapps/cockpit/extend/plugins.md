@@ -321,3 +321,7 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 **Name:** `cockpit.repository.resource.detail`
 
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
+
+## Report View
+
+**Name:** `cockpit.report`
