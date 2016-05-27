@@ -69,14 +69,19 @@ hit policies [Unique], [Any] and [First] will always return maximal one
 satisfied rule. Whereas the hit policies [Rule Order] and [Collect] can return
 multiple satisfied rules.
 
-# Unique Hit Policy
+## Unique Hit Policy
 
 Only a single rule can be satisfied. The decision table result contains the
 output entries of the satisfied rule.
 
 If more than one rule is satisfied the Unique hit policy is violated.
 
-# Any Hit Policy
+See the following decision table. 
+{{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
+Depending on the current season the dish should be choosed.
+Only one dish can be choosed, since only one season at the same time can be exist.
+
+## Any Hit Policy
 
 Multiple rules can be satisfied. But all satisfied rules must generate the same
 output. The decision table result contains only the output of one of the
@@ -85,20 +90,40 @@ satisfied rules.
 If multiple rules are satisfied which generate different outputs the hit policy
 is violated.
 
-# First Hit Policy
+See the following example:
+{{< img src="../img/hit-policy-any.png" title="Hit Policy Any" class="no-lightbox" >}}
+There is a decision table for the leave application. If the applier
+has no vacation days left or he is currently in the probation period the application will be refused, 
+otherwise the application is applied.
+
+## First Hit Policy
 
 Multiple rules can be satisfied. The decision table result contains only
 the output of the first satisfied rule.
 
-# Rule Order Hit Policy
+{{< img src="../img/hit-policy-first.png" title="Hit Policy First" class="no-lightbox" >}}
+See the decistion table for advertisement. Regarding the current age of the user there can be decided which
+advertisement should be shown for him. For example the user is 11 years old. All the rules will match, but since
+the hit policy is set to first only the advertisement for toys are used.
+
+## Rule Order Hit Policy
 
 Multiple rules can be satisfied. The decision table result contains the output
 of all satisfied rules in the order of the rules in the decision table.
 
-# Collect Hit Policy
+{{< img src="../img/hit-policy-rule-order.png" title="Hit Policy Rule Order" class="no-lightbox" >}}
+Again the advertisement example with the rule order policy. Say we have again a user of the age of 11.
+All rules are satisfied so all outputs are given ordered by the rule ordering. 
+It can perhaps used to indicate the priority of the showed advertisements.
+
+## Collect Hit Policy
 
 Multiple rules can be satisfied. The decision table result contains the output
-of all satisfied rules in an arbitrary order.
+of all satisfied rules in an arbitrary order as a list.
+
+{{< img src="../img/hit-policy-collect.png" title="Hit Policy Collect" class="no-lightbox" >}}
+The output list has with that hit policy no ordering. So the advertisement will be arbitrary
+if the age is for example 11.
 
 Additionally an aggregator can be specified for the Collect hit policy. If an
 aggregator is specified the decision table result will only contain a single
@@ -115,7 +140,7 @@ XML element.
 </decisionTable>
 ```
 
-## Aggregators for Collect Hit Policy
+### Aggregators for Collect Hit Policy
 
 {{< img src="../img/collect-aggregator.png" title="Hit Policy Collect with Aggregation" class="no-lightbox" >}}
 
@@ -151,6 +176,35 @@ the Camunda DMN engine:
   </tr>
 </table>
 
+#### SUM aggregator
+The SUM aggregator sums all outputs from the satisfied rules up.
+{{< img src="../img/hit-policy-collect-sum.png" title="Hit Policy Collect SUM" class="no-lightbox" >}}
+The showed decision table can be used to sum up the salary bonus for an employee. So for example the employee works since
+3.5 years in the company. So the result of the decision table is 600.
+
+#### MIN aggregator
+The MIN aggregator can be used to return the smallest output value of all satisfied rules.
+See the following example of a car insurance. After years without a car crash the insurance fee will be reduced.
+{{< img src="../img/hit-policy-collect-min.png" title="Hit Policy Collect MIN" class="no-lightbox" >}}
+For example the input for the decision table are 3.5 years the result will be 98.83. 
+
+#### MAX aggregator
+The MAX aggregator can be used to return the largest output value of all satisfied rules.
+
+{{< img src="../img/hit-policy-collect-max.png" title="Hit Policy Collect MAX" class="no-lightbox" >}}
+
+The following decision table represents the decision for the amount of pocket money for a child.
+Regarding of the age the amount will grow. For example an input of 9 will satisfy two rules and the output
+will be 5. So a child in the age of 9 will get 5 as pocket money.
+
+#### COUNT aggregator
+The COUNT aggregator can be use to return the count of satisfied rules.
+
+{{< img src="../img/hit-policy-collect-count.png" title="Hit Policy Collect COUNT" class="no-lightbox" >}}
+
+For example again the salary bonus decision table. This time with the COUNT aggregator. 
+With the input of 4 we get as result from the decision table 3, which means
+after 4 years it gives 3 salary bonuses. 
 
 [decision table result]: {{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
 [Unique]: #unique-hit-policy
