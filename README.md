@@ -128,12 +128,12 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Download and install [Open Sans font][opensans]
 * Create a new drawing in OpenOffice Draw
 * Configure document:
-** Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
-** Page Setup (Format menu -> Page)
-*** Format: Screen (this will change back to "User" after further modifications)
-*** Width: 30,00 cm
-*** Height: 20,00 cm
-*** Orientation: Landscape
+    * Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
+    * Page Setup (Format menu -> Page)
+    * Format: Screen (this will change back to "User" after further modifications)
+    * Width: 30,00 cm
+    * Height: 20,00 cm
+    * Orientation: Landscape
 
 ### Take the screenshots
 
