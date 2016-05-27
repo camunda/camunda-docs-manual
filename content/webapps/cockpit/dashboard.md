@@ -17,7 +17,7 @@ The dashboard of Cockpit provides an overview of the different cockpit sections:
 
 Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the dashboard.
 
-# Multi Tenancy
+# Multi Engine
 
 {{< img src="../img/cockpit-multi-engine.png" title="Multiple Engines" >}}
 
