@@ -149,6 +149,12 @@ In addition, a migration plan is *validated before execution* to ensure that it 
 migration instructions for some activity types are only supported for transition instances (i.e., active asynchronous continuations) but not for
 activity instances. See the [chapter on execution time validation]({{< relref "#execution-time-validation" >}}) for details.
 
+{{< note title="Validation Limitations" class="warning" >}}
+The process engine can only validate that the process model can be migrated.
+But there are other aspects the user has to care about. You can read more
+about this in the section about [aspects not covered by
+validation](#aspects-not-covered-by-validation).
+{{< /note >}}
 
 ### One-to-One Relation Instruction
 
