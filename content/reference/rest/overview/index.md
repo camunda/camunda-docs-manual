@@ -67,7 +67,12 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 
 ## Migration Validation Exceptions
 
-If a migration plan from one process definition version to another is not valid, a migration exception is thrown. It can be a *migration plan validation exception* where the plan itself is not valid, or a *migration instruction instance validation exception* where a migration instruction that is generally valid cannot be applied to a specific activity instance.
+If a migration plan from one process definition version to another is not
+valid, a migration exception is thrown. It can be a *migration plan validation
+exception* where the plan itself is not valid, e.g. it contains an invalid
+instruction. Or a *migrating process instance validation exception* when a
+migration plan cannot be applied to a specific process instance, e.g. an active
+activity was not mapped by the migration plan.
 
 ### Migration Plan Validation Exceptions
 
@@ -96,32 +101,67 @@ A JSON object with the following properties:
     <td>The error message.</td>
   </tr>
   <tr>
-    <td>errorReport</td>
+    <td>validationReport</td>
     <td>Object</td>
     <td>
       A JSON object containing details about all detected validation errors.
-      It has the following properties:
-      <table class="table table-striped">
-        <tr>
-          <th>Name</th>
-          <th>Value</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>validationErrors</td>
-          <td>Array</td>
-          <td>A JSON array describing a single validation errors. Each validation error consists of a <code>message</code> and the <code>instruction</code> that is invalid.</td>
-        </tr>
-      </table>
+      Its properties are described below.
     </td>
   </tr>
 </table>
 
-### Migration Instruction Instance Validation Exceptions
+Every validation report object contains the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>instructionReports</td>
+    <td>Array</td>
+    <td>
+      A JSON array describing a single instruction validation report.
+      Each report object consists of a <code>instruction</code> that is
+      invalid and a <code>failures</code> array containg the validation
+      messages for this instruction.
+    </td>
+  </tr>
+</table>
+
+#### Example
+
+```json
+{
+  "type": "MigrationPlanValidationException",
+  "message": "ENGINE-23001 Migration plan for process definition 'invoice:1:8aa1533c-23e5-11e6-abb7-f6aefe19b687' to 'invoice:2:8accd012-23e5-11e6-abb7-f6aefe19b687' is not valid:\n\t Migration instruction MigrationInstructionImpl{sourceActivityId='approveInvoice', targetActivityId='assignApprover', updateEventTrigger='false'} is not valid:\n\t\tActivities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)\n",
+  "validationReport": {
+    "instructionReports": [
+      {
+        "instruction": {
+          "sourceActivityIds": [
+            "approveInvoice"
+          ],
+          "targetActivityIds": [
+            "assignApprover"
+          ],
+          "updateEventTrigger": false
+        },
+        "failures": [
+          "Activities have incompatible types (UserTaskActivityBehavior is not compatible with DmnBusinessRuleTaskActivityBehavior)"
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Migrating Process Instance Validation Exceptions
 
 #### Type
 
-`MigrationInstructionInstanceValidationException`
+`MigratingProcessInstanceValidationException`
 
 #### Response Body
 
@@ -136,7 +176,7 @@ A JSON object with the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of exception, here <code>MigrationInstructionInstanceValidationException</code>.</td>
+    <td>The type of exception, here <code>MigratingProcessInstanceValidationException</code>.</td>
   </tr>
   <tr>
     <td>message</td>
@@ -144,31 +184,98 @@ A JSON object with the following properties:
     <td>The error message.</td>
   </tr>
   <tr>
-    <td>errorReport</td>
+    <td>validationReport</td>
     <td>Object</td>
     <td>
       A JSON object containing details about all detected validation errors.
-      It has the following properties:
-      <table class="table table-striped">
-        <tr>
-          <th>Name</th>
-          <th>Value</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>processInstanceId</td>
-          <td>String</td>
-          <td>The id of the process instance that cannot be migrated when following the migration plan.</td>
-        </tr>
-        <tr>
-          <td>validationErrors</td>
-          <td>Array</td>
-          <td>An array of JSON objects describing the single validation errors. Each validation error consists of a <code>message</code>, an <code>instruction</code> that is invalid, and an array of <code>activityInstanceIds</code> that the instruction cannot be applied to.</td>
-        </tr>
-      </table>
+      Its properties are described below.
     </td>
   </tr>
 </table>
+
+Every validation report object contains the following properties:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance that cannot be migrated when following the migration plan.</td>
+  </tr>
+  <tr>
+    <td>failures</td>
+    <td>Array</td>
+    <td>
+      An array of general failure messages, which are not related to
+      a specific activity or transition.
+    </td>
+  </tr>
+  <tr>
+    <td>activityInstanceValidationReports</td>
+    <td>Array</td>
+    <td>
+      An array of JSON objects describing the single activity instance
+      validation errors. Each activity instance validation report
+      consists of a <code>migrationInstruction</code>, if the error is
+      related to an existing migration instruction. The
+      <code>activityInstanceId</code> and the <code>sourceScopeId</code>
+      of the activity which cannot be migrated. An array
+      <code>failures</code> which is a list of all validation error
+      messages for this report.
+    </td>
+  </tr>
+  <tr>
+    <td>transitionInstanceValidationReports</td>
+    <td>Array</td>
+    <td>
+      An array of JSON objects describing the single transition instance
+      validation errors. Each transition instance validation report
+      consists of a <code>migrationInstruction</code>, if the error is
+      related to an existing migration instruction. The
+      <code>transitionInstanceId</code> and the <code>sourceScopeId</code>
+      of the transition which cannot be migrated. An array
+      <code>failures</code> which is a list of all validation error
+      messages for this report.
+    </td>
+  </tr>
+</table>
+
+#### Example
+
+```json
+{
+  "type": "MigratingProcessInstanceValidationException",
+  "message": "ENGINE-23004 Cannot migrate process instance '96dc383f-23eb-11e6-8e4a-f6aefe19b687':\n\tCannot migrate activity instance 'approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687':\n\t\tThere is no migration instruction for this instance's activity\n\tCannot migrate transition instance 'f598897a-23eb-11e6-8e4a-f6aefe19b687':\n\t\tThere is no migration instruction for this instance's activity\n",
+  "validationReport": {
+    "processInstanceId": "96dc383f-23eb-11e6-8e4a-f6aefe19b687",
+    "failures": [],
+    "activityInstanceValidationReports": [
+      {
+        "migrationInstruction": null,
+        "activityInstanceId": "approveInvoice:f59925bc-23eb-11e6-8e4a-f6aefe19b687",
+        "sourceScopeId": "approveInvoice",
+        "failures": [
+          "There is no migration instruction for this instance's activity"
+        ]
+      }
+    ],
+    "transitionInstanceValidationReports": [
+      {
+        "migrationInstruction": null,
+        "transitionInstanceId": "f598897a-23eb-11e6-8e4a-f6aefe19b687",
+        "sourceScopeId": "ServiceTask_1",
+        "failures": [
+          "There is no migration instruction for this instance's activity"
+        ]
+      }
+    ]
+  }
+}
+```
 
 # Authentication
 
