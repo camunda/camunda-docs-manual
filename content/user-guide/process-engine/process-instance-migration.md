@@ -810,3 +810,24 @@ Transition instances can be migrated for any activity type.
 [batch]: {{< relref "user-guide/process-engine/batch.md" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
 [execution jobs]: {{< relref "user-guide/process-engine/batch.md#execution-jobs" >}}
+
+
+### Aspects Not Covered by Validation
+
+#### Data Consistency
+
+Process instances contain data such as variables that are specific to how a process is implemented.
+Validation cannot ensure that such data is useful in the context of the target process definition.
+
+#### Deserialization of Object Variables
+
+[Object type variables]({{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
+applications, it may occur that an Object variable refers to a Java class that does not exist in the process
+application of the target process.
+
+This scenario is not prevented by validation. Accessing the deserialized value may therefreo fail after migration.
+If you end up with unusable Object variables, there are two ways to deal with
+that situation:
+
+* Add the missing classes to the target process application
+* Convert the inconsistent variable into a variable for which the Java class is present based on its serialized value
