@@ -325,3 +325,5 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 ## Report View
 
 **Name:** `cockpit.report`
+
+See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.
