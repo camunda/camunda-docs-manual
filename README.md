@@ -124,16 +124,24 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ### Setup
 
+![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
+
 * Download and install [OpenOffice][openoffice]
 * Download and install [Open Sans font][opensans]
 * Create a new drawing in OpenOffice Draw
 * Configure document:
     * Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
+
+![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/set-zoom.PNG)
+
     * Page Setup (Format menu -> Page)
-    * Format: Screen (this will change back to "User" after further modifications)
-    * Width: 30,00 cm
-    * Height: 20,00 cm
-    * Orientation: Landscape
+        * Format: Screen (this will change back to "User" after further modifications)
+        * Width: 30,00 cm
+        * Height: 20,00 cm
+        * Orientation: Landscape
+
+![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
+
 
 ### Take the screenshots
 
@@ -155,6 +163,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Compression: 1
 * Resolution: 96 pixels/inch
 
+![Export](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/export.png)
 
 ## Writing Guidelines
 
