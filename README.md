@@ -124,11 +124,12 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ### Setup
 
-![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
-
 * Download and install [OpenOffice][openoffice]
 * Download and install [Open Sans font][opensans]
 * Create a new drawing in OpenOffice Draw
+
+![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
+
 * Configure document:
     * Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
 
