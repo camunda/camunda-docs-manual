@@ -156,8 +156,13 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 * Add rectangle shapes for text boxes
 * Use the Open Sans font for text
+
+![Set Font](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/font.png)
+
 * If possible, utilize the whitespaces within the image
 * Use shadows
+
+![Set shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
 
 ### Export the image
 * Export (File menu -> Export)
