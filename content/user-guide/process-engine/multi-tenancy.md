@@ -329,11 +329,113 @@ Users who are a member of the group `camunda-admin` can access the data of all t
 
 ## Shared Definitions for all Tenants
 
-...will be documented soon!
+In section [Deploy Definitions for a Tenant](#deploy-definitions-for-a-tenant) it is explained how to deploy a Process Definition or a Decision Definition for a particular tenant. The result is that the definition is only visible to the tenant for whom it was deployed but not to other tenants. This is useful if tenants have different processes and decisions. However, there are also many situations where all tenants should share the same definitions. In such situations it is desirable to deploy a definition only once, in a way that it is visible to all tenants.
+Then, when a new instance is created by a particular tenant, it should  be only visible to that tenant (and administrators of course).
+This can be achieved by a usage pattern we call "Shared Definitions".
+By the term *usage pattern* we mean that it is not a feature of Camunda per se but rather a specific way to use it to achieve the desired behavior.
 
 {{< note title="Example" class="info" >}}
 You can find an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) on [GitHub](https://github.com/camunda/camunda-bpm-examples) that shows how to use shared definitions.
 {{< /note >}}
+
+### Deploying a Shared Definition
+
+Deploying a shared definition is just a "regular" deployment not assigning a Tenant Id to the deployment:
+
+```java
+repositoryService
+  .createDeployment()
+  .addClasspathResource("processes/default/mainProcess.bpmn")
+  .addClasspathResource("processes/default/subProcess.bpmn")
+  .deploy();
+```
+
+### Incuding Shared Definitions in a Query
+
+Often in an application, we want to present a list of "available" process definitions to the user.
+In a multi tenancy context with shared resources we want the list to include definitions with the following properties:
+
+* tenant id is the current user's tenant id,
+* tenant id is `null` => process is a shared resource.
+
+To achieve this with a query, the query needs to restrict on the list of the user's tenant ids (by calling `tenantIdIn(...)`) and include definitions without a tenant id (`includeProcessDefinitionsWithoutTenantId()`). Or, looking at it the other way around: exclude all definitions which have a tenant id which is different from the current user's tenant id(s).
+
+Example:
+
+```java
+repositoryService.createProcessDefinitionQuery()
+  .tenantIdIn("someTenantId")
+  .includeProcessDefinitionsWithoutTenantId()
+  .list();
+```
+
+### Instantiating a Shared Definition
+
+When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
+Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
+
+The `TenantIdProvider` receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).
+
+The following Example shows how to assign a tenant id to an instance based the current authentication:
+
+```java
+public class CustomTenantIdProvider implements TenantIdProvider {
+
+  @Override
+  public String provideTenantIdForProcessInstance(TenantIdProviderProcessInstanceContext ctx) {
+    return getTenantIdOfCurrentAuthentication();
+  }
+
+  @Override
+  public String provideTenantIdForCaseInstance(TenantIdProviderCaseInstanceContext ctx) {
+    return getTenantIdOfCurrentAuthentication();
+  }
+
+  @Override
+  public String provideTenantIdForHistoricDecisionInstance(TenantIdProviderHistoricDecisionInstanceContext ctx) {
+    return getTenantIdOfCurrentAuthentication();
+  }
+
+  protected String getTenantIdOfCurrentAuthentication() {
+
+    IdentityService identityService = Context.getProcessEngineConfiguration().getIdentityService();
+    Authentication currentAuthentication = identityService.getCurrentAuthentication();
+
+    if (currentAuthentication != null) {
+
+      List<String> tenantIds = currentAuthentication.getTenantIds();
+      if (tenantIds.size() == 1) {
+        return tenantIds.get(0);
+
+      } else if (tenantIds.isEmpty()) {
+        throw new IllegalStateException("no authenticated tenant");
+
+      } else {
+        throw new IllegalStateException("more than one authenticated tenant");
+      }
+
+    } else {
+      throw new IllegalStateException("no authentication");
+    }
+  }
+
+}
+```
+
+### Tenant-specific behavior with Call Activities
+
+So far, we have seen that shared resources are a useful pattern if tenants have the same process definition. The advantage is that we do not have to deploy the same process definitions once per tenant. Yet, in many real world applications, the situation is somewhat in between: tenants share *mostly* the same process definitions, but there are some tenant specific variations.
+
+A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic using decision tables using a business rules task are also common.
+
+To realize this, the call activity or decision task needs to select the correct process definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
+
+See also:
+
+* [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions)
+* [Called Element Tenant Id](reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id) for call activities.
+* [Case Tenant Id](reference/bpmn20/subprocesses/call-activity.md#case-tenant-id) for call activities.
+* [Decision Ref Tenant Id](reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id) for business rule tasks.
 
 # One Process Engine Per Tenant
 
