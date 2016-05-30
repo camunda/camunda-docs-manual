@@ -22,7 +22,7 @@ On the left side of the page, a list of running and finished batches is displaye
 
 ## In Progress
 
-For batches that are currently in progress, the ID, type, number of failed jobs as well as the progress is displayed. Please note that if a batch has failed jobs, the batch cannot be completed. You have to go to the details view of the batch and resolve the failed jobs (e.g. retrying or deleting them). Also, it can take some time after the progress is at 100% for the batch to actually finish. See the [process engine section]({{< relref "user-guide/process-engine/batch.md" >}}) for details.
+For batches that are currently in progress, the ID, type, number of failed jobs as well as the progress is displayed. Please note that if a batch has failed jobs, the batch cannot be completed. You have to go to the details view of the batch and resolve the failed jobs (i.e., retrying or deleting them). Also, it can take some time after the progress is at 100% for the batch to actually finish. See the [process engine section]({{< relref "user-guide/process-engine/batch.md" >}}) for details.
 
 ## Completed
 
