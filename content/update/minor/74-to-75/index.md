@@ -17,6 +17,7 @@ This document guides you through the update from Camunda BPM `7.4.x` to `7.5.0`.
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 2. For administrators: [Standalone Web Application]({{< relref "#standalone-web-application" >}})
+2. For administrators: [Updating a Tasklist Translation File]({{< relref "#tasklist-translation-file" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.5.
@@ -121,6 +122,21 @@ If a database other than the default H2 database is used, the following steps mu
     camunda-webapp-SERVER-standalone-VERSION.war
     ```
 5. Deploy the new and configured standalone web application to the server
+
+
+# Tasklist Translation File
+
+The following labels must be added to the Tasklist locale file:
+
+* `NEW_TASK_TENANT_ID`
+* `SHORTCUT_HELP`
+* `SHORTCUT`
+* `FOLLOW_UP`
+* `DUE`
+* `TENANT_ID`
+* `WITHOUT_TENANT_ID`
+
+Have a look at the [english translation file](https://github.com/camunda/camunda-tasklist-translations/blob/master/locales/en.json) for a basis to translate.
 
 
 # Application with Embedded Process Engine
