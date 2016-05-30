@@ -68,7 +68,7 @@ Checking the link diagrams navigation checkbox causes view changes of one diagra
 
 If you create a mapping that is incorrect, a red error indicator <span class="badge" style="background-color: #d9534f; border: 1px solid #d43f3a;">
   <span class="glyphicon glyphicon-remove"></span>
-</span> is displayed in the top right corner of the source and target activity of the faulty mapping. Clicking on the error indicator opens a tooptip showing details of the error.
+</span> is displayed in the top right corner of the source and target activity of the faulty mapping. Clicking on the error indicator opens a tooltip showing details of the error.
 
 
 ## Set Update Event Trigger flag
@@ -78,7 +78,7 @@ To set the [update event trigger flag]({{< relref "user-guide/process-engine/pro
 
 ## Show migration plan
 
-You can visualize the migration plan in two ways: You can hover over an activity to highlight the activity that is mapped to the hovered activity. E.g. if you hover over a mapped source activity, the corresponding target activity is highlighted. If you hover over a target activity, the corresponding source activities are highlighted as well.
+You can visualize the migration plan in two ways: You can hover over an activity to highlight the activity that is mapped to the hovered activity. E.g., if you hover over a mapped source activity, the corresponding target activity is highlighted. If you hover over a target activity, the corresponding source activities are highlighted as well.
 
 You can also click on an activity to show a green arrow pointing from the source activity to the mapped target activity. Clicking on the activity again hides the arrow. If the mapping contains errors, the arrow is displayed in red. You can also use the checkbox at the bottom of the screen reading "show migration plan" to toggle the display of all arrows on the diagram.
 
@@ -87,25 +87,25 @@ You can also click on an activity to show a green arrow pointing from the source
 
 {{< img src="../../img/migration/step2.png" title="Select instances for migration" >}}
 
-After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Using the checkbox left to the instance you can mark them for migration. All instances you select on this page are migrated.
+After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 
-If you do not select any instances explicitely, all instances of the source process definition version are migrated to the target version.
+If you do not explicitely select any instances, all instances of the source process definition version are migrated to the target version.
 
 
 # Confirm Migration
 
 {{< img src="../../img/migration/step3.png" title="Confirm Migration" >}}
 
-In the next step, you see an overview of the migration that you are about the execute. This page displays the exact id of the source and target process definition as well as the number of process instances you are about to migrate. It also contains a tabular display of the migration plan. You can configure options for the migration such as whether the migration should be performed asynchronously as a batch and whether custom listeners and IO mappings should be skipped.
+In the next step, you see an overview of the migration that you are about to execute. This page displays the exact id of the source and target process definition as well as the number of process instances you are about to migrate. It also contains a tabular display of the migration plan. You can configure options for the migration such as whether the migration should be performed asynchronously as a batch and whether custom listeners and IO mappings should be skipped.
 
-By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button> button on the bottom of the page, you can assess the request payload that is send to the server to perform the migration.
+By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button> button on the bottom of the page, you can assess the request payload that is sent to the server to perform the migration.
 
 
 # Check Migration Result
 
 {{< img src="../../img/migration/step4_batch.png" title="Executing migration asynchronously" >}}
 
-After clicking `Execute Migration` the result screen is displayed. If the migration was performed successfully, the success is indicated on this page. For asynchronous migrations, a link to the batch page is displayed where the progress of the batch can be observed.
+After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the batch page is displayed where the progress of the batch can be observed.
 
 ## Error: Migration Plan invalid
 
