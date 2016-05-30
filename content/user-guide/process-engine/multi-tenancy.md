@@ -340,7 +340,7 @@ By the term *usage pattern* we mean that it is not a feature of Camunda per se b
 You can find an [example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) on [GitHub](https://github.com/camunda/camunda-bpm-examples) that shows how to use shared definitions.
 {{< /note >}}
 
-### Deploying a Shared Definition
+### Deploy a Shared Definition
 
 Deploying a shared definition is just a "regular" deployment not assigning a Tenant Id to the deployment:
 
@@ -352,7 +352,7 @@ repositoryService
   .deploy();
 ```
 
-### Incuding Shared Definitions in a Query
+### Include Shared Definitions in a Query
 
 Often in an application, we want to present a list of "available" process definitions to the user.
 In a multi tenancy context with shared resources we want the list to include definitions with the following properties:
@@ -371,7 +371,7 @@ repositoryService.createProcessDefinitionQuery()
   .list();
 ```
 
-### Instantiating a Shared Definition
+### Instantiate a Shared Definition
 
 When creating (starting) a new process instance, the tenant id of the process definition is propagated to the process instance.
 Shared resources  do not have a tenant id which means that no tenant id is propagated automatically. To have the tenant id of the user who starts the process instances assigned  to the process instance, an implementation of the {{< javadocref page="?org/camunda/bpm/engine/impl/cfg/multitenancy/TenantIdProvider.html" text="TenantIdProvider" >}} SPI needs to be provided.
