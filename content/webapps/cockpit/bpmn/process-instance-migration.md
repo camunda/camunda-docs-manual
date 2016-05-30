@@ -89,7 +89,7 @@ You can also click on an activity to show a green arrow pointing from the source
 
 After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 
-If you do not explicitely select any instances, all instances of the source process definition version are migrated to the target version.
+If you do not explicitly select any instances, all instances of the source process definition version are migrated to the target version.
 
 
 # Confirm Migration
