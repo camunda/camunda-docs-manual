@@ -6,7 +6,7 @@ category: 'BPM Platform'
 ---
 
 
-In this section, we explain how the camunda-ibm-websphere-ear module can be installed using the WebShere Integrated Solutions Console.
+In this section, we explain how the camunda-ibm-websphere-ear module can be installed using the WebSphere Integrated Solutions Console.
 
 1.  Navigate to the Enterprise Applications page using the navigation path **Applications** / **Application Types** / **WebSphere enterprise applications**.
 2.  Click the **"Install"** Button.
