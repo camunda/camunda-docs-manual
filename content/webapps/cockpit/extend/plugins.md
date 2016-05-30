@@ -182,13 +182,13 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 **Name:** `cockpit.processes.dashboard`
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-processes-dashboard.png" title="Dashboard" >}}
 
 ## Decisions Dashboard
 
 **Name:** `cockpit.decisions.dashboard`
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-decisions-dashboard.png" title="Dashboard" >}}
 
 ## Process Definition Runtime Tab
 
