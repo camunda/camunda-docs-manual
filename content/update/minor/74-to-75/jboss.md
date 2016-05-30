@@ -58,7 +58,7 @@ If you use any of these extensions, the following upgrade steps apply:
 
 ## LDAP Integration
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
+Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/`, if present:
 
 * `org/camunda/bpm/identity/camunda-identity-ldap`
 
@@ -80,7 +80,7 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/spin/camunda-spin-dataformat-xml-dom`
 * `org/camunda/bpm/camunda-engine-plugin-spin`
 
-Additionally, replace also the following dependent modules:
+Additionally, also replace the following dependent modules:
 
 * `com/fasterxml/jackson/core/jackson-annotations`
 * `com/fasterxml/jackson/core/jackson-core`
@@ -88,7 +88,7 @@ Additionally, replace also the following dependent modules:
 
 ## Groovy Scripting
 
-Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
+Replace the following module from the folder `$APP_SERVER_HOME/modules/` with its new version from the folder `$APP_SERVER_DISTRIBUTION/modules/` if present:
 
 * `org/codehaus/groovy/groovy-all`
 

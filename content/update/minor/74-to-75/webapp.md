@@ -16,7 +16,7 @@ This page describes the changes in web application plugins.
 
 Since 7.5, the dashboard and sections of the Cockpit have been re-organized and new names have been given to the plugin points.
 
-_Old_ plugins will still be visible on the dashboard until you change their namespace (from `cockpit.dasboard` to `cockpit.dashboard.section`).
+_Old_ plugins will still be visible on the dashboard until you change their namespace (from `cockpit.dashboard` to `cockpit.dashboard.section`).
 
 Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 

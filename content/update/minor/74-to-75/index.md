@@ -143,11 +143,11 @@ This section describes changes in the internal API of the engine. If you have im
 
 ### Incident Handler
 
-The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id.
+The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required information, like process definition id, execution id and tenant id.
 
 ### Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition.
+A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition.
 
 ### Job Handler
 
@@ -158,7 +158,7 @@ The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor
 7.5.0 introduces a new authorization check algorithm which scales a lot better than the algorithm used before. The new algorithm can only be used if no Revoke authorizations are used. Consider refraining from the use of Revoke authorizations and adjust the process engine configuration as explained in the Authorization Section:
 
 * [New authorization related Configuration Options]({{< relref "user-guide/process-engine/authorization-service.md#configuration-options" >}})
-* [Authorization related  Performance Considerations]({{< relref "user-guide/process-engine/authorization-service.md#performance-considerations" >}})
+* [Authorization related Performance Considerations]({{< relref "user-guide/process-engine/authorization-service.md#performance-considerations" >}})
 
 # Custom styles
 
