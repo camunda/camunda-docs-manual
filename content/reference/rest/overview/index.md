@@ -69,9 +69,9 @@ If an already authenticated user interacts with a resource in an unauthorized wa
 
 If a migration plan from one process definition version to another is not
 valid, a migration exception is thrown. It can be a *migration plan validation
-exception* where the plan itself is not valid, e.g. it contains an invalid
-instruction. Or a *migrating process instance validation exception* when a
-migration plan cannot be applied to a specific process instance, e.g. an active
+exception* where the plan itself is not valid, e.g., it contains an invalid
+instruction. Or it can be a *migrating process instance validation exception* when a
+migration plan cannot be applied to a specific process instance, e.g., an active
 activity was not mapped by the migration plan.
 
 ### Migration Plan Validation Exceptions
@@ -123,8 +123,8 @@ Every validation report object contains the following properties:
     <td>Array</td>
     <td>
       A JSON array describing a single instruction validation report.
-      Each report object consists of a <code>instruction</code> that is
-      invalid and a <code>failures</code> array containg the validation
+      Each report object consists of an <code>instruction</code> that is
+      invalid and a <code>failures</code> array containing the validation
       messages for this instruction.
     </td>
   </tr>
@@ -221,10 +221,10 @@ Every validation report object contains the following properties:
       An array of JSON objects describing the single activity instance
       validation errors. Each activity instance validation report
       consists of a <code>migrationInstruction</code>, if the error is
-      related to an existing migration instruction. The
-      <code>activityInstanceId</code> and the <code>sourceScopeId</code>
-      of the activity which cannot be migrated. An array
-      <code>failures</code> which is a list of all validation error
+      related to an existing migration instruction, the
+      <code>activityInstanceId</code> and <code>sourceScopeId</code>
+      of the activity which cannot be migrated and an array
+      <code>failures</code>, which is a list of all validation error
       messages for this report.
     </td>
   </tr>
@@ -235,10 +235,10 @@ Every validation report object contains the following properties:
       An array of JSON objects describing the single transition instance
       validation errors. Each transition instance validation report
       consists of a <code>migrationInstruction</code>, if the error is
-      related to an existing migration instruction. The
-      <code>transitionInstanceId</code> and the <code>sourceScopeId</code>
-      of the transition which cannot be migrated. An array
-      <code>failures</code> which is a list of all validation error
+      related to an existing migration instruction, the
+      <code>transitionInstanceId</code> and <code>sourceScopeId</code>
+      of the transition which cannot be migrated and an array
+      <code>failures</code>, which is a list of all validation error
       messages for this report.
     </td>
   </tr>
