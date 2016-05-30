@@ -11,6 +11,10 @@ menu:
 
 ---
 
+{{< note title="Plugin Compatibility" class="info" >}}
+  Please note that the code of Cockpit plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+{{< /note >}}
+
 Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the dashboard as shown in the following example:
 
 {{< img src="../../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
