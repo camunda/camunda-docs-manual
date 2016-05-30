@@ -9,7 +9,7 @@ menu:
     name: "IBM WebSphere"
     identifier: "installation-guide-full-was"
     parent: "installation-guide-full"
-    pre: "Install the Full Distribution for IBM WebShere Application Server."
+    pre: "Install the Full Distribution for IBM WebSphere Application Server."
 
 ---
 
