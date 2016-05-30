@@ -831,7 +831,7 @@ Validation cannot ensure that such data is useful in the context of the target p
 applications, it may occur that an Object variable refers to a Java class that does not exist in the process
 application of the target process.
 
-This scenario is not prevented by validation. Accessing the deserialized value may therefreo fail after migration.
+This scenario is not prevented by validation. Accessing the deserialized value may therefore fail after migration.
 If you end up with unusable Object variables, there are two ways to deal with
 that situation:
 
