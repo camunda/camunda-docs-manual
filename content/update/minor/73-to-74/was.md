@@ -4,7 +4,7 @@ title: "Update an IBM Websphere Installation from 7.3 to 7.4"
 
 menu:
   main:
-    name: "Webshere"
+    name: "WebSphere"
     identifier: "migration-guide-73-was"
     parent: "migration-guide-73"
 
