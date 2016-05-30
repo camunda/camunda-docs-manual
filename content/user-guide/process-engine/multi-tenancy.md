@@ -299,7 +299,7 @@ finally {
 ```
 
 {{< note title="LDAP Identity Service" class="info" >}}
-The above example only works with the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) (i.e., the default implementation). The [LDPA Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support tenants.
+The above example only works with the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) (i.e., the default implementation). The [LDAP Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support tenants.
 {{< /note >}}  
 
 
@@ -428,16 +428,16 @@ public class CustomTenantIdProvider implements TenantIdProvider {
 
 So far, we have seen that shared resources are a useful pattern if tenants have the same process definition. The advantage is that we do not have to deploy the same process definitions once per tenant. Yet, in many real world applications, the situation is somewhat in between: tenants share *mostly* the same process definitions, but there are some tenant specific variations.
 
-A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic (i.e. decision tables) using a business rules task are also common.
+A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic (i.e., decision tables) using a business rules task are also common.
 
 To realize this, the call activity or business rule task needs to select the correct definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
 
 See also:
 
 * [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions)
-* [Called Element Tenant Id](reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id) for call activities.
-* [Case Tenant Id](reference/bpmn20/subprocesses/call-activity.md#case-tenant-id) for call activities.
-* [Decision Ref Tenant Id](reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id) for business rule tasks.
+* [Called Element Tenant Id]({{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-tenant-id" >}})
+* [Case Tenant Id]({{< relref "reference/bpmn20/subprocesses/call-activity.md#case-tenant-id" >}}) for call activities.
+* [Decision Ref Tenant Id]({{< relref "reference/bpmn20/tasks/business-rule-task.md#decisionref-tenant-id" >}}) for business rule tasks.
 
 # One Process Engine Per Tenant
 
@@ -572,7 +572,7 @@ To access a specific tenant's process engine at runtime, it has to be identified
 
 * **Plain Java API**: Via the [ProcessEngineService]({{< relref "user-guide/runtime-container-integration/bpm-platform-services.md#processengineservice" >}}) any named engine can be accessed.
 * **CDI Integration**: Named engine beans can be injected out of the box. The [built-in CDI bean producer]({{< relref "user-guide/cdi-java-ee-integration/built-in-beans.md" >}}) can be specialized to access the engine of the current tenant dynamically.
-* **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#looking-up-a-process-engine-in-jndi" >}}).
+* **Via JNDI on JBoss/Wildfly**: On JBoss and Wildfly, every container-managed process engine can be [looked up via JNDI]({{< relref "user-guide/runtime-container-integration/jboss.md#look-up-a-process-engine-in-jndi" >}}).
 
-The Camunda web applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-tenancy" >}}).
+The Camunda web applications Cockpit, Tasklist and Admin offer tenant-specific views out of the box by [switching between different process engines]({{< relref "webapps/cockpit/dashboard.md#multi-engine" >}}).
 
