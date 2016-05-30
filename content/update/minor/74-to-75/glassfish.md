@@ -10,6 +10,11 @@ menu:
 
 ---
 
+{{< note title="ENVIRONMENT OUT OF SUPPORT" class="warning">}}
+  With the release of Camunda BPM 7.5 the support for Glassfish has ended. Please have a look at the list of [Supported Environments]({{< relref "introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
+{{< /note >}}
+
+
 The following steps describe how to upgrade the Camunda artifacts on a Glassfish 3.1 application server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Glassfish distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/glassfish/camunda-bpm-glassfish/).
 
 The upgrade procedure takes the following steps:
@@ -92,7 +97,7 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
 
 # 6. Install the Camunda Archive
 
