@@ -10,6 +10,11 @@ menu:
     parent: "user-guide-admin-extend"
 
 ---
+
+{{< note title="Plugin Compatibility" class="info" >}}
+  Please note that the code of Admin plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+{{< /note >}}
+
 # The Nature of an Admin Plugin
 
 
