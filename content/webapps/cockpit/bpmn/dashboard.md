@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The processes dashboard of Cockpit is the entry point for process monitoring. It comes with a pre-installed plugin, which let you see deployed process defintions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the processes dashboard.
+The processes dashboard of Cockpit is the entry point for process monitoring. It comes with a pre-installed plugin, which lets you see deployed process definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the processes dashboard.
 
 
 # Deployed Processes

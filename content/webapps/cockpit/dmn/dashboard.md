@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which let you see deployed decision defintions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
+The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which lets you see deployed decision definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
 
 
 # Deployed Decisions
