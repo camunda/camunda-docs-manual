@@ -11,7 +11,7 @@ menu:
 ---
 
 {{< note title="ENVIRONMENT OUT OF SUPPORT" class="warning">}}
-  With the release of Camunda BPM 7.5 the support for Glassfish has ended. Please have a look at the list of [Supported Environments]({{< relref "introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
+  From Camunda BPM 7.5 onwards Glassfish Application Server is not supported anymore. Please have a look at the list of [Supported Environments]({{< relref "introduction/supported-environments.md#container-application-server-for-runtime-components-excluding-camunda-cycle" >}}).
 {{< /note >}}
 
 
