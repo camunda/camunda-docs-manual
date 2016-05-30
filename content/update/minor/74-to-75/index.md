@@ -133,6 +133,7 @@ The following labels must be added to the Tasklist locale file:
 * `SHORTCUT`
 * `FOLLOW_UP`
 * `DUE`
+* `CREATION`
 * `TENANT_ID`
 * `WITHOUT_TENANT_ID`
 
