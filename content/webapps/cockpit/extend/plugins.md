@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the dashboard as shown in the following example:
+Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
 
 {{< img src="../../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
 
