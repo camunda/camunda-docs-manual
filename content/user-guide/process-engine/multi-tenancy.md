@@ -227,10 +227,12 @@ finally {
 }
 ```
 
-In the above example, all api calls executed betwen `setAuthentication(...)` and `clearAuthentication()` are transparenty executed with the list
+In the above example, all api calls executed between `setAuthentication(...)` and `clearAuthentication()` are transparenty executed with the list
 of provided tenant Ids.
 
-### Query Example:
+### Query Example
+
+The following query
 
 ```java
 try {
@@ -252,7 +254,7 @@ repositoryService.createProcessDefinitionQuery()
   .list();
 ```
 
-### Task Access Example:
+### Task Access Example
 
 For other commands like `completeTask()`, the transparent access check ensures that the authenticated user does not access
 resources by other tenants:
@@ -376,7 +378,7 @@ Shared resources  do not have a tenant id which means that no tenant id is propa
 
 The `TenantIdProvider` receives a callback when an instance of a process definition, case definition or decision definition is created. It can then assign a tenant id to the newly created instance (or not).
 
-The following Example shows how to assign a tenant id to an instance based the current authentication:
+The following example shows how to assign a tenant id to an instance based on the current authentication:
 
 ```java
 public class CustomTenantIdProvider implements TenantIdProvider {
@@ -426,9 +428,9 @@ public class CustomTenantIdProvider implements TenantIdProvider {
 
 So far, we have seen that shared resources are a useful pattern if tenants have the same process definition. The advantage is that we do not have to deploy the same process definitions once per tenant. Yet, in many real world applications, the situation is somewhat in between: tenants share *mostly* the same process definitions, but there are some tenant specific variations.
 
-A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic using decision tables using a business rules task are also common.
+A common pattern of how to deal with this is to extract the tenant-specific behavior in a separate process which is then invoked using a call activity. Tenant specific decision logic (i.e. decision tables) using a business rules task are also common.
 
-To realize this, the call activity or decision task needs to select the correct process definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
+To realize this, the call activity or business rule task needs to select the correct definition to invoke based on the tenant id of the current process instance. The [Shared Resources Example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared-definitions) shows how to achieve this.
 
 See also:
 
