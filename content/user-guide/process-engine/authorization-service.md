@@ -96,7 +96,7 @@ Resources are the entities the user interacts with.
 
 The following resources are available:
 
-* Application (cockpit, tasklist, ...)
+* Application (Cockpit, Tasklist, ...)
 * Authorization
 * Batch
 * Decision Definition
@@ -120,7 +120,7 @@ There are three types of authorizations:
 * Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
 
 {{< note class="warning" title="Performance of REVOKE Authorizations" >}}
-See Section [Performance Considerations]({{< relref "#performance-considerations" >}}) on this Page.
+See the [Performance Considerations]({{< relref "#performance-considerations" >}}) section on this Page.
 {{< /note >}}
 
 ## Authorization Precedence
@@ -269,9 +269,9 @@ The following table gives an overview for which resources they are available:
 This section explains the additional permissions that are available on the Task resource (in addition to Create, Update, Read and Delete).
 
 A user can perform different actions on a task, like assigning the task, claiming the task or completing the task.
-If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task action.
-If more fine granular authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
-The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (ie. claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
+If a user has "Update" permission on a task (or "Update Task" permission on the corresponding process definition) then the user is authorized to perform _all_ these task actions.
+If finer grained authorizations are required, the permissions "Task Work" and "Task Assign" can be used.
+The intuition behind "Task Work" is that it only authorizes the user to _work_ on a task (i.e., claim and complete it) but not assign it to another user or in another way "distribute work" to colleagues.
 
 The table below shows a detailed overview on which permissions authorize a user to perform which task actions:
 
@@ -371,7 +371,7 @@ If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE per
 
 ## Additional Process Definition Permissions
 
-In Addition to Update, Read and Delete, the follwing permissions are available on the Process Definition Resource:
+In Addition to Update, Read and Delete, the following permissions are available on the Process Definition Resource:
 
 * Read Task
 * Update Task
@@ -389,7 +389,7 @@ The "Create Instance" permission is required for starting new process instances.
 
 ## Additional Decision Definition Permissions
 
-In Addition to Update, Read and Delete, the follwing permissions are available on the Decision Definition Resource:
+In Addition to Update, Read and Delete, the following permissions are available on the Decision Definition Resource:
 
 * Create Instance
 * Read History
@@ -399,8 +399,8 @@ The "Create Instance" permission is required for evaluating decisions with the d
 
 ## Application Permissions
 
-The resource "Application" uniquely suppots the "Access" permission.
-The Access permission controls whehter a user has access to a Camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
+The resource "Application" uniquely supports the "Access" permission.
+The Access permission controls whether a user has access to a Camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -423,9 +423,9 @@ The group "camunda-admin" is not created when using LDAP (since LDAP is only acc
 
 ## The Administrator Authorization Plugin
 
-The Administrator Authorization Plugin is a process engine plugin with the following functionality: when the process engine is started, it grants adminitrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.
+The Administrator Authorization Plugin is a process engine plugin with the following functionality: when the process engine is started, it grants administrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.
 
-Usually this is used to bootstrap an LDAP installation: granting administrative access to an initial user who can then login to Admin and configure additional authorizations using the UI.
+Usually this is used to bootstrap an LDAP installation: granting administrative access to an initial user who can then log in to Admin and configure additional authorizations using the UI.
 
 The following is an example of how to configure the Administrator Authorization Plugin in bpm-platform.xml / processes.xml:
 
@@ -470,15 +470,15 @@ Complete list of configuration properties:
 
 This section expains available process engine configuration options related to authorization.
 
-## Enabling Authorization Checks
+## Enable Authorization Checks
 
 Authorization checks can be globally enabled or disabled using the configuration option `authorizationEnabled`. The default setting for this configuration option is `false`.
 
-## Enabling Authorization Checks for User Code
+## Enable Authorization Checks for User Code
 
-The configuration option `authorizationEnabledForCustomCode` controls whether authorization checks are performed for commands executed by delegation code (ie. a Java Delegate). The default setting for this configuration option is `false`.
+The configuration option `authorizationEnabledForCustomCode` controls whether authorization checks are performed for commands executed by delegation code (i.e., a Java Delegate). The default setting for this configuration option is `false`.
 
-## Checking Revoke Authorizations
+## Check Revoke Authorizations
 
 The configuration option `authorizationCheckRevokes` controls whether authorization checks take into account authorizations of type `Revoke`.
 
@@ -486,11 +486,11 @@ Available values are:
 
 * `always`: Always enables check for revoke authorizations. This mode is equal to the &lt; 7.5 behavior. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases. You are therefore strongly discouraged from using this mode.
 
-* `never`: Never checks for revoke authorizations. This mode has best performance effectively disables the use of revoke authorizations. *Note*: It is strongly recommended to use this mode.
+* `never`: Never checks for revoke authorizations. This mode has best performance and effectively disables the use of revoke authorizations. *Note*: It is strongly recommended to use this mode.
 
 * `auto` (**default value**): This mode only checks for revoke authorizations if at least one revoke authorization currently exits for the current user or one of the groups the user is a member of. To achieve this it is checked once per command whether potentially applicable revoke authorizations exist. Based on the outcome, the authorization check then uses revoke or not. *NOTE:* Checking revoke authorizations is very expensive for resources with a high potential cardinality like tasks or process instances and can render authorized access to the process engine effectively unusable on most databases.
 
-Also see: [Performance Considerations]({{< relref "#performance-considerations" >}}) on this page.
+Also see the [Performance Considerations]({{< relref "#performance-considerations" >}}) section on this page.
 
 # Java API Example
 
@@ -570,4 +570,4 @@ Revoke authorizations are expensive to check. The check needs to consider the pr
 
 On these databases, revoke authorizations are effectively unusable.
 
-See also: [Configuration Options](#checking-revoke-authorizations).
+Also see the [Configuration Options](#checking-revoke-authorizations) section on this page.
