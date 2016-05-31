@@ -1,7 +1,7 @@
 ---
 
 title: 'Batch View'
-weight: 80
+weight: 50
 
 menu:
   main:
