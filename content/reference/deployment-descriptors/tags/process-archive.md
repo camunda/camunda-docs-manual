@@ -160,7 +160,12 @@ The following is a list of all supported configuration properties.
     <td><code>isScanForProcessDefinitions</code></td>
     <td>boolean</td>
     <td>
-        If true, the process application will be scanned for process definitions (bpmn20 and bpmn20.xml files).
+      <p>If true, the process application will be scanned for process definitions (bpmn20 and bpmn20.xml files).</p>
+      <p>
+        Scanning is performed recursively based on the filesystem directory to which the resource root resolves (see property <code>resourceRootPath</code>).
+        This may not cover the entire classpath.
+        For example, scanning for resources in a WAR file does not consider processes of a JAR that is contained within that WAR.
+      </p>
       <p>
         <strong>Default value:</strong>
         true.
@@ -182,7 +187,7 @@ The following is a list of all supported configuration properties.
     <td><code>isDeployChangedOnly</code></td>
     <td>boolean</td>
     <td>
-        If true, only resources that have changed become part of the deployment. This check is performed against previous deployments of the same name. Every resource contained in the process archive is compared to the most recent resource of the same name that is part of one of the previous deployments. Activating this setting does not automatically resume previous versions of the deployment. 
+        If true, only resources that have changed become part of the deployment. This check is performed against previous deployments of the same name. Every resource contained in the process archive is compared to the most recent resource of the same name that is part of one of the previous deployments. Activating this setting does not automatically resume previous versions of the deployment.
       <p>
         <strong>Default value:</strong>
         false.
