@@ -11,7 +11,11 @@ menu:
 
 ---
 
-Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the dashboard as shown in the following example:
+{{< note title="Plugin Compatibility" class="info" >}}
+  Please note that the code of Cockpit plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
+{{< /note >}}
+
+Cockpit defines a plugin concept to add own functionality without being forced to extend or hack the Cockpit web application. You can add plugins at various plugin points, e.g., the processes dashboard as shown in the following example:
 
 {{< img src="../../img/cockpit-plugin.png" title="Cockpit Plugin" >}}
 
@@ -182,13 +186,13 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 **Name:** `cockpit.processes.dashboard`
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-processes-dashboard.png" title="Dashboard" >}}
 
 ## Decisions Dashboard
 
 **Name:** `cockpit.decisions.dashboard`
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+{{< img src="../../img/plugin-points/plugin-point-cockpit-decisions-dashboard.png" title="Dashboard" >}}
 
 ## Process Definition Runtime Tab
 
@@ -321,3 +325,9 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 **Name:** `cockpit.repository.resource.detail`
 
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
+
+## Report View
+
+**Name:** `cockpit.report`
+
+See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.

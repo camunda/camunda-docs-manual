@@ -63,7 +63,7 @@ Note that the tenant id of the calling process instance is not taken into accoun
 
 In some situations it may be useful to override this default behavior and specify the tenant id explicitly.
 
-The `camunda:calledElementTenantId` attribute allows to explicitly specify a tenant id: 
+The `camunda:calledElementTenantId` attribute allows to explicitly specify a tenant id:
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
@@ -128,6 +128,10 @@ It is possible to use expressions here as well:
 So in the end `z = y+5 = x+5+5` holds.
 
 Source expressions are evaluated in the context of the called process instance. That means, in cases where calling and called process definitions belong to different process applications, context like Java classes, Spring or CDI beans is resolved from the process application the called process definition belongs to.
+
+## Variable Output on BPMN Error Event
+
+When a BPMN error event from a called process instance is caught in the calling process instance, the output variable mappings are executed as well. Depending on the BPMN models, this requires output parameters to tolerate `null` values for variables that do not exist in the called instance when the error is propagated.
 
 ## Combination with Input/Output parameters
 

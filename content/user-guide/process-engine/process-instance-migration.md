@@ -28,7 +28,17 @@ i.e., the definition process instances are migrated to. A migration instruction 
 activity is migrated into an instance of the target activity. A migration plan is complete when there are instructions for
 all active source activities.
 
-The following process models are used to illustrate the API and effects of migration unless otherwise noted:
+Migration instructions have the purpose to map semantically equivalent activities. In consequence, migration
+interferes with activity instance state as little as possible which ensures a seamless transition.
+For example, this means that a migrated user task instance is not re-assigned. From the assignee's point of view, migration
+is mostly transparent, so that a task that was started before migration can be completed successfully after migration.
+The same principle is applied to the other BPMN element types.
+
+For cases in which activities are not semantically equivalent,
+we recommend combining migration with the [process instance modification API]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}), e.g., 
+canceling an activity instance before migration and starting a new instance after migration.
+
+In the remainder of this section, the following process models are used to illustrate the API and effects of migration unless otherwise noted:
 
 Process `exampleProcess:1`:
 
@@ -93,8 +103,8 @@ The following things have happened:
 * The activity instances for *Archive Application*, *Assess Credit Worthiness*, and *Validate Postal Address* have been migrated
 
 What does the second point mean in particular? Since there is a migration instruction for these activity instances they are
-migrated. The entities that comprise this instance are updated to reference the new activity and process definition. Activity instances, task instances and
-variable instances are preserved other than that.
+migrated. The entities that comprise this instance are updated to reference the new activity and process definition. Besides that, activity instances, task instances and
+variable instances are preserved.
 
 Before migration, there was a task instance
 in the tasklist of an accountant to perform the *Validate Address* activity. After migration, the same task instance still exists and can be completed
@@ -139,6 +149,12 @@ In addition, a migration plan is *validated before execution* to ensure that it 
 migration instructions for some activity types are only supported for transition instances (i.e., active asynchronous continuations) but not for
 activity instances. See the [chapter on execution time validation]({{< relref "#execution-time-validation" >}}) for details.
 
+{{< note title="Validation Limitations" class="warning" >}}
+The process engine can only validate that the process model can be migrated.
+But there are other aspects the user has to care about. You can read more
+about this in the section about [aspects not covered by
+validation](#aspects-not-covered-by-validation).
+{{< /note >}}
 
 ### One-to-One Relation Instruction
 
@@ -356,8 +372,8 @@ instances are migrated. As the migration is split into several independent jobs,
 every single job may fail or succeed.
 
 If a migration job fails, it is retried by the job executor
-and if no retries are left an incident is created. In this case, manual action
-is necessary to complete the batch migration: The job's retries may can be incremented
+and if no retries are left, an incident is created. In this case, manual action
+is necessary to complete the batch migration: The job's retries can be incremented
 or the job can be deleted. Deletion cancels migration of the specific instance but
 does not affect the batch beyond that.
 
@@ -369,10 +385,10 @@ The *deployment-aware* job executor only executes jobs for deployments registere
 In a heterogeneous cluster, this avoids problems with accessing deployment resources.
 
 When executing a migration batch, the batch execution jobs are therefore restricted
-to the job executor that has a registeration for the deployment of the source
+to the job executor that has a registration for the deployment of the source
 process definition. This introduces the requirement that
 source and target deployment are registered with the same job executor or else
-migration may fail when executing custom code (e.g. execution listeners) in the context
+migration may fail when executing custom code (e.g., execution listeners) in the context
 of the target process. Note that it is also possible to
 [skip the execution of custom code](#skipping-listeners-and-input-output-mappings)
 during migration.
@@ -386,7 +402,7 @@ Depending on the type of the activities a process model contains, migration has 
 ### User Task
 
 When a user task is migrated, all properties of the task instance (i.e., `org.camunda.bpm.engine.task.Task`) are preserved apart
-from the process definition id. The task is not reinitialized: Attributes like assignee or name do not change.
+from the process definition id and task definition key. The task is not reinitialized: Attributes like assignee or name do not change.
 
 ### Receive Task
 
@@ -800,3 +816,24 @@ Transition instances can be migrated for any activity type.
 [batch]: {{< relref "user-guide/process-engine/batch.md" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md#job-execution-in-heterogeneous-clusters" >}}
 [execution jobs]: {{< relref "user-guide/process-engine/batch.md#execution-jobs" >}}
+
+
+### Aspects Not Covered by Validation
+
+#### Data Consistency
+
+Process instances contain data such as variables that are specific to how a process is implemented.
+Validation cannot ensure that such data is useful in the context of the target process definition.
+
+#### Deserialization of Object Variables
+
+[Object type variables]({{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}) represent Java objects. That means they have a serialized value along with a Java type name that is used to deserialize the value into a Java object. When migrating between processes of different process
+applications, it may occur that an Object variable refers to a Java class that does not exist in the process
+application of the target process.
+
+This scenario is not prevented by validation. Accessing the deserialized value may therefore fail after migration.
+If you end up with unusable Object variables, there are two ways to deal with
+that situation:
+
+* Add the missing classes to the target process application
+* Convert the inconsistent variable into a variable for which the Java class is present based on its serialized value

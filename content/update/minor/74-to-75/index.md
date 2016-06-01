@@ -16,15 +16,15 @@ This document guides you through the update from Camunda BPM `7.4.x` to `7.5.0`.
 
 1. For administrators and developers: [Database Updates]({{< relref "#database-updates" >}})
 2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
+2. For administrators: [Standalone Web Application]({{< relref "#standalone-web-application" >}})
+2. For administrators: [Updating a Tasklist Translation File]({{< relref "#tasklist-translation-file" >}})
 3. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.5.
 
 Noteworthy new Features and Changes in 7.5:
 
-* **Process Instance Migration:** With 7.5, it is possible to move existing process instances from one version of a process to another. So long running process instances no longer lag behind changing processes. The [migration]({{< relref "user-guide/process-engine/process-instance-migration.md" >}}) can be planed and executed via API or visually via new Process Instance Migration View in Cockpit (Camunda Enterprise Edition only).
 * **Multi-Tenancy:** In addition to the existing approach for [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) with multiple process engines and database, schema or table isolation, Camunda 7.5 offers a new approach using a single process engine. The engine stores the data of all tenants in one table and separates them by a tenant-identifier which makes it easier to manage a large tenant base.
-* **Reporting:** Camunda 7.5 provides a new API for Reporting which allows to create a report of process instance durations (minimum, average and maximum duration). The report can be displayed as chart or table on the new Report View in Cockpit (Camunda Enterprise Edition only).
 
 {{< note title="No Rolling Upgrades" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.4 to 7.5 in a rolling fashion. This means, it is not possible to run process engines of version 7.4 and 7.5 in parallel with the same database configuration. The reason is that a 7.4 engine may not be able to execute process instances that have been previously executed by a 7.5 engine, as these may use features that were not available yet in 7.4.
@@ -54,8 +54,6 @@ Every Camunda installation requires a database schema upgrade.
 ### MariaDB
 
 Since 7.5.0 there are separate SQL scripts for MariaDB. If you use MariaDB and update from a version < 7.5.0, you have to execute the script `mariadb_engine_7.4_to_7.5.sql`.
-
-Additionally, you have to adjust the [database configuration]({{< relref "user-guide/process-engine/database.md#database-configuration" >}}) of your process engine configuration and set the property `databaseType` to `mariadb`.
 
 ### Wildfly 10
 
@@ -97,6 +95,51 @@ For every process application, the Camunda dependencies should be updated to the
 
 There are no new mandatory dependencies for process applications.
 
+# Standalone Web Application
+
+If the standalone web application is in use, the current `war` artifact must be replaced by its new version.
+
+If a database other than the default H2 database is used, the following steps must be taken:
+
+1. Undeploy the current version of the standalone web application
+2. Upgrade the database to the new schema as described in the [database
+   update](#database-updates) section
+3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+   section
+4. **Important:** The configured history level of the embedded process engine
+   was changed to `full` with 7.5.0.
+   In order to restore the previous default configuration,
+   the `historyLevel` property of the embedded process engine must be set to `audit`
+   in the process engine configuration found in
+
+    ```
+    WEB-INF/applicationContext.xml
+    ```
+
+    of the new version of the standalone web application file
+
+    ```
+    camunda-webapp-SERVER-standalone-VERSION.war
+    ```
+5. Deploy the new and configured standalone web application to the server
+
+
+# Tasklist Translation File
+
+The following labels must be added to the Tasklist locale file:
+
+* `NEW_TASK_TENANT_ID`
+* `SHORTCUT_HELP`
+* `SHORTCUT`
+* `FOLLOW_UP`
+* `DUE`
+* `CREATION`
+* `TENANT_ID`
+* `WITHOUT_TENANT_ID`
+
+Have a look at the [english translation file](https://github.com/camunda/camunda-tasklist-translations/blob/master/locales/en.json) for a basis to translate.
+
+
 # Application with Embedded Process Engine
 
 This section is applicable if you have a custom application with an **embedded process engine**.
@@ -113,17 +156,28 @@ There are no new mandatory dependencies. That means, upgrading the version shoul
 
 ## Special Considerations
 
-This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes changes in the internal API of the engine. If you have implemented one of the APIs and replaced the default implementation then you have to adjust your custom implementation. Otherwise, you can skip this section.
 
 ### Incident Handler
 
-The interface of an [Incident Handler]({{< relref "user-guide/process-engine/incidents.md" >}}) has changed. Instead of a long parameter list, the methods pass a context object which bundles all required informations, like process definition id, execution id and tenant id. Since the existing methods have been overridden, custom implementations of an incident handler have to be adjusted.
+The interface of an {{< javadocref page="?org/camunda/bpm/engine/impl/incident/IncidentHandler.html" text="Incident Handler" >}} has changed. Instead of a long parameter list, the methods pass a context object which bundles all required information, like process definition id, execution id and tenant id.
 
 ### Correlation Handler
 
-A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicit trigger a message start event of a process definition. If the default implementation is replaced by a custom one then it have to be adjusted.
+A new method has been added to the interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/runtime/CorrelationHandler.html" text="Correlation Handler" >}}. The new method `correlateStartMessage()` allows to explicitly trigger a message start event of a process definition.
+
+### Job Handler
+
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
+
+# Authorizations
+
+7.5.0 introduces a new authorization check algorithm which scales a lot better than the algorithm used before. The new algorithm can only be used if no Revoke authorizations are used. Consider refraining from the use of Revoke authorizations and adjust the process engine configuration as explained in the Authorization Section:
+
+* [New authorization related Configuration Options]({{< relref "user-guide/process-engine/authorization-service.md#configuration-options" >}})
+* [Authorization related Performance Considerations]({{< relref "user-guide/process-engine/authorization-service.md#performance-considerations" >}})
 
 # Custom styles
 
-The HTML markup of the front-ends changed and some adjustments may be needed. 
+The HTML markup of the front-ends changed and some adjustments may be needed.
 Read the [customization section]({{< relref "webapps/tasklist/configuration.md" >}}#logo-and-header-color) for more information.

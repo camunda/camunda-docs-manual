@@ -120,6 +120,58 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 </cmmn:definitions>{{< /code >}}
 ```
 
+## How do I make screenshots for documentation
+
+### Setup
+
+* Download and install [OpenOffice][openoffice]
+* Download and install [Open Sans font][opensans]
+* Create a new drawing in OpenOffice Draw
+
+![Setup](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup.png)
+
+* Configure document:
+    * Zoom & View layout (double click on zoom factor in the footer) -> Zoom factor 100%
+
+![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/set-zoom.PNG)
+
+
+* Page Setup (Format menu -> Page)
+    * Format: Screen (this will change back to "User" after further modifications)
+    * Width: 30,00 cm
+    * Height: 20,00 cm
+    * Orientation: Landscape
+
+![Set Zoom Level](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/page-setup-modal.png)
+
+
+### Take the screenshots
+
+* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing
+* Take screenshot
+* Paste screenshot into the drawing
+* Right click on the image and select 'Original Size'
+
+### Add annotations
+
+* Add rectangle shapes for text boxes
+* Use the Open Sans font for text
+
+![Set Font](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/font.png)
+
+* If possible, utilize the whitespaces within the image
+* Use shadows
+
+![Set shadows](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/shadow.png)
+
+### Export the image
+* Export (File menu -> Export)
+* Select PNG format and name the file
+* Compression: 1
+* Resolution: 96 pixels/inch
+
+![Export](https://raw.githubusercontent.com/camunda/camunda-docs-manual/master/develop/drawings/ReadMe-images/export.png)
+
 ## Writing Guidelines
 
 * Use short sentences. Full stop is better than comma.
@@ -134,3 +186,5 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 [hugo-installation]: http://gohugo.io/overview/installing/
 [Camunda Nexus]: https://app.camunda.com/nexus/content/repositories/public/hugo/
 [title converter]: http://individed.com/code/to-title-case/
+[openoffice]: https://www.openoffice.org/download/index.html
+[opensans]: https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans

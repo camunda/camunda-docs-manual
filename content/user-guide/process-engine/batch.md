@@ -129,7 +129,7 @@ List<HistoricJobLog> batchExecutionJobLogs = processEngine.getHistoryService()
 
 ## Suspend a Batch
 
-To pause the execution of a batch and all corresponding jobs a batch
+To pause the execution of a batch and all corresponding jobs, a batch
 can be suspended using the management service.
 
 ```java
@@ -175,7 +175,7 @@ See section [Suspend a Batch](#suspend-a-batch) for more information.
 ## Priority of a Batch
 
 As all batch jobs are executed using the job executor it is possible to use the
-[job prioritization][] feature to adjust the importance of batch jobs.  The
+[job prioritization][] feature to adjust the priority of batch jobs. The
 default batch job priority is set by the process engine configuration
 `batchJobPriority`.
 
