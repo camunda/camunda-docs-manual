@@ -222,16 +222,16 @@ The following is a list of all supported configuration properties.
 
           The deployment structure could look like this:
           <pre>
-          |-- My-Application.war
-              |-- WEB-INF
-                  |-- lib/
-                      |-- Sales-Processes.jar
-                          |-- META-INF/processes.xml  (1)
-                          |-- opps/openOpportunity.bpmn
-                          |-- leads/openLead.bpmn
+|-- My-Application.war
+    |-- WEB-INF
+        |-- lib/
+            |-- Sales-Processes.jar
+                |-- META-INF/processes.xml  (1)
+                |-- opps/openOpportunity.bpmn
+                |-- leads/openLead.bpmn
 
-                      |-- Invoice-Processes.jar
-                          |-- META-INF/processes.xml  (2)
+            |-- Invoice-Processes.jar
+                |-- META-INF/processes.xml  (2)
          </pre>
          If the process archive(s) defined in (1) uses a path prefixed with <code>pa:</code>, like for instance <code>pa:opps/</code>,
          only the <code>opps/</code>-folder of sales-processes.jar is scanned. More precisely, a "pa-local path", is resolved
