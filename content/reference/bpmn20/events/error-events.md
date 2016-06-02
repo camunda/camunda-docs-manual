@@ -68,16 +68,16 @@ An error start event can only be used to trigger an Event Sub-Process - it __can
 
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
 
-Two optional attributes can be added to the error start event, <code>errorRef</code> and <code>camunda:errorCodeVariable</code>:
+Three optional attributes can be added to the error start event: <code>errorRef</code>, <code>camunda:errorCodeVariable</code> and <code>camunda:errorMessageVariable</code>:
 ```xml
 <definitions>
-  <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
+  <error id="myException" errorCode="com.company.MyBusinessException" errorMessage="BusinessException" name="myBusinessException"/>
   ...
   <process>
     ...
     <subprocess>
       <startEvent id="myErrorStartEvent">
-        <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable"/>
+        <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable" camunda:errorMessageVariable="myErrorMessageVariable" />
       </startEvent>
     ...
     </subprocess>
@@ -86,7 +86,10 @@ Two optional attributes can be added to the error start event, <code>errorRef</c
 </definitions>
 ```
 * If `errorRef` is omitted, the subprocess will start for every error event that occurs.
-* The `camunda:errorCodeVariable` will contain the error code that was specified with the error. The value can be retrieved like any other process variable, but only if the attribute was set.
+* The `camunda:errorCodeVariable` will contain the error code that was specified with the error. 
+* The `camunda:errorMessageVariable` will contain the error message that was specified with the error.
+
+`camunda:errorCodeVariable` and `camunda:errorMessageVariable` can be retrieved like any other process variable, but only if the attribute was set.
 
 
 # Error End Event
