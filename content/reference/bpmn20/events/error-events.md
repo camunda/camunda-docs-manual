@@ -71,13 +71,14 @@ An error start event can only be used to trigger an Event Sub-Process - it __can
 Three optional attributes can be added to the error start event: <code>errorRef</code>, <code>camunda:errorCodeVariable</code> and <code>camunda:errorMessageVariable</code>:
 ```xml
 <definitions>
-  <error id="myException" errorCode="com.company.MyBusinessException" errorMessage="BusinessException" name="myBusinessException"/>
+  <error id="myException" errorCode="com.company.MyBusinessException" name="myBusinessException"/>
   ...
   <process>
     ...
     <subprocess>
       <startEvent id="myErrorStartEvent">
-        <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable" camunda:errorMessageVariable="myErrorMessageVariable" />
+        <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable"
+  		  camunda:errorMessageVariable="myErrorMessageVariable" />
       </startEvent>
     ...
     </subprocess>
@@ -144,7 +145,8 @@ A boundary error event is defined as a typical boundary event. As with the other
       <!-- ... -->
     </subProcess>
     <boundaryEvent id="catchError" attachedToRef="mySubProcess">
-      <errorEventDefinition errorRef="myError" camunda:errorCodeVariable="myErrorVariable"/>
+      <errorEventDefinition errorRef="myError" camunda:errorCodeVariable="myErrorVariable"
+	    camunda:errorMessageVariable="myErrorMessageVariable" />
     </boundaryEvent>
   </process>
 </definitions>
@@ -155,6 +157,7 @@ The errorCode is used to match the errors that are caught:
 *   If errorRef is omitted, the boundary error event will catch any error event, regardless of the errorCode of the error.
 *   In case an errorRef is provided and it references an existing error, the boundary event will only catch errors with the defined error code.
 *   If the errorCodeVariable is set, the error code can be retrieved using this variable.
+*   If the errorMessageVariable is set, the error message can be retrieved using this variable.
 
 ## Additional Resources
 
