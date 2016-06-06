@@ -12,8 +12,14 @@ menu:
 
 ---
 
-{{< note class="info" title="Where to use element templates" >}}
-Element templates are currently available in BPMN diagrams.
+{{< note class="info" title="Using Element Templates" >}}
+Element Templates can be used with Camunda Modeler version 1.0 and higher. They are currently available in BPMN diagrams only.
+{{< /note >}}
+
+
+{{< note class="warning" title="Disclaimer" >}}
+Element Templates may be subject to change in the future.
+As an example, this may lead to changes in the way you configure templates in JSON.
 {{< /note >}}
 
 
