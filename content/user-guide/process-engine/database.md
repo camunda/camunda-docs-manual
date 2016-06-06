@@ -47,7 +47,7 @@ current activity and different metadata about the state of the execution.
 ## Tasks (`ACT_RU_TASK`)
 
 The `ACT_RU_TASK` table contains all open tasks of all running process
-instances. It includes information like the corresponding process instance, 
+instances. It includes information like the corresponding process instance,
 execution and also metadata such as creation time, assignee or due date.
 
 
@@ -66,51 +66,44 @@ event along with information about the corresponding process instance and
 execution.
 
 
-### Entity Relationship Diagrams
+# Entity Relationship Diagrams
 
 {{< note title="" class="info" >}}
   The database is not part of the **public API**. The database schema may change for MINOR and MAJOR version updates.
 
   **Please note:**
-  The following diagrams are based on the Oracle database schema. For other databases the diagram may be slightly different.
+  The following diagrams are based on the MySQL database schema. For other databases the diagram may be slightly different.
 {{< /note >}}
 
 
-The following Entity Relationship Diagrams visualize the database tables and their explicit foreign key constraints, grouped by Engine with focus on BPMN, Engine with focus on CMMN, the Engine History and the Identity. Please note that the diagrams do not visualize implicit connections between the tables.
-
-*Example*
-{{< img src="../img/erd_example.png" title="Entitiy Releationship Diagram" >}}
-
-* foreign keys are displayed as an arrow from one entity to another
-* the arrow label describes the name of the foreign key and the database filed name in brackets
-* the database filed name is marked with a green arrow in the table box
+The following Entity Relationship Diagrams visualize the database tables and their explicit foreign key constraints, grouped by Engine with focus on BPMN, Engine with focus on DMN, Engine with focus on CMMN, the Engine History and the Identity. Please note that the diagrams do not visualize implicit connections between the tables.
 
 
 ## Engine BPMN
 
-{{< img src="../img/erd_oracle_74_bpmn.svg" title="BPMN Tables" >}}
+{{< img src="../img/erd_75_bpmn.svg" title="BPMN Tables" >}}
 
 
 ## Engine DMN
 
-{{< img src="../img/erd_oracle_74_dmn.svg" title="DMN Tables" >}}
+{{< img src="../img/erd_75_dmn.svg" title="DMN Tables" >}}
 
 
 ## Engine CMMN
 
-{{< img src="../img/erd_oracle_74_cmmn.svg" title="CMMN Tables" >}}
+{{< img src="../img/erd_75_cmmn.svg" title="CMMN Tables" >}}
 
 
 ## History
 
 To allow different configurations and to keep the tables more flexible, the history tables contain no foreign key constraints.
 
-{{< img src="../img/erd_oracle_74_history.svg" title="History Tables" >}}
+{{< img src="../img/erd_75_history.svg" title="History Tables" >}}
 
 
 ## Identity
 
-{{< img src="../img/erd_oracle_74_identity.svg" title="Identity Tables" >}}
+{{< img src="../img/erd_75_identity.svg" title="Identity Tables" >}}
 
 
 
