@@ -106,6 +106,7 @@ When process execution arrives at an error end event, the current path of execut
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}}">camunda:asyncBefore</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errorcodevariable" >}}">camunda:errorCodeVariable</a>,
+	  <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#errormessagevariable" >}}">camunda:errorMessageVariable</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
     </td>

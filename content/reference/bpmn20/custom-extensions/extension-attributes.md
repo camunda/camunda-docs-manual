@@ -827,6 +827,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# errorMessageVariable
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The name of a process variable as <code>java.lang.String</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a>
+    </td>
+  </tr>
+</table>
+
 # escalationCodeVariable
 
 <table class="table table-striped">
