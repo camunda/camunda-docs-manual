@@ -186,7 +186,8 @@ The showed decision table can be used to sum up the salary bonus for an employee
 The MIN aggregator can be used to return the smallest output value of all satisfied rules.
 See the following example of a car insurance. After years without a car crash the insurance fee will be reduced.
 {{< img src="../img/hit-policy-collect-min.png" title="Hit Policy Collect MIN" class="no-lightbox" >}}
-For example the input for the decision table are 3.5 years the result will be 98.83, since the third rule will match. 
+For example the input for the decision table are 3.5 years the result will be 98.83, since the first three rules will match
+but the third rule has the minimal output.
 
 #### MAX aggregator
 The MAX aggregator can be used to return the largest output value of all satisfied rules.
