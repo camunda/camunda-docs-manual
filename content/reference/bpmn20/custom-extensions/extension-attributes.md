@@ -802,7 +802,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
+      The attribute specifies a process variable that holds the error code and the errorCodevariable will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
     </td>
   </tr>
   <tr>
@@ -833,7 +833,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a process variable which will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
+      The attribute specifies a process variable that holds the error message and the errorMessageVariable will be set if an error has been received by the error start or boundary event, see <a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error Events</a> for more information.
     </td>
   </tr>
   <tr>
