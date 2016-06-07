@@ -95,7 +95,18 @@ EventSubscription subscription = runtimeService.createEventSubscriptionQuery()
 
 runtimeService.messageEventReceived(subscription.getEventName(), subscription.getExecutionId());
 ```
+It is also possible to correlate the message and get a result. The result is an object of type `MessageCorrelatedResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
+The first type is set, if the message was correlated to an intermediate message catch event and the second, if the message was correlated to a start event.
+Is the type set to `execution` then the result contains an `Execution` object, it can be accessed via the `result.getExecution()` method. Is the type set to `processDefinition`
+the start event activity id and the process definition is available in the result. They are accessible via the `result.getStartEventActivityId()` and `result.getProcessDefinition()` method.
 
+```java
+// correlate the message with result
+MessageCorrelatedResult result = runtimeService.createMessageCorrelation("messageName")
+  .processInstanceBusinessKey("AB-123")
+  .setVariable("payment_type", "creditCard")
+  .correlateWithResult();
+```
 The `messageName` identifies the message as defined in the message name attribute in the process definition xml.
 
 Correlation is successful if a single matching entity exists among the following:
@@ -109,6 +120,13 @@ Alternatively, it is possible to correlate a message to multiple matched executi
 runtimeService
   .createMessageCorrelation("aMessageName")
   .correlateAll();
+```
+Again it is possible to correlate and get a result. The result will be a list of `MessageCorrelationResult` objects. Each result corresponds to a correlation.
+
+```java
+List<? extends MessageCorrelationResult> results = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .correlateAllWithResult();
 ```
 
 {{< note title="Current limitation" class="note" >}}

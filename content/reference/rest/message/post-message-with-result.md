@@ -1,26 +1,26 @@
 ---
 
-title: "Correlate a Message"
+title: "Correlate a Message with Result"
 weight: 10
 
 menu:
   main:
-    name: "Correlate"
-    identifier: "rest-api-message-post-message"
+    name: "Correlate with Result"
+    identifier: "rest-api-message-post-message-with-result"
     parent: "rest-api-message"
-    pre: "POST `/message/correlate`"
+    pre: "POST `/message/correlateWithResult`"
 
 ---
 
 
-Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event.
-Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
+Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event and returns a result of the correlation.
+Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlateWithResult()` and `MessageCorrelationBuilder#correlateAllWithResult()`.
 For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
 
 
 # Method
 
-POST `/message/correlate`
+POST `/message/correlateWithResult`
 
 
 # Parameters
@@ -79,9 +79,47 @@ A JSON object with the following properties:
 
 
 # Result
+A JSON array of the message correlation results. Each message correlation result has the following properties:
 
-This method returns no content.
-
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>resultType</td>
+    <td>String</td>
+    <td>
+      Indicates if the message was correlated to a message start event or an intermediate message catching event.
+      In the first case the resultType is `processDefinition` and otherwise `execution`.
+    </td>
+  </tr>
+  <tr>
+   <td>processDefinition</td>
+   <td>Object</td>
+   <td>
+    This property has only a value if the resultType is set to `processDefinition`.
+    The process definition with the properties as described in the <a href="{{< relref "reference/rest/process-definition/get.md" >}}">get single definition</a> method.
+   </td>
+  </tr>
+  <tr>
+   <td>startEventActivityId</td>
+   <td>String</td>
+   <td>
+    This property has only a value if the resultType is set to `processDefinition`.
+    Contains the activity id of the start event on which the message was correlated.
+   </td>
+  </tr>
+  <tr>
+   <td>execution</td>
+   <td>Object</td>
+   <td>
+    This property has only a value if the resultType is set to `execution`.
+    The execution with the properties as described in the <a href="{{< relref "reference/rest/execution/get.md" >}}">get single execution</a> method.
+   </td>
+  </tr>
+</table>
 
 # Response Codes
 
@@ -92,8 +130,8 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
-    <td>204</td>
-    <td></td>
+    <td>200</td>
+    <td>application/json</td>
     <td>Request successful.</td>
   </tr>
   <tr>
@@ -109,7 +147,7 @@ This method returns no content.
 
 ## Request
 
-POST `/message/correlate`
+POST `/message/correlateWithResult`
 
 Request Body:
 
@@ -125,5 +163,16 @@ Request Body:
     }
 
 ## Response
+    
+    {
+     "resultType":"execution",
+     "startEventActivityId":null,
+     "execution":{
+       "id":"anExecutionId",
+       "processInstanceId":"aProcInstId",
+       "ended":false,
+       "tebabtId":null
+     }
+     "processDefinition":null
+    }
 
-Status 204. No content.
