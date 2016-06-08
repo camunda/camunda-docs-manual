@@ -42,6 +42,13 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * Microsoft SQL Server 2008 R2/2012/2014 (see [Configuration Note]({{< relref "user-guide/process-engine/database.md#custom-configuration-for-microsoft-sql-server" >}}))
 * H2 1.3 (not recommended for [Cluster Mode]({{< relref "introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< relref "user-guide/process-engine/deployments.md" >}}))
 
+## Database Clustering & Replication
+
+Clustered or Replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration.
+The configuration needs to guarantee *READ-COMMITTED* isolation level.
+
+The MySQL/MariaDB based **Galera Cluster is not supported**.
+
 # Web Browser
 
 * Google Chrome latest
