@@ -36,6 +36,12 @@ Please find the  <a href="http://docs.camunda.org/7.0/guides/user-guide/#introdu
 *   Microsoft SQL Server 2008 R2 / 2012 / 2014 (see [Configuration Note](ref:#process-engine-database-configuration-custom-configuration-for-microsoft-sql-server))
 *   H2 1.3
 
+### Database Clustering & Replication
+
+Clustered or Replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration.
+The configuration needs to guarantee *READ-COMMITTED* isolation level.
+
+The MySQL/MariaDB based **Galera Cluster is not supported**.
 
 ## Webbrowser
 
