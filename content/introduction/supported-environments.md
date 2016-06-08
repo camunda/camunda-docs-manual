@@ -44,6 +44,13 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * H2 1.3
 
 
+## Database Clustering & Replication
+
+Clustered or Replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration.
+The configuration needs to guarantee *READ-COMMITTED* isolation level.
+
+The MySQL/MariaDB based **Galera Cluster is not supported**.
+
 # Web Browser
 
 * Google Chrome latest
