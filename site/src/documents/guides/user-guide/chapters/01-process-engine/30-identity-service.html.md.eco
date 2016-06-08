@@ -283,5 +283,18 @@ The LDAP Identity Provider provides the following configuration properties:
       </p>
     </td>
   </tr>
+  <tr>
+   <td><code>sortControlSupported</code></td>
+   <td>
+      <p>
+        If this property is set to <code>true</code>, then ordering of the search results is enabled. Otherwise orderBy clauses in search queries are simply ignored.
+        <em>Default:</em> <code>false</code>
+      </p>
+      <p>
+        <strong>Note:</strong> the support of search result ordering is not be implemented by every LDAP server.
+        Make sure that your currently used LDAP Server implements the <a href="https://tools.ietf.org/html/rfc2891">RFC 2891</a>.
+      </p>
+    </td>
+  </tr>
 </table>
 
