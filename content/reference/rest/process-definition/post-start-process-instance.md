@@ -55,7 +55,7 @@ POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the lat
 
 ## Request Body
 
-A JSON object with the following properties:
+A JSON object with the following properties: (at least an empty object `{}`)
 
 <table class="table table-striped">
   <tr>
