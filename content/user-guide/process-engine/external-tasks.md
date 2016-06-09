@@ -168,7 +168,7 @@ externalTaskService.handleFailure(
   60L * 10000L);                                                        // retryTimeout
 ```
 
-A failure is reported for the locked task such that it can be retried once more after 60 seconds. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to `task.getRetries() - 1` when reporting a failure.
+A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to `task.getRetries() - 1` when reporting a failure.
 
 ### Querying Tasks
 
