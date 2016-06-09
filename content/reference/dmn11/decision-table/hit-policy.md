@@ -14,8 +14,8 @@ menu:
 
 {{< img src="../img/hit-policy.png" title="Hit Policy" class="no-lightbox" >}}
 
-A decision table can have a hit policy that specifies what is part of the
-result of the evaluation of a decision table.
+A decision table has a hit policy that specifies what the
+results of the evaluation of a decision table consist of.
 
 The hit policy is set in the `hitPolicy` attribute on the `decisionTable` XML
 element. If no hit policy is set then the default hit policy `UNIQUE` is used.
@@ -63,10 +63,10 @@ supported by the Camunda DMN engine:
 
 # The Role of a Hit Policy
 
-A hit policy specifies how many rules of a decision table can be satisfied. And
+A hit policy specifies how many rules of a decision table can be satisfied and
 which of the satisfied rules are included in the [decision table result]. The
-hit policies [Unique], [Any] and [First] will always return maximal one
-satisfied rule. Whereas the hit policies [Rule Order] and [Collect] can return
+hit policies [Unique], [Any] and [First] will always return a maximum of one
+satisfied rule. The hit policies [Rule Order] and [Collect] can return
 multiple satisfied rules.
 
 ## Unique Hit Policy
@@ -74,27 +74,27 @@ multiple satisfied rules.
 Only a single rule can be satisfied. The decision table result contains the
 output entries of the satisfied rule.
 
-If more than one rule is satisfied the Unique hit policy is violated.
+If more than one rule is satisfied, the Unique hit policy is violated.
 
 See the following decision table. 
 {{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
-Depending on the current season the dish should be choosed.
-Only one dish can be choosed, since only one season at the same time can be exist.
+Depending on the current season the dish should be chosen.
+Only one dish can be chosen, since only one season can exist at the same time.
 
 ## Any Hit Policy
 
-Multiple rules can be satisfied. But all satisfied rules must generate the same
+Multiple rules can be satisfied. However, all satisfied rules must generate the same
 output. The decision table result contains only the output of one of the
 satisfied rules.
 
-If multiple rules are satisfied which generate different outputs the hit policy
+If multiple rules are satisfied which generate different outputs, the hit policy
 is violated.
 
 See the following example:
 {{< img src="../img/hit-policy-any.png" title="Hit Policy Any" class="no-lightbox" >}}
 There is a decision table for the leave application. If the applier
-has no vacation days left or he is currently in the probation period the application will be refused, 
-otherwise the application is applied.
+has no vacation days left or he is currently in the probation period, the application will be refused. 
+Otherwise the application is applied.
 
 ## First Hit Policy
 
@@ -102,9 +102,9 @@ Multiple rules can be satisfied. The decision table result contains only
 the output of the first satisfied rule.
 
 {{< img src="../img/hit-policy-first.png" title="Hit Policy First" class="no-lightbox" >}}
-See the decistion table for advertisement. Regarding the current age of the user there can be decided which
-advertisement should be shown. For example the user is 19 years old. All the rules will match, but since
-the hit policy is set to first only the advertisement for Cars are used.
+See the decistion table for advertisement. Regarding the current age of the user, which
+advertisement should be shown is decided. For example, the user is 19 years old. All the rules will match, but since
+the hit policy is set to first only, the advertisement for Cars is used.
 
 ## Rule Order Hit Policy
 
@@ -112,9 +112,9 @@ Multiple rules can be satisfied. The decision table result contains the output
 of all satisfied rules in the order of the rules in the decision table.
 
 {{< img src="../img/hit-policy-rule-order.png" title="Hit Policy Rule Order" class="no-lightbox" >}}
-Again the advertisement example with the rule order policy. Say we have again a user of the age of 19.
-All rules are satisfied so all outputs are given ordered by the rule ordering. 
-It can perhaps used to indicate the priority of the showed advertisements.
+Again, see the advertisement example with the rule order policy. Say we have a user at the age of 19 again.
+All rules are satisfied so all outputs are given, ordered by the rule ordering. 
+It can perhaps be used to indicate the priority of the displayed advertisements.
 
 ## Collect Hit Policy
 
@@ -122,13 +122,13 @@ Multiple rules can be satisfied. The decision table result contains the output
 of all satisfied rules in an arbitrary order as a list.
 
 {{< img src="../img/hit-policy-collect.png" title="Hit Policy Collect" class="no-lightbox" >}}
-The output list has with that hit policy no ordering. So the advertisement will be arbitrary
+With this hit policy, the output list has no ordering. So the advertisement will be arbitrary
 if the age is for example 19.
 
-Additionally an aggregator can be specified for the Collect hit policy. If an
-aggregator is specified the decision table result will only contain a single
+Additionally, an aggregator can be specified for the Collect hit policy. If an
+aggregator is specified, the decision table result will only contain a single
 output entry. The aggregator will generate the output entry from all satisfied
-rules. **Note** if the Collect hit policy is used with an aggregator the
+rules. **Note** if the Collect hit policy is used with an aggregator, the
 decision table can only have one output.
 
 The aggregator is set as the `aggregation` attribute of the `descisionTable`
@@ -177,16 +177,16 @@ the Camunda DMN engine:
 </table>
 
 #### SUM aggregator
-The SUM aggregator sums all outputs from the satisfied rules up.
+The SUM aggregator sums up all outputs from the satisfied rules.
 {{< img src="../img/hit-policy-collect-sum.png" title="Hit Policy Collect SUM" class="no-lightbox" >}}
-The showed decision table can be used to sum up the salary bonus for an employee. So for example the employee works since
-3.5 years in the company. So the first, second and third rule will match and the result of the decision table is 600, since the output is summed up.
+The showed decision table can be used to sum up the salary bonus for an employee. For example, the employee has been working in the company for 
+3.5 years. So the first, second and third rule will match and the result of the decision table is 600, since the output is summed up.
 
 #### MIN aggregator
 The MIN aggregator can be used to return the smallest output value of all satisfied rules.
 See the following example of a car insurance. After years without a car crash the insurance fee will be reduced.
 {{< img src="../img/hit-policy-collect-min.png" title="Hit Policy Collect MIN" class="no-lightbox" >}}
-For example the input for the decision table are 3.5 years the result will be 98.83, since the first three rules will match
+For example, if the input for the decision table is 3.5 years, the result will be 98.83, since the first three rules match
 but the third rule has the minimal output.
 
 #### MAX aggregator
@@ -194,19 +194,19 @@ The MAX aggregator can be used to return the largest output value of all satisfi
 
 {{< img src="../img/hit-policy-collect-max.png" title="Hit Policy Collect MAX" class="no-lightbox" >}}
 
-The following decision table represents the decision for the amount of pocket money for a child.
-Regarding of the age the amount will grow. For example an input of 9 will satisfy the first and second rule.
-The output of the second rule is larger then the output of the first rule so the output
-will be 5. So a child in the age of 9 will get 5 as pocket money.
+This decision table represents the decision for the amount of pocket money for a child.
+Depending of the age, the amount grows. For example, an input of 9 will satisfy the first and second rules.
+The output of the second rule is larger then the output of the first rule, so the output
+will be 5. A child at the age of 9 will get 5 as pocket money.
 
 #### COUNT aggregator
 The COUNT aggregator can be use to return the count of satisfied rules.
 
 {{< img src="../img/hit-policy-collect-count.png" title="Hit Policy Collect COUNT" class="no-lightbox" >}}
 
-For example again the salary bonus decision table. This time with the COUNT aggregator. 
-With the input of 4 the first three rule will be satisfied. So the result from the decision table will be 3, which means
-after 4 years it gives 3 salary bonuses. 
+For example, see the salary bonus decision table again, this time with the COUNT aggregator. 
+With an input of 4, the first three rules will be satisfied. Therefore, the result from the decision table will be 3, which means
+that after 4 years the result of the decision table is 3 salary bonuses.
 
 [decision table result]: {{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-dmndecisiontableresult" >}}
 [Unique]: #unique-hit-policy
