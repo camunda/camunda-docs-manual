@@ -57,6 +57,7 @@ The basic skeleton of a cockpit plugin looks as follows:
     |   |           └── assets/app/                                       (7)
     |   |               └── app/
     |   |                   ├── plugin.js                                 (8)
+    |   |                   ├── plugin.css                                (9)
     |   |                   ├── view.html
     |   |                   └── ...
     |   └── test/
@@ -76,7 +77,8 @@ As runtime relevant resource it defines
 5. data transfer objects used by the resources
 6. mapping files that provide additional cockpit queries as [MyBatis](http://www.mybatis.org/) mappings
 7. resource directory from which client-side plugin assets are served as static files
-8. a main file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment
+8. a js file that bootstraps the client-side plugin in a [AngularJS](http://angularjs.org/) / [RequireJS](http://requirejs.org) environment. This file must be named `plugin.js` and be located in the `app` directory of the plugin asset directory
+9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
   [How to develop a cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}})

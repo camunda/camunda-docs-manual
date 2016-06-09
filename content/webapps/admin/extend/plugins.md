@@ -15,8 +15,19 @@ menu:
   Please note that the code of Admin plugins might need to be migrated when updating Camunda BPM to a higher version (e.g. CSS styles).
 {{< /note >}}
 
-# The Nature of an Admin Plugin
+Admin uses the concept of plugins to add own functionality without having to extend or hack the Admin web application.
 
+For further details about the concepts behind plugins, please read the [Cockpit plugins section]({{< relref "webapps/cockpit/extend/plugins.md" >}}).
+
+{{< note title="Difference between Cockpit and Admin plugins:" class="warning">}}
+  * To publish the plugin with Admin, its class name must be put into a file called ```org.camunda.bpm.admin.plugin.spi.AdminPlugin``` that resides in the directory ```META-INF/services```.
+  * The plugin mechanism of Admin does not allow to provide additional SQL queries by using [MyBatis](http://www.mybatis.org/) mappings.
+{{< /note >}}
+
+
+# Plugin Points
+
+Here you can see the various points at which you are able to add your own plugins.
 
 ## Dashboard
 
