@@ -24,6 +24,7 @@ The following is a list of current (unsupported) community extensions:
 * [Cycle Connectors](https://github.com/camunda/camunda-cycle-connectors)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
 * [Camunda BPM Platform Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
+* [Camunda Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
 
 ## Building a Community Extension
 
