@@ -116,7 +116,6 @@ List<MessageCorrelationResult> results = runtimeService
 ```
 The result will be a list of `MessageCorrelationResult` objects. Each result corresponds to a correlation.
 
-
 {{< note title="Current limitation" class="note" >}}
 `correlationKeys` is only matched against process instance variables. These are variables that are globally visible throughout the process instance.
 

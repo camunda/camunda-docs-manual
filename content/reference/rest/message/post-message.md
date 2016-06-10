@@ -8,20 +8,20 @@ menu:
     name: "Correlate"
     identifier: "rest-api-message-post-message"
     parent: "rest-api-message"
-    pre: "POST `/message/correlate`"
+    pre: "POST `/message`"
 
 ---
 
 
 Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event.
-Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlate()` and `MessageCorrelationBuilder#correlateAll()`.
+Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlateWithResult()` and `MessageCorrelationBuilder#correlateAllWithResult()`.
+Per default there is no result returned, only if `resultEnabled` in the request body is specified the message correlation result will be returned.
 For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
 
 
 # Method
 
-POST `/message/correlate`
-
+POST `/message`
 
 # Parameters
 
@@ -75,13 +75,51 @@ A JSON object with the following properties:
     <td>all</td>
     <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code> the message will be correlated to exactly one entity (execution or process definition). If the value is set to <code>true</code> the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
   </tr>
+  <tr>
+    <td>resultEnabled</td>
+    <td>A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to <code>true</code> there will be returned a list of message correlation result objects.
+    Depending on the <code>all</code> property there will be either one ore more returned results in the list.    
+    <p>The default value is <code>false</code>, which means no result will be returned.</p>
+  </tr>
 </table>
 
 
 # Result
 
-This method returns no content.
+This method returns no content if the property `resultEnabled` is set to <code>false</code>, which is the default value. 
+Otherwise a JSON array of the message correlation results will be returned. Each message correlation result has the following properties:
 
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>resultType</td>
+    <td>String</td>
+    <td>
+      Indicates if the message was correlated to a message start event or an intermediate message catching event.
+      In the first case the resultType is <code>ProcessDefinition</code> and otherwise <code>Execution</code>.
+    </td>
+  </tr>
+  <tr>
+   <td>processInstance</td>
+   <td>Object</td>
+   <td>
+    This property has only a value if the resultType is set to <code>ProcessDefinition</code>.
+    The processInstance with the properties as described in the <a href="{{< relref "reference/rest/process-instance/get.md" >}}">get single instance</a> method.
+   </td>
+  </tr>
+  <tr>
+   <td>execution</td>
+   <td>Object</td>
+   <td>
+    This property has only a value if the resultType is set to <code>Execution</code>.
+    The execution with the properties as described in the <a href="{{< relref "reference/rest/execution/get.md" >}}">get single execution</a> method.
+   </td>
+  </tr>
+</table>
 
 # Response Codes
 
@@ -92,9 +130,14 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
+    <td>200</td>
+    <td>application/json</td>
+    <td>Request successful. The property <code>resultEnabled</code> in the request body was <code>true</code>. </td>
+  </tr>
+  <tr>
     <td>204</td>
     <td></td>
-    <td>Request successful.</td>
+    <td>Request successful. The property <code>resultEnabled</code> in the request body was <code>false</code> (Default). </td>    
   </tr>
   <tr>
     <td>400</td>
@@ -109,9 +152,11 @@ This method returns no content.
 
 ## Request
 
-POST `/message/correlate`
+POST `/message`
 
 Request Body:
+
+<p>Variant 1:</p>
 
     {"messageName" : "aMessage",
     "businessKey" : "aBusinessKey",
@@ -124,6 +169,43 @@ Request Body:
     }
     }
 
+<p>Variant 2:</p>
+
+
+    {
+      "messageName" : "aMessage",
+      "businessKey" : "aBusinessKey",
+      "correlationKeys" : {
+        "aVariable" : {"value" : "aValue", "type": "String"}
+      },
+      "processVariables" : {
+        "aVariable" : {"value" : "aNewValue", "type": "String"},
+        "anotherVariable" : {"value" : true, "type": "Boolean"}
+      },
+      "resultEnabled" : true
+    }
+
+
+
 ## Response
 
+<p>Variant 1:</p>
+
 Status 204. No content.
+
+<p>Variant 2:</p>
+
+    [{
+	"resultType": "ProcessDefinition",
+	"execution": null,
+	"processInstance": {
+		"links": [],
+		"id": "aProcInstId",
+		"definitionId": "aProcDefId",
+		"businessKey": "aKey",
+		"caseInstanceId": "aCaseInstId",
+		"ended": false,
+		"suspended": false,
+		"tenantId": "aTenantId"
+	}
+    }]
