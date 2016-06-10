@@ -40,6 +40,7 @@ The following is a list of current (unsupported) community extensions:
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
 * [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
+* [Camunda Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
 
 
 ## Building a Community Extension
