@@ -43,11 +43,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantId</td>
-    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belongs to the tenant.</td>
+    <td>Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -72,12 +72,12 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>all</td>
-    <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code> the message will be correlated to exactly one entity (execution or process definition). If the value is set to <code>true</code> the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
+    <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code>, the message will be correlated to exactly one entity (execution or process definition). If the value is set to <code>true</code>, the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
   </tr>
   <tr>
     <td>resultEnabled</td>
-    <td>A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to <code>true</code> there will be returned a list of message correlation result objects.
-    Depending on the <code>all</code> property there will be either one ore more returned results in the list.
+    <td>A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to <code>true</code>, there will be returned a list of message correlation result objects.
+    Depending on the <code>all</code> property, there will be either one ore more returned results in the list.
     <p>The default value is <code>false</code>, which means no result will be returned.</p>
   </tr>
 </table>
@@ -86,7 +86,7 @@ A JSON object with the following properties:
 # Result
 
 This method returns no content if the property `resultEnabled` is set to <code>false</code>, which is the default value.
-Otherwise a JSON array of the message correlation results will be returned. Each message correlation result has the following properties:
+Otherwise, a JSON array of the message correlation results will be returned. Each message correlation result has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -99,14 +99,14 @@ Otherwise a JSON array of the message correlation results will be returned. Each
     <td>String</td>
     <td>
       Indicates if the message was correlated to a message start event or an intermediate message catching event.
-      In the first case the resultType is <code>ProcessDefinition</code> and otherwise <code>Execution</code>.
+      In the first case, the resultType is <code>ProcessDefinition</code> and otherwise <code>Execution</code>.
     </td>
   </tr>
   <tr>
    <td>processInstance</td>
    <td>Object</td>
    <td>
-    This property has only a value if the resultType is set to <code>ProcessDefinition</code>.
+    This property only has a value if the resultType is set to <code>ProcessDefinition</code>.
     The processInstance with the properties as described in the <a href="{{< relref "reference/rest/process-instance/get.md" >}}">get single instance</a> method.
    </td>
   </tr>
@@ -114,7 +114,7 @@ Otherwise a JSON array of the message correlation results will be returned. Each
    <td>execution</td>
    <td>Object</td>
    <td>
-    This property has only a value if the resultType is set to <code>Execution</code>.
+    This property only has a value if the resultType is set to <code>Execution</code>.
     The execution with the properties as described in the <a href="{{< relref "reference/rest/execution/get.md" >}}">get single execution</a> method.
    </td>
   </tr>

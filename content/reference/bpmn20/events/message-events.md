@@ -79,9 +79,9 @@ After you have received a message, you can choose whether you employ the engine'
 The engine offers a basic correlation mechanism that will either signal an execution waiting for a specific message or instantiate a process with a matching message start event. The `RuntimeService` provides a fluent message correlation API:
 
 The result of the correlation is an object of type `MessageCorrelatedResult`. It contains the type of the correlation, which is either `execution` or `processDefinition`.
-The first type is set, if the message was correlated to an intermediate message catch event and the second, if the message was correlated to a start event.
-Is the type set to `execution` then the result contains an `Execution` object, it can be accessed via the `result.getExecution()` method. Is the type set to `processDefinition`
-the result contains a `ProcessInstance` object which was created through the start event. It is accessible via the `result.getProcessInstance()` method.
+The first type is set if the message was correlated to an intermediate message catch event. The second is set if the message was correlated to a start event.
+If the type is set to `execution`, then the result contains an `Execution` object which can be accessed via the `result.getExecution()` method. If the type is set to 
+`processDefinition`, the result contains a `ProcessInstance` object which was created through the start event, which is accessible via the `result.getProcessInstance()` method.
 
 ```java
 // correlate the message
@@ -107,7 +107,7 @@ Correlation is successful if a single matching entity exists among the following
 * **Process Definition**: A process definition matches if it can be started by a message named `messageName`.
 * **Execution (Process Instance)**: An execution matches if it is waiting for a message named `messageName` (if provided) and its process instance matches the given `businessKey` and `correlationKeys` (if provided). The `correlationKeys` map is matched against the process instance variables. If `messageName` is not provided, any execution that matches the other criteria matches the overall correlation. This can be useful when the sending party only knows a dynamic correlation key but not the message name as defined in the process model.
 
-Alternatively, it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. Therefore you can correlate a message by using the message correlation builder as follows:
+Alternatively, it is possible to correlate a message to multiple matched executions and to a process definition that can be instantiated by this message in one go. To do so, you can correlate a message by using the message correlation builder as follows:
 
 ```java
 List<MessageCorrelationResult> results = runtimeService
