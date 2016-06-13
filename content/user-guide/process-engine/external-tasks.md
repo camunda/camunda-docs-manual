@@ -94,7 +94,7 @@ for (LockedExternalTask task : tasks) {
         task.getId(),
         "externalWorkerId",
         "Address could not be validated: Address database not reachable",
-        1, 60L * 10000L);
+        1, 10L * 60L * 1000L);
     }
   }
   catch(Exception e) {
@@ -268,7 +268,7 @@ externalTaskService.handleFailure(
   "externalWorkerId",
   "Address could not be validated: Address database not reachable",     // errorMessage
   1,                                                                    // retries
-  60L * 10000L);                                                        // retryTimeout
+  10L * 60L * 1000L);                                                   // retryTimeout
 ```
 
 A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to `task.getRetries() - 1` when reporting a failure.
