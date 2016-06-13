@@ -142,7 +142,7 @@ These links point you to resources for other databases:
 * [How to configure a MySQL database](http://www.ironjacamar.org/doc/userguide/1.0/en-US/html_single/#ex_datasources_mysql)
 
 
-# Required Setup for Wildfly
+# Required Setup for Wildfly / JBoss EAP 7
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
@@ -181,11 +181,11 @@ Add the Camunda subsystem as extension:
 
 Configure the thread pool for the Camunda BPM platform Job Executor:
 
-Since Camunda BPM 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.  
-The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
+Since Camunda BPM 7.5, the configuration of the thread pool is done in the Camunda subsystem, not in the JBoss Threads subsystem anymore like it was done before 7.5.
+The thread pool creation and shutdown is now controlled through the Camunda subsystem.
 You are able to configure it through the following new configuration elements in the `job-executor` element of the subsystem XML configuration.
 
-Mandatory configuration elements are:  
+Mandatory configuration elements are:
 
 * ```<core-threads>3</core-threads>```
 * ```<max-threads>5</max-threads>```
