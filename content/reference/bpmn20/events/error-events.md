@@ -160,7 +160,7 @@ The errorCode is used to match the errors that are caught:
 *   If the errorCodeVariable is set, the error code can be retrieved using this variable.
 *   If the errorMessageVariable is set, the error message can be retrieved using this variable.
 
-# Throw and Catch Error Pattern
+# Catch and Re-Throw Pattern
 
 An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (In the below example, error thrown from the Event Subprocess is handled by the boundary error event in the Subprocess). 
 
