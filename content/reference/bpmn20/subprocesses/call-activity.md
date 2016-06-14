@@ -185,6 +185,95 @@ The same can be done with output parameters:
 
 When the called process instance ends, due to `local="true"` in the `camunda:out` parameter all variables are mapped to local variables of the execution executing the call activity. These variables can be mapped to process instance variables by using an output mapping. Any variable that is not declared by a `camunda:outputParameter` element will not be available anymore after the call activity ends.
 
+
+## Delegation of Variable Mapping
+
+The mapping of input and output variables can also be delegated. Which means the passing of input or/and output variables can be done in java code.
+The `DelegateVariableMapping` interface must be implemented see the following example:
+
+
+```java
+public class DelegatedVarMapping implements DelegateVariableMapping {
+
+  @Override
+  public void mapInputVariables(DelegateExecution execution, VariableMap variables) {
+    variables.putValue("TestInputVar", "inValue");
+  }
+
+  @Override
+  public void mapOutputVariables(DelegateExecution execution, VariableScope subInstance) {
+    execution.setVariable("TestOutputVar", "outValue");
+  }
+}
+```
+
+The `mapInputVariables` method is called before the call activity is executed, to map the input variables. 
+The input variables should be put into the given variables map.
+The `mapOutputVariables` method is called after the call activity was executed, to map the output variables.
+The output variables can be directly set into the caller execution.
+
+There are two possible ways to use the delegation for the variable mapping.
+
+### Delegate Variable Mapping via Reference
+
+First one is to set the camunda extension property `varMapping` and reference the implementation of the `DelegateVariableMapping` via the hole class name.
+The behavior of the class loading is similar to the class loading on [Java Delegates]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}).
+
+```xml
+ <process id="callSimpleSubProcess">
+
+    <startEvent id="theStart" />
+
+    <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
+
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:varMapping="org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
+
+    <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
+
+    <userTask id="taskAfterSubProcess" name="Task after subprocess" />
+
+    <sequenceFlow id="flow4" sourceRef="taskAfterSubProcess" targetRef="theEnd" />
+
+    <endEvent id="theEnd" />
+
+  </process>
+```
+
+### Delegate Variable Mapping via Expression
+
+The second one is to set the camunda extension property `varMapping` with an expression. 
+This allows to specify an expression that resolves to an object implementing the `DelegateVariableMapping` interface.
+
+```xml
+  <process id="callSimpleSubProcess">
+
+    <startEvent id="theStart" />
+
+    <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
+
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:varMapping="${expr}"/>
+    
+    <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
+
+    <userTask id="taskAfterSubProcess" name="Task after subprocess" />
+
+    <sequenceFlow id="flow4" sourceRef="taskAfterSubProcess" targetRef="theEnd" />
+
+    <endEvent id="theEnd" />
+
+  </process>
+```
+See the following example for the usage of the defined process and the delegated variable mapping expression. The `expr` must be set as bean in the process engine configuration, so it can be resolved 
+if the call activity is executed. The value of the expression must be resolved to an object which implements the `DelegateVariableMapping` interface.
+
+```java
+    Map<Object, Object> vars = processEngineConfiguration.getBeans();
+    vars.put("expr", new DelegatedVarMapping());
+    processEngineConfiguration.setBeans(vars);
+    runtimeService.startProcessInstanceByKey("callSimpleSubProcess");
+```
+
+
 # Passing Business Key
 
 You can pass the business key to the subprocess. The data is copied into the subprocess when it is started. You can not give back the business key to the parent process because the business key is not changeable.
