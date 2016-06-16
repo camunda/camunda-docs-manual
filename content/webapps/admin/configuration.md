@@ -38,6 +38,41 @@ and can override the standard styles.
 }
 ```
 
+# Custom Scripts
+
+If you want to add your own scripts to the Admin application, you should add a `customScripts` property to the `app/admin/scripts/config.js`
+file with something like this:
+
+```javascript
+var camAdminConf = {
+  // …
+  customScripts: {
+    // names of angular modules defined in your custom script files.
+    // will be added to the 'cam.admin.custom' as dependencies
+    ngDeps: ['my.custom.module'],
+
+    // RequireJS modules to load.
+    deps: ['custom-ng-module'],
+
+    // RequreJS path definitions
+    paths: {
+      'custom-ng-module': '../custom-ng-module/script'
+    }
+  }
+};
+```
+This includes a `custom-ng-module/script.js` file. The path is relative to the
+`app/admin` folder in the Camunda webapp .war file.
+
+**Note:** The content of the `customScripts` property will be treated as a
+[RequireJS configuration](http://requirejs.org/docs/api.html#config) except for the
+`nodeIdCompat` and `skipDataMain` which are irrelevant and `deps` which will be used like:
+
+```javascript
+require(config.deps, callback);
+```
+
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
