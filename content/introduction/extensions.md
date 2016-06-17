@@ -41,6 +41,7 @@ The following is a list of current (unsupported) community extensions:
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
 * [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
 * [Camunda Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
+* [Email Integration](https://github.com/camunda/camunda-bpm-mail)
 
 
 ## Building a Community Extension
