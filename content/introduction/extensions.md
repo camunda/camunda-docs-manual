@@ -27,6 +27,7 @@ Camunda supports the community in its effort to build additional community exten
 
 The following is a list of current (unsupported) community extensions:
 
+* [Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter)
 * [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
 * [AssertJ Testing Library](https://github.com/camunda/camunda-bpm-assert)
 * [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
