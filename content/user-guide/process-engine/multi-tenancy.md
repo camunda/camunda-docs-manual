@@ -424,6 +424,22 @@ public class CustomTenantIdProvider implements TenantIdProvider {
 }
 ```
 
+To use the `TenantIdProvider`, it must be set in the Process Engine Configuration, for example using the `camunda.cfg.xml`:
+
+```xml
+<beans>
+  <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+    <!-- ... -->
+    
+    <property name="tenantIdProvider" ref="tenantIdProvider" />
+  </bean>
+  
+  <bean id="tenantIdProvider" class="org.camunda.bpm.CustomTenantIdProvider">
+</beans>
+```
+
+In case of a shared process engine, the provider can be set via [Process Engine Plugin]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}).
+
 ### Tenant-specific behavior with Call Activities
 
 So far, we have seen that shared resources are a useful pattern if tenants have the same process definition. The advantage is that we do not have to deploy the same process definitions once per tenant. Yet, in many real world applications, the situation is somewhat in between: tenants share *mostly* the same process definitions, but there are some tenant specific variations.
