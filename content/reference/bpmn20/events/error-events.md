@@ -75,13 +75,13 @@ Three optional attributes can be added to the error start event: <code>errorRef<
   ...
   <process>
     ...
-    <subprocess>
+    <subProcess id="SubProcess_1" triggeredByEvent="true">>
       <startEvent id="myErrorStartEvent">
         <errorEventDefinition errorRef="myException" camunda:errorCodeVariable="myErrorVariable"
   		  camunda:errorMessageVariable="myErrorMessageVariable" />
       </startEvent>
     ...
-    </subprocess>
+    </subProcess>
   ...
   </process>
 </definitions>
