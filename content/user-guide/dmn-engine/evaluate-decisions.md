@@ -226,7 +226,7 @@ ruleResult.getFirstEntry();
 // but asserts that only a single one exists
 ruleResult.getSingleEntry();
 ```
-# DRD Result Evaluation
+# DRD Evaluation
 
 The decision evaluation requires the evaluation result of all the required decision as a input.
 
