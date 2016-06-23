@@ -17,6 +17,7 @@ certain events occur during process execution.
 There are different types of Delegation Code:
 
 * **Java Delegates** can be attached to a [BPMN Service Task]({{< relref "reference/bpmn20/tasks/service-task.md" >}}).
+* **Delegate Variable Mapping** can be attached to a [Call Activity]({{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}).
 * **Execution Listeners** can be attached to any event within the normal token flow, e.g., starting a process instance or entering an activity.
 * **Task Listeners** can be attached to events within the user task lifecycle, e.g., creation or completion of a user task.
 
@@ -186,6 +187,33 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
 {{< note title="" class="info" >}}
   Since the Java class instance is reused, the injection only happens once, when the service task is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them as immutable and not make any changes to them.
 {{< /note >}}
+
+# Delegate Variable Mapping
+
+To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the `org.camunda.bpm.engine.delegate.DelegateVariableMapping`
+interface. The implementation must provide the implementation for the methods `mapInputVariables(DelegateExecution, VariableMap)` and `mapOutputVariables(DelegateExecution, VariableScope)`.
+See the following example:
+
+```java
+public class DelegatedVarMapping implements DelegateVariableMapping {
+
+  @Override
+  public void mapInputVariables(DelegateExecution execution, VariableMap variables) {
+    variables.putValue("TestInputVar", "inValue");
+  }
+
+  @Override
+  public void mapOutputVariables(DelegateExecution execution, VariableScope subInstance) {
+    execution.setVariable("TestOutputVar", "outValue");
+  }
+}
+```
+
+The `mapInputVariables` method is called before the call activity is executed, to map the input variables.
+The input variables should be put into the given variables map.
+The `mapOutputVariables` method is called after the call activity was executed, to map the output variables.
+The output variables can be directly set into the caller execution.
+The behavior of the class loading is similar to the class loading on [Java Delegates]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}).
 
 
 # Execution Listener

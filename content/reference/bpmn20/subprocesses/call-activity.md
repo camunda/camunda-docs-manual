@@ -189,35 +189,14 @@ When the called process instance ends, due to `local="true"` in the `camunda:out
 ## Delegation of Variable Mapping
 
 The mapping of input and output variables can also be delegated. Which means the passing of input or/and output variables can be done in java code.
-The `DelegateVariableMapping` interface must be implemented see the following example:
-
-
-```java
-public class DelegatedVarMapping implements DelegateVariableMapping {
-
-  @Override
-  public void mapInputVariables(DelegateExecution execution, VariableMap variables) {
-    variables.putValue("TestInputVar", "inValue");
-  }
-
-  @Override
-  public void mapOutputVariables(DelegateExecution execution, VariableScope subInstance) {
-    execution.setVariable("TestOutputVar", "outValue");
-  }
-}
-```
-
-The `mapInputVariables` method is called before the call activity is executed, to map the input variables. 
-The input variables should be put into the given variables map.
-The `mapOutputVariables` method is called after the call activity was executed, to map the output variables.
-The output variables can be directly set into the caller execution.
+For this the [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) interface must be implemented.
 
 There are two possible ways to use the delegation for the variable mapping.
 
 ### Delegate Variable Mapping via Reference
 
-First one is to set the camunda extension property `varMapping` and reference the implementation of the `DelegateVariableMapping` via the hole class name.
-The behavior of the class loading is similar to the class loading on [Java Delegates]({{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}).
+First one is to set the camunda extension property `variableMappingClass` and reference the implementation of the `DelegateVariableMapping` interface via the hole class name.
+
 
 ```xml
  <process id="callSimpleSubProcess">
@@ -226,7 +205,7 @@ The behavior of the class loading is similar to the class loading on [Java Deleg
 
     <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
 
-    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:varMapping="org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingClass="org.camunda.bpm.example.bpm.callactivity.DelegatedVarMapping"/>
 
     <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
 
@@ -241,7 +220,7 @@ The behavior of the class loading is similar to the class loading on [Java Deleg
 
 ### Delegate Variable Mapping via Expression
 
-The second one is to set the camunda extension property `varMapping` with an expression. 
+The second one is to set the camunda extension property `variableMappingDelegateExpression` with an expression.
 This allows to specify an expression that resolves to an object implementing the `DelegateVariableMapping` interface.
 
 ```xml
@@ -251,7 +230,7 @@ This allows to specify an expression that resolves to an object implementing the
 
     <sequenceFlow id="flow1" sourceRef="theStart" targetRef="callSubProcess" />
 
-    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:varMapping="${expr}"/>
+    <callActivity id="callSubProcess" calledElement="simpleSubProcess" camunda:variableMappingDelegateExpression="${expr}"/>
     
     <sequenceFlow id="flow3" sourceRef="callSubProcess" targetRef="taskAfterSubProcess" />
 
@@ -264,7 +243,8 @@ This allows to specify an expression that resolves to an object implementing the
   </process>
 ```
 See the following example for the usage of the defined process and the delegated variable mapping expression. The `expr` must be set as bean in the process engine configuration, so it can be resolved 
-if the call activity is executed. The value of the expression must be resolved to an object which implements the `DelegateVariableMapping` interface.
+if the call activity is executed. The value of the expression must be resolved to an object that implements the `DelegateVariableMapping` interface.
+See [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) for further information of implementing the interface.
 
 ```java
     Map<Object, Object> vars = processEngineConfiguration.getBeans();
@@ -272,7 +252,6 @@ if the call activity is executed. The value of the expression must be resolved t
     processEngineConfiguration.setBeans(vars);
     runtimeService.startProcessInstanceByKey("callSimpleSubProcess");
 ```
-
 
 # Passing Business Key
 
@@ -377,7 +356,9 @@ An expression also allows using the tenant id of the calling process instance in
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casetenantid" >}}">camunda:caseTenantId</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#exclusive" >}}">camunda:exclusive</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#jobpriority" >}}">camunda:jobPriority</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingclass" >}}">camunda:variableMappingClass</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#variablemappingdelegateexpression" >}}">camunda:variableMappingDelegateExpression</a>
     </td>
   </tr>
   <tr>

@@ -1412,3 +1412,67 @@ The following attributes are extension attributes for the `camunda` namespace `h
     </td>
   </tr>
 </table>
+
+# variableMappingClass
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which Java class will be executed at runtime to map the input and output variables for a call activity.
+      The stated class must implement the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Fully qualified Java class name of a class which implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g <code>org.camunda.bpm.MyVariableMappingDelegate</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
+
+# variableMappingDelegateExpression
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute allows specification of an expression which must resolve to an object that implements the corresponding interface <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Expression which evaluates to a Java class that implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g. <code>${myVariableMapping}</code>.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+    </td>
+  </tr>
+</table>
