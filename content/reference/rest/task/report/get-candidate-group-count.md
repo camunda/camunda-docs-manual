@@ -88,12 +88,12 @@ GET `/task/report/candidate-group-count` with media type `application/json`
     "taskCount": 1
   },
   {
-      "groupName": aGroupName,
-      "taskCount": 2
+    "groupName": "aGroupName",
+    "taskCount": 2
   },
   {
-        "groupName": anotherGroupName,
-        "taskCount": 3
+    "groupName": "anotherGroupName",
+    "taskCount": 3
   },
 ]
 ```
