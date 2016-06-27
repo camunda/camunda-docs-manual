@@ -105,6 +105,22 @@ ProcessInstance instance = runtimeService.createProcessInstanceByKey("invoice")
 
 The fluent builder allows to submit any number of so-called instantiation instructions. When calling `execute`, the process engine performs these instructions in the order they are specified. In the above example, the engine first starts the task *SendInvoiceReceiptTask* and executes the process until it reaches a wait state and then starts *DeliverPizzaTask* and does the same. After these two instructions, the `execute` call returns.
 
+### Variables in Return
+
+To access the variables which was used by the process instance during execution the `executeWithVariablesInReturn` can be used, instead of the `execute` method. 
+See the following example:
+
+```java
+ProcessInstanceWithVariables instance = runtimeService.createProcessInstanceByKey("invoice")
+  .startBeforeActivity("SendInvoiceReceiptTask")
+  .setVariable("creditor", "Nice Pizza Inc.")
+  .startBeforeActivity("DeliverPizzaSubProcess")
+  .setVariableLocal("destination", "12 High Street")
+  .executeWithVariablesInReturn();
+```
+
+The `executeWithVariablesInReturn` returns if the process instance ends or reaches a wait state. The returned `ProcessInstanceWithVariables` object contains the informations of the process instance and the variables which was used till then.
+
 
 ## Query for Process Instances
 

@@ -70,7 +70,7 @@ A JSON object with the following properties: (at least an empty object `{}`)
   <tr>
     <td>businessKey</td>
     <td>The business key the process instance is to be initialized with.
-	The business key uniquely identifies the process instance in the context of the given process definition.</td>
+        The business key uniquely identifies the process instance in the context of the given process definition.</td>
   </tr>
   <tr>
     <td>caseInstanceId</td>
@@ -116,6 +116,13 @@ A JSON object with the following properties: (at least an empty object `{}`)
     <td>
       Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.
       <p><b>Note:</b> This option is currently only respected when start instructions are submitted via the <code>startInstructions</code> property.</p>
+    </td>
+  </tr>
+  <tr>
+    <td>withVariablesInReturn</td>
+    <td>
+      Indicates if the variables, which was used by the process instance during execution, should be returned.
+      Default value: false
     </td>
   </tr>
 </table>
@@ -172,6 +179,15 @@ Properties are:
     <td>Object</td>
     <td>A JSON array containing links to interact with the instance.</td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing a property for each of the variables, which are used during execution of the process instance.
+      The key is the variable name, the value is a JSON object of serialized variable values with the following properties:
+      {{< rest-var-response deserializationParameter="" >}}
+    </td>
+  </tr>
 </table>
 
 
@@ -191,12 +207,12 @@ Properties are:
   <tr>
     <td>400</td>
     <td>application/json</td>
-	<td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-	<td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -208,9 +224,9 @@ Properties are:
 
 # Example
 
-### Starting a process instance at its default initial activity:
+## Starting a process instance at its default initial activity:
 
-## Request
+### Request
 
 POST `/process-definition/aProcessDefinitionId/start`
 
@@ -221,10 +237,10 @@ Request body:
     {"variables":
         {"aVariable" : {"value" : "aStringValue", "type": "String"},
          "anotherVariable" : {"value" : true, "type": "Boolean"}},
-	 "businessKey" : "myBusinessKey"
-	}
+         "businessKey" : "myBusinessKey"
+        }
 
-## Response
+### Response
 
     {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",
@@ -234,9 +250,61 @@ Request body:
     "ended":false,
     "suspended":false}
 
-### Starting a process instance at two specific activities:
+## Starting a process instance with variables in return:
 
-## Request
+### Request
+
+POST `/process-definition/aProcessDefinitionId/start`
+
+POST `/process-definition/key/aProcessDefinitionKey/start`
+
+Request body:
+
+    {
+     "variables":{
+       "aVariable" : {
+         "value" : "aStringValue",
+         "type": "String"},
+      "anotherVariable" : {
+         "value" : true,
+         "type": "Boolean"}
+     },
+     "businessKey" : "myBusinessKey",
+     "withVariablesInReturn": true
+    }
+
+### Response
+
+    {
+      "links": [
+      {
+        "method": "GET",
+        "href": "http://localhost:8080/rest-test/process-instance/aProcInstId",
+        "rel": "self"
+      }],
+      "id": "aProcInstId",
+      "definitionId": "aProcessDefinitionId",
+      "businessKey": "myBusinessKey",
+      "ended": false,
+      "suspended": false,
+      "tenantId": null,
+      "variables": {
+        "anotherVariable": {
+            "type": "Boolean",
+            "value": true,
+            "valueInfo": { }
+        },
+        "aVariable": {
+            "type": "String",
+            "value": "aStringValue",
+            "valueInfo": { }
+        }
+      }
+    }
+
+## Starting a process instance at two specific activities:
+
+### Request
 
 POST `/process-definition/aProcessDefinitionId/start`
 
@@ -246,7 +314,7 @@ Request Body:
 
     {"variables":
         {"aProcessVariable" : {"value" : "aStringValue", "type": "String"}},
-	  "businessKey" : "myBusinessKey",
+          "businessKey" : "myBusinessKey",
     "skipCustomListeners" : true,
     "startInstructions" :
       [
@@ -270,9 +338,9 @@ Request Body:
             "type": "String"}
           }
       }]
-	  }
+          }
 
-## Response
+### Response
 
     {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
     "id":"anId",
