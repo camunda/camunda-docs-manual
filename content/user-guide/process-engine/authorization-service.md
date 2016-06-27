@@ -100,6 +100,7 @@ The following resources are available:
 * Authorization
 * Batch
 * Decision Definition
+* Decision Requirement Definition
 * Deployment
 * Filter
 * Group
@@ -186,6 +187,13 @@ The following table gives an overview for which resources they are available:
     </tr>
     <tr>
       <th>Decision Definition</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Decision Requirement Definition</th>
       <td>X</td>
       <td></td>
       <td></td>
@@ -570,4 +578,4 @@ Revoke authorizations are expensive to check. The check needs to consider the pr
 
 On these databases, revoke authorizations are effectively unusable.
 
-Also see the [Configuration Options](#checking-revoke-authorizations) section on this page.
+Also see the [Configuration Options](#check-revoke-authorizations) section on this page.

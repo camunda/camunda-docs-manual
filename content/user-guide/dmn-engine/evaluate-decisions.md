@@ -51,8 +51,8 @@ List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
 
 ## The Decision Key
 
-A DMN XML file can contain multiple decisions. To distinguish the decisions,
-every decision should have an `id` attribute.
+A DMN XML file can contain multiple decisions - grouped by the [decision requirement diagram]. To distinguish the decisions,
+every decision must have an `id` attribute.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -87,10 +87,30 @@ InputStream inputStream = ...
 DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 ```
 
+## Parse Decision Requirement Diagrams
+
+In addition to parse all containing decisions of a [decision requirement diagram]({{< relref "reference/dmn11/drd/index.md" >}}) (aka DRD), the DMN engine can also parse the DRD from an `InputStream` or a `DmnModelInstance` itself. 
+
+```java
+// parse the drd from an input stream
+DmnDecisionRequirementDiagram drd = dmnEngine.parseDecisionRequirementDiagram(inputStream);
+
+// get the keys of all containing decisions
+Set<String> decisionKeys = drd.getDecisionKeys();
+
+// get a containing decision by key
+DmnDecision decision = drd.getDecision("decision");
+
+// get all containing decisions
+Collection<DmnDecision> decisions = drd.getDecisions();
+```
+
+The DRD is represented in the XML by the `definitions` element. The `id` of the DRD in the XML is called `key` in the context of the DMN engine. 
+
 ## Decision Tables only
 
-Currently the DMN engine only supports DMN 1.1 [decision tables]. Other decisions
-will be ignored. Use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}} to test if a parsed decision is actually a decision table.
+Currently the DMN engine only supports DMN 1.1 decisions with [decision tables]. Other decisions
+will be ignored. Use the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}} to test if a parsed decision is actually implemented as decision table.
 
 ```java
 // create a default DMN engine
@@ -113,7 +133,7 @@ if (decision.isDecisionTable()) {
 }
 ```
 
-# Evaluate Decision
+# Evaluate Decisions
 
 To evaluate (or "execute") a decision, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or Input Stream in combination with a decision key.
 
@@ -251,3 +271,4 @@ The output result of the decisions `Season` and `GuestCount` are [mapped] to the
 
 [mapped]: {{< relref "reference/dmn11/drd/index.md#required-decision-mapping" >}}
 [decision tables]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision requirement diagram]: {{< relref "reference/dmn11/drd/index.md" >}}
