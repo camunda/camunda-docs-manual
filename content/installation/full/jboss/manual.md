@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7/JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server](http://www.wildfly.org).
+This document describes the installation of Camunda BPM and its components on a vanilla [JBoss Application Server 7 / JBoss EAP 6](http://www.jboss.org/products/eap) or vanilla [Wildfly Application Server](http://www.wildfly.org).
 
 {{< note title="Reading this Guide" class="info" >}}
 This guide uses a number of variables to denote common path names and constants:
