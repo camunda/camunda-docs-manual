@@ -79,6 +79,13 @@ The resulting project should look like this:
 
 Sometimes, the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, [contact us](http://camunda.org/community/forum.html).
 
+# Usage in IntelliJ IDE
+
+## Summary
+
+1. Add an archetype plugin (**Settings -> Plugins -> install the archetype plugin**)
+2. Add the catalog file with the full path to the xml file **https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
+3. Create Maven project from archetype (**New Project -> Maven -> Check "From Archetype"** The com.camunda archetypes should be in the list)
 
 # Usage on Commandline
 
