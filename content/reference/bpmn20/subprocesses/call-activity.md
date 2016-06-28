@@ -188,14 +188,14 @@ When the called process instance ends, due to `local="true"` in the `camunda:out
 
 ## Delegation of Variable Mapping
 
-The mapping of input and output variables can also be delegated. Which means the passing of input or/and output variables can be done in java code.
+The mapping of input and output variables can also be delegated. This means the passing of input or/and output variables can be done in Java code.
 For this the [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) interface must be implemented.
 
-There are two possible ways to use the delegation for the variable mapping.
+There are two possible ways to use delegation for variable mapping.
 
 ### Delegate Variable Mapping via Reference
 
-First one is to set the camunda extension property `variableMappingClass` and reference the implementation of the `DelegateVariableMapping` interface via the hole class name.
+The first one is to set the Camunda extension property `variableMappingClass` and reference the implementation of the `DelegateVariableMapping` interface via the whole class name.
 
 
 ```xml
@@ -220,7 +220,7 @@ First one is to set the camunda extension property `variableMappingClass` and re
 
 ### Delegate Variable Mapping via Expression
 
-The second one is to set the camunda extension property `variableMappingDelegateExpression` with an expression.
+The second one is to set the Camunda extension property `variableMappingDelegateExpression` with an expression.
 This allows to specify an expression that resolves to an object implementing the `DelegateVariableMapping` interface.
 
 ```xml

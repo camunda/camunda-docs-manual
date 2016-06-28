@@ -1430,7 +1430,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g <code>org.camunda.bpm.MyVariableMappingDelegate</code>
+      Fully qualified Java class name of a class which implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g., <code>org.camunda.bpm.MyVariableMappingDelegate</code>
     </td>
   </tr>
   <tr>
@@ -1462,7 +1462,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression which evaluates to a Java class that implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g. <code>${myVariableMapping}</code>.
+      Expression which evaluates to a Java class that implements the <a href="{{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}">Delegate Variable Mapping</a> interface, e.g., <code>${myVariableMapping}</code>.
     </td>
   </tr>
   <tr>
