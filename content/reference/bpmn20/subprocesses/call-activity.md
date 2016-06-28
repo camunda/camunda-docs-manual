@@ -242,16 +242,7 @@ This allows to specify an expression that resolves to an object implementing the
 
   </process>
 ```
-See the following example for the usage of the defined process and the delegated variable mapping expression. The `expr` must be set as bean in the process engine configuration, so it can be resolved 
-if the call activity is executed. The value of the expression must be resolved to an object that implements the `DelegateVariableMapping` interface.
 See [Delegate Variable Mapping]({{< relref "user-guide/process-engine/delegation-code.md#delegate-variable-mapping" >}}) for further information of implementing the interface.
-
-```java
-    Map<Object, Object> vars = processEngineConfiguration.getBeans();
-    vars.put("expr", new DelegatedVarMapping());
-    processEngineConfiguration.setBeans(vars);
-    runtimeService.startProcessInstanceByKey("callSimpleSubProcess");
-```
 
 # Passing Business Key
 

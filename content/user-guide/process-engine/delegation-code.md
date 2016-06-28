@@ -191,7 +191,7 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
 # Delegate Variable Mapping
 
 To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the `org.camunda.bpm.engine.delegate.DelegateVariableMapping`
-interface. The implementation must provide the implementation for the methods `mapInputVariables(DelegateExecution, VariableMap)` and `mapOutputVariables(DelegateExecution, VariableScope)`.
+interface. The implementation must provide the methods `mapInputVariables(DelegateExecution, VariableMap)` and `mapOutputVariables(DelegateExecution, VariableScope)`.
 See the following example:
 
 ```java
@@ -199,12 +199,12 @@ public class DelegatedVarMapping implements DelegateVariableMapping {
 
   @Override
   public void mapInputVariables(DelegateExecution execution, VariableMap variables) {
-    variables.putValue("TestInputVar", "inValue");
+    variables.putValue("inputVar", "inValue");
   }
 
   @Override
   public void mapOutputVariables(DelegateExecution execution, VariableScope subInstance) {
-    execution.setVariable("TestOutputVar", "outValue");
+    execution.setVariable("outputVar", "outValue");
   }
 }
 ```
