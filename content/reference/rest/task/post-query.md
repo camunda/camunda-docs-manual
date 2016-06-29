@@ -189,6 +189,11 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>withCandidateGroups</td>
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>candidateUser</td>
     <td>Only include tasks that are offered to the given user.</td>
   </tr>

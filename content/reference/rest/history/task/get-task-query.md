@@ -228,6 +228,11 @@ GET `/history/task`
     <td>Restrict on the historic identity links of type candidate group.</td>
   </tr>
   <tr>
+    <td>withCandidateGroups</td>
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
     <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>,

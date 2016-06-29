@@ -227,6 +227,11 @@ GET `/history/task/count`
     <td>taskHadCandidateGroup</td>
     <td>Restrict on the historic identity links of type candidate group.</td>
   </tr>
+  <tr>
+    <td>withCandidateGroups</td>
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 

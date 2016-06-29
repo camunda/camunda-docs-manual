@@ -397,6 +397,11 @@ GET `/task`
     </td>
   </tr>
   <tr>
+    <td>withCandidateGroups</td>
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>

@@ -247,6 +247,11 @@ A JSON object with the following properties:
     <td>Restrict on the historic identity links of type candidate group.</td>
   </tr>
   <tr>
+    <td>withCandidateGroups</td>
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
