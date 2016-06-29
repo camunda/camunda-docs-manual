@@ -220,6 +220,10 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>assigned</td>
+    <td>If set to <code>true</code>, restricts the query to all tasks that are assigned.</td>
+  </tr>
+  <tr>
     <td>unassigned</td>
     <td>If set to <code>true</code>, restricts the query to all tasks that are unassigned.</td>
   </tr>

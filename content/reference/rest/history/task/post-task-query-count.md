@@ -135,6 +135,14 @@ A JSON object with the following properties:
     <td>Restrict to tasks that have the given priority.</td>
   </tr>
   <tr>
+    <td>assigned</td>
+    <td>If set to <code>true</code>, restricts the query to all tasks that are assigned.</td>
+  </tr>
+  <tr>
+    <td>unassigned</td>
+    <td>If set to <code>true</code>, restricts the query to all tasks that are unassigned.</td>
+  </tr>
+  <tr>
     <td>finished</td>
     <td>Only include finished tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
