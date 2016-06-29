@@ -314,6 +314,7 @@ GET `/history/case-activity-instance?caseActivityName=aCaseActivityName&complete
     "calledProcessInstanceId": "aHistoricCalledProcessInstanceId",
     "caseActivityId": "aCaseActivity",
     "caseActivityName": "aCaseActivityName",
+    "caseActivityType": "humanTask",
     "caseDefinitionId": "aCaseDefId",
     "caseExecutionId": "aCaseExecutionId",
     "caseInstanceId": "aCaseInstId",
