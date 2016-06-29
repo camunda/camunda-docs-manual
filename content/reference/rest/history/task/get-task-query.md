@@ -233,6 +233,11 @@ GET `/history/task`
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withoutCandidateGroups</td>
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
     <code>taskId</code>, <code>activityInstanceID</code>, <code>processDefinitionId</code>, <code>processInstanceId</code>, <code>executionId</code>,

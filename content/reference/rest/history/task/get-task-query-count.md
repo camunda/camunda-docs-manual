@@ -232,6 +232,11 @@ GET `/history/task/count`
     <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
     as <code>false</code> is the default behavior.</td>
   </tr>
+  <tr>
+    <td>withoutCandidateGroups</td>
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
 </table>
 
 

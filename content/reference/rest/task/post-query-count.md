@@ -401,6 +401,11 @@ expression as a substring.
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withoutCandidateGroups</td>
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>active</td>
     <td>Only include active tasks. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
