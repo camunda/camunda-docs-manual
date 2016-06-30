@@ -47,7 +47,7 @@ DmnEngine dmnEngine = configuration.buildEngine();
 
 # Configuration of the DMN Engine
 
-## Decision Evaluation Listeners
+## Decision Table Evaluation Listeners
 
 The DMN engine configuration allows you add a custom decision table {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html"
@@ -88,6 +88,31 @@ DmnEngineMetricCollector metricCollector = ...;
 
 // set the metric collector
 configuration.setEngineMetricCollector(metricCollector);
+```
+## Decision Evaluation Listeners
+
+The DMN engine configuration allows you add a custom {{< javadocref
+page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionEvaluationListener.html"
+text="decision evaluation listener" >}}. A decision evaluation listener is
+notified after a decision with all the required decisions were evaluated. It receives an evaluation event
+which contains the result of the evaluation. You can decide if the
+listener should be notified before or after the default listeners.
+
+```java
+// create default DMN engine configuration
+DmnEngineConfiguration configuration = DmnEngineConfiguration
+    .createDefaultDmnEngineConfiguration();
+
+// instantiate the listener
+DmnDecisionEvaluationListener myListener = ...;
+
+// notify before default listeners
+configuration.getCustomPreDecisionEvaluationListeners()
+  .add(myListener);
+
+// notify after default listeners
+configuration.getCustomPostDecisionEvaluationListeners()
+  .add(myListener);
 ```
 
 # Customizing and Extending the DMN Engine
