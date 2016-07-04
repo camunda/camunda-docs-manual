@@ -66,6 +66,10 @@ A JSON object with the following properties:
     <td>Only include historic variable instances which belong to one of the passed task ids.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
+  </tr>
+  <tr>
     <td>activityInstanceIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed activity instance ids.</td>
   </tr>
