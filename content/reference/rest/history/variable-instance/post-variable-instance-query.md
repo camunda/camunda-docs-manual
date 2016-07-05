@@ -70,6 +70,10 @@ A JSON object with the following properties:
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
+  </tr> 
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
   </tr>
@@ -84,10 +88,6 @@ A JSON object with the following properties:
   <tr>
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed task ids.</td>
-  </tr>
-  <tr>
-    <td>processInstanceIdIn</td>
-    <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
   </tr>
   <tr>
     <td>activityInstanceIdIn</td>
