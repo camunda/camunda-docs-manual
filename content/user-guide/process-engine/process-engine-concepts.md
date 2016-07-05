@@ -107,7 +107,7 @@ The fluent builder allows to submit any number of so-called instantiation instru
 
 ### Variables in Return
 
-To access the variables which was used by the process instance during execution the `executeWithVariablesInReturn` can be used, instead of the `execute` method. 
+To access the latest variables which was used by the process instance during execution the `executeWithVariablesInReturn` can be used, instead of the `execute` method. 
 See the following example:
 
 ```java
@@ -119,8 +119,7 @@ ProcessInstanceWithVariables instance = runtimeService.createProcessInstanceByKe
   .executeWithVariablesInReturn();
 ```
 
-The `executeWithVariablesInReturn` returns if the process instance ends or reaches a wait state. The returned `ProcessInstanceWithVariables` object contains the informations of the process instance and the variables which was used till then.
-
+The `executeWithVariablesInReturn` returns if the process instance ends or reaches a wait state. The returned `ProcessInstanceWithVariables` object contains the informations of the process instance and the latest variables.
 
 ## Query for Process Instances
 

@@ -183,7 +183,7 @@ Properties are:
     <td>variables</td>
     <td>Object</td>
     <td>
-      A JSON object containing a property for each of the variables, which are used during execution of the process instance.
+      A JSON object containing a property for each of the latest variables.
       The key is the variable name, the value is a JSON object of serialized variable values with the following properties:
       {{< rest-var-response deserializationParameter="" >}}
     </td>
