@@ -18,9 +18,9 @@ menu:
 A Decision Requirements Graph (aka DRG) models a domain of decision-making, showing the most important elements involved in it and the dependencies
 between them. The elements modeled are decisions, knowledge sources, and input data.
 
-A Decision Requirements Diagram (DRD) provides a visual representation of the DRG.
+The visual representation of a DRG is called Decision Requirements Diagram (aka DRD).
 
-A DRG is represented by the `definitions` element in the XML.
+In the XML a DRG is represented by the `definitions` element.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
