@@ -51,7 +51,7 @@ List<DmnDecision> decisions = dmnEngine.parseDecisions(dmnModelInstance);
 
 ## The Decision Key
 
-A DMN XML file can contain multiple decisions - grouped by the [decision requirement diagram]. To distinguish the decisions,
+A DMN XML file can contain multiple decisions - grouped by the [decision requirements graph]. To distinguish the decisions,
 every decision must have an `id` attribute.
 
 ```xml
@@ -87,25 +87,25 @@ InputStream inputStream = ...
 DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 ```
 
-## Parse Decision Requirement Diagrams
+## Parse Decision Requirements Graph
 
-In addition to parse all containing decisions of a [decision requirement diagram]({{< relref "reference/dmn11/drd/index.md" >}}) (aka DRD), the DMN engine can also parse the DRD from an `InputStream` or a `DmnModelInstance` itself. 
+In addition to parse all containing decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (aka DRG), the DMN engine can also parse the DRG from an `InputStream` or a `DmnModelInstance` itself. 
 
 ```java
-// parse the drd from an input stream
-DmnDecisionRequirementDiagram drd = dmnEngine.parseDecisionRequirementDiagram(inputStream);
+// parse the drg from an input stream
+DmnDecisionRequirementsGraph drg = dmnEngine.parseDecisionRequirementsGraph(inputStream);
 
 // get the keys of all containing decisions
-Set<String> decisionKeys = drd.getDecisionKeys();
+Set<String> decisionKeys = drg.getDecisionKeys();
 
 // get a containing decision by key
-DmnDecision decision = drd.getDecision("decision");
+DmnDecision decision = drg.getDecision("decision");
 
 // get all containing decisions
-Collection<DmnDecision> decisions = drd.getDecisions();
+Collection<DmnDecision> decisions = drg.getDecisions();
 ```
 
-The DRD is represented in the XML by the `definitions` element. The `id` of the DRD in the XML is called `key` in the context of the DMN engine. 
+The DRG is represented in the XML by the `definitions` element. The `id` of the DRG in the XML is called `key` in the context of the DMN engine. 
 
 ## Decision Tables only
 
@@ -281,4 +281,4 @@ String desiredDish = results.getSingleResult().getSingleEntry();
 ```
 
 [decision tables]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision requirement diagram]: {{< relref "reference/dmn11/drd/index.md" >}}
+[decision requirements graph]: {{< relref "reference/dmn11/drg/index.md" >}}

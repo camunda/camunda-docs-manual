@@ -100,7 +100,7 @@ The following resources are available:
 * Authorization
 * Batch
 * Decision Definition
-* Decision Requirement Definition
+* Decision Requirements Definition
 * Deployment
 * Filter
 * Group
@@ -193,7 +193,7 @@ The following table gives an overview for which resources they are available:
       <td></td>
     </tr>
     <tr>
-      <th>Decision Requirement Definition</th>
+      <th>Decision Requirements Definition</th>
       <td>X</td>
       <td></td>
       <td></td>

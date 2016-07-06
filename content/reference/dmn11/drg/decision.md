@@ -6,15 +6,15 @@ weight: 10
 menu:
   main:
     name: "Decision"
-    identifier: "dmn-ref-drd-decision"
-    parent: "dmn-ref-drd"
+    identifier: "dmn-ref-drg-decision"
+    parent: "dmn-ref-drg"
     pre: "Specify the Decision Logic"
 
 ---
 
 {{< img src="../img/drd.png">}}
 
-A decision requirements diagram can have one or more decisions. 
+A decision requirements graph can have one or more decisions. 
 A decision defines the [id], [name] and required decisions and contains the decision logic as [decision table].
 
 A decision is represented by a `decision` element inside the `definitions` XML element.

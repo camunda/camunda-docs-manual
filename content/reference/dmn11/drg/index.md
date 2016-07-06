@@ -1,13 +1,13 @@
 ---
 
-title: "Decision Requirements Diagram"
+title: "Decision Requirements Graph"
 weight: 20
 layout: "section-list"
 
 menu:
   main:
-    name: "Decision Requirements Diagram"
-    identifier: "dmn-ref-drd"
+    name: "Decision Requirements Graph"
+    identifier: "dmn-ref-drg"
     parent: "dmn-ref"
     pre: "Models Dependencies between Decisions"
 
@@ -15,10 +15,12 @@ menu:
 
 {{< img src="img/drd.png">}}
 
-A Decision Requirements Diagram (aka DRD) models a domain of decision-making, showing the most important elements involved in it and the dependencies
+A Decision Requirements Graph (aka DRG) models a domain of decision-making, showing the most important elements involved in it and the dependencies
 between them. The elements modeled are decisions, knowledge sources, and input data.
 
-A DRD is represented by the `definitions` element in the XML.
+A Decision Requirements Diagram (DRD) provides a visual representation of the DRG.
+
+A DRG is represented by the `definitions` element in the XML.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
@@ -30,9 +32,9 @@ A DRD is represented by the `definitions` element in the XML.
 </definitions>
 ```
 
-# Decision Requirements Diagram Name
+# Decision Requirements Graph Name
 
-The name describes the DRD. It is set as the `name` attribute on the `definitions` element.
+The name describes the DRG. It is set as the `name` attribute on the `definitions` element.
 
 
 ```xml
@@ -44,13 +46,13 @@ The name describes the DRD. It is set as the `name` attribute on the `definition
 </definitions>
 ```
 
-# Decision Requirements Diagram Id
+# Decision Requirements Graph Id
 
-The id is the technical identifier of the DRD. It is set in the `id` attribute on the `definitions` element.
+The id is the technical identifier of the DRG. It is set in the `id` attribute on the `definitions` element.
 
-Each DRD should have an unique id when it is [deployed] to the Camunda BPM
-platform. The engine use the id as the decision requirement definition key of the deployed
-`DecisionRequirementDefinition`.
+Each DRG should have an unique id when it is [deployed] to the Camunda BPM
+platform. The engine use the id as the decision requirements definition key of the deployed
+`DecisionRequirementsDefinition`.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
