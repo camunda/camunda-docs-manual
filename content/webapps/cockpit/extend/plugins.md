@@ -328,6 +328,17 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-repository-resource-detail.png" title="Repository Resource Detail" >}}
 
+
+## Open Task Dashboard
+
+**Name:** `cockpit.tasks.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
+
+See the [Open Tasks Dashboard]({{< relref "webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task 
+dashboard plugin.
+
+
 ## Report View
 
 **Name:** `cockpit.report`

@@ -1,7 +1,7 @@
 ---
 
 title: 'Extend and customize Camunda Cockpit'
-weight: 70
+weight: 80
 layout: 'section-list'
 
 menu:
