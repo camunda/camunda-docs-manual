@@ -122,7 +122,7 @@ If we now run the unit test in debug mode (right-click in test class, select 'Ru
 
 {{< img src="img/api-test-debug-view.png" title="API Test Debugging" >}}
 
-To inspect the data, open up the 'Display' window (if this window isn't there, open Window->Show View->Other and select Display.) and type (code completion is available) org.h2.tools.Server.createWebServer("-web").start()
+To inspect the data, open up the 'Display' window (if this window isn't there, open Window->Show View->Other and select Display.) and type (code completion is available) `org.h2.tools.Server.createWebServer("-web").start()`
 
 {{< img src="img/api-test-debug-start-h2-server.png" title="API Test Debugging" >}}
 
