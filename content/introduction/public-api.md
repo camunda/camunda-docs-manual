@@ -18,12 +18,20 @@ The Camunda platform provides a public API. This section covers the definition o
 
 The Camunda BPM public API is limited to the following items:
 
-Java API:
+Java API: 
 
-* `camunda-engine`: All non-implementation Java packages (package name does not contain `impl`)
-* `camunda-engine-spring`: All non-implementation Java packages (package name does not contain `impl`)
-* `camunda-engine-cdi`: All non-implementation Java packages (package name does not contain `impl`)
-* `camunda-commons-typed-values`: All non-implementation Java packages (package name does not contain `impl`)
+All non-implementation Java packages (package name does not contain `impl`) of the following modules.
+
+* `camunda-engine`
+* `camunda-engine-spring`
+* `camunda-engine-cdi`
+* `camunda-engine-dmn`
+* `camunda-bpmn-model`
+* `camunda-cmmn-model`
+* `camunda-dmn-model`
+* `camunda-spin-core`
+* `camunda-connect-core`
+* `camunda-commons-typed-values`
 
 HTTP API (REST API):
 
