@@ -86,6 +86,18 @@ GET `/decision-definition/count`
     <td>Filter by names of those decision definition resources that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>Filter by the id of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>Filter by the key of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>withoutDecisionRequirementsDefinition</td>
+    <td>Only include decision definitions which belongs to no decision requirements definition. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A decision definition must have one of the given tenant ids.</td>
   </tr>
@@ -146,7 +158,7 @@ A JSON object that contains the count as the only property.
 
 ## Request
 
-GET `/decision-definition/count?key=myDecisionKey&version=2`
+GET `/decision-definition/count?key=dish-decision&version=2`
 
 ## Response
 

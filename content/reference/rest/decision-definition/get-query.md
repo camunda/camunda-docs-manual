@@ -86,6 +86,18 @@ GET `/decision-definition`
     <td>Filter by names of those decision definition resources that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>Filter by the id of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>Filter by the key of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>withoutDecisionRequirementsDefinition</td>
+    <td>Only include decision definitions which belongs to no decision requirements definition. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A decision definition must have one of the given tenant ids.</td>
   </tr>
@@ -166,6 +178,16 @@ Each decision definition object has the following properties:
     <td>The deployment id of the decision definition.</td>
   </tr>
   <tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>String</td>
+    <td>The id of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the decision definition.</td>
@@ -201,20 +223,22 @@ Each decision definition object has the following properties:
 
 ## Request
 
-GET `/decision-definition?key=myDecisionKey&sortBy=category&sortOrder=asc`
+GET `/decision-definition?key=dish-decision&sortBy=category&sortOrder=asc`
 
 ## Response
 
 ```json
 [
   {
-    "id":"aDecisionDefinitionId",
-    "key":"aKey",
-    "category":"aCategory",
-    "name":"aName",
-    "version":2,
-    "resource":"aResourceName",
-    "deploymentId":"aDeploymentId",
+    "id": "dish-decision:1:c633e8a8-41b7-11e6-b0ef-00aa004d0001",
+    "key": "dish-decision",
+    "category": "http://camunda.org/schema/1.0/dmn",
+    "name": "Dish Decision",
+    "version": 1,
+    "resource": "drd-dish-decision.dmn",
+    "deploymentId": "c627175e-41b7-11e6-b0ef-00aa004d0001",
+    "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
+    "decisionRequirementsDefinitionKey":"dish",
     "tenantId": null
   }
 ]

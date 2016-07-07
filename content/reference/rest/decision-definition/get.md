@@ -99,6 +99,16 @@ Its properties are as follows:
     <td>The deployment id of the decision definition.</td>
   </tr>
   <tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>String</td>
+    <td>The id of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the decision requirements definition this decision definition belongs to.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the decision definition.</td>
@@ -142,13 +152,15 @@ GET `/decision-definition/key/aDecisionDefinitionKey`
 
 ```json
 {
-  "id":"aDecisionDefinitionId",
-  "key":"aDecisionDefinitionKey",
-  "category":"aCategory",
-  "name":"aName",
-  "version":42,
-  "resource":"aResourceName",
-  "deploymentId":"aDeploymentId",
+  "id": "dish-decision:1:c633e8a8-41b7-11e6-b0ef-00aa004d0001",
+  "key": "dish-decision",
+  "category": "http://camunda.org/schema/1.0/dmn",
+  "name": "Dish Decision",
+  "version": 1,
+  "resource": "drd-dish-decision.dmn",
+  "deploymentId": "c627175e-41b7-11e6-b0ef-00aa004d0001",
+  "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
+  "decisionRequirementsDefinitionKey":"dish",
   "tenantId": null
 }
 ```
