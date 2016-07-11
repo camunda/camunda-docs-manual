@@ -13,6 +13,23 @@ menu:
 The following examples show example scenarios of custom JavaScript in embedded forms.
 
 
+# User name from a cam-script
+
+This example demonstrates how to retrieve the user name and displaying it in a embedded form:
+
+```html
+<form role="form">
+  <script cam-script type="text/form-script">
+    inject(['$rootScope', function($rootScope) {
+      $scope.userName = $rootScope.authentication.name;
+    }]);
+  </script>
+
+  <h1>Greetings {{ userName }}</h1>
+</form>
+```
+
+
 # Load Additional Resources
 
 This example includes an image, which is located in the contextPath of the form (i.e., in the same directory). The URL of the image is retrieved via the _task form key_ method of the REST API:
