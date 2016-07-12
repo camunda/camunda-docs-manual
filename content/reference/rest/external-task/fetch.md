@@ -63,7 +63,7 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>variables</td>
-          <td>A JSON array of <code>String</code> values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution.</td>
+          <td>A JSON array of <code>String</code> values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.</td>
         </tr>
       </table>
     </td>
@@ -156,7 +156,6 @@ Each locked external task object has the following properties:
     <td>variables</td>
     <td>Object</td>
     <td><p>A JSON object containing a property for each of the requested variables. The key is the variable name, the value is a JSON object of serialized variable values with the following properties:</p>
-
       {{< rest-var-response >}}
     </td>
   </tr>
@@ -253,3 +252,74 @@ Status 200.
         }
       }
     }]
+
+## Request all variables
+
+POST `/external-task/fetchAndLock`
+
+Request Body:
+
+    {
+      "workerId":"aWorkerId",
+      "maxTasks":2,
+          "usePriority":true,
+      "topics":
+          [{"topicName": "createOrder",
+          "lockDuration": 10000
+          }]
+    }
+
+
+
+## Response all variables
+
+Status 200.
+
+    [{
+      "activityId": "anActivityId",
+      "activityInstanceId": "anActivityInstanceId",
+      "errorMessage": "anErrorMessage",
+      "executionId": "anExecutionId",
+      "id": "anExternalTaskId",
+      "lockExpirationTime": "2015-10-06T16:34:42",
+      "processDefinitionId": "aProcessDefinitionId",
+      "processDefinitionKey": "aProcessDefinitionKey",
+      "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
+      "retries": 3,
+      "workerId": "aWorkerId",
+      "priority": 4,
+      "topicName": "createOrder",
+      "variables": {
+        "orderId": {
+          "type": "String",
+          "value": "1234",
+          "valueInfo": {}
+        }
+      }
+    },
+    {
+      "activityId": "anActivityId",
+      "activityInstanceId": "anActivityInstanceId",
+      "errorMessage": "anErrorMessage",
+      "executionId": "anExecutionId",
+      "id": "anExternalTaskId",
+      "lockExpirationTime": "2015-10-06T16:34:42",
+      "processDefinitionId": "aProcessDefinitionId",
+      "processDefinitionKey": "aProcessDefinitionKey",
+      "processInstanceId": "aProcessInstanceId",
+      "tenantId": null,
+      "retries": 3,
+      "workerId": "aWorkerId",
+      "priority": 0,
+      "topicName": "createOrder",
+      "variables": {
+        "orderId": {
+          "type": "String",
+          "value": "3456",
+          "valueInfo": {}
+        }
+      }
+    }]
+
+
