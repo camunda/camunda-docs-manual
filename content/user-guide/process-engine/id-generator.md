@@ -26,7 +26,7 @@ table.
 This id generator is good for debugging and testing since it generates human readable ids.
 
 {{< note title="" class="warning" >}}
-  The Databse Id Generator should **never** be used in production since it cannot handle high levels of concurrency.
+  The Database Id Generator should **never** be used in production since it cannot handle high levels of concurrency.
 {{< /note >}}
 
 
