@@ -18,6 +18,10 @@ The following archetypes are currently provided. They are distributed via our Ma
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
+      <td>Plugin for Camunda Cockpit, contains REST-Backend, MyBatis database query, HTML and JavaScript frontend, Ant build script for one-click deployment</td>
+    </tr>
+    <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
       <td>Process application that uses a shared camunda BPM engine in a Java EE Container, e.g. JBoss AS7.
           Contains: camunda EJB client, camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, JSF-based start and task forms,
