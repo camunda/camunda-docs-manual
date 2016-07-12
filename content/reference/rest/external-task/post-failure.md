@@ -53,6 +53,10 @@ A JSON object with the following properties:
     <td>An message indicating the reason of the failure.</td>
   </tr>
   <tr>
+    <td>errorDetails</td>
+    <td>A detailed error description.</td>
+  </tr>
+  <tr>
     <td>retries</td>
     <td>A number of how often the task should be retried. Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. The incident's message is set to the <code>errorMessage</code> parameter.</td>
   </tr>
