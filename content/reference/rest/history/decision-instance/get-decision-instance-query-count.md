@@ -114,27 +114,18 @@ GET `/history/decision-instance/count`
     </td>
   </tr>
   <tr>
-    <td>sortBy</td>
+    <td>rootDecisionInstanceId</td>
     <td>
-      Sort the results by a given criterion. Valid values are <code>evaluationTime</code> and <code>tenantId</code>.
-      Must be used in conjunction with the <code>sortOrder</code> parameter.
+      Restrict to instances that belongs to an evaluation's root decision instance with the given id. 
+      This also includes the decision instance with the given id.
     </td>
   </tr>
   <tr>
-    <td>sortOrder</td>
+    <td>rootDecisionInstancesOnly</td>
     <td>
-      Sort the results in a given order.
-      Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-      Must be used in conjunction with the <code>sortBy</code> parameter.
+      Restrict to instances that belongs to evaluation root decisions.
+      Value may only be <code>true</code>, as <code>false</code> is the default behavior.
     </td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
 </table>
 

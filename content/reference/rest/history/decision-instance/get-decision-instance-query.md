@@ -142,6 +142,20 @@ GET `/history/decision-instance`
     </td>
   </tr>
   <tr>
+    <td>rootDecisionInstanceId</td>
+    <td>
+      Restrict to instances that belongs to an evaluation's root decision instance with the given id. 
+      This also includes the decision instance with the given id.
+    </td>
+  </tr>
+  <tr>
+    <td>rootDecisionInstancesOnly</td>
+    <td>
+      Restrict to instances that belongs to evaluation root decisions.
+      Value may only be <code>true</code>, as <code>false</code> is the default behavior.
+    </td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>
       Sort the results by a given criterion. Valid values are <code>evaluationTime</code> and <code>tenantId</code>.
@@ -277,6 +291,11 @@ Each historic decision instance object has the following properties:
     <td>Double</td>
     <td>The result of the collect aggregation of the decision result if used. <code>null</code> if no aggregation was used.</td>
   </tr>
+  <tr>
+    <td>rootDecisionInstanceId</td>
+    <td>String</td>
+    <td>The decision instance id of the evaluation's root decision. Can be <code>null</code> if this instance belongs to the root decision of the evaluation.</td>
+  </tr>
 </table>
 
 ## Decision Input Value
@@ -372,7 +391,8 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "caseDefinitionKey": null,
     "caseInstanceId": null,
     "tenantId":null,
-    "userId": null
+    "userId": null,
+    "rootDecisionInstanceId": null
   }
 ]
 ```

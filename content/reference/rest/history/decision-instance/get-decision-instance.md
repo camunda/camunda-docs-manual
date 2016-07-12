@@ -183,7 +183,12 @@ Its properties are as follows:
   <tr>
     <td>collectResultValue</td>
     <td>Double</td>
-    <td>The result of the collect aggregation of the decision result if used. <code>null</code> if no aggregation was used.</td>
+    <td>The result of the collect aggregation of the decision result if used. Can be <code>null</code> if no aggregation was used.</td>
+  </tr>
+  <tr>
+    <td>rootDecisionInstanceId</td>
+    <td>String</td>
+    <td>The decision instance id of the evaluation's root decision. Can be <code>null</code> if this instance belongs to the root decision of the evaluation.</td>
   </tr>
 </table>
 
@@ -277,7 +282,8 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
     "caseInstanceId": null,
-    "tenantId": null
-    "userId": null
+    "tenantId": null,
+    "userId": null,
+    "rootDecisionInstanceId": null
 }
 ```
