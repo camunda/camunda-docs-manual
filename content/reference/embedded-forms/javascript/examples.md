@@ -15,7 +15,7 @@ The following examples show example scenarios of custom JavaScript in embedded f
 
 # User name from a cam-script
 
-This example demonstrates how to retrieve the user name and displaying it in a embedded form:
+This example demonstrates how to retrieve the user name and display it in a embedded form:
 
 ```html
 <form role="form">
