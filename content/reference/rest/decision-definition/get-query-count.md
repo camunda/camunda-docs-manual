@@ -95,7 +95,7 @@ GET `/decision-definition/count`
   </tr>
   <tr>
     <td>withoutDecisionRequirementsDefinition</td>
-    <td>Only include decision definitions which belongs to no decision requirements definition. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include decision definitions which does not belongs to any decision requirements definition. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
