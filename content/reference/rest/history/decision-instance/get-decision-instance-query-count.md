@@ -127,6 +127,14 @@ GET `/history/decision-instance/count`
       Value may only be <code>true</code>, as <code>false</code> is the default behavior.
     </td>
   </tr>
+  </tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>Filter by the decision requirements definition the instances belongs to.</td>
+  </tr>
+  </tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>Filter by the key of the decision requirements definition the instances belongs to.</td>
+  </tr>
 </table>
 
 

@@ -190,6 +190,16 @@ Its properties are as follows:
     <td>String</td>
     <td>The decision instance id of the evaluation's root decision. Can be <code>null</code> if this instance belongs to the root decision of the evaluation.</td>
   </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionId</td>
+    <td>String</td>
+    <td>The id of the decision requirements definition that this decision instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionRequirementsDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the decision requirements definition that this decision instance belongs to.</td>
+  </tr>
 </table>
 
 ## Decision Input Value
@@ -284,6 +294,8 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "caseInstanceId": null,
     "tenantId": null,
     "userId": null,
-    "rootDecisionInstanceId": null
+    "rootDecisionInstanceId": null,
+    "decisionRequirementsDefinitionId": null,
+    "decisionRequirementsDefinitionKey": null
 }
 ```
