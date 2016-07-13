@@ -1,5 +1,5 @@
 ---
-baseurl: "/manual/latest/"
+baseurl: "/manual/develop/"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
@@ -20,7 +20,7 @@ params:
       url: "/enterprise"
   section:
     id: "manual"
-    version: "latest"
+    version: "develop"
     versionAlias: "7.6"
     versions:
       - "latest"
