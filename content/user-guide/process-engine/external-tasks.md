@@ -143,6 +143,22 @@ for (LockedExternalTask task : tasks) {
 
 The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
+In order to fetch all variables, call to `variables()` method should be omitted 
+
+```java
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
+  .topic("AddressValidation", 60L * 1000L)
+  .execute();
+
+for (LockedExternalTask task : tasks) {
+  String topic = task.getTopic();
+  String address = (String) task.getVariables().get("address");
+
+  // work on task for that topic
+  ...
+}
+```
+
 
 ### External Task Prioritization
 External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered. 

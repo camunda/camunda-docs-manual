@@ -219,7 +219,7 @@ Status 200.
       "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
-	  "priority": 4,
+      "priority": 4,
       "topicName": "createOrder",
       "variables": {
         "orderId": {
@@ -242,7 +242,7 @@ Status 200.
       "tenantId": null,
       "retries": 3,
       "workerId": "aWorkerId",
-	  "priority": 0,
+      "priority": 0,
       "topicName": "createOrder",
       "variables": {
         "orderId": {
@@ -253,7 +253,9 @@ Status 200.
       }
     }]
 
-## Request all variables
+# Example with all variables
+ 
+## Request
 
 POST `/external-task/fetchAndLock`
 
@@ -262,7 +264,7 @@ Request Body:
     {
       "workerId":"aWorkerId",
       "maxTasks":2,
-          "usePriority":true,
+      "usePriority":true,
       "topics":
           [{"topicName": "createOrder",
           "lockDuration": 10000
@@ -271,7 +273,7 @@ Request Body:
 
 
 
-## Response all variables
+## Response
 
 Status 200.
 
