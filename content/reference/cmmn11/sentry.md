@@ -92,8 +92,8 @@ The engine evaluates IfParts at every lifecycle transition of a plan item contai
 
 # VariableOnPart
 
-VariableOnParts are defined on lifecycle transitions of a variable. VariableOnPart listens for the variable change (create or update or delete) in the scope or visibility of a sentry.
-A sentry can have more than one variableOnPart and have at most one `variable event` each.
+VariableOnParts are defined on lifecycle transitions of a variable. Sentry with VariableOnPart is evaluated when the variable undergoes a transition (create or delete or update).
+A sentry can have more than one variableOnPart and can have at most one `variable event` each. The attributes `id`, `variableName` and `variableEvent` are the mandatory attributes of the VariableOnPart.
 In Camunda, a sentry with a variableOnPart looks as follows
 
 ```
@@ -105,7 +105,7 @@ In Camunda, a sentry with a variableOnPart looks as follows
   <extensionElements>	
 </sentry>  
 ```
-In the above example, sentry listens for the variable 
+In the above example, sentry is evaluated when the `create` event on the variable `variable_1` occurs.
 
 # Combining OnParts, IfParts and VariableOnParts
 
