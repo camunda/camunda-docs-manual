@@ -728,3 +728,24 @@ The following attributes are extension attributes for the `camunda` namespace `h
     </td>
   </tr>
 </table>
+
+# variableName
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The variable name that is attached to element <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variableonpart" >}}">camunda:variableOnPart</a> for which the sentry listens. Sentry is evaluated when the variable event transition occurs.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Camunda extension element</th>
+    <td>
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variableonpart" >}}">camunda:variableOnPart</a>
+    </td>
+  </tr>
+</table>

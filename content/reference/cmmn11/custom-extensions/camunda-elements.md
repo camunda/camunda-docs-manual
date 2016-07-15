@@ -541,4 +541,61 @@ The following elements are extension elements for the `camunda` namespace `http:
   </tr>
 </table>
 
+# variableOnPart
 
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      Add variableOnPart to sentry. see <a href="{{< relref "reference/cmmn11/sentry.md#variableonpart" >}}">variableOnPart.
+    </td>
+  </tr>
+  <tr>
+    <th>Attributes</th>
+    <td><code>variableName</code></td>
+    <td>
+      see <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#variablename" >}}">camunda:variableName
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td colspan="2">
+      <code>variableEvent</code> element and <code>variableName</code> attribute are mandatory fields when the variableOnPart is defined in a sentry.
+    </td>
+  </tr>
+  <tr>
+    <th>Parent element</th>
+    <td colspan="2">
+      <a href="{{< relref "reference/cmmn11/sentry.md" >}}">Sentries</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Child element</th>
+    <td colspan="2">
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variableevent" >}}">camunda:variableEvent</a>
+    </td>
+  </tr>
+</table>
+
+# variableEvent
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td colspan="2">
+      Add variableEvent to a VariableOnPart. A sentry is evaluated when the variableEvent transition occurs.
+    </td>
+  </tr>
+  <tr>
+    <th>Value</th>
+    <td>
+      Valid values are <code>create</code>,<code>update</code> or <code>delete</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Parent element</th>
+    <td colspan="2">
+      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variableonpart" >}}">VariableOnPart</a>
+    </td>
+  </tr>
+</table>

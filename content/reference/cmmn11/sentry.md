@@ -85,19 +85,57 @@ In addition to variable names, the identifier `caseExecution` can be used to acc
   </ifPart>
 </sentry>
 ```
-
 The CMMN specification allows to reference a case file item by the sentry attribute `contextRef`. This attribute is not supported by the Camunda engine and therefore ignored.
 
 The engine evaluates IfParts at every lifecycle transition of a plan item contained in the sentry's stage. That means, if an IfPart is not satisfied immediately when all OnParts have occurred, the sentry may still occur at any later lifecycle transition.
 
-# Combining OnParts and IfParts
-
-Sentries allow a flexible definition of event occurrences and data-based conditions to be fulfilled. The following rules apply for combining OnParts and IfParts
-
-* A valid sentry must have at least one OnPart or an IfPart.
-* A sentry without OnParts is fulfilled when the IfPart evaluates to `true`.
-* A sentry without an IfPart is fulfilled when all OnParts have occurred.
-
 # Camunda Extensions
 
-There are no custom Camunda extensions for sentries.
+# VariableOnPart
+
+VariableOnParts are defined on lifecycle transitions of a variable. Sentry with VariableOnPart is evaluated when the variable undergoes a transition (create or delete or update).
+A sentry can have more than one variableOnPart and can have at most one `variable event` each.
+In Camunda, a sentry with a variableOnPart looks as follows
+
+```
+<sentry id="Sentry_1">
+  <extensionElements>
+    <camunda:variableOnPart variableName = "variable_1">
+      <camunda:variableEvent>create</camunda:variableEvent>
+    </camunda:variableOnPart>
+  </extensionElements>	
+</sentry>  
+```
+In the above example, sentry is evaluated when the `create` event on the variable `variable_1` occurs.
+
+# VariableOnPart Evaluation
+
+Variable event that occurs in the scope of the execution triggers the sentry with variableOnParts in the following conditions:
+
+* `variableName` and `variableEvent` defined in the variableOnPart of the sentry matches the occurred variable event and the associated variable name.
+* There exists no variable of the same name in the ancestory path of the sentry between the execution scope of the sentry and the execution scope of the variable event occurrence (the scope of the variable definition)
+
+Consider the below example in which there are two human tasks. `HumanTask1` is defined inside the case model and the `HumanTask_2` is defined inside the stage.
+Each human task is attached with a entry criterion sentry and both the sentries are evaluated when the update event for the variable `foo` occurs.
+
+{{< img src="../img/variableOnPart.png">}}
+
+Scenario 1:
+
+When a variable `foo` is set and updated in the scope of the case model, then both the sentries are evaluated and results in the transition of `HumanTask1` and `HumanTask_2` from available state to enabled state.
+
+Scenario 2:
+
+When there exists two variables of the same name `foo`, one defined in the scope of the case model and the other defined in the scope of stage. Then, sentries are triggered based on the scope of the update event.
+
+* When the variable `foo` is updated in the scope of the case model, then only the `HumanTask1` gets enabled.
+* When the variable `foo` is updated in the scope of the stage, then only the `HumanTask_2` gets enabled.
+
+# Combining OnParts, IfParts and VariableOnParts
+
+Sentries allow a flexible definition of event occurrences and data-based conditions to be fulfilled. The following rules apply for combining OnParts, IfParts and VariableOnParts.
+
+* A valid sentry must have at least one of the sentry parts (OnPart or IfPart or VariableOnPart).
+* A sentry without OnParts is fulfilled when the IfPart evaluates to `true` and all the VariableOnParts have occurred.
+* A sentry without an IfPart is fulfilled when all OnParts and all the VariableOnParts have occurred.
+* A sentry without variableOnPart is fullfilled when all the OnParts and IfPart are fulfilled.
