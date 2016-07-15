@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the decision requirements definition, i.e. the id of the DMN 1.0 XML decision definition.</td>
+    <td>The key of the decision requirements definition, i.e. the id of the DMN 1.1 XML decision definition.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -134,21 +134,21 @@ Its properties are as follows:
 
 ## Request
 
-GET `/decision-requirements-definition/aDecisionRequirementsDefinitionId`
+GET `/decision-requirements-definition/invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c`
 
-GET `/decision-requirements-definition/key/aDecisionRequirementsDefinitionKey`
+GET `/decision-requirements-definition/key/invoiceKey`
 
 ## Response
 
 ```json
 {
-  "id":"aDecisionRequirementsDefinitionId",
-  "key":"aDecisionRequirementsDefinitionKey",
-  "category":"aDecisionRequirementsDefinitionCategory",
-  "name":"aDecisionRequirementsDefinitionName",
+  "id":"invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c",
+  "key":"invoiceKey",
+  "category":"invoice",
+  "name":"receiptInvoice",
   "version":2,
-  "resource":"drg.dmn",
-  "deploymentId":"aDeploymentId",
+  "resource":"invoice.dmn",
+  "deploymentId":"c627175e-41b7-11e6-b0ef-00aa004d0001",
   "tenantId": null
 }
 ```
