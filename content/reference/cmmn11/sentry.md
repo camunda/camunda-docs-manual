@@ -85,18 +85,36 @@ In addition to variable names, the identifier `caseExecution` can be used to acc
   </ifPart>
 </sentry>
 ```
-
 The CMMN specification allows to reference a case file item by the sentry attribute `contextRef`. This attribute is not supported by the Camunda engine and therefore ignored.
 
 The engine evaluates IfParts at every lifecycle transition of a plan item contained in the sentry's stage. That means, if an IfPart is not satisfied immediately when all OnParts have occurred, the sentry may still occur at any later lifecycle transition.
 
-# Combining OnParts and IfParts
 
-Sentries allow a flexible definition of event occurrences and data-based conditions to be fulfilled. The following rules apply for combining OnParts and IfParts
+# VariableOnPart
 
-* A valid sentry must have at least one OnPart or an IfPart.
-* A sentry without OnParts is fulfilled when the IfPart evaluates to `true`.
-* A sentry without an IfPart is fulfilled when all OnParts have occurred.
+VariableOnParts are defined on lifecycle transitions of a variable. VariableOnPart listens for the variable change (create or update or delete) in the scope or visibility of a sentry.
+A sentry can have more than one variableOnPart and have at most one `variable event` each.
+In Camunda, a sentry with a variableOnPart looks as follows
+
+```
+<sentry id="Sentry_1">
+  <extensionElements>
+    <camunda:variableOnPart id = "VariableOnPart_1" variableName = "variable_1">
+      <camunda:variableEvent>create</camunda:variableEvent>
+    </camunda:variableOnPart>
+  <extensionElements>	
+</sentry>  
+```
+In the above example, sentry listens for the variable 
+
+# Combining OnParts, IfParts and VariableOnParts
+
+Sentries allow a flexible definition of event occurrences and data-based conditions to be fulfilled. The following rules apply for combining OnParts, IfParts and VariableOnParts.
+
+* A valid sentry must have at least one of the sentry parts (OnPart or IfPart or VariableOnPart).
+* A sentry without OnParts is fulfilled when the IfPart evaluates to `true` and all the VariableOnParts have occurred.
+* A sentry without an IfPart is fulfilled when all OnParts and all the VariableOnParts have occurred.
+* A sentry without variableOnPart is fullfilled when all the OnParts and IfPart are fulfilled.
 
 # Camunda Extensions
 
