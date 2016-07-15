@@ -12,7 +12,7 @@ menu:
 
 
 All persistent entities managed by the process engine (Process Instances, Tasks, ...) have unique
-IDs. These Ids uniquely identify an individual task, process instance etc. When these entities are
+Ids. These Ids uniquely identify an individual task, process instance, etc. When these entities are
 persisted to the database, the ids are used as primary keys in the corresponding database tables.
 
 Out of the box, the process engine provides two Id generator implementations.
@@ -43,7 +43,7 @@ In the [Camunda BPM Full Distributions][2], the
 StrongUuidGenerator is preconfigured and the default Id Generator used by the process engine.
 
 If you use an embedded process engine configuration and configure the process engine using Spring,
-you need to add the follwing lines to the Spring configuration in order to enable the
+you need to add the following lines to the Spring configuration to enable the
 `StrongUuidGenerator`:
 
 ```xml
@@ -58,7 +58,7 @@ you need to add the follwing lines to the Spring configuration in order to enabl
 </bean>
 ```
 
-In addition, you need the following maven dependency:
+Additionally, you need the following maven dependency:
 
 ```xml
 <dependency>

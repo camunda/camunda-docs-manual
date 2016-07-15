@@ -10,30 +10,30 @@ menu:
 
 ---
 
-Camunda allows users to authorize access to the data it manages. This makes it possible to configure which user can access which process instances, tasks etc...
+Camunda allows users to authorize access to the data it manages. This makes it possible to configure which user can access which process instances, tasks, etc...
 
-Authorization has a performance cost and introduces some complexity. It should only be used if it is required.
+Authorization has a performance cost and introduces some complexity. It should only be used if required.
 
 # When is Authorization required?
 
-Not every Camunda setup needs to enable authorization. In many scenarios, Camunda is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine api directly. If you embed the process engine into a Java application, usually, you do not need to enable authorization. The application can control how the api is accessed.
+Not every Camunda setup needs to enable authorization. In many scenarios, Camunda is embedded into an application and the application itself ensures that users can only access data they are authorized to access. Generally speaking, authorization is only required if untrusted parties interact with the process engine API directly. If you embed the process engine into a Java application, you usually do not need to enable authorization. The application can control how the API is accessed.
 
 Situations in which authorization is required:
 
-* Camunda Rest API is made accessible to users who should not have full access even after authentication.
-* Camunda Webapplication is made accessible to users who should not have full access even after authentication.
+* Camunda Rest API is made accessible to users who should not have full access, even after authentication.
+* Camunda Webapplication is made accessible to users who should not have full access, even after authentication.
 * Other situations in which an untrusted user can directly construct the queries and commands executed on the process engine.
 
 Situations in which authorization is *not* required
 
-* An application completely controls the Api methods invoked on the process engine.
+* An application completely controls the API methods invoked on the process engine.
 * Camunda Webapplication is made accessible to users who can have full access after authentication.
 
 **Example**
 
 Assume that you have the following authorization requirement: *As a regular user, I can only see the tasks that are assigned to me.*
 
-If the engine is embedded into a Java Application, the application can easily ensure this by restricting the task query on the `assignee` property. The application can guarantee this since the Camunda Api is not directly exposed to the user.
+If the engine is embedded into a Java application, the application can easily ensure this by restricting the task query on the `assignee` property. The application can guarantee this since the Camunda API is not directly exposed to the user.
 
 By contrast, if the Camunda Rest API is directly exposed over the network to a Javascript application, then a malicious user, once authenticated, can send a request to the server querying all tasks, even the ones that are not assigned to this user. In this case, authorization needs to be turned on to ensure the user only sees the tasks which he is authorized to see, regardless of the query parameters.
 
@@ -51,7 +51,7 @@ An Authorization assigns a set of Permissions to an identity to interact with a 
 
 ## Identities
 
-Camunda BPM distinguished two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual User or a Group of users.
+Camunda BPM distinguishes between two types of identities: users and groups. Authorizations can either range over all users (userId = ANY), an individual user or a group of users.
 
 
 ## Permissions
@@ -126,7 +126,7 @@ See the [Performance Considerations]({{< relref "#performance-considerations" >}
 
 ## Authorization Precedence
 
-Authorizations may range over all users, an individual user or a group of users or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
+Authorizations may range over all users, an individual user or a group of users, or they may apply to an individual resource instance or all instances of the same type (resourceId = ANY). The precedence is as follows:
 
 * An authorization applying to an individual resource instance precedes over an authorization applying to all instances of the same resource type.
 * An authorization for an individual user precedes over an authorization for a group.
@@ -368,12 +368,12 @@ The table below shows a detailed overview on which permissions authorize a user 
   </tbody>
 </table>
 
-GRANT and REVOKE authorization with Task Work and Task Assign permissions precedes over Update and Update Task.
+GRANT and REVOKE authorizations with Task Work and Task Assign permissions precede over Update and Update Task.
 
-### Default task permissions
+### Default Task Permissions
 
-When a user is related to a task by being an assignee or a candidate user or a part of a candidate group or an owner, then these users
-get the default permission as either "Task Work" or "Update" based on the configuration setting "defaultUserPermissionNameForTask". 
+When a user is related to a task by being an assignee, a candidate user, a part of a candidate group or an owner, then these users
+get the default permission as either "Task Work" or "Update", based on the configuration setting "defaultUserPermissionNameForTask". 
 
 If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE permission is granted.
 
@@ -393,7 +393,7 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Read History
 * Delete History
 
-The "Create Instance" permission is required for starting new process instances.
+The "Create Instance" permission is required to start new process instances.
 
 ## Additional Decision Definition Permissions
 
@@ -403,12 +403,12 @@ In Addition to Update, Read and Delete, the following permissions are available 
 * Read History
 * Delete History
 
-The "Create Instance" permission is required for evaluating decisions with the decision service.
+The "Create Instance" permission is required to evaluate decisions with the decision service.
 
 ## Application Permissions
 
 The resource "Application" uniquely supports the "Access" permission.
-The Access permission controls whether a user has access to a Camunda webapplication. Out of the box, it can be granted for the following applications (resource ids):
+The Access permission controls whether a user has access to a Camunda webapplication or not. Out of the box, it can be granted for the following applications (resource ids):
 
 * `admin`
 * `cockpit`
@@ -426,16 +426,16 @@ When downloading the Camunda BPM distribution, the invoice example application c
 In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
 
 {{< note title="LDAP" class="info" >}}
-The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). See also: The Administrator Authorization Plugin.
+The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
 {{< /note >}}
 
 ## The Administrator Authorization Plugin
 
-The Administrator Authorization Plugin is a process engine plugin with the following functionality: when the process engine is started, it grants administrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.
+The administrator authorization plugin is a process engine plugin with the following functionality: when the process engine is started, it grants administrative access to a configured group or user. Effectively this means that it grants all permissions on all resources to the configured group or user.
 
 Usually this is used to bootstrap an LDAP installation: granting administrative access to an initial user who can then log in to Admin and configure additional authorizations using the UI.
 
-The following is an example of how to configure the Administrator Authorization Plugin in bpm-platform.xml / processes.xml:
+The following is an example of how to configure the administrator authorization plugin in bpm-platform.xml / processes.xml:
 
 ```xml
 <process-engine name="default">
@@ -504,7 +504,7 @@ Also see the [Performance Considerations]({{< relref "#performance-consideration
 
 An authorization is created between a user/group and a resource. It describes the user/group's permissions to access that resource. An authorization may express different permissions, such as the permission to READ, UPDATE, DELETE the resource. (See Authorization for details).
 
-In order to grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:
+To grant the permission to access a certain resource, an authorization object is created. For example, to give access to a certain filter:
 
 ```java
 Authorization auth = authorizationService.createNewAuthorization(AUTH_TYPE_GRANT);
@@ -531,9 +531,9 @@ auth.addPermission(Permissions.CREATE);
 authorizationService.saveAuthorization(auth);
 ```
 
-As a result, the given user or group will have permission to READ the referenced Filter.
+As a result, the given user or group will have permission to READ the referenced filter.
 
-Another possible example would be to restrict the group of persons who are allowed to start a special process:
+Another possible example would be to restrict the group of persons who are allowed to start a specific process:
 
 ```java
 //we need to authorizations, one to access the process definition and another one to create process instances
@@ -567,11 +567,11 @@ Authorizations are calculated by the database which is most efficient. Example: 
 
 ## Performance of Checking Grant Authorizations
 
-When only Grant authorizations are used, the check is very efficient since the authorization table can be joined with the resource table (task table, process instance table etc...).
+When only Grant authorizations are used, the check is very efficient since the authorization table can be joined with the resource table (task table, process instance table,    etc...).
 
 ## Performance of Checking Revoke Authorizations
 
-Revoke authorizations are expensive to check. The check needs to consider the precedence of authorizations. Example: a User-level Grant is stronger than a group level Revoke. A sequence of nested SQL `CASE` statements and a subselect is used to account for the precedence. This has two downsides:
+Revoke authorizations are expensive to check. The check needs to consider the precedence of authorizations. Example: a user level Grant is stronger than a group level Revoke. A sequence of nested SQL `CASE` statements and a subselect is used to account for the precedence. This has two downsides:
 
 * The check scales linearly with the cardinality of the resource table (doubling the number of tasks makes the query twice as slow)
 * The particular construct based on `CASE` statements performs extremely poorly on the following databases: PostgreSQL, DB2

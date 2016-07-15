@@ -17,7 +17,7 @@ The identity service is an API abstraction over various user/group repositories.
 * Group: a group identified by a unique Id
 * Membership: the relationship between users and groups
 * Tenant: a tenant identified by a unique Id
-* Tenant Membership: the relationship between tenants and users / groups
+* Tenant Membership: the relationship between tenants and users/groups
 
 Example:
 
@@ -30,7 +30,7 @@ User demoUser = processEngine.getIdentityService()
 
 Camunda BPM distinguishes between read-only and writable user repositories. A read-only user repository provides read-only access to the underlying user/group database. A writable user repository allows write access to the user database which includes creating, updating and deleting users and groups.
 
-In order to provide a custom identity provider implementation, the following interfaces can be implemented:
+To provide a custom identity provider implementation, the following interfaces can be implemented:
 
 * {{< javadocref page="?org/camunda/bpm/engine/impl/identity/ReadOnlyIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.ReadOnlyIdentityProvider" >}}
 * {{< javadocref page="?org/camunda/bpm/engine/impl/identity/WritableIdentityProvider.html" text="org.camunda.bpm.engine.impl.identity.WritableIdentityProvider" >}}
@@ -40,14 +40,14 @@ In order to provide a custom identity provider implementation, the following int
 
 The database identity service uses the process engine database for managing users and groups. This is the default identity service implementation used if no alternative identity service implementation is provided.
 
-The Database Identity Service implements both `ReadOnlyIdentityProvider` and `WritableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
+The database identity service implements both `ReadOnlyIdentityProvider` and `WritableIdentityProvider` providing full CRUD functionality in Users, Groups and Memberships.
 
 
 # The LDAP Identity Service
 
-The LDAP identity service provides read-only access to an LDAP-based user/group repository. The identity service provider is implemented as a [Process Engine Plugin]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}) and can be added to the process engine configuration. In that case it replaces the default Database Identity Service.
+The LDAP identity service provides read-only access to an LDAP-based user/group repository. The identity service provider is implemented as a [Process Engine Plugin]({{< relref "user-guide/process-engine/process-engine-plugins.md" >}}) and can be added to the process engine configuration. In that case it replaces the default database identity service.
 
-In order to use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
+To use the LDAP identity service, the `camunda-identity-ldap.jar` library has to be added to the classloader of the process engine.
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
@@ -152,7 +152,7 @@ The following is an example of how to configure the LDAP Identity Provider Plugi
 {{< /note >}}
 
 {{< note title="Multi-Tenancy" class="info" >}}
-Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions doesn't work by default.
+Currently, the LDPA Identity Service doesn't support [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md#single-process-engine-with-tenant-identifiers" >}}). That means it is not possible to get tenants from LDAP and the transparent multi-tenancy access restrictions don't work by default.
 {{< /note >}}
 
 ## Configuration Properties of the LDAP Plugin
@@ -179,7 +179,7 @@ The LDAP Identity Provider provides the following configuration properties:
   <tr>
     <td><code>baseDn</code></td>
     <td>
-      <p>The base DN: identifies the root of the LDAP directory. Is appended to all DN names composed for searching for users or groups.</p>
+      <p>The base DN: Identifies the root of the LDAP directory. Is appended to all DN names composed for searching for users or groups.</p>
       <p><em>Example:</em> <code>o=camunda,c=org</code></p>
     </td>
   </tr>
@@ -264,7 +264,7 @@ The LDAP Identity Provider provides the following configuration properties:
   <tr>
     <td><code>acceptUntrustedCertificates</code></td>
     <td>
-      <p>Accept of untrusted certificates if LDAP server uses SSL. <strong>Warning:</strong> we strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
+      <p>Accept of untrusted certificates if LDAP server uses SSL. <strong>Warning:</strong> We strongly advise against using this property. Better install untrusted certificates to JDK key store.</p>
     </td>
   </tr>
   <tr>
@@ -301,7 +301,7 @@ The LDAP Identity Provider provides the following configuration properties:
         Allows to login anonymously without a password. <em>Default:</em> <code>false</code>
       </p>
       <p>
-        <strong>Warning:</strong> we strongly advise against using this property. You should configure your LDAP
+        <strong>Warning:</strong> We strongly advise against using this property. You should configure your LDAP
         to use simple authentication without anonymous login.
       </p>
     </td>
@@ -313,7 +313,7 @@ The LDAP Identity Provider provides the following configuration properties:
         If this property is set to <code>true</code>, then authorization checks are performed when querying for users or groups. Otherwise authorization checks are not performed when querying for users or groups. <em>Default:</em> <code>true</code>
       </p>
       <p>
-        <strong>Note:</strong> if you have a huge amount of LDAP users or groups we advise to set this property to <code>false</code> to improve
+        <strong>Note:</strong> If you have a huge amount of LDAP users or groups we advise to set this property to <code>false</code> to improve
         the performance of the user and group query.
       </p>
     </td>
@@ -326,7 +326,7 @@ The LDAP Identity Provider provides the following configuration properties:
         <em>Default:</em> <code>false</code>
       </p>
       <p>
-        <strong>Note:</strong> the support of search result ordering is not be implemented by every LDAP server.
+        <strong>Note:</strong> The support of search result ordering is not be implemented by every LDAP server.
         Make sure that your currently used LDAP Server implements the <a href="https://tools.ietf.org/html/rfc2891">RFC 2891</a>.
       </p>
     </td>

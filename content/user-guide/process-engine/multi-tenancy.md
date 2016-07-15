@@ -219,7 +219,7 @@ When integrating Camunda into an application, it can be cumbersome to pass the t
 try {
   identityService.setAuthentication("mary", asList("accounting"), asList("tenant1"));
 
-  // All api calls executed here have "tenant1" transparently set as tenantId
+  // All API calls executed here have "tenant1" transparently set as tenantId
 
 }
 finally {
@@ -227,7 +227,7 @@ finally {
 }
 ```
 
-In the above example, all api calls executed between `setAuthentication(...)` and `clearAuthentication()` are transparenty executed with the list
+In the above example, all API calls executed between `setAuthentication(...)` and `clearAuthentication()` are transparenty executed with the list
 of provided tenant Ids.
 
 ### Query Example

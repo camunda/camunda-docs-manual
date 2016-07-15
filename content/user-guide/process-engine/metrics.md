@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The process engine reports runtime metrics to the database that can help with drawing conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
+The process engine reports runtime metrics to the database that can help draw conclusions about usage, load, and performance of the BPM platform. Metrics are reported in the database table `ACT_RU_METER_LOG` as natural numbers in the Java `long` range and count the occurrence of specific events. Single metric entries consist of a metric identifier, a value that the metric took in a certain timespan and a name identifying the metric reporter. There is a set of built-in metrics that are reported by default.
 
 # Built-in Metrics
 

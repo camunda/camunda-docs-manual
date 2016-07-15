@@ -246,11 +246,11 @@ Job acquisition is concerned with polling this database table and locking jobs.
 
 ## Acquirable Jobs
 
-A job is acquirable, i.e. a candidate for execution, if it fulfills all following conditions:
+A job is acquirable, i.e., a candidate for execution, if it fulfills all following conditions:
 
 * it is due, meaning that the value in the `DUEDATE_` column is in the past
 * it is not locked, meaning that the value in the `LOCK_EXP_TIME_` column is in the past
-* its retries have not elapsed, meaning that the value in the `RETRIES_` column is greater than zero.
+* its retries have not been depleted, meaning that the value in the `RETRIES_` column is greater than zero.
 
 In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
 
