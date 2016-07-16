@@ -67,5 +67,4 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 For more information on creating and configuring your own plugin, please have a look at the following examples:
 
-* [How to build the server side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/java/org/camunda/bpm/tasklist/impl/plugin/standalonetask)
-* [How to build the client side](https://github.com/camunda/camunda-bpm-webapp/tree/master/webapp/src/main/resources-plugin/standaloneTask/app)
+* [Standalone Task Plugin](https://github.com/camunda/camunda-bpm-webapp/tree/53bc3459b61a572b164ffa7dd6a0a68cec0a512b/ui/tasklist/plugins)
