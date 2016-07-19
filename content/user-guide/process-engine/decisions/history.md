@@ -11,7 +11,7 @@ menu:
     pre: "Audit evaluated Decisions"
 ---
 
-After a decision definition was evaluated either from a BPMN process, CMMN
+After a decision definition has been evaluated either from a BPMN process, CMMN
 case or through the Decision Service, the inputs and outputs are saved in the
 History of the platform. The history entity is of type
 `HistoricDecisionInstance` and has the event type `evaluate`.
@@ -21,7 +21,7 @@ Event Log].
 
 {{< note title="History Level" class="info" >}}
 
-History level of **FULL** is required. Otherwise, no history
+History level **FULL** is required. Otherwise, no history
 for decisions is created.
 
 {{< /note >}}
@@ -43,7 +43,7 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
   .list();
 ```
 
-Decisions which where evaluated from a [BPMN business rule task] can be
+Decisions which were evaluated from a [BPMN business rule task] can be
 filtered by the process definition id or key and process instance id.
 
 ```java
@@ -65,7 +65,7 @@ historicDecisionInstances = historyService
   .list();
 ```
 
-Decisions which where evaluated from a [CMMN decision task] can be filtered
+Decisions which were evaluated from a [CMMN decision task] can be filtered
 by the case definition id or key and case instance id.
 
 ```java

@@ -285,7 +285,7 @@ public class MyDecisionResultListener implements CaseExecutionListener {
 
 The predefined mappings `singleResult`, `collectEntries` and `resultList` map
 the decision result to Java collections. The implementation of the collections
-depend on the used JDK and contain untyped values as Objects. When a collection
+depends on the used JDK and contains untyped values as Objects. When a collection
 is saved as process/case variable then it is serialized as object value because
 there is no suitable primitive value type. Depending on the used [object value
 serialization], this can lead to deserialization problems.
@@ -299,7 +299,7 @@ deserialized using JSON because JSON has no registered mapper for date by
 default.
 
 The same problems can occur by using a custom output variable mapping since
-`DmnDecisionTableResult` has methods that returns the same collections as the
+`DmnDecisionTableResult` has methods that return the same collections as the
 predefined mappers. Additionally, it is not recommended to save a
 `DmnDecisionTableResult` or a `DmnRuleResult` as process/case variable because
 the underlying implementation can change in a new version of Camunda BPM.
@@ -334,7 +334,7 @@ its name.
 ```
 
 The returned value of the process/case variable in the expression will
-be a normal Object and not a [typed value][Typed Value API]. If you want
+be a normal object and not a [typed value][Typed Value API]. If you want
 to use the typed value in your expression, you have to get the variable
 from the variable context. The following snippet does the same as the above
 example. It gets the variable `foo` from the variable context and returns

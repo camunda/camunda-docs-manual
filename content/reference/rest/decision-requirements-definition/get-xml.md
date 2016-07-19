@@ -54,7 +54,7 @@ GET `/decision-requirements-definition/key/{key}/tenant-id/{tenant-id}/xml` (ret
 
 # Result
 
-A JSON object containing the id of the decision requirements definition and the DMN 1.0 XML.
+A JSON object containing the id of the decision requirements definition and the DMN 1.1 XML.
 
 <table class="table table-striped">
   <tr>
@@ -103,16 +103,16 @@ A JSON object containing the id of the decision requirements definition and the 
 
 ## Request
 
-GET `/decision-requirements-definition/aDecisionRequirementsDefinitionId/xml`
+GET `/decision-requirements-definition/invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c/xml`
 
-GET `/decision-requirements-definition/key/aDecisionRequirementsDefinitionKey/xml`
+GET `/decision-requirements-definition/key/invoiceKey/xml`
 
 ## Response
 
 ```json
 {
-  "id":"aDecisionRequirementsDefinitionId",
-  "dmnXml":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n
+  "id":"invoice:1:9f86d61f-9ee5-11e3-be3b-606720b6f99c",
+  "dmnXml":"<?xml version=\"1.1\" encoding=\"UTF-8\"?>\r\n
   ...
   <definitions id=\"dish\" name=\"Dish\" namespace=\"test-drg\"
   ...

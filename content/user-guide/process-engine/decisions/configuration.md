@@ -46,7 +46,7 @@ processEngineConfiguration.buildProcessEngine();
 
 # Configure the DMN Engine using Spring XML
 
-Follow the [introductions]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `camunda.cfg.xml` XML configuration for the process engine. 
+Follow the [instructions]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}) to create a base `camunda.cfg.xml` XML configuration for the process engine. 
 
 Add a new configuration bean of class `org.camunda.bpm.dmn.engine.impl.DefaultDmnEngineConfiguration`. Configure the DMN engine using the bean and set it as `dmnEngineConfiguration` property on the `processEngineConfiguration` bean. 
 

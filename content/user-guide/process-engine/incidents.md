@@ -11,7 +11,7 @@ menu:
 ---
 
 
-Incidents are notable events that happen in the process engine. Such incidents usually indicate some kind of problem related to process execution. Examples of such incidents may be a failed job with elapsed retries (retries = 0), indicating that an execution is stuck and manual administrative action is necessary to repair the process instance. Or the fact that a process instance has entered an error state which could be modeled as a BPMN Error Boundary event or a User Task explicitly marked as "error state". If such incidents arise, the process engine fires an internal event which can be handled by a configurable incident handler.
+Incidents are notable events that happen in the process engine. Such incidents usually indicate some kind of problem related to process execution. Examples of such incidents may be a failed job with depleted retries (retries = 0), indicating that an execution is stuck and manual administrative action is necessary to repair the process instance. Or the fact that a process instance has entered an error state which could be modeled as a BPMN Error Boundary event or a User Task explicitly marked as "error state". If such incidents arise, the process engine fires an internal event which can be handled by a configurable incident handler.
 
 In the default configuration, the process engine writes incidents to the process engine database. You may then query the database for different types and kinds of incidents using the `IncidentQuery` exposed by the `RuntimeService`:
 
@@ -30,14 +30,14 @@ If you want to customize the incident handling behavior, it is possible to repla
 
 There are different types of incidents. Currently the process engine supports the following incidents:
 
-* **failedJob**: is raised when automatic retries for a Job (Timer or Asynchronous continuation) have elapsed. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary. The incident is resolved when the job is manually executed or when the retries for the corresponding job are reset to a value > 0.
-* **failedExternalTask**: is raised when a worker of an [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) report a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched from a worker. Administrative action is necessary to reset the retries.
+* **failedJob**: is raised when automatic retries for a job (timer or asynchronous continuation) have been depleted. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary. The incident is resolved when the job is manually executed or when the retries for the corresponding job are set to a value > 0.
+* **failedExternalTask**: is raised when a worker of an [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) reports a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched by a worker. Administrative action is necessary to reset the retries.
 
 
 # (De-)Activate Incidents
 
-The process engine allows you to configure  whether certain incidents should be raised or not on an incident type base.
 
+The process engine allows you to configure  whether certain incidents should be raised or not, based on the incident type.
 The following properties are available in the `org.camunda.bpm.engine.ProcessEngineConfiguration` class:
 
   * `createIncidentOnFailedJobEnabled`: indicates whether Failed Job incidents should be raised or not.
