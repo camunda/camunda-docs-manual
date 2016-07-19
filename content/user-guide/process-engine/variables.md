@@ -417,6 +417,16 @@ Input mappings can also be used with multi-instance constructs, in which the map
   The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
 {{< /note >}}
 
+# Setting variables to specific scope
+
+There is a possibility to set variables into specific scope while working with classes implementing `org.camunda.bpm.engine.delegate.DelegateExecution`. Implementation of this functionality is using activity ID in order to identify destination scope and will throw an exception if no scope is located to set a variable. Additionally, once target scope is found, variable will be set locally in it, which means that propagation to the parent scope will not be executed even if destination scope does not have a variable with given id.
+
+Here is example usage with script executionListener:
+```xml
+<camunda:executionListener event="end">
+        <camunda:script scriptFormat="groovy"><![CDATA[execution.setVariable("aVariable", "aValue","aSubProcess");]]></camunda:script>
+</camunda:executionListener>
+```
 
 [inputOutput]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
 [inputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
