@@ -21,7 +21,9 @@ This guide uses a number of variables to denote common path names and constants:
 `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 {{< /note >}}
 
-
+{{< note title="Java 8 compatibility" class="info" >}}
+if you are using Java 8 please use Wildfly installation and not JBoss AS. In order to use JBoss AS you have to use Java 7 or Java 6.
+{{< /note >}}
 # Required Setup for JBoss AS 7 / JBoss EAP 6
 
 This section explains how to perform the required setup steps for JBoss Application Server.
