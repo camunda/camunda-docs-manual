@@ -89,6 +89,7 @@ The CMMN specification allows to reference a case file item by the sentry attrib
 
 The engine evaluates IfParts at every lifecycle transition of a plan item contained in the sentry's stage. That means, if an IfPart is not satisfied immediately when all OnParts have occurred, the sentry may still occur at any later lifecycle transition.
 
+# Camunda Extensions
 
 # VariableOnPart
 
@@ -99,7 +100,7 @@ In Camunda, a sentry with a variableOnPart looks as follows
 ```
 <sentry id="Sentry_1">
   <extensionElements>
-    <camunda:variableOnPart id = "VariableOnPart_1" variableName = "variable_1">
+    <camunda:variableOnPart variableName = "variable_1">
       <camunda:variableEvent>create</camunda:variableEvent>
     </camunda:variableOnPart>
   </extensionElements>	
@@ -115,7 +116,3 @@ Sentries allow a flexible definition of event occurrences and data-based conditi
 * A sentry without OnParts is fulfilled when the IfPart evaluates to `true` and all the VariableOnParts have occurred.
 * A sentry without an IfPart is fulfilled when all OnParts and all the VariableOnParts have occurred.
 * A sentry without variableOnPart is fullfilled when all the OnParts and IfPart are fulfilled.
-
-# Camunda Extensions
-
-There are no custom Camunda extensions for sentries.
