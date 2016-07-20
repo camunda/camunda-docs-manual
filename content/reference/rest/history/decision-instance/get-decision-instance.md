@@ -188,7 +188,7 @@ Its properties are as follows:
   <tr>
     <td>rootDecisionInstanceId</td>
     <td>String</td>
-    <td>The decision instance id of the evaluation's root decision. Can be <code>null</code> if this instance belongs to the root decision of the evaluation.</td>
+    <td>The decision instance id of the evaluated root decision. Can be <code>null</code> if this instance is the root decision instance of the evaluation.</td>
   </tr>
   <tr>
     <td>decisionRequirementsDefinitionId</td>

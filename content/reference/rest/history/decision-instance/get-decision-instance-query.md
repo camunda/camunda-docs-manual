@@ -144,22 +144,22 @@ GET `/history/decision-instance`
   <tr>
     <td>rootDecisionInstanceId</td>
     <td>
-      Restrict to instances that belongs to an evaluation's root decision instance with the given id. 
+      Restrict to instances that have a given root decision instance id. 
       This also includes the decision instance with the given id.
     </td>
   </tr>
   <tr>
     <td>rootDecisionInstancesOnly</td>
     <td>
-      Restrict to instances that belongs to evaluation root decisions.
+      Restrict to instances those are the root decision instance of an evaluation.
       Value may only be <code>true</code>, as <code>false</code> is the default behavior.
     </td>
   </tr>
-  </tr>
+  <tr>
     <td>decisionRequirementsDefinitionId</td>
     <td>Filter by the decision requirements definition the instances belongs to.</td>
   </tr>
-  </tr>
+  <tr>
     <td>decisionRequirementsDefinitionKey</td>
     <td>Filter by the key of the decision requirements definition the instances belongs to.</td>
   </tr>
@@ -302,7 +302,7 @@ Each historic decision instance object has the following properties:
   <tr>
     <td>rootDecisionInstanceId</td>
     <td>String</td>
-    <td>The decision instance id of the evaluation's root decision. Can be <code>null</code> if this instance belongs to the root decision of the evaluation.</td>
+    <td>The decision instance id of the evaluated root decision. Can be <code>null</code> if this instance is the root decision instance of the evaluation.</td>
   </tr>
   <tr>
     <td>decisionRequirementsDefinitionId</td>
