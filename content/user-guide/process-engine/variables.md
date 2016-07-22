@@ -81,7 +81,7 @@ The specifics of this code are described in more detail in the sections on the [
 
 ## Setting variables to specific scope
 
-There is a possibility to set variables into specific scope from scripts, input\output mapping, listeners and service tasts. Implementation of this functionality is using activity id in order to identify destination scope and will throw an exception if no scope is located to set a variable. Additionally, once target scope is found, variable will be set locally in it, which means that propagation to the parent scope will not be executed even if destination scope does not have a variable with given id.
+There is a possibility to set variables into specific scope from scripts, input\output mapping, listeners and service tasks. Implementation of this functionality is using activity id in order to identify destination scope and will throw an exception if no scope is located to set a variable. Additionally, once target scope is found, variable will be set locally in it, which means that propagation to the parent scope will not be executed even if destination scope does not have a variable with given id.
 
 Here is example usage with script executionListener:
 ```xml
