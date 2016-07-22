@@ -79,6 +79,31 @@ execution.setVariable("diff", typedDiff);
 
 The specifics of this code are described in more detail in the sections on the [Java Object Value API]({{< relref "#java-object-api" >}}) and the [Typed Value API]({{< relref "#typed-value-api" >}}).
 
+## Setting variables to specific scope
+
+There is a possibility to set variables into specific scope from scripts, input\output mapping, listeners and service tasts. Implementation of this functionality is using activity id in order to identify destination scope and will throw an exception if no scope is located to set a variable. Additionally, once target scope is found, variable will be set locally in it, which means that propagation to the parent scope will not be executed even if destination scope does not have a variable with given id.
+
+Here is example usage with script executionListener:
+```xml
+<camunda:executionListener event="end">
+        <camunda:script scriptFormat="groovy"><![CDATA[execution.setVariable("aVariable", "aValue","aSubProcess");]]></camunda:script>
+</camunda:executionListener>
+```
+Another usage example would be input\output mapping using `DelegateVariableMapping` implementation 
+
+```java
+public class SetVariableToScopeMappingDelegate implements DelegateVariableMapping {
+  @Override
+  public void mapInputVariables(DelegateExecution superExecution, VariableMap subVariables) {
+  }
+
+  @Override
+  public void mapOutputVariables(DelegateExecution superExecution, VariableScope subInstance) {
+    superExecution.setVariable("aVariable","aValue","aSubProcess");
+  }
+}
+```
+here variable will be set locally in "aSubProcess" and not propagated to the parent scope even if variable was not set beforehand locally in "aSubProcess". 
 
 # Supported Variable Values
 
@@ -416,17 +441,6 @@ Input mappings can also be used with multi-instance constructs, in which the map
 {{< note title="No output mapping for multi-instance constructs" class="info" >}}
   The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
 {{< /note >}}
-
-# Setting variables to specific scope
-
-There is a possibility to set variables into specific scope while working with classes implementing `org.camunda.bpm.engine.delegate.DelegateExecution`. Implementation of this functionality is using activity ID in order to identify destination scope and will throw an exception if no scope is located to set a variable. Additionally, once target scope is found, variable will be set locally in it, which means that propagation to the parent scope will not be executed even if destination scope does not have a variable with given id.
-
-Here is example usage with script executionListener:
-```xml
-<camunda:executionListener event="end">
-        <camunda:script scriptFormat="groovy"><![CDATA[execution.setVariable("aVariable", "aValue","aSubProcess");]]></camunda:script>
-</camunda:executionListener>
-```
 
 [inputOutput]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
 [inputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
