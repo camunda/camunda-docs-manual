@@ -236,7 +236,7 @@ integrate with
 
 # Optimistic Locking
 
-  Optimistic Locking or also called Optimistic concurrency control is a concurrency control method which is used in
+  Optimistic Locking or also called optimistic concurrency control is a concurrency control method, which is used in
   transactional based systems. It is assumed that access on data is most of the time read access.
   Which means the data which is read is not locked, so other transactions are also possible to read the data.
   The optimistic locking behavior defines the transaction behavior in that way that the transaction reads the data
@@ -265,14 +265,14 @@ integrate with
 
   For example there exists three transactions. All of them read the same data of an row in a table.
   Lets say the table look like the table above.
-  And the transactions can look like the following transaction examples.
+  And the transactions can look like the following transactionis in the example.
   Say they are processed in parallel, Transaction 1 is the fastest and only reads the value
   from the row with the key `readKey` and Transaction 2 updates the row with the key `readKey` and commits before
   Transaction 3 does, because Transaction 3 does some more stuff with the value.
 
   {{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
 
-  For the first two transactions have no problem. **Transaction 3** run in a problem because the value of the row
+  For the first two transactions exists no problem. **Transaction 3** run in a problem because the value of the row
   with the key *readKey* was changed in the meantime. At this time
   the optimistic locking or optimistic correlation control come in. **The Transaction 3 have to
   rollback and retry.**
@@ -282,9 +282,9 @@ integrate with
   The difference to pessimistic locking is, that there is no lock at all. Pessimistic locking creates a lock on a resource.
   This model admits that every time the resource will be read and written. So if a transaction access a resource
   a lock will be created. Other transaction have to wait, which can end in a deadlock. In a system on which most of the
-  transactions are only read the data optimistic locking is much more faster then pessimistic locking. Because no
+  transactions only read the data optimistic locking is much more faster then pessimistic locking. Because no
   transaction have to wait. But if the system has more transactions which need read and write access, the pessimistic
-  locking \textbf{can} be a better approach. Because optimistic locking can end in to much rollbacks.
+  locking **can** be a better approach. Because optimistic locking can end in to much rollbacks.
 
 ## Optimistic Locking in Camunda
 
@@ -292,9 +292,9 @@ integrate with
   which indicates that a problem regarding optimistic locking appeared. The camunda engine collect all
   changes during a transaction and execute them, if the transaction should be commited.
   A change can be a variable value update or something else.
-  In case of an update or delete the affected rows will be checked. If there is no row affected, this indicates that
+  In case of an update or a deletion the affected rows will be checked. If there is no row affected, this indicates that
   the current state differs from the state, on which the transaction has worked on. In this case
-  the `OptimisticLockingException` will be thrown and rollback is executed. After the rollback the transaction
+  the `OptimisticLockingException` will be thrown and a rollback is executed. After the rollback, the transaction
   will be retried.
 
   In the sections above the behavior in case of exceptions and rollbacks are
@@ -302,13 +302,13 @@ integrate with
   camunda transaction will be rolled back to the latest waiting state or till the begin of the process instance.
   The same behavior takes effect in case of `OptimisticLockingException`.
 
-  The `OptimisticLockingException` can appear like written before, in case of updates and deletions of
+  The `OptimisticLockingException` can appear, like written before, in case of updates and deletions of
   variables and also on parallel gateways.
 
  {{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
 
-  As an example for the optimistic locking in camunda see the process definition in figure
-  \ref{img:parallel}. There is a process with a parallel gateway, which do two tasks in parallel.
+  As an example for the optimistic locking in camunda see the process definition in figure above.
+  There is a process with a parallel gateway, which do two tasks in parallel.
   In the closing parallel gateway the first token will wait until the second token came across. After
   all tokens in all ingoing edges have arrived the execution will be continued. In this case the process will end
   in the end event.
@@ -323,5 +323,5 @@ integrate with
   because the second can't also be the first token. So the transaction of the second token will be rolled back,
   either till the starting parallel gateway or another transaction border. For example
   if the asyncBefore is set at the task ''Do other stuff'' then before the beginning of the task. If the asyncAfter
-  is set then after the task. If the task is an user task the transaction is rolled back to the point before the user task,
+  is set, then after the task. If the task is an user task the transaction is rolled back to the point before the user task,
   like the asyncBefore is set.
