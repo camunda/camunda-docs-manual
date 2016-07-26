@@ -236,48 +236,66 @@ integrate with
 
 # Optimistic Locking
 
-  Optimistic Locking or also called optimistic concurrency control is a concurrency control method, which is used in
-  transactional based systems. It is assumed that access on data is most of the time read access.
-  Which means the data which is read is not locked, so other transactions are also possible to read the data.
-  The optimistic locking behavior defines the transaction behavior in that way that the transaction reads the data
-  and if the data should be updated or written the current state will be checked before. If the current state differs with
-  the state which was read as first a rollback will be performed.
+The Camunda Engine can be used in multi threaded applications. In such a setting, when multiple threads interact with the process engine concurrently, it can happen that these threads attempt to do changes to the same data. For example: two threads attempt to complete the same User Task at the same time (concurrently). Such a situation is a conflict: the task can be completed only once.
 
-## Example
+Camunda Engine uses a well known technique called "Optimistic Locking" (or Optimistic Concurrently Control) to detect and resolve such situations.
 
-  <table border="1" width="400" align="center">
+This section is structured in two parts: The first part introduces Optimistic Locking as a concept. You can skip this section in case you are already familiar with Optimistic Locking as such. The second part explains the usage of Optimistic Locking in Camunda.
+
+## What is Optimistic Locking?
+
+Optimistic Locking (also Optimistic Concurrency Control) is a method for concurrency control, which is used in
+transaction based systems. Optimistic Locking is most efficient in situations in which data is read more frequently than it is changed. Many threads can read the same data objects at the same time without excluding each other. Consistency is then ensured by detecting conflicts and preventing updates in situations in which multiple threads attempt to change the same data objects concurrently. If such a conflict is detected, it is ensured that only one update succeeds and all others fail.
+
+### Example
+
+Assume we have a database table with the following entry:
+
+  <table border="1" width="400" align="center" class="table table-condensed">
     <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>lastUpdate</th>
+      <th>Id</th>
+      <th>Version</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>...</th>      
     </tr>
     <tr>
-      <td>key1</td>
-      <td>value2</td>
-      <td>2016-07-14 10:57:23</td>
+      <td>8</td>
+      <td>1</td>
+      <td>Steve</td>
+      <td>3, Workflow Boulevard, Token Town</td>
+      <td>...</td>
     </tr>
     <tr>
-     <td>readKey</td>
-     <td>beginValue</td>
-     <td>2016-07-14 10:58:01</td>
+     <td>...</td>
+     <td>...</td>
+     <td>...</td>
+     <td>...</td>
+     <td>...</td>
     </tr>
   </table>
 
-  For example there exists three transactions. All of them read the same data of an row in a table.
+The above table shows a single row holding user data. The user has a unique Id (primary key), a version, a name and a current address.
+
+We now construct a situation in which 2 transactions attempt to update this entry, one attempting to change the address, the other one attempting to delete the user. The intended behavior is that once of the transactions succeeds and the other is aborted with an error indicating that a concurrency conflict was detected. The user can then decide to retry the transaction based on the latest state of the data:
+
+{{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
+
+For example there exists three transactions. All of them read the same data of an row in a table.
   Lets say the table look like the table above.
   And the transactions can look like the following transactionis in the example.
   Say they are processed in parallel, Transaction 1 is the fastest and only reads the value
   from the row with the key `readKey` and Transaction 2 updates the row with the key `readKey` and commits before
   Transaction 3 does, because Transaction 3 does some more stuff with the value.
 
-  {{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
+
 
   For the first two transactions exists no problem. **Transaction 3** run in a problem because the value of the row
   with the key *readKey* was changed in the meantime. At this time
   the optimistic locking or optimistic correlation control come in. **The Transaction 3 have to
   rollback and retry.**
 
-## Optimistic Locking vs. Pessimistic Locking
+### Optimistic Locking vs. Pessimistic Locking
 
   The difference to pessimistic locking is, that there is no lock at all. Pessimistic locking creates a lock on a resource.
   This model admits that every time the resource will be read and written. So if a transaction access a resource
@@ -286,7 +304,17 @@ integrate with
   transaction have to wait. But if the system has more transactions which need read and write access, the pessimistic
   locking **can** be a better approach. Because optimistic locking can end in to much rollbacks.
 
+### Further Reading
+
+Wikipedia and others...
+
 ## Optimistic Locking in Camunda
+
+### The OptimisticLockingException
+
+What does it mean?
+What can I do?
+
 
   The optimistic concurrency control is implemented with the help of the `OptimisticLockingException`,
   which indicates that a problem regarding optimistic locking appeared. The camunda engine collect all
@@ -296,6 +324,19 @@ integrate with
   the current state differs from the state, on which the transaction has worked on. In this case
   the `OptimisticLockingException` will be thrown and a rollback is executed. After the rollback, the transaction
   will be retried.
+
+### Common places where OLE Occurs
+
+* Competing External Requests
+* Synchronization Points inside Processes
+
+### Internal Implementation Details
+
+* Version Columns in the database
+* Check at the end of a Command
+* Transaction Rollback
+
+
 
   In the sections above the behavior in case of exceptions and rollbacks are
   already described. You can read in the documentation that if exceptions during execution appear the
