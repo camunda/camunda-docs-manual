@@ -29,13 +29,13 @@ The following archetypes are currently provided. They are distributed via our Ma
     </tr>
     <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
-      <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g. JBoss Wildfly.
+      <td>Process application that uses a shared Camunda BPM engine in a Java EE Container, e.g., JBoss Wildfly.
           Contains: Camunda EJB Client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, HTML5- & JSF-based start and task forms,
           configuration for JPA (Hibernate), JUnit Test with in-memory engine and visual process test coverage, Arquillian Test for JBoss AS7 & Wildfly, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
     <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
-      <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g. Apache Tomcat.
+      <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g., Apache Tomcat.
           Contains: Servlet Process Application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
@@ -56,7 +56,7 @@ The following archetypes are currently provided. They are distributed via our Ma
 
 1. Go to **Preferences -> Maven -> Archetypes -> Add Remote Catalog**
 {{< img src="../img/eclipse-00-preferences-maven-archetypes.png" title="Eclipse Preferences: Maven Archetypes" >}}
-2. Enter the following URL and description, click on **Verify...** to test the connection and if that worked on **OK** to save the catalog.
+2. Enter the following URL and description, click on **Verify...** to test the connection and if that worked click on **OK** to save the catalog.
 
     Catalog File: **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
 
@@ -81,7 +81,7 @@ The resulting project should look like this:
 
 ## Troubleshooting
 
-Sometimes, the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, [contact us](http://camunda.org/community/forum.html).
+Sometimes the creation of the very first Maven project fails in Eclipse. If that happens to you, just try it again. Most of the times the second try works. If the problem persists, [contact us](https://forum.camunda.org/).
 
 # Usage in IntelliJ IDE
 
@@ -91,7 +91,7 @@ Sometimes, the creation of the very first Maven project fails in Eclipse. If tha
 2. Add the catalog file with the full path to the xml file **https://app.camunda.com/nexus/content/repositories/camunda-bpm/archetype-catalog.xml**
 3. Create Maven project from archetype (**New Project -> Maven -> Check "From Archetype"** The com.camunda archetypes should be in the list)
 
-# Usage on Commandline
+# Usage on Command Line
 
 ## Interactive
 
@@ -104,7 +104,7 @@ mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=ht
 
 ## Full Automation
 
-The following command completely automates the project generation an can be used in shellscipts or Ant builds:
+The following command completely automates the project generation and can be used in shell scipts or Ant builds:
 <pre class="console">
 mvn archetype:generate \
   -DinteractiveMode=false \

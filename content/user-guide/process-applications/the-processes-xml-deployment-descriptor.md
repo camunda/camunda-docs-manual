@@ -31,7 +31,7 @@ The processes.xml deployment descriptor contains the deployment metadata for a p
 
 A single deployment (process-archive) is declared. The process archive has the name *loan-approval* and is deployed to the process engine with the name *default*. Two additional properties are specified:
 
-  * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deplyoment (including process instances) from the database.
+  * `isDeleteUponUndeploy`: this property controls whether the undeployment of the process application should entail that the process engine deployment is deleted from the database. The default setting is false. If this property is set to true, undeployment of the process application leads to the removal of the deployment (including process instances) from the database.
   * `isScanForProcessDefinitions`: if this property is set to true, the classpath of the process application is automatically scanned for process definition resources. Process definition resources must end in `.bpmn20.xml` or `.bpmn`.
 
 See [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.

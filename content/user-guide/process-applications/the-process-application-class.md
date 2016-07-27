@@ -44,8 +44,8 @@ public class LoanApprovalApplication extends ServletProcessApplication {
 
 Notice the `@ProcessApplication` annotation. This annotation fulfills two purposes:
 
-  * **providing the name of the ProcessApplication**: You can provide a custom name for your process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
-  * **triggering auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g. Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the webapplication is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
+  * **provide the name of the ProcessApplication**: You can provide a custom name for your process application using the annotation: `@ProcessApplication("Loan Approval App")`. If no name is provided, a name is automatically detected. In case of a ServletProcessApplication, the name of the ServletContext is used.
+  * **trigger auto-deployment**. In a Servlet 3.0 container, the annotation is sufficient for making sure that the process application is automatically picked up by the servlet container and automatically added as a ServletContextListener to the Servlet Container deployment. This functionality is realized by a `javax.servlet.ServletContainerInitializer` implementation named `org.camunda.bpm.application.impl.ServletProcessApplicationDeployer` which is located in the camunda-engine module. The implementation works for both embedded deployment of the camunda-engine.jar as a web application library in the `WEB-INF/lib` folder of your WAR file or for the deployment of the camunda-engine.jar as a shared library in the shared library (e.g., Apache Tomcat global `lib/` folder) directory of your application server. The Servlet 3.0 Specification foresees both deployment scenarios. In case of embedded deployment, the `ServletProcessApplicationDeployer` is notified once, when the webapplication is deployed. In case of deployment as a shared library, the `ServletProcessApplicationDeployer` is notified for each WAR file containing a class annotated with `@ProcessApplication` (as required by the Servlet 3.0 Specification).
 
 This means that in case you deploy to a Servlet 3.0 compliant container (such as Apache Tomcat 7) annotating your class with `@ProcessApplication` is sufficient.
 
@@ -74,7 +74,7 @@ In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Ser
 
 ## Using the ServletProcessApplication Inside an EJB/Java EE Container such as Glassfish or JBoss
 
-You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
+You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see the next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
 
   * using CDI beans and EJBs as JavaDelegate Implementations in combination with the Job Executor,
   * using @RequestScoped CDI Beans with the Job Executor,
@@ -91,17 +91,17 @@ If your application does not use such features, it is perfectly fine to use the 
 
 The EjbProcessApplication is the base class for developing Java EE based Process Applications. An Ejb Process Application class itself must be deployed as an EJB.
 
-In order to add an Ejb Process Application to your Java Application, you have two options:
+To add an Ejb Process Application to your Java Application, you have two options:
 
-  * **Bundling the camunda-ejb-client**: we provide a generic, reusable EjbProcessApplication implementation (named `org.camunda.bpm.application.impl.ejb.DefaultEjbProcessApplication`) bundled as a maven artifact. The simplest possibility is to add this implementation as a maven dependency to your application.
-  * **Writing a custom EjbProcessApplication**: if you want to customize the behavior of the EjbProcessApplication, you can write a custom subclass of the EjbProcessApplication class and add it to your application.
+  * **Bundle the camunda-ejb-client**: we provide a generic, reusable EjbProcessApplication implementation (named `org.camunda.bpm.application.impl.ejb.DefaultEjbProcessApplication`) bundled as a maven artifact. The simplest possibility is to add this implementation to your application as a maven dependency.
+  * **Write a custom EjbProcessApplication**: if you want to customize the behavior of the EjbProcessApplication, you can write a custom subclass of the EjbProcessApplication class and add it to your application.
 
 Both options are explained in greater detail below.
 
 
 ## Bundling the camunda-ejb-client Jar
 
-The most convenient option for deploying a process application to an Ejb Container is by adding the following maven dependency to you maven project:
+The most convenient option for deploying a process application to an Ejb Container is by adding the following maven dependency to your maven project:
 
 {{< note title="" class="info" >}}
   Please import the [Camunda BOM](/get-started/apache-maven/) to ensure correct versions for every Camunda project.
@@ -255,7 +255,7 @@ When the process engine invokes the Ejb Process Application, it gets EJB invocat
                                    +--------------------+
 </pre>
 
-The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g. the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked. 
+The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked. 
 
 ```java
 public class MyEjbProcessApplication extends EjbProcessApplication {
@@ -355,7 +355,7 @@ The following shows an example of how to bootstrap a SpringProcessApplication in
 
 ## Process Application Name
 
-The SpringProcessApplication will use the bean name (`id="invoicePa"` in the example above) as auto-detected name for the process application. Make sure to provide a unique process application name here (unique across all process applications deployed on a single application server instance.) As an alternative, you can provide a custom subclass of SpringProcessApplication (or SpringServletProcessApplication) and override the `getName()` method.
+The SpringProcessApplication will use the bean name (`id="invoicePa"` in the example above) as auto-detected name for the process application. Make sure to provide a unique process application name here (unique across all process applications deployed on a single application server instance). As an alternative, you can provide a custom subclass of SpringProcessApplication (or SpringServletProcessApplication) and override the `getName()` method.
 
 
 ## Configure a Managed Process Engine Using Spring
