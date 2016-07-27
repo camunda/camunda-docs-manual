@@ -36,7 +36,7 @@ The following archetypes are currently provided. They are distributed via our Ma
     <tr>
       <td><a href="https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
       <td>Process application that uses a shared Camunda BPM engine in a Servlet Container, e.g., Apache Tomcat.
-          Contains: Servlet Process Application, BPMN Process, Java Delegate, HTML5-based start and task forms,
+          Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
           JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
     </tr>
   </tbody>

@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< relref "user-guide/data-formats/index.md" >}}). This section describes under which conditions the process engine looks up resources on process-application level and how that lookup can be enforced.
+Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< relref "user-guide/data-formats/index.md" >}}). This section describes under which conditions the process engine looks up resources on process application level and how that lookup can be enforced.
 
 {{< img src="../img/process-application-context.png" title="Process Application Context" >}}
 
@@ -19,10 +19,10 @@ Process applications provide and logically group resources specific to the proce
 
 When executing a process instance, the process engine has to know which process application provides the corresponding resources. It then internally performs a *context switch*. This has the following effects:
 
-* The thread context class loader is set to the process application classloader. This enables loading classes from the process application, e.g., a Java delegate implementation.
+* The thread context class loader is set to the process application classloader. This enables loading classes from the process application, e.g., a Java Delegate implementation.
 * The process engine can access the resources it manages for that particular process application. This enables invoking scripting engines or Spin data formats specific to the process application.
 
-For example, before invoking a Java delegate, the process engine performs a context switch into the respective process application. It is therefore able to set the thread context classloader to the process application classloader. If no context switch is performed, only those resources are available that are accessible on the process engine level. This is typically a different classloader and a different set of managed resources.
+For example, before invoking a Java Delegate, the process engine performs a context switch into the respective process application. It is therefore able to set the thread context classloader to the process application classloader. If no context switch is performed, only those resources are available that are accessible on the process engine level. This is typically a different classloader and a different set of managed resources.
 
 {{< note title="Mechanics behind the Context Switch" >}}
 Note that the actual mechanics behind the context switch are platform dependent. For example: in a servlet container like Apache Tomcat, it is only necessary to set the Thread's current Context Classloader to the web application Classloader. Context specific operations like the resolution of application-local JNDI names all build on this. In an EJB container, this is more complex. This is why the ProcessApplication class is an EJB itself in that environment (see: [Ejb Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#invocation-semantics-of-the-ejbprocessapplication" >}})). The process engine can then add an invocation of a business method of that EJB to the call stack and have the Application Server perform its specific logic behind the scenes.
@@ -30,7 +30,7 @@ Note that the actual mechanics behind the context switch are platform dependent.
 
 A context switch is guaranteed in the following cases:
 
-* **Delegation Code Invocation**: Whenever delegation code like Java delegates, execution/task listeners (Java code or scripts), etc. is called by the process engine
+* **Delegation Code Invocation**: Whenever delegation code like Java Delegates, execution/task listeners (Java code or scripts), etc. is called by the process engine
 * **Explicit Process Application Context Declaration**: For every engine API invocation, when a process application was declared using the utility class `org.camunda.bpm.application.ProcessApplicationContext`
 
 # Declare Process Application Context
@@ -57,7 +57,7 @@ public class ObjectValueServlet extends HttpServlet {
 }
 ```
 
-Note that the engine API is not called from within delegation code but a from servlet instead. The process engine is therefore not aware of process application context and cannot perform a context switch to use the correct JSON data format for variable serialization. In consequence, the process-application-specific JSON configuration does not apply.
+Note that the engine API is not called from within delegation code but a from servlet instead. The process engine is therefore not aware of process application context and cannot perform a context switch to use the correct JSON data format for variable serialization. In consequence, the process application-specific JSON configuration does not apply.
 
 In such a case, process application context can be declared by using the static methods the class `org.camunda.bpm.application.ProcessApplicationContext` provides. In particular, the method  `#setCurrentProcessApplication` declares the process application to switch into for following engine API invocations. The method `#clear` resets this declaration. In the example, we wrap the `#setVariable` invocation accordingly:
 

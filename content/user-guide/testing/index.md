@@ -144,7 +144,7 @@ Apart from JUnit assertions, there is the community extension [camunda-bpm-asser
 
 # Arquillian Tests
 
-In Java EE environments we recently use JBoss Arquillian pretty often to test Process Applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
+In Java EE environments we recently use JBoss Arquillian pretty often to test process applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
 
 {{< note title="" class="info" >}}
   Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.

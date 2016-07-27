@@ -24,7 +24,7 @@ The Process engine can be hooked-up to the CDI event-bus. We call this the "CDI 
 Now the engine is configured for publishing events using the CDI event bus.
 
 {{< note title="" class="info" >}}
-  The above configuration can be used in combination with an embedded process engine. If you want to use this feature in combination with the shared process engine in a multi application environment, you need to add the CdiEventListener as Process Application event listener. [See next section]({{< relref "#the-cdi-event-bridge-in-a-process-application" >}}).
+  The above configuration can be used in combination with an embedded process engine. If you want to use this feature in combination with the shared process engine in a multi application environment, you need to add the CdiEventListener as process application event listener. [See next section]({{< relref "#the-cdi-event-bridge-in-a-process-application" >}}).
 {{< /note >}}
 
 The following gives an overview of how process events can be received in CDI beans. In CDI, we can declaratively specify event observers using the @Observes-annotation. Event notification is type-safe. The type of process events is org.camunda.bpm.engine.cdi.BusinessProcessEvent. The following is an example of a simple event observer method:

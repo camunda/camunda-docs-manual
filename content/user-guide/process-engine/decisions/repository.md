@@ -19,7 +19,7 @@ by its key and version. The platform supports [DMN 1.1] XML files.
 # Deploying a Decision
 
 To deploy a DMN decision you can either use the Repository Service or add it to
-a Process Application. The platform will recognize all files with a `.dmn` or
+a process application. The platform will recognize all files with a `.dmn` or
 `.dmn11.xml` file extension as DMN resources.
 
 ## Deploying a decision using the Repository Service
