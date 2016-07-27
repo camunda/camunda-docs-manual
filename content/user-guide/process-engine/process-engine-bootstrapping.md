@@ -25,7 +25,7 @@ You manage the process engine as part of your application. The following ways ex
 
 # Shared, Container Managed Process Engine
 
-A container of your choice (e.g., Tomcat, JBoss, GlassFish or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) for details.
+A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) for details.
 
 
 ## ProcessEngineConfiguration Bean
@@ -128,7 +128,6 @@ All these `ProcessEngineConfiguration.createXXX()` methods return a `ProcessEngi
 The `bpm-platform.xml` file is used to configure the Camunda BPM platform in the following distributions:
 
 * Apache Tomcat
-* GlassFish Application Server
 * IBM WebSphere Application Server
 * Oracle WebLogic Application Server
 

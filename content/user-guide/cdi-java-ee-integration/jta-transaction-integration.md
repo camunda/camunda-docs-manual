@@ -18,7 +18,7 @@ manager integration, you need to use the
   resolving support.
 
 > **Note 1**: The shared process engine distributions for Java EE Application Servers (Wildfly, JBoss,
-> Glassfish, IBM WebSphere Application Server, Oracle WebLogic Application Server) provide JTA
+>  IBM WebSphere Application Server, Oracle WebLogic Application Server) provide JTA
 > integration out of the box.
 
 > **Note 2**: The process engine requires access to an implementation of
