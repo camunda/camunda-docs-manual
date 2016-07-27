@@ -104,7 +104,7 @@ mvn archetype:generate -Dfilter=org.camunda.bpm.archetype: -DarchetypeCatalog=ht
 
 ## Full Automation
 
-The following command completely automates the project generation and can be used in shell scipts or Ant builds:
+The following command completely automates the project generation and can be used in shell scripts or Ant builds:
 <pre class="console">
 mvn archetype:generate \
   -DinteractiveMode=false \
