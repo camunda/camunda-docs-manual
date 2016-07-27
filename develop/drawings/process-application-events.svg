@@ -13,9 +13,9 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="process-application-events.svg"
-   inkscape:export-filename="C:\Workspace\docs.camunda.org\develop\drawings\process-application-events.png"
+   inkscape:export-filename="C:\Users\x230\Desktop\git\camunda-docs-manual\develop\drawings\process-application-events.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -154,14 +154,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.53"
-     inkscape:cx="426.72591"
+     inkscape:cx="283.91545"
      inkscape:cy="486.66667"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1028"
-     inkscape:window-x="-8"
+     inkscape:window-height="1017"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -172,7 +172,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -247,7 +247,7 @@
          x="114.16996"
          y="679.01575"
          style="font-size:14px"
-         id="tspan3121">Runtime Container (Tomcat, JBoss, Glassfish, ...)</tspan></text>
+         id="tspan3121">Runtime Container (Tomcat, JBoss, ...)</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:2.5,1.25;stroke-dashoffset:0"
        d="m 321.18712,513.00877 -26.9301,46.10593"
@@ -299,7 +299,7 @@
        id="text4002"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan4004"></tspan></text>
+         id="tspan4004" /></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
