@@ -281,19 +281,17 @@ We now construct a situation in which 2 transactions attempt to update this entr
 
 {{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
 
-For example there exists three transactions. All of them read the same data of an row in a table.
-  Lets say the table look like the table above.
-  And the transactions can look like the following transactionis in the example.
-  Say they are processed in parallel, Transaction 1 is the fastest and only reads the value
-  from the row with the key `readKey` and Transaction 2 updates the row with the key `readKey` and commits before
-  Transaction 3 does, because Transaction 3 does some more stuff with the value.
+As you can see in the picture above, `Transaction 1` reads the user data, does somthing with the data, deletes the user and commits the transaction.
+The second `Transaction 2` starts on the same time and reads the same user data, does somthing and does something more. The `Transaction 2` updates
+the user address and want to commit the transaction. At commit time, the current state of the user data is read again and compared with the state
+on which was worked on. The Optimistic Locking will detect a change on the user data, so the commit of the `Transaction 2` will fail and an error is thrown.
+The `Transaction 2` will be rolled back. On an retry of the `Transaction 2` no user data was found so the transaction ends without an update of user data.
 
-
-
-  For the first two transactions exists no problem. **Transaction 3** run in a problem because the value of the row
-  with the key *readKey* was changed in the meantime. At this time
-  the optimistic locking or optimistic correlation control come in. **The Transaction 3 have to
-  rollback and retry.**
+**FRAGE:**
+Meiner Meinung nach passiert ein rollback auf jeden Fall und danach ein retry.
+Nur beim State `read` wird in diesem Fall kein User gefunden, sodass die Transaction direkt beendet wird.
+**Siehe:** 
+> If the two states differ, a conflicting update was made, and the transaction will be rolled back.
 
 ### Optimistic Locking vs. Pessimistic Locking
 
@@ -306,7 +304,11 @@ For example there exists three transactions. All of them read the same data of a
 
 ### Further Reading
 
-Wikipedia and others...
+Wikipedia[1] and others...
+
+ * [\[1\] Wikipedia: Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
+ * [\[2\] Jboss: Pessimistic and Optimistic Locking](https://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/TransactionJTA_Overview-Pessimistic_and_optimistic_locking.html)
+ * [\[3\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 
 ## Optimistic Locking in Camunda
 
