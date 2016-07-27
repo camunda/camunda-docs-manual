@@ -281,17 +281,12 @@ We now construct a situation in which 2 transactions attempt to update this entr
 
 {{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
 
-As you can see in the picture above, `Transaction 1` reads the user data, does somthing with the data, deletes the user and commits the transaction.
-The second `Transaction 2` starts on the same time and reads the same user data, does somthing and does something more. The `Transaction 2` updates
-the user address and want to commit the transaction. At commit time, the current state of the user data is read again and compared with the state
-on which was worked on. The Optimistic Locking will detect a change on the user data, so the commit of the `Transaction 2` will fail and an error is thrown.
-The `Transaction 2` will be rolled back. On an retry of the `Transaction 2` no user data was found so the transaction ends without an update of user data.
+As you can see in the picture above, `Transaction 1` reads the user data, does something with the data, deletes the user and then commits.
+`Transaction 2` starts at the same time and reads the same user data, and also works on the data. When `Transaction 2` attempts to update the user address a conflict is detected (since `Transaction 1` has already deleted the user).
 
-**FRAGE:**
-Meiner Meinung nach passiert ein rollback auf jeden Fall und danach ein retry.
-Nur beim State `read` wird in diesem Fall kein User gefunden, sodass die Transaction direkt beendet wird.
-**Siehe:** 
-> If the two states differ, a conflicting update was made, and the transaction will be rolled back.
+The conflict is detected because the current state of the user data is read when `Transaction 2` performs the update. At that time, the concurrent `Transaction 1` has already marked the row to be deleted. The database now waits for `Transaction 1` to end. After it is ended, `Transaction 2 ` can proceed. At this time, the row does not exist anymore and the update succeeds but reports to have changed `0` rows. An application can react to this and rollback `Transaction 2` to prevent other changes made my that transaction to become effective.
+
+The application (or the user using it) can further decide whether `Transaction 2` should be re-tried. In our example, the transaction would then not find the user data and report that the user has been deleted.
 
 ### Optimistic Locking vs. Pessimistic Locking
 
