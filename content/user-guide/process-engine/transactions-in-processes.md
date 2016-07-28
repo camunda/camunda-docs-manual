@@ -290,27 +290,40 @@ The application (or the user using it) can further decide whether `Transaction 2
 
 ### Optimistic Locking vs. Pessimistic Locking
 
-  The difference to pessimistic locking is, that there is no lock at all. Pessimistic locking creates a lock on a resource.
-  This model admits that every time the resource will be read and written. So if a transaction access a resource
-  a lock will be created. Other transaction have to wait, which can end in a deadlock. In a system on which most of the
-  transactions only read the data optimistic locking is much more faster then pessimistic locking. Because no
-  transaction have to wait. But if the system has more transactions which need read and write access, the pessimistic
-  locking **can** be a better approach. Because optimistic locking can end in to much rollbacks.
+Pessimistic locking works with read locks. A read lock locks a data object on read preventing other concurrent transactions from reading it as well. This way, conflicts are prevented from occurring.
+
+In the example above, `Transaction 1` would lock the user data once it reads it. When attempting to read is as well, `Transaction 2` is blocked from making process. Once `Transaction 1` completes, `Transaction 2` can progress and reads the latest state. This may conflicts are prevented transactions always work on the latest state of data exclusively.
+
+Pessimistic locking is efficient in situations where writes as as frequent as reads and with high contention.
+
+However since pessimistic locks are exclusive, concurrency is reduced degrading performance. Optimistic Locking witch detects conflicts rather than preventing them to occur is therefore preferable in context with high levels of concurrency and where reads are more frequent than writes. Also pessimistic locking can quickly lead to deadlocks.
 
 ### Further Reading
 
-Wikipedia[1] and others...
-
- * [\[1\] Wikipedia: Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
- * [\[2\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
+* [\[1\] Wikipedia: Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
+* [\[2\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 
 ## Optimistic Locking in Camunda
 
+* Camunda uses Optimistic Locking for concurrency control
+* When a concurrency conflict is detected an exception is thrown and the transaction is rolled back
+
 ### The OptimisticLockingException
 
-What does it mean?
-What can I do?
+* Can be thrown by Api methods
 
+```java
+taskService.completeTask(aTaskId); // may throw OptimisticLockingException
+```
+and Job Execution
+
+* Means that another transaction worked on the same data concurrently
+* Expected behavior in such cases
+
+* Handling optimistic locking exceptions
+
+** Retries (automatically done by Job Executor)
+** Manual undo and compensation
 
   The optimistic concurrency control is implemented with the help of the `OptimisticLockingException`,
   which indicates that a problem regarding optimistic locking appeared. The camunda engine collect all
@@ -321,18 +334,28 @@ What can I do?
   the `OptimisticLockingException` will be thrown and a rollback is executed. After the rollback, the transaction
   will be retried.
 
-### Common places where OLE Occurs
+### Common places where Optimistic Locking Exceptions are thrown
 
-* Competing External Requests
-* Synchronization Points inside Processes
+* Competing External Requests (same task completed twice, concurrently)
+* Synchronization Points inside Processes (Examples: Parallel GW, Multi instance ...)
+
+ {{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
+
+### Optimistic Locking and Non-Transactional Side Effects
+
+* When OLE occurs Transaction is rolled back => Any transactional work is "undone"
+* But: non-transactional work is not undone => Inconsistent state
+* Solutions
+** Ignore
+** Depending on way OLE is handled: 
+*** Retries: non-transactional work will be repeated as well => needs to be able to cope with retries (Idempotence)
+*** No Retires: manual undo / compensation
 
 ### Internal Implementation Details
 
 * Version Columns in the database
 * Check at the end of a Command
 * Transaction Rollback
-
-
 
   In the sections above the behavior in case of exceptions and rollbacks are
   already described. You can read in the documentation that if exceptions during execution appear the
@@ -342,7 +365,6 @@ What can I do?
   The `OptimisticLockingException` can appear, like written before, in case of updates and deletions of
   variables and also on parallel gateways.
 
- {{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
 
   As an example for the optimistic locking in camunda see the process definition in figure above.
   There is a process with a parallel gateway, which do two tasks in parallel.
