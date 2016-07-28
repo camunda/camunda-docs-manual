@@ -15,7 +15,7 @@ menu:
 {{< img src="../img/drd.png">}}
 
 A decision requirements graph can have one or more decisions. 
-A decision defines the [id], [name] and required decisions and contains the decision logic as [decision table].
+A decision defines the [id], [name] and required decisions and contains the decision logic as [decision table] or [decision literal expression].
 
 A decision is represented by a `decision` element inside the `definitions` XML element.
 
@@ -46,6 +46,7 @@ It has a `href` attribute and the value starts with `#` followed by the [decisio
 ```
 
 [decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [id]: {{< relref "reference/dmn11/decision-table/index.md#decision-id" >}}
 [name]: {{< relref "reference/dmn11/decision-table/index.md#decision-name" >}}
 

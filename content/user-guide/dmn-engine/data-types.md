@@ -79,7 +79,7 @@ implement a custom type and [replace the default transformer][data-type-transfor
 
 # Setting the Data Type of an Input
 
-The type of an input is specified by the `typeRef` attribute on the
+The type of a decision table input is specified by the `typeRef` attribute on the
 `inputExpression` element.
 
 ```xml
@@ -97,7 +97,7 @@ The type of an input is specified by the `typeRef` attribute on the
 
 # Setting the Data Type of an Output
 
-The type of an output is specified by the `typeRef` attribute on the `output`
+The type of a decision table output is specified by the `typeRef` attribute on the `output`
 element.
 
 ```xml
@@ -107,6 +107,18 @@ element.
     <output id="result" label="Check Result" name="result" typeRef="string" />
     <!-- ... -->
   </decisionTable>
+</decision>
+```
+
+# Setting the Data Type of a Variable
+
+The type of a decision literal expression result is specified by the `typeRef` attribute on the `variable`
+element.
+
+```xml
+<decision>
+  <variable name="result" typeRef="string" />
+  <!-- ... -->
 </decision>
 ```
 

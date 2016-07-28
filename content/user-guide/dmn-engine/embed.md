@@ -279,6 +279,8 @@ The following expression types exist:
 - *Output Entry*: Used to specify the output of a rule in a decision
   table. The default language for output entries in the DMN engine is
   `JUEL`.
+  
+The default expression language of a [DMN decision literal expression] can also be configured, the default in the DMN engine is `JUEL`.
 
 Read more about the default expressions in the corresponding [section][expressions].
 
@@ -359,4 +361,5 @@ For more information on how to configure and use SLF4J, please refer to the
 [LOGBack]: http://logback.qos.ch/
 [user manual]: http://www.slf4j.org/manual.html
 [DMN decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[DMN decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [expressions]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}

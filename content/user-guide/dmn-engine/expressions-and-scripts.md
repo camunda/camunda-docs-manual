@@ -12,13 +12,13 @@ menu:
 
 ---
 
-Decision tables allow specifying different types of expressions.
+Decision tables and decision literal expressions allow specifying different types of expressions.
 This section describes which types of expressions exist.
 It lists which expression languages are supported and demonstrates how to change the used expression language for an expression.
 
 # Expressions in DMN
 
-As shown in the [decision table] reference, three types of expressions are supported:
+As shown in the [decision table] and [decision literal expression] reference, four types of expressions are supported:
 
 - *Input Expression*: sets the input value for an input column
   of the decision table
@@ -26,13 +26,15 @@ As shown in the [decision table] reference, three types of expressions are suppo
   table is applicable
 - *Output Entry*: returns a value which is added to the output of a matched rule
   of the decision table
+- *Literal Expression*: used to determine the value of a decision literal expression 
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
 the DMN 1.1 XML, expressions can be found in the following XML
-elements `inputExpression`, `inputEntry` and `outputEntry`:
+elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -54,6 +56,14 @@ elements `inputExpression`, `inputEntry` and `outputEntry`:
       </rule>
     </decisionTable>
   </decision>
+
+   <decision id="decision2 name="Decision 2">
+    <!-- the literal expression determines the value of this decision -->
+    <literalExpression>
+      <text>a + b</text>
+    </literalExpression> 
+  </decision>
+  
 </definitions>
 ```
 
@@ -93,6 +103,7 @@ DMN engine are as follows:
 - *Input Expression*: `JUEL`
 - *Input Entry*: `FEEL`
 - *Output Entry*: `JUEL`
+- *Literal Expression*: `JUEL`
 
 The default language can be changed by setting it directly in the DMN 1.1 XML as global expression language with the `expressionLanguage` attribute of
 the `definitions` element:
@@ -118,6 +129,7 @@ It is also possible to set the language for each expression individually using t
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -139,6 +151,14 @@ It is also possible to set the language for each expression individually using t
       </rule>
     </decisionTable>
   </decision>
+  
+  <decision id="decision2" name="Decision 2">
+    <!-- use groovy for this literal expression -->
+    <literalExpression expressionLanguage="groovy">
+      <text>a + b</text>
+    </literalExpression> 
+  </decision>
+
 </definitions>
 ```
 
@@ -150,6 +170,7 @@ the script engine before using it.
 
 
 [decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
 [DMN 1.1]: http://www.omg.org/spec/DMN/
