@@ -13,7 +13,7 @@ menu:
 You can delegate the bootstrapping of the process engine and process deployment to a process application class. The basic ProcessApplication functionality is provided by the `org.camunda.bpm.application.AbstractProcessApplication` base class. Based on this class there is a set of environment-specific sub classes that realize integration within a specific environment:
 
 * **ServletProcessApplication**: To be used for Process Applications in a Servlet Container like Apache Tomcat.
-* **EjbProcessApplication**: To be used in a Java EE application server like JBoss or IBM WebSphere Application Server.
+* **EjbProcessApplication**: To be used in a Java EE application server like JBoss, Glassfish or IBM WebSphere Application Server.
 * **EmbeddedProcessApplication**: To be used when embedding the process engine in an ordinary Java SE application.
 * **SpringProcessApplication**: To be used for bootstrapping the process application from a Spring Application Context.
 
@@ -22,7 +22,7 @@ In the following section, we walk through the different implementations and disc
 
 # The ServletProcessApplication
 
-**Supported on:** Apache Tomcat, JBoss/Wildfly. The Servlet Process Application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-the-servletprocessapplication-inside-an-ejb-java-ee-container-such-as-jboss" >}})
+**Supported on:** Apache Tomcat, JBoss/Wildfly, GlassFish. The Servlet Process Application is supported on all containers. Read the [note about Servlet Process Application and EJB/Java EE containers]({{< relref "#using-the-servletprocessapplication-inside-an-ejb-java-ee-container-such-as-glassfish-or-jboss" >}})
 
 **Packaging**: WAR (or embedded WAR inside EAR)
 
@@ -72,9 +72,9 @@ In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Ser
 ```
 
 
-## Using the ServletProcessApplication Inside an EJB/Java EE Container such as JBoss
+## Using the ServletProcessApplication Inside an EJB/Java EE Container such as Glassfish or JBoss
 
-You can use the ServletProcessApplication inside an EJB / Java EE Container such as JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
+You can use the ServletProcessApplication inside an EJB / Java EE Container such as Glassfish or JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:
 
   * using CDI beans and EJBs as JavaDelegate Implementations in combination with the Job Executor,
   * using @RequestScoped CDI Beans with the Job Executor,
@@ -85,7 +85,7 @@ If your application does not use such features, it is perfectly fine to use the 
 
 # The EjbProcessApplication
 
-**Supported on:** JBoss/Wildfly. The EjbProcessApplication is supported on Java EE 6 containers or higher. It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
+**Supported on:** JBoss/Wildfly, GlassFish. The EjbProcessApplication is supported on Java EE 6 containers or higher. It is not supported on Servlet Containers like Apache Tomcat. It may be adapted to work inside Java EE 5 Containers.
 
 **Packaging:** JAR, WAR, EAR
 
@@ -276,7 +276,7 @@ When the EjbProcessApplication registers with a process engine (see `ManagementS
 
 # The EmbeddedProcessApplication
 
-**Supported on:** JVM, Apache Tomcat, JBoss/Wildfly
+**Supported on:** JVM, Apache Tomcat, JBoss/Wildfly, GlassFish
 
 **Packaging:** JAR, WAR, EAR
 
@@ -321,7 +321,7 @@ runtimeContainerDelegate.registerProcessEngine(processEngine);
 
 # The SpringProcessApplication
 
-**Supported on:** JVM, Apache Tomcat. The spring process application is currently not supported on JBoss AS 7/Wildfly 8
+**Supported on:** JVM, Apache Tomcat, GlassFish. The spring process application is currently not supported on JBoss AS 7/Wildfly 8
 
 **Packaging:** JAR, WAR, EAR
 
