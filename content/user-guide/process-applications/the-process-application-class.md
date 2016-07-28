@@ -282,7 +282,7 @@ When the EjbProcessApplication registers with a process engine (see `ManagementS
 
 The `org.camunda.bpm.application.impl.EmbeddedProcessApplication` can only be used in combination with an embedded process engine. Usage in combination with a Shared Process Engine is not supported as the class performs no process application context switching at runtime.
 
-The Embedded process application also does not provide auto-startup. You need to manually call the deploy method of your process application:
+The embedded process application also does not provide auto-startup. You need to manually call the deploy method of your process application:
 
 ```java
 // instantiate the process application
@@ -321,7 +321,7 @@ runtimeContainerDelegate.registerProcessEngine(processEngine);
 
 # The SpringProcessApplication
 
-**Supported on:** JVM, Apache Tomcat. The spring process application is currently not supported on JBoss AS 7/Wildfly 8
+**Supported on:** JVM, Apache Tomcat. The Spring process application is currently not supported on JBoss AS 7/Wildfly 8
 
 **Packaging:** JAR, WAR, EAR
 
@@ -335,7 +335,7 @@ We recommend to always use SpringServletProcessApplication unless the deployment
 
 ## Configuring a Spring Process Application
 
-The following shows an example of how to bootstrap a SpringProcessApplication inside a spring application context XML file:
+The following shows an example of how to bootstrap a SpringProcessApplication inside a Spring application context XML file:
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -360,7 +360,7 @@ The SpringProcessApplication will use the bean name (`id="invoicePa"` in the exa
 
 ## Configure a Managed Process Engine Using Spring
 
-If you use a Spring process application, you may want to configure your process engine inside the spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the BPM Platform infrastructure so that the process engine is returned by the `ProcessEngineService`. The following is an example of how to configure a managed process engine using Spring.
+If you use a Spring process application, you may want to configure your process engine inside the Spring application context Xml file (as opposed to the processes.xml file). In this case, you must use the `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` class for creating the process engine object instance. In addition to creating the process engine object, this implementation registers the process engine with the BPM Platform infrastructure so that the process engine is returned by the `ProcessEngineService`. The following is an example of how to configure a managed process engine using Spring.
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
