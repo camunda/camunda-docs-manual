@@ -342,7 +342,7 @@ When using the Process Application API (i.e., when deploying either a ServletPro
 
 ## Explicit Service Dependencies
 
-If an application does not use the Process Application API but still needs to interact with a process engine, it is important to declare the dependency on the process engine service explicitly. If we fail to declare the dependency, there is no guarantee that the process engine is available to the application.
+If an application does not use the Process Application API but still needs to interact with a process engine, it is important to declare the dependency on the Process Engine Service explicitly. If we fail to declare the dependency, there is no guarantee that the process engine is available to the application.
 
 * When the application server is started, it will bring up services concurrently. If it is not aware of the dependency between the application and the process engine, the application may start *before* the process engine, potentially resulting in exceptions if the process engine is accessed from some deployment listener (like a servlet context listener or a @PostConstruct callback of an Enterprise Bean).
 * If the process engine is stopped while the application is deployed, the application server must stop the application as well.
@@ -355,7 +355,7 @@ The simplest way to add an explicit dependency on the process engine is to bind 
       <mapped-name>java:global/camunda-bpm-platform/process-engine/default</mapped-name>
     </resource-ref>
 
-This way, the global process engine resource `java:global/camunda-bpm-platform/process-engine/default` is available locally under the name `processEngine/default`. Since the application server is aware of this dependency, it will make sure the process engine service exists before starting the application and it will stop the application if the process engine is removed.
+This way, the global process engine resource `java:global/camunda-bpm-platform/process-engine/default` is available locally under the name `processEngine/default`. Since the application server is aware of this dependency, it will make sure the Process Engine Service exists before starting the application and it will stop the application if the process engine is removed.
 
 The same effect can be achieved using the @Resource Annotation:
 
