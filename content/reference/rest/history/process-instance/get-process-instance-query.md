@@ -248,6 +248,20 @@ Each historic process instance object has the following properties:
     <td>String</td>
     <td>The tenant id of the process instance.</td>
   </tr>
+  <tr>
+    <td>state</td>
+    <td>String</td>
+    <td>
+        last state of the process instance, possible values are:
+        <ul style="list-style: none;">
+		<li>ACTIVE - running process instance</li>
+		<li>SUSPENDED - suspended process instances</li>
+		<li>COMPLETED - completed through normal end event</li>
+		<li>EXTERNALLY_TERMINATED - terminated externally, for instance through REST API</li>
+		<li>INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event</li>
+	</ul>
+    </td>
+  </tr>
 </table>
 
 
@@ -295,7 +309,8 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=
     "startUserId": "aStartUserId",
     "superProcessInstanceId": "aSuperProcessInstanceId",
     "superCaseInstanceId": null,
-    "tenantId":null
+    "tenantId":null,
+    "state": "aState"
   }
 ]
 ```

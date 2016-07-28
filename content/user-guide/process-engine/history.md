@@ -90,6 +90,18 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricBatch` containing information about current and past batches.
 * `HistoricIdentityLinkLog` containing information about current and past (added, deleted, assignee is set or changed and owner is set or changed) identity links.
 
+## State of HistoricProcessInstances
+
+For every process instance process engine will create single record in history database and will keep updating this record during process execution. Every HistoricProcessInstance record can get one of the following states assigned: 
+
+*  ACTIVE - running process instance                                                         
+*  SUSPENDED - suspended process instances                                                   
+*  COMPLETED - completed through normal end event                                            
+*  EXTERNALLY_TERMINATED - terminated externally, for instance through REST API              
+*  INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event  
+
+Among them following states can be triggered externally, for example through REST API or Cockpit: ACTIVE, SUSPENDED, EXTERNALLY_TERMINATED. 
+
 ## Query History
 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
