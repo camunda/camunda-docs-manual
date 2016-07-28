@@ -284,7 +284,7 @@ We now construct a situation in which 2 transactions attempt to update this entr
 As you can see in the picture above, `Transaction 1` reads the user data, does something with the data, deletes the user and then commits.
 `Transaction 2` starts at the same time and reads the same user data, and also works on the data. When `Transaction 2` attempts to update the user address a conflict is detected (since `Transaction 1` has already deleted the user).
 
-The conflict is detected because the current state of the user data is read when `Transaction 2` performs the update. At that time, the concurrent `Transaction 1` has already marked the row to be deleted. The database now waits for `Transaction 1` to end. After it is ended, `Transaction 2 ` can proceed. At this time, the row does not exist anymore and the update succeeds but reports to have changed `0` rows. An application can react to this and rollback `Transaction 2` to prevent other changes made my that transaction to become effective.
+The conflict is detected because the current state of the user data is read when `Transaction 2` performs the update. At that time, the concurrent `Transaction 1` has already marked the row to be deleted. The database now waits for `Transaction 1` to end. After it is ended, `Transaction 2 ` can proceed. At this time, the row does not exist anymore and the update succeeds but reports to have changed `0` rows. An application can react to this and rollback `Transaction 2` to prevent other changes made by that transaction to become effective.
 
 The application (or the user using it) can further decide whether `Transaction 2` should be re-tried. In our example, the transaction would then not find the user data and report that the user has been deleted.
 
@@ -302,8 +302,7 @@ The application (or the user using it) can further decide whether `Transaction 2
 Wikipedia[1] and others...
 
  * [\[1\] Wikipedia: Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
- * [\[2\] Jboss: Pessimistic and Optimistic Locking](https://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/TransactionJTA_Overview-Pessimistic_and_optimistic_locking.html)
- * [\[3\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
+ * [\[2\] Stackoverflow: Optimistic vs. Pessimistic Locking](http://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 
 ## Optimistic Locking in Camunda
 
