@@ -118,4 +118,8 @@ This section describes changes in the engine's default behavior. While the chang
   Add engine changes!
 {{< /note >}}
 
+### Custom Mapping of the Decision Result
+
+With 7.6, the type of the decision result has changed from `DmnDecisionTableResult` to `DmnDecisionResult`. If the decision result of a business rule task or a decision task is processed by an `ExecutionListener` or a `CaseExecutionListener` (i.e., [custom decision result mapping]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-of-the-decision-result" >}})) then the lister has to adjusted to use the new result type. Since the type is semantically equal and provide the same methods, only the type of the result has to be changed.
+
 
