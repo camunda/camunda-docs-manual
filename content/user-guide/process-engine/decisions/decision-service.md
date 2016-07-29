@@ -27,8 +27,16 @@ VariableMap variables = Variables.createVariables()
   .putValue("status", "bronze")
   .putValue("sum", 1000);
 
+DmnDecisionResult decisionResult = decisionService
+  .evaluateDecisionByKey("decision-key")
+  .variables(variables)
+  .evaluate(); 
+  
+// alternatively for decision tables only
 DmnDecisionTableResult decisionResult = decisionService
-  .evaluateDecisionByKey("decision-key", variables);
+  .evaluateDecisionTableByKey("decision-key")
+  .variables(variables)
+  .evaluate(); 
 ```
 
 ## The Decision Key
@@ -59,16 +67,19 @@ Service] section.
 # Working with the Decision Result
 
 The result of an evaluation is called decision result. The decision result is a complex object
-of type `DmnDecisionTableResult`. Think of it as a list of key-value pairs.
-Each entry in the list represents one matched rule. The output entries of this
+of type `DmnDecisionResult`. Think of it as a list of key-value pairs.
+
+If the decision is implemented as [decision table] then each entry in the list represents one matched rule. The output entries of this
 rule are represented by the key-value pairs. The key of a pair is specified by
 the name of the output.
+
+Instead, if the decision is implemented as [decision literal expression] then the list contains only one entry. This entry represents the expression value and is mapped by the variable name.
 
 The decision result provides methods from interface `List<Map<String,
 Object>>` and some convenience methods.
 
 ```java
-DmnDecisionTableResult decisionResult = ...;
+DmnDecisionResult decisionResult = ...;
 
 // get the value of the single entry of the only matched rule
 String singleEntry = decisionResult.getSingleResult().getSingleEntry();
@@ -81,11 +92,20 @@ String firstValue = decisionResult.get(1).getFirstEntry();
 
 // get a list of all entries with the output name 'result' of all matched rules
 List<String> results = decisionResult.collectEntries("result");
+
+// shortcut to get the single output entry of the single rule result
+// - combine getSingleResult() and getSingleEntry()
+String result = decisionResult.getSingleEntry();
 ```
 
 Note that the decision result also provides methods to get typed output entries.
 A complete list of all methods can be found in the {{< javadocref
-page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult" text="Java Docs" >}}.
+page="?org/camunda/bpm/dmn/engine/DmnDecisionResult" text="Java Docs" >}}.
+
+If the decision is implemented as [decision table] then it can also be evaluated using one of the 
+{{< javadocref page="?org/camunda/bpm/engine/DecisionService.html##evaluateDecisionTableByKey(java.lang.String)"
+text="evaluateDecisionTable" >}} methods. In this case, the evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provide the same methods as a
+`DmnDecisionResult`.
 
 # History of Evaluated Decisions
 
@@ -105,7 +125,8 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
 
 For more information about this, please refer to the [History for DMN Decisions].
 
-
+[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
 [DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/index.md" >}}
 [Versioning of Decisions]: {{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}

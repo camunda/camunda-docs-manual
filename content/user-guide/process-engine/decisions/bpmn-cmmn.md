@@ -14,7 +14,7 @@ menu:
 
 # BPMN & CMMN Integration
 
-This section explains how to invoke DMN decision tables from BPMN and CMMN.
+This section explains how to invoke DMN decision from BPMN and CMMN.
 
 ## BPMN Business Rule Task
 
@@ -47,8 +47,8 @@ rule task, please refer to the [BPMN 2.0 reference][business rule task].
 
 ## DMN Decision Task
 
-The CMMN decision task references a [deployed] decision table.
-The decision table is invoked when the task is activated.
+The CMMN decision task references a [deployed] decision definition.
+The decision definition is invoked when the task is activated.
 
 ```xml
 <definitions id="definitions"
@@ -74,21 +74,29 @@ task, please refer to the [CMMN 1.1 reference][decision task].
 # The Decision Result
 
 The output of the decision, also called decision result, is a complex object of
-type `DmnDecisionTableResult`. Generally, it is a list of key-value pairs. Each
-entry in the list represents one matched rule. The output entries of this rule
-are represented by the key-value pairs.
+type `DmnDecisionResult`. Generally, it is a list of key-value pairs. 
 
-The type `DmnDecisionTableResult` provides methods from the `List` interface
+If the decision is implemented as [decision table] then each entry in the list represents one matched rule. The output entries of this
+rule are represented by the key-value pairs. The key of a pair is specified by
+the name of the output.
+
+Instead, if the decision is implemented as [decision literal expression] then the list contains only one entry. This entry represents the expression value and is mapped by the variable name.
+
+The type `DmnDecisionResult` provides methods from the `List` interface
 and some convenience methods like `getSingleResult()` or `getFirstResult()` to
 get the result of a matched rule. The rule results provide methods from the
 `Map` interface and also convenience methods like `getSingleEntry()` or
 `getFirstEntry()`.
 
+If the decision result contains only a single output value (e.g., evaluating a decision literal expression) then 
+the value can be retrieved from the result using the `getSingleEntry()` method
+which combines `getSingleResult()` and `getSingleEntry()`.
+
 For example, the following code returns the output entry with name `result` of
 the only matched rule.
 
 ```java
-DmnDecisionTableResult decisionResult = ...;
+DmnDecisionResult decisionResult = ...;
 
 Object value = decisionResult
   .getSingleResult()
@@ -98,7 +106,7 @@ Object value = decisionResult
 It also provides methods to get typed output entries like
 `getSingleEntryTyped()`. Please refer to the [User Guide][Typed Value API] for
 details about typed values. A complete list of all methods can be found in the
-{{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult"
+{{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionResult"
 text="Java Docs" >}}.
 
 The decision result is available in the local scope of the executing task as a
@@ -116,27 +124,28 @@ following mappings are available:
   <tr>
     <th>Mapper</th>
     <th>Result</th>
-    <th>Is suitable for decision tables with</th>
+    <th>Is suitable for</th>
   </tr>
   <tr>
     <td>singleEntry</td>
     <td>TypedValue</td>
-    <td>no more than one matching rule and only one output</td>
+    <td>decision literal expressions and <br/>
+    decision tables with no more than one matching rule and only one output</td>
   </tr>
   <tr>
     <td>singleResult</td>
     <td>Map&lt;String, Object&gt;</td>
-    <td>no more than one matching rule</td>
+    <td>decision tables with no more than one matching rule</td>
   </tr>
   <tr>
     <td>collectEntries</td>
     <td>List&lt;Object&gt;</td>
-    <td>multiple matching rules and only one output</td>
+    <td>decision tables with multiple matching rules and only one output</td>
   </tr>
   <tr>
     <td>resultList</td>
     <td>List&lt;Map&lt;String, Object&gt;&gt;</td>
-    <td>multiple matching rules and multiple outputs</td>
+    <td>decision tables with multiple matching rules and multiple outputs</td>
   </tr>
 </table>
 
@@ -241,7 +250,7 @@ public class MyDecisionResultListener implements ExecutionListener {
 
   @Override
   public void notify(DelegateExecution execution) throws Exception {
-    DmnDecisionTableResult decisionResult = (DmnDecisionTableResult) execution.getVariable("decisionResult");
+    DmnDecisionResult decisionResult = (DmnDecisionResult) execution.getVariable("decisionResult");
     String result = decisionResult.getSingleResult().get("result");
     String reason = decisionResult.getSingleResult().get("reason");
     // ...
@@ -270,7 +279,7 @@ public class MyDecisionResultListener implements CaseExecutionListener {
 
   @Override
   public void notify(DelegateCaseExecution caseExecution) throws Exception;
-    DmnDecisionTableResult decisionResult = (DmnDecisionTableResult) caseExecution.getVariable("decisionResult");
+    DmnDecisionResult decisionResult = (DmnDecisionResult) caseExecution.getVariable("decisionResult");
     String result = decisionResult.getSingleResult().get("result");
     String reason = decisionResult.getSingleResult().get("reason");
     // ...
@@ -299,27 +308,27 @@ deserialized using JSON because JSON has no registered mapper for date by
 default.
 
 The same problems can occur by using a custom output variable mapping since
-`DmnDecisionTableResult` has methods that return the same collections as the
+`DmnDecisionResult` has methods that return the same collections as the
 predefined mappers. Additionally, it is not recommended to save a
-`DmnDecisionTableResult` or a `DmnRuleResult` as process/case variable because
+`DmnDecisionResult` or a `DmnDecisionResultEntries` as process/case variable because
 the underlying implementation can change in a new version of Camunda BPM.
 
 To prevent any of these problems, you should use primitive variables only.
 Alternatively, you can use a custom object for serialization that you control
 by yourself.
 
-# Accessing Variables from Decision Tables
+# Accessing Variables from Decisions
 
-DMN Decision tables contain multiple expressions which will be evaluated by the
-DMN engine. For more information about the expressions of a decision table
+DMN Decision tables and Decision Literal Expressions contain multiple expressions which will be evaluated by the
+DMN engine. For more information about the expressions of a decision
 please see our [DMN 1.1 reference][decision table]. These expressions can
 access all process/case variables which are available in the scope of the
 calling task. The variables are provided through a read-only variable context.
 
 As a shorthand, process/case variables can be directly referenced by name in
 expressions. For example, if a process variable `foo` exists, then this
-variable can be used in an input expression, input entry and output entry by
-its name.
+variable can be used in an input expression, input entry and output entry of a decision table 
+by its name.
 
 ```xml
 <input id="input">
@@ -357,7 +366,7 @@ its unwrapped value.
 # Expression Language Integration
 
 By default, the DMN engine uses [JUEL] as expression language for input
-expressions and output entries. It uses [FEEL] as expression language for input
+expressions, output entries and literal expressions. It uses [FEEL] as expression language for input
 entries. Please see the [DMN engine][expression languages] guide for more
 information about expression languages.
 
@@ -365,8 +374,8 @@ information about expression languages.
 
 If the DMN engine is invoked by the Camunda BPM platform, it uses the same
 JUEL configuration as the Camunda BPM engine. Therefore, it is also
-possible to access Spring and CDI Beans from JUEL expressions in decision
-tables. For more information on this integration, please see the corresponding
+possible to access Spring and CDI Beans from JUEL expressions in decisions. 
+For more information on this integration, please see the corresponding
 section in the [Spring] and [CDI] guides.
 
 ## Extending the Expression Language
@@ -397,8 +406,10 @@ processEngineConfiguration
 This can be done, for example, by creating a [process engine plugin].
 
 Please **note** that these functions are available in all JUEL expressions
-in the platform, not only in DMN decision tables.
+in the platform, not only in DMN decisions.
 
+[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
 [business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}
 [decision task]: {{< relref "reference/cmmn11/tasks/decision-task.md" >}}
@@ -406,7 +417,6 @@ in the platform, not only in DMN decision tables.
 [object value serialization]: {{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}
 [output variable mapping]: {{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}
 [execution listener]: {{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
 [expression languages]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
 [JUEL]: http://juel.sourceforge.net/
 [FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}

@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A *decision task* can be used to invoke a [DMN 1.1] decision table.
+A *decision task* can be used to invoke a [DMN 1.1] decisions.
 
 {{< cmmn-symbol type="decision-task" >}}
 
@@ -135,7 +135,7 @@ The result variable should not have the name `decisionResult` since the decision
 
 # Limitations of the Decision Task
 
-To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only [DMN 1.1] decision tables can be evaluated with a decision task. There is no option to integrate with other rule engines.
+To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only [DMN 1.1] decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.
 
 
 # Camunda Extensions

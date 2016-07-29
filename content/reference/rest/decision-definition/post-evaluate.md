@@ -70,9 +70,11 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON array representing the result of the newly evaluated decision. The array contains the output values of each matched rule as key-value pairs. Each key is an output name of an output clause and each value an output value object that has the following properties:
+A JSON array representing the result of the newly evaluated decision. The array contains the output values as key-value pairs. Each key is an output name and each value an output value object that has the following properties:
 
 {{< rest-var-response >}}
+
+See the [user guide]({{< relref "user-guide/dmn-engine/evaluate-decisions.md#interpret-the-decision-result" >}}) for details about the decision result.
 
 ## Response codes
 
