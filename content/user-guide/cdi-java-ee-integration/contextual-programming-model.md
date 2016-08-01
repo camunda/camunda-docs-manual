@@ -17,7 +17,7 @@ In this section we briefly look at the contextual process execution model used b
 
 When resolving @BusinessProcessScoped beans, or injecting process variables, we rely on an existing association between an active CDI scope and a process instance. camunda-engine-cdi provides the org.camunda.bpm.engine.cdi.BusinessProcess bean for controlling the association, most prominently:
 
-* the startProcessBy*(...)-methods, mirroring the respective methods exposed by the RuntimeService allowing to start and subsequently associating a business process,
+* the startProcessBy*(...)-methods, mirroring the respective methods exposed by the RuntimeService allowing to start and subsequently associate a business process,
 * resumeProcessById(String processInstanceId), allowing to associate the process instance with the provided Id,
 * resumeTaskById(String taskId), allowing to associate the task with the provided Id (and by extension, the corresponding process instance).
 
