@@ -16,7 +16,7 @@ We'll explain the `SpringTransactionIntegrationTest` found in the Spring example
 
 When passing the DataSource to the `SpringProcessEngineConfiguration` (using property "dataSource"), the Camunda engine uses a `org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy` internally, which wraps the passed DataSource. This is done to make sure the SQL connections retrieved from the DataSource and the Spring transactions play well together. This implies that it's no longer needed to proxy the dataSource yourself in Spring configuration, although it's still allowed to pass a `TransactionAwareDataSourceProxy` into the `SpringProcessEngineConfiguration`. In this case no additional wrapping will occur.
 
-Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g. `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
+Make sure when declaring a `TransactionAwareDataSourceProxy` in Spring configuration yourself, that you don't use it for resources that are already aware of Spring-transactions (e.g., `DataSourceTransactionManager` and `JPATransactionManager` need the un-proxied dataSource).
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -73,7 +73,7 @@ The remainder of that Spring configuration file contains the beans and configura
 </beans>
 ```
 
-First the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
+First, the application context is created with any of the Spring ways to do that. In this example you could use a classpath XML resource to configure our Spring application context:
 
 ```java
 ClassPathXmlApplicationContext applicationContext =

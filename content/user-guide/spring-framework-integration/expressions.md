@@ -31,7 +31,7 @@ When using the `ProcessEngineFactoryBean`, by default, all expressions in the BP
       class="org.camunda.bpm.engine.spring.test.transaction.Printer" />
 ```
 
-# Using Spring Beans in Expression
+# Using Spring Beans in Expressions
 
 The exposed beans can be used in expressions. For example, the `SpringTransactionIntegrationTest` `hello.bpmn20.xml` shows how a method on a Spring bean can be invoked using a UEL method expression:
 
@@ -77,7 +77,7 @@ And the Spring bean configuration (also shown above) looks like this:
 
 # Expression Resolving With the Shared Process Engine
 
-In a shared process engine deployment scenario, you have a process engine which dispatches to multiple applications. In this case, there is not a single spring application context but each application may maintain its own application context. The process engine cannot use a single expression resolver for a single application context but must delegate to the appropriate process application, depending on which process is currently executed.
+In a shared process engine deployment scenario, you have a process engine which dispatches to multiple applications. In this case, there is not a single Spring application context but each application may maintain its own application context. The process engine cannot use a single expression resolver for a single application context but must delegate to the appropriate process application, depending on which process is currently being executed.
 
 This functionality is provided by the `org.camunda.bpm.engine.spring.application.SpringProcessApplicationElResolver`. This class is a `ProcessApplicationElResolver` implementation delegating to the local application context. Expression resolving then works in the following way:
 

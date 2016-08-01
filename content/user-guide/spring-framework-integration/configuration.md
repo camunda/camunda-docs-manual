@@ -12,7 +12,7 @@ menu:
 
 ---
 
-You can use a Spring application context XML file for bootstrapping the process engine. It is possible to bootstrap both application-managed and container-managed process engines through Spring.
+You can use a Spring application context XML file to bootstrap the process engine. It is possible to bootstrap both application-managed and container-managed process engines through Spring.
 
 Note that you can also use a [Spring JavaConfig]({{< relref "#using-spring-javaconfig" >}}) for bootstrapping instead of XML.
 
@@ -37,7 +37,7 @@ Note that the processEngineConfiguration bean uses the {{< javadocref page="?org
 
 # Configure a Container-Managed Process Engine as a Spring Bean
 
-If you want the process engine to be registered with the BpmPlatform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
+If you want the process engine to be registered with the BPM platform ProcessEngineService, you must use `org.camunda.bpm.engine.spring.container.ManagedProcessEngineFactoryBean` instead of the ProcessEngineFactoryBean shown in the example above. You will also need to ensure:
 
 1. That none of your webapps include camunda-webapp\*.jar within their own lib folder, this should be at a shared level.
 2. That your server.xml contains JNDI entries for the 'ProcessEngineService' and 'ProcessApplicationService' as below:
@@ -63,12 +63,12 @@ If you want the process engine to be registered with the BpmPlatform ProcessEngi
   </GlobalNamingResources>
 ```
 
-I that case the constructed process engine object is registered with the BpmPlatform and can be referenced for creating process application deployments and exposed through the runtime container integration.
+In that case the constructed process engine object is registered with the BPM platform and can be referenced for creating process application deployments and exposed through the runtime container integration.
 
 
 # Configure a Process Engine Plugin
 
-In Sping you can configure a process engine plugin by setting a list value to the
+In Spring you can configure a process engine plugin by setting a list value to the
 `processEnginePlugins` property of the `processEngineConfiguration` bean:
 
 ```xml
