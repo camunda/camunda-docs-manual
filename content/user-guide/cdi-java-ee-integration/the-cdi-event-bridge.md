@@ -11,7 +11,7 @@ menu:
 ---
 
 
-The process engine can be hooked-up to the CDI event-bus. We call this the "CDI Event Bridge". This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded process engine, enable the corresponding parse listener in the configuration:
+The process engine can be hooked-up to the CDI event bus. We call this the "CDI Event Bridge". This allows us to be notified of process events using standard CDI event mechanisms. In order to enable CDI event support for an embedded process engine, enable the corresponding parse listener in the configuration:
 
 ```xml
 <property name="postParseListeners">
@@ -97,7 +97,7 @@ This observer would be notified of all events. If we want to restrict the set of
   }
   ```
 
-The qualifiers named above can be combined freely. For example, ito receive all events generated when leaving the "shipGoods" activity in the "shipmentProcess", we could write the following observer method:
+The qualifiers named above can be combined freely. For example, to receive all events generated when leaving the "shipGoods" activity in the "shipmentProcess", we could write the following observer method:
 
 ```java
 public void beforeShippingGoods(@Observes @BusinessProcessDefinition("shippingProcess") @EndActivity("shipGoods") BusinessProcessEvent evt) {
@@ -120,7 +120,7 @@ for modifying variables.
 
 # The CDI Event Bridge in a Process Application
 
-To use the CDI Event Bridge in combination with a multi-application deployment and the shared process engine, the {{< javadocref page="?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener" text="CdiEventListener" >}} needs to be added as a [Process Application Execution Event Listener]({{< relref "user-guide/process-applications/process-application-event-listeners.md" >}}).
+To use the CDI Event Bridge in combination with a multi application deployment and the shared process engine, the {{< javadocref page="?org/camunda/bpm/engine/cdi/impl/event/CdiEventListener" text="CdiEventListener" >}} needs to be added as a [Process Application Execution Event Listener]({{< relref "user-guide/process-applications/process-application-event-listeners.md" >}}).
 
 Example configuration for [Servlet Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#the-servletprocessapplication" >}}):
 
