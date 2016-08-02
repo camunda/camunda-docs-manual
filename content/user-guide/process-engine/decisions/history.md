@@ -147,8 +147,8 @@ reference].
 
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionInputInstance"
-text="HistoricDecisionInputInstance" >}} represents one input clause of an
-evaluated decision.
+text="HistoricDecisionInputInstance" >}} represents one input of an
+evaluated decision (e.g., an input clause of a decision table). 
 
 ```java
 HistoricDecisionInputInstance input = ...;
@@ -167,16 +167,17 @@ Object value = input.getValue();
 TypedValue typedValue = input.getTypedValue();
 ```
 
-Note that the value may be the result of a type transformation in case the
-input expression specifies a type.
+Note that the value may be the result of a type transformation in case the 
+input specifies a type.
 
 ## Historic Decision Output Instance
 
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionOutputInstance"
 text="HistoricDecisionOutputInstance" >}} represents one output entry of an
-evaluated decision. The Historic Decision Instance contains one Historic
-Decision Output Instance for each output clause and matched rule.
+evaluated decision. If the decision is implemented as decision table, the 
+`HistoricDecisionInstance` contains one `HistoricDecisionOutputInstance` 
+for each output clause and matched rule.
 
 ```java
 HistoricDecisionOutputInstance output = ...;
