@@ -80,7 +80,7 @@ The Annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 
 
 ## Specify the required History Level
 
-If a test requires a specific history level (e.g. because it uses the HistoryService) then you can annotate the test class or method with {{< javadocref page="?org/camunda/bpm/engine/test/RequiredHistoryLevel.html" text="@RequiredHistoryLevel" >}} and specify the required history level (e.g. "activity", "full"). Before the test is run, it checks the current history level of the process engine and skip the test if the history level is lower than the specified one.  
+If a test requires a specific history level (e.g., because it uses the HistoryService) then you can annotate the test class or method with {{< javadocref page="?org/camunda/bpm/engine/test/RequiredHistoryLevel.html" text="@RequiredHistoryLevel" >}} and specify the required history level (e.g., "activity", "full"). Before the test is run, it checks the current history level of the process engine and skip the test if the history level is lower than the specified one.  
 
 A JUnit 4 style test can look as follows:
 
@@ -144,7 +144,7 @@ Apart from JUnit assertions, there is the community extension [camunda-bpm-asser
 
 # Arquillian Tests
 
-In Java EE environments we recently use JBoss Arquillian pretty often to test process applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
+In Java EE environments we recently use JBoss Arquillian quite often to test process applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
 
 {{< note title="" class="info" >}}
   Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
@@ -159,24 +159,24 @@ The feature to [start a process instance at a set of activities]({{< relref "use
 
 ## Scoping Tests
 
-BPMN processes, CMMN cases and DMN decisions do not exist in isolation. Consider the example of a BPMN process: firstly, the process itself is executed by the Camunda engine which requires a database. Next, the process is "not just the process". It can contain expressions, scripts and often calls out to custom Java classes which may in turn again call out to services, either locally or remotely. In order to test the process, all these things need to be present, otherwise, the test cannot work.
+BPMN processes, CMMN cases and DMN decisions do not exist in isolation. Consider the example of a BPMN process: firstly, the process itself is executed by the Camunda engine which requires a database. Next, the process is "not just the process". It can contain expressions, scripts and often calls out to custom Java classes which may in turn again call out to services, either locally or remotely. To test the process, all these things need to be present, otherwise the test cannot work.
 
-Setting all of this up just in order to run a unit test is expensive. This is why, in practice it makes sense to apply a concept which we call test scoping. Scoping the test means limiting the amount of infrastructure required to run the test. Things outside of the scope of the test are mocked.
+Setting all of this up just to run a unit test is expensive. This is why, in practice, it makes sense to apply a concept which we call test scoping. Scoping the test means limiting the amount of infrastructure required to run the test. Things outside of the scope of the test are mocked.
 
 ### Example: Scoping Tests for a Java EE Application
 
-This is best explained using an example. Assume you are building a typical Java EE Application containing a BPMN process. The process uses Java Expression Language (EL) for conditions, it invokes Java Delegate implementations as CDI Beans, these Beans may in turn call out to the actual Business Logic implemented as EJBs. The Business Logic uses JPA for maintaining additional business objects in a secondary database. It also sends out messages using JMS to interact with external systems and has a nice Web UI. The application runs inside a Java EE Application Server like Wildfly.
+This is best explained using an example. Assume you are building a typical Java EE application containing a BPMN process. The process uses Java Expression Language (EL) for conditions, it invokes Java Delegate implementations as CDI beans, these beans may in turn call out to the actual business logic implemented as EJBs. The business logic uses JPA for maintaining additional business objects in a secondary database. It also sends out messages using JMS to interact with external systems and has a nice web UI. The application runs inside a Java EE application server like Wildfly.
 
-In order to test this application, all components including the Applications Server itself need to be present and the external systems need to process the JMS messages. This makes it hard to write focused test. But looking at the process itself, we find that there are may aspects of it that we can test without having the complete infrastructure in place. For example, if the process data is present, the Expression Language conditions can usually be tested without any additional infrastructure. This already allows asserting that the process "takes the right turn" at a gateway given a set of input data. Next, If the EJBs are mocked, the delegation logic can be included in such tests as well. This allows asserting that wiring of the delegation logic is correct and that it performs correct data transformation and mapping and invokes the business logic with the correct parameters. Given that Camunda engine can work with an in-memory database, it now becomes possible to test the BPMN process "in isolation", as a unit test and assert its local functional correctness. The same principle can be applied to the next "outer layers" of the system, including the business logic and external systems.
+To test this application, all components, including the application server itself, need to be present and the external systems need to process the JMS messages. This makes it hard to write focused tests. However, by looking at the process itself, we find that there are may aspects of it that we can test without having the complete infrastructure in place. For example, if the process data is present, the Expression Language conditions can usually be tested without any additional infrastructure. This already allows asserting that the process "takes the right turn" at a gateway given a set of input data. Next, if the EJBs are mocked, the delegation logic can be included in such tests as well. This allows asserting that wiring of the delegation logic is correct, that it performs correct data transformation and mapping and that it invokes the business logic with the correct parameters. Given that the Camunda engine can work with an in-memory database, it now becomes possible to test the BPMN process "in isolation", as a unit test and assert its local functional correctness. The same principle can be applied to the next "outer layers" of the system, including the business logic and external systems.
 
-The following drawing shows a schematic representation of what this looks like for our example of a Java EE Application:
+The following drawing shows a schematic representation of what this looks like for our example of a Java EE application:
 
 {{< img src="img/test-scopes.png" title="Testing Scopes" >}}
 
 Three test scopes are defined:
 
 * Scope 1: Local, functional correctness of the process model with data, conditions and delegation code, usually implemented as a unit test.
-* Scope 2: Integration with business logic inside the runtime container, for Java EE Applications usually implemented as am Arquillian-based integration test.
+* Scope 2: Integration with business logic inside the runtime container, for Java EE applications usually implemented as an Arquillian-based integration test.
 * Scope 3: Integration with external systems and UI.
 
-Note that the above is just an example for a Java EE Application, other applications may require different test scopes. However the principle remains the same.
+Note that the above is just an example for a Java EE application, other applications may require different test scopes. However the principle remains the same.
