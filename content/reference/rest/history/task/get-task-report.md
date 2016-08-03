@@ -31,11 +31,11 @@ GET `/history/task/report`
   </tr>
   <tr>
     <td>completedBefore</td>
-    <td>Restrict to tasks that were completet before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were completed before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>completedAfter</td>
-    <td>Restrict to tasks that were completet after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were completed after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>groupBy</td>
