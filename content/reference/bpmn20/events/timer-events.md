@@ -67,7 +67,7 @@ Additionally, you can specify a time cycle using cron expressions, the example b
 0 0/5 * * * ?
 ```
 
-Please see the <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">CronTrigger Tutorial</a> for additional information about using cron expressions.
+Please see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06.html">CronTrigger Tutorial</a> for additional information about using cron expressions.
 
 Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
