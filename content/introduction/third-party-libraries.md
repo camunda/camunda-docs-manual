@@ -141,24 +141,6 @@ Java dependencies:
 * [SVNKit JavaHL](http://svnkit.com/) {{< RD >}}, [(TMate Open Source License)][tmate]
 * [Gettext Commons](https://code.google.com/p/gettext-commons/) {{< RD >}}, [(Apache License 2.0)][apache]
 
-# Camunda Modeler Eclipse Plugin
-
-The Camunda Modeler Eclipse Plugin depends on the following third-party libraries:
-
-* [Eclipse Modeling Framework Project (EMF)](https://www.eclipse.org/modeling/emf/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse OSGi][eclipse] {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse Graphiti](https://www.eclipse.org/graphiti) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse Graphical Editing Framework (GEF)](http://www.eclipse.org/gef/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse XSD][eclipse] {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse UI][eclipse] {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse Core](http://www.eclipse.org/eclipse/platform-core/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse Java development tools (JDT)](http://www.eclipse.org/jdt/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse JFace](http://wiki.eclipse.org/JFace) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse BPMN2](http://www.eclipse.org/modeling/mdt/?project=bpmn2) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse WST](https://www.eclipse.org/webtools/wst/main.php) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Apache Xerces](http://xerces.apache.org/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Eclipse WST SSE UI](http://www.eclipse.org/webtools/wst/components/sse/overview.html) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-
 
 [apache]: http://www.apache.org/licenses/LICENSE-2.0.html
 [dojo]: https://github.com/dojo/dojo/blob/1.9/LICENSE#L43-L195
