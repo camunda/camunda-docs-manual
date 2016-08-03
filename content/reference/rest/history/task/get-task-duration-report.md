@@ -30,10 +30,6 @@ GET `/history/task/report/duration`
     <th>Description</th>
   </tr>
   <tr>
-    <td>reportType</td>
-    <td><b>Mandatory.</b> Specifies the kind of the report to execute. In order to retrieve a report about the duration of process instances the value must be set to <code>duration</code>.</td>
-  </tr>
-  <tr>
     <td>periodUnit</td>
     <td><b>Mandatory.</b> Specifies the granularity of the report. Valid values are <code>month</code> and <code>quarter</code>.</td>
   </tr>
@@ -117,7 +113,7 @@ Each object has the following properties:
 
 ## Request
 
-GET `/history/task/report/duration?reportType=duration&periodUnit=quarter`
+GET `/history/task/report/duration&periodUnit=quarter`
 
 ## Response
 
