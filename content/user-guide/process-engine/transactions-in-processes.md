@@ -305,82 +305,83 @@ However since pessimistic locks are exclusive, concurrency is reduced degrading 
 
 ## Optimistic Locking in Camunda
 
-* Camunda uses Optimistic Locking for concurrency control
-* When a concurrency conflict is detected an exception is thrown and the transaction is rolled back
+Camunda uses the Optimistic Locking for concurrency control. Is a concurency conflict detected
+an exception is thrown and the transaction is rolled back. Conflicts are detected as written before via the result of executed SQL statements.
+The execution of delete or update statements return an row count. 
+Is the row count equal to zero, it indicates that the row was updated or deleted before.
+In such cases a conflict is detected and an `OptimisticLockingException` is thrown.
 
 ### The OptimisticLockingException
 
-* Can be thrown by Api methods
+The `OptimisticLockingException` can be thrown by API methods.
+For example if an task should be completed:
+
 
 ```java
 taskService.completeTask(aTaskId); // may throw OptimisticLockingException
 ```
-and Job Execution
 
-* Means that another transaction worked on the same data concurrently
-* Expected behavior in such cases
+The job execution can also end in an `OptimisticLockingException`. After that, the execution will be retried.
+The occurrence is in such cases expected behavior and means that another transaction
+worked on the same data concurrently.
 
-* Handling optimistic locking exceptions
 
-** Retries (automatically done by Job Executor)
-** Manual undo and compensation
+#### Handling optimistic locking exceptions
 
-  The optimistic concurrency control is implemented with the help of the `OptimisticLockingException`,
-  which indicates that a problem regarding optimistic locking appeared. The camunda engine collect all
-  changes during a transaction and execute them, if the transaction should be commited.
-  A change can be a variable value update or something else.
-  In case of an update or a deletion the affected rows will be checked. If there is no row affected, this indicates that
-  the current state differs from the state, on which the transaction has worked on. In this case
-  the `OptimisticLockingException` will be thrown and a rollback is executed. After the rollback, the transaction
-  will be retried.
+Like written before the `OptimisticLockingException` will be handled automaticly from the Job Executor,
+if it is thrown during job execution. The job will be retried, without decrement the retry count.
+
+On other places the Camunda Engine will rollback the current transaction to the last safe point (wait state), on occurence of an `OptimisticLockingException`.
+The user have to decide if the transaction should be retried or not. He have to ensure that changes and operations, which are done during the transaction, are
+idempotent or undone after a rollback. It is possible to use compensation to prevent the redo of the hole work that was done by a transaction. 
+To create new save points on activities the properties `asyncAfter` and `asyncBefore` can be used.
+
+#### Example
+
+ Back to the example from above, on which the `Transaction 1` deletes a row and another `Transaction 2` wants to update the same row.
+ The scenario will now mapped to the behavior of the Camunda Engine.
+ 
+ `Transaction 1` succeeds with the deletion of the row. `Transaction 2` executes the update statement. The resulting row count is zero.
+ That indicates a conflict and an `OptimisticLockingException` is thrown. The `Transaction 2` will be rolled back. The user can decied to
+ retry this transaction. On retry, the `Transaction 2` wouldn't find a row on `read`. After this state the `Transaction 2` will end. 
 
 ### Common places where Optimistic Locking Exceptions are thrown
 
-* Competing External Requests (same task completed twice, concurrently)
-* Synchronization Points inside Processes (Examples: Parallel GW, Multi instance ...)
+There a some common places where the `OptimisticLockingException` is thrown.
+For example competing external requests like the same task will be completed twice concurrently.
+Common place are also synchronization points inside processes. Examples are parallel gateway, multi instances, etc.
 
- {{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
+The following model shows a parallel gateway, on which the `OptimisticLockingException` can occure.
+
+{{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
+
+There are two user tasks, after the opening parallel gateway. The closing parallel gateway, after the user tasks, merge the executions to one.
+In the most cases one of the user task will be completed at first. The transaction waits on the closing parallel gateway until the second user task is completed.
+
+It is possible that both user tasks are completed concurrently. Say the user task above is completed. The transaction assumes he is the first on the closing parallel gateway.
+The user task below is completed concurrently and the transaction also assumes he is the first on the closing parallel gateway.
+Both transactions try to update a row, which indicates that they are the first on the closing parallel gateway. In such cases  an `OptimisticLockingException` will be thrown.
+One of the transaction have to rollback and one will succeed to updated the row. Which of them succeed is nondeterministic.
 
 ### Optimistic Locking and Non-Transactional Side Effects
 
-* When OLE occurs Transaction is rolled back => Any transactional work is "undone"
-* But: non-transactional work is not undone => Inconsistent state
-* Solutions
-** Ignore
-** Depending on way OLE is handled: 
-*** Retries: non-transactional work will be repeated as well => needs to be able to cope with retries (Idempotence)
-*** No Retires: manual undo / compensation
+After the occurence of an `OptimisticLockingException` the transaction is rolled back. Any transaction work will be undone.
+Non-transaction work like creation of files or other will not be undone. This can end in inconsistent state.
+There are several solutions for this problem, at first it can be simply ignored.
+
+Other solutions depend on the handling of the `OptimisticLockingException`. On retries non-transactional work will be repeated as well.
+It needs to be able to cope with retries, which means it should be idempotent.
+No retries needs manual undo / compensation of non-transactional work.
 
 ### Internal Implementation Details
 
-* Version Columns in the database
-* Check at the end of a Command
-* Transaction Rollback
+The Camunda Engine database tables contains a column called `REV_`. This column represents the revision version of the current data.
+Update and delete statements are executed with a where clause. These clause will always contain the current revision version.
+On updates the revision version will be incremented. 
 
-  In the sections above the behavior in case of exceptions and rollbacks are
-  already described. You can read in the documentation that if exceptions during execution appear the
-  camunda transaction will be rolled back to the latest waiting state or till the begin of the process instance.
-  The same behavior takes effect in case of `OptimisticLockingException`.
+The execution of an update or delete will use the current revision version. If concurrent an update or delete is executed or was execute before,
+the update or delete will aim on an old revision version. No update or delete is execute and an zero row count is returned from the database management system.
+In such cases an `OptimisticLockingException` is thrown, since this indicates a conflict with a concurrent transaction.
+The check of the row count will be done by the engine, on the end of an executed command. 
 
-  The `OptimisticLockingException` can appear, like written before, in case of updates and deletions of
-  variables and also on parallel gateways.
-
-
-  As an example for the optimistic locking in camunda see the process definition in figure above.
-  There is a process with a parallel gateway, which do two tasks in parallel.
-  In the closing parallel gateway the first token will wait until the second token came across. After
-  all tokens in all ingoing edges have arrived the execution will be continued. In this case the process will end
-  in the end event.
-
-  Say both tasks have almost the same execution time.
-  They end in the closing parallel gateway and the first token of the path above assumes he is the first.
-  The first token updates in the database that he is the first and waits until all tokens will arrive.
-  Also the second token assume that he is the first token. Because the tasks are processed in almost the same time and
-  the first token has not commited his transaction at this time. The second token reads at the closing parallel gateway
-  that he is the first and want to update his state. But if the second token wants to commit his transaction
-  the first has already commited his transaction. The `OptimisticLockingException` will be thrown
-  because the second can't also be the first token. So the transaction of the second token will be rolled back,
-  either till the starting parallel gateway or another transaction border. For example
-  if the asyncBefore is set at the task ''Do other stuff'' then before the beginning of the task. If the asyncAfter
-  is set, then after the task. If the task is an user task the transaction is rolled back to the point before the user task,
-  like the asyncBefore is set.
+In cases of a thrown `OptimisticLockingException` the transaction is rolled back to the latest waiting state.
