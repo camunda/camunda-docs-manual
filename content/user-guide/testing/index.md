@@ -11,7 +11,7 @@ menu:
 ---
 
 Testing BPMN processes, CMMN cases (and also DMN decisions) is just as important as testing code.
-This section explains how to write Unit tests and Integration Tests with Camunda and explains some best practice and guidelines.
+This section explains how to write unit tests and integration tests with Camunda and explains some best practice and guidelines.
 
 
 # Unit Tests
@@ -42,7 +42,7 @@ public class MyBusinessProcessTest extends ProcessEngineTestCase {
 
 ## JUnit 4
 
-Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} Rule must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this Rule will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
+Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this rule will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
 
 The following code snippet shows an example of using the JUnit 4 style of testing and the usage of the ProcessEngineRule.
 
@@ -76,7 +76,7 @@ public class MyBusinessProcessTest {
 
 You can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly. Method-level annotations override class-level annotations. See the Javadocs for more details.
 
-The Annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing.
+The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing.
 
 ## Specify the required History Level
 
@@ -108,7 +108,7 @@ public class MyBusinessProcessTest {
 }
 ```
 
-The Annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.  
+The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.  
 
 ## Debug Unit Tests
 
