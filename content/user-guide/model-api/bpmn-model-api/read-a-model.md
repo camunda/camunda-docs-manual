@@ -11,7 +11,7 @@ menu:
 ---
 
 
-If you already created a BPMN model and want to process it by the BPMN model API you can import it with the
+If you already created a BPMN model and want to process it through the BPMN model API, you can import it with the
 following methods.
 
 ```java
@@ -24,7 +24,7 @@ InputStream stream = [...]
 BpmnModelInstance modelInstance = Bpmn.readModelFromStream(stream);
 ```
 
-After you imported your model you can search for elements by their id or by the type of elements.
+After you imported your model you can search for elements by their id or by the type of element.
 
 ```java
 // find element instance by ID
@@ -36,7 +36,7 @@ Collection<ModelElementInstance> taskInstances = modelInstance.getModelElementsB
 ```
 
 For every element instance you can now read and edit the attribute values. You can do this by either using the provided
-helper methods or the generic XML model API. If you added custom attributes to the BPMN elements you can
+helper methods or the generic XML model API. If you added custom attributes to the BPMN elements, you can
 always access them with the generic XML model API.
 
 ```java
@@ -59,11 +59,11 @@ start.setAttributeValue("custom-attribute", "new value");
 start.setAttributeValueNs("custom-attribute", "http://camunda.org/custom", "new value");
 ```
 
-You can also access the child elements of an element or references to other elements. For example a sequence flow
-references a source and a target element while a flow node (like start event, tasks etc.) has child elements
+You can also access the child elements of an element or references to other elements. For example, a sequence flow
+references a source and a target element while a flow node (like start event, tasks, etc.) has child elements
 for incoming and outgoing sequence flows.
 
-For example the following BPMN model was created by the BPMN model API as an example for a simple process.
+For example, the following BPMN model was created by the BPMN model API as an example for a simple process.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -103,8 +103,8 @@ Collection<SequenceFlow> outgoing = source.getOutgoing();
 assert(outgoing.contains(sequenceFlow));
 ```
 
-With these references you can easily create helper methods for different use cases. For example if you want to
-find the following flow nodes of an task or a gateway you can use a helper method like the following.
+With these references you can easily create helper methods for different use cases. For example, if you want to
+find the following flow nodes of a task or a gateway you can use a helper method like the following.
 
 ```java
 public Collection<FlowNode> getFlowingFlowNodes(FlowNode node) {

@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The CMMN model API is able to read as well CMMN 1.1 as CMMN 1.0 models. Its primary use case is to work with models of the latest version, such that there are limitations when editing CMMN models of prior versions.
+The CMMN model API is able to read CMMN 1.1 as well as CMMN 1.0 models. Its primary use case is to work with models of the latest version, such that there are limitations when editing CMMN models of prior versions.
 
 * `ModelElementType#getTypeNamespace()` returns CMMN 1.1 namespace for elements which are present in CMMN 1.0 and CMMN 1.1
 * `CMMN#createEmptyModel()` always creates a CMMN 1.1 model. CMMN 1.0 models cannot be created anymore.

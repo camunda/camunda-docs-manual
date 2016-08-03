@@ -12,12 +12,12 @@ menu:
 
 
 [Custom extension elements]({{< relref "reference/bpmn20/custom-extensions/index.md" >}}) are a standardized way to extend the BPMN model.
-The [Camunda extension elements]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API but unknown extension elements can also easily be accessed and added.
+The [Camunda extension elements]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md" >}}) are fully implemented in the BPMN model API, but unknown extension elements can also easily be accessed and added.
 
 Every BPMN `BaseElement` can have a child element of the type `extensionElements`.
 This element can contain all sorts of extension elements. To access the
-extension elements you have to call the `getExtensionElements()` method and
-if no such child element exists you must create one first.
+extension elements you have to call the `getExtensionElements()` method and, 
+if no such child element exists, you must create one first.
 
 ```java
 StartEvent startEvent = modelInstance.newInstance(StartEvent.class);
@@ -46,9 +46,9 @@ extensionElements.getElementsQuery().singleResult();
 extensionElements.getElementsQuery().filterByType(CamundaFormData.class).singleResult();
 ```
 
-Additionally, their are some shortcuts to add new extension elements. You can use
+Additionally, there are some shortcuts to add new extension elements. You can use
 the `namespaceUri` and the `elementName` to add your own extension elements. Or
-you can use the `class` of a known extension element type, e.g. the camunda
+you can use the `class` of a known extension element type, e.g., the camunda
 extension elements. The extension element is added to the BPMN element and returned
 so that you can set attributes or add child elements.
 

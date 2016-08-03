@@ -29,9 +29,9 @@ modelInstance.setDefinitions(definitions);
 Usually you want to add a process to your model. This follows
 the same 3 steps as the creation of the BPMN definitions element:
 
-1. create a new instance of the BPMN element
-2. set attributes and  child elements of the element instance
-3. add the newly created element instance to the corresponding parent element
+1. Create a new instance of the BPMN element
+2. Set attributes and child elements of the element instance
+3. Add the newly created element instance to the corresponding parent element
 
 ```java
 Process process = modelInstance.newInstance(Process.class);
@@ -39,7 +39,7 @@ process.setId("process");
 definitions.addChildElement(process);
 ```
 
-To simplify this repeating procedure you can use a helper method like this one.
+To simplify this repeating procedure, you can use a helper method like this one.
 
 ```java
 protected <T extends BpmnModelElementInstance> T createElement(BpmnModelElementInstance parentElement, String id, Class<T> elementClass) {
@@ -50,7 +50,7 @@ protected <T extends BpmnModelElementInstance> T createElement(BpmnModelElementI
 }
 ```
 
-After you created the elements of your process like start event, tasks, gateways and end event you have to connect
+After you created the elements of your process like start event, tasks, gateways and end event, you have to connect
 the elements with sequence flows. Again, this follows the same 3 steps of element creation and can be simplified by the
 following helper method.
 
@@ -68,7 +68,7 @@ public SequenceFlow createSequenceFlow(Process process, FlowNode from, FlowNode 
 ```
 
 Validate the model against the BPMN 2.0 specification and convert it to
-a XML string or save it to a file or stream.
+an XML string or save it to a file or stream.
 
 ```java
 // validate the model
@@ -86,9 +86,9 @@ File file = new File(...);
 Bpmn.writeModelToFile(file, modelInstance);
 ```
 
-# Example 1: Create a Simple Process with one User Task
+# Example 1: Create a Simple Process With One User Task
 
-With the basic helper methods from above it is very easy and straightforward to create simple processes. First create a
+With the basic helper methods from above it is very easy and straightforward to create simple processes. First, create a
 process with a start event, user task and a end event.
 
 {{< img src="../img/bpmn-model-api-simple-process.png" title="Single User Task Example" >}}
@@ -122,7 +122,7 @@ Bpmn.writeModelToFile(file, modelInstance);
 ```
 
 
-# Example 2: Create a Simple Process with two Parallel Tasks
+# Example 2: Create a Simple Process With Two Parallel Tasks
 
 Even more complex processes can be created with a few lines of code with the standard BPMN model API.
 

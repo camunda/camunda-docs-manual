@@ -16,8 +16,8 @@ The [Camunda extension elements]({{< relref "reference/cmmn11/custom-extensions/
 
 Every CMMN `CmmnElement` can have a child element of the type `extensionElements`.
 This element can contain all sorts of extension elements. To access the
-extension elements you have to call the `getExtensionElements()` method and
-if no such child element exists you must create one first.
+extension elements you have to call the `getExtensionElements()` method and, 
+if no such child element exists, you must create one first.
 
 ```java
 HumanTask humanTask = modelInstance.newInstance(HumanTask.class);
@@ -46,9 +46,9 @@ extensionElements.getElementsQuery().singleResult();
 extensionElements.getElementsQuery().filterByType(CamundaCaseExecutionListener.class).singleResult();
 ```
 
-Additionally, their are some shortcuts to add new extension elements. You can use
+Additionally, there are some shortcuts to add new extension elements. You can use
 the `namespaceUri` and the `elementName` to add your own extension elements. Or
-you can use the `class` of a known extension element type, e.g. the Camunda
+you can use the `class` of a known extension element type, e.g., the Camunda
 extension elements. The extension element is added to the CMMN element and returned
 so that you can set attributes or add child elements.
 

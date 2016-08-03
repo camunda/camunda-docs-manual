@@ -11,8 +11,8 @@ menu:
 ---
 
 To create simple BPMN processes we provide a fluent builder API. With this API you can easily create basic
-processes in a few lines of code. In the [generate process fluent api](https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api) quickstart we demonstrate how to
-create a rather complex process with 5 tasks and 2 gateways within less than 50 lines of code.
+processes in a few lines of code. In the [generate process fluent api](https://github.com/camunda/camunda-bpm-examples/tree/master/bpmn-model-api/generate-process-fluent-api) quickstart we 
+demonstrate how to create a rather complex process with 5 tasks and 2 gateways within less than 50 lines of code.
 
 The fluent builder API is not nearly complete but provides you with the following basic elements:
 
@@ -27,11 +27,11 @@ The fluent builder API is not nearly complete but provides you with the followin
 * subprocess
 
 
-# Create a Process with the Fluent Builder API
+# Create a Process With the Fluent Builder API
 
-To create a empty model instance with a new process the method `Bpmn.createProcess()` is used. After this
+To create an empty model instance with a new process the method `Bpmn.createProcess()` is used. After this, 
 you can add as many tasks and gateways as you like. At the end you must call `done()` to return the generated
-model instance. So for example a simple process with one user task can be created like this:
+model instance. For example, a simple process with one user task can be created like this:
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createProcess()
@@ -45,7 +45,7 @@ To add a new element you have to call a function which is named like the
 element to add. Additionally you can set attributes of the last created
 element.
 
-So for example let's set the name of the process and mark it as executable and also give the user task a name.
+For example, let's set the name of the process and mark it as executable and also give the user task a name.
 
 ```java
 BpmnModelInstance modelInstance = Bpmn.createProcess()
@@ -58,7 +58,7 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
   .done();
 ```
 
-As you can see, a sequential process is really simple and straightforward to model but often you want
+As you can see, a sequential process is really simple and straightforward to model, but often you want
 branches and a parallel execution path, which is also possible with the fluent builder API. Just add
 a parallel or exclusive gateway and model the first path till an end event or another gateway. After that,
 call the `moveToLastGateway()` method and you return to the last gateway and can model the next path.
@@ -99,9 +99,9 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 ```
 
 If you want to use the `moveToLastGateway()` method but have multiple incoming
-sequence flows at your current position you have to use the generic
+sequence flows at your current position, you have to use the generic
 `moveToNode` method with the id of the gateway. This could for example happen
-if you add a join gateway to your process. For this purpose and for loops we
+if you add a join gateway to your process. For this purpose and for loops, we
 added the `connectTo(elementId)` method.
 
 ```java
@@ -146,8 +146,8 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 
 This example creates a parallel gateway with a feedback loop in the second execution path.
 
-To create an embedded subprocess with the fluent builder you can directly add it to your
-process building or you could detach it and create flow elements of the subprocess later on.
+To create an embedded subprocess with the fluent builder, you can directly add it to your
+process building or you can detach it and create flow elements of the subprocess later on.
 
 ```java
 // Directly define the subprocess
@@ -182,11 +182,11 @@ subProcess.builder()
 ```
 
 
-# Extend a Process with the Fluent Builder API
+# Extend a Process With the Fluent Builder API
 
 With the fluent builder API you can not only create processes, you can also extend existing processes.
 
-For example imagine a process containing a parallel gateway with the id `gateway`. You now want to
+For example, imagine a process containing a parallel gateway with the id `gateway`. You now want to
 add another execution path to it for a new service task which has to be executed every time.
 
 ```java
