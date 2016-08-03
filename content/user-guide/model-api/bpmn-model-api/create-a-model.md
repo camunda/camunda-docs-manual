@@ -89,7 +89,7 @@ Bpmn.writeModelToFile(file, modelInstance);
 # Example 1: Create a Simple Process With One User Task
 
 With the basic helper methods from above it is very easy and straightforward to create simple processes. First, create a
-process with a start event, user task and a end event.
+process with a start event, user task and an end event.
 
 {{< img src="../img/bpmn-model-api-simple-process.png" title="Single User Task Example" >}}
 

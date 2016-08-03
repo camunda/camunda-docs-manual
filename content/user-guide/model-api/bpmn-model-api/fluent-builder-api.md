@@ -146,7 +146,7 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 
 This example creates a parallel gateway with a feedback loop in the second execution path.
 
-To create an embedded subprocess with the fluent builder, you can directly add it to your
+To create an embedded subprocess with the fluent builder API, you can directly add it to your
 process building or you can detach it and create flow elements of the subprocess later on.
 
 ```java
