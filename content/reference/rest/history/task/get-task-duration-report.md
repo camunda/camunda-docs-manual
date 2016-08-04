@@ -8,16 +8,18 @@ menu:
     name: "Get Task Duration Report"
     identifier: "rest-api-history-get-task-duration-report"
     parent: "rest-api-history-task"
-    pre: "GET `/history/task/report/duration`"
+    pre: "GET `/history/task/report?reportType=duration&periodUnit=month`"
 
 ---
 
-Query for a historic task duration report.
+Retrieves a report about the duration of completed task instances grouped by a period. 
+These reports include the maximum, minimum and average duration of all completed task instances, 
+which have been completed in a given period.
 
 
 # Method
 
-GET `/history/task/report/duration`
+GET `/history/task/report/duration?reportType=duration&periodUnit=month`
 
 
 # Parameters
@@ -28,6 +30,10 @@ GET `/history/task/report/duration`
   <tr>
     <th>Name</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>reportType</td>
+    <td><b>Mandatory.</b> Specifies the kind of the report to execute. In order to retrieve a report about the duration of process instances the value must be set to <code>duration</code> or <code>count</code>.</td>
   </tr>
   <tr>
     <td>periodUnit</td>
@@ -113,7 +119,7 @@ Each object has the following properties:
 
 ## Request
 
-GET `/history/task/report/duration&periodUnit=quarter`
+GET `/history/task/report?reportType=duration&periodUnit=quarter`
 
 ## Response
 
