@@ -20,7 +20,7 @@ Whether the actual work of a task or stage can be performed depends on its [entr
 * By manual activation
 * By automatic activation
 
-Manual activation is the default behavior in which it is required that a user manually activates a task. In camunda, this can be done by using the `CaseService` API with `caseService.manuallyStartCaseExecution(caseExecutionId)`. By specifying a *manual activation rule*, it is possible to omit this step or make it depend on case variable payload. With manual activation, a user can decide to activate a task or instead disable it. A task that is automatically activated *must* be carried out.
+Automatic activation is the default behavior in which it is not required that a user manually activates a task. In camunda, manual activation can be done by using the `CaseService` API with `caseService.manuallyStartCaseExecution(caseExecutionId)`. By specifying a *manual activation rule*, it is possible to omit this step or make it depend on case variable payload. With manual activation, a user can decide to activate a task or instead disable it. A task that is automatically activated *must* be carried out.
 
 In XML, a manual activation rule can be specified for an individual plan item or for a plan item definition. For a plan item it looks as follows:
 
@@ -28,7 +28,7 @@ In XML, a manual activation rule can be specified for an individual plan item or
 <planItem id="PlanItem_HumanTask_1" definitionRef="HumanTask_1">
   <itemControl>
     <manualActivationRule>
-      <condition>${false}</condition>
+      <condition>${true}</condition>
     </manualActivationRule>
   </itemControl>
 </planItem>
@@ -38,7 +38,7 @@ In XML, a manual activation rule can be specified for an individual plan item or
 </humanTask>
 ```
 
-The specified expression `${false}` evaluates to the boolean value `false` and means that the plan item should become active in any case without human intervention.
+The specified expression `${true}` evaluates to the boolean value `true` and means that the plan item should become active in only through the human intervention.
 
 For a plan item definition, the following XML can be used:
 
@@ -48,7 +48,7 @@ For a plan item definition, the following XML can be used:
 <humanTask id="HumanTask_1">
   <defaultControl>
     <manualActivationRule>
-      <condition>${false}</condition>
+      <condition>${true}</condition>
     </manualActivationRule>
   </defaultControl>
 </humanTask>
@@ -57,7 +57,7 @@ For a plan item definition, the following XML can be used:
 The rule specified in the `humanTask` element is valid for all plan items that reference it, here `PlanItem_HumanTask_1`.
 
 {{< note title="Tricky Specification" class="warning" >}}
-Manual activation is the default behavior. Thus, by specifying the element `manualActivationRule` you can express exceptions from that default for cases in which a task does `not` need manual activation.
+Automatic activation is the default behavior. Thus, by specifying the element `manualActivationRule` you can express exceptions from that default for cases in which a task `does` need a manual activation.
 {{< /note >}}
 
 As with any expression, you can use case variables to determine the result of a manual activation rule. The following snippet expresses that manual activation is required when a variable `var` has a value greater than 100:
