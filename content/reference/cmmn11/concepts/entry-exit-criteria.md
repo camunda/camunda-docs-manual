@@ -48,7 +48,8 @@ The conditions and events behind entry and exit criteria can be expressed by so-
 
 When any entry criterion is met, the plan item it is defined for performs the state transition from `AVAILABLE` to `ENABLED`. While the plan item is not in state `AVAILABLE`, entry criteria are not relevant.
 
-Similarly, when any exit criterion is met, a plan item performs a state transition from any of the states `AVAILABE`, `ENABLED`, `DISABLED`, or `ACTIVE` to state `TERMINATED`.
+Any exit criteria can be met only when the corresponding plan item is in the `ACTIVE` state.
+When any exit criterion is met, a plan item performs a state transition from `ACTIVE` to state `TERMINATED`.
 
 The details of plan item states and transitions are provided in the [Plan Item Lifecycles][lifecycle] section.
 
