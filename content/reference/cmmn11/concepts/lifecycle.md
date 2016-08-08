@@ -95,7 +95,7 @@ States:
       terminated
     </td>
     <td>
-      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled.Furthermore, it is possible to manually terminate a <i>active</i> case instance via the <code>CaseService</code> API.
+      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled. Furthermore, it is possible to manually terminate an <i>active</i> case instance via the <code>CaseService</code> API.
     </td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ States:
       terminated
     </td>
     <td>
-      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met or when the parent (Case instance or a stage) is terminated. A task/stage in state <i>terminated</i> is removed from the runtime database.Furthermore, it is possible to manually terminate a <i>active</i> stage/task via the <code>CaseService</code> API.
+      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met or when the parent (Case instance or a stage) is terminated. Furthermore, it is possible to manually terminate an <i>active</i> stage/task via the <code>CaseService</code> API. A task/stage in state <i>terminated</i> is removed from the runtime database.
     </td>
   </tr>
 </table>
@@ -180,33 +180,33 @@ The lifecycle of a milestone plan item is the following:
 States
 
 <table class="table table-striped">
-<tr>
-<th>State</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>
-available
-</td>
-<td>
-A milestone becomes available as soon as the stage it is contained in becomes active.
-</td>
-</tr>
-<tr>
-<td>
-completed
-</td>
-<td>
-The transition <i>occur</i> automatically triggers when all entry criteria of the milestone are fulfilled.
-</td>
-</tr>
-<tr>
-<td>
-terminated
-</td>
-<td>
-It is possible to manually terminate a <i>available</i> milestone via the <code>CaseService</code> API.
-</td>
-</tr>
+  <tr>
+    <th>State</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      available
+    </td>
+    <td>
+      A milestone becomes available as soon as the stage it is contained in becomes active.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      completed
+    </td>
+    <td>
+      The transition <i>occur</i> automatically triggers when all entry criteria of the milestone are fulfilled.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      terminated
+    </td>
+    <td>
+      It is possible to manually terminate an <i>available</i> milestone via the <code>CaseService</code> API. A task/stage in state <i>terminated</i> is removed from the runtime database.
+    </td>
+  </tr>
 
 </table>
