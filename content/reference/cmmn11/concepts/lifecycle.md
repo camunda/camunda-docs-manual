@@ -95,7 +95,7 @@ States:
       terminated
     </td>
     <td>
-      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled.
+      The transition <i>terminate</i> automatically triggers when the case instance's exit criteria are fulfilled.Furthermore, it is possible to manually terminate a <i>active</i> case instance via the <code>CaseService</code> API.
     </td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ States:
       terminated
     </td>
     <td>
-      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met. A task/stage in state <i>terminated</i> is removed from the runtime database.
+      The <i>exit</i> transition triggers when the task's/stage's exit criteria are met or when the parent (Case instance or a stage) is terminated. A task/stage in state <i>terminated</i> is removed from the runtime database.Furthermore, it is possible to manually terminate a <i>active</i> stage/task via the <code>CaseService</code> API.
     </td>
   </tr>
 </table>
@@ -200,4 +200,13 @@ completed
 The transition <i>occur</i> automatically triggers when all entry criteria of the milestone are fulfilled.
 </td>
 </tr>
+<tr>
+<td>
+terminated
+</td>
+<td>
+It is possible to manually terminate a <i>available</i> milestone via the <code>CaseService</code> API.
+</td>
+</tr>
+
 </table>
