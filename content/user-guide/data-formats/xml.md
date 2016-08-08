@@ -39,7 +39,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
-If your variable is already a [XML variable value]({{< relref "#native-xml-variable-value" >}}) and not a string like in the previous example you can omit the `XML(...)` call and directly access the variable:
+If your variable is already an [XML variable value]({{< relref "#native-xml-variable-value" >}}) and not a string like in the previous example, you can omit the `XML(...)` call and directly access the variable:
 
 ```xml
 ...
@@ -74,7 +74,7 @@ The following example is a script implemented in JavaScript. The script makes us
 
 # Native XML Variable Value
 
-The native variable value for XML makes it possible to easily parse a XML string and wrap it inside an object without the need to have a class representing the XML. Suppose we want to save the XML inside a process variable for later use, we could do the following inside a JavaDelegate:
+The native variable value for XML makes it possible to easily parse an XML string and wrap it inside an object without the need to have a class representing the XML. Suppose we want to save the XML inside a process variable for later use, we could do the following inside a JavaDelegate:
 
 ```java
 public class MyDelegate implements JavaDelegate {
@@ -95,7 +95,7 @@ public class MyDelegate implements JavaDelegate {
 
 The call to `SpinValues.xmlValue(...).create()` will transform the string into a DomXML object wrapped by Spin.
 
-If we wanted to retrieve the XML in another JavaDelegate and e.g. add some more information we could do this easily:
+If we wanted to retrieve the XML in another JavaDelegate and, e.g., add some more information, we could do this easily:
 
 ```java
 public class AddDataDelegate implements JavaDelegate {
@@ -111,7 +111,7 @@ public class AddDataDelegate implements JavaDelegate {
 ```
 
 When retrieving the XML value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
-Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
+Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to, e.g., another API.
 
 
 # Serializing Process Variables

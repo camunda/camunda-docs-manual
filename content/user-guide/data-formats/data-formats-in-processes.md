@@ -11,7 +11,7 @@ menu:
 ---
 
 
-The main entry point to Spin's functionality is the static function `org.camunda.spin.Spin.S` that can be used to process documents or to map java objects to a document format. The returned value of this function is a *Spin wrapper*, which is an intermediary representation of a document and that offers functions for manipulation of the underlying document. Additionally, the functions `org.camunda.spin.Spin.XML` and `org.camunda.spin.Spin.JSON` can be used that return a strongly-typed Spin wrapper of the provided documents which is useful when writing Java. Refer to the [Spin reference documentation]({{< relref "reference/spin/index.md" >}}) on how these methods can be used and what API is offered by the Spin wrappers.
+The main entry point to Spin's functionality is the static function `org.camunda.spin.Spin.S` that can be used to process documents or to map Java objects to a document format. The returned value of this function is a *Spin wrapper*, which is an intermediary representation of a document and that offers functions for manipulation of the underlying document. Additionally, the functions `org.camunda.spin.Spin.XML` and `org.camunda.spin.Spin.JSON` can be used that return a strongly-typed Spin wrapper of the provided documents which is useful when writing Java. Refer to the [Spin reference documentation]({{< relref "reference/spin/index.md" >}}) on how these methods can be used and what API is offered by the Spin wrappers.
 
 The following subsections describe the integration points of the process engine and Spin. For specific documentation on data formats like XML and JSON, please refer to the [XML section]({{< relref "user-guide/data-formats/xml.md" >}}) and the [JSON section]({{< relref "user-guide/data-formats/json.md" >}}).
 
@@ -28,9 +28,9 @@ Similar to the EL integration, the Spin functions can be accessed from custom sc
 
 # Native JSON and XML Variable Values
 
-When working with JSON or XML payload it wouldn't be convenient to treat the payload as strings because then features like path-expressions and accessing properties couldn't be used. Additionally, you do not always need or want a class in your system to represent the JSON/XML.
+When working with JSON or XML payloads it wouldn't be convenient to treat the payload as strings because then features like path-expressions and accessing properties couldn't be used. Additionally, you do not always need or want a class in your system to represent the JSON/XML.
 
-That is why Spin provides native variable values to work with JSON and XML. The Spin API enables access and manipulation of the data in an easy way. Parsing and Serialization can be done with a single command.
+That is why Spin provides native variable values to work with JSON and XML. The Spin API enables access and manipulation of the data in an easy way. Parsing and serialization can be done with a single command.
 
 
 # Serializing Process Variables

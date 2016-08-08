@@ -24,7 +24,7 @@ The following provides examples on how Camunda Spin can be used in the process e
 }
 ```
 
-If you want to learn how to use JSON objects inside an embedded form please take a look in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
+If you want to learn how to use JSON objects in an embedded form, please take a look at the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
 
 
 # Expression Language Integration
@@ -41,7 +41,7 @@ The Spin entry functions can be used wherever the process engine allows expressi
 ...
 ```
 
-If your variable is already a [JSON variable value]({{< relref "#native-json-variable-value" >}}) and not a string like in the previous example you can omit the `S(...)` call and directly access the variable:
+If your variable is already a [JSON variable value]({{< relref "#native-json-variable-value" >}}), and not a string like in the previous example, you can omit the `S(...)` call and directly access the variable:
 
 ```xml
 ...
@@ -96,7 +96,7 @@ public class MyDelegate implements JavaDelegate {
 
 The call to `SpinValues.jsonValue(...).create()` will transform the string into a Jackson object wrapped by Spin.
 
-If we wanted to retrieve the JSON in another JavaDelegate and e.g. add some more information we could do this easily:
+If we wanted to retrieve the JSON in another JavaDelegate and, e.g., add some more information, we could do this easily:
 
 ```java
 public class AddDataDelegate implements JavaDelegate {
@@ -110,7 +110,7 @@ public class AddDataDelegate implements JavaDelegate {
 ```
 
 When retrieving the JSON value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
-Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string to pass it to another API e.g.
+Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`, the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string, e.g., to pass it to another API.
 
 
 # Serializing Process Variables

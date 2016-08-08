@@ -10,7 +10,7 @@ menu:
 
 ---
 
-In order to use Spin with a process engine, the relevant Spin libraries have to be on the engine's classpath. Furthermore, the process engine plugin provided by Spin has to be registered with the engine. When using a pre-built Camunda distribution, Spin is already integrated.
+To use Spin with a process engine, the relevant Spin libraries have to be on the engine's classpath. Furthermore, the process engine plugin provided by Spin has to be registered with the engine. When using a pre-built Camunda distribution, Spin is already integrated.
 
 There are two types of Spin artifacts:
 
