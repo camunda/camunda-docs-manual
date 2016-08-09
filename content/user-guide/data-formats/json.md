@@ -110,7 +110,7 @@ public class AddDataDelegate implements JavaDelegate {
 ```
 
 When retrieving the JSON value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
-Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`, the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string, e.g., to pass it to another API.
+Retrieving the variable deserialized by calling either `getVariableTyped("name")` or `getVariableTyped("name", true)`, the `JsonValue` contains the wrapped Jackson object to represent the JSON data. Calling `getVariableTyped("name", false)` results in `JsonValue` containing only the raw string, which is advantageous if you only need the string, e.g., to pass it to another API.
 
 
 # Serializing Process Variables
@@ -154,7 +154,7 @@ ObjectValue typedCustomerValue =
   Variables.objectValue(customer).serializationDataFormat("application/json").create();
 ```
 
-This creates a variable value from the `customer` object. The invocation `serializationDataFormat("application/json")` tells the process engine in which format the variable should be serialized. This name **must** match the name of a data format known to Spin. For example, `application/json` is the name of the built-in JSON data format.
+This creates a variable value from the `Customer` object. The invocation `serializationDataFormat("application/json")` tells the process engine in which format the variable should be serialized. This name **must** match the name of a data format known to Spin. For example, `application/json` is the name of the built-in JSON data format.
 
 Once the variable is set, its serialized value can be retrieved using the type variable API. For example:
 
@@ -175,5 +175,5 @@ customerJson matches:
 ```
 
 {{< note title="Default Serialization Format" class="info" >}}
-  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/json`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as JSON without explicit declaration of the format.
+  The engine can be configured to persist all objects for which no explicit data format is specified as JSON. The process engine configuration offers a property `defaultSerializationFormat`. To configure default JSON serialization, set this property to `application/json`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the customer object as JSON without explicit declaration of the format.
 {{< /note >}}

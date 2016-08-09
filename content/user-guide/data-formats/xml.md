@@ -111,7 +111,7 @@ public class AddDataDelegate implements JavaDelegate {
 ```
 
 When retrieving the XML value via `execution.getVariableTyped()` there are two options: serialized and deserialized.
-Retrieving the variable deserialized by calling ether `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to, e.g., another API.
+Retrieving the variable deserialized by calling either `getVariableTyped("name")` or `getVariableTyped("name", true)`  the `XmlValue` contains the wrapped DomXML object to represent the XML data. Calling `getVariableTyped("name", false)` results in `XmlValue` containing only the raw string, which is advantageous if you only need the string to pass it to, e.g., another API.
 
 
 # Serializing Process Variables
@@ -189,5 +189,5 @@ customerXml matches:
 ```
 
 {{< note title="Default Serialization Format" class="info" >}}
-  The engine can be configured to persist all objects for which no explicit data format is specified as XML. The process engine configuration offers a property `defaultSerializationFormat`. To configure default XML serialization, set this property to `application/xml`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the Customer object as XML without explicit declaration of the format.
+  The engine can be configured to persist all objects for which no explicit data format is specified as XML. The process engine configuration offers a property `defaultSerializationFormat`. To configure default XML serialization, set this property to `application/xml`. Now, the invocation `runtimeService.setVariable(processInstance.getId(), "customer", new Customer())` directly serializes the customer object as XML without explicit declaration of the format.
 {{< /note >}}
