@@ -12,9 +12,10 @@ menu:
 
 ---
 
-Retrieves a report of completed tasks. The report contains a list of task/process definition keys and the count of how 
-many tasks where completed for the specified key in a given period. When the report type is set to <code>duration</code>
-the report contains a minimum, maximum and average duration value of all completed task instances in a given period. 
+Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of
+task/process definition keys and the count of how many tasks where completed for the specified key in a given period.
+When the report type is set to <code>duration</code>, the report contains a minimum, maximum and average duration value
+of all completed task instances in a given period.
 
 
 # Method
@@ -34,15 +35,15 @@ GET `/history/task/report`
   <tr>
     <td>reportType</td>
     <td>
-      <b>Mandatory.</b> Specifies the kind of the report to execute. In order to retrieve a report about the duration 
-      of process instances the value must be set to <code>duration</code>. For a report of the completed tasks in a 
+      <b>Mandatory.</b> Specifies the kind of the report to execute. In order to retrieve a report about the duration
+      of process instances the value must be set to <code>duration</code>. For a report of the completed tasks in a
       specific timespan the value must be set to <code>count</code>.
     </td>
   </tr>
   <tr>
     <td>periodUnit</td>
     <td>
-      When the report type is set to <code>duration</code>, this parameter is <b>Mandatory</b>. 
+      When the report type is set to <code>duration</code>, this parameter is <b>Mandatory</b>.
       Specifies the granularity of the report. Valid values are <code>month</code> and <code>quarter</code>.
     </td>
   </tr>
@@ -58,8 +59,8 @@ GET `/history/task/report`
     <td>groupBy</td>
     <td>
       This parameter can only be used in combination with the reportType parameter set to <code>count</code>.
-      Groups the tasks report by a given criterion. 
-      Valid values are <code>taskDefinition</code> and <code>processDefinition</code>. 
+      Groups the tasks report by a given criterion.
+      Valid values are <code>taskDefinition</code> and <code>processDefinition</code>.
       The default value is <code>taskDefinition</code>.</td>
   </tr>
 </table>
