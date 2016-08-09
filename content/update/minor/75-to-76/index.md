@@ -27,6 +27,16 @@ Noteworthy new Features and Changes in 7.6:
    attribute or with the attribute set to `false` are not deployed on the engine. *So every process which should be executed needs this attribute in the process definition to be deployed*. Old processes which are deployed on an earlier version are also deployed without this attribute.
 {{< /note >}}
 
+{{< note title="Manual activation rule defaults changed" class="warning" >}}
+
+Default behavior of [manual activation rules]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}}) in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagramms to include manual activation rule.
+
+```xml
+<manualActivationRule/>
+```
+Otherwise if your case definitions do not have `manualActivationRule` elements, but uses `caseService.manuallyStartCaseExecution(caseExecutionId)` to manually start executions and you would like your executions to start right away, please remove `caseService.manuallyStartCaseExecution(caseExecutionId)` from your code
+
+{{< /note >}}
 
 {{< note title="TODO" class="info" >}}
   Add warning if no rolling upgrades!
