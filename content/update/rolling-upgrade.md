@@ -22,7 +22,7 @@ More considerations for rolling updates can be found at the bottom of this page.
 
 # What is a Rolling Upgrade?
 
-A rolling upgrade is a process to perform a Camunda upgrade in a cluster. The nodes are updated one after the other or in groups.
+A rolling upgrade is a process to perform a Camunda upgrade in a cluster. The nodes are updated one by one or in groups.
 During the upgrade process, it is ensured that at least one node is available to handle incoming requests, guaranteeing availability and minimizing downtime.
 
 # Overview
@@ -31,13 +31,13 @@ During the upgrade process, it is ensured that at least one node is available to
 
 The above picture displays an example system. There are three process engine nodes connected to a shared database.
 A load balancer distributes requests to the Process Engine nodes.
-"Process Engine node" shall be an instance of an application or application server hosing a process engine.
+"Process Engine node" shall be an instance of an application or application server hosting a process engine.
 It must not necessarily be a separate physical host.
 
-A rolling upgrade can be orchestrated a 2 step process:
+A rolling upgrade can be orchestrated in a 2 step process:
 
 1. Update the Database Schema,
-2. Update the Camunda libraries on all nodes, one node after the other or in groups.
+2. Update the Camunda libraries on all nodes, one by one or in groups.
 
 _A 3-node cluster is used in this document for illustration. Obviously, the procedure can be generalized to a `N`-Node cluster._
 
@@ -53,16 +53,16 @@ Initially, the database schema is at version `7.X` and the Camunda library versi
 
 {{< img src="../img/architecture-step1.png" title="Initial Situation" >}}
 
-The first step consists in updating the database schema to version `7.Y`. Information on where to find the update scripts and how to apply them can be found in the documentation on how to perform updates.
+The first step consists of updating the database schema to version `7.Y`. Information on where to find the update scripts and how to apply them can be found in the documentation on how to perform updates.
 As a result, the database schema version is at `7.Y` while the Camunda library version is still `7.X`:
 
 {{< img src="../img/architecture-step2.png" title="Update the Database Schema" >}}
 
 Considerations:
 
-* Applying the database update scripts while not updating the library version (or in other words using a newer version of the database schema with an older version of the library) is possible since Camunda guarantees backwards compatibility of the database schema. (See section _Considerations_ at the bottom of this page for details.)
+* Applying the database update scripts while not updating the library version (or in other words using a newer version of the database schema with an older version of the library) is possible since Camunda guarantees backwards compatibility of the database schema. (See the _Considerations_ section at the bottom of this page for details.)
 
-* Camunda does however not guarantee that the database schema update script can be applied _on-line_ without issues. Depending on the database, the current load profile the script can take a long time to run or may block other transactions from making progress. (See section _Considerations_ at the bottom of this page for details.) Users are strongly encouraged to test the schema update script in a staging environment prior to executing it on a production database.
+* Camunda does however not guarantee that the database schema update script can be applied _on-line_ without issues. Depending on the database and the current load, the script can take a long time to run or may block other transactions from making progress. (See the _Considerations_ section at the bottom of this page for details). Users are strongly encouraged to test the schema update script in a staging environment prior to executing it on a production database.
 
 ## Step 2: Update the Nodes
 
@@ -70,7 +70,7 @@ After the update of the database schema is completed, the Camunda library versio
 
 The following steps need to be done for each node or group of nodes.
 
-Grouping nodes makes the upgrade process faster, at the expense that fewer nodes are intermittently available to process requests. An approach could be that 33% of the nodes are upgraded in parallel. In this case 66% of the nodes are available to process the requests and 33% are off line during the upgrade.
+Grouping nodes makes the upgrade process faster, at the expense that fewer nodes are intermittently available to process requests. An approach could be that 33% of the nodes are upgraded in parallel. In this case 66% of the nodes are available to process the requests and 33% are offline during the upgrade.
 
 ### 2.1 Isolation
 
@@ -84,7 +84,7 @@ Once all open requests are processed, the node is successfully isolated and can 
 In this step the Camunda library version is updated on an isolated node. The exact way to achieve this depends on the environment:
 
 * When using an embedded process engine, the application bundling the Camunda libraries needs to be re-packaged with the new version of the libraries and re-deployed.
-* When using a shared process engine, the libraries and applications deployed into the application server need to be updated.
+* When using a shared process engine, the libraries and applications deployed to the application server need to be updated.
 
 After the update is complete, the node can be brought back up.
 
@@ -100,17 +100,17 @@ In this step an updated node is re-integrated into the cluster. This usually mea
 
 ## Backwards Compatibility of Database Schema
 
-In order to facilitate updates, Camunda ensures backwards compatibility of the database schema.
-Backwards compatibility makes it possible to operate an older version of the process engine on a new version of the database schema. This property is crucial in the first step of the rolling upgrade process: after the database has been updated, the process engine libraries are still at the previous version.
+To facilitate updates, Camunda ensures backwards compatibility of the database schema.
+Backwards compatibility makes it possible to operate an older version of the process engine on a newer version of the database schema. This property is crucial in the first step of the rolling upgrade process: after the database has been updated, the process engine libraries are still at the previous version.
 
 ## On-line applicability of Db Migration Script
 
 Note that Camunda does not guarantee that the migration script is applicable on-line (concurrently to in-flight transactions).
-While Camunda does best effort to ensure this property, it is not guaranteed. It is therefore strongly recommended to _test the database migration script_ on a test database with similar load profile than the production database.
+While Camunda does its best effort to ensure this property, it is not guaranteed. It is therefore strongly recommended to _test the database migration script_ on a test database with a similar load to the production database.
 
 ## Usage of new Features
 
-During the rolling upgrade process, it is not permitted to use new features, of the new engine version. This means that it is not possible to "roll out" a new version of the BPMN processes or of the application making use of new API methods while also upgrading the library. The reason for this is that while performing a rolling upgrade, there is a time frame in which both old versions of the process engine library an new versions of the process engine library operate on the database concurrently. During this time, usage of new features of the new engine like deployment of a BPMN process with a newly supported symbol would cause problems to the old engine.
+During the rolling upgrade process, it is not permitted to use new features of the newer engine version. This means that it is not possible to "roll out" a new version of the BPMN processes or of the application making use of new API methods while also upgrading the library. The reason for this is that while performing a rolling upgrade, there is a time frame in which both older and newer versions of the process engine library operate on the database concurrently. During this time, usage of new features of the new engine like deployment of a BPMN process with a newly supported symbol would cause problems with the old engine.
 
 ## One Minor Releases Only
 
