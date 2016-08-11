@@ -13,9 +13,10 @@ menu:
 ---
 
 Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of
-task/process definition keys and the count of how many tasks where completed for the specified key in a given period.
-When the report type is set to <code>duration</code>, the report contains a minimum, maximum and average duration value
-of all completed task instances in a given period.
+task/process definition keys, the name of the task, the process definition id, the process definition key, the process 
+definition name and the count of how many tasks where completed for the specified key in a given period. When the report 
+type is set to <code>duration</code>, the report contains a minimum, maximum and average duration value of all completed 
+task instances in a given period.
 
 
 # Method
@@ -49,11 +50,17 @@ GET `/history/task/report`
   </tr>
   <tr>
     <td>completedBefore</td>
-    <td>Restrict to tasks that were completed before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>
+      Restrict to tasks that were completed before the given date. The date must have the format 
+      <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
+    </td>
   </tr>
   <tr>
     <td>completedAfter</td>
-    <td>Restrict to tasks that were completed after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>
+      Restrict to tasks that were completed after the given date. The date must have the format 
+      <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
+    </td>
   </tr>
   <tr>
     <td>groupBy</td>
@@ -80,7 +87,36 @@ Each historic task report object has the following properties:
   <tr>
     <td>definition</td>
     <td>String</td>
-    <td>The task definition or the process definition. The value depends on the <code>groupBy</code>-parameter in the request.</td>
+    <td>
+      The task definition or the process definition. The value depends on the <code>groupBy</code>-parameter in the 
+      request.
+    </td>
+  </tr>
+  <tr>
+    <td>taskName</td>
+    <td>String</td>
+    <td>
+      The task name of the task. It is only available when the <code>groupBy</code>-parameter is set to 
+      <code>taskDefinition</code>. Else the value is <code>null</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>processDefinitionId</td>
+    <td>String</td>
+    <td>The id of the process definition.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionKey</td>
+    <td>String</td>
+    <td>
+      The key of the process definition. It is only available when the <code>groupBy</code>-parameter is set to 
+      <code>taskDefinition</code>. Else the value is <code>null</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>processDefinitionName</td>
+    <td>String</td>
+    <td>The name of the process definition.</td>
   </tr>
   <tr>
     <td>count</td>
@@ -145,7 +181,11 @@ Each object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>completedAfter</code> parameter is supplied, but the date format is wrong. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>
+      Returned if some of the query parameters are invalid, for example if a <code>completedAfter</code> parameter is 
+      supplied, but the date format is wrong. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+      for the error response format.
+    </td>
   </tr>
 </table>
 
@@ -158,17 +198,26 @@ GET `/history/task/report?reportType=count&groupBy=processDefinition`
 
 Response
 
-    [
-      {
-        "definition" : "aProcessDefinition",
-        "count" : 42
-      },
-      {
-        "definition" : "anotherProcessDefinition",
-        "count" : 9000
-      }
-    ]
-
+```json
+[
+  {
+    "definition" : "aProcessDefinition",
+    "taskName" : null,
+    "processDefinitionId" : "aProcessDefinitionId",
+    "processDefinitionKey" : null,
+    "processDefinitionName" : "A Process Definition Name",
+    "count" : 42
+  },
+  {
+    "definition" : "anotherProcessDefinition",
+    "taskName" : null,
+    "processDefinitionId" : "anotherProcessDefinitionId",
+    "processDefinitionKey" : null,
+    "processDefinitionName" : "Another Process Definition Name",
+    "count" : 9000
+  }
+]
+```
 
 ## Request for duration report
 
