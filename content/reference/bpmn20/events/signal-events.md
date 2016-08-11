@@ -49,7 +49,7 @@ A signal event definition is declared using the signalEventDefinition element. T
 </definitions>
 ```
 
-__Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, event if they are part of different process instances.
+__Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, even if they are part of different process instances.
 
 
 # Signal Api
