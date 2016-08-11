@@ -65,10 +65,10 @@ GET `/history/task/report`
   <tr>
     <td>groupBy</td>
     <td>
-      This parameter can only be used in combination with the reportType parameter set to <code>count</code>.
+      When the report type is set to <code>count</code>, this parameter is <b>Mandatory</b>.
       Groups the tasks report by a given criterion.
       Valid values are <code>taskName</code> and <code>processDefinition</code>.
-      The default value is <code>taskName</code>.</td>
+    </td>
   </tr>
 </table>
 
@@ -85,11 +85,11 @@ Each historic task report object has the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>definition</td>
+    <td>taskDefinitionKey</td>
     <td>String</td>
     <td>
-      The task definition key or the process definition key. The value depends on the <code>groupBy</code>-parameter in the 
-      request.
+      The task definition key. It is only available when the <code>groupBy</code>-parameter is set to 
+      <code>taskName</code>. Else the value is <code>null</code>.
     </td>
   </tr>
   <tr>
@@ -109,8 +109,7 @@ Each historic task report object has the following properties:
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>
-      The key of the process definition. It is only available when the <code>groupBy</code>-parameter is set to 
-      <code>taskName</code>. Else the value is <code>null</code>.
+      The key of the process definition.
     </td>
   </tr>
   <tr>
@@ -201,18 +200,18 @@ Response
 ```json
 [
   {
-    "definition" : "aProcessDefinition",
+    "taskDefinitionKey" : null,
     "taskName" : null,
     "processDefinitionId" : "aProcessDefinitionId",
-    "processDefinitionKey" : null,
+    "processDefinitionKey" : "aProcessDefinitionKey",
     "processDefinitionName" : "A Process Definition Name",
     "count" : 42
   },
   {
-    "definition" : "anotherProcessDefinition",
+    "taskDefinitionKey" : null,
     "taskName" : null,
     "processDefinitionId" : "anotherProcessDefinitionId",
-    "processDefinitionKey" : null,
+    "processDefinitionKey" : "anotherProcessDefinitionKey",
     "processDefinitionName" : "Another Process Definition Name",
     "count" : 9000
   }
