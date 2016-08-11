@@ -41,6 +41,12 @@ Here you can see the various points at which you are able to add your own plugin
 
 ---
 
+**Name:** `tasklist.header`.
+
+{{< img src="../img/plugin-points/tasklist-plugin-tasklist-header.png" title="Plugin Point" >}}
+
+---
+
 **Name:** `tasklist.task.detail`.
 
 {{< img src="../img/plugin-points/tasklist-plugin-task-detail.png" title="Plugin Point" >}}
