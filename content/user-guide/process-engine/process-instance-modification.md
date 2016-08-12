@@ -11,6 +11,8 @@ menu:
 ---
 
 
+
+
 While the process model contains sequence flows that define in which order activities must be executed, sometimes it is desired to flexibly start an activity again or cancel a running activity. For example, this can be useful when the process model contains an error, such as a wrong sequence flow condition, and running process instances need to be corrected. Use cases for this API may be
 
 * Repairing process instances in which some steps have to be repeated or skipped
@@ -25,10 +27,14 @@ To perform such an operation, the process engine offers the *process instance mo
 * cancel all running instances of a given activity
 * set variables with each of the instructions
 
+{{< note title="Modification of the own process instance" class="warning"  >}}
+ The process instance modification inside the same instance is not recommended!
+ An activity which tries to modify the own process instance can causes undefined behavior, which should be avoided.
+{{< /note >}}
+
 {{< enterprise >}}
   The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}})
 {{< /enterprise >}}
-
 
 # Process Instance Modification by Example
 
