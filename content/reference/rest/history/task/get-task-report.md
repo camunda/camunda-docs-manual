@@ -12,11 +12,11 @@ menu:
 
 ---
 
-Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of
-task/process definition keys, the name of the task, the process definition id, the process definition key, the process 
-definition name and the count of how many tasks where completed for the specified key in a given period. When the report 
-type is set to <code>duration</code>, the report contains a minimum, maximum and average duration value of all completed 
-task instances in a given period.
+Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of 
+completed task counts where an entry contains the task name, the definition key of the task, the process definition id, 
+the process definition key, the process definition name and the count of how many tasks where completed for the specified 
+key in a given period. When the report type is set to <code>duration</code>, the report contains a minimum, maximum and 
+average duration value of all completed task instances in a given period.
 
 
 # Method
@@ -83,14 +83,6 @@ Each historic task report object has the following properties:
     <th>Name</th>
     <th>Value</th>
     <th>Description</th>
-  </tr>
-  <tr>
-    <td>taskDefinitionKey</td>
-    <td>String</td>
-    <td>
-      The task definition key. It is only available when the <code>groupBy</code>-parameter is set to 
-      <code>taskName</code>. Else the value is <code>null</code>.
-    </td>
   </tr>
   <tr>
     <td>taskName</td>
@@ -200,7 +192,6 @@ Response
 ```json
 [
   {
-    "taskDefinitionKey" : null,
     "taskName" : null,
     "processDefinitionId" : "aProcessDefinitionId",
     "processDefinitionKey" : "aProcessDefinitionKey",
@@ -208,7 +199,6 @@ Response
     "count" : 42
   },
   {
-    "taskDefinitionKey" : null,
     "taskName" : null,
     "processDefinitionId" : "anotherProcessDefinitionId",
     "processDefinitionKey" : "anotherProcessDefinitionKey",
