@@ -20,6 +20,14 @@ To perform such an operation, the process engine offers the *process instance mo
 * set variables with each of the instructions
 
 <div class="alert alert-info">
+  <strong>Modification of the own process instance</strong>
+  <p>
+    The process instance modification inside the same instance is not recommended!
+    An activity which tries to modify the own process instance can causes undefined behavior, which should be avoided.
+  </p>
+</div>
+
+<div class="alert alert-info">
   <strong>Process Instance Modification in Cockpit</strong>
   <p>The Camunda enterprise edition provides a user interface to <a href="ref:#cockpit-process-instance-modification">compose process instance modifications visually on the BPMN diagram in Camunda Cockpit</a>.</p>
 </div>
