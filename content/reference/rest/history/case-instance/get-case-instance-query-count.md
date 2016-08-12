@@ -67,6 +67,10 @@ GET `/history/case-instance/count`
     <td>Filter by case instance business key that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Filter by a comma-separated list of case activity ids. A historic case instance must have historic case activity instances in at least one of the given case activity ids.</td>
+  </tr>
+  <tr>
     <td>createdBefore</td>
     <td>Restrict to instances that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
