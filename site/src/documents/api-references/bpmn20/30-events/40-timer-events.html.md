@@ -43,7 +43,7 @@ A timer definition must have exactly one element from the following:
     0 0/5 * * * ?
     ```
 
-    Please see <a href="http://www.quartz-scheduler.org/docs/tutorials/crontrigger.html">tutorial</a> for using cron expressions.
+    Please see <a href=" http://www.quartz-scheduler.org/documentation/quartz-2.1.x/tutorials/tutorial-lesson-06.html">tutorial</a> for using cron expressions.
 
     Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
