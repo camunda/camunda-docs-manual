@@ -279,24 +279,24 @@ The above table shows a single row holding user data. The user has a unique Id (
 
 We now construct a situation in which 2 transactions attempt to update this entry, one attempting to change the address, the other one attempting to delete the user. The intended behavior is that once of the transactions succeeds and the other is aborted with an error indicating that a concurrency conflict was detected. The user can then decide to retry the transaction based on the latest state of the data:
 
-{{< img src="../img/optimisticLockingTransactions.png" title="Transactions with optimistic locking" >}}
+{{< img src="../img/optimisticLockingTransactions.png" title="Transactions with Optimistic Locking" >}}
 
 As you can see in the picture above, `Transaction 1` reads the user data, does something with the data, deletes the user and then commits.
 `Transaction 2` starts at the same time and reads the same user data, and also works on the data. When `Transaction 2` attempts to update the user address a conflict is detected (since `Transaction 1` has already deleted the user).
 
 The conflict is detected because the current state of the user data is read when `Transaction 2` performs the update. At that time, the concurrent `Transaction 1` has already marked the row to be deleted. The database now waits for `Transaction 1` to end. After it is ended, `Transaction 2 ` can proceed. At this time, the row does not exist anymore and the update succeeds but reports to have changed `0` rows. An application can react to this and rollback `Transaction 2` to prevent other changes made by that transaction to become effective.
 
-The application (or the user using it) can further decide whether `Transaction 2` should be re-tried. In our example, the transaction would then not find the user data and report that the user has been deleted.
+The application (or the user using it) can further decide whether `Transaction 2` should be retried. In our example, the transaction would then not find the user data and report that the user has been deleted.
 
 ### Optimistic Locking vs. Pessimistic Locking
 
-Pessimistic locking works with read locks. A read lock locks a data object on read preventing other concurrent transactions from reading it as well. This way, conflicts are prevented from occurring.
+Pessimistic Locking works with read locks. A read lock locks a data object on read, preventing other concurrent transactions from reading it as well. This way, conflicts are prevented from occurring.
 
-In the example above, `Transaction 1` would lock the user data once it reads it. When attempting to read is as well, `Transaction 2` is blocked from making process. Once `Transaction 1` completes, `Transaction 2` can progress and reads the latest state. This may conflicts are prevented transactions always work on the latest state of data exclusively.
+In the example above, `Transaction 1` would lock the user data once it reads it. When attempting to read is as well, `Transaction 2` is blocked from making progress. Once `Transaction 1` completes, `Transaction 2` can progress and reads the latest state. This way conflicts are prevented as transactions always exclusively work on the latest state of data.
 
-Pessimistic locking is efficient in situations where writes as as frequent as reads and with high contention.
+Pessimistic Locking is efficient in situations where writes are as frequent as reads and with high contention.
 
-However since pessimistic locks are exclusive, concurrency is reduced degrading performance. Optimistic Locking witch detects conflicts rather than preventing them to occur is therefore preferable in context with high levels of concurrency and where reads are more frequent than writes. Also pessimistic locking can quickly lead to deadlocks.
+However, since pessimistic locks are exclusive, concurrency is reduced, degrading performance. Optimistic Locking, which detects conflicts rather than preventing them to occur, is therefore preferable in the context of high levels of concurrency and where reads are more frequent than writes. Also, Pessimistic Locking can quickly lead to deadlocks.
 
 ### Further Reading
 
@@ -305,9 +305,10 @@ However since pessimistic locks are exclusive, concurrency is reduced degrading 
 
 ## Optimistic Locking in Camunda
 
-Camunda uses the Optimistic Locking for concurrency control. If a concurency conflict is detected
-an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed. The execution of delete or update statements return an affected rows count. 
-If this count is equal to zero, it indicates that the row was updated or deleted before.
+Camunda uses Optimistic Locking for concurrency control. If a concurency conflict is detected, 
+an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed. 
+The execution of delete or update statements return an affected rows count. 
+If this count is equal to zero, it indicates that the row was previously updated or deleted.
 In such cases a conflict is detected and an `OptimisticLockingException` is thrown.
 
 ### The OptimisticLockingException
@@ -318,45 +319,45 @@ Consider the following invocation of the `completeTask(...)` method:
 ```java
 taskService.completeTask(aTaskId); // may throw OptimisticLockingException
 ```
-The above method may throw an OptimisticLockingException in case executing the method call leads to concurrent modifications of data.
+The above method may throw an `OptimisticLockingException` in case executing the method call leads to concurrent modification of data.
 
-Job execution can also cause `OptimisticLockingException` to be thrown. Since this is expected, the execution will be retried.
+Job execution can also cause an `OptimisticLockingException` to be thrown. Since this is expected, the execution will be retried.
 
-#### Handling optimistic locking exceptions
+#### Handling Optimistic Locking exceptions
 
 In case the current Command is triggered by the Job Executor, `OptimisticLockingException`s are handled automatically using retries. Since this exception is expected to occur, it does not decrement the retry count.
 
-If the current Command is triggered by an external API Call, the Camunda Engine rolls back the current transaction to the last safe point (wait state). Now the user has to decide how the exception should be handled. 
-The user has to decide if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
+If the current Command is triggered by an external API call, the Camunda Engine rolls back the current transaction to the last safe point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
 
 To control the scope of transactions, explicit save points can be added before and after activities using Asynchronous Continuations.
 
-### Common places where Optimistic Locking Exceptions are thrown
+### Common Places Where Optimistic Locking Exceptions Are Thrown
 
-There a some common places where the `OptimisticLockingException` can be thrown.
+There a some common places where an `OptimisticLockingException` can be thrown.
 For example
+
 * Competing external requests: completing the same task twice, concurrently.
 * Synchronization points inside a process: Examples are parallel gateway, multi instance, etc.
 
 The following model shows a parallel gateway, on which the `OptimisticLockingException` can occur.
 
-{{< img src="../img/optimisticLockingParallel.png" title="Optimistic locking in parallel gateway" >}}
+{{< img src="../img/optimisticLockingParallel.png" title="Optimistic Locking in parallel gateway" >}}
 
-There are two user tasks, after the opening parallel gateway. The closing parallel gateway, after the user tasks, merge the executions to one.
-In the most cases one of the user task will be completed at first. Execution then waits on the closing parallel gateway until the second user task is completed.
+There are two user tasks after the opening parallel gateway. The closing parallel gateway, after the user tasks, merges the executions to one.
+In most cases, one of the user tasks will be completed first. Execution then waits on the closing parallel gateway until the second user task is completed.
 
 However, it is also possible that both user tasks are completed concurrently. Say the user task above is completed. The transaction assumes he is the first on the closing parallel gateway.
 The user task below is completed concurrently and the transaction also assumes he is the first on the closing parallel gateway.
-Both transactions try to update a row, which indicates that they are the first on the closing parallel gateway. In such cases  an `OptimisticLockingException` is thrown thrown. One of the transaction is rolled back and the other one succeeds to update the row.
+Both transactions try to update a row, which indicates that they are the first on the closing parallel gateway. In such cases an `OptimisticLockingException` is thrown. One of the transactions is rolled back and the other one succeeds to update the row.
 
 ### Optimistic Locking and Non-Transactional Side Effects
 
-After the occurrence of an `OptimisticLockingException` the transaction is rolled back. Any transactional work will be undone.
+After the occurrence of an `OptimisticLockingException`, the transaction is rolled back. Any transactional work will be undone.
 Non-transactional work like creation of files or the effects of invoking non-transactional web services will not be undone. This can end in inconsistent state.
 
 There are several solutions to this problem, the most common one is eventual consolidation using retries.
 
 ### Internal Implementation Details
 
-Most The Camunda Engine database tables contain a column called `REV_`. This column represents the revision version.
+Most of the Camunda Engine database tables contain a column called `REV_`. This column represents the revision version.
 When reading a row, data is read at a given "revision". Modifications (UPDATEs and DELETEs) always attempt to update the revision which was read by the current command. Updates increment the revision. After executing a modification statement, the affected rows count is checked. If the count is `1` it is deduced that the version read was still current when executing the modification. In case the affected rows count is `0`, other transaction modified the same data while this transaction was running. This means that a concurrency conflict is detected and this transaction must not be allowed to commit. Subsequently, the transaction is rolled back (or marked rollback-only) and an `OptimisticLockingException` is thrown.
