@@ -268,15 +268,33 @@ GET `/case-execution?variables=myVariable_eq_camunda,mySecondVariable_neq_aBadVa
 
     [
       {
-        "links"            : [],
-        "id"               : "aCaseExecutionId",
-        "caseInstanceId"   : "aCaseInstId",
-        "required"         : false,
-        "repeatable"       : true,
-        "repetition"       : false,
-        "active"           : true,
-        "enabled"          : false,
-        "disabled"         : false,
-        "tenantId"         : null
+        "id"                  : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseInstanceId"      : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseDefinitionId"    : "underwriting:1:dde173eb-63b1-11e6-973e-56847afe9799",
+        "activityId"          : "_manual_underwriting",
+        "activityName"        : "Underwriting",
+        "activityType"        : "casePlanModel",
+        "activityDescription" : null,
+        "parentId"            : null,
+        "tenantId"            : null,
+        "required"            : false,
+        "enabled"             : false,
+        "active"              : true,
+        "disabled"            : false
+      },
+      {
+        "id"                  : "73413315-63b2-11e6-973e-56847afe9799",
+        "caseInstanceId"      : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "caseDefinitionId"    : "underwriting:1:dde173eb-63b1-11e6-973e-56847afe9799",
+        "activityId"          : "PI_humanTaskDecide",
+        "activityName"        : "decide on application",
+        "activityType"        : "humanTask",
+        "activityDescription" : null,
+        "parentId"            : "7340e4ed-63b2-11e6-973e-56847afe9799",
+        "tenantId"            : null,
+        "required"            : false,
+        "enabled"             : false,
+        "active"              : true,
+        "disabled"            : false
       }
     ]
