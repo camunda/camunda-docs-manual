@@ -22,8 +22,8 @@ To perform such an operation, the process engine offers the *process instance mo
 <div class="alert alert-info">
   <strong>Modification of the own process instance</strong>
   <p>
-    The process instance modification inside the same instance is not recommended!
-    An activity which tries to modify the own process instance can causes undefined behavior, which should be avoided.
+    Process instance modification within the same instance is not recommended!
+    An activity which tries to modify its own process instance can cause undefined behavior, which should be avoided.
   </p>
 </div>
 
