@@ -298,7 +298,7 @@ historyService.createHistoricIdentityLinkLogQuery()
 
 **HistoricProcessInstanceReport**
 
-Query for all historic process instances which are started before now and get their duration.
+Query for all historic process instances which were started before now and get their duration.
  
  ```java
 historyService.createHistoricProcessInstanceReport()
@@ -308,7 +308,7 @@ historyService.createHistoricProcessInstanceReport()
 
 **HistoricTaskInstanceReport**
 
-Query for all tasks which are completed before now and group them by process definition key.
+Query for all tasks which were completed before now and group them by process definition key.
  
  ```java
 historyService.createHistoricTaskInstanceReport()
