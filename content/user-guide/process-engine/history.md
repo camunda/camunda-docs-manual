@@ -113,7 +113,9 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createUserOperationLogQuery()`,
 `createHistoricJobLogQuery()`,
 `createHistoricDecisionInstanceQuery()`,
-`createHistoricBatchQuery()` and `createHistoricIdentityLinkLogQuery()`
+`createHistoricBatchQuery()`,
+`createHistoricIdentityLinkLogQuery()`,
+ `createHistoricProcessInstanceReport()` and `createHistoricTaskInstanceReport()`
 which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the Javadocs, in the `org.camunda.bpm.engine.history` package.
@@ -293,6 +295,26 @@ historyService.createHistoricIdentityLinkLogQuery()
   .userId("demo")
   .list();
 ```
+
+**HistoricProcessInstanceReport**
+
+Query for all historic process instances which are started before now and get their duration.
+ 
+ ```java
+historyService.createHistoricProcessInstanceReport()
+  .startedBefore(calendar.getTime())
+  .duration(PeriodUnit.MONTH);
+ ```
+
+**HistoricTaskInstanceReport**
+
+Query for all tasks which are completed before now and group them by process definition key.
+ 
+ ```java
+historyService.createHistoricTaskInstanceReport()
+  .completedBefore(calendar.getTime())
+  .countByProcessDefinitionKey();
+ ```
 
 ## Partially Sorting History Events by Their Occurrence
 
