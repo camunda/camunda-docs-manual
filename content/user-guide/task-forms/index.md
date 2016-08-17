@@ -106,6 +106,22 @@ This form would look like this in Tasklist:
 
 As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form metadata consists of multiple form fields which represent individual input fields where a user has to provide some value or selection.
 
+A form data can have following attributes: 
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Attribute</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>businessKey</td>
+      <td>Id of a form field that will be marked as `cam-business-key`</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Form Fields
 
