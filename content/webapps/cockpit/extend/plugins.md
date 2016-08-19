@@ -344,3 +344,10 @@ dashboard plugin.
 **Name:** `cockpit.report`
 
 See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.
+
+## Incident Action
+
+**Name:** `cockpit.incident.action`
+
+{{< img src="../../img/plugin-points/plugin-point-incident-action.png" title="Incident Action" >}}
+
