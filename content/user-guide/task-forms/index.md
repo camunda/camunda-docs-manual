@@ -117,7 +117,7 @@ A form data can have following attributes:
   <tbody>
     <tr>
       <td>businessKey</td>
-      <td>Id of a form field that will be marked as `cam-business-key`</td>
+      <td>Id of a form field that will be marked as <code>cam-business-key</code></td>
     </tr>
   </tbody>
 </table>
