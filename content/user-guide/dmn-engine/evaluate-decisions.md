@@ -109,7 +109,7 @@ The DRG is represented in the XML by the `definitions` element. The `id` of the 
 
 ## Decision Tables only
 
-It is possible to chack if a parsed decision is implemented as [decision table] by using the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
+It is possible to check if a parsed decision is implemented as [decision table] by using the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
 
 ```java
 // create a default DMN engine
