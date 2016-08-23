@@ -29,7 +29,7 @@ As shown in the [decision table] and [decision literal expression] reference, fo
 - *Literal Expression*: used to determine the value of a decision literal expression 
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
-the DMN 1.1 XML, expressions can be found in the following XML
+the DMN 1.1 XML, expressions can be found in the XML
 elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
@@ -76,7 +76,7 @@ The Camunda DMN engine supports two expression languages out of the box:
   **Note**: `FEEL` is only supported for Input Entries in the Camunda DMN
   engine. See the [reference][FEEL] for more information.
 
-Depending on the JDK you use there may also be a `Javascript` implementation
+Depending on the JDK you use, there may also be a `Javascript` implementation
 available like [Rhino] or [Nashhorn].
 
 You can also use every other script language which provides a [JSR-223]

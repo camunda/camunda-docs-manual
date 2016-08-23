@@ -62,7 +62,7 @@ The following types are supported by the DMN engine:
   </tr>
 </table>
 
-Each data type transformer produces a Typed Value which contains the value and
+Each data type transformer produces a typed value which contains the value and
 additional type informations.
 
 If the given type does not match one of the above types then the value is
@@ -122,7 +122,7 @@ element.
 </decision>
 ```
 
-# Implement a custom Data Type
+# Implement a Custom Data Type
 
 {{< note title="Use of Internal API" class="warning" >}}
 

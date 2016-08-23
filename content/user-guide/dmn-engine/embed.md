@@ -8,7 +8,7 @@ menu:
     name: "Embed"
     identifier: "user-guide-dmn-engine-embedding"
     parent: "user-guide-dmn-engine"
-    pre: "Use the DMN Engine as a Library in an Application"
+    pre: "Use the DMN Engine as a library in an application"
 
 ---
 
@@ -31,7 +31,7 @@ artifact in the `dependencies` section.
 # Building a DMN Engine
 
 To build a new DMN engine, create a DMN engine configuration.
-Configure it as needed and than build a new DMN engine from it.
+Configure it as needed and then build a new DMN engine from it.
 
 ```java
 // create default DMN engine configuration
@@ -52,7 +52,7 @@ DmnEngine dmnEngine = configuration.buildEngine();
 The DMN engine configuration allows you add a custom decision table {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html"
 text="evaluation listener" >}}. A decision table evaluation listener is
-notified after a decision table was evaluated. It receives an evaluation event
+notified after a decision table has been evaluated. It receives an evaluation event
 which contains the result of the evaluation. You can decide if the
 listener should be notified before or after the default listeners.
 
@@ -94,7 +94,7 @@ configuration.setEngineMetricCollector(metricCollector);
 The DMN engine configuration allows you add a custom {{< javadocref
 page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionEvaluationListener.html"
 text="decision evaluation listener" >}}. A decision evaluation listener is
-notified after a decision with all the required decisions were evaluated. It receives an evaluation event
+notified after a decision with all the required decisions has been evaluated. It receives an evaluation event
 which contains the result of the evaluation. You can decide if the
 listener should be notified before or after the default listeners.
 
@@ -298,8 +298,8 @@ Please note that the chosen language must be available in the classpath. By
 default `JUEL` and `FEEL` are available. The default `FEEL` implementation
 is only supported for input entries.
 
-If the JDK includes a javascript
-implementation like Rhino or `javascript` is available as well.
+If the JDK includes a JavaScript
+implementation like Rhino or Nashorn, then `javascript` is available as well.
 
 It is also possible to use other script languages like `groovy`, `python` or `ruby`.
 Just make sure that the corresponding libraries are available on the classpath at runtime.

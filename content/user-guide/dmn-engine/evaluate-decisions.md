@@ -89,7 +89,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 
 ## Parse Decision Requirements Graph
 
-In addition to parse all containing decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (aka DRG), the DMN engine can also parse the DRG from an `InputStream` or a `DmnModelInstance` itself. 
+In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (a.k.a. DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`. 
 
 ```java
 // parse the drg from an input stream
@@ -109,7 +109,7 @@ The DRG is represented in the XML by the `definitions` element. The `id` of the 
 
 ## Decision Tables only
 
-A parsed decision can be checked if it is implemented as [decision table] using the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
+It is possible to chack if a parsed decision is implemented as [decision table] by using the method {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html#isDecisionTable()" text="isDecisionTable()" >}}.
 
 ```java
 // create a default DMN engine
@@ -134,7 +134,7 @@ if (decision.isDecisionTable()) {
 
 # Evaluate Decisions
 
-To evaluate (or "execute") a decision, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or Input Stream in combination with a decision key.
+To evaluate (or "execute") a decision, either pass an already transformed {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecision.html" text="DmnDecision" >}} or use a DMN model instance or input stream in combination with a decision key.
 
 As input to the evaluation, a set of input variables must be provided.
 
@@ -160,12 +160,12 @@ result = dmnEngine.evaluateDecision(decision, variables);
 result = dmnEngine.evaluateDecisionTable(decision, variables);
 ```
 
-If a decision has the list of required decision then, the decision is evaluated after the evaluation of all the required decisions.
+If a decision has the list of required decisions, then the decision is evaluated after the evaluation of all the required decisions.
 
 ## Pass Variables
 
-To provide the input variables for a decision evaluation you can either use a
-Java `Map<String, Object>` resp. a `VariableMap` or a `VariableContext`.
+To provide the input variables for a decision evaluation you can use a
+Java `Map<String, Object>`, resp. a `VariableMap` or a `VariableContext`.
 
 The following example shows how to use a `VariableMap`.
 
@@ -195,7 +195,7 @@ The evaluation of a DMN decision returns a {{< javadocref page="?org/camunda/bpm
 text="DmnDecisionResult" >}}. If the decision is implemented as [decision table] then the result is a list of the
 matching decision rule results. These results represent a mapping from an output name to an output value.
 
-Instead, if the decision is implemented as [decision literal expression] then the result is a list 
+If the decision is instead implemented as [decision literal expression] then the result is a list 
 which contains only one entry. This entry represents the expression value and is mapped by the variable name.
 
 <!--
@@ -208,7 +208,7 @@ text="DmnDecisionRuleResults" >}} which represent a mapping from an output name
 to an output value.
 -->
 
-Assume the following example of making a decision for selecting a dish.
+Assume the following example of making a decision to select a dish.
 
 {{< img src="../img/dmn.png" title="Select Dish" >}}
 
@@ -266,14 +266,14 @@ decisionResult.getSingleEntry();
 
 Note that the decision can also be evaluated using the 
 {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html##evaluateDecisionTable(org.camunda.bpm.dmn.engine.DmnDecision, java.util.Map)"
-text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, the evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provide the same methods as a
+text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provides the same methods as a
 `DmnDecisionResult`.
 
 ## Decision Evaluation with Required decisions
 
-The decision evaluation requires the evaluation result of all the required decision as a input.
+The decision evaluation requires the evaluation result of all the required decisions as an input.
 
-Assume the following example of making a decision for selecting a dish.
+Assume the following example of making a decision to select a dish.
 {{< img src="../img/drd.png" title="Select dish" >}}
 
 Decision to be evaluated: `Dish`
@@ -282,19 +282,19 @@ Required Decisions: `Season` and `GuestCount`
 
 `Dish` decision is evaluated after the evaluation of `Season` and `GuestCount`.
 
-Results of `Season` and `GuestCount` is applied as a input to `Dish` decision for evaluation.
+Results of `Season` and `GuestCount` are applied as input to `Dish` decision for evaluation.
  
 Assume that the decision is executed with the following input variables:
 
 - `temperature`: 35
 - `dayType`: "WeekDay"
 
-With the above input, `season` decision table has one matching rule and generates a output value `Summer` that is mapped to the output variable `season`.
-`GuestCount` decision has one matching rule with the input `dayType` and generates a output value `4` that is mapped to the output variable `guestCount`.
+With the above input, `season` decision table has one matching rule and generates an output value `Summer` that is mapped to the output variable `season`.
+`GuestCount` decision has one matching rule with the input `dayType` and generates an output value `4` that is mapped to the output variable `guestCount`.
 
-The output results of the decisions `Season` and `GuestCount` are used as inputs of the `Dish` decision. A decision can access the result (i.e. output value) of a required decision by his output name (e.g. `season` of the Season decision). If the required decision has multiple matched rules then the decision gets a list of all output values instead of the single value.
+The output results of the decisions `Season` and `GuestCount` are used as inputs of the `Dish` decision. A decision can access the result (i.e., output value) of a required decision by its output name (e.g., `season` of the Season decision). If the required decision has multiple matched rules, then the decision gets a list of all output values instead of the single value.
 
-The `Dish` decision has one matching rule with the inputs generated by the required decions and generates the output `Beans salad`.
+The `Dish` decision has one matching rule with the inputs generated by the required decisions and generates the output `Bean salad`.
 
 ```java
 // the inputs are `temperature` = `35` and `dayType` = `WeekDay`
