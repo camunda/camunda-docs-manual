@@ -33,6 +33,10 @@ GET `/history/case-activity-instance`
     <td>Filter by case activity instance id.</td>
   </tr>
   <tr>
+    <td>caseActivityInstanceIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity instance ids.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
