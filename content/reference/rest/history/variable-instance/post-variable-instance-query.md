@@ -86,6 +86,10 @@ A JSON object with the following properties:
     <td>Only include historic variable instances which belong to one of the passed case execution ids.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed case activity ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed task ids.</td>
   </tr>

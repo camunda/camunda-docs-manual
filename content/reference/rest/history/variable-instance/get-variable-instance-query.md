@@ -54,6 +54,7 @@ GET `/history/variable-instance`
   <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
+  </tr>
   <tr>
     <td>caseInstanceId</td>
     <td>Filter by the case instance the variable belongs to.</td>
@@ -62,6 +63,9 @@ GET `/history/variable-instance`
     <td>caseExecutionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
+  <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated case activity ids.</td>
   </tr>
   <tr>
     <td>taskIdIn</td>

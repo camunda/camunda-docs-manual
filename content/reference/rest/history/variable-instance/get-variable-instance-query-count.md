@@ -64,6 +64,10 @@ GET `/history/variable-instance/count`
     <td>Only include historic variable instances which belong to one of the passed and comma-separated case execution ids.</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated case activity ids.</td>
+  </tr>
+  <tr>
     <td>taskIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated task ids.</td>
   </tr>
