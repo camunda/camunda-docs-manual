@@ -126,6 +126,10 @@ A JSON object with the following properties:
     <td>Restrict to tasks that have the given key.</td>
   </tr>
   <tr>
+    <td>taskDefinitionKeyIn</td>
+    <td>Restrict to tasks that have one of the given key.</td>
+  </tr>
+  <tr>
     <td>taskDeleteReason</td>
     <td>Restrict to tasks that have the given delete reason.</td>
   </tr>
