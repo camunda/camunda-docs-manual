@@ -53,6 +53,10 @@ GET `/history/case-activity-instance`
     <td>Filter by the case activity id (according to CMMN XML).</td>
   </tr>
   <tr>
+    <td>caseActivityIdIn</td>
+    <td>Only include case activity instances which belong to one of the passed and comma-separated activity ids.</td>
+  </tr>
+  <tr>
     <td>caseActivityName</td>
     <td>Filter by the case activity name (according to CMMN XML).</td>
   </tr>
