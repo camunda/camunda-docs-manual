@@ -14,26 +14,26 @@ This page provides information about logging in Camunda.
 
 # SLF4J
 
-Most Camunda Modules, including the Camunda Engine, use [slf4j] as logging "facade". This allows users to direct logging output to the logging "backend" of their choice, such as [logback] or [log4j].
+Most Camunda modules, including the Camunda Eegine, use [slf4j] as logging "facade". This allows users to direct logging output to the logging "backend" of their choice, such as [logback] or [log4j].
 
 ## Preconfigured Logging with a Shared Process Engine
 
-When installing Camunda as a shared process engine in an Application Server, Camunda logging is pre-configured.
+When installing Camunda as a shared process engine in an application server, Camunda logging is pre-configured.
 
 On all application servers except JBoss and Wildfly, logging is pre-configured using the slf4j-jdk14 bridge.
 This means that Camunda effectively re-directs all its logging to Java Util Logging.
-Both SLF4J API and the slf4j-jdk14 bridge are available in shared classpath which means that they are available in the classpath of all applications deployed on these servers.
+Both SLF4J API and the slf4j-jdk14 bridge are available in a shared classpath which means that they are available in the classpath of all applications deployed on these servers.
 
-On JBoss/Wildfly, logging is directed to the JBoss logging infrastructure. SLF4J API is not available in the classpath of custom applications by default.
+On JBoss/Wildfly, logging is directed to the JBoss logging infrastructure. The SLF4J API is not available in the classpath of custom applications by default.
 
-## Adding a Logging Backend for Embedded use
+## Adding a Logging Backend for Embedded Use
 
-When using the Camunda Maven Modules in a custom application, only the [slf4j] API is pulled in transitively.
-If you do not provide any backend, nothing will be actually logged.
+When using the Camunda Maven modules in a custom application, only the [slf4j] API is pulled in transitively.
+If you do not provide any backend, nothing will actually be logged.
 
 In the following, we provide two alternative examples of how to set up logging. See the [SLF4J Documentation](slf4j-backends) for more detailed information on how to add a logging backend.
 
-### Example using Java Util Logging
+### Example Using Java Util Logging
 
 If you do not care for a specific logging backend, the simplest option is to direct logging to Java Util Logging by adding the following
 maven dependency:
@@ -46,9 +46,9 @@ maven dependency:
 </dependency>
 ```
 
-### Example using Logback
+### Example Using Logback
 
-For a more sophisticated logging setup we recommend using Logback. In order to do so, the following steps are necessary:
+For a more sophisticated logging setup we recommend using Logback. To do so, the following steps are necessary:
 
 Add the logback dependency
 
