@@ -24,5 +24,5 @@ Transforming an existing Java Application into a Process Application is easy and
 * A processes.xml file to META-INF: The deployment descriptor file allows you to provide a declarative configuration of the deployment(s) that this process application makes to the process engine. It can be empty (see the [empty processes.xml section]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#empty-processes-xml" >}})) and serve as simple marker file. If it is not present then the engine will start up but auto-deployment will not be performed.
 
 {{< note title="Tutorial" class="info" >}}
-  You might want to checkout the [Getting Started Tutorial](http://camunda.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}), which gives you a complete running process application out of the box.
+  You might want to check out the [Getting Started Tutorial](http://docs.camunda.org/get-started) first as it explains the creation of a process application step by step or the [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}), which give you a complete running process application out of the box.
 {{< /note >}}
