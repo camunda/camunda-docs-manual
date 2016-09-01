@@ -68,6 +68,11 @@ Its properties are as follows:
     <td>The id of the parent case instance, if it exists.</td>
   </tr>
   <tr>
+    <td>processDefinitionName</td>
+    <td>String</td>
+    <td>The name of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>The key of the process definition that this process instance belongs to.</td>
