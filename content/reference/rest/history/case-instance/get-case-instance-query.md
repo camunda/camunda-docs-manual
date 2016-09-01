@@ -192,6 +192,16 @@ Each historic case instance object has the following properties:
     <td>The business key of the case instance.</td>
   </tr>
   <tr>
+    <td>caseDefinitionName</td>
+    <td>String</td>
+    <td>The name of the case definition that this case instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKey</td>
+    <td>String</td>
+    <td>The key of the case definition that this case instance belongs to.</td>
+  </tr>
+  <tr>
     <td>caseDefinitionId</td>
     <td>String</td>
     <td>The id of the case definition that this case instance belongs to.</td>
