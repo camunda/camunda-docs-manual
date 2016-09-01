@@ -5,7 +5,7 @@ weight: 10
 
 menu:
   main:
-    identifier: "rest-api-metrics-get-metrics"
+    identifier: "rest-api-metrics-get-metrics-sum"
     parent: "rest-api-metrics"
     pre: "GET `/metrics/{metrics-name}/sum`"
 
