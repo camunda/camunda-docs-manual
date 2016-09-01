@@ -14,7 +14,7 @@ This page provides information about logging in Camunda.
 
 # SLF4J
 
-Most Camunda modules, including the Camunda Eegine, use [slf4j] as logging "facade". This allows users to direct logging output to the logging "backend" of their choice, such as [logback] or [log4j].
+Most Camunda modules, including the Camunda engine, use [slf4j] as logging "facade". This allows users to direct logging output to the logging "backend" of their choice, such as [logback] or [log4j].
 
 ## Preconfigured Logging with a Shared Process Engine
 
