@@ -22,7 +22,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.4:
 
-* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decisions and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during upgrade. If you do not plan to use DMN, the DMN-related tables will stay empty.
+* **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decisions and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during update. If you do not plan to use DMN, the DMN-related tables will stay empty.
 * **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. The execution of CMMN 1.0 models is still supported by Camunda BPM.
 * **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< relref "user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
@@ -31,28 +31,28 @@ Noteworthy new Features and Changes in 7.4:
 [cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
 [bpmn-ref]: {{< relref "reference/bpmn20/index.md" >}}
 
-{{< note title="No Rolling Upgrades" class="warning" >}}
+{{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.3 to 7.4 in a rolling fashion. This means, it is not possible to run process engines of version 7.3 and 7.4 in parallel with the same database configuration. The reason is that a 7.3 engine may not be able to execute process instances that have been previously executed by a 7.4 engine, as these may use features that were not available yet in 7.3.
 {{< /note >}}
 
 # Database Updates
 
-Every Camunda installation requires a database schema upgrade.
+Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
- We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.3_patch_?.sql`.
 
-2. Execute the corresponding upgrade scripts named
+2. Execute the corresponding update scripts named
 
     * `$DATABASENAME_engine_7.3_to_7.4.sql`
 
-    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.4.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.4.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ## Special Considerations
 
@@ -67,10 +67,10 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade Camunda Libraries and Applications inside the application server
+1. Update Camunda Libraries and Applications inside the application server
 2. Migrate custom Process Applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.4 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.4 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -97,7 +97,7 @@ There are no new mandatory dependencies for process applications.
 
 This section is applicable if you have a custom application with an **embedded process engine**.
 
-Upgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -105,11 +105,11 @@ Upgrade the dependencies declared in your application's `pom.xml` file to the ne
 * `camunda-engine-cdi`
 * ...
 
-There are no new mandatory dependencies but some artifacts have new transitive dependencies. For example `camunda-engine` depends on `camunda-engine-dmn`. In order to pull these new dependencies into your application artifact, upgrading the version in your build tool and rebuilding the application is recommended.
+There are no new mandatory dependencies but some artifacts have new transitive dependencies. For example `camunda-engine` depends on `camunda-engine-dmn`. In order to pull these new dependencies into your application artifact, updating the version in your build tool and rebuilding the application is recommended.
 
 ## Special Considerations
 
-This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful update.
 
 ### Logging
 
@@ -156,7 +156,7 @@ If you use a 3.0.0+ version of the plugin,
 * all newly created bpmn processes use the new namespace url.
 * If you open an existing model which uses the legacy namespace, a warning dialog is shown asking you to update the namespace URL. If you click "yes", the plugin automatically migrates the legacy namespace to the new URL.
 
-If you do not upgrade the Eclipse plugin, the old version of the plugin continues to work with the legacy namespace.
+If you do not update the Eclipse plugin, the old version of the plugin continues to work with the legacy namespace.
 Since the process engine maintains backwards compatibility with the legacy namespace, this is fine. It is only a problem if you want to roundtrip models with the new Camunda Modeler.
 
 ### Process Engine

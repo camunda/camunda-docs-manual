@@ -26,28 +26,28 @@ Noteworthy new Features and Changes in 7.5:
 
 * **Multi-Tenancy:** In addition to the existing approach for [multi-tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}) with multiple process engines and database, schema or table isolation, Camunda 7.5 offers a new approach using a single process engine. The engine stores the data of all tenants in one table and separates them by a tenant-identifier which makes it easier to manage a large tenant base.
 
-{{< note title="No Rolling Upgrades" class="warning" >}}
+{{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.4 to 7.5 in a rolling fashion. This means, it is not possible to run process engines of version 7.4 and 7.5 in parallel with the same database configuration. The reason is that a 7.4 engine may not be able to execute process instances that have been previously executed by a 7.5 engine, as these may use features that were not available yet in 7.4.
 {{< /note >}}
 
 # Database Updates
 
-Every Camunda installation requires a database schema upgrade.
+Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
- We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.4_patch_?.sql`.
 
-2. Execute the corresponding upgrade scripts named
+2. Execute the corresponding update scripts named
 
     * `$DATABASENAME_engine_7.4_to_7.5.sql`
 
-    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.5.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.5.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ## Special Considerations
 
@@ -57,7 +57,7 @@ Since 7.5.0 there are separate SQL scripts for MariaDB. If you use MariaDB and u
 
 ### Wildfly 10
 
-The pre-built Camunda 7.5 distribution ships with Wildfly 10, whereas 7.4 comes with Wildfly 8. Camunda 7.5 is supported on Wildfly 8.2 and 10.0 such that a Wildfly upgrade is not required when migrating from 7.4 to 7.5.
+The pre-built Camunda 7.5 distribution ships with Wildfly 10, whereas 7.4 comes with Wildfly 8. Camunda 7.5 is supported on Wildfly 8.2 and 10.0 such that a Wildfly update is not required when migrating from 7.4 to 7.5.
 
 ### Oracle WebLogic Server 12c R2
 
@@ -69,10 +69,10 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade Camunda Libraries and Applications inside the application server
+1. Update Camunda Libraries and Applications inside the application server
 2. Migrate custom Process Applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.5 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.5 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -102,7 +102,7 @@ If the standalone web application is in use, the current `war` artifact must be 
 If a database other than the default H2 database is used, the following steps must be taken:
 
 1. Undeploy the current version of the standalone web application
-2. Upgrade the database to the new schema as described in the [database
+2. Update the database to the new schema as described in the [database
    update](#database-updates) section
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
@@ -144,7 +144,7 @@ Have a look at the [english translation file](https://github.com/camunda/camunda
 
 This section is applicable if you have a custom application with an **embedded process engine**.
 
-Upgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -152,7 +152,7 @@ Upgrade the dependencies declared in your application's `pom.xml` file to the ne
 * `camunda-engine-cdi`
 * ...
 
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.
 
 ## Special Considerations
 

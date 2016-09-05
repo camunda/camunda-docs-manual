@@ -86,14 +86,14 @@ To migrate your process application from Camunda fox to Camunda BPM, you need to
 
 # Migrate Your Database
 
-Be aware that there were major changes in our database structure. For migration from **Camunda fox EE 6.2** and **Camunda fox CE 1.34** we recommend to take a look at our migration scripts. These are located in the following folder of your downloaded pre-packaged distribution: `$DISTRIBUTION_PATH/sql/upgrade`. To perform the migration of your database, choose the corresponding upgrade script `$DATABASE_engine_6.2_to_7.0` according to your database platform and run it.
+Be aware that there were major changes in our database structure. For migration from **Camunda fox EE 6.2** and **Camunda fox CE 1.34** we recommend to take a look at our migration scripts. These are located in the following folder of your downloaded pre-packaged distribution: `$DISTRIBUTION_PATH/sql/upgrade`. To perform the migration of your database, choose the corresponding update script `$DATABASE_engine_6.2_to_7.0` according to your database platform and run it.
 
 
 # Migrate the Server
 
 ## JBoss AS 7.1.3
 
-### Upgrade the Application Server Modules (JBoss)
+### Update the Application Server Modules (JBoss)
 
 * Delete the following folders:
   * `$FOX_HOME/modules/com/camunda/`
@@ -294,7 +294,7 @@ to:
       </server>
     </servers>
 
-### Upgrade the Application Server Modules (GlassFish)
+### Update the Application Server Modules (GlassFish)
 
 * Delete the following modules from the folder `$FOX_HOME/glassfish/lib/`:
   * `fox-engine-$FOX_VERSION.jar`
@@ -332,7 +332,7 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`
 * Select `fox-cockpit-was-$FOX_VERSION.war` and `fox-cycle-was-$FOX_VERSION.war` and uninstall them.
 
-### Upgrade the Application Server Modules (IBM WebSphere Applicaton Server)
+### Update the Application Server Modules (IBM WebSphere Applicaton Server)
 
 * Open the WebSphere Integrated Solutions Console.
 * Navigate to `Applications / Application Types / WebSphere enterprise applications`

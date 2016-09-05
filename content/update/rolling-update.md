@@ -53,14 +53,14 @@ Initially, the database schema is at version `7.X` and the Camunda library versi
 
 {{< img src="../img/architecture-step1.png" title="Initial Situation" >}}
 
-The first step consists of upgrading the database schema to version `7.Y`. Information on where to find the update scripts and how to apply them can be found in the documentation on how to perform updates.
+The first step consists of updating the database schema to version `7.Y`. Information on where to find the update scripts and how to apply them can be found in the documentation on how to perform updates.
 As a result, the database schema version is at `7.Y` while the Camunda library version is still `7.X`:
 
 {{< img src="../img/architecture-step2.png" title="Update the Database Schema" >}}
 
 Considerations:
 
-* Applying the database update scripts while not upgrading the library version (or in other words using a newer version of the database schema with an older version of the library) is possible since Camunda guarantees backwards compatibility of the database schema. (See the _Considerations_ section at the bottom of this page for details.)
+* Applying the database update scripts while not updating the library version (or in other words using a newer version of the database schema with an older version of the library) is possible since Camunda guarantees backwards compatibility of the database schema. (See the _Considerations_ section at the bottom of this page for details.)
 
 * Camunda does however not guarantee that the database schema update script can be applied _on-line_ without issues. Depending on the database and the current load, the script can take a long time to run or may block other transactions from making progress. (See the _Considerations_ section at the bottom of this page for details). Users are strongly encouraged to test the schema update script in a staging environment prior to executing it on a production database.
 
@@ -110,7 +110,7 @@ While Camunda does its best effort to ensure this property, it is not guaranteed
 
 ## Usage of new Features
 
-During the rolling update process, it is not permitted to use new features of the newer engine version. This means that it is not possible to "roll out" a new version of the BPMN processes or of the application making use of new API methods while also upgrading the library. The reason for this is that while performing a rolling update, there is a time frame in which both older and newer versions of the process engine library operate on the database concurrently. During this time, usage of new features of the new engine like deployment of a BPMN process with a newly supported symbol would cause problems with the old engine.
+During the rolling update process, it is not permitted to use new features of the newer engine version. This means that it is not possible to "roll out" a new version of the BPMN processes or of the application making use of new API methods while also updating the library. The reason for this is that while performing a rolling update, there is a time frame in which both older and newer versions of the process engine library operate on the database concurrently. During this time, usage of new features of the new engine like deployment of a BPMN process with a newly supported symbol would cause problems with the old engine.
 
 ## One Minor Releases Only
 

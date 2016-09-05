@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a JBoss AS
+The following steps describe how to update the Camunda artifacts on a JBoss AS
 7 and Wildfly 8 server in a shared process engine setting. For the entire
 migration procedure, refer to the [migration guide][migration-guide]. If not
 already done, make sure to download the [Camunda BPM 7.3 JBoss distribution][jboss-distro]
@@ -18,20 +18,20 @@ or [Camunda BPM 7.3 Wildfly distribution][wildfly-distro]. In the following inst
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly` depending on
 the used application server.
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
-1. Upgrade the Camunda BPM modules
-2. Upgrade optional Camunda BPM modules
-3. Upgrade Camunda web applications
+1. Update the Camunda BPM modules
+2. Update optional Camunda BPM modules
+3. Update Camunda web applications
 4. Configure Process Engines
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
-{{< note title="Upgraded Wildfly Version" class="info" >}}
+{{< note title="Updated Wildfly Version" class="info" >}}
 The pre-built Camunda 7.3 distribution ships with Wildfly 8.2.0.Final, whereas 7.2 comes with Wildfly 8.1.0.Final.
-Camunda 7.3 is supported on Wildfly 8.1 and 8.2 such that an upgrade is not required when migrating from 7.2 to 7.3.
+Camunda 7.3 is supported on Wildfly 8.1 and 8.2 such that an update is not required when migrating from 7.2 to 7.3.
 
-Should you want to upgrade Wildfly along with Camunda, perform the following steps either before or after upgrading Camunda:
+Should you want to update Wildfly along with Camunda, perform the following steps either before or after updating Camunda:
 
 * Copy all your Camunda-related modules from `$WILDFLY_HOME/modules` to the new Wildfly server's `module`-directory.
 * Apply all modifications to Wildfly configuration files such as `standalone.xml` to the files located in the new Wildfly server's directory.
@@ -41,7 +41,7 @@ See the [Wildfly 8.2.0.Final release notes](http://wildfly.org/news/2014/11/20/W
 {{< /note >}}
 
 
-# 1. Upgrade the Camunda BPM Modules
+# 1. Update the Camunda BPM Modules
 
 Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with their new versions from the folder `$APP_SERVER_DISTRIBUTION/modules/`:
 
@@ -52,10 +52,10 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `org/camunda/bpm/model/camunda-xml-model`
 
 
-# 2. Upgrade Optional Camunda BPM Modules
+# 2. Update Optional Camunda BPM Modules
 
 In addition to the core modules, there may be optional artifacts in `$APP_SERVER_HOME/modules/` for LDAP integration, Camunda Connect, and Camunda Spin.
-If you use any of these extensions, the following upgrade steps apply:
+If you use any of these extensions, the following update steps apply:
 
 ## LDAP Integration
 
@@ -85,20 +85,20 @@ Replace the following modules from the folder `$APP_SERVER_HOME/modules/` with t
 * `com/fasterxml/jackson/core/jackson-annotations`
 
 
-# 3. Upgrade Camunda Web Applications
+# 3. Update Camunda Web Applications
 
-## Upgrade REST API
+## Update REST API
 
-The following steps are required to upgrade the camunda REST API on a JBoss/Wildfly instance:
+The following steps are required to update the camunda REST API on a JBoss/Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Or switch to the private repository for
    the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
-## Upgrade Cockpit, Tasklist, and Admin
+## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
+The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss/Wildfly instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].

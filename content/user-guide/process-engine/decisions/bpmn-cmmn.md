@@ -300,7 +300,7 @@ there is no suitable primitive value type. Depending on the used [object value
 serialization], this can lead to deserialization problems.
 
 In case you are using the default built-in object serialization, the variable
-can not be deserialized if the JDK is upgraded or changed and contains an
+can not be deserialized if the JDK is updated or changed and contains an
 incompatible version of the collection class. Otherwise, if you are using
 another serialization like JSON then you should ensure that the untyped value
 is deserializable. For example, a collection of date values can not be

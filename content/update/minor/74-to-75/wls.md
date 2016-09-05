@@ -10,9 +10,9 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Oracle WebLogic distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
+The following steps describe how to update the Camunda artifacts on an Oracle WebLogic application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.5 Oracle WebLogic distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/weblogic/camunda-bpm-weblogic/).
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
 1. Uninstall the Camunda Applications and Archives
 2. Replace Camunda Core Libraries
@@ -48,7 +48,7 @@ After shutting down the server, replace the following libraries in `$WLS_DOMAIN_
 
 # 3. Replace Optional Camunda Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following upgrade steps apply:
+In addition to the core libraries, there may be optional artifacts in `$WLS_DOMAIN_HOME/lib` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
@@ -77,7 +77,7 @@ Copy the following library from `$WLS_DISTRIBUTION/modules/lib` to the folder `$
 
 # 4. Maintain the BPM Platform Configuration
 
-If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
+If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Maintain Process Applications
 
@@ -110,4 +110,4 @@ Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATF
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[upgrade-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
+[update-guide]: {{< relref "update/minor/74-to-75/index.md" >}}

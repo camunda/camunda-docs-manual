@@ -100,7 +100,7 @@ define(['angular', 'jquery', 'moment'], function(angular, $, moment) {
 
 # Version changes
 
-The following modules have been upgraded to a newer version:
+The following modules have been updated to a newer version:
 
 <table class="table table-bordered">
   <thead>

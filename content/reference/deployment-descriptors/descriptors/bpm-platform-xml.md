@@ -89,7 +89,7 @@ The namespace for the `bpm-platform.xml` file is `http://www.camunda.org/schema/
 
 # Configure Location of the bpm-platform.xml File
 
-You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy upgrade path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
+You can configure the location of the `bpm-platform.xml`, so the file can be stored externally to allow an easy update path of camunda-bpm-platform.ear. This negates the work of unpacking / repackaging the ear when you need to change the configuration.  
 
 This feature is available for:
 

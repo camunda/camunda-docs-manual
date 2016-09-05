@@ -15,7 +15,7 @@ menu:
 This guide explains how to perform a patch level update. The *patch level* is the version number "after the second dot". Example: update from `7.3.2` to `7.3.3`.
 
 {{< enterprise >}}
-Please note that Patch Level Upgrades are only provided to enterprise customers, they are not available in the community edition.
+Please note that Patch Level Updates are only provided to enterprise customers, they are not available in the community edition.
 {{< /enterprise >}}
 
 {{< note title="Reading this Guide" class="info" >}}
@@ -33,7 +33,7 @@ Between patch levels, the structure of the database schema is not changed. The d
 
 The one exception to this are bugs in the database schema itself. If you are affected by such a bug, you have the option to run a patch script.
 Patch scripts are shipped inside the distribution at the following location: `$DISTRIBUTION_PATH/sql/upgrade`, named: `engine_$VERSION_patch_$A_to_$B`.
-If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your upgrade path. This means if your current patch version is `X.X.1` and you upgrade to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
+If you do choose to apply a database patch, then you must apply all patch scripts that are within the bounds of your update path. This means if your current patch version is `X.X.1` and you update to `X.X.5` you have to execute all patch scripts first where `$A` &ge; `X.X.1` and `$B` &le; `X.X.5`.
 
 Each patch script contains a comment what the fixes are related to and a link to the corresponding [Camunda Jira](https://app.camunda.com/jira/browse/CAM) issue.
 

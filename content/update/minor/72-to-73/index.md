@@ -27,7 +27,7 @@ Noteworthy new Features in 7.3:
 
 * **Authorization:** With [Authorization]({{< relref "#notewothy-new-features" >}}) being used for restricting access to applications and identity-related data in Camunda BPM 7.2, 7.3 extends authorization checks to execution-related concepts like process instances and task
 
-{{< note title="No Rolling Upgrades" class="warning" >}}
+{{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.2 to 7.3 in a rolling fashion. This means, it is not possible to run process engines of version 7.2 and 7.3 in parallel with the same database configuration. The reason is that a 7.2 engine may not be able to execute process instances that have been previously executed by a 7.3 engine, as these may use features that were not available yet in 7.2.
 {{< /note >}}
 
@@ -37,19 +37,19 @@ The first step consists in updating the database.
 
 ## Basic Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
- We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.2_patch_?.sql`.
 
-2. Execute the corresponding upgrade scripts named
+2. Execute the corresponding update scripts named
 
     * `$DATABASENAME_engine_7.2_to_7.3.sql`
     * `$DATABASENAME_identity_7.2_to_7.3.sql`
 
-    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.2.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 ## Special Considerations
 
@@ -68,10 +68,10 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade Camunda Libraries and Applications inside the application server
+1. Update Camunda Libraries and Applications inside the application server
 2. Migrate custom Process Applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -94,13 +94,15 @@ For every process application, the Camunda dependencies have to be updated to th
 * `camunda-ejb-client`
 * ...
 
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.
 
 # Application with Embedded Process Engine
 
 This section is applicable if you have a custom application with an **embedded** process engine.
 
-Updating an application with embedded process engineUpgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+## Updating an application with embedded process engine
+
+Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -108,11 +110,11 @@ Updating an application with embedded process engineUpgrade the dependencies dec
 * `camunda-engine-cdi`
 * ...
 
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.
 
 ## Special Considerations
 
-This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful update.
 
 ### Task Query Expressions
 
@@ -212,7 +214,7 @@ Filters which are __not availabe anymore__:
 
 ## Review Usage of bootstrap
 
-In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been upgraded from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
+In the 7.3 release of the [Admin][admin] and [Cockpit][cockpit] UIs, [bootstrap](http://getbootstrap.com/) has been updated from version 3.1.1 to 3.3.1. You have to make sure that your plugin works with this [new version of bootstrap][bootstrap-changenotes].
 
 ## Replace Jackson 1 with Jackson 2
 
@@ -289,11 +291,11 @@ As of version 7.3, it is possible to authorize access to process-related resourc
 
 so that an authenticated user can only see, modify, and delete those process definitions, process instances, and tasks for which the user is authorized to do so (for further details please read the [User Guide]({{< relref "user-guide/process-engine/authorization-service.md" >}})).
 
-The upgrade script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statements that create a new `GLOBAL` authorization and a new `GRANT` authorization for the group `camunda-admin` for each new authorization resource. These authorizations ensure that all users are able to access above-mentioned resources so that the process engine behaves the same way after the upgrade as it did before the upgrade.
+The update script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statements that create a new `GLOBAL` authorization and a new `GRANT` authorization for the group `camunda-admin` for each new authorization resource. These authorizations ensure that all users are able to access above-mentioned resources so that the process engine behaves the same way after the update as it did before the update.
 
 If these authorizations are not desired and you want to restrict access to the listed resources, you have the following options:
 
-* Before executing the upgrade script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
+* Before executing the update script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
 * Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to delete the created authorizations.
 * Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to add authorizations that restrict access.
 

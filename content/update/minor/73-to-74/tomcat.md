@@ -10,22 +10,22 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.4 Tomcat distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/).
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
-1. Upgrade the Camunda BPM Core Libraries
-2. Upgrade Optional Camunda BPM Libraries
+1. Update the Camunda BPM Core Libraries
+2. Update Optional Camunda BPM Libraries
 3. Maintain Process Engine Configuration
 4. Maintain Process Applications
-5. Upgrade Web Applications
+5. Update Web Applications
 
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
-{{< note title="Upgraded Tomcat Version" class="info" >}}
-The pre-built Camunda 7.4 distribution ships with Tomcat 8.0.26, whereas 7.3 comes with Tomcat 7.0.62. Camunda 7.4 is supported on all Tomcat 6/7/8 versions such that a Tomcat upgrade is not required when migrating from 7.3 to 7.4.
+{{< note title="Updated Tomcat Version" class="info" >}}
+The pre-built Camunda 7.4 distribution ships with Tomcat 8.0.26, whereas 7.3 comes with Tomcat 7.0.62. Camunda 7.4 is supported on all Tomcat 6/7/8 versions such that a Tomcat update is not required when migrating from 7.3 to 7.4.
 
-Should you want to upgrade Tomcat along with Camunda, perform the following steps either before or after upgrading Camunda:
+Should you want to update Tomcat along with Camunda, perform the following steps either before or after updating Camunda:
 
 * Copy all your Camunda-related libraries from `$TOMCAT_HOME/lib` to the new Tomcat server's `lib`-directory.
 * Apply all modifications to Tomcat configuration files such as `server.xml`/`bpm-platform.xml` to the files located in the new Tomcat server's directory.
@@ -34,7 +34,7 @@ Should you want to upgrade Tomcat along with Camunda, perform the following step
 See the [Tomcat migration guide](https://tomcat.apache.org/migration-8.html#Migrating_from_7.0.x_to_8.0.x) for any Tomcat-specific migration notes and procedures.
 {{< /note >}}
 
-# 1. Upgrade the Camunda BPM Core Libraries
+# 1. Update the Camunda BPM Core Libraries
 
 Replace the following libraries in the folder `$TOMCAT_HOME/lib/` with their new versions from the folder `$TOMCAT_DISTRIBUTION/lib/`:
 
@@ -61,9 +61,9 @@ Starting with 7.4, SLF4J is a mandatory dependency. Add the SLF4J libraries (if 
 Camunda needs version slf4j-api-1.7.7 or higher.
 See the User Guide for [Information on Logging in Camunda]({{< relref "user-guide/logging.md" >}}).
 
-# 2. Upgrade Optional Camunda BPM Libraries
+# 2. Update Optional Camunda BPM Libraries
 
-In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following upgrade steps apply:
+In addition to the core libraries, there may be optional artifacts in `$TOMCAT_HOME/lib/` for LDAP integration, Camunda Connect, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP Integration
 
@@ -114,19 +114,19 @@ This section describes changes in behavior of API methods that your process appl
 
 As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
 
-# 5. Upgrade Web Applications
+# 5. Update Web Applications
 
-## Upgrade REST API
+## Update REST API
 
-The following steps are required to upgrade the Camunda REST API on a Tomcat instance:
+The following steps are required to update the Camunda REST API on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][nexus] Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION-tomcat.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-## Upgrade Cockpit, Tasklist, and Admin
+## Update Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
+The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a Tomcat instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][nexus]). Alternatively, switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
@@ -136,5 +136,5 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 It is possible to enable entity caching for Hypertext Application Language (HAL) requests that the Camunda web applications make. This can be especially useful when you use Camunda in combination with LDAP. To activate caching, the Camunda webapp artifact has to be modified and the pre-built application cannot be used as is. See the [REST Api Documentation]({{< relref "reference/rest/overview/hal.md" >}}) for details.
 {{< /note >}}
 
-[upgrade-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[update-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
 [nexus]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/

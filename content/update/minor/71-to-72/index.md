@@ -24,7 +24,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features in 7.2:
 
-* **CMMN:** [Case Management Model And Notation][cmmn-ref] (CMMN) is a modelling standard similar to BPMN that focuses on human-centric processes. Camunda BPM 7.2 implements this standard and therefore extends the database schema during upgrade. If you do not plan to use CMMN, these tables will stay empty.
+* **CMMN:** [Case Management Model And Notation][cmmn-ref] (CMMN) is a modelling standard similar to BPMN that focuses on human-centric processes. Camunda BPM 7.2 implements this standard and therefore extends the database schema during update. If you do not plan to use CMMN, these tables will stay empty.
 * **Spin/Connect:** Camunda [Spin][spin-ref] and [Connect][connect-ref] are optional Camunda extensions that ease the use of text-based data formats and connectivity in processes. Spin and Connect are separate modules that have to be explicitly added to and configured in an existing installation. This guide shows you how to enable/disable the usage of Spin and Connect.
 * **Freemarker:** This optional Camunda extension provides a [scripting engine for the templating language Freemarker][freemarker-ref] that allows to use Freemarker as scripts in process constructs.
 
@@ -35,7 +35,7 @@ Before migrating, decide whether you additionally want to enable Spin/Connect an
 [spin-ref]: {{< relref "user-guide/data-formats/index.md" >}}
 [freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}
 
-{{< note title="No Rolling Upgrades" class="warning" >}}
+{{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.1 to 7.2 in a rolling fashion. This means, it is not possible to run process engines of version 7.1 and 7.2 in parallel with the same database configuration. The reason is that a 7.1 engine may not be able to execute process instances that have been previously executed by a 7.2 engine, as these may use features that were not available yet in 7.1.
 {{< /note >}}
 
@@ -43,19 +43,19 @@ It is not possible to migrate process engines from Camunda 7.1 to 7.2 in a rolli
 
 The first step consists in updating the database.
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
- We highly recommend to execute these patches before upgrading. Execute them in ascending order by version number.
+ We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.1_patch_?.sql`.
 
-2. Execute the corresponding upgrade scripts named
+2. Execute the corresponding update scripts named
 
     * `$DATABASENAME_engine_7.1_to_7.2.sql`
     * `$DATABASENAME_identity_7.1_to_7.2.sql`
 
-    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts update the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are upgrading to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.1.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 # Full Distribution
 
@@ -63,10 +63,10 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade Camunda Libraries and Applications inside the application server
+1. Update Camunda Libraries and Applications inside the application server
 2. Migrate custom Process Applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -89,7 +89,7 @@ For every process application, the Camunda dependencies have to be updated to th
 * `camunda-ejb-client`
 * ...
 
-There are no new mandatory dependencies. That means, upgrading the version should suffice to migrate a process application in terms of dependencies.
+There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.
 
 # Application with Embedded Process Engine
 
@@ -97,7 +97,9 @@ This section is applicable if you have a custom application with an **embedded**
 
 ## Basic Procedure
 
-Updating an application with embedded process engineUpgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+### Updating an application with embedded process engine
+
+Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -107,7 +109,7 @@ Updating an application with embedded process engineUpgrade the dependencies dec
 
 ## Special Considerations
 
-This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes a change in the engine's default behavior. While the change is reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful update.
 
 ### Script Variable Storing
 

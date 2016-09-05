@@ -10,19 +10,19 @@ menu:
 
 ---
 
-The following steps describe how to upgrade the Camunda artifacts on a JBoss AS 7 server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+The following steps describe how to update the Camunda artifacts on a JBoss AS 7 server in a shared process engine setting. For the entire migration procedure, refer to the [migration guide][migration-guide]. If not already done, make sure to download the [Camunda BPM 7.2 JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
-1. Upgrade the Camunda BPM modules
+1. Update the Camunda BPM modules
 2. Configure process engines
 3. Configure optional Camunda BPM extensions (*optional*)
-4. Upgrade Camunda web applications
+4. Update Camunda web applications
 
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
 
-# 1. Upgrade the Camunda BPM Modules
+# 1. Update the Camunda BPM Modules
 
 Replace the following modules from the folder `$JBOSS_HOME/modules/` with their new versions from the folder `$JBOSS_DISTRIBUTION/modules/`:
 
@@ -139,19 +139,19 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </subsystem>
 ```
 
-# 4. Upgrade Camunda Web Applications
+# 4. Update Camunda Web Applications
 
-## Upgrade Camunda REST API
+## Update Camunda REST API
 
-The following steps are required to upgrade the camunda REST API on a JBoss instance:
+The following steps are required to update the camunda REST API on a JBoss instance:
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss instance.
 
-## Upgrade Camunda Cockpit, Tasklist, and Admin
+## Update Camunda Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss instance:
+The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on a JBoss instance:
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/). Or switch to the private repository for the enterprise version (User and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss-$PLATFORM_VERSION.war`.

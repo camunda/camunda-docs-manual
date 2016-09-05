@@ -24,12 +24,12 @@ This guide uses a number of variables to denote common path names and constants:
 
 # Migrate Your Database
 
-For migration from **Camunda BPM 7.0** to **Camunda BPM 7.1**, the provided upgrade scripts that match your database have to be executed.
-With a pre-packaged distribution, the upgrade scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
+For migration from **Camunda BPM 7.0** to **Camunda BPM 7.1**, the provided update scripts that match your database have to be executed.
+With a pre-packaged distribution, the update scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
 
 Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for an overview of available sql patch scripts  to see if there are any for your current version.
 
-Regardless of the version you are migrating from, the main upgrade script is `$DATABASE_engine_7.0_to_7.1.sql` and has to be executed next.
+Regardless of the version you are migrating from, the main update script is `$DATABASE_engine_7.0_to_7.1.sql` and has to be executed next.
 
 
 # Migrate Your Process Application
@@ -45,10 +45,10 @@ To migrate your process application from Camunda BPM 7.0 to Camunda BPM 7.1, you
 
 ## JBoss AS 7.1.3 to 7.2.0
 
-### Upgrade the JBoss Application Server
+### Update the JBoss Application Server
 
 Camunda BPM 7.1 ships with a new version of the JBoss AS 7, namely, 7.2.0.
-The preferred upgrade steps are:
+The preferred update steps are:
 
 * copy all your custom modules / subsystems to the new JBoss server directory
 * re-add all your custom modifications from the existing `$CAMUNDA_HOME/standalone/configuration/standalone.xml` to the new one located in the new JBoss server directory.
