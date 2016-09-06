@@ -161,7 +161,7 @@ Executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}).
 
 # Rollback on Exception
 
-We want to emphasize that in case of a non handled exception, the current transaction gets rolled back and the process instance is in the last wait state (safe point). The following image visualizes that.
+We want to emphasize that in case of a non handled exception, the current transaction gets rolled back and the process instance is in the last wait state (save point). The following image visualizes that.
 
 {{< img src="../img/transactions-3.png" title="Rollback" >}}
 
@@ -327,7 +327,7 @@ Job execution can also cause an `OptimisticLockingException` to be thrown. Since
 
 In case the current Command is triggered by the Job Executor, `OptimisticLockingException`s are handled automatically using retries. Since this exception is expected to occur, it does not decrement the retry count.
 
-If the current Command is triggered by an external API call, the Camunda Engine rolls back the current transaction to the last safe point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
+If the current Command is triggered by an external API call, the Camunda Engine rolls back the current transaction to the last save point (wait state). Now the user has to decide how the exception should be handled, if the transaction should be retried or not. Also consider that even if the transaction was rolled back, it may have had non-transactional side effects which have not been rolled back.
 
 To control the scope of transactions, explicit save points can be added before and after activities using Asynchronous Continuations.
 
