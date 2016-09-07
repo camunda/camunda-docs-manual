@@ -434,7 +434,7 @@ The following is an example of how to configure the Administrator Authorization 
   ...
   <plugins>
     <plugin>
-      <class>org.Camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+      <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
       <properties>
         <property name="administratorUserName">admin</property>
       </properties>
