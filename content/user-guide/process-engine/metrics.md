@@ -28,6 +28,11 @@ The following table describes the built-in metrics. The identifiers of all built
     <td>The number of activity instances started.</td>
   </tr>
   <tr>
+    <td></td>
+    <td>activity-instance-end/td>
+    <td>The number of activity instances ended.</td>
+  </tr>
+  <tr>
     <td><b>DMN Execution</b></td>
     <td>executed-decision-elements</td>
     <td>The number of decision elements executed during evaluation of DMN decision tables. For one table, this is calculated as the number of clauses multiplied by the number of rules.</td>

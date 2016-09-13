@@ -30,6 +30,7 @@ GET `/metrics`
   <tr>
     <td>name</td>
     <td>The name of the metric. Supported names:
+      <code>activity-instance-start</code>,
       <code>activity-instance-end</code>,
       <code>job-acquisition-attempt</code>,
       <code>job-acquired-success</code>,
