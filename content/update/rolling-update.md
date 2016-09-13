@@ -16,6 +16,7 @@ menu:
 Rolling updates are not possible prior to Version `7.5`. Or in other words: the first update that can be done in the way described on this page is the update from version `7.5.x` to `7.6.y`.
 
 Also note that it is only possible to update from one minor version to the next. For example, it is possible to update from `7.5.3` to `7.6.2` in a rolling fashion but it is not possible to update from `7.5.3` to `7.7.2` in one go.
+Before the rolling update from one minor to another can be executed, the latest patch, of the current used minor version, must be applied. 
 
 More considerations for rolling updates can be found at the bottom of this page. Make sure to read them.
 {{< /note >}}
@@ -40,6 +41,12 @@ A rolling update can be orchestrated in a 2 step process:
 2. Update the Camunda libraries on all nodes, one by one or in groups.
 
 _A 3-node cluster is used in this document for illustration. Obviously, the procedure can be generalized to a `N`-Node cluster._
+
+# Prerequisite
+
+Before the rolling update for minor versions can be executed the nodes and database have to be updated to the latest patch version of the current minor version.
+To do so the rolling update process can be used. In that case the update will be _from_ 7.X.x _to_ 7.X.y, where _y_ is the latest patch version
+of the minor version _7.X_.
 
 # Step by Step
 
