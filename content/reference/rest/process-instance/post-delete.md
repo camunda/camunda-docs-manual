@@ -51,6 +51,82 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+## Response Body
+
+A JSON object corresponding to the Batch interface in the engine. Its properties are as follows:
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>String</td>
+    <td>The id of the batch.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of the batch.</td>
+  </tr>
+  <tr>
+    <td>totalJobs</td>
+    <td>Number</td>
+    <td>
+      The total jobs of a batch is the number of batch execution jobs required to
+      complete the batch.
+    </td>
+  </tr>
+  <tr>
+    <td>jobsCreated</td>
+    <td>Number</td>
+    <td>
+      The number of batch execution jobs already created by the seed job.
+    </td>
+  </tr>
+  <tr>
+    <td>batchJobsPerSeed</td>
+    <td>Number</td>
+    <td>
+      The number of batch execution jobs created per seed job invocation.
+      The batch seed job is invoked until it created all batch execution jobs required by
+      the batch (see <code>totalJobs</code> property).
+    </td>
+  </tr>
+  <tr>
+    <td>invocationsPerBatchJob</td>
+    <td>Number</td>
+    <td>
+      Every batch execution job invokes the command executed by the batch
+      <code>invocationsPerBatchJob</code> times. E.g., for a process instance
+      migration batch this specifies the number of process instances which
+      are migrated per batch execution job.
+    </td>
+  </tr>
+  <tr>
+    <td>seedJobDefinitionId</td>
+    <td>String</td>
+    <td>The job definition id for the seed jobs of this batch.</td>
+  </tr>
+  <tr>
+    <td>batchJobDefinitionId</td>
+    <td>String</td>
+    <td>The job definition id for the batch execution jobs of this batch.</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>Indicates wheter this batch is suspened or not.</td>
+  </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the batch.</td>
+  </tr>
+</table>
+
 
 # Response Codes
 
@@ -89,3 +165,19 @@ Request Body:
 ## Response
 
 Status 200 OK
+
+```json
+{
+  "id": "aBatchId",
+  "type": "aBatchType",
+  "totalJobs": 10,
+  "batchJobsPerSeed": 100,
+  "jobsCreated": 10,
+  "invocationsPerBatchJob": 1,
+  "seedJobDefinitionId": "aSeedJobDefinitionId",
+  "monitorJobDefinitionId": "aMonitorJobDefinitionId",
+  "batchJobDefinitionId": "aBatchJobDefinitionId",
+  "suspened": false,
+  "tenantId": "aTenantId"
+}
+```
