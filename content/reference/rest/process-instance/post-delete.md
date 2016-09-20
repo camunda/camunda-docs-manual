@@ -46,8 +46,8 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
-    <td>deletionReason</td>
-    <td>A string with deletion reason.</td>
+    <td>deleteReason</td>
+    <td>A string with delete reason.</td>
   </tr>
 </table>
 
@@ -158,7 +158,7 @@ POST `/process-instance/delete`
 Request Body:
 
     {
-    "deletionReason" : "aReason",
+    "deleteReason" : "aReason",
     "processInstanceIds": ["aProcess","secondProcess"]
     }
 
