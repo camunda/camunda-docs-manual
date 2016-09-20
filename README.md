@@ -7,9 +7,8 @@ Instead, Change the [theme](//github.com/camunda/camunda-docs-theme).
 
 ## Installing Hugo
 
-In order to build this documentation, you first need to install [hugo][hugo].
-
-> **Note:** Camunda docs currently requires a patched version of hugo which can be downloaded from the [Camunda Nexus][].
+In order to build this documentation, you first need to install a patched hugo version,  
+which can be downloaded from the [Camunda Nexus][]
 
 ## Building the Documentation
 
