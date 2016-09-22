@@ -44,3 +44,5 @@ At the top of the dashboard, you can search for process instances and incidents 
 To search for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g., `'93288'` or `'NULL'`).
 
 You can always either search for process instances or for incidents. When you add a parameter for an incident search, you can not add a second parameter which would search for a process instance and vice versa.
+
+You can perform batch operation on process instances matching search criteria by clicking "Batch operation" button. 
