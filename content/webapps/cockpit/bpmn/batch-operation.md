@@ -11,6 +11,10 @@ menu:
 
 ---
 
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
 It is possible to execute batch operations on process instances.
 
 # Batch cancellation of process instances
@@ -21,4 +25,4 @@ It is now possible to cancel process instances asynchronously based on search cr
 
 this page is accessible from process instances search on dashboard in cockpit. [Info](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/dashboard/#search)
 
-this operation is backed up by corresponding [REST API](https://docs.camunda.org/manual/7.5/reference/rest/process-instance/post-delete/) enpoint. 
+this operation is backed up by corresponding [REST API](https://docs.camunda.org/manual/7.5/reference/rest/process-instance/post-delete/) enpoint.
