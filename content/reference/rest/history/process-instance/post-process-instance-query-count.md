@@ -140,7 +140,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have/had variables with certain values. <br/>
+    <td>A JSON array to only include process instances that have/had variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.

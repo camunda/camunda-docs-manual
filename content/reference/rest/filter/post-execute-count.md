@@ -17,7 +17,7 @@ powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-coun
 the saved query of the filter.
 
 {{< note title="Security Consideration" class="warning" >}}
-  The request body of this method takes a JSON-serialized query. Some query types (e.g. task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  The request body of this method takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 
@@ -112,7 +112,7 @@ POST `filter/aTaskFilterId/singleResult`
 Request Body:
 
 <div class="alert alert-warning" role="alert">
-  <strong>Note:</strong> The examples shows a task filter. So the request body corresponds
+  <strong>Note:</strong> The examples show a task filter. So the request body corresponds
   to a task query. For other resource types the request body will differ.
 </div>
 

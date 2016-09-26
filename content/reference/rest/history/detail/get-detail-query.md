@@ -100,7 +100,7 @@ GET `/history/detail`
 
 # Result
 
-A json array of historic detail objects.
+A JSON array of historic detail objects.
 Each historic detail object has the following properties:
 
 <table class="table table-striped">

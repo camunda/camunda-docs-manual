@@ -93,15 +93,15 @@ GET `/history/user-operation/count`
   </tr>
   <tr>
     <td>property</td>
-    <td>Only include operations that changed this property, e.g. <code>owner</code> or <code>assignee</code></td>
+    <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
   <tr>
     <td>afterTimestamp</td>
-    <td>Restrict to entries that were created after the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. <code>2014-02-25T14:58:37</code></td>
+    <td>Restrict to entries that were created after the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
   </tr>
   <tr>
     <td>beforeTimestamp</td>
-    <td>Restrict to entries that were created before the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. <code>2014-02-25T14:58:37</code></td>
+    <td>Restrict to entries that were created before the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
   </tr>
 </table>
 

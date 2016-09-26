@@ -12,9 +12,9 @@ menu:
 
 ---
 
-Retrieves a report about the duration of completed process instances grouped by a period. These reports include the maximum, minimum and average duration of all completed process instances, which have been started in a period.
+Retrieves a report about the duration of completed process instances, grouped by a period. These reports include the maximum, minimum and average duration of all completed process instances which were started in a given period.
 
-<b>Note:</b> This does include only historic data.
+<b>Note:</b> This only includes historic data.
 
 # Method
 
@@ -32,7 +32,7 @@ GET `/history/process-instance/report?reportType=duration`
   </tr>
   <tr>
     <td>reportType</td>
-    <td><b>Mandatory.</b> Specifies the kind of the report to execute. In order to retrieve a report about the duration of process instances the value must be set to <code>duration</code>.</td>
+    <td><b>Mandatory.</b> Specifies the type of the report to retrieve. To retrieve a report about the duration of process instances, the value must be set to <code>duration</code>.</td>
   </tr>
   <tr>
     <td>periodUnit</td>
@@ -71,7 +71,7 @@ Each object has the following properties:
   <tr>
     <td>period</td>
     <td>Number</td>
-    <td>Specifies a span of time within a year.<br>
+    <td>Specifies a timespan within a year.<br>
         <b>Note:</b> The period must be interpreted in conjunction with the returned <code>periodUnit</code>.</td>
   </tr>
   <tr>
@@ -82,17 +82,17 @@ Each object has the following properties:
   <tr>
     <td>maximum</td>
     <td>Number</td>
-    <td>The greatest duration in milliseconds of all completed process instances, which have been started in the given period.</td>
+    <td>The greatest duration in milliseconds of all completed process instances which were started in the given period.</td>
   </tr>
   <tr>
     <td>minimum</td>
     <td>Number</td>
-    <td>The smallest duration in milliseconds of all completed process instances, which have been started in the given period.</td>
+    <td>The smallest duration in milliseconds of all completed process instances which were started in the given period.</td>
   </tr>
   <tr>
     <td>average</td>
     <td>Number</td>
-    <td>The average duration in milliseconds of all completed process instances, which have been started in the given period.</td>
+    <td>The average duration in milliseconds of all completed process instances which were started in the given period.</td>
   </tr>
 </table>
 

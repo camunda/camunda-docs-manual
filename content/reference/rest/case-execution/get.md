@@ -39,7 +39,7 @@ GET `/case-execution/{id}`
 
 # Result
 
-A JSON object corresponding to the CaseExecution interface in the engine.
+A JSON object corresponding to the `CaseExecution` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

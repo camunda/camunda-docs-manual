@@ -16,7 +16,7 @@ menu:
 Query for historic tasks that fulfill the given parameters.
 This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/task/get-task-query.md" >}}) because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [get task count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
 
 
 # Method
@@ -236,19 +236,19 @@ A JSON object with the following properties:
   </tr>
    <tr>
     <td>taskInvolvedUser</td>
-    <td>Restrict on the historic identity links of any type of user.</td>
+    <td>Restrict to tasks with a historic identity link to the given user.</td>
   </tr>
   <tr>
     <td>taskInvolvedGroup</td>
-    <td>Restrict on the historic identity links of any type of group.</td>
+    <td>Restrict to tasks with a historic identity link to the given group.</td>
   </tr>
   <tr>
     <td>taskHadCandidateUser</td>
-    <td>Restrict on the historic identity links of type candidate user.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate user.</td>
   </tr>
   <tr>
     <td>taskHadCandidateGroup</td>
-    <td>Restrict on the historic identity links of type candidate group.</td>
+    <td>Restrict to tasks with a historic identity link to the given candidate group.</td>
   </tr>
   <tr>
     <td>withCandidateGroups</td>
@@ -263,7 +263,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>

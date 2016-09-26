@@ -45,11 +45,11 @@ GET `/external-task/count`
   </tr>
   <tr>
     <td>locked</td>
-    <td>Only include external tasks that are currently locked (i.e. they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>notLocked</td>
-    <td>Only include external tasks that are currently not locked (i.e. they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>withRetriesLeft</td>

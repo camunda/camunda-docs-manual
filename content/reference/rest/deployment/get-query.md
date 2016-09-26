@@ -59,19 +59,19 @@ GET `/deployment`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include deployments which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include deployments which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeDeploymentsWithoutTenantId</td>
-    <td>Include deployments which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include deployments which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>after</td>
-    <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>before</td>
-    <td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code></td>
+    <td>Restricts to all deployments before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -129,7 +129,7 @@ A JSON array of deployment objects. Each deployment object has the following pro
   <tr>
     <td>deploymentTime</td>
     <td>Date</td>
-    <td>The date time of the deployment.</td>
+    <td>The date and time of the deployment.</td>
   </tr>
 </table>
 

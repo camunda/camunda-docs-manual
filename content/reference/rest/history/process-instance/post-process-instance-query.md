@@ -53,7 +53,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>Filter by process instance ids. Must be a json array process instance ids.</td>
+    <td>Filter by process instance ids. Must be a JSON array process instance ids.</td>
   </tr>
   <tr>
     <td>processInstanceBusinessKey</td>
@@ -93,7 +93,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processDefinitionKeyNotIn</td>
-    <td>Exclude instances that belong to a set of process definitions. Must be a json array of process definition keys.</td>
+    <td>Exclude instances that belong to a set of process definitions. Must be a JSON array of process definition keys.</td>
   </tr>
   <tr>
     <td>processDefinitionName</td>
@@ -167,7 +167,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>
@@ -257,7 +257,7 @@ Each historic process instance object has the following properties:
   <tr>
     <td>startActivityId</td>
     <td>String</td>
-    <td>The id of the initial activity that was executed (e.g. a start event).</td>
+    <td>The id of the initial activity that was executed (e.g., a start event).</td>
   </tr>
   <tr>
     <td>deleteReason</td>

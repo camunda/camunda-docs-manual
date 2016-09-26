@@ -16,7 +16,7 @@ menu:
 Create a new filter.
 
 {{< note title="Security Consideration" class="warning" >}}
-  The `query` parameter of the request body takes a JSON-serialized query. Some query types (e.g. task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
+  The `query` parameter of the request body takes a JSON-serialized query. Some query types (e.g., task queries) allow to specify EL expressions in their parameters and may therefore be abused for remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
 {{</note>}}
 
 # Method
@@ -74,7 +74,7 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON object corresponding to the Filter interface in the engine.
+A JSON object corresponding to the `Filter` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

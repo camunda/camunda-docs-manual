@@ -38,7 +38,7 @@ GET `/history/detail/{id}/data`
 
 # Result
 
-For binary variables or files without any mime type information a byte stream is returned. File variables with mime type information are returned as the saved type.
+For binary variables or files without any MIME type information, a byte stream is returned. File variables with MIME type information are returned as the saved type.
 Additionally, for file variables the Content-Disposition header will be set.
 
 
@@ -52,7 +52,7 @@ Additionally, for file variables the Content-Disposition header will be set.
   </tr>
   <tr>
     <td>200</td>
-    <td>application/octet-stream<br/><b>or</b></br>the saved mime type</td>
+    <td>application/octet-stream<br/><b>or</b></br>the saved MIME type</td>
     <td>Request successful.</td>
   </tr>
   <tr>

@@ -112,7 +112,7 @@ GET `/history/case-instance/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include historic case instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include historic case instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>

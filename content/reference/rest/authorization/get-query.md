@@ -40,15 +40,15 @@ GET `/authorization`
   </tr>
   <tr>
     <td>userIdIn</td>
-    <td>Filter by a comma-separated list of userIds</td>
+    <td>Filter by a comma-separated list of userIds.</td>
   </tr>
   <tr>
     <td>groupIdIn</td>
-    <td>Filter by a comma-separated list of groupIds</td>
+    <td>Filter by a comma-separated list of groupIds.</td>
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Filter by resource type</td>
+    <td>Filter by resource type.</td>
   </tr>
   <tr>
     <td>resourceId</td>

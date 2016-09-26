@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single case definition according to the CaseDefinition interface in the engine.
+Retrieves a single case definition according to the `CaseDefinition` interface in the engine.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/case-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest versi
 
 # Result
 
-A JSON object corresponding to the CaseDefinition interface in the engine.
+A JSON object corresponding to the `CaseDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the case definition, i.e. the id of the CMMN 2.0 XML case definition.</td>
+    <td>The key of the case definition, i.e., the id of the CMMN 2.0 XML case definition.</td>
   </tr>
   <tr>
     <td>category</td>

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for executions that fulfill given parameters through a json object.
+Query for executions that fulfill given parameters through a JSON object.
 This method is slightly more powerful than the [GET query]({{< relref "reference/rest/execution/get-query.md" >}}) because it allows
 to filter by multiple instance and execution variables of types `String`, `Number` or `Boolean`.
 
@@ -135,7 +135,7 @@ A JSON object with the following properties:
     <td>sorting</td>
     <td>
       <p>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
       <table>
         <tr>

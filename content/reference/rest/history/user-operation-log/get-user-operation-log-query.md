@@ -16,7 +16,7 @@ menu:
 Query for user operation log entries that fulfill the given parameters.
 The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query-count.md" >}}) method.
 
-Note that the properties of operation log entries are interpreted as restrictions on the entities they apply to. That means, if a single process instance is updated, the field `processInstanceId` is populated. If a single operation updates all process instances of the same process definition, the field `processInstanceId` is `null` (a `null` restriction is viewed as a wildcard, i.e. matches a process instance with any id) and the field `processDefinitionId` is populated. This way, it can easily be reconstructed which entities were changed by a user operation.
+Note that the properties of operation log entries are interpreted as restrictions on the entities they apply to. That means, if a single process instance is updated, the field `processInstanceId` is populated. If a single operation updates all process instances of the same process definition, the field `processInstanceId` is `null` (a `null` restriction is viewed as a wildcard, i.e., matches a process instance with any id) and the field `processDefinitionId` is populated. This way, which entities were changed by a user operation can easily be reconstructed.
 
 
 # Method
@@ -95,15 +95,15 @@ GET `/history/user-operation`
   </tr>
   <tr>
     <td>property</td>
-    <td>Only include operations that changed this property, e.g. <code>owner</code> or <code>assignee</code></td>
+    <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
   <tr>
     <td>afterTimestamp</td>
-    <td>Restrict to entries that were created after the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. <code>2014-02-25T14:58:37</code></td>
+    <td>Restrict to entries that were created after the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
   </tr>
   <tr>
     <td>beforeTimestamp</td>
-    <td>Restrict to entries that were created before the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g. <code>2014-02-25T14:58:37</code></td>
+    <td>Restrict to entries that were created before the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -159,12 +159,12 @@ Each log entry has the following properties:
   <tr>
     <td>operationType</td>
     <td>String</td>
-    <td>The type of this operation, e.g. <code>Assign</code>, <code>Claim</code> and so on.</td>
+    <td>The type of this operation, e.g., <code>Assign</code>, <code>Claim</code> and so on.</td>
   </tr>
   <tr>
     <td>entityType</td>
     <td>String</td>
-    <td>The type of the entity on which this operation was executed, e.g. <code>Task</code> or <code>Attachment</code>.</td>
+    <td>The type of the entity on which this operation was executed, e.g., <code>Task</code> or <code>Attachment</code>.</td>
   </tr>
   <tr>
     <td>property</td>

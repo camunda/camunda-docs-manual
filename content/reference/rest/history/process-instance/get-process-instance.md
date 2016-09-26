@@ -110,7 +110,7 @@ Its properties are as follows:
   <tr>
     <td>startActivityId</td>
     <td>String</td>
-    <td>The id of the initial activity that was executed (e.g. a start event).</td>
+    <td>The id of the initial activity that was executed (e.g., a start event).</td>
   </tr>
   <tr>
     <td>deleteReason</td>

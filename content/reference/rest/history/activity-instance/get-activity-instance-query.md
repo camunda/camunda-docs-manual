@@ -220,7 +220,7 @@ Each historic activity instance object has the following properties:
   <tr>
     <td>completeScope</td>
     <td>Boolean</td>
-    <td>If true, this activity instance did complete a BPMN 2.0 scope </td>
+    <td>If true, this activity instance did complete a BPMN 2.0 scope.</td>
   </tr>
   <tr>
     <td>tenantId</td>

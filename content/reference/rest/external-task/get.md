@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The external task's id.</td>
+    <td>The id of the external task.</td>
   </tr>
   <tr>
     <td>lockExpirationTime</td>
@@ -121,7 +121,7 @@ Its properties are as follows:
   <tr>
     <td>topicName</td>
     <td>String</td>
-    <td>The external task's topic name.</td>
+    <td>The topic name of the external task.</td>
   </tr>
 </table>
 

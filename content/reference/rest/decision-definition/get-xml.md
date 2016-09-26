@@ -24,7 +24,7 @@ Retrieves the DMN XML of this decision definition.
 
 GET `/decision-definition/{id}/xml`
 
-GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of decision definition which belongs to no tenant)
+GET `/decision-definition/key/{key}/xml` (returns the XML for the latest version of the decision definition which belongs to no tenant)
 
 GET `/decision-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML of the latest version of the decision definition for tenant)
 

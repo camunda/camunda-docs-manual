@@ -55,7 +55,7 @@ GET `/decision-requirements-definition/count`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by decision requirements definition key, i.e. the id in the DMN 1.1 XML. Exact match.</td>
+    <td>Filter by decision requirements definition key, i.e., the id in the DMN 1.1 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -91,11 +91,11 @@ GET `/decision-requirements-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include decision requirements definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include decision requirements definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeDecisionRequirementsDefinitionsWithoutTenantId</td>
-    <td>Include decision requirements definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include decision requirements definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

@@ -24,7 +24,7 @@ Retrieves the DMN XML of this decision requirements definition.
 
 GET `/decision-requirements-definition/{id}/xml`
 
-GET `/decision-requirements-definition/key/{key}/xml` (returns the XML for the latest version of decision requirements definition which belongs to no tenant)
+GET `/decision-requirements-definition/key/{key}/xml` (returns the XML for the latest version of the decision requirements definition which belongs to no tenant)
 
 GET `/decision-requirements-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML of the latest version of the decision requirements definition for tenant)
 

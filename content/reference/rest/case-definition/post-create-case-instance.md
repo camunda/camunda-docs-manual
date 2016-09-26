@@ -63,7 +63,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json object containing the variables the case instance is to be initialized with.
+    <td>A JSON object containing the variables the case instance is to be initialized with.
     Variable names are property keys of this object and variable values are JSON objects with a <code>value</code> and a <code>type</code> property (see example below).
     Valid variable values are Boolean, Number, String and Date values.</td>
   </tr>

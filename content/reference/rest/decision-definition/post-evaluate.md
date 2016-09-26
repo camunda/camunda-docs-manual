@@ -23,7 +23,7 @@ Evaluates a given decision and returns the result. The input values of the decis
 
 POST `/decision-definition/{id}/evaluate`
 
-POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of decision definition which belongs to no tenant)
+POST `/decision-definition/key/{key}/evaluate` (evaluates the latest version of the decision definition which belongs to no tenant)
 
 POST `/decision-definition/key/{key}/tenant-id/{tenant-id}/evaluate` (evaluates the latest version of the decision definition for tenant)
 

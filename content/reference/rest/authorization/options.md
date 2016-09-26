@@ -19,14 +19,14 @@ The `/authorization` resource supports two custom OPTIONS requests, one for the 
 
 # Method
 
-OPTIONS `/authorization` for available interactions on resource
+OPTIONS `/authorization` for available interactions on resource.
 
-OPTIONS `/authorization/{id}` for available interactions on resource instance
+OPTIONS `/authorization/{id}` for available interactions on resource instance.
 
 
 # Result
 
-A JSON object with a single property named `links`, providing a list of resource links. Each link has the following properties
+A JSON object with a single property named `links`, providing a list of resource links. Each link has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -42,12 +42,12 @@ A JSON object with a single property named `links`, providing a list of resource
   <tr>
     <td>href</td>
     <td>String</td>
-    <td>The interaction URL</td>
+    <td>The interaction URL.</td>
   </tr>
   <tr>
     <td>rel</td>
     <td>String</td>
-    <td>The relation of the interaction (ie. a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
+    <td>The relation of the interaction (i.e., a symbolic name representing the nature of the interaction). Examples: <code>create</code>, <code>delete</code> ...</td>
   </tr>
 </table>
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Creates a new authorization
+Creates a new authorization.
 
 
 # Method
@@ -36,7 +36,7 @@ A JSON object with the following properties:
   <tr>
     <td>type</td>
     <td>Integer</td>
-    <td>The type of the authorization. (0=global, 1=grant, 2=revoke).</td>
+    <td>The type of the authorization (0=global, 1=grant, 2=revoke).</td>
   </tr>
   <tr>
     <td>permissions</td>
@@ -67,7 +67,7 @@ A JSON object with the following properties:
 
 # Result
 
-A json array with the following properties:
+A JSON array with the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -83,7 +83,7 @@ A json array with the following properties:
   <tr>
     <td>type</td>
     <td>Integer</td>
-    <td>The type of the authorization. (0=global, 1=grant, 2=revoke).</td>
+    <td>The type of the authorization (0=global, 1=grant, 2=revoke).</td>
   </tr>
   <tr>
     <td>permissions</td>

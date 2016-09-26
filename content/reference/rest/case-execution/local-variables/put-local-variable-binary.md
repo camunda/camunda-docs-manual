@@ -52,7 +52,7 @@ For binary variables a multipart form submit with the following parts:
     <td>application/octet-stream</td>
     <td>
       <p>The binary data to be set.</p>
-      <p>For <code>File</code> variables, this multipart can contain the filename, binary value and mimetype of the file variable to be set. Only the filename is mandatory.</p>
+      <p>For <code>File</code> variables, this multipart can contain the filename, binary value and MIME type of the file variable to be set. Only the filename is mandatory.</p>
     </td>
   </tr>
   <tr>

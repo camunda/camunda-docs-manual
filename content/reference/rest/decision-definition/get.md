@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single decision definition according to the DecisionDefinition interface in the engine.
+Retrieves a single decision definition according to the `DecisionDefinition` interface in the engine.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/decision-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest v
 
 # Result
 
-A JSON object corresponding to the DecisionDefinition interface in the engine.
+A JSON object corresponding to the `DecisionDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the decision definition, i.e. the id of the DMN 1.0 XML decision definition.</td>
+    <td>The key of the decision definition, i.e., the id of the DMN 1.0 XML decision definition.</td>
   </tr>
   <tr>
     <td>category</td>

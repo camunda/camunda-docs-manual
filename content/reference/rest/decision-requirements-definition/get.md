@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single decision requirements definition according to the DecisionRequirementsDefinition interface in the engine.
+Retrieves a single decision requirements definition according to the `DecisionRequirementsDefinition` interface in the engine.
 
 
 # Method
@@ -54,7 +54,7 @@ GET `/decision-requirements-definition/key/{key}/tenant-id/{tenant-id}` (returns
 
 # Result
 
-A JSON object corresponding to the DecisionRequirementsDefinition interface in the engine.
+A JSON object corresponding to the `DecisionRequirementsDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the decision requirements definition, i.e. the id of the DMN 1.1 XML decision definition.</td>
+    <td>The key of the decision requirements definition, i.e., the id of the DMN 1.1 XML decision definition.</td>
   </tr>
   <tr>
     <td>category</td>

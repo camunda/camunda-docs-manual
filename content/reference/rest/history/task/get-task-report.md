@@ -73,7 +73,7 @@ GET `/history/task/report`
 </table>
 
 
-# Result for count report type
+# Result for `count` Report Type
 
 A JSON array of historic task report objects.
 Each historic task report object has the following properties:
@@ -117,7 +117,7 @@ Each historic task report object has the following properties:
 </table>
 
 
-# Result for duration report type
+# Result for `duration` Report Type
 
 A JSON array of duration report result objects.
 Each object has the following properties:

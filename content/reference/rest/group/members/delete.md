@@ -32,11 +32,11 @@ DELETE `/group/{id}/members/{userId}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the group</td>
+    <td>The id of the group.</td>
   </tr>
   <tr>
     <td>userId</td>
-    <td>The id of user to remove from the group</td>
+    <td>The id of user to remove from the group.</td>
   </tr>
 </table>
 

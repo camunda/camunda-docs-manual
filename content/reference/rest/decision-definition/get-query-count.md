@@ -55,7 +55,7 @@ GET `/decision-definition/count`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by decision definition key, i.e. the id in the DMN 1.0 XML. Exact match.</td>
+    <td>Filter by decision definition key, i.e., the id in the DMN 1.0 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -103,11 +103,11 @@ GET `/decision-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include decision definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include decision definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeDecisionDefinitionsWithoutTenantId</td>
-    <td>Include decision definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include decision definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

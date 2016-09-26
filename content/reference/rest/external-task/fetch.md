@@ -105,7 +105,7 @@ Each locked external task object has the following properties:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The external task's id.</td>
+    <td>The id of the external task.</td>
   </tr>
   <tr>
     <td>lockExpirationTime</td>
@@ -150,7 +150,7 @@ Each locked external task object has the following properties:
   <tr>
     <td>topicName</td>
     <td>String</td>
-    <td>The external task's topic name.</td>
+    <td>The topic name of the external task.</td>
   </tr>
   <tr>
     <td>variables</td>

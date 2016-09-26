@@ -65,7 +65,7 @@ A JSON object corresponding to the `Deployment` interface of the engine. Its pro
   <tr>
     <td>deploymentTime</td>
     <td>Date</td>
-    <td>The date time of the deployment.</td>
+    <td>The date and time of the deployment.</td>
   </tr>
 </table>
 

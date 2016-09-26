@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single filter according to the Filter interface in the engine.
+Retrieves a single filter according to the `Filter` interface in the engine.
 
 
 # Method
@@ -45,7 +45,7 @@ GET `/filter/{id}`
   <tr>
     <td>itemCount</td>
     <td>
-      If set to <code>true</code> each filter result will contain an <code>itemCount</code> property
+      If set to <code>true</code>, each filter result will contain an <code>itemCount</code> property
       with the number of items matched by the filter itself.
     </td>
   </tr>
@@ -53,7 +53,7 @@ GET `/filter/{id}`
 
 # Result
 
-A JSON object corresponding to the Filter interface in the engine.
+A JSON object corresponding to the `Filter` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

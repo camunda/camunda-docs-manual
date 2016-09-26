@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for external tasks that fulfill given parameters in the form of a json object.
+Query for external tasks that fulfill given parameters in the form of a JSON object.
 This method is slightly more powerful than the [GET query]({{< relref "reference/rest/external-task/get-query.md" >}}) because it allows to specify a hierarchical result sorting.
 
 
@@ -64,11 +64,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>locked</td>
-    <td>Only include external tasks that are currently locked (i.e. they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>notLocked</td>
-    <td>Only include external tasks that are currently not locked (i.e. they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
+    <td>Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be <code>true</code>, as <code>false</code> matches any external task.</td>
   </tr>
   <tr>
     <td>withRetriesLeft</td>
@@ -126,7 +126,7 @@ A JSON object with the following properties:
     <td>sorting</td>
     <td>
       <p>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
       <table>
         <tr>
@@ -178,7 +178,7 @@ Each external task object has the following properties:
   <tr>
     <td>id</td>
     <td>String</td>
-    <td>The external task's id.</td>
+    <td>The id of the external task.</td>
   </tr>
   <tr>
     <td>lockExpirationTime</td>
@@ -223,7 +223,7 @@ Each external task object has the following properties:
   <tr>
     <td>topicName</td>
     <td>String</td>
-    <td>The external task's topic name.</td>
+    <td>The topic name of the external task.</td>
   </tr>
   <tr>
     <td>priority</td>

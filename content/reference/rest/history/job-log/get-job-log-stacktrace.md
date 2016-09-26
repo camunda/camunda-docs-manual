@@ -38,7 +38,7 @@ GET `/history/job-log/{id}/stacktrace`
 
 # Result
 
-The result is the corresponding stacktrace as a plain text.
+The result is the corresponding stacktrace as plain text.
 
 
 # Response Codes

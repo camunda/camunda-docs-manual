@@ -39,7 +39,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>caseInstanceIds</td>
-    <td>Filter by case instance ids. Must be a json array of case instance ids.</td>
+    <td>Filter by case instance ids. Must be a JSON array of case instance ids.</td>
   </tr>
     <td>caseDefinitionId</td>
     <td>Filter by the case definition the instances run on.</td>
@@ -50,7 +50,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>caseDefinitionKeyNotIn</td>
-    <td>Exclude instances that belong to a set of case definitions. Must be a json array of case definition keys.</td>
+    <td>Exclude instances that belong to a set of case definitions. Must be a JSON array of case definition keys.</td>
   </tr>
   <tr>
     <td>caseDefinitionName</td>
@@ -114,7 +114,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include historic case instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include historic case instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -138,7 +138,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A json array to only include process instances that have/had variables with certain values. <br/>
+    <td>A JSON array to only include process instances that have/had variables with certain values. <br/>
     The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.

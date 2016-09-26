@@ -45,9 +45,9 @@ GET `/history/batch`
     <td>completed</td>
     <td>
       Filter completed or not completed batches. If the value is
-      <code>true</code> only completed batches, i.e. end time is set, are
-      returned. Otherwise if the value is <code>false</code> only running
-      batches, i.e. end time is null, are returned.
+      <code>true</code>, only completed batches, i.e., end time is set, are
+      returned. Otherwise, if the value is <code>false</code>, only running
+      batches, i.e., end time is null, are returned.
     </td>
   </tr>
   <tr>
@@ -117,7 +117,7 @@ Each historic batch object has the following properties:
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>

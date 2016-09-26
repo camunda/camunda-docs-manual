@@ -48,7 +48,7 @@ GET `/history/identity-link-log/count`
   </tr>
   <tr>
     <td>dateAfter</td>
-    <td>Restricts to identity links that have the time after the given time</td>
+    <td>Restricts to identity links that have the time after the given time.</td>
   </tr>
   <tr>
     <td>taskId</td>

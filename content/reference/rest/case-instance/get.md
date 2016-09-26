@@ -39,7 +39,7 @@ GET `/case-instance/{id}`
 
 # Result
 
-A JSON object corresponding to the CaseInstance interface in the engine.
+A JSON object corresponding to the `CaseInstance` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

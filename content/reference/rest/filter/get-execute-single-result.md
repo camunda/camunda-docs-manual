@@ -38,7 +38,7 @@ GET `/filter/{id}/singleResult`
 
 A JSON object corresponding to the matching entity interface in the engine.  This depends on the
 saved query in the filter. Therefore it is not possible to specify a generic result format, i.e., if
-the resource type of the filter is `Task` the result will correspond with the Task interface in the
+the resource type of the filter is `Task` the result will correspond to the `Task` interface in the
 engine.
 
 # Response Codes
@@ -102,7 +102,7 @@ GET `/filter/aTaskFilterId/singleResult`
 Status 200.
 
 <div class="alert alert-warning" role="alert">
-  <strong>Note:</strong> The examples shows the result of a task filter. So the response corresponds
+  <strong>Note:</strong> The examples show the result of a task filter. So the response corresponds
   to a task, but for other filters the response format will differ.
 </div>
 

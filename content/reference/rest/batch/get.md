@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single batch according to the Batch interface in the engine.
+Retrieves a single batch according to the `Batch` interface in the engine.
 
 
 # Method
@@ -37,7 +37,7 @@ GET `/batch/{id}`
 
 # Result
 
-A JSON object corresponding to the Batch interface in the engine.
+A JSON object corresponding to the `Batch` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -76,7 +76,7 @@ Its properties are as follows:
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
