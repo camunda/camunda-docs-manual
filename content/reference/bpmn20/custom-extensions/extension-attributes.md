@@ -51,7 +51,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies an asynchronous contiuation after an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
+      Specifies an asynchronous continuation after an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
     </td>
   </tr>
   <tr>
