@@ -52,6 +52,15 @@ A signal event definition is declared using the signalEventDefinition element. T
 __Note__: Contrary to other events, such error events, a signal is not consumed if it is caught. If you have two active signal boundary events catching the same signal event, both boundary events are triggered, even if they are part of different process instances.
 
 
+## Expressions
+
+You can use expressions for the signal event definitions. By doing so you can influence the signal name dynamically based on process variables. This could come in handy when for example there is the need to interrupt parallel branches. An example could look like follows:
+
+```xml
+<signal id="alertSignal" name="alert-${execution.businessKey}" />
+```
+
+
 # Signal Api
 
 ## Triggering (Throwing) Signals

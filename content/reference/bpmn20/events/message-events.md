@@ -67,6 +67,13 @@ A message event definition is declared by using the `messageEventDefinition` ele
   </tr>
 </table>
 
+## Expressions
+
+You can use expressions for the message event definitions. By doing so you can influence the message name dynamically based on process variables. An example is given in the following xml snippet:
+
+```xml
+<message id="newInvoice" name="newInvoiceMessage-${execution.businessKey}" />
+```
 
 # Message Api
 
