@@ -514,7 +514,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
             </g>
           </svg>
       </td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
               <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
@@ -522,7 +522,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
             </g>
           </svg>
       </td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
               <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-dasharray="3,3" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
@@ -530,21 +530,21 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
             </g>
           </svg>
       </td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
             <circle cx="20" cy="20" r="12" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
             <path fill="#ffffff" stroke="#333333" d="M6,6L24,6L24,24L6,24L6,6M9,9L21,9M9,13L21,13M9,17L21,17M9,21L21,21Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.9375,0,0,0.9375,5.9375,5.9375)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
           </svg>
       </td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
             <circle cx="20" cy="20" r="12" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
             <path fill="#ffffff" stroke="#333333" d="M6,6L24,6L24,24L6,24L6,6M9,9L21,9M9,13L21,13M9,17L21,17M9,21L21,21Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.9375,0,0,0.9375,5.9375,5.9375)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
           </svg>
       </td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-dasharray="3,3" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
             <circle cx="20" cy="20" r="12" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-dasharray="3,3" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>

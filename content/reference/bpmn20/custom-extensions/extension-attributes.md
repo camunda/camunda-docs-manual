@@ -1476,3 +1476,66 @@ The following attributes are extension attributes for the `camunda` namespace `h
     </td>
   </tr>
 </table>
+
+# variableName
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute allows to specify an variable name, on which a condition of an conditional event should be evaluated only.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      The name of a process variable, on which a condition should be evaluated after a change happens.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/events/conditional-events.md" >}}">Conditional Event</a>
+    </td>
+  </tr>
+</table>
+
+# variableEvents
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute allows to specify an comma separated list of variable change events.
+      These events specify on which a condition of an conditional event should be evaluated only.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A comma separated list of variable change events. Variable change events are: create, update and delete.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/events/conditional-events.md" >}}">Conditional Event</a>
+    </td>
+  </tr>
+</table>
