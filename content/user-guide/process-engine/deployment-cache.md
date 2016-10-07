@@ -1,6 +1,6 @@
 ---
 
-title: 'Process Definition Cache'
+title: 'Deployment Cache'
 weight: 150
 
 menu:
@@ -24,18 +24,18 @@ By changing the maximum capacity, the configuration effects all of the following
  * Decision definition
  * Decision requirements definition
    
-In the Spring process engine configuration one can specify the maximum of elements in the cache. The default value is *1000*. When the process engine is created, all those resources will be scanned and deployed. As an example the maximum capacity could be set to *120* as follows:
+In the process engine configuration one can specify the maximum capacity of the cache. The default value is *1000*. When the process engine is created, this property will be set and all resources will be scanned and deployed accordingly. As an example the maximum capacity could be set to *120* as follows:
 
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 	<!-- Your property definitions! -->
 					....
 					
-	<property name="maxNumberOfElementsInCache" value="120" />  
+	<property name="cacheCapacity" value="120" />  
 </bean>
 ```
 
-__Note:__ The same capacity is used for all of the components stated above and it is not possible to set the capacity size individually for each component. Furthermore, corresponds the capacity size to the maximum number of elements in the cache that are used. That means, the absolute amount of physical storage (e.g. mega bytes) you use up depends on the size needed for the respective process definitions.
+__Note:__ The same capacity is used for all of the components stated above and it is not possible to set the capacity size individually for each component. Furthermore, in the default cache implementation corresponds the capacity size to the maximum number of elements in the cache that are used. That means, the absolute amount of physical storage (e.g. mega bytes) you use up depends on the size needed for the respective process definitions.
 
 
 # Provide a custom Cache Implementation
@@ -54,16 +54,16 @@ public class MyCacheImplementation<K, V> implements Cache<K, V> {
 Next, one need to plug in *MyCacheImplementation* into a custom *CacheFactory*:
 
 ```java
-public class MyCacheFactory implements CacheFactory{
+MyCacheFactory<String, DbEntity> extends DefaultCacheFactory<String, DbEntity> {
 
   @Override
-  public Cache createCache(int maxNumberOfElementsInCache) {
+  public Cache<String, DbEntity> createCache(int maxNumberOfElementsInCache) {
     return new MyCacheImplementation<String, DbEntity>(maxNumberOfElementsInCache);
   }
 }
 ```
     
-The factory is used to provide the cache implementation for different cache components such as the process definition or the case definition. Once this is done, one can use the Spring process engine configuration where one can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. In the given example the custom cache factory could now be deployed as follows:
+The factory is used to provide the cache implementation for different cache components such as the process definition or the case definition. Once this is done, one can use the process engine configuration where one can specify a set of resources. When the process engine is created, all those resources will be scanned and deployed. In the given example the custom cache factory could now be deployed as follows:
 
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
