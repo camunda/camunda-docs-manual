@@ -159,12 +159,12 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
-If variables being fetched are serialized it is necessary to call `deserializeVariables(true)` method. Otherwise an `java.lang.IllegalStateException` is thrown once the serialized variable is retrieved from the variables map.
+If variables being fetched are serialized it is necessary to call `enableCustomObjectDeserialization()` method. Otherwise an `java.lang.IllegalStateException` is thrown once the serialized variable is retrieved from the variables map.
 
 ```java
 List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
   .topic("AddressValidation", 60L * 1000L)
-  .variables("address").deserializeVariables(true)
+  .variables("address").enableCustomObjectDeserialization()
   .execute();
 
 for (LockedExternalTask task : tasks) {
