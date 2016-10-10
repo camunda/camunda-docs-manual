@@ -54,11 +54,11 @@ public class MyCacheImplementation<K, V> implements Cache<K, V> {
 Next, one need to plug in *MyCacheImplementation* into a custom *CacheFactory*:
 
 ```java
-MyCacheFactory<String, DbEntity> extends DefaultCacheFactory<String, DbEntity> {
+public class MyCacheFactory extends CacheFactory {
 
   @Override
-  public Cache<String, DbEntity> createCache(int maxNumberOfElementsInCache) {
-    return new MyCacheImplementation<String, DbEntity>(maxNumberOfElementsInCache);
+  public <T> Cache<String, T> createCache(int maxNumberOfElementsInCache) {
+    return new MyCacheImplementation<String, T>(maxNumberOfElementsInCache);
   }
 }
 ```
