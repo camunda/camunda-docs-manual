@@ -65,6 +65,16 @@ A JSON object with the following properties:
           <td>variables</td>
           <td>A JSON array of <code>String</code> values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.</td>
         </tr>
+        <tr>
+          <td>deserializeValues</td>
+          <td>
+            <p>Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default <code>false</code>).</p>
+
+            <p>If set to <code>true</code>, a serializable variable will be deserialized on server side and transformed to JSON using Jackson's POJO/bean property introspection feature. Note that this requires the Java classes of the variable value to be on the REST API's classpath.</p>
+
+            <p>If set to <code>false</code>, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.</p>
+          </td>
+        </tr>
       </table>
     </td>
   </tr>
