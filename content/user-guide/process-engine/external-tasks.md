@@ -159,6 +159,23 @@ for (LockedExternalTask task : tasks) {
 }
 ```
 
+If variables being fetched are serialized it is necessary to call `enableCustomObjectDeserialization()` method. Otherwise an `java.lang.IllegalStateException` is thrown once the serialized variable is retrieved from the variables map.
+
+```java
+List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
+  .topic("AddressValidation", 60L * 1000L)
+  .variables("address").enableCustomObjectDeserialization()
+  .execute();
+
+for (LockedExternalTask task : tasks) {
+  String topic = task.getTopic();
+  MyAddressClass address = (MyAddressClass) task.getVariables().get("address");
+
+  // work on task for that topic
+  ...
+}
+```
+ 
 
 ### External Task Prioritization
 External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered. 
