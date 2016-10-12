@@ -51,6 +51,9 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+At least _historicProcessInstanceIds_ or _historicProcessInstanceQuery_ has to be provided. If both are provided
+then all instances matching query criterion and instances from the list will be deleted.
+
 ## Response Body
 
 A JSON object corresponding to the Batch interface in the engine. Its properties are as follows:
@@ -158,8 +161,12 @@ POST `/history/process-instance/delete`
 Request Body:
 
     {
-    "deleteReason" : "aReason",
-    "historicProcessInstanceIds": ["aProcess","secondProcess"]
+      "deleteReason" : "aReason",
+      "historicProcessInstanceIds": ["aProcess","secondProcess"],
+      "historicProcessInstanceQuery": {
+        "startedAfter": "2016-10-11T11:44:13",
+        "finishedBefore": "2016-10-13T11:44:17"
+      }
     }
 
 ## Response
