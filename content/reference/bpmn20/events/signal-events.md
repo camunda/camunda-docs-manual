@@ -54,7 +54,9 @@ __Note__: Contrary to other events, such error events, a signal is not consumed 
 
 ## Expressions
 
-You can use expressions for the signal event definitions. By doing so you can influence the signal name dynamically based on process variables. This could come in handy when for example there is the need to interrupt parallel branches. An example could look like follows:
+You can use expressions for the name in the signal event definition. The name is then resolved as soon as a process reaches the scope of the signal. For example when the process instances reaches a Signal Intermediate Catching Event, then the expression within the name is resolved.
+
+By using expressions within the signal name you can influence the signal name dynamically based on process variables. This could come in handy when for example there is the need to interrupt parallel branches. An example could look like follows:
 
 ```xml
 <signal id="alertSignal" name="alert-${execution.businessKey}" />
