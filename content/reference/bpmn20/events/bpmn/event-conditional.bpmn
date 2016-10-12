@@ -31,7 +31,6 @@
       <bpmn:sequenceFlow id="SequenceFlow_0addlx1" sourceRef="Task_1uyr3r8" targetRef="EndEvent_1cm8voo" />
       <bpmn:endEvent id="EndEvent_1cm8voo" name="Application rejected">
         <bpmn:incoming>SequenceFlow_0addlx1</bpmn:incoming>
-        <bpmn:terminateEventDefinition />
       </bpmn:endEvent>
     </bpmn:subProcess>
     <bpmn:sequenceFlow id="SequenceFlow_0uwt3om" sourceRef="Task_0l1t1jl" targetRef="Task_1dzwh1k" />
@@ -137,12 +136,6 @@
           <dc:Bounds x="506" y="545" width="0" height="0" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="EndEvent_0myvuaq_di" bpmnElement="EndEvent_1cm8voo">
-        <dc:Bounds x="531" y="542" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="521" y="578" width="57" height="25" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0uwt3om_di" bpmnElement="SequenceFlow_0uwt3om">
         <di:waypoint xsi:type="dc:Point" x="774" y="322" />
         <di:waypoint xsi:type="dc:Point" x="845" y="322" />
@@ -211,6 +204,12 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="CallActivity_09mcza0_di" bpmnElement="Task_0l1t1jl">
         <dc:Bounds x="674" y="282" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1382g15_di" bpmnElement="EndEvent_1cm8voo">
+        <dc:Bounds x="531" y="542" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="523" y="578" width="57" height="25" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

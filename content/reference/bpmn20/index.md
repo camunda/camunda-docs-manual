@@ -505,7 +505,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
     </tr>
     <tr>
-      <td>Conditional</td>
+      <td><a href="{{< relref "reference/bpmn20/events/conditional-events.md" >}}">Conditional</a></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
