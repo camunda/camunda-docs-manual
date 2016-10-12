@@ -14,12 +14,12 @@ menu:
 
 
 Delete multiple historic process instances asynchronously (batch).
-
+At least _historicProcessInstanceIds_ or _historicProcessInstanceQuery_ has to be provided. If both are provided
+then all instances matching query criterion and instances from the list will be deleted.
 
 # Method
 
 POST `/history/process-instance/delete`
-
 
 # Parameters
 
@@ -50,9 +50,6 @@ A JSON object with the following properties:
     <td>A string with delete reason.</td>
   </tr>
 </table>
-
-At least _historicProcessInstanceIds_ or _historicProcessInstanceQuery_ has to be provided. If both are provided
-then all instances matching query criterion and instances from the list will be deleted.
 
 ## Response Body
 
