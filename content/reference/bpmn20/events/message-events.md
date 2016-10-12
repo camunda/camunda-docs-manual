@@ -45,13 +45,15 @@ A message event definition is declared by using the `messageEventDefinition` ele
 
 ## Expressions
 
-You can use expressions for the name in the message event definition. The name is then resolved as soon as a process reaches the scope of the message. For example when the process instances reaches a Message Intermediate Catching Event, then the expression within the name is resolved.
+You can use expressions for the name in the message event definition (except for the message start event). The name is then resolved as soon as a process reaches the scope of the message. For example when the process instances reaches a Message Intermediate Catching Event, then the expression within the name is resolved.
 
 By using expressions within the message name you can influence the message name dynamically based on process variables. An example could look like follows:
 
 ```xml
 <message id="newInvoice" name="newInvoiceMessage-${execution.businessKey}" />
 ```
+
+**Note:** It is not allowed to use expressions in the message name of a start event. So using an expression in the message defintion and then referencing this defintion in a message start event will cause an error.
 
 ## Camunda Extensions
 
