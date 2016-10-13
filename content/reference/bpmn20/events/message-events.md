@@ -53,7 +53,7 @@ By using expressions within the message name you can influence the message name 
 <message id="newInvoice" name="newInvoiceMessage-${execution.businessKey}" />
 ```
 
-**Note:** It is not allowed to use expressions in the message name of a start event. So using an expression in the message defintion and then referencing this defintion in a message start event will cause an error.
+**Note:** It is not allowed to use expressions in the message name of a start event of the process definition. So using an expression in the message defintion and then referencing this defintion in a message start event of the process entry point will cause an error. However, it is allowed to use expressions in the message start event of a subprocess. Therefore using an expression in the message defintion and then referencing this definition in the message start event within a subprocess, will work just fine.
 
 ## Camunda Extensions
 
