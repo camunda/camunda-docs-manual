@@ -252,6 +252,17 @@ History:
 alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
 ```
 
+### Isolation Level Configuration
+
+Most database management systems provide four different isolation levels to be set. For instance the levels defined by ANSI/USO SQL are (from low to high isolation):
+
+* READ UNCOMMITTED 
+* READ COMMITTED
+* REPEATABLE READS
+* SERIALIZABLE 
+
+The recommend isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
+
 ### Custom Configuration for Microsoft SQL Server
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
@@ -270,3 +281,5 @@ ALTER DATABASE [process-engine]
 SET READ_COMMITTED_SNAPSHOT ON
 ```
 where `[process-engine]` contains the name of your database.
+
+
