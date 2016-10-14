@@ -372,7 +372,35 @@ In the scenario of an embedded process engine, the default implementation for th
 
 Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor unlocks the job. The unlocking includes also erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution.
 
-In real life it is useful to configure the retry strategy, i.e. the number of times a job is retried and when it is retried, so the LOCK&#95;EXP&#95;TIME&#95;. In the Camunda engine, this can be configured as an [extension element]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}) of a task in the BPMN 2.0 XML:
+{{< note title="" class="info" >}}
+While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
+{{< /note >}}
+
+### Enable a Custom Retry Configuration
+
+In the daily business it might be useful to configure a retry strategy, i.e. setting how often and when a job is retried. You can enable this feature by adding the `FoxFailedJobParseListener` and the customized `foxFailedJobCommandFactory` to the process engine configuration:
+
+```xml
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+	<!-- Your defined properties! -->
+	
+	<property name="customPostBPMNParseListeners">
+      <list>
+        <bean class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
+      </list>
+    </property>
+    
+    <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" /> 
+</bean>
+  
+<bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" />
+```
+
+The listener enables the BPMN parser to recognize the extension element [failedJobRetryTimeCycle]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}) and the factory augments the retry configuration applied in case of a failed job. Hereby, the LOCK&#95;EXP&#95;TIME&#95; is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
+
+#### Use Custom Job Retry Configuration for Activities 
+
+As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Camunda engine in the BPMN 2.0 XML as follows:
 
 ```xml
 <definitions xmlns:camunda="http://camunda.org/schema/1.0/bpmn">
@@ -388,13 +416,7 @@ In real life it is useful to configure the retry strategy, i.e. the number of ti
 
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
-The retry configuration can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses.
-
-{{< note title="" class="info" >}}
-While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
-{{< /note >}}
-
-### Configure Job Retry of Events 
+#### Use Custom Job Retry Configuration for Events 
 
 The job retries can also be configured for the following events:
 
@@ -421,9 +443,9 @@ Similar to tasks, the retries can be configured as an extension element of the e
 </definitions>
 ```
 
-Recap: a retry may be required if there are any failures during the transaction which follows the timer.
+Reminder: a retry may be required if there are any failures during the transaction which follows the timer. The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals)
 
-### Configure Job Retry of Multi-Instance Activities
+#### Use Custom Job Retry Configuration for Multi-Instance Activities
 
 If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element. 
 
@@ -448,6 +470,8 @@ The following example defines the retries of a multi-instance service task with 
   ...
 </definitions>
 ```
+
+Reminder: The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals)
 
 # Concurrent Job Execution
 
