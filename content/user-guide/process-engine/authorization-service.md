@@ -94,7 +94,7 @@ authorization.addPermission(Permissions.DELETE);
 
 Resources are the entities the user interacts with.
 
-The following resources are available:
+The following resources are available (integer representation in brackets):
 
 * Application (Cockpit, Tasklist, ...) (0)
 * Authorization (4)
