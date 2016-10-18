@@ -1483,7 +1483,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute allows to specify an variable name, on which a condition of an conditional event should be evaluated only.
+      The attribute allows to specify a variable name on which a condition of a conditional event should be evaluated exclusively.
     </td>
   </tr>
   <tr>
@@ -1493,7 +1493,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      The name of a process variable, on which a condition should be evaluated after a change happens.
+      The name of a process variable on which a condition should be evaluated after a change happens.
     </td>
   </tr>
   <tr>
@@ -1514,8 +1514,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute allows to specify an comma separated list of variable change events.
-      These events specify on which a condition of an conditional event should be evaluated only.
+      The attribute allows to specify a comma separated list of variable change events.
+      These events specify the variable change events on which a condition of a conditional event should be evaluated exclusively.
     </td>
   </tr>
   <tr>
