@@ -94,23 +94,23 @@ authorization.addPermission(Permissions.DELETE);
 
 Resources are the entities the user interacts with.
 
-The following resources are available:
+The following resources are available (integer representation in brackets):
 
-* Application (Cockpit, Tasklist, ...)
-* Authorization
-* Batch
-* Decision Definition
-* Decision Requirements Definition
-* Deployment
-* Filter
-* Group
-* Group Membership
-* Process Definition
-* Process Instance
-* Task
-* Tenant
-* Tenant Membership
-* User
+* Application (Cockpit, Tasklist, ...) (0)
+* Authorization (4)
+* Batch (13)
+* Decision Definition (10)
+* Decision Requirements Definition (14)
+* Deployment (9)
+* Filter (5)
+* Group (2)
+* Group Membership (3)
+* Process Definition (6)
+* Process Instance (8)
+* Task (7)
+* Tenant (11)
+* Tenant Membership (12)
+* User (1)
 
 ## Authorization Type
 
