@@ -71,18 +71,18 @@ Resources are the entities the user interacts with.
     <strong>Built-In Resources</strong>
   </p>
   <p>
-    The following resources are currently supported by the authorization framework:
+    The following resources are currently supported by the authorization framework (integer representation in brackets):
     <ul>
-      <li>Application (cockpit, tasklist, ...)</li>
-      <li>Authorization</li>
-      <li>Group</li>
-      <li>Group Membership</li>
-      <li>User</li>
-      <li>Filter</li>
-      <li>Deployment</li>
-      <li>Process Definition</li>
-      <li>Process Instance</li>
-      <li>Task</li>
+      <li>Application (cockpit, tasklist, ...) (0)</li>
+      <li>Authorization (4)</li>
+      <li>Deployment (9)</li>
+      <li>Filter (5)</li>
+      <li>Group (2)</li>
+      <li>Group Membership (3)</li>
+      <li>Process Definition (6)</li>
+      <li>Process Instance (8)</li>
+      <li>Task (7)</li>
+      <li>User (1)</li>
     </ul>
   </p>
 </div>
