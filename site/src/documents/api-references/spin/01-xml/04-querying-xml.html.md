@@ -81,21 +81,9 @@ Boolean exists = XML(xml).xPath("boolean(/root/child)").bool();
 
 ## Querying with namespaces
 
-To use namespaces in spin with xml you can choose one of the following methods or combine all 3 of them.
+To use namespaces in spin with xml you can choose one of the following methods or combine both of them.
 
-### 1. Using auto detection
-
-```java
-import static org.camunda.spin.Spin.XML;
-
-String xml = "<root xmlns:t=\"http://camunda.org\"><t:child id=\"child\"><a id=\"a\"/></t:child></root>";
-
-SpinXmlTreeElement child = XML(xml).xPath("/root/foo:child")
-                                   .detectNamespaces();
-                                   .element();
-```
-
-### 2. Using a single prefix - URI pair
+### 1. Using a single prefix - URI pair
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -107,7 +95,7 @@ SpinXmlTreeElement child = XML(xml).xPath("/root/t:child")
                                    .element();
 ```
 
-### 3. Using a map of prefix - URI pairs
+### 2. Using a map of prefix - URI pairs
 
 ```java
 import static org.camunda.spin.Spin.XML;
