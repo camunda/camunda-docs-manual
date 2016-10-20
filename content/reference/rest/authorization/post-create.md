@@ -55,7 +55,7 @@ A JSON object with the following properties:
   <tr>
     <td>resourceType</td>
     <td>Integer</td>
-    <td>An integer representing the resource type.</td>
+    <td>An integer representing the resource type. See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
@@ -103,7 +103,7 @@ A json array with the following properties:
   <tr>
     <td>resourceType</td>
     <td>Integer</td>
-    <td>An integer representing the resource type.</td>
+    <td>An integer representing the resource type. See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
