@@ -130,9 +130,9 @@ In the scenario of an embedded process engine, the default implementation for th
 
 ### Failed Jobs
 
-Upon failure of job execution, e.g. if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor unlocks the job. The unlocking includes also erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution.
+Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased. The process engine thus performs bookkeeping for failed jobs. After updating the RETRIES&#95; column, the executor unlocks the job. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution.
 
-By default, a failed job will be retried three times and the retries are performed immediately after the failure. In the daily business it might be useful to configure a retry strategy, i.e. by setting how often a job is being retried and how long the engine should wait until it retries to execute a job again. In the camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
+By default, a failed job will be retried three times and the retries are performed immediately after the failure. In daily business it might be useful to configure a retry strategy, i.e., by setting how often a job is retried and how long the engine should wait until it tries to execute a job again. In the Camunda engine, this can be configured as an extension element of a task in the BPMN 2.0 XML:
 
 ```xml
 <definitions ... xmlns:camunda="http://activiti.org/bpmn">
