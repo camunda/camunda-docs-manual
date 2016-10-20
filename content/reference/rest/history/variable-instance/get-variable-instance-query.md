@@ -98,7 +98,7 @@ GET `/history/variable-instance`
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
   <tr>
-    <td>deserializeValue</td>
+    <td>deserializeValues</td>
     <td>
       {{< rest-var-query-param-deserialize-object-value >}}
     </td>
