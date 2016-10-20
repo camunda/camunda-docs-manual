@@ -381,7 +381,7 @@ While all failed jobs are retried, there is one case in which a job's retries ar
 By default, a failed job will be retried three times and the retries are performed immediately after the failure. In the daily business it might be useful to configure a retry strategy, i.e. by setting how often a job is being retried and how long the engine should wait until it retries to execute a job again. The Camunda engine allows you to configure both of these setting for the following elements:
 
 * [Activities (tasks, call activities, subprocesses)]({{< relref "#use-a-custom-job-retry-configuration-for-activities" >}})
-* [Events (timer, signal)]({{< relref "#use-a-custom-job-retry-configuration-for-events" >}})
+* [Events]({{< relref "#use-a-custom-job-retry-configuration-for-events" >}})
 * [Multi-Instance Activities ]({{< relref "#use-a-custom-job-retry-configuration-for-multi-instance-activities" >}})
 
 However, before you use a customized configuration, keep in mind to [enable your custom retry configuration]({{< relref "#enable-a-custom-retry-configuration" >}}). Otherwise, the engine is not able to handle your custom extensions.
@@ -413,7 +413,7 @@ The job retries can also be configured for the following events:
 * Timer Start Event
 * Boundary Timer Event
 * Intermediate Timer Catch Event
-* Intermediate Signal Throw Event
+* Intermediate Throw Event
 
 Similar to tasks, the retries can be configured as an extension element of the event. The following example defines three retries after 5 seconds each for a boundary timer event:
 
