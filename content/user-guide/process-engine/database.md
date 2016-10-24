@@ -261,7 +261,7 @@ Most database management systems provide four different isolation levels to be s
 * REPEATABLE READS
 * SERIALIZABLE 
 
-The recommend isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
+The required isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
 
 ### Custom Configuration for Microsoft SQL Server
 
