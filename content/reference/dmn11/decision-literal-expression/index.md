@@ -18,7 +18,7 @@ It consists of a [literal expression] and a [variable].
 A decision literal expression is represented by a `literalExpression` element inside a `decision` XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Desired Dish" namespace="party">
   <decision id="season" name="Season">
     <variable name="season" typeRef="string" />
     <literalExpression>
@@ -59,7 +59,7 @@ which is set on the `definitions` XML element.
 ```xml
 <definitions id="dish"
              name="Desired Dish"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              expressionLanguage="groovy"
              namespace="party">
   <!-- ... -->

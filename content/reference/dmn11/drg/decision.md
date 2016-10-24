@@ -20,7 +20,7 @@ A decision defines the [id], [name] and required decisions and contains the deci
 A decision is represented by a `decision` element inside the `definitions` XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Desired Dish" namespace="party">
   <decision id="dish-decision" name="Dish Decision">
     <decisionTable id="decisionTable">
     <!-- ... -->

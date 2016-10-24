@@ -22,7 +22,7 @@ A input clause is represented by an `input` element inside a `decisionTable`
 XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="decision" name="Dish">
     <decisionTable id="decisionTable">
       <input id="input1" label="Season">
@@ -126,7 +126,7 @@ which is set on the `definitions` XML element.
 ```xml
 <definitions id="definitions"
              name="definitions"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              expressionLanguage="groovy"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
@@ -151,7 +151,7 @@ To use the attribute you have to define the Camunda DMN namespace
 ```xml
 <definitions id="definitions"
              name="definitions"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              xmlns:camunda="http://camunda.org/schema/1.0/dmn"
              namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="decision" name="Dish">

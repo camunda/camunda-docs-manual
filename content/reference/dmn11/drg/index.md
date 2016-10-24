@@ -23,7 +23,7 @@ The visual representation of a DRG is called Decision Requirements Diagram (aka 
 In the XML a DRG is represented by the `definitions` element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Desired Dish" namespace="party">
   <decision id="dish-decision" name="Dish Decision">
     <decisionTable id="decisionTable">
     <!-- ... -->
@@ -38,7 +38,7 @@ The name describes the DRG. It is set as the `name` attribute on the `definition
 
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
     id="dish"
     name="Dish"
     namespace="party">
@@ -55,7 +55,7 @@ platform. The engine use the id as the decision requirements definition key of t
 `DecisionRequirementsDefinition`.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
     id="dish"
     name="Dish"
     namespace="party">

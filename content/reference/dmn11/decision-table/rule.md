@@ -24,7 +24,7 @@ A rule is represented by a `rule` element inside a `decisionTable` XML element.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="decision" name="Dish">
     <decisionTable id="decisionTable">
       <!-- ... -->
@@ -94,7 +94,7 @@ which is set on the `definitions` XML element.
 ```xml
 <definitions id="definitions"
              name="definitions"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              expressionLanguage="groovy"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
@@ -151,7 +151,7 @@ which is set on the `definitions` XML element.
 ```xml
 <definitions id="definitions"
              name="definitions"
-             xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd"
+             xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              expressionLanguage="groovy"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
