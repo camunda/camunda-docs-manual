@@ -47,7 +47,7 @@ GET `/authorization/check`
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>String representation of an integer value identifying the resource type to check permissions for.</td>
+    <td>An integer representing the resource type to check permissions for. See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
     <td>Yes</td>
   </tr>
   <tr>

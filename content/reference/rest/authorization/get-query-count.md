@@ -48,7 +48,7 @@ GET `/authorization/count`
   </tr>
   <tr>
     <td>resourceType</td>
-    <td>Filter by resource type</td>
+    <td>Filter by an integer representation of the resource type. See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
