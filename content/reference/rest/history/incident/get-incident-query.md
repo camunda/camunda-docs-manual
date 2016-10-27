@@ -37,7 +37,7 @@ GET `/history/incident`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Restricts to incidents that belong to the given incident type.</td>
+    <td>Restricts to incidents that belong to the given incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -154,7 +154,7 @@ Each historic incident object has the following properties:
   <tr>
     <td>incidentType</td>
     <td>String</td>
-    <td>The type of incident, for example: <code>failedJobs</code> will be returned in case of an incident which identified a failed job during the execution of a process instance.</td>
+    <td>The type of incident, for example: <code>failedJobs</code> will be returned in case of an incident which identified a failed job during the execution of a process instance. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>activityId</td>

@@ -81,7 +81,7 @@ Each object has the following properties:
     <td>Array</td>
     <td>Each item in the resulting array is an object which contains the following properties:
         <ul>
-          <li>incidentType: The type of the incident the number of incidents is aggregated for.</li>
+          <li>incidentType: The type of the incident the number of incidents is aggregated for. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</li>
           <li>incidentCount: The total number of incidents for the corresponding incident type.</li>
         </ul>
         <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty if no incidents were found.
