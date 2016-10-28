@@ -89,7 +89,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 
 ## Parse Decision Requirements Graph
 
-In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (a.k.a. DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`. 
+In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (a.k.a. DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
 
 ```java
 // parse the drg from an input stream
@@ -105,7 +105,7 @@ DmnDecision decision = drg.getDecision("decision");
 Collection<DmnDecision> decisions = drg.getDecisions();
 ```
 
-The DRG is represented in the XML by the `definitions` element. The `id` of the DRG in the XML is called `key` in the context of the DMN engine. 
+The DRG is represented in the XML by the `definitions` element. The `id` of the DRG in the XML is called `key` in the context of the DMN engine.
 
 ## Decision Tables only
 
@@ -195,7 +195,7 @@ The evaluation of a DMN decision returns a {{< javadocref page="?org/camunda/bpm
 text="DmnDecisionResult" >}}. If the decision is implemented as [decision table] then the result is a list of the
 matching decision rule results. These results represent a mapping from an output name to an output value.
 
-If the decision is instead implemented as [decision literal expression] then the result is a list 
+If the decision is instead implemented as [decision literal expression] then the result is a list
 which contains only one entry. This entry represents the expression value and is mapped by the variable name.
 
 <!--
@@ -216,8 +216,8 @@ The decision table returns the `desiredDish` as the output.
 
 Assume that the decision table is executed with the following input variables:
 
-- `season`: "Winter" 
-- `guestCount`: 7 
+- `season`: "Winter"
+- `guestCount`: 7
 
 There is a matching rule in the table for the given inputs.
 The `DmnDecisionResult` thus consists of one `DmnDecisionResultEntries` which contains the key `desiredDish`.
@@ -264,7 +264,7 @@ ruleResult.getSingleEntry();
 decisionResult.getSingleEntry();
 ```
 
-Note that the decision can also be evaluated using the 
+Note that the decision can also be evaluated using the
 {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnEngine.html##evaluateDecisionTable(org.camunda.bpm.dmn.engine.DmnDecision, java.util.Map)"
 text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provides the same methods as a
 `DmnDecisionResult`.
@@ -283,7 +283,7 @@ Required Decisions: `Season` and `GuestCount`
 `Dish` decision is evaluated after the evaluation of `Season` and `GuestCount`.
 
 Results of `Season` and `GuestCount` are applied as input to `Dish` decision for evaluation.
- 
+
 Assume that the decision is executed with the following input variables:
 
 - `temperature`: 35
@@ -303,6 +303,12 @@ DmnDecisionResult decisionResult = dmnEngine.evaluateDecision(decision, variable
 // output is `Bean salad`
 String desiredDish = decisionResult.getSingleEntry();
 ```
+
+### Handling of hit policy
+
+Required decisions might have [hit policy]({{< relref "reference/dmn11/decision-table/hit-policy.md" >}}) assigned. Which will affect result passed to the decision requiring evaluation. In case if required decision has a [`COLLECT`]({{< relref "reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}) hit policy and no [aggregators]({{< relref "reference/dmn11/decision-table/hit-policy.md#aggregators-for-collect-hit-policy" >}}), result will be interpreted as a list independent from number of rules that were actually matched.
+
+Considering our `Dish` example, if we would change hit policy of `GuestCount` decision from `UNIQUE` to `COLLECT` and provide `WeekDay` as an input `dayType`, then generated output will be `[4]` opposed to simple value of `4`.
 
 [decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
 [decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
