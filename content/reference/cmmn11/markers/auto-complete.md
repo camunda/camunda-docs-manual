@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "cmmn-ref-markers-auto-complete"
     parent: "cmmn-ref-markers"
-    pre: "Controls wheher a Stage auto completes."
+    pre: "Controls whether a Stage auto completes."
 
 ---
 
