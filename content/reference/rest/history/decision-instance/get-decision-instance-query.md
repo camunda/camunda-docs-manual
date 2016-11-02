@@ -43,6 +43,10 @@ GET `/history/decision-instance`
     <td>decisionDefinitionId</td>
     <td>Filter by the decision definition the instances belongs to.</td>
   </tr>
+  </tr>
+    <td>decisionDefinitionIdIn</td>
+    <td>Filter by the decision definitions the instances belongs to.</td>
+  </tr>
   <tr>
     <td>decisionDefinitionKey</td>
     <td>Filter by the key of the decision definition the instances belongs to.</td>
@@ -144,7 +148,7 @@ GET `/history/decision-instance`
   <tr>
     <td>rootDecisionInstanceId</td>
     <td>
-      Restrict to instances that have a given root decision instance id. 
+      Restrict to instances that have a given root decision instance id.
       This also includes the decision instance with the given id.
     </td>
   </tr>
@@ -273,7 +277,7 @@ Each historic decision instance object has the following properties:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the authenticated user that has evaluated this decision instance without 
+    <td>The id of the authenticated user that has evaluated this decision instance without
 	a process or case instance.</td>
   </tr>
   <tr>
