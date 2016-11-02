@@ -88,7 +88,7 @@ There is an extension attribute that allows you to specify an expression in a ta
 
 A human task can be directly assigned to a single user, a list of users or a list of groups.
 
-## Assignement using CMMN Case Role
+## Assignment using CMMN Case Role
 
 CMMN defines some native assignment concepts which can be used in Camunda.
 As a more powerful alternative, Camunda also defines a set of custom extension elements (see below).
