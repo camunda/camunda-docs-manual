@@ -45,11 +45,17 @@ GET `/history/decision-instance`
   </tr>
   </tr>
     <td>decisionDefinitionIdIn</td>
-    <td>Filter by the decision definitions the instances belongs to.</td>
+    <td>
+    Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.
+    </td>
   </tr>
   <tr>
     <td>decisionDefinitionKey</td>
     <td>Filter by the key of the decision definition the instances belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionDefinitionKeyIn</td>
+    <td>Filter by the keys of the decision definition the instances belongs to. Must be a comma-separated list of decision definition keys.</td>
   </tr>
   <tr>
     <td>decisionDefinitionName</td>
