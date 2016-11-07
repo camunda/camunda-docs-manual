@@ -1,6 +1,6 @@
 ---
 
-title: "Get Task (Historic) (POST)"
+title: "Get Tasks (Historic) (POST)"
 weight: 30
 
 menu:
@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for historic tasks that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/task/get-task-query.md" >}}) because it allows
+Queries for historic tasks that fulfill the given parameters.
+This method is slightly more powerful than the [Get Tasks (Historic)]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using the [get task count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Task Count (POST)]({{< relref "reference/rest/history/task/post-task-query-count.md" >}}) method.
 
 
 # Method

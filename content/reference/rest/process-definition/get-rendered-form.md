@@ -21,9 +21,9 @@ Retrieves the rendered form for a process definition. This method can be used fo
 
 GET `/process-definition/{id}/rendered-form`
 
-GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}/rendered-form` (returns the rendered form for the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form` (returns the rendered form for the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/rendered-form` (returns the rendered form for the latest version of the process definition for tenant)
 
 # Parameters
 

@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Instances Count (POST)'
+title: 'Get Instance Count (POST)'
 weight: 110
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/process-instance/post-query.md" >}})
-and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}).
+Queries for the number of process instances that fulfill the given parameters.
+This method takes the same message body as the [Get Instances (POST)]({{< relref "reference/rest/process-instance/post-query.md" >}} method)
+and therefore it is slightly more powerful than the [Get Instance Count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -104,7 +104,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>

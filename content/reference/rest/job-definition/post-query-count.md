@@ -1,6 +1,6 @@
 ---
 
-title: "Get Job Definitions Count (POST)"
+title: "Get Job Definition Count (POST)"
 weight: 50
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of job definitions that fulfill given parameters. This method takes the same message body as the [POST query]({{< relref "reference/rest/job-definition/post-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}).
+Queries for the number of job definitions that fulfill given parameters. This method takes the same message body as the [Get Job Definitions (POST)]({{< relref "reference/rest/job-definition/post-query.md" >}}) method and therefore it is slightly more powerful than the [Get Job Definition Count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -74,11 +74,11 @@ A JSON object with the following properties:
   </tr>  
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Incidents Count"
+title: "Get Incident Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic incidents that fulfill the given parameters.
-Takes the same parameters as the [get incidents]({{< relref "reference/rest/history/incident/get-incident-query.md" >}}) method.
+Queries for the number of historic incidents that fulfill the given parameters.
+Takes the same parameters as the [Get Incidents]({{< relref "reference/rest/history/incident/get-incident-query.md" >}}) method.
 
 
 # Method

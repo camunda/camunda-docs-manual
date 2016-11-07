@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Instance"
+title: "Get Historic Case Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic case instance according to the `HistoricCaseInstance` interface in the engine.
+Retrieves a historic case instance by id, according to the `HistoricCaseInstance` interface in the engine.
 
 
 # Method

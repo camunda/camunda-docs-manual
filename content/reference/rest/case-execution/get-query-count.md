@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Executions Count"
+title: "Get Case Execution Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of case executions that fulfill given parameters.
-Takes the same parameters as the [get case executions]({{< relref "reference/rest/case-execution/get-query.md" >}}) method.
+Queries for the number of case executions that fulfill given parameters.
+Takes the same parameters as the [Get Case Executions]({{< relref "reference/rest/case-execution/get-query.md" >}}) method.
 
 
 # Method

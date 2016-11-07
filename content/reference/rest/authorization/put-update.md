@@ -1,6 +1,6 @@
 ---
 
-title: "Update a Single Authorization"
+title: "Update an Authorization"
 weight: 70
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates a single authorization.
+Updates an authorization by id.
 
 # Method
 

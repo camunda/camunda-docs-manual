@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Execution"
+title: "Get Case Execution"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single case execution according to the `CaseExecution` interface in the engine.
+Retrieves a case execution by id, according to the `CaseExecution` interface in the engine.
 
 
 # Method

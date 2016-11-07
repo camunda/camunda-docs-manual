@@ -1,6 +1,6 @@
 ---
 
-title: "Get Batches Count"
+title: "Get Batch Count"
 weight: 20
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Request the number of batches that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/batch/get-query.md" >}}).
+Requests the number of batches that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Batches]({{< relref
+"reference/rest/batch/get-query.md" >}}) method.
 
 
 # Method

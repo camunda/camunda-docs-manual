@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for case executions that fulfill given parameters.
+Queries for case executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of case executions.
-The size of the result set can be retrieved by using the [get case executions count]({{< relref "reference/rest/case-execution/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Case Execution Count]({{< relref "reference/rest/case-execution/get-query-count.md" >}}) method.
 
 
 # Method

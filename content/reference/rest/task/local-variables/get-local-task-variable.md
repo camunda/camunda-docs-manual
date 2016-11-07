@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a variable from the context of a given task.
+Retrieves a variable from the context of a given task by id.
 
 
 # Method

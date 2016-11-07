@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Re-deploy an existing deployment.
+Re-deploys an existing deployment.
 
 The deployment resources to re-deploy can be restricted by using the properties `resourceIds` or `resourceNames`. If no deployment resources to re-deploy are passed then all existing resources of the given deployment are re-deployed.
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Batch (Historic)"
+title: "Get Historic Batch"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic batch according to the `HistoricBatch` interface in the engine.
+Retrieves a historic batch by id, according to the `HistoricBatch` interface in the engine.
 
 
 # Method

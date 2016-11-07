@@ -1,6 +1,6 @@
 ---
 
-title: "Get Deployments Count"
+title: "Get Deployment Count"
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of deployments that fulfill given parameters. Takes the same parameters as the [get deployments]({{< relref "reference/rest/deployment/get-query.md" >}}) method.
+Queries for the number of deployments that fulfill given parameters. Takes the same parameters as the [Get Deployments]({{< relref "reference/rest/deployment/get-query.md" >}}) method.
 
 # Method
 

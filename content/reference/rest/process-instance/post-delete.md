@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Delete multiple process instances asynchronously (batch).
+Deletes multiple process instances asynchronously (batch).
 
 
 # Method
@@ -53,7 +53,7 @@ A JSON object with the following properties:
 
 ## Response Body
 
-A JSON object corresponding to the Batch interface in the engine. Its properties are as follows:
+A JSON object corresponding to the `Batch` interface in the engine. Its properties are as follows:
 
 <table class="table table-striped">
   <tr>
@@ -144,7 +144,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, i.e. neither processInstanceIds, nor processInstanceQuery is present. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, i.e., neither processInstanceIds, nor processInstanceQuery is present. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

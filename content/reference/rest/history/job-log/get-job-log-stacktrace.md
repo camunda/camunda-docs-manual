@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the corresponding exception stacktrace to the passed historic job log id.
+Retrieves the corresponding exception stacktrace to the passed historic job log by id.
 
 
 # Method

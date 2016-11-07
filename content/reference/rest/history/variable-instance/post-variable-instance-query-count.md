@@ -1,6 +1,6 @@
 ---
 
-title: "Get Variable Instances Count (POST)"
+title: "Get Variable Instance Count (POST)"
 weight: 60
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic variable instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) and therefore it is more powerful regarding variable values than the [GET query count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+Queries for historic variable instances that fulfill the given parameters.
+This method takes the same message body as the [Get Variable Instances (POST)]({{< relref "reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) method and therefore it is more powerful regarding variable values than the [Get Variable Instance Count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method

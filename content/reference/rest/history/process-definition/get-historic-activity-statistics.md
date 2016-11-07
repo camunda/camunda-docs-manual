@@ -13,7 +13,7 @@ menu:
 
 
 Retrieves historic statistics of a given process definition, grouped by activities.
-These statistics include the number of running activity instances and optionally the number of canceled activity instances, finished activity instances and activity instances which completed a scope (i.e., in BPMN 2.0 manner: a scope is completed by an activity instance when the activity instance consumed a token but did not emit a new token).<br/>
+These statistics include the number of running activity instances and, optionally, the number of canceled activity instances, finished activity instances and activity instances which completed a scope (i.e., in BPMN 2.0 manner: a scope is completed by an activity instance when the activity instance consumed a token but did not emit a new token).<br/>
 __Note:__ This only includes historic data.
 
 

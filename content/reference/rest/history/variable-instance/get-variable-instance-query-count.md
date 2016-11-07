@@ -1,6 +1,6 @@
 ---
 
-title: "Get Variable Instances Count"
+title: "Get Variable Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic variable instances that fulfill the given parameters.
-Takes the same parameters as the [get historic variable instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method.
+Queries for the number of historic variable instances that fulfill the given parameters.
+Takes the same parameters as the [Get Variable Instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method.
 
 
 # Method

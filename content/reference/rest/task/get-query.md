@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for tasks that fulfill a given filter.
-The size of the result set can be retrieved by using [get tasks count]({{< relref "reference/rest/task/get-query-count.md" >}}) method.
+Queries for tasks that fulfill a given filter.
+The size of the result set can be retrieved by using the [Get Task Count]({{< relref "reference/rest/task/get-query-count.md" >}}) method.
 
 {{< note title="Security Consideration" class="warning" >}}
   There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
@@ -120,7 +120,7 @@ GET `/task`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>assignee</td>
@@ -187,7 +187,7 @@ GET `/task`
   <tr>
     <td>involvedUser</td>
     <td>Only include tasks that the given user is involved in.
-    A user is involved in a task if an identity link exists between task and user (e.g. the user is the assignee).</td>
+    A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee).</td>
   </tr>
   <tr>
     <td>involvedUserExpression</td>

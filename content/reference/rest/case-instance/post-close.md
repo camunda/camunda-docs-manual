@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Performs a transition from <code>COMPLETED</code> state to <code>CLOSED</code> state. In relation to the state transition it is possible to update or delete case instance variables (please note: deletion precedes update).
+Performs a transition from <code>COMPLETED</code> state to <code>CLOSED</code> state. In relation to the state transition, it is possible to update or delete case instance variables (please note: deletion precedes update).
 
 
 # Method

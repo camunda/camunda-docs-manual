@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for case instances that fulfill given parameters.
+Queries for case instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of case instances.
-The size of the result set can be retrieved by using the [get case instances count]({{< relref "reference/rest/case-instance/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Case Instance Count]({{< relref "reference/rest/case-instance/get-query-count.md" >}}) method.
 
 
 # Method

@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Create an attachment for a task.
+Creates an attachment for a task.
 
 # Method
 

@@ -12,12 +12,12 @@ menu:
 
 ---
 
-Execute a migration plan synchronously for multiple process instances. To
-execute a migration plan asynchronously, use [POST /migration/executeAsync][].
+Executes a migration plan synchronously for multiple process instances. To execute a migration plan asynchronously, 
+use the [Execute Migration Plan Async (Batch)]({{< relref "reference/rest/migration/execute-migration-async.md" >}}) method.
 
 For more information about the difference between synchronous and
 asynchronous execution of a migration plan, please refer to the related
-section of the [user guide][].
+section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
 
 
 # Method
@@ -196,6 +196,3 @@ Request Body:
 ## Response
 
 Status 204. No content.
-
-[user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
-[POST /migration/executeAsync]: {{< relref "reference/rest/migration/execute-migration-async.md" >}}

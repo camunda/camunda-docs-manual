@@ -1,6 +1,6 @@
 ---
 
-title: "Get Groups Count"
+title: "Get Group Count"
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for groups using a list of parameters and retrieves the count.
+Queries for groups using a list of parameters and retrieves the count.
 
 # Method
 

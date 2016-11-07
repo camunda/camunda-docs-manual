@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Definitions Count"
+title: "Get Decision Definition Count"
 weight: 20
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Request the number of decision definitions that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/decision-definition/get-query.md" >}}).
+Requests the number of decision definitions that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Decision Definitions]({{< relref
+"reference/rest/decision-definition/get-query.md" >}}) method.
 
 
 # Method

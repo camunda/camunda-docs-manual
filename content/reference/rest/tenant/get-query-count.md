@@ -1,6 +1,6 @@
 ---
 
-title: "Get Tenants Count"
+title: "Get Tenant Count"
 weight: 20
 
 menu:

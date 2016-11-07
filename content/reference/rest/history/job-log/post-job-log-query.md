@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic job logs that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) because it allows filtering by historic job logs values of the different types `String`, `Number` or `Boolean`.
+Queries for historic job logs that fulfill the given parameters.
+This method is slightly more powerful than the [Get Job Logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) method because it allows filtering by historic job logs values of the different types `String`, `Number` or `Boolean`.
 
 
 # Method

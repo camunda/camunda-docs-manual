@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Gets the comments for a task.
+Gets the comments for a task by id.
 
 
 # Method

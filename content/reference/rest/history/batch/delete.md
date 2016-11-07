@@ -1,6 +1,6 @@
 ---
 
-title: "Delete Single Batch (Historic)"
+title: "Delete Historic Batch"
 weight: 40
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Deletes a historic batch and related historic job logs.
+Deletes a historic batch by id, including related historic job logs.
 
 
 # Method

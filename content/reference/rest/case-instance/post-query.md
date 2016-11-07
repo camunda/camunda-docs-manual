@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for case instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/case-instance/get-query.md" >}}) because it allows
+Queries for case instances that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [Get Case Instances]({{< relref "reference/rest/case-instance/get-query.md" >}}) method because it allows
 to filter by multiple case variables of types `String`, `Number` or `Boolean`.
 
 

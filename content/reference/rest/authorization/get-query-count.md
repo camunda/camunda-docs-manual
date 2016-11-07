@@ -1,6 +1,6 @@
 ---
 
-title: "Get Authorizations Count"
+title: "Get Authorization Count"
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for authorizations using a list of parameters and retrieve the count.
+Queries for authorizations using a list of parameters and retrieves the count.
 
 
 # Method

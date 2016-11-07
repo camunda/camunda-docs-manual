@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Task'
+title: 'Get Task'
 weight: 10
 
 menu:
@@ -14,7 +14,7 @@ menu:
 
 
 
-Retrieves a single task by its id.
+Retrieves a task by id.
 
 
 # Method
@@ -40,7 +40,7 @@ GET `/task/{id}`
 
 # Result
 
-A JSON object corresponding to the Task interface in the engine.
+A JSON object corresponding to the `Task` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

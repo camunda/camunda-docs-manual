@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Variable Instances Count (POST)'
+title: 'Get Variable Instance Count (POST)'
 weight: 50
 
 menu:
@@ -14,7 +14,7 @@ menu:
 
 
 Query for the number of variable instances that fulfill given parameters. This method takes the same message body as the 
-[POST query]({{< relref "reference/rest/variable-instance/post-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/variable-instance/get-query-count.md" >}}).
+[Get Variable Instances (POST)]({{< relref "reference/rest/variable-instance/post-query.md" >}}) method and therefore it is slightly more powerful than the [Get Variable Instance Count]({{< relref "reference/rest/variable-instance/get-query-count.md" >}}) method.
 
 # Method
 

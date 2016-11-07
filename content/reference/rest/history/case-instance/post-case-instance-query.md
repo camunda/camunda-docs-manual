@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances (POST)"
+title: "Get Historic Case Instances (POST)"
 weight: 40
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for historic case instances that fulfill the given parameters.
+Queries for historic case instances that fulfill the given parameters.
 
 
 # Method

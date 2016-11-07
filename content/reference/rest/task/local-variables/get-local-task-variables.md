@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves all variables of a given task.
+Retrieves all variables of a given task by id.
 
 
 # Method

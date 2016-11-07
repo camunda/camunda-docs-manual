@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for deployments that fulfill given parameters. Parameters may be the
+Queries for deployments that fulfill given parameters. Parameters may be the
 properties of deployments, such as the id or name or a range of the deployment time.
 The size of the result set
-can be retrieved by using the [get deployments count]({{< relref "reference/rest/deployment/get-query-count.md" >}}) method.
+can be retrieved by using the [Get Deployment count]({{< relref "reference/rest/deployment/get-query-count.md" >}}) method.
 
 
 # Method

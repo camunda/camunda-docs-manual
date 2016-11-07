@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Deployment Resource (binary)'
+title: 'Get Deployment Resource (binary)'
 weight: 70
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the binary content of a single deployment resource for the given deployment.
+Retrieves the binary content of a deployment resource for the given deployment by id.
 
 
 # Method

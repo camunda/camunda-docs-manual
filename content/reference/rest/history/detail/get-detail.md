@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Historic Detail"
+title: "Get Historic Detail"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic detail by id.
+Retrieves a historic detail by id.
 
 
 # Method

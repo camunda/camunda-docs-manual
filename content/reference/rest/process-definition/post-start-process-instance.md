@@ -24,9 +24,9 @@ Instantiates a given process definition. Process variables and business key may 
 
 POST `/process-definition/{id}/start`
 
-POST `/process-definition/key/{key}/start` (starts the latest version of process definition which belongs to no tenant)
+POST `/process-definition/key/{key}/start` (starts the latest version of the process definition which belongs to no tenant)
 
-POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the latest version of process definition for tenant)
+POST `/process-definition/key/{key}/tenant-id/{tenant-id}/start` (starts the latest version of the process definition for tenant)
 
 
 # Parameters

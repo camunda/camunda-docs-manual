@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Executes the saved query of the filter and returns the result list. This method is slightly more
-powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-list.md" >}}) because it allows to extend the saved
+Executes the saved query of the filter by id and returns the result list. This method is slightly more
+powerful then the [Get Execute Filter List]({{< relref "reference/rest/filter/get-execute-list.md" >}}) method because it allows to extend the saved
 query of the filter.
 
 {{< note title="Security Consideration" class="warning" >}}

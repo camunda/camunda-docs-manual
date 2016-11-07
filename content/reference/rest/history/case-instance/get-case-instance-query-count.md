@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances Count"
+title: "Get Historic Case Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic case instances that fulfill the given parameters.  Takes the same
-parameters as the [Get Case Instances]({{< relref "reference/rest/history/case-instance/get-case-instance-query.md" >}}) method.
+Queries for the number of historic case instances that fulfill the given parameters.  Takes the same
+parameters as the [Get Historic Case Instances]({{< relref "reference/rest/history/case-instance/get-case-instance-query.md" >}}) method.
 
 
 # Method

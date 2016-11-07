@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Definitions Count'
+title: 'Get Definition Count'
 weight: 40
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Request the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[GET query]({{< relref "reference/rest/process-definition/get-query.md" >}}).
+Requests the number of process definitions that fulfill the query criteria. Takes the same filtering parameters as the
+[Get Definitions]({{< relref "reference/rest/process-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -53,7 +53,7 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -117,11 +117,11 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeProcessDefinitionsWithoutTenantId</td>
-    <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include process definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>versionTag</td>

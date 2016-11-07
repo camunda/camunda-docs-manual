@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for jobs that fulfill given parameters. This method is slightly more powerful than the [GET query]({{< relref "reference/rest/job/get-query.md" >}}) because it allows filtering by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Queries for jobs that fulfill given parameters. This method is slightly more powerful than the [Get Jobs]({{< relref "reference/rest/job/get-query.md" >}}) method because it allows filtering by multiple jobs of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 # Method
@@ -83,7 +83,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only select jobs which are executable, i.e., retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>timers</td>
@@ -138,16 +138,16 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include jobs which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobsWithoutTenantId</td>
-    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include jobs which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>

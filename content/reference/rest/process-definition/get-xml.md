@@ -17,16 +17,16 @@ menu:
 ---
 
 
-Retrieves the BPMN 2.0 XML of this process definition.
+Retrieves the BPMN 2.0 XML of a process definition.
 
 
 # Method
 
 GET `/process-definition/{id}/xml`
 
-GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}/xml` (returns the XML for the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML for the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/xml` (returns the XML for the latest version of the process definition for tenant)
 
 
 # Parameters

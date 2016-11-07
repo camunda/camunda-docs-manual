@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves all variables of a given case instance.
+Retrieves all variables of a given case instance by id.
 
 
 # Method

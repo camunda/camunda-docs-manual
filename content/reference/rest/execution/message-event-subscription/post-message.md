@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deliver a message to a specific execution to trigger an existing message event subscription. Inject process variables as the message's payload.
+Delivers a message to a specific execution by id, to trigger an existing message event subscription. Inject process variables as the message's payload.
 
 
 # Method

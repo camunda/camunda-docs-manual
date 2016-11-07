@@ -13,7 +13,7 @@ menu:
 
 ---
 
-Deletes a job.
+Deletes a job by id.
 
 
 # Method

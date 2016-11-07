@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the corresponding exception stacktrace to the passed job id.
+Retrieves the exception stacktrace corresponding to the passed job id.
 
 # Method
 
@@ -38,7 +38,7 @@ GET `/job/{id}/stacktrace`
 
 # Result
 
-The result is the corresponding stacktrace as a plain text.
+The result is the corresponding stacktrace as plain text.
 
 
 # Response Codes

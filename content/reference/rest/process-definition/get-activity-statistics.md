@@ -16,7 +16,7 @@ menu:
 ---
 
 
-Retrieves runtime statistics of a given process definition grouped by activities.
+Retrieves runtime statistics of a given process definition, grouped by activities.
 These statistics include the number of running activity instances, optionally the number of failed jobs and also optionally the number of incidents either grouped by incident types or for a specific incident type.<br/>
 __Note:__ This does not include historic data.
 
@@ -25,7 +25,7 @@ __Note:__ This does not include historic data.
 
 GET `/process-definition/{id}/statistics`
 
-GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}/statistics` (returns statistics for the latest version of the process definition which belongs to no tenant)
 
 GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics` (returns statistics for the latest version of process definition for tenant)
 
@@ -70,7 +70,7 @@ GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics` (returns st
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e. a String value) the result will only include the number of incidents for the assigned incident type.</td>
+    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type.</td>
   </tr>
 </table>
 

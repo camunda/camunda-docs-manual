@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Sets the serialized value for a binary variable or the binary value for a file variable.
+Sets the serialized value for a binary variable or the binary value for a file variable in the context of a given execution by id.
 
 # Method
 

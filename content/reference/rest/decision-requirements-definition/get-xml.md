@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves the DMN XML of this decision requirements definition.
+Retrieves the DMN XML of a decision requirements definition.
 
 
 # Method

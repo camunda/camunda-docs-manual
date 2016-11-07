@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances Count (POST)"
+title: "Get Case Instance Count (POST)"
 weight: 50
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the number of case instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/case-instance/post-query.md" >}})
-and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/case-instance/get-query-count.md" >}}).
+Queries for the number of case instances that fulfill the given parameters.
+This method takes the same message body as the [Get Case Instance (POST)]({{< relref "reference/rest/case-instance/post-query.md" >}}) method
+and therefore it is slightly more powerful than the [Get Case Instance Count]({{< relref "reference/rest/case-instance/get-query-count.md" >}}) method.
 
 
 # Method

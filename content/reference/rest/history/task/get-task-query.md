@@ -1,6 +1,6 @@
 ---
 
-title: "Get Task (Historic)"
+title: "Get Tasks (Historic)"
 weight: 10
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic tasks that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/task/get-task-query-count.md" >}}) method.
+Queries for historic tasks that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Task Count]({{< relref "reference/rest/history/task/get-task-query-count.md" >}}) method.
 
 
 # Method

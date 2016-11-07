@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Tasks Count (POST)'
+title: 'Get Task Count (POST)'
 weight: 40
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Get the number of tasks that fulfill the given filter.
-Corresponds to the size of the result set of the [get tasks (POST)]({{< relref "reference/rest/task/post-query.md" >}}) method and takes the same parameters.
+Retrieves the number of tasks that fulfill the given filter.
+Corresponds to the size of the result set of the [Get Tasks (POST)]({{< relref "reference/rest/task/post-query.md" >}}) method and takes the same parameters.
 
 {{< note title="Security Consideration" class="warning" >}}
   There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
@@ -123,7 +123,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>assignee</td>

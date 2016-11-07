@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Create a comment for a task.
+Creates a comment for a task by id.
 
 # Method
 

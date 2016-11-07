@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Executes the saved query of the filter and returns the count.
+Executes the saved query of the filter by id and returns the count.
 
 # Method
 

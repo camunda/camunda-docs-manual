@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances Count"
+title: "Get Case Instance Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of case instances that fulfill given parameters.
-Takes the same parameters as the [get case instances]({{< relref "reference/rest/case-instance/get-query.md" >}}) method.
+Queries for the number of case instances that fulfill given parameters.
+Takes the same parameters as the [Get Case Instances]({{< relref "reference/rest/case-instance/get-query.md" >}}) method.
 
 
 # Method

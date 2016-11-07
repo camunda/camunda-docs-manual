@@ -14,7 +14,7 @@ menu:
 
 
 Query for a list of users using a list of parameters.
-The size of the result set can be retrieved by using the [get users count]({{< relref "reference/rest/user/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get User Count]({{< relref "reference/rest/user/get-query-count.md" >}}) method.
 
 
 # Method

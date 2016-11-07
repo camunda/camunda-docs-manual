@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the executions that fulfill given parameters.
+Queries for the executions that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
-The size of the result set can be retrieved by using the [get executions count]({{< relref "reference/rest/execution/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Execution Count]({{< relref "reference/rest/execution/get-query-count.md" >}}) method.
 
 
 # Method

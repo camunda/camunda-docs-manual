@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [get variable instances count]({{< relref "reference/rest/variable-instance/get-query-count.md" >}}) method.
+Query for variable instances that fulfill given parameters. Parameters may be the properties of variable instances, such as the name or type. The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< relref "reference/rest/variable-instance/get-query-count.md" >}}) method.
 
 
 # Method

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Activity Instances Count"
+title: "Get Historic Case Activity Instance Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic case activity instances that fulfill the given parameters. Takes
-the same parameters as the [get historic case activity instances]({{< relref "reference/rest/history/case-activity-instance/get-case-activity-instance-query.md" >}}) method.
+Queries for the number of historic case activity instances that fulfill the given parameters. Takes
+the same parameters as the [Get Historic Case Activity Instances]({{< relref "reference/rest/history/case-activity-instance/get-case-activity-instance-query.md" >}}) method.
 
 
 # Method

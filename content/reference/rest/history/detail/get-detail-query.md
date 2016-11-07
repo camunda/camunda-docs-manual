@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic details that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/detail/get-detail-query-count.md" >}}) method.
+Queries for historic details that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Historic Detail Count]({{< relref "reference/rest/history/detail/get-detail-query-count.md" >}}) method.
 
 
 # Method

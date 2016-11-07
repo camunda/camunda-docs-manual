@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves all variables of a given execution.
+Retrieves all variables of a given execution by id.
 
 
 # Method

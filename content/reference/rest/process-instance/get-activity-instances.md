@@ -12,7 +12,7 @@ menu:
 ---
 
 
-Retrieves an Activity Instance (Tree) for a given process instance.
+Retrieves an Activity Instance (Tree) for a given process instance by id.
 
 
 # Method
@@ -66,7 +66,7 @@ The properties of an activity instance are as follows:
   <tr>
     <td>activityType</td>
     <td>String</td>
-    <td>The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g. 'userTask').</td>
+    <td>The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask').</td>
   </tr>
   <tr>
     <td>processInstanceId</td>
@@ -121,7 +121,7 @@ The properties of a transition instance are as follows:
   <tr>
     <td>activityType</td>
     <td>String</td>
-    <td>The type of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job). Corresponds to the XML element name in the BPMN 2.0, e.g. 'userTask'.</td>
+    <td>The type of the activity that this instance enters (asyncBefore job) or leaves (asyncAfter job). Corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask'.</td>
   </tr>
   <tr>
     <td>processInstanceId</td>

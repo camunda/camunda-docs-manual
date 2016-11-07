@@ -1,6 +1,6 @@
 ---
 
-title: "Delete a single historic Process Instance"
+title: "Delete a Historic Process Instance"
 weight: 60
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deletes a single process instance from the history.
+Deletes a process instance from the history by id.
 
 
 # Method

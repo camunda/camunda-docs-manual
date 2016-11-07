@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Deployment Resource'
+title: 'Get Deployment Resource'
 weight: 60
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single deployment resource by resource id for the given deployment.
+Retrieves a deployment resource by resource id for the given deployment.
 
 
 # Method

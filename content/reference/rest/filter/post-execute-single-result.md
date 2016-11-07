@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Executes the saved query of the filter and returns the single result. This method is slightly more
-powerful then the [GET query]({{< relref "reference/rest/filter/get-execute-single-result.md" >}}) because it allows to extend
+Executes the saved query of the filter by id and returns the single result. This method is slightly more
+powerful then the [Get Execute Filter Single Result]({{< relref "reference/rest/filter/get-execute-single-result.md" >}}) method because it allows to extend
 the saved query of the filter.
 
 {{< note title="Security Consideration" class="warning" >}}

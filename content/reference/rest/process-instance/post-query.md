@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for process instances that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/process-instance/get-query.md" >}}) because it allows
+Queries for process instances that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [Get Instances]({{< relref "reference/rest/process-instance/get-query.md" >}}) method because it allows
 filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
@@ -121,7 +121,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>
@@ -142,7 +142,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>

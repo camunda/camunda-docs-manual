@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Decision Instance"
+title: "Get Historic Decision Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic decision instance according to the
+Retrieves a historic decision instance by id, according to the
 `HistoricDecisionInstance` interface in the engine.
 
 

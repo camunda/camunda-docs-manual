@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Task Attachment'
+title: 'Get Task Attachment'
 weight: 200
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single task attachment by task id and attachment id.
+Retrieves a task attachment by task id and attachment id.
 
 
 # Method

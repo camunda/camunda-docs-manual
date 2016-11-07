@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic variable instances that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
+Queries for historic variable instances that fulfill the given parameters.
+This method is slightly more powerful than the [Get Variable Instances]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query.md" >}}) method because it allows filtering by variable values of the different types `String`, `Number` or `Boolean`.
 
 
 # Method

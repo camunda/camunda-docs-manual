@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves all variables of a given process instance.
+Retrieves all variables of a given process instance by id.
 
 
 # Method

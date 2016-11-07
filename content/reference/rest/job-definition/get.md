@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job Definition"
+title: "Get Job Definition"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single job definition according to the JobDefinition interface in the engine.
+Retrieves a job definition by id, according to the `JobDefinition` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/job-definition/{id}`
 
 # Result
 
-A JSON object corresponding to the JobDefinition interface in the engine.
+A JSON object corresponding to the `JobDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer, etc.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>

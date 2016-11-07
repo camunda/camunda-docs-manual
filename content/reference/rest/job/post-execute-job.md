@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Executes the job. </br><strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
+Executes a job by id. </br><strong>Note:</strong> The execution of the job happens synchronously in the same thread.</code>
 
 
 # Method

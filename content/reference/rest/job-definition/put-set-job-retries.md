@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Set the number of retries of all <strong>failed</strong> jobs associated with the given job definition id.
+Sets the number of retries of all <strong>failed</strong> jobs associated with the given job definition id.
 
 
 # Method

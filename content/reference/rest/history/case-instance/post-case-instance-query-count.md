@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Instances Count (POST)"
+title: "Get Historic Case Instance Count (POST)"
 weight: 50
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic case instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/history/case-instance/post-case-instance-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/history/case-instance/get-case-instance-query-count.md" >}}).
+Queries for the number of historic case instances that fulfill the given parameters.
+This method takes the same message body as the [Get Historic Case Instances (POST)]({{< relref "reference/rest/history/case-instance/post-case-instance-query.md" >}}) method and therefore it is slightly more powerful than the [Get Historic Case Instance Count]({{< relref "reference/rest/history/case-instance/get-case-instance-query-count.md" >}}) method.
 
 
 # Method

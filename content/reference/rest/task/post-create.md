@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Create a new task.
+Creates a new task.
 
 
 # Method

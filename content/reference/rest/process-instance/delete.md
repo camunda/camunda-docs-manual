@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deletes a running process instance.
+Deletes a running process instance by id.
 
 
 # Method

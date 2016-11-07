@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Historic Detail (Binary)"
+title: "Get Historic Detail (Binary)"
 weight: 40
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves the content of a single historic variable update by id. Applicable for byte array and file variables.
+Retrieves the content of a historic variable update by id. Applicable for byte array and file variables.
 
 
 # Method

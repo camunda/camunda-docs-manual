@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Variable Instance (Binary)"
+title: "Get Variable Instance (Binary)"
 weight: 40
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves the content of a single historic variable by id. Applicable for variables that are serialized as binary data.
+Retrieves the content of a historic variable by id. Applicable for variables that are serialized as binary data.
 
 
 # Method

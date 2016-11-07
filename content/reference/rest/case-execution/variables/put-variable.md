@@ -1,6 +1,6 @@
 ---
 
-title: "Put Single Case Execution Variable"
+title: "Put Case Execution Variable"
 weight: 150
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Sets a variable of a given case execution.
+Sets a variable of a given case execution by id.
 
 
 # Method

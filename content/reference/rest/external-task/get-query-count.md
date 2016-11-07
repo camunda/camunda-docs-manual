@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of external tasks that fulfill given parameters.
-Takes the same parameters as the [get external tasks]({{< relref "reference/rest/external-task/get-query.md" >}}) method.
+Queries for the number of external tasks that fulfill given parameters.
+Takes the same parameters as the [Get External Tasks]({{< relref "reference/rest/external-task/get-query.md" >}}) method.
 
 
 # Method

@@ -14,9 +14,9 @@ menu:
 
 
 
-Query for process instances that fulfill given parameters.
+Queries for process instances that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of process instances.
-The size of the result set can be retrieved by using the [get instances count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Instance Count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -103,7 +103,7 @@ GET `/process-instance`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates or deletes the variables of a process instance.
+Updates or deletes the variables of a process instance by id.
 Updates precede deletions. So, if a variable is updated AND deleted, the deletion overrides the update.
 
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Complete an external task and update process variables.
+Completes an external task by id and updates process variables.
 
 
 # Method

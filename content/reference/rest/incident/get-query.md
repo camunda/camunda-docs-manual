@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for incidents that fulfill given parameters.
-The size of the result set can be retrieved by using the [get incidents count]({{< relref "reference/rest/incident/get-query-count.md" >}}) method.
+Queries for incidents that fulfill given parameters.
+The size of the result set can be retrieved by using the [Get Incident Count]({{< relref "reference/rest/incident/get-query-count.md" >}}) method.
 
 
 # Method

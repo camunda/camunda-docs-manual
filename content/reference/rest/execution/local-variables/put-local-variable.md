@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Sets a variable in the context of a given execution. Update does not propagate upwards in the execution hierarchy.
+Sets a variable in the context of a given execution by id. Update does not propagate upwards in the execution hierarchy.
 
 
 # Method

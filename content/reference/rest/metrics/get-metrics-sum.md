@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Retrieves the `sum` (count) for a given metrics.
+Retrieves the `sum` (count) for a given metric.
 
 # Method
 

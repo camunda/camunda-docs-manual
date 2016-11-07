@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Removes a local variable from a task.
+Removes a local variable from a task by id.
 
 
 # Method

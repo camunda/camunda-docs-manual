@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for case executions that fulfill given parameters through a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/case-execution/get-query.md" >}}) because it allows
+Queries for case executions that fulfill given parameters through a JSON object.
+This method is slightly more powerful than the [Get Case Executions]({{< relref "reference/rest/case-execution/get-query.md" >}}) method because it allows
 filtering by multiple case variables of types `String`, `Number` or `Boolean`.
 
 

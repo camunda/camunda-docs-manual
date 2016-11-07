@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Request the number of batch statistics that fulfill the query criteria.  Takes
-the same filtering parameters as the [GET statistics query]({{< relref
-"reference/rest/batch/get-statistics-query.md" >}}).
+Requests the number of batch statistics that fulfill the query criteria.  Takes
+the same filtering parameters as the [Get Batch Statistics]({{< relref
+"reference/rest/batch/get-statistics-query.md" >}}) method.
 
 
 # Method

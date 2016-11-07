@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Tasks Count'
+title: 'Get Task Count'
 weight: 30
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Get the number of tasks that fulfill a provided filter.
-Corresponds to the size of the result set when using the [get tasks]({{< relref "reference/rest/task/get-query.md" >}}) method.
+Retrieves the number of tasks that fulfill a provided filter.
+Corresponds to the size of the result set when using the [Get Tasks]({{< relref "reference/rest/task/get-query.md" >}}) method.
 
 {{< note title="Security Consideration" class="warning" >}}
   There are several query parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
@@ -120,7 +120,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>assignee</td>

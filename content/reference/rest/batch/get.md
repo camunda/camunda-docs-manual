@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Batch"
+title: "Get Batch"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single batch according to the `Batch` interface in the engine.
+Retrieves a batch by id, according to the `Batch` interface in the engine.
 
 
 # Method

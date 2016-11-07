@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Deletes a variable in the context of a given execution. Deletion does not propagate upwards in the execution hierarchy.
+Deletes a variable in the context of a given execution by id. Deletion does not propagate upwards in the execution hierarchy.
 
 
 # Method

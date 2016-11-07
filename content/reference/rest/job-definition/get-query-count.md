@@ -1,6 +1,6 @@
 ---
 
-title: "Get Job Definitions Count"
+title: "Get Job Definition Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of job definitions that fulfill given parameters.
-Takes the same parameters as the [get job definitions]({{< relref "reference/rest/job-definition/get-query.md" >}}) method.
+Queries for the number of job definitions that fulfill given parameters.
+Takes the same parameters as the [Get Job Definitions]({{< relref "reference/rest/job-definition/get-query.md" >}}) method.
 
 
 # Method
@@ -73,11 +73,11 @@ GET `/job-definition/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

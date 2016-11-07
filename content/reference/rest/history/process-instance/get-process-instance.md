@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Process Instance"
+title: "Get Process Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic process instance according to the `HistoricProcessInstance` interface in the engine.
+Retrieves a historic process instance by id, according to the `HistoricProcessInstance` interface in the engine.
 
 
 # Method

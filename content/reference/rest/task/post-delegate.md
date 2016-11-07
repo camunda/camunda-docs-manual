@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Delegate a task to another user.
+Delegates a task to another user.
 
 
 # Method

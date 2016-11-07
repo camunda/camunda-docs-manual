@@ -1,6 +1,6 @@
 ---
 
-title: "Get Job Logs Count"
+title: "Get Job Log Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic job logs that fulfill the given parameters.
-Takes the same parameters as the [get historic job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) method.
+Queries for the number of historic job logs that fulfill the given parameters.
+Takes the same parameters as the [Get Job Logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md" >}}) method.
 
 
 # Method

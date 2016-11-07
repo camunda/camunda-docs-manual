@@ -1,24 +1,24 @@
 ---
 
-title: "Get Single Case Instance Variable (Binary)"
-weight: 100
+title: "Get Case Execution Variable (Binary)"
+weight: 120
 
 menu:
   main:
     name: "Get (Binary)"
-    identifier: "rest-api-case-instance-get-single-variable-binary"
-    parent: "rest-api-case-instance-variables"
-    pre: "GET `/case-instance/{id}/variables/{varName}/data`"
+    identifier: "rest-api-case-execution-get-single-variable-binary"
+    parent: "rest-api-case-execution-variables"
+    pre: "GET `/case-execution/{id}/variables/{varName}/data`"
 
 ---
 
 
-Retrieves a binary variable of a given case instance. Applicable for byte array and file variables.
+Retrieves a binary variable of a given case execution by id. Applicable for byte array and file variables.
 
 
 # Method
 
-GET `/case-instance/{id}/variables/{varName}/data`
+GET `/case-execution/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -32,7 +32,7 @@ GET `/case-instance/{id}/variables/{varName}/data`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the case instance to retrieve the variable from.</td>
+    <td>The id of the case execution to retrieve the variable from.</td>
   </tr>
   <tr>
     <td>varName</td>
@@ -72,11 +72,12 @@ Additionally, for file variables the Content-Disposition header will be set.
   </tr>
 </table>
 
+
 # Example
 
 ## Request
 
-GET `/case-instance/aCaseInstanceId/variables/aVarName/data`
+GET `/case-execution/aCaseExecutionId/variables/aVarName/data`
 
 ## Response
 

@@ -11,7 +11,7 @@ menu:
     pre: "POST `/case-execution/{id}/complete`"
 ---
 
-Performs a transition from <code>ACTIVE</code> state to <code>COMPLETED</code> state. In relation to the state transition it is possible to update or delete case instance variables (please note: deletion precedes update).
+Performs a transition from <code>ACTIVE</code> state to <code>COMPLETED</code> state. In relation to the state transition, it is possible to update or delete case instance variables (please note: deletion precedes update).
 
 # Method
 

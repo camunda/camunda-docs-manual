@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job"
+title: "Get Job"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single job according to the `Job` interface in the engine.
+Retrieves a job by id, according to the `Job` interface in the engine.
 
 
 # Method
@@ -39,7 +39,7 @@ GET `/job/{id}`
 
 # Result
 
-A JSON object corresponding to the Job interface in the engine.
+A JSON object corresponding to the `Job` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">

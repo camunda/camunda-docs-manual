@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the external tasks that fulfill given parameters.
+Queries for the external tasks that fulfill given parameters.
 Parameters may be static as well as dynamic runtime properties of executions.
-The size of the result set can be retrieved by using the [get external tasks count]({{< relref "reference/rest/external-task/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get External Task Count]({{< relref "reference/rest/external-task/get-query-count.md" >}}) method.
 
 
 # Method

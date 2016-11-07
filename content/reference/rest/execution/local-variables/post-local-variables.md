@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates or deletes the variables in the context of an execution. The updates do not propagate upwards in the execution hierarchy.
+Updates or deletes the variables in the context of an execution by id. The updates do not propagate upwards in the execution hierarchy.
 Updates precede deletions. So, if a variable is updated AND deleted, the deletion overrides the update.
 
 

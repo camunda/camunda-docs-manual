@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Definition"
+title: "Get Case Definition"
 weight: 30
 
 menu:
@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single case definition according to the `CaseDefinition` interface in the engine.
+Retrieves a case definition according to the `CaseDefinition` interface in the engine.
 
 
 # Method

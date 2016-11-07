@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for decision requirements definitions that fulfill given parameters. Parameters may be
+Queries for decision requirements definitions that fulfill given parameters. Parameters may be
 the properties of decision requirements definitions, such as the name, key or version.  The
-size of the result set can be retrieved by using the [GET query count]({{<
-relref "reference/rest/decision-requirements-definition/get-query-count.md" >}}).
+size of the result set can be retrieved by using the [Get Decision Requirements Definition Count]({{<
+relref "reference/rest/decision-requirements-definition/get-query-count.md" >}}) method.
 
 
 # Method

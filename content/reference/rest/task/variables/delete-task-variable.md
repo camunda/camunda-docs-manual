@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Removes a variable visible from a task. A variable is visible from a task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
+Removes a variable that is visible to a task. A variable is visible to a task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
 
 
 # Method

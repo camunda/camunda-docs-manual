@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single External Task"
+title: "Get External Task"
 weight: 10
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single external task corresponding to the `ExternalTask` interface in the engine.
+Retrieves an external task by id, corresponding to the `ExternalTask` interface in the engine.
 
 
 # Method

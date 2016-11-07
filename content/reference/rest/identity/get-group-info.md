@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Gets the groups of a user and all users that share a group with the given user.
+Gets the groups of a user by id and includes all users that share a group with the given user.
 
 
 # Method

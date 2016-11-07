@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend process instances with the given process definition id.
+Activates or suspends process instances with the given process definition id.
 
 # Method
 

@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Variable Instances Count'
+title: 'Get Variable Instance Count'
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [get variable instances]({{< relref "reference/rest/variable-instance/get-query.md" >}}) method.
+Query for the number of variable instances that fulfill given parameters. Takes the same parameters as the [Get Variable Instances]({{< relref "reference/rest/variable-instance/get-query.md" >}}) method.
 
 # Method
 

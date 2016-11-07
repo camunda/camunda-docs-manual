@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Activity Instance (Historic)"
+title: "Get Historic Case Activity Instance"
 weight: 30
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves a single historic case activity instance according to the `HistoricCaseActivityInstance`
+Retrieves a historic case activity instance by id, according to the `HistoricCaseActivityInstance`
 interface in the engine.
 
 

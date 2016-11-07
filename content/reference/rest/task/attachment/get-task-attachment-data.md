@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Task Attachment Content (binary)'
+title: 'Get Task Attachment Content (binary)'
 weight: 220
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves the binary content of a single task attachment by task id and attachment id.
+Retrieves the binary content of a task attachment by task id and attachment id.
 
 
 # Method

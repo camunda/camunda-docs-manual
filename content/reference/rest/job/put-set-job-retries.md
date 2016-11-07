@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Sets the retries of the job to the given number of retries.
+Sets the retries of the job to the given number of retries by id.
 
 
 # Method

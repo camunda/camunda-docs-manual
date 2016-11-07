@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Variable Instance"
+title: "Get Variable Instance"
 weight: 40
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single variable by id.
+Retrieves a variable by id.
 
 
 # Method
@@ -53,7 +53,7 @@ GET `/variable-instance/{id}`
 
 # Result
 
-A json object with the following properties:
+A JSON object with the following properties:
 
 <table class="table table-striped">
   <tr>

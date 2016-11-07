@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Requirements Definitions Count"
+title: "Get Decision Requirements Definition Count"
 weight: 20
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Request the number of decision requirements definitions that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/decision-requirements-definition/get-query.md" >}}).
+Requests the number of decision requirements definitions that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Decision Requirements Definitions]({{< relref
+"reference/rest/decision-requirements-definition/get-query.md" >}}) method.
 
 
 # Method

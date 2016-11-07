@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Execution Variable"
+title: "Get Case Execution Variable"
 weight: 110
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a variable of a given case execution.
+Retrieves a variable of a given case execution by id.
 
 
 # Method

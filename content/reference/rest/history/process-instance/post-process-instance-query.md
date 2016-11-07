@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic process instances that fulfill the given parameters.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) because it allows filtering by multiple process variables of types `String`, `Number` or `Boolean`.
+Queries for historic process instances that fulfill the given parameters.
+This method is slightly more powerful than the [Get Process Instances]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) method because it allows filtering by multiple process variables of types `String`, `Number` or `Boolean`.
 
 
 # Method

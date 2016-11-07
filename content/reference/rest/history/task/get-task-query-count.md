@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic tasks that fulfill the given parameters.
-Takes the same parameters as the [get historic tasks]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method.
+Queries for the number of historic tasks that fulfill the given parameters.
+Takes the same parameters as the [Get Tasks (Historic)]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method.
 
 
 # Method

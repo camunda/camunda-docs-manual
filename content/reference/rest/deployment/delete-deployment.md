@@ -1,6 +1,6 @@
 ---
 
-title: "Delete Single Deployment"
+title: "Delete Deployment"
 weight: 80
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Deletes a deployment.
+Deletes a deployment by id.
 
 
 # Method

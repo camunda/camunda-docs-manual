@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Resolve a task and update execution variables.
+Resolves a task and updates execution variables.
 
 
 # Method

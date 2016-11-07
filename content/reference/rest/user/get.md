@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single user's profile.
+Retrieves a user's profile.
 
 
 # Method

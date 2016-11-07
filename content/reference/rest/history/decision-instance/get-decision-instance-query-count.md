@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Instances Count"
+title: "Get Historic Decision Instance Count"
 weight: 20
 
 menu:
@@ -13,9 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic decision instances that fulfill the given
-parameters.  Takes the same parameters as the [Get Decision Instances][get]
-method.
+Queries for the number of historic decision instances that fulfill the given
+parameters. Takes the same parameters as the [Get Historic Decision Instances]({{< relref "reference/rest/history/decision-instance/get-decision-instance-query.md" >}}) method.
 
 
 # Method
@@ -200,5 +199,3 @@ GET `/history/decision-instance/count`
   "count": 4
 }
 ```
-
-[get]: {{< relref "reference/rest/history/decision-instance/get-decision-instance-query.md" >}}

@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for batch statistics that fulfill given parameters. Parameters may be the
+Queries for batch statistics that fulfill given parameters. Parameters may be the
 properties of batches, such as the id or type.  The size of the result set can
-be retrieved by using the [GET statistics query count]({{< relref
-"reference/rest/batch/get-statistics-query-count.md" >}}).
+be retrieved by using the [Get Batch Statistics Count]({{< relref
+"reference/rest/batch/get-statistics-query-count.md" >}}) method.
 
 
 # Method

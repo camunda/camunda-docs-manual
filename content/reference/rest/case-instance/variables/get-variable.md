@@ -1,28 +1,28 @@
 ---
 
-title: 'Get Single Process Variable'
-weight: 70
+title: "Get Case Instance Variable"
+weight: 90
 
 menu:
   main:
     name: "Get"
-    identifier: "rest-api-process-instance-get-variable"
-    parent: "rest-api-process-instance-variables"
-    pre: "GET `/process-instance/{id}/variables/{varName}`"
+    identifier: "rest-api-case-instance-get-single-variable"
+    parent: "rest-api-case-instance-variables"
+    pre: "GET `/case-instance/{id}/variables/{varName}`"
 
 ---
 
 
-Retrieves a variable of a given process instance.
+Retrieves a variable of a given case instance by id.
 
 
 # Method
 
-GET `/process-instance/{id}/variables/{varName}`
+GET `/case-instance/{id}/variables/{varName}`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -32,7 +32,7 @@ GET `/process-instance/{id}/variables/{varName}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process instance to retrieve the variable from.</td>
+    <td>The id of the case instance to retrieve the variable from.</td>
   </tr>
   <tr>
     <td>varName</td>
@@ -55,13 +55,14 @@ GET `/process-instance/{id}/variables/{varName}`
   </tr>
 </table>
 
+
 # Result
 
 A JSON object with the following properties:
 
 {{< rest-var-response deserializationParameter="deserializeValues" >}}
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -87,8 +88,8 @@ A JSON object with the following properties:
 
 ## Request
 
-GET `/process-instance/aProcessInstanceId/variables/aVarName`
-  
+GET `/case-instance/aCaseInstanceId/variables/aVarName`
+
 ## Response
 
 {{< rest-var-response-example-deserialized >}}
@@ -98,9 +99,8 @@ GET `/process-instance/aProcessInstanceId/variables/aVarName`
 
 ## Request
 
-GET `/process-instance/aProcessInstanceId/variables/aVarName?deserializeValue=false`
-  
+GET `/case-instance/aCaseInstanceId/variables/aVarName?deserializeValue=false`
+
 ## Response
 
 {{< rest-var-response-example-serialized >}}
-

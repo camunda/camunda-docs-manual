@@ -1,6 +1,6 @@
 ---
 
-title: "Get Process Instances Count"
+title: "Get Process Instance Count"
 weight: 20
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of historic process instances that fulfill the given parameters.
+Queries for the number of historic process instances that fulfill the given parameters.
 Takes the same parameters as the [Get Process Instances]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) method.
 
 

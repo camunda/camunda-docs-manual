@@ -48,7 +48,7 @@ All errors also provide a JSON response body of the form:
 
 ## Authorization Exceptions
 
-If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to `403, Forbidden`. Details about the unauthorized interaction are provided in the response body.
+If an already authenticated user interacts with a resource in an unauthorized way, the status code of the response will be set to `403 Forbidden`. Details about the unauthorized interaction are provided in the response body.
 
 #### Type
 

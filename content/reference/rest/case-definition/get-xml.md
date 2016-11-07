@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves the CMMN XML of this case definition.
+Retrieves the CMMN XML of a case definition.
 
 
 # Method

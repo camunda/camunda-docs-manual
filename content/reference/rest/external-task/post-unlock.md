@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Unlock an external task. Clears the task's lock expiration time and worker id.
+Unlocks an external task by id. Clears the task's lock expiration time and worker id.
 
 # Method
 

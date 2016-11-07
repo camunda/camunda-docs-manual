@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Users Count'
+title: 'Get User Count'
 weight: 20
 
 menu:

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for job definitions that fulfill given parameters. This method is slightly more powerful than the [GET query]({{< relref "reference/rest/job-definition/get-query.md" >}}) because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
+Queries for job definitions that fulfill given parameters. This method is slightly more powerful than the [Get Job Definitions]({{< relref "reference/rest/job-definition/get-query.md" >}}) method because it allows filtering by multiple job definitions of types <code>String</code>, <code>Number</code> or <code>Boolean</code>.
 
 
 # Method
@@ -91,16 +91,16 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>
@@ -150,7 +150,7 @@ Each job definition object has the following properties:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer, etc.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Jobs Count"
+title: "Get Job Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of jobs that fulfill given parameters.
-Takes the same parameters as the [get jobs]({{< relref "reference/rest/job/get-query.md" >}}) method.
+Queries for the number of jobs that fulfill given parameters.
+Takes the same parameters as the [Get Jobs]({{< relref "reference/rest/job/get-query.md" >}}) method.
 
 
 # Method
@@ -64,7 +64,7 @@ GET `/job/count`
   </tr>
   <tr>
     <td>executable</td>
-    <td>Only select jobs which are executable, ie. retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only select jobs which are executable, i.e., retries &gt; 0 and due date is <code>null</code> or due date is in the past. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>timers</td>
@@ -118,11 +118,11 @@ GET `/job/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include jobs which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include jobs which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobsWithoutTenantId</td>
-    <td>Include jobs which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include jobs which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Filters Count"
+title: "Get Filter Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Get the number of filters that fulfill a provided query. Corresponds to the size of the result set
-when using the [get filters]({{< relref "reference/rest/filter/get-query.md" >}}) method.
+Retrieves the number of filters that fulfill a provided query. Corresponds to the size of the result set
+when using the [Get Filters]({{< relref "reference/rest/filter/get-query.md" >}}) method.
 
 
 # Method

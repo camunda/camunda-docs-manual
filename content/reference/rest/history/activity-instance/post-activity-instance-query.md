@@ -1,6 +1,6 @@
 ---
 
-title: "Get Activity Instances (POST)"
+title: "Get Historic Activity Instances (POST)"
 weight: 40
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for historic activity instances that fulfill the given parameters.
+Queries for historic activity instances that fulfill the given parameters.
 
 
 # Method

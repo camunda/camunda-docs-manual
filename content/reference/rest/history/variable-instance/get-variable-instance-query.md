@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic variable instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+Queries for historic variable instances that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Variable Instance Count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method

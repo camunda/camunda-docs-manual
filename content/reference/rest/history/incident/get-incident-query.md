@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic incidents that fulfill given parameters.
-The size of the result set can be retrieved by using the [get incidents count]({{< relref "reference/rest/history/incident/get-incident-query-count.md" >}}) method.
+Queries for historic incidents that fulfill given parameters.
+The size of the result set can be retrieved by using the [Get Incident Count]({{< relref "reference/rest/history/incident/get-incident-query-count.md" >}}) method.
 
 
 # Method

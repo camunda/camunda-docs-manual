@@ -16,16 +16,16 @@ menu:
 ---
 
 
-Start a process instance using a set of process variables and the business key. If the start event has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See [Documentation on Generated Task Forms]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
+Starts a process instance using a set of process variables and the business key. If the start event has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See [Documentation on Generated Task Forms]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
 
 
 # Method
 
 POST `/process-definition/{id}/submit-form`
 
-POST `/process-definition/key/{key}/submit-form` (starts the latest version of process definition which belongs to no tenant)
+POST `/process-definition/key/{key}/submit-form` (starts the latest version of the process definition which belongs to no tenant)
 
-POST `/process-definition/key/{key}/tenant-id/{tenant-id}/submit-form` (starts the latest version of process definition for tenant)
+POST `/process-definition/key/{key}/tenant-id/{tenant-id}/submit-form` (starts the latest version of the process definition for tenant)
 
 
 # Parameters

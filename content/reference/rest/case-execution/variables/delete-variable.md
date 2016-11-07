@@ -1,28 +1,28 @@
 ---
 
-title: 'Delete Single Process Variable'
-weight: 10
+title: "Delete Case Execution Variable"
+weight: 170
 
 menu:
   main:
     name: "Delete"
-    identifier: "rest-api-process-instance-delete-variable"
-    parent: "rest-api-process-instance-variables"
-    pre: "DELETE `/process-instance/{id}/variables/{varName}`"
+    identifier: "rest-api-case-execution-delete-single-variable"
+    parent: "rest-api-case-execution-variables"
+    pre: "DELETE `/case-execution/{id}/variables/{varName}`"
 
 ---
 
 
-Deletes a variable of a given process instance.
+Deletes a variable of a given case execution by id.
 
 
 # Method
 
-DELETE `/process-instance/{id}/variables/{varName}`
+DELETE `/case-execution/{id}/variables/{varName}`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -32,7 +32,7 @@ DELETE `/process-instance/{id}/variables/{varName}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process instance to delete the variable from.</td>
+    <td>The id of the case execution to delete the variable from.</td>
   </tr>
   <tr>
     <td>varName</td>
@@ -45,7 +45,7 @@ DELETE `/process-instance/{id}/variables/{varName}`
 
 This method returns no content.
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -61,14 +61,14 @@ This method returns no content.
   </tr>
 </table>
 
-  
+
 # Example
 
 ## Request
 
-DELETE `/process-instance/aProcessInstanceId/variables/aVarName`
+DELETE `/case-execution/aCaseExecutionId/variables/aVarName`
 
-     
+
 ## Response
-    
+
 Status 204. No content.

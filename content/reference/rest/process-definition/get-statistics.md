@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Retrieves runtime statistics of the process engine grouped by process definitions.
+Retrieves runtime statistics of the process engine, grouped by process definitions.
 These statistics include the number of running process instances, optionally the number of failed jobs and also optionally the number of incidents either grouped by incident types or for a specific incident type.<br/>
 __Note:__ This does not include historic data.
 
@@ -40,7 +40,7 @@ GET `/process-definition/statistics`
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e. a string value) the result will only include the number of incidents for the assigned incident type. Cannot be used in combination with <code>incidents</code>.</td>
+    <td>If this property has been set with any incident type (i.e., a string value) the result will only include the number of incidents for the assigned incident type. Cannot be used in combination with <code>incidents</code>.</td>
   </tr>
 </table>
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend process instances with the given process definition key.
+Activates or suspends process instances with the given process definition key.
 
 # Method
 

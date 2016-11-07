@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Adds an identity link to a task. Can be used to link any user or group to a task and specify and relation.
+Adds an identity link to a task by id. Can be used to link any user or group to a task and specify a relation.
 
 
 # Method

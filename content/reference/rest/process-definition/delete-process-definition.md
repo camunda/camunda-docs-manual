@@ -1,6 +1,6 @@
 ---
 
-title: "Delete Single Process Definition"
+title: "Delete Process Definition"
 weight: 150
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Deletes a process definition from a deployment.
+Deletes a process definition from a deployment by id.
 
 
 # Method

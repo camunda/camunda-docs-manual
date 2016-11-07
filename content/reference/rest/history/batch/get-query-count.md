@@ -1,6 +1,6 @@
 ---
 
-title: "Get Batches Count (Historic)"
+title: "Get Historic Batch Count"
 weight: 20
 
 menu:
@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Request the number of historic batches that fulfill the query criteria.
-Takes the same filtering parameters as the [GET query]({{< relref
-"reference/rest/history/batch/get-query.md" >}}).
+Requests the number of historic batches that fulfill the query criteria.
+Takes the same filtering parameters as the [Get Historic Batches]({{< relref
+"reference/rest/history/batch/get-query.md" >}}) method.
 
 
 # Method

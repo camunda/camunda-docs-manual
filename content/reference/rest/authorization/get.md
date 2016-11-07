@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Authorization"
+title: "Get Authorization"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single authorization by Id.
+Retrieves an authorization by id.
 
 # Method
 

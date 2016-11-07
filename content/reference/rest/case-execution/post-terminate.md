@@ -11,7 +11,7 @@ menu:
     pre: "POST `/case-execution/{id}/terminate`"
 ---
 
-Performs a transition from <code>ACTIVE</code> state to <code>TERMINATED</code> state if the execution belongs to a task or a stage and performs a transition from <code>AVAILABLE</code> state to <code>TERMINATED</code> state if the execution belongs to a milestone. In relation to the state transition it is possible to update or delete case instance variables (please note: deletion precedes update).
+Performs a transition from <code>ACTIVE</code> state to <code>TERMINATED</code> state if the execution belongs to a task or a stage and performs a transition from <code>AVAILABLE</code> state to <code>TERMINATED</code> state if the execution belongs to a milestone. In relation to the state transition, it is possible to update or delete case instance variables (please note: deletion precedes update).
 
 # Method
 

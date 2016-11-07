@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Removes an identity link from a task.
+Removes an identity link from a task by id.
 
 
 # Method

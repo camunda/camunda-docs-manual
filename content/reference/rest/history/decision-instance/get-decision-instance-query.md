@@ -1,6 +1,6 @@
 ---
 
-title: "Get Decision Instances"
+title: "Get Historic Decision Instances"
 weight: 10
 
 menu:
@@ -13,9 +13,8 @@ menu:
 ---
 
 
-Query for historic decision instances that fulfill the given parameters.  The
-size of the result set can be retrieved by using the [get historic decision
-instances count][count] method.
+Queries for historic decision instances that fulfill the given parameters. The
+size of the result set can be retrieved by using the [Get Historic Decision Instance Count]({{< relref "reference/rest/history/decision-instance/get-decision-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -426,5 +425,3 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
   }
 ]
 ```
-
-[count]: {{< relref "reference/rest/history/decision-instance/get-decision-instance-query-count.md" >}}

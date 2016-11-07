@@ -13,7 +13,7 @@ menu:
 ---
 
 Validates a migration plan statically without executing it. This
-corresponds to the [creation time validation][] described in the user
+corresponds to the [creation time validation]({{< relref "user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}) described in the user
 guide.
 
 
@@ -234,8 +234,3 @@ Status 200.
   ]
 }
 ```
-
-[user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
-[POST /migration/executeAsync]: {{< relref "reference/rest/migration/execute-migration-async.md" >}}
-[creation time validation]: {{< relref "user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}
-

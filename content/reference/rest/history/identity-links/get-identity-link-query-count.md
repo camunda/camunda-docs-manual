@@ -1,6 +1,6 @@
 ---
 
-title: "Get Identity-Link-Logs Count"
+title: "Get Identity-Link-Log Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic identity links log that fulfill the given parameters.
-Takes the same parameters as the [get identity-links-log]({{< relref "reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
+Queries for the number of historic identity link logs that fulfill the given parameters.
+Takes the same parameters as the [Get Identity-Link-Logs]({{< relref "reference/rest/history/identity-links/get-identity-link-query.md" >}}) method.
 
 
 # Method

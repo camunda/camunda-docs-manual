@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Decision Definition"
+title: "Get Decision Definition"
 weight: 30
 
 menu:
@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single decision definition according to the `DecisionDefinition` interface in the engine.
+Retrieves a decision definition by id, according to the `DecisionDefinition` interface in the engine.
 
 
 # Method

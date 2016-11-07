@@ -1,6 +1,6 @@
 ---
 
-title: 'Put Single Process Variable'
+title: 'Put  Process Variable'
 weight: 180
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Sets a variable of a given process instance.
+Sets a variable of a given process instance by id.
 
 
 # Method

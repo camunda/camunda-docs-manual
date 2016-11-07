@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
-The size of the result set can be retrieved by using the [GET query count]({{< relref "reference/rest/process-definition/get-query-count.md" >}}).
+Queries for process definitions that fulfill given parameters. Parameters may be the properties of process definitions, such as the name, key or version.
+The size of the result set can be retrieved by using the [Get Definition Count]({{< relref "reference/rest/process-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -53,7 +53,7 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>key</td>
-    <td>Filter by process definition key, i.e. the id in the BPMN 2.0 XML. Exact match.</td>
+    <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
   <tr>
     <td>keyLike</td>
@@ -117,11 +117,11 @@ GET `/process-definition`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeProcessDefinitionsWithoutTenantId</td>
-    <td>Include process definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include process definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>versionTag</td>
@@ -173,7 +173,7 @@ Each process definition object has the following properties:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>

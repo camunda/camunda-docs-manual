@@ -39,5 +39,5 @@ building is not a Java Applications by itself, make sure you use a text-based
 [serialization dataformat]({{< relref "user-guide/process-engine/variables.md#object-value-serialization" >}}) (such as XML or JSON).
 
 {{< note title="" class="info" >}}
-  In order to retrieve the serialized form of a variable, use the `deserializeValues=false` GET parameter.
+  To retrieve the serialized form of a variable, use the `deserializeValues=false` GET parameter.
 {{< /note >}}

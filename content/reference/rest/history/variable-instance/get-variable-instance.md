@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Variable Instance"
+title: "Get Variable Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic variable by id.
+Retrieves a historic variable by id.
 
 
 # Method

@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of user operation log entries that fulfill the given parameters.
-Takes the same parameters as the [get log entries]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}) method.
+Queries for the number of user operation log entries that fulfill the given parameters.
+Takes the same parameters as the [Get User Operation Log (Historic)]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}) method.
 
 
 # Method

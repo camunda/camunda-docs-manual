@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Query for the number of historic tasks that fulfill the given parameters.
-Takes the same parameters as the [get historic tasks]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method.
-Corresponds to the size of the result set of the [get tasks (POST)]({{< relref "reference/rest/history/task/post-task-query.md" >}}) method and takes the same parameters.
+Queries for the number of historic tasks that fulfill the given parameters.
+Takes the same parameters as the [Get Tasks (Historic)]({{< relref "reference/rest/history/task/get-task-query.md" >}}) method.
+Corresponds to the size of the result set of the [Get Tasks (Historic) (POST)]({{< relref "reference/rest/history/task/post-task-query.md" >}}) method and takes the same parameters.
 
 
 # Method

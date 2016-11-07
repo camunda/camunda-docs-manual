@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates a given group.
+Updates a given group by id.
 
 
 # Method

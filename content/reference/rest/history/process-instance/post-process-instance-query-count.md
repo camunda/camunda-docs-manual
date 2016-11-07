@@ -1,6 +1,6 @@
 ---
 
-title: "Get Process Instances Count (POST)"
+title: "Get Process Instance Count (POST)"
 weight: 50
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic process instances that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/history/process-instance/post-process-instance-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/history/process-instance/get-process-instance-query-count.md" >}}).
+Queries for the number of historic process instances that fulfill the given parameters.
+This method takes the same message body as the [Get Process Instances (POST)]({{< relref "reference/rest/history/process-instance/post-process-instance-query.md" >}}) method and therefore it is slightly more powerful than the [Get Process Instance Count]({{< relref "reference/rest/history/process-instance/get-process-instance-query-count.md" >}}) method.
 
 
 # Method

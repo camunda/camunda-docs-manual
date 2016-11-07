@@ -1,6 +1,6 @@
 ---
 
-title: "Delete Single Batch"
+title: "Delete Batch"
 weight: 50
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Deletes a batch and all related jobs and job definitions. Optionally also
+Deletes a batch by id, including all related jobs and job definitions. Optionally also
 deletes the batch history.
 
 

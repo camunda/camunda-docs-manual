@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Case Instance"
+title: "Get Case Instance"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single case instance according to the `CaseInstance` interface in the engine.
+Retrieves a case instance by id, according to the `CaseInstance` interface in the engine.
 
 
 # Method

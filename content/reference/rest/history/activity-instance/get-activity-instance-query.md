@@ -1,6 +1,6 @@
 ---
 
-title: "Get Activity Instances (Historic)"
+title: "Get Historic Activity Instances"
 weight: 10
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic activity instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/activity-instance/get-activity-instance-query-count.md" >}}) method.
+Queries for historic activity instances that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Historic Activity Instance Count]({{< relref "reference/rest/history/activity-instance/get-activity-instance-query-count.md" >}}) method.
 
 
 # Method

@@ -1,6 +1,6 @@
 ---
 
-title: "Get Historic Details Count"
+title: "Get Historic Detail Count"
 weight: 20
 
 menu:
@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for the number of historic details that fulfill the given parameters.
-Takes the same parameters as the [get historic details]({{< relref "reference/rest/history/detail/get-detail-query.md" >}}) method.
+Queries for the number of historic details that fulfill the given parameters.
+Takes the same parameters as the [Get Historic Details]({{< relref "reference/rest/history/detail/get-detail-query.md" >}}) method.
 
 
 # Method

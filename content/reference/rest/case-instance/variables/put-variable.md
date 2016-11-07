@@ -1,6 +1,6 @@
 ---
 
-title: "Put Single Case Instance Variable"
+title: "Put Case Instance Variable"
 weight: 120
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Sets a variable of a given case instance.
+Sets a variable of a given case instance by id.
 
 
 # Method

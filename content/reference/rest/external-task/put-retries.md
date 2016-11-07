@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Set the number of retries left to execute an external task. If retries are set to 0, an incident is created.
+Sets the number of retries left to execute an external task by id. If retries are set to 0, an incident is created.
 
 # Method
 

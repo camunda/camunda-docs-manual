@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Generate a migration plan for two process definitions. The generated migration
+Generates a migration plan for two process definitions. The generated migration
 plan contains migration instructions which map equal activities between the
 two process definitions.
 

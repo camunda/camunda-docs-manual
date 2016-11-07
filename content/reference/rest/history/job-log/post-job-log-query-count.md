@@ -1,6 +1,6 @@
 ---
 
-title: "Get Job Logs Count (POST)"
+title: "Get Job Log Count (POST)"
 weight: 50
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of historic job logs that fulfill the given parameters.
-This method takes the same message body as the [POST query]({{< relref "reference/rest/history/job-log/post-job-log-query.md" >}}) and therefore it is slightly more powerful than the [GET query count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}).
+Queries for the number of historic job logs that fulfill the given parameters.
+This method takes the same message body as the [Get Job Logs (POST)]({{< relref "reference/rest/history/job-log/post-job-log-query.md" >}}) method and therefore it is slightly more powerful than the [Get Job Log Count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
 
 
 # Method

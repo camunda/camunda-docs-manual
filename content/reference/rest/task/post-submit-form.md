@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Complete a task and update process variables using a form submit. There are two difference between this method and the `complete` method:
+Completes a task and updates process variables using a form submit. There are two difference between this method and the `complete` method:
 
-* If the task is in state `PENDING` - ie. has been delegated before, it is not completed but resolved. Otherwise it will be completed.
+* If the task is in state `PENDING` - i.e., has been delegated before, it is not completed but resolved. Otherwise it will be completed.
 * If the task has Form Field Metadata defined, the process engine will perform backend validation for any form fields which have validators defined. See the [Generated Task Forms]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more information.
 
 

@@ -14,11 +14,11 @@ The REST API uses the default date format `yyyy-MM-dd'T'HH:mm:ss` which
 represents a date without milliseconds and timezone information, eg
 `2016-01-25T13:33:42`. A custom date format can be configured in the `web.xml`
 file of the REST API. Therefore the ServletContextListener
-`CustomJacksonDateFormatListener` has to be added. And the custom date format
+`CustomJacksonDateFormatListener` has to be added. The custom date format
 can be specified by the context parameter
 `org.camunda.bpm.engine.rest.jackson.dateFormat`.
 
-For example if the date format should contain milliseconds and timezone
+For example,  if the date format should contain milliseconds and timezone
 information (`yyyy-MM-dd'T'HH:mm:ss.SSSZ`) the following configuration can be
 used:
 
@@ -46,6 +46,5 @@ used:
 ```
 
 With this configuration the REST API will return dates with millisecond
-precision and timezone information. Also new dates can be submitted with
-milliseconds and timezone information to the REST API without losing these
-details.
+precision and timezone information. Also, new dates, with milliseconds and timezone information, 
+can be submitted to the REST API without losing these details.

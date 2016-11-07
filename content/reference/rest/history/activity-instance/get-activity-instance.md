@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Activity Instance (Historic)"
+title: "Get Historic Activity Instance"
 weight: 30
 
 menu:
@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Retrieves a single historic activity instance according to the `HistoricActivityInstance` interface
+Retrieves a historic activity instance by id, according to the `HistoricActivityInstance` interface
 in the engine.
 
 

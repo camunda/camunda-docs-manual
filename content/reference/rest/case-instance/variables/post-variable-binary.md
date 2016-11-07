@@ -1,14 +1,14 @@
 ---
 
-title: "Post Single Case Execution Variable (Binary)"
-weight: 140
+title: "Post Case Instance Variable (Binary)"
+weight: 130
 
 menu:
   main:
-    name: "Post (Binary)"
-    identifier: "rest-api-case-execution-post-single-variable-binary"
-    parent: "rest-api-case-execution-variables"
-    pre: "POST `/case-execution/{id}/variables/{varName}/data`"
+    name: "POST (Binary)"
+    identifier: "rest-api-case-instance-post-single-variable-binary"
+    parent: "rest-api-case-instance-variables"
+    pre: "POST `/case-instance/{id}/variables/{varName}/data`"
 
 ---
 
@@ -16,7 +16,7 @@ Sets the serialized value for a binary variable or the binary value for a file v
 
 # Method
 
-POST `/case-execution/{id}/variables/{varName}/data`
+POST `/case-instance/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -30,7 +30,7 @@ POST `/case-execution/{id}/variables/{varName}/data`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the case execution to set the variable for.</td>
+    <td>The id of the case instance to set the variable for.</td>
   </tr>
   <tr>
     <td>varName</td>
@@ -62,6 +62,7 @@ For binary variables a multipart form submit with the following parts:
     <td>The name of the variable type. Either <code>Bytes</code> for a byte array variable or <code>File</code> for a file variable.</td>
   </tr>
   <tr>
+  <tr>
     <td>data</td>
     <td>application/json</td>
     <td>
@@ -74,8 +75,7 @@ For binary variables a multipart form submit with the following parts:
     <td>text/plain</td>
     <td>
       <b>Deprecated</b>: This only works if the REST API is aware of the involved Java classes.
-      <p>The canonical java type name of the case variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).
-      </p>
+      <p>The canonical java type name of the case variable to be set. Example: <code>foo.bar.Customer</code>. If this part is provided, <code>data</code> must be a JSON object which can be converted into an instance of the provided class. The content type of the <code>data</code> part must be <code>application/json</code> in that case (see above).</p>
     </td>
   </tr>
 </table>
@@ -110,9 +110,10 @@ This method returns no content.
 
 ## Request
 
+
 (1) Post binary content of a byte array variable:
 
-POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
+POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
 ```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -132,7 +133,7 @@ Bytes
 
 (2) Post the JSON serialization of a Java Class (**deprecated**):
 
-POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
+POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
 ```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y
@@ -152,7 +153,7 @@ java.util.ArrayList<java.lang.Object>
 
 (3) Post a text file:
 
-POST `/case-execution/aCaseExecutionId/variables/aVarName/data`
+POST `/case-instance/aCaseInstanceId/variables/aVarName/data`
 
 ```
 ---OSQH1f8lzs83iXFHphqfIuitaQfNKFY74Y

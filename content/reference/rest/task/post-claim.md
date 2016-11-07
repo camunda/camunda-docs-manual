@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Claim a task for a specific user.
+Claims a task for a specific user.
 
-**Note:** The difference with [set a assignee]({{< relref "reference/rest/task/post-assignee.md" >}}) is that here a check is performed to see if the task already has a user assigned to it.
+**Note:** The difference with the [Set Assignee]({{< relref "reference/rest/task/post-assignee.md" >}}) method is that here a check is performed to see if the task already has a user assigned to it.
 
 # Method
 

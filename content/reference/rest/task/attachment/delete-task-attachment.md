@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Removes an attachment from a task.
+Removes an attachment from a task by id.
 
 
 # Method

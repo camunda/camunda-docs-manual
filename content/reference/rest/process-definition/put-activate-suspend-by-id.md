@@ -17,15 +17,15 @@ menu:
 ---
 
 
-Activate or suspend a given process definition by id or by latest version of process definition key.
+Activates or suspends a given process definition by id or by latest version of process definition key.
 
 # Method
 
 PUT `/process-definition/{id}/suspended`
 
-PUT `/process-definition/key/{key}/suspended` (suspend the latest version of process definition which belongs to no tenant)
+PUT `/process-definition/key/{key}/suspended` (suspend the latest version of the process definition which belongs to no tenant)
 
-PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of process definition for tenant)
+PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of the process definition for tenant)
 
 
 # Parameters

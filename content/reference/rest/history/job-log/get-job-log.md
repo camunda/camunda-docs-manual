@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Job Log"
+title: "Get Job Log"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single historic job log by id.
+Retrieves a historic job log by id.
 
 
 # Method

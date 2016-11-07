@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for a list of groups using a list of parameters.
-The size of the result set can be retrieved by using the [get groups count]({{< relref "reference/rest/group/get-query-count.md" >}}) method.
+Queries for a list of groups using a list of parameters.
+The size of the result set can be retrieved by using the [Get Group Count]({{< relref "reference/rest/group/get-query-count.md" >}}) method.
 
 
 # Method

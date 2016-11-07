@@ -23,9 +23,9 @@ Retrieves the key of the start form for a process definition. The form key corre
 
 GET `/process-definition/{id}/startForm`
 
-GET `/process-definition/key/{key}/startForm` (returns the key of the start form for the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}/startForm` (returns the key of the start form for the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}/startForm` (returns the key of the start form for the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}/startForm` (returns the key of the start form for the latest version of the process definition for tenant)
 
 # Parameters
 

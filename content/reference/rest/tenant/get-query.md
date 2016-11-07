@@ -14,7 +14,7 @@ menu:
 
 
 Query for a list of tenants using a list of parameters.
-The size of the result set can be retrieved by using the [get tenants count]({{< relref "reference/rest/tenant/get-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Tenant Count]({{< relref "reference/rest/tenant/get-query-count.md" >}}) method.
 
 
 # Method

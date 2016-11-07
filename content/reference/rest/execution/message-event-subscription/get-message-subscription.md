@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Get a message event subscription for a specific execution and a message name.
+Retrieves a message event subscription for a given execution by id and a message name.
 
 
 # Method

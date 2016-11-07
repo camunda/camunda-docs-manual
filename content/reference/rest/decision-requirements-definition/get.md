@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Decision Requirements Definition"
+title: "Get Decision Requirements Definition"
 weight: 30
 
 menu:
@@ -17,7 +17,7 @@ menu:
 ---
 
 
-Retrieves a single decision requirements definition according to the `DecisionRequirementsDefinition` interface in the engine.
+Retrieves a decision requirements definition according to the `DecisionRequirementsDefinition` interface in the engine.
 
 
 # Method

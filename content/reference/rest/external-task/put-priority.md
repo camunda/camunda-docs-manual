@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Set the priority of an existing external task. The default value of a priority is 0.
+Sets the priority of an existing external task by id. The default value of a priority is 0.
 
 
 # Method

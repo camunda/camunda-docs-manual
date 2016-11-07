@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Create a new group.
+Creates a new group.
 
 
 # Method

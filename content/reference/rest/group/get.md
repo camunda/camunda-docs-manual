@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Group"
+title: "Get Group"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single group.
+Retrieves a group by id.
 
 
 # Method

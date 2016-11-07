@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Deployment'
+title: 'Get Deployment'
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single deployment by id.
+Retrieves a deployment by id, according to the `Deployment` interface of the engine.
 
 
 # Method

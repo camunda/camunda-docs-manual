@@ -12,12 +12,12 @@ menu:
 
 ---
 
-Execute a migration plan asynchronously (batch) for multiple process instances.
-To execute a migration plan synchronously, use [POST /migration/execute][].
+Executes a migration plan asynchronously (batch) for multiple process instances.
+To execute a migration plan synchronously, use the [Execute Migration Plan]({{< relref "reference/rest/migration/execute-migration.md" >}}) method.
 
 For more information about the difference between synchronous and
 asynchronous execution of a migration plan, please refer to the related
-section of the [user guide][].
+section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
 
 
 
@@ -117,7 +117,7 @@ The migration plan JSON object has the following properties:
 
 # Result
 
-A JSON object corresponding to the Batch interface in the engine. Its
+A JSON object corresponding to the `Batch` interface in the engine. Its
 properties are as follows:
 
 <table class="table table-striped">
@@ -149,7 +149,7 @@ properties are as follows:
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -269,6 +269,3 @@ Status 200.
   "tenantId": "aTenantId"
 }
 ```
-
-[user guide]: {{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}
-[POST /migration/execute]: {{< relref "reference/rest/migration/execute-migration.md" >}}

@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Instances Count'
+title: 'Get Instance Count'
 weight: 40
 
 menu:
@@ -14,8 +14,8 @@ menu:
 
 
 
-Query for the number of process instances that fulfill given parameters.
-Takes the same parameters as the [get instances]({{< relref "reference/rest/process-instance/get-query.md" >}}) method.
+Queries for the number of process instances that fulfill given parameters.
+Takes the same parameters as the [Get Instances]({{< relref "reference/rest/process-instance/get-query.md" >}}) method.
 
 
 # Method
@@ -102,7 +102,7 @@ GET `/process-instance/count`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include process instances which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>activityIdIn</td>

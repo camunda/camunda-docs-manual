@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Complete a task and update process variables.
+Completes a task and updates process variables.
 
 
 # Method

@@ -1,6 +1,6 @@
 ---
 
-title: "Activate/Suspend Single Batch"
+title: "Activate/Suspend Batch"
 weight: 40
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend a batch.
+Activates or suspends a batch by id.
 
 # Method
 

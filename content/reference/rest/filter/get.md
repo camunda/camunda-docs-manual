@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single filter according to the `Filter` interface in the engine.
+Retrieves a single filter by id, according to the `Filter` interface in the engine.
 
 
 # Method

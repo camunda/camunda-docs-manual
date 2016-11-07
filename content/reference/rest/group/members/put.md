@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Add a member to a group.
+Adds a member to a group.
 
 # Method
 

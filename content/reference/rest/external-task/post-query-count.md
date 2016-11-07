@@ -1,6 +1,6 @@
 ---
 
-title: "Get External Tasks Count (POST)"
+title: "Get External Task Count (POST)"
 weight: 50
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of external tasks that fulfill given parameters. This method takes the same message body as the [POST query]({{< relref "reference/rest/external-task/post-query.md" >}}).
+Queries for the number of external tasks that fulfill given parameters. This method takes the same message body as the [Get External Tasks (POST)]({{< relref "reference/rest/external-task/post-query.md" >}}) method.
 
 
 # Method

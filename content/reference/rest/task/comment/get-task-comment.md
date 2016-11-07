@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Task Comment'
+title: 'Get Task Comment'
 weight: 170
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single task comment by task id and comment id.
+Retrieves a task comment by task id and comment id.
 
 
 # Method

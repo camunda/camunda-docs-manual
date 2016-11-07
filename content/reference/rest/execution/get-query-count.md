@@ -1,6 +1,6 @@
 ---
 
-title: "Get Executions Count"
+title: "Get Execution Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of executions that fulfill given parameters.
-Takes the same parameters as the [get executions]({{< relref "reference/rest/execution/get-query.md" >}}) method.
+Queries for the number of executions that fulfill given parameters.
+Takes the same parameters as the [Get Executions]({{< relref "reference/rest/execution/get-query.md" >}}) method.
 
 
 # Method

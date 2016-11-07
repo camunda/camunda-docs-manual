@@ -1,6 +1,6 @@
 ---
 
-title: "Get Incidents Count"
+title: "Get Incident Count"
 weight: 10
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for the number of incidents that fulfill given parameters.
-Takes the same parameters as the [get incidents]({{< relref "reference/rest/incident/get-query.md" >}}) method.
+Queries for the number of incidents that fulfill given parameters.
+Takes the same parameters as the [Get Incidents]({{< relref "reference/rest/incident/get-query.md" >}}) method.
 
 
 # Method

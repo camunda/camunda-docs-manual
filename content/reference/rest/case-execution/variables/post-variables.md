@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates or deletes the variables of a case execution. Please note: deletion precedes update.
+Updates or deletes the variables of a case execution by id. Please note: deletion precedes update.
 
 
 # Method

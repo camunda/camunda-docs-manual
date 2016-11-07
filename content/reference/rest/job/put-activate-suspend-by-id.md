@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend a given job by id.
+Activates or suspends a given job by id.
 
 # Method
 

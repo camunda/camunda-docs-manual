@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Execution"
+title: "Get Execution"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single execution according to the `Execution` interface in the engine.
+Retrieves an execution by id, according to the `Execution` interface in the engine.
 
 
 # Method

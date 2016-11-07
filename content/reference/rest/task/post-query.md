@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for tasks that fulfill a given filter.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/task/get-query.md" >}}) because it allows
+Queries for tasks that fulfill a given filter.
+This method is slightly more powerful than the [Get Tasks]({{< relref "reference/rest/task/get-query.md" >}}) method because it allows
 filtering by multiple process or task variables of types `String`, `Number` or `Boolean`.
-The size of the result set can be retrieved by using [get tasks count (POST)]({{< relref "reference/rest/task/post-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Task Count (POST)]({{< relref "reference/rest/task/post-query-count.md" >}}) method.
 
 {{< note title="Security Consideration" class="warning" >}}
   There are several parameters (such as `assigneeExpression`) for specifying an EL expression. These are disabled by default to prevent remote code execution. See the section on <a href="{{< relref "user-guide/process-engine/securing-custom-code.md">}}">security considerations for custom code</a> in the user guide for details.
@@ -142,7 +142,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include tasks which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include tasks which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>assignee</td>
@@ -480,7 +480,7 @@ A JSON object with the following properties:
   <tr>
     <td>sorting</td>
     <td>
-        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e. whether it is primary, secondary, etc. The ordering objects have the following properties:
+        A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       <table>
         <tr>
           <td>sortBy</td>

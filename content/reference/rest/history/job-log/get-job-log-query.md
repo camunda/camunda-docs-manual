@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic job logs that fulfill the given parameters.
-The size of the result set can be retrieved by using the [count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
+Queries for historic job logs that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Job Log Count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
 
 
 # Method

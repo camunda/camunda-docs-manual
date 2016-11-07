@@ -1,6 +1,6 @@
 ---
 
-title: "Get Case Definitions Count"
+title: "Get Case Definition Count"
 weight: 20
 
 menu:
@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Request the number of case definitions that fulfill the query criteria. Takes the same filtering parameters as the
-[GET query]({{< relref "reference/rest/case-definition/get-query.md" >}}).
+Requests the number of case definitions that fulfill the query criteria. Takes the same filtering parameters as the
+[Get Case Definitions]({{< relref "reference/rest/case-definition/get-query.md" >}}) method.
 
 
 # Method

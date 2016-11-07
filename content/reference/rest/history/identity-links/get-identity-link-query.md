@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic identity link logs that fulfill given parameters.
-The size of the result set can be retrieved by using the [get identity-links-log count]({{< relref "reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
+Queries for historic identity link logs that fulfill given parameters.
+The size of the result set can be retrieved by using the [Get Identity-Link-Log Count]({{< relref "reference/rest/history/identity-links/get-identity-link-query-count.md" >}}) method.
 
 
 # Method

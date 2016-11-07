@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for external tasks that fulfill given parameters in the form of a JSON object.
-This method is slightly more powerful than the [GET query]({{< relref "reference/rest/external-task/get-query.md" >}}) because it allows to specify a hierarchical result sorting.
+Queries for external tasks that fulfill given parameters in the form of a JSON object.
+This method is slightly more powerful than the [Get External Tasks]({{< relref "reference/rest/external-task/get-query.md" >}}) method because it allows to specify a hierarchical result sorting.
 
 
 # Method

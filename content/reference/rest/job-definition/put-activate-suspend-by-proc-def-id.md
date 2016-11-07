@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Activate or suspend job definitions with the given process definition id.
+Activates or suspends job definitions with the given process definition id.
 
 # Method
 

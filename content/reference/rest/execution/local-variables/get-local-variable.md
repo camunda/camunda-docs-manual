@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a variable from the context of a given execution. Does not traverse the parent execution hierarchy.
+Retrieves a variable from the context of a given execution by id. Does not traverse the parent execution hierarchy.
 
 
 # Method

@@ -14,7 +14,7 @@ menu:
 ---
 
 
-Sets the execution priority of a job.
+Sets the execution priority of a job by id.
 
 
 # Method

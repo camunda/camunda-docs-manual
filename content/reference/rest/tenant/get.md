@@ -1,6 +1,6 @@
 ---
 
-title: "Get Single Tenant"
+title: "Get Tenant"
 weight: 30
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves a single tenant.
+Retrieves a tenant.
 
 
 # Method

@@ -1,6 +1,6 @@
 ---
 
-title: 'Get Single Definition'
+title: 'Get Definition'
 weight: 100
 
 menu:
@@ -17,16 +17,16 @@ menu:
 ---
 
 
-Retrieves a single process definition according to the ProcessDefinition interface in the engine.
+Retrieves a process definition according to the `ProcessDefinition` interface in the engine.
 
 
 # Method
 
 GET `/process-definition/{id}`
 
-GET `/process-definition/key/{key}` (returns the latest version of process definition which belongs to no tenant)
+GET `/process-definition/key/{key}` (returns the latest version of the process definition which belongs to no tenant)
 
-GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of process definition for tenant)
+GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest version of the process definition for tenant)
 
 # Parameters
 
@@ -53,7 +53,7 @@ GET `/process-definition/key/{key}/tenant-id/{tenant-id}` (returns the latest ve
 
 # Result
 
-A JSON object corresponding to the ProcessDefinition interface in the engine.
+A JSON object corresponding to the `ProcessDefinition` interface in the engine.
 Its properties are as follows:
 
 <table class="table table-striped">
@@ -70,7 +70,7 @@ Its properties are as follows:
   <tr>
     <td>key</td>
     <td>String</td>
-    <td>The key of the process definition, i.e. the id of the BPMN 2.0 XML process definition.</td>
+    <td>The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.</td>
   </tr>
   <tr>
     <td>category</td>

@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for historic process instances that fulfill the given parameters.
-The size of the result set can be retrieved by using the [get historic process instances count]({{< relref "reference/rest/history/process-instance/get-process-instance-query-count.md" >}}) method.
+Queries for historic process instances that fulfill the given parameters.
+The size of the result set can be retrieved by using the [Get Process Instance Count]({{< relref "reference/rest/history/process-instance/get-process-instance-query-count.md" >}}) method.
 
 
 # Method

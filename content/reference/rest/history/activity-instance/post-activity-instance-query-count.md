@@ -1,6 +1,6 @@
 ---
 
-title: "Get Activity Instances Count (POST)"
+title: "Get Historic Activity Instance Count (POST)"
 weight: 50
 
 menu:
@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Query for the number of historic activity instances that fulfill the given parameters.
+Queries for the number of historic activity instances that fulfill the given parameters.
 
 
 # Method

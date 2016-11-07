@@ -12,9 +12,9 @@ menu:
 ---
 
 
-Change the assignee of a task to a specific user.
+Changes the assignee of a task to a specific user.
 
-**Note:** The difference with [claim a task]({{< relref "reference/rest/task/post-claim.md" >}}) is that this method does not check if the task already has a user assigned to it.
+**Note:** The difference with the [Claim Task]({{< relref "reference/rest/task/post-claim.md" >}}) method is that this method does not check if the task already has a user assigned to it.
 
 
 # Method

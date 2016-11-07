@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the rendered form for a task. This method can be used for getting the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
+Retrieves the rendered form for a task. This method can be used to get the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}).
 
 # Method
 

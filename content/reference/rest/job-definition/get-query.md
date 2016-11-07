@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for job definitions that fulfill given parameters.
-The size of the result set can be retrieved by using the [get job definitions count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}) method.
+Queries for job definitions that fulfill given parameters.
+The size of the result set can be retrieved by using the [Get Job Definition Count]({{< relref "reference/rest/job-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -73,11 +73,11 @@ GET `/job-definition`
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>Only include job definitions which belongs to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include job definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>includeJobDefinitionsWithoutTenantId</td>
-    <td>Include job definitions which belongs to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Include job definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -127,7 +127,7 @@ Each job definition object has the following properties:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer etc.</td>
+    <td>The type of the job which is running for this job definition, for example: asynchronous continuation, timer, etc.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>

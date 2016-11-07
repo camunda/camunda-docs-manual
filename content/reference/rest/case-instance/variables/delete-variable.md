@@ -1,24 +1,25 @@
 ---
 
-title: "Delete Single Case Execution Variable"
-weight: 170
+title: "Delete Case Instance Variable"
+weight: 140
 
 menu:
   main:
     name: "Delete"
-    identifier: "rest-api-case-execution-delete-single-variable"
-    parent: "rest-api-case-execution-variables"
-    pre: "DELETE `/case-execution/{id}/variables/{varName}`"
+    identifier: "rest-api-case-instance-delete-single-variable"
+    parent: "rest-api-case-instance-variables"
+    pre: "DELETE `/case-instance/{id}/variables/{varName}`"
 
 ---
 
 
-Deletes a variable of a given case execution.
+Deletes a variable of a given case instance by id.
 
 
 # Method
 
-DELETE `/case-execution/{id}/variables/{varName}`
+
+DELETE `/case-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -32,7 +33,7 @@ DELETE `/case-execution/{id}/variables/{varName}`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the case execution to delete the variable from.</td>
+    <td>The id of the case instance to delete the variable from.</td>
   </tr>
   <tr>
     <td>varName</td>
@@ -47,6 +48,7 @@ This method returns no content.
 
 
 # Response Codes
+
 
 <table class="table table-striped">
   <tr>
@@ -66,8 +68,7 @@ This method returns no content.
 
 ## Request
 
-DELETE `/case-execution/aCaseExecutionId/variables/aVarName`
-
+DELETE `/case-instance/aCaseInstanceId/variables/aVarName`
 
 ## Response
 

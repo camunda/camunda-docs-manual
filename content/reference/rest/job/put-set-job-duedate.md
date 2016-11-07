@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Updates the due date of a job.
+Updates the due date of a job by id.
 
 
 # Method

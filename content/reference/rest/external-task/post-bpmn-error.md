@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Report a business error in the context of a running external task. The error code must be specified to identify the BPMN error handler.
+Reports a business error in the context of a running external task by id. The error code must be specified to identify the BPMN error handler.
 
 # Method
 

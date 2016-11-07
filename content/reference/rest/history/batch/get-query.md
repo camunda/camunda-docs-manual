@@ -1,6 +1,6 @@
 ---
 
-title: "Get Batches (Historic)"
+title: "Get Historic Batches"
 weight: 10
 
 menu:
@@ -13,10 +13,10 @@ menu:
 ---
 
 
-Query for historic batches that fulfill given parameters. Parameters may be
-the properties of batches, such as the id or type.  The
-size of the result set can be retrieved by using the [GET query count]({{<
-relref "reference/rest/history/batch/get-query-count.md" >}}).
+Queries for historic batches that fulfill given parameters. Parameters may be
+the properties of batches, such as the id or type. The
+size of the result set can be retrieved by using the [Get Historic Batch Count]({{<
+relref "reference/rest/history/batch/get-query-count.md" >}}) method.
 
 
 # Method

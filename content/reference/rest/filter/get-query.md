@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Query for a list of filters using a list of parameters. The size of the result set can be retrieved
-by using the [get filters count]({{< relref "reference/rest/filter/get-query-count.md" >}}) method.
+Queries for a list of filters using a list of parameters. The size of the result set can be retrieved
+by using the [Get Filter Count]({{< relref "reference/rest/filter/get-query-count.md" >}}) method.
 
 
 # Method

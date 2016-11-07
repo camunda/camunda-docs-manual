@@ -12,8 +12,8 @@ menu:
 
 ---
 
-Query for a list of authorizations using a list of parameters.
-The size of the result set can be retrieved by using the [get authorization count]({{< relref "reference/rest/authorization/get-query-count.md" >}}) method.
+Queries for a list of authorizations using a list of parameters.
+The size of the result set can be retrieved by using the [Get Authorization Count]({{< relref "reference/rest/authorization/get-query-count.md" >}}) method.
 
 
 # Method
