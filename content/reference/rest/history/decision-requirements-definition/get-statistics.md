@@ -16,7 +16,7 @@ Retrieves evaluation statistics of a given decision requirements definition.
 # Method
 
 GET `/history/decision-requirements-definition/{id}/statistics` return evaluation statistics
-of a single decision instance.
+of a decision requirements definition.
 
 # Parameters
 
