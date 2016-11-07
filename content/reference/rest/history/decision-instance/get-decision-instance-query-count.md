@@ -43,9 +43,19 @@ GET `/history/decision-instance/count`
     <td>decisionDefinitionId</td>
     <td>Filter by the decision definition the instances belongs to.</td>
   </tr>
+  </tr>
+    <td>decisionDefinitionIdIn</td>
+    <td>
+    Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.
+    </td>
+  </tr>
   <tr>
     <td>decisionDefinitionKey</td>
     <td>Filter by the key of the decision definition the instances belongs to.</td>
+  </tr>
+  <tr>
+    <td>decisionDefinitionKeyIn</td>
+    <td>Filter by the keys of the decision definition the instances belongs to. Must be a comma-separated list of decision definition keys.</td>
   </tr>
   <tr>
     <td>decisionDefinitionName</td>
@@ -116,7 +126,7 @@ GET `/history/decision-instance/count`
   <tr>
     <td>rootDecisionInstanceId</td>
     <td>
-      Restrict to instances that have a given root decision instance id. 
+      Restrict to instances that have a given root decision instance id.
       This also includes the decision instance with the given id.
     </td>
   </tr>
