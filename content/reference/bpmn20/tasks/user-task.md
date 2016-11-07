@@ -170,7 +170,7 @@ This is exactly the same as using a potentialOwner construct as defined above. N
 
 In the above examples, constant values such as `kermit` or `management` are used. But what if the exact name of an assignee or a candidate group is not known at design time? And what if the assignee is not a constant value but depends on data such as _"The person who started the process"_? Maybe the assigment logic is also more complex and needs to access an external data source such as LDAP to implement a lookup such as _"The manager of the employee who started the process"_.
 
-Such things can be implemented using assignement expressions or task listeners.
+Such things can be implemented using assignment expressions or task listeners.
 
 ### Assignment Expressions
 
