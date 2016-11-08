@@ -5,7 +5,7 @@ weight: 60
 
 menu:
   main:
-    name: "Get DRD Statistics"
+    name: "Get Historic Decision Instance Statistics"
     identifier: "rest-api-history-decision-requirements-definition-get-statistics"
     parent: "rest-api-history-decision-requirements-definition"
     pre: "GET `/history/decision-requirements-definition/{id}/statistics`"
@@ -15,8 +15,7 @@ Retrieves evaluation statistics of a given decision requirements definition.
 
 # Method
 
-GET `/history/decision-requirements-definition/{id}/statistics` return evaluation statistics
-of a decision requirements definition.
+GET `/history/decision-requirements-definition/{id}/statistics`
 
 # Parameters
 
@@ -42,7 +41,10 @@ of a decision requirements definition.
   </tr>
   <tr>
     <td>decisionInstanceId</td>
-    <td>An id of the decision definition instance.</td>
+    <td>
+    Restrict query results to be based only on specified decision instance id. Restriction will be applied
+    to id and root decision id fields.
+    </td>
   </tr>
 </table>
 
@@ -80,6 +82,11 @@ A JSON array containing statistics object for each decision definition related t
     <td>200</td>
     <td>application/json</td>
     <td>Request successful.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

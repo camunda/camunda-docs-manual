@@ -2,7 +2,7 @@
 
 title: "Decision Requirements Definition"
 layout: "section-list"
-weight: 80
+weight: 41
 
 menu:
   main:
