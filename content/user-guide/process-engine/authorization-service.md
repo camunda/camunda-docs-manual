@@ -94,22 +94,71 @@ authorization.addPermission(Permissions.DELETE);
 
 Resources are the entities the user interacts with.
 
-The following resources are available (integer representation in brackets):
+The following resources are available:
 
-* Application (Cockpit, Tasklist, ...) (0)
-* Authorization (4)
-* Batch (13)
-* Decision Definition (10)
-* Deployment (9)
-* Filter (5)
-* Group (2)
-* Group Membership (3)
-* Process Definition (6)
-* Process Instance (8)
-* Task (7)
-* Tenant (11)
-* Tenant Membership (12)
-* User (1)
+<table class="table matrix-table table-condensed table-hover table-bordered">
+  <tr>
+    <th>Resource Name</th>
+    <th>Integer representation</th>
+  </tr>
+  <tr>
+    <td>Application (Cockpit, Tasklist, ...)</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Batch</td>
+    <td>13</td>
+  </tr>
+  <tr>
+    <td>Decision Definition</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Deployment</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Filter</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Group Membership</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Process Definition</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Process Instance</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>Task</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>Tenant</td>
+    <td>11</td>
+  </tr>
+  <tr>
+    <td>Tenant Membership</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>1</td>
+  </tr>      
+</table>
+
 
 ## Authorization Type
 
