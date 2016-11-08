@@ -72,22 +72,58 @@ On top of the built-in permissions, Camunda BPM allows using custom permission t
 
 Resources are the entities the user interacts with.
 
-{{< note title="Built-In Resources" class="info" >}}
-  The following resources are currently supported by the authorization framework (integer representation in brackets):
+The following resources are available:
 
-  * Application (cockpit, tasklist, ...) (0)
-  * Authorization (4)
-  * Decision Definition (10)
-  * Deployment (9)
-  * Filter (5)
-  * Group (2)
-  * Group Membership (3)
-  * Process Definition (6)
-  * Process Instance (8)
-  * Task (7)
-  * User (1)
- 
-{{< /note >}}
+<table class="table matrix-table table-condensed table-hover table-bordered">
+  <tr>
+    <th>Resource Name</th>
+    <th>Integer representation</th>
+  </tr>
+  <tr>
+    <td>Application (Cockpit, Tasklist, ...)</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Decision Definition</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Deployment</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Filter</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Group Membership</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Process Definition</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Process Instance</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>Task</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>1</td>
+  </tr>      
+</table>
 
 On top of the built-in resources, the Camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
 
