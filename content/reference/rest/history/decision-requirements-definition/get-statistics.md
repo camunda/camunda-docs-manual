@@ -42,8 +42,7 @@ GET `/history/decision-requirements-definition/{id}/statistics`
   <tr>
     <td>decisionInstanceId</td>
     <td>
-    Restrict query results to be based only on specified decision instance id. Restriction will be applied
-    to id and root decision id fields.
+    Restrict query results to be based only on specific evaluation instance of a given decision requirements definition.
     </td>
   </tr>
 </table>

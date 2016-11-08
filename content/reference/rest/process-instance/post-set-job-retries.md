@@ -50,7 +50,7 @@ A JSON object with the following properties:
 </table>
 
 Please note that if both processInstances and processInstanceQuery are provided then resulting execution
-will performed on union of this sets.
+will be performed on union of this sets.
 
 ## Response Body
 
