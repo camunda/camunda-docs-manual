@@ -12,8 +12,7 @@ menu:
 
 ---
 
-Set retries to all jobs associated with process instances asynchronously (batch).
-
+Create a batch to set retries of jobs associated with given processes asynchronously.
 
 # Method
 
@@ -49,6 +48,9 @@ A JSON object with the following properties:
     <td>An integer representing number of retries. Please note that it cannot be negative or null.</td>
   </tr>
 </table>
+
+Please note that if both processInstances and processInstanceQuery are provided then resulting execution
+will performed on union of this sets.
 
 ## Response Body
 

@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Set retries to all jobs asynchronously (batch).
+Create a Batch to set retries of jobs asynchronously.
 
 
 # Method
@@ -49,6 +49,9 @@ A JSON object with the following properties:
     <td>An integer representing number of retries. Please note that it cannot be negative or null.</td>
   </tr>
 </table>
+
+Please note that if both jobIds and jobQuery are provided then retries will be set on the union
+of those sets. 
 
 ## Response Body
 
