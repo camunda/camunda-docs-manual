@@ -26,7 +26,7 @@ This guide uses a number of variables to denote common path names and constants:
 
 This section explains how to perform the required setup steps for JBoss Application Server.
 
-First, you need to download the [Camunda JBoss distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/).
+First, you need to download the [Camunda JBoss distribution](http://camunda.org/release/camunda-bpm/jboss/).
 
 
 ## Adjust the Configuration
@@ -148,7 +148,7 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download either the [Camunda Wildfly 8 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/) or the [Camunda Wildfly 10 distribution](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly10/).
+First, you need to download either the [Camunda Wildfly 8 distribution](http://camunda.org/release/camunda-bpm/wildfly8/) or the [Camunda Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/).
 
 ## Copy Modules
 

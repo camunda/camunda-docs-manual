@@ -11,10 +11,10 @@ menu:
 ---
 
 The following steps describe how to upgrade the Camunda artifacts on a JBoss AS
-7 and Wildfly 8 server in a shared process engine scenario. For the entire
+7, Wildfly 8 and Wildfly 10 server in a shared process engine scenario. For the entire
 procedure, refer to the [upgrade guide][upgrade-guide]. If not
-already done, make sure to download the [Camunda BPM 7.5 JBoss distribution][jboss-distro]
-or [Camunda BPM 7.5 Wildfly 10 distribution][wildfly-distro]. In the following instructions
+already done, make sure to download the [Camunda BPM 7.5 JBoss distribution](http://camunda.org/release/camunda-bpm/jboss/7.5/), [Camunda BPM 7.5 Wildfly 8](http://camunda.org/release/camunda-bpm/wildfly8/7.5/)
+or [Camunda BPM 7.5 Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/7.5/). In the following instructions
 `$APP_SERVER` should be replaced with either `jboss` or `wildfly`, depending on
 the used application server.
 
@@ -29,7 +29,7 @@ The upgrade procedure takes the following steps:
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
 {{< note title="Upgraded Wildfly Version" class="info" >}}
-The pre-built Camunda 7.5 distribution ships with Wildfly 10, whereas 7.4 comes with Wildfly 8. Camunda 7.5 is supported on Wildfly 8.2 version such that a Wildfly upgrade is not required when migrating from 7.4 to 7.5.
+The pre-built Camunda 7.5 distribution ships with Wildfly 8 and in addition with Wildfly 10, whereas 7.4 comes just with Wildfly 8. In particular, Camunda 7.5 is supported on Wildfly 8.2 and 10.1 such that a Wildfly upgrade is not required when migrating from 7.4 to 7.5.
 
 See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
 {{< /note >}}
