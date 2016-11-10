@@ -110,6 +110,15 @@ The Camunda Javascript SDK (including the Forms SDK) integrates with the followi
 * [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
 * [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
 
+# Camunda Modeler
+
+The Camunda Modeler includes the following third-party libraries:
+
+* [Electron](http://electron.atom.io/) {{< RD >}}, [(MIT)][mit]
+* [CodeMirror](https://codemirror.net/) {{< RD >}}, [(MIT)][mit]
+* [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(MIT)][mit]
+* [virtual-dom](https://github.com/Matt-Esch/virtual-dom) {{< RD >}}, [(MIT)][mit]
+
 # Camunda Cycle Web Application
 
 The Camunda Cycle web application includes the following third-party libraries:
