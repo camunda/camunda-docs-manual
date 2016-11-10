@@ -70,7 +70,7 @@ GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics` (returns st
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type.</td>
+    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
 </table>
 
