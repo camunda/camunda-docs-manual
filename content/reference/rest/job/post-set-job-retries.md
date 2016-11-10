@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Create a Batch to set retries of jobs asynchronously.
+Create a batch to set retries of jobs asynchronously.
 
 
 # Method
@@ -33,25 +33,25 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobIds</td>
-    <td>A list of job ids to set retries to.</td>
+    <td>A list of job ids to set retries for.</td>
   </tr>
   <tr>
     <td>jobQuery</td>
     <td>
-      A job query like the request body described by
+      A job query like the request body for the 
       <a href="{{< relref "reference/rest/job/post-query.md#request-body" >}}">
-        <code>POST /job</code>
-      </a>.
+        Get Jobs (POST)
+      </a> method.
     </td>
   </tr>
   <tr>
     <td>retries</td>
-    <td>An integer representing number of retries. Please note that it cannot be negative or null.</td>
+    <td>An integer representing the number of retries. Please note that the value cannot be negative or null.</td>
   </tr>
 </table>
 
-Please note that if both jobIds and jobQuery are provided then retries will be set on the union
-of those sets. 
+Please note that if both jobIds and jobQuery are provided, then retries will be set on the union
+of these sets. 
 
 ## Response Body
 
@@ -93,7 +93,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by 
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -120,7 +120,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
+    <td>Indicates whether this batch is suspended or not.</td>
   </tr>
   <tr>
     <td>tenantId</td>
@@ -146,7 +146,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, i.e. neither processInstanceIds, nor processInstanceQuery is present. Or retries count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if neither processInstanceIds nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
