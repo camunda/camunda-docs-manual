@@ -66,4 +66,4 @@ The `handleIncident` method is called when a new incident is created. The `resol
 org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl.setCustomIncidentHandlers(List<IncidentHandler>)
 ```
 
-An example of a custom incident handler could be a handler which, in addition to the default behavior, also sends an email to an administrator.
+An example of a custom incident handler could be a handler, which extends the default behavior by sending an email to an administrator, whenever there was the incident of type ``failedJob``. However, adding just the custom incident handler overwrites the default behavior with the custom incident handler. As a consequence, the default incident handler is not executed anymore. If the default behavior should be executed as well, then the custom incident handler should also invoke the default incident handler, which includes using internal API.
