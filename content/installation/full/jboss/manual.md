@@ -350,6 +350,10 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ## Camunda Spin
 
+The Spin plugin can be use to entend the engine functionality in order to serialize object variables from JSON and XML. For more information see the [Spin Reference]({{< relref "reference/spin/index.md" >}})
+
+### Setup Spin
+
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
 
 * `org/camunda/spin/camunda-spin-core`
@@ -383,6 +387,16 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 </subsystem>
 ```
 
+### Problems with Jackson Annotations
+
+Using Jackson annotations on WildFly may not work with the Camunda Spin plugin. WildFly automatically appends to its JAX-RS subsystem a bunch of Resteasy dependencies including a Jackson library (in slot 'main'). This is done apart from the fact whether the application uses Jackson annotations uses or not. However, the JSON serialization in Spin depends upon Jackson as well, but on a newer version. Thus, during the deployment of the web application is the library loaded twice. 
+
+Now the Jackson version in slot 'main' is older than the Jackson version of Spin,  which causes problems, when using Jackson annotations, as the Jackson module from Spin cannot handle the classes of the 'main' module and, therfore, ignores Jackson annotations. Note that this problem does not nercessarily have to ermerge upon direct usage of Spin. The Spin plugin also come into play, when setting or reading a JSON variables. 
+
+There are two ways to fix this:
+
+1. Adjust the jackson slot in org.jboss.resteasy.resteasy-jackson2-provider to the version of Spin. By default is this set to 'main' and you could change that to the Spin version. Be aware, that we cannot guarantee that the resteasy modules work with the Spin Jackson version flawlessly.
+2. Exclude the JAX-RS subsystem and add all necessary dependencies in the process application. Either you adjust that in the `jboss-deployment-structure.xml` or you deploy that as a library. 
 
 ## Groovy Scripting
 
