@@ -315,6 +315,56 @@ historyService.createHistoricTaskInstanceReport()
   .completedBefore(calendar.getTime())
   .countByProcessDefinitionKey();
  ```
+ 
+## History Report
+
+You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kind of reports:
+
+* [Instance Duration Report]({{< relref "#instance-duration-report" >}})
+* [Taks Report]({{< relref "#task-report" >}})
+
+
+
+### Instance Duration Report
+
+Retrieves a report about the duration of completed process instances grouped by a period. These reports include the maximum, minimum and average duration of all completed process instances, which have been started in a period. The following code snipped retrieves a report for every month since the start for the engine:
+
+```java
+historyService
+  .createHistoricProcessInstanceReport()
+  .duration(MONTH);
+```
+
+The supported period times so far are `MONTH` and `QUARTER` from `org.camunda.bpm.engine.query.PeriodUnit`.
+
+In order to narrow down the report query, one can use the following methods from ``HistoricProcessInstanceReport``:
+
+* ``startedBefore``: Only takes historic process instances into account that were started before a given date.
+* ``startedAfter``: Only takes historic process instances into account that were started after a given date.
+* ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
+* ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
+
+### Task Report
+
+Retrieves a report of completed tasks. For the task report there are two possible report types: count and duration.
+
+If you use the method `countByProcessDefinitionKey` or `countByTaskName` in the end of your report query, the report contains a list of completed task counts where an entry contains the task name, the definition key of the task, the process definition id, the process definition key, the process definition name and the count of how many tasks were completed for the specified key in a given period. The methods `countByProcessDefinitionKey` and `countByTaskName` then group the count reports according the criterion 'definition key' or 'task name'. To retrieve a task count report grouped by the task name, one could execute the following query:
+
+```java
+historyService
+  .createHistoricTaskInstanceReport()
+  .countByTaskName();
+```
+
+If the report type is set to duration, the report contains a minimum, maximum and average duration value of all completed task instances in a given period.
+
+```java
+historyService
+  .createHistoricTaskInstanceReport()
+  .duration(MONTH);
+```
+
+The supported period times and the confinement of the query works analogously to [Instance Duration Report]({{< relref "#instance-duration-report" >}}).
 
 ## Partially Sorting History Events by Their Occurrence
 
