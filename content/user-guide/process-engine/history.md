@@ -282,6 +282,49 @@ historyService.createHistoricIdentityLinkLogQuery()
   .list();
 ```
 
+**HistoricProcessInstanceReport**
+
+Query for all historic process instances which were started before now and get their duration.
+ 
+ ```java
+historyService.createHistoricProcessInstanceReport()
+  .startedBefore(calendar.getTime())
+  .duration(PeriodUnit.MONTH);
+ ```
+ 
+## History Report
+
+You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kind of reports:
+
+* [Instance Duration Report]({{< relref "#instance-duration-report" >}})
+
+### Instance Duration Report
+
+Retrieves a report about the duration of completed process instances grouped by a period. These reports include the maximum, minimum and average duration of all completed process instances, which have been started in a period. The following code snipped retrieves a report for every month since the start for the engine:
+
+```java
+historyService
+  .createHistoricProcessInstanceReport()
+  .duration(MONTH);
+```
+
+The supported period times so far are `MONTH` and `QUARTER` from `org.camunda.bpm.engine.query.PeriodUnit`.
+
+In order to narrow down the report query, one can use the following methods from ``HistoricProcessInstanceReport``:
+
+* ``startedBefore``: Only takes historic process instances into account that were started before a given date.
+* ``startedAfter``: Only takes historic process instances into account that were started after a given date.
+* ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
+* ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
+
+For instance, one could query for all historic process instances which were started before now and get their duration:
+ 
+ ```java
+historyService.createHistoricProcessInstanceReport()
+  .startedBefore(calendar.getTime())
+  .duration(PeriodUnit.MONTH);
+ ```
+
 ## Partially Sorting History Events by Their Occurrence
 
 Sometimes you want to sort history events in the order in which they
