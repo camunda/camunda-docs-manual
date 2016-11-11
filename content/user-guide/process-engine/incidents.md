@@ -73,7 +73,7 @@ An example of a custom incident handler could be a handler which extends the def
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that this APIs is **not** part of the [public API]({{< relref
+Please be aware that this API is **not** part of the [public API]({{< relref
 "introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
