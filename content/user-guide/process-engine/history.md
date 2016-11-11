@@ -113,9 +113,7 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createUserOperationLogQuery()`,
 `createHistoricJobLogQuery()`,
 `createHistoricDecisionInstanceQuery()`,
-`createHistoricBatchQuery()`,
-`createHistoricIdentityLinkLogQuery()`,
- `createHistoricProcessInstanceReport()` and `createHistoricTaskInstanceReport()`
+`createHistoricBatchQuery()` and `createHistoricIdentityLinkLogQuery()`
 which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the Javadocs, in the `org.camunda.bpm.engine.history` package.
@@ -295,26 +293,6 @@ historyService.createHistoricIdentityLinkLogQuery()
   .userId("demo")
   .list();
 ```
-
-**HistoricProcessInstanceReport**
-
-Query for all historic process instances which were started before now and get their duration.
- 
- ```java
-historyService.createHistoricProcessInstanceReport()
-  .startedBefore(calendar.getTime())
-  .duration(PeriodUnit.MONTH);
- ```
-
-**HistoricTaskInstanceReport**
-
-Query for all tasks which were completed before now and group them by process definition key.
- 
- ```java
-historyService.createHistoricTaskInstanceReport()
-  .completedBefore(calendar.getTime())
-  .countByProcessDefinitionKey();
- ```
  
 ## History Report
 
@@ -343,6 +321,14 @@ In order to narrow down the report query, one can use the following methods from
 * ``startedAfter``: Only takes historic process instances into account that were started after a given date.
 * ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
 * ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
+
+For instance, one could query for all historic process instances which were started before now and get their duration:
+ 
+ ```java
+historyService.createHistoricProcessInstanceReport()
+  .startedBefore(calendar.getTime())
+  .duration(PeriodUnit.MONTH);
+ ```
 
 ### Task Report
 
