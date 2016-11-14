@@ -196,6 +196,12 @@ You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/bl
 
 {{< img src="../../img/plugin-points/plugin-point-cockpit-decisions-dashboard.png" title="Dashboard" >}}
 
+## Cases Dashboard
+
+**Name:** `cockpit.cases.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-cockpit-cases-dashboard.png" title="Dashboard" >}}
+
 ## Process Definition Runtime Tab
 
 **Name:** `cockpit.processDefinition.runtime.tab`
@@ -313,6 +319,48 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 **Name:** `cockpit.decisionInstance.table`
 
 {{< img src="../../img/plugin-points/plugin-point-decision-instance-table.png" title="Decision Instance Table" >}}
+
+
+## Case Definition Tab
+
+**Name:** `cockpit.caseDefinition.tab`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-tab.png" title="Case Definition Tab" >}}
+
+
+## Case Definition Action
+
+**Name:** `cockpit.caseDefinition.action`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-action.png" title="Case Definition Action" >}}
+
+
+## Case Definition Diagram Overlay
+
+**Name:** `cockpit.caseDefinition.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-definition-diagram-overlay.png" title="Case Definition Diagram Overlay" >}}
+
+
+## Case Instance Tab
+
+**Name:** `cockpit.caseInstance.tab`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-tab.png" title="Case Instance Tab" >}}
+
+
+## Case Instance Action
+
+**Name:** `cockpit.caseInstance.action`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-action.png" title="Case Instance Action" >}}
+
+
+## Case Instance Diagram Overlay
+
+**Name:** `cockpit.caseInstance.diagram.overlay`
+
+{{< img src="../../img/plugin-points/plugin-point-case-instance-diagram-overlay.png" title="Case Instance Diagram Overlay" >}}
 
 
 ## Repository Resource Action
