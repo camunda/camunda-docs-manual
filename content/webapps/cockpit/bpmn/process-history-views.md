@@ -17,14 +17,14 @@ menu:
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-At the top right of the process definition view and the process instance view, you can hit the _History_ button to access the history view.
+At the top left of the process definition view and the process instance view, you can hit the _History_ button to access the history view.
 
 
 # Process Definition History View
 
 {{< img src="../../img/cockpit-history-view-process-definition-history.png" title="Process Definition History" >}}
 
-In the history view of the process definition you see an overview of all of the running and completed process instances. On the left side of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in a specific state. Running and completed instances can be selected.
+In the history view of the process definition you see an overview of all of the running and completed process instances. On the bottom of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in a specific state. Running and completed instances can be selected.
 
 At the bottom of the screen you can also select the _Job Log_ tab to see all job related events of this process instance, including state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stacktrace of a failed job.
 

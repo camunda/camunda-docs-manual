@@ -28,19 +28,23 @@ The `Job Definitions` tab displays the job definitions that are linked to this p
 
 # Filter
 
-The filter function on the left side of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
+The filter function on the bottom of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
 The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in `" "`.
 
 {{< note title="Complexe Datatypes" class="info" >}}
   Please be aware that this feature does not support complex data types.
 {{< /note >}}
 
+## Runtime View
+
+Add a filter to the runtime view. Select filters for variables, the start date and time, the activity ID or the business key of process instances.
+
 
 **Filtering for process instances**
 
 {{< img src="../../img/filter-examples/add-filter.png" title="Filter Example" >}}
 
-Add a filter to the process definition view. Select a filter for variables, the start date and time or the business key of process instances.
+Add a filter to the process definition view. Select a filter for variables, the start date and time, activity ID or the business key of process instances.
 
 
 **Business Key**
@@ -56,12 +60,16 @@ Add a filter for process instances by business key.
 
 Add a filter for process instances by start date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard.
 
+{{< img src="../../img/filter-examples/start-date-before-after.png" title="Filter Example" >}}
+
+Choose between `before` and `after` to filter for instances that were started before or after the given date. Click on the `before` to obtain the selection.
+
 
 **String variable**
 
 {{< img src="../../img/filter-examples/var-string.png" title="Filter Example" >}}
 
-Add a filter for process instances by filtering for a 'string' value. Please note that you need to encase the value in quotation marks.
+Add a filter for process instances by filtering for a `string` value. Please note that you need to encase the value in quotation marks.
 
 
 **Boolean variable**
@@ -85,22 +93,27 @@ Add a filter for process instances by filtering for a 'date' value. Please note 
 Add a filter for process instances by filtering for a 'numeric' (double, integer, long or short) value.
 
 
+## History View
+
+Add a filter to the [process definition history view][process-definition-history-view]. Select filters for variables, the start date and time, the activity ID or the business key of process instances as in [the runtime view](#runtime-view). In addition, select filters for completed, running or process instances with a certain end date and time.
+
 {{< enterprise >}}
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
 **Filtering for completed and running process instances**
 
-{{< img src="../../img/filter-examples/history-filter.png" title="Filter Example" >}}
+{{< img src="../../img/filter-examples/history-completed.png" title="Filter Example" >}}
+{{< img src="../../img/filter-examples/history-running.png" title="Filter Example" >}}
 
-Add a filter to the [process definition history view][process-definition-history-view]. Select filters for variables, the start date and time, the end date and time or the business key of process instances.
+Add a filter for process instances by filtering for already completed or still running process instances.
 
 
 **End Date and Time**
 
-{{< img src="../../img/filter-examples/end-date.png" title="Filter Example" >}}
+{{< img src="../../img/filter-examples/history-end-date.png" title="Filter Example" >}}
 
-Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view].
+Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view]. Again choose between `before` and `after` to filter for instances that were ended before or after the given date. Click on the `before` to obtain the selection. 
 
 
 [process-definition-history-view]: {{< relref "webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}
