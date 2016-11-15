@@ -310,7 +310,7 @@ Retrieves a report about the duration of completed process instances grouped by 
 ```java
 historyService
   .createHistoricProcessInstanceReport()
-  .duration(MONTH);
+  .duration(PeriodUnit.MONTH);
 ```
 
 The supported period times so far are `MONTH` and `QUARTER` from `org.camunda.bpm.engine.query.PeriodUnit`.
@@ -322,9 +322,12 @@ In order to narrow down the report query, one can use the following methods from
 * ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
 * ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
 
-For instance, one could query for all historic process instances which were started before now and get their duration:
+where `startedBefore` and `startedAfter` use `java.util.Date` (depricated) or `java.util.Calendar` objects for the input. 
+
+For instance, one could query for all historic process instances which were started before now and get their duration: 
  
  ```java
+Calendar calendar = Calendar.getInstance();
 historyService.createHistoricProcessInstanceReport()
   .startedBefore(calendar.getTime())
   .duration(PeriodUnit.MONTH);
@@ -347,7 +350,7 @@ If the report type is set to duration, the report contains a minimum, maximum an
 ```java
 historyService
   .createHistoricTaskInstanceReport()
-  .duration(MONTH);
+  .duration(PeriodUnit.MONTH);
 ```
 
 The supported period times and the confinement of the query works analogously to [Instance Duration Report]({{< relref "#instance-duration-report" >}}).
