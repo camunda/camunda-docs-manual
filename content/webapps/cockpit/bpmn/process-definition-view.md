@@ -28,19 +28,14 @@ The `Job Definitions` tab displays the job definitions that are linked to this p
 
 # Filter
 
-The filter function on the bottom of the Process Definition View allows you to find certain instances by filtering for variables, business keys, start time and date, end time and date (enterprise edition) or by selecting the version of a process. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
-The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in `" "`.
+The filter function on the bottom of the Process Definition View in the `Process Instances` tab allows you to find certain instances by filtering for variables, business keys, activity IDs or date and time. In addition, you can filter for the process definition version by selecting the version of a process on the left side of the Process Definition View. Beyond that you can combine different filters as logical *AND* relation. Filter expressions on variables must be specified as `variableName OPERATOR value` where the *operator* may be one of the following terms `=`, `!=`, `>`, `>=`, `<`, `<=`, `like`. Apart from the `like` operator, the operator expressions do not have to be separated by spaces.
+The `like` operator is for string variables only. You can use `%` as wildcard in the *value* expression. String and date values must be properly enclosed in quotes `" "`.
 
 {{< note title="Complexe Datatypes" class="info" >}}
   Please be aware that this feature does not support complex data types.
 {{< /note >}}
 
 ## Runtime View
-
-Add a filter to the runtime view. Select filters for variables, the start date and time, the activity ID or the business key of process instances.
-
-
-**Filtering for process instances**
 
 {{< img src="../../img/filter-examples/add-filter.png" title="Filter Example" >}}
 
@@ -76,21 +71,21 @@ Add a filter for process instances by filtering for a `string` value. Please not
 
 {{< img src="../../img/filter-examples/var-boolean.png" title="Filter Example" >}}
 
-Add a filter for process instances by filtering for a 'boolean' value.
+Add a filter for process instances by filtering for a `boolean` value.
 
 
 **Date variable**
 
 {{< img src="../../img/filter-examples/var-date.png" title="Filter Example" >}}
 
-Add a filter for process instances by filtering for a 'date' value. Please note that the date value must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that you need to encase the value in quotation marks.
+Add a filter for process instances by filtering for a `date` value. Please note that the date value must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that you need to encase the value in quotation marks.
 
 
 **Numeric variable**
 
 {{< img src="../../img/filter-examples/var-numeric.png" title="Filter Example" >}}
 
-Add a filter for process instances by filtering for a 'numeric' (double, integer, long or short) value.
+Add a filter for process instances by filtering for a `numeric` (double, integer, long or short) value.
 
 
 ## History View
