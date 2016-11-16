@@ -294,13 +294,13 @@ historyService.createHistoricProcessInstanceReport()
  
 ## History Report
 
-You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kind of reports:
+You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:
 
 * [Instance Duration Report]({{< relref "#instance-duration-report" >}})
 
 ### Instance Duration Report
 
-Retrieves a report about the duration of completed process instances grouped by a period. These reports include the maximum, minimum and average duration of all completed process instances, which have been started in a period. The following code snipped retrieves a report for every month since the start for the engine:
+Retrieves a report about the duration of completed process instances, grouped by a specified period. These reports include the maximum, minimum and average duration of all completed process instances, which were started in the specified period. The following code snippet retrieves a report for every month since the engine was started:
 
 ```java
 historyService
@@ -308,9 +308,9 @@ historyService
   .duration(PeriodUnit.MONTH);
 ```
 
-The supported period times so far are `MONTH` and `QUARTER` from `org.camunda.bpm.engine.query.PeriodUnit`.
+The supported periods so far are `MONTH` and `QUARTER` from `org.camunda.bpm.engine.query.PeriodUnit`.
 
-In order to narrow down the report query, one can use the following methods from ``HistoricProcessInstanceReport``:
+To narrow down the report query, one can use the following methods from ``HistoricProcessInstanceReport``:
 
 * ``startedBefore``: Only takes historic process instances into account that were started before a given date.
 * ``startedAfter``: Only takes historic process instances into account that were started after a given date.
