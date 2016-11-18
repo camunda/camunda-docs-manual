@@ -8,11 +8,11 @@ menu:
     name: "Camunda Modeler"
     identifier: "installation-guide-modeler"
     parent: "installation-guide"
-    pre: "Install the Camunda Modeler for BPMN 2.0 and DMN 1.1."
+    pre: "Install the Camunda Modeler for BPMN 2.0, CMMN 1.1 and DMN 1.1."
 
 ---
 
-This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diagrams and DMN 1.1 decision tables.
+This page explains how to install the Camunda Modeler for modeling BPMN 2.0 diagrams, CMMN 1.1 cases and DMN 1.1 decision tables.
 
 # Requirements
 
