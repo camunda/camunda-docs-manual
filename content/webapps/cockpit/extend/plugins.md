@@ -132,24 +132,22 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}}).
 
 
-## Dashboard
+## Navigation
 
-**Name:** `cockpit.dashboard.section` (previously, now deprecate `cockpit.dashboard`)
+{{< img src="../../img/plugin-points/plugin-point-navigation.png" title="Navigation" >}}
 
-{{< img src="../../img/plugin-points/plugin-point-cockpit-dashboard.png" title="Dashboard" >}}
+**Name:** `cockpit.navigation`
 
-With Camunda BPM 7.5, the dashboard and sections of Cockpit have been re-organized and new names have been
-given to the plugin points.
-
-
-_Old_ plugins will still be visible on the dashboard until you change their namespace
-(from `cockpit.dasboard` to `cockpit.dashboard.section`).
 
 ### Setup
 
-The dashboard section plugins have some additional properties / options you can set to control the way
-they integrate in the application.
-You can find some [examples of those plugins here](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/dashboard/).
+The dashboard navigation plugins can be used to define custom menu entries.
+
+#### `weight`
+
+Takes a number and will defined where the plugin should be placed.  
+The bigger the value is the most left it will be placed.  
+A value smaller than 0 will put the menu point within the dropdown.
 
 #### `pagePath`
 
@@ -183,6 +181,23 @@ access: ['angularDependency', function (angularDependency) {
 You can see a [working example](https://github.com/camunda/camunda-bpm-webapp/blob/f270dee14046448ad0d2afb44eef75aabc82e15b/ui/cockpit/plugins/base/app/views/dashboard/reports.js#L21-L32) in which the plugin is hidden when no report types are found.
 
 
+
+## Dashboard
+
+**Name:** `cockpit.dashboard`
+
+{{< img src="../../img/plugin-points/plugin-point-dashboard-custom.png" title="Dashboard" >}}
+
+With Camunda BPM 7.6, the dashboard plugins of Cockpit have been re-organized and new names have been
+given to the plugin points.
+
+The `cockpit.dashboard` plugin point will allow to add your custom views at the bottom of the dashboard.
+
+## Metrics
+
+**Name:** `cockpit.dashboard.metrics`
+
+{{< img src="../../img/plugin-points/plugin-point-dashboard-metrics-view.png" title="Dashboard" >}}
 
 ## Processes Dashboard
 
@@ -383,7 +398,7 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
 
-See the [Open Tasks Dashboard]({{< relref "webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task 
+See the [Open Tasks Dashboard]({{< relref "webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task
 dashboard plugin.
 
 
