@@ -172,7 +172,7 @@ You can dynamically determine if a section is accessible using the following not
 // …
 access: ['angularDependency', function (angularDependency) {
   return function (callback) {
-    var bool = angularDependency.something; // would hide the dashboard section / header link if `bool` is false
+    var bool = angularDependency.something; // would hide the menu point if `bool` is false
     cb(null, bool);
   };
 }]
