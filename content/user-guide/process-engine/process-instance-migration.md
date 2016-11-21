@@ -177,6 +177,10 @@ events by using the method `updateEventTrigger`.  For example, the following
 code generates a migration instruction for a boundary event and updates its
 event trigger during migration.
 
+{{< note title="Conditional Events" class="info" >}}
+For conditional events the `#updateEventTrigger` is mandatory.
+{{< /note >}}
+
 ```java
 MigrationPlan migrationPlan = processEngine.getRuntimeService()
   .createMigrationPlan("exampleProcess:1", "exampleProcess:2")
@@ -185,7 +189,6 @@ MigrationPlan migrationPlan = processEngine.getRuntimeService()
     .updateEventTrigger()
   .build();
 ```
-
 
 ## Generating a migration plan
 
@@ -439,7 +442,7 @@ See the [events section]({{< relref "#events" >}}) for the semantics of instruct
 ## Events
 
 For all kinds of catching events (start, intermediate, boundary), a migration instruction can be supplied if they define a persistent event
-trigger. This is the case for message, timer, and signal events.
+trigger. This is the case for message, conditional, timer, and signal events.
 
 When mapping events, there are two configuration options:
 
@@ -468,12 +471,16 @@ When mapping events, there are two configuration options:
   timer job configuration is preserved. In effect, it is going to trigger five days after the activity was started regardless of when the migration is performed.
 {{< /note >}}
 
+{{< note title="Conditional Events" class="info" >}}
+The usage of `#updateEventTrigger` is mandatory for migrating conditional events. The condition is overriden by the condition of the new conditional event.
+{{< /note >}}
+
 
 ### Boundary Event
 
 Boundary events can be mapped from the source to the target process definition along with the activity that they are attached to. The following applies:
 
-* If a boundary event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a boundary event is mapped, its persistent event trigger (for timers, conditionals, messages, and signals) is migrated
 * If a boundary event in the source process definition is not mapped, then its event trigger is deleted during migration
 * If a boundary event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
@@ -482,7 +489,7 @@ Boundary events can be mapped from the source to the target process definition a
 
 Start events of event sub processes can be mapped from source to target with similar semantics as boundary events. In particular:
 
-* If a start event is mapped, its persistent event trigger (for timers, messages, and signals) is migrated
+* If a start event is mapped, its persistent event trigger (for timers, conditionals, messages, and signals) is migrated
 * If a start event in the source process definition is not mapped, then its event trigger is deleted during migration
 * If a start event of the target definition is not the target of a migration instruction, then a new event trigger is initialized during migration
 
