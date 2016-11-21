@@ -11,7 +11,7 @@ menu:
 
 ---
 
-On the decision instance page you find the table of the decision that was executed as well as the values for the input variables and the decision result.
+On the decision instance page you find the table or literal expression of the decision that was executed as well as the values for the input variables and the decision result.
 
 {{< img src="../../img/cockpit-decision-instance-view.png" title="Decision Instance View" >}}
 
