@@ -115,6 +115,8 @@ The Camunda Javascript SDK (including the Forms SDK) integrates with the followi
 The Camunda Modeler includes the following third-party libraries:
 
 * [Electron](http://electron.atom.io/) {{< RD >}}, [(MIT)][mit]
+* [Chromium](https://www.chromium.org/) {{< RD >}}, ([License Details](https://www.chromium.org/chromium-os/licenses))
+* [Node.js](https://nodejs.org/en/) {{< RD >}}, ([License Details](https://github.com/nodejs/node/blob/master/LICENSE))
 * [CodeMirror](https://codemirror.net/) {{< RD >}}, [(MIT)][mit]
 * [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(MIT)][mit]
 * [virtual-dom](https://github.com/Matt-Esch/virtual-dom) {{< RD >}}, [(MIT)][mit]
