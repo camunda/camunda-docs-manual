@@ -10,7 +10,7 @@ menu:
 
 ---
 
-In addition to the [configurable custom links]({{< relref "webapps/welcome/configuration.md" >}}), plugins can be used to add functionalities to the Welcome application.
+In addition to the [configurable custom links]({{< relref "webapps/welcome/configuration.md" >}}), plugins can be used to add functionality to the Welcome application.
 
 
 # Plugin point
