@@ -6,13 +6,13 @@ weight: 50
 menu:
   main:
     name: "Batch View"
-    identifier: "user-guide-cockpit-batches"
-    parent: "user-guide-cockpit"
+    identifier: "user-guide-cockpit-batches-view"
+    parent: "user-guide-cockpit-batches"
     pre: "Display status of running and completed batches."
 
 ---
 
-{{< img src="../img/batch.png" title="Batch View Page" >}}
+{{< img src="../../img/batch.png" title="Batch View Page" >}}
 
 The batch page displays the status of running and completed batches. It allows displaying details of a batch such as the start- and end-time or the number of remaining jobs. For failed jobs, it displays the error message and allows a retry or deletion of the job.
 

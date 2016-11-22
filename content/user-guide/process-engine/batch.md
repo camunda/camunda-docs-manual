@@ -1,7 +1,7 @@
 ---
 
 title: 'Batch'
-weight: 175
+weight: 270
 
 menu:
   main:
@@ -61,20 +61,13 @@ A batch is created by executing a process engine command asynchronously.
 
 Currently supported commands:
 
-- [Process Instance Migration][migration]
+- [Process Instance Migration][batch-migration]
+- [Cancellation of running Process Instance][process-instance-cancellation]
+- [Deletion of Historic Process Instances][process-instance-deletion]
+- [Set retries of jobs associated with Process Instance][set-job-retries]
 
-To start a [batch process instance migration][batch-migration], the Java API can be used.
-
-```java
-RuntimeService runtimeService = processEngine.getRuntimeService();
-MigrationPlanBuilder migrationPlan = runtimeService.createMigrationPlan(...);
-List<String> processInstanceIds = ...
-
-Batch batch = runtimeService
-  .newMigration(migrationPlan)
-  .processInstanceIds(processInstanceIds)
-  .executeAsync();
-```
+Java API can be used to create Batch command, please refer to specific commands for
+exact usage example.
 
 ## Query a Batch
 
@@ -192,6 +185,11 @@ processEngine.getManagementService()
   .setOverridingJobPriorityForJobDefinition(batchJobDefinitionId, 100, true);
 ```
 
+## Operation log
+
+Please note that user operation log is written for Batch creation itself only, execution
+of the seed job as well as individual jobs that perform operations is performed by Job Executor
+and therefor are not considered to be user operations. 
 
 # Job Definitions
 
@@ -286,7 +284,9 @@ monitor job definition can be suspended with the management service:
 processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
-
+[process-instance-cancellation]: {{< relref "user-guide/process-engine/batch/process-instance-cancellation.md">}}
+[process-instance-deletion]: {{< relref "user-guide/process-engine/batch/process-instance-deletion.md">}}
+[set-job-retries]: {{< relref "user-guide/process-engine/batch/set-job-retries.md">}}
 [migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}

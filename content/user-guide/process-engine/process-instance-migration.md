@@ -35,7 +35,7 @@ is mostly transparent, so that a task that was started before migration can be c
 The same principle is applied to the other BPMN element types.
 
 For cases in which activities are not semantically equivalent,
-we recommend combining migration with the [process instance modification API]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}), e.g., 
+we recommend combining migration with the [process instance modification API]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}), e.g.,
 canceling an activity instance before migration and starting a new instance after migration.
 
 In the remainder of this section, the following process models are used to illustrate the API and effects of migration unless otherwise noted:
