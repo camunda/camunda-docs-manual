@@ -146,7 +146,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 
 ### Take the screenshots
 
-* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing
+* Hover over the drawing with your browser and adjust the browser screen size to fit the drawing (do not include the footer)
 * Take screenshot
 * Paste screenshot into the drawing
 * Right click on the image and select 'Original Size'
