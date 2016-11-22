@@ -12,7 +12,7 @@ menu:
 ---
 
 The conditional event defines an event which will be triggered if a given condition is evaluated to true.
-They can be used as start event of an event sub process, as intermediate event and boundary event.
+It can be used as start event of an event sub process, as intermediate event and boundary event.
 The start and boundary event can be interrupting and non interrupting.
 
 Conditions of conditional events
@@ -20,7 +20,7 @@ are evaluated at scope creation time and if a variable changes on execution leve
 with a condition boundary event is reached the condition is at first evaluated and triggered, if the condition is satisfied. Is the condition not satisfied
 the activity will be executed and the conditional event can be triggered via setting a variable on the execution variable scope.
 The same takes affect for conditional start events of event sub processes if a sub process is reached (or the process instance is started, which contains an event sub process).
-For more information about variable scopes, see the documentation below and [Process Variables]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility">}}).
+For more information about variable scopes, see the documentation below and the documentation of the [Process Variables]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility">}}).
 
 In the following BPMN model all supported conditional events are used.
 
@@ -48,7 +48,7 @@ To specify when a conditional event should be triggered, a `condition` must be s
 </conditionalEventDefinition>
 ```
 
-Conditional events are only evaluated if a variable was changed, except conditional intermediate events (see below).
+Conditional events are evaluated at scope creation time and if a variable was changed.
 It is possible to specify on which variable and variable change event the condition should be evaluated.
 For that the camunda extension attributes `camunda:variableName` and `camunda:variableEvent` can be used.
 
@@ -75,7 +75,7 @@ If the `variableName` and `variableEvent` is not specified, the condition will b
 
 A conditional boundary event acts like an observer which is triggered if a specific condition is satisfied.
 If a variable is changed during the execution of an activity to which the boundary event is attached, the condition will be evaluated.
-That means the condition is only evaluated if a variable changes during the execution of the activity onto which the boundary event is attached.
+Like the other conditional events the boundary event will be evaluated at scope creation time, that means on starting of the attached activity.
 
 There is a difference between an interrupting and a non interrupting conditional event. The interrupting event is the default.
 The non-interrupting event leads to the original activity not being interrupted, the activity stays there.
@@ -120,8 +120,8 @@ The specific type sub-element in this case is a conditionalEventDefinition eleme
 # Conditional Start Event
 
 A conditional start event is only supported on an event sub process. On start of a process with a defined event sub process (that contains
-a conditional start event), a subscription is created. Every time a variable is changed on the process scope, the condition of the
-conditional start event is evaluated. If the condition is satisfied, the event sub process is executed.
+a conditional start event), the condition will be evaulated. Is the condition satisfied the event sub process will be triggered otherwise a subscription is created.
+Every time a variable is changed on the process scope, the condition of the conditional start event is evaluated. If the condition is satisfied, the event sub process is executed.
 
 Similar to conditional boundary events, conditional start events can be interrupting and non interrupting.
 Non interrupting conditional start events can be triggered more than once. This can be restricted with the help of the `variableName`
@@ -165,8 +165,8 @@ the execution stays in `UserTask A` and `B`.
 
 <div data-bpmn-diagram="../bpmn/conditionalEventScopesExecutionTree" ></div>
 
-The execution tree above displays the current existing executions. The concurrent executions are created if a parallel gateway will for example be passed.
-ScopeExecution are created for sub processes or activities with boundary events. With this knowledge of the execution tree it is possible to trigger the conditional events
+The execution tree above displays the current existing executions. The concurrent executions are created if for example a parallel gateway is passed.
+ScopeExecutions are created for sub processes or activities with boundary events. With this knowledge of the execution tree it is possible to trigger the conditional events
 separately.
 
 ### Set Variable From Outside
@@ -204,18 +204,19 @@ and call instead of `setVariableLocal` the method `setVariable` the variable wil
 Variables can not only be set from outside also from delegation code.
 For example with the help of execution listener, input-output mapping, JavaDelegates or Expressions.
 Setting a variable will create a variable event. Theses variables events are collected and delayed if they are created in delegation code.
-The delay is needed, since directly dispatching will cause undefined behavior.
+The delay is necessary, since directly dispatching will cause undefined behavior.
 
 In the following picture the different activity instance states are displayed. `Starting` corresponds to the starting of the activity instance.
 At this time the input mappings and execution start listeners are called. After that the activity changes the state to execute or also called `default` state.
-In the end of the activity instance the ending state is used, on which the output mappings and execution end listeners are called.
+In the end of the activity instance the state is set to `ending`, on which the output mappings and execution end listeners are called.
 
 
 {{< img src="../img/activityInstanceState.png" title="API Services" >}}
 
 Every time a variable is set in delegation code the corresponding variable event is delayed. On the border of the current activity instance state, which you can see in the picture above,
-the delayed variable events are dispatched. This dispatching can trigger conditional events. The default evaluation of conditional events is executed after dispatching the delayed events of the
-activity instancte starting state.
+the delayed variable events are dispatched, so after `starting`, `default` and `ending`. This dispatching can trigger conditional events.
+The default evaluation of conditional events is executed after dispatching the delayed events of the
+activity instance `starting` state.
 
 # Camunda Extensions
 
