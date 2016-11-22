@@ -105,7 +105,7 @@ By clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-eye-
 
 {{< img src="../../img/migration/step4_batch.png" title="Executing migration asynchronously" >}}
 
-After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the [batch page]({{< relref "webapps/cockpit/batches.md" >}}) is displayed where the progress of the batch can be observed.
+After clicking `Execute Migration`, the result screen is displayed. If the migration was performed successfully, that is indicated on this page. For asynchronous migrations, a link to the [batch page]({{< relref "webapps/cockpit/batch/monitoring.md" >}}) is displayed where the progress of the batch can be observed.
 
 ## Error: Migration Plan invalid
 

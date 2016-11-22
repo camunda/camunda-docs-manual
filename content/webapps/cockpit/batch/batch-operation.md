@@ -6,7 +6,7 @@ weight: 10
 menu:
   main:
     identifier: "user-guide-cockpit-batches-operations"
-    parent: "user-guide-cockpit-batches"
+    parent: "user-guide-cockpit-batch"
     pre: "Perform batch operations on process instances"
 
 ---
@@ -45,4 +45,4 @@ endpoint that will process request as well as payload of request.
 {{< img src="../../img/batch/batch_operation_result.png" alt="Batch Operation Result" caption="" >}}
 
 On results screen you will see current status of batch operation creation. Upon successful batch creation user is able to
-navigate to [batch monitoring]({{< relref "webapps/cockpit/batches/batches.md" >}}). In case of error, this screen will display corresponding error message.
+navigate to [batch monitoring]({{< relref "webapps/cockpit/batch/monitoring.md" >}}). In case of error, this screen will display corresponding error message.

@@ -7,7 +7,7 @@ menu:
   main:
     name: "Batch View"
     identifier: "user-guide-cockpit-batches-view"
-    parent: "user-guide-cockpit-batches"
+    parent: "user-guide-cockpit-batch"
     pre: "Display status of running and completed batches."
 
 ---

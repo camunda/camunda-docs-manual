@@ -189,7 +189,7 @@ processEngine.getManagementService()
 
 Please note that user operation log is written for Batch creation itself only, execution
 of the seed job as well as individual jobs that perform operations is performed by Job Executor
-and therefor are not considered to be user operations. 
+and therefor are not considered to be user operations.
 
 # Job Definitions
 
@@ -284,9 +284,9 @@ monitor job definition can be suspended with the management service:
 processEngine.getManagementService()
   .suspendJobByJobDefinitionId(monitorJobDefinition.getId());
 ```
-[process-instance-cancellation]: {{< relref "user-guide/process-engine/batch/process-instance-cancellation.md">}}
-[process-instance-deletion]: {{< relref "user-guide/process-engine/batch/process-instance-deletion.md">}}
-[set-job-retries]: {{< relref "user-guide/process-engine/batch/set-job-retries.md">}}
+[process-instance-cancellation]: {{< relref "user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
+[process-instance-deletion]: {{< relref "user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
+[set-job-retries]: {{< relref "user-guide/process-engine/batch-operations.md#set-retries-of-jobs-associated-with-process-instance">}}
 [migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}
