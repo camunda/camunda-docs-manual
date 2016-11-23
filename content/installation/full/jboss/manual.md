@@ -389,14 +389,21 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 ### Problems with Jackson Annotations
 
-Using Jackson annotations on WildFly may not work with the Camunda Spin plugin. WildFly automatically appends to its JAX-RS subsystem a bunch of Resteasy dependencies including a Jackson library (in slot 'main'). This is done apart from the fact whether the application uses Jackson annotations uses or not. However, the JSON serialization in Spin depends upon Jackson as well, but on a newer version. Thus, during the deployment of the web application is the library loaded twice. 
+Using Jackson annotations on WildFly does not work with the Camunda Spin plugin. WildFly automatically appends to its JAX-RS subsystem a couple of Resteasy dependencies including a Jackson library in slot `main` (see [here](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for the details). These subsystems will always add these dependencies, even if they are not used. 
 
-Now the Jackson version in slot 'main' is older than the Jackson version of Spin,  which causes problems, when using Jackson annotations, as the Jackson module from Spin cannot handle the classes of the 'main' module and, therfore, ignores Jackson annotations. Note that this problem does not nercessarily have to ermerge upon direct usage of Spin. The Spin plugin also come into play, when setting or reading a JSON variables. 
+The JSON serialization in Spin depends upon Jackson as well, but on a newer version. Thus, during the deployment of the web application is the library loaded twice:
+
+* This is the dependency, which is added by Camunda Spin:<br>
+  `modules/com/fasterxml/jackson/core/jackson-core/2.5.3/jackson-core-2.5.3.jar`
+* This is the dependency, which is added implicitly on each deployment that uses jackson annotations on wildfly: <br>
+`modules/system/layers/base/com/fasterxml/jackson/core/jackson-core/main/jackson-core-2.4.1.jar`
+
+As a result are Jackson annotations being ignored. Note that this problem does not necessarily have to emerge upon direct usage of Spin. The Spin plugin also come into play, when JSON variables are set or being read. 
 
 There are two ways to fix this:
 
-1. Adjust the jackson slot in org.jboss.resteasy.resteasy-jackson2-provider to the version of Spin. By default is this set to 'main' and you could change that to the Spin version. Be aware, that we cannot guarantee that the resteasy modules work with the Spin Jackson version flawlessly.
-2. Exclude the JAX-RS subsystem and add all necessary dependencies in the process application. Either you adjust that in the `jboss-deployment-structure.xml` or you deploy that as a library. 
+1. Change `main` slot to the version, which is added by Camunda. Create a new folder in `modules/system/layers/base/com/fasterxml/jackson/core/jackson-core/{version}` and add a jar of the corresponding jackson core dependency with an equal version to this new folder. Remove the `main` slot. Make sure that Resteasy can work with this Jackson version, as we cannot give any guarantees on this.
+2. Exclude implicitly added jaxrs dependencies. Add a jboss-deployment-structure.xml file to you application in the WEB-INF folder. This solution is also shown in the [Jackson Annotation Example for WildFly](https://github.com/camunda/camunda-bpm-examples/blob/master/wildfly/jackson-annotations) in the Camunda example repository.
 
 ## Groovy Scripting
 
