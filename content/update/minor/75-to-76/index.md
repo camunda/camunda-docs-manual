@@ -12,6 +12,14 @@ menu:
 
 ---
 
+<style type="text/css">
+    blockquote.upgrade-guide-quote{
+      border-left: 2px solid #d2828d;
+      margin-left: 1.65em;
+      font-size: 0.9em;
+    }
+</style>
+
 This document guides you through the upgrade from Camunda BPM `7.5.x` to `7.6.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Upgrades]({{< relref "#database-updates" >}})
@@ -24,34 +32,38 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.6:
 
-{{< note title="The isExecutable is mandatory" class="warning" >}}
- The `isExecutable` attribute of the process is per default `false`. In the newer version of camunda (7.6) process definitions without the `isExecutable`
-   attribute or with the attribute set to `false` are not deployed on the engine. *So every process which should be executed needs this attribute in the process definition to be deployed*. Old processes which are deployed on an earlier version are also deployed without this attribute.
-{{< /note >}}
+* [DRD support in DMN]({{< relref "reference/dmn11/drg/index.md" >}})
+* [CMMN support in cockpit]({{< relref "webapps/cockpit/cmmn/index.md" >}})
+* [Batch operations]({{< relref "webapps/cockpit/batch/batch-operation.md" >}})
+* Rolling upgrade support
 
-{{< note title="Manual activation rule defaults changed" class="warning" >}}
+<blockquote class="upgrade-guide-quote">
+  Rolling upgrades are supported starting at upgrade from version 7.5.x to 7.6.0. Please read <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
+</blockquote>
 
-Default behavior of [manual activation rules]({{< relref "reference/cmmn11/markers/manual-activation-rule.md" >}}) in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagramms to include manual activation rule.
+* The isExecutable is mandatory
 
-```xml
-<manualActivationRule/>
-```
-Otherwise if your case definitions do not have `manualActivationRule` elements, but uses `caseService.manuallyStartCaseExecution(caseExecutionId)` to manually start executions and you would like your executions to start right away, please remove `caseService.manuallyStartCaseExecution(caseExecutionId)` from your code
+<blockquote class="upgrade-guide-quote">
+ The <i>isExecutable</i> attribute of the process is per default <i>false</i>. In the newer version of camunda (7.6) process definitions without the <i>isExecutable</i> attribute or with the attribute set to <i>false</i> are not deployed on the engine. <b>So every process which should be executed needs this attribute in the process definition to be deployed</b>. Old processes which are deployed on an earlier version are also deployed without this attribute.
+</blockquote>
 
-{{< /note >}}
+* Manual activation rule defaults changed
 
-{{< note title="Rolling upgrade support" class="warning" >}}
-  Rolling upgrades are supported starting at upgrade from version 7.5.x to 7.6.0. Please read [detailed documentation]({{< relref "update/rolling-update.md" >}}) about the process and its limitations.
-{{< /note >}}
+<blockquote class="upgrade-guide-quote">
+Default behavior of <a href="../../../reference/cmmn11/markers/manual-activation-rule">manual activation rules</a> in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagramms to include manual activation rule.
 
-{{< note title="DMN namespace changes" class="Info" >}}
-The namespace for DMN 1.1 was changed after our 7.4.0 Release. The official namespace is now: http://www.omg.org/spec/DMN/20151101/dmn.xsd
-{{< /note >}}
+<pre style="margin-top:1em">
+&lt;manualActivationRule/&gt;
+</pre>
 
-{{< note title="Admin app authorizations" class="Info" >}}
-TODO: based on outcome of https://app.camunda.com/jira/browse/CAM-6704 fill in this section
-{{< /note >}}
+Otherwise if your case definitions do not have <i>manualActivationRule</i> elements, but uses <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> to manually start executions and you would like your executions to start right away, please remove <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> from your code
+</blockquote>
 
+* DMN namespace changes
+
+<blockquote class="upgrade-guide-quote">
+The namespace for DMN 1.1 was changed after our 7.4.0 Release. The official namespace is now: <a href="http://www.omg.org/spec/DMN/20151101/dmn.xsd">http://www.omg.org/spec/DMN/20151101/dmn.xsd</a>
+</blockquote>
 
 # Database Upgrades
 
