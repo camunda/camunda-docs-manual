@@ -252,7 +252,7 @@ History:
 alter table ACT_HI_PROCINST add constraint ACT_UNIQ_HI_BUS_KEY UNIQUE (PROC_DEF_ID_, BUSINESS_KEY_);
 ```
 
-### Isolation Level Configuration
+## Isolation Level Configuration
 
 Most database management systems provide four different isolation levels to be set. For instance the levels defined by ANSI/USO SQL are (from low to high isolation):
 
@@ -263,7 +263,7 @@ Most database management systems provide four different isolation levels to be s
 
 The required isolation level to run Camunda with is **READ COMMITTED**, which may have a different name according to your database system. Setting the level to REPEATABLE READS is known to cause deadlocks, so one needs to be careful, when changing the isolation level.
 
-### Custom Configuration for Microsoft SQL Server
+## Configuration for Microsoft SQL Server
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
 than most databases and does not interact well with the process engine's
@@ -282,4 +282,46 @@ SET READ_COMMITTED_SNAPSHOT ON
 ```
 where `[process-engine]` contains the name of your database.
 
+## Configuration for MariaDB Galera Cluster
 
+This section documents the supported Galera Cluster configuration for MariaDB. Both server and client need to be configured correctly. Please note that there are some [known limitations](#Galera-cluster-known-limitations) which apply when using Galera cluster, see below.
+
+{{< note title="Warning" class="warning" >}}
+Please note that server and client configuration settings defined below are the only configuration that is supported for Galera Cluster. Other configuraitons are not supported.
+{{</ note >}}
+
+### Server Configuration
+
+The following configuration needs to go into the `[galera]` configuration section in the `my.cnf.d/server.cnf` on each server:
+
+```
+[galera]
+...
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+transaction-isolation=READ-COMMITTED
+wsrep_on=ON
+wsrep_causal_reads = 1
+wsrep_sync_wait = 7
+...
+```
+
+Note that other setting may be present in this section but the settings `transaction-isolation`, `wsrep_on`, `wsrep_causal_reads` and `wsrep_sync_wait` need to present and need to have **exactly** the values shown above.
+
+### Client Configuration
+
+Only failover cofigurations are supported. **Other client configuration modes like `replication:`, `loadbalance:`, `aurora:` are not supported.**
+
+The following is the required format of the jdbcUrl property in datasource configurations:
+
+```
+jdbc:mariadb:failover://[host1:port],[host2:port],.../[data-base-name]
+```
+
+Example:
+
+```
+jdbc:mariadb:failover://192.168.1.1:32980,192.168.1.2:32980,192.168.1.3:32980/process-engine
+```
+
+### Galera Cluster Known Limitations
