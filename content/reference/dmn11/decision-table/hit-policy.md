@@ -76,7 +76,7 @@ output entries of the satisfied rule.
 
 If more than one rule is satisfied, the Unique hit policy is violated.
 
-See the following decision table. 
+See the following decision table.
 {{< img src="../img/hit-policy-unique.png" title="Hit Policy Unique" class="no-lightbox" >}}
 Depending on the current season the dish should be chosen.
 Only one dish can be chosen, since only one season can exist at the same time.
@@ -93,7 +93,7 @@ is violated.
 See the following example:
 {{< img src="../img/hit-policy-any.png" title="Hit Policy Any" class="no-lightbox" >}}
 There is a decision table for the leave application. If the applier
-has no vacation days left or he is currently in the probation period, the application will be refused. 
+has no vacation days left or he is currently in the probation period, the application will be refused.
 Otherwise the application is applied.
 
 ## First Hit Policy
@@ -113,8 +113,14 @@ of all satisfied rules in the order of the rules in the decision table.
 
 {{< img src="../img/hit-policy-rule-order.png" title="Hit Policy Rule Order" class="no-lightbox" >}}
 Again, see the advertisement example with the rule order policy. Say we have a user at the age of 19 again.
-All rules are satisfied so all outputs are given, ordered by the rule ordering. 
+All rules are satisfied so all outputs are given, ordered by the rule ordering.
 It can perhaps be used to indicate the priority of the displayed advertisements.
+
+```xml
+<decisionTable id="decisionTable" hitPolicy="RULE ORDER">
+  <!-- .. -->
+</decisionTable>
+```
 
 ## Collect Hit Policy
 
@@ -179,7 +185,7 @@ the Camunda DMN engine:
 #### SUM aggregator
 The SUM aggregator sums up all outputs from the satisfied rules.
 {{< img src="../img/hit-policy-collect-sum.png" title="Hit Policy Collect SUM" class="no-lightbox" >}}
-The showed decision table can be used to sum up the salary bonus for an employee. For example, the employee has been working in the company for 
+The showed decision table can be used to sum up the salary bonus for an employee. For example, the employee has been working in the company for
 3.5 years. So the first, second and third rule will match and the result of the decision table is 600, since the output is summed up.
 
 #### MIN aggregator
@@ -204,7 +210,7 @@ The COUNT aggregator can be use to return the count of satisfied rules.
 
 {{< img src="../img/hit-policy-collect-count.png" title="Hit Policy Collect COUNT" class="no-lightbox" >}}
 
-For example, see the salary bonus decision table again, this time with the COUNT aggregator. 
+For example, see the salary bonus decision table again, this time with the COUNT aggregator.
 With an input of 4, the first three rules will be satisfied. Therefore, the result from the decision table will be 3, which means
 that after 4 years the result of the decision table is 3 salary bonuses.
 
