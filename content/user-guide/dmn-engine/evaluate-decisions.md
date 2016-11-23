@@ -89,7 +89,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 
 ## Parse Decision Requirements Graph
 
-In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (a.k.a. DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
+In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
 
 ```java
 // parse the drg from an input stream
@@ -160,8 +160,6 @@ result = dmnEngine.evaluateDecision(decision, variables);
 result = dmnEngine.evaluateDecisionTable(decision, variables);
 ```
 
-If a decision has the list of required decisions, then the decision is evaluated after the evaluation of all the required decisions.
-
 ## Pass Variables
 
 To provide the input variables for a decision evaluation you can use a
@@ -184,40 +182,23 @@ Use the `VariableContext` to support lazy-loading of variables.
 
 ## Interpret the Decision Result
 
-<!--
-The evaluation of a DMN decision returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionResult.html"
-text="DmnDecisionResult" >}} or a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html"
-text="DmnDecisionTableResult" >}} if the decision is implemented as decision table and evaluated using `evaluateDecisionTable()`.
-Both results are semantically equal and provide the same methods.
--->
-
 The evaluation of a DMN decision returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionResult.html"
 text="DmnDecisionResult" >}}. If the decision is implemented as [decision table] then the result is a list of the
 matching decision rule results. These results represent a mapping from an output name to an output value.
 
 If the decision is instead implemented as [decision literal expression] then the result is a list
-which contains only one entry. This entry represents the expression value and is mapped by the variable name.
-
-<!--
-The evaluation of a DMN decision table returns a {{< javadocref
-page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html"
-text="DmnDecisionTableResult" >}}. The result is a list of the
-matching decision rule results. These results are {{< javadocref
-page="?org/camunda/bpm/dmn/engine/DmnDecisionRuleResult.html"
-text="DmnDecisionRuleResults" >}} which represent a mapping from an output name
-to an output value.
--->
+which contains only one entry. This entry represents the expression value and is mapped to the variable name.
 
 Assume the following example of making a decision to select a dish.
 
-{{< img src="../img/dmn.png" title="Select Dish" >}}
+{{< img src="../img/dish-dmn.png" title="Select Dish" >}}
 
 The decision table returns the `desiredDish` as the output.
 
 Assume that the decision table is executed with the following input variables:
 
-- `season`: "Winter"
-- `guestCount`: 7
+- `season`: "Spring"
+- `guestCount`: 14
 
 There is a matching rule in the table for the given inputs.
 The `DmnDecisionResult` thus consists of one `DmnDecisionResultEntries` which contains the key `desiredDish`.
@@ -269,47 +250,51 @@ Note that the decision can also be evaluated using the
 text="evaluateDecisionTable()" >}} method if it is implemented as [decision table]. In this case, evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provides the same methods as a
 `DmnDecisionResult`.
 
-## Decision Evaluation with Required decisions
+## Decisions with Required Decisions
 
-The decision evaluation requires the evaluation result of all the required decisions as an input.
+If a decision has one or more [required decisions], then the required decisions are evaluated first. The results of this evaluations are passed as input for the evaluation of the decision.
 
-Assume the following example of making a decision to select a dish.
-{{< img src="../img/drd.png" title="Select dish" >}}
+Assume the following example of making a decision to select beverages.
 
-Decision to be evaluated: `Dish`
+{{< img src="../img/beverages-dmn.png" title="Beverages Decision" >}}
 
-Required Decisions: `Season` and `GuestCount`
+The following [decision requirements diagram] shows that the `Beverages` decision requires the `Dish` decision (from the previous example).  
 
-`Dish` decision is evaluated after the evaluation of `Season` and `GuestCount`.
+{{< img src="../img/drd.png" title="Select beverages" >}}
 
-Results of `Season` and `GuestCount` are applied as input to `Dish` decision for evaluation.
+When the `Beverages` decision is evaluated then the DMN engine evaluates the `Dish` decision first.
 
-Assume that the decision is executed with the following input variables:
+Assume that the decision is evaluated with the following input variables:
 
-- `temperature`: 35
-- `dayType`: "WeekDay"
+- `season`: "Spring"
+- `guestCount`: 14
+- `guestsWithChildren`: false 
 
-With the above input, `season` decision table has one matching rule and generates an output value `Summer` that is mapped to the output variable `season`.
-`GuestCount` decision has one matching rule with the input `dayType` and generates an output value `4` that is mapped to the output variable `guestCount`.
+With the above inputs, `Dish` decision table has one matching rule and generates the output value `Stew` that is mapped to the output variable `desiredDish`.
 
-The output results of the decisions `Season` and `GuestCount` are used as inputs of the `Dish` decision. A decision can access the result (i.e., output value) of a required decision by its output name (e.g., `season` of the Season decision). If the required decision has multiple matched rules, then the decision gets a list of all output values instead of the single value.
+The output result of the `Dish` decision is used as input of the `Beverages` decision. That means that the input expression `desiredDish` of the `Beverages` decision returns the output value `Stew` of the `Dish` decision. In general, a decision can access the results (i.e., the output values) of required decisions by there output name.
 
-The `Dish` decision has one matching rule with the inputs generated by the required decisions and generates the output `Bean salad`.
+As result, the `Beverages` decision has two matching rules and generates the output values `Guiness` and `Water`.
 
 ```java
-// the inputs are `temperature` = `35` and `dayType` = `WeekDay`
+DmnDecision decision = dmnEngine.parseDecision("beverages", inputStream);
+
 DmnDecisionResult decisionResult = dmnEngine.evaluateDecision(decision, variables);
 
-// output is `Bean salad`
-String desiredDish = decisionResult.getSingleEntry();
+List<String> beverages = decisionResult.collectEntries("beverages");
 ```
 
-### Handling of hit policy
+## Hit Policy of Required Decisions
 
-Required decisions might have [hit policy]({{< relref "reference/dmn11/decision-table/hit-policy.md" >}}) assigned. Which will affect result passed to the decision requiring evaluation. In case if required decision has a [`COLLECT`]({{< relref "reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}) hit policy and no [aggregators]({{< relref "reference/dmn11/decision-table/hit-policy.md#aggregators-for-collect-hit-policy" >}}), result will be interpreted as a list independent from number of rules that were actually matched.
+The [hit policy] of a required decision can affect the result that is passed as input to the requiring decision. If the required decision has a [COLLECT] hit policy with aggregator then the decision result (i.e. output value) is only the aggregated value. 
 
-Considering our `Dish` example, if we would change hit policy of `GuestCount` decision from `UNIQUE` to `COLLECT` and provide `WeekDay` as an input `dayType`, then generated output will be `[4]` opposed to simple value of `4`.
+In case of a hit policy with multiple matched rules (i.e., [COLLECT] without aggregator or [RULE ORDER]), the output variable is mapped to a list of output values, even if only one rule matched.
 
 [decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
 [decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
 [decision requirements graph]: {{< relref "reference/dmn11/drg/index.md" >}}
+[decision requirements diagram]: {{< relref "reference/dmn11/drg/index.md" >}}
+[required decisions]: {{< relref "reference/dmn11/drg/index.md#required-decisions" >}}
+[hit policy]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
+[COLLECT]: {{< relref "reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}
+[RULE ORDER]: {{< relref "reference/dmn11/decision-table/hit-policy.md#rule-order-hit-policy" >}}

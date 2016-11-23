@@ -144,7 +144,10 @@ The decision requirements definition key is equivalent to the `id` attribute of 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="my-drg" name="My DRG" namespace="http://camunda.org/schema/1.0/dmn">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+             id="my-drg" 
+             name="My DRG" 
+             namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
 </definitions>
 ```
@@ -163,7 +166,7 @@ If not, the decision requirements definition is assigned version `1` for this ke
 key already exists, the newly deployed definition will become a new version of
 the existing one, increasing its version by one.
 
-Note that the versions of the contained decision definitions can be different from the decision requirements definition if they are also deployed inside other DMN resources or as a single decision inside a DMN resource.
+Note that the versions of the contained decision definitions can be different from the decision requirements definition if they are also deployed inside other DMN resources, as a single decision inside a DMN resource, or added later. 
 
 # Querying the Decision Repository
 

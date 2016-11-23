@@ -22,7 +22,7 @@ XML element.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="decision" name="Dish">
+  <decision id="dish" name="Dish">
     <decisionTable id="decisionTable">
       <!-- ... -->
       <output id="output1" label="Dish" name="desiredDish" typeRef="string" />

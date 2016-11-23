@@ -23,7 +23,7 @@ XML element.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="decision" name="Dish">
+  <decision id="dish" name="Dish">
     <decisionTable id="decisionTable">
       <input id="input1" label="Season">
         <inputExpression id="inputExpression1" typeRef="string">
@@ -154,7 +154,7 @@ To use the attribute you have to define the Camunda DMN namespace
              xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              xmlns:camunda="http://camunda.org/schema/1.0/dmn"
              namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="decision" name="Dish">
+  <decision id="dish" name="Dish">
     <decisionTable id="decisionTable">
       <input id="input1"
              label="Season"

@@ -12,13 +12,15 @@ menu:
 
 ---
 
+{{< img src="img/decision-literal-expression.png" title="Decision Literal Expression" class="no-lightbox" >}}
+
 A decision literal expression represents decision logic which can be depicted as an expression in DMN 1.1. 
 It consists of a [literal expression] and a [variable].
 
 A decision literal expression is represented by a `literalExpression` element inside a `decision` XML element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Desired Dish" namespace="party">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="season" name="Season">
     <variable name="season" typeRef="string" />
     <literalExpression>
@@ -28,10 +30,40 @@ A decision literal expression is represented by a `literalExpression` element in
 </definitions>
 ```
 
+# Decision Name
+
+{{< img src="img/decision-name.png" title="Decision Name" class="no-lightbox" >}}
+
+The name describes the decision for which the literal expression provides the
+decision logic. It is set as the `name` attribute on the `decision` element.
+
+```xml
+<decision id="season" name="Season">
+    <!-- ... -->
+</decision>
+```
+
+# Decision Id
+
+{{< img src="img/decision-id.png" title="Decision Id" class="no-lightbox" >}}
+
+The id is the technical identifier of the decision. It is set in the `id`
+attribute on the `decision` element.
+
+Each decision should have an unique id when it is [deployed] to the Camunda BPM
+platform. The engine use the id as the decision key of the deployed
+`DecisionDefinition`.
+
+```xml
+<decision id="season" name="Season">
+    <!-- ... -->
+</decision>
+```
+
 # Literal Expression
 
 The literal expression specifies how the value of the decision is generated. It is an expression which will be evaluated by the DMN engine. 
-It can be used to invoke a bean which provides decision logic, or to combine the output values of [required decisions]({{< relref "reference/dmn11/drg/decision.md#required-decisions" >}}).
+It can be used to do a complex calculation, to invoke a bean which provides decision logic, or to combine the output values of [required decisions].
 
 The expression is set inside a `text` element that is a child of the `literalExpression` XML element.
 
@@ -57,11 +89,11 @@ If no expression language is set then the global expression language is used
 which is set on the `definitions` XML element.
 
 ```xml
-<definitions id="dish"
-             name="Desired Dish"
+<definitions id="definitions"
+             name="definitions"
              xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
              expressionLanguage="groovy"
-             namespace="party">
+             namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
 </definitions>
 ```
@@ -73,7 +105,7 @@ languages.
 
 # Variable
 
-A decision literal expression must have one variable which specifies the name and the type of the decision result. 
+A decision literal expression must have a variable which specifies the name and the type of the decision result. 
 A variable is represented by a `variable` element inside a `decision` XML element.
 
 ```xml
@@ -109,4 +141,6 @@ safety of the expression result.
 [supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
 [supported DT]: {{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}
+[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
+[required decisions]: {{< relref "reference/dmn11/drg/index.md#required-decisions" >}}
 

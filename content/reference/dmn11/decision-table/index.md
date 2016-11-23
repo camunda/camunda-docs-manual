@@ -24,7 +24,7 @@ A decision table is represented by a `decisionTable` element inside a
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="decision" name="Dish">
+  <decision id="dish" name="Dish">
     <decisionTable id="decisionTable">
     <!-- ... -->
     </decisionTable>
@@ -40,7 +40,7 @@ The name describes the decision for which the decision table provides the
 decision logic. It is set as the `name` attribute on the `decision` element.
 
 ```xml
-<decision id="decision" name="Dish">
+<decision id="dish" name="Dish">
   <decisionTable id="decisionTable">
   <!-- ... -->
   </decisionTable>
@@ -59,7 +59,7 @@ platform. The engine use the id as the decision key of the deployed
 `DecisionDefinition`.
 
 ```xml
-<decision id="decision" name="Dish">
+<decision id="dish" name="Dish">
   <decisionTable id="decisionTable">
   <!-- ... -->
   </decisionTable>

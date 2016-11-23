@@ -12,8 +12,6 @@ menu:
 
 ---
 
-Decision Model and Notation (DMN) is a standard for Business Decision
-Management. Camunda supports the 1.1 version of DMN.
+Decision Model and Notation (DMN) is a standard for Business Decision Management.
 
-Currently the Camunda DMN engine supports *partially* DMN 1.1 Decision
-Tables and Friendly Enough Expression Language (FEEL).
+Currently the Camunda DMN engine supports *partially* DMN 1.1, including Decision Tables, Decision Literal Expressions, Decision Requirements Graphs and the Friendly Enough Expression Language (FEEL).
