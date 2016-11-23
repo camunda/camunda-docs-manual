@@ -34,6 +34,8 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 # Databases
 
+## Supported Database Products
+
 * MySQL 5.6
 * MariaDB 10.0
 * Oracle 10g / 11g / 12c
@@ -44,10 +46,9 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 ## Database Clustering & Replication
 
-Clustered or Replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration.
-The configuration needs to guarantee *READ-COMMITTED* isolation level.
+Clustered or replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration. The configuration needs to guarantee the equivalent behavior of *READ-COMMITTED* isolation level.
 
-The MySQL/MariaDB based **Galera Cluster is not supported**.
+* MariaDB Galera Cluster: Galera Cluster for MariaDB is supported with specific configuration settings and some known limitations. See [Details]({{< relref "user-guide/process-engine/database.md#configuration-for-mariadb-galera-cluster" >}}).
 
 # Web Browser
 
