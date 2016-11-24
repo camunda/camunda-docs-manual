@@ -116,12 +116,6 @@ Again, see the advertisement example with the rule order policy. Say we have a u
 All rules are satisfied so all outputs are given, ordered by the rule ordering.
 It can perhaps be used to indicate the priority of the displayed advertisements.
 
-```xml
-<decisionTable id="decisionTable" hitPolicy="RULE ORDER">
-  <!-- .. -->
-</decisionTable>
-```
-
 ## Collect Hit Policy
 
 Multiple rules can be satisfied. The decision table result contains the output
