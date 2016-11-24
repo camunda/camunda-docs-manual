@@ -330,7 +330,7 @@ In order to activate Camunda Connect functionality for a process engine, a proce
 
 ## Camunda Spin
 
-The Spin plugin can be use to entend the engine functionality in order to serialize object variables from JSON and XML. For more information see the [Spin Reference]({{< relref "reference/spin/index.md" >}})
+The Camunda Spin plugin can be use to extend the engine functionality in order to de-/serialize object variables from and to JSON and XML. For more information see the [Spin Reference]({{< relref "reference/spin/index.md" >}}).
 
 ### Setup Spin
 
@@ -369,21 +369,24 @@ In order to activate Camunda Spin functionality for a process engine, a process 
 
 ### Problems with Jackson Annotations
 
-Using Jackson annotations on WildFly does not work with the Camunda Spin plugin. WildFly automatically appends to its JAX-RS subsystem a couple of Resteasy dependencies including a Jackson library in slot `main` (see [here](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for the details). These subsystems will always add these dependencies, even if they are not used. 
+The usage of Jackson annotations on WildFly together with the Camunda Spin JSON serialization can lead to problems.
+WildFly adds on each new deployment implicit the JAX-RS subsystem, if JAX-RS annotations are present.
+See the WildFly [documentation](https://docs.jboss.org/author/display/WFLY8/Implicit+module+dependencies+for+deployments) for more information.
+This JAX-RS subsystem include the Jackson library, which does not match with the version which is used by the Camunda SPIN Plugin.
+As a result Jackson annotations will be ignored. Note that this problem does not necessarily have to emerge upon direct usage of Spin.
+The Spin plugin also come into play, when JSON variables are set or being read by the Camunda Process Engine.
 
-The JSON serialization in Spin depends upon Jackson as well, but on a newer version. Thus, during the deployment of the web application is the library loaded twice:
+See one of the following ways to fix this:
 
-* This is the dependency, which is added by Camunda Spin:<br>
-  `modules/com/fasterxml/jackson/core/jackson-core/2.5.3/jackson-core-2.5.3.jar`
-* This is the dependency, which is added implicitly on each deployment that uses jackson annotations on wildfly: <br>
-`modules/system/layers/base/com/fasterxml/jackson/core/jackson-core/main/jackson-core-2.4.1.jar`
+1. Change the Jackson `main` slot to the version, which is uses by the Camunda Spin Plugin.
+ * Make sure that Resteasy can work with this Jackson version, as we cannot give any guarantees on this.
 
-As a result are Jackson annotations being ignored. Note that this problem does not necessarily have to emerge upon direct usage of Spin. The Spin plugin also come into play, when JSON variables are set or being read. 
+2. Exclude implicitly added JAX-RS dependencies.
+ * Add a `jboss-deployment-structure.xml` file to you application in the WEB-INF folder.
+ * Exclude the JAX-RS subsystem and add the Jackson dependencies, with the version which is used by the Camunda Spin Plugin.
+ * This solution is also shown in the [Jackson Annotation Example for WildFly](https://github.com/camunda/camunda-bpm-examples/blob/master/wildfly/jackson-annotations) in the Camunda example repository.
 
-There are two ways to fix this:
-
-1. Change `main` slot to the version, which is added by Camunda. Create a new folder in `modules/system/layers/base/com/fasterxml/jackson/core/jackson-core/{version}` and add a jar of the corresponding jackson core dependency with an equal version to this new folder. Remove the `main` slot. Make sure that Resteasy can work with this Jackson version, as we cannot give any guarantees on this.
-2. Exclude implicitly added jaxrs dependencies. Add a jboss-deployment-structure.xml file to you application in the WEB-INF folder. This solution is also shown in the [Jackson Annotation Example for WildFly](https://github.com/camunda/camunda-bpm-examples/blob/master/wildfly/jackson-annotations) in the Camunda example repository.
+See the [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-jsonignore/271/19) for another approaches and information.
 
 ## Groovy Scripting
 
