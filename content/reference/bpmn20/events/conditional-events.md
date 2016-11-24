@@ -16,7 +16,7 @@ It can be used as start event of an event sub process, as intermediate event and
 The start and boundary event can be interrupting and non interrupting.
 
 In the Camunda specific implementation conditional events are triggered with the help of variables.
-See -link- for information of how to trigger conditional events.
+See the section [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) for more information.
 
 In the following BPMN model all supported conditional events are used.
 
@@ -25,7 +25,7 @@ In the following BPMN model all supported conditional events are used.
 As you can see, an intermediate conditional event is like a wait until the condition is satisfied. In this example, if
 the processor becomes available and the condition is for example `${processorAvailable == true}`, the condition will be satisfied and the execution process to the next activity.
 
-In the user task, with the conditional boundary event, the execution can be interrupted if the condition which checks whether the application was changed is satisfied.
+Is the condition of the conditional boundary event satisfied, which checks whether the application was changed, the corresponding UserTask will be interrupted.
 
 During the entire execution of the process instance, the application can be canceled. If the condition of the conditional start event is
 satisfied the execution of the process instance will be interrupted by the event sub process.
@@ -62,7 +62,7 @@ It is reasonable to use the `variableEvent` on non interrupting events, since th
 
 The variable specification gives more control over the condition evaluation and event triggering.
 If the `variableName` and `variableEvent` is not specified, the condition will be evaluated every time a variable changes.
-See -limk- for information of how to trigger conditional events.
+See the section [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) for more information.
 
 # Conditional Boundary Event
 
@@ -175,7 +175,7 @@ the conditional boundary event of the `UserTask A` is evaluated as first. See th
 
 In this tree you can see that the `UserTask A` is on higher scope than the `UserTask B`, thats why the conditional boundary event
 of the `UserTask A` will be evaluated as first, if the variable event is created on the process instance level. For more
-information's see the section about [Activity Instances]({{< relref "user-guide/process-engine/process-engine-concepts/#activity-instances">}}).
+information's see the section about [Activity Instances]({{< relref "user-guide/process-engine/process-engine-concepts.md#activity-instances">}}).
 
 ### Set Variable From Outside
 
@@ -195,7 +195,7 @@ The same applies to triggering the conditional boundary event of the `UserTask A
 ### Set Variable From Delegation Code
 
 Variables can not only be set from outside also from delegation code, see for information the
-[Delegation Code]({{< relref "user-guide/process-engine/delegation-code/">}}) section.
+[Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md">}}) section.
 Setting a variable will create a variable event. Theses variables events are collected and delayed if they are created in delegation code.
 
 In the following picture the different activity instance phases are displayed.
