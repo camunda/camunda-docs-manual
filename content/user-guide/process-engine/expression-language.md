@@ -37,10 +37,10 @@ usage of EL.
   <tr>
     <td>
       <a href="#conditions">
-        Sequence Flows
+        Sequence Flows, Conditional Events
       </a>
     </td>
-    <td>Expression language as condition expression of a sequence flow</td>
+    <td>Expression language as condition expression</td>
   </tr>
   <tr>
     <td>
@@ -127,9 +127,10 @@ interface.
 
 ## Conditions
 
-To use conditional sequence flows, expression language is usually used. Therefore, a
-`conditionExpression` element of a sequence flow of the type `tFormalExpression` has to be used.
-The text content of the element is the expression to be evaluated.
+To use conditional sequence flows or conditional events, expression language is usually used.
+For conditional sequence flows, a `conditionExpression` element of a sequence flow has to be used.
+For conditional events, a `condition` element of a conditional event has to be used. Both are
+of the type `tFormalExpression`. The text content of the element is the expression to be evaluated.
 
 Inside the expression some special variables are available which enable the access of the current
 context. To find more information about the available variables please see the [corresponding
@@ -143,6 +144,14 @@ The following example shows the usage of expression language as condition of a s
       ${test == 'foo'}
     </conditionExpression>
   </sequenceFlow>
+```
+
+For the usage of expression language on conditional events see the following example:
+
+```xml
+<conditionalEventDefinition>
+  <condition type="tFormalExpression">${var1 == 1}</condition>
+</conditionalEventDefinition>
 ```
 
 
