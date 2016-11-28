@@ -62,16 +62,16 @@ A batch is created by executing a process engine command asynchronously.
 Currently supported commands:
 
 - [Process Instance Migration][batch-migration]
-- [Cancellation of running Process Instance][process-instance-cancellation]
+- [Cancellation of running Process Instances][process-instance-cancellation]
 - [Deletion of Historic Process Instances][process-instance-deletion]
-- [Set retries of jobs associated with Process Instance][set-job-retries]
+- [Setting retries of jobs associated with Process Instances][set-job-retries]
 
 Java API can be used to create Batch command, please refer to specific commands for
 exact usage example.
 
 ## Query a Batch
 
-You can query a running batch by the id and the type. For example to query
+You can query a running batch by the id and the type, for example to query
 for all running process instance migration batches.
 
 ```java
@@ -130,7 +130,7 @@ processEngine.getManagementService()
   .suspendBatchById("myBatch");
 ```
 
-A suspended batch can then be activated again also using the management
+A suspended batch can then be activated again, also using the management
 service.
 
 ```java
@@ -160,14 +160,14 @@ processEngine.getHistoryService()
 ```
 
 {{< note title="" class="info" >}}
-For a running batch which still executes jobs it is recommend
+For a running batch which still executes jobs it is recommended
 to suspend the batch before deleting it.
-See section [Suspend a Batch](#suspend-a-batch) for more information.
+See the [Suspend a Batch](#suspend-a-batch) section for details.
 {{< /note >}}
 
 ## Priority of a Batch
 
-As all batch jobs are executed using the job executor it is possible to use the
+As all batch jobs are executed using the job executor, it is possible to use the
 [job prioritization][] feature to adjust the priority of batch jobs. The
 default batch job priority is set by the process engine configuration
 `batchJobPriority`.
@@ -187,9 +187,9 @@ processEngine.getManagementService()
 
 ## Operation log
 
-Please note that user operation log is written for Batch creation itself only, execution
-of the seed job as well as individual jobs that perform operations is performed by Job Executor
-and therefor are not considered to be user operations.
+Please note that a user operation log is written for Batch creation itself only, execution
+of the seed job as well as individual jobs that perform operations are performed by Job Executor
+and therefore are not considered to be user operations.
 
 # Job Definitions
 
@@ -286,7 +286,7 @@ processEngine.getManagementService()
 ```
 [process-instance-cancellation]: {{< relref "user-guide/process-engine/batch-operations.md#cancellation-of-running-process-instances">}}
 [process-instance-deletion]: {{< relref "user-guide/process-engine/batch-operations.md#deletion-of-historic-process-instances">}}
-[set-job-retries]: {{< relref "user-guide/process-engine/batch-operations.md#set-retries-of-jobs-associated-with-process-instance">}}
+[set-job-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-jobs-associated-with-process-instances">}}
 [migration]: {{< relref "user-guide/process-engine/process-instance-migration.md" >}}
 [batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [job executor]: {{< relref "user-guide/process-engine/the-job-executor.md" >}}
