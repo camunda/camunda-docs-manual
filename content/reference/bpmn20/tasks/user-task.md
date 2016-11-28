@@ -7,15 +7,15 @@ menu:
   main:
     identifier: "bpmn-ref-tasks-user-task"
     parent: "bpmn-ref-tasks"
-    pre: "A task being performed by a human participant."
+    pre: "A task performed by a human participant."
 
 ---
 
-A `user task` is used to model work that needs to be done by a human actor. When the process execution arrives at such a user task, a new task is created in the task list of the user(s) or group(s) assigned to that task.
+A User Task is used to model work that needs to be done by a human actor. When the process execution arrives at such a User Task, a new task is created in the task list of the user(s) or group(s) assigned to that task.
 
 {{< bpmn-symbol type="user-task" >}}
 
-A user task is defined in XML as follows. The id attribute is required while the name attribute is optional.
+A User Task is defined in XML as follows. The id attribute is required, while the name attribute is optional.
 
 ```xml
 <userTask id="theTask" name="Important task" />
@@ -24,7 +24,7 @@ A user task is defined in XML as follows. The id attribute is required while the
 
 # Description
 
-A user task can have also a description. In fact, any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
+A User Task can also have a description. In fact, any BPMN 2.0 element can have a description. A description is defined by adding the documentation element.
 
 ```xml
 <userTask id="theTask" name="Schedule meeting" >
@@ -66,7 +66,7 @@ There is an activity extension which allows you to specify an expression in your
 
 # User Assignment
 
-A user task can be directly assigned to a single user, a list of users or a list of groups.
+A User Task can be directly assigned to a single user, a list of users or a list of groups.
 
 ## Assignment using BPMN Resource Assignments
 
@@ -119,7 +119,7 @@ Tasks defined with the potential owner construct can be retrieved as follows (or
 List<Task> tasks = taskService.createTaskQuery().taskCandidateUser("kermit");
 ```
 
-This will retrieve all tasks where `kermit` is a candidate user, i.e. the formal expression contains the user `kermit`. This will also retrieve all tasks that are assigned to a group of which `kermit` is a member (e.g. `group(management)`, if kermit is a member of that group and the identity component is used). The groups of a user are resolved at runtime and these can be managed through the IdentityService.
+This will retrieve all tasks where `kermit` is a candidate user, i.e., the formal expression contains the user `kermit`. This will also retrieve all tasks that are assigned to a group of which `kermit` is a member (e.g., `group(management)`, if kermit is a member of that group and the identity component is used). The groups of a user are resolved at runtime and these can be managed through the IdentityService.
 
 If no specifics are given whether the given text string is a user or a group, the engine defaults to group. So the following two alternatives lead to the same result:
 
@@ -130,11 +130,11 @@ If no specifics are given whether the given text string is a user or a group, th
 
 ## User Assignment using Camunda Extensions
 
-It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the user task are possible.
+It is clear that user and group assignments are quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the User Task are possible.
 
 ### Assignee
 
-`assignee` attribute: this custom extension allows direct assignment of a user task to a given user.
+The `assignee` attribute: this custom extension allows direct assignment of a User Task to a given user.
 
 ```xml
 <userTask id="theTask" name="my task" camunda:assignee="kermit" />
@@ -143,7 +143,7 @@ This is exactly the same as using a humanPerformer construct as defined above.
 
 ### Candidate Users
 
-`candidateUsers` attribute: this custom extension allows you to make a user a candidate for a task.
+The `candidateUsers` attribute: this custom extension allows you to make a user a candidate for a task.
 
 ```xml
 <userTask id="theTask" name="my task" camunda:candidateUsers="kermit, gonzo" />
@@ -153,7 +153,7 @@ This is exactly the same as using a potentialOwner construct as defined above. N
 
 ### Candidate Groups
 
-`candidateGroups` attribute: this custom extension allows you to make a group a candidate for a task.
+The `candidateGroups` attribute: this custom extension allows you to make a group a candidate for a task.
 
 ```xml
 <userTask id="theTask" name="my task" camunda:candidateGroups="management, accountancy" />
@@ -163,7 +163,7 @@ This is exactly the same as using a potentialOwner construct as defined above. N
 
 ### Combining Candidate Users and Groups
 
-`candidateUsers` and `candidateGroups` can both be defined for the same user task.
+`candidateUsers` and `candidateGroups` can both be defined for the same User Task.
 
 
 ## Assignment based on Data and Service Logic
@@ -180,7 +180,7 @@ Assignment expressions allow accessing process variables or calling out to beans
 
 Process variables are useful for assignments based on data which has been collected or calculated up front.
 
-The following example shows how to assign a user task to the person who started the process:
+The following example shows how to assign a User Task to the person who started the process:
 
 ```xml
 <startEvent id="startEvent" camunda:initiator="starter" />
@@ -191,7 +191,7 @@ The following example shows how to assign a user task to the person who started 
 
 First, the `camunda:initiator` extension is used to bind the user id of the person who started (_"initiated"_) the process to the variable `starter`. Then the expression `${ starter }` retrieves that value and uses it as assignee for the task.
 
-It is possible to use all process variables [visible]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the user task in the expression.
+It is possible to use all process variables [visible]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) from the User Task in the expression.
 
 #### Invoking a Service / Bean
 
@@ -226,7 +226,7 @@ public class FakeLdapService {
 
 ### Assignments in Listeners
 
-It is also possible to use [task listeners]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}) for handling assignments. The following example demonstrates a a listeners on the `create` event:
+It is also possible to use [task listeners]({{< relref "user-guide/process-engine/delegation-code.md#task-listener" >}}) for handling assignments. The following example demonstrates a task listener on the `create` event:
 
 ```xml
 <userTask id="task1" name="My task" >
@@ -236,7 +236,7 @@ It is also possible to use [task listeners]({{< relref "user-guide/process-engin
 </userTask>
 ```
 
-The DelegateTask that is passed to the TaskListener implementation, allows you to set the assignee and candidate-users/groups:
+The DelegateTask that is passed to the TaskListener implementation allows you to set the assignee and candidate-users/groups:
 
 ```java
 public class MyAssignmentHandler implements TaskListener {
@@ -253,13 +253,13 @@ public class MyAssignmentHandler implements TaskListener {
 
 ## Assignments and Identity Service
 
-Although the camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
+Although the Camunda engine provides an identity management component, which is exposed through the IdentityService, it does not check whether a provided user is known by the identity component. This allows integration of the engine with existing identity management solutions when it is embedded into an application.
 
-Note however that you can use the identity service in an service / bean or listener to query your user repository if this is useful to you.
+However, note that you can use the identity service in a service / bean or listener to query your user repository if this is useful to you.
 
 # Forms
 
-It is possible to provide information to render a user task form by using the `camunda:formKey`
+It is possible to provide information to render a User Task form by using the `camunda:formKey`
 attribute:
 
 ```xml
@@ -271,11 +271,10 @@ attribute:
 The form key is a symbolic value which can be set in the BPMN XML file by using the extension attribute
 `formKey` and retrieved at runtime using the process engine API.
 
-If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
+If the User Task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
 special rules. [See the corresponding section in the user guide for details]({{< relref "user-guide/task-forms/index.md" >}}).
 
-In custom applications, the value of the form key can be chosen freely. In a custom application the
-value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
+In custom applications, the value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
 it can reference the name of an HTML file, a JSF / Facelets template, a Vaadin / GWT view, ...
 
 ## Retrieving the Form Key using the Form Service.

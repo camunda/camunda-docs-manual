@@ -13,15 +13,15 @@ menu:
 
 
 
-A service task is used to invoke services. In Camunda this is done by calling Java code or providing a work item for an external worker to complete asynchronously.
+A Service Task is used to invoke services. In Camunda this is done by calling Java code or providing a work item for an external worker to complete asynchronously.
 
 {{< bpmn-symbol type="service-task" >}}
 
 # Calling Java Code
 
-There are 4 ways of declaring how to invoke Java logic:
+There are four ways of declaring how to invoke Java logic:
 
-* Specifying a class that implements JavaDelegate or ActivityBehavior
+* Specifying a class that implements a JavaDelegate or ActivityBehavior
 * Evaluating an expression that resolves to a delegation object
 * Invoking a method expression
 * Evaluating a value expression
@@ -53,7 +53,7 @@ Or an expression which calls a method or resolves to a value.
              camunda:expression="${myBean.doWork()}" />
 ```
 
-For more information about expression language as delegation code please see the corresponding
+For more information about expression language as delegation code, please see the corresponding
 [section]({{< relref "user-guide/process-engine/expression-language.md#use-expression-language-as-delegation-code" >}})
 of the [User Guide]({{< relref "user-guide/index.md" >}}).
 
@@ -65,7 +65,7 @@ You can easily write generic Java Delegate classes which can be configured later
 
 ## Service Task Results
 
-The return value of a service execution (for a service task exclusively using expression) can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a service task definition. Any existing value for a specific process variable will be overwritten by the result value of the service execution. When not specifying a result variable name, the service execution result value is ignored.
+The return value of a service execution (for a Service Task exclusively using expressions) can be assigned to an already existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a Service Task definition. Any existing value for a specific process variable will be overwritten by the result value of the service execution. When not specifying a result variable name, the service execution result value is ignored.
 
 ```xml
 <serviceTask id="aMethodExpressionServiceTask"
@@ -81,9 +81,9 @@ Note that when you use <code>camunda:resultVariable</code> in a multi-instance c
 
 # External Tasks
 
-In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a service task outside of the process engine's boundaries in the form of an external task. When a service task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the [user guide on external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) for details on the concept and the relevant API.
+In contrast to calling Java code, where the process engine synchronously invokes Java logic, it is possible to implement a Service Task outside of the process engine's boundaries in the form of an external task. When a Service Task is declared external, the process engine offers a work item to workers that independently poll the engine for work to do. This decouples the implementation of tasks from the process engine and allows to cross system and technology boundaries. See the [user guide on external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) for details on the concept and the relevant API.
 
-To declare a service task to be handled externally, the attribute `camunda:type` can be set to `external` and the attribute `camunda:topic` specifies the external task's topic. For example, the following XML snippet defines an external service task with topic `ShipmentProcessing`:
+To declare a Service Task to be handled externally, the attribute `camunda:type` can be set to `external` and the attribute `camunda:topic` specifies the external task's topic. For example, the following XML snippet defines an external Service Task with topic `ShipmentProcessing`:
 
 ```xml
 <serviceTask id="anExternalServiceTask"

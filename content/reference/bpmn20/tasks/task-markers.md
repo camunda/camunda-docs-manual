@@ -11,14 +11,14 @@ menu:
 
 ---
 
-In addition to those various types of tasks, we can mark tasks as loops, multiple instances, or compensations. Markers can be combined with task types.
+In addition to the various types of tasks, we can mark tasks as loops, multiple instances or compensations. Markers can be combined with task types.
 
 
 # Multiple Instance
 
 A multi-instance activity is a way of defining repetition for a certain step in a business process. In programming concepts, a multi-instance matches the `for each` construct: it allows execution of a certain step or even a complete subprocess for each item in a given collection, sequentially or in parallel.
 
-A multi-instance is a regular activity that has extra properties defined (so-called `multi-instance characteristics`) which will cause the activity to be executed multiple times at runtime. Following activities can become a multi-instance activity:
+A multi-instance is a regular activity that has extra properties defined (so-called `multi-instance characteristics`) which will cause the activity to be executed multiple times at runtime. Following activities can become multi-instance activities:
 
 * Service Task
 * Send Task
@@ -33,19 +33,19 @@ A multi-instance is a regular activity that has extra properties defined (so-cal
 
 A Gateway or Event can not become multi-instance.
 
-If an activity is multi-instance, this is indicated by three short lines at the bottom of that activity. Three vertical lines indicates that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate **sequential** execution.
+If an activity is multi-instance, this is indicated by three short lines at the bottom of the activity. Three vertical lines indicate that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate **sequential** execution.
 
 <div data-bpmn-diagram="../bpmn//multiple-instance"></div>
 
-As required by the spec, each parent execution of the created executions for each instance will have following variables:
+As required by the specification, each parent execution of the created executions for each instance will have the following variables:
 
 * **nrOfInstances**: the total number of instances
-* **nrOfActiveInstances**: the number of currently active, i.e. not yet finished, instances. For a sequential multi-instance, this will always be 1
+* **nrOfActiveInstances**: the number of currently active, i.e., not yet finished, instances. For a sequential multi-instance, this will always be 1
 * **nrOfCompletedInstances**: the number of already completed instances
 
 These values can be retrieved by calling the `execution.getVariable(x)` method.
 
-Additionally, each of the created executions will have an execution-local variable (i.e. not visible for the other executions, and not stored on process instance level) :
+Additionally, each of the created executions will have an execution-local variable (i.e., not visible for the other executions and not stored on process instance level) :
 
 * **loopCounter**: indicates the index in the `for each` loop of that particular instance
 
@@ -57,7 +57,7 @@ To make an activity multi-instance, the activity xml element must have a `multiI
 </multiInstanceLoopCharacteristics>
 ```
 
-The isSequential attribute indicates if the instances of that activity are executed sequentially or parallel.
+The isSequential attribute indicates if the instances of that activity are executed sequentially or in parallel.
 
 
 The number of instances are calculated once, when entering the activity. There are a few ways of configuring this. On way is directly specifying a number by using the `loopCardinality` child element.
@@ -152,9 +152,9 @@ Here all instances of the subprocess will be destroyed when the timer fires, reg
 
 ## Loops
 
-The loop marker is not natively supported yet by the engine. For Multiple Instance the number of repetitions is known in advance - which makes it a bad candidate for loops (anyway - as it defines a completion condition that may already be sufficient in some cases).
+The loop marker is not natively supported yet by the engine. For Multiple Instance, the number of repetitions is known in advance - which makes it a bad candidate for loops anyway, as it defines a completion condition that may already be sufficient in some cases.
 
-To get around this limitation the solution is to explicitly model the loop in your BPMN process:
+To get around this limitation, the solution is to explicitly model the loop in your BPMN process:
 
 <div data-bpmn-diagram="../bpmn/loop-alternative"></div>
 
@@ -163,7 +163,7 @@ Be assured that we have the loop marker in our backlog to be added to the engine
 
 # Compensation
 
-If an activity is used for compensating the effects of another activity it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.
+If an activity is used for compensating the effects of another activity, it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.
 
 <div data-bpmn-diagram="../bpmn/compensation-marker"></div>
 
@@ -173,7 +173,7 @@ Compensation handlers may not have incoming or outgoing sequence flows.
 
 A compensation handler must be associated with a compensation boundary event using a directed association.
 
-In order to declare an activity to be a compensation handler, we need to set the attribute isForCompensation to true:
+To declare an activity to be a compensation handler, we need to set the attribute isForCompensation to true:
 
 ```xml
 <serviceTask id="undoBookHotel" isForCompensation="true" camunda:class="..." />

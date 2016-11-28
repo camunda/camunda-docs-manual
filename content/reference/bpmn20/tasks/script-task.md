@@ -11,11 +11,11 @@ menu:
 
 ---
 
-A script task is an automated activity. When a process execution arrives at the script task, the corresponding script is executed.
+A Script Task is an automated activity. When a process execution arrives at the Script Task, the corresponding script is executed.
 
 {{< bpmn-symbol type="script-task" >}}
 
-A script task is defined by specifying the script and the scriptFormat.
+A Script Task is defined by specifying the script and the scriptFormat.
 
 ```xml
 <scriptTask id="theScriptTask" name="Execute script" scriptFormat="groovy">
@@ -47,7 +47,7 @@ Camunda BPM should work with most of the JSR-223 compatible script engine implem
 
 # Variables in Scripts
 
-All process variables that are accessible through the execution that arrives in the script task can be used within the script. In the example below, the script variable `inputArray` is in fact a process variable (an array of integers).
+All process variables that are accessible through the execution that arrives in the Script Task can be used within the script. In the example below, the script variable `inputArray` is in fact a process variable (an array of integers).
 
 ```xml
 <script>
@@ -75,15 +75,15 @@ It's also possible to set process variables in a script. Variables can be set by
 
 By setting the property `autoStoreScriptVariables` to `true` in the process engine configuration, the process engine will automatically store all _global_ script variables as process variables. This was the default behavior in Camunda BPM 7.0 and 7.1 but it only reliably works for the Groovy scripting language (see the [Set autoStoreScriptVariables][autostore-variables] section of the [Migration Guide]({{< relref "update/index.md" >}}) for more information).
 
-In order to use this feature, you have to
+To use this feature, you have to
 
-* set `autoStoreScriptVariables` to `true` in the process engine configuration,
+* set `autoStoreScriptVariables` to `true` in the process engine configuration
 * prefix all script variables that should not be stored as script variables using the `def` keyword: `def sum = 0`. In this case the variable `sum` will not be stored as process variable.
 
 {{< note title="Groovy-Support only" class="info" >}}
-The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks. If enabled for other script languages
-is not guaranteed which variables will be exported by the script engine. For
-example Ruby will not export any of the script variables at all.
+The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks. If enabled for other script languages, 
+it is not guaranteed which variables will be exported by the script engine. For
+example, Ruby will not export any of the script variables at all.
 {{< /note >}}
 
 Note: the following names are reserved and cannot be used as variable names:
@@ -92,7 +92,7 @@ Note: the following names are reserved and cannot be used as variable names:
 
 # Script Results
 
-The return value of a script task can be assigned to a previously existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a script task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When a result variable name is not specified, the script result value gets ignored.
+The return value of a Script Task can be assigned to a previously existing or to a new process variable by specifying the process variable name as a literal value for the `camunda:resultVariable` attribute of a Script Task definition. Any existing value for a specific process variable will be overwritten by the result value of the script execution. When a result variable name is not specified, the script result value gets ignored.
 
 ```xml
 <scriptTask id="theScriptTask" name="Execute script" scriptFormat="juel" camunda:resultVariable="myVar">
