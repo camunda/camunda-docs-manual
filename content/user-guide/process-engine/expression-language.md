@@ -132,11 +132,11 @@ For conditional sequence flows, a `conditionExpression` element of a sequence fl
 For conditional events, a `condition` element of a conditional event has to be used. Both are
 of the type `tFormalExpression`. The text content of the element is the expression to be evaluated.
 
-Inside the expression some special variables are available which enable the access of the current
-context. To find more information about the available variables please see the [corresponding
+Within the expression, some special variables are available which enable access of the current
+context. To find more information about the available variables, please see the [corresponding
 section][variables].
 
-The following example shows the usage of expression language as condition of a sequence flow:
+The following example shows usage of expression language as condition of a sequence flow:
 
 ```xml
   <sequenceFlow>
@@ -146,7 +146,7 @@ The following example shows the usage of expression language as condition of a s
   </sequenceFlow>
 ```
 
-For the usage of expression language on conditional events see the following example:
+For usage of expression language on conditional events, see the following example:
 
 ```xml
 <conditionalEventDefinition>
