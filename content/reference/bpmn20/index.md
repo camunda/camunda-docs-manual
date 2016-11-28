@@ -14,7 +14,7 @@ menu:
 This page gives you an overview of the BPMN 2.0 elements and the current coverage of the process engine. 
 
 {{< note title="BPMN - Business Process Model and Notation" >}}
-If you are unfamiliar with BPMN 2.0 you might want to check out the
+If you are unfamiliar with BPMN 2.0, you might want to check out the
 <a href="http://camunda.org/bpmn/tutorial.html">BPMN Tutorial</a> first.
 {{< /note >}}
 
@@ -327,12 +327,12 @@ The elements marked in <span class="label label-warning label-implemented">orang
 
 ## Events
 
-In BPMN there are Start events, Intermediate events, and End events. These three event types can be catching events and/or throwing events. Intermediate events can be used as boundary events on tasks, in which case they can be interrupting or non-interrupting. This gives you a lot of flexibility to use events in your processes.
+In BPMN there are start events, intermediate events and end events. These three event types can be catching events or throwing events. Intermediate events can be used as boundary events on tasks, in which case they can be interrupting or non-interrupting. This gives you a lot of flexibility to use events in your processes.
 
 {{< note title="Understanding BPMN Events" >}}
-For understanding the principle behavior of events in BPMN, we recommend to check the
+To help understand the principle behavior of events in BPMN, we recommend to check the
 [Events: Basic Concepts](http://camunda.org/bpmn/reference.html#events-basic-concepts)
-chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html) section.
+chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html).
 {{< /note >}}
 
 <table class="table table-responsive table-bordered bpmn-events">

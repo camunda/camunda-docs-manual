@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A Business Rule task is used to synchronously execute one or more rules.
+A Business Rule Task is used to synchronously execute one or more rules.
 
 {{< bpmn-symbol type="business-rule-task" >}}
 
@@ -19,9 +19,9 @@ A Business Rule task is used to synchronously execute one or more rules.
 # Using Camunda DMN Engine
 
 You can use the Camunda DMN engine integration to evaluate a DMN decision. You have
-to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally
+to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally, 
 the `camunda:decisionRefBinding` specifies which version of the decision should be evaluated.
-Valid values are `deployment` which evaluates the decision version which was deployed with the process
+Valid values are `deployment`, which evaluates the decision version which was deployed with the process
 version, `latest` which will always evaluate the latest decision version and `version` which
 allows you to specify a specific version to execute with the `camunda:decisionRefVersion` attribute.
 
@@ -63,16 +63,16 @@ In case of a predefined mapping, the `camunda:mapDecisionResult` attribute refer
 See the [User Guide]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#the-decision-result" >}}) for details about the mapping.
 
 {{< note title="Name of the Result Variable" class="warning" >}}
-The result variable should not have the name `decisionResult` since the decision result itself is saved in a variable with this name. Otherwise an exception is thrown while saving the result variable.
+The result variable should not have the name `decisionResult`, as the decision result itself is saved in a variable with this name. Otherwise, an exception is thrown while saving the result variable.
 {{< /note >}}
 
 # DecisionRef Tenant Id
 
-When the business rule task resolves the decision definition to be evaluated it must take into account multi tenancy.
+When the Business Rule Task resolves the decision definition to be evaluated it must take multi tenancy into account.
 
 ## Default Tenant Resolution
 By default, the tenant id of the calling process definition is used to evaluate the decision definition.
-That is, if the calling process definition has no tenant id, then the business rule task evaluate a decision definition using the provided key, binding and without a tenant id (tenant id = null).
+That is, if the calling process definition has no tenant id, then the Business Rule Task evaluates a decision definition using the provided key, binding and without a tenant id (tenant id = null).
 If the calling process definition has a tenant id, a decision definition with the provided key and the same tenant id is evaluated.
 
 Note that the tenant id of the calling process instance is not taken into account in the default behavior.
@@ -118,13 +118,13 @@ implementation of the rule task the same way as in a Service Task.
 
 # Using Delegate Code
 
-Alternatively a business rule task can be implemented using Java Delegation just as a Service Task. For more
+Alternatively, a Business Rule Task can be implemented using Java Delegation just as a Service Task. For more
 information on this please see the [Service Tasks]({{< relref "service-task.md" >}}) documentation.
 
 
 # Implementing as an External Task
 
-In addition to the above, a business rule task can be implemented via the [external task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [service tasks](({{< relref "service-task.md#external-tasks" >}})) how to configure an external task.
+In addition to the above, a Business Rule Task can be implemented via the [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) mechanism where an external system polls the process engine for work to do. See the section on [Service Tasks](({{< relref "service-task.md#external-tasks" >}}) for more information about how to configure an external task.
 
 
 # Camunda Extensions

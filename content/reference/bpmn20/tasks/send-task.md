@@ -11,9 +11,9 @@ menu:
 
 ---
 
-A send task is used to send a message. In Camunda this is done by calling Java code.
+A Send Task is used to send a message. In Camunda this is done by calling Java code.
 
-The send task has the same behavior as a service task.
+The Send Task has the same behavior as a Service Task.
 
 {{< bpmn-symbol type="send-task" >}}
 
