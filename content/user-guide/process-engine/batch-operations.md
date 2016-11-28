@@ -10,24 +10,24 @@ menu:
 
 ---
 
-Following operations can be executed asynchronously
+The following operations can be executed asynchronously
 
 - [Process Instance Migration][batch-migration]
-- [Cancellation of running Process Instance](#cancellation-of-running-process-instances)
+- [Cancellation of running Process Instances](#cancellation-of-running-process-instances)
 - [Deletion of Historic Process Instances](#deletion-of-historic-process-instances)
-- [Set retries of jobs associated with Process Instance](#set-retries-of-jobs-associated-with-process-instance)
+- [Setting retries of jobs associated with Process Instances](#setting-retries-of-jobs-associated-with-process-instances)
 
-All batch operations are relying on corresponding methods that provide possibility to
-operate on list of entities synchronously. Please refer to general [Batch][batch] documentation in order to
-understand creation process better.
+All batch operations rely on corresponding methods that provide the possibility to
+operate on a list of entities synchronously. Please refer to the general [Batch][batch] documentation to
+understand the creation process better.
 
-Asynchronous operations can be performed based on list of specific instances as well as result of a query providing
-resulting list of instances. If both list of instances and query are provided, resulting set of affected instances
-will consist of union of those two subsets.
+Asynchronous operations can be performed based on a list of specific instances as well as on the result of a query providing a
+resulting list of instances. If both a list of instances and a query are provided, the resulting set of affected instances
+will consist of the union of those two subsets.
 
 ## Cancellation Of Running Process Instances
 
-Cancellation of running process instances can be performed asynchronously using following Java API method invocation
+Cancellation of running process instances can be performed asynchronously using the following Java API method invocation:
 
 ```java
 List<String> processInstanceIds = ...;
@@ -38,7 +38,7 @@ runtimeService.deleteProcessInstancesAsync(
 
 ## Deletion Of Historic Process Instances
 
-Deletion of historic process instances can be performed asynchronously using following Java API method invocation
+Deletion of historic process instances can be performed asynchronously using the following Java API method invocation:
 
 ```java
 List<String> historicProcessInstanceIds = ...;
@@ -46,9 +46,9 @@ historyService.deleteHistoricProcessInstancesAsync(
         historicProcessInstanceIds, TEST_REASON);
 ```
 
-## Set Retries Of Jobs Associated With Process Instance
+## Setting Retries Of Jobs Associated With Process Instances
 
-Set retries of jobs associated with process instance can be performed asynchronously using following Java API method invocation
+Setting retries of jobs associated with process instances can be performed asynchronously using the following Java API method invocation:
 
 ```java
 List<String> historicProcessInstanceIds = ...;
@@ -56,5 +56,5 @@ historyService.deleteHistoricProcessInstancesAsync(
         historicProcessInstanceIds, TEST_REASON);
 ```
 
-[batch-migration]: {{< relref "#cancellation-of-running-process-instances" >}}
+[batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
 [batch]: {{< relref "user-guide/process-engine/batch.md" >}}
