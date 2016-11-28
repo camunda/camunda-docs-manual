@@ -19,7 +19,7 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/migration/step1_overview.png" title="Process Instance Migration" >}}
 
-You can migrate running process instances from their current process definition version to another version of that definition or another process definition altogether. You can access the migration page either by clicking on the `Migration` link on the processes section of the Cockpit dashboard, or by navigating to the process definition or instance view of a process with multiple versions.
+You can migrate running process instances from their current process definition version to another version of that definition or another process definition altogether. You can access the migration page by navigating to the process definition or instance view of a process with multiple versions.
 
 {{< img src="../../img/migration/accessing_2.png" title="Link to Process Instance Migration Page from Process Definition Page" >}}
 
