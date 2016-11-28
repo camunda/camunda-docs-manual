@@ -33,33 +33,33 @@ This guide covers mandatory migration steps as well as optional considerations f
 Noteworthy new Features and Changes in 7.6:
 
 * [DRD support in DMN]({{< relref "reference/dmn11/drg/index.md" >}})
-* [CMMN support in cockpit]({{< relref "webapps/cockpit/cmmn/index.md" >}})
+* [CMMN support in Cockpit]({{< relref "webapps/cockpit/cmmn/index.md" >}})
 * [Batch operations]({{< relref "webapps/cockpit/batch/batch-operation.md" >}})
 * Rolling upgrade support
 
 <blockquote class="upgrade-guide-quote">
-  Rolling upgrades are supported starting at upgrade from version 7.5.x to 7.6.0. Please read <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
+  Rolling upgrades are supported starting at upgrades from version 7.5.x to 7.6.0. Please read the <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
 </blockquote>
 
-* The isExecutable is mandatory
+* The isExecutable attribute is mandatory
 
 <blockquote class="upgrade-guide-quote">
- The <i>isExecutable</i> attribute of the process is per default <i>false</i>. In the newer version of camunda (7.6) process definitions without the <i>isExecutable</i> attribute or with the attribute set to <i>false</i> are not deployed on the engine. <b>So every process which should be executed needs this attribute in the process definition to be deployed</b>. Old processes which are deployed on an earlier version are also deployed without this attribute.
+ By default, the <i>isExecutable</i> attribute of a process is <i>false</i>. In Camunda BPM 7.6, process definitions without the <i>isExecutable</i> attribute or with the attribute set to <i>false</i> are not deployed to the engine. <b>So every process which should be executed needs this attribute in the process definition to be deployed</b>. Old processes which are deployed on an earlier version are also deployed without this attribute.
 </blockquote>
 
 * Manual activation rule defaults changed
 
 <blockquote class="upgrade-guide-quote">
-Default behavior of <a href="../../../reference/cmmn11/markers/manual-activation-rule">manual activation rules</a> in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagramms to include manual activation rule.
+Default behavior of <a href="../../../reference/cmmn11/markers/manual-activation-rule">manual activation rules</a> in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagrams to include manual activation rules.
 
 <pre style="margin-top:1em">
 &lt;manualActivationRule/&gt;
 </pre>
 
-Otherwise if your case definitions do not have <i>manualActivationRule</i> elements, but uses <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> to manually start executions and you would like your executions to start right away, please remove <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> from your code
+Otherwise, if your case definitions do not have <i>manualActivationRule</i> elements, but use <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> to manually start executions and you would like your executions to start right away, please remove <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> from your code.
 </blockquote>
 
-* DMN namespace changes
+* DMN namespace change
 
 <blockquote class="upgrade-guide-quote">
 The namespace for DMN 1.1 was changed after our 7.4.0 Release. The official namespace is now: <a href="http://www.omg.org/spec/DMN/20151101/dmn.xsd">http://www.omg.org/spec/DMN/20151101/dmn.xsd</a>
@@ -80,7 +80,7 @@ Every Camunda installation requires a database schema upgrade.
 
     * `$DATABASENAME_engine_7.5_to_7.6.sql`
 
-    The scripts upgrade the database from one minor version to the next one and change the underlying database structure, so make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts upgrade the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the upgrade process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.6.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
@@ -90,8 +90,8 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade Camunda Libraries and Applications inside the application server
-2. Migrate custom Process Applications
+1. Upgrade the Camunda libraries and applications inside the application server
+2. Migrate custom process applications
 
 Before starting, make sure that you have downloaded the Camunda BPM 7.6 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
@@ -106,7 +106,7 @@ Please choose the application server you are working with from the following lis
 
 ### Wildfly 10
 
-The pre-built Camunda 7.6 distribution ships with Wildfly 10.1.0, whereas 7.5 comes with Wildfly 10.0.0. Camunda 7.6 is supported on Wildfly 8.2 and 10.0 such that a Wildfly upgrade is not required when migrating from 7.5 to 7.6.
+The pre-built Camunda 7.6 distribution ships with Wildfly 10.1.0, whereas 7.5 ships with Wildfly 10.0.0. Camunda 7.6 is supported on Wildfly 8.2 and 10.0 such that a Wildfly upgrade is not required when migrating from 7.5 to 7.6.
 
 ## Custom Process Applications
 
@@ -127,7 +127,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 1. Undeploy the current version of the standalone web application
 2. Upgrade the database to the new schema as described in the [database
-   upgrade](#database-updates) section
+   upgrade](#database-upgrades) section
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
@@ -161,4 +161,4 @@ This section describes changes in the engine's default behavior. While the chang
 
 ### Custom Mapping of the Decision Result
 
-With 7.6, the type of the decision result has changed from `DmnDecisionTableResult` to `DmnDecisionResult`. If the decision result of a business rule task or a decision task is processed by an `ExecutionListener` or a `CaseExecutionListener` (i.e., [custom decision result mapping]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-of-the-decision-result" >}})) then the lister has to adjusted to use the new result type. Since the type is semantically equal and provide the same methods, only the type of the result has to be changed.
+With Camunda 7.6, the type of the decision result has changed from `DmnDecisionTableResult` to `DmnDecisionResult`. If the decision result of a business rule task or a decision task is processed by an `ExecutionListener` or a `CaseExecutionListener` (i.e., [custom decision result mapping]({{< relref "user-guide/process-engine/decisions/bpmn-cmmn.md#custom-mapping-of-the-decision-result" >}})), then the listener has to adjusted to use the new result type. Since the type is semantically equal and provides the same methods, only the type of the result has to be changed.

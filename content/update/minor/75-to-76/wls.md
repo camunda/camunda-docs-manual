@@ -21,7 +21,7 @@ The upgrade procedure takes the following steps:
 5. Install the Camunda Archive
 6. Install the Web Applications
 
-In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
+In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
 # 1. Uninstall the Camunda Applications and Archives
 

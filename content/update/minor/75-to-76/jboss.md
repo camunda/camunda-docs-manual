@@ -27,7 +27,7 @@ The upgrade procedure takes the following steps:
 Whenever the instructions are to *replace* a module, make sure to delete the previous version of the module first to avoid orphan jars.
 
 {{< note title="Upgraded Wildfly Version" class="info" >}}
-The pre-built Camunda 7.6 distribution ships with Wildfly 8 and in addition with Wildfly 10. In particular, Camunda 7.6 is supported on Wildfly 8.2 and 10.1 such that a Wildfly upgrade is not required when migrating from 7.5 to 7.6.
+The pre-built Camunda 7.6 distribution ships with Wildfly 8, alternatively with Wildfly 10. In particular, Camunda 7.6 is supported on Wildfly 8.2 and 10.1 such that a Wildfly upgrade is not required when migrating from 7.5 to 7.6.
 
 See the [Wildfly migration guide](https://docs.jboss.org/author/display/CMTOOL/WildFly+8+to+10) for any Wildfly-specific migration notes and procedures.
 {{< /note >}}
@@ -99,7 +99,7 @@ The following steps are required to upgrade the Camunda REST API on a JBoss/Wild
 
 1. Undeploy an existing web application with a name like `camunda-engine-rest`
 2. Download the REST API web application archive from our [Maven Nexus Server][engine-rest]. Alternatively, switch to the private repository for
-   the enterprise version (username and password from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
+   the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-engine-rest-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 ## Upgrade Cockpit, Tasklist, and Admin
@@ -108,7 +108,7 @@ The following steps are required to upgrade the Camunda web applications Cockpit
 
 1. Undeploy an existing web application with a name like `camunda-webapp`
 2. Download the Camunda web application archive from our [Maven Nexus Server][webapp-jboss].
-   Alternatively, switch to the private repository for the enterprise version (username and password from license required).
+   Alternatively, switch to the private repository for the enterprise version (credentials from license required).
    Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-jboss.war`.
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 

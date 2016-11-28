@@ -22,7 +22,7 @@ The upgrade procedure takes the following steps:
 5. Install the Camunda Archive
 6. Install the Web Applications
 
-In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
+In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
 # 1. Uninstall the Camunda Libraries and Archives
 
@@ -78,7 +78,7 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 # 4. Maintain the BPM Platform Configuration
 
-If you have previously replaced the default BPM platform configuration by a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
+If you have previously replaced the default BPM platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
 
 # 5. Install the Camunda Archive
 
