@@ -264,7 +264,8 @@ The method without the boolean parameter returns the external tasks arbitrarily.
 See the following example which regards the priority of the external tasks:
 
 ```java
-List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId", true)
+List<LockedExternalTask> tasks =
+  externalTaskService.fetchAndLock(10, "externalWorkerId", true)
   .topic("AddressValidation", 60L * 1000L)
   .topic("ShipmentScheduling", 120L * 1000L)
   .execute();
