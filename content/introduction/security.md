@@ -61,11 +61,8 @@ If you do not need the REST API in production, consider to fully undeploy the RE
 
 # <font color="red">&#9314;</font> Java API
 
-Java API
+The second way to access the process engine is, using the Java API. This is the common way when using Camunda as an embedded engine with custom applications. The authorization checks are turned on in the Camunda distributions per default, but need to be switched on when you configured your own engine. However, even with authorization check enabled, you still need to tell the engine who is logged in with the current thread to make the check applied. If you access the API without setting the logged in user to the thread, you will provide full access to all data. That might not be the desired behavior, because typically the user should have just limited access.
 
-Full Access
-
-Restrict access
 
 You can switch authorization checks on or off for the Camunda engine itself. Authorisations will only be checked if you turn authorization checks on and tell the engine who is logged in with the current thread:
 
@@ -83,7 +80,7 @@ If you have authorization switched on you might not want to have authorization c
 
 # <font color="red">&#9315;</font> File Repository
 
-The process engine offers numerous extension points for customization of process behavior by using Java Code, Expression Language, Scripts and Templates. While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. Find more information on that topic in the User Guide.
+The process engine offers numerous extension points for customization of process behavior by using [Java Code]({{< relref "delegation-code.md" >}}), [Expression Language]({{< relref "expression-language.md" >}}), [Scripts]({{< relref "scripting.md" >}}) and [Templates]({{< relref "templating.md" >}}). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API)
 
 -> wrong hand: specify that
 
@@ -113,7 +110,7 @@ You can switch authorization checks on or off for the Camunda engine itself. Aut
 
 ## Securing custom code
 
-The process engine offers numerous extension points for customization of process behavior by using [Java Code]({{< relref "delegation-code.md" >}}), [Expression Language]({{< relref "expression-language.md" >}}), [Scripts]({{< relref "scripting.md" >}}) and [Templates]({{< relref "templating.md" >}}). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API)
+
 
 # Securing the Rest API
 
