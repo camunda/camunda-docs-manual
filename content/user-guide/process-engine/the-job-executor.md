@@ -252,7 +252,7 @@ A job is acquirable, i.e., a candidate for execution, if it fulfills all followi
 * it is not locked, meaning that the value in the `LOCK_EXP_TIME_` column is in the past
 * its retries have not been depleted, meaning that the value in the `RETRIES_` column is greater than zero.
 
-In addition, the process engine has a concept of suspending a process definition and a process instance. A job is only acquirable if neither the corresponding process instance nor the corresponding process definition are suspended.
+In addition, the process engine has a concept of job suspension. For example, a job gets suspended when the process instance it belongs gets suspended. A job is only acquirable if it is not suspended.
 
 
 ## The Two Phases of Job Acquisition
