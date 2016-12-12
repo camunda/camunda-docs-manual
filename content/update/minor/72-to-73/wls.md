@@ -1,10 +1,10 @@
 ---
 
-title: "Update an Oracle Weblogic Installation from 7.2 to 7.3"
+title: "Update an Oracle WebLogic Installation from 7.2 to 7.3"
 
 menu:
   main:
-    name: "Weblogic"
+    name: "WebLogic"
     identifier: "migration-guide-72-weblogic"
     parent: "migration-guide-72"
 
