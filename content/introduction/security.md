@@ -18,10 +18,26 @@ The following image depicts the components of the Camunda platform and add's mar
 
 # <font color="red">&#9312;</font>  User 
 
-The main web applications of Camunda BPM (Tasklist (link), Cockpit (link) and Admin (link)) are relevant when looking into the security aspects of Camunda BPM. The users of these web applications could be misused in an unwanted way. The details are described in the following. 
-The user interfaces of the web applications display data of Camunda BPM to the user and offer possibilities to modify data. Therefore there exists a security risk that the users of these web applications are misused in order to get unwanted access to data or to trigger unwanted modifications to data. 
+The main web applications of Camunda BPM (Tasklist (link), Cockpit (link) and Admin (link)) are relevant when looking into the security aspects. The users of these web applications could be misused in an unwanted way. The details are described in the following. 
+The user interfaces of the web applications display data of Camunda BPM to the user and offer possibilities to modify data. Therefore there exists a security risk that the users of these web applications are misused in order to get unwanted access to data or to trigger unwanted modifications of the data. 
 
-The following features and options can be used in order to mitigate that risk...
+The following features and options can be used in order to mitigate that risk.
+
+1. Are the web applications actually used? If no, the solution is not to deploy them. 
+2. User Management
+2.1.1. Build in (incl password hashing) 
+2.1.2 LDAP
+2.2. Authorization
+Authorization solves the problem that each user only has access to the data that he is allowed to see. The same applies to operations that allow the modification of data. Camunda BPM offers a wide range of different authorizations so that users are onyl allowed the stuff they should do. The authorizations are part of the backend, stored in the database and checked on the server side.
+Management done in Camunda Admin...
+3. Sessions of Web Apps
+We do something with sessions...
+4. Basic Assumption/Recommendations
+Our security measures for the web apps are based on the assumption that customers operate them behind a firewall. We do not recomment to make them publictly available
+Use HTTPS
+
+
+
 
 The user's logging into the web applications (Tasklist, Cockpit, Admin) can always be a potential risk, as they might have access to confidential data or they want to modify the system in an undesirable way. For example, a task worker in the tasklist that checks, if a formular for loan application is correctly filled out, should not be able to see data such as the customers income. Therefore, it might be desired to restrict the scope of the task worker. Another problem could be a be malicios attackers that want to compromise the system, e.g., the customer approving the loan application although it should be rejected. 
 
