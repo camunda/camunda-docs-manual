@@ -16,7 +16,7 @@ The following image depicts the components of the Camunda platform and add's mar
 
 {{< img src="../img/architecture-scurity-overview.png" >}}
 
-# &#9312; User 
+# <font color="red">&#9312;</font>  User 
 
 The user's logging into the web applications (Tasklist, Cockpit, Admin) can always be a potential risk, as they might have access to confidential data or they want to modify the system in an undesirable way. For example, a task worker in the tasklist that checks, if a formular for loan application is correctly filled out, should not be able to see data such as the customers income. Therefore, it might be desired to restrict the scope of the task worker. Another problem could be a be malicios attackers that want to compromise the system, e.g., the customer approving the loan application although it should be rejected. 
 
@@ -27,33 +27,48 @@ In order to prevent that from happening, Camunda provides two mechanism:
 
 Please be aware, that if you are not using the the web applications or you do not need to restrict the user's accessibility (e.g. all system user's are fully trusted), this safety hazard is not a concern for you and you might omit it.
 
-# &#9313; REST API
+# <font color="red">&#9313;</font> REST API
 
-Es geht um die REST API
+One way to access the process engine is, using the REST API. In order to get a quick experience, the authentication and hence the authorization is disabled by default. If the network is open to untrusted people, an attacker can now act as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). This allows him to monitor the whole network traffic and as such read all the data that is being transmitted between the users and the engine. As a consquence, again confidential data could be picked off or the engine could be compromised, e.g., such that it accepts every request received. 
 
-Gleiche wie davor -> Access control durch athentication.  protection of the privacy and integrity of the exchanged data.
-Man will nicht, dass die Rest api alles kann, sondern nur bestimmte Sachen ausführen kann -> Embed api
+For untrusted environments it thus makes sense to restrict the access. As a countermeasure ships the basic access authentication allowing to have access control. How you can adjust the API in such a way that it uses the authentication is described at [Configure Authentication]({{< relref "authorization-service.md" >}}).
 
-If you do not need the REST API in production, consider to fully undeploy the REST API Web Application.
+In some cases the basic authentication mechanism shipped with Camunda might not be sufficient as safety requirement or the REST API does only need a subset of the functionality the engine offers. Then consider to implement your own authentication framework according to your needs or restrict the access of the REST API to exactly that subset by [embedding the REST API]({{< relref "embeddability.md" >}}).
 
-
-If you do not need the REST API in production, consider to fully undeploy the REST API Web Application.
+If you do not need the REST API in production, consider to fully undeploy the REST API Web Application, since it offers an unnecessary security risk in this case.
 
 
-For real life usage, enable Basic Authentication for the REST API by adjusting the web.xml as described in the User Guide at [Configure Authentication]({{< relref "authentication.md" >}}).
+# <font color="red">&#9314;</font> Java API
 
-[Embed the Rest API]({{< relref "embeddability.md" >}})
+Java API
 
-# &#9314; Java API
+Full Access
+
+Restrict access
+
+You can switch authorization checks on or off for the Camunda engine itself. Authorisations will only be checked if you turn authorization checks on and tell the engine who is logged in with the current thread:
+
+identityService.setAuthenticatedUserId("fozzie");
+
+If you directly use the API and do not tell the process engine who is logged in with the current thread, it will provide full access to all data!
+
+Authorization is switched on in the Camunda distributions per default, but if you configure and run your own engine (e.g. via Spring) it is disabled by default.
+	For the authorization checks (to access specific resources), the engine does not question whether the authenticated user is known to the used IdentityService. As mentioned above, the engine treats users, groups and tenants as strings and grants access if those strings match with the defined authorization rules.
+
+In case you do not require authorizations, make sure that authorization checks are turned off, since they do have a performance impact. You might e.g. not need authorizations if you build your own custom web application handling authentication and authorization itself and just using Camunda in the background.
+
+If you have authorization switched on you might not want to have authorization checks when you execute Java code as part of your workflow. One example could be loading the number of running process instances to be used for some decision. In this case you can turn authorization checks for use code off.
 
 
-# &#9315; File Repository
+# <font color="red">&#9315;</font> File Repository
 
 The process engine offers numerous extension points for customization of process behavior by using Java Code, Expression Language, Scripts and Templates. While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. Find more information on that topic in the User Guide.
 
-# &#9316; Database
+-> wrong hand: specify that
 
-All creadentials are stored via JDBC in the database. The user may choose the driver version of JDBC to get the newest version with all security updates. In order to prevent stealing the stored credentials, when the database is compromised, Camunda hashes/encrypts the passwords with a long key. However, we cannot guarantee give any security commitments related to the database as the database is maintained by the *user*. So make sure that you have a sufficient security barrier to secure your database and, thus, sensetive data. 
+# <font color="red">&#9316;</font> Database
+
+All creadentials are stored via JDBC in the database. The user may choose the driver version of JDBC to get the newest version with all security updates. In order to prevent stealing the stored credentials, when the database is compromised, Camunda hashes/encrypts the passwords with a long key. However, we cannot guarantee give any security commitments related to the database as the database is maintained by the *user*. So make sure that you have a sufficient security barrier to secure your database and, thus, confidential data. 
 
 # User Management
 
