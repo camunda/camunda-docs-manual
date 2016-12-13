@@ -16,39 +16,55 @@ The following image depicts the components of the Camunda platform and add's mar
 
 {{< img src="../img/architecture-scurity-overview.png" >}}
 
-# <font color="red">&#9312;</font>  User 
-
-The main web applications of Camunda BPM (Tasklist (link), Cockpit (link) and Admin (link)) are relevant when looking into the security aspects. The users of these web applications could be misused in an unwanted way. The details are described in the following. 
-The user interfaces of the web applications display data of Camunda BPM to the user and offer possibilities to modify data. Therefore there exists a security risk that the users of these web applications are misused in order to get unwanted access to data or to trigger unwanted modifications of the data. 
-
-The following features and options can be used in order to mitigate that risk.
-
-1. Are the web applications actually used? If no, the solution is not to deploy them. 
-2. User Management
-2.1.1. Build in (incl password hashing) 
-2.1.2 LDAP
-2.2. Authorization
-Authorization solves the problem that each user only has access to the data that he is allowed to see. The same applies to operations that allow the modification of data. Camunda BPM offers a wide range of different authorizations so that users are onyl allowed the stuff they should do. The authorizations are part of the backend, stored in the database and checked on the server side.
-Management done in Camunda Admin...
-3. Sessions of Web Apps
-We do something with sessions...
-4. Basic Assumption/Recommendations
-Our security measures for the web apps are based on the assumption that customers operate them behind a firewall. We do not recomment to make them publictly available
-Use HTTPS
+Structure:
+    
+  <font color="red">&#9312;</font> [User](#user): short summary   
+  <font color="red">&#9313;</font> [REST API](#rest-api): short summary   
+  <font color="red">&#9314;</font> [Java API](#java-api): short summary   
+  <font color="red">&#9315;</font> [File Repository](#file-repository): short summary   
+  <font color="red">&#9316;</font> [Database](#database): short summary   
 
 
+# User 
 
+One potential security concern when looking at Camunda BPM are the web applications, especially [Tasklist]({{< ref "webapps/tasklist/index.md" >}}), [Cockpit]({{< ref "webapps/cockpit/index.md" >}}) and [Admin]({{< ref "webapps/admin/index.md" >}}). The users of these web applications could be impaired in a way, that the system gets compromised. The details on how to secure you Camunda web applications are in the following.
+ 
+The user interfaces of the web applications display confidential data and provide resources to the user. That offers possibilities to modify data. Therefore, there is a security risk that users of these web applications are misused to gain unwanted access to data or to trigger undesired modifications of the data. 
 
-The user's logging into the web applications (Tasklist, Cockpit, Admin) can always be a potential risk, as they might have access to confidential data or they want to modify the system in an undesirable way. For example, a task worker in the tasklist that checks, if a formular for loan application is correctly filled out, should not be able to see data such as the customers income. Therefore, it might be desired to restrict the scope of the task worker. Another problem could be a be malicios attackers that want to compromise the system, e.g., the customer approving the loan application although it should be rejected. 
+The following features and options can be used in order to mitigate that risk:
 
-In order to prevent that from happening, Camunda provides two mechanism:
+* **User Management**:
 
-1. **Authentication** allows to verify that the user is the one he claims to be. Hence, only users that are supposed to have access to the system, can log in by providing the credentials known to the system. By default, is a form based authentication turned on. So there is no further need for explicitely securing those systems.
-2. **Authorization** allows to set permissions and restrictions for specific users or groups to access resources within Camunda, such as process definitions. Read more about it at [Authorization Service]({{< relref "authorization-service.md" >}}). Camunda already comes with a dedicated web interface, called [Authorization Management]({{< relref "authorization-management.md" >}}) to manage the authorizations. 
+    A common way of implementing access control into the system is using user management. In particular, it allows manage which user's are permitted to enter the system and which data they can see and modify. To limit to risk that a user modifies or sees unwarrantedly data, you should create a user for each porpose in the system.
 
-Please be aware, that if you are not using the the web applications or you do not need to restrict the user's accessibility (e.g. all system user's are fully trusted), this safety hazard is not a concern for you and you might omit it.
+    * Build in solution: A user refers to a human individual and a group is any custom defined "bundle" of users sharing some usage relevant attributes (like e.g. working on specific business functions). Every user needs to login with his credentials (username and password), so you cannot impersonate as someone else. All passwords and usernames are stored within the database (see [here]({{< relref "identity-service.md" >}}), whereas the passwords are stored encrypted so they cannot be stolen easily. That makes sure that every user has only the access right he is suppose to have.
 
-# <font color="red">&#9313;</font> REST API
+    * LDAP: Instead of managing the users and groups within Camunda, it is also possible to obtain that information from a directory service database, which support [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) ("Lightweight Directory Access Protocol"), allowing to use a user management which is already set up (see [here]({{< relref "identity-service.md#the-ldap-identity-service" >}}) for more information).
+
+* **Authentication**:
+
+    Authentication allows to identify all user's that want to have access to Camunda BPM, thus, verifying that the user is the one he claims to be. Hence, only users that are supposed to have access to the system, can log in by providing the credentials known to the system. Only one username and password is required to access all applications that are available to the user. All passwords are encrypted and cannot be seen by others. By default, is a form based authentication turned on. So there is no further need for explicitely securing those systems.
+    
+* **Authorization**:
+
+    Authorization solves the problem that each user only has access to the data that he is allowed to see. The same applies to operations that allow the modification of data. Camunda BPM offers specify the authorizations for a wide rage of resources so that user's are only allowed access the stuff they are supposed do. Camunda already comes with a dedicated web interface, called [Admin]({{< relref "authorization-management.md" >}}) to manage the authorizations. The authorizations themself are part of the backend, stored in the database and checked on the server side. This prevents attackers from forging requests to access functionality without proper authorization.
+
+* **Additional considerations**
+
+	Camunda makes certain assumptions on how the web applications are exposed to the public and how they are configured to make them secure:
+
+    * Our security measures for the web applications are based on the assumption that customers operate on them behind a firewall, so the access to the web application is restricted to a trusted environment. We do not recomment to make them publicly available, as this opens up possible weak points to attackers. 
+    * The Camunda web applications depend on a web application container (e.g. [Wildfly]({{< ref "installation/full/jboss/index.md" >}}) or [Tomcat]({{< ref "installation/full/tomcat/index.md" >}})). Therefore, it is importent to check and secure the default settings, e.g.:
+      * Remove any default predefined users allowed to access your container’s administration console. Otherwise it would be possible to gain full access by using the default user profiles and, thus, compromising the Camunda platform.
+      * Set a timeout for a session and tie session cookies to the IP address of the user to mitigate [session hijacking](https://en.wikipedia.org/wiki/Session_hijacking) such as Cross-site scripting.
+      * Secure your communication using encrypted messages like HTTPS to prevent [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Otherwise it would be possible to intercept the communication and forward modified messages.
+
+* **Usage**
+
+    Do you actually use the Camunda web applications? If not you should eleminate all the safety hazards mentioned above by not deploying the web applications. Omitting all unecessary applications is the safest and most efficient way of securing your system, since the attackers do not even have the possibility to use those systems vulnerabilities.
+    
+
+# REST API
 
 One way to access the process engine is, using the REST API. In order to get a quick experience, the authentication and hence the authorization is disabled by default. If the network is open to untrusted people, an attacker can now act as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). This allows him to monitor the whole network traffic and as such read all the data that is being transmitted between the users and the engine. As a consquence, again confidential data could be picked off or the engine could be compromised, e.g., such that it accepts every request received. 
 
@@ -59,7 +75,7 @@ In some cases the basic authentication mechanism shipped with Camunda might not 
 If you do not need the REST API in production, consider to fully undeploy the REST API Web Application, since it offers an unnecessary security risk in this case.
 
 
-# <font color="red">&#9314;</font> Java API
+# Java API
 
 The second way to access the process engine is, using the Java API. This is the common way when using Camunda as an embedded engine with custom applications. The authorization checks are turned on in the Camunda distributions per default, but need to be switched on when you configured your own engine. However, even with authorization check enabled, you still need to tell the engine who is logged in with the current thread to make the check applied. If you access the API without setting the logged in user to the thread, you will provide full access to all data. That might not be the desired behavior, because typically the user should have just limited access.
 
@@ -78,13 +94,14 @@ In case you do not require authorizations, make sure that authorization checks a
 If you have authorization switched on you might not want to have authorization checks when you execute Java code as part of your workflow. One example could be loading the number of running process instances to be used for some decision. In this case you can turn authorization checks for use code off.
 
 
-# <font color="red">&#9315;</font> File Repository
+# File Repository
 
 The process engine offers numerous extension points for customization of process behavior by using [Java Code]({{< relref "delegation-code.md" >}}), [Expression Language]({{< relref "expression-language.md" >}}), [Scripts]({{< relref "scripting.md" >}}) and [Templates]({{< relref "templating.md" >}}). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API)
 
 -> wrong hand: specify that
 
-# <font color="red">&#9316;</font> Database
+# Database
+Additional considerations
 
 All creadentials are stored via JDBC in the database. The user may choose the driver version of JDBC to get the newest version with all security updates. In order to prevent stealing the stored credentials, when the database is compromised, Camunda hashes/encrypts the passwords with a long key. However, we cannot guarantee give any security commitments related to the database as the database is maintained by the *user*. So make sure that you have a sufficient security barrier to secure your database and, thus, confidential data. 
 
@@ -145,3 +162,5 @@ It is essential to disallow unauthorized access by securing the Camunda Platform
 In addition, Permissions and restrictions for specific users or groups to access resources within Camunda (such as e.g. process definitions, tenants, process instances) are called authorizations. Because they relate users and groups to Camunda specific resources, they must of course always be managed in a Camunda specific way and be contained in the Camunda database.
 
 Camunda ships also with a full user mangement, where you can, e.g., attach users to gropus. Read more about it at [identity service]({{< relref "identity-service.md" >}})
+
+**Authorization** allows to set permissions and restrictions for specific users or groups to access resources within Camunda, such as process definitions. Read more about it at [Authorization Service]({{< relref "authorization-service.md" >}}). Camunda already comes with a dedicated web interface, called [Authorization Management]({{< relref "authorization-management.md" >}}) to manage the authorizations. 
