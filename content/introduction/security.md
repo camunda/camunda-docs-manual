@@ -66,101 +66,28 @@ The following features and options can be used in order to mitigate that risk:
 
 # REST API
 
-One way to access the process engine is, using the REST API. In order to get a quick experience, the authentication and hence the authorization is disabled by default. If the network is open to untrusted people, an attacker can now act as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). This allows him to monitor the whole network traffic and as such read all the data that is being transmitted between the users and the engine. As a consquence, again confidential data could be picked off or the engine could be compromised, e.g., such that it accepts every request received. 
+One way to access the process engine is, using the REST API. The authentication and, hence, the authorization is disabled by default. Again, that allows all people accessing the engine via REST API to use the full functionality of Camunda BPM. Users could see and modify data in an undesired way. For untrusted environments it thus makes sense to restrict the access. As a countermeasure ships the basic access authentication allowing to have access control. How you can adjust the API in such a way that it uses the authentication is described at [Configure Authorization]({{< relref "authorization-service.md" >}}).
 
-For untrusted environments it thus makes sense to restrict the access. As a countermeasure ships the basic access authentication allowing to have access control. How you can adjust the API in such a way that it uses the authentication is described at [Configure Authentication]({{< relref "authorization-service.md" >}}).
+Note that HTTP Basic Authentication does not provide encryption. If the network is open to untrusted people, an attacker can now act as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). This allows him to monitor the whole network traffic and as such read all the data that is being transmitted between the users and the engine. That includes confidental data, such as username and password. As a consquence, the engine could be compromised, e.g., such that it accepts every request received. Therfore, it is highly recommended to secured the traffic by an SSL connection.
 
 In some cases the basic authentication mechanism shipped with Camunda might not be sufficient as safety requirement or the REST API does only need a subset of the functionality the engine offers. Then consider to implement your own authentication framework according to your needs or restrict the access of the REST API to exactly that subset by [embedding the REST API]({{< relref "embeddability.md" >}}).
 
 If you do not need the REST API in production, consider to fully undeploy the REST API Web Application, since it offers an unnecessary security risk in this case.
 
-
 # Java API
 
-The second way to access the process engine is, using the Java API. This is the common way when using Camunda as an embedded engine with custom applications. The authorization checks are turned on in the Camunda distributions per default, but need to be switched on when you configured your own engine. However, even with authorization check enabled, you still need to tell the engine who is logged in with the current thread to make the check applied. If you access the API without setting the logged in user to the thread, you will provide full access to all data. That might not be the desired behavior, because typically the user should have just limited access.
+The second way to access the process engine is, using the Java API. Usually, this way is used, when building your custom java application. However, it might not be required for the custom application or there end users to see or modify all data. Thus, there is the possibility to change data in an unintended way resulting in inappropriate behavior. In order to mitigate this risk, authorization checks for the Java API can be enabled. 
 
-
-You can switch authorization checks on or off for the Camunda engine itself. Authorisations will only be checked if you turn authorization checks on and tell the engine who is logged in with the current thread:
-
-identityService.setAuthenticatedUserId("fozzie");
-
-If you directly use the API and do not tell the process engine who is logged in with the current thread, it will provide full access to all data!
-
-Authorization is switched on in the Camunda distributions per default, but if you configure and run your own engine (e.g. via Spring) it is disabled by default.
-	For the authorization checks (to access specific resources), the engine does not question whether the authenticated user is known to the used IdentityService. As mentioned above, the engine treats users, groups and tenants as strings and grants access if those strings match with the defined authorization rules.
+The authorization checks are turned on in the Camunda distributions per default, but need to be switched on manually when you configured your own engine (e.g. via Spring). However, even with authorization check enabled, you still need to tell the engine who is logged in with the current thread to make the check applied. If you access the API without setting the logged in user to the thread, you will provide full access to all data. 
 
 In case you do not require authorizations, make sure that authorization checks are turned off, since they do have a performance impact. You might e.g. not need authorizations if you build your own custom web application handling authentication and authorization itself and just using Camunda in the background.
 
-If you have authorization switched on you might not want to have authorization checks when you execute Java code as part of your workflow. One example could be loading the number of running process instances to be used for some decision. In this case you can turn authorization checks for use code off.
-
-
 # File Repository
 
-The process engine offers numerous extension points for customization of process behavior by using [Java Code]({{< relref "delegation-code.md" >}}), [Expression Language]({{< relref "expression-language.md" >}}), [Scripts]({{< relref "scripting.md" >}}) and [Templates]({{< relref "templating.md" >}}). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only. The following concepts exist that allow submitting custom code (via Java or REST API)
-
--> wrong hand: specify that
+The process engine offers numerous extension points for customization of process behavior by using [Java Code]({{< relref "delegation-code.md" >}}), [Expression Language]({{< relref "expression-language.md" >}}), [Scripts]({{< relref "scripting.md" >}}) and [Templates]({{< relref "templating.md" >}}). While these extension points allow for great flexibility in process implementation, they open up the possibility to perform malicious actions when in the wrong hands. That means, users that are allowed to access to resources with embedded code to gain unauthorized access to other data. Especially software tampering is a problem, when attackers exploit the embedded code to  modify the systems runtime behavior to gain unauthorzied access. It is therefore advisable to restrict access to API that allows custom code submission to trusted parties only and sanitize the code input. See more in the documentation about [Custom Code & Security](securing-custom-code).
 
 # Database
-Additional considerations
 
-All creadentials are stored via JDBC in the database. The user may choose the driver version of JDBC to get the newest version with all security updates. In order to prevent stealing the stored credentials, when the database is compromised, Camunda hashes/encrypts the passwords with a long key. However, we cannot guarantee give any security commitments related to the database as the database is maintained by the *user*. So make sure that you have a sufficient security barrier to secure your database and, thus, confidential data. 
+All the data is accessed, updated or stored in the database using JDBC. The user may choose the driver version of JDBC to obtain the newest version with all security updates. In order to prevent stealing the stored credentials, when the database is compromised, Camunda encrypts the passwords before persisting them. However, the database itself is the responsibility of the user and __not__ of Camunda. So make sure you maintain and protect the database in a sufficient manner. 
 
-# User Management
-
-Camunda’s IdentityService allows to attach users to groups - we call this a group membership. Accordingly, attaching a user or group to a tenant creates a tenant membership.
-
-## Authentication	
-
-The process of authentication makes sure that the user is known to the Camunda engine. When directly using the Camunda Java API this must be done for each thread.
-
-## Authorization
-
-Permissions and restrictions for specific users or groups to access resources within Camunda (such as e.g. process definitions, tenants, process instances) are called authorizations. Because they relate users and groups to Camunda specific resources, they must of course always be managed in a Camunda specific way and be contained in the Camunda database.
-
-Camunda comes with an AuthorizationService API (Java or REST) allowing to manage such Authorizations and also ships with a dedicated Admin application to manage them with a web interface. 
-
-# Securing Camunda
-
-## Securing the engine
-
-You can switch authorization checks on or off for the Camunda engine itself. Authorisations will only be checked if you turn authorization checks on and tell the engine who is logged in with the current thread.
-
-## Securing custom code
-
-
-
-# Securing the Rest API
-
-
-
-## Configuring the Identity Service
-
-By default Camunda will access the users and groups directly managed within the Camunda Database. As an alternative to that explicitely enable read-only access to an LDAP-based user/group repository.
-
-# Additional considerations
-
-These are out of scope of camunda, because the user has to take care of this. Nevertheless, we want to remind the user to keep those into consideration, when using Camunda.
-
-## Securing your Web Application Container
-
-Make sure to secure your Web Application Container (e.g. Wildfly or Tomcat) by checking and securing default settings, e.g. removing any default predefined users allowed to access your container’s administration console.
-
-## Securing your database
-
-Depending on your database several attack scenarios might come up. Especially, attacks like SQL injection offer high security risks, as malicious attackers might gain access to sensitive data.
-
-## Support Single Sign On
-
-Single sign-on (SSO) is a property of access control of multiple related, but independent software systems. With this property a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords, or in some configurations seamlessly sign on at each system.
-
-
-
-It is essential to disallow unauthorized access by securing the Camunda Platform before going live with your process applications.
-
-
-
-In addition, Permissions and restrictions for specific users or groups to access resources within Camunda (such as e.g. process definitions, tenants, process instances) are called authorizations. Because they relate users and groups to Camunda specific resources, they must of course always be managed in a Camunda specific way and be contained in the Camunda database.
-
-Camunda ships also with a full user mangement, where you can, e.g., attach users to gropus. Read more about it at [identity service]({{< relref "identity-service.md" >}})
-
-**Authorization** allows to set permissions and restrictions for specific users or groups to access resources within Camunda, such as process definitions. Read more about it at [Authorization Service]({{< relref "authorization-service.md" >}}). Camunda already comes with a dedicated web interface, called [Authorization Management]({{< relref "authorization-management.md" >}}) to manage the authorizations. 
+If you use Camunda BPM on a shared database, use authentication and authorization to isolate the Camunda engine from other applications. Otherwise, unauthorized users from other applications might change data in the database, which can lead to damage of the Camunda platform or even to a denial of service.
