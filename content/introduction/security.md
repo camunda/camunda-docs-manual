@@ -10,22 +10,25 @@ menu:
 
 ---
 
-Security has a high priority at Camunda and is, therefore, an integral part of the platform. The Camunda platform contains several protection mechanisms to prevent unauthorized access to sensitive data. Here, you get an overview of Camunda's security features.
+Security has a high priority at Camunda and is, therefore, an integral part of the platform. The Camunda platform contains several protection mechanisms to prevent unauthorized access to data. In this chapter, you get an introduction of Camunda's security features.
 
 The following image depicts the components of the Camunda platform and add's marks to the parts that comprise potential security risks, which will then be explained more in depth in the respective subesctions:
 
 {{< img src="../img/architecture-scurity-overview.png" >}}
 
-Structure:
-    
-  <font color="red">&#9312;</font> [User](#user): short summary   
-  <font color="red">&#9313;</font> [REST API](#rest-api): short summary   
-  <font color="red">&#9314;</font> [Java API](#java-api): short summary   
-  <font color="red">&#9315;</font> [File Repository](#file-repository): short summary   
-  <font color="red">&#9316;</font> [Database](#database): short summary   
+   
+   <font color="red">&#9312;</font> [Web applications](#web-applications): Web applications are an entry point to an insecure environment and need, thus, special treatment concerning security.
+   
+   <font color="red">&#9313;</font> [REST API](#rest-api): The interaction with offers a couple of security risks as the communication can be intercepted.
+   
+   <font color="red">&#9314;</font> [Java API](#java-api): The direct access to the engine can comprise problems, when the access control is not correctly configured.
+   
+   <font color="red">&#9315;</font> [File Repository](#file-repository): Embedded code offers great flexibility, but enables attackers to inject malicious code and, therefore, should be restricted.
+   
+   <font color="red">&#9316;</font> [Database](#database): All data is persisted to database and should be protected to prevent system flaws.  
 
 
-# User 
+# Web applications 
 
 One potential security concern when looking at Camunda BPM are the web applications, especially [Tasklist]({{< ref "webapps/tasklist/index.md" >}}), [Cockpit]({{< ref "webapps/cockpit/index.md" >}}) and [Admin]({{< ref "webapps/admin/index.md" >}}). The users of these web applications could be impaired in a way, that the system gets compromised. The details on how to secure you Camunda web applications are in the following.
  
