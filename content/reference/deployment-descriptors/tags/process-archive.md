@@ -159,7 +159,7 @@ The following is a list of all supported configuration properties.
     <td><code>isScanForProcessDefinitions</code></td>
     <td>boolean</td>
     <td>
-      <p>If true, the process application will be scanned for process definitions (bpmn20 and bpmn20.xml files). Resources matching the <code>additionalResourceSuffixes</code> parameter are also included in the scan.</p>
+      <p>If true, the process application will be scanned for deployable resources (<code>.bpmn20.xml</code>, <code>.bpmn</code>, <code>.cmmn11.xml</code>, <code>.cmmn</code>, <code>.dmn11.xml</code> or <code>.dmn</code> files). Resources matching the <code>additionalResourceSuffixes</code> parameter are also included in the scan.</p>
       <p>
         Scanning is performed recursively based on the filesystem directory to which the resource root resolves (see property <code>resourceRootPath</code>).
         This may not cover the entire classpath.
