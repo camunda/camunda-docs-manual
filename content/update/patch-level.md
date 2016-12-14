@@ -141,6 +141,13 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
     </tr>
+    <tr>
+      <td>7.6</td>
+      <td>engine_7.6_patch_7.6.0_to_7.6.1.sql</td>
+      <td>Adjust column size of ACT_RU_EVENT_SUBSCR.ACTIVITY_ID_ to 255.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-6788">CAM-6788</td>
+    </tr>
   </tbody>
 </table>
 
