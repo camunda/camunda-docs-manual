@@ -166,11 +166,6 @@ The process engine no longer evaluates these expressions by default and throws a
 
 See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
-## 7.6.0 to 7.6.1
-
-Please note that **mybatis** library has to be upgraded from version _3.2.8_ to _3.4.1_. This means that you would have to update your applications
-to use specified mybatis version as well as test compatibility with it. In order to upgrade library for standalone server, please replace _mybatis-3.2.8.jar_ with _mybatis-3.4.1.jar_ in libraries of your server\container.
-
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
@@ -185,16 +180,16 @@ Please note that the following procedure may differ for cluster scenarios. Conta
 
 In case you use an embedded process engine inside your Java Application, you need to
 
-1. update the Process Engine library in your dependency management (Apache Maven, Gradle ...),
+1. update the Process Engine librarayin your dependency management (Apache MAven, Gradle ...),
 2. re-package the application,
 3. deploy the new version of the application.
 
-# Standalone Web-Application Distribution
+# Standalone Webapplication Distribution
 
 In case you installed the [Standalone Webapplication Distribution]({{< relref "introduction/downloading-camunda.md#download-the-runtime" >}}) you need to
 
-1. undeploy the previous version of the web-application,
-2. deploy the new version of the web-application.
+1. undeploy the previous version of the webapplication,
+2. deploy the new version of the webapplication.
 
 # Applying Multiple Patches at Once
 
