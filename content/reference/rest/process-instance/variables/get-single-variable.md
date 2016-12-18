@@ -8,7 +8,7 @@ menu:
     name: "Get"
     identifier: "rest-api-process-instance-get-variable"
     parent: "rest-api-process-instance-variables"
-    pre: "GET `/process-instance/{id}/variables/{varId}`"
+    pre: "GET `/process-instance/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable of a given process instance.
 
 # Method
 
-GET `/process-instance/{id}/variables/{varId}`
+GET `/process-instance/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/process-instance/{id}/variables/{varId}`
     <td>The id of the process instance to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

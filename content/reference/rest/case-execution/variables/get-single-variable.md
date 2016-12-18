@@ -8,7 +8,7 @@ menu:
     name: "Get"
     identifier: "rest-api-case-execution-get-single-variable"
     parent: "rest-api-case-execution-variables"
-    pre: "GET `/case-execution/{id}/variables/{varId}`"
+    pre: "GET `/case-execution/{id}/variables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a variable of a given case execution.
 
 # Method
 
-GET `/case-execution/{id}/variables/{varId}`
+GET `/case-execution/{id}/variables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/case-execution/{id}/variables/{varId}`
     <td>The id of the case execution to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

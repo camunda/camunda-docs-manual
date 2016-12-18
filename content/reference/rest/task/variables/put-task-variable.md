@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-task-put-variable"
     parent: "rest-api-task-variables"
-    pre: "PUT `/task/{id}/variables/{varId}`"
+    pre: "PUT `/task/{id}/variables/{varName}`"
 
 ---
 
@@ -19,7 +19,7 @@ If a variable visible from the task with the given name already exists, it is ov
 
 # Method
 
-PUT `/task/{id}/variables/{varId}`
+PUT `/task/{id}/variables/{varName}`
 
 
 # Parameters
@@ -36,7 +36,7 @@ PUT `/task/{id}/variables/{varId}`
     <td>The id of the task to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

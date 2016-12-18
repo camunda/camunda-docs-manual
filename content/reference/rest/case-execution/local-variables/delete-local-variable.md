@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-case-execution-delete-local-variable"
     parent: "rest-api-case-execution-local-variables"
-    pre: "DELETE `/case-execution/{id}/localVariables/{varId}`"
+    pre: "DELETE `/case-execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Deletes a variable in the context of a given case execution. Deletion does not p
 
 # Method
 
-DELETE `/case-execution/{id}/localVariables/{varId}`
+DELETE `/case-execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/case-execution/{id}/localVariables/{varId}`
     <td>The id of the case execution to delete the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to delete.</td>
   </tr>
 </table>

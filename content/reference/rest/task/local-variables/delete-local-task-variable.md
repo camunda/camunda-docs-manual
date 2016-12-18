@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-task-delete-local-variable"
     parent: "rest-api-task-local-variables"
-    pre: "DELETE `/task/{id}/localVariables/{varId}`"
+    pre: "DELETE `/task/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Removes a local variable from a task.
 
 # Method
 
-DELETE `/task/{id}/localVariables/{varId}`
+DELETE `/task/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/task/{id}/localVariables/{varId}`
     <td>The id of the task.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to be removed.</td>
   </tr>
 </table>

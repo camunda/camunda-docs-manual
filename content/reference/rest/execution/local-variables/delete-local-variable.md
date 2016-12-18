@@ -8,7 +8,7 @@ menu:
     name: "Delete"
     identifier: "rest-api-execution-delete-local-variable"
     parent: "rest-api-execution-local-variables"
-    pre: "DELETE `/execution/{id}/localVariables/{varId}`"
+    pre: "DELETE `/execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Deletes a variable in the context of a given execution. Deletion does not propag
 
 # Method
 
-DELETE `/execution/{id}/localVariables/{varId}`
+DELETE `/execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ DELETE `/execution/{id}/localVariables/{varId}`
     <td>The id of the execution to delete the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to delete.</td>
   </tr>
 </table>

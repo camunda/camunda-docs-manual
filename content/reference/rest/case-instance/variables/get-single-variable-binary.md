@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-case-instance-get-single-variable-binary"
     parent: "rest-api-case-instance-variables"
-    pre: "GET `/case-instance/{id}/variables/{varId}/data`"
+    pre: "GET `/case-instance/{id}/variables/{varName}/data`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a binary variable of a given case instance. Applicable for byte array 
 
 # Method
 
-GET `/case-instance/{id}/variables/{varId}/data`
+GET `/case-instance/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/case-instance/{id}/variables/{varId}/data`
     <td>The id of the case instance to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

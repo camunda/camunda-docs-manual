@@ -8,7 +8,7 @@ menu:
     name: "Get (Binary)"
     identifier: "rest-api-case-execution-get-single-variable-binary"
     parent: "rest-api-case-execution-variables"
-    pre: "GET `/case-execution/{id}/variables/{varId}/data`"
+    pre: "GET `/case-execution/{id}/variables/{varName}/data`"
 
 ---
 
@@ -18,7 +18,7 @@ Retrieves a binary variable of a given case execution. Applicable for byte array
 
 # Method
 
-GET `/case-execution/{id}/variables/{varId}/data`
+GET `/case-execution/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -35,7 +35,7 @@ GET `/case-execution/{id}/variables/{varId}/data`
     <td>The id of the case execution to retrieve the variable from.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to get.</td>
   </tr>
 </table>

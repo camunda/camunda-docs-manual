@@ -8,7 +8,7 @@ menu:
     name: "Update"
     identifier: "rest-api-case-execution-put-local-variable"
     parent: "rest-api-case-execution-local-variables"
-    pre: "PUT `/case-execution/{id}/localVariables/{varId}`"
+    pre: "PUT `/case-execution/{id}/localVariables/{varName}`"
 
 ---
 
@@ -18,7 +18,7 @@ Sets a variable in the context of a given case execution. Update does not propag
 
 # Method
 
-PUT `/case-execution/{id}/localVariables/{varId}`
+PUT `/case-execution/{id}/localVariables/{varName}`
 
 
 # Parameters
@@ -35,7 +35,7 @@ PUT `/case-execution/{id}/localVariables/{varId}`
     <td>The id of the case execution to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>

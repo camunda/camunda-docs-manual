@@ -8,7 +8,7 @@ menu:
     name: "Post (Binary)"
     identifier: "rest-api-task-post-variable-binary"
     parent: "rest-api-task-variables"
-    pre: "POST `/task/{id}/variables/{varId}/data`"
+    pre: "POST `/task/{id}/variables/{varName}/data`"
 
 ---
 
@@ -17,7 +17,7 @@ A variable is visible from the task if it is a local task variable or declared i
 
 # Method
 
-POST `/task/{id}/variables/{varId}/data`
+POST `/task/{id}/variables/{varName}/data`
 
 
 # Parameters
@@ -34,7 +34,7 @@ POST `/task/{id}/variables/{varId}/data`
     <td>The id of the task to set the variable for.</td>
   </tr>
   <tr>
-    <td>varId</td>
+    <td>varName</td>
     <td>The name of the variable to set.</td>
   </tr>
 </table>
