@@ -150,6 +150,14 @@ GET `/history/process-instance/count`
     <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
+  <tr>
+    <td>executeActivityBefore</td>
+    <td>Restrict to instances that execute an activity before the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>executeActivityAfter</td>
+    <td>Restrict to instances that execute an activity after the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
 </table>
 
 

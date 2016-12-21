@@ -169,6 +169,14 @@ GET `/history/process-instance`
     <td>maxResults</td>
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
+  <tr>
+    <td>executeActivityBefore</td>
+    <td>Restrict to instances that execute an activity before the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>executeActivityAfter</td>
+    <td>Restrict to instances that execute an activity after the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
 </table>
 
 
@@ -300,7 +308,7 @@ Each historic process instance object has the following properties:
 
 ## Request
 
-GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=2013-04-01T23:59:59`
+GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=2013-04-01T23:59:59&executeActivityAfter=2013-03-23T13:42:44`
 
 ## Response
 

@@ -180,6 +180,14 @@ A JSON object with the following properties:
       </table>
     </td>
   </tr>
+  <tr>
+    <td>executeActivityBefore</td>
+    <td>Restrict to instances that execute an activity before the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>executeActivityAfter</td>
+    <td>Restrict to instances that execute an activity after the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
 </table>
 
 
@@ -319,6 +327,7 @@ Request Body:
 {
   "finishedAfter": "2013-01-01T00:00:00",
   "finishedBefore": "2013-04-01T23:59:59",
+  "executeActivityAfter": "2013-03-23T13:42:44",
   "variables": [
     {
       "name": "myVariable",
