@@ -168,9 +168,28 @@ The following resources are available:
 
 There are three types of authorizations:
 
-* Global Authorizations (`AUTH_TYPE_GLOBAL`) range over all users and groups (`userId = ANY`) and are usually used for fixing the "base" permission for a resource.
-* Grant Authorizations (`AUTH_TYPE_GRANT`) range over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.
-* Revoke Authorizations (`AUTH_TYPE_REVOKE`) range over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.
+<table class="table matrix-table table-condensed table-hover table-bordered">
+  <tr>
+    <th>Authorization type</th>
+    <th>Description</th>
+    <th>Integer representation</th>
+  </tr>
+  <tr>
+    <td>Global Authorization (<code>AUTH_TYPE_GLOBAL</code>)</td>
+    <td>Ranges over all users and groups (<code>userId = ANY</code>) and are usually used for fixing the "base" permission for a resource.</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Grant Authorization (<code>AUTH_TYPE_GRANT</code>)</td>
+    <td>Ranges over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Revoke Authorization (<code>AUTH_TYPE_REVOKE</code>)</td>
+    <td>Ranges over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.</td>
+    <td>2</td>
+  </tr>  
+</table>
 
 {{< note class="warning" title="Performance of REVOKE Authorizations" >}}
 See the [Performance Considerations]({{< relref "#performance-considerations" >}}) section on this Page.

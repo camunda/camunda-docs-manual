@@ -36,7 +36,7 @@ A JSON object with the following properties:
   <tr>
     <td>type</td>
     <td>Integer</td>
-    <td>The type of the authorization (0=global, 1=grant, 2=revoke).</td>
+    <td>The type of the authorization. (0=global, 1=grant, 2=revoke). See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
   </tr>
   <tr>
     <td>permissions</td>

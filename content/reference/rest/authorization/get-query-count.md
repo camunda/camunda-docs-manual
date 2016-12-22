@@ -36,7 +36,7 @@ GET `/authorization/count`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by the type of the authorization.</td>
+    <td>The type of the authorization. (0=global, 1=grant, 2=revoke). See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
   </tr>
   <tr>
     <td>userIdIn</td>
