@@ -158,6 +158,14 @@ A JSON object with the following properties:
     <td>executeActivityAfter</td>
     <td>Restrict to instances that execute an activity after the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
+  <tr>
+    <td>executeJobBefore</td>
+    <td>Restrict to instances that execute an job before the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
+  <tr>
+    <td>executeJobAfter</td>
+    <td>Restrict to instances that execute an job after the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+  </tr>
 </table>
 
 
