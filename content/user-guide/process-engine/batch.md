@@ -59,7 +59,7 @@ The following gives an overview of the Java API for batches.
 
 A batch is created by executing a process engine command asynchronously.
 
-Currently supported commands:
+Currently supported batch types:
 
 - [Process Instance Migration][batch-migration]
 - [Cancellation of running Process Instances][process-instance-cancellation]

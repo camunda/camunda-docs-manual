@@ -54,7 +54,7 @@ Its properties are as follows:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch.</td>
+    <td>The type of the batch. See the <a href="{{< relref "user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td></td>
   </tr>
   <tr>
     <td>totalJobs</td>

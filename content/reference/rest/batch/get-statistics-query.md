@@ -39,7 +39,7 @@ GET `/batch/statistics`
   </tr>
   <tr>
     <td>type</td>
-    <td>Filter by batch type.</td>
+    <td>Filter by batch type. See the <a href="{{< relref "user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
@@ -101,7 +101,7 @@ Each batch statistics object has the following properties:
   <tr>
     <td>type</td>
     <td>String</td>
-    <td>The type of the batch.</td>
+    <td>The type of the batch. See the <a href="{{< relref "user-guide/process-engine/batch.md#creating-a-batch" >}}">User Guide</a> for more information about batch types.</td>
   </tr>
   <tr>
     <td>totalJobs</td>
