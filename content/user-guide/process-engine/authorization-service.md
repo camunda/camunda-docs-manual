@@ -181,12 +181,12 @@ There are three types of authorizations:
   </tr>
   <tr>
     <td>Grant Authorization (<code>AUTH_TYPE_GRANT</code>)</td>
-    <td>Ranges over users and groups and grant a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.</td>
+    <td>Ranges over users and groups and grants a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.</td>
     <td>1</td>
   </tr>
   <tr>
     <td>Revoke Authorization (<code>AUTH_TYPE_REVOKE</code>)</td>
-    <td>Ranges over users and groups and revoke a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group the the global authorization grants.</td>
+    <td>Ranges over users and groups and revokes a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group that the global authorization grants.</td>
     <td>2</td>
   </tr>  
 </table>
