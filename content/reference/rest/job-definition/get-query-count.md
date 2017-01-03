@@ -49,7 +49,7 @@ GET `/job-definition/count`
   </tr>
   <tr>
     <td>jobType</td>
-    <td>Only include job definitions which exist for the given job type.</td>
+    <td>Only include job definitions which exist for the given job type. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>

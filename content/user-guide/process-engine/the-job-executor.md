@@ -44,9 +44,9 @@ For unit testing scenarios it is cumbersome to work with this background compone
 
 # Job Creation
 
-Jobs are created for a range of purposes by the process engine:
+Jobs are created for a range of purposes by the process engine. The following job types exist:
 
-* Asynchronous continuation to set [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) in the process
+* Asynchronous continuations to set [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) in the process
 * Timer jobs for BPMN timer events
 * Asynchronous handling of BPMN events
 
