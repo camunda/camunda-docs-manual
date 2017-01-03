@@ -71,7 +71,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobConfiguration</td>
-    <td>Only include job definitions which exist for the given job configuration.</td>
+    <td>Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>active</td>
@@ -155,7 +155,7 @@ Each job definition object has the following properties:
   <tr>
     <td>jobConfiguration</td>
     <td>String</td>
-    <td>The configuration of a job definition provides details about the jobs which will be created, for example: for timer jobs it is the timer configuration.</td>
+    <td>The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>overridingJobPriority</td>

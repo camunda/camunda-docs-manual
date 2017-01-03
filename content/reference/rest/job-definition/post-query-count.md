@@ -54,7 +54,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>jobConfiguration</td>
-    <td>Only include job definitions which exist for the given job configuration.</td>
+    <td>Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.</td>
   </tr>
   <tr>
     <td>active</td>
