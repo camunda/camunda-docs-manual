@@ -85,7 +85,7 @@ GET `/history/user-operation/count`
   </tr>
   <tr>
     <td>operationType</td>
-    <td>Filter by the type of the operation like <code>Claim</code> or <code>Delegate</code>.</td>
+    <td>Filter by the type of the operation like <code>Claim</code> or <code>Delegate</code>. See the {{< javadocref page="?org/camunda/bpm/engine/history/UserOperationLogEntry.html" text="Javadoc" >}} for a list of available operation types.</td>
   </tr>
   <tr>
     <td>entityType</td>
