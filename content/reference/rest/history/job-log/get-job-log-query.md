@@ -49,7 +49,7 @@ GET `/history/job-log`
   </tr>
   <tr>
     <td>jobDefinitionType</td>
-    <td>Filter by job definition type.</td>
+    <td>Filter by job definition type. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
@@ -184,7 +184,7 @@ Each historic job log object has the following properties:
   <tr>
     <td>jobDefinitionType</td>
     <td>String</td>
-    <td>The job definition type of the associated job.</td>
+    <td>The job definition type of the associated job. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>

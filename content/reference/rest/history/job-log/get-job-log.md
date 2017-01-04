@@ -90,7 +90,7 @@ A JSON object with the following properties:
   <tr>
     <td>jobDefinitionType</td>
     <td>String</td>
-    <td>The job definition type of the associated job.</td>
+    <td>The job definition type of the associated job. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
