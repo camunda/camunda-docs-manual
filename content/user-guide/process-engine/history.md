@@ -230,7 +230,7 @@ historyService.createUserOperationLogQuery()
 Query for successful historic job logs:
 
 ```java
-historyService.createUserOperationLogQuery()
+historyService.createHistoricJobLogQuery()
   .successLog()
   .list();
 ```
