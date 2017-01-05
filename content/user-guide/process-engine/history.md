@@ -89,6 +89,8 @@ There are the following History entities, which - in contrast to the runtime dat
 * `HistoricDecisionInstance` containing information about a single evaluation of a decision, including the input and output values.
 * `HistoricBatch` containing information about current and past batches.
 * `HistoricIdentityLinkLog` containing information about current and past (added, deleted, assignee is set or changed and owner is set or changed) identity links.
+* `HistoricExternalTaskLog` containing information about the external log. The log provides details about the lifecycle of an external task.
+
 
 ## State of HistoricProcessInstances
 
@@ -113,7 +115,8 @@ The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
 `createUserOperationLogQuery()`,
 `createHistoricJobLogQuery()`,
 `createHistoricDecisionInstanceQuery()`,
-`createHistoricBatchQuery()` and `createHistoricIdentityLinkLogQuery()`
+`createHistoricBatchQuery()`,
+`createHistoricExternalTaskLogQuery` and `createHistoricIdentityLinkLogQuery()`
 which can be used for querying history.
 
 Below are a few examples which show some of the possibilities of the query API for history. Full description of the possibilities can be found in the Javadocs, in the `org.camunda.bpm.engine.history` package.
@@ -247,7 +250,7 @@ historyService.createUserOperationLogQuery()
 Query for successful historic job logs:
 
 ```java
-historyService.createUserOperationLogQuery()
+historyService.createHistoricJobLogQuery()
   .successLog()
   .list();
 ```
@@ -291,6 +294,16 @@ Query for all identity links that are related to the user 'demo'.
 ```java
 historyService.createHistoricIdentityLinkLogQuery()
   .userId("demo")
+  .list();
+```
+
+**HistoricExternalTaskLogQuery**
+
+Query for failed historic external task logs:
+
+```java
+historyService.createHistoricExternalTaskLogQuery()
+  .failureLog()
   .list();
 ```
  
