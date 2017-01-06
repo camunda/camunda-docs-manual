@@ -67,7 +67,7 @@ Clustered or replicated databases are not supported unless they behave exactly l
 
 * Sun/Oracle Hot Spot 6 / 7 / 8
 * IBM® J9 virtual machine (JVM) 6 / 7 / 8
-* OpenJDK 7
+* OpenJDK 7 / 8
 * Oracle JRockit 6 - R28.2.7
 
 
