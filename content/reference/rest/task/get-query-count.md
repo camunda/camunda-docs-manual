@@ -169,7 +169,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>candidateUser</td>
-    <td>Only include tasks that are offered to the given user.</td>
+    <td>Only include tasks that are offered to the given user or to one of his groups.</td>
   </tr>
   <tr>
     <td>candidateUserExpression</td>
