@@ -59,6 +59,12 @@ Here you can see the various points at which you are able to add your own plugin
 
 ---
 
+**Name:** `tasklist.card`.
+
+{{< img src="../img/plugin-points/tasklist-plugin-card.png" title="Plugin Point" >}}
+
+---
+
 Configure where to place your plugin as shown in the following example:
 
 ```html
