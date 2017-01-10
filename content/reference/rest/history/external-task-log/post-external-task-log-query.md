@@ -36,7 +36,7 @@ POST `/history/external-task-log`
     <td>Filter by historic external task log id.</td>
   </tr>
   <tr>
-    <td>taskId</td>
+    <td>externalTaskId</td>
     <td>Filter by external task id.</td>
   </tr>
   <tr>
@@ -143,7 +143,7 @@ Each historic external task log object has the following properties:
     <td>The id of the log entry.</td>
   </tr>
   <tr>
-    <td>taskId</td>
+    <td>externalTaskId</td>
     <td>String</td>
     <td>The id of the external task.</td>
   </tr>
@@ -265,7 +265,7 @@ Request Body:
 
 ```json
 {
-  "taskId": "anExternalTaskId"
+  "externalTaskId": "anExternalTaskId"
 }
 ```
 
@@ -276,7 +276,7 @@ Request Body:
 	{
 	  "id" : "someId",
 	  "timestamp" : "2017-01-15T15:22:20",
-	  "taskId" : "aTaskId",
+	  "externalTaskId" : "anExternalTaskId",
 	  "topicName" : "aTopicName",
 	  "workerId" : "aWorkerId",
 	  "retries" : 3,

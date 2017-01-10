@@ -53,7 +53,7 @@ A JSON object with the following properties:
     <td>The id of the log entry.</td>
   </tr>
   <tr>
-    <td>taskId</td>
+    <td>externalTaskId</td>
     <td>String</td>
     <td>The id of the external task.</td>
   </tr>
@@ -179,7 +179,7 @@ Status 200.
 {
   "id" : "someId",
   "timestamp" : "2017-01-15T15:22:20",
-  "taskId" : "aTaskId",
+  "externalTaskId" : "anExternalTaskId",
   "topicName" : "aTopicName",
   "workerId" : "aWorkerId",
   "retries" : 3,

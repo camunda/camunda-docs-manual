@@ -36,7 +36,7 @@ GET `/history/external-task-log/count`
     <td>Filter by historic external task log id.</td>
   </tr>
   <tr>
-    <td>taskId</td>
+    <td>externalTaskId</td>
     <td>Filter by external task id.</td>
   </tr>
   <tr>
@@ -151,7 +151,7 @@ A JSON object that contains the count as the only property.
 
 ## Request
 
-GET `/history/external-task-log/count?taskId=anExternalTaskId`
+GET `/history/external-task-log/count?externalTaskId=anExternalTaskId`
 
 ## Response
 

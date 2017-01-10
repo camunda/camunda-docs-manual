@@ -38,7 +38,7 @@ A JSON object with the following properties:
     <td>Filter by historic external task log id.</td>
   </tr>
   <tr>
-    <td>taskId</td>
+    <td>externalTaskId</td>
     <td>Filter by external task id.</td>
   </tr>
   <tr>
@@ -159,7 +159,7 @@ Request Body:
 
 ```json
 {
-  "taskId": "anExternalTaskId"
+  "externalTaskId": "anExternalTaskId"
 }
 ```
 
