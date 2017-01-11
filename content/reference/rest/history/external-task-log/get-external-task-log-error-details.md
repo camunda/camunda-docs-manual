@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the corresponding error details to the passed historic external task log by id.
+Retrieves the corresponding error details of the passed historic external task log by id.
 
 
 # Method
