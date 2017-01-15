@@ -176,7 +176,7 @@ By using the `code` which can highlight 1 line or a range of lines (and you can 
 * Use short sentences. Full stop is better than comma.
 * Don't constantly repeat context: One a Page named *Updating Camunda* not every headline needs to start with *"Upating this"*, *"Updating that"*. Instead just write *"This"* or *"That"*. It is clear to the reader that things are being updated. Other example: if the page is named *"Installing the Full Distribution for JBoss Application Server"* not every section needs to mention the application server: Instead of *"The following steps are necessary in order to install the REST Api on JBoss"* write: *"The following steps are necessary in order to install the REST Api:"*
 * Don't overruse notes and warning. Not everything that comes into mind while writing a paragraph is a note or a warning. Maybe it is just content. There should not be more notes and warinings than content.
-* Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: insted of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
+* Yes you programmed the stuff but you don't need to write the docs in a super self-concious way: instead of *"We use slf4j for logging"* write: *"Slf4j is used for logging"*.
 * Don't use the future form: instead of *"This document will guide you through he steps of..."* write *"This document guides you through the steps"*
 * Nice combination of the previous two points: *"Throughout this guide, we will use a number of variables to denote common path names and constants:"* => *"This guide uses the following variables to denote common path names and constants:"*
 * Use this tool to convert titles into title case: [title converter][title converter]
