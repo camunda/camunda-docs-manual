@@ -22,7 +22,7 @@ menu:
 
 This document guides you through the upgrade from Camunda BPM `7.5.x` to `7.6.0`. It covers these use cases:
 
-1. For administrators and developers: [Database Upgrades]({{< relref "#database-updates" >}})
+1. For administrators and developers: [Database Upgrades]({{< relref "#database-upgrades" >}})
 2. For administrators and developers: [Full Distribution Upgrade]({{< relref "#full-distribution" >}})
 3. For administrators: [Standalone Web Application]({{< relref "#standalone-web-application" >}})
 4. For administrators: [Updating a Tasklist Translation File]({{< relref "#tasklist-translation-file" >}})
