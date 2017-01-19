@@ -58,7 +58,7 @@ For example, the model above comes down to the following XML:
 <endEvent id="theEnd" />
 ```
 
-In the above example, after the process is started, two tasks will be created:
+In the above example, after the process is started, two tasks are created:
 
 ```java
 ProcessInstance pi = runtimeService.startProcessInstanceByKey("forkJoin");
@@ -76,9 +76,9 @@ Task task2 = tasks.get(1);
 assertEquals("Ship Order", task2.getName());
 ```
 
-When these two tasks are completed the second parallel gateway will join the two executions and, as there is only one outgoing sequence flow, no concurrent paths of execution will be created, and only the Archive Order task will be active.
+When these two tasks are completed, the second parallel gateway joins the two executions and, as there is only one outgoing sequence flow, no concurrent paths of execution are created and only the Archive Order task is active.
 
-Note that a parallel gateway does not need to be 'balanced' (i.e. a matching number of incoming/outgoing sequence flows for corresponding parallel gateways). A parallel gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model. So, the following process is legal in BPMN 2.0:
+Note that a parallel gateway does not need to be 'balanced' (i.e., a matching number of incoming/outgoing sequence flows for corresponding parallel gateways). A parallel gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model. So, the following process is legal in BPMN 2.0:
 
 <div data-bpmn-diagram="../bpmn/parallel-gateway-unbalanced"></div>
 

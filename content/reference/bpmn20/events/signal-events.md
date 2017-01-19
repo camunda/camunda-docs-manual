@@ -21,7 +21,7 @@ This event can now be caught by all process instances which are interested. The 
 
 <div data-bpmn-diagram="../bpmn/event-signal-catching"></div>
 
-Note: It is important to understand that a signal event is broadcast to all active handlers. In of the example given above this means that all instances of the process catching the signal would receive the event.
+Note: It is important to understand that a signal event is broadcast to all active handlers. In the example given above this means that all instances of the process catching the signal would receive the event.
 
 
 # Signal Event Definition
@@ -117,11 +117,11 @@ A signal start event can be used to start a process instance using a named signa
 
 When deploying a process definition with one or more signal start events, the following considerations apply:
 
-* The name of the signal start event must be unique across a given process definition, i.e. a process definition must not have multiple signal start events with the same name. The engine throws an exception upon deployment of a process definition in case two or more signal start events reference the same signal or if two or more signal start events reference signals with the same signal name.
+* The name of the signal start event must be unique across a given process definition, i.e., a process definition must not have multiple signal start events with the same name. The engine throws an exception upon deployment of a process definition in case two or more signal start events reference the same signal or if two or more signal start events reference signals with the same signal name.
 * Contrary to message start events, the name of the signal start event does not have to be unique across all deployed process definitions.
 * Process versioning: Upon deployment of a new version of a process definition, the signal subscriptions of the previous version are canceled. This is also the case for signal events that are not present in the new version.
 
-A process instance of a process definition with one or more signal start events will be started, when thrown a signal with a proper name. The signal can either be thrown by a process instance (i.e. on intermediate throwing signal event or signal end event) or using the following methods on the RuntimeService:
+A process instance of a process definition with one or more signal start events will be started, when a signal with the proper name is thrown. The signal can either be thrown by a process instance (i.e., on intermediate throwing signal event or signal end event) or using the following methods on the RuntimeService:
 
 ```java
 void signalEventReceived(String signalName);
@@ -188,14 +188,14 @@ Note: Contrary to other events, such as the error boundary event, a signal bound
 
 ## Signal Intermediate Throwing Event
 
-An intermediate throwing signal event throws a signal event for a defined signal.
+A signal intermediate throwing event throws a signal event for a defined signal.
 
 {{< bpmn-symbol type="signal-intermediate-throw-event" >}}
 
-The signal is broadcast to all active handlers (i.e. all catching signal events). Signals can be published synchronously or asynchronously.
+The signal is broadcast to all active handlers (i.e., all catching signal events). Signals can be published synchronously or asynchronously.
 
 *   In the default configuration, the signal is delivered synchronously. This means that the throwing process instance waits until the signal is delivered to all catching process instances. The catching process instances are also notified in the same transaction as the throwing process instance, which means that if one of the notified instances produces a technical error (throws an exception), all involved instances fail.
-*   A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (Job) is stored and delivered by the JobExecutor.</li>
+*   A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (job) is stored and delivered by the JobExecutor.</li>
 
 A signal intermediate event is defined as an intermediate throwing event. In this case, the specific type sub-element is a signalEventDefinition element.
 

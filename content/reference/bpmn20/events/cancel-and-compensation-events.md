@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-events-cancel-and-compensation-events"
     parent: "bpmn-ref-events"
-    pre: "Events throwing / catching compensation and cancel transaction event."
+    pre: "Events throwing / catching compensation and cancel transaction events."
 
 ---
 
@@ -20,7 +20,7 @@ The cancel end event can only be used in combination with a [transaction subproc
 
 ## Cancel Boundary Event
 
-An attached intermediate catching cancel event on the boundary of a transaction subprocess, or, for short, a cancel boundary event, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all executions active in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e. the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
+An attached intermediate catching cancel event on the boundary of a transaction subprocess, or, for short, a cancel boundary event, is triggered when a transaction is canceled. When the cancel boundary event is triggered, it first interrupts all active executions in the current scope. Next, it starts compensation of all active compensation boundary events in the scope of the transaction. Compensation is performed synchronously, i.e., the boundary event waits before compensation is completed before leaving the transaction. When compensation is completed, the transaction subprocess is left using the sequence flow(s) running out of the cancel boundary event.
 
 {{< bpmn-symbol type="cancel-intermediate-catch-event" >}}
 

@@ -12,7 +12,7 @@ menu:
 ---
 
 
-A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flows will be followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flows will create two separate, parallel paths of execution.</strong>
+A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flows are followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flows will create two separate, parallel paths of execution.</strong>
 
 <div data-bpmn-diagram="../bpmn/sequence-flow-parallel"></div>
 
@@ -38,7 +38,7 @@ A sequence flow is the connector between two elements of a process. After an ele
 
 # Conditional Sequence Flow
 
-A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flow. When a condition evaluates to 'true', that outgoing sequence flow is selected. When multiple sequence flow are selected that way, multiple executions will be generated and the process will be continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flow with conditions in specific ways, depending on the gateway type.
+A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flows. When a condition evaluates to 'true', that outgoing sequence flow is selected. When multiple sequence flows are selected that way, multiple executions will be generated and the process is continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flows with conditions in specific ways, depending on the gateway type.
 
 <div data-bpmn-diagram="../bpmn/sequence-flow-conditional"></div>
 
@@ -52,7 +52,7 @@ A conditional sequence flow is represented in XML as a regular sequence flow, co
 </sequenceFlow>
 ```
 
-Currently conditionalExpressions can be used with UEL and scripts. The expression or script used
+Currently, conditionalExpressions can be used with UEL and scripts. The expression or script used
 should resolve to a boolean value, otherwise an exception is thrown while evaluating the condition.
 
 The example below references data of a process variable, in the typical JavaBean style through getters.
@@ -79,7 +79,7 @@ In this example a simple groovy script is used to evaluate a process variable `s
 </conditionExpression>
 ```
 
-Similar to a script task also an external script resource can be specified (see documentation
+Similar to a script task, an external script resource can also be specified (see the documentation
 on [script source]({{< relref "user-guide/process-engine/scripting.md#script-source" >}}) for more information).
 
 ```xml
@@ -111,7 +111,7 @@ on [script source]({{< relref "user-guide/process-engine/scripting.md#script-sou
 
 # Default Sequence Flow
 
-All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is <strong>only</strong> selected as the outgoing sequence flow for that activity <strong>if</strong> and <strong>only if</strong> none of the other sequence flows could be selected. Conditions on a default sequence flow are always ignored.
+All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is <strong>only</strong> selected as the outgoing sequence flow for that activity <strong>if</strong> none of the other sequence flows could be selected. Conditions on a default sequence flow are always ignored.
 
 A default sequence flow for a certain activity is defined by the default attribute on that activity. The following example shows an exclusive gateway with a default sequence flow. Only when x is neither 1 nor 2 it will be selected as outgoing sequence flow for the gateway.
 

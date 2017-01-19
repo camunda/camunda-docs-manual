@@ -95,7 +95,7 @@ Three optional attributes can be added to the error start event: <code>errorRef<
 
 # Error End Event
 
-When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate boundary error event. In case no matching boundary error event is found, the execution semantics defaults to the none end event semantics.
+When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate error boundary event. In case no matching error boundary event is found, the execution semantics defaults to the none end event semantics.
 
 ## Camunda Extensions
 
@@ -126,15 +126,15 @@ When process execution arrives at an error end event, the current path of execut
 
 # Error Boundary Event
 
-An intermediate catching error event on the boundary of an activity, or boundary error event for short, catches errors that are thrown within the scope of the activity on which it is defined.
+An intermediate catching error event on the boundary of an activity, or error boundary event for short, catches errors that are thrown within the scope of the activity on which it is defined.
 
-Defining a boundary error event makes most sense on an embedded subprocess, or a call activity, as a subprocess creates a scope for all activities inside the subprocess. Errors are thrown by error end events. Such an error will propagate its parent scopes upwards until a scope is found on which a boundary error event is defined that matches the error event definition.
+Defining a error boundary event makes most sense on an embedded subprocess, or a call activity, as a subprocess creates a scope for all activities inside the subprocess. Errors are thrown by error end events. Such an error will propagate its parent scopes upwards until a scope is found on which a error boundary event is defined that matches the error event definition.
 
-When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g. concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.
+When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g., concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.
 
 <div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 
-A boundary error event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:
+A error boundary event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:
 
 ```xml
 <definitions>
@@ -155,14 +155,14 @@ A boundary error event is defined as a typical boundary event. As with the other
 
 The errorCode is used to match the errors that are caught:
 
-*   If errorRef is omitted, the boundary error event will catch any error event, regardless of the errorCode of the error.
+*   If errorRef is omitted, the error boundary event will catch any error event, regardless of the errorCode of the error.
 *   In case an errorRef is provided and it references an existing error, the boundary event will only catch errors with the defined error code.
 *   If the errorCodeVariable is set, the error code can be retrieved using this variable.
 *   If the errorMessageVariable is set, the error message can be retrieved using this variable.
 
 # Catch and Re-Throw Pattern
 
-An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (In the below example, error thrown from the Event Subprocess is handled by the boundary error event in the Subprocess). 
+An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess). 
 
 <div data-bpmn-diagram="../bpmn/catchandthrowpattern"></div>
 

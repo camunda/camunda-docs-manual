@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "bpmn-ref-events-conditional-events"
     parent: "bpmn-ref-events"
-    pre: "Events catching conditional event."
+    pre: "Events catching conditional events."
 
 ---
 
@@ -18,7 +18,7 @@ The start and boundary event can be interrupting and non interrupting.
 In Camunda, conditional events are triggered with the help of process variables.
 See the [Trigger Conditional Events]({{< relref "#trigger-conditional-events">}}) section for details.
 
-In the following BPMN model all supported conditional events are used.
+In the following BPMN model, all supported conditional events are used.
 
 {{< img src="../bpmn/event-conditional.svg" title="Conditional Events Overview" >}}
 
@@ -182,7 +182,7 @@ For example see the following BPMN process model:
 <div data-bpmn-diagram="../bpmn/conditionalEventScopesHighestFirst" ></div>
 
 If a variable is set in the context of the sub process instance, then the conditional boundary event of the sub process is evaluated first.
-If the condition is satisfied, then the execution is interrupted, otherwise the conditional boundary event of the `UserTask B` is evaluated and
+If the condition is satisfied, then the execution is interrupted, otherwise the conditional boundary event of `UserTask B` is evaluated and
 triggered, if the condition is satisfied.
 
 ### Scoped Evaluation

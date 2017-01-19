@@ -14,9 +14,9 @@ menu:
 
 An exclusive gateway (also called the XOR gateway or, in more technical terms, the exclusive data-based gateway), is used to model a decision in the process. When the execution arrives at this gateway, all outgoing sequence flows are evaluated in the order in which they have been defined. The sequence flow which condition evaluates to 'true' (or which doesn't have a condition set, conceptually having a 'true' value defined on the sequence flow) is selected for continuing the process.
 
-Note that only one sequence flow is selected when using the exclusive gateway. In case multiple sequence flow have a condition that evaluates to 'true', the first one defined in the XML (and only that one!) is selected for continuing the process.
+Note that only one sequence flow is selected when using the exclusive gateway. In case multiple sequence flow have a condition that evaluates to 'true', the first one defined in the XML is exclusively selected for continuing the process.
 
-If no sequence flow can be selected (no condition evaluates to 'true') this will result in a runtime exception unless you have a default flow defined. One default flow can be set on the gateway itself in case no other condition matches - like an 'else' in programming languages.
+If no sequence flow can be selected (no condition evaluates to 'true') this will result in a runtime exception, unless you have a default flow defined. One default flow can be set on the gateway itself in case no other condition matches - like an 'else' in programming languages.
 
 
 <div data-bpmn-diagram="../bpmn/exclusive-gateway"></div>

@@ -13,7 +13,7 @@ menu:
 
 A terminate event ends the complete scope where the event is raised and all inner scopes.
 
-It is useful if you had a parallel split in your process before and you want to consume all tokens that are currently available immediately.
+It is useful if you have a parallel split in your process and you want to immediately consume all tokens that are currently available.
 
 If you use it on the process instance level, the whole process is terminated. On a subprocess level the current scope and all inner processes will be terminated.
 

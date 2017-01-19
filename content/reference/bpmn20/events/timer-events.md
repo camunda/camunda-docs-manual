@@ -71,7 +71,7 @@ Please see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.1
 
 Note: The first symbol denotes seconds, not minutes as in normal Unix cron.
 
-The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g. time when user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
+The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g., the time when a user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.
 
 ## Expressions
 
@@ -87,7 +87,7 @@ You can use expressions for the timer event definitions. By doing so you can inf
 
 ## Handling of Timezones
 
-The configuration `2016-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g. `2016-03-11T12:13:14Z`) or with a UTC-relative offset (e.g. `2016-03-11T12:13:14+01`).
+The configuration `2016-03-11T12:13:14` does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., `2016-03-11T12:13:14Z`) or with a UTC-relative offset (e.g., `2016-03-11T12:13:14+01`).
 
 ## Camunda Extensions
 
@@ -123,7 +123,7 @@ A timer start event is used to create process instance at a given time. It can b
 
 Note: A subprocess cannot have a timer start event.
 
-Note: A start timer event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more starting of the process at the time of the `startProcessInstanceBy...` invocation.
+Note: A timer start event is scheduled as soon as process is deployed. There is no need to call `startProcessInstanceBy...`, although calling start process methods is not restricted and will cause one more start of the process at the time of the `startProcessInstanceBy...` invocation.
 
 The XML representation of a timer start event is the normal start event declaration, with a timer definition sub-element. The following example process will start 4 times, in 5 minute intervals, starting on 11th of March 2016, at 12:13 (24 hour clock system):
 
@@ -149,9 +149,9 @@ and this process will start once, on a selected date:
 
 # Timer Intermediate Catching Event
 
-A timer intermediate event acts as a stopwatch. When an execution arrives in catching event activity, a timer is started. When the timer fires (e.g. after a specified interval), the sequence flow going out of the timer intermediate event is followed.
+A timer intermediate event acts as a stopwatch. When an execution arrives in catching event activity, a timer is started. When the timer fires (e.g., after a specified interval), the sequence flow going out of the timer intermediate event is followed.
 
-A timer intermediate event is defined as a intermediate catching event. The specific type sub-element in this case is a timerEventDefinition element.
+A timer intermediate event is defined as an intermediate catching event. The specific type sub-element in this case is a timerEventDefinition element.
 
 ```xml
 <intermediateCatchEvent id="timer">
@@ -164,7 +164,7 @@ A timer intermediate event is defined as a intermediate catching event. The spec
 
 # Timer Boundary Event
 
-A timer boundary event acts as a stopwatch and as an alarm clock. When an execution arrives in the activity to which the boundary event is attached, a timer is started. When the timer fires (e.g. after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
+A timer boundary event acts as a stopwatch and as an alarm clock. When an execution arrives in the activity to which the boundary event is attached, a timer is started. When the timer fires (e.g.,  after a specified interval), the activity is interrupted and the sequence flow going out of the timer boundary event are followed.
 
 There is the difference between an interrupting and a non interrupting timer event. The interrupting event is the default. The non-interrupting event leads to the original activity not being interrupted, the activity stays there. Instead, an additional execution is created and sent over the outgoing transition of the event. In the XML representation, the cancelActivity attribute is set to false:
 

@@ -47,13 +47,13 @@ A message event definition is declared by using the `messageEventDefinition` ele
 
 You can use expressions for the name in the message event definition (except for the message start event). The name is then resolved as soon as a process reaches the scope of the message. For example when the process instances reaches a Message Intermediate Catching Event, then the expression within the name is resolved.
 
-By using expressions within the message name you can influence the message name dynamically based on process variables. An example could look like follows:
+By using expressions within the message name, you can influence the message name dynamically based on process variables. An example could look as follows:
 
 ```xml
 <message id="newInvoice" name="newInvoiceMessage-${execution.businessKey}" />
 ```
 
-**Note:** It is not allowed to use expressions in the message name of a start event of the process definition. So using an expression in the message defintion and then referencing this defintion in a message start event of the process entry point will cause an error. However, it is allowed to use expressions in the message start event of a subprocess. Therefore using an expression in the message defintion and then referencing this definition in the message start event within a subprocess, will work just fine.
+**Note:** It is not allowed to use expressions in the message name of a start event of the process definition. So using an expression in the message definition and then referencing this definition in a message start event of the process entry point will cause an error. However, it is allowed to use expressions in the message start event of a subprocess. Therefore, using an expression in the message definition and then referencing this definition in the message start event within a subprocess will work just fine.
 
 ## Camunda Extensions
 
@@ -158,9 +158,9 @@ ProcessInstance startProcessInstanceByMessage(String messageName, Map<String, Ob
 ProcessInstance startProcessInstanceByMessage(String messageName, String businessKey, Map<String, Object> processVariables);
 ```
 
-These methods allow the starting of a process instance using the referenced message.
+These methods allow starting a process instance using the referenced message.
 
-If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see the next section) and then trigger the continuation of the waiting execution. The runtime service offers the following methods for triggering an execution based on a message event subscription:
+If the message needs to be received by an existing process instance, you first have to correlate the message to a specific process instance (see the next section) and then trigger continuation of the waiting execution. The runtime service offers the following methods to trigger an execution based on a message event subscription:
 
 ```java
 void messageEventReceived(String messageName, String executionId);
@@ -183,7 +183,7 @@ ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQ
 
 As there can only be one process definition for a specific message subscription, the query always returns zero or one results. If a process definition is updated, only the newest version of the process definition has a subscription to the message event.
 
-In case of an intermediate catch message event, the message event subscription is associated with a particular execution. Such message event subscriptions can be queried using a ExecutionQuery:
+In case of an intermediate catch message event, the message event subscription is associated with a particular execution. Such message event subscriptions can be queried using an ExecutionQuery:
 
 ```java
 Execution execution = runtimeService.createExecutionQuery()
@@ -192,7 +192,7 @@ Execution execution = runtimeService.createExecutionQuery()
   .singleResult();
 ```
 
-Such queries are called correlation queries and usually require knowledge about the processes (in this case that there will be a maximum of one process instance for a given orderId).
+Such queries are called correlation queries and usually require knowledge about the processes (in this case, there is a maximum of one process instance for a given orderId).
 
 
 # Message Start Event
