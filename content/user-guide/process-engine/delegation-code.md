@@ -473,6 +473,7 @@ public class BookOutGoodsDelegate implements JavaDelegate {
 }
 ```
 
+**Note:** Throwing a `BpmnError` in the delegation code behaves like modeling an error end event. See the [reference guide]({{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}) about the details on the behavior, especially the error boundary event. If no error boundary event is found on the scope, the execution is ended.
 
 [script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
