@@ -35,10 +35,18 @@ public class MyPasswordEncryptor implements PasswordEncryptor {
   public boolean check(String password, String encrypted) {
     // do something
   }
+  
+  @Override
+  public String hashAlgorithmName() {
+	// This name is used to resolve the algorithm used for the encryption of a password.
+	return "NAME_OF_THE_ALGORITHM";
+  }
 }
 ```
 
-Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the `passwordEncryptor` property to your custom implmentation, e.g., `MyPasswordEncryptor`. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on where you have to set the property for your Camunda environment.
+Once this is done, you can use the process engine configuration to plug in the custom implementation by the setting the `passwordEncryptor` property to your custom implmentation, e.g., `MyPasswordEncryptor`. See [Process Engine Bootstrapping](../process-engine-bootstrapping) on where you have to set the property for your Camunda environment. 
+
+Note that, even if, you have already users created with passwords hashed by other algorithms, e.g., old custom algorithms or the Camunda default hash algorithm `SHA-512`, they can still automatically be resolved by the engine although you have added you custom algorithm afterwards. The property `customPasswordChecker` is a list of hashing algrithms to be used for checking of (older) passwords. The Camunda default hashing algorithms are automatically added, so please only add your previous custom `passwordEncryptor` implementation to that list.
 
 {{< note title="Heads Up!" class="info" >}}
 
