@@ -50,7 +50,7 @@ CalledElementBinding has three different values:
 
 # CalledElement Tenant Id
 
-When the call activity resolves the process definition to be called it must take into account multi tenancy.
+When the call activity resolves the process definition to be called it must take multi tenancy into account.
 
 ## Default Tenant Resolution
 By default, the tenant id of the calling process definition is used to resolve the called process definition.
@@ -303,9 +303,9 @@ CaseBinding has three different values:
 
 ## Case Tenant Id
 
-The call activity must take into account multi tenancy when resolving the case definition to be called.
+The call activity must take multi tenancy into account when resolving the case definition to be called.
 
-The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (ie. the tenant id of the calling process definition is used to resolve the called case definition.)
+The [default behavior](#default-tenant-resolution) is the same as when resolving BPMN Process Definitions (i.e., the tenant id of the calling process definition is used to resolve the called case definition.)
 
 In order to override the default behavior, the tenant id for resolving the called case definition can be specified explicitly using the `camunda:caseTenantId` attribute:
 

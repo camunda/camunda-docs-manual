@@ -550,7 +550,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a form field (<strong>Deprecated</strong> use <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>).
+      Metadata to define a form field (<strong>Deprecated</strong>, use <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#formdata" >}}">camunda:formData</a>).
     </td>
   </tr>
   <tr>
@@ -606,7 +606,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td></td>
     <td><code>expression</code></td>
     <td>
-      Specifies an expression that maps the property, e.g. <code>${street.address}</code>
+      Specifies an expression that maps the property, e.g., <code>${street.address}</code>
     </td>
   </tr>
   <tr>
@@ -746,9 +746,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      An single input mapping for the activity. If the element has no child element the text
+      An single input mapping for the activity. If the element has no child element, the text
       content of this element is mapped into the activity. The text content can be a constant
-      string value or an expression. If no child element or text content exists the variable
+      string value or an expression. If no child element or text content exists, the variable
       inside the activity is set to the special value <code>null</code>.
     </td>
   </tr>
@@ -843,8 +843,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      A list structure. If the list contains multiple values they should be added as
-      text content of child elements. Which child elements are use is arbitrary, e.g..:
+      A list structure. If the list contains multiple values, they should be added as
+      text content of child elements. Which child elements are used is arbitrary, e.g.,:
       <code><br/>
         &lt;camunda:list&gt;<br/>
         &nbsp;&nbsp;&lt;camunda:value&gt;one&lt;/camunda:value&gt;<br/>
@@ -852,8 +852,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
         &nbsp;&nbsp;&lt;camunda:value&gt;three&lt;/camunda:value&gt;<br/>
         &lt;/camunda:list&gt;
       </code><br/>
-      Also a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
-      camunda:script</a> element can be used as a list element. The return value of the
+      A <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#script" >}}">
+      camunda:script</a> element can also be used as a list element. The return value of the
       script is added to the list. Furthermore, lists can contain nested lists and maps.
     </td>
   </tr>
@@ -1296,7 +1296,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Add a task listener to a task event.
+      Adds a task listener to a task event.
     </td>
   </tr>
   <tr>
