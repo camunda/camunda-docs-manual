@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Verifies that user credentials are valid
+Verifies that user credentials are valid.
 
 
 # Method
