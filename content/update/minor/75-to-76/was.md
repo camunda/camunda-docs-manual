@@ -1,6 +1,6 @@
 ---
 
-title: "Upgrade an IBM Websphere Installation from 7.5 to 7.6"
+title: "Update an IBM Websphere Installation from 7.5 to 7.6"
 
 menu:
   main:
@@ -11,9 +11,9 @@ menu:
 ---
 
 
-The following steps describe how to upgrade the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [upgrade guide][upgrade-guide]. If not already done, make sure to download the [Camunda BPM 7.6 IBM WebSphere distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
+The following steps describe how to update the Camunda artifacts on an IBM WebSphere application server in a shared process engine setting. For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the [Camunda BPM 7.6 IBM WebSphere distribution](https://app.camunda.com/nexus/content/groups/internal/org/camunda/bpm/websphere/camunda-bpm-websphere/).
 
-The upgrade procedure takes the following steps:
+The update procedure takes the following steps:
 
 1. Uninstall the Camunda Libraries and Archives
 2. Replace Camunda Core Libraries
@@ -32,7 +32,7 @@ Uninstall the Camunda EAR. Its name should be `camunda-ibm-websphere-ear-$PLATFO
 
 # 2. Replace Camunda Core Libraries
 
-With your first Camunda installation or upgrade to 7.2, you have created a shared library named `Camunda`. We identify the folder to this shared library as `$SHARED_LIBRARY_PATH`.
+With your first Camunda installation or update to 7.2, you have created a shared library named `Camunda`. We identify the folder to this shared library as `$SHARED_LIBRARY_PATH`.
 
 After shutting down the server, replace the following libraries in `$SHARED_LIBRARY_PATH` with their equivalents from `$WAS_DISTRIBUTION/modules/lib`:
 
@@ -50,7 +50,7 @@ After shutting down the server, replace the following libraries in `$SHARED_LIBR
 
 # 3. Replace Optional Camunda Dependencies
 
-In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following upgrade steps apply:
+In addition to the core libraries, there may be optional artifacts in `$SHARED_LIBRARY_PATH` for LDAP integration, Camunda Spin, and Groovy scripting. If you use any of these extensions, the following update steps apply:
 
 ## LDAP integration
 
@@ -78,7 +78,7 @@ Copy the following library from `$WAS_DISTRIBUTION/modules/lib` to the folder `$
 
 # 4. Maintain the BPM Platform Configuration
 
-If you have previously replaced the default BPM platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the upgraded platform.
+If you have previously replaced the default BPM platform configuration with a custom configuration following any of the ways outlined in the [deployment descriptor reference][configuration-location], it may be necessary to restore this configuration. This can be done by repeating the configuration replacement steps for the updated platform.
 
 # 5. Install the Camunda Archive
 
@@ -88,17 +88,17 @@ Install the Camunda EAR, i.e., the file `$WAS_DISTRIBUTION/modules/camunda-ibm-w
 
 ## REST API
 
-The following steps are required to upgrade the Camunda REST API on an IBM WebSphere instance:
+The following steps are required to update the Camunda REST API on an IBM WebSphere instance:
 
 1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATFORM_VERSION-was.war` to your IBM WebSphere instance.
 2. Associate the web application with the `Camunda` shared library.
 
 ## Cockpit, Tasklist, and Admin
 
-The following steps are required to upgrade the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
+The following steps are required to update the Camunda web applications Cockpit, Tasklist, and Admin on an IBM WebSphere instance:
 
 1. Deploy the web application `$WAS_DISTRIBUTION/webapps/camunda-webapp-ee-was-$PLATFORM_VERSION.war` to your IBM WebSphere instance.
 2. Associate the web application with the `Camunda` shared library.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[upgrade-guide]: {{< relref "update/minor/75-to-76/index.md" >}}
+[update-guide]: {{< relref "update/minor/75-to-76/index.md" >}}

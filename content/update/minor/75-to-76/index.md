@@ -1,6 +1,6 @@
 ---
 
-title: "Upgrade from 7.5 to 7.6"
+title: "Update from 7.5 to 7.6"
 weight: 70
 
 menu:
@@ -8,7 +8,7 @@ menu:
     name: "7.5 to 7.6"
     identifier: "migration-guide-75"
     parent: "migration-guide-minor"
-    pre: "Upgrade from `7.5.x` to `7.6.0`."
+    pre: "Update from `7.5.x` to `7.6.0`."
 
 ---
 
@@ -20,13 +20,13 @@ menu:
     }
 </style>
 
-This document guides you through the upgrade from Camunda BPM `7.5.x` to `7.6.0`. It covers these use cases:
+This document guides you through the update from Camunda BPM `7.5.x` to `7.6.0`. It covers these use cases:
 
-1. For administrators and developers: [Database Upgrades]({{< relref "#database-upgrades" >}})
-2. For administrators and developers: [Full Distribution Upgrade]({{< relref "#full-distribution" >}})
+1. For administrators and developers: [Database Update]({{< relref "#database-updates" >}})
+2. For administrators and developers: [Full Distribution Update]({{< relref "#full-distribution" >}})
 3. For administrators: [Standalone Web Application]({{< relref "#standalone-web-application" >}})
 4. For administrators: [Updating a Tasklist Translation File]({{< relref "#tasklist-translation-file" >}})
-5. For administrators and developers: [Application with Embedded Process Engine Upgrade]({{< relref "#application-with-embedded-process-engine" >}})
+5. For administrators and developers: [Application with Embedded Process Engine Update]({{< relref "#application-with-embedded-process-engine" >}})
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.6.
 
@@ -35,10 +35,10 @@ Noteworthy new Features and Changes in 7.6:
 * [DRD support in DMN]({{< relref "reference/dmn11/drg/index.md" >}})
 * [CMMN support in Cockpit]({{< relref "webapps/cockpit/cmmn/index.md" >}})
 * [Batch operations]({{< relref "webapps/cockpit/batch/batch-operation.md" >}})
-* Rolling upgrade support
+* Rolling update support
 
 <blockquote class="upgrade-guide-quote">
-  Rolling upgrades are supported starting at upgrades from version 7.5.x to 7.6.0. Please read the <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
+  Rolling updates are supported starting at updates from version 7.5.x to 7.6.0. Please read the <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
 </blockquote>
 
 * The isExecutable attribute is mandatory
@@ -65,22 +65,22 @@ Otherwise, if your case definitions do not have <i>manualActivationRule</i> elem
 The namespace for DMN 1.1 was changed after our 7.4.0 Release. The official namespace is now: <a href="http://www.omg.org/spec/DMN/20151101/dmn.xsd">http://www.omg.org/spec/DMN/20151101/dmn.xsd</a>
 </blockquote>
 
-# Database Upgrades
+# Database Updates
 
-Every Camunda installation requires a database schema upgrade.
+Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your upgrade path.
+1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.5_patch_?.sql`.
 
-2. Execute the corresponding upgrade scripts named
+2. Execute the corresponding update scripts named
 
     * `$DATABASENAME_engine_7.5_to_7.6.sql`
 
-    The scripts upgrade the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the upgrade process.
+    The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.6.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
@@ -90,10 +90,10 @@ This section is applicable if you installed the [Full Distribution]({{< relref "
 
 The following steps are required:
 
-1. Upgrade the Camunda libraries and applications inside the application server
+1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.6 distribution for the application server you use. It contains the SQL scripts and libraries required for upgrade. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.6 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
 
 ## Camunda Libraries and Applications
 
@@ -106,11 +106,11 @@ Please choose the application server you are working with from the following lis
 
 ### Wildfly 10
 
-The pre-built Camunda 7.6 distribution ships with Wildfly 10.1.0, whereas 7.5 ships with Wildfly 10.0.0. Camunda 7.6 is supported on Wildfly 8.2 and 10.0 such that a Wildfly upgrade is not required when migrating from 7.5 to 7.6.
+The pre-built Camunda 7.6 distribution ships with Wildfly 10.1.0, whereas 7.5 ships with Wildfly 10.0.0. Camunda 7.6 is supported on Wildfly 8.2 and 10.0 such that a Wildfly update is not required when migrating from 7.5 to 7.6.
 
 ## Custom Process Applications
 
-For every process application, the Camunda dependencies should be upgraded to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
+For every process application, the Camunda dependencies should be updated to the new version. Which dependencies you have is application- and server-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine-spring`
 * `camunda-engine-cdi`
@@ -126,8 +126,8 @@ If the standalone web application is in use, the current `war` artifact must be 
 If a database other than the default H2 database is used, the following steps must be taken:
 
 1. Undeploy the current version of the standalone web application
-2. Upgrade the database to the new schema as described in the [database
-   upgrade](#database-upgrades) section
+2. Update the database to the new schema as described in the [database
+   update](#database-updates) section
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
@@ -145,7 +145,7 @@ Have a look at the [english translation file](https://github.com/camunda/camunda
 
 This section is applicable if you have a custom application with an **embedded process engine**.
 
-Upgrade the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
+Update the dependencies declared in your application's `pom.xml` file to the new version. Which dependencies you have is application-specific. Typically, the dependencies consist of any of the following:
 
 * `camunda-engine`
 * `camunda-bpmn-model`
@@ -157,7 +157,7 @@ There are no new mandatory dependencies. That means, updating the version should
 
 ## Special Considerations
 
-This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful upgrade.
+This section describes changes in the engine's default behavior. While the changes are reasonable, your implementation may rely on the previous default behavior. Thus, the previous behavior can be restored by explicitly setting a configuration option. Accordingly, this section applies to any embedded process engine but is not required for a successful update.
 
 ### Custom Mapping of the Decision Result
 
