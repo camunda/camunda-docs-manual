@@ -96,9 +96,20 @@ Its properties are as follows:
 
 POST `/identity/verify`
 
-## Response
+Request Body:
 
     {
       "username": "testUser",
       "password": "testPassword"
+    }
+
+## Response
+
+Status 200.
+
+Response Body:
+
+    {
+      "authenticatedUser": "testUser",
+      "isAuthenticated": true
     }
