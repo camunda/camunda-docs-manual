@@ -209,7 +209,7 @@ An asynchronous signal event would look like this:
 
 ```xml
 <intermediateThrowEvent id="signal">
-  <signalEventDefinition signalRef="newCustomerSignal" camunda:async="true" />
+  <signalEventDefinition signalRef="newCustomerSignal" camunda:asyncBefore="true" />
 </intermediateThrowEvent>
 ```
 
