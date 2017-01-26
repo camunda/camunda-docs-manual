@@ -1,6 +1,6 @@
 ---
 
-title: "Upgrade Web Application from 7.6 to 7.7"
+title: "Update Web Application from 7.6 to 7.7"
 
 menu:
   main:
