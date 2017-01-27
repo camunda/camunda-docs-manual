@@ -90,7 +90,7 @@ The following table serves as an index that relates operations in the Cockpit us
     <td>Job</td>
   </tr>
   <tr>
-    <td><a href="{{< relref "webapps/cockpit/bpmn/failed-jobs.md#bulk-retry" >}}">Bulk Retry of Failed Jobs</a></td>
+    <td><a href="{{< relref "webapps/cockpit/bpmn/failed-jobs.md#batch-retry" >}}">Batch Retry of Failed Jobs</a></td>
     <td>SetJobRetries</td>
     <td>Job</td>
   </tr>
