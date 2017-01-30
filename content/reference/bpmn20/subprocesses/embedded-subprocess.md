@@ -11,11 +11,11 @@ menu:
 
 ---
 
-A Subprocess is an activity that contains other activities, gateways, events, etc. which itself forms a process that is part of the bigger process. A Subprocess is completely defined inside a parent process (that's why it's often called an embedded Subprocess).
+A subprocess is an activity that contains other activities, gateways, events, etc., which itself forms a process that is part of a bigger process. A subprocess is completely defined inside a parent process (that's why it's often called an embedded Subprocess).
 
 Subprocesses have two major use cases:
 
-*   Subprocesses allow hierarchical modeling. Many modeling tools allow that subprocesses can be collapsed, hiding all the details of the subprocess and displaying a high-level end-to-end overview of the business process.
+*   Subprocesses allow hierarchical modeling. Many modeling tools allow that subprocesses can be collapsed, hiding all the details of the subprocess and displaying a high-level, end-to-end overview of the business process.
 *   A subprocess creates a new scope for events. Events that are thrown during execution of the subprocess can be caught by a boundary event on the boundary of the subprocess, thus creating a scope for that event, limited to the subprocess.
 
 Using a subprocess does impose some constraints:
@@ -35,7 +35,7 @@ One of the main reasons to use a subprocess is to define a scope for a certain e
 
 <div data-bpmn-diagram="../bpmn/subprocess_attached"></div>
 
-A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess, need to be enclosed within this element.
+A subprocess is defined by the subprocess element. All activities, gateways, events, etc. that are part of the subprocess need to be enclosed within this element.
 
 ```xml
 <startEvent id="outerStartEvent" />

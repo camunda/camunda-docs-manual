@@ -195,7 +195,7 @@ A signal intermediate throwing event throws a signal event for a defined signal.
 The signal is broadcast to all active handlers (i.e., all catching signal events). Signals can be published synchronously or asynchronously.
 
 *   In the default configuration, the signal is delivered synchronously. This means that the throwing process instance waits until the signal is delivered to all catching process instances. The catching process instances are also notified in the same transaction as the throwing process instance, which means that if one of the notified instances produces a technical error (throws an exception), all involved instances fail.
-*   A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (job) is stored and delivered by the JobExecutor.</li>
+*   A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (`Job`) is stored and delivered by the `JobExecutor`.</li>
 
 A signal intermediate event is defined as an intermediate throwing event. In this case, the specific type sub-element is a signalEventDefinition element.
 
@@ -209,7 +209,7 @@ An asynchronous signal event would look like this:
 
 ```xml
 <intermediateThrowEvent id="signal">
-  <signalEventDefinition signalRef="newCustomerSignal" camunda:async="true" />
+  <signalEventDefinition signalRef="newCustomerSignal" camunda:asyncBefore="true" />
 </intermediateThrowEvent>
 ```
 

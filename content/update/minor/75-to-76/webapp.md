@@ -1,6 +1,6 @@
 ---
 
-title: "Upgrade Web Application Plugins from 7.5 to 7.6"
+title: "Update Web Application Plugins from 7.5 to 7.6"
 
 menu:
   main:
@@ -28,7 +28,7 @@ Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 
 # Version changes
 
-The following modules have been upgraded to a newer version:
+The following modules have been updated to a newer version:
 
 <table class="table table-bordered">
   <thead>

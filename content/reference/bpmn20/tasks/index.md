@@ -11,4 +11,4 @@ menu:
 
 ---
 
-Taks allow modeling the actual work being performed by the process. Different types of tasks are supported.
+Tasks allow modeling the actual work being performed in the process. Different types of tasks are supported.

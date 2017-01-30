@@ -30,7 +30,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      The name of a performer as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${initiator}</code>
+      The name of a performer as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${initiator}</code>
     </td>
   </tr>
   <tr>
@@ -51,7 +51,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies an asynchronous contiuation after an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
+      Specifies an asynchronous continuation after an activity, see <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}">Asynchronous Continuations</a> for more information.
     </td>
   </tr>
   <tr>
@@ -159,7 +159,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which process definition version of the subprocess the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
+      If the value is <code>version</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
       is required, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
@@ -202,7 +202,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete version of all deployed version numbers of the subprocess to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g. <code>${versionToCall}</code>
+      A concrete version of all deployed version numbers of the subprocess to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToCall}</code>
     </td>
   </tr>
   <tr>
@@ -233,7 +233,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${execution.tenantId}</code>
     </td>
   </tr>
   <tr>
@@ -264,7 +264,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>management</code> or <code>management, ${accountancyGroupId()}</code>
+      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>management</code> or <code>management, ${accountancyGroupId()}</code>
     </td>
   </tr>
   <tr>
@@ -295,7 +295,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>management</code> or <code>management, ${accountancyGroupId()}</code>
+      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>management</code> or <code>management, ${accountancyGroupId()}</code>
     </td>
   </tr>
   <tr>
@@ -326,7 +326,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
+      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
     </td>
   </tr>
   <tr>
@@ -357,7 +357,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
+      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
     </td>
   </tr>
   <tr>
@@ -379,7 +379,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which case definition version of the subcase the call activity calls.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>
+      If the value is <code>version</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseversion" >}}">camunda:caseVersion</a>
       is required, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#create-a-case-instance" >}}">Case Binding</a> for more information.
     </td>
   </tr>
@@ -481,7 +481,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${execution.tenantId}</code>
     </td>
   </tr>
   <tr>
@@ -512,7 +512,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
+      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g., <code>org.camunda.bpm.MyJavaDelegate</code>
     </td>
   </tr>
   <tr>
@@ -538,7 +538,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a collection, where for each element, an instance will be created. See <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
+      The attribute specifies a collection, where an instance will be created for each element, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multiple Instance</a> for more information.
     </td>
   </tr>
   <tr>
@@ -582,7 +582,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A String or an expression which evalutes to the key of a decision definition which should be evaluated by this task, e.g. <code>myDecisionDefinitionKey</code> or <code>${decisionKey}</code>
+      A String or an expression which evalutes to the key of a decision definition which should be evaluated by this task, e.g., <code>myDecisionDefinitionKey</code> or <code>${decisionKey}</code>
     </td>
   </tr>
   <tr>
@@ -604,7 +604,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which decision definition version the task evaluates.
-      If the value is <code>version</code> the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>
+      If the value is <code>version</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#decisionrefversion" >}}">camunda:decisionRefVersion</a>
       is required.
     </td>
   </tr>
@@ -647,7 +647,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete version of all deployed version numbers of the decision to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g. <code>${versionToCall}</code>
+      A concrete version of all deployed version numbers of the decision to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToCall}</code>
     </td>
   </tr>
   <tr>
@@ -678,7 +678,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${execution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${execution.tenantId}</code>
     </td>
   </tr>
   <tr>
@@ -709,7 +709,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g. <code>${myJavaDelegate}</code> or <code>#{myTaskListener}</code>
+      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g., <code>${myJavaDelegate}</code> or <code>#{myTaskListener}</code>
     </td>
   </tr>
   <tr>
@@ -745,7 +745,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression which evaluates to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted) or <code>null</code>, e.g. <code>${dateVariable}</code>
+      An expression which evaluates to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted) or <code>null</code>, e.g., <code>${dateVariable}</code>
     </td>
   </tr>
   <tr>
@@ -959,7 +959,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression, e.g. <code>${gender == 'male' ? 'Mr.' : 'Mrs.'}</code> or <code>#{printer.printMessage()}</code>
+      Expression, e.g., <code>${gender == 'male' ? 'Mr.' : 'Mrs.'}</code> or <code>#{printer.printMessage()}</code>
     </td>
   </tr>
   <tr>
@@ -996,7 +996,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Possible Values</th>
     <td>
       Fully qualified Java class name of a class which implements the <code>org.camunda.bpm.engine.impl.form.handler.StartFormHandler</code>
-      or <code>org.camunda.bpm.engine.impl.form.handler.TaskFormHandler</code> interface, e.g. <code>org.camunda.bpm.MyUserTaskFormHandler</code>
+      or <code>org.camunda.bpm.engine.impl.form.handler.TaskFormHandler</code> interface, e.g., <code>org.camunda.bpm.MyUserTaskFormHandler</code>
     </td>
   </tr>
   <tr>
@@ -1081,7 +1081,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      Specifies the priority a job receives that is created in the context of executing the given process element (e.g., a timer event, or in the case of <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}})">asyncBefore</a> and <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}))">asyncAfter</a>. See the user guide on <a href="({{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}})">Job Prioritization</a> for details.
+      Specifies the priority a job receives that is created in the context of executing the given process element (e.g., a timer event, or in the case of <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncbefore" >}})">asyncBefore</a> and <a href="({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}))">asyncAfter</a>). See the user guide on <a href="({{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}})">Job Prioritization</a> for details.
     </td>
   </tr>
   <tr>
@@ -1177,7 +1177,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression which evaluates to a <code>java.lang.Number</code> or a <code>java.lang.String</code> which represents a number or <code>null</code>, e.g. <code>${dateVariable}</code>
+      An expression which evaluates to a <code>java.lang.Number</code> or a <code>java.lang.String</code> which represents a number or <code>null</code>, e.g., <code>${dateVariable}</code>
     </td>
   </tr>
   <tr>
@@ -1276,7 +1276,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
       The attribute specifies the process variable to save the return value of a <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#expression" >}}">camunda:expression</a>.
       </p>
       <p>
-        Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes unless the variable is a <a href="{{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
+        Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, unless the variable is a <a href="{{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}">local variable</a> in the scope of the multi-instance construct. This can lead to seemingly random behavior.</p>
       <p>
         This is a known issue. As a workaround, a local variable can be declared by adding an <a href="{{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}">execution listener</a> to the subprocess' start event that initializes the variable as <code>null</code>.
       </p>

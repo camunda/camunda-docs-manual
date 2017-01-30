@@ -11,6 +11,10 @@ menu:
 
 ---
 
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
 {{< img src="../../img/cockpit-decision-requirements-definition-view.png" title="Decision Requirements Definition View" >}}
 
 On the decision requirements definition view, you can find a diagram of the deployed decision requirements definition.

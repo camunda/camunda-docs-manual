@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "user-guide-cockpit-pd-view"
     parent: "user-guide-cockpit-bpmn"
-    pre: "Gain an aggregated overview over all instances of a given process definition and perform bulk operations."
+    pre: "Gain an aggregated overview over all instances of a given process definition and perform batch operations."
 
 ---
 
@@ -120,9 +120,9 @@ Add a filter for process instances by end date. Please note that the date must b
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-{{< img src="../../img/cockpit-bulk-cancel.png" title="Bulk Cancel" >}}
+{{< img src="../../img/cockpit-bulk-cancel.png" title="Batch Cancel" >}}
 
-Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right side. This opens a confirmation screen in which you can select which process instances to cancel. You can apply [filters](#filter) to make it easier to find the desired process instances. In addition, it is possible to provide a reason for the cancellation. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted. Please note that only process instances in the current view can be canceled, i.e., a maximum of 50 process instances at once.
+Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right side. This opens a confirmation screen in which you can select which process instances to cancel. You can apply [filters](#filter) to make it easier to find the desired process instances. In addition, it is possible to provide a reason for the cancellation. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted.
 
 
 # Set Job priority
