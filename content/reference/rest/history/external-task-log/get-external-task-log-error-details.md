@@ -51,12 +51,12 @@ The result is the corresponding error details as plain text.
   </tr>
   <tr>
     <td>200</td>
-    <td>application/json</td>
+    <td>text/plain</td>
     <td>Request successful.</td>
   </tr>
   <tr>
     <td>404</td>
-    <td>application/json</td>
+    <td>text/plain</td>
     <td>Historic external task log with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
