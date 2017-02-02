@@ -148,6 +148,13 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-6788">CAM-6788</td>
     </tr>
+    <tr>
+      <td>7.6</td>
+      <td>engine_7.6_patch_7.6.2_to_7.6.3.sql</td>
+      <td>Add a missing index on ACT_RU_EXT_TASK#ERROR_DETAILS_ID_ to prevent deadlocks.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7263">CAM-7263</td>
+    </tr>
   </tbody>
 </table>
 
