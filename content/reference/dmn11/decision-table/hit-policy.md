@@ -18,7 +18,7 @@ A decision table has a hit policy that specifies what the
 results of the evaluation of a decision table consist of.
 
 The hit policy is set in the `hitPolicy` attribute on the `decisionTable` XML
-element. If no hit policy is set then the default hit policy `UNIQUE` is used.
+element. If no hit policy is set, then the default hit policy `UNIQUE` is used.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
@@ -30,7 +30,7 @@ element. If no hit policy is set then the default hit policy `UNIQUE` is used.
 </definitions>
 ```
 
-In the visual representation of the decision table the hit policy is specified
+In the visual representation of the decision table, the hit policy is specified
 by the initial letter of the hit policy. The following hit policies are
 supported by the Camunda DMN engine:
 
@@ -92,8 +92,8 @@ is violated.
 
 See the following example:
 {{< img src="../img/hit-policy-any.png" title="Hit Policy Any" class="no-lightbox" >}}
-There is a decision table for the leave application. If the applier
-has no vacation days left or he is currently in the probation period, the application will be refused.
+This is a decision table for the leave application. If the applier
+has no vacation days left or is currently in the probation period, the application will be refused.
 Otherwise the application is applied.
 
 ## First Hit Policy
@@ -102,7 +102,7 @@ Multiple rules can be satisfied. The decision table result contains only
 the output of the first satisfied rule.
 
 {{< img src="../img/hit-policy-first.png" title="Hit Policy First" class="no-lightbox" >}}
-See the decistion table for advertisement. Regarding the current age of the user, which
+See the above decistion table for advertisement. Regarding the current age of the user, which
 advertisement should be shown is decided. For example, the user is 19 years old. All the rules will match, but since
 the hit policy is set to first only, the advertisement for Cars is used.
 
@@ -123,7 +123,7 @@ of all satisfied rules in an arbitrary order as a list.
 
 {{< img src="../img/hit-policy-collect.png" title="Hit Policy Collect" class="no-lightbox" >}}
 With this hit policy, the output list has no ordering. So the advertisement will be arbitrary
-if the age is for example 19.
+if, for example, the age is 19.
 
 Additionally, an aggregator can be specified for the Collect hit policy. If an
 aggregator is specified, the decision table result will only contain a single
@@ -131,7 +131,7 @@ output entry. The aggregator will generate the output entry from all satisfied
 rules. **Note** if the Collect hit policy is used with an aggregator, the
 decision table can only have one output.
 
-The aggregator is set as the `aggregation` attribute of the `descisionTable`
+The aggregator is set as the `aggregation` attribute of the `decisionTable`
 XML element.
 
 ```xml

@@ -13,7 +13,7 @@ menu:
 
 ---
 
-The Decision Model and Notation (DMN) defines a Friendly Enough Expression
+Decision Model and Notation (DMN) defines a Friendly Enough Expression
 Language (FEEL). It can be used to evaluate expressions in a decision table.
 
 The Camunda DMN engine **only** supports FEEL for [input entries] of a

@@ -14,10 +14,10 @@ menu:
 
 {{< img src="../img/output.png" title="Output" class="no-lightbox" >}}
 
-A decision table can have one or more output, also called output clauses. An
+A decision table can have one or more outputs, also called output clauses. An
 output clause defines the id, label, name and type of a decision table output.
 
-A output clause is represented by an `output` element inside a `decisionTable`
+An output clause is represented by an `output` element inside a `decisionTable`
 XML element.
 
 ```xml
@@ -35,9 +35,9 @@ XML element.
 
 # Output Id
 
-The output id is an unique identifier of the decision table output. It is used
+The output id is a unique identifier of the decision table output. It is used
 by the Camunda BPMN platform to reference the output in the history of
-evaluated decisions. Therefore it is required by the Camunda DMN engine. It is
+evaluated decisions. Therefore, it is required by the Camunda DMN engine. It is
 set as the `id` attribute of the `output` XML element.
 
 ```xml
@@ -50,7 +50,7 @@ set as the `id` attribute of the `output` XML element.
 
 An output label is a short description of the output. It is set on the `output`
 XML element in the `label` attribute. Note that the label is not required but
-recommended since it helps to understand the decision.
+recommended, since it helps to understand the decision.
 
 ```xml
 <output id="output1" label="Dish" name="desiredDish" typeRef="string" />
@@ -64,7 +64,7 @@ The name of the output is used to reference the value of the output in the
 [decision table result]. It is specified by the `name` attribute on the
 `output` XML element.
 
-If the decision table has more than one output then all outputs must have an
+If the decision table has more than one output, then all outputs must have a
 unique name.
 
 ```xml
@@ -77,14 +77,14 @@ unique name.
 
 The type of the output clause can be specified by the `typeRef` attribute on the
 `output` XML element. After an [output entry] is evaluated by the
-DMN engine it converts the result to the specified type. The supported types
+DMN engine, it converts the result to the specified type. The supported types
 are listed in the [User Guide][supported DT].
 
 ```xml
 <output id="output1" label="Dish" name="desiredDish" typeRef="string" />
 ```
 
-Note that the type is not required but recommended since it provides a type
+Note that the type is not required but recommended, since it provides a type
 safety of the output values.
 
 Additionally, the type can be used to transform the output value into another

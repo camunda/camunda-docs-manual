@@ -18,7 +18,7 @@ A decision table can have one or more inputs, also called input clauses. An
 input clause defines the id, label, expression and type of a decision table
 input.
 
-A input clause is represented by an `input` element inside a `decisionTable`
+An input clause is represented by an `input` element inside a `decisionTable`
 XML element.
 
 ```xml
@@ -38,9 +38,9 @@ XML element.
 
 # Input Id
 
-The input id is an unique identifier of the decision table input. It is used by
+The input id is a unique identifier of the decision table input. It is used by
 the Camunda BPMN platform to reference the input in the history of evaluated
-decisions. Therefore it is required by the Camunda DMN engine. It is set as
+decisions. Therefore, it is required by the Camunda DMN engine. It is set as
 the `id` attribute of the `input` XML element.
 
 ```xml
@@ -57,7 +57,7 @@ the `id` attribute of the `input` XML element.
 
 An input label is a short description of the input. It is set on the `input`
 XML element in the `label` attribute. Note that the label is not required but
-recommended since it helps to understand the decision.
+recommended, since it helps to understand the decision.
 
 ```xml
 <input id="input1" label="Season">
@@ -73,7 +73,7 @@ recommended since it helps to understand the decision.
 
 An input expression specifies how the value of the input clause is generated.
 It is an expression which will be evaluated by the DMN engine. It is usually
-simple and reference a variable which is available during the evaluation. The
+simple and references a variable which is available during the evaluation. The
 expression is set inside a `text` element that is a child of the
 `inputExpression` XML element.
 
@@ -91,7 +91,7 @@ expression is set inside a `text` element that is a child of the
 
 The type of the input clause can be specified by the `typeRef` attribute on the
 `inputExpression` XML element. After the input expression is evaluated by the
-DMN engine it converts the result to the specified type. The supported types
+DMN engine, it converts the result to the specified type. The supported types
 are listed in the [User Guide][supported DT].
 
 ```xml
@@ -102,8 +102,8 @@ are listed in the [User Guide][supported DT].
 </input>
 ```
 
-Note that the type is not required but recommended since it helps to understand
-the possible input values and provide a type safety to be aware of unexpected
+Note that the type is not required but recommended, since it helps to understand
+the possible input values and provides a type safety to be aware of unexpected
 input values.
 
 # Input Expression Language
@@ -120,8 +120,8 @@ supported expression languages are listed in the [User Guide][supported EL].
 </input>
 ```
 
-If no expression language is set then the global expression language is used
-which is set on the `definitions` XML element.
+If no expression language is set then the global expression 
+language, which is set on the `definitions` XML element, is used.
 
 ```xml
 <definitions id="definitions"

@@ -50,7 +50,7 @@ are available:
 
 - date and time
 
-To create a date and time value the function `date and time` has to be used
+To create a date and time value, the function `date and time` has to be used
 with a single String parameter. The parameter specifies the date and time in
 the format `yyyy-MM-dd'T'HH:mm:ss`.
 

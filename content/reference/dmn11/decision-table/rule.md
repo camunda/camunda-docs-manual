@@ -16,7 +16,7 @@ menu:
 
 A decision table can have one or more rules. Each rule contains input and
 output entries. The input entries are the condition and the output entries the
-conclusion of the rule. If each input entry (condition) is satisfied then the
+conclusion of the rule. If each input entry (condition) is satisfied, then the
 rule is satisfied and the decision result contains the output entries
 (conclusion) of this rule.
 
@@ -49,7 +49,7 @@ A rule is represented by a `rule` element inside a `decisionTable` XML element.
 
 {{< img src="../img/input-entry.png" title="Input Entry" class="no-lightbox" >}}
 
-A rule can have one or more input entries which are the conditions of the rule.
+A rule can have one or more input entries, which are the conditions of the rule.
 Each input entry contains an expression in a `text` element as child of an
 `inputEntry` XML element.
 
@@ -63,7 +63,7 @@ The input entry is satisfied when the evaluated expression returns `true`.
 
 ## Empty Input Entry
 
-In case an input entry is irrelevant for a rule, the expression is empty which
+In case an input entry is irrelevant for a rule, the expression is empty, which
 is always satisfied.
 
 ```xml
@@ -72,7 +72,7 @@ is always satisfied.
 </inputEntry>
 ```
 
-If FEEL is used as expression language then an empty input entry is represented
+If FEEL is used as expression language, then an empty input entry is represented
 by a `-`. Otherwise, the expression is empty.
 
 ## Expression Language of an Input Entry
@@ -88,8 +88,8 @@ expression languages are listed in the [User Guide][supported EL].
 </inputEntry>
 ```
 
-If no expression language is set then the global expression language is used
-which is set on the `definitions` XML element.
+If no expression language is set then the global expression 
+language, which is set on the `definitions` XML element, is used.
 
 ```xml
 <definitions id="definitions"
@@ -111,7 +111,7 @@ languages.
 
 {{< img src="../img/output-entry.png" title="Output Entry" class="no-lightbox" >}}
 
-A rule can have one or more output entries which are the conclusions of the
+A rule can have one or more output entries, which are the conclusions of the
 rule. Each output entry contains an expression in a `text` element as child of
 an `outputEntry` XML element.
 
@@ -123,7 +123,7 @@ an `outputEntry` XML element.
 
 ## Empty Output Entry
 
-If the output entry is empty then the output is ignored and not part of the
+If the output entry is empty, then the output is ignored and not part of the
 decision table result.
 
 ```xml
@@ -145,8 +145,8 @@ expression languages are listed in the [User Guide][supported EL].
 </outputEntry>
 ```
 
-If no expression language is set then the global expression language is used
-which is set on the `definitions` XML element.
+If no expression language is set then the global expression 
+language, which is set on the `definitions` XML element, is used.
 
 ```xml
 <definitions id="definitions"
