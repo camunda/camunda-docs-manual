@@ -72,6 +72,10 @@ GET `/external-task/count`
     <td>Filter by the id of the activity that an external task is created for.</td>
   </tr>
   <tr>
+    <td>activityIdIn</td>
+    <td>Filter by the comma-separated list of ids of the activities that an external task is created for.</td>
+  </tr>
+  <tr>
     <td>executionId</td>
     <td>Filter by the id of the execution that an external task belongs to.</td>
   </tr>
