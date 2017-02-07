@@ -9,7 +9,7 @@ menu:
 
 ---
 
-Completed the <a href="/get-started">Getting Started Guides</a>? Now discover what you can build with camunda BPM.
+Completed the <a href="/get-started">Getting Started Guides</a>? Now discover what you can build with Camunda BPM.
 
 This page collects links to hands-on examples and tutorials around Camunda BPM
 
