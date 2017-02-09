@@ -153,7 +153,8 @@ GET `/history/process-instance`
   <tr>
     <td>sortBy</td>
     <td>Sort the results by a given criterion. Valid values are
-    <code>instanceId</code>, <code>definitionId</code>, <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.
+    <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>, 
+    <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.
     Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
   </tr>
   <tr>
@@ -228,6 +229,11 @@ Each historic process instance object has the following properties:
     <td>processDefinitionKey</td>
     <td>String</td>
     <td>The key of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
+    <td>processDefinitionVersion</td>
+    <td>Integer</td>
+    <td>The version of the process definition that this process instance belongs to.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>

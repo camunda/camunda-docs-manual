@@ -78,6 +78,11 @@ Its properties are as follows:
     <td>The key of the process definition that this process instance belongs to.</td>
   </tr>
   <tr>
+    <td>processDefinitionVersion</td>
+    <td>Integer</td>
+    <td>The version of the process definition that this process instance belongs to.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition that this process instance belongs to.</td>
