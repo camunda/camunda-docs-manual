@@ -329,20 +329,23 @@ GET `/history/process-instance?finishedAfter=2013-01-01T00:00:00&finishedBefore=
 ```json
 [
   {
-    "businessKey": "aKey",
-    "caseInstanceId": "aCaseInstanceId",
-    "deleteReason": "aDeleteReason",
-    "durationInMillis": 2000,
-    "endTime": "2013-03-23T13:42:45",
-    "id": "aProcInstId",
-    "processDefinitionId": "aProcDefId",
-    "startActivityId": "aStartActivityId",
-    "startTime": "2013-03-23T13:42:43",
-    "startUserId": "aStartUserId",
-    "superProcessInstanceId": "aSuperProcessInstanceId",
-    "superCaseInstanceId": null,
+    "id":"7c80cc8f-ef95-11e6-b6e6-34f39ab71d4e",
+    "businessKey":null,
+    "processDefinitionId":"invoice:1:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
+    "processDefinitionKey":"invoice",
+    "processDefinitionName":"Invoice Receipt",
+    "processDefinitionVersion":1,
+    "startTime":"2017-02-10T14:33:19",
+    "endTime":null,
+    "durationInMillis":null,
+    "startUserId":null,
+    "startActivityId":"StartEvent_1",
+    "deleteReason":null,
+    "superProcessInstanceId":null,
+    "superCaseInstanceId":null,
+    "caseInstanceId":null,
     "tenantId":null,
-    "state": "aState"
+    "state":"ACTIVE"
   }
 ]
 ```

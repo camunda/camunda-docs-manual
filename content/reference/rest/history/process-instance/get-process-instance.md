@@ -175,19 +175,22 @@ GET `/history/process-instance/aProcInstId`
 
 ```json
 {
-  "id": "aProcInstId",
-  "businessKey": "aKey",
-  "processDefinitionId": "aProcDefId",
-  "startTime": "2013-03-23T13:42:43",
-  "endTime": "2013-03-23T13:42:45",
-  "durationInMillis": 2000,
-  "startUserId": "aStartUserId",
-  "startActivityId": "aStartActivityId",
-  "deleteReason": "aDeleteReason",
-  "superProcessInstanceId": "aSuperProcessInstanceId",
-  "superCaseInstanceId": null,
-  "caseInstanceId": "aCaseInstanceId",
+  "id":"7c80cc8f-ef95-11e6-b6e6-34f39ab71d4e",
+  "businessKey":null,
+  "processDefinitionId":"invoice:1:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
+  "processDefinitionKey":"invoice",
+  "processDefinitionName":"Invoice Receipt",
+  "processDefinitionVersion":1,
+  "startTime":"2017-02-10T14:33:19",
+  "endTime":null,
+  "durationInMillis":null,
+  "startUserId":null,
+  "startActivityId":"StartEvent_1",
+  "deleteReason":null,
+  "superProcessInstanceId":null,
+  "superCaseInstanceId":null,
+  "caseInstanceId":null,
   "tenantId":null,
-  "state": "aState"
+  "state":"ACTIVE"
 }
 ```
