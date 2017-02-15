@@ -29,7 +29,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      The name of a performer as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${perfomer}</code>
+      The name of a performer as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${perfomer}</code>
     </td>
   </tr>
   <tr>
@@ -61,7 +61,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>management</code> or <code>management, ${accountancyGroupId()}</code>
+      Comma separated list of group ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>management</code> or <code>management, ${accountancyGroupId()}</code>
     </td>
   </tr>
   <tr>
@@ -92,7 +92,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g. <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
+      Comma separated list of user ids as <code>java.lang.String</code> or expressions that evaluate to a <code>java.lang.String</code> or a <code>java.util.Collection</code> of <code>java.lang.String</code>, e.g., <code>kermit, gonzo</code> or <code>${ldapService.findAllSales()}</code>
     </td>
   </tr>
   <tr>
@@ -160,7 +160,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${caseExecution.tenantId}</code>
     </td>
   </tr>
   <tr>
@@ -222,7 +222,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g <code>org.camunda.bpm.MyJavaDelegate</code>
+      Fully qualified Java class name of a class which implements a <a href="{{< relref "user-guide/process-engine/delegation-code.md#java-delegate" >}}">Java Delegate</a> interface, e.g., <code>org.camunda.bpm.MyJavaDelegate</code>
     </td>
   </tr>
   <tr>
@@ -291,7 +291,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${caseExecution.tenantId}</code>
     </td>
   </tr>
   <tr>
@@ -353,7 +353,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g. <code>${myVariableListener}</code>.
+      Expression which evaluates to a Java class implementing a <a href="{{< relref "user-guide/process-engine/delegation-code.md" >}}">delegation</a> interface, e.g., <code>${myVariableListener}</code>.
     </td>
   </tr>
   <tr>
@@ -386,7 +386,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression which evaluates to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted) or <code>null</code>, e.g. <code>${dueDate}</code>
+      An expression which evaluates to a <code>java.util.Date</code>, <code>java.util.String</code> (<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted) or <code>null</code>, e.g., <code>${dueDate}</code>
     </td>
   </tr>
   <tr>
@@ -418,7 +418,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      Expression, e.g. <code>${gender == 'male' ? 'Mr.' : 'Mrs.'}</code> or <code>#{printer.printMessage()}</code>
+      Expression, e.g., <code>${gender == 'male' ? 'Mr.' : 'Mrs.'}</code> or <code>#{printer.printMessage()}</code>
     </td>
   </tr>
   <tr>
@@ -512,7 +512,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      An expression which evaluates to a <code>java.lang.Number</code> or a <code>java.lang.String</code> which represents a number or <code>null</code>, e.g. <code>${priority}</code>
+      An expression which evaluates to a <code>java.lang.Number</code> or a <code>java.lang.String</code> which represents a number or <code>null</code>, e.g., <code>${priority}</code>
     </td>
   </tr>
   <tr>
@@ -580,7 +580,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g. <code>${caseExecution.tenantId}</code>
+      A concrete tenant id or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${caseExecution.tenantId}</code>
     </td>
   </tr>
   <tr>

@@ -47,7 +47,7 @@ The activation of the case task as well as the creation and execution of the cas
 
 # Case Binding
 
-By default, the case task always creates a new case instance of the latest case definition with the specified key. In order to specify a different version of a case, it is possible to define a binding with the Camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
+By default, the case task always creates a new case instance of the latest case definition with the specified key. To specify a different version of a case, it is possible to define a binding with the Camunda custom attribute `caseBinding`. The following values are allowed for the attribute `caseBinding`:
 
 * `latest`: use the latest case definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the case definition version that is part of the calling case definition's deployment (note: this requires that a case with the specified key is deployed along with the calling case definition)
@@ -106,7 +106,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 # Exchange Variables
 
-The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,
+The Camunda custom extensions elements `in` and `out` allow to exchange variables between the case task (in a case instance) and the case instance that it creates: `in` elements of a case task map variables of the calling case to input variables of the launched case instance and `out` mappings of a case task map output variables of the called case instance to variables of the calling case, e.g.,:
 
 ```xml
 <caseTask id="checkCreditCase" name="Check credit" caseRef="checkCreditCase">

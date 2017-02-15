@@ -7,7 +7,7 @@ menu:
   main:
     identifier: "cmmn-ref-markers-manual-activation"
     parent: "cmmn-ref-markers"
-    pre: "Controls whether a Task must be manually activated by a users."
+    pre: "Controls whether a Task must be manually activated by a user."
 
 ---
 

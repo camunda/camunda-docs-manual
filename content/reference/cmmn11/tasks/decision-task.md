@@ -11,7 +11,7 @@ menu:
 
 ---
 
-A *decision task* can be used to invoke a [DMN 1.1] decisions.
+A *decision task* can be used to invoke a [DMN 1.1] decision from a case.
 
 {{< cmmn-symbol type="decision-task" >}}
 

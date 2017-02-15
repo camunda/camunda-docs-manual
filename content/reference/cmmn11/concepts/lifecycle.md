@@ -19,7 +19,7 @@ The descriptions in this section are general for the constructs they describe. C
 
 # Lifecycles By Example
 
-In order to understand the role lifecycles play for CMMN execution, consider the following case:
+To understand the role lifecycles play for CMMN execution, consider the following case:
 
 {{< img src="../img/example-lifecycle-case.png" >}}
 
@@ -47,7 +47,7 @@ This case contains two human tasks *Task A* and *Task B* that are connected by a
 </center>
 9. A user may close the case instance by invoking `caseService.closeCaseInstance(caseInstanceId);`. The case instance reaches the state `CLOSED`.
 
-Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED` that represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
+Notice how the lifecycle states define the overall state of the case and restrict the interactions that are possible. For example, the tasks A and B can only be worked on when in state `ACTIVE`. Before, they go through states `AVAILABLE` and `ENABLED`, which represent that conditions for working on the task are not yet met, for example that the task was not manually started or that a sentry is not fulfilled yet.
 
 This formal lifecycle model is exposed via the `CaseService` API in Camunda. Not only is it possible to trigger state transitions as in the code examples above. By making a case instance or case execution query, the current lifecycles state of a plan items are exposed. For example, the following code gets the state of the plan item for Task A:
 

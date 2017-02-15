@@ -47,7 +47,7 @@ The activation of the process task as well as the creation and execution of the 
 
 # Process Binding
 
-By default, the process task creates a new process instance of the latest process definition with the specified key. In order to specify a different version of a process, it is possible to define a binding with the Camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
+By default, the process task creates a new process instance of the latest process definition with the specified key. To specify a different version of a process, it is possible to define a binding with the Camunda custom attribute `processBinding`. The following values are allowed for the attribute `processBinding`:
 
 * `latest`: use the latest process definition version (which is also the default behavior if the attribute is not defined)
 * `deployment`: use the process definition version that is part of the calling case definition's deployment (note: this requires that a process with the specified key is deployed along with the case definition)
@@ -105,7 +105,7 @@ An expression also allows using the tenant id of the calling case instance inste
 
 # Exchange Variables
 
-The Camunda custom extensions elements `in` and `out` allow to exchange variables between the process task (in a case instance) and the process instance that it creates: `in` elements of a process task map case variables to input variables of the launched process instance and `out` mappings of a process task map output variables of the process instance to case variables, e.g.,
+The Camunda custom extensions elements `in` and `out` allow to exchange variables between the process task (in a case instance) and the process instance that it creates: `in` elements of a process task map case variables to input variables of the launched process instance and `out` mappings of a process task map output variables of the process instance to case variables, e.g.,:
 
 ```xml
 <processTask id="checkCreditProcess" name="Check credit" processRef="checkCreditProcess">

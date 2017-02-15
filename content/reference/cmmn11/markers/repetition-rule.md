@@ -93,7 +93,7 @@ In our example, the following steps might take place:
 2. An instance *A* for the human task is created. The instance *A* transitions into state `ENABLED`.
 {{< img src="../img/repetition-on-completion/state-1.png" >}}
 3. A user manually starts task *A* and the instance reaches the state `ACTIVE`.
-4. A user completes task *A*. During the transition into state `COMPLETED` the repetition rule is evaluated. As a consequence that the variable `score` is less than `50`, a new instance `A'` of the corresponding task is created. The new instance moves into state `ENABLED`.
+4. A user completes task *A*. During the transition into state `COMPLETED`, the repetition rule is evaluated. As a consequence that the variable `score` is less than `50`, a new instance `A'` of the corresponding task is created. The new instance moves into state `ENABLED`.
 {{< img src="../img/repetition-on-completion/state-2.png" >}}
 5. Once again, a user manually starts and completes task *A'*. Since the variable `score` is still less than `50`, the repetition rule evaluates to `true` when *A'* transitions into state `COMPLETED`. As a result, a new instance *A''* is created.
 {{< img src="../img/repetition-on-completion/state-3.png" >}}
