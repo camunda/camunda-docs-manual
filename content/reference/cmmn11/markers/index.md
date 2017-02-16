@@ -11,4 +11,4 @@ menu:
 
 ---
 
-Markers allow control over behavioral aspects of plan items such as their lifecycle, required or repetition rules.
+Markers allow control over behavioral aspects of plan items such as their lifecycle, if they are required or the number of repetitions.
