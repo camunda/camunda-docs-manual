@@ -127,11 +127,16 @@ List<MessageCorrelationResult> results = runtimeService
 ```
 The result will be a list of `MessageCorrelationResult` objects. Each result corresponds to a correlation.
 
-{{< note title="Current limitation" class="note" >}}
-`correlationKeys` is only matched against process instance variables. These are variables that are globally visible throughout the process instance.
+Additionally, message correlation builder provides the possibility to correlate the message by local execution variables:
+  
+```java
+List<MessageCorrelationResult> results = runtimeService
+  .createMessageCorrelation("aMessageName")
+  .localVariableEquals("localVarName", "localVarValue"))
+  .correlateAllWithResult();
+```  
 
-Accordingly, variables that are defined in the scope of a child execution (e.g., in a subprocess) are not considered for correlation.
-{{< /note >}}
+In this case the matching execution will be selected based on variables existing in it's scope (ignoring all parent scopes).
 
 In case of successful correlation, the correlated or newly created process instance is updated with the variables from the `processVariables` map.
 

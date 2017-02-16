@@ -64,6 +64,17 @@ A JSON object with the following properties:
     <p><strong>Note:</strong> Process instance variables are the global variables of a process instance.
     Local variables of child executions (such as in subprocesses) are not considered!</p></td>
   </tr>
+    <tr>
+      <td>localCorrelationKeys</td>
+      <td>Local variables used for correlation of executions (process instances) that wait for incoming messages.
+      Has to be a JSON object containing key-value pairs that are matched against local variables during correlation.
+      Each key is a variable name and each value a JSON variable value object with the following properties.
+  
+      {{< rest-var-request-primitive-only >}}
+  
+      <p><strong>Note:</strong> Only variable values that are defined in the execution scope are taken into account,
+       without taking outer (parent) scopes.</p></td>
+    </tr>
   <tr>
     <td>processVariables</td>
     <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
