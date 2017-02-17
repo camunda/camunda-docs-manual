@@ -96,7 +96,7 @@ If the type is set to `execution`, then the result contains an `Execution` objec
 
 ```java
 // correlate the message
-MessageCorrelatedResult result = runtimeService.createMessageCorrelation("messageName")
+MessageCorrelationResult result = runtimeService.createMessageCorrelation("messageName")
   .processInstanceBusinessKey("AB-123")
   .setVariable("payment_type", "creditCard")
   .correlateWithResult();
