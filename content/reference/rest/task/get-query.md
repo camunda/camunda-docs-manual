@@ -403,7 +403,17 @@ GET `/task`
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withCandidateUsers</td>
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>,
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+   <tr>
+    <td>withoutCandidateUsers</td>
+    <td>Only include tasks which have no candidate users. Value may only be <code>true</code>, 
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>

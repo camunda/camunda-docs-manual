@@ -199,6 +199,16 @@ A JSON object with the following properties:
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withCandidateUsers</td>
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withoutCandidateUsers</td>
+    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>, 
+    as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>candidateUser</td>
     <td>Only include tasks that are offered to the given user or to one of his groups.</td>
   </tr>
