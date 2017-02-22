@@ -10,8 +10,8 @@ menu:
 
 ---
 
-If a form script is loaded using an XHR from a web server, it is executed using `eval()`. In order
-to debug it, you need to use browser-specific debugger extensions.
+If a form script is loaded using an XHR from a web server, it is executed using `eval()`. 
+To debug it, you need to use browser-specific debugger extensions.
 
 
 # Debugging Form Scripts in Google Chrome

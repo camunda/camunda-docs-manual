@@ -41,7 +41,7 @@ is not required.
 
 ## String
 
-In order to bind the input field to a `String` variable, the directive `cam-variable-type="String"`
+To bind the input field to a `String` variable, the directive `cam-variable-type="String"`
 must be used.
 
 Example:
@@ -59,7 +59,7 @@ process engine: leading and trailing whitespace is removed.
 
 ## Integer
 
-In order to bind the input field to a Java `Integer` variable, the directive
+To bind the input field to a Java `Integer` variable, the directive
 `cam-variable-type="Integer"` must be used.
 
 Example:
@@ -72,7 +72,7 @@ Example:
 
 ## Long
 
-In order to bind the input field to a Java `Long` variable, the directive
+To bind the input field to a Java `Long` variable, the directive
 `cam-variable-type="Long"` must be used.
 
 Example:
@@ -85,7 +85,7 @@ Example:
 
 ## Short
 
-In order to bind the input field to a Java `Short` variable, the directive
+To bind the input field to a Java `Short` variable, the directive
 `cam-variable-type="Short"` must be used.
 
 Example:
@@ -98,7 +98,7 @@ cam-variable-type="Short" />
 
 ## Double
 
-In order to bind the input field to a Java `Double` variable, the directive
+To bind the input field to a Java `Double` variable, the directive
 `cam-variable-type="Double"` must be used.
 
 Example:

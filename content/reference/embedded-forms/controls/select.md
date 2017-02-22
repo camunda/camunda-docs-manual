@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Select boxes are HTML controls of the form
+Select boxes are HTML controls of the form of
 
 ```html
 <select></select>

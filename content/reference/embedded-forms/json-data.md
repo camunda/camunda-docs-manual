@@ -28,7 +28,7 @@ We thus need to fetch the variable programatically:
 </script>
 ```
 
-After that, you can work with the JSON object in your form, e.g. use it in input fields:
+After that, you can work with the JSON object in your form, e.g., use it in input fields:
 
 ```html
 <input type="text" ng-model="customer.firstName" required />

@@ -71,7 +71,7 @@ Current value: {{customerId}}
 
 # The `cam-variable-type` Directive
 
-The `cam-variable-type` directive allows specifying the type of a process / task / vase variable. This is required if the variable does not yet exist.
+The `cam-variable-type` directive allows specifying the type of a process / task / case variable. This is required if the variable does not yet exist.
 
 The following markup creates a text input field bound to a variable of type `Double`:
 

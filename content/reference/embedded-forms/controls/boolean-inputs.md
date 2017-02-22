@@ -36,7 +36,7 @@ the value `true`, an unchecked checkbox corresponds to the value `false`.
 
 # Boolean Select Box
 
-In order to bind a `<select>` box to a Java `Boolean` variable, the directive
+To bind a `<select>` box to a Java `Boolean` variable, the directive
 `cam-variable-type="Boolean"` must be used.
 
 Example:
@@ -52,7 +52,7 @@ Example:
 
 # Boolean text Input
 
-In order to bind a text input field to a Java `Boolean` variable, the directive
+To bind a text input field to a Java `Boolean` variable, the directive
 `cam-variable-type="Boolean"` must be used.
 
 Text input fields of type `Boolean` accept the following string values:

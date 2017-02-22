@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The following examples shows how you can generate a business key using Javascript:
+The following example shows how you can generate a business key using Javascript:
 
 ```html
 <form role="form">

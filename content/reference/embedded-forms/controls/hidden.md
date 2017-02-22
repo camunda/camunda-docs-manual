@@ -10,13 +10,13 @@ menu:
 
 ---
 
-Hidden input elements are HTML
+Hidden input elements are HTML controls in the form of
 
 ```html
 <input type="hidden"></input>
 ```
 
-controls. They are not displayed in the form, but can be used to retrieve values to be used in the context of the form (e.g., using Angular bindings).
+They are not displayed in the form, but can be used to retrieve values to be used in the context of the form (e.g., using Angular bindings).
 
 
 # Binding a Hidden Element to a Process Variable
@@ -35,4 +35,4 @@ In the example above, the hidden input field is bound to the variable named `CUS
 
 # Supported Variable Types for Hidden Elements
 
-The hidden input field supports the same variable types as the single line text input `<input type="text"></input>`.
+The hidden input field supports the same variable types as the single line text input `<input type="text"></input>`. See the section on [Supported Variable Types]({{< relref "reference/embedded-forms/controls/inputs.md#supported-variable-types-for-text-inputs" >}}) for details.

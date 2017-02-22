@@ -16,9 +16,9 @@ Events]({{< relref "reference/embedded-forms/lifecycle.md" >}}) for more details
 
 # Fetching Additional Variables
 
-When loading the form, the values of all variables used in the form will be fetched from the
-backend. This means that the form SDK will only fetch those variables which are actually used in the
-form. The most convenient way for using a variable is the `cam-variable-name` directive. However,
+When loading the form, the values of all variables used in the form are fetched from the
+backend. This means that the form SDK only fetches those variables which are actually used in the
+form. The most convenient way to use a variable is the `cam-variable-name` directive. However,
 there are some situations where directive-based usage is inconvenient. In such situations it is
 useful to declare additional variables programmatically:
 

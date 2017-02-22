@@ -15,7 +15,7 @@ Inside a form script, the following built-in variables and functions are availab
 
 # camForm
 
-The `camForm` variable is an instance of the `CamSDK.Form` class and is the primary access point to
+The `camForm` variable is an instance of the `CamSDK.Form` class. It is the primary access point to
 the form API and allows definition of event handers for participation in the form [lifecycle]({{< relref "reference/embedded-forms/lifecycle.md" >}}):
 
 ```html
