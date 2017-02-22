@@ -291,7 +291,7 @@ The following elements are extension elements for the `camunda` namespace `http:
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      Only one of the attributes <code>source</code>, <code>sourceExpression</code>, <code>variables</code> or <code>businessKey</code> can be used
+      Only one of the attributes <code>source</code>, <code>sourceExpression</code> or <code>variables</code> can be used
     </td>
   </tr>
   <tr>

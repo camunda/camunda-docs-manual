@@ -981,7 +981,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Constraints</th>
     <td colspan="2">
-      Only one of the attributes <code>source</code>, <code>sourceExpression</code>, <code>variables</code> or <code>businessKey</code> can be used
+      Only one of the attributes <code>source</code>, <code>sourceExpression</code> or <code>variables</code> can be used
     </td>
   </tr>
   <tr>
