@@ -213,7 +213,7 @@ There are 2 ways to remove properties from a JSON object.
   * `.deleteProp("name")` - Removes a property with given name.
   * `.deleteProp(<List of names>)` - Removes one or more properties with given names.
 
-For more Details see the following Examples for Javascript and Java.
+For more details see the following examples for Javascript and Java.
 
 Java:
 

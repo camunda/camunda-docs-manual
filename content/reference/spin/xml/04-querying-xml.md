@@ -92,7 +92,7 @@ Boolean exists = XML(xml).xPath("boolean(/root/child)").bool();
 
 # Querying with Namespaces
 
-To use namespaces in spin with xml you can choose one of the following methods or combine both of them.
+To use namespaces in spin with XML, you can choose one of the following methods or combine both of them.
 
 
 ## 1. Using a Single Prefix - URI Pair
@@ -124,7 +124,7 @@ SpinXmlTreeElement child = XML(xml).xPath("/root/t:child")
 ```
 
 {{< note class="info" >}}
-  If you are using `xmlns="<URI>"` in your xml file, spin uses `DEFAULT` as prefix for the namespace.<br />
-  E.g.: ```<root xmlns="http://camunda.org"></root>``` -- prefix: DEFAULT, namespace: http://camunda.org so you need
+  If you are using `xmlns="<URI>"` in your XML file, spin uses `DEFAULT` as prefix for the namespace.<br />
+  E.g.,: ```<root xmlns="http://camunda.org"></root>``` -- prefix: DEFAULT, namespace: http://camunda.org so you need
   to use `XML(xml).xPath("/DEFAULT:root")` to fetch the correct element.
 {{< /note >}}

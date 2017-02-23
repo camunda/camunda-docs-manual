@@ -40,7 +40,7 @@ String id = XML("<order id=\"order1\" />").attr("id").value();
 
 The `attr` method returns a wrapper of the XML attribute and with `value` the value of the attribute can be accessed.
 
-If you want to access an attribute in another namespace you have to use the `attrNs` method.
+If you want to access an attribute in another namespace, you have to use the `attrNs` method.
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -156,7 +156,7 @@ element.textContent("Bar");
 
 ## Reading Child Elements from XML
 
-Besides attributes you can also get a unique or all child elements of a specific type. Optionally, a namespace can be passed to the methods as first parameter.
+Besides attributes, you can also get a unique or all child elements of a specific type. Optionally, a namespace can be passed to the methods as first parameter.
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -189,7 +189,7 @@ root.append(child1, child2, child3);
 
 ## Remove Child Elements
 
-To remove child elements from an XML element the method `remove` is used. It accepts single or multiple child elements and removes them from the parent element.
+To remove child elements from an XML element, the method `remove` is used. It accepts single or multiple child elements and removes them from the parent element.
 
 ```java
 import static org.camunda.spin.Spin.XML;
@@ -201,7 +201,7 @@ root.remove(root.childElements("child"));
 
 ## Replace Elements
 
-To replace an element or a child element the methods `replace` and `replaceChild` are used.
+To replace an element or a child element, the methods `replace` and `replaceChild` are used.
 
 ```java
 import static org.camunda.spin.Spin.XML;
