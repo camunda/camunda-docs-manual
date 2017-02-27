@@ -217,14 +217,10 @@ userTask.builder()
 ```
 
 
-# Diagram Interchange  
+# Generation of Diagram Interchange
 
-BPMN Diagram Elements are necessary for rendering the process as a diagram and editing it 
-in the Camunda Modeler.
-
-With the fluent builder API BPMN Shapes and BPMN Edges 
-are generated and placed automatically for flow nodes and sequence flows. 
-
+For rendering the process BPMN diagram elements are necessary. The fluent builder generates
+BPMN Shapes and BPMN Edges and place them automatically for flow nodes and sequence flows.
 
 ```java
 final BpmnModelInstance myProcess = Bpmn.createExecutableProcess("process-payments")
@@ -237,7 +233,7 @@ final BpmnModelInstance myProcess = Bpmn.createExecutableProcess("process-paymen
 System.out.println(Bpmn.convertToString(myProcess));
 ```
 
-The builder generates both BPMN semantic elements and diagram elements:
+This example creates a BPMN containing both semantic elements (e.g. service task etc.) and diagram elements:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -283,9 +279,10 @@ The builder generates both BPMN semantic elements and diagram elements:
   </bpmndi:BPMNDiagram>
 </definitions>
 ```
+The default behavior is, that each new added flow element will be placed next to the previous flow element.
 
-Subprocess gets resized when an element is added into it. There are some delimitations concerning the layout.
-When a subprocess is modified later and a new element is added, the following elements may be overlapped by the subprocess.
-Recommended order: first create the elements within the subprocess, then add boundary events, following tasks etc.
+When flow elements are added to an embedded subprocess, then this subprocess gets resized when the subprocess border is reached. Therefore
+it is recommended to add first all new elements to the subprocess and then to create following elements. Otherwise it could lead to overlapping
+elements in the diagram.
 
-Branches of a gateway are placed one below the other. Auto layout is not provided, therefore the elements of different branches may overlap. 
+Branches of gateways are placed one below the other. Auto layout is not provided, therefore the elements of different branches may overlap.
