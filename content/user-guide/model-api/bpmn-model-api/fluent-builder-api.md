@@ -219,8 +219,8 @@ userTask.builder()
 
 # Generation of Diagram Interchange
 
-For rendering the process BPMN diagram elements are necessary. The fluent builder generates
-BPMN Shapes and BPMN Edges and place them automatically for flow nodes and sequence flows.
+To render the process, BPMN diagram elements are necessary. The fluent builder generates
+BPMN Shapes and BPMN Edges and places them automatically for flow nodes and sequence flows.
 
 ```java
 final BpmnModelInstance myProcess = Bpmn.createExecutableProcess("process-payments")
@@ -233,7 +233,7 @@ final BpmnModelInstance myProcess = Bpmn.createExecutableProcess("process-paymen
 System.out.println(Bpmn.convertToString(myProcess));
 ```
 
-This example creates a BPMN containing both semantic elements (e.g. service task etc.) and diagram elements:
+This example creates a BPMN containing both semantic elements (e.g., service task etc.) and diagram elements:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -279,10 +279,10 @@ This example creates a BPMN containing both semantic elements (e.g. service task
   </bpmndi:BPMNDiagram>
 </definitions>
 ```
-The default behavior is, that each new added flow element will be placed next to the previous flow element.
+The default behavior is that each newly added flow element will be placed next to the previous flow element.
 
-When flow elements are added to an embedded subprocess, then this subprocess gets resized when the subprocess border is reached. Therefore
-it is recommended to add first all new elements to the subprocess and then to create following elements. Otherwise it could lead to overlapping
-elements in the diagram.
+When flow elements are added to an embedded subprocess, then the subprocess is resized when the subprocess border is reached. Therefore, 
+it is recommended to first add all new elements to the subprocess and to then create the following elements. Otherwise it could lead to 
+overlapping elements in the diagram.
 
 Branches of gateways are placed one below the other. Auto layout is not provided, therefore the elements of different branches may overlap.
