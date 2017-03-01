@@ -256,7 +256,7 @@ repositoryService.createProcessDefinitionQuery()
 
 ### Task Access Example
 
-For other commands like `completeTask()`, the transparent access check ensures that the authenticated user does not access
+For other commands like `complete()`, the transparent access check ensures that the authenticated user does not access
 resources by other tenants:
 
 ```java
@@ -264,7 +264,7 @@ try {
   identityService.setAuthentication("mary", asList("accounting"), asList("tenant1"));
 
   // throws an exception if task has tenant id other than "tenant1"
-  taskService.completeTask("someTaskId");
+  taskService.complete("someTaskId");
 }
 finally {
   identityService.clearAuthentication();
