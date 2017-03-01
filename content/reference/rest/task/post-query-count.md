@@ -229,8 +229,16 @@ expression as a substring.
     <td>Restrict to tasks that have the given name.</td>
   </tr>
   <tr>
+    <td>nameNotEqual</td>
+    <td>Restrict to tasks that do not have the given name.</td>
+  </tr>
+  <tr>
     <td>nameLike</td>
     <td>Restrict to tasks that have a name with the given parameter value as substring.</td>
+  </tr>
+   <tr>
+    <td>nameNotLike</td>
+    <td>Restrict to tasks that do not have a name with the given parameter value as substring.</td>
   </tr>
   <tr>
     <td>description</td>
