@@ -150,10 +150,17 @@ The following list is an overview of all currently available patch scripts:
     </tr>
     <tr>
       <td>7.6</td>
-      <td>engine_7.6_patch_7.6.2_to_7.6.3.sql</td>
+      <td>engine_7.6_patch_7.6.2_to_7.6.3_1.sql</td>
       <td>Add a missing index on ACT_RU_EXT_TASK#ERROR_DETAILS_ID_ to prevent deadlocks.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-7263">CAM-7263</td>
+    </tr>
+    <tr>
+      <td>7.6</td>
+      <td>engine_7.6_patch_7.6.2_to_7.6.3_2.sql</td>
+      <td>Remove an incorrect index ACT_RU_JOB#ACT_IDX_JOB_HANDLER for MSSQL Server.</td>
+      <td>MSSQL Server</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7442">CAM-7442</td>
     </tr>
   </tbody>
 </table>
