@@ -60,6 +60,10 @@ GET `/history/detail`
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
+    <td>operationId</td>
+    <td>Filter by an operation id</td>
+  </tr>
+  <tr>
     <td>formFields</td>
     <td>Only include <strong>HistoricFormFields</strong>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
@@ -175,6 +179,11 @@ Each historic detail object has the following properties:
     <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
+    <td>operationId</td>
+    <td>String</td>
+    <td>The id of the operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
+  </tr>
+  <tr>
     <td>time</td>
     <td>String</td>
     <td>The time when this historic detail occurred has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
@@ -272,40 +281,62 @@ In case of an <code>HistoricFormField</code> the following properties are also p
 
 ## Request
 
-GET `/history/detail?processInstanceId=aProcInstId`
+GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
 
 ## Response
 
 ```json
 [
   {
-    "id": "12345",
-    "processInstanceId": "aProcInstId",
-    "activityInstanceId": "anActInstId",
-    "executionId": "anExecutionId",
+    "type": "variableUpdate",
+    "id": "3cd79390-001a-11e7-8c6b-34f39ab71d4e",
+    "processDefinitionKey": "invoice",
+    "processDefinitionId": "invoice:1:3c59899b-001a-11e7-8c6b-34f39ab71d4e",
+    "processInstanceId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "activityInstanceId": "StartEvent_1:3cd7456e-001a-11e7-8c6b-34f39ab71d4e",
+    "executionId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "caseDefinitionKey": null,
+    "caseDefinitionId": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "time": "2014-02-28T15:00:00",
-    "variableName": "myProcessVariable",
-    "variableInstanceId": "aVariableInstanceId",
-    "variableType": "String",
-    "value": "aVariableValue",
-    "revision": 1,
-    "errorMessage": null,
-    "tenantId": null
+    "taskId": null,
+    "tenantId": null,
+    "operationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "time": "2017-03-03T15:03:54",
+    "variableName": "amount",
+    "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
+    "variableType": "Double",
+    "value": 30.0,
+    "valueInfo": {},
+    "revision": 0,
+    "errorMessage": null
   },
   {
-    "id": "12345",
-    "processInstanceId": "aProcInstId",
-    "activityInstanceId": "anActInstId",
-    "executionId": "anExecutionId",
+    "type": "variableUpdate",
+    "id": "3cd79392-001a-11e7-8c6b-34f39ab71d4e",
+    "processDefinitionKey": "invoice",
+    "processDefinitionId": "invoice:1:3c59899b-001a-11e7-8c6b-34f39ab71d4e",
+    "processInstanceId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "activityInstanceId": "StartEvent_1:3cd7456e-001a-11e7-8c6b-34f39ab71d4e",
+    "executionId": "3cd597b7-001a-11e7-8c6b-34f39ab71d4e",
+    "caseDefinitionKey": null,
+    "caseDefinitionId": null,
     "caseInstanceId": null,
     "caseExecutionId": null,
-    "taskId": "aTaskId",
-    "time": "2014-02-28T15:00:00",
-    "fieldId": "aFieldId",
-    "fieldValue": "aFieldValue",
-    "tenantId": null
+    "taskId": null,
+    "tenantId": null,
+    "operationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "time": "2017-03-03T15:03:54",
+    "variableName": "invoiceDocument",
+    "variableInstanceId": "3cd65b0a-001a-11e7-8c6b-34f39ab71d4e",
+    "variableType": "File",
+    "value": null,
+    "valueInfo": {
+      "mimeType": "application/pdf",
+      "filename": "invoice.pdf"
+    },
+    "revision": 0,
+    "errorMessage": null
   }
 ]
 ```

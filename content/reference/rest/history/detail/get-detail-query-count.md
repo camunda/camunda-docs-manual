@@ -59,6 +59,9 @@ GET `/history/detail/count`
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
+    <td>operationId</td>
+    <td>Filter by an operation id</td>
+  </tr>
     <td>formFields</td>
     <td>Only include <strong>HistoricFormFields</strong>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
