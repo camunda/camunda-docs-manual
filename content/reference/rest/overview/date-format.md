@@ -20,7 +20,9 @@ can be specified by the context parameter
 
 For example,  if the date format should contain milliseconds and timezone
 information (`yyyy-MM-dd'T'HH:mm:ss.SSSZ`) the following configuration can be
-used:
+used.
+
+To achieve this, you can edit the `WEB-INF/web.xml` file as follows:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
