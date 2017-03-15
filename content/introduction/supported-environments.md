@@ -40,7 +40,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 * MariaDB 10.0
 * Oracle 10g / 11g / 12c
 * IBM DB2 9.7 /10.1 / 10.5 / 11.1 (excluding IBM z/OS for all versions)
-* PostgreSQL 9.1 / 9.3 / 9.4
+* PostgreSQL 9.1 / 9.3 / 9.4 / 9.6
 * Microsoft SQL Server 2008 R2/2012/2014 (see [Configuration Note]({{< relref "user-guide/process-engine/database.md#configuration-for-microsoft-sql-server" >}}))
 * H2 1.3 (not recommended for [Cluster Mode]({{< relref "introduction/architecture.md#clustering-model" >}}) - see [Deployment Note]({{< relref "user-guide/process-engine/deployments.md" >}}))
 
