@@ -16,7 +16,8 @@ While the process model contains sequence flows that define in which order activ
 * Migrating process instances from one version of a process definition to another
 * Testing: Activities can be skipped or repeated for isolated testing of individual process segments
 
-To perform such an operation, the process engine offers the *process instance modification API* that is entered via `RuntimeService.createProcessInstanceModification(...)`. This API allows to specify multiple *modification instructions* in one call by using a fluent builder. In particular, it is possible to:
+To perform such an operation, the process engine offers the *process instance modification API* that is entered via `RuntimeService.createProcessInstanceModification(...)` or 
+`RuntimeService.createModification(...)`. This API allows to specify multiple *modification instructions* in one call by using a fluent builder. In particular, it is possible to:
 
 * start execution before an activity
 * start execution on a sequence flow leaving an activity
@@ -537,6 +538,55 @@ ProcessInstance
     Contact Customer
 ```
 
+## Modification of Multiple Process Instances
+
+When there are multiple process instances which fulfill a specific criteria, it is possible to modify them at once using `RuntimeService.createModification(...)`. This method allows to specify
+the modification instructions and IDs of process instances that should be modified. It is required that the process instances belong to the given process definition. 
+
+The fluent modification builder offers the following instructions to be submitted:
+
+* `startBeforeActivity(String activityId)`
+* `startAfterActivity(String activityId)`
+* `startTransition(String transitionId)`
+* `cancelAllForActivity(String activityId)`
+
+Process instances can be selected for modification by either providing a set of process instance IDs or providing a process instance query. 
+It is also possible to specify both, a list of process instance IDs and a query. The process instances to be modified will then be the union of the resulting sets.
+
+```java
+ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
+
+runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds(processInstanceQuery)
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2")
+  .execute();
+```
+
+The modification of multiple process instances can be executed synchronously or asynchronously.
+For more information about the difference between synchronous and asynchronous execution, please refer to the related
+section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
+
+An example for synchronous execution:
+
+```java
+runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2")
+  .execute();
+```
+
+An example for asynchronous execution:
+
+```java
+Batch batch = runtimeService.createModification("exampleProcessDefinitionId")
+  .cancelAllForActivity("exampleActivityId:1")
+  .startBeforeActivity("exampleActivityId:2")
+  .processInstanceIds("processInstanceId:1", "processInstanceId:2", "processInstanceId:100")
+  .executeAsync();
+```
 
 ## Skip Listener and Input/Output Invocation
 
