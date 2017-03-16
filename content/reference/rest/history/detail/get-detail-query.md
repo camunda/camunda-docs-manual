@@ -60,8 +60,8 @@ GET `/history/detail`
     <td>Filter by a comma-separated list of tenant ids.</td>
   </tr>
   <tr>
-    <td>operationId</td>
-    <td>Filter by an operation id</td>
+    <td>userOperationId</td>
+    <td>Filter by a user operation id</td>
   </tr>
   <tr>
     <td>formFields</td>
@@ -179,9 +179,9 @@ Each historic detail object has the following properties:
     <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
-    <td>operationId</td>
+    <td>userOperationId</td>
     <td>String</td>
-    <td>The id of the operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
+    <td>The id of user operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -301,7 +301,7 @@ GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
     "caseExecutionId": null,
     "taskId": null,
     "tenantId": null,
-    "operationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
     "time": "2017-03-03T15:03:54",
     "variableName": "amount",
     "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
@@ -325,7 +325,7 @@ GET `/history/detail?processInstanceId=3cd597b7-001a-11e7-8c6b-34f39ab71d4e`
     "caseExecutionId": null,
     "taskId": null,
     "tenantId": null,
-    "operationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+    "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
     "time": "2017-03-03T15:03:54",
     "variableName": "invoiceDocument",
     "variableInstanceId": "3cd65b0a-001a-11e7-8c6b-34f39ab71d4e",

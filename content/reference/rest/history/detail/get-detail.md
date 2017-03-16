@@ -127,9 +127,9 @@ An object having the following properties:
     <td>The id of the tenant that this historic detail belongs to.</td>
   </tr>
   <tr>
-    <td>operationId</td>
+    <td>userOperationId</td>
     <td>String</td>
-    <td>The id of the operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
+    <td>The id of user operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/index.md" >}}">user operation log</a> entries.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -249,7 +249,7 @@ Status 200.
   "caseExecutionId": null,
   "taskId": null,
   "tenantId": null,
-  "operationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
+  "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
   "time": "2017-03-03T15:03:54",
   "variableName": "amount",
   "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
