@@ -24,7 +24,7 @@ thereof). The concrete configuration options depend on the actual connector.
 For example, the HTTP based connector can modify the Apache HTTP client
 that the connector uses.
 
-In order to provide a custom configurator, you have to
+To provide a custom configurator, you have to
 
 * Provide a custom implementation of `org.camunda.connect.spi.ConnectorConfigurator`
 * Add the configurator's fully qualified classname to a file named `META-INF/services/org.camunda.connect.spi.ConnectorConfigurator`
@@ -39,7 +39,7 @@ registered by implementing the SPI `org.camunda.connect.spi.ConnectorProvider`.
 Connect uses the Java platform's service loader mechanism to lookup provider
 implementations at runtime.
 
-In order to provide a custom connector, you have to
+To provide a custom connector, you have to
 
 * Provide a custom implementation of `org.camunda.connect.spi.Connector`
 * Provide a custom implementation of `org.camunda.connect.spi.ConnectorProvider`
