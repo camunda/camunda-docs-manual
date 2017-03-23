@@ -143,7 +143,7 @@ text="DmnDataTypeTransformer" >}}. The transformation is processed in the
 it must throw an `IllegalArgumentException`.
 
 ```java
-public class CustomDataTypeTransformer implements DataTypeTransformer {
+public class CustomDataTypeTransformer implements DmnDataTypeTransformer {
 
   public TypedValue transform(Object value) throws IllegalArgumentException {
     // transform the value into a typed value
