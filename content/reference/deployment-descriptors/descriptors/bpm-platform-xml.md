@@ -19,7 +19,7 @@ It is used to configure the Camunda BPM platform in the following distributions:
 *   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
 
 {{< note title="JBoss Application Server 7/Wildfly 8" class="warning">}}
-The <code>bpm-platform.xml</code> file is not used in the Camunda BPM distribution for JBoss Application Server 7 / Wildfly 8. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e. the same elements and properties can be used). See the <a href="{{< relref "user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
+The <code>bpm-platform.xml</code> file is not used in the Camunda BPM distribution for JBoss Application Server 7 / Wildfly 8 / 10. There, the configuration is added to the central application server configuration file (<code>standalone.xml</code> or <code>domain.xml</code>). The XML schema is the same (i.e., the same elements and properties can be used). See the <a href="{{< relref "user-guide/runtime-container-integration/jboss.md" >}}">The Camunda JBoss Subsystem</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
 {{< /note >}}
 
 
@@ -97,15 +97,15 @@ This feature is available for:
 *   [IBM WebSphere Application Server]({{< relref "installation/full/was/index.md" >}})
 *   [Oracle WebLogic Application Server]({{< relref "installation/full/wls/index.md" >}})
 
-It is not available for the JBoss AS 7/Wildfly 8 subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
+It is not available for the JBoss AS 7 / Wildfly 8 / 10 subsystem implementation, because the subsystem implementation uses the JBoss specific `standalone.xml` to configure the platform.
 
-To specify the location you have to provide an absolute path or an http/https url pointing to the `bpm-platform.xml` file, e.g `/home/camunda/.camunda/bpm-platform.xml` or `http://camunda.org/bpm-platform.xml`.
+To specify the location, you have to provide an absolute path or an http/https url pointing to the `bpm-platform.xml` file, e.g., `/home/camunda/.camunda/bpm-platform.xml` or `http://camunda.org/bpm-platform.xml`.
 
-During startup of the camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from the following sources in the listed order:
+During startup of the camunda-bpm-platform, it tries to discover the location of the `bpm-platform.xml` file from the following sources, in the listed order:
 
 1. JNDI entry is available at `java:/comp/env/bpm-platform-xml`
 2. Environment variable `BPM_PLATFORM_XML` is set
-3. System property `bpm.platform.xml` is set, e.g when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
+3. System property `bpm.platform.xml` is set, e.g., when starting the server JVM it is appended as `-Dbpm.platform.xml` on the command line
 4. `META-INF/bpm-platform.xml` exists on the classpath
 5. (For Tomcat only): checks if there is a `bpm-platform.xml` inside the folder specified by `${CATALINA_BASE} || ${CATALINA_HOME} + /conf/`
 
@@ -114,8 +114,8 @@ The discovery stops when one of the above mentioned sources is found or, in case
 
 # Using System Properties
 
-In order to externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e. `${PROPERTY_KEY}`). Expression resolution is supported within the `property` elements only. System properties may be set via command line (`-D`option) or in an implementation specific manner (Apache Tomcat's `catalina.properties` for example).
-Complex operations are not supported, but you may combine more than one expression in a single `property` element (e.g. `${ldap.host}:${ldap.port}`).
+To externalize environment specific parts of the configuration, it is possible to reference system properties using Ant-style expressions (i.e., `${PROPERTY_KEY}`). Expression resolution is supported within the `property` elements only. System properties may be set via command line (`-D`option) or in an implementation specific manner (Apache Tomcat's `catalina.properties` for example).
+Complex operations are not supported, but you may combine more than one expression in a single `property` element (e.g., `${ldap.host}:${ldap.port}`).
 
 ## Example
 
