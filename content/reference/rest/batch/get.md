@@ -163,7 +163,7 @@ Status 200.
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
-  "suspened": false,
+  "suspended": false,
   "tenantId": "aTenantId"
 }
 ```
