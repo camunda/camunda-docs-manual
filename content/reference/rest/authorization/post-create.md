@@ -45,7 +45,7 @@ A JSON object with the following properties:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user this authorization has been created for. The value "\*" represents a global authorization ranging over all users.</td>
+    <td>The id of the user this authorization has been created for. The value "*" represents a global authorization ranging over all users.</td>
   </tr>
   <tr>
     <td>groupId</td>
@@ -60,7 +60,7 @@ A JSON object with the following properties:
   <tr>
     <td>resourceId</td>
     <td>String</td>
-    <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
+    <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
 </table>
 
@@ -93,7 +93,7 @@ A JSON array with the following properties:
   <tr>
     <td>userId</td>
     <td>String</td>
-    <td>The id of the user this authorization has been created for. The value "\*" represents a global authorization ranging over all users.</td>
+    <td>The id of the user this authorization has been created for. The value "*" represents a global authorization ranging over all users.</td>
   </tr>
   <tr>
     <td>groupId</td>
@@ -108,7 +108,7 @@ A JSON array with the following properties:
   <tr>
     <td>resourceId</td>
     <td>String</td>
-    <td>The resource Id. The value "\*" represents an authorization ranging over all instances of a resource.</td>
+    <td>The resource Id. The value "*" represents an authorization ranging over all instances of a resource.</td>
   </tr>
   <tr>
     <td>links</td>
