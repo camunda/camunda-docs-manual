@@ -155,7 +155,7 @@ Each batch object has the following properties:
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
+    <td>Indicates wheter this batch is suspended or not.</td>
   </tr>
   <tr>
     <td>tenantId</td>
@@ -211,7 +211,7 @@ Status 200.
     "seedJobDefinitionId": "aSeedJobDefinitionId",
     "monitorJobDefinitionId": "aMonitorJobDefinitionId",
     "batchJobDefinitionId": "aBatchJobDefinitionId",
-    "suspened": false,
+    "suspended": false,
     "tenantId": "aTenantId"
   }
 ]

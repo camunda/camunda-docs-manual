@@ -155,7 +155,7 @@ Each batch statistics object has the following properties:
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
+    <td>Indicates wheter this batch is suspended or not.</td>
   </tr>
   <tr>
     <td>tenantId</td>
