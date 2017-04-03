@@ -52,6 +52,7 @@ The following is a list of current (unsupported) community extensions:
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
 * [Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
+* [Custom Batch](https://github.com/camunda/camunda-bpm-custom-batch)
 
 ## Building a Community Extension
 
