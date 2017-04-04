@@ -36,6 +36,22 @@ DELETE `/process-instance/{id}`
   </tr>
 </table>
 
+## Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>skipCustomListeners</td>
+    <td>
+      If set to <code>true</code>, the custom listeners will be skipped.
+    </td>
+  </tr>
+</table>
+
+
 # Result
 
 This method returns no content.
