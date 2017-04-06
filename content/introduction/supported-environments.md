@@ -36,7 +36,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 ## Supported Database Products
 
-* MySQL 5.7
+* MySQL 5.6 / 5.7
 * MariaDB 10.0
 * Oracle 10g / 11g / 12c
 * IBM DB2 9.7 /10.1 / 10.5 / 11.1 (excluding IBM z/OS for all versions)
