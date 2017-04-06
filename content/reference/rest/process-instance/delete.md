@@ -49,6 +49,12 @@ DELETE `/process-instance/{id}`
       If set to <code>true</code>, the custom listeners will be skipped.
     </td>
   </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td>
+      If set to <code>true</code>, the input/output mappings will be skipped.
+    </td>
+  </tr>
 </table>
 
 
