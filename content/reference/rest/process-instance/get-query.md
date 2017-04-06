@@ -42,6 +42,10 @@ GET `/process-instance`
     <td>Filter by process instance business key.</td>
   </tr>
   <tr>
+    <td>businessKeyLike</td>
+    <td>Filter by process instance business key that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>caseInstanceId</td>
     <td>Filter by case instance id.</td>
   </tr>
