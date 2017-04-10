@@ -13,7 +13,7 @@ menu:
 
 Camunda Connect provides a simple API for connecting HTTP services and other
 things. It aims at two usage scenarios: usage in a generic system such as the
-Camunda BPM process engine, and standalone usage via API.
+Camunda BPM process engine and standalone usage via API.
 
 # Connectors
 
