@@ -50,6 +50,10 @@ DELETE `/deployment/{id}`
     <td>skipCustomListeners</td>
     <td><code>true</code>, if only the built-in ExecutionListeners should be notified with the end event.</td>
   </tr>
+  <tr>
+    <td>skipIoMappings</td>
+    <td><code>true</code>, if all input/output mappings should not be invoked.</td>
+  </tr>
 </table>
 
 # Result
