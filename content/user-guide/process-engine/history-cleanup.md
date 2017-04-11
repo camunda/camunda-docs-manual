@@ -43,14 +43,20 @@ it reaches the end time of batch window. The delay between such runs increases t
 
 # What happens in case of failure?
 
-If the job execution fails for some reason, execution will be retried several time similar to any other job. When still failing after several retires, 
-the incident will be created. After this the job won't be triggered unless history cleanup is called via API again 
-(or on engine restart after CAM-7541). When the incident is resolved, just call the history cleanup as described above.
+If the job execution fails for some reason, execution will be retried several times similar to any other job. When still failing after several retries, 
+the incident will be created. After this the job won't be triggered unless history cleanup is called via API again. Though the job will be "rescheduled" 
+on engine restart. When the incident is resolved, just call the history cleanup as described above.
 
 # How to monitor job progress?
 
 History cleanup is performed within one and the same job that runs several times. This job has unique id which can be found in response of history cleanup call. 
-This `jobId` can be used to request job logs:
+It can also be found by this request:
+```java
+String historyCleanupJobId = processEngine.getHistoryService()
+        .findHistoryCleanupJob().getJobId();
+```
+
+`jobId` can be used to request job logs:
 ```java
 List<HistoricJobLog> historicJobLogs = processEngine.getHistoryService()
         .createHistoricJobLogQuery().jobId(jobId).list();
