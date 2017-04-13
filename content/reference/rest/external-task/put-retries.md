@@ -6,7 +6,7 @@ weight: 100
 menu:
   main:
     name: "Set Retries"
-    identifier: "rest-api-external-task-put-failure"
+    identifier: "rest-api-external-task-put-retries"
     parent: "rest-api-external-task"
     pre: "PUT `/external-task/{id}/retries`"
 
@@ -73,6 +73,11 @@ This method returns no content.
     <td>404</td>
     <td>application/json</td>
     <td>Returned if the task does not exist. This could indicate a wrong task id as well as a cancelled task, e.g., due to a caught BPMN boundary event. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>In case the number of retries is negative, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
