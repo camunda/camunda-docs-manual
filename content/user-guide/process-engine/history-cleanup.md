@@ -21,7 +21,17 @@ See [Configuration options][configuration-options] for details.
 You must also specify "time to live" for each process definition which you wish to be affected by cleanup. "Time to live" means the amount of time to pass after 
 the process instance has finished, before its history will be removed from database.
 
-Time to live is currently fixed to 5 days for all process definitions. (will be configurable after CAM-7542)
+Use ["timeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#timeToLive">}}) of Process definition:
+```xml
+<process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:timeToLive="5">
+...
+</process>
+```
+You can also update "timeToLive" for already deployed process definitions:
+```java
+  processEngine.getRepositoryService().updateProcessDefinitionTimeToLive(processDefinitionId, 5);
+```
+or via [REST API]({{< relref "reference/rest/process-definition/put-time-to-live.md">}}).
 
 ## Run cleanup manually
 When you want to run cleanup only once then just use:

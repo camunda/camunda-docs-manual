@@ -1308,6 +1308,39 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# timeToLive
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      <p>
+      The attribute specifies the time to live time for the process definition. It is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Any non-negative integer number.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>null - means that process definition history won't ever be removed during history cleanup run</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Process
+    </td>
+  </tr>
+</table>
+
 # versionTag
 
 <table class="table table-striped">

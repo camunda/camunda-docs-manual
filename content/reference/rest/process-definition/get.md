@@ -122,6 +122,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The version tag of the process definition.</td>
   </tr>
+    <tr>
+      <td>timeToLive</td>
+      <td>Number</td>
+      <td>Time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+    </tr>
 </table>
 
 
@@ -150,22 +155,26 @@ Its properties are as follows:
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET `/process-definition/aProcessDefinitionId`
+GET `/process-definition/invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e`
 
-GET `/process-definition/key/aProcessDefinitionKey`
+GET `/process-definition/key/invoice`
 
 ## Response
 
-    {"id":"aProcessDefinitionId",
-    "key":"aProcessDefinitionKey",
-    "category":"aCategory",
-    "description":"aDescription",
-    "name":"aName",
-    "version":42,
-    "resource":"aResourceName",
-    "deploymentId":"aDeploymentId",
-    "diagram":"aResourceName",
-    "suspended":true,
-    "tenantId":null,
-    "versionTag":"1.0.0"}
+```json
+{
+  "id":"invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e",
+  "key":"invoice",
+  "category":"http://www.omg.org/spec/BPMN/20100524/MODEL",
+  "description":null,
+  "name":"Invoice Receipt",
+  "version":1,
+  "resource":"invoice.v1.bpmn",
+  "deploymentId":"c398cd26-2046-11e7-8f94-34f39ab71d4e",
+  "diagram":null,
+  "suspended":false,
+  "tenantId":null,
+  "versionTag":null,
+  "timeToLive":5
+}
+```

@@ -224,6 +224,12 @@ Each process definition object has the following properties:
     <td>versionTag</td>
     <td>String</td>
     <td>The version tag of the process or <i>null</i> when no version tag is set</td>
+  </tr>
+  <tr>
+      <td>timeToLive</td>
+      <td>Number</td>
+      <td>Time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+    </tr>
 </table>
 
 
@@ -252,23 +258,42 @@ Each process definition object has the following properties:
 
 ## Request
 
-<!-- TODO: Insert a 'real' example -->
-GET `/process-definition?keyLike=Key&sortBy=category&sortOrder=asc`
+GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
 
 ## Response
 
 ```json
-    [{"id":"aProcessDefinitionId",
-    "key":"aKey",
-    "category":"aCategory",
-    "description":"aDescription",
-    "name":"aName",
-    "version":42,
-    "resource":"aResourceName",
-    "deploymentId":"aDeploymentId",
-    "diagram":"aResourceName",
-    "suspended":true,
-    "tenantId":null,
-    "versionTag":"1.0.0"}]
+  [
+    {
+      "id": "invoice:1:c3a63aaa-2046-11e7-8f94-34f39ab71d4e",
+      "key": "invoice",
+      "category": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "description": null,
+      "name": "Invoice Receipt",
+      "version": 1,
+      "resource": "invoice.v1.bpmn",
+      "deploymentId": "c398cd26-2046-11e7-8f94-34f39ab71d4e",
+      "diagram": null,
+      "suspended": false,
+      "tenantId": null,
+      "versionTag": null,
+      "timeToLive": 5
+    },
+    {
+      "id": "invoice:2:c3e1bd16-2046-11e7-8f94-34f39ab71d4e",
+      "key": "invoice",
+      "category": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "description": null,
+      "name": "Invoice Receipt",
+      "version": 2,
+      "resource": "invoice.v2.bpmn",
+      "deploymentId": "c3d82020-2046-11e7-8f94-34f39ab71d4e",
+      "diagram": null,
+      "suspended": false,
+      "tenantId": null,
+      "versionTag": null,
+      "timeToLive": null
+    }
+  ]
 ```
 
