@@ -49,6 +49,10 @@ A JSON object with the following properties:
     <td>deleteReason</td>
     <td>A string with delete reason.</td>
   </tr>
+  <tr>
+    <td>skipCustomListeners</td>
+    <td>Skip execution listener invocation for activities that are started or ended as part of this request.</td>
+  </tr>
 </table>
 
 ## Response Body
@@ -159,7 +163,8 @@ Request Body:
 
     {
     "deleteReason" : "aReason",
-    "processInstanceIds": ["aProcess","secondProcess"]
+    "processInstanceIds": ["aProcess","secondProcess"],
+    "skipCustomListeners" : true
     }
 
 ## Response
