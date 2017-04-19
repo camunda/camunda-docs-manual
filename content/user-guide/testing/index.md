@@ -150,6 +150,19 @@ In Java EE environments we recently use JBoss Arquillian quite often to test pro
   Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
 {{< /note >}}
 
+# Resolving Beans Without Spring/CDI
+
+The Mocks class can be used to make beans available inside the Expression Language without the need of any bean manager. Mocked beans are used especially for test purposes. Beside testing there is also a use case for mocked beans if it is necessary to keep the application simple.
+
+Register the bean inside the application:
+```java
+Mocks.register("myBean", new Bean());
+```
+
+Now the named bean is exposed and can be used within the process:
+```xml
+<serviceTask id="serviceTask" camunda:expression="#{myBean.invokeMethod()}" />
+```
 
 # Best Practice
 
