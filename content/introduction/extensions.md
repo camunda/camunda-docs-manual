@@ -42,6 +42,7 @@ The following is a list of current (unsupported) community extensions:
 * [FEEL Scala Extension](https://github.com/camunda/feel-scala)
 * [Grails Plugin](https://github.com/plexiti/camunda-grails-plugin)
 * [GraphQL API](https://github.com/camunda/camunda-graphql)
+* [Migration API](https://github.com/camunda/camunda-bpm-migration)
 * [Mockito Testing Library](https://github.com/camunda/camunda-bpm-mockito)
 * [Needle Testing Library](https://github.com/camunda/camunda-bpm-needle)
 * [OSGi Integration](https://github.com/camunda/camunda-bpm-platform-osgi)
