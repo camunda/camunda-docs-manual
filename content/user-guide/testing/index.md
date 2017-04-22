@@ -152,7 +152,7 @@ In Java EE environments we recently use JBoss Arquillian quite often to test pro
 
 # Resolving Beans Without Spring/CDI
 
-The Mocks class can be used to make beans available inside the Expression Language without the need of any bean manager. Mocked beans are used especially for test purposes. Beside testing there is also a use case for mocked beans if it is necessary to keep the application simple.
+The `Mocks` class can be used to make beans available inside the *Expression Language* or in *Script Tasks* without the need of any bean manager.
 
 Register the bean inside the application:
 ```java
@@ -163,6 +163,8 @@ Now the named bean is exposed and can be used within the process:
 ```xml
 <serviceTask id="serviceTask" camunda:expression="#{myBean.invokeMethod()}" />
 ```
+
+**The mocked beans feature should be used for testing purposes only.** Beans that are stored with `Mocks` are exclusively available within the respective storing thread as it is based on `ThreadLocal`. In most productive environments, it is not possible to access mocked beans during process execution due to the reason that jobs are executed by the multi-threaded Job Executor. Since the [Job Executor is disabled in unit test scenarios]({{< relref "user-guide/process-engine/the-job-executor.md#job-executor-in-a-unit-test" >}}), the thread of process execution is the same that creates mocked bean instances.
 
 # Best Practice
 
