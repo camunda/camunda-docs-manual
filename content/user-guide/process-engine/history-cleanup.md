@@ -90,12 +90,12 @@ List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
   </tr>
   <tr>
     <td>batchWindowStartTime</td>
-    <td>Batch window start time in the format `HH:mmX` (X is ISO 8601 time zone) or `HH:mm`. E.g. `20:00+01` or `20:00`. In case of `null`, no batch window is considered to be configured 
+    <td>Batch window start time in the format `HH:mmZ` (Z is for RFC 822 time zone) or `HH:mm`. E.g. `20:00+0100` or `20:00`. In case of `null`, no batch window is considered to be configured 
     and history cleanup can be called only manually.</td>
   </tr>
   <tr>
     <td>batchWindowEndTime</td>
-    <td>Batch window end time in the format `HH:mmX` (X is ISO 8601 time zone) or `HH:mm`. E.g. `23:00-03` or `23:00`. In case when batchWindowEndTime exceeds batchWindowStartTime it is considered 
+    <td>Batch window end time in the format `HH:mmZ` (Z is RFC 822 time zone) or `HH:mm`. E.g. `23:00-0300` or `23:00`. In case when batchWindowEndTime exceeds batchWindowStartTime it is considered 
     to be in the same date (e.g. history runs each day between 20:00 and 23:00). Otherwise it is considered to be in the next calendar day (e.g. history starts each 
     day at 20:00 and finishes next day at 01:00).</td>
   </tr>
