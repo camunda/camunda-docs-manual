@@ -51,6 +51,27 @@ This example includes an image, which is located in the contextPath of the form 
 </form>
 ```
 
+# Exclude a variable from submit
+
+When a variable is loaded, it is also sent back to the server when the form is submitted. If you have a variable that you don't want to be submitted when the form is completed, you can use the `destroyVariable` function of the variable manager:
+
+```html
+<script cam-script type="text/form-script">
+  camForm.on('form-loaded', function() {
+    // tell the form SDK to fetch the variable named 'invoiceData'
+    camForm.variableManager.fetchVariable('invoiceData');
+  });
+  camForm.on('variables-fetched', function() {
+    // work with the variable (bind it to the current AngularJS $scope)
+    $scope.invoiceData = camForm.variableManager.variableValue('invoiceData');
+  });
+  camForm.on('submit', function() {
+    // make the variableManager forget about the invoiceData variable
+    camForm.variableManager.destroyVariable('invoiceData');
+  });
+</script>
+```
+
 # Upload Large Files
 
 This example contains a file input element and the script to send it to the server. In contrast to the [file input element of the Forms SDK]({{< relref "reference/embedded-forms/controls/files.md" >}}), this example can handle large files, but it also has some drawbacks:
