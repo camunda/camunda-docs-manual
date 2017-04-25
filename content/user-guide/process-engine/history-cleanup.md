@@ -13,6 +13,8 @@ menu:
 When used intensively process engine can produce huge amount of history data. History cleanup functionality helps to regularly remove "outdated" 
 data from history tables. Though intended to be used on regular basis, it can as well be used to one-run "manual" cleanup.
 
+The main configuration parameter to switch on automatic history cleanup is `enableAutoHistoryCleanup`.
+
 ## Batch window
 To use history cleanup on regular basis batch window must be configured - the period of time during the day when the cleanup job must be run. 
 See [Configuration options][configuration-options] for details.
@@ -87,6 +89,10 @@ List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
   <tr>
     <th>Process engine configuration parameter</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>enableAutoHistoryCleanup</td>
+    <td>Indicates if regular history cleanup job must be executed or not (the job scheduled at batch window time). This does not affect manual run of history cleanup.</td>
   </tr>
   <tr>
     <td>batchWindowStartTime</td>
