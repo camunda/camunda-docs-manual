@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Updates time to live for process definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for process definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
 
 # Method
 
@@ -44,8 +44,8 @@ A JSON object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
-    <td>timeToLive</td>
-    <td>New value for timeToLive field of process definition. Can be null.</td>
+    <td>historyTimeToLive</td>
+    <td>New value for historyTimeToLive field of process definition. Can be null.</td>
   </tr>
 </table>
 
@@ -85,10 +85,10 @@ This method returns no content.
 
 ## Request
 
-PUT `/process-definition/aProcessDefinitionId/time-to-live`
+PUT `/process-definition/aProcessDefinitionId/history-time-to-live`
 ```json 
     {
-      "timeToLive" : 5
+      "historyTimeToLive" : 5
     }
 ```
 

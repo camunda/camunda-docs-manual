@@ -226,9 +226,9 @@ Each process definition object has the following properties:
     <td>The version tag of the process or <i>null</i> when no version tag is set</td>
   </tr>
   <tr>
-      <td>timeToLive</td>
+      <td>historyTimeToLive</td>
       <td>Number</td>
-      <td>Time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+      <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
     </tr>
 </table>
 
@@ -277,7 +277,7 @@ GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
       "suspended": false,
       "tenantId": null,
       "versionTag": null,
-      "timeToLive": 5
+      "historyTimeToLive": 5
     },
     {
       "id": "invoice:2:c3e1bd16-2046-11e7-8f94-34f39ab71d4e",
@@ -292,7 +292,7 @@ GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
       "suspended": false,
       "tenantId": null,
       "versionTag": null,
-      "timeToLive": null
+      "historyTimeToLive": null
     }
   ]
 ```

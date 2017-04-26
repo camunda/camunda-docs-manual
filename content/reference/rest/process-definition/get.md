@@ -123,9 +123,9 @@ Its properties are as follows:
     <td>The version tag of the process definition.</td>
   </tr>
     <tr>
-      <td>timeToLive</td>
+      <td>historyTimeToLive</td>
       <td>Number</td>
-      <td>Time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+      <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
     </tr>
 </table>
 
@@ -175,6 +175,6 @@ GET `/process-definition/key/invoice`
   "suspended":false,
   "tenantId":null,
   "versionTag":null,
-  "timeToLive":5
+  "historyTimeToLive":5
 }
 ```

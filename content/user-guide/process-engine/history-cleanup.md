@@ -19,21 +19,21 @@ The main configuration parameter to switch on automatic history cleanup is `enab
 To use history cleanup on regular basis batch window must be configured - the period of time during the day when the cleanup job must be run. 
 See [Configuration options][configuration-options] for details.
 
-## Time to live
-You must also specify "time to live" for each process definition which you wish to be affected by cleanup. "Time to live" means the amount of time to pass after 
+## History time to live
+You must also specify "history time to live" for each process definition which you wish to be affected by cleanup. "History time to live" means the amount of time to pass after 
 the process instance has finished, before its history will be removed from database.
 
-Use ["timeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#timeToLive">}}) of Process definition:
+Use ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historyTimeToLive">}}) of Process definition:
 ```xml
-<process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:timeToLive="5">
+<process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="5">
 ...
 </process>
 ```
-You can also update "timeToLive" for already deployed process definitions:
+You can also update "historyTimeToLive" for already deployed process definitions:
 ```java
-  processEngine.getRepositoryService().updateProcessDefinitionTimeToLive(processDefinitionId, 5);
+  processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
 ```
-or via [REST API]({{< relref "reference/rest/process-definition/put-time-to-live.md">}}).
+or via [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
 
 ## Run cleanup manually
 When you want to run cleanup only once then just use:
@@ -45,7 +45,7 @@ Also available via [REST API]({{< relref "reference/rest/history/post-history-cl
 # How it works inside?
 
 History cleanup is implemented as a job. The cleanup job runs in background each day at batch window time or at once when called manually from REST API. 
-It removes all history data for process instances that were finished "time to live" days ago. The data is removed in batches, batch size can be configured 
+It removes all history data for process instances that were finished "history time to live" days ago. The data is removed in batches, batch size can be configured 
 (See [Configuration options][configuration-options]). The job won't remove the data if its quantity is less than threshold 
 (See [Configuration options][configuration-options]). Only top-level objects (e.g. historic process instances) are being counted when finding 
 batch of data to be deleted.
