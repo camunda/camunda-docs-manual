@@ -47,12 +47,9 @@ public class ToUppercase implements JavaDelegate {
 }
 ```
 
-Note: there will be <strong>only one instance of that Java class created for the serviceTask it is
-defined on</strong>. All process-instances share the same class instance that
-will be used to call <class>execute(DelegateExecution)</class>.
-This means that the class must not use any member variables and must
-be thread-safe, since it can be executed simultaneously from different
-threads. This also influences the way Field Injection is handled.
+<div class="alert alert-info"><p>
+ Each time a delegation class referencing activity is executed, a separate instance of this class will be created. This means that each time an activity is executed there will be used another instance of the class to call `execute(DelegateExecution)`.
+</p></div>
 
 The classes that are referenced in the process definition (i.e. by using
 <code>camunda:class</code>  ) are <strong>NOT instantiated
@@ -184,9 +181,9 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
 <camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
 ```
 
-<strong> Since the Java class instance is reused, the injection only happens once, when the
-serviceTask is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them
-as immutable and not make any changes to them.</strong>
+<div class="alert alert-info"><p>
+ The injection happens each time the service task is called since a separate instance of the class will be created. When the fields are altered by your code, the values will be re-injected when the activity is executed next time.
+</p></div>
 
 
 
@@ -257,7 +254,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
 }
 ```
 
-It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
+It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.
 
 The second execution listener is called when the transition is taken. Note that the listener element
 doesn't define an event, since only take events are fired on transitions. Values in the event
