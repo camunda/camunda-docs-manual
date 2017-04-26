@@ -254,7 +254,7 @@ public class ExampleExecutionListenerOne implements ExecutionListener {
 }
 ```
 
-It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.
+It is also possible to use a delegation class that implements the <code>org.camunda.bpm.engine.delegate.JavaDelegate</code> interface. These delegation classes can then be reused in other constructs, such as a delegation for a serviceTask.
 
 The second execution listener is called when the transition is taken. Note that the listener element
 doesn't define an event, since only take events are fired on transitions. Values in the event
@@ -318,7 +318,7 @@ A task listener supports following attributes:
     }
     ```
 
-    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
+    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.
 
 *   __expression__: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
 
