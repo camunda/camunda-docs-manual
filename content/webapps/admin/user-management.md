@@ -36,6 +36,11 @@ You can also access the My Profile menu from any of the web applications by clic
 If no administrator account is configured, a setup screen will be shown on first access of a process engine through Cockpit or Tasklist . This screen allows you to configure an initial user account with administrator rights.
 Administrator users are not global but per engine. Thus, you will need to set up an admin user for each separate engine.
 
+If you installed the default Camunda webapps and demo content, Camunda was configured with several demo users. The default admin user can be accessed with the following credentials:
+
+* Username: `demo`
+* Password: `demo`
+
 
 # Administrator Account
 
