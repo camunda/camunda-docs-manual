@@ -52,12 +52,9 @@ manipulated through the {{< javadocref page="?org/camunda/bpm/engine/delegate/De
 }
 ```
 
-Note: there will be **only one instance of that Java class created for the serviceTask it is
-defined on**. All process-instances share the same class instance that
-will be used to call execute(DelegateExecution).
-This means that the class must not use any member variables and must
-be thread-safe, since it can be executed simultaneously from different
-threads. This also influences the way Field Injection is handled.
+{{< note title="Note!" class="info" >}}
+ Each time a delegation class referencing activity is executed, a separate instance of this class will be created. This means that each time an activity is executed there will be used another instance of the class to call `execute(DelegateExecution)`.
+{{< /note >}}
 
 The classes that are referenced in the process definition (i.e. by using
 `camunda:class`  ) are **NOT instantiated during deployment**.
@@ -183,8 +180,8 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
   <camunda:field name="text2" expression="Hello ${gender == 'male' ? 'Mr.' : 'Mrs.'} ${name}" />
 ```
 
-{{< note title="" class="info" >}}
-  Since the Java class instance is reused, the injection only happens once, when the serviceTask is called the first time. When the fields are altered by your code, the values won't be re-injected so you should treat them as immutable and not make any changes to them.
+{{< note title="Note!" class="info" >}}
+ The injection happens each time the service task is called since a separate instance of the class will be created. When the fields are altered by your code, the values will be re-injected when the activity is executed next time.
 {{< /note >}}
 
 
@@ -311,7 +308,7 @@ A task listener supports following attributes:
     }
     ```
 
-    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that an instance of the delegation class is created upon process deployment (as is the case with any class delegation in the engine), which means that the instance is shared between all process instance executions.
+    It is also possible to use Field Injection to pass process variables or the execution to the delegation class. Note that each time a delegation class referencing activity is executed, a separate instance of this class will be created.
 
 * **expression**: (cannot be used together with the class attribute): specifies an expression that will be executed when the event happens. It is possible to pass the DelegateTask object and the name of the event (using task.eventName) as parameter to the called object.
 
