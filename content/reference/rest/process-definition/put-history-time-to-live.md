@@ -8,7 +8,7 @@ menu:
     name: "Update time to live"
     identifier: "rest-api-process-definition-update-time-to-live"
     parent: "rest-api-process-definition"
-    pre: "PUT `/process-definition/{id}/time-to-live`"
+    pre: "PUT `/process-definition/{id}/history-time-to-live`"
 
 ---
 
@@ -16,7 +16,7 @@ Updates history time to live for process definition with given id. The field is 
 
 # Method
 
-PUT `/process-definition/{id}/time-to-live`
+PUT `/process-definition/{id}/history-time-to-live`
 
 # Parameters
 
