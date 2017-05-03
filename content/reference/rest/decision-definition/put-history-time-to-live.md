@@ -1,22 +1,22 @@
 ---
 
 title: 'Update time to live'
-weight: 145
+weight: 70
 
 menu:
   main:
     name: "Update time to live"
-    identifier: "rest-api-process-definition-update-time-to-live"
-    parent: "rest-api-process-definition"
-    pre: "PUT `/process-definition/{id}/history-time-to-live`"
+    identifier: "rest-api-decision-definition-update-time-to-live"
+    parent: "rest-api-decision-definition"
+    pre: "PUT `/decision-definition/{id}/history-time-to-live`"
 
 ---
 
-Updates history time to live for process definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for decision definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
 
 # Method
 
-PUT `/process-definition/{id}/history-time-to-live`
+PUT `/decision-definition/{id}/history-time-to-live`
 
 # Parameters
 
@@ -29,7 +29,7 @@ PUT `/process-definition/{id}/history-time-to-live`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process definition to change history time to live.</td>
+    <td>The id of the decision definition to change history time to live.</td>
   </tr>
 </table>
 
@@ -45,7 +45,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>New value for historyTimeToLive field of process definition. Can be null.</td>
+    <td>New value for historyTimeToLive field of decision definition. Can be null.</td>
   </tr>
 </table>
 
@@ -76,7 +76,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Decision definition with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -85,7 +85,7 @@ This method returns no content.
 
 ## Request
 
-PUT `/process-definition/aProcessDefinitionId/history-time-to-live`
+PUT `/decision-definition/aDecisionDefinitionId/history-time-to-live`
 ```json 
     {
       "historyTimeToLive" : 5
