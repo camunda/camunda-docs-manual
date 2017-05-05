@@ -128,6 +128,11 @@ GET `/decision-definition`
     <td>maxResults</td>
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -239,7 +244,8 @@ GET `/decision-definition?key=dish-decision&sortBy=category&sortOrder=asc`
     "deploymentId": "c627175e-41b7-11e6-b0ef-00aa004d0001",
     "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
     "decisionRequirementsDefinitionKey":"dish",
-    "tenantId": null
+    "tenantId": null,
+    "historyTimeToLive": 5
   }
 ]
 ```

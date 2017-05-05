@@ -113,6 +113,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the decision definition.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -161,6 +166,7 @@ GET `/decision-definition/key/aDecisionDefinitionKey`
   "deploymentId": "c627175e-41b7-11e6-b0ef-00aa004d0001",
   "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
   "decisionRequirementsDefinitionKey":"dish",
-  "tenantId": null
+  "tenantId": null,
+  "historyTimeToLive": 5
 }
 ```
