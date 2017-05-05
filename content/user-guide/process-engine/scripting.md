@@ -357,6 +357,23 @@ task = execution.getProcessEngineServices().getTaskService()
   .singleResult()
 ```
 
+# Printing to Console using Scripts
+
+During the execution of scripts, there are many times for logging, and debuging resons that you may want to print to the console:
+
+## Goovy
+
+```groovy
+println 'This prints to the console'
+```
+
+## Javascript
+
+```javascript
+var system = java.lang.System;
+system.out.println('This prints to the console');
+```
+
 
 # Script Source
 
