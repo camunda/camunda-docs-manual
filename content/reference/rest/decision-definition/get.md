@@ -116,7 +116,7 @@ Its properties are as follows:
   <tr>
     <td>historyTimeToLive</td>
     <td>Number</td>
-    <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+    <td>History time to live value of the decision definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
   </tr>
 </table>
 
