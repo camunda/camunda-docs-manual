@@ -114,6 +114,10 @@ GET `/case-definition`
     <td>maxResults</td>
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>History time to live value of the case definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -210,6 +214,7 @@ GET `/case-definition?keyLike=Key&sortBy=category&sortOrder=asc`
         "version":2,
         "resource":"aResourceName",
         "deploymentId":"aDeploymentId",
-        "tenantId":null
+        "tenantId":null,
+        "historyTimeToLive": 5
       }
     ]

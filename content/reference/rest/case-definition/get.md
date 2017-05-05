@@ -103,6 +103,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the case definition.</td>
   </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the case definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+  </tr>
 </table>
 
 
@@ -146,5 +151,6 @@ GET `/case-definition/key/aCaseDefinitionKey`
       "version":42,
       "resource":"aResourceName",
       "deploymentId":"aDeploymentId",
-      "tenantId":null
+      "tenantId":null,
+      "historyTimeToLive": 5
     }
