@@ -31,6 +31,10 @@ A JSON object with the following properties:
     <th>Description</th>
   </tr>
   <tr>
+    <td>processInstances</td>
+    <td>A list of process instance ids to fetch jobs, for which retries will be set.</td>
+  </tr>
+  <tr>
     <td>historicProcessInstanceQuery</td>
     <td>
       A historic process instance query like the request body described by
@@ -138,7 +142,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, e. g. historicProcessInstanceQuery is not present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, e. g. if neither processInstances, nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -155,6 +159,7 @@ Request Body:
       "historicProcessInstanceQuery": {
         "startedBefore": "2017-04-28T11:24:37"
       },
+      "processInstances": ["aProcess","secondProcess"],
       "retries" : numberOfRetries
     }
 
