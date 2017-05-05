@@ -465,6 +465,37 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# historyTimeToLive
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies the history time to live (in days) for the case definition. It is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Integer</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Any non-negative integer number.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>null - means that case definition history won't ever be removed during history cleanup run</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      Case
+    </td>
+  </tr>
+</table>
+
 # mapDecisionResult
 
 <table class="table table-striped">
