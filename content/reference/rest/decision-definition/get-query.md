@@ -128,10 +128,6 @@ GET `/decision-definition`
     <td>maxResults</td>
     <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
   </tr>
-  <tr>
-    <td>historyTimeToLive</td>
-    <td>History time to live value of the decision definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
-  </tr>
 </table>
 
 
@@ -195,6 +191,11 @@ Each decision definition object has the following properties:
     <td>tenantId</td>
     <td>String</td>
     <td>The tenant id of the decision definition.</td>
+  </tr>
+  <tr>
+    <td>historyTimeToLive</td>
+    <td>Number</td>
+    <td>History time to live value of the decision definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
   </tr>
 </table>
 
