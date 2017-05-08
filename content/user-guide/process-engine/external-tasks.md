@@ -79,7 +79,7 @@ List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalW
 
 for (LockedExternalTask task : tasks) {
   try {
-    String topic = task.getTopic();
+    String topic = task.getTopicName();
 
     // work on task for that topic
     ...
@@ -116,7 +116,7 @@ List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalW
   .execute();
 
 for (LockedExternalTask task : tasks) {
-  String topic = task.getTopic();
+  String topic = task.getTopicName();
 
   // work on task for that topic
   ...
@@ -133,7 +133,7 @@ List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalW
   .execute();
 
 for (LockedExternalTask task : tasks) {
-  String topic = task.getTopic();
+  String topic = task.getTopicName();
   String address = (String) task.getVariables().get("address");
 
   // work on task for that topic
@@ -151,7 +151,7 @@ List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalW
   .execute();
 
 for (LockedExternalTask task : tasks) {
-  String topic = task.getTopic();
+  String topic = task.getTopicName();
   String address = (String) task.getVariables().get("address");
 
   // work on task for that topic
@@ -169,7 +169,7 @@ List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalW
   .execute();
 
 for (LockedExternalTask task : tasks) {
-  String topic = task.getTopic();
+  String topic = task.getTopicName();
   MyAddressClass address = (MyAddressClass) task.getVariables().get("address");
 
   // work on task for that topic
@@ -271,7 +271,7 @@ List<LockedExternalTask> tasks =
   .execute();
 
 for (LockedExternalTask task : tasks) {
-  String topic = task.getTopic();
+  String topic = task.getTopicName();
 
   // work on task for that topic
   ...
