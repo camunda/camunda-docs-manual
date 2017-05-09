@@ -482,4 +482,24 @@ The following is a list with the most commonly used process engine configuration
     </td>
   </tr>
 
+  <tr>
+    <td><code>isDeploymentLockUsed</code></td>
+    <td>Boolean</td>
+    <td>
+        Sets if the process engine must acquire an exclusive lock when creating a deployment.
+        Default value: <code>true</code>
+    </td>
+  </tr>
+  
+  <tr>
+    <td><code>isDeploymentSynchronized</code></td>
+    <td>Boolean</td>
+    <td>
+        Sets if processing of the deployment must be synchronized. When <code>true</code> several deployments will be processed sequentially on one process engine node.
+        When <code>false</code>, they may be processed in parallel, though depending of value of <code>isDeploymentLockUsed</code> they may still be synchronized 
+        using database pessimistic lock.   
+        Default value: <code>true</code>
+    </td>
+  </tr>
+
 </table>
