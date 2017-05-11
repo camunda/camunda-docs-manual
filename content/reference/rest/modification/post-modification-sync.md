@@ -51,7 +51,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>A list of process instance ids to migrate.</td>
+    <td>A list of process instance ids to modify.</td>
   </tr>
   <tr>
     <td>processInstanceQuery</td>
@@ -117,7 +117,7 @@ This method returns no content.
 
 ## Request
 
-POST `/process-instance/modification`
+POST `/modification/execute`
 
 Request Body:
 
@@ -139,7 +139,7 @@ Request Body:
     "anotherProcessInstance"
   ],
   "processInstanceQuery": {
-    "processDefinitionId": "aProcessDefinitionId1"
+    "processDefinitionId": "aProcessDefinitionId"
   },
   "skipCustomListeners": true
 }

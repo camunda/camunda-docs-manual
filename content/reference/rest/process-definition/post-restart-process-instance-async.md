@@ -1,31 +1,42 @@
 ---
 
-title: "Execute Modification Async (Batch)"
-weight: 30
+title: 'Restart Process Instance Async'
+weight: 170
 
 menu:
   main:
-    name: "Execute Modification Async (Batch)"
-    identifier: "rest-api-modification-executeAync"
-    parent: "rest-api-modification"
-    pre: "POST `/modification/executeAsync`"
+    name: "Restart Process Instance Async"
+    identifier: "rest-api-process-definition-restart-process-instance-async"
+    parent: "rest-api-process-definition"
+    pre: "POST `/process-definition/{id}/restart-async`"
 
 ---
 
-Executes a modification asynchronously for multiple process instances. To execute a modification synchronously, 
-use the [Execute Modification]({{< relref "reference/rest/modification/post-modification-sync.md" >}}) method.
+Restarts process instances that were canceled or terminated asynchronously. To execute the restart synchronously, 
+use the [Restart Process Instance]({{< relref "reference/rest/process-definition/post-restart-process-instance-sync.md" >}}) method.
 
 For more information about the difference between synchronous and
-asynchronous execution of a modification, please refer to the related
+asynchronous execution, please refer to the related
 section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
-
 
 # Method
 
-POST `/modification/executeAsync`
-
+POST `/process-definition/{id}/restart-async`
 
 # Parameters
+
+## Path Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>The id of the process definition to be retrieved.</td>
+  </tr>
+</table>
 
 ## Request Body
 
@@ -36,30 +47,31 @@ A JSON object with the following properties:
     <th>Name</th>
     <th>Description</th>
   </tr>
-   <tr>
-    <td>processDefinitionId</td>
-    <td>The id of the process definition for the modification</td>
+  <tr>
+    <td>processInstanceIds</td>
+    <td>A list of process instance ids to restart.</td>
+  </tr>
+  <tr>
+    <td>historicProcessInstanceQuery</td>
+    <td>
+      A historic process instance query like the request body described by
+      <a href="{{< relref "reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
+        <code>POST /history/process-instance</code>
+      </a>.
+    </td>
   </tr>
   <tr>
     <td>skipCustomListeners</td>
-    <td>Skip execution listener invocation for activities that are started or ended as part of this request.</td>
+    <td>Skip execution listener invocation for activities that are started as part of this request.</td>
   </tr>
   <tr>
     <td>skipIoMappings</td>
-    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started or ended as part of this request.</td>
+    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started as part of this request.</td>
   </tr>
-  <tr>
-    <td>processInstanceIds</td>
-    <td>A list of process instance ids to modify.</td>
+   <tr>
+    <td>initialVariables</td>
+    <td>Set the initial set of variables during restart. By default, the last set of variables is used</td>
   </tr>
-  <tr>
-    <td>processInstanceQuery</td>
-    <td>
-      A process instance query like the request body described by
-      <a href="{{< relref "reference/rest/process-instance/post-query.md#request-body" >}}">
-        <code>POST /process-instance</code>
-      </a>.
-    </td>
   <tr>
     <td>instructions</td>
     <td>
@@ -67,11 +79,11 @@ A JSON object with the following properties:
       <table>
         <tr>
           <td>type</td>
-          <td><b>Mandatory.</b> One of the following values: <code>cancel</code>, <code>startBeforeActivity</code>, <code>startAfterActivity</code>, <code>startTransition</code>. A <code>startBeforeActivity</code> and <code>cancel</code> instructions request to enter a given activity. A <code>startAfterActivity</code> instruction requests to execute the single outgoing sequence flow of a given activity. A <code>startTransition</code> instruction requests to execute a specific sequence flow.</td>
+          <td><b>Mandatory.</b> One of the following values: <code>startBeforeActivity</code>, <code>startAfterActivity</code>, <code>startTransition</code>. A <code>startBeforeActivity</code>  instruction requests to enter a given activity. A <code>startAfterActivity</code> instruction requests to execute the single outgoing sequence flow of a given activity. A <code>startTransition</code> instruction requests to execute a specific sequence flow.</td>
         </tr>
         <tr>
           <td>activityId</td>
-          <td><b>Can be used with instructions of types <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>cancel</code>.</b> Specifies the activity the instruction targets.</td>
+          <td><b>Can be used with instructions of types <code>startBeforeActivity</code> and <code>startAfterActivity</code>.</b> Specifies the activity the instruction targets.</td>
         </tr>
         <tr>
           <td>transitionId</td>
@@ -126,9 +138,9 @@ properties are as follows:
     <td>Number</td>
     <td>
       Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g., for a process instance
-      modification batch this specifies the number of process instances which
-      are modified per batch execution job.
+      <code>invocationsPerBatchJob</code> times. E.g., for a restart of process instances 
+      in batch this specifies the number of process instances which
+      are restarted per batch execution job.
     </td>
   </tr>
   <tr>
@@ -171,7 +183,7 @@ properties are as follows:
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case following parameters are missing: instructions, processDefinitionId, activityId or transitionId, processInstanceIds or processInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case following parameters are missing: instructions, activityId or transitionId, processInstanceIds or historicProcessInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>
@@ -181,31 +193,28 @@ properties are as follows:
 
 ## Request
 
-POST `/modification/executeAsync`
+POST `/process-definition/aProcessDefinitionId/restart-async`
 
 Request Body:
 
 ```json
 {
-  "processDefinitionId" : "aProcessDefinitionId",
   "instructions": [
     {
       "type": "startAfterActivity",
       "activityId": "aUserTask"
-    },
-    {
-      "type": "cancel",
-      "activityId": "anotherTask",
     }
   ],
   "processInstanceIds": [
     "aProcessInstance",
     "anotherProcessInstance"
   ],
-  "processInstanceQuery": {
-    "processDefinitionId": "aProcessDefinitionId"
-  },
-  "skipCustomListeners": true
+  "initialVariables" : true,
+  "skipCustomListeners" : true,
+  "historicProcessInstanceQuery": {
+    "processDefinitionId": "aProcessDefinitionId",
+    "processInstanceBusinessKey" : "businessKey"
+  }
 }
 ```
 
