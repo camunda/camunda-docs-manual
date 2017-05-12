@@ -132,8 +132,8 @@ used:
 
 To inject values that are dynamically resolved at runtime, expressions
 can be used. Those expressions can use process variables, CDI or Spring
-beans. As already noted, an instance of the Java class is shared among
-all process-instances in a service task. To have dynamic injection of
+beans. As already noted, a separate instance of the Java class will be created
+each time the service task is executed. To have dynamic injection of
 values in fields, you can inject value and method expressions in an
 `org.camunda.bpm.engine.delegate.Expression`
 which can be evaluated/invoked using the `DelegateExecution`
