@@ -101,8 +101,7 @@ List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
   </tr>
   <tr>
     <td>historyCleanupBatchSize</td>
-    <td>Defines the quantity of top-level objects (e.g. historic process instances) to be removed at once. Default and maximum value is 500. 
-    When the configured value exceeds maximum, maximum value is used implicitely.</td>
+    <td>Defines the quantity of top-level objects (e.g. historic process instances) to be removed at once. Default and maximum value is 500.</td>
   </tr>
   <tr>
     <td>historyCleanupBatchThreshold</td>
