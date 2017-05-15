@@ -1,22 +1,30 @@
 ---
 
-title: 'Update time to live'
+title: 'Update history time to live'
 weight: 145
 
 menu:
   main:
-    name: "Update time to live"
-    identifier: "rest-api-process-definition-update-time-to-live"
+    name: "Update history time to live"
+    identifier: "rest-api-process-definition-update-history-time-to-live"
     parent: "rest-api-process-definition"
-    pre: "PUT `/process-definition/{id}/history-time-to-live`"
+    pre: "PUT `/process-definition/{id}/history-time-to-live`
+          </br>
+          PUT `/process-definition/key/{key}/history-time-to-live`
+          </br>
+          PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live`"
 
 ---
 
-Updates history time to live for process definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for process definition. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
 
 # Method
 
 PUT `/process-definition/{id}/history-time-to-live`
+
+PUT `/process-definition/key/{key}/history-time-to-live` (updates the latest version of the process definition which belongs to no tenant)
+
+PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live` (updates the latest version of the process definition for tenant)
 
 # Parameters
 
@@ -45,7 +53,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>New value for historyTimeToLive field of process definition. Can be null.</td>
+    <td>New value for historyTimeToLive field of process definition. Can be null. Can not be negative.</td>
   </tr>
 </table>
 

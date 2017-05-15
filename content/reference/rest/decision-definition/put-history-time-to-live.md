@@ -1,22 +1,30 @@
 ---
 
-title: 'Update time to live'
+title: 'Update history time to live'
 weight: 70
 
 menu:
   main:
-    name: "Update time to live"
-    identifier: "rest-api-decision-definition-update-time-to-live"
+    name: "Update history time to live"
+    identifier: "rest-api-decision-definition-update-history-time-to-live"
     parent: "rest-api-decision-definition"
-    pre: "PUT `/decision-definition/{id}/history-time-to-live`"
+    pre: "PUT `/decision-definition/{id}/history-time-to-live`
+          </br>
+          PUT `/decision-definition/key/{key}/history-time-to-live`
+          </br>
+          PUT `/decision-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live`"
 
 ---
 
-Updates history time to live for decision definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for decision definition. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
 
 # Method
 
 PUT `/decision-definition/{id}/history-time-to-live`
+
+PUT `/decision-definition/key/{key}/history-time-to-live` (updates the latest version of the decision definition which belongs to no tenant)
+
+PUT `/decision-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live` (updates the latest version of the decision definition for tenant)
 
 # Parameters
 
@@ -45,7 +53,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>New value for historyTimeToLive field of decision definition. Can be null.</td>
+    <td>New value for historyTimeToLive field of decision definition. Can be null. Can not be negative.</td>
   </tr>
 </table>
 
