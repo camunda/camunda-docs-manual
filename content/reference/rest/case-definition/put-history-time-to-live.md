@@ -8,7 +8,11 @@ menu:
     name: "Update history time to live"
     identifier: "rest-api-case-definition-update-history-time-to-live"
     parent: "rest-api-case-definition"
-    pre: "PUT `/case-definition/{id}/history-time-to-live`"
+    pre: "PUT `/case-definition/{id}/history-time-to-live`
+          </br>
+          PUT `/case-definition/key/{key}/history-time-to-live`
+          </br>
+          PUT `/case-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live`"
 
 ---
 
@@ -17,6 +21,10 @@ Updates history time to live for case definition with given id. The field is use
 # Method
 
 PUT `/case-definition/{id}/history-time-to-live`
+
+PUT `/case-definition/key/{key}/history-time-to-live` (updates the latest version of the case definition which belongs to no tenant)
+
+PUT `/case-definition/key/{key}/tenant-id/{tenant-id}/history-time-to-live` (updates the latest version of the case definition for tenant)
 
 # Parameters
 
