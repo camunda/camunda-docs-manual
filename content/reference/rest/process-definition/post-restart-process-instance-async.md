@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Restarts process instances that were canceled or terminated asynchronously. To execute the restart synchronously, 
+Restarts process instances that were canceled or terminated asynchronously. To execute the restart synchronously,
 use the [Restart Process Instance]({{< relref "reference/rest/process-definition/post-restart-process-instance-sync.md" >}}) method.
 
 For more information about the difference between synchronous and
@@ -34,7 +34,7 @@ POST `/process-definition/{id}/restart-async`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process definition to be retrieved.</td>
+    <td>The id of the process definition of the process instances to restart.</td>
   </tr>
 </table>
 
@@ -70,7 +70,7 @@ A JSON object with the following properties:
   </tr>
    <tr>
     <td>initialVariables</td>
-    <td>Set the initial set of variables during restart. By default, the last set of variables is used</td>
+    <td>Set the initial set of variables during restart. By default, the last set of variables is used.</td>
   </tr>
   <tr>
     <td>instructions</td>
@@ -138,7 +138,7 @@ properties are as follows:
     <td>Number</td>
     <td>
       Every batch execution job invokes the command executed by the batch
-      <code>invocationsPerBatchJob</code> times. E.g., for a restart of process instances 
+      <code>invocationsPerBatchJob</code> times. E.g., for a restart of process instances
       in batch this specifies the number of process instances which
       are restarted per batch execution job.
     </td>

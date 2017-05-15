@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Restarts process instances that were canceled or terminated synchronously. To execute the restart asynchronously, 
+Restarts process instances that were canceled or terminated synchronously. To execute the restart asynchronously,
 use the [Restart Process Instance Async]({{< relref "reference/rest/process-definition/post-restart-process-instance-async.md" >}}) method.
 
 For more information about the difference between synchronous and
@@ -34,7 +34,7 @@ POST `/process-definition/{id}/restart`
   </tr>
   <tr>
     <td>id</td>
-    <td>The id of the process definition to be retrieved.</td>
+    <td>The id of the process definition of the process instances to restart.</td>
   </tr>
 </table>
 
@@ -70,7 +70,7 @@ A JSON object with the following properties:
   </tr>
    <tr>
     <td>initialVariables</td>
-    <td>Set the initial set of variables during restart. By default, the last set of variables is used</td>
+    <td>Set the initial set of variables during restart. By default, the last set of variables is used.</td>
   </tr>
   <tr>
     <td>instructions</td>
