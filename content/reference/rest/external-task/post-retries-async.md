@@ -14,11 +14,6 @@ menu:
 
 
 Sets the number of retries left to execute external tasks by id asynchronously. If retries are set to 0, an incident is created.
-To set retries for multiple external tasks synchronously, use the [Set Retries For Multiple External Tasks]({{< relref "reference/rest/external-task/put-retries-sync.md" >}}) method.
-
-For more information about the difference between synchronous and
-asynchronous execution, please refer to the related
-section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
 
 # Method
 
