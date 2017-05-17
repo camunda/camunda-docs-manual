@@ -100,64 +100,81 @@ The following resources are available:
   <tr>
     <th>Resource Name</th>
     <th>Integer representation</th>
+    <th>Resource Id</th>
   </tr>
   <tr>
     <td>Application (Cockpit, Tasklist, ...)</td>
     <td>0</td>
+    <td>admin/cockpit/tasklist/*</td>
   </tr>
   <tr>
     <td>Authorization</td>
     <td>4</td>
+    <td>Authorization Id</td>
   </tr>
   <tr>
     <td>Batch</td>
     <td>13</td>
+    <td>Batch Id</td>
   </tr>
   <tr>
     <td>Decision Definition</td>
     <td>10</td>
+    <td>Decision Definition Key</td>
   </tr>
   <tr>
     <td>Deployment</td>
     <td>9</td>
+    <td>Deployment Id</td>
   </tr>
   <tr>
     <td>Filter</td>
     <td>5</td>
+    <td>Filter Id</td>
   </tr>
   <tr>
     <td>Group</td>
     <td>2</td>
+    <td>Group Id</td>
   </tr>
   <tr>
     <td>Group Membership</td>
     <td>3</td>
+    <td>Group Id</td>
   </tr>
   <tr>
     <td>Process Definition</td>
     <td>6</td>
+    <td>Process Definition Key</td>
   </tr>
   <tr>
     <td>Process Instance</td>
     <td>8</td>
+    <td>Process Instance Id</td>
   </tr>
   <tr>
     <td>Task</td>
     <td>7</td>
+    <td>Task Id</td>
   </tr>
   <tr>
     <td>Tenant</td>
     <td>11</td>
+    <td>Tenant Id</td>
   </tr>
   <tr>
     <td>Tenant Membership</td>
     <td>12</td>
+    <td>Tenant Id</td>
   </tr>
   <tr>
     <td>User</td>
     <td>1</td>
+    <td>User Id</td>
   </tr>      
 </table>
+
+**Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
 
 
 ## Authorization Type
@@ -619,4 +636,4 @@ Revoke authorizations are expensive to check. The check needs to consider the pr
 
 On these databases, revoke authorizations are effectively unusable.
 
-Also see the [Configuration Options](#checking-revoke-authorizations) section on this page.
+Also see the [Configuration Options](#check-revoke-authorizations) section on this page.
