@@ -78,52 +78,66 @@ The following resources are available:
   <tr>
     <th>Resource Name</th>
     <th>Integer representation</th>
+    <th>Resource Id</th>
   </tr>
   <tr>
     <td>Application (Cockpit, Tasklist, ...)</td>
     <td>0</td>
+    <td>admin/cockpit/tasklist/*</td>
   </tr>
   <tr>
     <td>Authorization</td>
     <td>4</td>
+    <td>Authorization Id</td>
   </tr>
   <tr>
     <td>Decision Definition</td>
     <td>10</td>
+    <td>Decision Definition Key</td>
   </tr>
   <tr>
     <td>Deployment</td>
     <td>9</td>
+    <td>Deployment Id</td>
   </tr>
   <tr>
     <td>Filter</td>
     <td>5</td>
+    <td>Filter Id</td>
   </tr>
   <tr>
     <td>Group</td>
     <td>2</td>
+    <td>Group Id</td>
   </tr>
   <tr>
     <td>Group Membership</td>
     <td>3</td>
+    <td>Group Id</td>
   </tr>
   <tr>
     <td>Process Definition</td>
     <td>6</td>
+    <td>Process Definition Key</td>
   </tr>
   <tr>
     <td>Process Instance</td>
     <td>8</td>
+    <td>Process Instance Id</td>
   </tr>
   <tr>
     <td>Task</td>
     <td>7</td>
+    <td>Task Id</td>
   </tr>
   <tr>
     <td>User</td>
     <td>1</td>
+    <td>User Id</td>
   </tr>      
 </table>
+
+**Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
 
 On top of the built-in resources, the Camunda BPM framework supports defining custom resources. Authorization on custom resources will not be automatically performed by the framework but can be performed by a process application.
 
