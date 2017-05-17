@@ -18,8 +18,9 @@ To use history cleanup on regular basis batch window must be configured - the pe
 See [Configuration options][configuration-options] for details.
 
 ## History time to live
-You must also specify "history time to live" for each process definition which you wish to be affected by cleanup. "History time to live" means the amount of time to pass after 
-the process instance has finished, before its history will be removed from database.
+You must also specify "history time to live" for each process definition, decision definition and case definition which you wish to be affected by cleanup. 
+For process and case definitions "history time to live" means the amount of days to pass after the process/case instance has finished, before its history 
+will be removed from database. For decision definition evaluation time is taken into account.
 
 Use ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historyTimeToLive">}}) of Process definition:
 ```xml
@@ -33,6 +34,8 @@ You can also update "historyTimeToLive" for already deployed process definitions
 ```
 or via [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
 
+You can define and update "historyTimeToLive" for decision definition and case definition in a similar way.
+
 ## Run cleanup manually
 When you want to run cleanup only once then just use:
 ```java
@@ -43,8 +46,7 @@ Also available via [REST API]({{< relref "reference/rest/history/post-history-cl
 # How it works inside?
 
 History cleanup is implemented as a job. The cleanup job runs in background each day at batch window time or at once when called manually from REST API. 
-It removes all history data for process instances that were finished "history time to live" days ago. The data is removed in batches, batch size can be configured 
-(See [Configuration options][configuration-options]). The job won't remove the data if its quantity is less than threshold 
+It removes all history data for process (or decision or case) instances that were finished "history time to live" days ago. The data is removed in batches, batch size can be configured 
 (See [Configuration options][configuration-options]). Only top-level objects (e.g. historic process instances) are being counted when finding 
 batch of data to be deleted.
 
@@ -54,8 +56,11 @@ it reaches the end time of batch window. The delay between such runs increases t
 # What happens in case of failure?
 
 If the job execution fails for some reason, execution will be retried several times similar to any other job. When still failing after several retries, 
-the incident will be created. After this the job won't be triggered unless history cleanup is called via API again. Though the job will be "rescheduled" 
-on engine restart. When the incident is resolved, just call the history cleanup as described above.
+the incident will be created. After this the job won't be triggered unless history cleanup is called via API again. When the incident is resolved, 
+just call the history cleanup as described above.
+
+An exception from this rule is engine restart, when job will be "rescheduled" automatically according to configured batch window and number of retries 
+will be canceled to default value. 
 
 # How to monitor job progress?
 
@@ -106,7 +111,7 @@ List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
   <tr>
     <td>historyCleanupBatchThreshold</td>
     <td>Defines the minimal quantity of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small 
-    and process engine continues to be used during history cleanup, it can happen that real SQL deletes will be called very frequiently for small amounts of data.</td>
+    and process engine continues to be used during history cleanup, it can happen that real SQL delete statements will be called very frequently for small amounts of data.</td>
   </tr>
 </table>
 
