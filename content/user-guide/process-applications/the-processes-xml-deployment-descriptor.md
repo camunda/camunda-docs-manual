@@ -120,7 +120,7 @@ For [Multi-Tenancy with Tenant-Identifiers]({{< relref "user-guide/process-engin
 xmlns="http://www.camunda.org/schema/1.0/ProcessApplication"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <process-archive name="loan-approval" tenandId="tenant1">
+  <process-archive name="loan-approval" tenantId="tenant1">
     <process-engine>default</process-engine>
     <properties>
       <property name="isDeleteUponUndeploy">false</property>
