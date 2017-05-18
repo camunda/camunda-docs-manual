@@ -66,6 +66,10 @@ A JSON object with the following properties:
     <td>Filter by variable value. May be <code>String</code>, <code>Number</code> or <code>Boolean</code>.</td>
   </tr>
   <tr>
+    <td>variableTypeIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>

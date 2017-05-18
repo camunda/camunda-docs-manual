@@ -44,6 +44,10 @@ GET `/history/variable-instance`
     <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
   <tr>
+    <td>variableTypeIn</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
