@@ -12,7 +12,9 @@ menu:
 
 ---
 
-Retrieves the form variables for a task. The form variables take form data specified on the task into
+Retrieves the form variables for a task (only if they are defined via the
+[Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}) approach).
+The form variables take form data specified on the task into
 account. If form fields are defined, the variable types and
 default values of the form fields are taken into account.
 

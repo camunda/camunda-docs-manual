@@ -15,8 +15,9 @@ menu:
 
 ---
 
-Retrieves the start form variables for a process definition. The start form variables take form data specified on the start event into
-account. If form fields are defined, the variable types and default values of the form fields are taken into account.
+Retrieves the start form variables for a process definition (only if they are defined via the [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}) approach).
+The start form variables take form data specified on the start event into account. If form fields are defined,
+the variable types and default values of the form fields are taken into account.
 
 # Method
 
