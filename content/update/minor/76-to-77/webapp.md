@@ -1,16 +1,16 @@
 ---
 
-title: "Update Web Application from 7.6 to 7.7"
+title: "Update Web Application Plugins from 7.6 to 7.7"
 
 menu:
   main:
-    name: "Web Application"
+    name: "Web Application Plugins"
     identifier: "migration-guide-76-webapp"
     parent: "migration-guide-76"
 
 ---
 
-This page describes the changes in web applications.
+This page describes the changes in web application plugins.
 
 # Tasklist translations
 
