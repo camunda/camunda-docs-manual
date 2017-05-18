@@ -67,7 +67,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variableTypeIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types.</td>
+    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".
+    </td>
   </tr>
   <tr>
     <td>processInstanceId</td>
