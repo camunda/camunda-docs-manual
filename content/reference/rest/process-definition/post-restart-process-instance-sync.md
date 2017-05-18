@@ -17,7 +17,7 @@ use the [Restart Process Instance Async]({{< relref "reference/rest/process-defi
 
 For more information about the difference between synchronous and
 asynchronous execution, please refer to the related
-section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
+section of the [user guide]({{< relref "user-guide/process-engine/process-instance-restart.md#execution" >}}).
 
 # Method
 
@@ -72,6 +72,11 @@ A JSON object with the following properties:
     <td>initialVariables</td>
     <td>Set the initial set of variables during restart. By default, the last set of variables is used.</td>
   </tr>
+  <tr>
+    <td>withoutBusinessKey</td>
+    <td>Do not take over the business key of the historic process instance.</td>
+  </tr>
+  <tr>
   <tr>
     <td>instructions</td>
     <td>
@@ -146,6 +151,7 @@ Request Body:
   ],
   "initialVariables" : true,
   "skipCustomListeners" : true,
+  "withoutBusinessKey" : true,
   "historicProcessInstanceQuery": {
     "processDefinitionId": "aProcessDefinitionId",
     "processInstanceBusinessKey" : "businessKey"

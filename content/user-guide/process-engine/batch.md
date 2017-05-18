@@ -65,6 +65,9 @@ Currently supported batch types:
 - [Cancellation of running Process Instances][process-instance-cancellation]
 - [Deletion of Historic Process Instances][process-instance-deletion]
 - [Setting retries of jobs associated with Process Instances][set-job-retries]
+- [Process Instance Modification][process-instance-modification]
+- [Process Instance Restart][process-instance-restart]
+- [Setting retries of external tasks][set-external-tasks-retries]
 
 Java API can be used to create Batch command, please refer to specific commands for
 exact usage example.
@@ -298,3 +301,6 @@ processEngine.getManagementService()
 [job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
 [job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
 [job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
+[set-external-tasks-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
+[process-instance-restart]: ({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
+[process-instance-modification]: ({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})

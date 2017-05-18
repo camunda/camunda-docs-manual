@@ -16,6 +16,9 @@ The following operations can be executed asynchronously
 - [Cancellation of running Process Instances](#cancellation-of-running-process-instances)
 - [Deletion of Historic Process Instances](#deletion-of-historic-process-instances)
 - [Setting retries of jobs associated with Process Instances](#setting-retries-of-jobs-associated-with-process-instances)
+- [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+- [Process Instance Restart]({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
+- [Setting retries of external tasks](#setting-retries-of-external-tasks)
 
 All batch operations rely on corresponding methods that provide the possibility to
 operate on a list of entities synchronously. Please refer to the general [Batch][batch] documentation to
@@ -54,6 +57,16 @@ Setting retries of jobs associated with process instances can be performed async
 List<String> historicProcessInstanceIds = ...;
 historyService.deleteHistoricProcessInstancesAsync(
         historicProcessInstanceIds, TEST_REASON);
+```
+
+## Setting Retries Of External Tasks
+
+Setting retries of external tasks can be performed asynchronously using the following Java API method invocation:
+
+```java
+List<String> externalTaskIds = ...;
+externalTaskService.setRetriesAsync(
+        externalTaskIds, TEST_REASON);
 ```
 
 [batch-migration]: {{< relref "user-guide/process-engine/process-instance-migration.md#asynchronous-batch-migration-execution" >}}
