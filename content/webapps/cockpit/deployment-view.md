@@ -38,6 +38,14 @@ You can redeploy an existing deployment to increase the version of all definitio
 
 You can also only redeploy a single resource within the deployment: Navigate to the resource and click the {{< glyphicon name="open" text=" Redeploy">}} button to only redeploy this single resource. This is only possible for resources which contain definitions.
 
+# Create Deployment
+
+{{< enterprise >}}
+  Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
+You can create new deployment. To do so, click on deploy icon {{< glyphicon name="open" text="deploy" >}} that appears when hovering over a list of deployments. Deploy dialog will open. Specify name of the deployment and select files for this deployment by clicking "choose files" button. Confirm deployment with "deploy" button. Confirmation notification with link to deployment details should be appear.
+
 # Definition Resources
 
 For resources that contain definitions (BPMN, DMN and CMMN files), a preview of the diagram or the table is displayed on the right side of the page as well as the version number of the definitions contained in this resource. At the bottom of the page, there is a list of definitions with a link to the respective definition pages. The enterprise version also includes the possibility to [edit DMN tables directly on the page]({{< relref "webapps/cockpit/dmn/live-editing.md" >}}).
