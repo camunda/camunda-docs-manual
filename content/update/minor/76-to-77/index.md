@@ -26,7 +26,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 Noteworthy new Features and Changes in 7.7:
 
 * [New Batch API for multiple process instances modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
-* [New Batch API for restart of multiple process instances]{{< note title="TODO" class="info" >}}TODO add link after CAM-7806{{< /note >}}
+* [New Batch API for restart of multiple process instances]({{< relref "user-guide/process-engine/process-instance-restart.md" >}})
 * [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md" >}})
 * [New cryptographic hash function with salt] ({{< relref "user-guide/process-engine/password-hashing.md" >}})
 * [External tasks history]({{< relref "reference/rest/history/external-task-log/index.md" >}})
