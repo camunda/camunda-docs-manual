@@ -16,7 +16,7 @@ menu:
 
 ---
 
-Updates history time to live for process definition. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for process definition. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}}).
 
 # Method
 

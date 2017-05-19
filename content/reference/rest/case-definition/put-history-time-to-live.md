@@ -16,7 +16,7 @@ menu:
 
 ---
 
-Updates history time to live for case definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md">}}).
+Updates history time to live for case definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}}).
 
 # Method
 

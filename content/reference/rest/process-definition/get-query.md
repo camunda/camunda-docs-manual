@@ -228,7 +228,7 @@ Each process definition object has the following properties:
   <tr>
       <td>historyTimeToLive</td>
       <td>Number</td>
-      <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history-cleanup.md">}}">History cleanup</a>.</td>
+      <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
     </tr>
 </table>
 
