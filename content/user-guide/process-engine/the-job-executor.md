@@ -370,11 +370,25 @@ In the scenario of an embedded process engine, the default implementation for th
 
 ## Failed Jobs
 
-Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3). It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job. The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries is exhausted (the value of the RETRIES&#95; column equals 0), the job is not executed any more and the engine stops at this job, signaling that it cannot proceed.
+Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3). 
+It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job. 
+The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; 
+by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries 
+is exhausted (the value of the RETRIES&#95; column equals 0), the job is not executed any more and the engine stops at this job, signaling that it cannot proceed.
 
 {{< note title="" class="info" >}}
 While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
 {{< /note >}}
+
+If incident creation is enabled for jobs, then after job retries are depleted the incident will be created (see [(De-)Activate Incidents]({{< relref "user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
+Incidents and historic incidents related with the job can be requested via Java API like this:
+```java
+List<Incident> incidents = engineRule.getRuntimeService()
+        .createIncidentQuery().configuration(jobId).list();
+
+List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
+        .createHistoricIncidentQuery().configuration(jobId).list();
+```
 
 ### Custom Retry Configuration
 
