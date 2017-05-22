@@ -25,9 +25,10 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.7:
 
+* [Deploy Processes, Decisions and Cases from Cockpit]({{< relref "webapps/cockpit/deployment-view.md#create-deployment" >}})
 * [New Batch API for multiple process instances modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
-* [New Batch API for restart of multiple process instances]({{< relref "user-guide/process-engine/process-instance-restart.md" >}})
-* [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup" >}})
+* [Process instance restart + Batch API]({{< relref "user-guide/process-engine/process-instance-restart.md" >}})
+* [Automatic cleanup of historic data based on TTL]({{< relref "user-guide/process-engine/history.md#history-cleanup" >}})
 * [New cryptographic hash function with salt] ({{< relref "user-guide/process-engine/password-hashing.md" >}})
 * [External tasks history]({{< relref "reference/rest/history/external-task-log/index.md" >}})
 
