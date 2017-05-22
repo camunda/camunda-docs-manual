@@ -14,7 +14,7 @@ menu:
 
 {{< img src="../img/cockpit-deployments-page.png" title="Cockpit Deployment View" >}}
 
-The deployment view of Cockpit shows an overview of all deployments, their resources and the content of these resources. It allows the deletion of existing deployments as well as redeployment of old resources. The content of resources within deployments can be displayed. It is also possible to download single resources from this view.
+The deployment view of Cockpit shows an overview of all deployments, their resources and the content of these resources. It allows the deletion of existing deployments as well as redeployment of old resources and the creation of new deployments. The content of resources within deployments can be displayed. It is also possible to download single resources from this view.
 
 # Search
 
@@ -44,7 +44,7 @@ You can also only redeploy a single resource within the deployment: Navigate to 
   Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-You can create new deployment. To do so, click on deploy icon {{< glyphicon name="open" text="deploy" >}} that appears when hovering over a list of deployments. Deploy dialog will open. Specify name of the deployment and select files for this deployment by clicking "choose files" button. Confirm deployment with "deploy" button. Confirmation notification with link to deployment details should be appear.
+You can create a new deployment. To do so, click on the deploy icon {{< glyphicon name="open" text="deploy" >}} that appears when hovering over a list of deployments. The deploy dialog will open. Specify the name of the deployment and select files for this deployment by clicking on the "choose files" button. Confirm the deployment with the "deploy" button. A confirmation notification with a link to the deployment details appears.
 
 # Definition Resources
 
