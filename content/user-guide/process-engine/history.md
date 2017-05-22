@@ -857,6 +857,7 @@ Please have a look at this [complete example][2] to get a better overview.
 
 When used intensively process engine can produce huge amount of history data. History cleanup functionality helps to regularly remove "outdated" 
 data from history tables. It will delete:
+
 * historic process instances plus all related historic data (e.g. historic variable instances, historic task instances, all comments and attachments related with them etc.)
 * historic decision instances plus all related historic data (i.e. historic decision input and output instances)
 * historic case instances plus all related historic data (e.g. historic variable instances, historic task instances etc.)
@@ -869,7 +870,7 @@ You must specify "history time to live" for each process definition, decision de
 For process and case definitions "history time to live" means the amount of days to pass after the process/case instance has finished, before its history 
 will be removed from database. For decision definition evaluation time is taken into account.
 
-Use ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historyTimeToLive">}}) of Process definition:
+Use ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of Process definition:
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="5">
 ...
