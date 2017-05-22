@@ -105,12 +105,12 @@ The following resources are available:
   <tr>
     <td>Application (Cockpit, Tasklist, ...)</td>
     <td>0</td>
-    <td>cockpit/tasklist/*</td>
+    <td>admin/cockpit/tasklist/*</td>
   </tr>
   <tr>
     <td>Authorization</td>
     <td>4</td>
-    <td>Authorization Id</td>s
+    <td>Authorization Id</td>
   </tr>
   <tr>
     <td>Batch</td>
