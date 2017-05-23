@@ -899,9 +899,9 @@ Also available via [REST API]({{< relref "user-guide/process-engine/history.md#h
 
 ## Internal Implementation
 
-History cleanup is implemented as a job. The cleanup job runs in background each day at batch window time or at once when called manually from REST API. 
+History cleanup is implemented as a job. The cleanup job runs in background each day at batch window time or at once when called manually. 
 It removes all history data for process (or decision or case) instances that were finished "history time to live" days ago. The data is removed in batches of configurable size 
-(See [Configuration options][configuration-options]). Only top-level objects (e.g. historic process instances) are being counted when finding 
+(see [Configuration options][configuration-options]). Only top-level objects (e.g. historic process instances) are being counted when finding 
 batch of data to be deleted.
 
 In case when job can't find anything to delete (or not enough data to overpass the threshold), it will be rescheduled to the later time until 
