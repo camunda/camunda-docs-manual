@@ -855,22 +855,22 @@ Please have a look at this [complete example][2] to get a better overview.
 
 # History Cleanup
 
-When used intensively process engine can produce huge amount of history data. History cleanup functionality helps to regularly remove "outdated" 
-data from history tables. It will delete:
+When used intensively, the process engine can produce a huge amount of historic data. The history cleanup functionality helps to regularly remove "outdated" 
+data from history tables. It deletes:
 
-* historic process instances plus all related historic data (e.g. historic variable instances, historic task instances, all comments and attachments related with them etc.)
-* historic decision instances plus all related historic data (i.e. historic decision input and output instances)
-* historic case instances plus all related historic data (e.g. historic variable instances, historic task instances etc.)
+* Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, all comments and attachments related to them, etc.)
+* Historic decision instances plus all related historic data (i.e., historic decision input and output instances)
+* Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
 
-History cleanup can be used on regular basis (automatically) or for one-run cleanup (manual call).
+History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
 ## History Time to Live
 
-You must specify "history time to live" for each process definition, decision definition and case definition which you wish to be affected by cleanup. 
-For process and case definitions "history time to live" means the amount of days to pass after the process/case instance has finished, before its history 
-will be removed from database. For decision definition evaluation time is taken into account.
+You must specify "history time to live" for each process definition, decision definition and case definition which should be affected by the cleanup. 
+For process and case definitions "history time to live" means the amount of days that pass, after the process/case instance has finished, before its history 
+is removed from the database. For decision definitions, evaluation time is taken into account.
 
-Use ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of Process definition:
+Use the ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of the process definition:
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="5">
 ...
@@ -880,18 +880,18 @@ You can also update "historyTimeToLive" for already deployed process definitions
 ```java
   processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
 ```
-or via [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
+or via the [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
 
-You can define and update "historyTimeToLive" for decision definition and case definition in a similar way.
+You can define and update "historyTimeToLive" for decision definitions and case definitions in a similar way.
 
 ## Periodic Run
 
-To use history cleanup on regular basis batch window must be configured - the period of time during the day when the cleanup job must be run. 
+To use history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup job is to run. 
 See [Configuration options][configuration-options] for details.
 
 ## Manual Run
 
-When you want to run cleanup only once then just use:
+When you only want to run the cleanup a single time, then use:
 ```java
   processEngine.getHistoryService().cleanUpHistoryAsync(true);
 ```
@@ -899,33 +899,33 @@ Also available via [REST API]({{< relref "user-guide/process-engine/history.md#h
 
 ## Internal Implementation
 
-History cleanup is implemented as a job. The cleanup job runs in background each day at batch window time or at once when called manually. 
-It removes all history data for process (or decision or case) instances that were finished "history time to live" days ago. The data is removed in batches of configurable size 
-(see [Configuration options][configuration-options]). Only top-level objects (e.g. historic process instances) are being counted when finding 
-batch of data to be deleted.
+History cleanup is implemented as a job. The cleanup job runs in the background every day at the batch window time or immediately when called manually. 
+It removes all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of 
+configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding 
+a batch of data to be deleted.
 
-In case when job can't find anything to delete (or not enough data to overpass the threshold), it will be rescheduled to the later time until 
-it reaches the end time of batch window. The delay between such runs increases twice each time unless it reaches maximum value (1 hour). This backoff behaviour only happens 
-in case of regular scheduled run, in case of manual run cleanup will stop, when there is no more data to be deleted.
+In cases when a job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
+the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour 
+only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.
 
-If the job execution fails for some reason, execution will be retried several times similar to any other job (see `defaultNumberOfRetries` configuration parameter
-[here]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after several retries, 
-the incident will be created. After this the job won't be triggered unless one of the following actions is performed:
+If the job execution fails for some reason, execution is retried several times, similar to any other job (see the `defaultNumberOfRetries` configuration 
+parameter [here]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after 
+several retries, an incident is created. After this, the job isn't triggered unless one of the following actions is performed:
 
-* history cleanup is called manually
-* engine is restarted (this will cancel the number of job retries to the default value)
-* manually set number of retries > 0 to history cleanup job (e.g. via [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
+* History cleanup is called manually
+* Engine is restarted (this resets the number of job retries to the default value)
+* Manually set the number of retries to >0 for the history cleanup job (e.g., via the [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
 
 ## Job Progress
 
-History cleanup is performed within one and the same job that runs several times. This job has unique id which can be found in response of history cleanup call. 
-It can also be found by this request:
+History cleanup is performed within a single job that runs several times. This job has a unique id which can be 
+found in the response of the history cleanup call. It can also be found with this request:
 ```java
 String historyCleanupJobId = processEngine.getHistoryService()
         .findHistoryCleanupJob().getJobId();
 ```
 
-`jobId` can be used to request [job logs] ({{< relref "reference/rest/history/job-log/get-job-log-query.md">}}) 
+The `jobId` can be used to request [job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md">}}) 
 and [information about incidents]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs">}}).
 
 [configuration-options]: {{< relref "reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}

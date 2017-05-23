@@ -380,8 +380,8 @@ is exhausted (the value of the RETRIES&#95; column equals 0), the job is not exe
 While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
 {{< /note >}}
 
-If incident creation is enabled for jobs, then after job retries are depleted the incident will be created (see [(De-)Activate Incidents]({{< relref "user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
-Incidents and historic incidents related with the job can be requested via Java API like this:
+If incident creation is enabled for jobs, then once job retries are depleted, an incident is created (see [(De-)Activate Incidents]({{< relref "user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
+Incidents and historic incidents related to the job can be requested via Java API like this:
 ```java
 List<Incident> incidents = engineRule.getRuntimeService()
         .createIncidentQuery().configuration(jobId).list();
