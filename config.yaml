@@ -23,6 +23,7 @@ params:
     version: "7.6"
     versions:
       - "latest"
+      - "7.7"
       - "7.6"
       - "7.5"
       - "7.4"
