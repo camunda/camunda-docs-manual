@@ -26,7 +26,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 Noteworthy new Features and Changes in 7.7:
 
 * [Deploy Processes, Decisions and Cases from Cockpit]({{< relref "webapps/cockpit/deployment-view.md#create-deployment" >}})
-* [New Batch API for multiple process instances modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+* [New Batch API for modification of multiple process instances]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
 * [Process instance restart + Batch API]({{< relref "user-guide/process-engine/process-instance-restart.md" >}})
 * [Automatic cleanup of historic data based on TTL]({{< relref "user-guide/process-engine/history.md#history-cleanup" >}})
 * [New cryptographic hash function with salt] ({{< relref "user-guide/process-engine/password-hashing.md" >}})
@@ -47,7 +47,7 @@ Every Camunda installation requires a database schema update.
 
     * `$DATABASENAME_engine_7.6_to_7.7.sql`
 
-    The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there will be any failures during the update process.
+    The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.6.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
