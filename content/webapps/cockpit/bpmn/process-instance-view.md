@@ -39,6 +39,12 @@ In the incidents tab you can click on the incident message name, which will open
 The user tasks tab allows managing users and groups for selected user tasks. Hit the {{< glyphicon name="user" >}} or {{< glyphicon name="th" >}} button to open the corresponding menu.
 
 
+# Filter for Variables
+
+{{< img src="../../img/variable-filter.png" title="Filter Variables" >}}
+
+In the variables tab, you can filter for variables by variable name, activity instance id and variable value by using search pills. To do so, click in the empty search field and select a criterion. Next, fill in the respective values for the search pill. You can combine multiple search pills to narrow down the results. The total amount of results that suit the search query is displayed to the right. Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+
 # Add Variables
 
 {{< img src="../../img/cockpit-add-variables.png" title="Add Variables" >}}
