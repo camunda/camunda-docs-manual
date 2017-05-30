@@ -278,6 +278,17 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>enableExceptionsAfterUnhandledBpmnError</code></td>
+    <td>Boolean</td>
+    <td>
+        If set to <code>true</code>, Process Engine Exception is thrown when <a href="{{< relref "reference/bpmn20/events/error-events.md#unhandled-bpmn-error">}}">unhandled BPMN Error</a> occurs. Default value: <code>false</code>
+      <p>
+        <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+      </p>
+    </td>
+  </tr>
+
+  <tr>
     <td><code>enableExpressionsInAdhocQueries</code></td>
     <td>Boolean</td>
     <td>
@@ -424,7 +435,7 @@ The following is a list with the most commonly used process engine configuration
       </p>
     </td>
 
-    <tr>
+  <tr>
     <td><code>tenantCheckEnabled</code></td>
     <td>Boolean</td>
     <td>

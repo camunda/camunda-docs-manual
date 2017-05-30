@@ -160,6 +160,13 @@ The errorCode is used to match the errors that are caught:
 *   If the errorCodeVariable is set, the error code can be retrieved using this variable.
 *   If the errorMessageVariable is set, the error message can be retrieved using this variable.
 
+
+# Unhandled BPMN Error
+
+It can happens that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
+This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code> and Process Engine Exception will be thrown if unhandled BPMN Error occurs.
+
+
 # Catch and Re-Throw Pattern
 
 An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess). 
