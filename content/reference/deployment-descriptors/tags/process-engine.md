@@ -518,7 +518,7 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered 
     to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each 
-    day at 20:00 and finishes the next day at 01:00).</td>
+    day at 20:00 and finishes the next day at 01:00). Default value is <code>00:00</code>.</td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchSize</code></td>
