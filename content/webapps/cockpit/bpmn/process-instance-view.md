@@ -57,4 +57,4 @@ Edit variables in the list of variables by using the {{< glyphicon name="pencil"
 
 {{< img src="../../img/cockpit-cancel-process-instance.png" title="Cancel Instances" >}}
 
-In the process instance view you can cancel a single process instance. Hit the {{< glyphicon name="remove-circle" >}} button on the right side. After you have confirmed this step the runtime data of the canceled instance will be deleted.
+In the process instance view you can cancel a single process instance. Hit the {{< glyphicon name="remove" >}} button on the right side. In the dialog that appears, you can choose to skip custom listeners and to skip I/O mappings. After you have completed this step, a confirmation dialog appears and the runtime data of the canceled instance is deleted.
