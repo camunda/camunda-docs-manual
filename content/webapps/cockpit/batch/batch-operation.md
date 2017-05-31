@@ -25,12 +25,13 @@ It is possible to execute the following batch operations on process instances:
 - Delete historic process instances
 - Set retries of jobs
 
-after selecting the operation, fields with additional data required to perform the operation may appear. In addition to the ability to specify the
-desired operation, one can also specify a search query which will define the affected process instances. Please note that some operations
-can be only performed on running process instances, while others can only be executed on finished process instances. You will see an
+After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
+When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. In addition to the
+ability to specify the desired operation, a search query can be specified which defines the affected process instances. Please note that 
+some operations can only be executed on running process instances, while others can only be executed on finished process instances. You will see an
 appropriate notice once the operation type is selected.
 
-Navigation to the next step will be disabled as long as all required data to perform the operation is not filled out.
+Navigation to the next step is disabled as long as all required data to perform the operation is not filled out.
 
 # Confirmation Of Operation
 
