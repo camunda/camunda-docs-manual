@@ -364,6 +364,7 @@ task = execution.getProcessEngineServices().getTaskService()
 Camunda's Java API provides access to Camunda's process engine services; these services can be accessed using Scripts:
 
 [Process Engine Services](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.3/org/camunda/bpm/engine/ProcessEngineServices.html)
+[Public Java API of Camunda BPM Engine](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/package-summary.html)
 
 Example of creating a BPMN Message that correlates with the message key "work":
 
