@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Finds history cleanup job (See [History cleanup]({{< relref "user-guide/process-engine/history-cleanup.md#how-to-monitor-job-progress">}})).
+Finds history cleanup job (See [History cleanup]({{< relref "user-guide/process-engine/history.md#job-progress">}})).
 
 # Method
 

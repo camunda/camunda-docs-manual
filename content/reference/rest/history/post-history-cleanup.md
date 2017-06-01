@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Schedules asynchronous history cleanup (See [History cleanup]{{< relref "user-guide/process-engine/history.md#history-cleanup">}}).
+Schedules asynchronous history cleanup (See [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}})).
 
 
 # Method
