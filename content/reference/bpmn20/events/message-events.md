@@ -172,7 +172,15 @@ void messageEventReceived(String messageName, String executionId);
 void messageEventReceived(String messageName, String executionId, HashMap<String, Object> processVariables);
 ```
 
+### Triggering a message using an expression
 
+A End and Intermediate throw message event can trigger a message without a java delegate by using expressions. A expression can be used to trigger a message:
+
+```
+${execution.getProcessEngineServices().getRuntimeService().createMessageCorrelation("work").correlateWithResult()}
+```
+
+Where the triggered message correlates with the message catch event "work". See the [runtime service Java API docs](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/RuntimeService.html) for more options.
 
 ## Querying for Message Event Subscriptions
 
