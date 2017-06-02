@@ -97,6 +97,24 @@ The method `SpinJsonNode#value()` can be used to get the Java equivalent of a St
   * `#numberValue()` - gets a Java `Number` representation of the value or throws an exception if the value is not a Number
   * `#boolValue()` - gets a Java `Boolean` representation of the value or throws an exception if the value is not a Boolean
 
+## Avalaible property and value type checks
+
+1. `isObject()` returns boolean
+1. `hasProp()` returns boolean
+1. `isBoolean()` returns boolean
+1. `isNumber()` returns boolean
+1. `isString()` returns boolean
+1. `isNull()` returns boolean
+1. `isValue()` returns boolean
+1. `isArray()` returns boolean
+
+Script example(javascript):
+
+```javascript
+var json = S('{"over18":false}');
+json.prop('over18').isBoolean() //returns true
+```
+
 ## Fetch Array of Data
 
 You can also fetch a list of items if your property is an array of data.
