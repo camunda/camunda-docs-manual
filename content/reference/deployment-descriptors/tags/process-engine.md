@@ -542,4 +542,9 @@ The following is a list with the most commonly used process engine configuration
     <td>Defines the minimum amount of top-level objects required for data to be removed. Default value is 10. Hint: if the value is too small and the process 
     engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.</td>
   </tr>
+  <tr>
+    <td><code>historyCleanupMetricsEnabled</code></td>
+    <td>Boolean</td>
+    <td>Activates metrics for history cleanup. Default value is <code>true</code>;.</td>
+  </tr>
 </table>

@@ -39,7 +39,10 @@ GET `/metrics`
       <code>job-successful</code>,
       <code>job-failed</code>,
       <code>job-locked-exclusive</code>,
-      <code>executed-decision-elements</code>
+      <code>executed-decision-elements</code>,
+      <code>history-cleanup-removed-process-instances</code>,
+      <code>history-cleanup-removed-case-instances</code>,
+      <code>history-cleanup-removed-decision-instances</code>
     </td>
   </tr>
   <tr>
