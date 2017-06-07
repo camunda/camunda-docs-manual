@@ -160,6 +160,25 @@ To get around this limitation, the solution is to explicitly model the loop in y
 
 Be assured that we have the loop marker in our backlog to be added to the engine.
 
+## JSON Collections with Multi-Instance Collections
+
+JSON Arrays that are created with Camunda SPIN can be used as Collections for a Multi-Instance Collection.  Consider the following javascript example:
+
+```javascript
+var collection = S('{ "collection" : ["System 1", "System 3"] }');
+execution.setVariable("collection", collection)
+```
+
+In this example, `collection` has a array of strings.  We want to inject that array into them multi-instance activity's `collection` extension element.
+
+Use a expression in the multi-instance activity's `Collection` property:
+
+```
+${collection.prop("collection").elements()}
+```
+
+This uses the SPIN's JSON `.prop()` and `.elements()` to return the JSON array.  Set the multi-instance activity's `Element Variable` to a variable name that will contain the array item.  To access the value of the element, you can use `.value()` in your Element Variable.
+
 
 # Compensation
 
