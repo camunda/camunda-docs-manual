@@ -18,6 +18,7 @@ This document guides you through the update from Camunda BPM `7.6.x` to `7.7.0`.
 2. For administrators and developers: [Rolling Update](#rolling-update)
 3. For administrators and developers: [Full Distribution Update](#full-distribution)
 4. For administrators: [Standalone Web Application](#standalone-web-application)
+4. For administrators: [Updating a Tasklist Translation File]({{< relref "#tasklist-translation-file" >}})
 5. For administrators and developers: [Application with Embedded Process Engine Update](#application-with-embedded-process-engine)
 
 
@@ -56,7 +57,7 @@ Every Camunda installation requires a database schema update.
 
 If you do not know what a rolling update in the context of Camunda means, please refer to the [Rolling Update documentation](../../rolling-update/).
 
-In the context of a rolling update, a user created with an engine `A` of Camunda version >= 7.7 cannot be authenticated with an engine `B` of Camunda version <= 7.6. The reason is that the Camunda version 7.7 adds [salt to password hashing](../../../user-guide/process-engine/password-hashing/), thus, the older engine `B` is not aware of salt and unable to create the same hashed password as engine `A`.	
+In the context of a rolling update, a user created with an engine `A` of Camunda version >= 7.7 cannot be authenticated with an engine `B` of Camunda version <= 7.6. The reason is that the Camunda version 7.7 adds [salt to password hashing](../../../user-guide/process-engine/password-hashing/), thus, the older engine `B` is not aware of salt and unable to create the same hashed password as engine `A`.
 
 To circumvent that problem you can either update all engines to the version >= 7.7 or create all users exclusively in the engine with version <= 7.6.
 
@@ -104,6 +105,30 @@ If a database other than the default H2 database is used, the following steps mu
    section
 4. Deploy the new and configured standalone web application to the server
 
+# Tasklist Translation File
+
+The following labels must be added to the Tasklist locale file:
+
+* `LOGOUT_SUCCESSFUL`
+* `LOGOUT_THANKS`
+* `MORNING`
+* `DAY`
+* `AFTERNOON`
+* `EVENING`
+* `NIGHT`
+* `FAILED_TO_DISPLAY_RESOURCE`
+* `AUTHENTICATION_FAILED`
+* `LOGIN_ERROR_MSG`
+* `Username`
+* `Password`
+* `LOGIN_FAILED`
+* `CLOSE_TASK`
+* `TASK_HAS_BEEN_REMOVED`
+* `SHOW_LESS`
+* `SHOW_MORE`
+
+Have a look at what changed in the [english translation file](https://github.com/camunda/camunda-tasklist-translations/commit/43a649eddc65e68b825454be8ee6418921d91e5d) for a basis to translate.
+
 # Application with Embedded Process Engine
 
 This section is applicable if you have a custom application with an **embedded process engine**.
@@ -117,5 +142,3 @@ Update the dependencies declared in your application's `pom.xml` file to the new
 * ...
 
 There are no new mandatory dependencies. That means, updating the version should suffice to migrate a process application in terms of dependencies.
-
-
