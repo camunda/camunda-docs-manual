@@ -336,11 +336,13 @@ They can be accessed directly by the name of the variable (i.e., `sum`). This do
 JRuby where you have to access the variable as a ruby global variable (prepend with a dollar sign,
 i.e., `$sum`)
 
-There are also special variables like `execution`, which is always available if the script is
-executed in an execution scope (e.g., in a script task), `task`, which is available if the script is
-executed in a task scope (e.g., a task listener) and `connector`, which is available if the script is
-executed in a connector variable scope (e.g., outputParameter of a camunda:connector). These
-variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
+There are also special variables:
+
+1. `execution`, which is always available if the script is executed in an execution scope (e.g., in a script task) ([`DelegateExecution`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/delegate/DelegateExecution.html)).
+1. `task`, which is available if the script is executed in a task scope (e.g., a task listener) ([`DelegateTask`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/delegate/DelegateTask.html)).
+1. `connector`, which is available if the script is executed in a connector variable scope (e.g., outputParameter of a camunda:connector) ([`ConnectorVariableScope`](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/connect/plugin/impl/ConnectorVariableScope.html)). 
+
+These variables correspond to the `DelegateExecution`, `DelegateTask` or resp. `ConnectorVariableScope`
 interface which means that it can be used to get and set variables or access process engine services.
 
 ```java
@@ -356,6 +358,20 @@ task = execution.getProcessEngineServices().getTaskService()
   .taskDefinitionKey("task")
   .singleResult()
 ```
+
+# Accessing Process Engine Services using Scripts
+
+Camunda's Java API provides access to Camunda's process engine services; these services can be accessed using Scripts:
+
+[Process Engine Services](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.3/org/camunda/bpm/engine/ProcessEngineServices.html)
+[Public Java API of Camunda BPM Engine](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.7/org/camunda/bpm/engine/package-summary.html)
+
+Example of creating a BPMN Message that correlates with the message key "work":
+
+```javascript
+execution.getProcessEngineServices().getRuntimeService().createMessageCorrelation("work").correlateWithResult();
+```
+
 
 # Printing to Console using Scripts
 
