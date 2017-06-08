@@ -376,6 +376,60 @@ var system = java.lang.System;
 system.out.println('This prints to the console');
 ```
 
+# Get Deployment Resource using Scripts
+
+There are scenarios where you want to get a deployment resource and use it in a script.  One such example is loading a text based file for further processing by your script, or sending that text into a HTTP payload when using HTTP-Connector.
+
+The following is a example of Javascript that gets the content of a file named `context.txt` which is found in the deployment of the process instance:
+
+```javascript
+var processDefinitionId = execution.getProcessDefinitionId();
+var deploymentId = execution.getProcessEngineServices().getRepositoryService().getProcessDefinition(processDefinitionId).getDeploymentId();
+var resource = execution.getProcessEngineServices().getRepositoryService().getResourceAsStream(deploymentId, 'content.txt');
+
+var Scanner= Java.type("java.util.Scanner");
+scannerResource = new Scanner(resource, "UTF-8");
+
+var content = scannerResource.useDelimiter("\\Z").next();
+
+scannerResource.close();
+```
+
+Where the `content` variable contains the full value of the content.text resource.
+
+# Evaluate Freemarker script using Javascript
+
+There are scenarios where you have a large freemarker template/file (such as a large email template) that will exceed the Camunda Variable Instance History limit of 4000 characters (a database column limit).  The impact of this limit is that you cannot have a script task that renders and saves the output of the freemarker template into a process variable. The workaround for this limitation is to process the freemarker script using Javascript, as a in-memory rendering, and never saving the freemarker's output into a local or process variable.
+
+Consider the following example:
+
+```javascript
+var placeholderValues= {
+   "firstName": execution.getVariable('individualsLastName'),
+   "lastName": execution.getVariable('individualsFirstname')
+}
+
+var ScriptEngine= new JavaImporter(javax.script);
+
+var renderedContent = "";
+
+with (ScriptEngine) {
+
+   var manager = new ScriptEngineManager();
+   var engine = manager.getEngineByName("freemarker");
+
+   var bindings = engine.createBindings();
+   bindings.put("placeholders", placeholderValues);
+
+   renderedContent = engine.eval(rawContent, bindings);
+};
+```
+
+In the above example, we create placeholder values, which are injected into the freemarker teamplate as bindings. Using freemarker's `${varName}` variable format, (where `varName` is a `key` in the `placeholderValues` object), the freemarker engine renders placeholders contained in the tempalte.
+
+`renderedContent = engine.eval(rawContent, bindings);` uses the `ScriptEngineManager`'s `.eval()` to render the freemarker content. The freemarker template content is stored in the `rawContent` variable.  You can load the freemarker content from any source including a deployment resource as described in [Get Deployment Resource using Scripts](#get-deployment-resource-using-scripts). The variable `renderedContent` contains the rendered output of the evaluated freemarker script/template.
+
+Reference: [Javax's ScriptEngineManager](https://docs.oracle.com/javase/7/docs/api/javax/script/ScriptEngineManager.html)
 
 # Script Source
 
