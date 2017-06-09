@@ -85,7 +85,7 @@ You might have spotted that two different columns exist in the process definitio
 # Version Tag
 
 It is possible to tag a process definition with a version tag attribute. This can be done by adding the
-[camunda:versionTag]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#versionTag" >}})
+[camunda:versionTag]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#versiontag" >}})
 extension attribute to the process:
 
 ```xml

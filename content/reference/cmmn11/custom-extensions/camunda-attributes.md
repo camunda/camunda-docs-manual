@@ -489,7 +489,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td>null - means that case definition history won't ever be removed during history cleanup run</td>
   </tr>
   <tr>
-    <th>BPMN 2.0 Elements</th>
+    <th>CMMN 1.1 Elements</th>
     <td>
       Case
     </td>

@@ -110,6 +110,10 @@ GET `/decision-definition`
     <td>Include decision definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>versionTag</td>
+    <td>Filter by the version tag.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code> and <code>tenantId</code>.
@@ -193,6 +197,15 @@ Each decision definition object has the following properties:
     <td>The tenant id of the decision definition.</td>
   </tr>
   <tr>
+    <td>versionTag</td>
+    <td>String</td>
+    <td>The version tag of the decision or <i>null</i> when no version tag is set</td>
+  </tr>
+  <tr>
+    <td>versionTagLike</td>
+    <td>Filter by the version tag that the parameter is a substring of.</td>
+  </tr>
+  <tr>
     <td>historyTimeToLive</td>
     <td>Number</td>
     <td>History time to live value of the decision definition. Is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
@@ -245,6 +258,7 @@ GET `/decision-definition?key=dish-decision&sortBy=category&sortOrder=asc`
     "decisionRequirementsDefinitionId":"dish:1:c633c195-41b7-11e6-b0ef-00aa004d0001",
     "decisionRequirementsDefinitionKey":"dish",
     "tenantId": null,
+    "versionTag": null,
     "historyTimeToLive": 5
   }
 ]

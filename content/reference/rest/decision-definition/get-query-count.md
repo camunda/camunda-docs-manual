@@ -109,6 +109,10 @@ GET `/decision-definition/count`
     <td>includeDecisionDefinitionsWithoutTenantId</td>
     <td>Include decision definitions which belong to no tenant. Can be used in combination with <code>tenantIdIn</code>. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
+    <tr>
+    <td>versionTag</td>
+    <td>Filter by the version tag.</td>
+  </tr>
 </table>
 
 

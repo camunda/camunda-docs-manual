@@ -37,7 +37,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <td>null - means that decision definition history won't ever be removed during history cleanup run</td>
   </tr>
   <tr>
-    <th>BPMN 2.0 Elements</th>
+    <th>DMN 1.1 Elements</th>
     <td>
       Decision
     </td>
@@ -72,6 +72,40 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>DMN 1.1 Elements</th>
     <td>
       <a href="{{< relref "reference/dmn11/decision-table/input.md" >}}">Input</a>
+    </td>
+  </tr>
+</table>
+
+# versionTag
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      <p>
+      The attribute specifies a version tag for the process definition.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      Any value that has a meaning as version tag for the decision definition.
+      <strong>Note:</strong> Sorting by versionTag is string based. The version will not be interpreted. As an example, the sorting could return v0.1.0, v0.10.0, v0.2.0.
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>DMN 1.1 Elements</th>
+    <td>
+      Decision
     </td>
   </tr>
 </table>
