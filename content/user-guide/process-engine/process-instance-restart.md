@@ -42,7 +42,7 @@ runtimeService.restartProcessInstance(processInstance.getProcessDefinitionId())
 	.execute();
 ```
 
-The process instance has been restarted with the last set of variables.
+The process instance has been restarted with the last set of variables. However, only global variables are set in the restarted process instance. Local variables can be set manually calling for example `RuntimeService.setVariableLocal(...)`.
 
 {{< note title="" class="info" >}}
   Technically, a new process instance has been created.
@@ -109,7 +109,8 @@ If the instances are not known beforehand, the process instances can be selected
 ```Java
 HistoricProcessInstanceQuery historicProcessInstanceQuery = historyService
   .createHistoricProcessInstanceQuery()
-  .processDefinitionId(processDefinition.getId());
+  .processDefinitionId(processDefinition.getId())
+  .unfinished();
 
 runtimeSerivce.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
@@ -140,6 +141,8 @@ runtimeSerivce.restartProcessInstances(processDefinition.getId())
 
 By default, a process instance is restarted with the last set of variables.
 To choose alternatively the initial set of variables, the `initialSetOfVariables` method is used.
+
+This feature does not only copy the start variables, but will copy the first version of all process variables of the old process instance.
 
 ```Java
 ProcessDefinition processDefinition = ...;
@@ -206,7 +209,7 @@ runtimeSerivce.restartProcessInstances(processDefinition.getId())
   .execute();
 ```
 
-Migration is successful if all process instances can be restarted.
+Restart is successful if all process instances can be restarted.
 
 ### Asynchronous batch execution
 
