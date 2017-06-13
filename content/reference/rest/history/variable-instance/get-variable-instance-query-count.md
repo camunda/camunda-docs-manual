@@ -44,6 +44,10 @@ GET `/history/variable-instance/count`
     <td>Filter by variable value. Is treated as a <code>String</code> object on server side.</td>
   </tr>
   <tr>
+    <td>includeDeleted</td>
+    <td>Include variables that has already been deleted during the execution.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>

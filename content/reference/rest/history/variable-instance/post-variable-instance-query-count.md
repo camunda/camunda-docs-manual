@@ -46,6 +46,10 @@ A JSON object with the following properties:
     <td>Filter by variable value. May be <code>String</code>, <code>Number</code> or <code>Boolean</code>.</td>
   </tr>
   <tr>
+    <td>includeDeleted</td>
+    <td>Include variables that has already been deleted during the execution.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>

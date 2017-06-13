@@ -71,6 +71,10 @@ A JSON object with the following properties:
     </td>
   </tr>
   <tr>
+    <td>includeDeleted</td>
+    <td>Include variables that has already been deleted during the execution.</td>
+  </tr>
+  <tr>
     <td>processInstanceId</td>
     <td>Filter by the process instance the variable belongs to.</td>
   </tr>
