@@ -393,6 +393,80 @@ system.out.println('This prints to the console');
 ```
 
 
+# Loading scripts within other Scripts
+
+## Javascript
+
+The Nashorn Javascript engine used by Camunda, provides various ways to load addtional scripts and external resources during the execution of a script.
+
+### `load()`
+
+The special `load()` function provided by the Nashorn engine, loads and evaluates script from a file or a URL or a script object.  You can see further examples in [Nashorn Extensions Documentation](https://wiki.openjdk.java.net/display/Nashorn/Nashorn+extensions).
+
+Example:
+
+```javascript
+load('http://localhost/myscript.js');
+```
+
+```javascript
+load('https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js');
+```
+
+### `Java.type()`
+
+Nashorn provides the Java.type function which given a name of a Java type, returns an object representing that type in Nashorn.
+
+Example:
+
+```javascript
+var arrayListType = Java.type("java.util.ArrayList")
+var intType = Java.type("int")
+var stringArrayType = Java.type("java.lang.String[]")
+var Scanner = Java.type("java.util.Scanner");
+```
+Any type can be loaded that is available in the java classpath.
+
+
+### `JavaImporter()`
+
+Nashorn provides the JavaImporter so you can import one or more packages without having to "pollute" the global scope using the JavaImporter constructor.
+
+Example:
+
+```
+var imports = new JavaImporter(java.util, java.io);
+ 
+with(imports) {
+    var map = new HashMap();
+    map.put("js", "javascript");
+    map.put("java", "java");
+    map.put("cpp", "c++");
+}
+```
+
+```
+var placeholderValues= {
+  "firstName": execution.getVariable('individualsLastName'),
+  "lastName": execution.getVariable('individualsFirstname')
+};
+
+var ScriptEngine = new JavaImporter(javax.script);
+
+var renderedContent = "";
+
+with (ScriptEngine) {
+  var manager = new ScriptEngineManager();
+  var engine = manager.getEngineByName("freemarker");
+  var bindings = engine.createBindings();
+  bindings.put("placeholders", placeholderValues);
+  renderedContent = engine.eval(rawContent, bindings);
+};
+```
+
+Reference: [Nashorn Extensions Documentation](https://wiki.openjdk.java.net/display/Nashorn/Nashorn+extensions)
+
+
 # Script Source
 
 The standard way to specify the script source code in the BPMN XML model is to add it directly to
