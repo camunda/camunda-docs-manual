@@ -32,6 +32,10 @@ This plugin provides you with a list of deployed decision requirements definitio
 
 # Search
 
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
 {{< img src="../../img/dmn/decision-instance-search.png" title="Decision Instance Search" >}}
 
 At the top of the dashboard, you can search for decision instances which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. Depending on the selected property, you have to specify the value of the property. You can combine multiple search pills to narrow down the search results.
