@@ -110,7 +110,7 @@ If the instances are not known beforehand, the process instances can be selected
 HistoricProcessInstanceQuery historicProcessInstanceQuery = historyService
   .createHistoricProcessInstanceQuery()
   .processDefinitionId(processDefinition.getId())
-  .unfinished();
+  .finished();
 
 runtimeSerivce.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
@@ -142,7 +142,7 @@ runtimeSerivce.restartProcessInstances(processDefinition.getId())
 By default, a process instance is restarted with the last set of variables.
 To choose alternatively the initial set of variables, the `initialSetOfVariables` method is used.
 
-This feature does not only copy the start variables, but will copy the first version of all process variables of the old process instance.
+This feature does not only copy the start variables, but will copy the first version of all process variables that have been set in the start activity of the old process instance.
 
 ```Java
 ProcessDefinition processDefinition = ...;
