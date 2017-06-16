@@ -392,67 +392,6 @@ var system = java.lang.System;
 system.out.println('This prints to the console');
 ```
 
-# Get Deployment Resource Using Scripts
-
-In some scenarios it makes sense to use a deployment resource in a script. One such example is 
-loading a text based file for further processing.
-
-The following JavaScript example gets the content of the file named `content.txt`, which must be placed in the 
-resources folder of the deployment:
-
-```javascript
-var processDefinitionId = execution.getProcessDefinitionId();
-var repositoryService = execution.getProcessEngineServices().getRepositoryService();
-var deploymentId = repositoryService.getProcessDefinition(processDefinitionId).getDeploymentId();
-var resource = repositoryService.getResourceAsStream(deploymentId, 'content.txt');
-
-var Scanner = Java.type("java.util.Scanner");
-var scannerResource = new Scanner(resource, "UTF-8");
-
-var content = scannerResource.useDelimiter("\\Z").next();
-
-scannerResource.close();
-```
-
-Now the `content` variable will contain the full value of the `content.txt` resource.
-
-# Evaluate Freemarker Template Using Scripts
-
-A freemarker template can become very large. If the size of the file exceeds 4000 characters, a script task cannot store it
-as a process instance variable due to database limitations. As a workaround JavaScript can be used to process the template
-as an in-memory rendering.
-
-Consider the following example:
-
-```javascript
-var placeholderValues = {
-   "firstName": execution.getVariable('individualsFirstname'),
-   "lastName": execution.getVariable('individualsLastname')
-}
-
-var ScriptEngine = new JavaImporter(javax.script);
-
-var renderedContent = "";
-
-with (ScriptEngine) {
-   var manager = new ScriptEngineManager();
-   var engine = manager.getEngineByName("freemarker");
-
-   var bindings = engine.createBindings();
-   bindings.put("placeholders", placeholderValues);
-
-   renderedContent = engine.eval(rawContent, bindings);
-}
-```
-
-The example above creates placeholder values, which are injected into the freemarker template as bindings. 
-Using freemarker's `${varName}` variable format, where `varName` is a key in the `placeholderValues` object 
-(e.g. `${placeholders.firstName}`), the freemarker engine renders the placeholders contained in the template.
-
-`engine.eval(rawContent, bindings)` uses the `ScriptEngineManager`'s `eval()` method to render the freemarker content. 
-The freemarker template content is stored in the `rawContent` variable. The variable `renderedContent` contains the rendered output of 
-the evaluated freemarker script/template. The freemarker content can be loaded from any source including a deployment resource as described 
-in [Get Deployment Resource Using Scripts](#get-deployment-resource-using-scripts).
 
 # Script Source
 
