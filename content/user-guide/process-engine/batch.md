@@ -64,6 +64,7 @@ Currently supported batch types:
 - [Process Instance Migration][batch-migration]
 - [Cancellation of running Process Instances][process-instance-cancellation]
 - [Deletion of Historic Process Instances][process-instance-deletion]
+- [Update Process Instance Suspend State][process-instance-suspend]
 - [Setting retries of jobs associated with Process Instances][set-job-retries]
 - [Process Instance Modification][process-instance-modification]
 - [Process Instance Restart][process-instance-restart]
@@ -304,3 +305,4 @@ processEngine.getManagementService()
 [set-external-tasks-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
 [process-instance-restart]: ({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
 [process-instance-modification]: ({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+[process-instance-suspend]: {{< relref "user-guide/process-engine/batch-operations.md#update-suspend-state-of-process-instances">}}

@@ -15,6 +15,7 @@ The following operations can be executed asynchronously
 - [Process Instance Migration][batch-migration]
 - [Cancellation of running Process Instances](#cancellation-of-running-process-instances)
 - [Deletion of Historic Process Instances](#deletion-of-historic-process-instances)
+- [Update suspend state of process instances](#update-suspend-state-of-process-instances)
 - [Setting retries of jobs associated with Process Instances](#setting-retries-of-jobs-associated-with-process-instances)
 - [Process Instance Modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
 - [Process Instance Restart]({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
@@ -47,6 +48,16 @@ Deletion of historic process instances can be performed asynchronously using the
 List<String> historicProcessInstanceIds = ...;
 historyService.deleteHistoricProcessInstancesAsync(
         historicProcessInstanceIds, TEST_REASON);
+```
+
+## Update Suspend State Of Process Instances
+
+Update the suspension state of multiple process instances asynchronously using the following Java API method invocation:
+
+```java
+List<String> processInstanceIds = ...;
+runtimeService.updateProcessInstanceSuspensionState().byProcessInstanceIds(
+  processInstanceIds).suspendAsync();
 ```
 
 ## Setting Retries Of Jobs Associated With Process Instances
