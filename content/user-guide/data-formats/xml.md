@@ -24,6 +24,8 @@ The following provides examples on how Camunda Spin can be used in the process e
 </customer>
 ```
 
+Further documentation about the usage of Spin can be found in the [Camunda Spin Dataformat Reference]({{< relref "reference/spin/index.md" >}}).
+
 
 # Expression Language Integration
 
