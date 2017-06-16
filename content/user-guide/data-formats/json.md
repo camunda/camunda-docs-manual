@@ -26,12 +26,7 @@ The following provides examples on how Camunda Spin can be used in the process e
 
 If you want to learn how to use JSON objects in an embedded form, please take a look at the [Embedded Forms Reference]({{< relref "reference/embedded-forms/json-data.md" >}}).
 
-# Spin Documentation
-
-Further documentation about the usage of SPIN can be found in the [Camunda Spin Dataformat Reference]({{< relref "reference/spin" >}}).
-
-1. [XML]({{< relref "reference/spin/xml" >}})
-2. [JSON]({{< relref "reference/spin/json" >}})
+Further documentation about the usage of Spin can be found in the [Camunda Spin Dataformat Reference]({{< relref "reference/spin/index.md" >}}).
 
 # Expression Language Integration
 
