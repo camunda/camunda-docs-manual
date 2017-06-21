@@ -10,12 +10,13 @@ menu:
 
 ---
 
-After a process instance termination, there are still its historic data that can be accessed to restore a process instance if the full history level has been enabled. For example, this can be useful when the termination did not proceed in a desired way. Use cases for this API may be
+After a process instance termination, its historic data still exists and can be accessed to restore a process instance, provided that the history level is set to FULL. 
+This can, for example, be useful when termination did not proceed in a desired way. Use cases for this API may be:
 
-* Restoring the last state of process instances that have been canceled by mistake
+* Restoring the last state of process instances that have been erroneously canceled
 * Restarting process instances after a termination caused by a wrong decision
 
-To perform such an operation, the process engine offers *the process instance restart API* that is entered via `RuntimeService.restartProcessInstances(...)`. This API allows to specify multiple instantiation instructions in one call by using a fluent builder.
+To perform such an operation the process engine offers *the process instance restart API*, that is entered via `RuntimeService.restartProcessInstances(...)`. This API allows to specify multiple instantiation instructions in one call by using a fluent builder.
 
 Note that these operations are also available via [REST]({{< relref "reference/rest/process-definition/index.md" >}}).
 
@@ -25,7 +26,7 @@ As an example, consider the following process model where the red dots mark acti
 
 {{< img src="../img/variables-3.png" title="Running Process Instance" >}}
 
-Let us assume that the process instance has been canceled externally by a worker using following code:
+Let us assume that the process instance has been canceled externally by a worker using the following code:
 
 ```java
 ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().singleResult();
@@ -42,7 +43,8 @@ runtimeService.restartProcessInstance(processInstance.getProcessDefinitionId())
 	.execute();
 ```
 
-The process instance has been restarted with the last set of variables. However, only global variables are set in the restarted process instance. Local variables can be set manually calling for example `RuntimeService.setVariableLocal(...)`.
+The process instance has been restarted with the last set of variables. However, only global variables are set in the restarted process instance. 
+Local variables can be set manually, for example by calling `RuntimeService.setVariableLocal(...)`.
 
 {{< note title="" class="info" >}}
   Technically, a new process instance has been created.
@@ -54,9 +56,9 @@ The process instance has been restarted with the last set of variables. However,
 
 # Operational Semantics
 
-In the following, the exact semantics of process instance restart are documented. Reading this section is recommended to fully understand the effects, power, and limitations.
+In the following, the exact semantics of the process instance restart feature are documented. Reading this section is recommended to fully understand the effects, power and limitations of this feature.
 
-## Instatiation Instruction Types
+## Instantiation Instruction Types
 
 The fluent process instance restart builder offers the following instructions to be submitted:
 
@@ -65,30 +67,30 @@ The fluent process instance restart builder offers the following instructions to
 * `startTransition(String transitionId)`
 
 For information about the instruction types, please refer to the similar
-section [modification instruction types]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-instruction-types" >}}).
+ [modification instruction types]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-instruction-types" >}}) section.
 
 ## Selecting process instances to restart
 
-Process instances can be selected for restart by either providing a set of process instance IDs
-or providing a historic process instance query. It is also possible to specify both, a list of process instance IDs and a query.
+Process instances can be selected for restart by either providing a set of process instance ids
+or providing a historic process instance query. It is also possible to specify both, a list of process instance ids and a query.
 The process instances to be restarted will then be the union of the resulting sets.
 
-### List of process instances
+### List of Process Instances
 
 The process instances which should be restarted can either
-be specified as a list of the process instance IDs:
+be specified as a list of the process instance ids:
 
 ```Java
 ProcessDefinition processDefinition = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.restartProcessInstances(processDefinition.getId())
+runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .processInstanceIds(processInstanceIds)
   .execute();
 ```
 
-For a static number of process instances, there is a convenience varargs method:
+or, for a static number of process instances, there is a convenience varargs method:
 
 ```Java
 ProcessDefinition processDefinition = ...;
@@ -96,7 +98,7 @@ ProcessDefinition processDefinition = ...;
 HistoricProcessInstance instance1 = ...;
 HistoricProcessInstance instance2 = ...;
 
-runtimeSerivce.restartProcessInstances(processDefinition.getId())
+runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .processInstanceIds(instance1.getId(), instance2.getId())
   .execute();
@@ -112,7 +114,7 @@ HistoricProcessInstanceQuery historicProcessInstanceQuery = historyService
   .processDefinitionId(processDefinition.getId())
   .finished();
 
-runtimeSerivce.restartProcessInstances(processDefinition.getId())
+runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .historicProcessInstanceQuery(historicProcessInstanceQuery)
   .execute();
@@ -129,7 +131,7 @@ can be used for this purpose:
 ProcessDefinition processDefinition = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.restartProcessInstances(processDefinition.getId())
+runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .processInstanceIds(processInstanceIds)
   .skipCustomListeners()
@@ -137,10 +139,10 @@ runtimeSerivce.restartProcessInstances(processDefinition.getId())
   .execute();
 ```
 
-## Restartig a Process Instance with initial set of variables
+## Restarting a Process Instance With the Initial Set of Variables
 
 By default, a process instance is restarted with the last set of variables.
-To choose alternatively the initial set of variables, the `initialSetOfVariables` method is used.
+To alternatively choose the initial set of variables, the `initialSetOfVariables` method is used.
 
 This feature does not only copy the start variables, but will copy the first version of all process variables that have been set in the start activity of the old process instance.
 
@@ -156,7 +158,7 @@ runtimeService.restartProcessInstances(processDefinition.getId())
 ```
 
 
-The initial set of variables can not be set if the historic process instance has no unique start activity. In that case no variables are taken over.
+The initial set of variables can not be set if the historic process instance has no unique start activity. In that case, no variables are taken over.
 
 ## Omitting the Business Key of a Historic Process Instance
 
@@ -176,7 +178,7 @@ runtimeService.restartProcessInstances(processDefinition.getId())
 ## Execution
 
 The restart can either be executed synchronously (blocking) or asynchronously
-(non-blocking) using a [batch]({{< relref "user-guide/process-engine/batch.md" >}}) .
+(non-blocking) by using a [batch]({{< relref "user-guide/process-engine/batch.md" >}}) .
 
 The following are some reasons to prefer either one or the other:
 
@@ -203,7 +205,7 @@ block until the restart is completed.
 ProcessDefinition processDefinition = ...;
 List<String> processInstanceIds = ...;
 
-runtimeSerivce.restartProcessInstances(processDefinition.getId())
+runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .processInstanceIds(processInstanceIds)
   .execute();
@@ -214,13 +216,13 @@ Restart is successful if all process instances can be restarted.
 ### Asynchronous batch execution
 
 To execute the restart asynchronously, the `executeAsync` method is used. It will
-return immediately with a reference to the batch which executes the restart.
+return immediately with a reference to the batch that executes the restart.
 
 ```Java
 ProcessDefinition processDefinition = ...;
 List<String> processInstanceIds = ...;
 
-Batch batch = runtimeSerivce.restartProcessInstances(processDefinition.getId())
+Batch batch = runtimeService.restartProcessInstances(processDefinition.getId())
   .startBeforeActivity("activity")
   .processInstanceIds(processInstanceIds)
   .executeAsync();
@@ -228,14 +230,14 @@ Batch batch = runtimeSerivce.restartProcessInstances(processDefinition.getId())
 
 Using a batch, the process instance restart is split into several jobs which
 are executed asynchronously. These batch jobs are executed by the job executor.
-See the [batch][] section for more information. A batch is completed if all
-batch execution jobs are successfully completed. However, in contrast to the
-synchronous execution, it is not guaranteed that either all or no process
-instances are restarted. As the restart is split into several independent jobs,
-every single job may fail or succeed.
+See the [batch]({{< relref "user-guide/process-engine/batch.md" >}}) section for more 
+information. A batch is completed if all batch execution jobs are successfully 
+completed. However, in contrast to the synchronous execution, it is not guaranteed 
+that either all or no process instances are restarted. As the restart is split into
+several independent jobs, every single job may fail or succeed.
 
 If a restart job fails, it is retried by the job executor
-and if no retries are left, an incident is created. In this case, manual action
+and, if no retries are left, an incident is created. In this case, manual action
 is necessary to complete the batch restart: The job's retries can be incremented
 or the job can be deleted. Deletion cancels restart of the specific instance but
 does not affect the batch beyond that.
