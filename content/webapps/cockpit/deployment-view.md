@@ -28,7 +28,8 @@ Independently of the search, ordering for the deployment list can be set using t
 
 # Delete
 
-To delete a deployment, hover over the deployment to show the deletion icon {{< glyphicon name="trash" >}}. Before deleting the deployment, you can specify whether to also delete instances of resources in this deployment (e.g., running or historic process instances) or not.
+To delete a deployment, hover over the deployment  and click on the deletion icon {{< glyphicon name="trash" >}}. In the dialog that appears, you can choose to cascade the deletion (i.e., also delete running and historic process instances) and you can choose to skip custom listeners and I/O mappings. After you have completed this step, the deployment is deleted.
+
 
 # Redeploy
 
