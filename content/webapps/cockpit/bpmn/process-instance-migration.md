@@ -85,7 +85,9 @@ You can also click on an activity to show a green arrow pointing from the source
 
 {{< img src="../../img/migration/step2.png" title="Select instances for migration" >}}
 
-After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
+After finishing the migration plan, click the `Select Instances` button to proceed to instance selection. Initially, all instances of the source process definition version are displayed. You can use the filter bar above the list of instances to filter the displayed instances. Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu
+
+Using the checkboxes to the left of the instances, you can mark them for migration. All instances you select on this page are migrated.
 
 If you do not explicitly select any instances, all instances of the source process definition version are migrated to the target version.
 
