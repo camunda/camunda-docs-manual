@@ -35,6 +35,8 @@ The `like` operator is for string variables only. You can use `%` as wildcard in
   Please be aware that this feature does not support complex data types.
 {{< /note >}}
 
+Furthermore, you can copy a link to the current filter query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save filter queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the filter query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu
+
 ## Runtime View
 
 {{< img src="../../img/filter-examples/add-filter.png" title="Filter Example" >}}
