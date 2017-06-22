@@ -38,11 +38,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceQuery</td>
-    <td>A process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "operation.content/reference/rest/process-instance/get-query.md" >}}">GET /process-instance </a></td>
+    <td>A process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/process-instance/get-query.md" >}}">GET /process-instance </a></td>
   </tr>
   <tr>
     <td>historicalProcessInstanceQuery</td>
-    <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "content/reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a> </td>
+    <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a> </td>
   </tr>   
   <tr>
     <td>suspended</td>
