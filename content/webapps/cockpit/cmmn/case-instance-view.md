@@ -15,6 +15,8 @@ menu:
 
 Open the case instance view by selecting a case instance from the [case definition view][case-definition-view] instance list. This view allows you to drill down into a single case instance and explore its activities as well as the variables, tasks, etc.
 
+Furthermore, you can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
+
 # Detailed Information Panel
 
 {{< img src="../../img/cmmn/detailed-information-view.png" title="Detailed Information Panel" >}}

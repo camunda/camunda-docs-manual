@@ -34,6 +34,8 @@ Clicking on the deployment ID will take you to the [deployment view]({{< relref 
 
 Below the diagram you find the decision instances tab and the decision requirements definition instances tab.
 
+You can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
+
 {{< img src="../../img/cockpit-decision-definition-requirement-decision-instances-tab.png" title="Decision Instances Tab" >}}
 
 In the decision instances tab, you can find a listing of all decision instances for this definition. You can also search for decision instances which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. You have to specify the value of the selected property to perform the search and you can combine multiple search pills to narrow down the search results.
