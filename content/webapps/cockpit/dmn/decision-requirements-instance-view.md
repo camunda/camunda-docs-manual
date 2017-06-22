@@ -35,7 +35,10 @@ Clicking on the deployment ID will take you to the [deployment view]({{< relref 
 
 {{< img src="../../img/cockpit-decision-definition-requirement-decision-instance-instances-tab.png" title="Decision Instances Tab" >}}
 
-In the below diagram, you can see a listing of all decision instances for this decision requirements definition instance. 
+In the lower panel, you can see a listing of all decision instances for this decision requirements definition instance. You can also search for decision instances which fulfill certain search criteria. To do so, click in the search box and select the parameters to search for. You can also begin typing to find the required parameter faster. You have to specify the value of the selected property to perform the search and you can combine multiple search pills to narrow down the search results.
+
+Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+
 If the decision instance was executed in the context of a process, you can also find 
 the process definition as well as the process instance ID that executed that specific 
 decision instance. Clicking on the links takes you to the respective pages.
