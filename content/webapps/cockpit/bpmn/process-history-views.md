@@ -17,7 +17,7 @@ menu:
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-At the top left of the process definition view and the process instance view, you can hit the _History_ button to access the history view.
+At the top of the process definition view and the process instance view, you can hit the _History_ button to access the history view.
 
 
 # Process Definition History View
@@ -27,6 +27,8 @@ At the top left of the process definition view and the process instance view, yo
 In the history view of the process definition you see an overview of all of the running and completed process instances. On the bottom of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in a specific state. Running and completed instances can be selected.
 
 At the bottom of the screen you can also select the _Job Log_ tab to see all job related events of this process instance, including state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stacktrace of a failed job.
+
+Furthermore, you can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
 
 ## Heatmap
 
@@ -43,7 +45,7 @@ It is still possible to interact with the diagram while the heatmap is shown (e.
 
 In the history view of the process instance you see instance-specific information. On the left side of the screen, a [filter][process-definition-view-filter] can be applied and you have the option of selecting to only see process instances in specific states. Running, completed and canceled process instances can be viewed as well as task-specific activity states.
 
-You can access various information regarding the specific instance by selecting the applicable tab at the bottom of the screen:
+You can access various information regarding the specific instance by selecting the applicable tab at the bottom of the screen. Furthermore, you can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
 
 **Audit Log**
 In the Audit Log you can find a detailed overview of the activities that took place within the process instance, including start time, end time, activity instance ID and the current state.
