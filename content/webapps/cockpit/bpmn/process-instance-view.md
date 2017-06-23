@@ -32,7 +32,7 @@ The activity instance tree contains a node for each activity that is currently a
 
 {{< img src="../../img/cockpit-detailed-information-view.png" title="Detailed Information Panel" >}}
 
-Use the detailed information panel to get an overview of the variables, incidents, called process instances and user tasks that the process instance contains. Depending on the selected activity instance in the rendered diagram, the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.
+Use the detailed information panel to get an overview of the variables, incidents, called process instances, user tasks and external tasks that the process instance contains. Furthermore, you can access the [instance modification]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}}) tab. Depending on the selected activity instance in the rendered diagram, the panel lists the corresponding information. You can also focus on the activity instance via a scope link in the table.
 
 In addition to the instance information you can [edit variables]({{< relref "#edit-variables" >}}) or change the assignees of user tasks.
 
@@ -40,6 +40,7 @@ In the incidents tab you can click on the incident message name, which will open
 
 The user tasks tab allows managing users and groups for selected user tasks. Hit the {{< glyphicon name="user" >}} or {{< glyphicon name="th" >}} button to open the corresponding menu.
 
+The external tasks tab displays various information about external tasks, such as the External Task Id, the activity, amount of retries, the Worker Id of the external task, lock expiration time, topic name and the set priority. See the [external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
 
 # Filter for Variables
 
