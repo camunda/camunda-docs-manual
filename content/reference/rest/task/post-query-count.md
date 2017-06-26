@@ -474,6 +474,16 @@ expression as a substring.
     <td>parentTaskId</td>
     <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
   </tr>
+  <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
+    inside of this JSON object. See the <a href="{{< relref "user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    for more information about OR queries.<br><br>
+    The following properties are not supported: <code>withCandidateGroups</code>, <code>withoutCandidateGroups</code>, 
+    <code>withCandidateUsers</code>, <code>withoutCandidateUsers</code>.
+    </td>
+  </tr>
 </table>
 
 
@@ -533,7 +543,12 @@ Request Body:
         "value": 30,
         "operator": "neq"}],
     "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
-    "priority":10}
+    "priority":10,
+    "orQueries":
+        [{"name": "aName",
+        "description": "aDescription"}, 
+        {"assignee": "anAssignee",
+        "due": "2013-01-23T13:49:42"}]}
 
 ## Response
 

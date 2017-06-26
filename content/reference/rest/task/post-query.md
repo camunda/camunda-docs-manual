@@ -496,6 +496,16 @@ A JSON object with the following properties:
     <td>Restrict query to all tasks that are sub tasks of the given task. Takes a task id.</td>
   </tr>
   <tr>
+    <td>orQueries</td>
+    <td>
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
+    inside of this JSON object. See the <a href="{{< relref "user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    for more information about OR queries.<br><br>
+    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>, 
+    <code>withoutCandidateGroups</code>, <code>withCandidateUsers</code>, <code>withoutCandidateUsers</code>.
+    </td>
+  </tr>
+  <tr>
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
@@ -674,6 +684,11 @@ Request Body:
         "operator": "neq"}],
     "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
     "priority":10,
+    "orQueries":
+        [{"name": "aName",
+        "description": "aDescription"}, 
+        {"assignee": "anAssignee",
+        "due": "2013-01-23T13:49:42"}],
     "sorting":
         [{"sortBy": "dueDate",
         "sortOrder": "asc"

@@ -110,6 +110,36 @@ List<Task> tasks = taskService.createTaskQuery()
 You can find more information on this in the {{< javadocref page="" text="Java Docs" >}}.
 
 
+## OR Queries
+The default behavior of the query API links filter criteria together with an AND expression. 
+OR queries enables to build queries in which filter criteria are linked together with an OR expression. 
+
+After calling `startOr()`, a chain of several filter criteria could follow. Each filter criterion is linked together 
+with an OR expression. The invocation of `endOr()` marks the end of the OR query. Calling this two methods is comparable 
+with putting the filter criteria in braces. 
+
+```java
+List<Task> tasks = taskService.createTaskQuery()
+  .taskAssignee("kermit")
+  .startOr()
+    .taskName("aTaskName")
+    .taskDescription("aTaskDescription")
+  .endOr()
+  .list();
+```
+
+Inside a query, an arbitrary amount of OR queries can be used. When building a query which consists not only of a single 
+OR query but also of ANDed filter criteria, the OR query is appended to the criteria chain by a leading AND expression.
+
+
+{{< note title="Heads-up!" class="info" >}}
+  - This functionality is only available for task queries.
+  - Each filter criterion can be used only once inside a query. 
+  When a filter criterion is used more than once, only the value which was applied last is used within the query.
+  - The following methods cannot be applied to an OR query for tasks: orderBy...(), initializeFormKeys(), 
+  withCandidateGroups(), withoutCandidateGroups(), withCandidateUsers(), withoutCandidateUsers().
+{{< /note >}}
+
 ## REST Query API
 
 The Java Query API is exposed as REST service as well, see the [REST documentation]({{< relref "reference/rest/index.md" >}}) for details.
