@@ -28,6 +28,8 @@ In the history view of the process definition you see an overview of all of the 
 
 At the bottom of the screen you can also select the _Job Log_ tab to see all job related events of this process instance, including state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stacktrace of a failed job.
 
+You can also select the _External Tasks Log_ tab to get an overview of all external tasks with detailed information about the external task. This includes the external task id, the state of the external task, the error message in case an external task has failed, the process instance id, activity name, amount of retries, worked id, topic name and priority. See the [external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
+
 Furthermore, you can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
 
 ## Heatmap
@@ -68,5 +70,7 @@ In the User Tasks tab you can find an overview of all the user tasks related to 
 **Job Log**
 In the Job Log tab you can find an overview of all job related events of this process instance and the details of the specific jobs, such as state, time, the corresponding activity and job ID, the type, configuration and message. You can also access the stacktrace of a failed job.
 
+**External Tasks Log**
+In the external tasks log you can find an overview of all external tasks of this process instance. This includes information about the external task id, the state of the external task, the error message in case an external task has failed, the activity name, amount of retries, worked id, topic name and priority. See the [external tasks]({{< relref "user-guide/process-engine/external-tasks.md" >}}) section of the user guide for more information about external tasks.
 
 [process-definition-view-filter]: {{< relref "webapps/cockpit/bpmn/process-definition-view.md#filter" >}}
