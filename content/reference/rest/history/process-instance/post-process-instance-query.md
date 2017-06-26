@@ -115,6 +115,14 @@ A JSON object with the following properties:
     <td>withIncidents</td>
     <td>Only include process instances which have an incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
+    <tr>
+      <td>incidentId</td>
+      <td>Filter by the incident id.</td>
+    </tr>
+    <tr>
+      <td>incidentType</td>
+      <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    </tr>
   <tr>
     <td>incidentStatus</td>
 	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
