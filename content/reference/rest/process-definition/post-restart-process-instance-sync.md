@@ -80,7 +80,7 @@ A JSON object with the following properties:
   <tr>
     <td>instructions</td>
     <td>
-        A JSON array of modification instructions. The instructions are executed in the order they are in. An instruction may have the following properties:
+        A JSON array of instructions. The instructions are executed in the order they are in. An instruction may have the following properties:
       <table>
         <tr>
           <td>type</td>
