@@ -302,5 +302,5 @@ processEngine.getManagementService()
 [job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
 [job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}
 [set-external-tasks-retries]: {{< relref "user-guide/process-engine/batch-operations.md#setting-retries-of-external-tasks" >}}
-[process-instance-restart]: ({{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}})
-[process-instance-modification]: ({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+[process-instance-restart]: {{< relref "user-guide/process-engine/process-instance-restart.md#asynchronous-batch-execution" >}}
+[process-instance-modification]: {{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}}
