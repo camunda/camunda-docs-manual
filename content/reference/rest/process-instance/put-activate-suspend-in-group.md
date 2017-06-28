@@ -41,7 +41,7 @@ A JSON object with the following properties:
     <td>A process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/process-instance/get-query.md" >}}">GET /process-instance </a></td>
   </tr>
   <tr>
-    <td>historicalProcessInstanceQuery</td>
+    <td>historicProcessInstanceQuery</td>
     <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a> </td>
   </tr>   
   <tr>
