@@ -59,6 +59,8 @@ Above the filter results, you have the option of searching for user tasks within
 
 If you are searching for a variable of type string, which has a numeric, boolean or null value, you have to wrap the value in single quotes (e.g `'93288'` or `'NULL'`).
 
+Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
+
 
 # Task View
 
