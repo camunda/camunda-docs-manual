@@ -901,6 +901,15 @@ You can also update "historyTimeToLive" for already deployed process definitions
 ```
 or via the [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
 
+
+The "historyTimeToLive" field can also define the number of days using a time specified by the ISO-8601 date format. 
+The function only accepts the notation to define a number of days. Specifying time in months or years will not work.
+```xml
+<process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="P5D">
+...
+</process>
+```
+
 You can define and update "historyTimeToLive" for decision definitions and case definitions in a similar way.
 
 ## Periodic Run
