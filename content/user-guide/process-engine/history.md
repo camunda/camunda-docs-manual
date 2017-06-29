@@ -313,7 +313,8 @@ historyService.createHistoricExternalTaskLogQuery()
 You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:
 
 * [Instance Duration Report]({{< relref "#instance-duration-report" >}})
-* [Taks Report]({{< relref "#task-report" >}})
+* [Task Report]({{< relref "#task-report" >}})
+* [Finished Instance Report]({{< relref "#finished-instance-report" >}})
 
 
 
@@ -368,6 +369,24 @@ historyService
 ```
 
 The supported period times and the confinement of the query works analogously to [Instance Duration Report]({{< relref "#instance-duration-report" >}}).
+
+### Finished Instance Report
+
+Retrieves a report of finished process, decision or case instances. The report helps the users to tune the history time to live for definitions. They can see a summary of the historic data which can be clean after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the 'cleanable' instances.
+
+```java
+historyService
+  .createHistoricFinishedProcessInstanceReport()
+  .list();
+
+historyService
+  .createHistoricFinishedDecisionInstanceReport()
+  .list();
+
+historyService
+  .createHistoricFinishedCaseInstanceReport()
+  .list();
+```
 
 ## Partially Sorting History Events by Their Occurrence
 
