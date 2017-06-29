@@ -50,22 +50,22 @@ A JSON array containing finished decision instance information relevant to the h
   </tr>
   <tr>
     <td>decisionDefinitionVersion</td>
-    <td>int</td>
+    <td>Number</td>
     <td>The version of the decision definition.</td>
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>String</td>
+    <td>Number</td>
     <td>The history time to live of the decision definition.</td>
   </tr>
   <tr>
     <td>finishedDecisionInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the finished historic decision instances.</td>
   </tr>
   <tr>
     <td>cleanableDecisionInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the cleanable historic decision instances referring to history time to live.</td>
   </tr>
 </table>

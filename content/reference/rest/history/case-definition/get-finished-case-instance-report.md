@@ -50,22 +50,22 @@ A JSON array containing finished case instance information relevant to the histo
   </tr>
   <tr>
     <td>caseDefinitionVersion</td>
-    <td>int</td>
+    <td>Number</td>
     <td>The version of the case definition.</td>
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>String</td>
+    <td>Number</td>
     <td>The history time to live of the case definition.</td>
   </tr>
   <tr>
     <td>finishedCaseInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the finished historic case instances.</td>
   </tr>
   <tr>
     <td>cleanableCaseInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the cleanable historic case instances referring to history time to live.</td>
   </tr>
 </table>

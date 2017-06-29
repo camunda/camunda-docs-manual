@@ -50,22 +50,22 @@ A JSON array containing finished process instance information relevant to the hi
   </tr>
   <tr>
     <td>processDefinitionVersion</td>
-    <td>int</td>
+    <td>Number</td>
     <td>The version of the process definition.</td>
   </tr>
   <tr>
     <td>historyTimeToLive</td>
-    <td>String</td>
+    <td>Number</td>
     <td>The history time to live of the process definition.</td>
   </tr>
   <tr>
     <td>finishedProcessInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the finished historic process instances.</td>
   </tr>
   <tr>
     <td>cleanableProcessInstanceCount</td>
-    <td>long</td>
+    <td>Number</td>
     <td>The count of the cleanable historic process instances referring to history time to live.</td>
   </tr>
 </table>
