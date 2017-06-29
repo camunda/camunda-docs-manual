@@ -98,6 +98,10 @@ A JSON object with the following properties:
     <td>Only include unfinished process instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>incidentType</td>
+    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+  </tr>
+  <tr>
     <td>withIncidents</td>
     <td>Only include process instances which have an incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
