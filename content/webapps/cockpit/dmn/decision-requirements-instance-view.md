@@ -33,7 +33,7 @@ The version of the decision requirements definition can be changed in the dropdo
 Clicking on the definition ID will take you to the [decision requirements definition view]({{< relref "webapps/cockpit/dmn/decision-requirements-definition-view.md" >}}).
 Clicking on the deployment ID will take you to the [deployment view]({{< relref "webapps/cockpit/deployment-view.md" >}}).
 
-You can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
+You can maximize the table view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the table view.
 
 {{< img src="../../img/cockpit-decision-definition-requirement-decision-instance-instances-tab.png" title="Decision Instances Tab" >}}
 
