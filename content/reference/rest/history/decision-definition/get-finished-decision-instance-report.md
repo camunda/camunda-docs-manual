@@ -11,8 +11,8 @@ menu:
 
 ---
 
-Retrieves a report about decision definition and finished decision instances relevant to history cleanup (See 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live. These reports include the count of the finished historic decision instances and  cleanable decision instances, and basic decision definition data - id, key, name and version.
+Retrieves a report about a decision definition and finished decision instances relevant to history cleanup (see 
+<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live. These reports include the count of the finished historic decision instances, cleanable decision instances and basic decision definition data - id, key, name and version.
 
 # Method
 
@@ -20,7 +20,7 @@ GET `/history/decision-definition/finished-decision-instance-report`
 
 # Result
 
-A JSON array containing finished decision instance information relevant to the history cleanup. Each report result has the following properties:
+A JSON array containing finished decision instance information relevant to history cleanup. Each report result has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -66,7 +66,7 @@ A JSON array containing finished decision instance information relevant to the h
   <tr>
     <td>cleanableDecisionInstanceCount</td>
     <td>Number</td>
-    <td>The count of the cleanable historic decision instances referring to history time to live.</td>
+    <td>The count of the cleanable historic decision instances, referring to history time to live.</td>
   </tr>
 </table>
 
