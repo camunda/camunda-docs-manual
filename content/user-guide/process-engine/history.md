@@ -372,7 +372,7 @@ The supported period times and the confinement of the query works analogously to
 
 ### Finished Instance Report
 
-Retrieves a report of finished process, decision or case instances. The report helps the users to tune the history time to live for definitions. They can see a summary of the historic data which can be clean after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the 'cleanable' instances.
+Retrieves a report of finished process, decision or case instances. The report helps the user to tune the history time to live for definitions. They can see a summary of the historic data which can be cleaned after history cleanup. The output fields are definition id, key, name, version, count of the finished instances and count of the 'cleanable' instances.
 
 ```java
 historyService

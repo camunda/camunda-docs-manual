@@ -11,8 +11,9 @@ menu:
 
 ---
 
-Retrieves a report about case definition and finished case instances relevant to history cleanup (See 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live. These reports include the count of the finished historic case instances and  cleanable case instances, and basic case definition data - id, key, name and version.
+Retrieves a report about a case definition and finished case instances relevant to history cleanup (see 
+<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live. 
+These reports include a count of the finished historic case instances, cleanable case instances and basic case definition data - id, key, name and version.
 
 # Method
 
@@ -20,7 +21,7 @@ GET `/history/case-definition/finished-case-instance-report`
 
 # Result
 
-A JSON array containing finished case instance information relevant to the history cleanup. Each report result has the following properties:
+A JSON array containing finished case instance information relevant to history cleanup. Each report result has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -66,7 +67,7 @@ A JSON array containing finished case instance information relevant to the histo
   <tr>
     <td>cleanableCaseInstanceCount</td>
     <td>Number</td>
-    <td>The count of the cleanable historic case instances referring to history time to live.</td>
+    <td>The count of the cleanable historic case instances, referring to history time to live.</td>
   </tr>
 </table>
 
