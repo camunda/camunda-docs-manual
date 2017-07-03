@@ -221,6 +221,11 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The id of the tenant that this variable instance belongs to.</td>
   </tr>
+  <tr>
+    <td>state</td>
+    <td>String</td>
+    <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
+  </tr>
 </table>
 
 

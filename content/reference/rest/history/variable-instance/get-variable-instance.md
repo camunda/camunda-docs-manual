@@ -147,6 +147,11 @@ A user object with the following properties:
     <td>String</td>
     <td>An error message in case a Java Serialized Object could not be de-serialized.</td>
   </tr>
+   <tr>
+    <td>state</td>
+    <td>String</td>
+    <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
+  </tr>
 </table>
 
 
