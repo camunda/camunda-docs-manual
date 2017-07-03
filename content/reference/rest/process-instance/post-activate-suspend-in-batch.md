@@ -34,7 +34,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>A list of process instance ids which defines a group of process instances which will be activated or suspened by the operation.</td>
+    <td>A list of process instance ids which defines a group of process instances which will be activated or suspended by the operation.</td>
   </tr>
   <tr>
     <td>processInstanceQuery</td>
@@ -92,7 +92,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it created all batch execution jobs required by
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -119,7 +119,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
   <tr>
     <td>suspended</td>
     <td>Boolean</td>
-    <td>Indicates wheter this batch is suspened or not.</td>
+    <td>Indicates wheter this batch is suspended or not.</td>
   </tr>
   <tr>
     <td>tenantId</td>
@@ -180,7 +180,7 @@ Status 200 OK
   "seedJobDefinitionId": "aSeedJobDefinitionId",
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
-  "suspened": true,
+  "suspended": true,
   "tenantId": "aTenantId"
 }
 ```

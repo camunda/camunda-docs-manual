@@ -34,7 +34,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceIds</td>
-    <td>A list of process instance ids which defines a group of process instances which will be activated or suspened by the operation.</td>
+    <td>A list of process instance ids which defines a group of process instances which will be activated or suspended by the operation.</td>
   </tr>
   <tr>
     <td>processInstanceQuery</td>
