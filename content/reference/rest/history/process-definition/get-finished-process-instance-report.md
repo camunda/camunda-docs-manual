@@ -11,8 +11,8 @@ menu:
 
 ---
 
-Retrieves a report about process definition and finished process instances relevant to history cleanup (See 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live. These reports include the count of the finished historic process instances and  cleanable process instances, and basic process definition data - id, key, name and version.
+Retrieves a report about a process definition and finished process instances relevant to history cleanup (see 
+<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live. These reports include the count of the finished historic process instances, cleanable process instances and basic process definition data - id, key, name and version.
 
 # Method
 
@@ -20,7 +20,7 @@ GET `/history/process-definition/finished-process-instance-report`
 
 # Result
 
-A JSON array containing finished process instance information relevant to the history cleanup. Each report result has the following properties:
+A JSON array containing finished process instance information relevant to history cleanup. Each report result has the following properties:
 
 <table class="table table-striped">
   <tr>
@@ -66,7 +66,7 @@ A JSON array containing finished process instance information relevant to the hi
   <tr>
     <td>cleanableProcessInstanceCount</td>
     <td>Number</td>
-    <td>The count of the cleanable historic process instances referring to history time to live.</td>
+    <td>The count of the cleanable historic process instances, referring to history time to live.</td>
   </tr>
 </table>
 
