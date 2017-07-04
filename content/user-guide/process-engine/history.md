@@ -903,7 +903,7 @@ or via the [REST API]({{< relref "reference/rest/process-definition/put-history-
 
 
 The "historyTimeToLive" field can also define the number of days using a time specified by the ISO-8601 date format. 
-The function only accepts the notation to define a number of days. Specifying time in months or years will not work.
+The function only accepts the notation to define a number of days.
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="P5D">
 ...
