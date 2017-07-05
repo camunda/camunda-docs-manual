@@ -1,13 +1,13 @@
 ---
 
-title: "Get Finished Decision Instance Report"
+title: "Get Cleanable Decision Instance Report"
 weight: 10
 
 menu:
   main:
-    identifier: "rest-api-history-get-finished-decision-instance-report"
+    identifier: "rest-api-history-get-cleanable-decision-instance-report"
     parent: "rest-api-history-decision-definition"
-    pre: "GET `/history/decision-definition/finished-decision-instance-report`"
+    pre: "GET `/history/decision-definition/cleanable-decision-instance-report`"
 
 ---
 
@@ -16,7 +16,7 @@ Retrieves a report about a decision definition and finished decision instances r
 
 # Method
 
-GET `/history/decision-definition/finished-decision-instance-report`
+GET `/history/decision-definition/cleanable-decision-instance-report`
 
 # Result
 
@@ -95,7 +95,7 @@ A JSON array containing finished decision instance information relevant to histo
 
 ## Request
 
-GET `/history/decision-definition/finished-decision-instance-report`
+GET `/history/decision-definition/cleanable-decision-instance-report`
 
 ## Response
 
@@ -106,7 +106,7 @@ GET `/history/decision-definition/finished-decision-instance-report`
     "decisionDefinitionKey":"invoice",
     "decisionDefinitionName":"Invoice Receipt",
     "decisionDefinitionVersion":1,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedDecisionInstanceCount":100
     "cleanableDecisionInstanceCount":53
   },
@@ -115,7 +115,7 @@ GET `/history/decision-definition/finished-decision-instance-report`
     "decisionDefinitionKey":"invoice",
     "decisionDefinitionName":"Invoice Receipt v2.0",
     "decisionDefinitionVersion":2,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedDecisionInstanceCount":1000
     "cleanableDecisionInstanceCount":13
   }

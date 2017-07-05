@@ -1,13 +1,13 @@
 ---
 
-title: "Get Finished Process Instance Report"
+title: "Get Cleanable Process Instance Report"
 weight: 20
 
 menu:
   main:
-    identifier: "rest-api-history-get-finished-process-instance-report"
+    identifier: "rest-api-history-get-cleanable-process-instance-report"
     parent: "rest-api-history-process-definition"
-    pre: "GET `/history/process-definition/finished-process-instance-report`"
+    pre: "GET `/history/process-definition/cleanable-process-instance-report`"
 
 ---
 
@@ -16,7 +16,7 @@ Retrieves a report about a process definition and finished process instances rel
 
 # Method
 
-GET `/history/process-definition/finished-process-instance-report`
+GET `/history/process-definition/cleanable-process-instance-report`
 
 # Result
 
@@ -95,7 +95,7 @@ A JSON array containing finished process instance information relevant to histor
 
 ## Request
 
-GET `/history/process-definition/finished-process-instance-report`
+GET `/history/process-definition/cleanable-process-instance-report`
 
 ## Response
 
@@ -106,7 +106,7 @@ GET `/history/process-definition/finished-process-instance-report`
     "processDefinitionKey":"invoice",
     "processDefinitionName":"Invoice Receipt",
     "processDefinitionVersion":1,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedProcessInstanceCount":100
     "cleanableProcessInstanceCount":53
   },
@@ -115,7 +115,7 @@ GET `/history/process-definition/finished-process-instance-report`
     "processDefinitionKey":"invoice",
     "processDefinitionName":"Invoice Receipt v2.0",
     "processDefinitionVersion":2,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedProcessInstanceCount":1000
     "cleanableProcessInstanceCount":13
   }

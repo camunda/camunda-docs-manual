@@ -1,13 +1,13 @@
 ---
 
-title: "Get Finished Case Instance Report"
+title: "Get Cleanable Case Instance Report"
 weight: 20
 
 menu:
   main:
-    identifier: "rest-api-history-get-finished-case-instance-report"
+    identifier: "rest-api-history-get-cleanable-case-instance-report"
     parent: "rest-api-history-case-definition"
-    pre: "GET `/history/case-definition/finished-case-instance-report`"
+    pre: "GET `/history/case-definition/cleanable-case-instance-report`"
 
 ---
 
@@ -17,7 +17,7 @@ These reports include a count of the finished historic case instances, cleanable
 
 # Method
 
-GET `/history/case-definition/finished-case-instance-report`
+GET `/history/case-definition/cleanable-case-instance-report`
 
 # Result
 
@@ -96,7 +96,7 @@ A JSON array containing finished case instance information relevant to history c
 
 ## Request
 
-GET `/history/case-definition/finished-case-instance-report`
+GET `/history/case-definition/cleanable-case-instance-report`
 
 ## Response
 
@@ -107,7 +107,7 @@ GET `/history/case-definition/finished-case-instance-report`
     "caseDefinitionKey":"invoice",
     "caseDefinitionName":"Invoice Receipt",
     "caseDefinitionVersion":1,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedCaseInstanceCount":100
     "cleanableCaseInstanceCount":53
   },
@@ -116,7 +116,7 @@ GET `/history/case-definition/finished-case-instance-report`
     "caseDefinitionKey":"invoice",
     "caseDefinitionName":"Invoice Receipt v2.0",
     "caseDefinitionVersion":2,
-    "historyTimeToLive":"5",
+    "historyTimeToLive":5,
     "finishedCaseInstanceCount":1000
     "cleanableCaseInstanceCount":13
   }
