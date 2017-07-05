@@ -43,6 +43,14 @@ A JSON object with the following properties:
     <td>externalTaskQuery</td>
     <td>Query for the external tasks to set the number of retries for.</td>
   </tr>
+  <tr>
+    <td>processInstanceQuery</td>
+    <td>Query for the process instances containing the tasks to set the number of retries for.</td>
+   </tr>
+   <tr>
+     <td>historicProcessInstanceQuery</td>
+     <td>Query for the historic process instances containing the tasks to set the number of retries for.</td>
+   </tr>
 </table>
 
 
