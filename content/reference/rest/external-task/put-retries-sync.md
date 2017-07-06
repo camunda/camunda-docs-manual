@@ -8,7 +8,7 @@ menu:
     name: "Set Retries Sync"
     identifier: "rest-api-external-task-post-retries-sync"
     parent: "rest-api-external-task"
-    pre: "POST `/external-task/retries-sync`"
+    pre: "PUT `/external-task/retries-sync`"
 
 ---
 
@@ -17,7 +17,7 @@ Sets the number of retries left to execute external tasks by id synchronously. I
 
 # Method
 
-POST `/external-task/retries-sync`
+PUT `/external-task/retries`
 
 
 # Parameters
@@ -38,6 +38,10 @@ A JSON object with the following properties:
   <tr>
     <td>externalTaskIds</td>
     <td>The ids of the external tasks to set the number of retries for.</td>
+  </tr>
+  <tr>
+    <td>processInstanceIds</td>
+    <td>The ids of process instances containing the tasks to set the number of retries for.</td>
   </tr>
   <tr>
     <td>externalTaskQuery</td>
