@@ -14,7 +14,6 @@ menu:
 
 The CMMN Cases dashboard of Cockpit is the entry point for case monitoring. It comes with a pre-installed plugin, which lets you see deployed case definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the cases dashboard.
 
-{{< img src="../../img/cmmn/case-dashboard.png" title="Cases Dashboard" >}}
 
 # Search
 
