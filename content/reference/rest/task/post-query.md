@@ -673,53 +673,100 @@ Each task object has the following properties:
 POST `/task`
 
 Request Body:
-
-    {"taskVariables":
-        [{"name": "varName",
-        "value": "varValue",
-        "operator": "eq"
-        },
-        {"name": "anotherVarName",
-        "value": 30,
-        "operator": "neq"}],
-    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
-    "priority":10,
-    "orQueries":
-        [{"name": "aName",
-        "description": "aDescription"}, 
-        {"assignee": "anAssignee",
-        "due": "2013-01-23T13:49:42"}],
-    "sorting":
-        [{"sortBy": "dueDate",
-        "sortOrder": "asc"
-        },
-        {"sortBy": "processVariable",
-        "sortOrder": "desc",
-        "parameters": {
-          "variable": "orderId",
-          "type": "String"
-        }}]
-    }
+```json
+{"taskVariables":
+    [{"name": "varName",
+    "value": "varValue",
+    "operator": "eq"
+    },
+    {"name": "anotherVarName",
+    "value": 30,
+    "operator": "neq"}],
+"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"priority":10,
+"sorting":
+    [{"sortBy": "dueDate",
+    "sortOrder": "asc"
+    },
+    {"sortBy": "processVariable",
+    "sortOrder": "desc",
+    "parameters": {
+      "variable": "orderId",
+      "type": "String"
+    }}]
+}
+```
 
 ## Response
+```json
+[{"id":"anId",
+ "name":"aName",
+ "assignee":"anAssignee",
+ "created":"2013-01-23T13:42:42",
+ "due":"2013-01-23T13:49:42",
+ "followUp:":"2013-01-23T13:44:42",
+ "delegationState":"RESOLVED",
+ "description":"aDescription",
+ "executionId":"anExecution",
+ "owner":"anOwner",
+ "parentTaskId":"aParentId",
+ "priority":10,
+ "processDefinitionId":"aProcDefId",
+ "processInstanceId":"aProcInstId",
+ "caseDefinitionId":"aCaseDefId",
+ "caseInstanceId":"aCaseInstId",
+ "caseExecutionId":"aCaseExecution",
+ "taskDefinitionKey":"aTaskDefinitionKey",
+ "formKey":"aFormKey",
+ "tenantId":"aTenantId"}]
+```
 
-    [{"id":"anId",
-     "name":"aName",
-     "assignee":"anAssignee",
-     "created":"2013-01-23T13:42:42",
-     "due":"2013-01-23T13:49:42",
-     "followUp:":"2013-01-23T13:44:42",
-     "delegationState":"RESOLVED",
-     "description":"aDescription",
-     "executionId":"anExecution",
-     "owner":"anOwner",
-     "parentTaskId":"aParentId",
-     "priority":10,
-     "processDefinitionId":"aProcDefId",
-     "processInstanceId":"aProcInstId",
-     "caseDefinitionId":"aCaseDefId",
-     "caseInstanceId":"aCaseInstId",
-     "caseExecutionId":"aCaseExecution",
-     "taskDefinitionKey":"aTaskDefinitionKey",
-     "formKey":"aFormKey",
-     "tenantId":"aTenantId"}]
+## Request with OR queries
+
+POST `/task`
+
+Request Body:
+```json
+{
+  "assignee": "John Munda",
+  "orQueries": [
+    {
+      "name": "Approve Invoice",
+      "priority": 5
+    },
+    {
+      "suspended": false,
+      "taskDefinitionKey": "approveInvoice"
+    }
+  ]
+}
+```
+
+## Response
+```json
+[
+  {
+    "id": "349fffa8-6571-11e7-9a44-d6940f5ef88d",
+    "name": "Approve Invoice",
+    "assignee": "John Munda",
+    "created": "2017-07-10T15:10:54.670+0200",
+    "due": "2017-07-17T15:10:54.670+0200",
+    "followUp": null,
+    "delegationState": null,
+    "description": "Approve the invoice (or not).",
+    "executionId": "349f8a5c-6571-11e7-9a44-d6940f5ef88d",
+    "owner": null,
+    "parentTaskId": null,
+    "priority": 50,
+    "processDefinitionId": "invoice:1:2c8d8057-6571-11e7-9a44-d6940f5ef88d",
+    "processInstanceId": "349f8a5c-6571-11e7-9a44-d6940f5ef88d",
+    "taskDefinitionKey": "approveInvoice",
+    "caseExecutionId": null,
+    "caseInstanceId": null,
+    "caseDefinitionId": null,
+    "suspended": false,
+    "formKey": "embedded:app:develop/invoice-forms/approve-invoice.html",
+    "tenantId": null
+  }
+]
+```

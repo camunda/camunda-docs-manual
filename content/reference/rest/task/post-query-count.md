@@ -534,22 +534,48 @@ POST `/task/count`
 
 Request Body:
 
-    {"taskVariables":
-        [{"name": "varName",
-        "value": "varValue",
-        "operator": "eq"
-        },
-        {"name": "anotherVarName",
-        "value": 30,
-        "operator": "neq"}],
-    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
-    "priority":10,
-    "orQueries":
-        [{"name": "aName",
-        "description": "aDescription"}, 
-        {"assignee": "anAssignee",
-        "due": "2013-01-23T13:49:42"}]}
+```json
+{"taskVariables":
+    [{"name": "varName",
+    "value": "varValue",
+    "operator": "eq"
+    },
+    {"name": "anotherVarName",
+    "value": 30,
+    "operator": "neq"}],
+"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"priority":10}
+```
 
 ## Response
+```json
+{"count":1}
+```
 
-    {"count":1}
+## Request with OR queries
+
+POST `/task/count`
+
+Request Body:
+```json
+{
+  "assignee": "John Munda",
+  "orQueries": [
+    {
+      "name": "Approve Invoice",
+      "priority": 5
+    },
+    {
+      "suspended": false,
+      "taskDefinitionKey": "approveInvoice"
+    }
+  ]
+}
+```
+
+## Response
+```json
+{
+  "count": 1
+}
+```
