@@ -12,12 +12,41 @@ menu:
 ---
 
 Retrieves a report about a case definition and finished case instances relevant to history cleanup (see 
-<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live. 
-These reports include a count of the finished historic case instances, cleanable case instances and basic case definition data - id, key, name and version.
+<a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live.
+These reports include the count of the finished historic case instances, cleanable case instances and basic case definition data - id, key, name and version.
+The size of the result set can be retrieved by using the [Get Cleanable Case Instance Report Count]({{< relref "reference/rest/history/case-definition/get-cleanable-case-instance-report-count.md" >}}) method.
 
 # Method
 
 GET `/history/case-definition/cleanable-case-instance-report`
+
+# Parameters
+
+## Query Parameters
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>caseDefinitionIdIn</td>
+    <td>Filter by case definition ids. Must be a comma-separated list of case definition ids.</td>
+  </tr>
+  <tr>
+    <td>caseDefinitionKeyIn</td>
+    <td>Filter by case definition keys. Must be a comma-separated list of case definition keys.</td>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
+  </tr>
+  <tr>
+    <td>maxResults</td>
+    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
+  </tr>
+</table>
+
 
 # Result
 
@@ -86,9 +115,9 @@ A JSON array containing finished case instance information relevant to history c
     <td>Request successful.</td>
   </tr>
   <tr>
-    <td>403</td>
+    <td>500</td>
     <td>application/json</td>
-    <td>If the authenticated user is unauthorized to see the requested information.</td>
+    <td>See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
