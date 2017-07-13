@@ -158,7 +158,7 @@ List<Task> tasks = taskService.createTaskQuery()
   .list();
 ```
 
-Apart from variable related filter criteria, these behavior differs. Whenever a **non-variable-filter-criterion** is used 
+Aside from variable related filter criteria, this behavior differs. Whenever a **non-variable-filter-criterion** is used 
 more than once inside a query, only the value which was applied last is utilized:
 ```java
 List<Task> tasks = taskService.createTaskQuery()
@@ -170,7 +170,7 @@ List<Task> tasks = taskService.createTaskQuery()
 ```
 {{< note title="Heads-up!" class="info" >}}
 In the query shown above the value "sales" of the filter criterion `taskCandidateGroup` is replaced by the value 
-"controlling". To avoid this behavior, filter criteria with a trailing ...**In** could be used e. g.:
+"controlling". To avoid this behavior, filter criteria with a trailing ...**In** could be used e.g.,:
 
 * taskCandidateGroup**In**()
 * tenantId**In**()
