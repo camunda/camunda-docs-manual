@@ -55,7 +55,7 @@ productTypes.put("002", "Server");
 productTypes.put("003", "Workstation");
 
 execution.setVariable("AVAILABLE_PRODUCT_TYPES",  
-  objectValue(customerData)
+  objectValue(productTypes)
     .serializationDataFormat(SerializationDataFormats.JSON)
     .create());
 ```
