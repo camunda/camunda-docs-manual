@@ -33,7 +33,6 @@ The following is a list of current (unsupported) community extensions:
 
 * [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
 * [AssertJ Testing Library](https://github.com/camunda/camunda-bpm-assert)
-* [Camunda Cockpit Command-Line Client](https://github.com/zalando/camunda-cockpit-client)
 * [Camunda Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
