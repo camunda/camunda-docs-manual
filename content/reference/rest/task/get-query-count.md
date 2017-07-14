@@ -43,6 +43,13 @@ GET `/task/count`
     <td>Restrict to tasks that belong to process instances with the given business key.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKeyExpression</td>
+    <td>Restrict to tasks that belong to process instances with the given business key which is described by an expression.
+     See the 
+     <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
+     for more information on available functions.</td>
+  </tr>
+  <tr>
     <td>processInstanceBusinessKeyIn</td>
     <td>Restrict to tasks that belong to process instances with one of the give business keys.
         The keys need to be in a comma-separated list.
@@ -51,6 +58,13 @@ GET `/task/count`
   <tr>
     <td>processInstanceBusinessKeyLike</td>
     <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyLikeExpression</td>
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is 
+    described by an expression. See the 
+    <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
+    for more information on available functions.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
