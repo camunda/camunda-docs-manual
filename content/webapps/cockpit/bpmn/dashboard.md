@@ -48,3 +48,7 @@ Furthermore, you can copy a link to the current search query to your clipboard b
 You can always either search for process instances or for incidents. When you add a parameter for an incident search, you can not add a second parameter which would search for a process instance and vice versa.
 
 You can perform batch operation on process instances matching search criteria by clicking "Batch operation" button. 
+
+{{< note title="Heads-up!" class="info" >}}
+  The process instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
+{{< /note >}}
