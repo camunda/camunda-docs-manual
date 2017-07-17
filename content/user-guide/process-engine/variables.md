@@ -130,10 +130,10 @@ The type `file` can be used to store the contents of a file or input stream alon
 The value type `object` represents custom Java objects. When such a variable is persisted, its value is serialized according to a serialization procedure. These procedures are configurable and exchangeable.
 
 {{< note title="String length restriction" class="warning" >}}
-`string` values are stored in database in column of type `(n)varchar` with length restriction 4000 (2000 for Oracle). Depending on the database in use and 
-configured charset this length restriction can result in different quantity of real characters. Variable value length is not validated inside Camunda Engine, but
- the values are send to the database `as is` and, in case when length restriction is overpassed, the database level exception will be thrown. If validation is needed, 
- it may be implemented separately and must happen before Camunda API to set the variables is called.
+`string` values are stored in the database in a column of type `(n)varchar`, with a length restriction of 4000 (2000 for Oracle). Depending on the database in use and the
+configured charset, this length restriction can result in different quantities of real characters. Variable value length is not validated inside the Camunda engine, but
+ the values are sent to the database 'as is' and, in case the length restriction is exceeded, a database level exception will be thrown. If validation is needed, 
+ it may be implemented separately and must happen before the Camunda API to set the variables is called.
 {{< /note >}}
 
 Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
