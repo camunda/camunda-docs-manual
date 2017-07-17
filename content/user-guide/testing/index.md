@@ -74,7 +74,14 @@ public class MyBusinessProcessTest {
 
 ## Deploy Test Resources
 
-You can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly. Method-level annotations override class-level annotations. See the Javadocs for more details.
+You can annotate test classes and methods with {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}. Before the test is run, a resource file named `TestClassName.bpmn20.xml` (for a class-level annotation) or `TestClassName.testMethod.bpmn20.xml` (for a method-level annotation), in the same package as the test class, will be deployed. At the end of the test the deployment will be deleted, including all related process instances, tasks, etc. The `@Deployment` annotation also supports setting the resource location explicitly.
+
+```
+@Deployment(resources = {"myProcess.bpmn", "mySubprocess.bpmn"})
+```
+will pick the files `myProcess.bpmn` and `mySubProcess.bpmn` directly from the top of the classpath.
+
+Method-level annotations override class-level annotations. See the Javadocs for {{< javadocref page="?org/camunda/bpm/engine/test/Deployment.html" text="@Deployment" >}}more details.
 
 The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing.
 
