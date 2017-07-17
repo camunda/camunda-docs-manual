@@ -420,6 +420,12 @@ As soon as the retry configuration is enabled, it can be applied to tasks, call 
 
 The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
 
+You can also set an expression as in the retry configuration. For example:
+
+```xml
+  <camunda:failedJobRetryTimeCycle>${retryCycle}</camunda:failedJobRetryTimeCycle>
+```
+
 #### Use a Custom Job Retry Configuration for Events 
 
 The job retries can also be configured for the following events:

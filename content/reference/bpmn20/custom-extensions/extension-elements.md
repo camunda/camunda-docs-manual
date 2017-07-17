@@ -323,7 +323,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Text Content</th>
     <td colspan="2">
-      The retry time cycle value
+      The retry time cycle value or expression
     </td>
   </tr>
   <tr>
