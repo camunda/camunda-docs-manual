@@ -26,7 +26,7 @@ For batches that are currently in progress, the ID, type, number of failed jobs 
 
 ## Completed
 
-Below the currently running batches, completed batches along with their start- and end-time are displayed.
+Below the currently running batches, completed batches along with their start- and end-time are displayed. Completed batches are only visible when process engine [history level] ({{< relref "user-guide/process-engine/history.md#choose-a-history-level">}}) is set to FULL.
 
 # Batch Details
 
