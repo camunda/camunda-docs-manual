@@ -144,7 +144,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      A single entry of a map structure. Can contain a constant, expression, script, list or
+      A single entry of a map structure. The value can be a constant, expression, script, list or
       another map.
     </td>
   </tr>
@@ -152,7 +152,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Attributes</th>
     <td><code>key</code></td>
     <td>
-      The key of the entry in the map
+      The key of the entry in the map. Can be a string or an expression.
     </td>
   </tr>
   <tr>
