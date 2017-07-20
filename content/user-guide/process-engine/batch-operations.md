@@ -65,9 +65,10 @@ runtimeService.updateProcessInstanceSuspensionState().byProcessInstanceIds(
 Setting retries of jobs associated with process instances can be performed asynchronously using the following Java API method invocation:
 
 ```java
-List<String> historicProcessInstanceIds = ...;
-historyService.deleteHistoricProcessInstancesAsync(
-        historicProcessInstanceIds, TEST_REASON);
+List<String> processInstanceIds = ...;
+int retries = ...;
+managementService.setJobRetriesAsync(
+        processInstanceIds, null, retries);
 ```
 
 ## Setting Retries Of External Tasks
