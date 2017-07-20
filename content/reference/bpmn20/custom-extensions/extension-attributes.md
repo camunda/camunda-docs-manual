@@ -93,7 +93,16 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
+
+      Boundary Event,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-boundary-event" >}}">Timer Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/escalation-events.md#escalation-boundary-event" >}}">Escalation Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/conditional-events.md#conditional-boundary-event" >}}">Conditional Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/signal-events.md#signal-boundary-event" >}}">Signal Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md#cancel-boundary-event" >}}">Cancel Boundary Event</a>
     </td>
   </tr>
 </table>
@@ -147,7 +156,16 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
+
+      Boundary Event,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-boundary-event" >}}">Timer Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/escalation-events.md#escalation-boundary-event" >}}">Escalation Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/conditional-events.md#conditional-boundary-event" >}}">Conditional Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/signal-events.md#signal-boundary-event" >}}">Signal Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md#cancel-boundary-event" >}}">Cancel Boundary Event</a>
     </td>
   </tr>
 </table>
@@ -938,7 +956,16 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">Exclusive Gateway</a>,
 
-      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>
+      <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Multi Instance Loop Characteristics</a>,
+
+      Boundary Event,
+      <a href="{{< relref "reference/bpmn20/events/message-events.md#message-boundary-event" >}}">Message Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}">Error Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/timer-events.md#timer-boundary-event" >}}">Timer Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/escalation-events.md#escalation-boundary-event" >}}">Escalation Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/conditional-events.md#conditional-boundary-event" >}}">Conditional Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/signal-events.md#signal-boundary-event" >}}">Signal Boundary Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md#cancel-boundary-event" >}}">Cancel Boundary Event</a>
     </td>
   </tr>
 </table>
