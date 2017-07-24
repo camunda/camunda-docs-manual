@@ -47,6 +47,20 @@ A JSON object with the following properties:
     <td>Filter by process instance id.</td>
   </tr>
   <tr>
+    <td>processInstanceBusinessKey</td>
+    <td>Filter by process instance business key.</td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyIn</td>
+    <td>Filter by process instances with one of the give business keys.
+        The keys need to be in a comma-separated list.
+    </td>
+  </tr>
+  <tr>
+    <td>processInstanceBusinessKeyLike</td>
+    <td>Filter by  process instance business key that has the parameter value as a substring.</td>
+  </tr>
+  <tr>
     <td>executionId</td>
     <td>Filter by the id of the execution that executed the task.</td>
   </tr>
