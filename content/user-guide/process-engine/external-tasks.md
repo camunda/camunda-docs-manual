@@ -283,6 +283,10 @@ for (LockedExternalTask task : tasks) {
 
 After fetching and performing the requested work, a worker can complete an external task by calling the `ExternalTaskService#complete` method. A worker can only complete tasks that it fetched and locked before. If the task has been locked by a different worker in the meantime, an exception is raised.
 
+### Extending of Locks on External Tasks
+
+When an external task is locked by a worker, the lock duration can be extended by calling the method `ExternalTaskService#extendLock` method. A worker can specify the amount of time (in milliseconds) to update the timeout. A lock can be extended only by the worker who owns a lock on the given external task.
+
 ### Reporting Task Failure
 
 A worker may not always be able to complete a task successfully. In this case it can report a failure to the process engine by using `ExternalTaskService#handleFailure`. Like `#complete`, `#handleFailure` can only be invoked by the worker possessing the most recent lock for a task. The `#handleFailure` method takes four additional arguments: `errorMessage`,`errorDetails`, `retries`, `retryTimeout`. The error message can contain a description of the nature of the problem and is limited to 666 characters. It can be accessed when the task is fetched again or is queried for. The `errorDetails` are containing full error description and are unlimited in legth, error details are accessible through the separate method, based on task id. With `retries` and `retryTimout`, workers can specify a retry strategy. When setting `retries` to a value > 0, the task can be fetched again after `retryTimeout` expires. When setting retries to 0, a task can no longer be fetched and an incident is created for this task.
