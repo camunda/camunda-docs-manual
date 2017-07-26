@@ -55,98 +55,91 @@ The following list is an overview of all currently available patch scripts:
       <td>engine_7.1_patch_7.1.4_to_7.1.5.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks</td>
       <td>H2, MySQL, Oracle, PostgreSQL</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-2567">CAM-2567</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-2567">CAM-2567</td>
     </tr>
     <tr>
       <td>7.1</td>
       <td>engine_7.1_patch_7.1.9_to_7.1.10.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks</td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</td>
     </tr>
     <tr>
       <td>7.2</td>
       <td>engine_7.2_patch_7.2.4_to_7.2.5.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks. <strong>This is the same patch as engine_7.1_patch_7.1.9_to_7.1.10.sql</strong>.</td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-3565">CAM-3565</td>
     </tr>
     <tr>
       <td>7.2</td>
       <td>engine_7.2_patch_7.2.6_to_7.2.7.sql</td>
       <td>Add indices to improve deployment performance.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
     <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.0_to_7.3.1.sql</td>
       <td>Adjust column size of ACT_HI_JOB_LOG.ACT_ID_ to 255.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4037">CAM-4037</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4037">CAM-4037</td>
     </tr>
     <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.2_to_7.3.3_1.sql</td>
       <td>Add a missing index on ACT_RU_AUTHORIZATION#RESOURCE_ID_ to prevent deadlocks.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4440">CAM-4440</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4440">CAM-4440</td>
     </tr>
     <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.2_to_7.3.3_2.sql</td>
       <td>Add indices to improve deployment performance. <strong>This is the same patch as engine_7.2_patch_7.2.6_to_7.2.7.sql</strong>.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4497">CAM-4497</td>
     </tr>
     <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.5_to_7.3.6_1.sql</td>
       <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
     </tr>
     <tr>
       <td>7.3</td>
       <td>engine_7.3_patch_7.3.5_to_7.3.6_2.sql</td>
       <td>Add indices to improve performance of group authorizations.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
     </tr>
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.2_to_7.4.3_1.sql</td>
       <td>Add index to improve historic activity instance statistics query performance.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-5257">CAM-5257</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-5257">CAM-5257</td>
     </tr>
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.2_to_7.4.3_2.sql</td>
       <td>Add a missing index on ACT_RU_EXT_TASK#EXECUTION_ID_ to prevent deadlocks.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-5440">CAM-5440</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-5440">CAM-5440</td>
     </tr>
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.2_to_7.4.3_3.sql</td>
       <td>Add indices to improve performance of group authorizations. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6_2.sql</strong>.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-5364">CAM-5364</td>
     </tr>
     <tr>
       <td>7.4</td>
       <td>engine_7.4_patch_7.4.5_to_7.4.6.sql</td>
       <td>Adjust column size of ACT_RU_JOB.PROCESS_DEF_KEY_ to 255. <strong>This is the same patch as engine_7.3_patch_7.3.5_to_7.3.6_1.sql</strong>.</td>
       <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</a></td>
-    </tr>
-    <tr>
-      <td>7.5</td>
-      <td>engine_7.5_patch_7.5.8_to_7.5.9.sql</td>
-      <td>Add missing foreign key to prevent inconsistent data.</td>
-      <td>All databases</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-7477">CAM-7477</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-4328">CAM-4328</td>
     </tr>
   </tbody>
 </table>
