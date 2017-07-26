@@ -319,7 +319,7 @@ A task listener supports following attributes:
 
 * **event (required)**: the type of task event on which the task listener will be invoked. Possible events are:
     * **create**: occurs when the task has been created and all task properties are set.
-    * **assignment**: occurs when the task is assigned to somebody. Note: when process execution arrives in a userTask, an assignment event will be fired first, before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task, including the assignee.
+    * **assignment**: occurs when the task is assigned to somebody. When a task is claimed or unclaimed an assignment event is created. When unclaimed, task.getAssignee() will return null. Note: when process execution arrives in a userTask, an assignment event will be fired first (if the task is assigned eg explicitly in the process model), before the create event is fired. This might seem like an unnatural order but the reason is pragmatic: when receiving the create event, we usually want to inspect all properties of the task, including the assignee.
     * **complete**: occurs when the task is completed and just before the task is deleted from the runtime data.
     * **delete**: occurs just before the task is deleted from the runtime data.
 
