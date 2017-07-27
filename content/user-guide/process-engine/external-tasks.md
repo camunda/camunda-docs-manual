@@ -285,7 +285,7 @@ After fetching and performing the requested work, a worker can complete an exter
 
 ### Extending of Locks on External Tasks
 
-When an external task is locked by a worker, the lock duration can be extended by calling the method `ExternalTaskService#extendLock` method. A worker can specify the amount of time (in milliseconds) to update the timeout. A lock can be extended only by the worker who owns a lock on the given external task.
+When an external task is locked by a worker, the lock duration can be extended by calling the method `ExternalTaskService#extendLock`. A worker can specify the amount of time (in milliseconds) to update the timeout. A lock can only be extended by the worker who owns a lock on the given external task.
 
 ### Reporting Task Failure
 

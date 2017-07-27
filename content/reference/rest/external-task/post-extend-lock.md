@@ -45,7 +45,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>newDuration</td>
-    <td>An amount of time to extend the lock</td>
+    <td>An amount of time (in milliseconds) to extend the lock by.</td>
   </tr>
   <tr>
     <td>workerId</td>
