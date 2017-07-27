@@ -37,11 +37,17 @@ There is a possibility to create custom incidents of any type with Java API.
 
 # Creating and Resolving Custom Incidents
 
-An incident of any type can be created calling `RuntimeService#createIncident`:
+An incident of any type can be created calling `RuntimeService#createIncident` ...
 
 ```java
 runtimeService.createIncident("someType", "someExecution", "someConfiguration", "someMessage");
 ```
+
+... or directly `DelegateExecution#createIncident`.
+```java
+delegateExecution.createIncident("someType", "someConfiguration", "someMessage");
+```
+
 Custom incidents always must be related to an existing Execution.
 
 An incident of any type except for **failedJob** and **failedExternalTask** can be resolved calling `RuntimeService#resolveIncident`.
