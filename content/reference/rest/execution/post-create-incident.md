@@ -83,7 +83,7 @@ A JSON object that represents an incident object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>String</td>
-    <td>The key of the process definition this incident is associated with.</td>
+    <td>The id of the process instance this incident is associated with.</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -154,7 +154,7 @@ A JSON object that represents an incident object with the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if the incident type is null or the execution does not exist or the execution is not related to any activity.</td>
+    <td>Returned if the incident type is null, the execution does not exist or the execution is not related to any activity.</td>
   </tr>
 </table>
 

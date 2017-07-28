@@ -33,11 +33,11 @@ There are different types of incidents. Currently the process engine supports th
 * **failedJob**: is raised when automatic retries for a job (timer or asynchronous continuation) have been depleted. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary. The incident is resolved when the job is manually executed or when the retries for the corresponding job are set to a value > 0.
 * **failedExternalTask**: is raised when a worker of an [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) reports a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched by a worker. Administrative action is necessary to reset the retries.
 
-There is a possibility to create custom incidents of any type with Java API.
+It is possibile to create custom incidents of any type with the Java API.
 
 # Creating and Resolving Custom Incidents
 
-An incident of any type can be created calling `RuntimeService#createIncident` ...
+An incident of any type can be created by calling `RuntimeService#createIncident` ...
 
 ```java
 runtimeService.createIncident("someType", "someExecution", "someConfiguration", "someMessage");
@@ -48,11 +48,11 @@ runtimeService.createIncident("someType", "someExecution", "someConfiguration", 
 delegateExecution.createIncident("someType", "someConfiguration", "someMessage");
 ```
 
-Custom incidents always must be related to an existing Execution.
+Custom incidents must always be related to an existing Execution.
 
-An incident of any type except for **failedJob** and **failedExternalTask** can be resolved calling `RuntimeService#resolveIncident`.
+An incident of any type, except for **failedJob** and **failedExternalTask**, can be resolved by calling `RuntimeService#resolveIncident`.
 
-Incidents can be [created]({{<relref "reference/rest/execution/post-create-incident.md">}}) and [resolved]({{<relref "reference/rest/incident/resolve-incident.md">}}) through REST API as well.
+Incidents can be [created]({{<relref "reference/rest/execution/post-create-incident.md">}}) and [resolved]({{<relref "reference/rest/incident/resolve-incident.md">}}) through the REST API as well.
 
 
 # (De-)Activate Incidents

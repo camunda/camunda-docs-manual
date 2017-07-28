@@ -59,7 +59,7 @@ A JSON object that represents an incident object with the following properties:
   <tr>
     <td>processInstanceId</td>
     <td>String</td>
-    <td>The key of the process definition this incident is associated with.</td>
+    <td>The id of the process instance this incident is associated with.</td>
   </tr>
   <tr>
     <td>executionId</td>
