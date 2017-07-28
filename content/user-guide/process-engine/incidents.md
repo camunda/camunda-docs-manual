@@ -33,7 +33,7 @@ There are different types of incidents. Currently the process engine supports th
 * **failedJob**: is raised when automatic retries for a job (timer or asynchronous continuation) have been depleted. The incident indicates that the corresponding execution is stuck and will not continue automatically. Administrative action is necessary. The incident is resolved when the job is manually executed or when the retries for the corresponding job are set to a value > 0.
 * **failedExternalTask**: is raised when a worker of an [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}}) reports a failure and the given retries are set to a value <= 0. The incident indicates that the corresponding external task is stuck and will not be fetched by a worker. Administrative action is necessary to reset the retries.
 
-It is possibile to create custom incidents of any type with the Java API.
+It is possible to create custom incidents of any type with the Java API.
 
 # Creating and Resolving Custom Incidents
 
