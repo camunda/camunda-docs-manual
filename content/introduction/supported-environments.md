@@ -44,8 +44,7 @@ Run the Camunda BPM platform in every Java-runnable environment. Camunda BPM is 
 
 ## Database Clustering & Replication
 
-Clustered or Replicated databases are not supported unless they behave exactly like the corresponding non-clustered / non-replicated configuration.
-The configuration needs to guarantee *READ-COMMITTED* isolation level.
+Clustered or replicated databases are supported given the following conditions. The communication between Camunda BPM and the database cluster has to match with the corresponding non-clustered / non-replicated configuration. It is especially important that the configuration of the database cluster guarantees the equivalent behavior of READ-COMMITTED isolation level
 
 The MySQL/MariaDB based **Galera Cluster is not supported**.
 
