@@ -476,12 +476,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.Integer</code></td>
+    <td><code>java.lang.Integer or java.lang.String</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      Any non-negative integer number.
+      Any non-negative integer number or string containing a time in days defined by the ISO-8601 date format.
     </td>
   </tr>
   <tr>
