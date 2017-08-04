@@ -25,7 +25,7 @@ PUT `/process-definition/{id}/suspended`
 
 PUT `/process-definition/key/{key}/suspended` (suspend the latest version of the process definition which belongs to no tenant)
 
-PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspended the latest version of the process definition for tenant)
+PUT `/process-definition/key/{key}/tenant-id/{tenant-id}/suspended` (suspend the latest version of the process definition for tenant)
 
 
 # Parameters
