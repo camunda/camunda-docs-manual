@@ -2,7 +2,7 @@
 
 title: "Signal"
 layout: "section-list"
-weight: 160
+weight: 195
 
 menu:
   main:
