@@ -5,7 +5,7 @@ weight: 20
 
 menu:
   main:
-    identifier: "user-guide-dmn-model-api-creating-a-model"
+    identifier: "user-guide-dmn-model-api-create-a-model"
     parent: "user-guide-dmn-model-api"
 
 ---

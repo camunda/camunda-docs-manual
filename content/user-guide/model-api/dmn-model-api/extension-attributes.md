@@ -5,7 +5,7 @@ weight: 60
 
 menu:
   main:
-    identifier: "user-guide-dmn-model-api-extension-elements"
+    identifier: "user-guide-dmn-model-api-extension-attributes"
     parent: "user-guide-dmn-model-api"
 
 ---
@@ -30,9 +30,9 @@ decision.setVersionTag("1.0.0");
 
 Every `Input` element can have an attribute `inputVariable`. 
 This attribute specifies the variable name which can be used to access the result of the input expression in an input entry expression.
-It can be set and fetched similarly:
+It can be set and fetched similarly calling `Input#setCamundaInputVariable()` and `Input#getCamundaInputVariable()`:
 
 ```java
 input.setCamundaInputVariable("camundaInput");
-input.getCamundaInputVariable();
+String camundaInput = input.getCamundaInputVariable();
 ```
