@@ -258,14 +258,33 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 ## Process Definition Diagram Overlay
 
-**Name:** `cockpit.processDefinition.diagram.overlay`
+**Name:** `cockpit.processDefinition.diagram.plugin`
 
 {{< img src="../../img/plugin-points/plugin-point-definition-diagram-overlay.png" title="Definition Diagram Overlay" >}}
 
+Diagram overlay plugins are a little different from other plugins.
+Overlay function needs to be provided, that uses bpmn-js diagram control object to to new overlays to diagram.
+For example look at [instance count plugin](https://github.com/camunda/camunda-bpm-webapp/blob/master/ui/cockpit/plugins/base/app/views/processDefinition/diagramPlugins/instanceCount.js#L10).
+
+```javascript
+var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
+  ViewsProvider.registerDefaultView('cockpit.processDefinition.view', {
+    id: 'runtime',
+    priority: 20,
+    label: 'Runtime',
+    overlay: [
+      'control', 'processData', 'pageData', 'processDiagram',
+      function(control, processData, pageData, processDiagram) {
+        // Plugin code here
+      }
+    ]
+  });
+}];
+```
 
 ## Process Instance Diagram Overlay
 
-**Name:** `cockpit.processInstance.diagram.overlay`
+**Name:** `cockpit.processInstance.diagram.plugin`
 
 {{< img src="../../img/plugin-points/plugin-point-instance-diagram-overlay.png" title="Instance Diagram Overlay" >}}
 
@@ -413,4 +432,3 @@ See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an 
 **Name:** `cockpit.incident.action`
 
 {{< img src="../../img/plugin-points/plugin-point-incident-action.png" title="Incident Action" >}}
-
