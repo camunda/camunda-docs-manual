@@ -124,6 +124,8 @@ List<HistoricJobLog> batchExecutionJobLogs = processEngine.getHistoryService()
   .list();
 ```
 
+You can make a configuration for [history cleanup][] of the finished historic batch operations.
+
 ## Suspend a Batch
 
 To pause the execution of a batch and all corresponding jobs, a batch
@@ -299,6 +301,7 @@ processEngine.getManagementService()
 [retry]: {{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}
 [incidents]: {{< relref "user-guide/process-engine/incidents.md" >}}
 [history level]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
+[history cleanup]: {{< relref "user-guide/process-engine/history.md#history-time-to-live-for-batch-operations" >}}
 [job prioritization]: {{< relref "user-guide/process-engine/the-job-executor.md#job-prioritization" >}}
 [job-definition-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#override-priority-by-job-definition" >}}
 [job-priority]: {{< relref "user-guide/process-engine/the-job-executor.md#set-job-priorities-via-managementservice-api" >}}

@@ -912,6 +912,34 @@ The function only accepts the notation to define a number of days.
 
 You can define and update "historyTimeToLive" for decision definitions and case definitions in a similar way.
 
+### History Time to Live for Batch Operations
+
+You must specify "history time to live" for specific batch operations or all of them depends which one should be affected by the cleanup.
+"History time to live" for batch operations means the amount of days that pass, after the batch operation has finished,
+before its history is removed from the database.
+The configuration of the history time to live has to be added to the process engine configuration as follows:
+
+```xml
+<property name="batchOperationHistoryTimeToLive" value="5" />
+
+<property name="historicBatchOperations">
+  <map>
+    <entry key="instance-migration" value="10" />
+    <entry key="instance-modification" value="7" />
+    <entry key="instance-restart" value="1" />
+    <entry key="instance-deletion" value="1" />
+    <entry key="instance-update-suspension-state" value="20" />
+    <entry key="historic-instance-deletion" value="4" />
+    <entry key="set-job-retries" value="5" />
+    <entry key="set-external-task-retries" value="5" />
+    <!-- in case of custom batch jobs -->
+    <entry key="custom-operation" value="3" />
+  </map>
+</property>
+```
+If the specific history time to live is not set of the some batch operation type,
+the global configuration of the batch operations will be taken into account.
+
 ## Periodic Run
 
 To use history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup job is to run. 
