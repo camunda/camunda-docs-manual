@@ -6,9 +6,9 @@ weight: 10
 menu:
   main:
     name: "Event"
-    identifier: "rest-api-signal-put-signal"
+    identifier: "rest-api-signal-post-signal"
     parent: "rest-api-signal"
-    pre: "PUT `/signal`"
+    pre: "POST `/signal`"
 
 ---
 
@@ -21,7 +21,7 @@ section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/
 
 # Method
 
-PUT `/signal`
+POST `/signal`
 
 # Parameters
 
@@ -113,7 +113,7 @@ response format.
 
 ## Request
 
-PUT `/signal`
+POST `/signal`
 
 Request Body:
 
