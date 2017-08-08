@@ -31,8 +31,10 @@ After you imported your model you can search for elements by their id or by the 
 DecisionTable decisionTable = modelInstance.getModelElementById("decisionTable1");
 
 // find all elements of the type DecisionTable
-ModelElementType decisionTableType = modelInstance.getModel().getType(DecisionTable.class);
-Collection<ModelElementInstance> decisionTableInstances = modelInstance.getModelElementsByType(decisionTableType);
+ModelElementType decisionTableType = modelInstance.getModel()
+  .getType(DecisionTable.class);
+Collection<ModelElementInstance> decisionTableInstances = 
+  modelInstance.getModelElementsByType(decisionTableType);
 ```
 
 For every element instance you can now read and edit the attribute values. You can do this by either using the provided
@@ -51,11 +53,13 @@ decisionTable.setOutputLabel("new-label");
 
 // read attributes by generic XML model API (with optional namespace)
 String custom1 = decisionTable.getAttributeValue("custom-attribute");
-String custom2 = decisionTable.getAttributeValueNs("custom-attribute-2", "http://camunda.org/custom");
+String custom2 = decisionTable.getAttributeValueNs("custom-attribute-2", 
+  "http://camunda.org/custom");
 
 // edit attributes by generic XML model API (with optional namespace)
 decisionTable.setAttributeValue("custom-attribute", "new value");
-decisionTable.setAttributeValueNs("custom-attribute", "http://camunda.org/custom", "new value");
+decisionTable.setAttributeValueNs("custom-attribute", 
+  "http://camunda.org/custom", "new value");
 ```
 
 You can also access the child elements of an element or references to other elements. For example, 
@@ -66,7 +70,8 @@ Consider the following simple DMN model:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dish" name="Dish" namespace="test-drd-2">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
+             id="dish" name="Dish" namespace="test-drd-2">
 
   <decision id="dish-decision" name="Dish Decision">
     <informationRequirement>
@@ -125,13 +130,15 @@ DmnModelInstance modelInstance = Dmn.readModelFromFile(file);
 Decision decision = modelInstance.getModelElementById("dish-decision");
 
 // get the information requirements
-Collection<InformationRequirement> informationRequirements = decision.getInformationRequirements();
+Collection<InformationRequirement> informationRequirements =
+  decision.getInformationRequirements();
 
 // get the input of the required decisions
 for (InformationRequirement informationRequirement : informationRequirements) {
-	Decision requiredDecision = informationRequirement.getRequiredDecision();
-	DecisionTable decisionTable = requiredDecision.getUniqueChildElementByType(DecisionTable.class);
-	Collection<Input> inputs = decisionTable.getInputs();
-	...
+  Decision requiredDecision = informationRequirement.getRequiredDecision();
+  DecisionTable decisionTable =
+    requiredDecision.getUniqueChildElementByType(DecisionTable.class);
+  Collection<Input> inputs = decisionTable.getInputs();
+  ...
 }
 ```
