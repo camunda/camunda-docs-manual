@@ -922,7 +922,7 @@ The configuration of the history time to live has to be added to the process eng
 ```xml
 <property name="batchOperationHistoryTimeToLive" value="5" />
 
-<property name="historicBatchOperations">
+<property name="batchOperationsForHistoryCleanup">
   <map>
     <entry key="instance-migration" value="10" />
     <entry key="instance-modification" value="7" />
