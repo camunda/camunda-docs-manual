@@ -17,7 +17,7 @@ The size of the result set can be retrieved by using the [Get Cleanable Batch Re
 
 {{< note title="" class="info" >}}
   **Please note:**
-  The history time to live for batch operations does not support [Multi-Tenancy]({{< relref "user-guide/process-engine/multi-tenancy/multi-tenancy.md" >}}).
+  The history time to live for batch operations does not support [Multi-Tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}).
 The report will return an information for all batch operations (for all tenants) if you have permissions to see the history.
 {{< /note >}}
 
