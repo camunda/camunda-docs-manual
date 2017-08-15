@@ -920,20 +920,20 @@ before its history is removed from the database.
 The configuration of the history time to live has to be added to the process engine configuration as follows:
 
 ```xml
-<property name="batchOperationHistoryTimeToLive" value="5" />
+<property name="batchOperationHistoryTimeToLive" value="P5D" />
 
 <property name="batchOperationsForHistoryCleanup">
   <map>
-    <entry key="instance-migration" value="10" />
-    <entry key="instance-modification" value="7" />
-    <entry key="instance-restart" value="1" />
-    <entry key="instance-deletion" value="1" />
-    <entry key="instance-update-suspension-state" value="20" />
-    <entry key="historic-instance-deletion" value="4" />
-    <entry key="set-job-retries" value="5" />
-    <entry key="set-external-task-retries" value="5" />
+    <entry key="instance-migration" value="P10D" />
+    <entry key="instance-modification" value="P7D" />
+    <entry key="instance-restart" value="P1D" />
+    <entry key="instance-deletion" value="P1D" />
+    <entry key="instance-update-suspension-state" value="P20D" />
+    <entry key="historic-instance-deletion" value="P4D" />
+    <entry key="set-job-retries" value="P5D" />
+    <entry key="set-external-task-retries" value="P5D" />
     <!-- in case of custom batch jobs -->
-    <entry key="custom-operation" value="3" />
+    <entry key="custom-operation" value="P3D" />
   </map>
 </property>
 ```
