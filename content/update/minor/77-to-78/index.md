@@ -25,3 +25,20 @@ In case some custom REST clients rely on the old date format, choose one of the 
 
 1. Update REST clients to use the new format.
 2. Configure custom date format for Camunda REST API (explained in detail in the [Custom Date Format]({{< relref "reference/rest/overview/date-format.md" >}})) section.
+
+# Failed Jobs Retry Configuration
+
+There is no need any more of enabling the retry time cycle configuration for failed jobs. This is the default behaviour from now on.
+
+You should clean up the following lines from the process engine configuration file in order to be consistent with this behaviour.
+
+```xml
+<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+  ...
+  <!-- remove this property -->
+  <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" />
+  ...
+</bean>
+<!-- remove this bean -->
+<bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" />
+```

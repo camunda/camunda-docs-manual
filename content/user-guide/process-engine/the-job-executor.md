@@ -390,16 +390,27 @@ List<HistoricIncident> historicIncidents = engineRule.getHistoryService()
         .createHistoricIncidentQuery().configuration(jobId).list();
 ```
 
-### Custom Retry Configuration
+### Retry Time Cycle Configuration
 
-By default, a failed job will be retried three times and the retries are performed immediately after the failure. In daily business it might be useful to configure a retry strategy, i.e., by setting how often a job is retried and how long the engine should wait until it tries to execute a job again. The Camunda engine allows you to configure both of these setting for the following elements:
+By default, a failed job will be retried three times and the retries are performed immediately after the failure. In daily business it might be useful to configure a retry strategy, i.e., by setting how often a job is retried and how long the engine should wait until it tries to execute a job again. This configuration can be specified globally in the process engine configuration.
+
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    ...
+    <property name="failedJobRetryTimeCycle">R5/PT5M</property>
+  </properties>
+</process-engine>
+```
+
+The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
+
+The Camunda engine allows you to configure this setting for the following specific elements:
 
 * [Activities (tasks, call activities, subprocesses)]({{< relref "#use-a-custom-job-retry-configuration-for-activities" >}})
 * [Events]({{< relref "#use-a-custom-job-retry-configuration-for-events" >}})
 * [Multi-Instance Activities ]({{< relref "#use-a-custom-job-retry-configuration-for-multi-instance-activities" >}})
-
-However, before you use a customized configuration, keep in mind to [enable your custom retry configuration]({{< relref "#enable-a-custom-retry-configuration" >}}). Otherwise, the engine is not able to handle your custom extensions.
-
 
 
 #### Use a Custom Job Retry Configuration for Activities 
@@ -418,13 +429,13 @@ As soon as the retry configuration is enabled, it can be applied to tasks, call 
 </definitions>
 ```
 
-The configuration follows the [ISO_8601 standard for repeating time intervals](http://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals). In the example, `R5/PT5M` means that the maximum number of retries is 5 (`R5`) and the delay of retry is 5 minutes (`PT5M`).
-
 You can also set an expression as in the retry configuration. For example:
 
 ```xml
   <camunda:failedJobRetryTimeCycle>${retryCycle}</camunda:failedJobRetryTimeCycle>
 ```
+
+The LOCK&#95;EXP&#95;TIME&#95; is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
 #### Use a Custom Job Retry Configuration for Events 
 
@@ -481,26 +492,23 @@ The following example defines the retries of a multi-instance service task with 
 </definitions>
 ```
 
-#### Enable a Custom Retry Configuration
+### Custom Retry Configuration
 
-You can enable the custom retry configuration by adding the `FoxFailedJobParseListener` and the customized `foxFailedJobCommandFactory` to the process engine configuration:
+You can configure an custom retry configuration by adding the `customPostBPMNParseListeners` property and specify your custom `FailedJobParseListener` to the process engine configuration:
 
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
-	<!-- Your defined properties! -->
-	...
-	<property name="customPostBPMNParseListeners">
-	  <list>
-		<bean class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
-	  </list>
-	</property>
-	<property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" /> 
-	...
+  <!-- Your defined properties! -->
+  ...
+  <property name="customPostBPMNParseListeners">
+    <list>
+      <bean class="com.company.impl.bpmn.parser.CustomFailedJobParseListener" />
+    </list>
+  </property>
+  ...
 </bean>
-<bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" />
 ```
 
-The listener enables the BPMN parser to recognize the extension element [failedJobRetryTimeCycle]({{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}) and the factory augments the retry configuration applied in case of a failed job. Hereby, the LOCK&#95;EXP&#95;TIME&#95; is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
 # Concurrent Job Execution
 
