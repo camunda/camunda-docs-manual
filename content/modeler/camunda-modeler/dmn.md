@@ -57,6 +57,10 @@ Now you can start to edit the DMN decision table.
 
 Add Input, Output and Rule elements by clicking the plus signs. Edit a table cell by clicking on it. Alternatively, the tabulator key can be used to walk through the table cells.
 
+Delete a rule or a column, copy or insert a new rule by right clicking in the cell:
+
+{{< img src="img/dmn-modeler-right-click.png" title="Delete or copy rules" >}}
+
 You can start modeling a Decision Requirement Diagram by clicking the `Show DRD` button, without losing the progress made on the decision table.
 
 ## Literal Expressions
