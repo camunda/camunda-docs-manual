@@ -95,7 +95,7 @@ setter/private field on the injection target should always be `org.camunda.bpm.e
 {{< /note >}}
 
 The following code snippet shows how to inject a constant value into a field.
-Field Injection is supported when using the `class` attribute. Note that we need
+Field Injection is supported when using the `class` or `delegateExpression` attribute. Note that we need
 to declare a `extensionElements` XML element before the actual field injection
 declarations, which is a requirement of the BPMN 2.0 XML Schema.
 
