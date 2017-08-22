@@ -67,7 +67,7 @@ Choose between `before` and `after` to filter for instances that were started be
 
 {{< img src="../../img/filter-examples/var-string.png" title="Filter Example" >}}
 
-Add a filter for process instances by filtering for a `string` value. Please note that you need to encase the value in quotation marks.
+Add a filter for process instances by filtering for a `string` value. Please note that you should *not* encase the value in quotation marks.
 
 
 **Boolean variable**
