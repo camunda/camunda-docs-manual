@@ -492,6 +492,27 @@ The following example defines the retries of a multi-instance service task with 
 </definitions>
 ```
 
+### Incremental Retry Interval
+The property retry time cycle (e.g. R5/PT5M) allows to define the number of retries and an interval when the failed job should be retried. However that case the interval is always (at least) 5 minutes. When you need none static interval you can configure this incremental interval property on global level or for a specific job configuration. The local configuration takes precedence. This `incrementalIntervals` property contains list of the intervals.
+Here is an example of the process engine configuration:
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    ...
+    <property name="failedJobRetryTimeCycle">R5/PT5M</property>
+    <property name="incrementalIntervals">PT10M,PT17M,PT20M</property>
+  </properties>
+</process-engine>
+```
+The behaviour for this example would be the following:
+
+* job fails for the first time -> the job will be retried in 5 minutes (PT5M is applied)
+* job fails for the second time -> the job will be retried in 10 minutes (PT10M is applied)
+* job fails for the third time -> the job will be retried in 17 minutes (PT17M is applied)
+* job fails for the forth time -> the job will be retried in 20 minutes (PT20M is applied)
+* If the job fails for more than four times -> the job will be retried in 20 minutes (PT20M is always applied after the forth time)
+
 ### Custom Retry Configuration
 
 You can configure an custom retry configuration by adding the `customPostBPMNParseListeners` property and specify your custom `FailedJobParseListener` to the process engine configuration:
