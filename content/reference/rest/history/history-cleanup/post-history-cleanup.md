@@ -6,8 +6,8 @@ weight: 40
 menu:
   main:
     name: "Clean up history (POST)"
-    identifier: "rest-api-history-cleanup"
-    parent: "rest-api-history"
+    identifier: "rest-api-history-cleanup-post"
+    parent: "rest-api-history-cleanup"
     pre: "POST `/history/cleanup`"
 
 ---

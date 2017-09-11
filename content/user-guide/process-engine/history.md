@@ -951,7 +951,7 @@ When you only want to run the cleanup a single time, then use:
 ```java
   processEngine.getHistoryService().cleanUpHistoryAsync(true);
 ```
-Also available via [REST API]({{< relref "reference/rest/history/post-history-cleanup.md">}}).
+Also available via [REST API]({{< relref "reference/rest/history/history-cleanup/post-history-cleanup.md">}}).
 
 ## Internal Implementation
 

@@ -6,9 +6,9 @@ weight: 40
 menu:
   main:
     name: "Find clean up history job (GET)"
-    identifier: "rest-api-find-history-cleanup-job"
-    parent: "rest-api-history"
-    pre: "GET `/history/find-cleanup-job`"
+    identifier: "rest-api-history-cleanup-job"
+    parent: "rest-api-history-cleanup"
+    pre: "GET `/history/cleanup/job`"
 
 ---
 
@@ -16,7 +16,7 @@ Finds history cleanup job (See [History cleanup]({{< relref "user-guide/process-
 
 # Method
 
-GET `/history/find-cleanup-job`
+GET `/history/cleanup/job`
 
 
 # Parameters
@@ -58,7 +58,7 @@ See [Get Job]({{<relref "reference/rest/job/get.md#result" >}}) for the structur
 
 ## Request
 
-GET `/history/find-cleanup-job`
+GET `/history/cleanup/job`
 
 ## Response
 
