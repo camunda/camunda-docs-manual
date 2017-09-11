@@ -111,13 +111,13 @@ GET `/history/batch/cleanable-batch-report`
   {
     "batchType":"instance-modification",
     "historyTimeToLive":5,
-    "finishedBatchCount":100
+    "finishedBatchCount":100,
     "cleanableBatchCount":53
   },
   {
     "batchType":"instance-deletion",
     "historyTimeToLive":5,
-    "finishedBatchCount":1000
+    "finishedBatchCount":1000,
     "cleanableBatchCount":13
   }
 ]
