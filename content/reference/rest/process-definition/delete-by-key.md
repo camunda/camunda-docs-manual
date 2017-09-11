@@ -8,9 +8,9 @@ menu:
     name: "Delete By Key"
     identifier: "rest-api-process-definition-delete-by-key"
     parent: "rest-api-process-definition"
-    pre: "DELETE `/process-definition/key/{key}`
+    pre: "DELETE `/process-definition/key/{key}/delete`
           </br>
-          DELETE `/process-definition/key/{key}/tenant-id/{tenant-id}`"
+          DELETE `/process-definition/key/{key}/tenant-id/{tenant-id}/delete`"
 
 ---
 
@@ -19,9 +19,9 @@ Deletes process definitions by a given key.
 
 # Method
 
-1. DELETE `/process-definition/key/{key}` <br> Deletes process definitions which belong to no tenant id by a given key.
+1. DELETE `/process-definition/key/{key}/delete` <br> Deletes process definitions which belong to no tenant id by a given key.
 
-2. DELETE `/process-definition/key/{key}/tenant-id/{tenant-id}` <br> Deletes process definitions which belong to a tenant id by a given key.
+2. DELETE `/process-definition/key/{key}/tenant-id/{tenant-id}/delete` <br> Deletes process definitions which belong to a tenant id by a given key.
 
 
 
@@ -99,9 +99,9 @@ This method returns no content.
 
 ## Request
 
-DELETE `/process-definition/key/invoice?cascade=true&skipCustomListeners=true`
+DELETE `/process-definition/key/invoice/delete?cascade=true&skipCustomListeners=true`
 
-DELETE `/process-definition/key/invoice/tenant-id/tenant1?cascade=true&skipCustomListeners=true`
+DELETE `/process-definition/key/invoice/tenant-id/tenant1/delete?cascade=true&skipCustomListeners=true`
 
 ## Response
 
