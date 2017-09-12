@@ -167,6 +167,10 @@ GET `/history/process-instance/count`
     <td>Restrict to instances that executed an activity with one of given ids.</td>
   </tr>
   <tr>
+    <td>activeActivityIdIn</td>
+    <td>Restrict to instances that have an active activity with one of given ids.</td>
+  </tr>
+  <tr>
     <td>executedJobBefore</td>
     <td>Restrict to instances that executed an job before the given date (inclusive). The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
   </tr>
