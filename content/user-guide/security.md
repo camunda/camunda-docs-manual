@@ -12,10 +12,20 @@ menu:
 
 This page looks at Camunda BPM from a security perspective. It provides an overview over how to secure a Camunda installation.
 In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its _environment_.
+It is also explained how the security of Camunda BPM is being maintained. 
 
-# Reporting Security Issues and Vulnerabilities
+# Maintaining the Security
 
-Making Camunda as secure as possible is an ongoing effort. If you discover a potential security vulnerability please report it through the [Jira Issue Tracker](http://app.camunda.com/jira).
+The security of the Camunda BPM platform is a top priority. It is constantly being maintained. The security of the areas listed in the overview below is ensured based on common industry bestpractises. Therefore the development is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
+
+## Dealing with Security Issues and Vulnerabilities
+
+Making Camunda as secure as possible is an ongoing effort. If you discover a potential security vulnerability please report it through the [Jira Issue Tracker](http://app.camunda.com/jira). For our enterprise customers, security issues are treated as bugs and the agreed severity levels and SLAs apply.
+
+## Onboarding of Employees
+
+New software developers are being introduced to our security policies and best practices during their onboarding process.
+
 
 # Deployment Options and Components
 
@@ -120,3 +130,5 @@ When deploying the REST API or the Camunda Web Applications, Camunda is integrat
 ### Enabling SSL / HTTPS
 
 It is strongly recommended to configure SSL / HTTPS when deploying the Camunda REST APIs or Web Applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Please consult the manual of your web server or reverse proxy for details.
+
+
