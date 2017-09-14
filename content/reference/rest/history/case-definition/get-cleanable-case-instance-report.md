@@ -74,11 +74,6 @@ A JSON array containing finished case instance information relevant to history c
     <td>The name of the case definition.</td>
   </tr>
   <tr>
-    <td>caseDefinitionName</td>
-    <td>String</td>
-    <td>The name of the case definition.</td>
-  </tr>
-  <tr>
     <td>caseDefinitionVersion</td>
     <td>Number</td>
     <td>The version of the case definition.</td>

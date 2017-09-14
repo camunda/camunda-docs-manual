@@ -74,11 +74,6 @@ A JSON array containing finished decision instance information relevant to histo
     <td>The name of the decision definition.</td>
   </tr>
   <tr>
-    <td>decisionDefinitionName</td>
-    <td>String</td>
-    <td>The name of the decision definition.</td>
-  </tr>
-  <tr>
     <td>decisionDefinitionVersion</td>
     <td>Number</td>
     <td>The version of the decision definition.</td>

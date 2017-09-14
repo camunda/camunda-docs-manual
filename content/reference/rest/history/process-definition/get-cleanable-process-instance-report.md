@@ -73,11 +73,6 @@ A JSON array containing finished process instance information relevant to histor
     <td>The name of the process definition.</td>
   </tr>
   <tr>
-    <td>processDefinitionName</td>
-    <td>String</td>
-    <td>The name of the process definition.</td>
-  </tr>
-  <tr>
     <td>processDefinitionVersion</td>
     <td>Number</td>
     <td>The version of the process definition.</td>
