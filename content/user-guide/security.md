@@ -12,11 +12,11 @@ menu:
 
 This page looks at Camunda BPM from a security perspective. It provides an overview over how to secure a Camunda installation.
 In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its _environment_.
-It is also explained how the security of Camunda BPM is being maintained. 
+It is also explained how the security of Camunda BPM is continuously maintained. 
 
 # Maintaining the Security
 
-The security of the Camunda BPM platform is a top priority. It is constantly being maintained. The security of the areas listed in the overview below is ensured based on common industry bestpractises. Therefore the development is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
+The security of Camunda BPM is a top priority. It is constantly being maintained. The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
 
 ## Dealing with Security Issues and Vulnerabilities
 
@@ -25,6 +25,10 @@ Making Camunda as secure as possible is an ongoing effort. If you discover a pot
 ## Onboarding of Employees
 
 New software developers are being introduced to our security policies and best practices during their onboarding process.
+
+## Automatic Virus Scan
+
+An automatic virus scan is part of our release process ans is constantly being performed and kept up to day.
 
 
 # Deployment Options and Components
