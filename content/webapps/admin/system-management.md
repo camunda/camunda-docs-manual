@@ -50,6 +50,8 @@ http://localhost:8080/camunda/app/admin/default/#/system?section=system-settings
 
 The license key is stored in the database table `ACT_GE_PROPERTY` as *camunda-license-key*. Instead of using the UI input you can also directly place your license key into your database.
 
+Another possibility is to put the file with the license key in path: `${user.home}/.camunda/license.txt`. It will be automatically loaded to the database table unless it already contains some license key.
+
 In a clustered scenario, where multiple engines on multiple nodes access a single database, the license only needs to be activated once. When activated, a license is valid until the expiration date or until you have deleted your database. The license key is valid for an unlimited amount of engines.
 
 In a multi tenancy scenario, the license check will be performed for each engine with an own database. Thus, you will be prompted to enter the license key separately for each engine.
