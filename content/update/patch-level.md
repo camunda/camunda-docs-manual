@@ -162,6 +162,13 @@ The following list is an overview of all currently available patch scripts:
       <td>MSSQL Server</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-7442">CAM-7442</td>
     </tr>
+    <tr>
+      <td>7.7</td>
+      <td>engine_7.7_patch_7.7.3_to_7.7.4.sql</td>
+      <td>Insert new startup.lock in ACT_GE_PROPERTY.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-8162">CAM-8162</td>
+    </tr>
   </tbody>
 </table>
 
