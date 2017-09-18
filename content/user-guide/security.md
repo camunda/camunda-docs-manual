@@ -1,6 +1,6 @@
 ---
 
-title: 'Security'
+title: 'Security Policy'
 weight: 210
 
 menu:
@@ -10,11 +10,13 @@ menu:
 
 ---
 
-This page looks at Camunda BPM from a security perspective. It provides an overview over how to secure a Camunda installation.
-In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its _environment_.
-It is also explained how the security of Camunda BPM is continuously maintained. 
+This policy deals with Camunda BPM security issues. It provides an overview of how to secure a Camunda installation. In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. It also explains how the security of Camunda BPM is continuously maintained.
+
+We have identified areas where we believe security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those fields is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others.
+
 
 # Maintaining the Security
+The security of Camunda BPM takes top priority and is maintained constantly. 
 
 The security of Camunda BPM is a top priority. It is constantly being maintained. The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
 
