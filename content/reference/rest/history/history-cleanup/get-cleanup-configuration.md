@@ -41,12 +41,12 @@ A JSON object representing batch window datetimes with timezone.
     <th>Description</th>
   </tr>
   <tr>
-    <td>historyCleanupBatchWindowStartTime</td>
+    <td>batchWindowStartTime</td>
     <td>Date</td>
     <td>Start time of the current or next batch window</td>
   </tr>
   <tr>
-    <td>historyCleanupBatchWindowEndTime</td>
+    <td>batchWindowEndTime</td>
     <td>Date</td>
     <td>End time of the current or next batch window</td>
   </tr>
@@ -65,11 +65,6 @@ A JSON object representing batch window datetimes with timezone.
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
-  <tr>
-    <td>400</td>
-    <td>application/json</td>
-    <td>Returned if the batch window is not configured.</td>
-  </tr>
 </table>
 
 # Example
@@ -82,7 +77,7 @@ GET `/history/cleanup/configuration`
 
 ```json
 {
-    "historyCleanupBatchWindowStartTime":"2017-09-11T23:59:00.000+0200",
-    "historyCleanupBatchWindowEndTime":"2017-09-12T02:00:00.000+0200"
+    "batchWindowStartTime":"2017-09-11T23:59:00.000+0200",
+    "batchWindowEndTime":"2017-09-12T02:00:00.000+0200"
 }
 ```
