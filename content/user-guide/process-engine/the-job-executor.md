@@ -504,12 +504,13 @@ Here is an example of the process engine configuration:
   </properties>
 </process-engine>
 ```
-The behaviour for this example would be the following:
+The retry times would be three and the behaviour for this example would be the following:
 
 * job fails for the first time -> the job will be retried in 10 minutes (PT10M is applied)
 * job fails for the second time -> the job will be retried in 17 minutes (PT17M is applied)
 * job fails for the third time -> the job will be retried in 20 minutes (PT20M is applied)
-* if the job fails for more than three times -> the job will be retried in 20 minutes (PT20M is always applied after the third time)
+
+If the user decide to change the retry number to higher during the retries, the last interval of the list would be applied within the difference of the new value and the size of the list. After that it would continue with the normal flow as above.
 
 ### Custom Retry Configuration
 
