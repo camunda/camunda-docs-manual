@@ -55,6 +55,11 @@ DELETE `/process-instance/{id}`
       If set to <code>true</code>, the input/output mappings will be skipped.
     </td>
   </tr>
+  <tr>
+    <td>skipSubprocesses</td>
+    <td>
+      If set to <code>true</code>, subprocesses related to deleted processes will be skipped.</td>
+  </tr>
 </table>
 
 
