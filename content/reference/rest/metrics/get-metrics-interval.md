@@ -43,7 +43,7 @@ GET `/metrics`
       <code>history-cleanup-removed-process-instances</code>,
       <code>history-cleanup-removed-case-instances</code>,
       <code>history-cleanup-removed-decision-instances</code>,
-      <code>history-cleanup-removed-batch-instances</code>
+      <code>history-cleanup-removed-batch-operations</code>
     </td>
   </tr>
   <tr>
