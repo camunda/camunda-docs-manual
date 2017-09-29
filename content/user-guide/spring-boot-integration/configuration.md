@@ -250,6 +250,41 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>`classpath*:**/*.bpmn, classpath*:**/*.bpmn20.xml, classpath*:**/*.dmn, classpath*:**/*.dmn11.xml, classpath*:**/*.cmmn, classpath*:**/*.cmmn10.xml, classpath*:**/*.cmmn11.xml`</td>
 </tr>
 
+<tr><td colspan="4">*Process application*</td></tr>
+
+<tr>
+<td rowspan="5">`camunda.bpm.application`</td>
+<td>`.delete-upon-undeploy`</td>
+<td>Indicates whether the undeployment of the process archive should trigger deleting the process engine deployment. If the process engine deployment is deleted, 
+all running and historic process instances are removed as well.</td>
+<td>`false`</td>
+</tr>
+
+<tr>
+<td>`.scan-for-process-definitions`</td>
+<td>Indicates whether the classloader should be scanned for process definitions.</td>
+<td>`true`</td>
+</tr>
+
+<tr>
+<td>`.deploy-changed-only`</td>
+<td>Indicates whether only changed resources should be part of the deployment. This is independent of the setting that if no resources change, no deployment 
+takes place but the previous deployment is resumed.</td>
+<td>`false`</td>
+</tr>
+
+<tr>
+<td>`.resume-previous-versions`</td>
+<td>Indicates whether old versions of the deployment should be resumed.</td>
+<td>`false`</td>
+</tr>
+
+<tr>
+<td>`.resume-previous-by`</td>
+<td>Indicates which previous deployments should be resumed by this deployment.</td>
+<td>`process-definition-key`</td>
+</tr>
+
 <tr><td colspan="4">*Job Execution*</td></tr>
 
 <tr>

@@ -11,25 +11,12 @@ menu:
 
 ---
 
-By default, the camunda-spring-boot-starter is configured to use the SpringProcessEngineConfiguration auto deployment feature.
-Since 1.2.0 you also have the possibility to do so via SpringBootProcessApplication. This disables the SpringProcessEngineConfiguration
-auto-deploy feature and instead uses the required `META-INF/processes.xml`  as an indicator for resource scanning.
+By default, the camunda-spring-boot-starter is configured to use the `SpringProcessEngineConfiguration` auto deployment feature.
+Since 1.2.0 you also have the possibility to do so via `SpringBootProcessApplication`. This disables the `SpringProcessEngineConfiguration`
+auto-deploy feature and instead uses the required `META-INF/processes.xml` as an indicator for resource scanning.
 This also allows all `processes.xml` configuration features described [here] ({{<relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md">}}).
 
-To use it, extend the ProcessApplication with your main application class:
-
-```java
-@SpringBootApplication
-public class MyApplication extends SpringBootProcessApplication{
-
-...
-
-}
-```
-
-## `@EnableProcessApplication`
-
-With 2.0.0, you can now use the @EnableProcessApplication annotation and do not need to extend a configuration manually:
+To use it just put `@EnableProcessApplication` annotation to you Spring Boot application class:
 
 ```java
 @SpringBootApplication

@@ -34,12 +34,12 @@ Another starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](
 
 # Overriding Camunda Version
 
-If you want to override the version used by default, add `camunda.version` property with the camunda version you want 
+If you want to override the version used by default, add `camunda.version` property to your `pom.xml` with the version you want 
 to use and add the camunda bom to the dependency management:
 
 ```xml
 <properties>
-  <camunda.version>{camunda-version}</camunda.version>
+  <camunda.version>7.8.0-ee</camunda.version>
 </properties>
 
 <dependencyManagement>

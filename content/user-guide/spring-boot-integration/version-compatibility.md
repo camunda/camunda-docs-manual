@@ -11,8 +11,9 @@ menu:
 
 ---
 
-Each version of Camunda Spring Boot Starter is bind with specific version of Camunda BPM. Nevertheless smaller version of Spring Boot Starter
- may be combined with newer version of Camunda BPM engine (see [Overriding Camunda version](../#overriding-camunda-version)).
+Each version of Camunda Spring Boot Starter is bind with specific version of Camunda BPM, only these default combinations are recommended (and supported) by Camunda.
+Nevertheless smaller version of Spring Boot Starter may be combined with newer version of Camunda BPM engine (see [Overriding Camunda version](../#overriding-camunda-version)), 
+though such combinations must be thoroughly tested before using in production. 
 
 <table class="table table-striped">
   <tr>
@@ -66,5 +67,5 @@ Each version of Camunda Spring Boot Starter is bind with specific version of Cam
     <td>1.5.6.RELEASE</td>
   </tr>
 </table>
-* these versions are the versions of Spring Boot Community Extension, which can be used the same way as offically supported Spring Boot Starter, 
+* these are the versions of Spring Boot Community Extension, which can be used the same way as offically supported Spring Boot Starter, 
 but using another Maven dependencies, check the docs [here](https://camunda.github.io/camunda-bpm-spring-boot-starter/).  
