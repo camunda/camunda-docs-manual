@@ -335,6 +335,15 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+    <td><code>failedJobRetryTimeCycle</code></td>
+    <td>String</td>
+    <td>
+     Sets how often a job is retried after a fail and how long the engine should wait until it tries to execute a job again. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}">user guide</a>
+        for more details on this setting.
+    </td>
+  </tr>
+
+  <tr>
     <td><code>history</code></td>
     <td>String</td>
     <td>
