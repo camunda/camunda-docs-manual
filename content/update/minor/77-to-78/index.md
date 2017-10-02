@@ -42,3 +42,11 @@ You should clean up the following lines from the process engine configuration fi
 <!-- remove this bean -->
 <bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" />
 ```
+
+# Incident Handler
+
+This section concerns Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler` that is part of internal API.
+
+The return type of `IncidentHandler#handleIncident` has changed from `void` to `Incident`. The API expects that an incident is created and returned.
+
+In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted. The method can return `null` value.
