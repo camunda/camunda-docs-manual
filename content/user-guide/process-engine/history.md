@@ -883,6 +883,8 @@ data from history tables. It deletes:
 
 History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
+Only [camunda-admins]({{< relref "user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
+
 ## History Time to Live
 
 You must specify "history time to live" for each process definition, decision definition and case definition which should be affected by the cleanup. 
