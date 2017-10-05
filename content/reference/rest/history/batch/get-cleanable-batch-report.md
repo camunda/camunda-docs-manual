@@ -63,7 +63,7 @@ A JSON array containing finished batches information relevant to history cleanup
   <tr>
     <td>historyTimeToLive</td>
     <td>Number</td>
-    <td>The history time to live of the process definition.</td>
+    <td>The history time to live of the batch operation.</td>
   </tr>
   <tr>
     <td>finishedBatchCount</td>
