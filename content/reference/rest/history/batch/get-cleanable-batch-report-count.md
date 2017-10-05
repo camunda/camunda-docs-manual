@@ -1,6 +1,6 @@
 ---
 
-title: "Get Cleanable Process Instance Report Count"
+title: "Get Cleanable Batch Report Count"
 weight: 60
 
 menu:
