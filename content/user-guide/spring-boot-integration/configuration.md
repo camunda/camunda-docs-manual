@@ -211,7 +211,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <tr>
 <td>`.history-level-default`</td>
 <td>camunda history level to use when `history-level` is `auto` but the level can not determined automatically</td>
-<td>default value from `history-level`</td>
+<td>FULL</td>
 </tr>
 
 <tr>
@@ -228,7 +228,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 
 <tr>
 <td>`.id-generator`</td>
-<td>configure idGenerator. Allowed values: `simple`, `strong`</td>
+<td>configure idGenerator. Allowed values: `simple`, `strong`, `prefixed`. `prefixed` id generator is like `strong`, but uses Spring application name (`${spring.application.name}) as the prefix for each id.</td>
 <td>`strong`</td>
 </tr>
 
@@ -288,13 +288,7 @@ takes place but the previous deployment is resumed.</td>
 <tr><td colspan="4">*Job Execution*</td></tr>
 
 <tr>
-<td rowspan="4">`camunda.bpm.job-execution`</td>
-<td>`.active`</td>
-<td>activate job execution after successful startup</td>
-<td>`true`</td>
-</tr>
- 
-<tr>
+<td rowspan="3">`camunda.bpm.job-execution`</td>
 <td>`.enabled`</td>
 <td>if set to `false`, no JobExecutor bean is created at all. Maybe used for testing.</td>
 <td>`true`</td>
@@ -308,7 +302,12 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td>`.core-pool-size`</td>
 <td>set to value > 1 to activate parallel job execution.</td>
-<td>`1`</td>
+<td>`3`</td>
+</tr> 
+<tr>
+<td>`.max-pool-size`</td>
+<td>maximum number of parallel threads executing jobs</td>
+<td>`10`</td>
 </tr> 
 
 <tr><td colspan="4">*Datasource*</td></tr>
@@ -322,8 +321,8 @@ takes place but the previous deployment is resumed.</td>
 
 <tr>
 <td>`.type`</td>
-<td>type of the underlying database</td>
-<td>'h2', 'oracle', ...</td>
+<td>type of the underlying database. Possible values: `h2`, mysql, mariadb, oracle, postgres, mssql, db2.</td>
+<td>will be automatically determined from datasource</td>
 </tr> 
 
 <tr>
@@ -377,13 +376,13 @@ takes place but the previous deployment is resumed.</td>
 <td rowspan="2">`camunda.bpm.metrics`</td>
 <td>`.enabled`</td>
 <td>enables metrics reporting</td>
-<td>`true`</td>
+<td>_camunda default value_</td>
 </tr> 
 
 <tr>
 <td>`.db-reporter-activate`</td>
 <td>enables db metrics reporting</td>
-<td>`true`</td>
+<td>_camunda default value_</td>
 </tr> 
 
 <tr><td colspan="4">*Webapp*</td></tr>
@@ -399,19 +398,19 @@ takes place but the previous deployment is resumed.</td>
 <td rowspan="4">`camunda.bpm.authorization`</td>
 <td>`.enabled`</td>
 <td>enables authorization</td>
-<td>camunda default value</td>
+<td>_camunda default value_</td>
 </tr> 
 
 <tr>
 <td>`.enabled-for-custom-code`</td>
 <td>enables authorization for custom code</td>
-<td>camunda default value</td>
+<td>_camunda default value_</td>
 </tr> 
 
 <tr>
 <td>`.authorization-check-revokes`</td>
 <td>configures authorization check revokes</td>
-<td>camunda default value</td>
+<td>_camunda default value_</td>
 </tr> 
 
 <tr>
@@ -431,7 +430,7 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td>`.password`</td>
 <td>the initial password</td>
-<td>`id`</td>
+<td>=`id`</td>
 </tr> 
 
 <tr>
@@ -444,7 +443,7 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td>`camunda.bpm.filter`</td>
 <td>`.create`</td>
-<td>name of a "show all filter". If set, on start a new filter will be created that displayes all tasks. Useful for testing on h2 db.</td>
+<td>name of a "show all" filter. If set, on start a new filter will be created that displayes all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
 </tr> 
 
