@@ -5,7 +5,7 @@ weight: 10
 
 menu:
   main:
-    name: "Vesion Compatibility"
+    name: "Version Compatibility"
     identifier: "user-guide-spring-boot-version-compatibility"
     parent: "user-guide-spring-boot-integration"
 

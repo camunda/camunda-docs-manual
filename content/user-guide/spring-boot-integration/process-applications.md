@@ -28,6 +28,8 @@ public class MyApplication {
 }
 ```
 
+Some configuration can be done via Spring Boot configuration parameters. Check [the list of currently available parameters]({{<relref "user-guide/spring-boot-integration/configuration.md#camunda-bpm-application">}}). 
+
 ## Using deployment callbacks
 
 As when using `@EnableProcessApplication` we don't extend `ProcessApplication` class,

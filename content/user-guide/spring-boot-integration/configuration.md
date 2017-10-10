@@ -253,7 +253,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <tr><td colspan="4">*Process application*</td></tr>
 
 <tr>
-<td rowspan="5">`camunda.bpm.application`</td>
+<td rowspan="5"><a name="camunda-bpm-application"></a>`camunda.bpm.application`</td>
 <td>`.delete-upon-undeploy`</td>
 <td>Indicates whether the undeployment of the process archive should trigger deleting the process engine deployment. If the process engine deployment is deleted, 
 all running and historic process instances are removed as well.</td>
