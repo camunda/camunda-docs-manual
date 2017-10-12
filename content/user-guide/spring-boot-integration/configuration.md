@@ -221,7 +221,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 </tr>
 
 <tr>
-<td>`.license-file`</td>
+<td><a name="license-file"></a>`.license-file`</td>
 <td>Provide an URL to your camunda license file and is automatically inserted to the DB when the application starts (but only if no license key is found in the DB).</td>
 <td>By default, license key will be loaded from the file with the name `camunda-license.txt` from classpath (if present).</td>
 </tr>

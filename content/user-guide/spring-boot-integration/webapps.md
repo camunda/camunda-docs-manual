@@ -39,4 +39,4 @@ To use enterprise Web applications include another starter:
 
 Also don't forget to define the appropriate version (with "ee" suffix): see [Overriding Camunda version](../#overriding-camunda-version).
 
-If using enterprise, you can also use the `camunda.bpm.license-file` property to provide a license file that is inserted on application start. Or copy your license file under the name `camunda-license.txt` to your `src/main/resources`.
+If using enterprise, you can also use the [`camunda.bpm.license-file`]({{<relref "user-guide/spring-boot-integration/configuration.md#license-file">}}) property to provide a license file that is inserted on application start. Or copy your license file under the name `camunda-license.txt` to your `src/main/resources`.
