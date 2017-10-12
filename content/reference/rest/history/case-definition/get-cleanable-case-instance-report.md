@@ -38,6 +38,14 @@ GET `/history/case-definition/cleanable-case-instance-report`
     <td>Filter by case definition keys. Must be a comma-separated list of case definition keys.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A case definition must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include case definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>firstResult</td>
     <td>Pagination of results. Specifies the index of the first result to return.</td>
   </tr>

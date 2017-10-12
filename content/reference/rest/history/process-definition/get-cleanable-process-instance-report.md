@@ -37,6 +37,14 @@ GET `/history/process-definition/cleanable-process-instance-report`
     <td>Filter by process definition keys. Must be a comma-separated list of process definition keys.</td>
   </tr>
   <tr>
+    <td>tenantIdIn</td>
+    <td>Filter by a comma-separated list of tenant ids. A process definition must have one of the given tenant ids.</td>
+  </tr>
+  <tr>
+    <td>withoutTenantId</td>
+    <td>Only include process definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>firstResult</td>
     <td>Pagination of results. Specifies the index of the first result to return.</td>
   </tr>
