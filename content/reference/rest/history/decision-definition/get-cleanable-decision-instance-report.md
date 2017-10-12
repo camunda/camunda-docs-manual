@@ -93,6 +93,11 @@ A JSON array containing finished decision instance information relevant to histo
     <td>Number</td>
     <td>The count of the cleanable historic decision instances, referring to history time to live.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the decision definition.</td>
+  </tr>
 </table>
 
 
@@ -132,8 +137,9 @@ GET `/history/decision-definition/cleanable-decision-instance-report`
     "decisionDefinitionName":"Invoice Receipt",
     "decisionDefinitionVersion":1,
     "historyTimeToLive":5,
-    "finishedDecisionInstanceCount":100
-    "cleanableDecisionInstanceCount":53
+    "finishedDecisionInstanceCount":100,
+    "cleanableDecisionInstanceCount":53,
+    "tenantId":"aTenantId"
   },
   {
     "decisionDefinitionId":"invoice:2:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
@@ -141,8 +147,9 @@ GET `/history/decision-definition/cleanable-decision-instance-report`
     "decisionDefinitionName":"Invoice Receipt v2.0",
     "decisionDefinitionVersion":2,
     "historyTimeToLive":5,
-    "finishedDecisionInstanceCount":1000
-    "cleanableDecisionInstanceCount":13
+    "finishedDecisionInstanceCount":1000,
+    "cleanableDecisionInstanceCount":13,
+    "tenantId":"aTenantId"
   }
 
 ]

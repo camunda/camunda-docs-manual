@@ -92,6 +92,11 @@ A JSON array containing finished process instance information relevant to histor
     <td>Number</td>
     <td>The count of the cleanable historic process instances, referring to history time to live.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the process definition.</td>
+  </tr>
 </table>
 
 
@@ -131,8 +136,9 @@ GET `/history/process-definition/cleanable-process-instance-report`
     "processDefinitionName":"Invoice Receipt",
     "processDefinitionVersion":1,
     "historyTimeToLive":5,
-    "finishedProcessInstanceCount":100
-    "cleanableProcessInstanceCount":53
+    "finishedProcessInstanceCount":100,
+    "cleanableProcessInstanceCount":53,
+    "tenantId":"aTenantId"
   },
   {
     "processDefinitionId":"invoice:2:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
@@ -140,8 +146,9 @@ GET `/history/process-definition/cleanable-process-instance-report`
     "processDefinitionName":"Invoice Receipt v2.0",
     "processDefinitionVersion":2,
     "historyTimeToLive":5,
-    "finishedProcessInstanceCount":1000
-    "cleanableProcessInstanceCount":13
+    "finishedProcessInstanceCount":1000,
+    "cleanableProcessInstanceCount":13,
+    "tenantId":"aTenantId"
   }
 ]
 ```

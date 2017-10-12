@@ -93,6 +93,11 @@ A JSON array containing finished case instance information relevant to history c
     <td>Number</td>
     <td>The count of the cleanable historic case instances, referring to history time to live.</td>
   </tr>
+  <tr>
+    <td>tenantId</td>
+    <td>String</td>
+    <td>The tenant id of the case definition.</td>
+  </tr>
 </table>
 
 
@@ -132,8 +137,9 @@ GET `/history/case-definition/cleanable-case-instance-report`
     "caseDefinitionName":"Invoice Receipt",
     "caseDefinitionVersion":1,
     "historyTimeToLive":5,
-    "finishedCaseInstanceCount":100
-    "cleanableCaseInstanceCount":53
+    "finishedCaseInstanceCount":100,
+    "cleanableCaseInstanceCount":53,
+    "tenantId":"aTenantId"
   },
   {
     "caseDefinitionId":"invoice:2:7bf79f13-ef95-11e6-b6e6-34f39ab71d4e",
@@ -141,8 +147,9 @@ GET `/history/case-definition/cleanable-case-instance-report`
     "caseDefinitionName":"Invoice Receipt v2.0",
     "caseDefinitionVersion":2,
     "historyTimeToLive":5,
-    "finishedCaseInstanceCount":1000
-    "cleanableCaseInstanceCount":13
+    "finishedCaseInstanceCount":1000,
+    "cleanableCaseInstanceCount":13,
+    "tenantId":"aTenantId"
   }
 
 ]
