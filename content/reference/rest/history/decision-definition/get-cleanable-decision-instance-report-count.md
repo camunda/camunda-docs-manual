@@ -37,16 +37,20 @@ GET `/history/decision-definition/cleanable-decision-instance-report/count`
     <td>Filter by decision definition keys. Must be a comma-separated list of decision definition keys.</td>
   </tr>
   <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
     <td>tenantIdIn</td>
     <td>Filter by a comma-separated list of tenant ids. A decision definition must have one of the given tenant ids.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
     <td>Only include decision definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>withoutFinishedZero</td>
+    <td>Only include decision instances which have more than zero finished instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
+    <td>firstResult</td>
+    <td>Pagination of results. Specifies the index of the first result to return.</td>
   </tr>
   <tr>
     <td>maxResults</td>
