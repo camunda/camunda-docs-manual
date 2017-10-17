@@ -70,6 +70,13 @@ An object with the deployed start form content.
     <td></td>
     <td>Request successful.</td>
   </tr>
+   <tr>
+    <td>400</td>
+    <td>application/json</td>
+    <td>The form key has wrong format.
+    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+    for the error response format.</td>
+  </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
