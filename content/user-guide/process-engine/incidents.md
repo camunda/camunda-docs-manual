@@ -75,7 +75,7 @@ public interface IncidentHandler {
 
   String getIncidentHandlerType();
 
-  void handleIncident(IncidentContext context, String message);
+  Incident handleIncident(IncidentContext context, String message);
 
   void resolveIncident(IncidentContext context);
 
