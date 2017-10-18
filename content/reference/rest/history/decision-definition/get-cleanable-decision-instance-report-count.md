@@ -45,7 +45,7 @@ GET `/history/decision-definition/cleanable-decision-instance-report/count`
     <td>Only include decision definitions which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
-    <td>withoutFinishedZero</td>
+    <td>compact</td>
     <td>Only include decision instances which have more than zero finished instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
