@@ -11,14 +11,14 @@ menu:
 
 ---
 
-Camunda Engine can be used in Spring Boot application by using provided Spring Boot starters.
-Spring starters allow to enable behavior of your spring-boot application by adding dependencies to the classpath.
+The Camunda Engine can be used in a Spring Boot application by using provided Spring Boot starters.
+Spring boot starters allow to enable behavior of your spring-boot application by adding dependencies to the classpath.
  
-These starters will pre-configure Camunda process engine, REST API and Web applications, so they can easily be used in a standalone process application.
+These starters will pre-configure the Camunda process engine, REST API and Web applications, so they can easily be used in a standalone process application.
 
-If you are not familiar with  [Spring Boot](http://projects.spring.io/spring-boot/) read the reference documentation [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide.
+If you are not familiar with [Spring Boot](http://projects.spring.io/spring-boot/), read the [getting started](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started) guide.
 
-To enable camunda bpm auto configuration add the following dependency to your ```pom.xml```:
+To enable Camunda BPM auto configuration, add the following dependency to your ```pom.xml```:
 
 ```xml
 <dependency>
@@ -28,13 +28,13 @@ To enable camunda bpm auto configuration add the following dependency to your ``
 </dependency>
 ```
 
-This will add the camunda engine v.7.8 to your dependencies.
+This will add the Camunda engine v.7.8 to your dependencies.
 
-Another starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](rest-api) and [`camunda-bpm-spring-boot-starter-webapp`](webapps).
+Other starters that can be used are: [`camunda-bpm-spring-boot-starter-rest`](rest-api) and [`camunda-bpm-spring-boot-starter-webapp`](webapps).
 
 # Overriding Camunda Version
 
-If you want to override the version used by default, add `camunda.version` property to your `pom.xml` with the version you want 
+If you want to override the version used by default, add the `camunda.version` property to your `pom.xml` with the version you want 
 to use and add the camunda bom to the dependency management:
 
 ```xml

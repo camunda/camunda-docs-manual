@@ -11,7 +11,7 @@ menu:
 
 ---
 
-To enable [Web Applications]({{<relref "webapps/index.md">}}) you can use following starter in your `pom.xml`:
+To enable the [Web Applications]({{<relref "webapps/index.md">}}) you can use the following starter in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -21,14 +21,14 @@ To enable [Web Applications]({{<relref "webapps/index.md">}}) you can use follow
 </dependency>
 ```
 
-By default the starter registers a controller to redirect `/` to Camunda's bundled `index.html`.
-To disable this you have to add to your application properties:
+By default, the starter registers a controller to redirect `/` to Camunda's bundled `index.html`.
+To disable this, you have to add to your application properties:
 ```properties
 camunda.bpm.webapp.index-redirect-enabled=false
 ```
 
 ### Enterprise webapps
-To use enterprise Web applications include another starter:
+To use the enterprise Web applications, include another starter:
 ```xml
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
@@ -39,4 +39,4 @@ To use enterprise Web applications include another starter:
 
 Also don't forget to define the appropriate version (with "ee" suffix): see [Overriding Camunda version](../#overriding-camunda-version).
 
-If using enterprise, you can also use the [`camunda.bpm.license-file`]({{<relref "user-guide/spring-boot-integration/configuration.md#license-file">}}) property to provide a license file that is inserted on application start. Or copy your license file under the name `camunda-license.txt` to your `src/main/resources`.
+If you are using the enterprise edition, you can also use the [`camunda.bpm.license-file`]({{<relref "user-guide/spring-boot-integration/configuration.md#license-file">}}) property to provide a license file that is inserted on application start. Or copy your license file under the name `camunda-license.txt` to your `src/main/resources`.

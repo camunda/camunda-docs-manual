@@ -11,7 +11,7 @@ menu:
 
 ---
 
-To enable [REST API]({{< relref "reference/rest/index.md">}}) you can use following starter in your pom.xml:
+To enable the [REST API]({{< relref "reference/rest/index.md">}}) you can use the following starter in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -23,13 +23,13 @@ To enable [REST API]({{< relref "reference/rest/index.md">}}) you can use follow
 
 By default the application path is `rest`, so without any further configuration you can access the api at `http://localhost:8080/rest/engine`.
 
-Because we are using jersey, one can use spring boot's [common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html). 
-For example to change the application path use 
+Because we use jersey, one can use spring boot's [common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html). 
+For example, to change the application path, use 
 ```properties
 spring.jersey.application-path=myapplicationpath
 ```
 
-To modify the configuration or register additional resources one can provide a bean which extends from 
+To modify the configuration or register additional resources, one can provide a bean which extends from 
 `org.camunda.bpm.spring.boot.starter.rest.CamundaJerseyResourceConfig`:
 
 ```java
