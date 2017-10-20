@@ -49,7 +49,7 @@ An object with the deployed form content.
   </tr>
   <tr>
     <td>200</td>
-    <td></td>
+    <td>application/xhtml+xml</td>
     <td>Request successful.</td>
   </tr>
   <tr>
