@@ -52,6 +52,10 @@ GET `/history/variable-instance/count`
     <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the process definition the variable belongs to.</td>
+  </tr>
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
   </tr>

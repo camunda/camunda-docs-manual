@@ -54,6 +54,10 @@ A JSON object with the following properties:
     <td>Only include historic variable instances which belong to one of the passed process instance ids.</td>
   </tr>
   <tr>
+    <td>processDefinitionId</td>
+    <td>Filter by the process definition the variable belongs to.</td>
+  </tr>
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed execution ids.</td>
   </tr>
