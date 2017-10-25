@@ -48,24 +48,6 @@ GET `/history/process-definition/cleanable-process-instance-report/count`
     <td>compact</td>
     <td>Only include process instances which have more than zero finished instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
-  <tr>
-    <td>sortBy</td>
-    <td>Sort the results by a given criterion. Valid value is <code>finished</code>.
-    Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>sortOrder</td>
-    <td>Sort the results in a given order. Values may be <code>asc</code> for ascending order or <code>desc</code> for descending order.
-    Must be used in conjunction with the <code>sortBy</code> parameter.</td>
-  </tr>
-  <tr>
-    <td>firstResult</td>
-    <td>Pagination of results. Specifies the index of the first result to return.</td>
-  </tr>
-  <tr>
-    <td>maxResults</td>
-    <td>Pagination of results. Specifies the maximum number of results to return. Will return less results if there are no more results left.</td>
-  </tr>
 </table>
 
 
