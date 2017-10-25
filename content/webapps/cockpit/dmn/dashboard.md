@@ -44,6 +44,9 @@ To add additional columns to the details of the search results, click on the 'Ad
 
 Furthermore, you can copy a link to the current search query to your clipboard by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-link"></i></button> button and you can save search queries to your local browser storage by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and inserting a name in the drop down menu that appears. You can then retrieve the search query by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-floppy-disk"></i></button> button and selecting the chosen name in the drop down menu.
 
+{{< note title="Heads-up!" class="info" >}}
+  The decision instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
+{{< /note >}}
 
 [decision-definition-view]: {{< relref "webapps/cockpit/dmn/decision-definition-view.md" >}}
 [decision-instance-view]: {{< relref "webapps/cockpit/dmn/decision-instance-view.md" >}}
