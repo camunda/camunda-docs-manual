@@ -37,6 +37,10 @@ appropriate notice once the operation type is selected.
 
 Navigation to the next step is disabled as long as all required data to perform the operation is not filled out.
 
+{{< note title="Heads-up!" class="info" >}}
+  The instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
+{{< /note >}}
+
 # Confirmation Of Operation
 
 {{< img src="../../img/batch/batch_operation_confirmation.png" alt="Batch Operation Confirmation" caption="" >}}
