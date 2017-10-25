@@ -42,7 +42,7 @@ decision.setName("generationtest");
 definitions.addChildElement(decision);
 ```
 
-To simplify this repeating procedure, you can use a helper method like this one.
+To simplify this repeating procedure, you can use a helper method like this one:
 
 ```java
 protected <T extends DmnModelElementInstance> T createElement(DmnModelElementInstance parentElement, String id, Class<T> elementClass) {

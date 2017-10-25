@@ -12,7 +12,7 @@ menu:
 
 
 If you already created a DMN model and want to process it through the DMN model API, you can import it with the
-following methods.
+following methods:
 
 ```java
 // read a model from a file
@@ -24,7 +24,7 @@ InputStream stream = [...]
 DmnModelInstance modelInstance = Dmn.readModelFromStream(stream);
 ```
 
-After you imported your model you can search for elements by their id or by the type of element.
+After you imported your model, you can search for elements by their id or by the type of element.
 
 ```java
 // find element instance by ID
@@ -64,7 +64,7 @@ decisionTable.setAttributeValueNs("custom-attribute",
 
 You can also access the child elements of an element or references to other elements. For example, 
 a decision has a required decision which it depends on. 
-A required decision is represented by a requiredDecision element inside an informationRequirement XML element.
+A required decision is represented by a `requiredDecision` element inside an `informationRequirement` XML element.
 
 Consider the following simple DMN model:
 
