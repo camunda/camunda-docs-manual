@@ -237,8 +237,8 @@ Request body:
     {"variables":
         {"aVariable" : {"value" : "aStringValue", "type": "String"},
          "anotherVariable" : {"value" : true, "type": "Boolean"}},
-         "businessKey" : "myBusinessKey"
-        }
+     "businessKey" : "myBusinessKey"
+    }
 
 ### Response
 
@@ -265,7 +265,7 @@ Request body:
        "aVariable" : {
          "value" : "aStringValue",
          "type": "String"},
-      "anotherVariable" : {
+       "anotherVariable" : {
          "value" : true,
          "type": "Boolean"}
      },
@@ -338,7 +338,7 @@ Request Body:
             "type": "String"}
           }
       }]
-          }
+    }
 
 ### Response
 
