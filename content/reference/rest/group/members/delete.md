@@ -55,7 +55,7 @@ This method returns no content.
     <th>Description</th>
   </tr>
   <tr>
-    <td>200</td>
+    <td>204</td>
     <td>application/json</td>
     <td>Request successful.</td>
   </tr>
