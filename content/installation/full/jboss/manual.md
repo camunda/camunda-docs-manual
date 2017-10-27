@@ -409,6 +409,10 @@ See one of the following ways to fix this:
 
 See this [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-jsonignore/271/19) for other approaches and information.
 
+### Problem With Deployments Using the REST API
+
+Camunda Spin is not available in scripts if a process definition gets deployed via REST API. It causes a `ClassNotFoundException`.
+
 ## Groovy Scripting
 
 Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION/modules/` to the folder `$JBOSS_HOME/modules/`:
