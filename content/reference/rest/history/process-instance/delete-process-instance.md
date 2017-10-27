@@ -70,4 +70,4 @@ DELETE `/history/process-instance/aProcInstId`
 
 ## Response
 
-No Content.
+Status 204. No content.
