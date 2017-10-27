@@ -90,4 +90,4 @@ PUT `/job-definition/suspended`
 
 ## Response
 
-Status 204. No contCnt.
+Status 204. No content.
