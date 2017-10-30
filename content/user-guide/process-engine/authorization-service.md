@@ -484,6 +484,11 @@ In Addition to Update, Read and Delete, the following permissions are available 
 
 The "Create Instance" permission is required to start new process instances.
 
+{{< note title="Start new process instance" class="info" >}}
+  To perfom that action, the user also needs to have "Create" permission on the Process Instance resource.
+
+{{< /note >}}
+
 ## Additional Decision Definition Permissions
 
 In Addition to Update, Read and Delete, the following permissions are available on the Decision Definition Resource:
