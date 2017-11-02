@@ -76,19 +76,19 @@ To perform the modification, you have to click on *Apply modifications*. Then yo
 {{< img src="../../img/cockpit-batch-modification-view.png" title="Batch Modification View" >}}
 
 
-When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on *Modify* in the process definition view. The batch modification itself is performed identically to the modification of a single process instance, as described above. 
+When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the *Modify* tab in the process definition view. The batch modification operation is handled similarly to the modification of a single process instance. 
     
 
 {{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
 
 
-However, to get to the *Apply Modifications* modal you have to click *Select Instances* which opens another model which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. Clicking on  *Modify Selected Instances* leads you to the *Apply Modification* modal.  
+However, to get to the *Apply Modifications* modal first you have to click *Select Instances* which opens another model which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. When you have made your selection clicking on  *Modify Selected Instances*. This leads you to the *Apply Modification* modal.  
 
 
 {{< img src="../../img/cockpit-batch-modification-options.png" title="Additions Options" >}}
 
 
-When modifying multiple instances you have two additional options to select - *Asynchronous* and *Only cancel currently active activity instances*. By default both options are checked.
+Here you have two additional options to select - *Asynchronous* and *Only cancel currently active activity instances*. By default both options are checked.
  
 It is recommended to keep *Asynchronous* ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.
 
