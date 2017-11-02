@@ -18,14 +18,14 @@ menu:
 {{< img src="../img/cockpit-cleanup-page.png" title="Cockpit Cleanup View" >}}
 
 The cleanup view in Cockpit provides information about the history cleanup state and statistics about the cleanable and deleted data.
-Moreover, the page allows to perform manually various operations related to the history cleanup.
+Moreover, the page allows to manually perform various operations related to the history cleanup.
 
 
 # Cleanup State
 
 Information and operations related to the history cleanup vary on its state. 
 
-If a history cleanup window is configured and scheduled, you can check out the remaining time for its start. Whether a window is scheduled or not, it is always possible to trigger manually a cleanup job.
+If a history cleanup window is configured and scheduled, you can check out the remaining time for its start. Whether a window is scheduled or not, it is always possible to manually trigger a cleanup job.
 
 Furthermore, you can always be aware of any incident that occurred to the cleanup job, see its related stacktrace and retry it manually.
 
