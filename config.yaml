@@ -1,0 +1,42 @@
+---
+baseurl: "/manual/develop/"
+languageCode: "en-us"
+title: "Camunda BPM documentation"
+theme: "camunda"
+
+blackfriday:
+  plainIDAnchors: true
+
+params:
+  sections:
+    - id: "get-started"
+      name: "Get Started"
+      url: "/get-started"
+    - id: "manual"
+      name: "BPM Platform"
+      url: "/manual"
+    - id: "optimize"
+      name: "Optimize"
+      url: "/optimize"
+    - id: "enterprise"
+      name: "Enterprise"
+      url: "/enterprise"
+  section:
+    id: "manual"
+    version: "develop"
+    versionAlias: "7.8"
+    versions:
+      - "latest"
+      - "7.7"
+      - "7.6"
+      - "7.5"
+      - "7.4"
+      - "7.3"
+      - "7.2"
+      - "7.1"
+      - "7.0"
+      - "develop"
+  github:
+    repositoryName: "camunda/camunda-docs-manual"
+    branch: "master"
+...
