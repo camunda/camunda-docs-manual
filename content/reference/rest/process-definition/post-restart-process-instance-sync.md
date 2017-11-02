@@ -157,13 +157,13 @@ Request Body:
 }
 ```
 
-## Restarting one or more Process Instances using a historicProcessInstanceQuery:
-
 ### Response
 
 Status 204. No content.
 
-## Request
+## Restarting one or more Process Instances using a historicProcessInstanceQuery:
+
+### Request
 
 POST `/process-definition/aProcessDefinitionId/restart`
 
@@ -187,7 +187,7 @@ Request Body:
 }
 ```
 
-## Response
+### Response
 
 Status 204. No content.
 
