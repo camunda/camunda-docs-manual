@@ -70,3 +70,26 @@ To perform the modification, you have to click on *Apply modifications*. Then yo
 {{< note title="Semantics of Process Instance Modification" class="warning">}}
   The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the [Process Instance Modification section]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) of the user guide.
 {{< /note >}}
+
+# Perform a Batch Modification 
+
+{{< img src="../../img/cockpit-batch-modification-view.png" title="Batch Modification View" >}}
+
+
+When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on *Modify* in the process definition view. The batch modification itself is performed identically to the modification of a single process instance, as described above. 
+    
+
+{{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
+
+
+However, to get to the *Apply Modifications* modal you have to click *Select Instances* which opens another model which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. Clicking on  *Modify Selected Instances* leads you to the *Apply Modification* modal.  
+
+
+{{< img src="../../img/cockpit-batch-modification-options.png" title="Additions Options" >}}
+
+
+When modifying multiple instances you have two additional options to select - *Asynchronous* and *Only cancel currently active activity instances*. By default both options are checked.
+ 
+It is recommended to keep *Asynchronous* ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.
+
+The second option, *Only cancel currently active activity instances*, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.      
