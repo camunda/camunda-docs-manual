@@ -106,6 +106,6 @@ Status 200.
   "id": "someDeploymentId",
   "name": "deploymentName",
   "source": "process application",
-  "deploymentTime": "2013-04-23T13:42:43"
+  "deploymentTime": "2013-04-23T13:42:43.000+0200"
 }
 ```

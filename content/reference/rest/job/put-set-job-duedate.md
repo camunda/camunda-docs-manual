@@ -91,7 +91,7 @@ PUT `/job/aJobId/duedate`
 
 Request Body:
 
-    {"duedate": "2013-08-13 18:43:28"}
+    {"duedate": "2013-08-13T18:43:28.000+0200"}
 
 ## Response
 

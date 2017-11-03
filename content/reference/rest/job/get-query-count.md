@@ -169,7 +169,7 @@ A JSON object that contains the count as the only property.
 
 ## Request
 
-GET `/job/count?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
+GET `/job/count?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.000+0200`
 
 ## Response
 

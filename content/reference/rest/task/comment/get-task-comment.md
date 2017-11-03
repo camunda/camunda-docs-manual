@@ -114,7 +114,7 @@ GET `/task/aTaskId/comment/aTaskCommentId`
   "id": "aTaskCommentId",
   "userId": "userId",
   "taskId": "aTaskId",
-  "time": "2013-01-02T21:37:03",
+  "time": "2013-01-02T21:37:03.664+0200",
   "message": "comment content"
 }
 ```

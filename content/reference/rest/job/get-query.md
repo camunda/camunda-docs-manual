@@ -248,14 +248,14 @@ Each job object has the following properties:
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET `/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
+GET `/job?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.000+0200`
 
 ## Response
 
     [
       {
         "id": "aJobId",
-        "dueDate": "2013-07-17'T'17:05:00",
+        "dueDate": "2013-07-17T17:05:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anExecutionId",
         "retries": 0,
@@ -266,7 +266,7 @@ GET `/job?dueDates=gt_2012-07-17'T'17:00:00,lt_2012-07-17'T'18:00:00`
       },
       {
         "id": "anotherJobId",
-        "dueDate": "2013-07-17'T'17:55:00",
+        "dueDate": "2013-07-17T17:55:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anotherExecutionId",
         "retries": 0,

@@ -110,7 +110,7 @@ Its properties are as follows:
   <tr>
     <td>evaluationTime</td>
     <td>String</td>
-    <td>The time the instance was evaluated. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was evaluated. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>processDefinitionId</td>
@@ -202,6 +202,8 @@ Its properties are as follows:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+
 ## Decision Input Value
 
 {{< rest-decision-input deserializationParameter="disableCustomObjectDeserialization" >}}
@@ -247,7 +249,7 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
     "decisionDefinitionId": "invoice-assign-approver:1:4c864d79-579d-11e5-9848-f0def1e59da8",
     "decisionDefinitionKey": "invoice-assign-approver",
     "decisionDefinitionName": "Assign Approver",
-    "evaluationTime": "2015-09-10T11:22:06",
+    "evaluationTime": "2015-09-10T11:22:06.000+0200",
     "id": "67ea2c3f-579d-11e5-9848-f0def1e59da8",
     "inputs": [
         {

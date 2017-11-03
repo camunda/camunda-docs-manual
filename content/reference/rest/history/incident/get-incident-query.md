@@ -144,12 +144,12 @@ Each historic incident object has the following properties:
   <tr>
     <td>createTime</td>
     <td>String</td>
-    <td>The time this incident happened. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time this incident happened. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time this incident has been deleted or resolved. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time this incident has been deleted or resolved. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>incidentType</td>
@@ -208,6 +208,7 @@ Each historic incident object has the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -246,7 +247,7 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "processDefinitionId": "aProcDefId",
     "processInstanceId": "aProcInstId",
     "executionId": "anExecutionId",
-    "createTime": "2014-03-01T08:00:00",
+    "createTime": "2014-03-01T08:00:00.000+0200",
     "endTime": null,
     "incidentType": "failedJob",
     "activityId": "serviceTask",
@@ -265,8 +266,8 @@ GET `/history/incident?processInstanceId=aProcInstId`
     "processDefinitionId": "aProcDefId",
     "processInstanceId": "aProcInstId",
     "executionId": "anotherExecutionId",
-    "createTime": "2014-03-01T08:00:00",
-    "endTime": "2014-03-10T12:00:00",
+    "createTime": "2014-03-01T08:00:00.000+0200",
+    "endTime": "2014-03-10T12:00:00.000+0200",
     "incidentType": "customIncidentType",
     "activityId": "userTask",
     "causeIncidentId": "anotherCauseIncidentId",

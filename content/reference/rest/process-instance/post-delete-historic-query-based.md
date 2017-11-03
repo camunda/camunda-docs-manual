@@ -165,7 +165,7 @@ Request Body:
 
     {
       "historicProcessInstanceQuery": {
-        "startedBefore": "2017-04-28T11:24:37"
+        "startedBefore": "2017-04-28T11:24:37.765+0200"
       },
       "deleteReason" : "aReason",
       "skipCustomListeners" : true,

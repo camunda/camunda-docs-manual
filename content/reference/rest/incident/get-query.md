@@ -127,7 +127,7 @@ Each incident object has the following properties:
   <tr>
     <td>incidentTimestamp</td>
     <td>String</td>
-    <td>The time this incident happened. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time this incident happened. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>incidentType</td>
@@ -171,6 +171,7 @@ Each incident object has the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response codes
 
@@ -209,7 +210,7 @@ GET `/incident?processInstanceId=aProcInstId`
     "processDefinitionId": "aProcDefId",
     "processInstanceId": "aProcInstId",
     "executionId": "anExecutionId",
-    "incidentTimestamp": "2014-03-01T08:00:00",
+    "incidentTimestamp": "2014-03-01T08:00:00.000+0200",
     "incidentType": "failedJob",
     "activityId": "serviceTask",
     "causeIncidentId": "aCauseIncidentId",
@@ -224,7 +225,7 @@ GET `/incident?processInstanceId=aProcInstId`
     "processDefinitionId": "aProcDefId",
     "processInstanceId": "aProcInstId",
     "executionId": "anotherExecutionId",
-    "incidentTimestamp": "2014-03-01T09:00:00",
+    "incidentTimestamp": "2014-03-01T09:00:00.000+0200",
     "incidentType": "customIncidentType",
     "activityId": "userTask",
     "causeIncidentId": "anotherCauseIncidentId",

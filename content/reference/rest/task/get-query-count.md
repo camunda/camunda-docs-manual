@@ -275,7 +275,7 @@ GET `/task/count`
 
   <tr>
     <td>dueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.857+0200</code>.</td>
   </tr>
   <tr>
     <td>dueDateExpression</td>
@@ -287,7 +287,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>dueAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.743+0200</code>.</td>
   </tr>
   <tr>
     <td>dueAfterExpression</td>
@@ -299,7 +299,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>dueBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.754+0200</code>.</td>
   </tr>
   <tr>
     <td>dueBeforeExpression</td>
@@ -311,7 +311,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>followUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.846+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpDateExpression</td>
@@ -323,7 +323,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>followUpAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.735+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpAfterExpression</td>
@@ -336,7 +336,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>followUpBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.736+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeExpression</td>
@@ -349,7 +349,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistent</td>
-    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.836+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistentExpression</td>
@@ -363,9 +363,7 @@ GET `/task/count`
   <tr>
     <td>createdOn</td>
     <td>
-      Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
-      <strong>Note:</strong> if the used database saves dates with milliseconds precision this query only will return tasks created on the given timestamp with zero
-      milliseconds.
+      Restrict to tasks that were created on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.768+0200</code>.
     </td>
   </tr>
   <tr>
@@ -378,7 +376,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to tasks that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.384+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfterExpression</td>
@@ -390,7 +388,7 @@ GET `/task/count`
   </tr>
   <tr>
     <td>createdBefore</td>
-    <td>Restrict to tasks that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.654+0200</code>.</td>
   </tr>
   <tr>
     <td>createdBeforeExpression</td>
@@ -492,6 +490,7 @@ GET `/task/count`
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 

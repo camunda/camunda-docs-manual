@@ -72,7 +72,7 @@ GET `/history/cleanup/job`
     "executionId":null,
     "exceptionMessage":null,
     "retries":3,
-    "dueDate":"2017-04-06T13:57:45",
+    "dueDate":"2017-04-06T13:57:45.000+0200",
     "suspended":false,
     "priority":0,
     "tenantId":null

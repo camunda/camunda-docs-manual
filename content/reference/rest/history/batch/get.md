@@ -105,15 +105,16 @@ Its properties are as follows:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the batch was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the batch ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the batch ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 ## Response codes
 
@@ -160,7 +161,7 @@ Status 200.
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "tenantId": "aTenantId",
-  "startTime": "2016-04-12T15:29:33",
-  "endTime": "2016-04-12T16:23:34"
+  "startTime": "2016-04-12T15:29:33.000+0200",
+  "endTime": "2016-04-12T16:23:34.000+0200"
 }
 ```

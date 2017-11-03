@@ -1,18 +1,21 @@
 ---
 
-title: "Custom Date Format"
+title: "Date Format"
 weight: 60
 
 menu:
   main:
-    identifier: "rest-api-overview-custom-date-format"
+    identifier: "rest-api-overview-date-format"
     parent: "rest-api-overview"
 
 ---
 
 The REST API uses the default date format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, which
 represents a date with milliseconds and timezone information, e.g.,
-`2016-01-25T13:33:42.165+0100`. A custom date format can be configured in the `web.xml`
+`2016-01-25T13:33:42.165+0100`.
+
+# Custom Date Format
+A custom date format can be configured in the `web.xml`
 file of the REST API. To do so, the ServletContextListener
 `CustomJacksonDateFormatListener` has to be added. The custom date format
 can be specified by the context parameter

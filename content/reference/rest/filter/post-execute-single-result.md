@@ -138,7 +138,7 @@ Status 200.
   "caseDefinitionId": null,
   "caseExecutionId": null,
   "caseInstanceId": null,
-  "created": "2014-09-15T15:45:48",
+  "created": "2014-09-15T15:45:48.000+0200",
   "delegationState": null,
   "description": null,
   "due": null,

@@ -99,11 +99,11 @@ GET `/history/user-operation`
   </tr>
   <tr>
     <td>afterTimestamp</td>
-    <td>Restrict to entries that were created after the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
+    <td>Restrict to entries that were created after the given timestamp. By default*, the timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2014-02-25T14:58:37.000+0200</code>.</td>
   </tr>
   <tr>
     <td>beforeTimestamp</td>
-    <td>Restrict to entries that were created before the given timestamp. The timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2014-02-25T14:58:37</code>.</td>
+    <td>Restrict to entries that were created before the given timestamp. By default*, the timestamp must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2014-02-25T14:58:37.000+0200</code>.</td>
   </tr>
   <tr>
     <td>sortBy</td>
@@ -124,6 +124,7 @@ GET `/history/user-operation`
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -282,7 +283,7 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "jobId": "aJobId",
     "jobDefinitionId": "aJobDefinitionId",
     "userId": "demo",
-    "timestamp": "2014-02-25T14:58:37",
+    "timestamp": "2014-02-25T14:58:37.000+0200",
     "operationId": "anOperationId",
     "operationType": "Claim",
     "entityType": "Task",
@@ -308,7 +309,7 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
     "jobId": null,
     "jobDefinitionId": null,
     "userId": "demo",
-    "timestamp": "2014-02-25T14:58:37",
+    "timestamp": "2014-02-25T14:58:37.000+0200",
     "operationId": "anOperationId",
     "operationType": "Suspend",
     "entityType": "ProcessInstance",

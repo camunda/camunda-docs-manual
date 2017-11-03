@@ -157,7 +157,7 @@ Request Body:
 
     {
       "historicProcessInstanceQuery": {
-        "startedBefore": "2017-04-28T11:24:37"
+        "startedBefore": "2017-04-28T11:24:37.769+0200"
       },
       "processInstances": ["aProcess","secondProcess"],
       "retries" : numberOfRetries

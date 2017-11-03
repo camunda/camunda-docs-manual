@@ -132,13 +132,13 @@ A JSON array of aggregated metrics. Each aggregated metric has the following pro
 
 ## Request
 
-GET `/metrics?name=activity-instance-end&startDate='1970-01-01 01:45:00'&endDate='1970-01-01 02:00:00'`
+GET `/metrics?name=activity-instance-end&startDate='1970-01-01T01:45:00.000+0200'&endDate='1970-01-01T02:00:00.000+0200'`
 
 ## Response
 
     [
       {
-        "timestamp":"1970-01-01T01:45:00",
+        "timestamp":"1970-01-01T01:45:00.000+0200",
         "name":"activity-instance-end",
         "reporter":"REPORTER",
         "value":23

@@ -76,12 +76,12 @@ Its properties are as follows:
   <tr>
     <td>createTime</td>
     <td>String</td>
-    <td>The time the instance was created. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was created. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>closeTime</td>
     <td>String</td>
-    <td>The time the instance was closed. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was closed. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -140,6 +140,7 @@ Its properties are as follows:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -175,8 +176,8 @@ GET `/history/case-instance/aCaseInstId`
   "id": "aCaseInstId",
   "businessKey": "aKey",
   "caseDefinitionId": "aCaseDefId",
-  "createTime": "2013-03-23T13:42:43",
-  "closeTime": "2013-03-23T13:42:45",
+  "createTime": "2013-03-23T13:42:43.000+0200",
+  "closeTime": "2013-03-23T13:42:45.000+0200",
   "durationInMillis": 2000,
   "createUserId": "aStartUserId",
   "superCaseInstanceId": "aSuperCaseInstanceId",

@@ -278,7 +278,7 @@ expression as a substring.
 
   <tr>
     <td>dueDate</td>
-    <td>Restrict to tasks that are due on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.375+0200</code>.</td>
   </tr>
   <tr>
     <td>dueDateExpression</td>
@@ -290,7 +290,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>dueAfter</td>
-    <td>Restrict to tasks that are due after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.875+0200</code>.</td>
   </tr>
   <tr>
     <td>dueAfterExpression</td>
@@ -302,7 +302,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>dueBefore</td>
-    <td>Restrict to tasks that are due before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that are due before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.037+0200</code>.</td>
   </tr>
   <tr>
     <td>dueBeforeExpression</td>
@@ -314,7 +314,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>followUpDate</td>
-    <td>Restrict to tasks that have a followUp date on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.984+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpDateExpression</td>
@@ -326,7 +326,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>followUpAfter</td>
-    <td>Restrict to tasks that have a followUp date after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.438+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpAfterExpression</td>
@@ -338,7 +338,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>followUpBefore</td>
-    <td>Restrict to tasks that have a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.847+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeExpression</td>
@@ -350,7 +350,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistent</td>
-    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that have no followUp date or a followUp date before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.746+0200</code>.</td>
   </tr>
   <tr>
     <td>followUpBeforeOrNotExistentExpression</td>
@@ -364,9 +364,7 @@ expression as a substring.
   <tr>
     <td>createdOn</td>
     <td>
-      Restrict to tasks that were created on the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.
-      <strong>Note:</strong> if the used database saves dates with milliseconds precision this query only will return tasks created on the given timestamp with zero
-      milliseconds.
+      Restrict to tasks that were created on the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.746+0200</code>.
     </td>
   </tr>
   <tr>
@@ -379,7 +377,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>createdAfter</td>
-    <td>Restrict to tasks that were created after the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created after the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.736+0200</code>.</td>
   </tr>
   <tr>
     <td>createdAfterExpression</td>
@@ -391,7 +389,7 @@ expression as a substring.
   </tr>
   <tr>
     <td>createdBefore</td>
-    <td>Restrict to tasks that were created before the given date. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
+    <td>Restrict to tasks that were created before the given date. By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.037+0200</code>.</td>
   </tr>
   <tr>
     <td>createdBeforeExpression</td>
@@ -500,6 +498,7 @@ expression as a substring.
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 

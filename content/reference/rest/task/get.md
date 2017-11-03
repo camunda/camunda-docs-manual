@@ -67,17 +67,17 @@ Its properties are as follows:
   <tr>
     <td>created</td>
     <td>String</td>
-    <td>The time the task was created. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the task was created. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>due</td>
     <td>String</td>
-    <td>The due date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The due date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>followUp</td>
     <td>String</td>
-    <td>The follow-up date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>delegationState</td>
@@ -152,6 +152,7 @@ Its properties are as follows:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -190,9 +191,9 @@ GET `/task/anId`
     {"id":"anId",
     "name":"aName",
     "assignee":"anAssignee",
-    "created":"2013-01-23T13:42:42",
-    "due":"2013-01-23T13:49:42",
-    "followUp:":"2013-01-23T13:44:42",
+    "created":"2013-01-23T13:42:42.000+0200",
+    "due":"2013-01-23T13:49:42.576+0200",
+    "followUp:":"2013-01-23T13:44:42.437+0200",
     "delegationState":"RESOLVED",
     "description":"aDescription",
     "executionId":"anExecution",

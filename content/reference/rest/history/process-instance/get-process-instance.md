@@ -95,12 +95,12 @@ Its properties are as follows:
   <tr>
     <td>startTime</td>
     <td>String</td>
-    <td>The time the instance was started. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
     <td>String</td>
-    <td>The time the instance ended. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>
@@ -143,6 +143,7 @@ Its properties are as follows:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -181,7 +182,7 @@ GET `/history/process-instance/aProcInstId`
   "processDefinitionKey":"invoice",
   "processDefinitionName":"Invoice Receipt",
   "processDefinitionVersion":1,
-  "startTime":"2017-02-10T14:33:19",
+  "startTime":"2017-02-10T14:33:19.000+0200",
   "endTime":null,
   "durationInMillis":null,
   "startUserId":null,

@@ -214,7 +214,7 @@ Status 200.
     "id": "aDeploymentId",
     "name": "aName",
     "source": "process application",
-    "deploymentTime": "2013-01-23T13:59:43",
+    "deploymentTime": "2013-01-23T13:59:43.000+0200",
     "tenantId": null,
     "deployedProcessDefinitions": {
         "aProcDefId": {

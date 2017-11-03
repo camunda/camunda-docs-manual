@@ -134,9 +134,11 @@ An object having the following properties:
   <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when this historic detail occurred, has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when this historic detail occurred, default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>
+
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 Depending on the type of the historic detail it contains further properties. In case of a <code>HistoricVariableUpdate</code> the following properties are also provided:
 
@@ -250,7 +252,7 @@ Status 200.
   "taskId": null,
   "tenantId": null,
   "userOperationId": "3cd76c7f-001a-11e7-8c6b-34f39ab71d4e",
-  "time": "2017-03-03T15:03:54",
+  "time": "2017-03-03T15:03:54.000+0200",
   "variableName": "amount",
   "variableInstanceId": "3cd65b08-001a-11e7-8c6b-34f39ab71d4e",
   "variableType": "Double",

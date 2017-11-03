@@ -60,12 +60,12 @@ A JSON object with the following properties:
   </tr>
     <td>due</td>
     <td>String</td>
-    <td>The due date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The due date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>followUp</td>
     <td>String</td>
-    <td>The follow-up date for the task. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The follow-up date for the task. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>priority</td>
@@ -136,8 +136,8 @@ Request Body:
       "assignee" : "peter",
       "owner" : "mary",
       "delegationState" : "PENDING",
-      "due" : "2014-08-30T10:00:00",
-      "followUp" : "2014-08-25T10:00:00",
+      "due" : "2014-08-30T10:00:00.000+0200",
+      "followUp" : "2014-08-25T10:00:00.000+0200",
       "parentTaskId" : "aParentTaskId",
       "caseInstanceId" : "aCaseInstanceId",
       "tenantId" : "tenantId"

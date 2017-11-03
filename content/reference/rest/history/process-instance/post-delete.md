@@ -161,8 +161,8 @@ Request Body:
       "deleteReason" : "aReason",
       "historicProcessInstanceIds": ["aProcess","secondProcess"],
       "historicProcessInstanceQuery": {
-        "startedAfter": "2016-10-11T11:44:13",
-        "finishedBefore": "2016-10-13T11:44:17"
+        "startedAfter": "2016-10-11T11:44:13.000+0200",
+        "finishedBefore": "2016-10-13T11:44:17.000+0200"
       }
     }
 

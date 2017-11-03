@@ -304,7 +304,7 @@ Request Body:
 [
   {
     "id" : "someId",
-    "timestamp" : "2015-01-15T15:22:20",
+    "timestamp" : "2015-01-15T15:22:20.000+0200",
     "jobId" : "aJobId",
     "jobDefinitionId" : "aJobDefinitionId",
     "activityId" : "serviceTask",

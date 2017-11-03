@@ -109,21 +109,21 @@ GET `/task/aTaskId/comment`
     "id": "commentId",
     "userId": "userId",
     "taskId": "aTaskId",
-    "time": "2013-01-02T21:37:03",
+    "time": "2013-01-02T21:37:03.764+0200",
     "message": "message"
   },
   {
     "id": "anotherCommentId",
     "userId": "anotherUserId",
     "taskId": "aTaskId",
-    "time": "2013-02-23T20:37:43",
+    "time": "2013-02-23T20:37:43.975+0200",
     "message": "anotherMessage"
   },
   {
     "id": "yetAnotherCommentId",
     "userId": "yetAnotherUserId",
     "taskId": "aTaskId",
-    "time": "2013-04-21T10:15:23",
+    "time": "2013-04-21T10:15:23.764+0200",
     "message": "yetAnotherMessage"
   }
 ]

@@ -146,7 +146,7 @@ Status 200.
   "id": "aTaskCommentId",
   "userId": "userId",
   "taskId": "aTaskId",
-  "time": "2013-01-02T21:37:03",
+  "time": "2013-01-02T21:37:03.887+0200",
   "message": "comment message"
 }
 ```

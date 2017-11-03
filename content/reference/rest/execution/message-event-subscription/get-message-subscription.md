@@ -80,10 +80,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>createdDate</td>
-    <td>The time the subscription was created by the engine. Format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time the subscription was created by the engine. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -123,5 +124,5 @@ GET `/execution/anExecutionId/messageSubscriptions/someMessage`
     "processInstanceId": "aProcInstId",
     "activityId": "anActivity",
     "tenantId": null,
-    "createdDate": "2013-01-23T13:59:43"}
+    "createdDate": "2013-01-23T13:59:43.000+0200"}
 

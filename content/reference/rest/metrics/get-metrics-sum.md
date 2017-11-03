@@ -104,7 +104,7 @@ A JSON object providing the result:
 
 ## Request
 
-GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00`
+GET `/metrics/activity-instance-end/sum?startDate=2015-01-01T00:00:00.000+0200`
 
 ## Response
 

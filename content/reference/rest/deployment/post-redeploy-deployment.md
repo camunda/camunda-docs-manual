@@ -192,7 +192,7 @@ Status 200.
     "id": "aDeploymentId",
     "name": "aName",
     "source": "cockpit",
-    "deploymentTime": "2015-10-13T13:59:43",
+    "deploymentTime": "2015-10-13T13:59:43.000+0200",
     "tenantId": null,
     "deployedProcessDefinitions": {
         "aProcDefId": {

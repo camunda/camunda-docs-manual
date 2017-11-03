@@ -162,7 +162,7 @@ Request Body:
       "retries" : numberOfRetries,
       "processInstances": ["aProcess","secondProcess"],
       "processInstanceQuery": {
-        "startedBefore": "2016-10-11T11:44:13"
+        "processDefinitionId": "aProcessDefinitionId"
       }
     }
 

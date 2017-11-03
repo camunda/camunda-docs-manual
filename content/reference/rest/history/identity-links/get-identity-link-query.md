@@ -108,7 +108,7 @@ Each historic identity link log object has the following properties:
   <tr>
     <td>time</td>
     <td>String</td>
-    <td>The time when the identity link is logged. Has the format <code>yyyy-MM-dd'T'HH:mm:ss</code>.</td>
+    <td>The time when the identity link is logged. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
    <tr>
     <td>type</td>
@@ -157,6 +157,7 @@ Each historic identity link log object has the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -190,7 +191,7 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
     [
       {
 	    "id": "1",
-        "time": "2014-03-01T08:00:00",
+        "time": "2014-03-01T08:00:00.000+0200",
         "type": "candidate",
         "userId": "aUserId",
         "groupId": "aGroupId",
@@ -203,7 +204,7 @@ GET <code>/history/identity-link-log?taskId=aTaskId</code>
       },
       {
 	    "id": "2",
-        "time": "2014-03-05T10:00:00",
+        "time": "2014-03-05T10:00:00.000+0200",
         "type": "candidate",
         "userId": "aUserId",
         "groupId": "aGroupId",

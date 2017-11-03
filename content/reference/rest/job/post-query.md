@@ -271,11 +271,11 @@ Request Body:
         [
           {
             "operator": "gt",
-            "value": "2012-07-17'T'17:00:00"
+            "value": "2012-07-17T17:00:00.000+0200"
           },
           {
             "operator": "lt",
-            "value": "2012-07-17'T'18:00:00"
+            "value": "2012-07-17T18:00:00.000+0200"
           }
         ],
       ,
@@ -297,7 +297,7 @@ Request Body:
     [
       {
         "id": "aJobId",
-        "dueDate": "2013-07-17'T'17:05:00",
+        "dueDate": "2013-07-17T17:05:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anExecutionId",
         "retries": 0,
@@ -308,7 +308,7 @@ Request Body:
       },
       {
         "id": "anotherJobId",
-        "dueDate": "2013-07-17'T'17:55:00",
+        "dueDate": "2013-07-17T17:55:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
         "executionId": "anotherExecutionId",
         "retries": 0,
