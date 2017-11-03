@@ -82,14 +82,14 @@ When multiple process instances are required to be modified the batch modificati
 {{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
 
 
-However, to get to the *Apply Modifications* modal first you have to click *Select Instances* which opens another model which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. When you have made your selection clicking on  *Modify Selected Instances*. This leads you to the *Apply Modification* modal.  
+However, to get to the *Apply Modifications* modal first you have to click *Select Instances* which opens another modal which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. When you have made your selection click on  *Modify Selected Instances*. This leads you to the *Apply Modification* modal.  
 
 
 {{< img src="../../img/cockpit-batch-modification-options.png" title="Additions Options" >}}
 
 
-Here you have two additional options to select - *Asynchronous* and *Only cancel currently active activity instances*. By default both options are checked.
+Here you have two additional options to select - *Asynchronous* and *Only Cancel Currently Active Activity Instances*. By default both options are checked.
  
 It is recommended to keep *Asynchronous* ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.
 
-The second option, *Only cancel currently active activity instances*, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.      
+The second option, *Only Cancel Currently Active Activity Instances*, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.      
