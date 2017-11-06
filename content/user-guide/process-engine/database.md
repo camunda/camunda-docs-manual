@@ -126,6 +126,13 @@ The data source that is constructed based on the provided JDBC properties will h
 * `jdbcMaxWaitTime`: This is a low level setting that gives the pool a chance to print a log status and re-attempt the acquisition of a connection in the case that it takes unusually long (to avoid failing silently forever if the pool is misconfigured). Default is 20000 (20 seconds).
 * `jdbcStatementTimeout`: The amount of time in seconds the JDBC driver will wait for a response from the database. Default is null which means that there is no timeout.
 
+Another configuration - `jdbcBatchProcessing` - sets if batch processing mode must be used when sending SQL statements to the database. When switched off, statements are executed one by one.
+Values: `true` (default), `false`.
+
+Known issues with batch processing:
+* batch processing is not working for Oracle versions earlier than 12.
+* when using batch processing on MariaDB and DB2, `jdbcStatementTimeout` is being ignored.
+
 Example database configuration:
 
 ```xml
