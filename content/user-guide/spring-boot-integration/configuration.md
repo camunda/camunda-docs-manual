@@ -328,13 +328,13 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td><code>.table-prefix</code></td>
 <td>Prefix of the camunda database tables. Attention: The table prefix will <b>not</b> be applied if you  are using <code>schema-update</code>!</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr>
 <td><code>.schema-name</code></td>
 <td>The dataBase schema name</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr><td colspan="4"><b>JPA</b></td></tr>
@@ -376,13 +376,13 @@ takes place but the previous deployment is resumed.</td>
 <td rowspan="2"><code>camunda.bpm.metrics</code></td>
 <td><code>.enabled</code></td>
 <td>Enables metrics reporting</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr>
 <td><code>.db-reporter-activate</code></td>
 <td>Enables db metrics reporting</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr><td colspan="4"><b>Webapp</b></td></tr>
@@ -398,19 +398,19 @@ takes place but the previous deployment is resumed.</td>
 <td rowspan="4"><code>camunda.bpm.authorization</code></td>
 <td><code>.enabled</code></td>
 <td>Enables authorization</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr>
 <td><code>.enabled-for-custom-code</code></td>
 <td>Enables authorization for custom code</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr>
 <td><code>.authorization-check-revokes</code></td>
 <td>Configures authorization check revokes</td>
-<td>_Camunda default value_</td>
+<td><i>Camunda default value</i></td>
 </tr>
 
 <tr>
