@@ -411,7 +411,7 @@ See this [Forum Post](https://forum.camunda.org/t/camunda-json-marshalling-and-j
 
 ### Problem With Deployments Using the REST API
 
-Camunda Spin is not available in scripts if a process definition gets deployed via REST API. It causes a `ClassNotFoundException`.
+Camunda Spin is not available in scripts if a process definition is deployed via REST API. Because Wildfly / JBoss handle dependencies using its module system and camunda engine module has no module dependency on the spin module.
 
 ## Groovy Scripting
 
