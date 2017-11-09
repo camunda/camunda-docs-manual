@@ -21,9 +21,12 @@ Please note that this feature is only included in the enterprise edition of the 
 
 It is possible to execute the following batch operations on process instances:
 
-- Cancel running process instances
-- Delete historic process instances
-- Set retries of jobs
+- Delete running process instances. 
+- Delete finished process instances.
+- Set retries of Jobs belonging to process instances.
+- Set retries of external tasks belonging to process instances.
+- Suspend running process instances.
+- Activate suspended process instances.
 
 After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
 When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. In addition to the
