@@ -35,7 +35,13 @@ You should clean up the following lines from the process engine configuration fi
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
   ...
-  <!-- remove this property -->
+  <!-- remove these properties -->
+  <property name="customPostBPMNParseListeners">
+    <list>
+      <bean class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
+    </list>
+  </property>
+  
   <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" />
   ...
 </bean>
