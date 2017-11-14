@@ -195,7 +195,9 @@ properties are as follows:
 
 # Example
 
-## Request
+## Restarting one or more Process Instances with known processInstanceIds:
+
+### Request
 
 POST `/process-definition/aProcessDefinitionId/restart-async`
 
@@ -215,6 +217,46 @@ Request Body:
   ],
   "initialVariables" : true,
   "skipCustomListeners" : true,
+  "withoutBusinessKey" : true
+}
+```
+
+### Response
+
+Status 200.
+
+```json
+{
+  "id": "aBatchId",
+  "type": "aBatchType",
+  "totalJobs": 10,
+  "batchJobsPerSeed": 100,
+  "invocationsPerBatchJob": 1,
+  "seedJobDefinitionId": "aSeedJobDefinitionId",
+  "monitorJobDefinitionId": "aMonitorJobDefinitionId",
+  "batchJobDefinitionId": "aBatchJobDefinitionId",
+  "tenantId": "aTenantId"
+}
+```
+
+## Restarting one or more Process Instances using a historicProcessInstanceQuery:
+
+### Request
+
+POST `/process-definition/aProcessDefinitionId/restart-async`
+
+Request Body:
+
+```json
+{
+  "instructions": [
+    {
+      "type": "startAfterActivity",
+      "activityId": "aUserTask"
+    }
+  ],
+  "initialVariables" : true,
+  "skipCustomListeners" : true,
   "withoutBusinessKey" : true,
   "historicProcessInstanceQuery": {
     "processDefinitionId": "aProcessDefinitionId",
@@ -222,8 +264,7 @@ Request Body:
   }
 }
 ```
-
-## Response
+### Response
 
 Status 200.
 
