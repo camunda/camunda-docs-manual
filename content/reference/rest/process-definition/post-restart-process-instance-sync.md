@@ -131,7 +131,9 @@ This method returns no content.
 
 # Example
 
-## Request
+## Restarting one or more Process Instances with known processInstanceIds:
+
+### Request
 
 POST `/process-definition/aProcessDefinitionId/restart`
 
@@ -151,6 +153,32 @@ Request Body:
   ],
   "initialVariables" : true,
   "skipCustomListeners" : true,
+  "withoutBusinessKey" : true
+}
+```
+
+### Response
+
+Status 204. No content.
+
+## Restarting one or more Process Instances using a historicProcessInstanceQuery:
+
+### Request
+
+POST `/process-definition/aProcessDefinitionId/restart`
+
+Request Body:
+
+```json
+{
+  "instructions": [
+    {
+      "type": "startAfterActivity",
+      "activityId": "aUserTask"
+    }
+  ],
+  "initialVariables" : true,
+  "skipCustomListeners" : true,
   "withoutBusinessKey" : true,
   "historicProcessInstanceQuery": {
     "processDefinitionId": "aProcessDefinitionId",
@@ -159,6 +187,7 @@ Request Body:
 }
 ```
 
-## Response
+### Response
 
 Status 204. No content.
+
