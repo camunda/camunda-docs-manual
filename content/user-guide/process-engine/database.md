@@ -130,6 +130,7 @@ Another configuration - `jdbcBatchProcessing` - sets if batch processing mode mu
 Values: `true` (default), `false`.
 
 Known issues with batch processing:
+
 * batch processing is not working for Oracle versions earlier than 12.
 * when using batch processing on MariaDB and DB2, `jdbcStatementTimeout` is being ignored.
 

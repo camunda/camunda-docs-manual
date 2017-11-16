@@ -69,5 +69,5 @@ You might consider disabling the batch mode in following cases:
 1. Batch processing is not working for Oracle versions earlier than 12. If you're using one of these versions you would need to disable batch processing
  in Camunda configuration to switch back to the old simple mode.
 
-2. Statement timeout (configure by `jdbcStatementTimeout` parameter) is not working in combination with batch mode on MariaDB and DB2 databases.
+2. Statement timeout (configured by `jdbcStatementTimeout` parameter) is not working in combination with batch mode on MariaDB and DB2 databases.
 So if you're using `jdbcStatementTimeout` configuration on the listed databases, consider disabling the batch mode.
