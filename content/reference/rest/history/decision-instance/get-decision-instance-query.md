@@ -60,6 +60,10 @@ GET `/history/decision-instance`
     <td>decisionDefinitionName</td>
     <td>Filter by the name of the decision definition the instances belongs to.</td>
   </tr>
+  <tr>
+    <td>decisionDefinitionNameLike</td>
+    <td>Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.</td>
+  </tr>
   </tr>
     <td>processDefinitionId</td>
     <td>Filter by the process definition the instances belongs to.</td>
