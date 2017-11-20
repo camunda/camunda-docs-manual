@@ -37,6 +37,26 @@ To use the enterprise Web applications, include another starter:
 </dependency>
 ```
 
-Also don't forget to define the appropriate version (with "ee" suffix): see [Overriding Camunda version](../#overriding-camunda-version).
+Also don't forget to define the appropriate Camunda engine version (with "ee" suffix): 
+```xml
+<properties>
+  <camunda.version>7.8.0-ee</camunda.version>
+</properties>
+
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <!-- Import dependency management from camunda -->
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bom</artifactId>
+      <version>${camunda.version}</version>
+      <scope>import</scope>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+Also see [Overriding Camunda version](../#overriding-camunda-version).
 
 If you are using the enterprise edition, you can also use the [`camunda.bpm.license-file`]({{<relref "user-guide/spring-boot-integration/configuration.md#license-file">}}) property to provide a license file that is inserted on application start. Or copy your license file under the name `camunda-license.txt` to your `src/main/resources`.
