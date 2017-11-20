@@ -55,5 +55,12 @@ to use and add the camunda bom to the dependency management:
   </dependencies>
 </dependencyManagement>
 ```
-
 Please check [version compatibility](version-compatibility/) when selecting Spring Boot Starter and Camunda BPM versions. 
+
+# Enterprise version
+
+To use Camunda Spring Boot Starter in EE context one would need:
+
+1. to override the `camunda.version` with corresponding EE version, as shown above;
+2. to use `camunda-bpm-spring-boot-starter-webapp-ee` starter instead of `camunda-bpm-spring-boot-starter-webapp` in order the EE webapps were included
+ (also see [Web Applications](webapps/)).
