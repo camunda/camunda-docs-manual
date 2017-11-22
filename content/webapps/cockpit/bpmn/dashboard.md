@@ -52,3 +52,14 @@ You can perform batch operation on process instances matching search criteria by
 {{< note title="Heads-up!" class="info" >}}
   The process instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
 {{< /note >}}
+
+# Delete Process Definitions
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
+{{< img src="../../img/cockpit-delete-process-definition.png" title="Delete Process Definition" >}}
+
+Each process definition in the dashboard has a delete action. This action allows to delete all the versions of a process definition.
+When proceeding with this action, you can always choose to enable/disable skipping custom listeners. However, if the process definition has process instances running, enabling the cascading flag becomes mandatory.
+

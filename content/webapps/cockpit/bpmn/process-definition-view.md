@@ -117,17 +117,23 @@ Add a filter for process instances by end date. Please note that the date must b
 [process-definition-history-view]: {{< relref "webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}
 
 
-# Cancel Multiple Process Instances
+# Delete Multiple Running Process Instances
 
 {{< enterprise >}}
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-{{< img src="../../img/cockpit-bulk-cancel.png" title="Batch Cancel" >}}
+{{< img src="../../img/cockpit-bulk-delete.png" title="Batch Delete Running Process Instances" >}}
 
-Cancel multiple process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right side. This opens a confirmation screen in which you can select which process instances to cancel. You can apply [filters](#filter) to make it easier to find the desired process instances. In addition, it is possible to provide a reason for the cancellation. After you have selected which instances to cancel and confirmed the cancellation, the runtime data of the canceled instances will be deleted.
+Delete multiple running process instances at once by using this feature. In the process definition view, hit the {{< glyphicon name="remove-circle" >}} button on the right side. This opens a confirmation screen in which you can select which process instances to delete. You can apply [filters](#filter) to make it easier to find the desired process instances. In addition, it is possible to provide a reason for the delete. After you have selected which instances to delete and confirmed the delete, the runtime data of the deleted instances will be removed.
 
+# Delete A Process Definition Version
 
+{{< enterprise >}}
+Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
+{{< /enterprise >}}
+
+Delete the current process definition version by using this feature.  In the process definition view, hit the {{< glyphicon name="trash" >}} button on the right side. This opens a confirmation screen in which you can select flags to apply to the delete. You can always choose to enable/disable skipping custom listeners. However, if the process definition version has process instances running, enabling the cascading flag becomes mandatory.
 # Set Job priority
 
 {{< img src="../../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}
