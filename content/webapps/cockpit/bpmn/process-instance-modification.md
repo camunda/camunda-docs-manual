@@ -76,9 +76,13 @@ To perform the modification, you have to click on *Apply modifications*. Then yo
 {{< img src="../../img/cockpit-batch-modification-view.png" title="Batch Modification View" >}}
 
 
-When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the *Modify* tab in the process definition view. The batch modification operation is handled similarly to the modification of a single process instance. 
-    
+When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the *Modify* tab in the process definition view. 
 
+{{< img src="../../img/cockpit-batch-modification-detail.png" title="Batch Modification Detail View" >}}
+
+
+The batch modification operation is handled similarly to the modification of a single process instance. 
+    
 {{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
 
 

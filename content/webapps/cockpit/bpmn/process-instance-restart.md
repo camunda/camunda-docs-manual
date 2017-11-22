@@ -28,7 +28,6 @@ In the history view, you can restart process instances individually or by a batc
 
 {{< img src="../../img/cockpit-restart.png" title="Process Instance Restart" >}}
 
-
 A restart of a terminated process instance includes instructions which are displayed in the bottom of the screen, after you have selected the restart tab in the history view (1).  
 
 To add an instruction, hover over an activity in the process diagram. By using the modification button (2), you can select the instruction to be performed with this activity.
