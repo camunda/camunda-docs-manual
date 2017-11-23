@@ -15,9 +15,8 @@ menu:
 This document guides you through the update from Camunda BPM `7.7.x` to `7.8.0`. It covers these use cases:
 
 1. For administrators and developers: [Database Updates](#database-updates)
-2. For administrators and developers: [Rolling Update](#rolling-update)
-3. For administrators and developers: [Full Distribution Update](#full-distribution)
-4. For administrators: [Standalone Web Application](#standalone-web-application)
+2. For administrators and developers: [Full Distribution Update](#full-distribution)
+3. For administrators: [Standalone Web Application](#standalone-web-application)
 4. For administrators and developers: [REST API Date Format]({{< relref "#rest-api-date-format" >}})
 5. For administrators and developers: [Failed Jobs Retry Configuration](#failed-jobs-retry-configuration)
 6. For developers: [Incident Handler](#incident-handler)
@@ -32,9 +31,9 @@ Noteworthy new Features and Changes in 7.8:
 * [Instance Restart in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-restart.md" >}})
 * [History Cleanup View in Cockpit]({{< relref "webapps/cockpit/cleanup.md" >}})
 * [Extending of Locks on External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
-* [Full Timezone Support]({{< relref "reference/rest/overview/date-format.md" >}})
+* [Full Timezone Support for Webapps]({{< relref "reference/rest/overview/date-format.md" >}})
 * [Default Retry Time Cycle Configuration]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< relref "user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
-* [Improved performance for database operations]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}})
+* [Improved performance for database operations]({{< relref "user-guide/process-engine/database.md#jdbcBatchProcessing" >}})
 
 # Database Updates
 
@@ -54,15 +53,6 @@ Every Camunda installation requires a database schema update.
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
 3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
-
-
-# Rolling Update
-
-If you do not know what a rolling update in the context of Camunda means, please refer to the [Rolling Update documentation](../../rolling-update/).
-
-In the context of a rolling update, a user created with an engine `A` of Camunda version >= 7.7 cannot be authenticated with an engine `B` of Camunda version <= 7.6. The reason is that the Camunda version 7.7 adds [salt to password hashing](../../../user-guide/process-engine/password-hashing/), thus, the older engine `B` is not aware of salt and unable to create the same hashed password as engine `A`.
-
-To circumvent that problem you can either update all engines to the version >= 7.7 or create all users exclusively in the engine with version <= 7.6.
 
 # Full Distribution
 
@@ -145,11 +135,12 @@ You should clean up the following lines from the process engine configuration fi
 
 # Incident Handler
 
-This section concerns Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler` that is part of internal API.
+This section concerns Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler` that is a part of internal API.
 
-The return type of `IncidentHandler#handleIncident` has changed from `void` to `Incident`. The API expects that an incident is created and returned.
+The return type of `IncidentHandler#handleIncident` has been changed from `void` to `Incident`. The API expects that, if an incident was created, it is returned by the method, 
+otherwise method can return `null` value.
 
-In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted. The method can return `null` value.
+In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted. 
 
 # Batch processing for database operations
 
