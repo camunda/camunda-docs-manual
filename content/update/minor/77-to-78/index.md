@@ -21,7 +21,7 @@ This document guides you through the update from Camunda BPM `7.7.x` to `7.8.0`.
 4. For administrators and developers: [REST API Date Format]({{< relref "#rest-api-date-format" >}})
 5. For administrators and developers: [Failed Jobs Retry Configuration](#failed-jobs-retry-configuration)
 6. For developers: [Incident Handler](#incident-handler)
-7. For administrators and developers: [Batch processing for database operations](#batch-processing-for-database-operations)
+7. For administrators: [Batch processing for database operations](#batch-processing-for-database-operations)
 
 
 This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.8.
@@ -32,9 +32,9 @@ Noteworthy new Features and Changes in 7.8:
 * [Instance Restart in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-restart.md" >}})
 * [History Cleanup View in Cockpit]({{< relref "webapps/cockpit/cleanup.md" >}})
 * [Extending of Locks on External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
-* [New Date Format in the REST API]({{< relref "reference/rest/overview/date-format.md" >}})
+* [Full Timezone Support]({{< relref "reference/rest/overview/date-format.md" >}})
 * [Default Retry Time Cycle Configuration]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< relref "user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
-* [Batch processing for database operations]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}})
+* [Improved performance for database operations]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}})
 
 # Database Updates
 
