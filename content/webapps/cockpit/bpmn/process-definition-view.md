@@ -133,7 +133,7 @@ Delete multiple running process instances at once by using this feature. In the 
 Please note that this feature is only included in the enterprise edition of the Camunda BPM platform, it is not available in the community edition.
 {{< /enterprise >}}
 
-Delete the current process definition version by using this feature.  In the process definition view, hit the {{< glyphicon name="trash" >}} button on the right side. This opens a confirmation screen in which you can select flags to apply to the delete. You can always choose to enable/disable skipping custom listeners. However, if the process definition version has process instances running, enabling the cascading flag becomes mandatory.
+Delete the current process definition version by using this feature. In the process definition view, hit the {{< glyphicon name="trash" >}} button on the right side. This opens a confirmation screen in which you can select flags to apply to the delete. You can always choose to enable/disable skipping custom listeners. However, if the process definition version has process instances running, enabling the cascading flag becomes mandatory.
 # Set Job priority
 
 {{< img src="../../img/cockpit-set-job-priority.png" title="Set Job Priority" >}}

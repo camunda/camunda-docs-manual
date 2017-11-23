@@ -60,6 +60,6 @@ Please note that this feature is only included in the enterprise edition of the 
 
 {{< img src="../../img/cockpit-delete-process-definition.png" title="Delete Process Definition" >}}
 
-Each process definition in the dashboard has a delete action. This action allows to delete all the versions of a process definition.
+Each process definition in the dashboard has a delete action. This action allows to delete all versions of a process definition.
 When proceeding with this action, you can always choose to enable/disable skipping custom listeners. However, if the process definition has process instances running, enabling the cascading flag becomes mandatory.
 
