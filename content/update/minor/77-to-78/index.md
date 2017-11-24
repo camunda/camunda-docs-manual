@@ -31,7 +31,7 @@ Noteworthy new Features and Changes in 7.8:
 * [Instance Restart in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-restart.md" >}})
 * [History Cleanup View in Cockpit]({{< relref "webapps/cockpit/cleanup.md" >}})
 * [Extending of Locks on External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
-* [Full Timezone Support for Webapps]({{< relref "reference/rest/overview/date-format.md" >}})
+* [Full Timezone Support for Webapps]({{< relref "user-guide/process-engine/time-zones.md" >}})
 * [Default Retry Time Cycle Configuration]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< relref "user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
 * [Improved performance for database operations]({{< relref "user-guide/process-engine/database.md#jdbcBatchProcessing" >}})
 
