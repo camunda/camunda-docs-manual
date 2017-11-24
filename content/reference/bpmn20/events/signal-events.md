@@ -59,7 +59,7 @@ You can use expressions for the name in the signal event definition. The name is
 By using expressions within the signal name you can influence the signal name dynamically based on process variables. This could come in handy when for example there is the need to interrupt parallel branches. An example could look like follows:
 
 ```xml
-<signal id="alertSignal" name="alert-${execution.businessKey}" />
+<signal id="alertSignal" name="alert-${execution.processBusinessKey}" />
 ```
 
 
