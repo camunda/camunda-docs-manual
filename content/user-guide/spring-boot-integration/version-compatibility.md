@@ -64,7 +64,7 @@ though such combinations must be thoroughly tested before being used in producti
   <tr>
     <td>2.3.0</td>
     <td>7.8.0</td>
-    <td>1.5.7.RELEASE</td>
+    <td>1.5.8.RELEASE</td>
   </tr>
 </table>
 * These are the versions of the Spring Boot Starter Community Extension, which can be used the same way as the offically supported Spring Boot Starter, 
