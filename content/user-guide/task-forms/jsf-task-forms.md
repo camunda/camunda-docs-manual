@@ -1,12 +1,12 @@
 ---
 
 title: 'JSF Task Forms'
-weight: 40
+weight: 110
 
 menu:
   main:
-    identifier: "examples-tutorials-jsf-forms"
-    parent: "examples-tutorials"
+    identifier: "user-guide-forms-jsf-forms"
+    parent: "user-guide-forms"
 
 ---
 

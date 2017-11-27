@@ -204,7 +204,7 @@ long count = taskService.createNativeTaskQuery()
 For performance reasons it might sometimes be desirable not to query the engine objects but some own value or DTO objects collecting data from different tables - maybe including your own domain classes.
 
 {{< note title="Tutorial" class="info" >}}
-  [Performance Tuning with Custom Queries]({{< relref "examples/tutorials/custom-queries.md" >}}).
+  [Performance Tuning with Custom Queries](http://blog.camunda.org/post/2017/12/custom-queries).
 {{< /note >}}
 
 

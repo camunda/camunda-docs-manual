@@ -81,7 +81,7 @@ As runtime relevant resource it defines
 9. a css file that contains the style definitions for the client-side plugin. This file must be named `plugin.css` and be located in the `app` directory of the plugin asset directory
 
 {{< note title="Related Example" class="info">}}
-  [How to develop a cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}})
+  [How to develop a cockpit plugin](https://github.com/camunda/camunda-bpm-examples/blob/master/cockpit/Guide.md)
 {{< /note >}}
 
 
@@ -129,7 +129,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 }];
 ```
 
-For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin]({{< relref "examples/tutorials/develop-cockpit-plugin.md" >}}).
+For more information on creating and configuring your own plugin, please see [How to develop a Cockpit plugin](https://github.com/camunda/camunda-bpm-examples/blob/master/cockpit/Guide.md).
 
 
 ## Navigation
