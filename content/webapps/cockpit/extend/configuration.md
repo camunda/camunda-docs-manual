@@ -69,6 +69,25 @@ require(config.deps, callback);
 
 You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
 
+# skipCustomListeners Flag
+
+You can configure skipCustomListeners flag globally for cockpit by adding a `skipCustomListeners` property in `app/cockpit/scripts/config.js`:
+
+```javascript
+   window.camCockpitConf = {
+     skipCustomListeners: {
+       default: true, // default value for skipCustomListeners is true
+       hidden: false  // skipCustomListeners checkbox is not hidden
+     }
+   };
+```
+By default (if not configured), the `skipCustomListeners` flag value is `true`. However, you can set the default value of the flag (`true | false`)
+in the `default` property in `skipCustomListeners` configuration.
+
+Moreover, the checkbox to enable/disable skipCustomListeners is by default not hidden in Cockpit. You can set this behaviour by configuring the property
+`hidden` (`true | false`) in `skipCustomListeners` configuration. If the `hidden` value is configured to be false, then the skipCustomListeners checkbox 
+will be hidden everywhere in Cockpit.
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
