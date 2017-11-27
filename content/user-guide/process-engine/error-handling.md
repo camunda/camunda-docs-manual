@@ -1,12 +1,12 @@
 ---
 
 title: 'Error Handling'
-weight: 10
+weight: 280
 
 menu:
   main:
     identifier: "examples-tutorials-error-handling"
-    parent: "examples-tutorials"
+    parent: "user-guide-process-engine"
 
 ---
 
@@ -31,7 +31,7 @@ If you don't want the exception being shown to the user, one option is to make s
 
 In the example above this means that the user will not see an error but an "everything successful" dialog. The exception is stored on the job. Now either a clever retry strategy will automatically re-trigger the job later on (when the network is available again) or an operator needs to have a look at the error and trigger an additional retry. This is shown later in more detail.
 
-This strategy is pretty powerful and applied often in real-life projects, however, it still hides the error in the BPMN diagram, so for business errors which you want to be visible in the process diagram, it would be better to use [Error Events]({{< relref "examples/tutorials/error-handling.md#bpmn-2-0-error-event" >}}).
+This strategy is pretty powerful and applied often in real-life projects, however, it still hides the error in the BPMN diagram, so for business errors which you want to be visible in the process diagram, it would be better to use [Error Events]({{< relref "#bpmn-2-0-error-event" >}}).
 
 ## Catch Exception and use Data Based XOR-Gateway
 

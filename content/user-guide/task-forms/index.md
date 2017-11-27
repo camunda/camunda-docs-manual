@@ -2,6 +2,7 @@
 
 title: 'User Task Forms'
 weight: 100
+layout: 'section-list'
 
 menu:
   main:
@@ -310,7 +311,7 @@ Tasklist creates the URL by the pattern:
 When you have completed the task, the call back URL will be called.
 
 {{< note title="How To" class="info" >}}
-  [How to add JSF Forms to your process application]({{< relref "examples/tutorials/jsf-task-forms.md" >}})
+  [How to add JSF Forms to your process application]({{< relref "user-guide/task-forms/jsf-task-forms.md" >}})
 {{< /note >}}
 
 
@@ -329,4 +330,4 @@ You can also retrieve already existing variables of the process instance by clic
 
 [user-tasks]: {{< relref "reference/bpmn20/tasks/user-task.md" >}}
 [start-event]: {{< relref "reference/bpmn20/events/start-events.md" >}}
-[jsf-task-forms]: {{< relref "examples/tutorials/jsf-task-forms.md" >}}
+[jsf-task-forms]: {{< relref "user-guide/task-forms/jsf-task-forms.md" >}}

@@ -464,7 +464,7 @@ Multi-Tenancy can be achieved by providing one process engine per tenant. Each p
 The process engines can run on the same server so that all share the same computational resources such as a data source (when isolating via schemas or tables) or a thread pool for asynchronous job execution. 
 
 {{< note title="Tutorial" class="info" >}}
-  You can see the [tutorial]({{< relref "examples/tutorials/multi-tenancy.md" >}}) how to implement multi-tenancy with data isolation by schemas.
+  You can see the [example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation) how to implement multi-tenancy with data isolation by schemas.
 {{< /note >}}
 
 ## Configure the Process Engines
