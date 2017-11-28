@@ -112,9 +112,9 @@ In case some custom REST clients rely on the old date format, choose one of the 
 
 # Failed Jobs Retry Configuration
 
-There is no need any more of enabling the retry time cycle configuration for failed jobs. This is the default behaviour from now on.
+It's no longer necessary to enable the retry time cycle configuration for failed jobs. This is the default behaviour from now on.
 
-You should clean up the following lines from the process engine configuration file in order to be consistent with this behaviour.
+You should clean up the following lines from the process engine configuration file to be consistent with this behaviour:
 
 ```xml
 <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
@@ -135,21 +135,21 @@ You should clean up the following lines from the process engine configuration fi
 
 # Incident Handler
 
-This section concerns Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler` that is a part of internal API.
+This section concerns the Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler`, that is a part of the internal API.
 
-The return type of `IncidentHandler#handleIncident` has been changed from `void` to `Incident`. The API expects that, if an incident was created, it is returned by the method, 
-otherwise method can return `null` value.
+The return type of `IncidentHandler#handleIncident` has been changed from `void` to `Incident`. The API expects that, in case an incident was created, it is returned by the method, 
+otherwise the method can return a `null` value.
 
 In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted. 
 
 # Batch processing for database operations
 
-Starting from version 7.8 Camunda uses batch processing to execute SQL statements over the database. Old (not batch) processing mode can be configured like this:
+Starting with version 7.8, Camunda uses batch processing to execute SQL statements over the database. The old (not batch) processing mode can be configured like this:
 ```xml
  <property name="jdbcBatchProcessing" value="false"/>
 ```
 
-You might consider disabling the batch mode in following cases:
+You might consider disabling the batch mode in the following cases:
 
 1. Batch processing is not working for Oracle versions earlier than 12. If you're using one of these versions you would need to disable batch processing
  in Camunda configuration to switch back to the old simple mode.
