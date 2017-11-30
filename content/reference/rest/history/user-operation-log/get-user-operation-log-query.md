@@ -94,6 +94,10 @@ GET `/history/user-operation`
     <td>Filter by the type of the entity that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
   </tr>
   <tr>
+    <td>entityTypeIn</td>
+    <td>Filter by types of the entities that was affected by this operation, possible values are <code>Task</code>, <code>Attachment</code> or <code>IdentityLink</code>.</td>
+  </tr>
+  <tr>
     <td>property</td>
     <td>Only include operations that changed this property, e.g., <code>owner</code> or <code>assignee</code>.</td>
   </tr>
