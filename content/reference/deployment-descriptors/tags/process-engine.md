@@ -235,7 +235,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>authorizationEnabled</code></td>
     <td>Boolean</td>
-    <td>Activates authorization checks.</td>
+    <td>Activates <a href="{{< relref "user-guide/process-engine/authorization-service.md#enable-authorization-checks ">}}">authorization checks</a>.</td>
   </tr>
 
   <tr>
@@ -254,7 +254,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>databaseSchemaUpdate</code></td>
     <td>String</td>
     <td>
-        Sets the value for process engine database schema creation.
+        Sets the value for process engine <a href="{{< relref "user-guide/process-engine/database.md#database-configuration">}}">database schema creation</a>.
       <p>
         <strong>Values:</strong> <code>false</code>, <code>create-drop</code>, <code>true</code>.
       </p>
@@ -347,7 +347,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>history</code></td>
     <td>String</td>
     <td>
-        Sets the level of the process engine history.
+        Sets the <a href="{{< relref "user-guide/process-engine/history.md#choose-a-history-level">}}">level of the process engine history</a>.
       <p>
         <strong>Values:</strong> <code>none</code>, <code>activity</code>, <code>audit</code>, <code>full</code>.
       </p>
@@ -506,7 +506,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>deploymentLockUsed</code></td>
     <td>Boolean</td>
     <td>
-        Sets if the process engine must acquire an exclusive lock when creating a deployment.
+        Sets if the process engine must acquire an <a href="{{< relref "user-guide/process-engine/deployments.md#deployments-in-a-clustered-scenario" >}}">exclusive lock when creating a deployment</a>.
         Default value: <code>true</code>
     </td>
   </tr>
