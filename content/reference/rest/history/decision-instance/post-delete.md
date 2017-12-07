@@ -45,6 +45,10 @@ A JSON object with the following properties:
       </a>.
     </td>
   </tr>
+  <tr>
+    <td>deleteReason</td>
+    <td>A string with delete reason.</td>
+  </tr>
 </table>
 
 ## Response Body
@@ -157,7 +161,8 @@ Request Body:
       "historicDecisionInstanceIds": ["aDecision","secondDecision"],
       "historicDecisionInstanceQuery": {
         "decisionDefinitionKey": "a-definition-key"
-      }
+      },
+      "deleteReason": "a delete reason"
     }
 
 ## Response
