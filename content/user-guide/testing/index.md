@@ -18,28 +18,6 @@ This section explains how to write unit tests and integration tests with Camunda
 
 Camunda supports both JUnit versions 3 and 4 styles of unit testing.
 
-## JUnit 3
-
-In the JUnit 3 style, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the `setup()` of the test, the processEngine will be initialized by default with the `camunda.cfg.xml` resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
-
-A JUnit 3 style test can look as follows:
-
-```java
-public class MyBusinessProcessTest extends ProcessEngineTestCase {
-
-  @Deployment
-  public void testSimpleProcess() {
-  runtimeService.startProcessInstanceByKey("simpleProcess");
-
-  Task task = taskService.createTaskQuery().singleResult();
-  assertEquals("My Task", task.getName());
-
-  taskService.complete(task.getId());
-  assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-  }
-}
-```
-
 ## JUnit 4
 
 Using the JUnit 4 style of writing unit tests, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineRule.html" text="ProcessEngineRule" >}} must be used. Through this rule, the process engine and services are available through getters. As with the ProcessEngineTestCase (see above), including this rule will look for the default configuration file on the classpath. Process engines are statically cached over multiple unit tests when using the same configuration resource.
@@ -71,6 +49,29 @@ public class MyBusinessProcessTest {
 {{< note title="" class="info" >}}
   Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
 {{< /note >}}
+
+
+## JUnit 3
+
+In the JUnit 3 style, the {{< javadocref page="?org/camunda/bpm/engine/test/ProcessEngineTestCase.html" text="ProcessEngineTestCase" >}} must be extended. This will make the ProcessEngine and the services available through protected member fields. In the `setup()` of the test, the processEngine will be initialized by default with the `camunda.cfg.xml` resource on the classpath. To specify a different configuration file, override the getConfigurationResource() method. Process engines are cached statically over multiple unit tests when the configuration resource is the same.
+
+A JUnit 3 style test can look as follows:
+
+```java
+public class MyBusinessProcessTest extends ProcessEngineTestCase {
+
+  @Deployment
+  public void testSimpleProcess() {
+  runtimeService.startProcessInstanceByKey("simpleProcess");
+
+  Task task = taskService.createTaskQuery().singleResult();
+  assertEquals("My Task", task.getName());
+
+  taskService.complete(task.getId());
+  assertEquals(0, runtimeService.createProcessInstanceQuery().count());
+  }
+}
+```
 
 ## Deploy Test Resources
 
@@ -145,17 +146,41 @@ You can now see the engine database and use it to understand how and why your un
 
 {{< img src="img/api-test-debug-h2-tables.png" title="API Test Debugging" >}}
 
-# Camunda Assertions
+# Community extensions to support testing
 
-Apart from JUnit assertions, there is the community extension [camunda-bpm-assert](https://github.com/camunda/camunda-bpm-assert) that adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
+There are a couple of well documented and heavily used community extensions that can make testing much more productive and fun.
 
-# Arquillian Tests
+## Camunda Assertions
 
-In Java EE environments we recently use JBoss Arquillian quite often to test process applications, because it makes bootstrapping the engine pretty simple. We will add more documentation on this here soon - for the moment please refer to the [Arquillian Getting Started Guide](http://arquillian.org/guides/getting_started_de/).
+Additional to normal JUnit assertions, [camunda-bpm-assert](https://github.com/camunda/camunda-bpm-assert) adds a fluent API for asserting typical scenarios in a process integrating with [AssertJ](https://joel-costigliola.github.io/assertj/).
 
-{{< note title="" class="info" >}}
-  Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
-{{< /note >}}
+```java
+assertThat(processInstance).isWaitingAt("UserTask_InformCustomer");
+assertThat(task).hasCandidateGroup("Sales").isNotAssigned();
+```
+
+## Camunda Scenario Tests
+
+[Camunda-bpm-assert-scenario](https://github.com/camunda/camunda-bpm-assert-scenario/) enables you to write more robust test suites. The idea is, that you only have to adapt your tests if your process models changes in a way that affects the tested behavior. It concentrates much less on the concrete path through a given process model, but on the external effects the path through the model has.
+
+```java
+@Test
+public void testHappyPath() {
+  // "given" part of the test
+  when(process.waitsAtUserTask("CompleteWork")).thenReturn( 
+    (task) -> task.complete()
+  );
+  // "when" part of the test
+  run(process).startByKey("ReadmeProcess").execute();      
+  // "then" part of the test  
+  verify(process).hasFinished("WorkFinished");             
+}
+```
+
+## Camunda Test Coverage
+
+[Camunda-bpm-process-test-coverage](https://github.com/camunda/camunda-bpm-process-test-coverage/) visualises test process pathes and checks your process model coverage ratio. Running typical JUnit tests leaves html files in the build output. 
+
 
 # Resolving Beans Without Spring/CDI
 
