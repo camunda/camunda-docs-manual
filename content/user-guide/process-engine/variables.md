@@ -55,7 +55,7 @@ In general, variables are accessible in the following cases:
 To set and retrieve variables, the process engine offers a Java API that allows setting of variables from Java objects and retrieving them in the same form. Internally, the engine persists variables to the database and therefore applies serialization. For most applications, this is a detail of no concern. However, sometimes, when working with custom Java classes, the serialized value of a variable is of interest. Imagine the case of a monitoring application that manages many process applications. It is decoupled from those applications' classes and therefore cannot access custom variables in their Java representation. For these cases, the process engine offers a way to retrieve and manipulate the serialized value. This boils down to two APIs:
 
 * **Java Object Value API**: Variables are represented as Java objects. These objects can be directly set as values and retrieved in the same form. This is the more simple API and is the recommended way when implementing code as part of a process application.
-* **Typed Value API**: Variable values are wrapped in so-called *typed values* that are used to set and retrieve variables. A typed value offers access to metadata such as the way the engine has serialized the variable and, depending on the type, the serialized representation of the variable.
+* **Typed Value API**: Variable values are wrapped in so-called *typed values* that are used to set and retrieve variables. A typed value offers access to metadata such as the way the engine has serialized the variable and, depending on the type, the serialized representation of the variable. Metadata also contains an information whether a variable is transient or not.
 
 As an example, the following code retrieves and sets two integer variables using both APIs:
 
@@ -317,7 +317,27 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
 
 The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< relref "user-guide/data-formats/index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< relref "user-guide/data-formats/index.md#native-xml-variable-value" >}}) for details.
 
+## Transient variables
 
+Declaration of transient variables is possible only through the typed-value-based API. They are not saved into the database and exist only during the current transaction. Every waiting state during an execution of a process instance leads to the loss of all transient variables. This happens typically when e.g. an external service is not currently available, an user task has been reached or the process execution is waiting for a message, a signal or a condition. Please use this feature carefully.
+
+Variables of [any type]({{<relref "#supported-variable-values">}}) can be declared as transient using the `Variables` class.
+
+```java
+// primitive values
+TypedValue typedTransientStringValue = Variables.stringValueTransient("foobar");
+
+// object value
+com.example.Order order = new com.example.Order();
+TypedValue typedTransientObjectValue = Variables.objectValueTransient(order).create();
+
+// file value
+TypedValue typedTransientFileValue = Variables.fileValueTransient("file.txt")
+  .file(new File("path/to/the/file.txt"))
+  .mimeType("text/plain")
+  .encoding("UTF-8")
+  .create();
+``` 
 ## Set Multiple Typed Values
 
 Similar to the Java-Object-based API, it is also possible to set multiple typed values in one API call. The `Variables` class offers a fluent API to construct a map of typed values:
@@ -328,7 +348,8 @@ com.example.Order order = new com.example.Order();
 VariableMap variables =
   Variables.create()
     .putValueTyped("order", Variables.objectValue(order))
-    .putValueTyped("string", Variables.stringValue("a string value"));
+    .putValueTyped("string", Variables.stringValue("a string value"))
+    .putValueTyped("stringTransient", Variables.stringValueTransient("foobar"));
 runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 ```
 
@@ -337,7 +358,7 @@ runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 
 Both APIs offer different views on the same entities and can therefore be combined as is desired. For example, a variable that is set using the Java-Object-based API can be retrieved as a typed value and vice versa. As the class `VariableMap` implements the `Map` interface, it is also possible to put plain Java objects as well as typed values into this map.
 
-Which API should you use? The one that fits your purpose best. When you are certain that you always have access to the involved value classes, such as when implementing code in a process application like a `JavaDelegate`, then the Java-Object-based API is easier to use. When you need to access value-specific metadata such as serialization formats, then the Typed-Value-based API is the way to go.
+Which API should you use? The one that fits your purpose best. When you are certain that you always have access to the involved value classes, such as when implementing code in a process application like a `JavaDelegate`, then the Java-Object-based API is easier to use. When you need to access value-specific metadata such as serialization formats or to define a variable as transient, then the Typed-Value-based API is the way to go.
 
 
 # Input/Output Variable Mapping

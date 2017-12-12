@@ -64,7 +64,7 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>business key</td>
@@ -120,11 +120,22 @@ POST `/process-definition/key/aProcessDefinitionKey/submit-form`
 
 Request Body:
 
-    {"variables":
-        {"aVariable" : {"value" : "aStringValue", "type": "String"},
-         "anotherVariable" : {"value" : true, "type": "Boolean"}},
-     "businessKey" : "myBusinessKey"
-	}
+    {
+      "variables": {
+        "aVariable" : {
+          "value" : "aStringValue",
+          "type": "String",
+          "valueInfo" : {
+            "transient" : true
+          }
+        },
+        "anotherVariable" : {
+          "value" : true,
+          "type": "Boolean"
+        }
+      },
+      "businessKey" : "myBusinessKey"
+    }
 
 ## Response
 

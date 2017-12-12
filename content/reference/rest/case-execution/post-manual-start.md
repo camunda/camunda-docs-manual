@@ -48,7 +48,7 @@ A JSON object with the following properties:
     <td>variables</td>
     <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
 
-      {{< rest-var-request local="Indicates whether the variable must be created and/or update locally or not. If set to `true`, the creation or update happens locally and will not be propagated upwards in the execution hierarchy." >}}
+      {{< rest-var-request transient="true" local="Indicates whether the variable must be created and/or update locally or not. If set to `true`, the creation or update happens locally and will not be propagated upwards in the execution hierarchy." >}}
   </tr>
   <tr>
     <td>deletions</td>

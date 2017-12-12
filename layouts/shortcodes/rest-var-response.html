@@ -30,6 +30,13 @@
 			<code>serializationDataFormat</code>: The serialization format used to store the variable.
 		  </li>
 		</ul>
+		{{ $isTransient := .Get "transient" }}
+		{{ if $isTransient}}
+			<p>The following property can be returned for all value types:</p>
+			  <ul>
+				<li><code>transient</code>: exposed if the value is set to true. See <a href="{{ ref . "user-guide/process-engine/variables.md#transient-variables" }}">documentation</a> for more informations.</li></li>
+			  </ul>
+		{{ end }}
 	</td>
   </tr>
 </table>

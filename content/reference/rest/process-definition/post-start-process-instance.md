@@ -65,7 +65,7 @@ A JSON object with the following properties: (at least an empty JSON object `{}`
   <tr>
     <td>variables</td>
     <td>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>businessKey</td>
@@ -99,7 +99,7 @@ A JSON object with the following properties: (at least an empty JSON object `{}`
         <tr>
           <td>variables</td>
           <td><p><b>Can be used with instructions of type <code>startBeforeActivity</code>, <code>startAfterActivity</code>, and <code>startTransition</code>.</b> A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.</p>
-          {{< rest-var-request local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
+          {{< rest-var-request transient="true" local="Indicates whether the variable should be a local variable or not. If set to <code>true</code>, the variable becomes a local variable of the execution entering the target activity." >}}</td>
         </tr>
       </table>
     </td>
@@ -185,7 +185,7 @@ Properties are:
     <td>
       A JSON object containing a property for each of the latest variables.
       The key is the variable name, the value is a JSON object of serialized variable values with the following properties:
-      {{< rest-var-response deserializationParameter="" >}}
+      {{< rest-var-response deserializationParameter="" transient="true">}}
     </td>
   </tr>
 </table>
@@ -234,21 +234,37 @@ POST `/process-definition/key/aProcessDefinitionKey/start`
 
 Request body:
 
-    {"variables":
-        {"aVariable" : {"value" : "aStringValue", "type": "String"},
-         "anotherVariable" : {"value" : true, "type": "Boolean"}},
+    {
+      "variables": {
+        "aVariable" : {
+            "value" : "aStringValue",
+            "type": "String"
+        },
+        "anotherVariable" : {
+          "value" : true,
+          "type": "Boolean"
+        }
+      },
      "businessKey" : "myBusinessKey"
     }
 
 ### Response
 
-    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
-    "id":"anId",
-    "definitionId":"aProcessDefinitionId",
-    "businessKey":"myBusinessKey",
-    "tenantId":null,
-    "ended":false,
-    "suspended":false}
+    {
+      "links": [
+        {
+          "method": "GET",
+          "href":"http://localhost:8080/rest-test/process-instance/anId",
+          "rel":"self"
+        }
+      ],
+      "id":"anId",
+      "definitionId":"aProcessDefinitionId",
+      "businessKey":"myBusinessKey",
+      "tenantId":null,
+      "ended":false,
+      "suspended":false
+    }
 
 ## Starting a process instance with variables in return:
 
@@ -267,7 +283,11 @@ Request body:
          "type": "String"},
        "anotherVariable" : {
          "value" : true,
-         "type": "Boolean"}
+         "type": "Boolean",
+         "valueInfo" : {
+            "transient" : true
+          }
+        }
      },
      "businessKey" : "myBusinessKey",
      "withVariablesInReturn": true
@@ -277,11 +297,12 @@ Request body:
 
     {
       "links": [
-      {
-        "method": "GET",
-        "href": "http://localhost:8080/rest-test/process-instance/aProcInstId",
-        "rel": "self"
-      }],
+        {
+          "method": "GET",
+          "href": "http://localhost:8080/rest-test/process-instance/aProcInstId",
+          "rel": "self"
+        }
+      ],
       "id": "aProcInstId",
       "definitionId": "aProcessDefinitionId",
       "businessKey": "myBusinessKey",
@@ -292,7 +313,9 @@ Request body:
         "anotherVariable": {
             "type": "Boolean",
             "value": true,
-            "valueInfo": { }
+            "valueInfo": {
+              "transient" : true
+            }
         },
         "aVariable": {
             "type": "String",
@@ -312,40 +335,55 @@ POST `/process-definition/key/aProcessDefinitionKey/start`
 
 Request Body:
 
-    {"variables":
-        {"aProcessVariable" : {"value" : "aStringValue", "type": "String"}},
-          "businessKey" : "myBusinessKey",
-    "skipCustomListeners" : true,
-    "startInstructions" :
-      [
-      {
-        "type": "startBeforeActivity",
-        "activityId": "activityId",
-        "variables":
-          {"var": {
-            "value": "aVariableValue",
-            "local": false,
-            "type": "String"}
-          }
+    {
+      "variables": {
+        "aProcessVariable" : {
+          "value" : "aStringValue",
+          "type": "String"
+        }
       },
-      {
-        "type": "startAfterActivity",
-        "activityId": "anotherActivityId",
-        "variables":
-          {"varLocal": {
-            "value": "anotherVariableValue",
-            "local": true,
-            "type": "String"}
+      "businessKey" : "myBusinessKey",
+      "skipCustomListeners" : true,
+      "startInstructions" :
+        [
+          {
+            "type": "startBeforeActivity",
+            "activityId": "activityId",
+            "variables": {
+              "var": {
+                "value": "aVariableValue",
+                "local": false,
+                "type": "String"}
+            }
+          },
+          {
+            "type": "startAfterActivity",
+            "activityId": "anotherActivityId",
+            "variables": {
+              "varLocal": {
+                "value": "anotherVariableValue",
+                "local": true,
+                "type": "String"
+              }
+            }
           }
-      }]
+        ]
     }
 
 ### Response
 
-    {"links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
-    "id":"anId",
-    "definitionId":"aProcessDefinitionId",
-    "businessKey":"myBusinessKey",
-    "tenantId":null,
-    "ended":false,
-    "suspended":false}
+    {
+      "links": [
+        {
+          "method": "GET", 
+          "href":"http://localhost:8080/rest-test/process-instance/anId",
+          "rel":"self"
+        }
+      ],
+      "id":"anId",
+      "definitionId":"aProcessDefinitionId",
+      "businessKey":"myBusinessKey",
+      "tenantId":null,
+      "ended":false,
+      "suspended":false
+    }

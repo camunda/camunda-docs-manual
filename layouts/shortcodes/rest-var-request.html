@@ -38,6 +38,13 @@
           <code>encoding</code>: The encoding of the file that is being uploaded.
         </li>
       </ul>
+       {{ $isTransient := .Get "transient" }}
+       {{ if $isTransient}}
+         <p>The following property can be provided for all value types:</p>
+          <ul>
+            <li><code>transient</code>: Indicates whether the variable should be transient or not. See <a href="{{ ref . "user-guide/process-engine/variables.md#transient-variables" }}">documentation</a> for more informations.</li>
+          </ul>
+       {{ end }}
     </td>
   </tr>
   {{ $localValue := .Get "local" }}

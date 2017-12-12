@@ -79,7 +79,7 @@ A JSON object with the following properties:
     <td>processVariables</td>
     <td>A map of variables that is injected into the triggered execution or process instance after the message has been delivered.
     Each key is a variable name and each value a JSON variable value object with the following properties.
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>all</td>
@@ -175,7 +175,8 @@ Request Body:
         "aVariable" : {"value" : "aValue", "type": "String"}
       },
       "processVariables" : {
-        "aVariable" : {"value" : "aNewValue", "type": "String"},
+        "aVariable" : {"value" : "aNewValue", "type": "String", 
+                        "valueInfo" : { "transient" : true } },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       }
     }
@@ -190,7 +191,8 @@ Request Body:
         "aVariable" : {"value" : "aValue", "type": "String"}
       },
       "processVariables" : {
-        "aVariable" : {"value" : "aNewValue", "type": "String"},
+        "aVariable" : {"value" : "aNewValue", "type": "String",
+                        "valueInfo" : { "transient" : true } },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       },
       "resultEnabled" : true
