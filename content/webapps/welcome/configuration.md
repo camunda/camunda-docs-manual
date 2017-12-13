@@ -17,7 +17,7 @@ available:
 
 # Custom links
 
-Can be used to add some uesful links for the user, such as other application or intranet.
+Can be used to add some useful links for the user, such as other applications or intranet sites.
 
 
 ## Example
