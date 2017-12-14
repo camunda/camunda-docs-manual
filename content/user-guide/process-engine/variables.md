@@ -321,18 +321,18 @@ The Camunda Spin plugin provides an abstraction for JSON and XML documents that 
 
 Declaration of transient variables is possible only through the typed-value-based API. They are not saved into the database and exist only during the current transaction. Every waiting state during an execution of a process instance leads to the loss of all transient variables. This happens typically when e.g. an external service is not currently available, an user task has been reached or the process execution is waiting for a message, a signal or a condition. Please use this feature carefully.
 
-Variables of [any type]({{<relref "#supported-variable-values">}}) can be declared as transient using the `Variables` class.
+Variables of [any type]({{<relref "#supported-variable-values">}}) can be declared as transient using the `Variables` class and setting the parameter `isTransient` to true.
 
 ```java
 // primitive values
-TypedValue typedTransientStringValue = Variables.stringValueTransient("foobar");
+TypedValue typedTransientStringValue = Variables.stringValue("foobar", true);
 
 // object value
 com.example.Order order = new com.example.Order();
-TypedValue typedTransientObjectValue = Variables.objectValueTransient(order).create();
+TypedValue typedTransientObjectValue = Variables.objectValue(order, true).create();
 
 // file value
-TypedValue typedTransientFileValue = Variables.fileValueTransient("file.txt")
+TypedValue typedTransientFileValue = Variables.fileValue("file.txt", true)
   .file(new File("path/to/the/file.txt"))
   .mimeType("text/plain")
   .encoding("UTF-8")
@@ -349,7 +349,7 @@ VariableMap variables =
   Variables.create()
     .putValueTyped("order", Variables.objectValue(order))
     .putValueTyped("string", Variables.stringValue("a string value"))
-    .putValueTyped("stringTransient", Variables.stringValueTransient("foobar"));
+    .putValueTyped("stringTransient", Variables.stringValue"foobar", true));
 runtimeService.setVariablesLocal(execution.getId(), "order", variables);
 ```
 
