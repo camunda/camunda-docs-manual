@@ -104,6 +104,10 @@ GET `/history/process-instance/count`
     <td>Only include process instances which have an incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
+    <td>withRootIncidents</td>
+    <td>Only include process instances which have a root incident. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>incidentStatus</td>
 	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
 	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
