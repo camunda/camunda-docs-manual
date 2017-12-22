@@ -41,7 +41,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>executionId</td>
-    <td>Specifies a single execution which is notified by the signal.<br>
+    <td>Optionally specifies a single execution which is notified by the signal.<br>
     <strong>Note:</strong> If no execution id is defined the signal is broadcasted to all subscribed handlers.</td>
   </tr>
   <tr>
@@ -119,8 +119,7 @@ Request Body:
 
 ```json
 {
-  "name": "Policy conditions changed",
-  "executionId": "b527879e-790a-11e7-8c05-ee1718a0e301",
+  "name": "policy_conditions_changed",
   "variables": {
     "newTimePeriodInMonth": {
       "value": 24
