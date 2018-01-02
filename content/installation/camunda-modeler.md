@@ -1,7 +1,7 @@
 ---
 
 title: "Install the Camunda Modeler"
-weight: 25
+weight: 01  
 
 menu:
   main:
