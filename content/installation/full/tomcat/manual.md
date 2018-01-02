@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 8](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 8 distribution](http://camunda.org/download/) to fetch the required Camunda modules.
+This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 8](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 8 distribution](http://camunda.org/release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
@@ -32,7 +32,7 @@ Before you can install the Camunda components, you need to perform a number of r
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
