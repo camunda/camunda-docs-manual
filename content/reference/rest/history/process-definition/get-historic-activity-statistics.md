@@ -46,14 +46,22 @@ GET `/history/process-definition/{id}/statistics`
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Whether to include the number of canceled activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
+    <td>Whether to include the number of canceled activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   </tr>
   <tr>
     <td>finished</td>
-    <td>Whether to include the number of finished activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
+    <td>Whether to include the number of finished activity instances in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
   <tr>
     <td>completeScope</td>
-    <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>.</td>
+    <td>Whether to include the number of activity instances which completed a scope in the result or not. Valid values are <code>true</code> or <code>false</code>. Default: <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>startDate</td>
+    <td>The start date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.857+0200</code>. Default: Unix epoch time.</td>
+  </tr>
+  <tr>
+    <td>endDate</td>
+    <td>The start date (exclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.857+0200</code>. Default: current date and time.</td>
   </tr>
   <td>sortBy</td>
     <td>Sort the results by a given criterion. A valid value is <code>activityId</code>. Must be used in conjunction with the <code>sortOrder</code> parameter.</td>
@@ -64,6 +72,8 @@ GET `/history/process-definition/{id}/statistics`
     Must be used in conjunction with the <code>sortBy</code> parameter.</td>
   </tr>
 </table>
+
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 
 # Result
