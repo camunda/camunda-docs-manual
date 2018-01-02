@@ -1,11 +1,11 @@
 ---
 
-title: "Install the Standalone Webapplication"
+title: "Install the Standalone Webapplication (.war)"
 weight: 20
 
 menu:
   main:
-    name: "Standalone Webapplication"
+    name: "Standalone Webapplication (.war)"
     identifier: "installation-guide-standalone"
     parent: "installation-guide"
     pre: "Install the Standalone Webapplication (bundling an embedded Process Engine) inside an Application Server like Wildfly or Tomcat."
@@ -27,9 +27,45 @@ Note: Since the Camunda standalone web application uses an [embedded process eng
 
 # Download
 
-Download the Camunda standalone webapp matching your application server from
-our [download page](http://camunda.org/download). Enterprise subscription
-customers use the [enterprise download page](/enterprise/download/#full-distributions-and-standalone-web-applications).
+If you are an **Enterprise Edition** Customer, please use the [enterprise download page](/enterprise/download/#full-distributions-and-standalone-web-applications).
+
+As a **Community Edition** user you can download the Camunda standalone webapp matching your application server here:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Application Server</th>
+      <th>Link</th>
+    </tr>      
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apache Tomcat</td>
+      <td>
+        <a href="//camunda.org/release/camunda-bpm/tomcat/7.8/camunda-webapp-tomcat-standalone-7.8.0.war">
+          camunda-webapp-tomcat-standalone-7.8.0.war
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>JBoss AS 7</td>
+      <td>
+        <a href="//camunda.org/release/camunda-bpm/jboss/7.8/camunda-webapp-jboss-standalone-7.8.0.war">
+          camunda-webapp-jboss-standalone-7.8.0.war
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>WildFly</td>
+      <td>
+        <a href="//camunda.org/release/camunda-bpm/jboss/7.8/camunda-webapp-jboss-standalone-7.8.0.war">
+          camunda-webapp-jboss-standalone-7.8.0.war
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 # Deploy
 
