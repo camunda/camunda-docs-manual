@@ -35,6 +35,8 @@ customers:
 * [Community download page][community-download-page]
 * [Enterprise download page][enterprise-download-page]
 
+It is also possible to run Camunda BPM with [Spring Boot][run-with-spring-boot] and [Docker][run-with-docker].
+
 
 ## Full Distribution
 
@@ -91,9 +93,11 @@ the [community download page][community-download-page].
 
 
 [get-jdk]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[community-download-page]: http://camunda.org/download
+[community-download-page]: https://camunda.org/release/camunda-bpm/
 [enterprise-download-page]: /enterprise/download
 [shared-engine]: {{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}}
 [embedded-engine]: {{< relref "introduction/architecture.md#embedded-process-engine" >}}
 [installation-guide-standalone]: {{< relref "installation/standalone-webapplication.md" >}}
 [installation-guide-full]: {{< relref "installation/index.md" >}}
+[run-with-spring-boot]: {{< relref "user-guide/spring-boot-integration/index.md" >}}
+[run-with-docker]: {{< relref "installation/docker.md" >}}

@@ -15,6 +15,6 @@ menu:
 
 The [Full Distribution][full-distribution] includes a Shared Process engine and (optionally) the Web Applications.
 
-The distribution is supported on a broad range of containers: 
+The distribution is supported on a broad range of containers:
 
 [full-distribution]: {{< relref "introduction/downloading-camunda.md" >}}
