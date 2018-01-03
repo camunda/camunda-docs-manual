@@ -42,24 +42,24 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
     <tr>
       <td>Apache Tomcat</td>
       <td>
-        <a href="//camunda.org/release/camunda-bpm/tomcat/7.8/camunda-webapp-tomcat-standalone-7.8.0.war">
-          camunda-webapp-tomcat-standalone-7.8.0.war
+        <a href="//camunda.org/release/camunda-bpm/tomcat/7.6/camunda-webapp-tomcat-standalone-7.6.0.war">
+          camunda-webapp-tomcat-standalone-7.6.0.war
         </a>
       </td>
     </tr>
     <tr>
       <td>JBoss AS 7</td>
       <td>
-        <a href="//camunda.org/release/camunda-bpm/jboss/7.8/camunda-webapp-jboss-standalone-7.8.0.war">
-          camunda-webapp-jboss-standalone-7.8.0.war
+        <a href="//camunda.org/release/camunda-bpm/jboss/7.6/camunda-webapp-jboss-standalone-7.6.0.war">
+          camunda-webapp-jboss-standalone-7.6.0.war
         </a>
       </td>
     </tr>
     <tr>
       <td>WildFly</td>
       <td>
-        <a href="//camunda.org/release/camunda-bpm/jboss/7.8/camunda-webapp-jboss-standalone-7.8.0.war">
-          camunda-webapp-jboss-standalone-7.8.0.war
+        <a href="//camunda.org/release/camunda-bpm/jboss/7.6/camunda-webapp-jboss-standalone-7.6.0.war">
+          camunda-webapp-jboss-standalone-7.6.0.war
         </a>
       </td>
     </tr>
