@@ -156,3 +156,10 @@ You might consider disabling the batch mode in the following cases:
 
 2. Statement timeout (configured by `jdbcStatementTimeout` parameter) is not working in combination with batch mode on MariaDB and DB2 databases.
 So if you're using `jdbcStatementTimeout` configuration on the listed databases, consider disabling the batch mode.
+
+# Tasklist Translation File
+
+New labels were introduced and some keys of previously existing labels were changed in the translation file of Tasklist.
+Due to this reason it is necessary to adjust custom translation files accordingly. 
+
+Please have a look at what changed exactly in the [english translation file](https://github.com/camunda/camunda-tasklist-translations/commit/d6dff0c508c5cb4981bbced3ce42e83274d7f4dc#diff-772a593ff61f0e484d43cc349a5ab31c).
