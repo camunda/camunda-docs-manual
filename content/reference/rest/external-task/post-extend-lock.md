@@ -45,7 +45,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>newDuration</td>
-    <td>An amount of time (in milliseconds) to extend the lock by.</td>
+    <td>An amount of time (in milliseconds). Beware: This is the amount since the task was locked first. The time is not added to the original lock time, so make sure you set this at least to: Original-Lock Time + extended value.</td>
   </tr>
   <tr>
     <td>workerId</td>
