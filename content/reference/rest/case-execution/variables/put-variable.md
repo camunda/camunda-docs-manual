@@ -44,7 +44,7 @@ PUT `/case-execution/{id}/variables/{varName}`
 
 A JSON object with the following properties:
 
-{{< rest-var-request >}}
+{{< rest-var-request transient="true">}}
 
 
 # Result

@@ -50,7 +50,7 @@ A JSON object with the following properties:
   <tr>
     <td>modifications</td>
     <td>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:
-    {{< rest-var-request >}}
+    {{< rest-var-request transient="true">}}
   </tr>
   <tr>
     <td>deletions</td>

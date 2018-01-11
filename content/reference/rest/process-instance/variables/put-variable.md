@@ -42,7 +42,7 @@ PUT `/process-instance/{id}/variables/{varName}`
 
 ## Request Body
 
-{{< rest-var-request >}}
+{{< rest-var-request transient="true">}}
 
 
 # Result

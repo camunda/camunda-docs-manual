@@ -338,6 +338,10 @@ TypedValue typedTransientFileValue = Variables.fileValue("file.txt", true)
   .encoding("UTF-8")
   .create();
 ``` 
+Please note that the transient variables cannot be updated or deleted.
+
+Transient variables can be used via REST API, e.g. [when starting a new process instance]({{< relref "reference/rest/process-definition/post-start-process-instance.md">}}).
+
 ## Set Multiple Typed Values
 
 Similar to the Java-Object-based API, it is also possible to set multiple typed values in one API call. The `Variables` class offers a fluent API to construct a map of typed values:
