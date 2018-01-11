@@ -15,7 +15,7 @@ Error events are events which are triggered by a defined error.
 <div data-bpmn-diagram="../bpmn/event-error"></div>
 
 
-# Business Errors vs. Techincal Errors
+# Business Errors vs. Technical Errors
 
 A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.
 
