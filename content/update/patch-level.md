@@ -176,12 +176,26 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8184">CAM-8184</a></td>
     </tr>
-      <tr>
+    <tr>
       <td>7.7</td>
       <td>engine_7.7_patch_7.7.4_to_7.7.5_2.sql</td>
       <td>Increase the field length of ACT_RU_AUTHORIZATION.RESOURCE_ID_</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8177">CAM-8177</a></td>
+    </tr>
+    <tr>
+      <td>7.7</td>
+      <td>engine_7.7_patch_7.7.5_to_7.7.6.sql</td>
+      <td>Add indices to improve historic activity instance statistics</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-8485">CAM-8485</a></td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.0_to_7.8.1.sql</td>
+      <td>Add indices to improve historic activity instance statistics. <strong>This is the same patch as engine_7.7_patch_7.7.5_to_7.7.6.sql</strong>.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-8485">CAM-8485</a></td>
     </tr>
   </tbody>
 </table>
