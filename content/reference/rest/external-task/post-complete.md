@@ -57,8 +57,8 @@ A JSON object with the following properties:
   <tr>
     <td>localVariables</td>
     <td><p>A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object with the following properties:</p>
-    {{< rest-var-request transient="true" >}}
     <p>Local variables are set only in the scope of external task.</p>
+    {{< rest-var-request transient="true" >}}
   </tr>
 </table>
 
