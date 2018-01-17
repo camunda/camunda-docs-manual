@@ -28,22 +28,28 @@ The security of the areas listed in the next section is ensured based on common 
 
 ### Roles and Responsibilities
 
-Camunda's organizational roles include a role dedicated to security 
-employees respnsible for security related questions. 
-responsible for the establishment, administration, and maintenance of a comprehensive written Information Security Program.
+Camunda's organizational structure includes a role dedicated to security. This role is assigned to a senior employee who is  
+responsible for the establishment, administration and maintenance of this policy.
 
 ### Security in context of the Systems Development Life Cycle (“SDLC”)
 Application and System development follows a defined methodology that includes a preliminary review of information security requirements to ensure, at a minimum, the following
 
-* Segregation of duties must be incorporated into the design of applications and Systems to prevent the ability of a single person to perform multiple functions that could lead to fraud, theft, or other illicit or unethical activity through the use of the functions of the applications and Systems where Customer Information Assets are stored, processed, transmitted, or destroyed.
+#### Segregation of duties
+Segregation of duties are incorporated into the SDLC so that a single person is unable to introduce security vulnerabilities into the software. The team responsible for software development is seperated from the team responsible for the regressions testing and delivery of the software.  
 
+#### On-Going Software Development
+A formal change management process is used when making changes to the software which includes at minimum the following:
+1.	Each code change by one software developer is reviewed and approved by a second software developer
+2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
+3.	A record of all changes to the software exists that identifies:
+(i)	a brief description of each change that was made;
+(ii)	who made each change;
+(iii)	test cases for future automated regressions testing of this change;
+(iv)	who reviewed each change; and
+(v)	when each change was made.
 
-* The SDLC includes a review of a second developer for any code changes made to the Camunda code base of the software. 
-
-Dependencies new versions
-
-Web-based applications exposed to the Internet must ensure vulnerability testing is performed at both the network and application level to ensure the most common vulnerability weaknesses based upon industry best practices are identified and remediated to prevent them from being exploited in a way that could lead to unauthorized access to or disclosure of Customer Information Assets.
-Any changes to the software are being peer reviewed (4 eyes)
+#### Third Party Dependencies
+Third party dependencies that are delivered together with the software are constantly being monitored. In case there are newer versions of these dependencies that include security relevant improvements, a plan to incorporate the updated versions is created.
 
 
 ### Onboarding of Employees
