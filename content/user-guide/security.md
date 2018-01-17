@@ -42,10 +42,15 @@ A formal change management process is used when making changes to the software w
 1.	Each code change by one software developer is reviewed and approved by a second software developer
 2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
 3.	A record of all changes to the software exists that identifies:
+
 (i)	a brief description of each change that was made;
+
 (ii)	who made each change;
+
 (iii)	test cases for future automated regressions testing of this change;
+
 (iv)	who reviewed each change; and
+
 (v)	when each change was made.
 
 #### Third Party Dependencies
@@ -78,9 +83,10 @@ In addition automatic virus scans are being performed on our core infrastructure
 The software shall not be considered accepted until the security review is completed and all security issues have been assigned to a remediation plan.
 
 ### Automatic Regression Testing
+For a release to be accepted, several automated regression tests have to be passed. Testing the security relevant aspects of the software is part of this regression test.
 
 ### Manual Regression Testing
-
+For a release to be accepted, a manual regression test has to be passed. Testing the security relevant aspects of the software is part of this manual regression test. 
 
 # Instructions for operating Camunda securely
 
