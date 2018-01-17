@@ -20,19 +20,48 @@ This page describes Camunda BPM from a security perspective. It has two parts:
 
 The security of Camunda BPM takes top priority and is maintained constantly. 
 
+## Information Security Stadards 
+
 The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
 
-## Dealing with Security Issues and Vulnerabilities
+## Organizational Aspects of Security 
 
-Making Camunda as secure as possible is an ongoing effort. If you discover a potential security vulnerability please report it through the [Jira Issue Tracker](http://app.camunda.com/jira). For our enterprise customers, security issues are treated as bugs and the agreed severity levels and SLAs apply.
+### Roles and Responsibilities
 
-## Onboarding of Employees
+Dedicated employees respnsible for security related questions. 
+responsible for the establishment, administration, and maintenance of a comprehensive written Information Security Program.
+
+### Security in context of the Systems Development Life Cycle (“SDLC”)
+
+### Onboarding of Employees
 
 New software developers are being introduced to our security policies and best practices during their onboarding process.
 
-## Automatic Virus Scan
+## Security Issue Management
 
-An automatic virus scan is part of our release process. Its catalogs are up to date and it is used to scan the release distributions our users can download.
+### Reporting Security Issues and Vulnerabilities
+
+Making Camunda BPM as secure as possible is an ongoing effort. If a security issue or vulnerability is discovered, it is reported through the [Jira Issue Tracker](http://app.camunda.com/jira). The risk associated with each security issue will be evaluated, documented, and is visible to customer as soon as possible after discovery.
+Security issues discovered by our enterprise customers are treated as bugs and the agreed SLAs apply.
+
+### Remediation
+Camunda creates a remediation plan to resolve security issues that are identified. Fixes are made available in the form of patch releases (enterprise customers only) and minor releases (community edition users). 
+
+
+## Security Acceptance and Maintenance
+
+### Automatic Virus Scans
+
+An automatic virus scan is part of our release process. Its catalogs are up to date and it is used to scan the release distributions our users can download. 
+In addition automatic virus scans are being performed on our core infrastructure components.
+
+### Acceptance
+The software shall not be considered accepted until the security review is completed and all security issues have been assigned to a remediation plan.
+
+### Automatic Regression Testing
+
+### Manual Regression Testing
+
 
 # Instructions for operating Camunda securely
 
