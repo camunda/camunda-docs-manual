@@ -18,17 +18,18 @@ This page describes Camunda BPM from a security perspective. It has two parts:
 
 # Security Policy
 
-The security of Camunda BPM takes top priority and is maintained constantly. 
+As a core infrastructure component of our customers, the security of Camunda BPM takes top priority and is maintained constantly. 
 
 ## Information Security Stadards 
 
-The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) and others. 
+The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), [CVSS](https://www.first.org/cvss/) and others. 
 
 ## Organizational Aspects of Security 
 
 ### Roles and Responsibilities
 
-Dedicated employees respnsible for security related questions. 
+Camunda's organizational roles include a role dedicated to security 
+employees respnsible for security related questions. 
 responsible for the establishment, administration, and maintenance of a comprehensive written Information Security Program.
 
 ### Security in context of the Systems Development Life Cycle (“SDLC”)
