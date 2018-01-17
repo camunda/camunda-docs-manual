@@ -20,7 +20,7 @@ This page describes Camunda BPM from a security perspective. It has two parts:
 
 As a core infrastructure component of our customers, the security of Camunda BPM takes top priority and is maintained constantly. 
 
-## Information Security Stadards 
+## Information Security Standards 
 
 The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), [CVSS](https://www.first.org/cvss/) and others. 
 
@@ -33,6 +33,18 @@ employees respnsible for security related questions.
 responsible for the establishment, administration, and maintenance of a comprehensive written Information Security Program.
 
 ### Security in context of the Systems Development Life Cycle (“SDLC”)
+Application and System development follows a defined methodology that includes a preliminary review of information security requirements to ensure, at a minimum, the following
+
+* Segregation of duties must be incorporated into the design of applications and Systems to prevent the ability of a single person to perform multiple functions that could lead to fraud, theft, or other illicit or unethical activity through the use of the functions of the applications and Systems where Customer Information Assets are stored, processed, transmitted, or destroyed.
+
+
+* The SDLC includes a review of a second developer for any code changes made to the Camunda code base of the software. 
+
+Dependencies new versions
+
+Web-based applications exposed to the Internet must ensure vulnerability testing is performed at both the network and application level to ensure the most common vulnerability weaknesses based upon industry best practices are identified and remediated to prevent them from being exploited in a way that could lead to unauthorized access to or disclosure of Customer Information Assets.
+Any changes to the software are being peer reviewed (4 eyes)
+
 
 ### Onboarding of Employees
 
