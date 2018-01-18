@@ -43,7 +43,7 @@ A formal change management process is used when making changes to the software w
 2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
 3.	A record of all changes to the software exists that identifies:
 
-3.1.	a brief description of each change that was made;
+..*	a brief description of each change that was made;
 
 3.2.	who made each change;
 
