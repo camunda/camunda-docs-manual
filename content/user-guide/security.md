@@ -43,15 +43,15 @@ A formal change management process is used when making changes to the software w
 2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
 3.	A record of all changes to the software exists that identifies:
 
-3.1	a brief description of each change that was made;
+3.1.	a brief description of each change that was made;
 
-3.2	who made each change;
+3.2.	who made each change;
 
-3.3	test cases for future automated regressions testing of this change;
+3.3.	test cases for future automated regressions testing of this change;
 
-3.4	who reviewed each change; and
+3.4.	who reviewed each change; and
 
-3.5	when each change was made.
+3.5.	when each change was made.
 
 #### Review Frequency
 Reviews shall be conducted to revalidate the software of any new major or minor release prior to delivery to Customer.
