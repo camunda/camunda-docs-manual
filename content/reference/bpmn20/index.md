@@ -506,7 +506,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
     </tr>
     <tr>
       <td><a href="{{< relref "reference/bpmn20/events/conditional-events.md" >}}">Conditional</a></td>
-      <td>
+      <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
               <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>

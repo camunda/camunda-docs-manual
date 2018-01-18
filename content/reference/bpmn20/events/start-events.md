@@ -19,6 +19,7 @@ The process engine supports different types of start events:
 * [Timer]({{< relref "reference/bpmn20/events/timer-events.md" >}})
 * [Message]({{< relref "reference/bpmn20/events/message-events.md" >}})
 * [Signal]({{< relref "reference/bpmn20/events/signal-events.md" >}})
+* [Conditional]({{< relref "reference/bpmn20/events/conditional-events.md" >}})
 
 The engine requires at least one start event to instantiate a process. There can be a maximum of one blank or timer start event per process definition. There can be multiple message or signal start events.
 

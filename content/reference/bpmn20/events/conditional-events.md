@@ -100,7 +100,46 @@ The specific sub-element type in this case is a conditionalEventDefinition eleme
 
 # Conditional Start Event
 
-A conditional start event can only be used in combination with an event sub process. Similar to conditional boundary events, conditional start events can be interrupting and non interrupting.
+A conditional start event can be used to start a process by evaluating some condition. One process can have one or more conditional start events.
+
+If more than one conditions are fullfilled the respective number of processes will be triggered.
+
+When deploying a process definition with conditional start events, the following considerations apply:
+
+* The condition of the conditional start event must be unique across a given process definition, i.e., a process definition must not have multiple conditional start events with the same condition. The engine throws an exception upon deployment of a process definition in case two or more conditional start events contain the same condition.
+* Process versioning: Upon deployment of a new version of a process definition, the conditional subscriptions of the previous version are cancelled.
+This is also the case for conditional events that are not present in the new version.
+
+When starting a process instance, a conditional start event can be triggered using the following method on the RuntimeService:
+
+```java
+List<ProcessInstance> instances = runtimeService
+    .createConditionEvaluation()
+    .setVariable("temperature", 24)
+    .evaluateStartConditions();
+// or
+List<ProcessInstance> instances = runtimeService
+    .createConditionEvaluation()
+    .setVariables(variableMap)
+    .evaluateStartConditions();
+```
+Providing one or more variables is obligatory. Those variables are used to evaluate the conditions. Also they are passed as variables to the newly created process instances.
+The XML representation of a conditional start event is the normal start event declaration with a conditionalEventDefinition child-element.
+
+Optional: Adding `variableName` attribute to `conditionalEventDefinition` allows to specify a variable name on which a condition of a conditional event should be evaluated exclusively.
+```xml
+<startEvent id="conditionalStartEvent">
+  <conditionalEventDefinition camunda:variableName="temperature">
+    <condition type="tFormalExpression">${temperature > 20}</condition>
+  </conditionalEventDefinition>
+</startEvent>
+```
+
+# Conditional Start Event for Event Sub Process
+
+Similar to conditional boundary events, conditional start events for event sub process can be interrupting and non interrupting.
+
+Note: An Event Sub-Process must have a single start event.
 
 The XML representation of a conditional start event is the normal start event declaration with a conditionalEventDefinition child-element:
 
