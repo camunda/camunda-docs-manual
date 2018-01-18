@@ -10,19 +10,19 @@ menu:
 
 ---
 
-This page describes Camunda BPM from a security perspective. It has two parts:
+This page describes Camunda BPM (also referred to as the 'software')  from a security perspective. It has two parts:
 
-1. **Security Policy**: Describes Camunda's security policy, including how we deal with security issues and how the security of Camunda BPM is continuously maintained.
+1. **Security Policy**: Describes the software's security policy, including how we deal with security issues and how the security of the software is continuously maintained.
 
-2. **Instructions for operating Camunda securely**: Provides an overview of how to secure a Camunda installation. In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we believe security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others.
+2. **Instructions for operating the software securely**: Provides an overview of how to secure a Camunda installation. In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we believe security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others.
 
 # Security Policy
 
-As a core infrastructure component of our customers, the security of Camunda BPM takes top priority and is maintained constantly. 
+As a core infrastructure component of our customers, the security of the software takes top priority and is maintained constantly. 
 
 ## Information Security Standards 
 
-The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of Camunda BPM is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), [CVSS](https://www.first.org/cvss/) and others. 
+The security of the areas listed in the next section is ensured based on common industry best practises. Thus, the development of the software is being influenced by standards like [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), [CVSS](https://www.first.org/cvss/) and others. 
 
 ## Organizational Aspects of Security 
 
@@ -43,19 +43,21 @@ A formal change management process is used when making changes to the software w
 2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
 3.	A record of all changes to the software exists that identifies:
 
-(i)	a brief description of each change that was made;
+3.1	a brief description of each change that was made;
 
-(ii)	who made each change;
+3.2	who made each change;
 
-(iii)	test cases for future automated regressions testing of this change;
+3.3	test cases for future automated regressions testing of this change;
 
-(iv)	who reviewed each change; and
+3.4	who reviewed each change; and
 
-(v)	when each change was made.
+3.5	when each change was made.
+
+#### Review Frequency
+Reviews shall be conducted to revalidate the software of any new major or minor release prior to delivery to Customer.
 
 #### Third Party Dependencies
 Third party dependencies that are delivered together with the software are constantly being monitored. In case there are newer versions of these dependencies that include security relevant improvements, a plan to incorporate the updated versions is created.
-
 
 ### Onboarding of Employees
 
@@ -65,7 +67,7 @@ New software developers are being introduced to our security policies and best p
 
 ### Reporting Security Issues and Vulnerabilities
 
-Making Camunda BPM as secure as possible is an ongoing effort. If a security issue or vulnerability is discovered, it is reported through the [Jira Issue Tracker](http://app.camunda.com/jira). The risk associated with each security issue will be evaluated, documented, and is visible to customer as soon as possible after discovery.
+Making the software as secure as possible is an ongoing effort. If a security issue or vulnerability is discovered, it is reported through the [Jira Issue Tracker](http://app.camunda.com/jira). The risk associated with each security issue will be evaluated, documented, and is visible to customer as soon as possible after discovery.
 Security issues discovered by our enterprise customers are treated as bugs and the agreed SLAs apply.
 
 ### Remediation
@@ -74,13 +76,8 @@ Camunda creates a remediation plan to resolve security issues that are identifie
 
 ## Security Acceptance and Maintenance
 
-### Automatic Virus Scans
-
-An automatic virus scan is part of our release process. Its catalogs are up to date and it is used to scan the release distributions our users can download. 
-In addition automatic virus scans are being performed on our core infrastructure components.
-
 ### Acceptance
-The software shall not be considered accepted until the security review is completed and all security issues have been assigned to a remediation plan.
+The software shall not be considered accepted until the security review is completed and all security issues have been assigned to a remediation plan. The security review is part of the Regression Testing. 
 
 ### Automatic Regression Testing
 For a release to be accepted, several automated regression tests have to be passed. Testing the security relevant aspects of the software is part of this regression test.
@@ -88,7 +85,13 @@ For a release to be accepted, several automated regression tests have to be pass
 ### Manual Regression Testing
 For a release to be accepted, a manual regression test has to be passed. Testing the security relevant aspects of the software is part of this manual regression test. 
 
-# Instructions for operating Camunda securely
+### Automatic Virus Scans
+An automatic virus scan is part of our release process. Its catalogs are up to date and it is used to scan the release distributions our users can download. 
+In addition automatic virus scans are being performed on our core infrastructure components.
+
+
+
+# Instructions for operating the software securely
 
 ## Deployment Options and Components
 
