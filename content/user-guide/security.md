@@ -68,6 +68,9 @@ Security issues discovered by our enterprise customers are treated as bugs and t
 ### Remediation
 Camunda creates a remediation plan to resolve security issues that are identified. Fixes are made available in the form of patch releases (enterprise customers only) and minor releases (community edition users). 
 
+### Protection
+Camunda will appropriately protect information regarding security issues and associated documentation to help limit the likelihood that vulnerabilities are exposed.
+
 
 ## Security Acceptance and Maintenance
 
