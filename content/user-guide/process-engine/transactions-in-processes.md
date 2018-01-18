@@ -41,6 +41,10 @@ The [Event Based Gateway]({{< relref "reference/bpmn20/gateways/event-based-gate
 
 <div data-bpmn-diagram="../bpmn/event-based-gateway"></div>
 
+A special type of the [Service Task]({{< relref "reference/bpmn20/tasks/service-task.md">}}): [External Task]({{< relref "user-guide/process-engine/external-tasks.md" >}})
+
+<a href="../external-tasks">{{< bpmn-symbol type="service-task" >}}</a>
+
 Keep in mind that [Asynchronous Continuations]({{< relref "#asynchronous-continuations" >}}) can add transaction boundaries to other tasks as well.
 
 
