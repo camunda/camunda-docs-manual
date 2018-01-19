@@ -132,6 +132,16 @@ Each process instance object has the following properties:
     <td>application/json</td>
     <td>If no <code>variables</code> were supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
+  <tr>
+    <td>403</td>
+    <td>application/json</td>
+    <td>If the user is not allowed to evaluate a condition. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>application/json</td>
+    <td>If no process instances were triggered after the evaluation. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
 </table>
 
 # Example
