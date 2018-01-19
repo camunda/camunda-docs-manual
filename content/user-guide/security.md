@@ -31,7 +31,7 @@ The security of the areas listed in the next section is ensured based on common 
 Camunda's organizational structure includes a role dedicated to security. This role is assigned to a senior employee who is
 responsible for the establishment, administration and maintenance of this policy.
 
-### Security in context of the Systems Development Life Cycle (“SDLC”)
+### Security in context of the Systems Development Life Cycle ("SDLC")
 Application and System development follows a defined methodology that includes a preliminary review of information security requirements to ensure, at a minimum, the following
 
 #### Segregation of duties
