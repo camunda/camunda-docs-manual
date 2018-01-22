@@ -14,7 +14,7 @@ This page describes Camunda BPM (also referred to as the 'software')  from a sec
 
 1. **Security Policy**: Describes the software's security policy, including how we deal with security issues and how the security of the software is continuously maintained.
 
-2. **Instructions for operating the software securely**: Provides an overview of how to secure a Camunda installation. In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we believe security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others.
+2. **Instructions for operating the software securely**: Provides an overview of how to secure a Camunda installation. In order to secure a Camunda installation, Camunda itself must be configured correctly and it must be integrated correctly into its environment. This section also identifies areas where we consider security issues to be relevant for the specific Camunda BPM product and listed those in the subsequent sections. Compliance for those areas is ensured based on common industry best practices and influenced by security requirements of standards like OWASP Top 10 and others.
 
 # Security Policy
 
@@ -32,32 +32,32 @@ Camunda's organizational structure includes a role dedicated to security. This r
 responsible for the establishment, administration and maintenance of this policy.
 
 ### Security in context of the Systems Development Life Cycle ("SDLC")
-Application and System development follows a defined methodology that includes a preliminary review of information security requirements to ensure, at a minimum, the following
+Application and System development follows a defined methodology that contains a preliminary review of information security requirements to ensure the following minimum standards.
 
 #### Segregation of duties
-Segregation of duties are incorporated into the SDLC so that a single person is unable to introduce security vulnerabilities into the software. The team responsible for software development is separated from the team responsible for the regressions testing and delivery of the software.
+Segregation of duties is incorporated into the SDLC so that a single person is unable to introduce security vulnerabilities into the software. The team responsible for software development is separated from the team responsible for the regressions testing and delivery of the software.
 
 #### On-Going Software Development
-A formal change management process is used when making changes to the software which includes at minimum the following:
+A formal change management process is used when making changes to the software which includes the following minimum standards:
 
-1. Each code change by one software developer is reviewed and approved by a second software developer
-2. Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
+1. Each code change by one software developer is reviewed and approved by a second software developer;
+2. Changes to the software must not be packaged into the final software artefacts (which are provided for download to the customers) by the same person who does the development; and
 3. A record of all changes to the software exists that identifies:
   * a brief description of each change that was made;
   * who made each change;
   * test cases for future automated regressions testing of this change;
   * who reviewed each change; and
-  * when each change was made.
+  * the date and time when each change was made.
 
 #### Review Frequency
-Reviews shall be conducted to revalidate the software of any new major or minor release prior to delivery to Customer.
+Reviews of any new major or minor release shall be conducted to revalidate the software prior to making it available for download to the Customer.
 
 #### Third Party Dependencies
-Third party dependencies that are delivered together with the software are constantly being monitored. In case there are newer versions of these dependencies that include security relevant improvements, a plan to incorporate the updated versions is created.
+Third party dependencies contained within the software are constantly being monitored. In case there are newer versions of these dependencies that include security relevant improvements, a plan to incorporate the updated versions is created.
 
 ### Onboarding of Employees
 
-New software developers are being introduced to our security policies and best practices during their onboarding process.
+New software developers are being introduced to our security policy and best practices during their onboarding process.
 
 ## Security Issue Management
 
@@ -67,7 +67,7 @@ Making the software as secure as possible is an ongoing effort. If a security is
 Security issues discovered by our enterprise customers are treated as bugs and the agreed SLAs apply.
 
 ### Remediation
-Camunda creates a remediation plan to resolve security issues that are identified. Fixes are made available in the form of patch releases (enterprise customers only) and minor releases (community edition users).
+Camunda creates a remediation plan to resolve security issues that are identified. Fixes are made available in the form of patch releases (enterprise customers only) and minor releases (community platform users).
 
 ### Protection
 Camunda will appropriately protect information regarding security issues and associated documentation to help limit the likelihood that vulnerabilities are exposed.
@@ -76,30 +76,29 @@ Camunda will appropriately protect information regarding security issues and ass
 ## Security Acceptance and Maintenance
 
 ### Acceptance
-The software shall not be considered accepted until the security review is completed and all security issues have been assigned to a remediation plan. The security review is part of the Regression Testing.
+The software shall not be considered accepted until the security review has been completed and all security issues have been assigned to a remediation plan. The security review is part of the Regression Testing.
 
 ### Automatic Regression Testing
-For a release to be accepted, several automated regression tests have to be passed. Testing the security relevant aspects of the software is part of this regression test.
+For a release to be accepted, several automated regression tests must be passed. Testing the security relevant aspects of the software is part of this regression test.
 
 ### Manual Regression Testing
-For a release to be accepted, a manual regression test has to be passed. Testing the security relevant aspects of the software is part of this manual regression test.
+For a release to be accepted, a manual regression test must be passed. Testing the security relevant aspects of the software is part of this manual regression test.
 
 ### Automatic Virus Scans
-An automatic virus scan is part of our release process. Its catalogs are up to date and it is used to scan the release distributions our users can download.
+An automatic virus scan is part of our release process. Its catalogues are up to date and it is used to scan the released distributions our users can download.
 In addition automatic virus scans are being performed on our core infrastructure components.
-
 
 
 # Instructions for operating the software securely
 
 ## Deployment Options and Components
 
-There are different ways of using Camunda BPM and different components are provided: the process engine itself, the REST Api, the web applications. Depending on how Camunda is deployed and which components are used, different security considerations apply. The following list gives a general overview over deployment options and components and points out the main differences from a security point of view. The remainder of this chapter then goes into different configuration options.
+There are different ways of using Camunda BPM and different components are provided: the process engine itself, the REST API, the web applications. Depending on how Camunda is deployed and which components are used, different security considerations apply. The following list gives a general overview over deployment options and components outlining the main differences from a security point of view. The remainder of this chapter elaborates on the different configuration options.
 
 * Embedded Java library inside an application: in this case, the Camunda engine is embedded inside a custom Java Application. Usually the application takes care of securing access to Camunda's APIs and the APIs are not directly exposed to an end user. In this case, the application typically takes care of ensuring authentication and preventing access by unauthorized users.
 * Shared Process Engine: in this scenario, the Process Engine is deployed as a container service into an application server such that it can be used by the applications deployed into the same container / server. This case is similar to the embedded Java library case.
-* REST Api: the REST API provides access to Camunda's core APIs through HTTP. In this case users can directly access Camunda's APIs. Usually, it is necessary to configure authentication, authorization and also secure the connection to the REST API using SSL (HTTPS).
-* Web Applications (Cockpit, Tasklist, ...): similar considerations to the REST API apply.
+* REST API: the REST API provides access to Camunda's core APIs through HTTP. In this case users can directly access Camunda's APIs. Usually, it is necessary to configure authentication, authorization and also secure the connection to the REST API using SSL (HTTPS).
+* Web applications (Cockpit, Tasklist, ...): similar considerations to the REST API apply.
 
 ## Security Configuration inside Camunda
 
@@ -114,7 +113,7 @@ Authentication controls _who_ can access Camunda's APIs and Applications.
 Authentication is only needed in the following cases:
 
 * Camunda's REST API is used
-* Camunda's Web Applications are used
+* Camunda's web applications are used
 
 In these cases, direct access to Camunda's core APIs is provided over HTTP and authentication must be enabled.
 
@@ -122,7 +121,7 @@ By contrast, authentication is generally not done by Camunda when embedded as a 
 
 #### Enabling Authentication for the REST API
 
-For ease of use by developers, the REST API's authentication is disabled by default. When deploying the REST Api in production, it is therefore required to enable authentication. Check the corresponding section in the [REST Api documentation]({{< relref "reference/rest/overview/authentication.md" >}}).
+For ease of use by developers, the REST API's authentication is disabled by default. When deploying the REST API in production, it is therefore required to enable authentication. Check the corresponding section in the [REST API documentation]({{< relref "reference/rest/overview/authentication.md" >}}).
 
 #### Authentication in the Web Applications
 
@@ -188,12 +187,12 @@ To access the database, Camunda needs to establish a connection. Usually the con
 
 To establish the connection to the database, the database credentials need to be provided. As opposed to providing the credentials as plain text in a configuration file, some application servers support storing the credentials securely in an encrypted form. In that case, consult the manual of your application server to learn how to use these features.
 
-### Web Server (applicable when using REST Api or Web Applications)
+### Web Server (applicable when using REST API or Web Applications)
 
-When deploying the REST API or the Camunda Web Applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
+When deploying the REST API or the Camunda web applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
 
 #### Enabling SSL / HTTPS
 
-It is strongly recommended to configure SSL / HTTPS when deploying the Camunda REST APIs or Web Applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Please consult the manual of your web server or reverse proxy for details.
+It is strongly recommended to configure SSL / HTTPS when deploying the Camunda REST APIs or web applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Please consult the manual of your web server or reverse proxy for details.
 
 
