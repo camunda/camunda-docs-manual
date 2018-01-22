@@ -39,14 +39,15 @@ Segregation of duties are incorporated into the SDLC so that a single person is 
 
 #### On-Going Software Development
 A formal change management process is used when making changes to the software which includes at minimum the following:
-1.	Each code change by one software developer is reviewed and approved by a second software developer
-2.	Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
-3.	A record of all changes to the software exists that identifies:
-  *	a brief description of each change that was made;
-  *	who made each change;
-  *	test cases for future automated regressions testing of this change;
-  *	who reviewed each change; and
-  *	when each change was made.
+
+1. Each code change by one software developer is reviewed and approved by a second software developer
+2. Changes to the software must not be packaged into the final software artefacts (which are delivered to the customers) by the same people who do the development; and
+3. A record of all changes to the software exists that identifies:
+  * a brief description of each change that was made;
+  * who made each change;
+  * test cases for future automated regressions testing of this change;
+  * who reviewed each change; and
+  * when each change was made.
 
 #### Review Frequency
 Reviews shall be conducted to revalidate the software of any new major or minor release prior to delivery to Customer.
@@ -189,7 +190,7 @@ To establish the connection to the database, the database credentials need to be
 
 ### Web Server (applicable when using REST Api or Web Applications)
 
-When deploying the REST API or the Camunda Web Applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers. / application servers
+When deploying the REST API or the Camunda Web Applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
 
 #### Enabling SSL / HTTPS
 
