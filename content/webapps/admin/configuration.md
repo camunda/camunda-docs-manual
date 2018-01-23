@@ -38,6 +38,31 @@ and can override the standard styles.
 }
 ```
 
+# Localization
+
+The localization of Admin is contained in the `app/admin/locales/` directory. This
+directory contains a separate localization file for every available language. The file name
+consists of the language code and the suffix `.json` (e.g., `en.json`).
+
+Admin uses a locale file corresponding to the language settings of the browser. You can
+set the `availableLocales` property in the configuration file to provide a list of available
+locales. Every locale which is contained in this list must have a locale file in the `locales`
+directory with the corresponding language code.
+
+If the browser uses a language which is not available, Admin uses the locale which is
+defined via the `fallbackLocale` property in the configuration file:
+
+```javascript
+"locales": {
+  "availableLocales": ["en", "de"],
+  "fallbackLocale": "en"
+}
+```
+
+To create a new localization for Admin, copy the provided language file, translate it and
+save it as new localization file with the corresponding language code. To make the new translation
+available, add it to the list of available locales in the configuration file.
+
 # Custom Scripts
 
 If you want to add your own scripts to the Admin application, you should add a `customScripts` property to the `app/admin/scripts/config.js`
