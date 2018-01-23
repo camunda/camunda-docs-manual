@@ -32,6 +32,30 @@ and can override the standard styles.
   border-bottom-color: blue;
 }
 ```
+# Localization
+
+The localization of Cockpit is contained in the `app/cockpit/locales/` directory. This
+directory contains a separate localization file for every available language. The file name
+consists of the language code and the suffix `.json` (e.g., `en.json`).
+
+Cockpit uses a locale file corresponding to the language settings of the browser. You can
+set the `availableLocales` property in the configuration file to provide a list of available
+locales. Every locale which is contained in this list must have a locale file in the `locales`
+directory with the corresponding language code.
+
+If the browser uses a language which is not available, Cockpit uses the locale which is
+defined via the `fallbackLocale` property in the configuration file:
+
+```javascript
+"locales": {
+  "availableLocales": ["en", "de"],
+  "fallbackLocale": "en"
+}
+```
+
+To create a new localization for Cockpit, copy the provided language file, translate it and
+save it as new localization file with the corresponding language code. To make the new translation
+available, add it to the list of available locales in the configuration file.
 
 # Custom Scripts
 
