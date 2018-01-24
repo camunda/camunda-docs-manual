@@ -102,7 +102,7 @@ The specific sub-element type in this case is a conditionalEventDefinition eleme
 
 A conditional start event can be used to start a process by evaluating some condition. One process can have one or more conditional start events.
 
-If more than one conditions are fullfilled the respective number of processes will be triggered.
+If more than one conditions are fulfilled the respective number of processes will be triggered.
 
 When deploying a process definition with conditional start events, the following considerations apply:
 
