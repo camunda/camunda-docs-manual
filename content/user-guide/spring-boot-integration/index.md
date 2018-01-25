@@ -94,9 +94,8 @@ To use Camunda Spring Boot Starter with Camunda EE you need to:
 
 # Supported deployment scenarios
 
-Following deployment scenarios are supported by Camunda:
+Following deployment scenario is supported by Camunda:
 
 * executable JAR with embedded Tomcat and one embedded process engine (plus Webapps when needed)
-* WAR with one embedded process engine (plus Webapps when needed) deployed on Tomcat
 
-Many other possible variations might also work, but are not tested by Camunda at the moment.
+There are other possible variations that might also work, but are not tested by Camunda at the moment.
