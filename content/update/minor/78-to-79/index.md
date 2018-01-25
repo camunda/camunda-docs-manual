@@ -48,7 +48,7 @@ runtimeService.setVariable(processInstanceId, "varName",
           .objectTypeName("com.example.MyObject")
           .create());
 ```
-In this case you will need to use another serialization format (JSON or XML) or to explicitely enable Java serialization with the help of this configuration parameter:
+In this case you will need to use another serialization format (JSON or XML) or to explicitly enable Java serialization with the help of [this configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
 
 ```xml
 <property name="javaSerializationFormatEnabled">true</property>
