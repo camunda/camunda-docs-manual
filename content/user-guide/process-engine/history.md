@@ -576,7 +576,12 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>ModifyProcessInstance</td>
-    <td><i>No additional property is logged</i></td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: The amount of process instances modified</li>
+        <li><strong>async</strong>: <code>true</code> if modification was performed asynchronously as a batch, <code>false</code> if modification was performed synchronously</li>
+      </ul>
+	</td>
   </tr>
   <tr>
     <td></td>
@@ -595,6 +600,16 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>processDefinitionId</strong>: The id of the process definition that instances are migrated to</li>
         <li><strong>nrOfInstances</strong>: The amount of process instances migrated</li>
         <li><strong>async</strong>: <code>true</code> if migration was performed asynchronously as a batch, <code>false</code> if migration was performed synchronously</li>
+      </ul>
+    </td>
+  </tr>
+   <tr>
+    <td></td>
+    <td>RestartProcessInstance</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: The amount of process instances restarted</li>
+        <li><strong>async</strong>: <code>true</code> if restart was performed asynchronously as a batch, <code>false</code> if restart was performed synchronously</li>
       </ul>
     </td>
   </tr>
@@ -706,6 +721,15 @@ The following describes the operations logged in the user operation log and the 
       </ul>
     </td>
   </tr>
+   <tr>
+    <td></td>
+    <td>UpdateHistoryTimeToLive</td>
+    <td>
+      <ul>
+        <li><strong>historyTimeToLive</strong>: the new history time to live.</li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td>Job</td>
     <td>ActivateJob</td>
@@ -730,6 +754,8 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>retries</strong>: the new number of retries</li>
+        <li><strong>nrOfInstances</strong>: the number of jobs that were updated.</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
       </ul>
     </td>
   </tr>
@@ -791,6 +817,17 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>ExternalTask</td>
+    <td>SetExternalTaskRetries</td>
+    <td>
+      <ul>
+        <li><strong>retries</strong>: the new number of retries</li>
+        <li><strong>nrOfInstances</strong>: the amount of external tasks that were updated</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
       </ul>
     </td>
   </tr>
