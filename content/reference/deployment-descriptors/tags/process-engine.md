@@ -273,7 +273,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>defaultNumberOfRetries</code></td>
     <td>Integer</td>
     <td>
-        Controls how many retries should be accomplished for a failed job. Default value: <code>3</code>
+        Specifies how many times a job will be executed before an incident is raised. Default value: <code>3</code>
     </td>
   </tr>
 
