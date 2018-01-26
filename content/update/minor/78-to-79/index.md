@@ -53,3 +53,8 @@ In this case you will need to use another serialization format (JSON or XML) or 
 ```xml
 <property name="javaSerializationFormatEnabled">true</property>
 ```
+
+# Groovy version
+
+The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
+Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
