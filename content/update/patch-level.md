@@ -210,10 +210,12 @@ See the user guide on [security considerations for custom code]({{< relref "user
 
 ## 7.6.10 to 7.6.11 / 7.7.5 to 7.7.6
 
+### Java serialization format
+
 You can now configure, if you forbid the usage of Java serialization format, when passing object variables in their Java serialized representation.
 
 The new [configuration parameter `javaSerializationFormatEnabled`]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
-defaults to true, but can be configured to false in Camunda engine configuration.
+defaults to `true`, but can be configured to `false` in Camunda engine configuration.
 
 Following use cases are affected:
 
@@ -242,6 +244,17 @@ runtimeService.setVariable(processInstanceId, "varName",
           .objectTypeName("com.example.MyObject")
           .create());
 ```
+
+You can disable Java serialization usage with the help of [this configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
+
+```xml
+<property name="javaSerializationFormatEnabled">false</property>
+```
+
+### Groovy version
+
+The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
+Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 # Full Distribution
 
