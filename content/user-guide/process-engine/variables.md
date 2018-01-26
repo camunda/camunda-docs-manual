@@ -304,7 +304,10 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
   When setting a serialized variable value, no checking is done whether the structure of the serialized value is compatible with the class the variable value is supposed to be an instance of. When setting the variable from the above example, the supplied serialized value is not validated against the structure of `com.example.Order`. Thus, an invalid variable value will only be detected when `runtimeService#getVariableTyped` is called.
 {{< /note >}}
 
-
+{{< note title="Java serialization format" class="warning" >}}
+  Be aware, that when using serializaed representation of variables, Java serialization format is forbidden by default. You should either use another format (JSON or XML), or explicitly enable Java serialization 
+  for such cases with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) . 
+{{< /note >}}
 
 ## JSON and XML Values
 
