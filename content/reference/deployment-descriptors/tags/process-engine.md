@@ -481,5 +481,13 @@ The following is a list with the most commonly used process engine configuration
         Default value: <code>0</code>
     </td>
   </tr>
+  
+  <tr>
+    <td><a name="javaSerializationFormatEnabled"></a><code>javaSerializationFormatEnabled</code></td>
+    <td>Boolean</td>
+    <td>
+        Sets if Java serialization format can be used, when <a href="{{< relref "user-guide/process-engine/variables.md#object-values">}}">setting variables by their serialized representation</a>. Default value: <code>true</code>
+    </td>
+  </tr>
 
 </table>
