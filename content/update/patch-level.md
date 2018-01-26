@@ -215,6 +215,7 @@ The process engine no longer evaluates these expressions by default and throws a
 
 See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
+
 ## 7.6.10 to 7.6.11 / 7.7.5 to 7.7.6 / 7.8.0 to 7.8.1
 
 ### Java serialization format
@@ -263,6 +264,22 @@ You can disable Java serialization usage with the help of [this configuration pa
 The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
 Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
+
+## 7.8.1. to 7.8.2 
+
+### Restrict heatmap/statistics by time period  
+
+In the historic process definition diagram it is possible to select time periods for which activity instance badges are displayed.
+
+By default the displayed timer period is set to 'today' but can be extended to show badges of 'this week', 'this month' or the 'complete' history.   
+
+This feature can be configured in two ways:
+
+1. The default timer period can be changed to 'this week', 'this month' or 'complete'
+2. The manual seletion of the time period within cockpit can be disabled.   
+
+These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+   
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.

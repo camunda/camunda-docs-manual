@@ -112,6 +112,25 @@ Moreover, the checkbox to enable/disable skipCustomListeners is by default not h
 `hidden` (`true | false`) in `skipCustomListeners` configuration. If the `hidden` value is configured to be false, then the skipCustomListeners checkbox 
 will be hidden everywhere in Cockpit.
 
+# Historic Activity Instance Metrics
+
+ ```javascript
+    window.camCockpitConf = {
+       historicActivityInstanceMetrics: {
+         adjustablePeriod: true,
+         //select from the default time period: today, week, month, complete
+         period: {
+           unit: 'today'
+         }
+       }
+    };
+ ```
+ By default, the `adjustablePeriod` flag value is `true`. Setting it to false disables the ability in the process definition history view to manually select the time period for which the activity instances are displayed. 
+ the `unit` property of `period` allows to specify the default timer period for which the activity instance badges are supposed to be shown. 
+ Here it is possible to select form the range of values: `today`, `week`,`month`,`complete`;  
+ 
+
+
 # Advanced Styles Customization
 
 In addition to the basic `user-styles.css` file, you can edit the source style- and layout files
