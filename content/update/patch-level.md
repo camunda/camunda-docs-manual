@@ -215,6 +215,41 @@ The process engine no longer evaluates these expressions by default and throws a
 
 See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
 
+## 7.6.10 to 7.6.11 / 7.7.5 to 7.7.6 / 7.8.0 to 7.8.1
+
+You can now configure, if you forbid the usage of Java serialization format, when passing object variables in their Java serialized representation.
+
+The new [configuration parameter `javaSerializationFormatEnabled`]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}) 
+defaults to true, but can be configured to false in Camunda engine configuration.
+
+Following use cases are affected:
+
+* REST API:
+
+```json
+PUT /process-instance/{id}/variables/{varName}
+
+{
+  "value" : "ab",
+  "type" : "Object",
+  "valueInfo" : {
+    "objectTypeName": "com.example.MyObject",
+    "serializationDataFormat": "application/x-java-serialized-object"
+  }
+}
+``` 
+
+* Java API:
+
+```java
+runtimeService.setVariable(processInstanceId, "varName",
+        Variables
+          .serializedObjectValue("ab")
+          .serializationDataFormat("application/x-java-serialized-object")
+          .objectTypeName("com.example.MyObject")
+          .create());
+```
+
 # Full Distribution
 
 This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**. In this case you need to update the libraries and applications installed inside the application server.
