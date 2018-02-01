@@ -27,6 +27,16 @@ Furthermore, you can maximize the diagram view or the detailed information panel
 
 The activity instance tree contains a node for each activity that is currently active in the process instance. It allows you to select activity instances to explore their details. Concurrently, the selected instance will be marked in the rendered process diagram and the corresponding variables will be listed in the detailed information panel.
 
+# Call Activity Drill Down
+
+{{< img src="../../img/cockpit-call-activity-instance-drill-down.png" title="Call Activity Drill Down" >}}
+
+Call activity instances that call at least one process instance have an overlay on the upper right corner that links to their called process instances. 
+
+
+If the call activity instance calls exactly one process instance, then clicking the overlay redirects to the called process instance page. 
+
+However, if the number of called process instances exceeds one, then clicking the overlay will show the called process instances tab containing only process instances called by the selected call activity instance.
 
 # Detailed Information Panel
 
