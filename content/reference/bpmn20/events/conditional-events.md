@@ -124,7 +124,7 @@ List<ProcessInstance> instances = runtimeService
     .evaluateStartConditions();
 ```
 The provided variables are used to evaluate the conditions. Also they are passed as variables to the newly created process instances.
-The XML representation of a conditional start event is the normal start event declaration with a conditionalEventDefinition child-element.
+The XML representation of a conditional start event is the normal start event declaration with a `conditionalEventDefinition` child element.
 
 Optional: Adding `variableName` attribute to `conditionalEventDefinition` allows to specify a variable name on which a condition of a conditional event should be evaluated exclusively.
 ```xml

@@ -13,9 +13,9 @@ menu:
 ---
 
 
-Evaluates conditions to the process engine to trigger a conditional start event.
+Triggers evaluation of conditions for conditional start event(s).
 Internally this maps to the engine's condition evaluation builder method `ConditionEvaluationBuilder#evaluateStartConditions()`.
-For more information about the correlation behavior, see the [Conditional Start Events]({{< relref "reference/bpmn20/events/conditional-events.md#conditional-start-event" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information see the [Conditional Start Events]({{< relref "reference/bpmn20/events/conditional-events.md#conditional-start-event" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
 
 
 # Method
@@ -60,7 +60,7 @@ A JSON object with the following properties:
 
 # Result
 
-A JSON array of process instance objects which have been triggered after the evaluation.
+A JSON array of process instance objects which have been triggered after the evaluation. The array will be empty in case, when no process instances were started.
 Each process instance object has the following properties:
 
 <table class="table table-striped">
@@ -130,17 +130,13 @@ Each process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If no <code>variables</code> were supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the user is not allowed to evaluate a condition. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>application/json</td>
-    <td>If no process instances were triggered after the evaluation. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If the user is not allowed to to start the process instance of the process definition, which start condition was evaluted to `true`.
+     See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
