@@ -66,6 +66,14 @@ A JSON object with the following properties:
           <td>A JSON array of <code>String</code> values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.</td>
         </tr>
         <tr>
+          <td>businessKey</td>
+          <td>A <code>String</code> value which enables the filtering of tasks based on process instance business key.</td>
+        </tr>
+        <tr>
+          <td>processVariables</td>
+          <td>A <code>JSON</code> object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.</td>
+        </tr>
+        <tr>
           <td>deserializeValues</td>
           <td>
             <p>Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default <code>false</code>).</p>
