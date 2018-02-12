@@ -76,9 +76,10 @@ These attributes can be modifed in the [configuration file]({{< relref "webapps/
 
 # Throttle login attempts
 
-We introduce special mechanism for numerous unsuccessful login attempts.
-The user will be not able to try to login after unsuccessful login for some delay in seconds. This delay is calculated by formula and the containing values are configurable, please read more in [Identity service]({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) section
-The default values are
+We introduce a special mechanism for consecutive unsuccessful login attempts.
+A user will be delayed in trying to login after an unsuccessful login attempt for a certain amount of time (in seconds). This delay is calculated through a formula, and the contributing values are configurable. Please read more in the [Identity service]({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) section.
+
+The default values are:
 ```java
 loginMaxAttempts = 5;
 loginDelayFactor = 2;

@@ -335,7 +335,7 @@ The LDAP Identity Provider provides the following configuration properties:
 
 # Throttle login attempts
 
-In order to prevent security vulnerabilities we have special mechanism for subsequence of unsuccessful login attempts.
+In order to prevent security vulnerabilities we have a special mechanism for preventing subsequent unsuccessful login attempts.
 You can configure four properties so that this login mechanism is suitable for you:
 
 * `loginMaxAttempts`
@@ -343,10 +343,10 @@ You can configure four properties so that this login mechanism is suitable for y
 * `loginDelayMaxTime`
 * `loginDelayBase`
 
-These properties are configured in seconds. If you need to setup 1 minute to max delay time for example, you need to put `60` which is seconds representation of one minute.
-After the user failed to login max attempt number, this user will be locked and and will be not able to login again until admin user unlocks it.
+These properties are configured in seconds. If you need to setup a maximum delay time of one minute, for example, you need to set `60`, which represents the one minute in seconds.
+After a user fails to login for a maximum number of attempts, the user will be locked and will not be able to login again until an admin user unlocks the account.
 
-Here is the example of the configuration:
+Here is an example of the configuration:
 ```xml
     <!-- login configuration -->
     <property name="loginMaxAttempts" value="5" />
@@ -354,10 +354,10 @@ Here is the example of the configuration:
     <property name="loginDelayMaxTime" value="8" />
     <property name="loginDelayBase" value="1" />
 ```
-After each unsuccessful attempt to login the user has to wait `baseTime * factor^(attempt-1)` seconds for the next attempt.
-In our case 2^(attempt) seconds which means - 1 sec delay after the first attempt, 2 sec after the 2nd, 4 sec, 8 sec, 8 sec (because max delay time is 8 sec).
-After the 5th attempt if the user fails again to login, this user will be 'locked'.
+The user has to wait <code>baseTime * factor^(attempt-1)</code> seconds, after an unsuccessful login attempt.
+In our case 2^(attempt) seconds, which means: a 1 second delay after the first attempt, 2 seconds after the 2nd attempt, 4 seconds, 8 seconds, 8 seconds, etc. (because `loginDelayMaxTime` time is set to 8 seconds)
+After the 5th attempt, if the user fails to login again, this user will be 'locked'.
 
 ## LDAP specifics
 
-If you have LDAP setup on your engine you need to handle the throttling on LDAP side. The login mechanism in your system will not be affected by the above properties.
+If you have a LDAP setup on your engine, you need to handle the throttling on the LDAP side. The login mechanism in your system will not be affected by the above properties.
