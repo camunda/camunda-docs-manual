@@ -578,4 +578,29 @@ The history time to live defines the number of days using a time specified by th
 The history time to live defines the number of days using a time specified by the ISO-8601 date format. The function only accepts the notation to define a number of days.
     </td>
   </tr>
+  <tr>
+    <td><code>loginMaxAttempts</code></td>
+    <td>Integer</td>
+    <td>Defines maximum of attempts which user can try to login until this user is locked. Default value: 5
+    </td>
+  </tr>
+  <tr>
+    <td><code>loginDelayMaxTime</code></td>
+    <td>Integer</td>
+    <td>Defines maximum seconds which user can wait until they are able again to try to login. Default value: 60 seconds
+    </td>
+  </tr>
+  <tr>
+    <td><code>loginDelayFactor</code></td>
+    <td>Integer</td>
+    <td>Defines the factor by which the delay is calculated after unsuccessful login. Default value: 2
+    </td>
+  </tr>
+  </tr>
+  <tr>
+    <td><code>loginDelayBase</code></td>
+    <td>Integer</td>
+    <td>Defines the base by which the delay is calculated after unsuccessful login. Default value: 2
+    </td>
+  </tr>
 </table>

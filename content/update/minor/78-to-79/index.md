@@ -17,7 +17,7 @@ menu:
 
 This section concerns the Java API and the interface `org.camunda.bpm.engine.delegate.BaseDelegateExecution`.
 
-The behaviour of `BaseDelegateExecution#getBusinessKey` has been changed. It now returns a business key of the root execution, e.g. process instance and is equvalent to `DelegateExecution#getProcessBusinessKey`. 
+The behaviour of `BaseDelegateExecution#getBusinessKey` has been changed. It now returns a business key of the root execution, e.g. process instance and is equivalent to `DelegateExecution#getProcessBusinessKey`.
 
 Please note this change can influence your custom implementations of `Execution Listener`.
 
@@ -57,19 +57,31 @@ In this case you will need to use another serialization format (JSON or XML) or 
 # Groovy version
 
 The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
-Please updade the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
+Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
 
 
 # Adjustable Time Period for Historic Activity Instances   
 
 In the historic process definition diagram it is possible to select time periods for which activity instance badges are displayed.
 
-By default the displayed timer period is set to 'today' but can be extended to show badges of 'this week', 'this month' or the 'complete' history.   
+By default the displayed timer period is set to 'today' but can be extended to show badges of 'this week', 'this month' or the 'complete' history.
 
 This feature can be configured in two ways:
 
 1. The default timer period can be changed to 'this week', 'this month' or 'complete'
-2. The manual seletion of the time period within cockpit can be disabled.   
+2. The manual selection of the time period within Cockpit can be disabled.
 
 These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
-   
+
+
+# Throttle login attempts
+
+We introduce special mechanism for numerous unsuccessful login attempts.
+The user will be not able to try to login after unsuccessful login for some delay in seconds. This delay is calculated by formula and the containing values are configurable, please read more in [Identity service]({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) section
+The default values are
+```java
+loginMaxAttempts = 5;
+loginDelayFactor = 2;
+loginDelayMaxTime = 60;
+loginDelayBase = 2;
+```

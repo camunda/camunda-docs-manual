@@ -332,3 +332,32 @@ The LDAP Identity Provider provides the following configuration properties:
     </td>
   </tr>
 </table>
+
+# Throttle login attempts
+
+In order to prevent security vulnerabilities we have special mechanism for subsequence of unsuccessful login attempts.
+You can configure four properties so that this login mechanism is suitable for you:
+
+* `loginMaxAttempts`
+* `loginDelayFactor`
+* `loginDelayMaxTime`
+* `loginDelayBase`
+
+These properties are configured in seconds. If you need to setup 1 minute to max delay time for example, you need to put `60` which is seconds representation of one minute.
+After the user failed to login max attempt number, this user will be locked and and will be not able to login again until admin user unlocks it.
+
+Here is the example of the configuration:
+```xml
+    <!-- login configuration -->
+    <property name="loginMaxAttempts" value="5" />
+    <property name="loginDelayFactor" value="2" />
+    <property name="loginDelayMaxTime" value="8" />
+    <property name="loginDelayBase" value="1" />
+```
+After each unsuccessful attempt to login the user has to wait `baseTime * factor^(attempt-1)` seconds for the next attempt.
+In our case 2^(attempt) seconds which means - 1 sec delay after the first attempt, 2 sec after the 2nd, 4 sec, 8 sec, 8 sec (because max delay time is 8 sec).
+After the 5th attempt if the user fails again to login, this user will be 'locked'.
+
+## LDAP specifics
+
+If you have LDAP setup on your engine you need to handle the throttling on LDAP side. The login mechanism in your system will not be affected by the above properties.
