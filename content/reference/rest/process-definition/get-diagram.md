@@ -18,6 +18,8 @@ menu:
 
 Retrieves the diagram of a process definition.
 
+If the process definition's deployment contains an image resource with the same file name as the process definition, the deployed image will be returned by the Get Diagram endpoint.  Example: `someProcess.bpmn` and `someProcess.png`. Supported file extentions for the image are: `svg`, `png`, `jpg`, and `gif`. 
+
 
 # Method
 
