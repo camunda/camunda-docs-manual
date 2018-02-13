@@ -15,10 +15,12 @@ menu:
 # Installation Procedure
 
 1.  Download the pre-packaged distribution from http://camunda.org/release/camunda-bpm/tomcat/.
-2.  Unpack the distro to a directory.
+2.  Unpack the distro to a directory.*
 3.  Adjust the datasource according to your needs (see [Manual Installation]({{<relref "installation/full/tomcat/manual.md" >}})).
 4.  Startup the server by running `camunda-welcome.bat` or by using the `$TOMCAT_HOME/bin/startup.{bat/sh}` script.
 
+{{< note class="info" title="Production environment" >}}
+*Delete the "invoice" example application when moving into a production environment. {{< /note >}}
 
 # Accessing the H2 console
 

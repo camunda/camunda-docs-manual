@@ -233,3 +233,6 @@ In this section we explain how to install the WAR file using the Oracle WebLogic
 After completing the wizard, the REST API should be successfully installed on the application server.
 The context root for the REST API is **/engine-rest** by default.
 In some situations, you also have to start the web application manually from the **Domain Structure / YOUR_DOMAIN / Deployments** page.
+
+{{< note class="info" title="Production environment" >}}
+Do not deploy "invoice" example application on a production environment. {{< /note >}}
