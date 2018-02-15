@@ -140,6 +140,13 @@ When using the the database, usernames and passwords are stored inside the `ACT_
 
 As an alternative to the database, Camunda can use LDAP for verifying user credentials on authentication. Camunda has read-only access to LDAP.
 
+#### Production prerequisites
+
+Before going on production you should consider the following actions:
+
+* delete the invoice application before going on production; this example application should not be deployed on your running production.
+* delete demo user if it is created in your engine; this user is useful only during getting started phase.
+
 ### Authorization
 
 Authorization controls what data a user can access and change in Camunda once authenticated. Authentication is a pre-requisite to authorization.
@@ -161,10 +168,19 @@ However, script languages such as Groovy or Javascript are executed directly ins
 * Consider disabling execution of scripts all together if the feature is not needed. See also: [Custom Code & Security
 ]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
 
+### Forms
+
+Camunda offers different types of forms which are primarily used in Tasklist. In the input inside of this forms you can call and execute scripts which allows you to achieve easily your business logic. Please validate this input each time to prevent malicious behaviour.
+
 ### Expressions in Queries
 
 Consider disabling execution of expressions in queries. See also: [Custom Code & Security
 ]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
+
+### Native queries
+
+One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
+However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
 ## Security Configuration in the external Environment
 
@@ -195,4 +211,14 @@ When deploying the REST API or the Camunda web applications, Camunda is integrat
 
 It is strongly recommended to configure SSL / HTTPS when deploying the Camunda REST APIs or web applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Please consult the manual of your web server or reverse proxy for details.
 
+#### Session timeout
 
+Setting up the session timeout of the web applications is web server specific. Please consult the manual of your web server for details. You can find how to configure session timeout on tomcat [here](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
+
+#### Cookies domain
+
+The cookie domain values are configured in web server-specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details.
+
+#### Maximum POST size in server (REST API)
+
+Restriction of the maximum size in bytes of the POST is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#SSL_Support_-_BIO,_NIO_and_NIO2).
