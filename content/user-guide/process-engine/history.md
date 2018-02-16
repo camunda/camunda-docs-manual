@@ -571,7 +571,17 @@ The following describes the operations logged in the user operation log and the 
   <tr>
     <td></td>
     <td>Delete</td>
-    <td><i>No additional property is logged</i></td>
+    <td>
+      In case of regular operation:
+      <ul><i>No additional property is logged</i></ul>
+      In case of batch operation:
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of process instances that were deleted</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+        <li><strong>deleteReason</strong>: the reason for deletion</li>
+        <li><strong>type</strong>: <code>history</code> in case of deletion of historic process instances</li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -580,6 +590,7 @@ The following describes the operations logged in the user operation log and the 
       <ul>
         <li><strong>nrOfInstances</strong>: The amount of process instances modified</li>
         <li><strong>async</strong>: <code>true</code> if modification was performed asynchronously as a batch, <code>false</code> if modification was performed synchronously</li>
+        <li><strong>processDefinitionVersion</strong>: The version of the process definition</li>
       </ul>
 	</td>
   </tr>
@@ -765,6 +776,7 @@ The following describes the operations logged in the user operation log and the 
     <td>
       <ul>
         <li><strong>suspensionState</strong>: the new suspension state <code>suspended</code></li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
       </ul>
     </td>
   </tr>
@@ -828,6 +840,18 @@ The following describes the operations logged in the user operation log and the 
         <li><strong>retries</strong>: the new number of retries</li>
         <li><strong>nrOfInstances</strong>: the amount of external tasks that were updated</li>
         <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>DecisionInstance</td>
+    <td>Delete</td>
+    <td>
+      <ul>
+        <li><strong>nrOfInstances</strong>: the amount of decision instances that were deleted</li>
+        <li><strong>async</strong>: <code>true</code> if operation was performed asynchronously as a batch, <code>false</code> if operation was performed synchronously</li>
+        <li><strong>type</strong>: by default <code>history</code> because, this operations only concerns historic decision instances</li>
+        <li><strong>deleteReason</strong>: the reason for deletion</li>
       </ul>
     </td>
   </tr>
