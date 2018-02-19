@@ -65,6 +65,10 @@ GET `/history/variable-instance`
     <td>Filter by the process definition the variable belongs to.</td>
   </tr>
   <tr>
+    <td>processDefinitionKey</td>
+    <td>Filter by a key of the process definition the variable belongs to.</td>
+  </tr>
+  <tr>
     <td>executionIdIn</td>
     <td>Only include historic variable instances which belong to one of the passed and comma-separated execution ids.</td>
   </tr>
