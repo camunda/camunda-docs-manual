@@ -24,6 +24,7 @@ The fluent builder API is not nearly complete but provides you with the followin
 * service task
 * user task
 * end event
+* boundary event
 * subprocess
 
 
@@ -145,6 +146,20 @@ BpmnModelInstance modelInstance = Bpmn.createProcess()
 ```
 
 This example creates a parallel gateway with a feedback loop in the second execution path.
+
+You can also use interrupting or non interrupting boundary events:
+
+```java
+BpmnModelInstance modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .userTask("userTask1")  
+    .boundaryEvent("cancel").message("Cancel").cancelActivity(true) // true is default
+      .endEvent()
+      .connectTo("userTask1")
+  .userTask("userTask2")
+  .endEvent()
+  .done()
+```
 
 To create an embedded subprocess with the fluent builder API, you can directly add it to your
 process building or you can detach it and create flow elements of the subprocess later on.
