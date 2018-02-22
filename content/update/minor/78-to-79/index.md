@@ -86,3 +86,44 @@ loginDelayFactor = 2;
 loginDelayMaxTime = 60;
 loginDelayBase = 2;
 ```
+
+# Jackson version update
+
+Jackson version in Spin project was updated from version 2.6.3 to 2.9.3, but Spin is still compatible with older version (2.6.3). To switch back on older version you can just replace `jackson-*-2.9.3.jar` 
+libraries by `jackson-*-2.6.3.jar` in your application server folder. Or, in case you're using Camunda as a part of your Maven application, configure appropriate dependencies in your `pom.xml`:
+
+```xml
+  <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-core</artifactId>
+      <!-- exclude 2.9.3 dependencies -->
+      <exclusions>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- include 2.6.3 dependencies -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.6.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.6.3</version>
+    </dependency>
+``` 
+
+You may consider downgrading back to older version of Jackson in case you use Spin project for JSON variables and serialization and:
+
+1. You run your application on Java 6 (Jackson is not compatible with Java 6 anymore).
+2. You use older Jackson version in other parts of your application and have some reasons to stick to this version so far.
