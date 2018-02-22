@@ -213,12 +213,12 @@ It is strongly recommended to configure SSL / HTTPS when deploying the Camunda R
 
 #### Session timeout
 
-Setting up the session timeout of the web applications is web server specific. Please consult the manual of your web server for details. You can find how to configure session timeout on tomcat [here](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
+Setting up the session timeout is usually done via `web.xml` deployment descriptor. Please consult the Java Servlet specification or manual of your application server.
 
 #### Cookies domain
 
-The cookie domain values are configured in web server-specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details.
+The session cookies domain is configured in web server specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details, e.g. for Tomcat check this [docs](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Common_Attributes).
 
 #### Maximum POST size in server (REST API)
 
-Restriction of the maximum size in bytes of the POST is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#SSL_Support_-_BIO,_NIO_and_NIO2).
+Restriction of the maximum size in bytes of the POST requests is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
