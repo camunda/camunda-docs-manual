@@ -20,150 +20,68 @@ Optional dependencies are libraries Camunda can be integrated with. In the list 
 
 The process engine depends on the following third-party libraries:
 
-* [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) {{< RD >}}, [(Apache License 2.0)][apache] for object-relational mapping.
-* [Joda Time](http://www.joda.org/joda-time/) {{< RD >}}, [(Apache License 2.0)][apache] for parsing date formats.
-* [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome), {{< OD >}}, [(Apache License 2.0)][apache] Id Generator. See the [documentation on Id-Generators][id-generator]
-* [SLF4J](http://www.slf4j.org/), {{< RD >}}, [(MIT)][mit] Logging Facade
+* [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) {{< RD >}} for object-relational mapping.
+* [Joda Time](http://www.joda.org/joda-time/) {{< RD >}} for parsing date formats.
+* [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome) {{< OD >}} Id Generator. See the [documentation on Id-Generators][id-generator]
+* [SLF4J](http://www.slf4j.org/) {{< RD >}} Logging Facade
 
 Additionally, the process engine can be integrated with:
 
-* [Apache Commons Email](http://commons.apache.org/proper/commons-email/) {{< OD >}}, [(Apache License 2.0)][apache] for mail task support.
-* [Spring Framework Spring-Beans][spring] {{< OD >}}, [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
-* [Spring Framework Spring-Core][spring] {{< OD >}}, [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
-* [Spring Framework Spring-ASM][spring] {{< OD >}}, [(Apache License 2.0)][apache] for configuration using [camunda.cfg.xml][spring-xml].
-* [Groovy](http://groovy.codehaus.org/) {{< OD >}}, [(Apache License 2.0)][apache] for groovy script task support.
-* [Jython](http://www.jython.org) {{< OD >}}, [(Python License)][python] for Python script task support.
-* [JRuby](http://jruby.org/) {{< OD >}}, [(Ruby License or GPL)][jruby] for Ruby script task support.
-* [Freemarker](http://freemarker.org/) {{< OD >}}, [(Apache License 2.0)][apache] for freemarker template engine support.
-* [Apache Velocity](http://velocity.apache.org/) {{< OD >}}, [(Apache License 2.0)][apache] for apache velocity template engine support.
-* [SAXON](http://saxon.sourceforge.net/) {{< OD >}}, [(Mozilla Public License 1.0)][mpl] for XSLT and XQuery template engine support.
+* [Apache Commons Email](http://commons.apache.org/proper/commons-email/) {{< OD >}} for mail task support.
+* [Spring Framework Spring-Beans][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
+* [Spring Framework Spring-Core][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
+* [Spring Framework Spring-ASM][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
+* [Groovy](http://groovy.codehaus.org/) {{< OD >}} for groovy script task support.
+* [Jython](http://www.jython.org) {{< OD >}} for Python script task support.
+* [JRuby](http://jruby.org/) {{< OD >}} for Ruby script task support.
+* [Freemarker](http://freemarker.org/) {{< OD >}} for freemarker template engine support.
+* [Apache Velocity](http://velocity.apache.org/) {{< OD >}} for apache velocity template engine support.
+* [SAXON](http://saxon.sourceforge.net/) {{< OD >}} for XSLT and XQuery template engine support.
 
 
 # REST API
 
 The REST API depends on the following third-party libraries:
 
-* [Jackson JAX-RS](http://wiki.fasterxml.com/JacksonHome) {{< RD >}}, [(Apache License 2.0)][apache] provider for JSON content type
-* [Apache Commons FileUpload](http://commons.apache.org/proper/commons-fileupload/) {{< RD >}}, [(Apache License 2.0)][apache]
+* [Jackson JAX-RS](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} provider for JSON content type
+* [Apache Commons FileUpload](http://commons.apache.org/proper/commons-fileupload/) {{< RD >}}
 
 Additionally, when using Apache Tomcat:
 
-* [RESTEasy](http://www.jboss.org/resteasy) {{< RD >}}, [(Apache License 2.0)][apache]
+* [RESTEasy](http://www.jboss.org/resteasy) {{< RD >}}
 
 
 # Spring Support
 
 The Spring support can be integrated with the following third-party libraries:
 
-* [Apache Commons DBCP](http://commons.apache.org/proper/commons-dbcp/) {{< OD >}}, [(Apache License 2.0)][apache]
-* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/) {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-Beans][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-Core][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-ASM][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-Context][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-JDBC][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-ORM][spring] {{< OD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-TX][spring] {{< OD >}}, [(Apache License 2.0)][apache]
+* [Apache Commons DBCP](http://commons.apache.org/proper/commons-dbcp/) {{< OD >}}
+* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/) {{< OD >}}
+* [Spring Framework Spring-Beans][spring] {{< OD >}}
+* [Spring Framework Spring-Core][spring] {{< OD >}}
+* [Spring Framework Spring-ASM][spring] {{< OD >}}
+* [Spring Framework Spring-Context][spring] {{< OD >}}
+* [Spring Framework Spring-JDBC][spring] {{< OD >}}
+* [Spring Framework Spring-ORM][spring] {{< OD >}}
+* [Spring Framework Spring-TX][spring] {{< OD >}}
 
 # Camunda Spin
 
 Camunda Spin depends on the following third-party libraries:
 
-* [Jackson Json](http://wiki.fasterxml.com/JacksonHome) {{< RD >}}, [(Apache License 2.0)][apache] for Json Dataformat Support
+* [Jackson Json](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} for Json Dataformat Support
 
 Additionally, Camunda Spin can be integrated with the following libraries:
 
-* [Jayway Json Path](http://code.google.com/p/json-path/) {{< OD >}} [(Apache License 2.0)][apache] for Json Path Support
+* [Jayway Json Path](http://code.google.com/p/json-path/) {{< OD >}} for Json Path Support
 
 # Camunda Connect
 
 Camunda Connect depends on the following third-party libraries:
 
-* [Apache Http Components](http://wiki.fasterxml.com/JacksonHome) {{< RD >}}, [(Apache License 2.0)][apache] for REST and SOAP support.
-
-# Camunda Webapp
-
-The Camunda Webapp (Cockpit, Tasklist, Admin) includes the following third-party libraries:
-
-* [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
-* [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
-* [bpmn-js](http://bpmn.io) {{< RD >}}, [(Custom license)](https://raw.githubusercontent.com/bpmn-io/bower-bpmn-js/v0.5.1/LICENSE)
-* [domReady](https://github.com/requirejs/domReady) {{< RD >}}, [(MIT or new BSD)](https://raw.githubusercontent.com/requirejs/domReady/master/LICENSE)
-* [heatmap.js](https://github.com/pa7/heatmap.js) {{< RD >}}, [(MIT)][mit]
-* [Placeholder.js](https://github.com/jamesallardice/Placeholders.js) {{< RD >}}, [(MIT)][mit]
-* [prism.js](https://github.com/PrismJS/prism) {{< RD >}}, [(MIT)][mit]
-* [jQuery](http://jquery.com/) {{< RD >}}, [(MIT)][mit]
-* [jQuery UI](https://jqueryui.com/) {{< RD >}}, [(MIT)][mit]
-* [RequireJS](http://requirejs.org/) {{< RD >}}, [(MIT)][mit]
-* [Snap.svg](http://snapsvg.io/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Mousetrap](https://github.com/ccampbell/mousetrap) {{< RD >}}, [(Apache License 2.0)][apache]
-
-Most of these libraries are used in the [Camunda commons UI](http://camunda.github.io/camunda-commons-ui/) library which is aimed at easing development of browser based user interfaces.
-
-# Camunda Javascript SDK
-
-The Camunda Javascript SDK (including the Forms SDK) integrates with the following third-party libraries:
-
-* [Super Agent](https://github.com/visionmedia/superagent) {{< RD >}}, [(MIT)][mit]
-* [jQuery](http://jquery.com/) {{< RD >}}, [(MIT)][mit]
-* [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
-* [AngularUI](http://angular-ui.github.io/) {{< RD >}}, [(MIT)][mit]
-
-# Camunda Modeler
-
-The Camunda Modeler includes the following third-party libraries:
-
-* [Electron](http://electron.atom.io/) {{< RD >}}, [(MIT)][mit]
-* [Chromium](https://www.chromium.org/) {{< RD >}}, ([License Details](https://www.chromium.org/chromium-os/licenses))
-* [Node.js](https://nodejs.org/en/) {{< RD >}}, ([License Details](https://github.com/nodejs/node/blob/master/LICENSE))
-* [CodeMirror](https://codemirror.net/) {{< RD >}}, [(MIT)][mit]
-* [Twitter Bootstrap](http://getbootstrap.com/) {{< RD >}}, [(MIT)][mit]
-* [virtual-dom](https://github.com/Matt-Esch/virtual-dom) {{< RD >}}, [(MIT)][mit]
-
-# Camunda Cycle Web Application
-
-The Camunda Cycle web application includes the following third-party libraries:
-
-Javascript dependencies:
-
-* [AngularJS](http://angularjs.org/) {{< RD >}}, [(MIT)][mit]
-* [Twitter Bootstrap](http://getbootstrap.com/2.3.2/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Dojo](http://dojotoolkit.org/) {{< RD >}}, [(Academic Free License 2.1)][dojo]
-
-Java dependencies:
-
-* [Hibernate](http://hibernate.org/) {{< RD >}}, [(GNU Lesser General Public License)][lgpl]
-* [Apache Commons Codec](http://commons.apache.org/proper/commons-codec/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [NekoHTML](http://nekohtml.sourceforge.net/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [SAXON](http://saxon.sourceforge.net/) {{< RD >}}, [(Mozilla Public License 1.0)][mpl]
-* [Apache Commons Virtual File System](https://commons.apache.org/proper/commons-vfs/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [AspectJ runtime](http://eclipse.org/aspectj/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [AspectJ weaver](http://eclipse.org/aspectj/) {{< RD >}}, [(Eclipse Public License 1.0)][epl]
-* [Jasypt](http://www.jasypt.org/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [SLF4J JCL](http://www.slf4j.org/legacy.html) {{< RD >}}, [(MIT)][mit]
-* [Spring Framework Spring-AOP][spring] {{< RD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-ORM][spring] {{< RD >}}, [(Apache License 2.0)][apache]
-* [Spring Framework Spring-Web][spring] {{< RD >}}, [(Apache License 2.0)][apache]
-* [Thymeleaf](http://www.thymeleaf.org/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Thymeleaf-Spring3](http://www.thymeleaf.org/) {{< RD >}}, [(Apache License 2.0)][apache]
-* [Tigris SVN Client Adapter](http://subclipse.tigris.org/svnClientAdapter.html) {{< RD >}}, [(Apache License 2.0)][apache]
-* [SVNKit](http://svnkit.com/) {{< RD >}}, [(TMate Open Source License)][tmate]
-* [SVNKit JavaHL](http://svnkit.com/) {{< RD >}}, [(TMate Open Source License)][tmate]
-* [Gettext Commons](https://code.google.com/p/gettext-commons/) {{< RD >}}, [(Apache License 2.0)][apache]
+* [Apache Http Components](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} for REST and SOAP support.
 
 
-[apache]: http://www.apache.org/licenses/LICENSE-2.0.html
-[dojo]: https://github.com/dojo/dojo/blob/1.9/LICENSE#L43-L195
-[eclipse]: https://www.eclipse.org
-[epl]: http://www.eclipse.org/legal/epl-v10.html
-[jruby]: https://github.com/jruby/jruby/blob/master/LICENSE.RUBY
-[lgpl]: http://www.gnu.org/licenses/lgpl-3.0.de.html
-[mit]: http://opensource.org/licenses/MIT
-[mpl]: https://www.mozilla.org/MPL/1.0/
-[mpl2]: https://www.mozilla.org/MPL/2.0/
 [spring]: http://projects.spring.io/spring-framework/
 [spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
-[python]: http://www.jython.org/license.html
-[tmate]: http://svnkit.com/license.html
 [id-generator]: {{< relref "user-guide/process-engine/id-generator.md" >}}
