@@ -43,6 +43,11 @@ A JSON object with the following properties:
 	<td>A boolean value, which indicates whether the task should be fetched based on its priority or arbitrarily.</td>
   </tr>
   <tr>
+	<td>asyncResponseTimeout</td>
+	<td>The <a href="{{< relref "user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
+	<strong>Note:</strong> The value cannot be set larger than 1.800.000 milliseconds (corresponds to 30 minutes).</td>
+  </tr>
+  <tr>
     <td>topics</td>
     <td>
       <p>
