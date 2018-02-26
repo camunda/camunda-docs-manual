@@ -428,6 +428,3 @@ Add the following modules (if not existing) from the folder `$JBOSS_DISTRIBUTION
 * `org/freemarker/freemarker`
 * `org/camunda/commons/camunda-commons-logging`
 * `org/camunda/commons/camunda-commons-utils`
-
-{{< note class="info" title="Production environment" >}}
-Do not deploy "invoice" example application on a production environment. {{< /note >}}

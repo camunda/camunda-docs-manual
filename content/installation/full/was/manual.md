@@ -387,8 +387,6 @@ Add the following artifacts (if not existing) from the folder `$WAS_DISTRIBUTION
 * `freemarker-2.3.20.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
 
-{{< note class="info" title="Production environment" >}}
-Do not deploy "invoice" example application on a production environment. {{< /note >}}
 
 # Process Applications
 

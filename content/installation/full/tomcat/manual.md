@@ -236,6 +236,3 @@ Add the following artifacts (if not existing) from the folder `$TOMCAT_DISTRIBUT
 * `camunda-template-engines-freemarker-$TEMPLATE_VERSION.jar`
 * `freemarker-2.3.20.jar`
 * `camunda-commons-utils-$COMMONS_VERSION.jar`
-
-{{< note class="info" title="Production environment" >}}
-Do not deploy "invoice" example application on a production environment. {{< /note >}}
