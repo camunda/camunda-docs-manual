@@ -100,6 +100,10 @@ There are different ways of using Camunda BPM and different components are provi
 * REST API: the REST API provides access to Camunda's core APIs through HTTP. In this case users can directly access Camunda's APIs. Usually, it is necessary to configure authentication, authorization and also secure the connection to the REST API using SSL (HTTPS).
 * Web applications (Cockpit, Tasklist, ...): similar considerations to the REST API apply.
 
+
+Keep in mind that it is not recommended to use the pre-packaged distribution in production environment rather install the full distribution manually (For example [Tomcat manual installation](https://docs.camunda.org/manual/latest/installation/full/tomcat/manual/)). We do not advise to use 
+pre-packaged distribution in production because it is for user who need more getting started experience. In case you still want to use it, you should consider removing the invoice application and the demo user.
+
 ## Security Configuration inside Camunda
 
 Camunda provides a number of configuration options which are relevant from a security perspective. Most prominently: authentication, authorization and the control of custom code (scripts) which can be executed on the server.
@@ -140,13 +144,6 @@ When using the the database, usernames and passwords are stored inside the `ACT_
 
 As an alternative to the database, Camunda can use LDAP for verifying user credentials on authentication. Camunda has read-only access to LDAP.
 
-#### Production prerequisites
-
-Before going on production you should consider the following actions:
-
-* delete the invoice application before going on production; this example application should not be deployed on your running production.
-* delete demo user if it is created in your engine; this user is useful only during getting started phase.
-
 ### Authorization
 
 Authorization controls what data a user can access and change in Camunda once authenticated. Authentication is a pre-requisite to authorization.
@@ -181,6 +178,7 @@ Consider disabling execution of expressions in queries. See also: [Custom Code &
 
 One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
 However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
+
 
 ## Security Configuration in the external Environment
 
