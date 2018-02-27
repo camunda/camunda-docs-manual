@@ -560,20 +560,51 @@ Is this a good solution? We had some people asking whether it was. Their concern
 * It can be turned off if you are an expert and know what you are doing (and have understood this section). Other than that, it is more intuitive for most users if things like asynchronous continuations and timers just work. Note: one strategy to deal with OptimisticLockingExceptions at a parallel gateway is to configure the gateway to use asynchronous continuations. This way the job executor can be used to retry the gateway until the exception resolves.
 * It is actually not a performance issue. Performance is an issue under heavy load. Heavy load means that all worker threads of the job executor are busy all the time. With exclusive jobs the engine will simply distribute the load differently. Exclusive jobs means that jobs from a single process instance are performed by the same thread sequentially. But consider: you have more than one single process instance. Jobs from other process instances are delegated to other threads and executed concurrently. This means that with exclusive jobs the engine will not execute jobs from the same process instance concurrently but it will still execute multiple instances concurrently. From an overall throughput perspective this is desirable in most scenarios as it usually leads to individual instances being done more quickly.
 
+# Cluster Setups
 
-# The Job Executor and Multiple Process Engines
+When running the Camunda platform in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run the Camunda BPM platform against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
 
-In the case of a single, application-embedded process engine, the job executor setup is the following:
+{{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
+
+In the *heterogeneous* case, this is not given, meaning that some process applications areonly  deployed to a part of the nodes.
+
+{{< img src="../img/heterogeneous-cluster.png" title="Heterogenous Cluster" >}}
+
+A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means that jobs created in the context of process application B (so on node 2) may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
+
+To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware* as described in the next section.
+
+
+
+# Deployment Aware Job Executor
+
+Running different engines on the same database (e.g. heterogeneous clusters) poses additional challenges to the job executor. Jobs from both engines will be inserted into the same table. To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware*, by the setting following property in the process engine configuration:
+
+```xml
+<process-engine name="default">
+  ...
+  <properties>
+    <property name="jobExecutorDeploymentAware">true</property>
+    ...
+  </properties>
+</process-engine>
+```
+
+Now, the job acquisition thread on node 1 will only pick up jobs that belong to deployments made on that node, which solves the problem. Digging a little deeper, the acquisition will only pick up those jobs that belong to deployments that were *registered* with the engines it serves. Every deployment gets automatically registered. Additionally, one can explicitly register and unregister single deployments with an engine by using the `ManagementService` methods `registerDeploymentForJobExecutor(deploymentId)` and `unregisterDeploymentForJobExecutor(deploymentId)`. It also offers a method `getRegisteredDeployments()` to inspect the currently registered deployments.
+
+As this is configurable on engine level, you can also work in a *mixed* setup, when some deployments are shared between all nodes and some are not. You can assign the globally shared process applications to an engine that is not deployment aware and the others to a deployment aware engine, probably both running against the same database. This way, jobs created in the context of the shared process applications will get executed on any cluster node, while the others only get executed on their respective nodes.
+
+
+# Sharing Job Executor Resources Between Multiple Local Process Engines
+
+In the case of a single process engine, the job executor setup is the following:
 
 {{< img src="../img/job-executor-single-engine.png" title="Single Engine" >}}
 
-There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second embedded engine would therefore create another acquisition thread and execution thread-pool.
-
-In larger deployments however, this quickly leads to a poorly manageable situation. When running Camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
+There is a single job table that the engine adds jobs to and the acquisition consumes from. Creating a second engine in the same Java Virtual Machine would therefore create another acquisition thread and execution thread-pool. This can lead to a poorly manageable situation. When running Camunda BPM on Tomcat or an application server, the platform allows to declare multiple process engines shared by multiple process applications. With respect to job execution, one job acquisition may serve multiple job tables (and thus process engines) and a single thread-pool for execution may be used.
 
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
-**This setup enables centralized monitoring of job acquisition and execution**.
 See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
@@ -589,34 +620,3 @@ To which job acquisition a process engine is assigned can be specified in the de
 
 Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/index.md" >}}).
 
-
-# Cluster Setups
-
-When running the Camunda platform in a cluster, there is a distinction between *homogeneous* and *heterogeneous* setups. We define a cluster as a set of network nodes that all run the Camunda BPM platform against the same database (at least for one engine on each node). In the *homogeneous* case, the same process applications (and thus custom classes like JavaDelegates) are deployed to all of the nodes, as depicted below.
-
-{{< img src="../img/homogeneous-cluster.png" title="Homogeneous Cluster" >}}
-
-In the *heterogeneous* case, this is not given, meaning that some process applications areonly  deployed to a part of the nodes.
-
-{{< img src="../img/heterogeneous-cluster.png" title="Heterogenous Cluster" >}}
-
-
-## Job Execution in Heterogeneous Clusters
-
-A heterogeneous cluster setup as described above poses additional challenges to the job executor. Both platforms declare the same engine, i.e. they run against the same database. This means that jobs will be inserted into the same table. However, in the default configuration the job acquisition thread of node 1 will lock any executable jobs of that table and submit them to the local job execution pool. This means that jobs created in the context of process application B (so on node 2) may be executed on node 1 and vice versa. As the job execution may involve classes that are part of B's deployment, you are likely going to see a `ClassNotFoundExeception` or any of the likes.
-
-To prevent the job acquisition on node 1 from picking jobs that *belong* to node 2, the process engine can be configured as *deployment aware*, by the setting following property in the process engine configuration:
-
-```xml
-<process-engine name="default">
-  ...
-  <properties>
-    <property name="jobExecutorDeploymentAware">true</property>
-    ...
-  </properties>
-</process-engine>
-```
-
-Now, the job acquisition thread on node 1 will only pick up jobs that belong to deployments made on that node, which solves the problem. Digging a little deeper, the acquisition will only pick up those jobs that belong to deployments that were *registered* with the engines it serves. Every deployment gets automatically registered. Additionally, one can explicitly register and unregister single deployments with an engine by using the `ManagementService` methods `registerDeploymentForJobExecutor(deploymentId)` and `unregisterDeploymentForJobExecutor(deploymentId)`. It also offers a method `getRegisteredDeployments()` to inspect the currently registered deployments.
-
-As this is configurable on engine level, you can also work in a *mixed* setup, when some deployments are shared between all nodes and some are not. You can assign the globally shared process applications to an engine that is not deployment aware and the others to a deployment aware engine, probably both running against the same database. This way, jobs created in the context of the shared process applications will get executed on any cluster node, while the others only get executed on their respective nodes.
