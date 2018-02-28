@@ -24,7 +24,7 @@ The process engine depends on the following third-party libraries:
 
 * [MyBatis mapping framework](http://mybatis.github.io/mybatis-3/) {{< RD >}} for object-relational mapping.
 * [Joda Time](http://www.joda.org/joda-time/) {{< RD >}} for parsing date formats.
-* [Java Uuid Generator (JUG)](http://wiki.fasterxml.com/JugHome) {{< OD >}} Id Generator. See the [documentation on Id-Generators][id-generator]
+* [Java Uuid Generator (JUG)](https://github.com/FasterXML/jackson) {{< OD >}} Id Generator. See the [documentation on Id-Generators][id-generator]
 * [SLF4J](http://www.slf4j.org/) {{< RD >}} Logging Facade
 
 Additionally, the process engine can be integrated with:
@@ -33,7 +33,7 @@ Additionally, the process engine can be integrated with:
 * [Spring Framework Spring-Beans][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
 * [Spring Framework Spring-Core][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
 * [Spring Framework Spring-ASM][spring] {{< OD >}} for configuration using [camunda.cfg.xml][spring-xml].
-* [Groovy](http://groovy.codehaus.org/) {{< OD >}} for groovy script task support.
+* [Groovy](http://groovy-lang.org/) {{< OD >}} for groovy script task support.
 * [Jython](http://www.jython.org) {{< OD >}} for Python script task support.
 * [JRuby](http://jruby.org/) {{< OD >}} for Ruby script task support.
 * [Freemarker](http://freemarker.org/) {{< OD >}} for freemarker template engine support.
@@ -45,7 +45,7 @@ Additionally, the process engine can be integrated with:
 
 The REST API depends on the following third-party libraries:
 
-* [Jackson JAX-RS](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} provider for JSON content type
+* [Jackson JAX-RS](https://github.com/FasterXML/jackson) {{< RD >}} provider for JSON content type
 * [Apache Commons FileUpload](http://commons.apache.org/proper/commons-fileupload/) {{< RD >}}
 
 Additionally, when using Apache Tomcat:
@@ -71,7 +71,7 @@ The Spring support can be integrated with the following third-party libraries:
 
 Camunda Spin depends on the following third-party libraries:
 
-* [Jackson Json](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} for Json Dataformat Support
+* [Jackson Json](https://github.com/FasterXML/jackson) {{< RD >}} for Json Dataformat Support
 
 Additionally, Camunda Spin can be integrated with the following libraries:
 
@@ -81,7 +81,7 @@ Additionally, Camunda Spin can be integrated with the following libraries:
 
 Camunda Connect depends on the following third-party libraries:
 
-* [Apache Http Components](http://wiki.fasterxml.com/JacksonHome) {{< RD >}} for REST and SOAP support.
+* [Apache Http Components](https://github.com/FasterXML/jackson) {{< RD >}} for REST and SOAP support.
 
 
 [spring]: http://projects.spring.io/spring-framework/
