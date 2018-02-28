@@ -16,6 +16,8 @@ Required dependencies are libraries Camunda depends on to provide core functiona
 
 Optional dependencies are libraries Camunda can be integrated with. In the list below marked as {{< OD >}}.
 
+For legal reference please refer to [Licences][licenses].
+
 # Process Engine
 
 The process engine depends on the following third-party libraries:
@@ -85,3 +87,4 @@ Camunda Connect depends on the following third-party libraries:
 [spring]: http://projects.spring.io/spring-framework/
 [spring-xml]: {{< relref "user-guide/process-engine/process-engine-bootstrapping.md#configure-process-engine-using-spring-xml" >}}
 [id-generator]: {{< relref "user-guide/process-engine/id-generator.md" >}}
+[licenses]: {{< relref "introduction/licenses.md" >}}
