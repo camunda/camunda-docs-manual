@@ -17,46 +17,73 @@ The XML datatype supports writing XML to Strings, output streams or writers.
 
 ```java
 import static org.camunda.spin.Spin.XML;
+import org.camunda.spin.xml.SpinXmlElement;
 
-SpinXmlTreeElement element = XML("<root id=\"test\"/>");
+// Create XML element
+SpinXmlElement element = XML("<root id=\"test\"/>");
 
 String xml = element.toString();
 
-
-String value = element.attr("id").toString();
+String value = element.attr("id").value();
 ```
 
 # Writing to an Output Stream:
 
 ```java
 import static org.camunda.spin.Spin.XML;
+import org.camunda.spin.xml.SpinXmlElement;
+import org.camunda.spin.xml.SpinXmlAttribute;
 
-SpinXmlTreeElement element = XML("<root id=\"test\"/>");
+// Create XML element
+SpinXmlElement element = XML("<root id=\"test\"/>");
 
-OutputStream ouputStream = element.toStream();
+try {
 
-// write element again to stream
-element.writeToStream(outputStream);
+  // Define Output Stream
+  OutputStream outputStream = System.out;
 
+  // Wrap Output Stream in Writer
+  OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
-SpinXmlTreeAttribute attr = element.attr("id");
-ouputStream = attr.toStream();
+  // Write element to stream writer
+  element.writeToWriter(outputStreamWriter);
 
-// write attribute value again to stream
-attr.writeToStream(outputStream);
+  // Get attribute from element
+  SpinXmlAttribute attr = element.attr("id");
+
+  // Write attribute value to stream writer
+  attr.writeToWriter(outputStreamWriter);
+
+  // End Output Stream
+  outputStreamWriter.write("\n");
+
+  // Close Output Stream and Writer
+  outputStreamWriter.close();
+
+} catch (IOException e) {
+  // Handle exception if needed
+}
 ```
 
 # Write to Writer
 
 ```java
 import static org.camunda.spin.Spin.XML;
+import org.camunda.spin.xml.SpinXmlElement;
+import org.camunda.spin.xml.SpinXmlAttribute;
 
-SpinXmlTreeElement element = XML("<root id=\"test\"/>");
+// Create XML element
+SpinXmlElement element = XML("<root id=\"test\"/>");
 
-StringWriter writer = element.writeToWriter(new StringWriter());
+// Create String Writer
+StringWriter writer = new StringWriter();
 
+// Write element to Writer
+element.writeToWriter(writer);
 
-SpinXmlTreeAttribute attr = element.attr("id");
+// Get attribute from element
+SpinXmlAttribute attr = element.attr("id");
 
-writer = attr.writeToWriter(writer);
+// Write attribute value to Writer
+attr.writeToWriter(writer);
 ```
