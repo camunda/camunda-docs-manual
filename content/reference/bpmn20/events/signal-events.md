@@ -213,31 +213,6 @@ An asynchronous signal event would look like this:
 </intermediateThrowEvent>
 ```
 
-## Camunda Extensions
-
-The following extensions are spported for the Signal Intermediate Throwing Event:
-
-<table class="table table-striped">
-  <tr>
-    <th>Attributes</th>
-    <td>&ndash;</td>
-  </tr>
-  <tr>
-    <th>Extension Elements</th>
-    <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">
-        camunda:failedJobRetryTimeCycle</a>,
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
-        camunda:inputOutput</a>
-    </td>
-  </tr>
-  <tr>
-    <th>Constraints</th>
-    <td>&ndash;</td>
-  </tr>
-</table>
-
-
 ## Signal End Event
 
 {{< bpmn-symbol type="signal-end-event" >}}
@@ -250,6 +225,102 @@ A signal end event throws a signal event for a defined signal and the current pa
 </endEvent>
 ```
 
+## Passing Variables
+
+It is possible to pass process variables from the signal-throwing process instance, to all of the signal-catching process instances. The data is copied into a signal-catching process instance when it is started with a Signal Start Event, or before it leaves the wait-state in a Signal Intermediate Catching Event.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+        <camunda:in source="throwingVariableName" target="catchingVariableName" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+The variables declared in the "camunda:in" elements are set in the highest possible variable scope at the signal-catching process instance.
+
+It is also possible to use expressions and modify the data before it is passed on to the signal-catching process instances.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+        <camunda:in sourceExpression="${X + 5}" target="Y" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+The `Y` process variable at the signal-catching process instances will have the value of `(X + 5)`, where `X` is a process variable of the signal-throwing process instance.
+
+Moreover, it can be declared that all of the process variable of the signal-throwing process instance be passed to the signal-catching processes.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+        <camunda:in variables="all" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+By setting local="true", only the local variables of the execution executing the Throwing Signal Event will be passed to the signal-catching process instances. These are the variables that can be declared as input parameters.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+        <camunda:in variables="all" local="true" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+It is possible to use multiple of the above-mentioned options at once. For example (below), it can be declared that only the local variables are passed, a higher-scope variable, and an expression including the same, higher-scope variable.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+        <camunda:in variables="all" local="true" />
+        <camunda:in source="X" target="Y" />
+        <camunda:in sourceExpression="${X + 5}" target="Z" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+## Passing a Business Key
+
+In addition to passing process variables to the signal-catching process instances, it is also possible to pass a Business Key. However, this Business Key passing can only be applied to process instances that use a Signal Start Event.
+
+```xml
+<signalEventDefinition signalRef="newCustomerSignal">
+    <extensionElements>
+          <camunda:in businessKey="${execution.processBusinessKey}" />
+    </extensionElements>
+</signalEventDefinition>
+```
+
+The business key "camunda:in" element can be used in combination with the process variable passing "camunda:in" elements.
+
+## Camunda Extensions
+
+The following extensions are supported for the Signal Intermediate and End Throwing Events:
+
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#failedjobretrytimecycle" >}}">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-elements.md#inputoutput" >}}">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
 # Additional Resources
 

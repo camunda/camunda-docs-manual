@@ -23,6 +23,7 @@ The fluent builder API is not nearly complete but provides you with the followin
 * script task
 * service task
 * user task
+* signal event definition
 * end event
 * subprocess
 
@@ -181,6 +182,21 @@ subProcess.builder()
     .endEvent();
 ```
 
+The example below shows how to create a throwing signal event definition and define the payload that this signal will contain. By using the `camundaIn` methods, it is possible to define which process variables will be included in the signal payload, define an expression that will be resolved in the signal-catching process instances, or declare that all of the process variables in the signal-throwing process instance should be passed. It is also possible to define a business key that will be assigned to the signal-catching process instances.
+
+```java
+modelInstance = Bpmn.createProcess()
+  .startEvent()
+  .intermediateThrowEvent("throw")
+    .signalEventDefinition("signal")
+      .camundaIn("source", "target1", false)
+      .camundaIn("${'sourceExpression'}", "target2", true)
+      .camundaIn("all", true)
+      .camundaIn("aBusinessKey")
+      .throwEventDefinitionDone()
+  .endEvent()
+  .done();
+```
 
 # Extend a Process With the Fluent Builder API
 
