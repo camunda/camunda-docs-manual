@@ -728,7 +728,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Signal Events (in Intermediate and End Throwing Events)</a>
     </td>
   </tr>
