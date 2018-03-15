@@ -16,6 +16,7 @@ The XML datatype supports writing XML to Strings, output streams or writers.
 # Writing to a String:
 
 ```java
+import static org.camunda.spin.Spin.XML;
 import org.camunda.spin.xml.SpinXmlElement;
 
 // Create XML element
@@ -29,6 +30,7 @@ String value = element.attr("id").value();
 # Writing to an Output Stream:
 
 ```java
+import static org.camunda.spin.Spin.XML;
 import org.camunda.spin.xml.SpinXmlElement;
 import org.camunda.spin.xml.SpinXmlAttribute;
 
@@ -66,6 +68,7 @@ try {
 # Write to Writer
 
 ```java
+import static org.camunda.spin.Spin.XML;
 import org.camunda.spin.xml.SpinXmlElement;
 import org.camunda.spin.xml.SpinXmlAttribute;
 
