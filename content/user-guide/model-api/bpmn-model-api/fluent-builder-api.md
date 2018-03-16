@@ -185,14 +185,14 @@ subProcess.builder()
 The example below shows how to create a throwing signal event definition and define the payload that this signal will contain. By using the `camundaIn` methods, it is possible to define which process variables will be included in the signal payload, define an expression that will be resolved in the signal-catching process instances, or declare that all of the process variables in the signal-throwing process instance should be passed. It is also possible to define a business key that will be assigned to the signal-catching process instances.
 
 ```java
-modelInstance = Bpmn.createProcess()
+BpmnModelInstance modelInstance = Bpmn.createProcess()
   .startEvent()
   .intermediateThrowEvent("throw")
     .signalEventDefinition("signal")
-      .camundaIn("source", "target1", false)
-      .camundaIn("${'sourceExpression'}", "target2", true)
-      .camundaIn("all", true)
-      .camundaIn("aBusinessKey")
+      .camundaInSourceTarget("source", "target1")
+      .camundaInSourceExpressionTarget("${'sourceExpression'}", "target2")
+      .camundaInAllVariables("all", true)
+      .camundaInBusinessKey("aBusinessKey")
       .throwEventDefinitionDone()
   .endEvent()
   .done();
