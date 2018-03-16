@@ -25,7 +25,7 @@ The following table describes the built-in metrics. The identifiers of all built
   <tr>
     <td><b>BPMN Execution</b></td>
     <td>activity-instance-start</td>
-    <td>The number of activity instances started.</td>
+    <td>The number of activity instances started. This is also known as <b>flow node instances (FNI)</b>.</td>
   </tr>
   <tr>
     <td></td>
