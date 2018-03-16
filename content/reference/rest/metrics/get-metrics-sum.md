@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Retrieves the `sum` (count) for a given metric.
+Retrieves the `sum` (count) for a given [metric]({{< relref "user-guide/process-engine/metrics.md" >}}. 
 
 # Method
 
