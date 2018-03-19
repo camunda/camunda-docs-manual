@@ -123,7 +123,14 @@ libraries by `jackson-*-2.6.3.jar` in your application server folder (also check
     </dependency>
 ``` 
 
+In case you were using `camunda-spin-dataformat-all` dependency, you would need to downgrade the whole Spin and use `camunda-spin-dataformat-all-1.4.2.jar`.
+
 You may consider downgrading back to older version of Jackson in case you use Spin project for JSON variables and serialization and:
 
 1. You run your application on Java 6 (Jackson is not compatible with Java 6 anymore).
 2. You use older Jackson version in other parts of your application and have some reasons to stick to this version so far.
+
+# Webjar structure changed
+
+Structure of `webjar` and `webjar-ee` artifacts has changed. Now all Web resources are stored under directory `META-INF/resources` to conform the standard way 
+of packaging the Webjars.
