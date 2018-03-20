@@ -30,6 +30,6 @@ As alternative way is to use `camunda-bpm-assert` dependency. You can check the 
 </dependency>
 ```
 
-# Default configuration values changed
-...
-TODO
+# Deprecate properties
+
+Since this release `ignoreInvalidFields` and `ignoreUnknownFields` properties will not be taken into account.
