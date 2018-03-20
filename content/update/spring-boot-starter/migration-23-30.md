@@ -1,12 +1,12 @@
 ---
 
-title: "Migration from Community Extension v. 2.3.0 to v. 2.4.0"
+title: "Migration from Community Extension v. 2.3.0 to v. 3.0.0"
 weight: 10
 
 menu:
   main:
-    name: "2.3.0 to 2.4.0"
-    identifier: "migration-guide-spring-boot-23-24"
+    name: "2.3.0 to 3.0.0"
+    identifier: "migration-guide-spring-boot-23-30"
     parent: "migration-guide-spring-boot"
 
 ---

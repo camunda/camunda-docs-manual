@@ -67,7 +67,7 @@ though such combinations must be thoroughly tested before being used in producti
     <td>1.5.8.RELEASE</td>
   </tr>
   <tr>
-    <td>2.4.0</td>
+    <td>3.0.0</td>
     <td>7.9.0</td>
     <td>2.0.0.RELEASE</td>
   </tr>
