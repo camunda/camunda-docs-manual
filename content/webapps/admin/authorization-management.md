@@ -159,7 +159,7 @@ This will limit the group's permissions to this running process instance. As wit
 
 # Grant Permission for Single Tasks
 
-Since several groups can participate in a process, it could be useful to restrict certain tasks to certain people/groups. For this example, we will reuse the *accouting* group and the *invoice* process from the previous sections. At least we need one running instance of the process.
+Since several groups can participate in a process, it could be useful to restrict certain tasks to certain people/groups. For this example, we will reuse the *accounting* group and the *invoice* process from the previous sections. At least we need one running instance of the process.
 
 {{< img src="../img/admin_filter_acc_read.png" title="Read Permissions" >}}
 
