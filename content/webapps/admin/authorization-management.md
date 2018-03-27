@@ -18,7 +18,7 @@ Manage authorizations for a variety of resources (e.g., *Applications*, *Groups*
 See [Authorization Service]({{< relref "user-guide/process-engine/authorization-service.md" >}}) for more information about Authorizations.
 
 {{< note title="Accessing the Authorization Management menu" class="info" >}}
-The Authorization Management menu is only usable by users which are granted with *All* permission for authorizations.
+The Authorization Management menu is only usable by users which are granted with *Read* permission for authorizations.
 {{< /note >}}
 
 # Grant Basic Permissions
