@@ -100,6 +100,8 @@ There are different ways of using Camunda BPM and different components are provi
 * REST API: the REST API provides access to Camunda's core APIs through HTTP. In this case users can directly access Camunda's APIs. Usually, it is necessary to configure authentication, authorization and also secure the connection to the REST API using SSL (HTTPS).
 * Web applications (Cockpit, Tasklist, ...): similar considerations to the REST API apply.
 
+Keep in mind that it is not recommended to use the pre-packaged distribution in production environment rather install the full distribution manually (for example [Tomcat manual installation](https://docs.camunda.org/manual/latest/installation/full/tomcat/manual/)). We do not advise to use pre-packaged distribution in production because it is for user who need more getting started experience. In case you still want to use it, you should consider removing the invoice application and the demo user.
+
 ## Security Configuration inside Camunda
 
 Camunda provides a number of configuration options which are relevant from a security perspective. Most prominently: authentication, authorization and the control of custom code (scripts) which can be executed on the server.
@@ -161,10 +163,19 @@ However, script languages such as Groovy or Javascript are executed directly ins
 * Consider disabling execution of scripts all together if the feature is not needed. See also: [Custom Code & Security
 ]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
 
+### Forms
+
+Camunda offers different types of forms which are primarily used in Tasklist. In the input inside of this forms you can call and execute scripts which allows you to achieve easily your business logic. Please validate this input each time to prevent malicious behaviour.
+
 ### Expressions in Queries
 
 Consider disabling execution of expressions in queries. See also: [Custom Code & Security
 ]({{< relref "user-guide/process-engine/securing-custom-code.md" >}})
+
+### Native queries
+
+One of the options to query data from the engine is using native queries. Which means to provide own SQL queries to retrieve engine entities if the Query API lacks the possibilities you need.
+However, use the native queries with care. Please bear in mind of the SQL Injection while using this approach.
 
 ## Security Configuration in the external Environment
 
@@ -190,9 +201,20 @@ To establish the connection to the database, the database credentials need to be
 ### Web Server (applicable when using REST API or Web Applications)
 
 When deploying the REST API or the Camunda web applications, Camunda is integrated with a third party web server. The documentation section on [supported environments]({{< relref "introduction/supported-environments.md" >}}) provides a list of supported web servers / application servers.
+It is strongly recommended to consider applying the following configurations.
 
 #### Enabling SSL / HTTPS
 
-It is strongly recommended to configure SSL / HTTPS when deploying the Camunda REST APIs or web applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Please consult the manual of your web server or reverse proxy for details.
+Configure SSL / HTTPS when deploying the Camunda REST APIs or web applications. This can be achieved by configuring HTTPS either on the web server itself or through a reverse proxy. Consider disable HTTP and configure HTTPS only for your web applications. Please consult the manual of your web server or reverse proxy for details.
 
+#### Session timeout
 
+Setting up the session timeout is usually done via `web.xml` deployment descriptor. Please consult the Java Servlet specification or manual of your application server.
+
+#### Cookies domain
+
+The session cookies domain is configured in web server specific configuration. If you want to set such kind of cookies please consult the manual of your web server for details, e.g. for Tomcat check this [docs](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Common_Attributes).
+
+#### Maximum POST size in server (REST API)
+
+Restriction of the maximum size in bytes of the POST requests is specific to your web server. Please consult the manual of your web server for details, e.g. for Tomcat server, check this [documentation page](https://tomcat.apache.org/tomcat-8.0-doc/config/http.html#Common_Attributes).
