@@ -156,6 +156,10 @@ Similar considerations as for authentication apply. For an in-depth discussion, 
 
 Authorizations can be used to restrict a user from accessing a data object (such as a process or a task) and can be used to restrict how the user can interact with such data objects (read-only vs. modifications). Authorizations in Camunda are very powerful and it is recommended to read the corresponding [documentation entry on authorizations]({{< relref "user-guide/process-engine/authorization-service.md" >}}).
 
+### Throttle login attempts 
+
+The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under Identity Service({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
+
 ### Script Execution
 
 Camunda allows users to deploy scrips to be used by BPMN processes or DMN decision tables. This is a very flexible and powerful feature and facilitates changing business logic fast since generally scripts can be deployed at runtime without restarting the server.
