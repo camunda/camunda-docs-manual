@@ -214,6 +214,26 @@ A JSON object with the following properties:
     <td>executedJobAfter</td>
     <td>Restrict to instances that executed an job after the given date (inclusive). By default*, the date must have the format <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.</td>
   </tr>
+  <tr>
+    <td>active</td>
+    <td>Restrict to instances that are active</td>
+  </tr>
+  <tr>
+    <td>suspended</td>
+    <td>Restrict to instances that are suspended</td>
+  </tr>
+  <tr>
+    <td>completed</td>
+    <td>Restrict to instances that are completed</td>
+  </tr>
+  <tr>
+    <td>externallyTerminated</td>
+    <td>Restrict to instances that are externally terminated</td>
+  </tr>
+  <tr>
+    <td>internallyTerminated</td>
+    <td>Restrict to instances that are internally terminated</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
