@@ -185,6 +185,10 @@ Alternatively, you can also set the expressions as an attribute instead of a chi
   The injection happens each time the service task is called since a separate instance of the class will be created. When the fields are altered by your code, the values will be re-injected when the activity is executed next time.
 {{< /note >}}
 
+{{< note title="" class="warning" >}}
+  For the same reasons as mentioned above, field injection should not be (usually) used which Spring beans, which are singletons by default. Otherwise you may run into incostistencies due to concurrent modification of the bean fields.
+{{< /note >}}
+
 # Delegate Variable Mapping
 
 To implement a class that delegates the input and output variable mapping for a call activity, this class needs to implement the `org.camunda.bpm.engine.delegate.DelegateVariableMapping`
