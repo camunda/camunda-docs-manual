@@ -335,28 +335,23 @@ The LDAP Identity Provider provides the following configuration properties:
 
 # Throttle login attempts
 
-We have a special mechanism for preventing subsequent unsuccessful login attempts.
-You can configure four properties so that this login mechanism is suitable for you, here are the default values:
+A mechanism exists for preventing subsequent unsuccessful login attempts.
+The essence of it is that the user is not able to login for a specific amount of time after unsuccessful login attempt.
+The amount of time is calculated after each attempts but it is limited by maximum delay time.
+After predefined number of unsuccessful attempts, the user will be lock and only an administrator has permissions to [unlock]({{< relref "webapps/admin/user-management.md" >}}) them.
+
+The mechanism is configurable with the following properties and respective default values.
 
 * `loginMaxAttempts=10`
 * `loginDelayFactor=2`
 * `loginDelayMaxTime=60`
 * `loginDelayBase=3`
 
-These properties are configured in seconds. If you need to setup a maximum delay time of one minute, for example, you need to set `60`, which represents the one minute in seconds.
-After a user fails to login for a maximum number of attempts, the user will be locked and will not be able to login again until an admin user unlocks the account.
+For more information please check Process engine's [login properties]({{< relref "reference/deployment-descriptors/tags/process-engine.md#login-parameters" >}}) section.
 
-Here is an example of the configuration:
-```xml
-    <!-- login configuration -->
-    <property name="loginMaxAttempts" value="5" />
-    <property name="loginDelayFactor" value="2" />
-    <property name="loginDelayMaxTime" value="8" />
-    <property name="loginDelayBase" value="1" />
-```
-The user has to wait <code>baseTime * factor^(attempt-1)</code> seconds, after an unsuccessful login attempt.
-In our case 2^(attempt) seconds, which means: 1 second delay after the first attempt, 2 seconds after the 2nd attempt, 4 seconds, 8 seconds, 8 seconds, etc. (because `loginDelayMaxTime` time is set to 8 seconds)
-After the 5th attempt, if the user fails to login again, this user will be 'locked'.
+The calculation of the delay is done via formula: <code>baseTime * factor^(attempt-1)</code>.
+The behaviour with the default configuration will be:
+3 seconds delay after the first unsuccessful attempt, 9 seconds after the 2nd attempt, 27 seconds, 60 seconds, 60 seconds, etc. After the 10th attempt, if the user fails to login again, this user will be locked.
 
 ## LDAP specifics
 
