@@ -161,7 +161,7 @@ The following list is an overview of all currently available patch scripts:
       <td>Remove an incorrect index ACT_RU_JOB#ACT_IDX_JOB_HANDLER for MSSQL Server.</td>
       <td>MSSQL Server</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-7442">CAM-7442</a></td>
-    </tr>tanc
+    </tr>
     <tr>
       <td>7.7</td>
       <td>engine_7.7_patch_7.7.3_to_7.7.4.sql</td>
