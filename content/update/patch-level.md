@@ -193,7 +193,7 @@ The following list is an overview of all currently available patch scripts:
     <tr>
       <td>7.7</td>
       <td>engine_7.7_patch_7.7.8_to_7.7.9.sql</td>
-      <td>Add indexes on Process Definition ID and End Time for Historic Process Instance and Historic Activity Instance. <strong>This is the same patch as engine_7.8_patch_7.8.4_to_7.8.5.sql</strong>.</td>
+      <td>Add indexes on Process Definition ID and End Time for Historic Process Instance and Historic Activity Instance</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8833">CAM-8833</a></td>
     </tr>
