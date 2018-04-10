@@ -110,25 +110,23 @@ A JSON object with the following properties:
   <tr>
     <td>variables</td>
     <td>A JSON array to only include executions that have variables with certain values. <br/>
-    The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.
-    <code>key (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore characters.
+    <code>like</code>.
     </td>
   </tr>
   <tr>
     <td>processVariables</td>
     <td>A JSON array to only include executions that belong to a process instance with variables with certain values. <br/>
-    A valid parameter value has the form <code>key_operator_value</code>.
-    <code>key</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
-    <strong>Note:</strong> Values are always treated as <code>String</code> objects on server side.<br/>
+    The array consists of objects with the three properties <code>name</code>, <code>operator</code> and <code>value</code>.
+    <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
+    <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore characters.
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.
     </td>
   </tr>
   <tr>
