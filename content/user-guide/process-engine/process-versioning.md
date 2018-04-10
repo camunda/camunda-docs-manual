@@ -59,7 +59,15 @@ When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/cal
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
   camunda:calledElementBinding="latest|deployment|version"
-  camunda:calledElementVersion="17">
+  camunda:calledElementVersion="17"
+  camunda:calledElementVersionTag="ver-tag-1.0.1">
+</callActivity>
+```
+or
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementBinding="versionTag"
+  camunda:calledElementVersionTag="ver-tag-1.0.1">
 </callActivity>
 ```
 
@@ -68,6 +76,7 @@ The options are
 * latest: Use the latest version of the process definition (as with `startProcessInstanceByKey`).
 * deployment: Use the process definition in the version matching the version of the calling process. This works if they are deployed within one deployment - as they are then always versioned together (see [Process Application Deployment]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#deployment-descriptor-process-application-deployment" >}}) for more details).
 * version: Specify the version hard coded in the XML.
+* versionTag: Specify the versionTag hard coded in the XML.
 
 
 # Key vs. ID of a Process Definition

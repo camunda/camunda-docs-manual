@@ -177,8 +177,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which process definition version of the subprocess the call activity calls.
-      If the value is <code>version</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>
-      is required, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
+      If the value is <code>version</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a> is required.
+      If the value is <code>versionTag</code>, the attribute <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversiontag" >}}">camunda:calledElementVersionTag</a> is required.
+      See <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -188,7 +189,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      <code>latest</code>, <code>deployment</code>, <code>version</code>
+      <code>latest</code>, <code>deployment</code>, <code>version</code>, <code>versionTag</code>
     </td>
   </tr>
   <tr>
@@ -210,7 +211,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Description</th>
     <td>
       The attribute specifies which process definition version of the subprocess the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>
-      is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/tasks/task-markers.md#multiple-instance" >}}">Called Element Binding</a> for more information.
+      is set to <code>version</code>, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">Called Element Binding</a> for more information.
     </td>
   </tr>
   <tr>
@@ -221,6 +222,38 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>Possible Values</th>
     <td>
       A concrete version of all deployed version numbers of the subprocess to call as <code>java.lang.Integer</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToCall}</code>
+    </td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>
+      <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>
+    </td>
+  </tr>
+</table>
+
+# calledElementVersionTag
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies which process definition version tag of the subprocess the call activity calls if the <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>
+      is set to <code>versionTag</code>, see <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md#calledelement-binding" >}}">Called Element Binding</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td>
+      A concrete version tag of all deployed version numbers of the subprocess to call as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToCall}</code>
     </td>
   </tr>
   <tr>

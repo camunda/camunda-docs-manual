@@ -33,18 +33,26 @@ Note that the process definition of the subprocess is resolved at runtime. This 
 # CalledElement Binding
 
 In a call activity the `calledElement` attribute contains the process definition key as reference to the subprocess. This means that the latest process definition version of the subprocess is always called.
-To call another version of the subprocess it is possible to define the attributes `calledElementBinding` and `calledElementVersion` in the call activity. Both attributes are optional.
+To call another version of the subprocess it is possible to define the attributes `calledElementBinding`, `calledElementVersion`, and `calledElementVersion` in the call activity. These attributes are optional.
 
-CalledElementBinding has three different values:
+CalledElementBinding has four different values:
 
 * latest: always call the latest process definition version (which is also the default behaviour if the attribute isn't defined)
 * deployment: if called process definition is part of the same deployment as the calling process definition, use the version from deployment
 * version: call a fixed version of the process definition, in this case `calledElementVersion` is required. The version number can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}))
+* versionTag: call a fixed version tag of the process definition, in this case `calledElementVersionTag` is required. The version tag can either be specified in the BPMN XML or returned by an expression (see [custom extensions]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversiontag" >}}))
 
 ```xml
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
   camunda:calledElementBinding="latest|deployment|version"
   camunda:calledElementVersion="17">
+</callActivity>
+```
+or
+```xml
+<callActivity id="callSubProcess" calledElement="checkCreditProcess"
+  camunda:calledElementBinding="versionTag"
+  camunda:calledElementVersionTag="ver-tag-1.0.1">
 </callActivity>
 ```
 
