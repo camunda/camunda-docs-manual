@@ -349,6 +349,7 @@ An expression also allows using the tenant id of the calling process instance in
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#asyncafter" >}}">camunda:asyncAfter</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementbinding" >}}">camunda:calledElementBinding</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversion" >}}">camunda:calledElementVersion</a>,
+      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementversiontag" >}}">camunda:calledElementVersionTag</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#calledelementtenantid" >}}">camunda:calledElementTenantId</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#casebinding" >}}">camunda:caseBinding</a>,
       <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#caseref" >}}">camunda:caseRef</a>,
