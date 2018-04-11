@@ -37,6 +37,6 @@ you can directly include them to your project POM:
 </dependency>
 ```
 
-# Deprecate properties
+# Deprecate property
 
-Since this release `ignoreInvalidFields` and `ignoreUnknownFields` properties will not be taken into account.
+Since this release `ignoreInvalidFields` property will not be taken into account.
