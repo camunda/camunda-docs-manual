@@ -60,7 +60,6 @@ When you use [BPMN CallActivities]({{< relref "reference/bpmn20/subprocesses/cal
 <callActivity id="callSubProcess" calledElement="checkCreditProcess"
   camunda:calledElementBinding="latest|deployment|version"
   camunda:calledElementVersion="17"
-  camunda:calledElementVersionTag="ver-tag-1.0.1">
 </callActivity>
 ```
 or
