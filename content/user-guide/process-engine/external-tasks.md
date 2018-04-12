@@ -86,6 +86,23 @@ Please also see the [REST API documentation]({{< relref "reference/rest/external
 This feature is based on JAX-RS 2.0 and is therefore not available on **IBM WebSphere Application Server 8.0 / 8.5**.
 {{< /note >}}
 
+#### Increasing the Queue Capacity
+Incoming requests are added to a queue before being processed. By default the queue can carry up to 100 requests.
+This preset is sufficient in the most cases. However, it could happen that this threshold is exceeded which leads to an 
+**Error 500 (Internal Server Error)** response.
+
+The maximum capacity of the queue can be adjusted in the Deployment Descriptor (`web.xml`) of the REST API by setting 
+a context parameter as follows:
+
+```xml
+...
+<context-param>
+  <param-name>org.camunda.bpm.engine.rest.impl.FetchAndLockHandlerImpl.queueCapacity</param-name>
+  <param-value>200</param-value>
+</context-param>
+...
+```
+
 ## Java API
 
 The entry point to the Java API for external tasks is the `ExternalTaskService`. It can be accessed via `processEngine.getExternalTaskService()`.
