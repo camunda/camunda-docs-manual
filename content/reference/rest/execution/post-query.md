@@ -126,9 +126,7 @@ A JSON object with the following properties:
     <code>name (String)</code> is the variable name, <code>operator (String)</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be <code>String</code>, <code>Number</code> or <code>Boolean</code>.
     <br/>
-    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
-    <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
-    <code>like</code>.
+    Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to.
     </td>
   </tr>
   <tr>
