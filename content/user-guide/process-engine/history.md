@@ -78,7 +78,7 @@ The default history database writes History Events to the appropriate database t
 There are the following History entities, which - in contrast to the runtime data - will also remain present in the DB after process and case instances have been completed:
 
 * `HistoricProcessInstances` containing information about current and past process instances.
-* `HistoricProcessVariables` containing information about the latest state a variable held in a process instance.
+* `HistoricVariableInstances` containing information about the latest state a variable held in a process instance.
 * `HistoricCaseInstances` containing information about current and past case instances.
 * `HistoricActivityInstances` containing information about a single execution of an activity.
 * `HistoriCasecActivityInstances` containing information about a single execution of a case activity.
@@ -108,7 +108,7 @@ Among them following states can be triggered externally, for example through RES
 ## Query History
 
 The HistoryService exposes the methods `createHistoricProcessInstanceQuery()`,
-`createHistoricProcessVariableQuery()`, `createHistoricCaseInstanceQuery()`,
+`createHistoricVariableInstanceQuery()`, `createHistoricCaseInstanceQuery()`,
 `createHistoricActivityInstanceQuery()`, `createHistoricCaseActivityInstanceQuery()`,
 `createHistoricDetailQuery()`,
 `createHistoricTaskInstanceQuery()`,
@@ -172,14 +172,14 @@ historyService.createHistoricCaseActivityInstanceQuery()
   .listPage(0, 1);
 ```
 
-**HistoricProcessVariableQuery**
+**HistoricVariableInstanceQuery**
 
-Get all HistoricProcessVariables from a finished process instance with id 'XXX', ordered by variable name.
+Get all HistoricVariableInstances from a finished process instance with id 'XXX', ordered by variable name.
 
 ```java
-historyService.createHistoricProcessVariableQuery()
+historyService.createHistoricVariableInstanceQuery()
   .processInstanceId("XXX")
-  .orderByVariableName.desc()
+  .orderByVariableName().desc()
   .list();
 ```
 
