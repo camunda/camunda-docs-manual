@@ -176,6 +176,11 @@ Each locked external task object has the following properties:
     <td>The topic name of the external task.</td>
   </tr>
   <tr>
+    <td>businessKey</td>
+    <td>String</td>
+    <td>The business key of the process instance the external task belongs to.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Object</td>
     <td><p>A JSON object containing a property for each of the requested variables. The key is the variable name, the value is a JSON object of serialized variable values with the following properties:</p>
@@ -315,6 +320,7 @@ Status 200.
       "workerId": "aWorkerId",
       "priority": 4,
       "topicName": "createOrder",
+      "businessKey": "aBusinessKey",
       "variables": {
         "orderId": {
           "type": "String",
@@ -338,6 +344,7 @@ Status 200.
       "workerId": "aWorkerId",
       "priority": 0,
       "topicName": "createOrder",
+      "businessKey": "aBusinessKey",
       "variables": {
         "orderId": {
           "type": "String",

@@ -111,7 +111,7 @@ Its properties are as follows:
   <tr>
     <td>workerId</td>
     <td>String</td>
-    <td>The id of the worker that posesses or posessed the most recent lock.</td>
+    <td>The id of the worker that possesses or possessed the most recent lock.</td>
   </tr>
   <tr>
     <td>priority</td>
@@ -122,6 +122,11 @@ Its properties are as follows:
     <td>topicName</td>
     <td>String</td>
     <td>The topic name of the external task.</td>
+  </tr>
+  <tr>
+    <td>businessKey</td>
+    <td>String</td>
+    <td>The business key of the process instance the external task belongs to.</td>
   </tr>
 </table>
 
@@ -168,6 +173,7 @@ GET `/external-task/anExternalTaskId`
       "retries": 3,
       "suspended": false,
       "workerId": "aWorkerId",
-	  "priority":0,
-      "topicName": "aTopic"
+      "priority":0,
+      "topicName": "aTopic",
+      "businessKey": "aBusinessKey"
     }
