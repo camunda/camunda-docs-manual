@@ -113,6 +113,10 @@ GET `/process-instance/count`
     <td>Filter by a comma-separated list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
   </tr>
   <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
