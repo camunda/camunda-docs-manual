@@ -22,6 +22,7 @@ You can use the Camunda DMN engine integration to evaluate a DMN decision. You h
 to specify the decision key to evaluate as the `camunda:decisionRef` attribute. Additionally, 
 the `camunda:decisionRefBinding` specifies which version of the decision should be evaluated.
 Valid values are:
+
 * `deployment`, which evaluates the decision version which was deployed with the process
 version,
 * `latest` which will always evaluate the latest decision version,
