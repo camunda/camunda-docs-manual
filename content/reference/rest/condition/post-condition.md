@@ -135,7 +135,7 @@ Each process instance object has the following properties:
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>If the user is not allowed to to start the process instance of the process definition, which start condition was evaluted to `true`.
+    <td>If the user is not allowed to start the process instance of the process definition, which start condition was evaluted to `true`.
      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
