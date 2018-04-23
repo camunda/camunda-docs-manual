@@ -253,7 +253,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A concrete version tag of all deployed version numbers of the subprocess to call as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.Integer</code> e.g., <code>${versionToCall}</code>
+      A concrete version tag of all deployed version numbers of the subprocess to call as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code> e.g., <code>${versionTagToCall}</code>
     </td>
   </tr>
   <tr>
