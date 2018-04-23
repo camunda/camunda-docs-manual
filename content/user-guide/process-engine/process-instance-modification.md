@@ -538,6 +538,18 @@ ProcessInstance
     Contact Customer
 ```
 
+## Asynchronous modification of a process instance
+
+It is possible to execute modification of single process instance asynchronous. The [modification]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-instruction-types" >}}) instructions are the same as the synchronous modification and the syntax of fluent builder is the following:
+
+```java
+Batch modificationBatch = runtimeService.createProcessInstanceModification(processInstanceId)
+        .cancelActivityInstance("exampleActivityId:1")
+        .startBeforeActivity("exampleActivityId:2")
+        .executeAsync();
+```
+This would create a modification [batch]({{< relref "user-guide/process-engine/batch.md" >}}) which will be executed asynchronously.
+
 ## Modification of Multiple Process Instances
 
 When there are multiple process instances which fulfill a specific criteria, it is possible to modify them at once using `RuntimeService.createModification(...)`. This method allows to specify
