@@ -560,6 +560,11 @@ The following is a list with the most commonly used process engine configuration
     engine continues to be used during history cleanup, it can happen that real SQL delete statements are called very frequently for small amounts of data.</td>
   </tr>
   <tr>
+    <td><code>historyCleanupDegreeOfParallelism</code></td>
+    <td>Integer</td>
+    <td>Defines the level of parallelism for history cleanup. Default value is 1 (no parallelism). Maximum allowed value is 8.</td>
+  </tr>
+  <tr>
     <td><code>historyCleanupMetricsEnabled</code></td>
     <td>Boolean</td>
     <td>Activates metrics for history cleanup. Default value is <code>true</code>;.</td>

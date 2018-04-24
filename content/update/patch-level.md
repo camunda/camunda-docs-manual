@@ -297,6 +297,16 @@ This feature can be configured in two ways:
 2. The manual seletion of the time period within cockpit can be disabled.   
 
 These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+
+## 7.8.6 to 7.8.7
+
+### History cleanup can be parallelized
+
+As of v. 7.9.0, history cleanup can be parallelized, which leads to creation of several jobs in the database. For this reason:
+
+* call to `HistoryService#cleanupHistoryAsync` does not guarantee to return correct Job object in return and you should not rely on the returned value any more.
+ The same valid for REST call `POST /history/cleanup`
+* `HistoryService#findHistoryCleanupJob` is deprecated (as well as `GET /history/cleanup/job`), one should use `HistoryService#findHistoryCleanupJobs` instead.
    
 # Full Distribution
 

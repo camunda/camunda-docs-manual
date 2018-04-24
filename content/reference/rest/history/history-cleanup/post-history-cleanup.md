@@ -42,6 +42,10 @@ Not used
 
 # Result
 
+{{< note title="Result is not reliable any more" class="warning" >}}
+  Be aware, that since v. 7.9.0, the correct response object is not guaranteed any more. Use `GET /history/cleanup/jobs` to find history cleanup jobs. 
+{{</note>}}
+
 A JSON object representing scheduled job.
 See [Get Job]({{<relref "reference/rest/job/get.md#result" >}}) for the structure and example.
 

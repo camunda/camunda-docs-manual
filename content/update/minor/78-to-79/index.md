@@ -73,7 +73,6 @@ This feature can be configured in two ways:
 
 These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
 
-
 # Throttle login attempts
 
 We introduce a special mechanism for consecutive unsuccessful login attempts.
@@ -129,6 +128,14 @@ You may consider downgrading back to older version of Jackson in case you use Sp
 
 1. You run your application on Java 6 (Jackson is not compatible with Java 6 anymore).
 2. You use older Jackson version in other parts of your application and have some reasons to stick to this version so far.
+
+# History cleanup can be parallelized
+
+As of v. 7.9.0, history cleanup can be parallelized, which leads to creation of several jobs in the database. For this reason:
+
+* call to `HistoryService#cleanupHistoryAsync` does not guarantee to return correct Job object in return and you should not rely on the returned value any more.
+ The same valid for REST call `POST /history/cleanup`
+* `HistoryService#findHistoryCleanupJob` is deprecated (as well as `GET /history/cleanup/job`), one should use `HistoryService#findHistoryCleanupJobs` instead.
 
 # Webjar structure changed
 
