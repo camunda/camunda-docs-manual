@@ -880,6 +880,7 @@ data from history tables. It deletes:
 * Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, all comments and attachments related to them, etc.)
 * Historic decision instances plus all related historic data (i.e., historic decision input and output instances)
 * Historic case instances plus all related historic data (e.g., historic variable instances, historic task instances, etc.)
+* Historic batches plus all related historic data (historic incidents and job logs)
 
 History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
@@ -944,7 +945,7 @@ the global configuration of the batch operations will be taken into account.
 
 ## Periodic Run
 
-To use history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup job is to run. 
+To use history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup is to run. 
 See [Configuration options][configuration-options] for details.
 
 ## Manual Run
@@ -957,12 +958,12 @@ Also available via [REST API]({{< relref "reference/rest/history/history-cleanup
 
 ## Internal Implementation
 
-History cleanup is implemented as a job. The cleanup job runs in the background every day at the batch window time or immediately when called manually. 
-It removes all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of 
+History cleanup is implemented via jobs. The cleanup jobs run in the background every day at the batch window time or immediately when called manually. 
+The jobs remove all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of 
 configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding 
 a batch of data to be deleted.
 
-In cases when a job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
+In cases when a history cleanup job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
 the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour 
 only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.
 
@@ -972,15 +973,18 @@ several retries, an incident is created. After this, the job isn't triggered unl
 
 * History cleanup is called manually
 * Engine is restarted (this resets the number of job retries to the default value)
-* Manually set the number of retries to >0 for the history cleanup job (e.g., via the [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
+* Manually set the number of retries to >0 for the history cleanup job(s) (e.g., via the [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
 
 ## Job Progress
 
-History cleanup is performed within a single job that runs several times. This job has a unique id which can be 
-found in the response of the history cleanup call. It can also be found with this request:
+History cleanup is performed via fixed amount of jobs (can be configured via `historyCleanupDegreeOfParallelism` configuration parameter). 
+Each job runs several times and has a unique id which can be found like this:
 ```java
-String historyCleanupJobId = processEngine.getHistoryService()
-        .findHistoryCleanupJob().getJobId();
+List<Job> historyCleanupJobs = processEngine.getHistoryService().findHistoryCleanupJobs();
+for (Job job: historyCleanupJobs) {
+  String jobId = job.getJobId();
+  ...
+}
 ```
 
 The `jobId` can be used to request [job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md">}}) 

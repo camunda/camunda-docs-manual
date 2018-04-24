@@ -11,6 +11,7 @@ menu:
     pre: "GET `/history/cleanup/job`"
 
 ---
+<b>Deprecated!</b> Use `GET /history/cleanup/jobs` instead.
 
 Finds history cleanup job (See [History cleanup]({{< relref "user-guide/process-engine/history.md#job-progress">}})).
 
