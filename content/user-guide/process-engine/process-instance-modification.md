@@ -549,6 +549,7 @@ Batch modificationBatch = runtimeService.createProcessInstanceModification(proce
         .executeAsync();
 ```
 This would create a modification [batch]({{< relref "user-guide/process-engine/batch.md" >}}) which will be executed asynchronously.
+Providing variables is not supported when executing async modification of single process instance. 
 
 ## Modification of Multiple Process Instances
 
