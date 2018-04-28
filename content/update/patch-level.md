@@ -197,10 +197,21 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8485">CAM-8485</a></td>
     </tr>
+    <!-- ADD WHEN RELEASING 7.7.9
+    <tr>
+    <td>7.7</td>
+      <td>engine_7.7_patch_7.7.8_to_7.7.9.sql</td>
+      <td>Add indexes on Process Definition ID and End Time for Historic Process Instance and Historic Activity Instance</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-8833">CAM-8833</a></td>
+    </tr> -->
     <tr>
       <td>7.8</td>
       <td>engine_7.8_patch_7.8.4_to_7.8.5.sql</td>
       <td>Add indexes on Process Definition ID and End Time for Historic Process Instance and Historic Activity Instance.
+      <!-- ADD WHEN RELEASING 7.7.9
+      <strong>This is the same patch as engine_7.7_patch_7.7.8_to_7.7.9.sql</strong>. -->
+      </td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8833">CAM-8833</a></td>
     </tr>
@@ -286,6 +297,16 @@ This feature can be configured in two ways:
 2. The manual seletion of the time period within cockpit can be disabled.   
 
 These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+
+## 7.8.6 to 7.8.7
+
+### History cleanup can be parallelized
+
+As of v. 7.9.0, history cleanup can be parallelized, which leads to creation of several jobs in the database. For this reason:
+
+* call to `HistoryService#cleanupHistoryAsync` does not guarantee to return correct Job object in return and you should not rely on the returned value any more.
+ The same valid for REST call `POST /history/cleanup`
+* `HistoryService#findHistoryCleanupJob` is deprecated (as well as `GET /history/cleanup/job`), one should use `HistoryService#findHistoryCleanupJobs` instead.
    
 # Full Distribution
 

@@ -115,6 +115,10 @@ A JSON object with the following properties:
     <td>Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.</td>
   </tr>
   <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>A JSON array to only include process instances that have variables with certain values. <br/>
     The array consists of objects with the three properties <code>key</code>, <code>operator</code> and <code>value</code>.

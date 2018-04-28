@@ -234,7 +234,12 @@ Each external task object has the following properties:
     <td>priority</td>
     <td>Number</td>
     <td>The priority of the external task.</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>businessKey</td>
+    <td>String</td>
+    <td>The business key of the process instance the external task belongs to.</td>
+  </tr>
 </table>
 
 
@@ -297,7 +302,8 @@ Status 200.
       "suspended": false,
       "workerId": "aWorkerId",
       "topicName": "aTopic",
-	  "priority": 9
+      "priority": 9,
+      "businessKey": "aBusinessKey"
     },
     {
       "activityId": "anotherActivityId",
@@ -314,5 +320,6 @@ Status 200.
       "suspended": false,
       "workerId": "aWorkerId",
       "topicName": "aTopic",
-	  "priority": 3
+      "priority": 3,
+      "businessKey": "aBusinessKey"
     }]

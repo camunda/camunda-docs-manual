@@ -39,7 +39,7 @@ useful to declare additional variables programmatically:
     camForm.on('variables-fetched', function() {
       // this callback is executed *after* the variables have been fetched from the server
       var variableValue = variableManager.variableValue('customVariable');
-      $( '#my-container', camForm.formElement).textContent(variableValue);
+      $( '#my-container', camForm.formElement).text(variableValue);
     });
   </script>
 
