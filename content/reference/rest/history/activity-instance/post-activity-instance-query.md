@@ -80,19 +80,22 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>finished</td>
-    <td>Only include finished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include finished activity instances. Value may only be <code>true</code>, as <code>false</code> behaves the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>unfinished</td>
-    <td>Only include unfinished activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include unfinished activity instances. Value may only be <code>true</code>, as <code>false</code>
+    behaves the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>canceled</td>
-    <td>Only include canceled activity instances. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include canceled activity instances. Value may only be <code>true</code>, as <code>false</code> behaves
+    the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>completeScope</td>
-    <td>Only include activity instances which completed a scope. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+    <td>Only include activity instances which completed a scope. Value may only be <code>true</code>, as <code>false</code>
+    behaves the same as when the property is not set.</td>
   </tr>
   <tr>
     <td>startedBefore</td>
