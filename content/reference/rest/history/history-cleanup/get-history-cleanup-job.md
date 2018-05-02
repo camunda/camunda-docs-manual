@@ -1,7 +1,7 @@
 ---
 
 title: "Find clean up history job (GET)"
-weight: 40
+weight: 60
 
 menu:
   main:
