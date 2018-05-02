@@ -400,7 +400,7 @@ The following is a list with the most commonly used process engine configuration
     <td>
         Controls if the engine executes the jdbc statements as Batch or not.
       <p>
-        Default is <code><strong>true</strong></code>, but this has to be disabled for some databases. See <a href="{{<relref "user-guide/process-engine/database/#jdbc-batch-processing" >}}">the user guide</a> for further details.
+        Default is <code><strong>true</strong></code>, but this has to be disabled for some databases. See <a href="{{<relref "user-guide/process-engine/database.md#jdbc-batch-processing" >}}">the user guide</a> for further details.
       </p>
     </td>
   </tr>
