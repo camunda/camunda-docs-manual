@@ -1,6 +1,6 @@
 ---
 
-title: "Find clean up history job (GET)"
+title: "Find clean up history jobs (GET)"
 weight: 40
 
 menu:
