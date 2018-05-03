@@ -118,7 +118,14 @@ Each locked external task object has the following properties:
   <tr>
     <td>errorMessage</td>
     <td>String</td>
-    <td>The error message that was supplied when the last failure of this task was reported.</td>
+    <td>The full error message submitted with the latest reported failure executing this task;
+    <br/><code>null</code> if no failure was reported previously or if no error message was submitted</td>
+  </tr>
+  <tr>
+    <td>errorDetails</td>
+    <td>String</td>
+    <td>The error details submitted with the latest reported failure executing this task.
+    <br/><code>null</code> if no failure was reported previously or if no error details was submitted</td>
   </tr>
   <tr>
     <td>executionId</td>
@@ -238,6 +245,7 @@ Status 200.
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
       "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
@@ -261,6 +269,7 @@ Status 200.
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anotherErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
       "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
@@ -309,6 +318,7 @@ Status 200.
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
       "lockExpirationTime": "2015-10-06T16:34:42.00+0200",
@@ -333,6 +343,7 @@ Status 200.
       "activityId": "anActivityId",
       "activityInstanceId": "anActivityInstanceId",
       "errorMessage": "anErrorMessage",
+      "errorDetails": "anotherErrorDetails",
       "executionId": "anExecutionId",
       "id": "anExternalTaskId",
       "lockExpirationTime": "2015-10-06T16:34:42.000+0200",
