@@ -23,9 +23,9 @@ as well as [JavaScript](https://github.com/camunda/camunda-external-task-client-
 
 ## Bootstrapping the Client
 
-```html
+
 {{< img src="img/externalTaskCient.png" title="External Task Cient Architecture" >}}
-```
+
 
 The client allows to handle service tasks of type "external". In order to to configure and instantiate the client, all supported implementations offer a convenient interface.
 The communication between the client and the Camunda Workflow Engine is HTTP. Hence, the respective URL of the REST API is a mandatory information.
