@@ -757,8 +757,8 @@ that the plan is applicable. In particular, the following aspects are checked:
 * **Instruction Applicability**: For certain activity types, only transition instances but not
   activity instances can be migrated
 
-If validation reports errors, migration fails with a `MigrationInstructionInstanceValidationException`
-providing a `MigrationInstructionInstanceValidationReport` object with details on the
+If validation reports errors, migration fails with a `MigratingProcessInstanceValidationException`
+providing a `MigratingProcessInstanceValidationReport` object with details on the
 validation errors.
 
 #### Completeness
