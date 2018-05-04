@@ -71,6 +71,10 @@ A JSON object with the following properties:
           <td>A JSON array of <code>String</code> values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.</td>
         </tr>
         <tr>
+          <td>localVariables</td>
+          <td>If <code>true</code> only local variables will be fetched.</td>
+        </tr>
+        <tr>
           <td>businessKey</td>
           <td>A <code>String</code> value which enables the filtering of tasks based on process instance business key.</td>
         </tr>
