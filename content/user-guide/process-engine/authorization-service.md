@@ -176,7 +176,17 @@ The following resources are available:
     <td>User</td>
     <td>1</td>
     <td>User Id</td>
-  </tr>      
+  </tr>
+  <tr>
+    <td>Report</td>
+    <td>15</td>
+    <td>Report Id</td>
+  </tr>
+  <tr>
+    <td>Dashboard</td>
+    <td>16</td>
+    <td>Dashboard Id</td>
+  </tr>
 </table>
 
 **Note:** The Resource Id should be '*' when you create new authorization with CREATE permissions only.
