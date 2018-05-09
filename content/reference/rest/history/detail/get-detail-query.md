@@ -36,6 +36,10 @@ GET `/history/detail`
     <td>Filter by process instance id.</td>
   </tr>
   <tr>
+    <td>processInstanceIdIn</td>
+    <td>Only include historic details which belong to one of the passed process instance ids.</td>
+  </tr>
+  <tr>
     <td>executionId</td>
     <td>Filter by execution id.</td>
   </tr>
@@ -57,7 +61,7 @@ GET `/history/detail`
   </tr>
   <tr>
     <td>variableTypeIn</td>
-    <td>Only include historic variable instances which belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
+    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
