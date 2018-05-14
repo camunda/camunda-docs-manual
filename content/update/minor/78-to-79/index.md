@@ -161,10 +161,10 @@ A user will be delayed in trying to login after an unsuccessful login attempt fo
 
 The default values are:
 ```java
-loginMaxAttempts = 5;
+loginMaxAttempts = 10;
 loginDelayFactor = 2;
 loginDelayMaxTime = 60;
-loginDelayBase = 2;
+loginDelayBase = 3;
 ```
 
 # Jackson version update
