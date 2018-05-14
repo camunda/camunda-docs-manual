@@ -18,8 +18,8 @@ as well as [JavaScript](https://github.com/camunda/camunda-external-task-client-
 * Complete External Tasks
 * Extend the lock duration of External Tasks
 * Unlock External Tasks
-* Report BPMN errors as well as failures
-* Share primitive and object typed process variables with the Workflow Engine
+* Report BPMN errors and failures
+* Share variables with the Workflow Engine
 
 ## Bootstrapping the Client
 
@@ -31,14 +31,16 @@ The client allows to handle service tasks of type "external". In order to to con
 The communication between the client and the Camunda Workflow Engine is HTTP. Hence, the respective URL of the REST API is a mandatory information.
 
 ### Request Interceptors
-To add additional HTTP headers to the performed REST API requests, the concept of request interceptors comes in handy.
-This concept is, for instance, necessary in the context of authentication. Request interceptors can be added while bootstrapping the client.
-It is also possible to add custom request intereceptors, for more details please check the documentation related to the client of interest.
+To add additional HTTP headers to the performed REST API requests, the request interceptor function can be used. This becomes necessary,
+in the context of e.g. authentication.
 
 #### Basic Authentication
 In some cases it is necessary to secure the REST API of the Camunda Workflow Engine via Basic Authentication. For such
-situations the a Basic Authentication implementation is provided by the client. Therefore, the respective user credentials are required.
-Once configured, the basic authentication header is added to each REST API request.
+situations a Basic Authentication implementation is provided by the client. Once configured with user credentials, the basic authentication header is added to each REST API request.
+
+#### Custom Interceptor
+Custom interceptors can be added while bootstrapping the client. For more details regarding the implementation please check the documentation related to the client of interest.
+
 
 ### Topic Subscription
 
@@ -58,24 +60,22 @@ As soon as the Workflow Engine reached an External Task in a BPMN process, a cor
 
 The client subscribes to the topic and fetches continuously for newly appearing External Tasks provided by the
 Workflow Engine. Each fetched External Task is marked with a temporary lock. Like this, no other clients can work on this
-certain External Task in the meanwhile.
+certain External Task in the meanwhile. A lock is valid for the specified period of time and can be extended.
 
-When setting up a new topic subscription, some mandatory configurations like topic name, lock duration and handler need to be specified.
-Once a topic has been subscribed, the client starts immediately to fetch and lock External Tasks. A lock is valid for the specified period of time.
-The External Task is now invisible for other clients and cannot be locked again. As soon as the lock duration expires, actions
-cannot be applied to the External Task anymore. In this case, the External Task is released and available again for being fetched and locked by any client.
+When setting up a new topic subscription, it is mandatory to specify the topic name and a handler function.
+Once a topic has been subscribed, the client can start receiving work items by polling the process engine’s API.
 
 ### Handler
-Handlers can be used to implement custom routines which are invoked whenever an External Task is fetched and locked successfully.
+Handlers can be used to implement custom methods which are invoked whenever an External Task is fetched and locked successfully.
 For each topic subscription a External Task handler interface is provided.
 
 ### Completing Tasks
-Once the custom routines specified in the handler are completed, the External Task can be completed. This means for the Workflow Engine that the execution will
+Once the custom methods specified in the handler are completed, the External Task can be completed. This means for the Workflow Engine that the execution will
 move on. For this purpose, all supported implementations have a `complete` method which can be called within the handler function. However, the
 External Task can only be completed, if it is currently locked by the client.
 
 ### Extending the Lock Duration of Tasks
-Sometimes the completion of custom routines takes longer than expected. In this case the lock duration needs to be extended.
+Sometimes the completion of custom methods takes longer than expected. In this case the lock duration needs to be extended.
 This action can be performed by calling a `extendLock` method passing the new lock duration.
 The lock duration can only be extended, if the External Task is currently locked by the client.
 
@@ -93,38 +93,33 @@ You can find a detailed documentation about this action in the Camunda BPM [User
 are triggered by BPMN errors. A BPMN error can only be reported, if the External Task is currently locked by the client.
 You can find a detailed documentation about this action in the Camunda BPM [User Guide](https://docs.camunda.org/manual/develop/user-guide/process-engine/external-tasks/#reporting-bpmn-error).
 
-### Process Variables
-Information can be shared between the clients and the Workflow Engine by means of process variables. The clients
-supports a wide range of primitive types.
+### Variables
+The clients is compatible with all data types the Camunda Engine [supports](https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/#supported-variable-values).
+It also exist two ways to work with variables: using the typed or the untyped API.
 
-#### Supported Types
-* Null
-* Boolean
-* String
-* Date
-* Short, Integer, Long
-* Double
-* Bytes
 
-There exists two ways to work with variables: using the typed or the untyped API.
-
-#### Untyped Variables
-Untyped variables are stored by using the respective type of their values. It exists individual methods to store single and multiple variables. Besides storing, it is also possible to retrieve single and multiple variables.
+#### Process and Local Variables
+Variables can be threaten as process variables or local variables.
+The former is set on the highest possible hierarchy of the variable scope and available to its child scopes in the entire process.
+If a variable, in contrast, is supposed to be set exactly on the provided execution scope, the local type can be used.
 
 **Note:** setting variables does not make sure that variables are persisted. Variables which were set locally on client-side
 are only available during runtime and get lost if they are not shared with the Workflow Engine by successfully completing
 the External Task of the current lock.
 
+
+#### Untyped Variables
+Untyped variables are stored by using the respective type of their values. It is possible to store/retrieve only a single variable or multiple variables at once.
+
+
 #### Typed Variables
-For typed variables, the type is set explicitly. During compile time, it is checked whether or not the given value
-corresponds to the defined type. Typed variables can also be retrieved, the received object provides a variety of information about the type,
-the value, etc.
-Of course it is also possible to set and get multiple typed variables.
+Setting typed variables requires the type to be specified explicitly. Typed variables can also be retrieved, the received object provides a variety of information besides type and
+value. Of course it is also possible to set and get multiple typed variables.
 
 ### Logging
 
-The client implementations support logging functionality since handlers are not invoked in the main thread. Hence it makes sense to enable the logging
-and be reported about situations as:
+The client implementations support logging various events in the client lifecycle.
+Hence situations like the following can be reported:
 
 * External Tasks could not be fetched and locked successfully
 * An exception occurred...
@@ -133,7 +128,7 @@ and be reported about situations as:
    * while invoking a request interceptor
    * ...
 
-Please check for more details the documentation related to the client of interest.
+For more details, please check the documentation related to the client of interest.
 
 ## Examples
 
