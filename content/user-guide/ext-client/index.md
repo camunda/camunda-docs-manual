@@ -27,11 +27,11 @@ as well as [JavaScript](https://github.com/camunda/camunda-external-task-client-
 {{< img src="img/externalTaskCient.png" title="External Task Cient Architecture" >}}
 
 
-The client allows to handle service tasks of type "external". In order to to configure and instantiate the client, all supported implementations offer a convenient interface.
+The client allows to handle service tasks of type "external". In order to configure and instantiate the client, all supported implementations offer a convenient interface.
 The communication between the client and the Camunda Workflow Engine is HTTP. Hence, the respective URL of the REST API is a mandatory information.
 
 ### Request Interceptors
-To add additional HTTP headers to the performed REST API requests, the request interceptor function can be used. This becomes necessary,
+To add additional HTTP headers to the performed REST API requests, the request interceptor method can be used. This becomes necessary,
 in the context of e.g. authentication.
 
 #### Basic Authentication
@@ -67,7 +67,7 @@ Once a topic has been subscribed, the client can start receiving work items by p
 
 ### Handler
 Handlers can be used to implement custom methods which are invoked whenever an External Task is fetched and locked successfully.
-For each topic subscription a External Task handler interface is provided.
+For each topic subscription an External Task handler interface is provided.
 
 ### Completing Tasks
 Once the custom methods specified in the handler are completed, the External Task can be completed. This means for the Workflow Engine that the execution will
@@ -76,12 +76,12 @@ External Task can only be completed, if it is currently locked by the client.
 
 ### Extending the Lock Duration of Tasks
 Sometimes the completion of custom methods takes longer than expected. In this case the lock duration needs to be extended.
-This action can be performed by calling a `extendLock` method passing the new lock duration.
+This action can be performed by calling an `extendLock` method passing the new lock duration.
 The lock duration can only be extended, if the External Task is currently locked by the client.
 
 ### Unlocking Tasks
 If an External Task is supposed to be unlocked so that other clients are allowed to fetch and lock this task again,
-a `unlock` method can be called. The External Task can only be unlocked, if the task is currently locked by the client.
+an `unlock` method can be called. The External Task can only be unlocked, if the task is currently locked by the client.
 
 ### Reporting Failures
 If the client faces a problem that makes it impossible to complete the External Task successfully, this problem can be reported to
@@ -94,12 +94,12 @@ are triggered by BPMN errors. A BPMN error can only be reported, if the External
 You can find a detailed documentation about this action in the Camunda BPM [User Guide](https://docs.camunda.org/manual/develop/user-guide/process-engine/external-tasks/#reporting-bpmn-error).
 
 ### Variables
-The clients is compatible with all data types the Camunda Engine [supports](https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/#supported-variable-values).
-It also exist two ways to work with variables: using the typed or the untyped API.
+Both external tasks clients are compatible with all data types the Camunda Engine [supports](https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/#supported-variable-values).
+Variables can be accessed/altered using typed or the untyped API.
 
 
 #### Process and Local Variables
-Variables can be threaten as process variables or local variables.
+Variables can be treated as process or local variables.
 The former is set on the highest possible hierarchy of the variable scope and available to its child scopes in the entire process.
 If a variable, in contrast, is supposed to be set exactly on the provided execution scope, the local type can be used.
 
