@@ -56,6 +56,10 @@ GET `/process-definition`
     <td>Filter by process definition key, i.e., the id in the BPMN 2.0 XML. Exact match.</td>
   </tr>
   <tr>
+    <td>keysIn</td>
+    <td>Filter by process definition keys.</td>
+  </tr>
+  <tr>
     <td>keyLike</td>
     <td>Filter by process definition keys that the parameter is a substring of.</td>
   </tr>
