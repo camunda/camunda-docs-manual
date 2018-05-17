@@ -9,7 +9,6 @@ menu:
     parent: "user-guide"
 
 ---
-# Camunda External Task Client
 
 The **Camunda External Task Client** allows to set up remote Service Tasks for your workflow. There is a supported [Java](https://github.com/camunda/camunda-external-task-client-java)
 as well as [JavaScript](https://github.com/camunda/camunda-external-task-client-js) implementation.
