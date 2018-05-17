@@ -74,5 +74,3 @@ though such combinations must be thoroughly tested before being used in producti
 </table>
 * These are the versions of the Spring Boot Starter Community Extension, which can be used the same way as the offically supported Spring Boot Starter, 
 but using another Maven dependencies. Check the docs [here](https://camunda.github.io/camunda-bpm-spring-boot-starter/).
-
-TODO: Upgrade changes.
