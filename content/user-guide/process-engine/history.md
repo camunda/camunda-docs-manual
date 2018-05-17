@@ -1006,7 +1006,48 @@ the global configuration of the batch operations will be taken into account.
 
 ## Periodic Run
 
-To use history cleanup on a regular basis, a batch window must be configured - the period of time during the day when the cleanup is to run. 
+To use history cleanup on a regular basis, a batch window(s) must be configured - the period of time during the day when the cleanup is to run. 
+It is possible to configure one and the same batch window for every day:
+```xml
+<property name="historyCleanupBatchWindowStartTime">20:00</property>
+<property name="historyCleanupBatchWindowEndTime">06:00</property>
+```
+
+Or per weekday:
+
+```java
+ProcessEngineConfigurationImpl configuration = ...;
+//night time for working days
+configuration.getHistoryCleanupBatchWindows().put(Calendar.MONDAY, new BatchWindowConfiguration("20:00", "06:00"));
+configuration.getHistoryCleanupBatchWindows().put(Calendar.TUESDAY, new BatchWindowConfiguration("20:00", "06:00"));
+configuration.getHistoryCleanupBatchWindows().put(Calendar.WEDNESDAY, new BatchWindowConfiguration("20:00", "06:00"));
+configuration.getHistoryCleanupBatchWindows().put(Calendar.THURSDAY, new BatchWindowConfiguration("20:00", "06:00"));
+configuration.getHistoryCleanupBatchWindows().put(Calendar.FRIDAY, new BatchWindowConfiguration("20:00", "00:00"));
+//the whole day for weekend
+configuration.getHistoryCleanupBatchWindows().put(Calendar.SATURDAY, new BatchWindowConfiguration("00:00", "00:00"));
+configuration.getHistoryCleanupBatchWindows().put(Calendar.SUNDAY, new BatchWindowConfiguration("00:00", "00:00"));
+```
+
+The same in XML format:
+
+```xml
+<property name="mondayHistoryCleanupBatchWindowStartTime">20:00</property>
+<property name="mondayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="tuesdayHistoryCleanupBatchWindowStartTime">20:00</property>
+<property name="tuesdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="wednesdayHistoryCleanupBatchWindowStartTime">20:00</property>
+<property name="wednesdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="thursdayHistoryCleanupBatchWindowStartTime">20:00</property>
+<property name="thursdayyHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="fridayHistoryCleanupBatchWindowStartTime">20:00</property>
+<property name="fridayHistoryCleanupBatchWindowStartTime">00:00</property>
+
+<property name="saturdayHistoryCleanupBatchWindowStartTime">00:00</property>
+<property name="saturdayHistoryCleanupBatchWindowStartTime">00:00</property>
+<property name="sundayHistoryCleanupBatchWindowStartTime">00:00</property>
+<property name="sundayHistoryCleanupBatchWindowStartTime">00:00</property>
+``` 
+
 See [Configuration options][configuration-options] for details.
 
 ## Manual Run

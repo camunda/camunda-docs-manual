@@ -558,6 +558,90 @@ The following is a list with the most commonly used process engine configuration
     day at 20:00 and finishes the next day at 01:00).</td>
   </tr>
   <tr>
+    <td><code>mondayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Mondays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>mondayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>tuesdayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Tuesdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>tuesdayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Tuesdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>wednesdayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Wednesdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>wednesdayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Wednesdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>thursdayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Thursdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>thursdayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Thursdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>fridayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Fridays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>fridayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Fridays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>saturdayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Saturdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>saturdayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Saturdays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>sundayHistoryCleanupBatchWindowStartTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Sundays.
+    </td>
+  </tr>
+  <tr>
+    <td><code>sundayHistoryCleanupBatchWindowEndTime</code></td>
+    <td>String</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Sundays.
+    </td>
+  </tr>
+  <tr>
     <td><code>historyCleanupBatchSize</code></td>
     <td>Integer</td>
     <td>Defines the amount of top-level objects (e.g., historic process instances) to be removed at once. Default and maximum value is 500.</td>
