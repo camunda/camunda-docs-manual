@@ -150,7 +150,7 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download either the [Camunda Wildfly 8 distribution](http://camunda.org/release/camunda-bpm/wildfly8/) or the [Camunda Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/).
+First, you need to download either the [Camunda Wildfly 8 distribution](http://camunda.org/release/camunda-bpm/wildfly8/), the [Camunda Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/) or the [Camunda Wildfly 11 distribution](http://camunda.org/release/camunda-bpm/wildfly11/).
 
 ## Copy Modules
 
