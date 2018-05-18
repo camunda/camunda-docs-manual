@@ -555,90 +555,90 @@ The following is a list with the most commonly used process engine configuration
     <td>String</td>
     <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>23:00-0300</code> or <code>23:00</code>. In case <code>batchWindowEndTime</code> exceeds <code>batchWindowStartTime</code> it is considered 
     to be on the same date (e.g., cleanup runs each day between 20:00 and 23:00). Otherwise it is considered to be on the next calendar day (e.g., cleanup starts each 
-    day at 20:00 and finishes the next day at 01:00).</td>
+    day at 20:00 and finishes the next day at 01:00). Default value is `00:00`.</td>
   </tr>
   <tr>
     <td><code>mondayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Mondays.
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Mondays. Requires the same format as <code>historyCleanupBatchWindowStartTime</code>.
+    In case it is not configured, batch window configured with <code>historyCleanupBatchWindowStartTime</code> and <code>historyCleanupBatchWindowEndTime</code> will be used for this day of week.
     </td>
   </tr>
   <tr>
     <td><code>mondayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays.
+    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Mondays. Requires the same format and follows the same logic 
+    as <code>historyCleanupBatchWindowEndTime</code>.
     </td>
   </tr>
   <tr>
     <td><code>tuesdayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Tuesdays.
-    </td>
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Tuesdays.</td>
   </tr>
   <tr>
     <td><code>tuesdayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Tuesdays.
-    </td>
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Tuesdays.</td>
   </tr>
   <tr>
     <td><code>wednesdayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Wednesdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Wednesdays.
     </td>
   </tr>
   <tr>
     <td><code>wednesdayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Wednesdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Wednesdays.
     </td>
   </tr>
   <tr>
     <td><code>thursdayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Thursdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Thursdays.
     </td>
   </tr>
   <tr>
     <td><code>thursdayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Thursdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Thursdays.
     </td>
   </tr>
   <tr>
     <td><code>fridayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Fridays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Fridays.
     </td>
   </tr>
   <tr>
     <td><code>fridayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Fridays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Fridays.
     </td>
   </tr>
   <tr>
     <td><code>saturdayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Saturdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Saturdays.
     </td>
   </tr>
   <tr>
     <td><code>saturdayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Saturdays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Saturdays.
     </td>
   </tr>
   <tr>
     <td><code>sundayHistoryCleanupBatchWindowStartTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time for Sundays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowStartTime</code>, but for Sundays.
     </td>
   </tr>
   <tr>
     <td><code>sundayHistoryCleanupBatchWindowEndTime</code></td>
     <td>String</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window end time for Sundays.
+    <td>Similar to <code>mondayHistoryCleanupBatchWindowEndTime</code>, but for Sundays.
     </td>
   </tr>
   <tr>
