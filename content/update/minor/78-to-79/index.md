@@ -169,14 +169,14 @@ loginDelayBase = 3;
 
 # Jackson version update
 
-Jackson version in Spin project was updated from version 2.6.3 to 2.9.3, but Spin is still compatible with older version (2.6.3). To switch back on older version you can just replace `jackson-*-2.9.3.jar` 
+Jackson version in Spin project was updated from version 2.6.3 to 2.9.5, but Spin is still compatible with older version (2.6.3). To switch back on older version you can just replace `jackson-*-2.9.5.jar` 
 libraries by `jackson-*-2.6.3.jar` in your application server folder (also check environment specific update guides). Or, in case you're using Camunda as a part of your Maven application, configure appropriate dependencies in your `pom.xml`:
 
 ```xml
   <dependency>
       <groupId>org.camunda.spin</groupId>
       <artifactId>camunda-spin-core</artifactId>
-      <!-- exclude 2.9.3 dependencies -->
+      <!-- exclude 2.9.5 dependencies -->
       <exclusions>
         <exclusion>
           <groupId>com.fasterxml.jackson.core</groupId>

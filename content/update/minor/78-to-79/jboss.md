@@ -79,7 +79,7 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-databind`
 
 {{< note title="Stick to older Jackson version" class="info" >}}
-Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5 version, which in its turn relies on Jackson of v. 2.9.3 (compared to v.2.6.3 used before). 
+Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before). 
 
 In case you need to stick to older Jackson version (2.6.3):
 
