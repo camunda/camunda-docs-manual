@@ -1038,7 +1038,7 @@ The same in XML format:
 <property name="wednesdayHistoryCleanupBatchWindowStartTime">20:00</property>
 <property name="wednesdayHistoryCleanupBatchWindowStartTime">06:00</property>
 <property name="thursdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="thursdayyHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="thursdayHistoryCleanupBatchWindowStartTime">06:00</property>
 <property name="fridayHistoryCleanupBatchWindowStartTime">20:00</property>
 <property name="fridayHistoryCleanupBatchWindowStartTime">06:00</property>
 
