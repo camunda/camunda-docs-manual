@@ -1032,20 +1032,20 @@ The same in XML format:
 
 ```xml
 <property name="mondayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="mondayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="mondayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="tuesdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="tuesdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="tuesdayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="wednesdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="wednesdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="wednesdayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="thursdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="thursdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="thursdayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="fridayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="fridayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="fridayHistoryCleanupBatchWindowEndTime">06:00</property>
 
 <property name="saturdayHistoryCleanupBatchWindowStartTime">06:00</property>
-<property name="saturdayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="saturdayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="sundayHistoryCleanupBatchWindowStartTime">06:00</property>
-<property name="sundayHistoryCleanupBatchWindowStartTime">06:00</property>
+<property name="sundayHistoryCleanupBatchWindowEndTime">06:00</property>
 ``` 
 
 See [Configuration options][configuration-options] for details.
