@@ -350,7 +350,7 @@ For more information, please check the process engine's [login properties]({{< r
 
 Calculation of the delay is done via the formula: <code>baseTime * factor^(attempt-1)</code>.
 The behaviour with the default configuration will be:
-3 seconds delay after the first unsuccessful attempt, 9 seconds after the 2nd attempt, 27 seconds, 60 seconds, 60 seconds, etc. After the 10th attempt, if the user fails to login again, the user will be locked.
+3 seconds delay after the first unsuccessful attempt, 6 seconds after the 2nd attempt, 12 seconds, 24 seconds, 48 seconds, 60 seconds, 60 seconds, etc. After the 10th attempt, if the user fails to login again, the user will be locked.
 
 ## LDAP specifics
 
