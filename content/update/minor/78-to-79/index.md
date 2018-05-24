@@ -145,11 +145,11 @@ Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder o
 
 In the historic process definition diagram it is possible to select time periods for which activity instance badges are displayed.
 
-By default the displayed timer period is set to 'today' but can be extended to show badges of 'this week', 'this month' or the 'complete' history.
+By default the displayed timer period is set to `today` but can be extended to show badges of `this week`,  `this month` or `complete`.
 
 This feature can be configured in two ways:
 
-1. The default timer period can be changed to 'this week', 'this month' or 'complete'
+1. The default timer period can be changed to `this week`, `this month` or `complete`
 2. The manual selection of the time period within Cockpit can be disabled.
 
 These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
