@@ -32,8 +32,8 @@ Username: my.username
 Password:
 Login Succeeded
 
-$ docker pull registry.camunda.cloud/camunda-bpm-platform-ee:7.9.0-alpha5
-7.9.0-alpha5: Pulling from camunda-bpm-platform-ee
+$ docker pull registry.camunda.cloud/camunda-bpm-platform-ee:7.9.0
+7.9.0: Pulling from camunda-bpm-platform-ee
 ff3a5c916c92: Already exists
 5de5f69f42d7: Already exists
 fa7536dd895a: Pull complete
@@ -41,5 +41,5 @@ fa7536dd895a: Pull complete
 6fa1782e4a59: Pull complete
 fbf8f17dff48: Pull complete
 Digest: sha256:47598932a4aff210ce91819d3b75adbfde675017b13ce9881c9d7dca682fba96
-Status: Downloaded newer image for registry.camunda.cloud/camunda-bpm-platform-ee:7.9.0-alpha5
+Status: Downloaded newer image for registry.camunda.cloud/camunda-bpm-platform-ee:7.9.0
 ```
