@@ -112,6 +112,18 @@ Moreover, the checkbox to enable/disable skipCustomListeners is by default not h
 `hidden` (`true | false`) in `skipCustomListeners` configuration. If the `hidden` value is configured to be false, then the skipCustomListeners checkbox 
 will be hidden everywhere in Cockpit.
 
+# Runtime Activity Instance Metrics (Process Definition)
+
+ ```javascript
+    window.camCockpitConf = {
+       runtimeActivityInstanceMetrics: {
+       display: true,
+    };
+ ```
+By default the activity instance statistics are displayed for the runtime view of the process definition.
+Hence, the default value of the `display` flag is `true`. If the statistics shouldn't be displayed initially process definition runtime view is opened, the `display` option needs to be set to `false`.
+In any case does the toggle button allow to display/remove the statistics on demand.
+
 # Historic Activity Instance Metrics
 
  ```javascript
