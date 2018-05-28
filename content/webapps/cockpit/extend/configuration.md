@@ -117,7 +117,8 @@ will be hidden everywhere in Cockpit.
  ```javascript
     window.camCockpitConf = {
        runtimeActivityInstanceMetrics: {
-       display: true,
+          display: true
+       }
     };
  ```
 By default the activity instance statistics are displayed for the runtime view of the process definition.
