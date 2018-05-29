@@ -21,8 +21,15 @@ Since Cockpit is a very powerful tool, it is often desired to inspect which user
 * which entities (process instances, tasks, etc.) were involved
 * which changes were made
 
-While this log can currently not be viewed in Cockpit's UI, there are existing [Java and REST API methods]({{< relref "user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}) to perform this task.
+To get a more detailed explanation about the Java and REST API methods to get user operations, check out [this url]({{< relref "user-guide/process-engine/history.md#accessing-the-user-operation-log" >}}).
 
+
+# User Operation Log in Cockpit
+{{< img src="../img/cockpit-user-operation-log.png" title="Batch View Page" >}}
+
+Cockpit provides the possiblity to view the activity of different users in the User Operations table. The table can be found in both the process definition and instance history views. 
+The table is a representation of the history of various user operations and information about the property changes involved.
+Rows are grouped by operation to provide clear insights on the changes produced by each operation.
 
 # Cockpit Operation Log Entries
 
