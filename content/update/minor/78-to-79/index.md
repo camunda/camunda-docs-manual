@@ -23,14 +23,17 @@ This document guides you through the update from Camunda BPM `7.8.x` to `7.9.0`.
 9. For administrators: [Throttle login attempts](#throttle-login-attempts)
 9. For administrators and developers: [Jackson version update](#jackson-version-update)
 9. For administrators and developers: [History cleanup can be parallelized](#history-cleanup-can-be-parallelized)
+9. For developers: [Webjar structure changed](#webjar-structure-changed)
 
 
-This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.8.
+This guide covers mandatory migration steps as well as optional considerations for initial configuration of new functionality included in Camunda BPM 7.9.
 
 Noteworthy new Features and Changes in 7.9:
 
 * [Transient Variables]({{< relref "user-guide/process-engine/variables.md#transient-variables" >}})
 * [Long Polling for Fetch and Lock External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}})
+* [Conditional start events]({{< relref "reference/bpmn20/events/conditional-events.md#conditional-start-event" >}})
+* [Sending a payload when throwing a signal]({{< relref "reference/bpmn20/events/signal-events.md#passing-variables" >}})
 
 # Database Updates
 
@@ -49,7 +52,7 @@ Every Camunda installation requires a database schema update.
 
     The scripts update the database from one minor version to the next, and change the underlying database structure. So make sure to backup your database in case there are any failures during the update process.
 
-3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.7.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
+3. We highly recommend to also check for any existing patch scripts for your database that are within the bounds of the new minor version you are updating to. Execute them in ascending order by version number. _Attention_: This step is only relevant when you are using an enterprise version of the Camunda BPM platform, e.g., `7.8.X` where `X > 0`. The procedure is the same as in step 1, only for the new minor version.
 
 # Full Distribution
 
@@ -139,7 +142,6 @@ In this case you will need to use another serialization format (JSON or XML) or 
 
 The pre-built Camunda distributions of versions 7.6.10, 7.7.5 and 7.8.0 ship with Groovy library of version 2.4.5, whereas newer versions come with Groovy 2.4.13. 
 Please update the library `groovy-all-$GROOVY_VERSION.jar` in the `lib` folder of your application server.
-
 
 # Adjustable Time Period for Historic Activity Instances   
 
