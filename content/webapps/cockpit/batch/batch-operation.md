@@ -27,6 +27,7 @@ It is possible to execute the following batch operations on process instances:
 - Set retries of external tasks belonging to process instances.
 - Suspend running process instances.
 - Activate suspended process instances.
+- Delete decision instances.
 
 After selecting the operation, fields may appear with additional data that is either optional or required to perform the operation. 
 When canceling running process instances, you can optionally select to skip custom listeners and provide a cancellation reason. In addition to the
