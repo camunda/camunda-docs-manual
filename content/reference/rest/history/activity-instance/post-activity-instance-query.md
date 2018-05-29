@@ -121,7 +121,11 @@ A JSON object with the following properties:
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>activityInstanceID</code>, <code>instanceId</code>, <code>executionId</code>, <code>activityId</code>, <code>activityName</code>, <code>activityType</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code>, <code>definitionId</code>, <code>occurrence</code> and <code>tenantId</code>.</td>

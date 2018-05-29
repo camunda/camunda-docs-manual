@@ -129,7 +129,11 @@ A JSON object with the following properties:
       <p>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results by a given criterion. Valid values are <code>timestamp</code>, <code>jobId</code>, <code>jobDefinitionId</code>, <code>jobDueDate</code>, <code>jobRetries</code>, <code>jobPriority</code>, <code>activityId</code>, <code>executionId</code>, <code>processInstanceId</code>, <code>processDefinitionId</code>, <code>processDefinitionKey</code>, <code>deploymentId</code> and <code>occurrence</code> and <code>tenantId</code>.</td>

@@ -467,7 +467,6 @@ A JSON object with the following properties:
   <tr>
     <td>taskVariables</td>
     <td>A JSON array to only include tasks that have variables with certain values. <br/>
-
     The array consists of JSON objects with three properties <code>name</code>, <code>operator</code> and <code>value</code>.
     <code>name</code> is the variable name, <code>operator</code> is the comparison operator to be used and <code>value</code> the variable value.<br/>
     <code>value</code> may be of type <code>String</code>, <code>Number</code> or <code>Boolean</code>.<br/>
@@ -521,7 +520,11 @@ A JSON object with the following properties:
     <td>sorting</td>
     <td>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>instanceId</code>, <code>caseInstanceId</code>, <code>dueDate</code>, <code>executionId</code>, <code>caseExecutionId</code>,<code>assignee</code>, <code>created</code>, <code>description</code>, <code>id</code>, <code>name</code>, <code>nameCaseInsensitive</code>, <code>priority</code>, <code>processVariable</code>, <code>executionVariable</code>, <code>taskVariable</code>, <code>caseExecutionVariable</code>, and <code>caseInstanceVariable</code>.</td>

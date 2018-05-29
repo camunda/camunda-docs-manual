@@ -132,7 +132,11 @@ A JSON object with the following properties:
       <p>
         A JSON array of criteria to sort the result by. Each element of the array is a JSON object that specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc. The ordering objects have the following properties:
       </p>
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>sortBy</td>
           <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are <code>id</code>, <code>lockExpirationTime</code>, 

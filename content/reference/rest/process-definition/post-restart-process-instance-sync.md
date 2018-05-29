@@ -81,7 +81,11 @@ A JSON object with the following properties:
     <td>instructions</td>
     <td>
         A JSON array of instructions. The instructions are executed in the order they are in. An instruction may have the following properties:
-      <table>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
         <tr>
           <td>type</td>
           <td><b>Mandatory.</b> One of the following values: <code>startBeforeActivity</code>, <code>startAfterActivity</code>, <code>startTransition</code>. A <code>startBeforeActivity</code> instruction requests to enter a given activity. A <code>startAfterActivity</code> instruction requests to execute the single outgoing sequence flow of a given activity. A <code>startTransition</code> instruction requests to execute a specific sequence flow.</td>
