@@ -1018,11 +1018,8 @@ Or per weekday:
 ```java
 ProcessEngineConfigurationImpl configuration = ...;
 //night time for working days
-configuration.getHistoryCleanupBatchWindows().put(Calendar.MONDAY, new BatchWindowConfiguration("20:00", "06:00"));
-configuration.getHistoryCleanupBatchWindows().put(Calendar.TUESDAY, new BatchWindowConfiguration("20:00", "06:00"));
-configuration.getHistoryCleanupBatchWindows().put(Calendar.WEDNESDAY, new BatchWindowConfiguration("20:00", "06:00"));
-configuration.getHistoryCleanupBatchWindows().put(Calendar.THURSDAY, new BatchWindowConfiguration("20:00", "06:00"));
-configuration.getHistoryCleanupBatchWindows().put(Calendar.FRIDAY, new BatchWindowConfiguration("20:00", "06:00"));
+configuration.setHistoryCleanupBatchWindowStartTime("20:00");
+configuration.setHistoryCleanupBatchWindowEndTime("06:00");
 //the whole day for weekend
 configuration.getHistoryCleanupBatchWindows().put(Calendar.SATURDAY, new BatchWindowConfiguration("06:00", "06:00"));
 configuration.getHistoryCleanupBatchWindows().put(Calendar.SUNDAY, new BatchWindowConfiguration("06:00", "06:00"));
@@ -1031,16 +1028,8 @@ configuration.getHistoryCleanupBatchWindows().put(Calendar.SUNDAY, new BatchWind
 The same in XML format:
 
 ```xml
-<property name="mondayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="mondayHistoryCleanupBatchWindowEndTime">06:00</property>
-<property name="tuesdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="tuesdayHistoryCleanupBatchWindowEndTime">06:00</property>
-<property name="wednesdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="wednesdayHistoryCleanupBatchWindowEndTime">06:00</property>
-<property name="thursdayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="thursdayHistoryCleanupBatchWindowEndTime">06:00</property>
-<property name="fridayHistoryCleanupBatchWindowStartTime">20:00</property>
-<property name="fridayHistoryCleanupBatchWindowEndTime">06:00</property>
+<property name="historyCleanupBatchWindowStartTime">20:00</property>
+<property name="historyCleanupBatchWindowEndTime">06:00</property>
 
 <property name="saturdayHistoryCleanupBatchWindowStartTime">06:00</property>
 <property name="saturdayHistoryCleanupBatchWindowEndTime">06:00</property>
