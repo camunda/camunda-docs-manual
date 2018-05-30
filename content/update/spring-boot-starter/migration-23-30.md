@@ -13,7 +13,7 @@ menu:
 
 # Upgrade to Spring boot 2.0.0
 
-Within this minor release Camunda Spring Boot Starter started using Spring boot 2.0.0.
+Within this minor release Camunda Spring Boot Starter started using Spring boot 2.0.2.
 This version comes with some changes from Spring boot side, for more information please check Spring boot 2.0 [Release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes) and [Migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide).
 
 # Removed test dependencies 
