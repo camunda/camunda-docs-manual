@@ -18,7 +18,7 @@ This works as follows:
 2. Building Filters: [filters][filter] then allow users to find tasks which are assigned to them or to the groups they belong to.
 3. Claiming group tasks: if a task is not directly assigned to a given user, the user must claim the task before working on it.
 
-# Implementing Inital Assignment
+# Implementing Initial Assignment
 
 {{< img src="../img/tasklist-task-form-modeler.png" title="User Task Assignment" >}}
 
