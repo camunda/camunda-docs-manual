@@ -21,6 +21,10 @@ The Welcome application offers a _front-end only_ plugin point.
 
 {{< img src="../img/welcome-dashboard-plugin.png" title="Plugin Point" >}}
 
+**Name:** `welcome.profile`.
+
+{{< img src="../img/welcome-profile-plugin.png" title="Plugin Point" >}}
+
 
 ## Example
 
