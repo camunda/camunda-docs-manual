@@ -16,6 +16,7 @@ This document guides you through the update from Camunda BPM `7.8.x` to `7.9.0`.
 1. For administrators and developers: [Database Updates](#database-updates)
 2. For administrators and developers: [Full Distribution Update](#full-distribution)
 3. For administrators: [Standalone Web Application](#standalone-web-application)
+4. For developers: [Spring Boot Starter Update](#spring-boot-starter-update)
 5. For developers: [Base Delegate Execution](#base-delegate-execution)
 6. For developers: [Java serialized objects](#java-serialized-objects)
 7. For administrators: [Groovy version](#groovy-version)
@@ -93,6 +94,16 @@ If a database other than the default H2 database is used, the following steps mu
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
+
+# Spring Boot Starter Update
+
+If you are using Camunda Spring Boot Starter(s) within you Spring Boot application, then you would need to:
+
+1. Check [Version compatibility]({{< relref "user-guide/spring-boot-integration/version-compatibility.md" >}}) matrix in the docs. 
+2. Update Spring Boot Starter and, when required, Spring Boot versions in your `pom.xml`.
+3. Update Camunda version in your `pom.xml` in case you override it before (e.g. when using enterprise version or patch releases).
+
+Please also check [Spring Boot Starter update guide]({{< relref "update/spring-boot-starter/index.md" >}}).
 
 # Base Delegate Execution
 
