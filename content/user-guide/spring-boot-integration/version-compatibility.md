@@ -12,7 +12,7 @@ menu:
 ---
 
 Each version of the Camunda Spring Boot Starter is bound to a specific version of Camunda BPM. Only these default combinations are recommended (and supported) by Camunda.
-Nevertheless, lower versions of the Spring Boot Starter can be combined with newer patch versions of the Camunda BPM engine (see [Overriding Camunda version](../#overriding-camunda-version)), 
+Nevertheless, each version of the Spring Boot Starter can be combined with newer patch versions of the Camunda BPM engine (see [Overriding Camunda version](../#overriding-camunda-version)),
 though such combinations must be thoroughly tested before being used in production. 
 
 <table class="table table-striped">
