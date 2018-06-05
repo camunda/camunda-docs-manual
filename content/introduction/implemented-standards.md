@@ -20,7 +20,7 @@ Camunda BPM provides open source implementations of execution and [modeling tool
 Business Process Model and Notation (BPMN) is a standard for Workflow and Process Automation.
 Camunda supports the 2.0 version of BPMN.
 
-* Getting started implementing BPMN Processes: [BPMN Getting Started]
+* Getting started implementing BPMN Processes: [Quick Start (Java / JS)]
 * Getting to Know BPMN as a Modeling Language: [BPMN Modeling Tutorial]
 * Modeling BPMN: [BPMN Modeling Reference]
 * Tool for modeling BPMN: [BPMN Modeler][modelers]
@@ -52,7 +52,7 @@ Camunda supports the 1.1 version of DMN.
 [modelers]: {{< relref "modeler/index.md" >}}
 [BPMN Modeling Tutorial]: https://camunda.org/bpmn/tutorial/
 [BPMN Modeling Reference]: https://camunda.org/bpmn/reference/
-[BPMN Getting Started]: /get-started/bpmn20/
+[Quick Start (Java / JS)]: /get-started/quick-start/
 [BPMN Implementation Reference]: {{< relref "reference/bpmn20/index.md" >}}
 [CMMN Implementation Reference]: {{< relref "reference/cmmn11/index.md" >}}
 [CMMN Getting Started]: /get-started/cmmn11/
