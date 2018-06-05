@@ -16,7 +16,7 @@ test the integration for Groovy, JavaScript, JRuby and Jython. To use a scriptin
 it is necessary to add the corresponding jar to the classpath.
 
 {{< note title="" class="info" >}}
-  **JavaScript** is part of the Java Runtime (JRE) and thus available out ot the box.
+  **JavaScript** is part of the Java Runtime (JRE) and thus available out of the box.
 
   We include **Groovy** in the pre-packaged Camunda distributions.
 {{< /note >}}
