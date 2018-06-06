@@ -82,6 +82,12 @@ A JSON object with the following properties:
     {{< rest-var-request transient="true">}}
   </tr>
   <tr>
+    <td>processVariablesLocal</td>
+    <td>A map of local variables that is injected into the triggered execution or process instance after the message has been delivered.
+    Each key is a variable name and each value a JSON variable value object with the following properties.
+    {{< rest-var-request transient="true">}}
+  </tr>
+  <tr>
     <td>all</td>
     <td>A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to <code>false</code>, the message will be correlated to exactly one entity (execution or process definition). If the value is set to <code>true</code>, the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.</td>
   </tr>
