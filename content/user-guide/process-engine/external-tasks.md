@@ -63,6 +63,8 @@ It is possible to define the topic name by using an [expression]({{< relref "use
 
 In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< relref "reference/bpmn20/index.md" >}}) for details.
 
+Force advanced use-cases it is possible to define the topic name by using an [expression]({{< relref "user-guide/process-engine/expression-language.md" >}}) instead of a constant value. This can be useful in cloud environments in which it might be necessary to limit processing of external tasks of a certain process instance to a specific cloud region. This feature is available since Camunda 7.9.0.
+
 ## Rest API
 
 See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
