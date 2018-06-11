@@ -1479,12 +1479,12 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
   <tr>
     <th>Type</th>
-    <td><code>java.lang.String</code></td>
+    <td><code>java.lang.String</code> or <code>org.camunda.bpm.engine.delegate.Expression</code></td>
   </tr>
   <tr>
     <th>Possible Values</th>
     <td>
-      Any value that has a meaning as a topic identifier.
+      Any value that has a meaning as a topic identifier as <code>java.lang.String</code> or an expression which evaluates to a <code>java.lang.String</code>, e.g. <code>${topicName}</code>
     </td>
   </tr>
   <tr>
