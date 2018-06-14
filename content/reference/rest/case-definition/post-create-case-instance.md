@@ -173,7 +173,7 @@ Request Body:
 ## Response
 
     {
-      "links":[{"method": "GET", "href":"http://localhost:8080/rest-test/process-instance/anId","rel":"self"}],
+      "links":[{"method": "GET", "href":"http://localhost:8080/rest-test/case-instance/anId","rel":"self"}],
       "id":"anId",
       "caseDefinitionId":"aCaseDefinitionId",
       "tenantId":null,
