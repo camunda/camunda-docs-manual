@@ -23,6 +23,7 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.10:
 
+* [Custom Whitelist for User, Group and Tenant IDs]({{< relref "#custom-whitelist-for-user-group-and-tenant-ids" >}})
 * Feature #
 
 # Database Updates
@@ -90,5 +91,18 @@ If a database other than the default H2 database is used, the following steps mu
 3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
+
+# Custom Whitelist for User, Group and Tenant IDs
+
+User, Group and Tenant IDs can now be matched against a Whitelist Pattern to determine if the provided ID is acceptable or not. The default Regular Expression pattern to match against is "`[\w-]+`" i.e. any combination of alphanumeric and dash ('-') values.
+
+If your organisation allows the usage of additional characters (ex.: special characters), the ProcessEngineConfiguartion propery `resourceWhitelistPattern` should be set with the appropriate pattern in the engine's xml configuration file. Standard [Java Regular Expression](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) syntax can be used.
+
+For example, to accept any character, the following property value can be used:
+
+```xml
+<property name="resourceWhitelistPattern" value="\d+"/>
+```
+
 
 
