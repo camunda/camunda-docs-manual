@@ -215,6 +215,14 @@ The following list is an overview of all currently available patch scripts:
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-8833">CAM-8833</a></td>
     </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.0_to_7.9.1.sql</td>
+      <td>Add index to imporove historic operation logs
+      </td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9006</a></td>
+    </tr>
   </tbody>
 </table>
 

@@ -933,6 +933,19 @@ event for some instances of an event it must still return `true` if `entity` is 
 
 Please have a look at this [complete example][2] to get a better overview.
 
+## User Operation Logs and Custom History Level
+
+The following implementation is required in order to enable User Operation Logs:
+
+```java
+public boolean isHistoryEventProduced(HistoryEventType eventType, Object entity) {
+  if (eventType.equals(HistoryEventTypes.USER_OPERATION_LOG)){
+    return true;
+  }
+  ...
+}
+```
+
 # History Cleanup
 
 When used intensively, the process engine can produce a huge amount of historic data. The history cleanup functionality helps to regularly remove "outdated" 
