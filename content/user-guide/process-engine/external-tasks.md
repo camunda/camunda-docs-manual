@@ -59,8 +59,6 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
   camunda:topic="AddressValidation" />
 ```
 
-It is possible to define the topic name by using an [expression]({{< relref "user-guide/process-engine/expression-language.md" >}}) instead of a constant value.
-
 In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< relref "reference/bpmn20/index.md" >}}) for details.
 
 ## Rest API
