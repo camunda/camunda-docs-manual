@@ -26,4 +26,4 @@ The Camunda BPM platform includes libraries developed by third parties (please r
 
 [apache]: http://www.apache.org/licenses/LICENSE-2.0.html
 [third-party-libraries]: {{< relref "introduction/third-party-libraries.md" >}}
-[license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/7.8.0/license-book-7.8.0.txt
+[license-book]: https://app.camunda.com/nexus/content/repositories/camunda-bpm/org/camunda/bpm/license-book/7.9.0/license-book-7.9.0.txt
