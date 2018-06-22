@@ -136,6 +136,14 @@ GET `/process-definition`
     <td>Filter by the version tag that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>startableInTasklist</td>
+    <td>Filter by process definitions which are startable in Tasklist.</td>
+  </tr>
+  <tr>
+    <td>notStartableInTasklist</td>
+    <td>Filter by process definitions which are not startable in Tasklist.</td>
+  </tr>
+  <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
     <code>category</code>, <code>key</code>, <code>id</code>, <code>name</code>, <code>version</code>, <code>deploymentId</code>, <code>tenantId</code> and <code>versionTag</code>.
@@ -233,7 +241,12 @@ Each process definition object has the following properties:
       <td>historyTimeToLive</td>
       <td>Number</td>
       <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
-    </tr>
+  </tr>
+  <tr>
+      <td>startableInTasklist</td>
+      <td>Boolean</td>
+      <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
+  </tr>
 </table>
 
 
@@ -281,7 +294,8 @@ GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
       "suspended": false,
       "tenantId": null,
       "versionTag": null,
-      "historyTimeToLive": 5
+      "historyTimeToLive": 5,
+      "startableInTasklist": true
     },
     {
       "id": "invoice:2:c3e1bd16-2046-11e7-8f94-34f39ab71d4e",
@@ -296,7 +310,8 @@ GET `/process-definition?keyLike=invoice&sortBy=version&sortOrder=asc`
       "suspended": false,
       "tenantId": null,
       "versionTag": null,
-      "historyTimeToLive": null
+      "historyTimeToLive": null,
+      "startableInTasklist": true
     }
   ]
 ```

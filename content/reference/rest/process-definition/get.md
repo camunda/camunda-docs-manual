@@ -126,7 +126,12 @@ Its properties are as follows:
       <td>historyTimeToLive</td>
       <td>Number</td>
       <td>History time to live value of the process definition. Is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
-    </tr>
+  </tr>
+  <tr>
+      <td>startableInTasklist</td>
+      <td>Boolean</td>
+      <td>A flag indicating whether the process definition is startable in Tasklist or not.</td>
+  </tr>
 </table>
 
 
@@ -175,6 +180,7 @@ GET `/process-definition/key/invoice`
   "suspended":false,
   "tenantId":null,
   "versionTag":null,
-  "historyTimeToLive":5
+  "historyTimeToLive":5,
+  "startableInTasklist": true
 }
 ```
