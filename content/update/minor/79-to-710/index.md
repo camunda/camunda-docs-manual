@@ -153,20 +153,25 @@ If you would like to enable the additional _Same Origin with Standard Headers_ v
 
 From version 7.10, User, Group and Tenant IDs can be matched against a Whitelist Pattern to determine if the provided ID is acceptable or not. The default (global) Regular Expression pattern to match against is `"[a-zA-Z0-9]+|camunda-admin"` i.e. any combination of alphanumeric values or _'camunda-admin'_.
 
-If your organisation allows the usage of additional characters (ex.: special characters), the ProcessEngineConfiguartion propery `generalResourceWhitelistPattern` should be set with the appropriate pattern in the engine's xml configuration file. Standard [Java Regular Expression](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) syntax can be used. For example, to accept any character, the following property value can be used:
+If your organisation allows the usage of additional characters (ex.: special characters), the ProcessEngineConfiguartion propery `generalResourceWhitelistPattern` should be set with the appropriate pattern in the engine's xml configuration file. Standard [Java Regular Expression](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) syntax can be used. For example, to accept any character, the following property value can be used:
 
 ```xml
 <property name="generalResourceWhitelistPattern" value=".+"/>
 ```
 
-The definition of different patterns for User, Group and Tenant IDs is also possible:
+The definition of different patterns for User, Group and Tenant IDs is possible by using the `resourceWhitelistPatterns` propery map. It is also possible to specify a general whitelist pattern through the property map as well:
 
 ```xml
-<property name="userResourceWhitelistPattern" value="[a-zA-Z0-9]+|camunda-admin"/>
-<property name="groupResourceWhitelistPattern" value="[a-zA-Z_0-90-]+"/>
-<property name="tenantResourceWhitelistPattern" value="[a-zA-Z]"/>
+<property name="resourceWhitelistPatterns">
+  <map>
+    <entry key="general" value="[a-zA-Z0-9]+|camunda-admin" />
+    <entry key="user" value="[a-zA-Z0-9-]+" />
+    <entry key="group" value="[a-zA-Z]+" />
+    <entry key="tenant" value=".+" />
+  </map>
+</property>
 ```
 
-
+Note that if a certain pattern isn't defined (ex. the tenant whitelist pattern), if defined, the general pattern will be used, or the default one (`"[a-zA-Z0-9]+|camunda-admin"`).
 
 
