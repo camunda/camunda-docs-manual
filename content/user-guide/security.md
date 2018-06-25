@@ -157,7 +157,7 @@ Authorizations can be used to restrict a user from accessing a data object (such
 
 ### Throttle login attempts 
 
-The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under Identity Service({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
+The engine gives option to throttle login attempts. The mechanism behind this is enabled by default. You can read more about it under [Identity Service]({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) in User Guide.
 
 ### Script Execution
 
