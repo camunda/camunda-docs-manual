@@ -622,6 +622,11 @@ Each task object has the following properties:
     <td>The task's key.</td>
   </tr>
   <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>Whether the task belongs to a process instance that is suspended.</td>
+  </tr>
+  <tr>
     <td>formKey</td>
     <td>String</td>
     <td>If not null, the form key for the task.</td>
@@ -663,48 +668,51 @@ Each task object has the following properties:
 POST `/task`
 
 Request Body:
-
-    {"taskVariables":
-        [{"name": "varName",
-        "value": "varValue",
-        "operator": "eq"
-        },
-        {"name": "anotherVarName",
-        "value": 30,
-        "operator": "neq"}],
-    "processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
-    "priority":10,
-    "sorting":
-        [{"sortBy": "dueDate",
-        "sortOrder": "asc"
-        },
-        {"sortBy": "processVariable",
-        "sortOrder": "desc",
-        "parameters": {
-          "variable": "orderId",
-          "type": "String"
-        }}]
-    }
+```json
+{"taskVariables":
+    [{"name": "varName",
+    "value": "varValue",
+    "operator": "eq"
+    },
+    {"name": "anotherVarName",
+    "value": 30,
+    "operator": "neq"}],
+"processInstanceBusinessKeyIn": "aBusinessKey,anotherBusinessKey",
+"priority":10,
+"sorting":
+    [{"sortBy": "dueDate",
+    "sortOrder": "asc"
+    },
+    {"sortBy": "processVariable",
+    "sortOrder": "desc",
+    "parameters": {
+      "variable": "orderId",
+      "type": "String"
+    }}]
+}
+```
 
 ## Response
-
-    [{"id":"anId",
-     "name":"aName",
-     "assignee":"anAssignee",
-     "created":"2013-01-23T13:42:42",
-     "due":"2013-01-23T13:49:42",
-     "followUp:":"2013-01-23T13:44:42",
-     "delegationState":"RESOLVED",
-     "description":"aDescription",
-     "executionId":"anExecution",
-     "owner":"anOwner",
-     "parentTaskId":"aParentId",
-     "priority":10,
-     "processDefinitionId":"aProcDefId",
-     "processInstanceId":"aProcInstId",
-     "caseDefinitionId":"aCaseDefId",
-     "caseInstanceId":"aCaseInstId",
-     "caseExecutionId":"aCaseExecution",
-     "taskDefinitionKey":"aTaskDefinitionKey",
-     "formKey":"aFormKey",
-     "tenantId":"aTenantId"}]
+```json
+[{"id":"anId",
+ "name":"aName",
+ "assignee":"anAssignee",
+ "created":"2013-01-23T13:42:42.453+0200",
+ "due":"2013-01-23T13:49:42.342+0200",
+ "followUp:":"2013-01-23T13:44:42.546+0200",
+ "delegationState":"RESOLVED",
+ "description":"aDescription",
+ "executionId":"anExecution",
+ "owner":"anOwner",
+ "parentTaskId":"aParentId",
+ "priority":10,
+ "processDefinitionId":"aProcDefId",
+ "processInstanceId":"aProcInstId",
+ "caseDefinitionId":"aCaseDefId",
+ "caseInstanceId":"aCaseInstId",
+ "caseExecutionId":"aCaseExecution",
+ "taskDefinitionKey":"aTaskDefinitionKey",
+ "suspended": false,
+ "formKey":"aFormKey",
+ "tenantId":"aTenantId"}]
+```
