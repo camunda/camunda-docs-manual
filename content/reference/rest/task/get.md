@@ -141,6 +141,11 @@ Its properties are as follows:
     <td>The task definition key.</td>
   </tr>
   <tr>
+    <td>suspended</td>
+    <td>Boolean</td>
+    <td>Whether the task belongs to a process instance that is suspended.</td>
+  </tr>
+  <tr>
     <td>formKey</td>
     <td>String</td>
     <td>If not null, the form key for the task.</td>
