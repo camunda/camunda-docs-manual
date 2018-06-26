@@ -310,7 +310,7 @@ These attributes can be modifed in the [configuration file]({{< relref "webapps/
 
 ### History cleanup can be parallelized
 
-As of v. 7.9.0, history cleanup can be parallelized, which leads to creation of several jobs in the database. For this reason:
+As of v. 7.8.7, history cleanup can be parallelized, which leads to creation of several jobs in the database. For this reason:
 
 * call to `HistoryService#cleanupHistoryAsync` does not guarantee to return correct Job object in return and you should not rely on the returned value any more.
  The same valid for REST call `POST /history/cleanup`
