@@ -739,6 +739,7 @@ Request Body:
  "caseInstanceId":"aCaseInstId",
  "caseExecutionId":"aCaseExecution",
  "taskDefinitionKey":"aTaskDefinitionKey",
+ "suspended": false,
  "formKey":"aFormKey",
  "tenantId":"aTenantId"}]
 ```
