@@ -1201,6 +1201,33 @@ The following attributes are extension attributes for the `camunda` namespace `h
   </tr>
 </table>
 
+# isStartableInTasklist
+
+<table class="table table-striped">
+  <tr>
+    <th>Description</th>
+    <td>
+      The attribute specifies whether the process is startable in Tasklist or not.
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><code>java.lang.Boolean</code></td>
+  </tr>
+  <tr>
+    <th>Possible Values</th>
+    <td><code>true</code>, <code>false</code></td>
+  </tr>
+  <tr>
+    <th>Default Value</th>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <th>BPMN 2.0 Elements</th>
+    <td>Process</td>
+  </tr>
+</table>
+
 # jobPriority
 
 <table class="table table-striped">
