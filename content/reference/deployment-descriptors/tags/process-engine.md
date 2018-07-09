@@ -707,3 +707,28 @@ The history time to live defines the number of days using a time specified by th
     </td>
   </tr>
 </table>
+
+## Resource whitelist pattern parameters
+
+<table class="table table-striped">
+  <tr>
+    <td><code>generalResourceWhitelistPattern</code></td>
+    <td>String</td>
+    <td>Defines acceptable values for the User, Group and Tenant IDs. Can be defined by using the standard <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regular Expression syntax</a>. Default value: <code>[a-zA-Z0-9]+|camunda-admin</code></td>
+  </tr>
+  <tr>
+    <td><code>userResourceWhitelistPattern</code></td>
+    <td>String</td>
+    <td>Defines acceptable values for the User IDs. Can be defined by using the standard <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regular Expression syntax</a>. Default value: a custom general whitelist pattern or the default <code>[a-zA-Z0-9]+|camunda-admin</code> (if nothing is defined)</td>
+  </tr>
+  <tr>
+    <td><code>groupResourceWhitelistPattern</code></td>
+    <td>String</td>
+    <td>Defines acceptable values for the Group IDs. Can be defined by using the standard <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regular Expression syntax</a>. Default value: a custom general whitelist pattern or the default <code>[a-zA-Z0-9]+|camunda-admin</code> (if nothing is defined)</td>
+  </tr>
+  <tr>
+    <td><code>tenantResourceWhitelistPattern</code></td>
+    <td>String</td>
+    <td>Defines acceptable values for the Tenant IDs. Can be defined by using the standard <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regular Expression syntax</a>. Default value: a custom general whitelist pattern or the default <code>[a-zA-Z0-9]+|camunda-admin</code> (if nothing is defined)</td>
+  </tr>
+</table>
