@@ -18,6 +18,7 @@ The REST API ships with an implementation of [HTTP Basic Authentication](http://
   <filter-class>
     org.camunda.bpm.engine.rest.security.auth.ProcessEngineAuthenticationFilter
   </filter-class>
+  <async-supported>true</async-supported>
   <init-param>
     <param-name>authentication-provider</param-name>
     <param-value>org.camunda.bpm.engine.rest.security.auth.impl.HttpBasicAuthenticationProvider</param-value>
