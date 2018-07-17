@@ -160,6 +160,7 @@ public class MyCustomConfiguration implements ProcessEnginePlugin {
 or
 
 ```java
+
 @Component
 @Order(Ordering.DEFAULT_ORDER + 1)
 public class MyCustomConfiguration extends AbstractCamundaConfiguration {
@@ -394,7 +395,11 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td><code>camunda.bpm.webapp</code></td>
 <td><code>.index-redirect-enabled</code></td>
-<td>Registers a redirect from <code>/</code> to camundas bundled <code>index.html</code></td>
+<td>Registers a redirect from <code>/</code> to camunda's bundled <code>index.html</code>.
+<br/>
+If this property is set to <code>false</code>, the
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
+Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
 </tr>
 
@@ -448,7 +453,7 @@ takes place but the previous deployment is resumed.</td>
 <tr>
 <td><code>camunda.bpm.filter</code></td>
 <td><code>.create</code></td>
-<td>Name of a "show all" filter. If set, a new filter is created on start that displayes all tasks. Useful for testing on h2 db.</td>
+<td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
 </tr> 
 
