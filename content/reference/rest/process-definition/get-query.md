@@ -144,7 +144,7 @@ GET `/process-definition`
     <td>Filter by process definitions which are not startable in Tasklist.</td>
   </tr>
   <tr>
-    <td>permissionCheck</td>
+    <td>startablePermissionCheck</td>
     <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have permissions the result will be empty list.<br/>
     The permission are:<br/>
         * CREATE permission for all Process instance<br/>
