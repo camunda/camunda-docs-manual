@@ -238,8 +238,14 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The current state of the variable. Can be 'CREATED' or 'DELETED'.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>Date</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -305,7 +311,9 @@ Request Body:
     "caseExecutionId": null,
     "taskId": null,
     "tenantId": null,
-    "errorMessage": null
+    "errorMessage": null,
+    "state": "CREATED",
+    "createTime":"2017-02-10T14:33:19.000+0200"
   }
 ]
 ```
