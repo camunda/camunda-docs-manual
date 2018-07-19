@@ -68,7 +68,7 @@ A JSON object that represents an incident object with the following properties:
   </tr>
   <tr>
     <td>incidentTimestamp</td>
-    <td>String</td>
+    <td>Date</td>
     <td>The time this incident happened. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
