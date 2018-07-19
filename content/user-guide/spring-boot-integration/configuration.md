@@ -324,33 +324,58 @@ takes place but the previous deployment is resumed.</td>
 </tr>
 <tr>
 <td><code>.keep-alive-seconds</code></td>
-<td>Specifies the time, in milliseconds, for which threads are kept alive when there are no more tasks present. When the time expires, threads are terminated so that the core pool size is reached</td>
+<td>Specifies the time, in milliseconds, for which threads are kept alive when there are no more tasks present. When the time expires, threads are terminated so that the core pool size is reached.</td>
 <td><code>0</code></td>
 </tr>
 <tr>
 <td><code>.lock-time-in-millis</code></td>
-<td>Specifies the time in milliseconds an acquired job is locked for execution. During that time, no other job executor can acquire the job</td>
+<td>Specifies the time in milliseconds an acquired job is locked for execution. During that time, no other job executor can acquire the job.</td>
 <td><code>300000</code></td>
 </tr>
 <tr>
 <td><code>.max-jobs-per-acquisition</code></td>
-<td>Sets the maximal number of jobs to be acquired at once</td>
+<td>Sets the maximal number of jobs to be acquired at once.</td>
 <td><code>3</code></td>
 </tr>
 <tr>
 <td><code>.max-pool-size</code></td>
-<td>Maximum number of parallel threads executing jobs</td>
+<td>Maximum number of parallel threads executing jobs.</td>
 <td><code>10</code></td>
 </tr>
 <tr>
 <td><code>.queue-capacity</code></td>
-<td>Sets the size of the queue which is used for holding tasks to be executed</td>
+<td>Sets the size of the queue which is used for holding tasks to be executed.</td>
 <td><code>3</code></td>
 </tr>
 <tr>
 <td><code>.wait-time-in-millis</code></td>
-<td>Specifies the wait time of the job acquisition thread in milliseconds in case there are less jobs available for execution than requested during acquisition. If this is repeatedly the case, the wait time is increased exponentially by the factor waitIncreaseFactor. The wait time is capped by maxWait</td>
+<td>Specifies the wait time of the job acquisition thread in milliseconds in case there are less jobs available for execution than requested during acquisition. If this is repeatedly the case, the wait time is increased exponentially by the factor <code>waitIncreaseFactor</code>. The wait time is capped by <code>maxWait</code>.</td>
 <td><code>5000</code></td>
+</tr>
+<tr>
+<td><code>.max-wait</code></td>
+<td>Specifies the maximum wait time of the job acquisition thread in milliseconds in case there are less jobs available for execution than requested during acquisition.</td>
+<td><code>60000</code></td>
+</tr>
+<tr>
+<td><code>.backoff-time-in-millis</code></td>
+<td>Specifies the wait time of the job acquisition thread in milliseconds in case jobs were acquired but could not be locked. This condition indicates that there are other job acquisition threads acquiring jobs in parallel. If this is repeatedly the case, the backoff time is increased exponentially by the factor <code>waitIncreaseFactor</code>. The time is capped by <code>maxBackoff</code>. With every increase in backoff time, the number of jobs acquired increases by <code>waitIncreaseFactor</code> as well.</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>.max-backoff</code></td>
+<td>Specifies the maximum wait time of the job acquisition thread in milliseconds in case jobs were acquired but could not be locked.</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>.backoff-decrease-threshold</code></td>
+<td>Specifies the number of successful job acquisition cycles without a job locking failure before the backoff time is decreased again. In that case, the backoff time is reduced by <code>waitIncreaseFactor</code>.</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td><code>.wait-increase-factor</code></td>
+<td>Specifies the factor by which wait and backoff time are increased in case their activation conditions are repeatedly met.</td>
+<td><code>2</code></td>
 </tr>
 
 <tr><td colspan="4"><b>Datasource</b></td></tr>
