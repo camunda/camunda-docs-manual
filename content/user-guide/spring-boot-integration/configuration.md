@@ -434,7 +434,9 @@ takes place but the previous deployment is resumed.</td>
 <td><code>.index-redirect-enabled</code></td>
 <td>Registers a redirect from <code>/</code> to camunda's bundled <code>index.html</code>.
 <br/>
-<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">Spring boot</a> always redirects to index.html page. If this property is set to <code>false</code>, you can set up custom welcome page.</td>
+If this property is set to <code>false</code>, the
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-welcome-page">default</a>
+Spring Boot behaviour is taken into account.</td>
 <td><code>true</code></td>
 </tr>
 
