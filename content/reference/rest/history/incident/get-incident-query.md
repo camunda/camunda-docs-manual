@@ -143,12 +143,12 @@ Each historic incident object has the following properties:
   </tr>
   <tr>
     <td>createTime</td>
-    <td>String</td>
+    <td>Date</td>
     <td>The time this incident happened. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
-    <td>String</td>
+    <td>Date</td>
     <td>The time this incident has been deleted or resolved. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>

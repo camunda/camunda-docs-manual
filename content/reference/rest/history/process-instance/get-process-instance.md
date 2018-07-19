@@ -94,12 +94,12 @@ Its properties are as follows:
   </tr>
   <tr>
     <td>startTime</td>
-    <td>String</td>
+    <td>Date</td>
     <td>The time the instance was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
-    <td>String</td>
+    <td>Date</td>
     <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
