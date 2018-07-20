@@ -82,8 +82,14 @@ Its properties are as follows:
     <td>String</td>
     <td>The url to the remote content of the task attachment.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>Date</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -121,6 +127,7 @@ GET `/task/aTaskId/attachment/aTaskAttachmentId`
     "taskId": "aTaskId",
     "description": "attachmentDescription",
     "type": "attachmentType",
-	"url": "http://my-attachment-content-url.de"
+    "url": "http://my-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200"
 }
 ```

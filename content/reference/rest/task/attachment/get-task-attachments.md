@@ -76,8 +76,14 @@ A JSON object containing a list of task attachments.
     <td>String</td>
     <td>The url to the remote content of the task attachment.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>Date</td>
+    <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -116,7 +122,8 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "attachmentDescription",
     "type": "attachmentType",
-	"url": "http://my-attachment-content-url.de"
+    "url": "http://my-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200"
   },
   {
     "id": "anotherAttachmentId",
@@ -124,7 +131,8 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "anotherAttachmentDescription",
     "type": "anotherAttachmentType",
-	"url": "http://my-another-attachment-content-url.de"
+    "url": "http://my-another-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200"
   },
   {
     "id": "yetAnotherAttachmentId",
@@ -132,7 +140,8 @@ GET `/task/aTaskId/attachment`
     "taskId": "aTaskId",
     "description": "yetAnotherAttachmentDescription",
     "type": "yetAnotherAttachmentType",
-	"url": "http://yet-another-attachment-content-url.de"
+    "url": "http://yet-another-attachment-content-url.de",
+    "createTime":"2017-02-10T14:33:19.000+0200"
   }
 ]
 ```
