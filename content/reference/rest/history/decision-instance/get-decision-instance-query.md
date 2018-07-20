@@ -336,6 +336,8 @@ Each historic decision instance object has the following properties:
 
 {{< rest-decision-input deserializationParameter="disableCustomObjectDeserialization" >}}
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+
 ## Decision Output Value
 
 {{< rest-decision-output deserializationParameter="disableCustomObjectDeserialization" >}}
@@ -389,6 +391,7 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
         "errorMessage": null,
         "id": "67ea2c41-579d-11e5-9848-f0def1e59da8",
         "type": "Double",
+        "createTime":"2017-02-10T14:33:19.000+0200",
         "value": 123.0,
         "valueInfo": {}
       },
@@ -399,6 +402,7 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
         "errorMessage": null,
         "id": "67ea2c40-579d-11e5-9848-f0def1e59da8",
         "type": "String",
+        "createTime":"2017-02-10T14:33:19.000+0200",
         "value": "Misc",
         "valueInfo": {}
       }
