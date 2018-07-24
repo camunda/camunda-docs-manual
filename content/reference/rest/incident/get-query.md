@@ -126,7 +126,7 @@ Each incident object has the following properties:
   </tr>
   <tr>
     <td>incidentTimestamp</td>
-    <td>Date</td>
+    <td>String</td>
     <td>The time this incident happened. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
