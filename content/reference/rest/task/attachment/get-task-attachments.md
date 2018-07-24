@@ -78,7 +78,7 @@ A JSON object containing a list of task attachments.
   </tr>
   <tr>
     <td>createTime</td>
-    <td>Date</td>
+    <td>String</td>
     <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
 </table>

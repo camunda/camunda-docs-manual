@@ -300,12 +300,12 @@ Each historic process instance object has the following properties:
   </tr>
   <tr>
     <td>startTime</td>
-    <td>Date</td>
+    <td>String</td>
     <td>The time the instance was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>endTime</td>
-    <td>Date</td>
+    <td>String</td>
     <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
