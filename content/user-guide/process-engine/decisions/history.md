@@ -148,7 +148,7 @@ reference].
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionInputInstance"
 text="HistoricDecisionInputInstance" >}} represents one input of an
-evaluated decision (e.g., an input clause of a decision table). 
+evaluated decision (e.g., an input clause of a decision table).
 
 ```java
 HistoricDecisionInputInstance input = ...;
@@ -167,7 +167,7 @@ Object value = input.getValue();
 TypedValue typedValue = input.getTypedValue();
 ```
 
-Note that the value may be the result of a type transformation in case the 
+Note that the value may be the result of a type transformation in case the
 input specifies a type.
 
 ## Historic Decision Output Instance
@@ -175,8 +175,8 @@ input specifies a type.
 The {{< javadocref
 page="?org/camunda/bpm/engine/history/HistoricDecisionOutputInstance"
 text="HistoricDecisionOutputInstance" >}} represents one output entry of an
-evaluated decision. If the decision is implemented as decision table, the 
-`HistoricDecisionInstance` contains one `HistoricDecisionOutputInstance` 
+evaluated decision. If the decision is implemented as decision table, the
+`HistoricDecisionInstance` contains one `HistoricDecisionOutputInstance`
 for each output clause and matched rule.
 
 ```java
@@ -214,7 +214,7 @@ You can audit the evaluated decision definitions in the [Cockpit] webapp.
 
 
 
-[Cockpit]: {{< relref "webapps/cockpit/dmn/index.md" >}}
+[Cockpit]: {{< relref "webapps/cockpit/dmn/_index.md" >}}
 [History and Audit Event Log]: {{< relref "user-guide/process-engine/history.md" >}}
 [DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
 [BPMN business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md#using-camunda-dmn-engine" >}}

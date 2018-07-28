@@ -38,7 +38,7 @@ A JSON object with the following properties:
   <tr>
     <td>jobQuery</td>
     <td>
-      A job query like the request body for the 
+      A job query like the request body for the
       <a href="{{< relref "reference/rest/job/post-query.md#request-body" >}}">
         Get Jobs (POST)
       </a> method.
@@ -51,7 +51,7 @@ A JSON object with the following properties:
 </table>
 
 Please note that if both jobIds and jobQuery are provided, then retries will be set on the union
-of these sets. 
+of these sets.
 
 ## Response Body
 
@@ -93,7 +93,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it has created all batch execution jobs required by 
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -146,7 +146,7 @@ A JSON object corresponding to the Batch interface in the engine. Its properties
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if neither processInstanceIds nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if neither processInstanceIds nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

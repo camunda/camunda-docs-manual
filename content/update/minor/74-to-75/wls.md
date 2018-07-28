@@ -93,7 +93,7 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
 
 # 7. Install the Camunda Archive
 
@@ -110,4 +110,4 @@ Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-engine-rest-$PLATF
 Deploy the web application `$WLS_DISTRIBUTION/webapps/camunda-webapp-ee-wls-$PLATFORM_VERSION.war` to your Oracle WebLogic instance.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
+[update-guide]: {{< relref "update/minor/74-to-75/_index.md" >}}

@@ -22,7 +22,7 @@ GET `/process-instance/{id}/variables`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -58,7 +58,7 @@ Each key is a variable name and each value a variable value object that has the 
 
 {{< rest-var-response deserializationParameter="deserializeValues" >}}
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -75,7 +75,7 @@ Each key is a variable name and each value a variable value object that has the 
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -85,18 +85,18 @@ Each key is a variable name and each value a variable value object that has the 
 ## Request
 
 GET `/process-instance/aProcessInstanceId/variables`
-  
+
 ## Response
 
 {{< rest-vars-response-example-deserialized >}}
 
-    
+
 # Example 2
 
 ## Request
 
 GET `/process-instance/aProcessInstanceId/variables?deserializeValues=false`
-  
+
 ## Response
 
 {{< rest-vars-response-example-serialized >}}

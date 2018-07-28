@@ -30,13 +30,13 @@ VariableMap variables = Variables.createVariables()
 DmnDecisionResult decisionResult = decisionService
   .evaluateDecisionByKey("decision-key")
   .variables(variables)
-  .evaluate(); 
-  
+  .evaluate();
+
 // alternatively for decision tables only
 DmnDecisionTableResult decisionResult = decisionService
   .evaluateDecisionTableByKey("decision-key")
   .variables(variables)
-  .evaluate(); 
+  .evaluate();
 ```
 
 ## The Decision Key
@@ -102,7 +102,7 @@ Note that the decision result also provides methods to get typed output entries.
 A complete list of all methods can be found in the {{< javadocref
 page="?org/camunda/bpm/dmn/engine/DmnDecisionResult" text="Java Docs" >}}.
 
-If the decision is implemented as [decision table] then it can also be evaluated using one of the 
+If the decision is implemented as [decision table] then it can also be evaluated using one of the
 {{< javadocref page="?org/camunda/bpm/engine/DecisionService.html##evaluateDecisionTableByKey(java.lang.String)"
 text="evaluateDecisionTable" >}} methods. In this case, the evaluation returns a {{< javadocref page="?org/camunda/bpm/dmn/engine/DmnDecisionTableResult.html" text="DmnDecisionTableResult" >}} which is semantically equal and provide the same methods as a
 `DmnDecisionResult`.
@@ -125,10 +125,10 @@ List<HistoricDecisionInstance> historicDecisions = processEngine
 
 For more information about this, please refer to the [History for DMN Decisions].
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
+[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
 [Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
-[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
 [Versioning of Decisions]: {{< relref "user-guide/process-engine/decisions/repository.md#versioning-of-decisions" >}}
 [Authorization Service]: {{< relref "user-guide/process-engine/authorization-service.md" >}}
 [History for DMN Decisions]: {{< relref "user-guide/process-engine/decisions/history.md" >}}

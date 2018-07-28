@@ -15,7 +15,7 @@ menu:
 
 ---
 
-Retrieves the start form variables for a process definition (only if they are defined via the [Generated Task Form]({{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}) approach).
+Retrieves the start form variables for a process definition (only if they are defined via the [Generated Task Form]({{< relref "user-guide/task-forms/_index.md#generated-task-forms" >}}) approach).
 The start form variables take form data specified on the start event into account. If form fields are defined,
 the variable types and default values of the form fields are taken into account.
 
@@ -98,7 +98,7 @@ value is a JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

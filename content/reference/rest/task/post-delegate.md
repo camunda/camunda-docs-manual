@@ -35,7 +35,7 @@ POST `/task/{id}/delegate`
     <td>The id of the task to delegate.</td>
   </tr>
 </table>
-  
+
 ## Request Body
 
 A JSON object with the following properties:
@@ -73,13 +73,13 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>If the task does not exist or delegation was not successful. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If the task does not exist or delegation was not successful. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
-  
+
 
 # Example
-  
+
 ## Request
 
 POST `/task/anId/delegate`
@@ -87,7 +87,7 @@ POST `/task/anId/delegate`
 Request Body:
 
     {"userId": "aUserId"}
-  
+
 ## Response
 
 Status 204. No content.

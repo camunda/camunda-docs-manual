@@ -63,7 +63,7 @@ When starting activities with a multi-instance flag, there is the option to eith
 
 {{< img src="../../img/cockpit-modification-review.png" title="Modification Review" >}}
 
-At any point during the creation of the modification, you can show the payload of the modification by clicking the {{< glyphicon name="eye-open" >}} button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/index.md" >}}).
+At any point during the creation of the modification, you can show the payload of the modification by clicking the {{< glyphicon name="eye-open" >}} button. This will show the request payload that will be sent via the [REST API]({{< relref "reference/rest/_index.md" >}}).
 
 To perform the modification, you have to click on *Apply modifications*. Then you have a last chance to review the changes you are about to make and also review the request payload. After confirming the change, the modification is executed and the page is updated with the new execution state of the process instance.
 
@@ -71,29 +71,29 @@ To perform the modification, you have to click on *Apply modifications*. Then yo
   The exact semantics of process instance modification as well as the underlying REST and Java API can be read about in the [Process Instance Modification section]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}) of the user guide.
 {{< /note >}}
 
-# Perform a Batch Modification 
+# Perform a Batch Modification
 
 {{< img src="../../img/cockpit-batch-modification-view.png" title="Batch Modification View" >}}
 
 
-When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the *Modify* tab in the process definition view. 
+When multiple process instances are required to be modified the batch modification feature can be used. To perform batch modifications, you need to click on the *Modify* tab in the process definition view.
 
 {{< img src="../../img/cockpit-batch-modification-detail.png" title="Batch Modification Detail View" >}}
 
 
-The batch modification operation is handled similarly to the modification of a single process instance. 
-    
+The batch modification operation is handled similarly to the modification of a single process instance.
+
 {{< img src="../../img/cockpit-batch-modification-instance-selection.png" title="Instance Selection" >}}
 
 
-However, to get to the *Apply Modifications* modal first you have to click *Select Instances* which opens another modal which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. When you have made your selection click on  *Modify Selected Instances*. This leads you to the *Apply Modification* modal.  
+However, to get to the *Apply Modifications* modal first you have to click *Select Instances* which opens another modal which allows you to select the process instances the modification should be applied to. Note, in order to find the relevant instances, you can apply filters. When you have made your selection click on  *Modify Selected Instances*. This leads you to the *Apply Modification* modal.
 
 
 {{< img src="../../img/cockpit-batch-modification-options.png" title="Additions Options" >}}
 
 
 Here you have two additional options to select - *Asynchronous* and *Only Cancel Currently Active Activity Instances*. By default both options are checked.
- 
+
 It is recommended to keep *Asynchronous* ticked when you want to process a large number of instances. Otherwise, unchecking the box allows you to process the batch in a synchronous manner.
 
-The second option, *Only Cancel Currently Active Activity Instances*, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.      
+The second option, *Only Cancel Currently Active Activity Instances*, only concerns modification operations which contain cancel instructions. This option prevents activity instances which are newly created during the modification operation to be instantly canceled by the same operation again.

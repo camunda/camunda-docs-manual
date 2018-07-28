@@ -14,7 +14,7 @@ menu:
 {{< note title="Installation Guide" class="info" >}}
   If you [download a full distribution](http://camunda.org/download/), the Camunda JBoss/Wildfly subsystem is readily installed into the application server.
 
-  [Read the installation guide]({{< relref "installation/full/jboss/index.md" >}}) to learn how to install the Camunda JBoss/Wildfly subsystem into your JBoss AS 7 or Wildfly 8 / 10 / 11 Server.
+  [Read the installation guide]({{< relref "installation/full/jboss/_index.md" >}}) to learn how to install the Camunda JBoss/Wildfly subsystem into your JBoss AS 7 or Wildfly 8 / 10 / 11 Server.
 {{< /note >}}
 
 Camunda BPM provides advanced integration for JBoss AS 7 and Wildfly 8 / 10 / 11 in the form of a custom [JBoss/Wildfly Subsystem](https://docs.jboss.org/author/display/AS71/Extending+JBoss+AS+7).
@@ -34,11 +34,11 @@ The most prominent features are:
 On JBoss AS 7, the thread pool is configured through the JBoss Threads subsystem. See [Manual Installation]({{<relref "installation/full/jboss/manual.md" >}}).
 {{< /note >}}
 
-Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.  
-The thread pool creation and shutdown is now controlled through the Camunda subsystem.  
+Since Camunda BPM 7.5, the configuration of the thread pool used by the Job Executor is done in the Camunda subsystem, not in the JBoss Threads subsystem, as it was done before 7.5.
+The thread pool creation and shutdown is now controlled through the Camunda subsystem.
 You are able to configure it through the following new configuration elements below the `job-executor` element of the subsystem XML configuration.
 
-Mandatory configuration elements are:  
+Mandatory configuration elements are:
 
 * ```<core-threads>3</core-threads>```
 * ```<max-threads>5</max-threads>```
@@ -283,7 +283,7 @@ The JConsole plugin allows you to inspect the management model graphically and b
 # Manage Classpath Dependencies
 
 {{< note title="Implicit Module Dependencies" class="info" >}}
-   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Classpath dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 When using the Camunda JBoss/Wildfly subsystem, the process engine classes are deployed as JBoss module. The module is named
@@ -325,7 +325,7 @@ As a result, the Application Service will add the process engine module to the c
 # Manage Service Dependencies
 
 {{< note title="Implicit Service Dependencies" class="info" >}}
-   Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/index.md" >}}).
+   Service dependencies are automatically managed for you if you use the [Process Application API]({{< relref "user-guide/process-applications/_index.md" >}}).
 {{< /note >}}
 
 The Camunda JBoss/Wildfly subsystem manages process engines as JBoss Services in the JBoss Module Service Container. For the Module Service Container to provide the process engine service(s) to the deployed applications, it is important that the dependencies are known. Consider the following example:

@@ -49,7 +49,7 @@ In order to perform the steps listed in this guide, make sure you understand the
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -85,7 +85,7 @@ The following screenshot shows the configuration of an XA datasource:
 
 {{< img src="../img/jdbc.png" title="JDBC Configuration" >}}
 
-Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/_index.md" >}}) for details.
 
 
 ## Configure a WorkManager

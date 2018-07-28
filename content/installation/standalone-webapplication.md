@@ -14,7 +14,7 @@ menu:
 
 
 This document will guide you through the installation and configuration of the Camunda standalone web application.
-The Camunda web application combines [Cockpit]({{< relref "webapps/cockpit/index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/index.md" >}}). The web application is self-contained and includes
+The Camunda web application combines [Cockpit]({{< relref "webapps/cockpit/_index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/_index.md" >}}). The web application is self-contained and includes
 an [embedded process engine]({{< relref "introduction/architecture.md#embedded-process-engine" >}}), which is configured inside the application. The process engine is configured using the
 Spring Framework and will automatically start when the application is deployed. The process engine must be configured
 to connect to a database (see the [database configuration]({{< relref "#database-configuration" >}}) section). By default the process engine will use a built-in
@@ -36,7 +36,7 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
     <tr>
       <th>Application Server</th>
       <th>Link</th>
-    </tr>      
+    </tr>
   </thead>
   <tbody>
     <tr>

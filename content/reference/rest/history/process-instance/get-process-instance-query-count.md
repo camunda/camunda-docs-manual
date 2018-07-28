@@ -109,7 +109,7 @@ GET `/history/process-instance/count`
   </tr>
   <tr>
     <td>incidentStatus</td>
-	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
+	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>.
 	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
   </tr>
   <tr>
@@ -240,7 +240,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

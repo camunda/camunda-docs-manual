@@ -61,25 +61,25 @@ In the BPMN XML of a process definition, a service task can be declared to be pe
 
 It is possible to define the topic name by using an [expression]({{< relref "user-guide/process-engine/expression-language.md" >}}) instead of a constant value.
 
-In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< relref "reference/bpmn20/index.md" >}}) for details.
+In addition, other *service-task-like* elements such as send tasks, business rule tasks, and throwing message events can be implemented with the external task pattern. See the [BPMN 2.0 implementation reference]({{< relref "reference/bpmn20/_index.md" >}}) for details.
 
 ## Rest API
 
-See the [REST API documentation]({{< relref "reference/rest/external-task/index.md" >}}) for how the API operations can be accessed via HTTP.
+See the [REST API documentation]({{< relref "reference/rest/external-task/_index.md" >}}) for how the API operations can be accessed via HTTP.
 
 ### Long Polling to Fetch and Lock External Tasks
 
-Ordinary HTTP requests are immediately answered by the server, regardless of whether the requested information 
-is available or not. This inevitably leads to a situation where the client has to perform multiple recurring requests until 
+Ordinary HTTP requests are immediately answered by the server, regardless of whether the requested information
+is available or not. This inevitably leads to a situation where the client has to perform multiple recurring requests until
 the information is available (polling). This approach can obviously be expensive in terms of resources.
 
 {{< img src="../img/external-task-long-polling.png" alt="Long polling to fetch and lock external tasks" >}}
 
-With the aid of long polling, a request is suspended by the server if no external tasks are available. As soon as new 
-external tasks occur, the request is reactivated and the response is performed. The suspension is limited to a 
+With the aid of long polling, a request is suspended by the server if no external tasks are available. As soon as new
+external tasks occur, the request is reactivated and the response is performed. The suspension is limited to a
 configurable period of time (timeout).
 
-Long polling significantly reduces the number of requests and enables using resources more efficiently on both 
+Long polling significantly reduces the number of requests and enables using resources more efficiently on both
 the server and the client side.
 
 Please also see the [REST API documentation]({{< relref "reference/rest/external-task/fetch.md" >}}).
@@ -166,7 +166,7 @@ for (LockedExternalTask task : tasks) {
 
 The resulting tasks then contain the current values of the requested variable. Note that the variable values are the values that are visible in the scope hierarchy from the external task's execution. See the chapter on [Variable Scopes and Variable Visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility" >}}) for details.
 
-In order to fetch all variables, call to `variables()` method should be omitted 
+In order to fetch all variables, call to `variables()` method should be omitted
 
 ```java
 List<LockedExternalTask> tasks = externalTaskService.fetchAndLock(10, "externalWorkerId")
@@ -199,10 +199,10 @@ for (LockedExternalTask task : tasks) {
   ...
 }
 ```
- 
+
 
 ### External Task Prioritization
-External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered. 
+External task prioritization is similar to job prioritization. The same problem exists with starvation which should be considered.
 For further details, see the section on [Job Prioritization]({{< relref "user-guide/process-engine/the-job-executor.md#the-job-priority" >}}).
 
 ### Configure the Process Engine for External Task Priorities
@@ -221,8 +221,8 @@ External task priorities can be specified in the BPMN model as well as overridde
 
 External task priorities can be assigned at the process or the activity level. To achieve this, the Camunda extension attribute `camunda:taskPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. 
-When using a constant value, the same priority is assigned to all instances of the process or activity. 
+For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported.
+When using a constant value, the same priority is assigned to all instances of the process or activity.
 Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
@@ -238,7 +238,7 @@ When configuring external task priorities at the process instance level, the `ca
 ```
 
 The effect is that all external tasks inside the process inherit the same priority (unless it is overridden locally).
-The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process. 
+The above example shows how a constant value can be used for setting the priority. This way the same priority is applied to all instances of the process.
 If different process instances need to be executed with different priorities, an expression can be used:
 
 ```xml
@@ -256,9 +256,9 @@ The service task must be an external task with the attribute `camunda:type="exte
 
 ```xml
   ...
-  <serviceTask id="externalTaskWithPrio" 
-               camunda:type="external" 
-			   camunda:topic="externalTaskTopic" 
+  <serviceTask id="externalTaskWithPrio"
+               camunda:type="external"
+			   camunda:topic="externalTaskTopic"
 			   camunda:taskPriority="8"/>
   ...
 ```
@@ -269,9 +269,9 @@ If different process instances need to be executed with different external task 
 
 ```xml
   ...
-  <serviceTask id="externalTaskWithPrio" 
-               camunda:type="external" 
-			   camunda:topic="externalTaskTopic" 
+  <serviceTask id="externalTaskWithPrio"
+               camunda:type="external"
+			   camunda:topic="externalTaskTopic"
 			   camunda:taskPriority="${order.priority}"/>
   ...
 ```
@@ -340,15 +340,15 @@ externalTaskService.getExternalTaskErrorDetails(task.getId());
 
 A failure is reported for the locked task such that it can be retried once more after 10 minutes. The process engine does not decrement retries itself. Instead, such a behavior can be implemented by setting the retries to `task.getRetries() - 1` when reporting a failure.
 
-At the moment when error details are required, they are queried from the service using separate method. 
+At the moment when error details are required, they are queried from the service using separate method.
 
 ### Reporting BPMN Error
 
 See the documentation for [Error Boundary Events]({{< relref "reference/bpmn20/events/error-events.md#error-boundary-event" >}}).
 
-For some reason a business error can appear during execution. In this case, the worker can report a BPMN error to the process engine by using `ExternalTaskService#handleBpmnError`. 
-Like `#complete` or `#handleFailure`, it can only be invoked by the worker possessing the most recent lock for a task. 
-The `#handleBpmnError` method takes one additional argument: `errorCode`. 
+For some reason a business error can appear during execution. In this case, the worker can report a BPMN error to the process engine by using `ExternalTaskService#handleBpmnError`.
+Like `#complete` or `#handleFailure`, it can only be invoked by the worker possessing the most recent lock for a task.
+The `#handleBpmnError` method takes one additional argument: `errorCode`.
 The error code identifies a predefined error. If the given `errorCode` does not exist or there is no boundary event defined,
 the current activity instance simply ends and the error is not handled.
 
@@ -377,8 +377,8 @@ A query for external tasks can be made via `ExternalTaskService#createExternalTa
 
 ### Managing Operations
 
-Additional management operations are `ExternalTaskService#unlock`, `ExternalTaskService#setRetries` and `ExternalTaskService#setPriority` to clear the current lock, to set the retries and to set the priority of an external task. 
-Setting the retries is useful when a task has 0 retries left and must be resumed manually. With the last method the priority can 
+Additional management operations are `ExternalTaskService#unlock`, `ExternalTaskService#setRetries` and `ExternalTaskService#setPriority` to clear the current lock, to set the retries and to set the priority of an external task.
+Setting the retries is useful when a task has 0 retries left and must be resumed manually. With the last method the priority can
 be set to a higher value for more important or to a lower value for less important external tasks.
 
 There are also operations `ExternalTaskService#setRetriesSync` and `ExternalTaskService#setRetriesAsync` to set retries for multiple external tasks synchronously or asynchronously.

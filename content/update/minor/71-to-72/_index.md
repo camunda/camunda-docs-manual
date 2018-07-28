@@ -30,9 +30,9 @@ Noteworthy new Features in 7.2:
 
 Before migrating, decide whether you additionally want to enable Spin/Connect and Freemarker. Based on this decision, you may have to carry out additional migration steps.
 
-[cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
+[cmmn-ref]: {{< relref "reference/cmmn11/_index.md" >}}
 [connect-ref]: {{< relref "user-guide/process-engine/connectors.md" >}}
-[spin-ref]: {{< relref "user-guide/data-formats/index.md" >}}
+[spin-ref]: {{< relref "user-guide/data-formats/_index.md" >}}
 [freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}
 
 {{< note title="No Rolling Updates" class="warning" >}}
@@ -121,7 +121,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms must be migrated.
 
-> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/index.md" >}})
+> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/_index.md" >}})
 
 ## Overview
 

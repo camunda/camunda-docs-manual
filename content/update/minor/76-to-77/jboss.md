@@ -114,7 +114,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 
 [jboss-threads-to-camunda-mapping-table]: {{< relref "update/minor/76-to-77/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
-[update-guide]: {{< relref "update/minor/76-to-77/index.md" >}}
+[update-guide]: {{< relref "update/minor/76-to-77/_index.md" >}}
 [jboss-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/
 [wildfly-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/

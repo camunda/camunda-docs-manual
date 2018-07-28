@@ -19,7 +19,7 @@ Error events are events which are triggered by a defined error.
 
 A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.
 
-You might also want to check out the basics of [Threading and Transactions]({{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}}) first.
+You might also want to check out the basics of [Threading and Transactions]({{< relref "user-guide/process-engine/transactions-in-processes.md#transaction-boundaries" >}}) in the [User Guide]({{< relref "user-guide/_index.md" >}}) first.
 
 
 # Defining an Error
@@ -40,7 +40,7 @@ An error event definition references an error element. The following is an examp
 ```
 
 You can trigger this error event either with a throwing error event within your process definition or from Delegation Code, see the
-[Throwing BPMN Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more information.
+[Throwing BPMN Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/_index.md" >}}) for more information.
 
 Another possibility to define an error is setting of the type (class name) of any Java Exception as error code. Example:
 
@@ -87,7 +87,7 @@ Three optional attributes can be added to the error start event: <code>errorRef<
 </definitions>
 ```
 * If `errorRef` is omitted, the subprocess will start for every error event that occurs.
-* The `camunda:errorCodeVariable` will contain the error code that was specified with the error. 
+* The `camunda:errorCodeVariable` will contain the error code that was specified with the error.
 * The `camunda:errorMessageVariable` will contain the error message that was specified with the error.
 
 `camunda:errorCodeVariable` and `camunda:errorMessageVariable` can be retrieved like any other process variable, but only if the attribute was set.
@@ -164,13 +164,13 @@ The errorCode is used to match the errors that are caught:
 # Unhandled BPMN Error
 
 It can happens that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
-This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code> 
+This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code>
 (via the process engine configuration or the deployment descriptor) and Process Engine Exception will be thrown if unhandled BPMN Error occurs.
 
 
 # Catch and Re-Throw Pattern
 
-An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess). 
+An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess).
 
 <div data-bpmn-diagram="../bpmn/catchandthrowpattern"></div>
 

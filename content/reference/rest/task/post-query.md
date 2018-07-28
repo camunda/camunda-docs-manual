@@ -66,7 +66,7 @@ A JSON object with the following properties:
   <tr>
     <td>processInstanceBusinessKeyExpression</td>
     <td>Restrict to tasks that belong to process instances with the given business key which is described by an expression.
-     See the 
+     See the
      <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
      for more information on available functions.</td>
   </tr>
@@ -82,8 +82,8 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceBusinessKeyLikeExpression</td>
-    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is 
-    described by an expression. See the 
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is
+    described by an expression. See the
     <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
     for more information on available functions.</td>
   </tr>
@@ -204,22 +204,22 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>withCandidateGroups</td>
-    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withCandidateUsers</td>
-    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateUsers</td>
-    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
@@ -509,10 +509,10 @@ A JSON object with the following properties:
   <tr>
     <td>orQueries</td>
     <td>
-    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used  
-    inside of this JSON object. See the <a href="{{< relref "user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a> 
+    A JSON array which contains at least one OR query JSON Object. All previously listed filter criteria can be used
+    inside of this JSON object. See the <a href="{{< relref "user-guide/process-engine/process-engine-api.md#or-queries" >}}">user guide</a>
     for more information about OR queries.<br><br>
-    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>, 
+    The following properties are not supported: <code>sorting</code>, <code>withCandidateGroups</code>,
     <code>withoutCandidateGroups</code>, <code>withCandidateUsers</code>, <code>withoutCandidateUsers</code>.
     </td>
   </tr>
@@ -683,7 +683,7 @@ Each task object has the following properties:
     <td>400</td>
     <td>application/json</td>
     <td>
-      Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

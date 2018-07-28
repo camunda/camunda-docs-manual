@@ -161,7 +161,7 @@ The properties of a instruction report are as follows:
     <td>
       In case additional parameters of the request are unexpected, an exception
       of type <code>InvalidRequestException</code> is returned. See the <a
-      href="{{< relref "reference/rest/overview/index.md#error-handling">}}">
+      href="{{< relref "reference/rest/overview/_index.md#error-handling">}}">
       Introduction</a> for the error response format.
     </td>
   </tr>

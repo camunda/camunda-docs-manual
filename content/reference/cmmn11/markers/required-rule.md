@@ -11,7 +11,7 @@ menu:
 
 ---
 
-**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}) and [Milestone]({{< relref "reference/cmmn11/milestone.md" >}})
+**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/_index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}) and [Milestone]({{< relref "reference/cmmn11/milestone.md" >}})
 
 {{< cmmn-symbol type="marker-required" >}}
 

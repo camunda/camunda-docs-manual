@@ -20,25 +20,25 @@ You manage the process engine as part of your application. The following ways ex
 
 * [Programmatically via Java API]({{< relref "#bootstrap-a-process-engine-using-the-java-api" >}})
 * [Via XML configuration]({{< relref "#configure-process-engine-using-spring-xml" >}})
-* [Via Spring]({{< relref "user-guide/spring-framework-integration/index.md" >}})
+* [Via Spring]({{< relref "user-guide/spring-framework-integration/_index.md" >}})
 
 
 # Shared, Container Managed Process Engine
 
-A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) for details.
+A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/_index.md" >}}) for details.
 
 
 ## ProcessEngineConfiguration Bean
 
 The Camunda engine uses the {{< javadocref page="?org/camunda/bpm/engine/ProcessEngineConfiguration.html" text="ProcessEngineConfiguration bean" >}} to configure and construct a standalone Process Engine. There are multiple subclasses available that can be used to define the process engine configuration. These classes represent different environments, and set defaults accordingly. It's a best practice to select the class that matches (most of) your environment to minimize the number of properties needed to configure the engine. The following classes are currently available:
 
-* `org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`  
+* `org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration`
 The process engine is used in a standalone way. The engine itself will take care of the transactions. By default the database will only be checked when the engine boots (an exception is thrown if there is no database schema or the schema version is incorrect).
-* `org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration`  
+* `org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration`
 This is a convenience class for unit testing purposes. The engine itself will take care of the transactions. An H2 in-memory database is used by default. The database will be created and dropped when the engine boots and shuts down. When using this, probably no additional configuration is needed (except, for example, when using the job executor or mail capabilities).
-* `org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration`  
+* `org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration`
 To be used when the process engine is used in a Spring environment. See the Spring integration section for more information.
-* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration`  
+* `org.camunda.bpm.engine.impl.cfg.JtaProcessEngineConfiguration`
 To be used when the engine runs in standalone mode, with JTA transactions.
 
 

@@ -32,8 +32,8 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.6:
 
-* [DRD support in DMN]({{< relref "reference/dmn11/drg/index.md" >}})
-* [CMMN support in Cockpit]({{< relref "webapps/cockpit/cmmn/index.md" >}})
+* [DRD support in DMN]({{< relref "reference/dmn11/drg/_index.md" >}})
+* [CMMN support in Cockpit]({{< relref "webapps/cockpit/cmmn/_index.md" >}})
 * [Batch operations]({{< relref "webapps/cockpit/batch/batch-operation.md" >}})
 * Rolling update support
 

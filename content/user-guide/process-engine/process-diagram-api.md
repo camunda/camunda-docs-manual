@@ -13,7 +13,7 @@ menu:
 
 A BPMN process diagram is a formidable place to visualize information around your process. We recommend to use JavaScript libraries to display process diagrams and enrich them with additional information.
 
-In our web applications [Cockpit]({{< relref "webapps/cockpit/index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/index.md" >}}), we use [bpmn.io](http://bpmn.io/), a toolkit for rendering BPMN 2.0 process models directly in the browser. It allows adding additional information to the diagram and includes ways for user interaction. Although bpmn.io is still under development, its API is rather stable.
+In our web applications [Cockpit]({{< relref "webapps/cockpit/_index.md" >}}) and [Tasklist]({{< relref "webapps/tasklist/_index.md" >}}), we use [bpmn.io](http://bpmn.io/), a toolkit for rendering BPMN 2.0 process models directly in the browser. It allows adding additional information to the diagram and includes ways for user interaction. Although bpmn.io is still under development, its API is rather stable.
 
 The previous JavaScript BPMN renderer can still be found at [camunda-bpmn.js](https://github.com/camunda/camunda-bpmn.js), but it is not actively developed anymore.
 

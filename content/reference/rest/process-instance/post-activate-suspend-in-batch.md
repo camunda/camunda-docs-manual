@@ -13,8 +13,8 @@ menu:
 ---
 
 
-Activates or suspends process instances asynchronously with a list of process 
-instance ids, a process instance query, and/or a historical process instance 
+Activates or suspends process instances asynchronously with a list of process
+instance ids, a process instance query, and/or a historical process instance
 query
 
 # Method
@@ -44,7 +44,7 @@ See <a href="{{< relref "reference/rest/process-instance/get-query.md" >}}">GET 
   <tr>
     <td>historicProcessInstanceQuery</td>
     <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a></td>
-  </tr>   
+  </tr>
   <tr>
     <td>suspended</td>
     <td>A <code>Boolean</code> value which indicates whether to activate or suspend all process instances that were defined with the other parameters.  When the value is set to <code>true</code>, all process instances defined will be suspended and when the value is set to <code>false</code>, all process instances defined will be activated.</td>
@@ -127,7 +127,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
     <td>The tenant id of the batch.</td>
   </tr>
 </table>
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -144,29 +144,29 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if <code>processInstanceIds</code>, <code>processInstanceQuery</code>, and <code>historicProcessInstanceQuery</code> parameters are all set to null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if <code>processInstanceIds</code>, <code>processInstanceQuery</code>, and <code>historicProcessInstanceQuery</code> parameters are all set to null. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-  
+
 # Example
 
 ## Request
 
 POST `/process-instance/suspended-async`
-  
+
     {
       "processInstanceIds" : [
-                               "processInstanceId1",  
-                               "processInstanceId2",  
+                               "processInstanceId1",
+                               "processInstanceId2",
                                ...
-                               "processInstanceIdn"  
+                               "processInstanceIdn"
                              ],
       "suspended" : true
     }
-     
+
 ## Response
-    
+
 Status 200 OK
 
 ```json

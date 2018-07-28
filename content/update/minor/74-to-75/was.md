@@ -94,7 +94,7 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
 
 # 6. Install the Camunda Archive
 
@@ -117,4 +117,4 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Associate the web application with the `Camunda` shared library.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
+[update-guide]: {{< relref "update/minor/74-to-75/_index.md" >}}

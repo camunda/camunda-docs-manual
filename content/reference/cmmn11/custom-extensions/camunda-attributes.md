@@ -440,7 +440,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      This attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/index.md" >}}">task forms</a> for more information.
+      This attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -450,7 +450,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "webapps/tasklist/index.md" >}}">Tasklist</a>
+      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "webapps/tasklist/_index.md" >}}">Tasklist</a>
     </td>
   </tr>
   <tr>

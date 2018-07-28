@@ -21,7 +21,7 @@ In the context of the process engine, errors are normally raised as Java excepti
 
 ## Transaction Rollbacks
 
-The standard handling strategy is that exceptions are thrown to the client, meaning that the current transaction is rolled back. This means that the process state is rolled back to the last wait state. This behavior is described in detail in the [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}). Error handling is delegated to the client by the engine.
+The standard handling strategy is that exceptions are thrown to the client, meaning that the current transaction is rolled back. This means that the process state is rolled back to the last wait state. This behavior is described in detail in the [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) section of the [User Guide]({{< relref "user-guide/_index.md" >}}). Error handling is delegated to the client by the engine.
 
 Let's show this in a concrete example: the user gets an error dialog on the frontend stating that the stock management software is currently not reachable due to network errors. To perform a retry, the user might have to click the same button again. Even if this is often not desired it is still a simple strategy applicable in a lot of situations.
 
@@ -52,11 +52,11 @@ The BPMN 2.0 error event gives you the possibility to explicitly model errors, t
 {{< img src="../img/bpmn.boundary.error.event.png" title="Error Boundary Event" >}}
 
 
-See the [Error Events]({{< relref "reference/bpmn20/events/error-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) and the [Throwing Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more information.
+See the [Error Events]({{< relref "reference/bpmn20/events/error-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}) and the [Throwing Errors from Delegation Code]({{< relref "user-guide/process-engine/delegation-code.md#throw-bpmn-errors-from-delegation-code" >}}) section of the [User Guide]({{< relref "user-guide/_index.md" >}}) for more information.
 
 ## BPMN 2.0 Compensation and Business Transactions
 
-BPMN 2.0 transactions and compensations allow you to model business transaction boundaries (however, not in a technical ACID manner) and make sure already executed actions are compensated during a rollback. Compensation means to make the effect of the action invisible, e.g. book in goods if you have previously booked out the goods. See the [BPMN Compensation event]({{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}) and the [BPMN Transaction Subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}) sections of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) for details.
+BPMN 2.0 transactions and compensations allow you to model business transaction boundaries (however, not in a technical ACID manner) and make sure already executed actions are compensated during a rollback. Compensation means to make the effect of the action invisible, e.g. book in goods if you have previously booked out the goods. See the [BPMN Compensation event]({{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}) and the [BPMN Transaction Subprocess]({{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}) sections of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}) for details.
 
 
 # Monitoring and Recovery Strategies
@@ -69,9 +69,9 @@ As mentioned above, the simplest error handling strategy is to throw the excepti
 
 ## Retry Failed Jobs
 
-If you use Jobs (`async`), you can leverage Cockpit as monitoring tool to handle failed jobs, in this case no end user sees the exception. Then you normally see failures in cockpit when the retries are depleted (see the [Failed Jobs]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/index.md" >}}) for more information).
+If you use Jobs (`async`), you can leverage Cockpit as monitoring tool to handle failed jobs, in this case no end user sees the exception. Then you normally see failures in cockpit when the retries are depleted (see the [Failed Jobs]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/_index.md" >}}) for more information).
 
-See the [Failed Jobs in Cockpit]({{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/index.md" >}}) for more details.
+See the [Failed Jobs in Cockpit]({{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}) section of the [Web Applications]({{< relref "webapps/cockpit/_index.md" >}}) for more details.
 
 If you don't want to use Cockpit, you can also find the failed jobs via the API yourself:
 

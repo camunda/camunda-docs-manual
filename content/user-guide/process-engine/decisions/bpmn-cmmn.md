@@ -74,7 +74,7 @@ task, please refer to the [CMMN 1.1 reference][decision task].
 # The Decision Result
 
 The output of the decision, also called decision result, is a complex object of
-type `DmnDecisionResult`. Generally, it is a list of key-value pairs. 
+type `DmnDecisionResult`. Generally, it is a list of key-value pairs.
 
 If the decision is implemented as [decision table] then each entry in the list represents one matched rule. The output entries of this
 rule are represented by the key-value pairs. The key of a pair is specified by
@@ -88,7 +88,7 @@ get the result of a matched rule. The rule results provide methods from the
 `Map` interface and also convenience methods like `getSingleEntry()` or
 `getFirstEntry()`.
 
-If the decision result contains only a single output value (e.g., evaluating a decision literal expression) then 
+If the decision result contains only a single output value (e.g., evaluating a decision literal expression) then
 the value can be retrieved from the result using the `getSingleEntry()` method
 which combines `getSingleResult()` and `getSingleEntry()`.
 
@@ -327,7 +327,7 @@ calling task. The variables are provided through a read-only variable context.
 
 As a shorthand, process/case variables can be directly referenced by name in
 expressions. For example, if a process variable `foo` exists, then this
-variable can be used in an input expression, input entry and output entry of a decision table 
+variable can be used in an input expression, input entry and output entry of a decision table
 by its name.
 
 ```xml
@@ -374,7 +374,7 @@ information about expression languages.
 
 If the DMN engine is invoked by the Camunda BPM platform, it uses the same
 JUEL configuration as the Camunda BPM engine. Therefore, it is also
-possible to access Spring and CDI Beans from JUEL expressions in decisions. 
+possible to access Spring and CDI Beans from JUEL expressions in decisions.
 For more information on this integration, please see the corresponding
 section in the [Spring] and [CDI] guides.
 
@@ -408,8 +408,8 @@ This can be done, for example, by creating a [process engine plugin].
 Please **note** that these functions are available in all JUEL expressions
 in the platform, not only in DMN decisions.
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
+[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
 [deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
 [business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}
 [decision task]: {{< relref "reference/cmmn11/tasks/decision-task.md" >}}
@@ -419,7 +419,7 @@ in the platform, not only in DMN decisions.
 [execution listener]: {{< relref "user-guide/process-engine/delegation-code.md#execution-listener" >}}
 [expression languages]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
 [JUEL]: http://juel.sourceforge.net/
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
-[Spring]: {{< relref "user-guide/spring-framework-integration/index.md#expression-resolving" >}}
+[FEEL]: {{< relref "reference/dmn11/feel/_index.md" >}}
+[Spring]: {{< relref "user-guide/spring-framework-integration/_index.md#expression-resolving" >}}
 [CDI]: {{< relref "user-guide/cdi-java-ee-integration/expression-resolving.md" >}}
 [process engine plugin]: {{< relref "user-guide/process-engine/process-engine-plugins.md" >}}

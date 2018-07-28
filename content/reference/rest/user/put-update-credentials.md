@@ -5,7 +5,7 @@ weight: 70
 
 menu:
   main:
-    name: "Update Credentials" 
+    name: "Update Credentials"
     identifier: "rest-api-user-post-update"
     parent: "rest-api-user"
     pre: "PUT `/user/{id}/credentials`"
@@ -80,7 +80,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The user could not be created due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The user could not be created due to an internal server error. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -93,7 +93,7 @@ A JSON object containing the a list of identity links.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -21,7 +21,7 @@ GET `/user/count`
 
 
 # Parameters
-  
+
 ## Query Parameters
 
 <table class="table table-striped">
@@ -64,7 +64,7 @@ GET `/user/count`
   <tr>
     <td>memberOfTenant</td>
     <td>Filter for users which are members of the given tenant.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -102,7 +102,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -112,7 +112,7 @@ A JSON object that contains the count as the only property.
 ## Request
 
 GET `/user/count?firstName=John`
-  
+
 ## Response
 
 Status 200.

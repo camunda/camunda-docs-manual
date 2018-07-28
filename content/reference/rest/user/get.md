@@ -67,7 +67,7 @@ Each user object has the following properties:
     <td>email</td>
     <td>String</td>
     <td>The email of the user.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>links</td>
     <td>Object</td>
@@ -92,7 +92,7 @@ Each user object has the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Execution with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -102,7 +102,7 @@ Each user object has the following properties:
 ## Request
 
 GET `/user/jonny1/profile`
-  
+
 ## Response
 
 Status 200.

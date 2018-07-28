@@ -80,7 +80,7 @@ A JSON object with a single count property.
     <td>400</td>
     <td>application/json</td>
     <td>
-      The extending query was invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a>
+      The extending query was invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>
@@ -89,7 +89,7 @@ A JSON object with a single count property.
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ A JSON object with a single count property.
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

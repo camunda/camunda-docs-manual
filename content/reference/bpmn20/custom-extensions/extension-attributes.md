@@ -72,9 +72,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
@@ -134,9 +134,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
@@ -1001,9 +1001,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,
@@ -1112,7 +1112,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td>
-      The attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/index.md" >}}">task forms</a> for more information.
+      The attribute specifies a form resource. See <a href="{{< relref "user-guide/task-forms/_index.md" >}}">task forms</a> for more information.
     </td>
   </tr>
   <tr>
@@ -1122,7 +1122,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Possible Values</th>
     <td>
-      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "webapps/tasklist/index.md" >}}">Tasklist</a>
+      A <code>java.lang.String</code> of a form resource which can be evaluated by the <a href="{{< relref "webapps/tasklist/_index.md" >}}">Tasklist</a>
     </td>
   </tr>
   <tr>
@@ -1255,9 +1255,9 @@ The following attributes are extension attributes for the `camunda` namespace `h
     <th>BPMN 2.0 Elements</th>
     <td>
       <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Throw Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Catch Events</a>,
 
       Task,
       <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">Service Task</a>,

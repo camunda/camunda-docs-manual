@@ -46,8 +46,8 @@ GET `/task/{id}/form-variables`
   </tr>
   <tr>
     <td>variableNames</td>
-    <td>A comma-separated list of variable names. Allows restricting the list of requested 
-        variables to the variable names in the list. It is best practice to restrict the list of 
+    <td>A comma-separated list of variable names. Allows restricting the list of requested
+        variables to the variable names in the list. It is best practice to restrict the list of
         variables to the variables actually required by the form in order to minimize fetching of
         data. If the query parameter is ommitted all variables are fetched. If the query parameter
         contains non-existent variable names, the variable names are ignored.</td>
@@ -83,7 +83,7 @@ value is a JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

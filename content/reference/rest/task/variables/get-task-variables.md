@@ -22,7 +22,7 @@ GET `/task/{id}/variables`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -75,7 +75,7 @@ Each key is a variable name and each value a variable value object that has the 
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -108,18 +108,18 @@ GET `/task/aTaskId/variables`
 ## Request
 
 GET `/task/aTaskId/variables`
-  
+
 ## Response
 
 {{< rest-vars-response-example-deserialized >}}
 
-    
+
 # Example 2
 
 ## Request
 
 GET `/task/aTaskId/variables?deserializeValues=false`
-  
+
 ## Response
 
 {{< rest-vars-response-example-serialized >}}

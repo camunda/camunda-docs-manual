@@ -27,14 +27,14 @@ Out of the box, Camunda Tasklist supports four different kinds of task forms:
 
 {{< note title="This section applies to forms in Camunda Tasklist" class="info" >}}
   When embedding the process engine into a custom application, you can integrate the process engine with any form technology such
-  as [JavaServer Faces][jsf-task-forms], Java Swing, 
+  as [JavaServer Faces][jsf-task-forms], Java Swing,
   JavaFX, REST-based JavaScript web applications and many more.
 {{< /note >}}
 
 
 # Embedded Task Forms
 
-Embedded task forms are HTML and JavaScript forms which can be displayed directly within Tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< relref "reference/embedded-forms/index.md" >}}).
+Embedded task forms are HTML and JavaScript forms which can be displayed directly within Tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< relref "reference/embedded-forms/_index.md" >}}).
 
 To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example, you can create a FORM_NAME.html file containing the relevant content for your form, e.g., a simple form with two input fields:
 
@@ -107,7 +107,7 @@ This form would look like this in Tasklist:
 
 As you can see, the `<camunda:formData ... />` element is provided as a child element of the BPMN `<extensionElements>` element. Form metadata consists of multiple form fields which represent individual input fields where a user has to provide some value or selection.
 
-A form data can have following attributes: 
+A form data can have following attributes:
 
 <table class="table table-bordered">
   <thead>

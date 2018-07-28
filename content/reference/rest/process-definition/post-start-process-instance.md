@@ -211,17 +211,17 @@ Properties are:
   <tr>
     <td>400</td>
     <td>application/json</td>
-        <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to an invalid variable value, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-        <td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+        <td>The instance could not be created due to a non existing process definition key. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The instance could not be created successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The instance could not be created successfully. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -379,7 +379,7 @@ Request Body:
     {
       "links": [
         {
-          "method": "GET", 
+          "method": "GET",
           "href":"http://localhost:8080/rest-test/process-instance/anId",
           "rel":"self"
         }

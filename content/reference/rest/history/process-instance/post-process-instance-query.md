@@ -125,7 +125,7 @@ A JSON object with the following properties:
     </tr>
   <tr>
     <td>incidentStatus</td>
-	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>. 
+	<td>Only include process instances which have an incident in status either <code>open</code> or <code>resolved</code>.
 	To get all process instances, use the query parameter <code>withIncidents</code>.</td>
   </tr>
   <tr>
@@ -183,8 +183,8 @@ A JSON object with the following properties:
         </tr>
         <tr>
           <td>sortBy</td>
-          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are 
-          <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>, 
+          <td><b>Mandatory.</b> Sort the results lexicographically by a given criterion. Valid values are
+          <code>instanceId</code>, <code>definitionId</code>, <code>definitionKey</code>, <code>definitionName</code>, <code>definitionVersion</code>,
           <code>businessKey</code>, <code>startTime</code>, <code>endTime</code>, <code>duration</code> and <code>tenantId</code>.</td>
         </tr>
         <tr>
@@ -367,7 +367,7 @@ Each historic process instance object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

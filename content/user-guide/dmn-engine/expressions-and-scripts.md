@@ -26,7 +26,7 @@ As shown in the [decision table] and [decision literal expression] reference, fo
   table is applicable
 - *Output Entry*: returns a value which is added to the output of a matched rule
   of the decision table
-- *Literal Expression*: used to determine the value of a decision literal expression 
+- *Literal Expression*: used to determine the value of a decision literal expression
 
 You can read more on this in the [DMN 1.1 reference][decision table]. In
 the DMN 1.1 XML, expressions can be found in the XML
@@ -34,7 +34,7 @@ elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  
+
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -61,9 +61,9 @@ elements `inputExpression`, `inputEntry`, `outputEntry` and `literalExpression`:
     <!-- the literal expression determines the value of this decision -->
     <literalExpression>
       <text>a + b</text>
-    </literalExpression> 
+    </literalExpression>
   </decision>
-  
+
 </definitions>
 ```
 
@@ -129,7 +129,7 @@ It is also possible to set the language for each expression individually using t
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  
+
   <decision id="decision" name="Decision">
     <decisionTable>
       <input id="input">
@@ -151,12 +151,12 @@ It is also possible to set the language for each expression individually using t
       </rule>
     </decisionTable>
   </decision>
-  
+
   <decision id="decision2" name="Decision 2">
     <!-- use groovy for this literal expression -->
     <literalExpression expressionLanguage="groovy">
       <text>a + b</text>
-    </literalExpression> 
+    </literalExpression>
   </decision>
 
 </definitions>
@@ -169,12 +169,12 @@ the JSR-223 script engine resolving, for example if you want to configure
 the script engine before using it.
 
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
+[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
 [juel]: http://juel.sourceforge.net/
 [EL]: https://jcp.org/aboutJava/communityprocess/final/jsr245/index.html
 [DMN 1.1]: http://www.omg.org/spec/DMN/
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
+[FEEL]: {{< relref "reference/dmn11/feel/_index.md" >}}
 [Rhino]: https://developer.mozilla.org/de/docs/Rhino
 [Nashhorn]: https://blogs.oracle.com/nashorn/
 [JSR-223]: https://www.jcp.org/en/jsr/detail?id=223

@@ -11,12 +11,12 @@ menu:
 ---
 
 
-[Custom extensions]({{< relref "reference/dmn11/custom-extensions/index.md" >}}) are a standardized way to extend the DMN model.
+[Custom extensions]({{< relref "reference/dmn11/custom-extensions/_index.md" >}}) are a standardized way to extend the DMN model.
 The [Camunda extension attrributes]({{< relref "reference/dmn11/custom-extensions/camunda-attributes.md" >}}) are fully implemented in the DMN model API.
 
 Every DMN `Decision` element can have the attributes `historyTimeToLive` and `versionTag`.
-To access the extension attributes, you have to call the `Decision#getCamundaHistoryTimeToLiveString()` and 
-`Decision#getVersionTag()` methods. 
+To access the extension attributes, you have to call the `Decision#getCamundaHistoryTimeToLiveString()` and
+`Decision#getVersionTag()` methods.
 
 ```java
 String historyTimeToLive = decision.getCamundaHistoryTimeToLiveString();

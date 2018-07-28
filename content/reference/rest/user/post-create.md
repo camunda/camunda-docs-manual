@@ -37,7 +37,7 @@ A JSON object with the following properties:
     <td>profile</td>
     <td>Array</td>
     <td>
-      A JSON object containing variable key-value pairs. The object contains the following properties: 
+      A JSON object containing variable key-value pairs. The object contains the following properties:
       <code>id (String)</code>, <code>firstName (String)</code>, <code>lastName (String)</code> and <code>email (String)</code>.
     </td>
   </tr>
@@ -78,7 +78,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The user could not be created due to an internal server error. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The user could not be created due to an internal server error. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -91,12 +91,12 @@ POST `/user/create`
 
 Request Body:
 
-    {"profile": 
+    {"profile":
       {"id": "jonny1",
       "firstName":"John",
       "lastName":"Doe",
       "email":"aNewEmailAddress"},
-    "credentials": 
+    "credentials":
       {"password":"s3cret"}
     }
 

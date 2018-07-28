@@ -115,7 +115,7 @@ From the accountant's perspective, migration is completely transparent while wor
 # API
 
 The following gives a structured overview of the Java API for process instance migration. Note that these operations are also available
-via [REST]({{< relref "reference/rest/migration/index.md" >}}).
+via [REST]({{< relref "reference/rest/migration/_index.md" >}}).
 
 ## Creating a Migration Plan
 

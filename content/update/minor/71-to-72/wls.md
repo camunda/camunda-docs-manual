@@ -24,7 +24,7 @@ The update procedure takes the following steps:
 In each of the following steps, the identifiers `$*_VERSION` refer to the current version and the new versions of the artifacts.
 
 {{< note title="Changing Platform Configuration" class="info" >}}
-Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the 
+Depending on your chosen feature set for Camunda BPM, some of the (optional) migration steps may require to change the configuration of the BPM platform. The Camunda enterprise archive (EAR) contains a default platform configuration. If you want to change this configuration, you can replace it as described in the
 [deployment descriptor reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}).
 {{< /note >}}
 
@@ -183,4 +183,4 @@ With 7.2, it is possible to enable entity caching for Hypertext Application Lang
 {{< /note >}}
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
+[migration-guide]: {{< relref "update/minor/71-to-72/_index.md" >}}

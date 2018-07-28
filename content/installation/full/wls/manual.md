@@ -42,7 +42,7 @@ The Camunda BPM platform requires a set of resources that need to be configured 
 
 ## Create the Database Schema and Tables
 
-In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to 
+In the default configuration of the distribution, the database schema and all required tables are automatically created in an H2 database when the engine starts up for the first time. If you do not want to use the H2 database, you have to
 
 * Create a database schema for the Camunda BPM platform yourself.
 * Execute the SQL DDL scripts which create all required tables and default indices.
@@ -90,7 +90,7 @@ In this section we explain how to add a datasource using the Oracle WebLogic Ser
 7. When you finished the creation of the datasource, click the **"Finish"** Button to complete the installation.
 8. Check the box in front of your datasource and test if it works.
 
-Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+Note that you can configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/_index.md" >}}) for details.
 
 
 # Required Components

@@ -22,7 +22,7 @@ GET `/process-instance/{id}/variables/{varName}`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -61,7 +61,7 @@ A JSON object with the following properties:
 
 {{< rest-var-response deserializationParameter="deserializeValues" >}}
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -78,7 +78,7 @@ A JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -88,7 +88,7 @@ A JSON object with the following properties:
 ## Request
 
 GET `/process-instance/aProcessInstanceId/variables/aVarName`
-  
+
 ## Response
 
 {{< rest-var-response-example-deserialized >}}
@@ -99,7 +99,7 @@ GET `/process-instance/aProcessInstanceId/variables/aVarName`
 ## Request
 
 GET `/process-instance/aProcessInstanceId/variables/aVarName?deserializeValue=false`
-  
+
 ## Response
 
 {{< rest-var-response-example-serialized >}}

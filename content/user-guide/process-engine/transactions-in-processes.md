@@ -235,8 +235,8 @@ integrate with
 * other transactional resources such as secondary datasources, messaging systems or other
   transactional middleware like the web services stack.
 
-[tx-spring]: {{< relref "user-guide/spring-framework-integration/index.md#spring-transaction-integration" >}}
-[tx-jta]: {{< relref "user-guide/cdi-java-ee-integration/index.md" >}}
+[tx-spring]: {{< relref "user-guide/spring-framework-integration/_index.md#spring-transaction-integration" >}}
+[tx-jta]: {{< relref "user-guide/cdi-java-ee-integration/_index.md" >}}
 
 # Optimistic Locking
 
@@ -261,7 +261,7 @@ Assume we have a database table with the following entry:
       <th>Version</th>
       <th>Name</th>
       <th>Address</th>
-      <th>...</th>      
+      <th>...</th>
     </tr>
     <tr>
       <td>8</td>
@@ -309,9 +309,9 @@ However, since pessimistic locks are exclusive, concurrency is reduced, degradin
 
 ## Optimistic Locking in Camunda
 
-Camunda uses Optimistic Locking for concurrency control. If a concurency conflict is detected, 
-an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed. 
-The execution of delete or update statements return an affected rows count. 
+Camunda uses Optimistic Locking for concurrency control. If a concurency conflict is detected,
+an exception is thrown and the transaction is rolled back. Conflicts are detected when _UPDATE_ or _DELETE_ statements are executed.
+The execution of delete or update statements return an affected rows count.
 If this count is equal to zero, it indicates that the row was previously updated or deleted.
 In such cases a conflict is detected and an `OptimisticLockingException` is thrown.
 

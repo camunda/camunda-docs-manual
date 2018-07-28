@@ -11,7 +11,7 @@ menu:
 
 ---
 
-Retrieves a report about a decision definition and finished decision instances relevant to history cleanup (see 
+Retrieves a report about a decision definition and finished decision instances relevant to history cleanup (see
 <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>), so that you can tune the history time to live.
 These reports include the count of the finished historic decision instances, cleanable decision instances and basic decision definition data - id, key, name and version.
 The size of the result set can be retrieved by using the [Get Cleanable Decision Instance Report Count]({{< relref "reference/rest/history/decision-definition/get-cleanable-decision-instance-report-count.md" >}}) method.
@@ -139,7 +139,7 @@ A JSON array containing finished decision instance information relevant to histo
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

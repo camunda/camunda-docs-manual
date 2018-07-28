@@ -13,7 +13,7 @@ menu:
 
 {{< note title="Spin Dataformat Reference" class="info" >}}
   This section explains how to work with data formats such as XML or JSON in Camunda BPM. The
-  [Spin Dataformat Reference]({{< relref "reference/spin/index.md" >}}) provides a complete reference of
+  [Spin Dataformat Reference]({{< relref "reference/spin/_index.md" >}}) provides a complete reference of
   all data manipulation features available.
 {{< /note >}}
 

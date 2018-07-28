@@ -154,7 +154,7 @@ public class MyEjbProcessApplication extends EjbProcessApplication {
 
 ## Expose Servlet Context Path Using a Custom EjbProcessApplication
 
-If your application is a `WAR` (or a `WAR` inside an `EAR`) and you want to use [embedded forms]({{< relref "user-guide/task-forms/index.md#embedded-task-forms" >}}) or [external task forms]({{< relref "user-guide/task-forms/index.md#external-task-forms" >}}) inside the [Tasklist]({{< relref "webapps/tasklist/index.md" >}}) application, then your custom EjbProcessApplication must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.
+If your application is a `WAR` (or a `WAR` inside an `EAR`) and you want to use [embedded forms]({{< relref "user-guide/task-forms/_index.md#embedded-task-forms" >}}) or [external task forms]({{< relref "user-guide/task-forms/_index.md#external-task-forms" >}}) inside the [Tasklist]({{< relref "webapps/tasklist/_index.md" >}}) application, then your custom EjbProcessApplication must expose the servlet context path of your application as a property. This enables the Tasklist to resolve the path to the embedded or external task forms.
 
 Therefore your custom EjbProcessApplication must be extended by a `Map` and a getter-method for that `Map` as follows:
 
@@ -255,18 +255,18 @@ When the process engine invokes the Ejb process application, it gets EJB invocat
                                    +--------------------+
 </pre>
 
-The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked. 
+The EjbProcessApplication allows to hook into the invocation by overriding the `execute(Callable callable, InvocationContext invocationContext)` method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked.
 
 ```java
 public class MyEjbProcessApplication extends EjbProcessApplication {
 
   @Override
   public <T> T execute(Callable<T> callable, InvocationContext invocationContext) {
-    
+
     if(invocationContext != null) {
       // execute custom code (e.g. initialize the security context)
     }
-    
+
     return execute(callable);
   }
 }

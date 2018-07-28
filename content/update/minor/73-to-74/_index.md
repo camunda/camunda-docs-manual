@@ -27,9 +27,9 @@ Noteworthy new Features and Changes in 7.4:
 * **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< relref "user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
 
-[dmn-ref]: {{< relref "reference/dmn11/index.md" >}}
-[cmmn-ref]: {{< relref "reference/cmmn11/index.md" >}}
-[bpmn-ref]: {{< relref "reference/bpmn20/index.md" >}}
+[dmn-ref]: {{< relref "reference/dmn11/_index.md" >}}
+[cmmn-ref]: {{< relref "reference/cmmn11/_index.md" >}}
+[bpmn-ref]: {{< relref "reference/bpmn20/_index.md" >}}
 
 {{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.3 to 7.4 in a rolling fashion. This means, it is not possible to run process engines of version 7.3 and 7.4 in parallel with the same database configuration. The reason is that a 7.3 engine may not be able to execute process instances that have been previously executed by a 7.4 engine, as these may use features that were not available yet in 7.3.

@@ -33,7 +33,7 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionId</td>
     <td>The process definition id of the process instances to activate or suspend.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>suspended</td>
     <td>A <code>Boolean</code> value which indicates whether to activate or suspend the process instances with the given process definition id. When the value is set to <code>true</code>, the process instances with the given process definition id will be suspended and when the value is set to <code>false</code>, the process instances with the given process definition id will be activated.</td>
@@ -45,7 +45,7 @@ A JSON object with the following properties:
 
 This method returns no content.
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -62,22 +62,22 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>processDefinitionId</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>processDefinitionId</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-  
+
 # Example
 
 ## Request
 
 PUT `/process-instance/suspended`
-  
+
     {
       "processDefinitionId" : "aProcDefId",
       "suspended" : true
     }
-     
+
 ## Response
-    
+
 Status 204. No content.

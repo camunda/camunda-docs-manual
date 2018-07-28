@@ -89,7 +89,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 
 ## Parse Decision Requirements Graph
 
-In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/index.md" >}}) (DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
+In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/_index.md" >}}) (DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
 
 ```java
 // parse the drg from an input stream
@@ -258,7 +258,7 @@ Assume the following example of making a decision to select beverages.
 
 {{< img src="../img/beverages-dmn.png" title="Beverages Decision" >}}
 
-The following [decision requirements diagram] shows that the `Beverages` decision requires the `Dish` decision (from the previous example).  
+The following [decision requirements diagram] shows that the `Beverages` decision requires the `Dish` decision (from the previous example).
 
 {{< img src="../img/drd.png" title="Select beverages" >}}
 
@@ -268,7 +268,7 @@ Assume that the decision is evaluated with the following input variables:
 
 - `season`: "Spring"
 - `guestCount`: 14
-- `guestsWithChildren`: false 
+- `guestsWithChildren`: false
 
 With the above inputs, `Dish` decision table has one matching rule and generates the output value `Stew` that is mapped to the output variable `desiredDish`.
 
@@ -286,15 +286,15 @@ List<String> beverages = decisionResult.collectEntries("beverages");
 
 ## Hit Policy of Required Decisions
 
-The [hit policy] of a required decision can affect the result that is passed as input to the requiring decision. If the required decision has a [COLLECT] hit policy with aggregator then the decision result (i.e. output value) is only the aggregated value. 
+The [hit policy] of a required decision can affect the result that is passed as input to the requiring decision. If the required decision has a [COLLECT] hit policy with aggregator then the decision result (i.e. output value) is only the aggregated value.
 
 In case of a hit policy with multiple matched rules (i.e., [COLLECT] without aggregator or [RULE ORDER]), the output variable is mapped to a list of output values, even if only one rule matched.
 
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
-[decision requirements graph]: {{< relref "reference/dmn11/drg/index.md" >}}
-[decision requirements diagram]: {{< relref "reference/dmn11/drg/index.md" >}}
-[required decisions]: {{< relref "reference/dmn11/drg/index.md#required-decisions" >}}
+[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
+[decision requirements graph]: {{< relref "reference/dmn11/drg/_index.md" >}}
+[decision requirements diagram]: {{< relref "reference/dmn11/drg/_index.md" >}}
+[required decisions]: {{< relref "reference/dmn11/drg/_index.md#required-decisions" >}}
 [hit policy]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
 [COLLECT]: {{< relref "reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}
 [RULE ORDER]: {{< relref "reference/dmn11/decision-table/hit-policy.md#rule-order-hit-policy" >}}

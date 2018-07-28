@@ -167,4 +167,4 @@ To evaluate a referenced decision, the integration of the Camunda DMN engine is 
   </tr>
 </table>
 
-[DMN 1.1]: {{< relref "reference/dmn11/index.md" >}}
+[DMN 1.1]: {{< relref "reference/dmn11/_index.md" >}}

@@ -162,7 +162,7 @@ Be assured that we have the loop marker in our backlog to be added to the engine
 
 ## JSON Collections with Multi-Instance Collections
 
-JSON Arrays created with [Camunda SPIN]({{< relref "reference/spin/index.md">}}) can be used as a collection for multi-instance activities. 
+JSON Arrays created with [Camunda SPIN]({{< relref "reference/spin/_index.md">}}) can be used as a collection for multi-instance activities.
 Consider the following JavaScript example that initializes execution variable `collection`:
 
 ```javascript
@@ -170,17 +170,17 @@ var collection = S('{ "collection" : ["System 1", "System 3"] }');
 execution.setVariable("collection", collection);
 ```
 
-This script can be injected in the model in several ways, e.g. using [Script task] ({{< relref "reference/bpmn20/tasks/script-task.md">}}). 
+This script can be injected in the model in several ways, e.g. using [Script task] ({{< relref "reference/bpmn20/tasks/script-task.md">}}).
 
 We can now use `collection` variable in multi-instance activity's `camunda:collection` extension element.
 
 ```xml
-<multiInstanceLoopCharacteristics 
-  camunda:collection="${collection.prop('collection').elements()}" 
+<multiInstanceLoopCharacteristics
+  camunda:collection="${collection.prop('collection').elements()}"
   camunda:elementVariable="collectionElem" />
 ```
 
-This uses the SPIN's JSON `.prop()` and `.elements()` to return the JSON array.  Set the multi-instance activity's `elementVariable` to a variable name that 
+This uses the SPIN's JSON `.prop()` and `.elements()` to return the JSON array.  Set the multi-instance activity's `elementVariable` to a variable name that
 will contain the array item. To access the value of the element, you can use `.value()` in your element variable.
 
 # Compensation

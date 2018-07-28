@@ -18,6 +18,6 @@ repository of the Camunda BPM Platform. Deployed decisions can be evaluated
 using the [Services API] or they can be referenced in BPMN processes and CMMN
 cases. Evaluated decisions are saved in the [History] for auditing and reporting purposes.
 
-[Camunda DMN engine]: {{< relref "user-guide/dmn-engine/index.md" >}}
+[Camunda DMN engine]: {{< relref "user-guide/dmn-engine/_index.md" >}}
 [Services API]: {{< relref "user-guide/process-engine/process-engine-api.md#services-api" >}}
 [History]: {{< relref "user-guide/process-engine/history.md" >}}

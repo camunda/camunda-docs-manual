@@ -101,4 +101,4 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Associate the web application with the `Camunda` shared library.
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< relref "update/minor/76-to-77/index.md" >}}
+[update-guide]: {{< relref "update/minor/76-to-77/_index.md" >}}

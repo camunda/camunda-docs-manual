@@ -45,7 +45,7 @@ GET `/task/count`
   <tr>
     <td>processInstanceBusinessKeyExpression</td>
     <td>Restrict to tasks that belong to process instances with the given business key which is described by an expression.
-     See the 
+     See the
      <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
      for more information on available functions.</td>
   </tr>
@@ -61,8 +61,8 @@ GET `/task/count`
   </tr>
   <tr>
     <td>processInstanceBusinessKeyLikeExpression</td>
-    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is 
-    described by an expression. See the 
+    <td>Restrict to tasks that have a process instance business key that has the parameter value as a substring and is
+    described by an expression. See the
     <a href="{{< relref "user-guide/process-engine/expression-language.md#internal-context-functions" >}}">user guide</a>
     for more information on available functions.</td>
   </tr>
@@ -416,22 +416,22 @@ GET `/task/count`
   </tr>
   <tr>
     <td>withCandidateGroups</td>
-    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withCandidateUsers</td>
-    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateUsers</td>
-    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate user. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
@@ -526,7 +526,7 @@ A JSON object with a single count property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

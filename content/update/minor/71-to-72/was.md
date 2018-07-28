@@ -211,4 +211,4 @@ With 7.2, it is possible to enable entity caching for Hypertext Application Lang
 {{< /note >}}
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[migration-guide]: {{< relref "update/minor/71-to-72/index.md" >}}
+[migration-guide]: {{< relref "update/minor/71-to-72/_index.md" >}}

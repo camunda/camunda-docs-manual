@@ -263,12 +263,12 @@ GET `/history/task/count`
   </tr>
   <tr>
     <td>withCandidateGroups</td>
-    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have a candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
   <tr>
     <td>withoutCandidateGroups</td>
-    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>, 
+    <td>Only include tasks which have no candidate group. Value may only be <code>true</code>,
     as <code>false</code> is the default behavior.</td>
   </tr>
 </table>
@@ -309,7 +309,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

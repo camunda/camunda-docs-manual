@@ -11,12 +11,12 @@ menu:
 ---
 
 
-[Custom extension elements]({{< relref "reference/cmmn11/custom-extensions/index.md" >}}) are a standardized way to extend the CMMN model.
+[Custom extension elements]({{< relref "reference/cmmn11/custom-extensions/_index.md" >}}) are a standardized way to extend the CMMN model.
 The [Camunda extension elements]({{< relref "reference/cmmn11/custom-extensions/camunda-elements.md" >}}) are fully implemented in the CMMN model API but unknown extension elements can also easily be accessed and added.
 
 Every CMMN `CmmnElement` can have a child element of the type `extensionElements`.
 This element can contain all sorts of extension elements. To access the
-extension elements you have to call the `getExtensionElements()` method and, 
+extension elements you have to call the `getExtensionElements()` method and,
 if no such child element exists, you must create one first.
 
 ```java

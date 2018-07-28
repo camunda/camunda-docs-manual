@@ -99,8 +99,8 @@ This section describes changes in the engine’s default behavior. While the cha
 ## Configuration of Job Executor Thread Pool in Camunda Wildfly 8 subsystem
 
 Beginning with 7.5, the Thread Pool used by the Job Executor is defined as part of the Camunda BPM Wildfly subsystem instead of the JBoss Threads subsystem.
-The reason is the deprecation and removal of the JBoss Threads subsystem since Wildfly 9. 
-To be compatible with Wildfly 8-10, Camunda rewrote the existing subsystem.   
+The reason is the deprecation and removal of the JBoss Threads subsystem since Wildfly 9.
+To be compatible with Wildfly 8-10, Camunda rewrote the existing subsystem.
 As a consequence, you must transfer your existing Thread Pool configuration from the JBoss Threads subsystem to the Camunda subsystem using the following steps.
 
 1. First, transfer the JBoss Threads configuration to the Camunda BPM subsystem. Search for the JBoss Threads subsystem configuration in your `standalone.xml` configuration. It looks similar to this example:
@@ -116,7 +116,7 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </subsystem>
 	 ```
    Search for the configuration responsible for the Job Executor Thread Pool.
-   For each of the configuration elements and attributes of the JBoss Threads subsystem Job Executor configuration, a representation in the Camunda subsystem exists under the `job-executor`-element since 7.5.  
+   For each of the configuration elements and attributes of the JBoss Threads subsystem Job Executor configuration, a representation in the Camunda subsystem exists under the `job-executor`-element since 7.5.
    Using the above example snippet of the JBoss Threads configuration and the [`JBoss Threads to Camunda` subsystem mapping table][jboss-threads-to-camunda-mapping-table] at the end of this section, the new Camunda subsystem configuration would look like the following example snippet:
 
 	 ```xml
@@ -135,7 +135,7 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </subsystem>
 	 ```
 
-2. As second step, since you have now configured the Thread Pool in the Camunda subsystem, remove the JBoss Threads subsystem configuration entry related to the Camunda Job Executor Thread Pool. 
+2. As second step, since you have now configured the Thread Pool in the Camunda subsystem, remove the JBoss Threads subsystem configuration entry related to the Camunda Job Executor Thread Pool.
    When there is no other thread-pool configuration entry left, you could also delete the JBoss Threads subsystem entirely.
    ```xml
    <subsystem xmlns="urn:jboss:domain:threads:1.1">
@@ -150,7 +150,7 @@ As a consequence, you must transfer your existing Thread Pool configuration from
    </subsystem>
    ```
 
-3. As an optional cleanup step, you can delete the JBoss Threads subsystem entry in the extensions element on top of the `standalone.xml` file, if you no longer need it.   
+3. As an optional cleanup step, you can delete the JBoss Threads subsystem entry in the extensions element on top of the `standalone.xml` file, if you no longer need it.
    ```xml
    <server xmlns="urn:jboss:domain:2.2">
      <extensions>
@@ -164,8 +164,8 @@ As a consequence, you must transfer your existing Thread Pool configuration from
 
 ### JBoss Threads to Camunda subsystem mapping table
 
-The following mapping table shows the JBoss Threads properties and their counterpart in the Camunda Subsystem to ease the transition of the Job Executor Thread Pool configuration to the Camunda subsystem. 
-		
+The following mapping table shows the JBoss Threads properties and their counterpart in the Camunda Subsystem to ease the transition of the Job Executor Thread Pool configuration to the Camunda subsystem.
+
 <table class="table table-striped">
 <tr>
   <th>JBoss Threads Property name</th>
@@ -238,7 +238,7 @@ A new method has been added to the interface of a {{< javadocref page="?org/camu
 
 ## Job Handler
 
-The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration. 
+The interface of a {{< javadocref page="?org/camunda/bpm/engine/impl/jobexecutor/JobHandler.html" text="Job Handler" >}} has changed to support multi-tenancy and separate the parsing of the configuration.
 
 # 5. Update Camunda Web Applications
 
@@ -263,7 +263,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 
 
 [jboss-threads-to-camunda-mapping-table]: {{< relref "update/minor/74-to-75/jboss.md#jboss-threads-to-camunda-subsystem-mapping-table" >}}
-[update-guide]: {{< relref "update/minor/74-to-75/index.md" >}}
+[update-guide]: {{< relref "update/minor/74-to-75/_index.md" >}}
 [jboss-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/jboss/camunda-bpm-jboss/
 [wildfly-distro]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-bpm-wildfly/
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/

@@ -79,17 +79,17 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The state transition is not allowed to be performed, for example when the case execution is active or is already disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The state transition is not allowed to be performed, for example when the case execution is active or is already disabled. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The case execution cannot be disabled because of CMMN restrictions. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The case execution cannot be disabled because of CMMN restrictions. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>The case execution with given id is not found. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The case execution with given id is not found. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

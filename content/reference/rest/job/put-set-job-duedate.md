@@ -8,7 +8,7 @@ menu:
     name: "Update Due Date"
     identifier: "rest-api-job-put-set-job-duedate"
     parent: "rest-api-job"
-    pre: "PUT `/job/{id}/duedate`"    
+    pre: "PUT `/job/{id}/duedate`"
 
 ---
 
@@ -73,12 +73,12 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr><br>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The due date could not be set successfully. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The due date could not be set successfully. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

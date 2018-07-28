@@ -89,7 +89,7 @@ Here is example usage with script executionListener:
         <camunda:script scriptFormat="groovy"><![CDATA[execution.setVariable("aVariable", "aValue","aSubProcess");]]></camunda:script>
 </camunda:executionListener>
 ```
-Another usage example would be input\output mapping using `DelegateVariableMapping` implementation 
+Another usage example would be input\output mapping using `DelegateVariableMapping` implementation
 
 ```java
 public class SetVariableToScopeMappingDelegate implements DelegateVariableMapping {
@@ -103,7 +103,7 @@ public class SetVariableToScopeMappingDelegate implements DelegateVariableMappin
   }
 }
 ```
-here variable will be set locally in "aSubProcess" and not propagated to the parent scope even if variable was not set beforehand locally in "aSubProcess". 
+here variable will be set locally in "aSubProcess" and not propagated to the parent scope even if variable was not set beforehand locally in "aSubProcess".
 
 # Supported Variable Values
 
@@ -132,11 +132,11 @@ The value type `object` represents custom Java objects. When such a variable is 
 {{< note title="String length restriction" class="warning" >}}
 `string` values are stored in the database in a column of type `(n)varchar`, with a length restriction of 4000 (2000 for Oracle). Depending on the database in use and the
 configured charset, this length restriction can result in different quantities of real characters. Variable value length is not validated inside the Camunda engine, but
- the values are sent to the database 'as is' and, in case the length restriction is exceeded, a database level exception will be thrown. If validation is needed, 
+ the values are sent to the database 'as is' and, in case the length restriction is exceeded, a database level exception will be thrown. If validation is needed,
  it may be implemented separately and must happen before the Camunda API to set the variables is called.
 {{< /note >}}
 
-Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
+Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< relref "user-guide/data-formats/_index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
 
 
 ## Object Value Serialization
@@ -164,7 +164,7 @@ execution.setVariable("someVariable", customerDataValue);
 {{< /note >}}
 
 {{< note title="Serializing Objects to XML and JSON" class="info" >}}
-  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class. When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
+  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/_index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class. When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
 {{< /note >}}
 
 
@@ -243,7 +243,7 @@ To change or update a `file` value, you have to create a new `FileValue` with th
 
 ```java
 InputStream newContent = new FileInputStream("path/to/the/new/file.txt");
-FileValue fileVariable = execution.getVariableTyped("addresses.txt");  
+FileValue fileVariable = execution.getVariableTyped("addresses.txt");
 Variables.fileValue(fileVariable.getName()).file(newContent).encoding(fileVariable.getEncoding()).mimeType(fileVariable.getMimeType()).create();
 ```
 
@@ -313,12 +313,12 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
 
 {{< note title="Java serialization format" class="warning" >}}
   Be aware, that when using a serialized representation of variables, the Java serialization format is forbidden by default. You should either use another format (JSON or XML), or explicitly enable the Java serialization
-  with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}). 
+  with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}).
 {{< /note >}}
 
 ## JSON and XML Values
 
-The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< relref "user-guide/data-formats/index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< relref "user-guide/data-formats/index.md#native-xml-variable-value" >}}) for details.
+The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< relref "user-guide/data-formats/_index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< relref "user-guide/data-formats/_index.md#native-xml-variable-value" >}}) for details.
 
 ## Transient variables
 
@@ -340,7 +340,7 @@ TypedValue typedTransientFileValue = Variables.fileValue("file.txt", true)
   .mimeType("text/plain")
   .encoding("UTF-8")
   .create();
-``` 
+```
 Please note that the transient variables cannot be updated or deleted.
 
 Transient variables can be used via REST API, e.g. [when starting a new process instance]({{< relref "reference/rest/process-definition/post-start-process-instance.md">}}).

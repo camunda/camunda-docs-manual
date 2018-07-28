@@ -98,6 +98,6 @@ the [community download page][community-download-page].
 [shared-engine]: {{< relref "introduction/architecture.md#shared-container-managed-process-engine" >}}
 [embedded-engine]: {{< relref "introduction/architecture.md#embedded-process-engine" >}}
 [installation-guide-standalone]: {{< relref "installation/standalone-webapplication.md" >}}
-[installation-guide-full]: {{< relref "installation/index.md" >}}
-[run-with-spring-boot]: {{< relref "user-guide/spring-boot-integration/index.md" >}}
+[installation-guide-full]: {{< relref "installation/_index.md" >}}
+[run-with-spring-boot]: {{< relref "user-guide/spring-boot-integration/_index.md" >}}
 [run-with-docker]: {{< relref "installation/docker.md" >}}

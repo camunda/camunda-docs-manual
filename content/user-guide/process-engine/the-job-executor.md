@@ -40,7 +40,7 @@ When using a **shared process engine**, the default is reversed: if you do not s
 
 # Job Executor in a Unit Test
 
-For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (`ManagementService.createJobQuery`) and execute jobs (`ManagementService.executeJob`) *by hand*, which allows to control job execution from within a unit test. 
+For unit testing scenarios it is cumbersome to work with this background component. Therefore the Java API offers to query for (`ManagementService.createJobQuery`) and execute jobs (`ManagementService.executeJob`) *by hand*, which allows to control job execution from within a unit test.
 
 # Job Creation
 
@@ -365,15 +365,15 @@ For example:
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/_index.md" >}}) section on how this achieved.
 
 
 ## Failed Jobs
 
-Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3). 
-It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job. 
-The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95; 
-by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries 
+Upon failure of job execution, e.g., if a service task invocation throws an exception, a job will be retried a number of times (by default 3).
+It is not immediately retried and added back to the acquisition queue, but the value of the RETRIES&#95; column is decreased and the executor unlocks the job.
+The process engine thus performs bookkeeping for failed jobs. The unlocking also includes erasing the time LOCK&#95;EXP&#95;TIME&#95; and the owner of the lock LOCK&#95;OWNER&#95;
+by setting both entries to `null`. Subsequently, the failed job will automatically be retried once the job is acquired for execution. Once the number of retries
 is exhausted (the value of the RETRIES&#95; column equals 0), the job is not executed any more and the engine stops at this job, signaling that it cannot proceed.
 
 {{< note title="" class="info" >}}
@@ -413,7 +413,7 @@ The Camunda engine allows you to configure this setting for the following specif
 * [Multi-Instance Activities ]({{< relref "#use-a-custom-job-retry-configuration-for-multi-instance-activities" >}})
 
 
-#### Use a Custom Job Retry Configuration for Activities 
+#### Use a Custom Job Retry Configuration for Activities
 
 As soon as the retry configuration is enabled, it can be applied to tasks, call activities, embedded subprocesses and transactions subprocesses. For instance, the job retry in a task can be configured in the Camunda engine in the BPMN 2.0 XML as follows:
 
@@ -437,7 +437,7 @@ You can also set an expression as in the retry configuration. For example:
 
 The LOCK&#95;EXP&#95;TIME&#95; is used to define when the job can be executed again, meaning the failed job will automatically be retried once the LOCK&#95;EXP&#95;TIME&#95; date is expired.
 
-#### Use a Custom Job Retry Configuration for Events 
+#### Use a Custom Job Retry Configuration for Events
 
 The job retries can also be configured for the following events:
 
@@ -468,7 +468,7 @@ Reminder: a retry may be required if there are any failures during the transacti
 
 #### Use a Custom Job Retry Configuration for Multi-Instance Activities
 
-If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element. 
+If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element.
 
 The following example defines the retries of a multi-instance service task with asynchronous continuation of the multi-instance body and the inner activity. If a failure occur during one of the five parallel instances then the job of the failed instance will be retried up to 3 times with a delay of 5 seconds. In case all instances ended successful and a failure occur during the transaction which follows the task, the job will be retried up to 5 times with a delay of 5 minutes.
 
@@ -574,7 +574,7 @@ In larger deployments however, this quickly leads to a poorly manageable situati
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/_index.md" >}}) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -587,7 +587,7 @@ To which job acquisition a process engine is assigned can be specified in the de
 </process-engine>
 ```
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/index.md" >}}).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/_index.md" >}}).
 
 
 # Cluster Setups

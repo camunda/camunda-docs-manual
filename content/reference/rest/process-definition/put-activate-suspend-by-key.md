@@ -33,7 +33,7 @@ A JSON object with the following properties:
   <tr>
     <td>processDefinitionKey</td>
     <td>The key of the process definitions to activate or suspend.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>suspended</td>
     <td>A <code>Boolean</code> value which indicates whether to activate or suspend all process definitions with the given key. When the value is set to <code>true</code>, all process definitions with the given key will be suspended and when the value is set to <code>false</code>, all process definitions with the given key will be activated.</td>
@@ -45,7 +45,7 @@ A JSON object with the following properties:
   <tr>
     <td>executionDate</td>
     <td>The date on which all process definitions with the given key will be activated or suspended. If null, the suspension state of all process definitions with the given key is updated immediately. The date must have the format <code>yyyy-MM-dd'T'HH:mm:ss</code>, e.g., <code>2013-01-23T14:42:45</code>.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -53,7 +53,7 @@ A JSON object with the following properties:
 
 This method returns no content.
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -70,24 +70,24 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format or if the <code>processDefinitionKey</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the provided <code>executionDate</code> parameter doesn't have the expected format or if the <code>processDefinitionKey</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
-  
+
 # Example
 
 ## Request
 
 PUT `/process-definition/suspended`
-  
+
     {
       "processDefinitionKey" : "aProcessDefinitionKey",
       "suspended" : true,
       "includeProcessInstances" : true,
       "executionDate" : "2013-11-21T10:49:45"
     }
-     
+
 ## Response
-    
+
 Status 204. No content.

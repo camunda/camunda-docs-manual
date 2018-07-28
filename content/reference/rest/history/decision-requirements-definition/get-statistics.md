@@ -29,7 +29,7 @@ GET `/history/decision-requirements-definition/{id}/statistics`
   <tr>
     <td>id</td>
     <td>The id of the decision requirements definition.</td>
-  </tr>  
+  </tr>
 </table>
 
 ## Query Parameters
@@ -85,7 +85,7 @@ A JSON array containing statistics object for each decision definition related t
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

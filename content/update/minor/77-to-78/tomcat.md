@@ -10,8 +10,8 @@ menu:
 
 ---
 
-The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting. 
-For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the 
+The following steps describe how to update the Camunda artifacts on a Tomcat server in a shared process engine setting.
+For the entire procedure, refer to the [update guide][update-guide]. If not already done, make sure to download the
 [Camunda BPM 7.8 Tomcat distribution][tomcat-distribution].
 
 The update procedure takes the following steps:
@@ -24,7 +24,7 @@ The update procedure takes the following steps:
 In each of the following steps, the identifier `$*_VERSION` refers to the current versions and the new versions of the artifacts.
 
 {{< note title="Updated Tomcat Version" class="info" >}}
-The pre-built Camunda 7.8 distribution ships with Tomcat 8.0.47, whereas 7.7 comes with Tomcat 8.0.24. Camunda 7.8 is 
+The pre-built Camunda 7.8 distribution ships with Tomcat 8.0.47, whereas 7.7 comes with Tomcat 8.0.24. Camunda 7.8 is
 supported on all Tomcat 6/7/8 versions such that a Tomcat update is not required when migrating from 7.7 to 7.8.
 
 Should you want to update Tomcat along with Camunda, perform the following steps either before or after updating Camunda:
@@ -100,6 +100,6 @@ The following steps are required to update the Camunda web applications Cockpit,
 2. Download the Camunda web application archive from our [Maven Nexus Server][nexus]. Alternatively, switch to the private repository for the enterprise version (credentials from license required). Choose the correct version named `$PLATFORM_VERSION/camunda-webapp-tomcat-$PLATFORM_VERSION.war`.
 3. Deploy the web application archive to your Tomcat instance.
 
-[update-guide]: {{< relref "update/minor/77-to-78/index.md" >}}
+[update-guide]: {{< relref "update/minor/77-to-78/_index.md" >}}
 [nexus]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
 [tomcat-distribution]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/tomcat/camunda-bpm-tomcat/

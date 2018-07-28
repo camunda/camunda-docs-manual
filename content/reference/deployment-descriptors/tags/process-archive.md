@@ -15,7 +15,7 @@ menu:
 
 The process archive tag allows configuration of a process engine deployment and can be used in the [processes.xml]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) file.
 
-See the [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) section of the [User Guide]({{< relref "user-guide/index.md" >}}) for more details.
+See the [processes.xml]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) section of the [User Guide]({{< relref "user-guide/_index.md" >}}) for more details.
 
 
 # Example
@@ -176,7 +176,7 @@ The following is a list of all supported configuration properties.
     <td><code>isResumePreviousVersions</code></td>
     <td>boolean</td>
     <td>
-        If true, previous versions of the deployment are automatically resumed. See the <a href="{{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a> for more details.
+        If true, previous versions of the deployment are automatically resumed. See the <a href="{{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md#process-application-deployment" >}}">Process Application Deployment</a> section of the <a href="{{< relref "user-guide/_index.md" >}}">User Guide</a> for more details.
       <p>
         <strong>Default value:</strong>
         true.

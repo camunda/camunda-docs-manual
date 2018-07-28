@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< relref "user-guide/data-formats/index.md" >}}). This section describes under which conditions the process engine looks up resources on process application level and how that lookup can be enforced.
+Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< relref "user-guide/data-formats/_index.md" >}}). This section describes under which conditions the process engine looks up resources on process application level and how that lookup can be enforced.
 
 {{< img src="../img/process-application-context.png" title="Process Application Context" >}}
 

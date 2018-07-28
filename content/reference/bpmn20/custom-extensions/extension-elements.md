@@ -99,7 +99,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata of an individual validation constraint for a form field (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
+      Metadata of an individual validation constraint for a form field (see <a href="{{< relref "user-guide/task-forms/_index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>
@@ -245,10 +245,10 @@ The following attributes are extension attributes for the `camunda` namespace `h
       <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">Inclusive Gateway</a>,
       <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">Event Based Gateway</a>,
       <a href="{{< relref "reference/bpmn20/events/start-events.md" >}}">Start Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Catch Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Intermediate Throw Event</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">End Events</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">Boundary Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Catch Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Intermediate Throw Event</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">End Events</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">Boundary Events</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/event-subprocess.md" >}}">Event Subprocess</a>,
@@ -418,7 +418,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
+      Metadata to define fields of a form, which are used to generate task forms (see <a href="{{< relref "user-guide/task-forms/_index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -454,7 +454,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a single form field (see <a href="{{< relref "user-guide/task-forms/index.md#generated-task-forms" >}}">Generated Task Forms</a>).
+      Metadata to define a single form field (see <a href="{{< relref "user-guide/task-forms/_index.md#generated-task-forms" >}}">Generated Task Forms</a>).
     </td>
   </tr>
   <tr>
@@ -817,8 +817,8 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Parent elements</th>
     <td colspan="2">
-      <a href="{{< relref "reference/bpmn20/tasks/index.md" >}}">All Tasks</a>,
-      <a href="{{< relref "reference/bpmn20/events/index.md" >}}">All Events</a> (except Start and Boundary Events),
+      <a href="{{< relref "reference/bpmn20/tasks/_index.md" >}}">All Tasks</a>,
+      <a href="{{< relref "reference/bpmn20/events/_index.md" >}}">All Events</a> (except Start and Boundary Events),
       <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">Call Activity</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">Embedded Subprocess</a>,
       <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">Transaction Subprocess</a>,
@@ -1361,7 +1361,7 @@ The following attributes are extension attributes for the `camunda` namespace `h
   <tr>
     <th>Description</th>
     <td colspan="2">
-      Metadata to define a list of validation constraints for form fields (see <a href="{{< relref "user-guide/task-forms/index.md#form-field-validation" >}}">Form Field Validation</a>).
+      Metadata to define a list of validation constraints for form fields (see <a href="{{< relref "user-guide/task-forms/_index.md#form-field-validation" >}}">Form Field Validation</a>).
     </td>
   </tr>
   <tr>

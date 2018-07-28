@@ -28,7 +28,7 @@ Tasklist offers you the option of toggling the view options on the dashboard. Yo
 
 To start a process instance via Tasklist, click on *Start process* in the header menu and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
 
-Depending on whether you have defined a [start form]({{< relref "user-guide/task-forms/index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< relref "user-guide/task-forms/index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
+Depending on whether you have defined a [start form]({{< relref "user-guide/task-forms/_index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< relref "user-guide/task-forms/_index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
 
 
 # Create a Standalone Task

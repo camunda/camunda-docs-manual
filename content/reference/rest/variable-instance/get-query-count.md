@@ -21,7 +21,7 @@ GET `/variable-instance/count`
 
 
 # Parameters
-  
+
 ## Query Parameters
 
 <table class="table table-striped">
@@ -76,7 +76,7 @@ GET `/variable-instance/count`
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore or comma characters.      
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -135,7 +135,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -147,4 +147,4 @@ GET `/variable-instance/count?processInstanceIdIn=aProcessInstanceId,anotherProc
 
 ## Response
 
-    {"count": 3}    
+    {"count": 3}

@@ -22,7 +22,7 @@ PUT `/task/{id}/localVariables/{varName}`
 
 
 # Parameters
-  
+
 ## Path Parameters
 
 <table class="table table-striped">
@@ -51,7 +51,7 @@ A JSON object with the following properties:
 
 This method returns no content.
 
-  
+
 # Response Codes
 
 <table class="table table-striped">
@@ -68,13 +68,13 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>The variable name is null. Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
-  </tr>      
+    <td>The variable name is null. Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+  </tr>
 </table>
 
 
@@ -83,11 +83,11 @@ This method returns no content.
 ## Request
 
 PUT `/task/aTaskId/localVariables/aVarName`
-  
+
     {"value" : "someValue", "type": "String"}
-     
+
 ## Response
-    
+
 Status 204. No content.
 
 
@@ -96,9 +96,9 @@ Status 204. No content.
 ## Request
 
 PUT `/task/aTaskId/localVariables/aVarName`
-  
+
 {{< rest-var-request-example >}}
-     
+
 ## Response
-    
+
 Status 204. No content.

@@ -15,7 +15,7 @@ menu:
 
 Correlates a message to the process engine to either trigger a message start event or an intermediate message catching event.
 Internally this maps to the engine's message correlation builder methods `MessageCorrelationBuilder#correlateWithResult()` and `MessageCorrelationBuilder#correlateAllWithResult()`.
-For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information about the correlation behavior, see the [Message Events]({{< relref "reference/bpmn20/events/message-events.md" >}}) section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -69,9 +69,9 @@ A JSON object with the following properties:
       <td>Local variables used for correlation of executions (process instances) that wait for incoming messages.
       Has to be a JSON object containing key-value pairs that are matched against local variables during correlation.
       Each key is a variable name and each value a JSON variable value object with the following properties.
-  
+
       {{< rest-var-request-primitive-only >}}
-  
+
       <p><strong>Note:</strong> Only variable values that are defined in the execution scope are taken into account,
        without taking outer (parent) scopes.</p></td>
     </tr>
@@ -159,7 +159,7 @@ Otherwise, a JSON array of the message correlation results will be returned. Eac
     <td>400</td>
     <td>application/json</td>
     <td>If no <code>messageName</code> was supplied. If both <code>tenantId</code> and <code>withoutTenantId</code> are supplied.</br>
-    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    If the message has not been correlated to exactly one entity (execution or process definition), or the variable value or type is invalid, for example if the value could not be parsed to an Integer value or the passed variable type is not supported. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -181,7 +181,7 @@ Request Body:
         "aVariable" : {"value" : "aValue", "type": "String"}
       },
       "processVariables" : {
-        "aVariable" : {"value" : "aNewValue", "type": "String", 
+        "aVariable" : {"value" : "aNewValue", "type": "String",
                         "valueInfo" : { "transient" : true } },
         "anotherVariable" : {"value" : true, "type": "Boolean"}
       }

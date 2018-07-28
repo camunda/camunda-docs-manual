@@ -37,7 +37,7 @@ A transaction subprocess is represented in xml using the transaction element:
 ```
 
 {{< note title="Relation to ACID Transactions" class="warning" >}}
-It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. To understand transaction management in Camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/index.md" >}}">User Guide</a>.
+It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. To understand transaction management in Camunda BPM, read the <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md" >}}">Transactions in Processes</a> section of the <a href="{{< relref "user-guide/_index.md" >}}">User Guide</a>.
 {{< /note >}}
 
 A BPMN transaction differs from a technical transaction in the following ways:

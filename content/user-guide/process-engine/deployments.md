@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Before a process (or case, or decision) can be executed by the process engine, it has to be deployed. A deployment is a logical entity that groups multiple resources that are deployed together. Deployments can be made programmatically via Java API or [REST API]({{< relref "reference/rest/deployment/post-deployment.md" >}}), or declaratively for resources of a [Process Application]({{< relref "user-guide/process-applications/index.md" >}}). This section covers advanced deployment concepts.
+Before a process (or case, or decision) can be executed by the process engine, it has to be deployed. A deployment is a logical entity that groups multiple resources that are deployed together. Deployments can be made programmatically via Java API or [REST API]({{< relref "reference/rest/deployment/post-deployment.md" >}}), or declaratively for resources of a [Process Application]({{< relref "user-guide/process-applications/_index.md" >}}). This section covers advanced deployment concepts.
 
 # Deployments in a Clustered Scenario
 

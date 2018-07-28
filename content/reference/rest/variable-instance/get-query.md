@@ -22,7 +22,7 @@ GET `/variable-instance`
 
 
 # Parameters
-  
+
 ## Query Parameters
 
 <table class="table table-striped">
@@ -77,7 +77,7 @@ GET `/variable-instance`
     Valid operator values are: <code>eq</code> - equal to; <code>neq</code> - not equal to; <code>gt</code> - greater than;
     <code>gteq</code> - greater than or equal to; <code>lt</code> - lower than; <code>lteq</code> - lower than or equal to;
     <code>like</code>.<br/>
-    <code>key</code> and <code>value</code> may not contain underscore or comma characters.      
+    <code>key</code> and <code>value</code> may not contain underscore or comma characters.
     </td>
   </tr>
   <tr>
@@ -173,7 +173,7 @@ A JSON array of variable instance objects. Each variable instance object has the
     <td>activityInstanceId</td>
     <td>String</td>
     <td>The id of the activity instance that this variable instance belongs to.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>tenantId</td>
     <td>String</td>
@@ -198,7 +198,7 @@ A JSON array of variable instance objects. Each variable instance object has the
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -208,7 +208,7 @@ A JSON array of variable instance objects. Each variable instance object has the
 ## Request
 
 GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessInstanceId&variableValues=amount_gteq_5,amount_lteq_200`
-  
+
 ## Response
 
     [
@@ -256,5 +256,5 @@ GET `/variable-instance?processInstanceIdIn=aProcessInstanceId,anotherProcessIns
         "caseInstanceId": null,
         "serializationConfig": null,
         "tenantId": null
-      }      
+      }
     ]

@@ -39,9 +39,9 @@ In the XML a DRG is represented by the `definitions` element.
 The name describes the DRG. It is set as the `name` attribute on the `definitions` element.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
-             id="dinnerDecisions" 
-             name="Dinner Decisions" 
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
+             id="dinnerDecisions"
+             name="Dinner Decisions"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
 </definitions>
@@ -58,9 +58,9 @@ platform. The engine uses the id as the decision requirements definition key of 
 `DecisionRequirementsDefinition`.
 
 ```xml
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" 
-             id="dinnerDecisions" 
-             name="Dinner Decisions" 
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd"
+             id="dinnerDecisions"
+             name="Dinner Decisions"
              namespace="http://camunda.org/schema/1.0/dmn">
   <!-- ... -->
 </definitions>
@@ -88,10 +88,10 @@ A decision is represented by a `decision` element inside the `definitions` XML e
 
 {{< img src="img/required-decision.png" title="Required Decision" class="no-lightbox" >}}
 
-A decision can have one or more required decisions which it depends on. 
+A decision can have one or more required decisions which it depends on.
 
-A required decision is represented by a `requiredDecision` element inside an `informationRequirement` XML element. 
-It has a `href` attribute and the value starts with `#` followed by the [decision id]({{< relref "reference/dmn11/decision-table/index.md#decision-id" >}}) of the required decision.
+A required decision is represented by a `requiredDecision` element inside an `informationRequirement` XML element.
+It has a `href` attribute and the value starts with `#` followed by the [decision id]({{< relref "reference/dmn11/decision-table/_index.md#decision-id" >}}) of the required decision.
 
 ```xml
 <decision id="beverages" name="Beverages">
@@ -106,14 +106,14 @@ It has a `href` attribute and the value starts with `#` followed by the [decisio
 
 {{< img src="img/input-data.png" title="Input Data" class="no-lightbox" >}}
 
-An input data denotes information used as an input by one or more decisions. 
+An input data denotes information used as an input by one or more decisions.
 
-It is represented by an `inputData` element inside the `definitions` element. 
+It is represented by an `inputData` element inside the `definitions` element.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
   <inputData id="guestsWithChildren" name="Guests with children?" />
-  
+
   <decision id="beverages" name="Beverages">
     <informationRequirement>
       <requiredInput href="#guestsWithChildren" />
@@ -130,12 +130,12 @@ Note that an input data has no execution semantics and is ignored by the Camunda
 
 A knowledge source denotes an authority for a Decision.
 
-It is represented by a `knowledgeSource` element inside the `definitions` element. 
+It is represented by a `knowledgeSource` element inside the `definitions` element.
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="dinnerDecisions" name="Dinner Decisions" namespace="http://camunda.org/schema/1.0/dmn">
   <knowledgeSource id="cookbook" name="Men's Cookbook" />
-  
+
   <decision id="dish" name="Dish">
     <authorityRequirement>
       <requiredDecision href="#cookbook" />
@@ -151,8 +151,8 @@ Note that a knowledge source has no execution semantics and is ignored by the Ca
 [decisions]: {{< relref "#decision" >}}
 [input data]: {{< relref "#input-data" >}}
 [knowledge sources]: {{< relref "#knowledge-source" >}}
-[decision table]: {{< relref "reference/dmn11/decision-table/index.md" >}}
+[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
 [deployed]: {{< relref "user-guide/process-engine/decisions/repository.md#deploying-a-decision" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/index.md" >}}
-[id]: {{< relref "reference/dmn11/decision-table/index.md#decision-id" >}}
-[name]: {{< relref "reference/dmn11/decision-table/index.md#decision-name" >}}
+[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
+[id]: {{< relref "reference/dmn11/decision-table/_index.md#decision-id" >}}
+[name]: {{< relref "reference/dmn11/decision-table/_index.md#decision-name" >}}

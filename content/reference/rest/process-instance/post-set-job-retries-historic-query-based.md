@@ -89,7 +89,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
     <td>Number</td>
     <td>
       The number of batch execution jobs created per seed job invocation.
-      The batch seed job is invoked until it has created all batch execution jobs required by 
+      The batch seed job is invoked until it has created all batch execution jobs required by
       the batch (see <code>totalJobs</code> property).
     </td>
   </tr>
@@ -142,7 +142,7 @@ A JSON object corresponding to the `Batch` interface in the engine. Its properti
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, e. g. if neither processInstances, nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, e. g. if neither processInstances, nor processInstanceQuery is present. Or if the retry count is not specified. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

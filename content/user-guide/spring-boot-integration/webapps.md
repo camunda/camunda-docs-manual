@@ -11,7 +11,7 @@ menu:
 
 ---
 
-To enable the [Web Applications]({{<relref "webapps/index.md">}}) you can use the following starter in your `pom.xml`:
+To enable the [Web Applications]({{<relref "webapps/_index.md">}}) you can use the following starter in your `pom.xml`:
 
 ```xml
 <dependency>

@@ -23,7 +23,7 @@ GET `/user`
 
 
 # Parameters
-  
+
 ## Query Parameters
 
 <table class="table table-striped">
@@ -62,11 +62,11 @@ GET `/user`
   <tr>
     <td>memberOfGroup</td>
     <td>Filter for users which are members of a group.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>memberOfTenant</td>
     <td>Filter for users which are members of the given tenant.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
@@ -119,7 +119,7 @@ Each user object has the following properties:
     <td>email</td>
     <td>String</td>
     <td>The email of the user.</td>
-  </tr> 
+  </tr>
 </table>
 
 
@@ -139,7 +139,7 @@ Each user object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 
@@ -149,7 +149,7 @@ Each user object has the following properties:
 ## Request
 
 GET `/user?firstName=John`
-  
+
 ## Response
 
 Status 200.

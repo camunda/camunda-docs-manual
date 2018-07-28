@@ -132,4 +132,4 @@ It is possible to enable entity caching for Hypertext Application Language (HAL)
 {{< /note >}}
 
 [configuration-location]: {{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}
-[update-guide]: {{< relref "update/minor/73-to-74/index.md" >}}
+[update-guide]: {{< relref "update/minor/73-to-74/_index.md" >}}

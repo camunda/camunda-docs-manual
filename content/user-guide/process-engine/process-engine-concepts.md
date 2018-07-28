@@ -22,7 +22,7 @@ A process definition defines the structure of a process. You could say that the 
   Camunda BPM comes with two BPMN 2.0 References:
 
 * The [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html#!/reference) introduces the fundamentals of BPMN 2.0 and helps you to get started modeling processes. (Make sure to read the [Tutorial](http://camunda.org/bpmn/tutorial.html) as well.)
-* The [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
+* The [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}) covers the implementation of the individual BPMN 2.0 constructs in Camunda BPM. You should consult this reference if you want to implement and execute BPMN processes.
 {{< /note >}}
 
 
@@ -107,7 +107,7 @@ The fluent builder allows to submit any number of so-called instantiation instru
 
 ### Variables in Return
 
-To access the latest variables which was used by the process instance during execution the `executeWithVariablesInReturn` can be used, instead of the `execute` method. 
+To access the latest variables which was used by the process instance during execution the `executeWithVariablesInReturn` can be used, instead of the `execute` method.
 See the following example:
 
 ```java

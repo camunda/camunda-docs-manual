@@ -79,14 +79,14 @@ Additionally, also replace the following dependent modules:
 * `com/fasterxml/jackson/core/jackson-databind`
 
 {{< note title="Stick to older Jackson version" class="info" >}}
-Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before). 
+Starting from v. 7.9, Camunda BPM is delivered with Spin 1.5.1 version, which in its turn relies on Jackson of v. 2.9.5 (compared to v.2.6.3 used before).
 
 In case you need to stick to older Jackson version (2.6.3):
 
 1. do not replace Jackson modules listed above.
-2. Fix the Jackson version in module `org/camunda/spin/camunda-spin-dataformat-json-jackson/main/module.xml` to be 2.6.3. 
+2. Fix the Jackson version in module `org/camunda/spin/camunda-spin-dataformat-json-jackson/main/module.xml` to be 2.6.3.
 
-Scenarios, where you could consider using the earlier Jackson version are listed [here]({{< relref "update/minor/78-to-79/index.md#jackson-version-update" >}}).
+Scenarios, where you could consider using the earlier Jackson version are listed [here]({{< relref "update/minor/78-to-79/_index.md#jackson-version-update" >}}).
 {{< /note >}}
 
 ## Groovy Scripting
@@ -99,8 +99,8 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 # 3. Update Camunda Web Applications
 
 ## Choose the right REST API Artifact
-From now on there exist separate REST API artifacts (**W**eb **A**pplication **Ar**chives) for **Wildfly** as well as **JBoss AS 7**. 
-Therefore the artifact with the right classifier needs to be chosen: 
+From now on there exist separate REST API artifacts (**W**eb **A**pplication **Ar**chives) for **Wildfly** as well as **JBoss AS 7**.
+Therefore the artifact with the right classifier needs to be chosen:
 
 - Wildfly requires the classifier: **wildfly**
 - JBoss AS 7 requires the classifier: **jbossas7**
@@ -144,7 +144,7 @@ The following steps are required to update the Camunda web applications Cockpit,
 3. Deploy the web application archive to your JBoss/Wildfly instance.
 
 
-[update-guide]: {{< relref "update/minor/78-to-79/index.md" >}}
+[update-guide]: {{< relref "update/minor/78-to-79/_index.md" >}}
 [engine-rest]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/camunda-engine-rest/
 [webapp-jboss]: https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/webapp/camunda-webapp-jboss/
-[jackson-update]: {{< relref "update/minor/78-to-79/index.md#jackson-version-update" >}}
+[jackson-update]: {{< relref "update/minor/78-to-79/_index.md#jackson-version-update" >}}

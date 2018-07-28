@@ -468,4 +468,4 @@ script task.
 
 For more information, see the
 [camunda:resource]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#camunda-resource" >}})
-section of the [Custom Extensions]({{< relref "reference/bpmn20/custom-extensions/index.md" >}}) chapter.
+section of the [Custom Extensions]({{< relref "reference/bpmn20/custom-extensions/_index.md" >}}) chapter.

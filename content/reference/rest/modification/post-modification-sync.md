@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Executes a modification synchronously for multiple process instances. 
+Executes a modification synchronously for multiple process instances.
 To modify a single process instance, use the [Modify Process Instance Execution State]({{< relref "reference/rest/process-instance/post-modification.md" >}}) method.
 To execute a modification asynchronously, use the [Execute Modification Async (Batch)]({{< relref "reference/rest/modification/post-modification-async.md" >}}) method.
 
@@ -115,7 +115,7 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case following parameters are missing: instructions, processDefinitionId, activityId or transitionId, processInstanceIds or processInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case following parameters are missing: instructions, processDefinitionId, activityId or transitionId, processInstanceIds or processInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

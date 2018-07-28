@@ -14,10 +14,10 @@ menu:
 
 ---
 
-The Camunda Eclipse Plugin allows you to model BPMN processes inside Eclipse. 
+The Camunda Eclipse Plugin allows you to model BPMN processes inside Eclipse.
 
 {{< note title="This Tool is Deprecated" class="info" >}}
-  As of Camunda BPM 7.4, a completely [new Camunda Modeler]({{< relref "modeler/camunda-modeler/index.md" >}}) is available. This modeler is a desktop application and we recommend to use it over the Eclipse plugin.
+  As of Camunda BPM 7.4, a completely [new Camunda Modeler]({{< relref "modeler/camunda-modeler/_index.md" >}}) is available. This modeler is a desktop application and we recommend to use it over the Eclipse plugin.
 {{< /note >}}
 
 

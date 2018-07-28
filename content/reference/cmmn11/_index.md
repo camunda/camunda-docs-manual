@@ -29,7 +29,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       </div>
       <div class="bpmn-symbol-container implemented">
         <a href="{{< relref "reference/cmmn11/grouping-tasks/stage.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
-        {{< cmmn-symbol type="stage-collapsed-colored" >}}            
+        {{< cmmn-symbol type="stage-collapsed-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="plan-fragment" >}}
@@ -41,7 +41,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       <h3>Tasks</h3>
       <div class="bpmn-symbol-container implemented">
         <a href="{{< relref "reference/cmmn11/tasks/human-task.md" >}}"><span class="glyphicon glyphicon-eye-open"></span></a>
-        {{< cmmn-symbol type="human-task-colored" >}} 
+        {{< cmmn-symbol type="human-task-colored" >}}
       </div>
       <div class="bpmn-symbol-container">
         {{< cmmn-symbol type="manual-task" >}}
@@ -176,7 +176,7 @@ The elements marked in <span class="label label-warning">orange</span> are suppo
       </td>
     </tr>
     <tr>
-      <td><a href="{{< relref "reference/cmmn11/tasks/index.md" >}}">Task</a></td>
+      <td><a href="{{< relref "reference/cmmn11/tasks/_index.md" >}}">Task</a></td>
       <td>
         <span class="glyphicon glyphicon-remove"></span>
       </td>

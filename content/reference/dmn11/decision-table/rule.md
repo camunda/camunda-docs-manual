@@ -88,7 +88,7 @@ expression languages are listed in the [User Guide][supported EL].
 </inputEntry>
 ```
 
-If no expression language is set then the global expression 
+If no expression language is set then the global expression
 language, which is set on the `definitions` XML element, is used.
 
 ```xml
@@ -145,7 +145,7 @@ expression languages are listed in the [User Guide][supported EL].
 </outputEntry>
 ```
 
-If no expression language is set then the global expression 
+If no expression language is set then the global expression
 language, which is set on the `definitions` XML element, is used.
 
 ```xml
@@ -180,4 +180,4 @@ information. The description text is set inside the `description` XML element.
 
 [supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
 [default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
-[FEEL]: {{< relref "reference/dmn11/feel/index.md" >}}
+[FEEL]: {{< relref "reference/dmn11/feel/_index.md" >}}

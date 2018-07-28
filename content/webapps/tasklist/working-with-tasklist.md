@@ -42,7 +42,7 @@ In our example task form you are asked to approve an invoice (or not). To comple
 
 When you submit the task form, the task is completed and the process continues in the engine. Furthermore, you can visualize the process model by clicking on the *Diagram* tab in the [task view][tasklist-dashboard-task-view] section of the dashboard.
 
-See the [Task Forms]({{< relref "user-guide/task-forms/index.md" >}}) section for more information.
+See the [Task Forms]({{< relref "user-guide/task-forms/_index.md" >}}) section for more information.
 
 
 # Set Follow-Up Date

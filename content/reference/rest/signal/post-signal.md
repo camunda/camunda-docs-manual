@@ -15,8 +15,8 @@ menu:
 
 A signal is an event of global scope (broadcast semantics) and is delivered to all active handlers.
 Internally this maps to the engine's signal event received builder method `RuntimeService#createSignalEvent()`.
-For more information about the signal behavior, see the [Signal Events]({{< relref "reference/bpmn20/events/signal-events.md" >}}) 
-section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/index.md" >}}).
+For more information about the signal behavior, see the [Signal Events]({{< relref "reference/bpmn20/events/signal-events.md" >}})
+section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -51,13 +51,13 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>tenantId</td>
-    <td>Specifies a tenant to deliver the signal. The signal can only be received on executions or process definitions 
+    <td>Specifies a tenant to deliver the signal. The signal can only be received on executions or process definitions
     which belongs to the given tenant.<br>
     <strong>Note:</strong> Cannot be used in combination with <code>executionId</code>.</td>
   </tr>
   <tr>
     <td>withoutTenantId</td>
-    <td>If <code>true</code> the signal can only be received on executions or process definitions which belongs to no 
+    <td>If <code>true</code> the signal can only be received on executions or process definitions which belongs to no
     tenant. Value may not be <code>false</code> as this is the default behavior.<br>
     <strong>Note:</strong> Cannot be used in combination with <code>executionId</code>.</td>
   </tr>
@@ -85,7 +85,7 @@ This method returns no content.
     <td>
       <ul>
         <li>If no <code>name</code> was given</li>
-        <li>If the variable value or type is invalid, for example if the value could not be parsed to an integer value 
+        <li>If the variable value or type is invalid, for example if the value could not be parsed to an integer value
         or the passed variable type is not supported</li>
         <li>If a tenant id and an execution id is specified</li>
       </ul>
@@ -105,7 +105,7 @@ This method returns no content.
   </tr>
 </table>
 
-Also see the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">introduction</a> for the error 
+Also see the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">introduction</a> for the error
 response format.
 
 # Example

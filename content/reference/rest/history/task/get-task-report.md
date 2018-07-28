@@ -12,10 +12,10 @@ menu:
 
 ---
 
-Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of 
-completed task counts where an entry contains the task name, the definition key of the task, the process definition id, 
-the process definition key, the process definition name and the count of how many tasks were completed for the specified 
-key in a given period. When the report type is set to <code>duration</code>, the report contains a minimum, maximum and 
+Retrieves a report of completed tasks. When the report type is set to <code>count</code>, the report contains a list of
+completed task counts where an entry contains the task name, the definition key of the task, the process definition id,
+the process definition key, the process definition name and the count of how many tasks were completed for the specified
+key in a given period. When the report type is set to <code>duration</code>, the report contains a minimum, maximum and
 average duration value of all completed task instances in a given period.
 
 
@@ -51,14 +51,14 @@ GET `/history/task/report`
   <tr>
     <td>completedBefore</td>
     <td>
-      Restrict to tasks that were completed before the given date. By default*, the date must have the format 
+      Restrict to tasks that were completed before the given date. By default*, the date must have the format
       <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
     </td>
   </tr>
   <tr>
     <td>completedAfter</td>
     <td>
-      Restrict to tasks that were completed after the given date. By default*, the date must have the format 
+      Restrict to tasks that were completed after the given date. By default*, the date must have the format
       <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>, e.g., <code>2013-01-23T14:42:45.000+0200</code>.
     </td>
   </tr>
@@ -88,7 +88,7 @@ Each historic task report object has the following properties:
     <td>taskName</td>
     <td>String</td>
     <td>
-      The task name of the task. It is only available when the <code>groupBy</code>-parameter is set to 
+      The task name of the task. It is only available when the <code>groupBy</code>-parameter is set to
       <code>taskName</code>. Else the value is <code>null</code>.
     </td>
   </tr>
@@ -173,8 +173,8 @@ Each object has the following properties:
     <td>400</td>
     <td>application/json</td>
     <td>
-      Returned if some of the query parameters are invalid, for example if a <code>completedAfter</code> parameter is 
-      supplied, but the date format is wrong. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+      Returned if some of the query parameters are invalid, for example if a <code>completedAfter</code> parameter is
+      supplied, but the date format is wrong. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a>
       for the error response format.
     </td>
   </tr>

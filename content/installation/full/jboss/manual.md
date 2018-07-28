@@ -352,7 +352,7 @@ To activate Camunda Connect functionality for a process engine, a process engine
 
 ## Camunda Spin
 
-The Camunda Spin plugin can be use to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< relref "reference/spin/index.md" >}}).
+The Camunda Spin plugin can be use to extend the engine functionality to de-/serialize object variables from and to JSON and XML. For more information, see the [Spin Reference]({{< relref "reference/spin/_index.md" >}}).
 
 ### Setup Spin
 

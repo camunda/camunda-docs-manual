@@ -33,9 +33,9 @@ To migrate your process application from Camunda fox to Camunda BPM, you need to
 
 *   Do the Activiti migration as [described]({{< relref "activiti.md" >}}), as Camunda fox included the Activiti engine.
 *   Remove the `fox-platform-client.x.jar` from your deployment - it is not needed anymore.
-*   Add a Process Application Class, see [Process Applications]({{< relref "user-guide/process-applications/index.md" >}}).
+*   Add a Process Application Class, see [Process Applications]({{< relref "user-guide/process-applications/_index.md" >}}).
 *   If you don't use our engine as embedded jar, you should set your maven-dependency for it to **provided-scope**
-*   Adjust the `processes.xml` to the new format, see [Process Applications]({{< relref "user-guide/process-applications/index.md" >}}).
+*   Adjust the `processes.xml` to the new format, see [Process Applications]({{< relref "user-guide/process-applications/_index.md" >}}).
 *   If you completely migrate to our new distribution, you have to adjust your `persistence.xml` from **FoxEngineDS** to **ProcessEngine**
 *   If you use the new Camunda Tasklist component, you have to adjust the `formKey`, as described in the [Getting Started](http://camunda.org/implement/getting-started.html) section. We will provide more information soon. For JSF-Formkeys, your formkey should have the following format: `/<application-context-path>/<form>.jsf`. E.g., `/loan-approval/request-loan.jsf`
 *   If you use the `fox.taskForm` bean, make sure you have the `camunda-engine-cdi` dependency on your classpath:
@@ -161,7 +161,7 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins.
   * `camunda-webapp-jboss-$PLATFORM_VERSION.war`
 * You can delete the corresponding Cockpit tables because they are not needed anymore.
 
-For more details about installing the Camunda BPM webapps read the [installation guide]({{< relref "installation/full/jboss/index.md" >}}).
+For more details about installing the Camunda BPM webapps read the [installation guide]({{< relref "installation/full/jboss/_index.md" >}}).
 
 ## GlassFish 3.1
 
@@ -348,7 +348,7 @@ Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 * Open the folder `$FOX_HOME/lib/ext/` and delete the following artifacts:
   * `fox-engine-$FOX_VERSION.jar`
   * `fox-platform-api-$FOX_VERSION.jar`
-* Now you can install Camunda BPM 7.0, to do so, see the [installation guide]({{< relref "installation/full/index.md" >}}) and follow the instructions.
+* Now you can install Camunda BPM 7.0, to do so, see the [installation guide]({{< relref "installation/full/_index.md" >}}) and follow the instructions.
 
 Since Camunda BPM 7.0, you can configure built-in process engine plugins.
 

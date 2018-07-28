@@ -16,8 +16,8 @@ implementation of user task forms in HTML5 / JavaScript based Applications. The 
 written in JavaScript and can be added to any  JavaScript based Application.
 
 {{< note title="The Forms SDK and Camunda Tasklist" class="info" >}}
-<a href="{{< relref "webapps/tasklist/index.md" >}}">
-Camunda Tasklist</a> uses the Form SDK for providing support for Embedded Forms. By default, the 
+<a href="{{< relref "webapps/tasklist/_index.md" >}}">
+Camunda Tasklist</a> uses the Form SDK for providing support for Embedded Forms. By default, the
 tasklist uses the Form SDKs AngularJS integration.
 {{< /note >}}
 
@@ -29,7 +29,7 @@ The Forms SDK provides the following features:
 * *Form handling*: attach to a form existing in the DOM or load a form from a URL.
 * *Variable handling*: load and submit variables used in the form.
 * *Script handling*: execute custom JavaScript in Forms
-* *Angular JS Integration*: The Forms SDK optionally integrates with AngularJS to take advantage 
+* *Angular JS Integration*: The Forms SDK optionally integrates with AngularJS to take advantage
   of AngularJS form validation and other AngularJS goodies.
 
 The following is a simple example of a form with two input fields binding to process variables

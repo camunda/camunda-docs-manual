@@ -46,15 +46,15 @@ GET `/tenant`
   <tr>
     <td>userMember</td>
     <td>Select only tenants where the given user is a member of.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>groupMember</td>
     <td>Select only tenants where the given group is a member of.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>includingGroupsOfUser</td>
     <td>Select only tenants where the user or one of his groups is a member of. Can only be used in combination with the <code>userMember</code> parameter. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>sortBy</td>
     <td>Sort the results lexicographically by a given criterion. Valid values are
@@ -117,7 +117,7 @@ Each tenant object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code> is specified. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

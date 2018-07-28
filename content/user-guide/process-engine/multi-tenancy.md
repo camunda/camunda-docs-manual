@@ -27,8 +27,8 @@ It is also possible for all tenants to share the same definitions without deploy
 
 {{< note title="Examples" class="info" >}}
 Find [examples on GitHub](https://github.com/camunda/camunda-bpm-examples) that show how to use tenant-identifiers with
-  
-* [Embedded Process Engine](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-embedded)    
+
+* [Embedded Process Engine](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-embedded)
 * [Shared Process Engine](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/tenant-identifier-shared)
 {{< /note >}}
 
@@ -109,7 +109,7 @@ List<Deployment> deployments = repositoryService
   .list();
 ```
 
-In case of [shared definitions]({{< relref "#shared-definitions-for-all-tenants" >}}), it can be useful to filter by deployments which belong to no tenant by calling `withoutTenantId()`. 
+In case of [shared definitions]({{< relref "#shared-definitions-for-all-tenants" >}}), it can be useful to filter by deployments which belong to no tenant by calling `withoutTenantId()`.
 
 ```java
 List<Deployment> deployments = repositoryService
@@ -148,7 +148,7 @@ Note that the [transparent access restrictions]({{< relref "#transparent-access-
 
 ### Create a Process Instance
 
-To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}. 
+To create an instance by key of a process definition which is deployed for multiple tenants, the tenant identifier has to be passed to the {{< javadocref page="?org/camunda/bpm/engine/runtime/ProcessInstantiationBuilder.html" text="ProcessInstantiationBuilder" >}}.
 
 ```java
 runtimeService
@@ -291,7 +291,7 @@ try {
 
   // get all tasks visible to user.
   taskService.createTaskQuery().list();
-  
+
 }
 finally {
   identityService.clearAuthentication();
@@ -300,16 +300,16 @@ finally {
 
 {{< note title="LDAP Identity Service" class="info" >}}
 The above example only works with the [Database Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-database-identity-service" >}}) (i.e., the default implementation). The [LDAP Identity Service]({{< relref "user-guide/process-engine/identity-service.md#the-ldap-identity-service" >}}) doesn't support tenants.
-{{< /note >}}  
+{{< /note >}}
 
 
 ### Camunda Rest API and Web Applications
 
-The Camunda [Rest API]({{< relref "reference/rest/index.md" >}}) and the web applications Cockpit and Tasklist support the transparent access restrictions. When a user logs in then he only sees and can only access the data (e.g., process definitions) that belongs to one of his tenants.
+The Camunda [Rest API]({{< relref "reference/rest/_index.md" >}}) and the web applications Cockpit and Tasklist support the transparent access restrictions. When a user logs in then he only sees and can only access the data (e.g., process definitions) that belongs to one of his tenants.
 
 Tenants and their memberships can be managed in the [Admin]({{< relref "webapps/admin/tenant-management.md" >}}) web application.
 
-### Disable the Transparent Access Restrictions 
+### Disable the Transparent Access Restrictions
 
 The transparent access restrictions are enabled by default. To disable the restrictions, set the `tenantCheckEnabled` property in the [ProcessEngineConfiguration]({{< relref "user-guide/process-engine/process-engine-bootstrapping.md#processengineconfiguration-bean" >}}) to `false`.
 
@@ -323,7 +323,7 @@ commandContext.disableTenantCheck();
 commandContext.enableTenantCheck();
 ```
 
-Note that the restrictions can't be enabled for a command if they are disabled in the `ProcessEngineConfiguration`. 
+Note that the restrictions can't be enabled for a command if they are disabled in the `ProcessEngineConfiguration`.
 
 ### Access all Tenants as Administrator
 
@@ -430,10 +430,10 @@ To use the `TenantIdProvider`, it must be set in the Process Engine Configuratio
 <beans>
   <bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneProcessEngineConfiguration">
     <!-- ... -->
-    
+
     <property name="tenantIdProvider" ref="tenantIdProvider" />
   </bean>
-  
+
   <bean id="tenantIdProvider" class="org.camunda.bpm.CustomTenantIdProvider">
 </beans>
 ```
@@ -461,7 +461,7 @@ Multi-Tenancy can be achieved by providing one process engine per tenant. Each p
 
 {{< img src="../../../introduction/img/multi-tenancy-process-engine.png" title="One Process Engine per Tenant Architecture" >}}
 
-The process engines can run on the same server so that all share the same computational resources such as a data source (when isolating via schemas or tables) or a thread pool for asynchronous job execution. 
+The process engines can run on the same server so that all share the same computational resources such as a data source (when isolating via schemas or tables) or a thread pool for asynchronous job execution.
 
 {{< note title="Tutorial" class="info" >}}
   You can see the [example](https://github.com/camunda/camunda-bpm-examples/tree/master/multi-tenancy/schema-isolation) how to implement multi-tenancy with data isolation by schemas.
@@ -473,7 +473,7 @@ The process engines can be configured in a configuration file or via Java API. E
 
 ### Database Isolation
 
-If different tenants should work on entirely different databases, they have to use different JDBC settings or different data sources. 
+If different tenants should work on entirely different databases, they have to use different JDBC settings or different data sources.
 
 ### Schema or Table Isolation
 
@@ -489,7 +489,7 @@ When using this configuration setting, you need to be aware that
 
 * it can only be used if all process engines which use the setting share the same datasource and transaction factory
 * the reference in the field, once set, is never cleared. This is usually not a problem but if it is, users must clear the field
-manually by setting it to null explicitly via 
+manually by setting it to null explicitly via
 
 ```java
 ProcessEngineConfigurationImpl.cachedSqlSessionFactory = null
