@@ -24,12 +24,12 @@ Noteworthy new Features and Changes in 7.4:
 
 * **DMN 1.1:** [Decision Model And Notation][dmn-ref] is a standard for defining and executing business rules in the form of decisions and integrates with [BPMN][bpmn-ref] and [CMMN][cmmn-ref]. Camunda BPM 7.4 implements this standard for decision tables and therefore introduces new artifacts and extends the database schema during update. If you do not plan to use DMN, the DMN-related tables will stay empty.
 * **CMMN 1.1:** In addition to the already implemented version 1.0, the new version 1.1 of [Case Management Model And Notation][cmmn-ref] (CMMN) is supported with Camunda BPM 7.4. The execution of CMMN 1.0 models is still supported by Camunda BPM.
-* **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< relref "user-guide/logging.md" >}}).
+* **Logging:** Camunda 7.4 uses SLF4J as a logging API instead of JDK logging as before. This introduces the SLF4J API as a core dependency for the process engine. Please refer to the application server-specific sub-chapters of this document for implications on updating a full distribution installation. Also see the User Guide for [information on how to set up logging]({{< ref "/user-guide/logging.md" >}}).
 * **Changed URL of BPMN Extensions Namespace**: With 7.4 the namespace URL for BPMN extensions is changed. See last section on this page for details.
 
-[dmn-ref]: {{< relref "reference/dmn11/_index.md" >}}
-[cmmn-ref]: {{< relref "reference/cmmn11/_index.md" >}}
-[bpmn-ref]: {{< relref "reference/bpmn20/_index.md" >}}
+[dmn-ref]: {{< ref "/reference/dmn11/_index.md" >}}
+[cmmn-ref]: {{< ref "/reference/cmmn11/_index.md" >}}
+[bpmn-ref]: {{< ref "/reference/bpmn20/_index.md" >}}
 
 {{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.3 to 7.4 in a rolling fashion. This means, it is not possible to run process engines of version 7.3 and 7.4 in parallel with the same database configuration. The reason is that a 7.3 engine may not be able to execute process instances that have been previously executed by a 7.4 engine, as these may use features that were not available yet in 7.3.
@@ -41,7 +41,7 @@ Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.3_patch_?.sql`.
@@ -63,7 +63,7 @@ This script is the same as patch `$DATABASE_engine_7.3_patch_7.3.2_to_7.3.3_2.sq
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -76,11 +76,11 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.4 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/73-to-74/tomcat.md" >}})
-* [JBoss AS/Wildfly]({{< relref "update/minor/73-to-74/jboss.md" >}})
-* [Glassfish]({{< relref "update/minor/73-to-74/glassfish.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/73-to-74/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/73-to-74/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss AS/Wildfly]({{< relref "jboss.md" >}})
+* [Glassfish]({{< relref "glassfish.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -115,22 +115,22 @@ This section describes changes in the engine's default behavior. While the chang
 
 As of 7.4 the process engine uses SLF4J for logging. The SLF4J API is pulled in transitively by the process engine maven module.
 However, in order for any actual logging to occur, you need to add an slf4j compatible logging backend. Please refer to the user guide for
-[Information on how to setup logging]({{< relref "user-guide/logging.md" >}}).
+[Information on how to setup logging]({{< ref "/user-guide/logging.md" >}}).
 
 ### Task Query Expressions
 
-As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
+As of 7.4, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
 This is already the default for Camunda BPM versions after and including 7.3.3 and 7.2.8.
 
 ### User Operation Log
 
-The behavior of the [user operation log]({{< relref "user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e., to write log entries regardless of user context, set the flag to `false`.
+The behavior of the [user operation log]({{< ref "/user-guide/process-engine/history.md#user-operation-log" >}}) has changed, so that operations are only logged if they are performed in the context of a logged in user. This behavior can be toggled in the process engine configuration using the property `restrictUserOperationLogToAuthenticatedUsers` (default `true`). To restore the engine's prior behavior, i.e., to write log entries regardless of user context, set the flag to `false`.
 
 Furthermore, with 7.4 task events are only logged when they occur in the context of a logged in user. Task events are accessible via the deprecated API `TaskService#getTaskEvents`. If you rely on this API method, the previous behavior can be restored by setting the flag `restrictUserOperationLogToAuthenticatedUsers` to `false`.
 
 ### CMMN Model API
 
-As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< relref "user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< relref "reference/cmmn11/migration/10-to-11.md" >}}).
+As a consequence of supporting CMMN 1.1, the CMMN model API is now based on the schema of CMMN 1.1. This leads to [limitations]({{< ref "/user-guide/model-api/cmmn-model-api/limitations.md" >}}) when editing CMMN 1.0 models. We therefore recommend to [migrate your CMMN 1.0 models to CMMN 1.1]({{< ref "/reference/cmmn11/migration/10-to-11.md" >}}).
 
 # Changed URL of BPMN Extensions Namespace
 

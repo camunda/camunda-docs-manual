@@ -74,7 +74,7 @@ A JSON object that represents an incident object with the following properties:
   <tr>
     <td>incidentType</td>
     <td>String</td>
-    <td>The type of incident, for example: <code>failedJobs</code> will be returned in case of an incident which identified a failed job during the execution of a process instance. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>The type of incident, for example: <code>failedJobs</code> will be returned in case of an incident which identified a failed job during the execution of a process instance. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>activityId</td>
@@ -113,7 +113,7 @@ A JSON object that represents an incident object with the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 

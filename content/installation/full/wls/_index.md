@@ -12,7 +12,7 @@ menu:
 
 ---
 
-This document describes the installation of the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) for Oracle WebLogic Application Server.
+This document describes the installation of the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) for Oracle WebLogic Application Server.
 
 {{< enterprise >}}
 The Full Distribution for Oracle WebLogic is only available in the Enterprise Edition.

@@ -10,7 +10,7 @@ menu:
     pre: "Events catching / throwing escalations."
 ---
 
-Escalation events are events which reference a named escalation. They are mostly used to communicate from a subprocess to an upper process. Unlike an error, an escalation event is non critical and execution continues at the location of throwing. 
+Escalation events are events which reference a named escalation. They are mostly used to communicate from a subprocess to an upper process. Unlike an error, an escalation event is non critical and execution continues at the location of throwing.
 
 <div data-bpmn-diagram="../bpmn/escalation-example"></div>
 
@@ -76,7 +76,7 @@ The following extensions are supported for `escalationEventDefinition`.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>
@@ -122,7 +122,7 @@ The following extensions are supported for `escalationEventDefinition`.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
+      <a href="{{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#escalationcodevariable" >}}">camunda:escalationCodeVariable</a>
     </td>
   </tr>
   <tr>
@@ -142,7 +142,7 @@ The following extensions are supported for `escalationEventDefinition`.
 
 {{< bpmn-symbol type="escalation-intermediate-throw-event" >}}
 
-When process execution arrives at an escalation intermediate throw event, a named escalation is thrown. This escalation can be caught by an escalation boundary event or an event sub-process with an escalation start event which has the same or none escalation code. 
+When process execution arrives at an escalation intermediate throw event, a named escalation is thrown. This escalation can be caught by an escalation boundary event or an event sub-process with an escalation start event which has the same or none escalation code.
 
 <div data-bpmn-diagram="../bpmn/escalation-intermediate-throw-event"></div>
 

@@ -13,7 +13,7 @@ menu:
 ---
 
 Queries for the number of historic details that fulfill the given parameters.
-Takes the same parameters as the [Get Historic Details]({{< relref "reference/rest/history/detail/get-detail-query.md" >}}) method.
+Takes the same parameters as the [Get Historic Details]({{< ref "/reference/rest/history/detail/get-detail-query.md" >}}) method.
 
 
 # Method
@@ -60,7 +60,7 @@ GET `/history/detail/count`
   </tr>
   <tr>
     <td>variableTypeIn</td>
-    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
+    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>

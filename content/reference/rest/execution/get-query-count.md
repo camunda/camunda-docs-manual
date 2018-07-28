@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of executions that fulfill given parameters.
-Takes the same parameters as the [Get Executions]({{< relref "reference/rest/execution/get-query.md" >}}) method.
+Takes the same parameters as the [Get Executions]({{< ref "/reference/rest/execution/get-query.md" >}}) method.
 
 
 # Method
@@ -73,7 +73,7 @@ GET `/execution/count`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -150,7 +150,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

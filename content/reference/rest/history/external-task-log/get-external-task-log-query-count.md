@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of historic external task logs that fulfill the given parameters.
-Takes the same parameters as the [Get External Task Logs]({{< relref "reference/rest/history/external-task-log/get-external-task-log-query.md" >}}) method.
+Takes the same parameters as the [Get External Task Logs]({{< ref "/reference/rest/history/external-task-log/get-external-task-log-query.md" >}}) method.
 
 
 # Method

@@ -19,4 +19,4 @@ The Camunda DMN engine **only** supports FEEL for [input entries] of a
 decision table. This corresponds to FEEL simple unary tests.
 
 
-[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

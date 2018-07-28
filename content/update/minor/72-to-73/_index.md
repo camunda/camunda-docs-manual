@@ -37,7 +37,7 @@ The first step consists in updating the database.
 
 ## Basic Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.2_patch_?.sql`.
@@ -64,7 +64,7 @@ This script is the same as patch `$DATABASE_engine_7.2_patch_7.2.4_to_7.2.5.sql`
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -77,11 +77,11 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/72-to-73/tomcat.md" >}})
-* [JBoss/Wildfly]({{< relref "update/minor/72-to-73/jboss.md" >}})
-* [Glassfish]({{< relref "update/minor/72-to-73/glassfish.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/72-to-73/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/72-to-73/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss/Wildfly]({{< relref "jboss.md" >}})
+* [Glassfish]({{< relref "glassfish.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -118,7 +118,7 @@ This section describes a change in the engine's default behavior. While the chan
 
 ### Task Query Expressions
 
-As of 7.3.3, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< relref "user-guide/process-engine/securing-custom-code.md" >}}) for details.
+As of 7.3.3, the default handling of expressions submitted as parameters of task queries has changed. Passing EL expressions in a task query enables execution of arbitrary code when the query is evaluated. The process engine no longer evaluates these expressions by default and throws an exception instead. This behavior can be toggled in the process engine configuration using the properties `enableExpressionsInAdhocQueries` (default `false`) and `enableExpressionsInStoredQueries` (default `true`). To restore the engine's previous behavior, set both flags to `true`. See the user guide on [security considerations for custom code]({{< ref "/user-guide/process-engine/securing-custom-code.md" >}}) for details.
 This is already the default for Camunda BPM versions after and including 7.2.8.
 
 # Cockpit Plugins
@@ -289,15 +289,15 @@ As of version 7.3, it is possible to authorize access to process-related resourc
 * `Process Instance`
 * `Task`
 
-so that an authenticated user can only see, modify, and delete those process definitions, process instances, and tasks for which the user is authorized to do so (for further details please read the [User Guide]({{< relref "user-guide/process-engine/authorization-service.md" >}})).
+so that an authenticated user can only see, modify, and delete those process definitions, process instances, and tasks for which the user is authorized to do so (for further details please read the [User Guide]({{< ref "/user-guide/process-engine/authorization-service.md" >}})).
 
 The update script `$DATABASE_engine_7.2_to_7.3.sql` contains `INSERT`-statements that create a new `GLOBAL` authorization and a new `GRANT` authorization for the group `camunda-admin` for each new authorization resource. These authorizations ensure that all users are able to access above-mentioned resources so that the process engine behaves the same way after the update as it did before the update.
 
 If these authorizations are not desired and you want to restrict access to the listed resources, you have the following options:
 
 * Before executing the update script `$DATABASE_engine_7.2_to_7.3.sql` remove the corresponding `INSERT`-statements inside the script.
-* Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to delete the created authorizations.
-* Use the [Camunda Admin application]({{< relref "webapps/admin/authorization-management.md" >}}) to add authorizations that restrict access.
+* Use the [Camunda Admin application]({{< ref "/webapps/admin/authorization-management.md" >}}) to delete the created authorizations.
+* Use the [Camunda Admin application]({{< ref "/webapps/admin/authorization-management.md" >}}) to add authorizations that restrict access.
 
 {{< note title="Note" class="warning" >}}
 If you use custom authorization resources with 7.2, make sure to check that they have a different id than the newly introduced resources (listed above). Otherwise, granted/restricted authorizations apply to both resources which may result in undesired behavior.

@@ -34,7 +34,7 @@ Out of the box, Camunda Tasklist supports four different kinds of task forms:
 
 # Embedded Task Forms
 
-Embedded task forms are HTML and JavaScript forms which can be displayed directly within Tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< relref "reference/embedded-forms/_index.md" >}}).
+Embedded task forms are HTML and JavaScript forms which can be displayed directly within Tasklist. We provide more information about the creation of embedded forms in our [Embedded Task Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}}).
 
 To add an embedded form to your application, simply create an HTML file and refer to it from a [UserTask][user-tasks] or a [StartEvent][start-event] in your process model. For example, you can create a FORM_NAME.html file containing the relevant content for your form, e.g., a simple form with two input fields:
 
@@ -59,7 +59,7 @@ To add an embedded form to your application, simply create an HTML file and refe
 The file containing the form can be referenced in two ways:
 
 * *app:*: Add the file to your development project in a folder `src/main/webapp/forms`. The HTML file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.
-* *deployment:*: The file is part of your deployment (e.g., [by adding it to your process archive]({{< relref "reference/deployment-descriptors/tags/process-archive.md" >}})), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.
+* *deployment:*: The file is part of your deployment (e.g., [by adding it to your process archive]({{< ref "/reference/deployment-descriptors/tags/process-archive.md" >}})), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.
 
 To configure the form in your process, open the process with the [Camunda Modeler](http://camunda.org/bpmn/tool/) and select the desired [UserTask][user-tasks] or [StartEvent][start-event]. Open the properties panel and enter `embedded:app:forms/FORM_NAME.html` (or `embedded:deployment:forms/FORM_NAME.html`) as Form Key. The relevant XML tag looks like this:
 
@@ -311,7 +311,7 @@ Tasklist creates the URL by the pattern:
 When you have completed the task, the call back URL will be called.
 
 {{< note title="How To" class="info" >}}
-  [How to add JSF Forms to your process application]({{< relref "user-guide/task-forms/jsf-task-forms.md" >}})
+  [How to add JSF Forms to your process application]({{< ref "/user-guide/task-forms/jsf-task-forms.md" >}})
 {{< /note >}}
 
 
@@ -328,6 +328,6 @@ After hitting the *Complete* button, the process instance contains the entered v
 You can also retrieve already existing variables of the process instance by clicking the *Load Variables* button.
 
 
-[user-tasks]: {{< relref "reference/bpmn20/tasks/user-task.md" >}}
-[start-event]: {{< relref "reference/bpmn20/events/start-events.md" >}}
-[jsf-task-forms]: {{< relref "user-guide/task-forms/jsf-task-forms.md" >}}
+[user-tasks]: {{< ref "/reference/bpmn20/tasks/user-task.md" >}}
+[start-event]: {{< ref "/reference/bpmn20/events/start-events.md" >}}
+[jsf-task-forms]: {{< ref "/user-guide/task-forms/jsf-task-forms.md" >}}

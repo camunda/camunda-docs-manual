@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Retrieves the rendered form for a task. This method can be used to get the HTML rendering of a [Generated Task Form]({{< relref "user-guide/task-forms/_index.md#generated-task-forms" >}}).
+Retrieves the rendered form for a task. This method can be used to get the HTML rendering of a [Generated Task Form]({{< ref "/user-guide/task-forms/_index.md#generated-task-forms" >}}).
 
 # Method
 
@@ -56,7 +56,7 @@ An HTML response body providing the rendered (generated) form content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task with the given id does not exist or has no form field metadata defined for this task. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The task with the given id does not exist or has no form field metadata defined for this task. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

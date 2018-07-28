@@ -24,7 +24,7 @@ The `cockpit.dashboard` plugin point will allow to add your custom views at the 
 
 Read more about [cockpit dashboard plugins][cockpit-dashboard-plugins].
 
-[cockpit-dashboard-plugins]: {{< relref "webapps/cockpit/extend/plugins.md" >}}#dashboard
+[cockpit-dashboard-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}#dashboard
 
 # Version changes
 
@@ -40,12 +40,12 @@ The following modules have been updated to a newer version:
   </thead>
   <tbody>
   <tr>
-    <td>bpmn-js</td>    
+    <td>bpmn-js</td>
     <td>0.14.1</td>
     <td>0.18.1</td>
   </tr>
   <tr>
-    <td>dmn-js</td>    
+    <td>dmn-js</td>
     <td>0.5.0</td>
     <td>0.8.1</td>
   </tr>

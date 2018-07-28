@@ -76,7 +76,7 @@ Each key is a variable name and each value a variable value object that has the 
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Case instance with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Case instance with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

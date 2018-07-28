@@ -66,7 +66,7 @@ platform. The engine uses the id as the decision key of the deployed
 ```
 
 
-[inputs]: {{< relref "reference/dmn11/decision-table/input.md" >}}
-[outputs]: {{< relref "reference/dmn11/decision-table/output.md" >}}
-[rules]: {{< relref "reference/dmn11/decision-table/rule.md" >}}
-[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
+[inputs]: {{< ref "/reference/dmn11/decision-table/input.md" >}}
+[outputs]: {{< ref "/reference/dmn11/decision-table/output.md" >}}
+[rules]: {{< ref "/reference/dmn11/decision-table/rule.md" >}}
+[deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}

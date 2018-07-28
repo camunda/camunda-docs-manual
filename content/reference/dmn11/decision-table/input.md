@@ -120,7 +120,7 @@ supported expression languages are listed in the [User Guide][supported EL].
 </input>
 ```
 
-If no expression language is set then the global expression 
+If no expression language is set then the global expression
 language, which is set on the `definitions` XML element, is used.
 
 ```xml
@@ -171,8 +171,8 @@ The variable can be used in an expression of an [input entry]. For example, the
 JUEL expression `currentSeason != "Fall"` checks if the season input is not
 `"Fall"`.
 
-[supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
-[default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
-[supported DT]: {{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}
-[inputVariable]: {{< relref "reference/dmn11/custom-extensions/camunda-attributes.md#inputvariable" >}}
-[input entry]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
+[default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
+[supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
+[inputVariable]: {{< ref "/reference/dmn11/custom-extensions/camunda-attributes.md#inputvariable" >}}
+[input entry]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

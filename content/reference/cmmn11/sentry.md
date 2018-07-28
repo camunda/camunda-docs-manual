@@ -10,7 +10,7 @@ menu:
 
 ---
 
-A *sentry* captures the occurrence of a certain event occurring or a condition being fulfilled within a case. Sentries are used as [entry and exit criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Note that the black and white diamonds represent the criteria. A sentry itself has no graphical representation.
+A *sentry* captures the occurrence of a certain event occurring or a condition being fulfilled within a case. Sentries are used as [entry and exit criteria]({{< ref "/reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Note that the black and white diamonds represent the criteria. A sentry itself has no graphical representation.
 
 {{< cmmn-symbol type="marker-entry-criterion" >}}
 
@@ -36,7 +36,7 @@ In XML, a sentry can be specified as follows:
 <humanTask id="HumanTask_1"/>
 ```
 
-The above example defines a sentry that is fulfilled when the plan item `PlanItem_HumanTask_1` performs the state transition `complete` (note the `planItemOnPart` element) and a variable named `myVar` has a value greater than 100 (note the `ifPart` element). Furthermore, it serves as an [entry criterion]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}) for the plan item `PlanItem_HumanTask_2` that becomes `ENABLED` as soon as the sentry is fulfilled (note the `entryCriterion` child element of the element `PlanItem_HumanTask_2`).
+The above example defines a sentry that is fulfilled when the plan item `PlanItem_HumanTask_1` performs the state transition `complete` (note the `planItemOnPart` element) and a variable named `myVar` has a value greater than 100 (note the `ifPart` element). Furthermore, it serves as an [entry criterion]({{< ref "/reference/cmmn11/concepts/entry-exit-criteria.md" >}}) for the plan item `PlanItem_HumanTask_2` that becomes `ENABLED` as soon as the sentry is fulfilled (note the `entryCriterion` child element of the element `PlanItem_HumanTask_2`).
 
 As conditions or event triggers, sentries may define the following elements:
 
@@ -56,7 +56,7 @@ OnParts are defined on lifecycle transitions for plan items or case file items. 
 ```
 
 
-A `planItemOnPart` must always reference a plan item by the attribute `sourceRef`. This plan item must be contained by the same stage the sentry is defined in. The child element `standardEvent` can the identifier of any lifecycle transition from that plan item's lifecycle and that is supported by the camunda engine. Note that different plan item definitions define different lifecycles. For details on valid lifecycle transitions, see the [Lifecycles]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}) section.
+A `planItemOnPart` must always reference a plan item by the attribute `sourceRef`. This plan item must be contained by the same stage the sentry is defined in. The child element `standardEvent` can the identifier of any lifecycle transition from that plan item's lifecycle and that is supported by the camunda engine. Note that different plan item definitions define different lifecycles. For details on valid lifecycle transitions, see the [Lifecycles]({{< ref "/reference/cmmn11/concepts/lifecycle.md" >}}) section.
 
 As an alternative to `sourceRef`, the CMMN specification allows to define an attribute `sentryRef` responsible for referencing another sentry such that the onPart is fulfilled when the plan item that sentry references performs the *exit* state transition. This attribute is currently not supported by the Camunda engine.
 
@@ -103,8 +103,8 @@ In Camunda, a sentry with a variableOnPart looks as follows
     <camunda:variableOnPart variableName = "variable_1">
       <camunda:variableEvent>create</camunda:variableEvent>
     </camunda:variableOnPart>
-  </extensionElements>	
-</sentry>  
+  </extensionElements>
+</sentry>
 ```
 In the above example, sentry is evaluated when the `create` event on the variable `variable_1` occurs.
 

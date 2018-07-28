@@ -15,8 +15,8 @@ menu:
 
 A signal is an event of global scope (broadcast semantics) and is delivered to all active handlers.
 Internally this maps to the engine's signal event received builder method `RuntimeService#createSignalEvent()`.
-For more information about the signal behavior, see the [Signal Events]({{< relref "reference/bpmn20/events/signal-events.md" >}})
-section of the [BPMN 2.0 Implementation Reference]({{< relref "reference/bpmn20/_index.md" >}}).
+For more information about the signal behavior, see the [Signal Events]({{< ref "/reference/bpmn20/events/signal-events.md" >}})
+section of the [BPMN 2.0 Implementation Reference]({{< ref "/reference/bpmn20/_index.md" >}}).
 
 
 # Method
@@ -105,7 +105,7 @@ This method returns no content.
   </tr>
 </table>
 
-Also see the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">introduction</a> for the error
+Also see the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">introduction</a> for the error
 response format.
 
 # Example

@@ -16,7 +16,7 @@ menu:
 Queries for deployments that fulfill given parameters. Parameters may be the
 properties of deployments, such as the id or name or a range of the deployment time.
 The size of the result set
-can be retrieved by using the [Get Deployment count]({{< relref "reference/rest/deployment/get-query-count.md" >}}) method.
+can be retrieved by using the [Get Deployment count]({{< ref "/reference/rest/deployment/get-query-count.md" >}}) method.
 
 
 # Method
@@ -94,7 +94,7 @@ GET `/deployment`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -151,7 +151,7 @@ A JSON array of deployment objects. Each deployment object has the following pro
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -16,7 +16,7 @@ menu:
 
 ---
 
-Updates history time to live for case definition with given id. The field is used within [History cleanup]({{< relref "user-guide/process-engine/history.md#history-cleanup">}}).
+Updates history time to live for case definition with given id. The field is used within [History cleanup]({{< ref "/user-guide/process-engine/history.md#history-cleanup">}}).
 
 # Method
 
@@ -84,7 +84,7 @@ This method returns no content.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>case definition with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>case definition with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

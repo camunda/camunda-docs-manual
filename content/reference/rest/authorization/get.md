@@ -54,7 +54,7 @@ A JSON array with the following properties:
   <tr>
     <td>type</td>
     <td>Integer</td>
-    <td>The type of the authorization. (0=global, 1=grant, 2=revoke). See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
+    <td>The type of the authorization. (0=global, 1=grant, 2=revoke). See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#authorization-type" >}}">User Guide</a> for more information about authorization types.</td>
   </tr>
   <tr>
     <td>permissions</td>
@@ -74,7 +74,7 @@ A JSON array with the following properties:
   <tr>
     <td>resourceType</td>
     <td>Integer</td>
-    <td>An integer representing the resource type. See the <a href="{{< relref "user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
+    <td>An integer representing the resource type. See the <a href="{{< ref "/user-guide/process-engine/authorization-service.md#resources" >}}">User Guide</a> for a list of integer representations of resource types.</td>
   </tr>
   <tr>
     <td>resourceId</td>
@@ -105,7 +105,7 @@ A JSON array with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Authorization with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Authorization with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

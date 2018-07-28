@@ -18,4 +18,4 @@ Camunda BPM Cockpit is a web application for monitoring and operations. It provi
 
 The Cockpit architecture is extensible allowing it to be extended through [plugins][cockpit-plugins].
 
-[cockpit-plugins]: {{< relref "webapps/cockpit/extend/plugins.md" >}}
+[cockpit-plugins]: {{< ref "/webapps/cockpit/extend/plugins.md" >}}

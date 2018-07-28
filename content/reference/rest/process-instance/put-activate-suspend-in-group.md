@@ -38,11 +38,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>processInstanceQuery</td>
-    <td>A process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/process-instance/get-query.md" >}}">GET /process-instance </a></td>
+    <td>A process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< ref "/reference/rest/process-instance/get-query.md" >}}">GET /process-instance </a></td>
   </tr>
   <tr>
     <td>historicProcessInstanceQuery</td>
-    <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a> </td>
+    <td>A historical process instance query which defines a group of process instances which will be activated or suspended by the operation. See <a href="{{< ref "/reference/rest/history/process-instance/get-process-instance-query.md" >}}"> GET history/process-instance </a> </td>
   </tr>
   <tr>
     <td>suspended</td>
@@ -72,7 +72,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if <code>processInstanceIds</code>, <code>processInstanceQuery</code>, and <code>historicProcessInstanceQuery</code> parameters are all set to null. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if <code>processInstanceIds</code>, <code>processInstanceQuery</code>, and <code>historicProcessInstanceQuery</code> parameters are all set to null. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

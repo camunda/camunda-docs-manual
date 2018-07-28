@@ -30,10 +30,10 @@ Noteworthy new Features in 7.2:
 
 Before migrating, decide whether you additionally want to enable Spin/Connect and Freemarker. Based on this decision, you may have to carry out additional migration steps.
 
-[cmmn-ref]: {{< relref "reference/cmmn11/_index.md" >}}
-[connect-ref]: {{< relref "user-guide/process-engine/connectors.md" >}}
-[spin-ref]: {{< relref "user-guide/data-formats/_index.md" >}}
-[freemarker-ref]: {{< relref "user-guide/process-engine/templating.md" >}}
+[cmmn-ref]: {{< ref "/reference/cmmn11/_index.md" >}}
+[connect-ref]: {{< ref "/user-guide/process-engine/connectors.md" >}}
+[spin-ref]: {{< ref "/user-guide/data-formats/_index.md" >}}
+[freemarker-ref]: {{< ref "/user-guide/process-engine/templating.md" >}}
 
 {{< note title="No Rolling Updates" class="warning" >}}
 It is not possible to migrate process engines from Camunda 7.1 to 7.2 in a rolling fashion. This means, it is not possible to run process engines of version 7.1 and 7.2 in parallel with the same database configuration. The reason is that a 7.1 engine may not be able to execute process instances that have been previously executed by a 7.2 engine, as these may use features that were not available yet in 7.1.
@@ -43,7 +43,7 @@ It is not possible to migrate process engines from Camunda 7.1 to 7.2 in a rolli
 
 The first step consists in updating the database.
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.1_patch_?.sql`.
@@ -59,7 +59,7 @@ The first step consists in updating the database.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -72,11 +72,11 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.3 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/71-to-72/tomcat.md" >}})
-* [JBoss/Wildfly]({{< relref "update/minor/71-to-72/jboss.md" >}})
-* [Glassfish]({{< relref "update/minor/71-to-72/glassfish.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/71-to-72/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/71-to-72/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss/Wildfly]({{< relref "jboss.md" >}})
+* [Glassfish]({{< relref "glassfish.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -121,7 +121,7 @@ As an alternative, script code can be migrated by replacing all implicit declara
 
 Embedded form support has been redesigned in Camunda BPM 7.2 and existing forms must be migrated.
 
-> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< relref "reference/embedded-forms/_index.md" >}})
+> Documentation on embedded forms support in 7.2 can be found in the [Embedded Forms Reference]({{< ref "/reference/embedded-forms/_index.md" >}})
 
 ## Overview
 

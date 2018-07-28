@@ -12,4 +12,4 @@ menu:
 
 ---
 
-To learn how to run Camunda BPM with Spring Boot, please consult the [Spring Boot user guide]({{< relref "user-guide/spring-boot-integration/_index.md" >}}).
+To learn how to run Camunda BPM with Spring Boot, please consult the [Spring Boot user guide]({{< ref "/user-guide/spring-boot-integration/_index.md" >}}).

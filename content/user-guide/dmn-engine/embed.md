@@ -119,8 +119,7 @@ configuration.getCustomPostDecisionEvaluationListeners()
 
 {{< note title="Use of Internal API" class="warning" >}}
 
-Please be aware that these APIs are **not** part of the [public API]({{< relref
-"introduction/public-api.md" >}}) and may change in later releases.
+Please be aware that these APIs are **not** part of the [public API]({{< ref "/introduction/public-api.md" >}}) and may change in later releases.
 
 {{< /note >}}
 
@@ -355,11 +354,11 @@ For more information on how to configure and use SLF4J, please refer to the
 
 [evaluation listener]: {{< javadocref page="?org/camunda/bpm/dmn/engine/delegate/DmnDecisionTableEvaluationListener.html" text="DmnDecisionTableEvaluationListener Interface" >}}
 [DMN model API]: https://github.com/camunda/camunda-dmn-model
-[data types]: {{< relref "user-guide/dmn-engine/data-types.md" >}}
-[hit policies]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
+[data types]: {{< ref "/user-guide/dmn-engine/data-types.md" >}}
+[hit policies]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
 [SLF4J]: http://www.slf4j.org/
 [LOGBack]: http://logback.qos.ch/
 [user manual]: http://www.slf4j.org/manual.html
-[DMN decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
-[DMN decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
-[expressions]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md" >}}
+[DMN decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[DMN decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[expressions]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md" >}}

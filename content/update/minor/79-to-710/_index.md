@@ -30,7 +30,7 @@ Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.9_patch_?.sql`.
@@ -49,7 +49,7 @@ Within this release the `ACT_IDX_JOB_HANDLER` index is removed because causes pr
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -86,7 +86,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 1. Undeploy the current version of the standalone web application
 2. Update the database to the new schema as described in the [database update](#database-updates) section
-3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
 

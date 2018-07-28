@@ -13,11 +13,11 @@ menu:
 ---
 
 Restarts process instances that were canceled or terminated synchronously. To execute the restart asynchronously,
-use the [Restart Process Instance Async]({{< relref "reference/rest/process-definition/post-restart-process-instance-async.md" >}}) method.
+use the [Restart Process Instance Async]({{< ref "/reference/rest/process-definition/post-restart-process-instance-async.md" >}}) method.
 
 For more information about the difference between synchronous and
 asynchronous execution, please refer to the related
-section of the [user guide]({{< relref "user-guide/process-engine/process-instance-restart.md#execution" >}}).
+section of the [user guide]({{< ref "/user-guide/process-engine/process-instance-restart.md#execution" >}}).
 
 # Method
 
@@ -55,7 +55,7 @@ A JSON object with the following properties:
     <td>historicProcessInstanceQuery</td>
     <td>
       A historic process instance query like the request body described by
-      <a href="{{< relref "reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
+      <a href="{{< ref "/reference/rest/history/process-instance/post-process-instance-query.md#request-body" >}}">
         <code>POST /history/process-instance</code>
       </a>.
     </td>
@@ -66,7 +66,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>skipIoMappings</td>
-    <td>Skip execution of <a href="{{< relref "user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started as part of this request.</td>
+    <td>Skip execution of <a href="{{< ref "/user-guide/process-engine/variables.md#input-output-variable-mapping" >}}">input/output variable mappings</a> for activities that are started as part of this request.</td>
   </tr>
    <tr>
     <td>initialVariables</td>
@@ -127,7 +127,7 @@ This method returns no content.
     <td>400</td>
     <td>application/json</td>
     <td>
-      In case following parameters are missing: instructions, activityId or transitionId, processInstanceIds or historicProcessInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
+      In case following parameters are missing: instructions, activityId or transitionId, processInstanceIds or historicProcessInstanceQuery, an exception of type <code>InvalidRequestException</code> is returned. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

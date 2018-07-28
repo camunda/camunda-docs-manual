@@ -23,6 +23,6 @@ decisions can be found on [GitHub].
 
 
 [DMN 1.1 OMG standard]: http://www.omg.org/spec/DMN/
-[platform]: {{< relref "user-guide/process-engine/decisions/_index.md" >}}
-[reference]: {{< relref "reference/dmn11/_index.md" >}}
+[platform]: {{< ref "/user-guide/process-engine/decisions/_index.md" >}}
+[reference]: {{< ref "/reference/dmn11/_index.md" >}}
 [GitHub]: https://github.com/camunda/camunda-bpm-examples/tree/master/dmn-engine/dmn-engine-java-main-method

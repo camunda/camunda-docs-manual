@@ -83,7 +83,7 @@ menu:
 
 # Event Listeners
 
-Event listeners can be registered from [custom JavaScript]({{< relref "reference/embedded-forms/javascript/_index.md" >}}):
+Event listeners can be registered from [custom JavaScript]({{< ref "/reference/embedded-forms/javascript/_index.md" >}}):
 
 ```html
 <form role="form" name="form">

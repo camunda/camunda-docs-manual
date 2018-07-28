@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of historic external task logs that fulfill the given parameters.
-This method takes the same message body as the [Get External Task Logs (POST)]({{< relref "reference/rest/history/external-task-log/post-external-task-log-query.md" >}}) method and therefore it is slightly more powerful than the [Get External Task Log Count]({{< relref "reference/rest/history/external-task-log/get-external-task-log-query-count.md" >}}) method.
+This method takes the same message body as the [Get External Task Logs (POST)]({{< ref "/reference/rest/history/external-task-log/post-external-task-log-query.md" >}}) method and therefore it is slightly more powerful than the [Get External Task Log Count]({{< ref "/reference/rest/history/external-task-log/get-external-task-log-query-count.md" >}}) method.
 
 
 # Method
@@ -144,7 +144,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

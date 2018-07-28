@@ -21,7 +21,7 @@ elements which are described in this sections.
 # Comparison
 
 FEEL simple unary tests support the following comparison operators. Please
-note that the equals operator is empty and *not* `=`. Also, a non equal operator such as `!=` 
+note that the equals operator is empty and *not* `=`. Also, a non equal operator such as `!=`
 does *not* exist. To express this, [negation] has to be used.
 
 <table class="table table-striped">
@@ -117,7 +117,7 @@ range specifies if the start and end value is included in the range.
 # Disjunction
 
 A FEEL simple unary test can be specified as conjunction of expressions. These
-expressions have to either have [comparisons] or [ranges]. The test is `true` if 
+expressions have to either have [comparisons] or [ranges]. The test is `true` if
 at least one of conjunct expressions is `true`.
 
 Examples:
@@ -183,6 +183,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< relref "reference/dmn11/feel/data-types.md" >}}
-[date types]: {{< relref "reference/dmn11/feel/data-types.md#date" >}}
-[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[FEEL data types]: {{< ref "/reference/dmn11/feel/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn11/feel/data-types.md#date" >}}
+[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

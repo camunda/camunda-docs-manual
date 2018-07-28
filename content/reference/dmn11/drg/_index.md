@@ -91,7 +91,7 @@ A decision is represented by a `decision` element inside the `definitions` XML e
 A decision can have one or more required decisions which it depends on.
 
 A required decision is represented by a `requiredDecision` element inside an `informationRequirement` XML element.
-It has a `href` attribute and the value starts with `#` followed by the [decision id]({{< relref "reference/dmn11/decision-table/_index.md#decision-id" >}}) of the required decision.
+It has a `href` attribute and the value starts with `#` followed by the [decision id]({{< ref "/reference/dmn11/decision-table/_index.md#decision-id" >}}) of the required decision.
 
 ```xml
 <decision id="beverages" name="Beverages">
@@ -151,8 +151,8 @@ Note that a knowledge source has no execution semantics and is ignored by the Ca
 [decisions]: {{< relref "#decision" >}}
 [input data]: {{< relref "#input-data" >}}
 [knowledge sources]: {{< relref "#knowledge-source" >}}
-[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
-[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md#deploying-a-decision" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
-[id]: {{< relref "reference/dmn11/decision-table/_index.md#decision-id" >}}
-[name]: {{< relref "reference/dmn11/decision-table/_index.md#decision-name" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md#deploying-a-decision" >}}
+[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[id]: {{< ref "/reference/dmn11/decision-table/_index.md#decision-id" >}}
+[name]: {{< ref "/reference/dmn11/decision-table/_index.md#decision-name" >}}

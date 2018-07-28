@@ -15,7 +15,7 @@ menu:
 
 Claims a task for a specific user.
 
-**Note:** The difference with the [Set Assignee]({{< relref "reference/rest/task/post-assignee.md" >}}) method is that here a check is performed to see if the task already has a user assigned to it.
+**Note:** The difference with the [Set Assignee]({{< ref "/reference/rest/task/post-assignee.md" >}}) method is that here a check is performed to see if the task already has a user assigned to it.
 
 # Method
 
@@ -74,7 +74,7 @@ This method returns no content.
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task with given id does not exist or claiming was not successful. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task with given id does not exist or claiming was not successful. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

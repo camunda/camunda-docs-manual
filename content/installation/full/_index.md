@@ -16,4 +16,4 @@ The [Full Distribution][full-distribution] includes a Shared Process engine and 
 
 The distribution is supported on a broad range of containers:
 
-[full-distribution]: {{< relref "introduction/downloading-camunda.md" >}}
+[full-distribution]: {{< ref "/introduction/downloading-camunda.md" >}}

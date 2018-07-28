@@ -117,7 +117,7 @@ List<Task> tasks = taskService.createTaskQuery().taskAssignee("kermit").list();
 When strictly following the CMMN standard, user and group assignments can be quite cumbersome for use cases where the assignment is more complicated. To avoid these complexities, custom extensions on the human task element can be set.
 
 The CMMN Human task supports the same assignment extensions and concepts as the BPMN User Task.
-You can read up on these extensions in the [BPMN User Task Section]({{< relref "reference/bpmn20/tasks/user-task.md#user-assignment-using-camunda-extensions" >}}). Same as for the BPMN User task, [assignment based on data and service logic]({{< relref "reference/bpmn20/tasks/user-task.md#assignment-based-on-data-and-service-logic" >}}) is supported for the CMMN Human Task as well.
+You can read up on these extensions in the [BPMN User Task Section]({{< ref "/reference/bpmn20/tasks/user-task.md#user-assignment-using-camunda-extensions" >}}). Same as for the BPMN User task, [assignment based on data and service logic]({{< ref "/reference/bpmn20/tasks/user-task.md#assignment-based-on-data-and-service-logic" >}}) is supported for the CMMN Human Task as well.
 
 # Forms
 
@@ -134,7 +134,7 @@ The form key is a symbolic value which can be set in the CMMN XML file by using 
 attribute `formKey` and retrieved at runtime using the process engine API.
 
 If the user task form is displayed inside the Camunda Tasklist, the format of the formKey must follow
-special rules. [See the corresponding section in the user guide for details]({{< relref "user-guide/task-forms/_index.md" >}}).
+special rules. [See the corresponding section in the user guide for details]({{< ref "/user-guide/task-forms/_index.md" >}}).
 
 In custom applications, the value of the form key can be chosen freely. In a custom application the
 value of the form key attribute can be interpreted freely. Based on the specific UI technology used,
@@ -171,22 +171,22 @@ make sure the form keys are initialized.
   <tr>
     <th>Attributes</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#assignee" >}}">camunda:assignee</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#duedate" >}}">camunda:dueDate</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#formkey" >}}">camunda:formKey</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-attributes.md#priority" >}}">camunda:priority</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#assignee" >}}">camunda:assignee</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#candidategroups" >}}">camunda:candidateGroups</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#candidateusers" >}}">camunda:candidateUsers</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#duedate" >}}">camunda:dueDate</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#formkey" >}}">camunda:formKey</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-attributes.md#priority" >}}">camunda:priority</a>
     </td>
   </tr>
   <tr>
     <th>Extension Elements</th>
     <td>
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#tasklistener" >}}">camunda:taskListener</a>,
-      <a href="{{< relref "reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#in" >}}">camunda:in</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#out" >}}">camunda:out</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#caseexecutionlistener" >}}">camunda:caseExecutionListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#tasklistener" >}}">camunda:taskListener</a>,
+      <a href="{{< ref "/reference/cmmn11/custom-extensions/camunda-elements.md#variablelistener" >}}">camunda:variableListener</a>
     </td>
   </tr>
   <tr>

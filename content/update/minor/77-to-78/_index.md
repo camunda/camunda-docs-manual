@@ -27,13 +27,13 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.8:
 
-* [Perform a batch modification in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}})
-* [Instance Restart in Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-restart.md" >}})
-* [History Cleanup View in Cockpit]({{< relref "webapps/cockpit/cleanup.md" >}})
-* [Extending of Locks on External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
-* [Full Timezone Support for Webapps]({{< relref "user-guide/process-engine/time-zones.md" >}})
-* [Default Retry Time Cycle Configuration]({{< relref "user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< relref "user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
-* [Improved performance for database operations]({{< relref "user-guide/process-engine/database.md#jdbc-batch-processing" >}})
+* [Perform a batch modification in Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md#perform-a-batch-modification" >}})
+* [Instance Restart in Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-restart.md" >}})
+* [History Cleanup View in Cockpit]({{< ref "/webapps/cockpit/cleanup.md" >}})
+* [Extending of Locks on External Tasks]({{< ref "/user-guide/process-engine/external-tasks.md#extending-of-locks-on-external-tasks" >}})
+* [Full Timezone Support for Webapps]({{< ref "/user-guide/process-engine/time-zones.md" >}})
+* [Default Retry Time Cycle Configuration]({{< ref "/user-guide/process-engine/the-job-executor.md#retry-time-cycle-configuration" >}}) and [Retry Intervals]({{< ref "/user-guide/process-engine/the-job-executor.md#retry-intervals" >}})
+* [Improved performance for database operations]({{< ref "/user-guide/process-engine/database.md#jdbc-batch-processing" >}})
 
 # Database Updates
 
@@ -41,7 +41,7 @@ Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.7_patch_?.sql`.
@@ -56,7 +56,7 @@ Every Camunda installation requires a database schema update.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -70,10 +70,10 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.8 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/77-to-78/tomcat.md" >}})
-* [JBoss AS/Wildfly]({{< relref "update/minor/77-to-78/jboss.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/77-to-78/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/77-to-78/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss AS/Wildfly]({{< relref "jboss.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -94,7 +94,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 1. Undeploy the current version of the standalone web application
 2. Update the database to the new schema as described in the [database update](#database-updates) section
-3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
 
@@ -102,13 +102,13 @@ If a database other than the default H2 database is used, the following steps mu
 
 This section is applicable if you use the Camunda engine REST API.
 
-The default date format used in the REST API requests and responses has changed from `yyyy-MM-dd'T'HH:mm:ss` to `yyyy-MM-dd'T'HH:mm:ss.SSSZ` (now includes second fractions and timezone). 
+The default date format used in the REST API requests and responses has changed from `yyyy-MM-dd'T'HH:mm:ss` to `yyyy-MM-dd'T'HH:mm:ss.SSSZ` (now includes second fractions and timezone).
 The Camunda webapps support the new format by default.
 
 In case some custom REST clients rely on the old date format, choose one of the two following options:
 
 1. Update REST clients to use the new format.
-2. Configure custom date format for Camunda REST API (explained in detail in the [Custom Date Format]({{< relref "reference/rest/overview/date-format.md" >}})) section.
+2. Configure custom date format for Camunda REST API (explained in detail in the [Custom Date Format]({{< ref "/reference/rest/overview/date-format.md" >}})) section.
 
 # Failed Jobs Retry Configuration
 
@@ -125,7 +125,7 @@ You should clean up the following lines from the process engine configuration fi
       <bean class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
     </list>
   </property>
-  
+
   <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" />
   ...
 </bean>
@@ -137,10 +137,10 @@ You should clean up the following lines from the process engine configuration fi
 
 This section concerns the Java API and the interface `org.camunda.bpm.engine.impl.incident.IncidentHandler`, that is a part of the internal API.
 
-The return type of `IncidentHandler#handleIncident` has been changed from `void` to `Incident`. The API expects that, in case an incident was created, it is returned by the method, 
+The return type of `IncidentHandler#handleIncident` has been changed from `void` to `Incident`. The API expects that, in case an incident was created, it is returned by the method,
 otherwise the method can return a `null` value.
 
-In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted. 
+In case there are custom incident handlers implementing that interface, the method `handleIncident(...)` should be adjusted.
 
 # Batch processing for database operations
 
@@ -160,6 +160,6 @@ So if you're using `jdbcStatementTimeout` configuration on the listed databases,
 # Tasklist Translation File
 
 New labels were introduced and some keys of previously existing labels were changed in the translation file of Tasklist.
-Due to this reason it is necessary to adjust custom translation files accordingly. 
+Due to this reason it is necessary to adjust custom translation files accordingly.
 
 Please have a look at what changed exactly in the [english translation file](https://github.com/camunda/camunda-tasklist-translations/commit/d6dff0c508c5cb4981bbced3ce42e83274d7f4dc#diff-772a593ff61f0e484d43cc349a5ab31c).

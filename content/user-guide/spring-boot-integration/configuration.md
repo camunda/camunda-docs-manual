@@ -57,7 +57,7 @@ public DataSource secondaryDataSource() {
 
 ### `DefaultHistoryConfiguration`
 
-Applies the history configuration to the process engine. If not configured, the history level [FULL]({{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}) is used.
+Applies the history configuration to the process engine. If not configured, the history level [FULL]({{< ref "/user-guide/process-engine/history.md#choose-a-history-level" >}}) is used.
 If you want to use a custom `HistoryEventHandler`, you just have to provide a bean implementing the interface.
 
 ```java
@@ -238,7 +238,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
 <td>Provides an URL to your Camunda license file and is automatically inserted into the DB when the application starts (but only if no license key is found in the DB).</td>
 <td>By default, the license key will be loaded:
  <ol>
-  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li> 
+  <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li>
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
 </td>
@@ -517,6 +517,6 @@ Spring Boot behaviour is taken into account.</td>
 <td><code>.create</code></td>
 <td>Name of a "show all" filter. If set, a new filter is created on start that displays all tasks. Useful for testing on h2 db.</td>
 <td>-</td>
-</tr> 
+</tr>
 
 </table>

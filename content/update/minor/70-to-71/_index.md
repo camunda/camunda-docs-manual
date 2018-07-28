@@ -27,7 +27,7 @@ This guide uses a number of variables to denote common path names and constants:
 For migration from **Camunda BPM 7.0** to **Camunda BPM 7.1**, the provided update scripts that match your database have to be executed.
 With a pre-packaged distribution, the update scripts are located in the folder `$DISTRIBUTION_PATH/sql/upgrade`.
 
-Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for an overview of available sql patch scripts  to see if there are any for your current version.
+Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for an overview of available sql patch scripts  to see if there are any for your current version.
 
 Regardless of the version you are migrating from, the main update script is `$DATABASE_engine_7.0_to_7.1.sql` and has to be executed next.
 

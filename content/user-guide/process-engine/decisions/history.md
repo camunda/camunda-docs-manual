@@ -214,8 +214,8 @@ You can audit the evaluated decision definitions in the [Cockpit] webapp.
 
 
 
-[Cockpit]: {{< relref "webapps/cockpit/dmn/_index.md" >}}
-[History and Audit Event Log]: {{< relref "user-guide/process-engine/history.md" >}}
-[DMN 1.1 reference]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
-[BPMN business rule task]: {{< relref "reference/bpmn20/tasks/business-rule-task.md#using-camunda-dmn-engine" >}}
-[CMMN decision task]: {{< relref "reference/cmmn11/tasks/decision-task.md" >}}
+[Cockpit]: {{< ref "/webapps/cockpit/dmn/_index.md" >}}
+[History and Audit Event Log]: {{< ref "/user-guide/process-engine/history.md" >}}
+[DMN 1.1 reference]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
+[BPMN business rule task]: {{< ref "/reference/bpmn20/tasks/business-rule-task.md#using-camunda-dmn-engine" >}}
+[CMMN decision task]: {{< ref "/reference/cmmn11/tasks/decision-task.md" >}}

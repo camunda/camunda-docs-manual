@@ -19,12 +19,12 @@ In the `Process Instances` tab all running instances are listed in a tabular vie
 
 The `Called Process Definitions` tab displays the called child processes. In the column *Called Process Definition* the names of the called sub processes are listed. Click on the name to display the process in the process definition view. Please note that a filter called Parent is automatically set for the process so that you only see the instances that belong to the parent process. In the *Activity* column you can select the instance that is calling the child process.
 
-The `Job Definitions` tab displays the job definitions that are linked to this process definition. Observe the name of the activity, the type of job, the configuration and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< relref "webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
+The `Job Definitions` tab displays the job definitions that are linked to this process definition. Observe the name of the activity, the type of job, the configuration and the state thereof. You can also suspend and re-activate the job definition (see [Job Definition Suspension][job-definition-suspension] for more information). It is also possible to [set the priority of jobs]({{< ref "/webapps/cockpit/bpmn/process-definition-view.md#set-job-priority">}}).
 
 
-[failed-activities]: {{< relref "webapps/cockpit/bpmn/failed-jobs.md" >}}
-[process-instance-view]: {{< relref "webapps/cockpit/bpmn/process-instance-view.md" >}}
-[job-definition-suspension]: {{< relref "webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}
+[failed-activities]: {{< ref "/webapps/cockpit/bpmn/failed-jobs.md" >}}
+[process-instance-view]: {{< ref "/webapps/cockpit/bpmn/process-instance-view.md" >}}
+[job-definition-suspension]: {{< ref "/webapps/cockpit/bpmn/suspension.md#job-definition-suspension" >}}
 
 
 # Filter
@@ -111,10 +111,10 @@ Add a filter for process instances by filtering for already completed or still r
 
 {{< img src="../../img/filter-examples/history-end-date.png" title="Filter Example" >}}
 
-Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view]. Again choose between `before` and `after` to filter for instances that were ended before or after the given date. For example, click on `before` to obtain the selection.. 
+Add a filter for process instances by end date. Please note that the date must be set in accordance to the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) standard and that this option is only available in the [process definition history view][process-definition-history-view]. Again choose between `before` and `after` to filter for instances that were ended before or after the given date. For example, click on `before` to obtain the selection..
 
 
-[process-definition-history-view]: {{< relref "webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}
+[process-definition-history-view]: {{< ref "/webapps/cockpit/bpmn/process-history-views.md#process-definition-history-view" >}}
 
 
 # Delete Multiple Running Process Instances

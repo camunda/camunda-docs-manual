@@ -11,7 +11,7 @@ menu:
 
 ---
 
-This page gives you an overview of the BPMN 2.0 elements and the current coverage of the process engine. 
+This page gives you an overview of the BPMN 2.0 elements and the current coverage of the process engine.
 
 {{< note title="BPMN - Business Process Model and Notation" >}}
 If you are unfamiliar with BPMN 2.0, you might want to check out the
@@ -61,7 +61,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
             <tspan dy="4">Subprocess</tspan>
           </text>
         </svg>
-        <a href="{{< relref "reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/subprocesses/embedded-subprocess.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -74,7 +74,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
             <tspan dy="4">Call Activity</tspan>
           </text>
         </svg>
-        <a href="{{< relref "reference/bpmn20/subprocesses/call-activity.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/subprocesses/call-activity.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -88,7 +88,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
             <tspan dy="14.399999999999999" x="55">Subprocess</tspan>
           </text>
         </svg>
-        <a href="{{< relref "reference/bpmn20/subprocesses/event-subprocess.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/subprocesses/event-subprocess.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -102,7 +102,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
             <tspan dy="4">Transaction</tspan>
           </text>
         </svg>
-        <a href="{{< relref "reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/subprocesses/transaction-subprocess.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -122,7 +122,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           <path fill="#ffffff" stroke="#333333" d="M26.347,10.895L23.786,13.455L24.729000000000003,15.732L28.353,15.732L28.353,19.115L24.731,19.115L23.788,21.392L26.351,23.955L23.958,26.346999999999998L21.397,23.785999999999998L19.119999999999997,24.729L19.119999999999997,28.352999999999998L15.736999999999998,28.352999999999998L15.736999999999998,24.730999999999998L13.459999999999997,23.787999999999997L10.896999999999997,26.349999999999998L8.505999999999997,23.958L11.065999999999997,21.397L10.123999999999997,19.119999999999997L6.4999999999999964,19.119999999999997L6.4999999999999964,15.736999999999998L10.120999999999997,15.736999999999998L11.064999999999998,13.460999999999999L8.502999999999998,10.897999999999998L10.894999999999998,8.505999999999998L13.454999999999998,11.065999999999999L15.732,10.124999999999998L15.732,6.499999999999998L19.116,6.499999999999998L19.116,10.120999999999999L21.392,11.063999999999998L23.954,8.501999999999999Z" stroke-width="1.4999999999999998" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.8,0,0,0.8,8.4853,8.4853)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
           <path fill="#ffffff" stroke="#333333" d="M21.141,17.426001C21.141,19.477186,19.478185999999997,21.140000999999998,17.427,21.140000999999998C15.375814,21.140000999999998,13.713,19.477186,13.713,17.426001C13.713,15.374815,15.375813999999998,13.712000999999999,17.427,13.712000999999999C19.478186,13.712000999999999,21.141,15.374814999999998,21.141,17.426001Z" stroke-width="1.4999999999999998" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.8,0,0,0.8,8.4854,8.4852)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/service-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/service-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -138,7 +138,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           <circle cx="19.5" cy="13.5" r="5" fill="#333333" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.75,0,0,0.75,4.875,3.375)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
           <path fill="#f0eff0" stroke="#333333" d="M11.2301,10.5581C11.2301,10.5581,13.1999,8.8599,14.9933,9.293199999999999C16.7867,9.726499999999998,18.2301,8.8081,18.2301,8.8081C18.4051,9.9897,18.2595,11.4331,17.2095,12.716899999999999C17.2095,12.716899999999999,17.967599999999997,13.2419,17.967599999999997,13.7669C17.967599999999997,14.2919,18.055099999999996,15.0794,17.267599999999998,15.8669C16.480099999999997,16.6544,13.417599999999998,16.7419,12.542599999999998,15.8669C11.667599999999998,14.9919,11.667599999999998,14.5838,11.667599999999998,14C11.667599999999998,13.4162,12.075699999999998,13.125,12.542599999999998,12.6581C11.784499999999998,12.25,10.793299999999999,10.9956,11.230099999999998,10.5581Z" stroke-width="0.69999999" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(1,0,0,1,5,5)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/user-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/user-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -150,7 +150,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="#ffffff" stroke="#333333" d="M6.402,0.5H20.902C20.902,0.5,15.069,3.333,15.069,6.083S19.486,12.083,19.486,15.25S15.319,20.333,15.319,20.333H0.235C0.235,20.333,5.235,17.665999999999997,5.235,15.332999999999998S0.6520000000000001,8.582999999999998,0.6520000000000001,6.082999999999998S6.402,0.5,6.402,0.5ZM3.5,4.5L13.5,4.5M3.8,8.5L13.8,8.5M6.3,12.5L16.3,12.5M6.5,16.5L16.5,16.5" stroke-width="1.6666666666666667" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.6,0,0,0.6,9.2274,9.1666)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/script-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/script-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -165,7 +165,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           <rect x="10" y="9" width="17" height="4" r="0" rx="0" ry="0" fill="#333333" stroke="#333333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></rect>
           <path fill="none" stroke="#333333" d="M2,10L19,10M7,4L7,14" stroke-width="1" stroke-linecap="butt" stroke-linejoin="butt" stroke-opacity="1" transform="matrix(1,0,0,1,8,7)" style="stroke-linecap: butt; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/business-rule-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/business-rule-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -177,7 +177,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="#ffffff" stroke="#333333" d="M0.5,3.751L4.583,0.5009999999999999C4.583,0.5009999999999999,15.749,0.5839999999999999,16.666,0.5839999999999999S14.249,3.5009999999999994,15.166,3.5009999999999994S26.833,3.5009999999999994,27.75,3.5009999999999994C28.916,5.209,27.582,6.667999999999999,26.916,7.167999999999999S27.791,9.084999999999999,25.916,11.584999999999999C25.166,11.834999999999999,26.666,13.459999999999999,24.583000000000002,14.918C23.416,15.501,25.166,16.46,23.333000000000002,17.750999999999998C22.166,17.750999999999998,2.5000000000000036,17.833999999999996,2.5000000000000036,17.833999999999996L0.5000000000000036,16.500999999999998V3.751ZM13.5,7L27,7M13.5,11L26,11M14,14.5L25,14.5M8.2,3.1L15,3.1" stroke-width="1.6666666666666667" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(0.6,0,0,0.6,10.7422,8.667)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/manual-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/manual-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -189,7 +189,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="#ffffff" stroke="#333333" d="M7,10L7,20L23,20L23,10ZM7,10L15,16L23,10" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(1,0,0,1,5,5)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/receive-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/receive-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -209,7 +209,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="#333333" stroke="none" d="M7,9L15,15L23,9ZM7,10L7,20L23,20L23,10L15,16Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(1,0,0,1,3,1)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/tasks/send-task.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/tasks/send-task.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -237,7 +237,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="#333333" stroke="#333333" d="M13.25,12.0625L18.5,20.5L13.25,28.9375L17.25,28.9375L20.5,23.6875L23.75,28.9375L27.65625,28.9375L22.4375,20.5L27.65625,12.0625L23.75,12.0625L20.5,17.3125L17.25,12.0625L13.25,12.0625Z" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,5,5)" style="stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/gateways/exclusive-gateway.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/gateways/exclusive-gateway.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -249,7 +249,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <circle cx="25" cy="25" r="9.428571428571429" fill="none" stroke="#333333" stroke-opacity="1" stroke-width="3" style="stroke-opacity: 1;"></circle>
         </svg>
-        <a href="{{< relref "reference/bpmn20/gateways/inclusive-gateway.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/gateways/inclusive-gateway.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -261,7 +261,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           </text>
           <path fill="none" stroke="#333333" d="M11.25,20.5L30.25,20.5M20.5,11.25L20.5,30.25" stroke-opacity="1" stroke-width="4" transform="matrix(1,0,0,1,5,5)" style="stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/gateways/parallel-gateway.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/gateways/parallel-gateway.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -275,7 +275,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
           <circle cx="25" cy="25" r="10.121212121212121" fill="none" stroke="#333333" stroke-opacity="1" stroke-width="1" style="stroke-opacity: 1;"></circle>
           <path fill="none" stroke="#333333" d="M24.827514,26.844972L15.759248000000001,26.844216L12.957720300000002,18.219549L20.294545,12.889969L27.630481000000003,18.220774L24.827514,26.844972Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" transform="matrix(1,0,0,1,5,5)" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
         </svg>
-        <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">
+        <a href="{{< ref "/reference/bpmn20/gateways/event-based-gateway.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
       </div>
@@ -361,7 +361,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/none-events.md" >}}">None</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/none-events.md" >}}">None</a></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
@@ -376,7 +376,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
       <td>
         <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
-          
+
           <circle cx="20" cy="20" r="15" fill="#ffffff" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" id="svg_1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
           <circle cx="20" cy="20" r="12" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></circle>
         </svg>
@@ -388,7 +388,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/message-events.md" >}}">Message</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/message-events.md" >}}">Message</a></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
@@ -449,7 +449,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/timer-events.md" >}}">Timer</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/timer-events.md" >}}">Timer</a></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
@@ -505,7 +505,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
     </tr>
     <tr>
-      <td><a href="{{< relref "reference/bpmn20/events/conditional-events.md" >}}">Conditional</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/conditional-events.md" >}}">Conditional</a></td>
       <td class="implemented">
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
@@ -555,7 +555,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/link-events.md" >}}">Link</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/link-events.md" >}}">Link</a></td>
       <td></td>
       <td></td>
       <td></td>
@@ -578,7 +578,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       <td></td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/signal-events.md" >}}">Signal</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/signal-events.md" >}}">Signal</a></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
             <g class="djs-visual">
@@ -639,7 +639,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/error-events.md" >}}">Error</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/error-events.md" >}}">Error</a></td>
       <td></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
@@ -668,7 +668,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/escalation-events.md" >}}">Escalation</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/escalation-events.md" >}}">Escalation</a></td>
       <td></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
@@ -716,7 +716,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/terminate-event.md" >}}">Termination</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/terminate-event.md" >}}">Termination</a></td>
       <td></td>
       <td></td>
       <td></td>
@@ -732,7 +732,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Compensation</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Compensation</a></td>
       <td></td>
       <td>
           <svg height="40" version="1.1" width="40" xmlns="http://www.w3.org/2000/svg">
@@ -767,7 +767,7 @@ chapter of the [BPMN Modeling Reference](http://camunda.org/bpmn/reference.html)
       </td>
     </tr>
     <tr class="implemented">
-      <td><a href="{{< relref "reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Cancel</a></td>
+      <td><a href="{{< ref "/reference/bpmn20/events/cancel-and-compensation-events.md" >}}">Cancel</a></td>
       <td></td>
       <td></td>
       <td></td>

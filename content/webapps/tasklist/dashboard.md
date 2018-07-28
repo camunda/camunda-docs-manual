@@ -28,7 +28,7 @@ Tasklist offers you the option of toggling the view options on the dashboard. Yo
 
 To start a process instance via Tasklist, click on *Start process* in the header menu and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly.
 
-Depending on whether you have defined a [start form]({{< relref "user-guide/task-forms/_index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< relref "user-guide/task-forms/_index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
+Depending on whether you have defined a [start form]({{< ref "/user-guide/task-forms/_index.md" >}}) for your process it will be displayed now. Otherwise you get a notification that no form has been defined for starting the process. In this case, a [generic start form]({{< ref "/user-guide/task-forms/_index.md#generic-task-forms" >}}) will be displayed and Tasklist will offer the option of adding variables to the process instance.
 
 
 # Create a Standalone Task
@@ -93,9 +93,9 @@ In the lower section of the task view there are several tabs which can be select
 * **Task form view** - The *Form* tab, which is selected by default, displays the task form (provided that the task form is an embedded, generated or generic task form). Here you can work on and complete the task.
 * **Task history** - The *History* tab displays the history of this user task. Here you can see detailed information, such as the assignment history, updates to the due date and follow-up dates and claiming and unclaiming of tasks. Comments are also displayed here.
 * **Diagram view** - The *Diagram* tab shows the diagram of the process definition. The current user task is highlighted in this diagram.
-* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at the [BPMN 2.0 reference]({{< relref "reference/bpmn20/tasks/user-task.md#description" >}}) for more information about descriptions of tasks.
+* **Task description** - Open the *Description* tab to inspect the User Task description. Have a look at the [BPMN 2.0 reference]({{< ref "/reference/bpmn20/tasks/user-task.md#description" >}}) for more information about descriptions of tasks.
 
 
 [task-view]: {{< relref "#task-view" >}}
 [filter-results]: {{< relref "#filter-results" >}}
-[tasklist-filters]: {{< relref "webapps/tasklist/filters.md" >}}
+[tasklist-filters]: {{< ref "/webapps/tasklist/filters.md" >}}

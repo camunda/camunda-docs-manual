@@ -78,14 +78,14 @@ result format, i.e., if the resource type of the filter is `Task` the result wil
   <tr>
     <td>200</td>
     <td>application/hal+json</td>
-    <td>Request successful. In case of an expected <a href="{{< relref "reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
+    <td>Request successful. In case of an expected <a href="{{< ref "/reference/rest/overview/hal.md" >}}">HAL</a> response.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
     <td>
        The authenticated user is unauthorized to read this filter.
-      See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
   <tr>
@@ -93,7 +93,7 @@ result format, i.e., if the resource type of the filter is `Task` the result wil
     <td>application/json</td>
     <td>
       Filter with given id does not exist. See the
-      <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
+      <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

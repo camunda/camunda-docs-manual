@@ -11,7 +11,7 @@ menu:
 ---
 
 
-A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
+A job is an explicit representation of a task to trigger process execution. A job is created whenever a wait state is reached during process execution that has to be triggered internally. This is the case when a timer event or a task marked for asynchronous execution (see [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}})) is approached. Job processing can therefore be separated into three phases:
 
 * [Job Creation]({{< relref "#job-creation" >}})
 * [Job Acquisition]({{< relref "#job-acquisition" >}})
@@ -46,7 +46,7 @@ For unit testing scenarios it is cumbersome to work with this background compone
 
 Jobs are created for a range of purposes by the process engine. The following job types exist:
 
-* Asynchronous continuations to set [transaction boundaries]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) in the process
+* Asynchronous continuations to set [transaction boundaries]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}) in the process
 * Timer jobs for BPMN timer events
 * Asynchronous handling of BPMN events
 
@@ -98,7 +98,7 @@ Job priorities can be specified in the BPMN model as well as overridden at runti
 
 Job Priorities can be assigned at the process or the activity level. To achieve this the Camunda extension attribute `camunda:jobPriority` can be used.
 
-For specifying the priority, both constant values and [expressions]({{< relref "user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
+For specifying the priority, both constant values and [expressions]({{< ref "/user-guide/process-engine/expression-language.md" >}}) are supported. When using a constant value, the same priority is assigned to all instances of the process or activity. Expressions, on the other hand, allow assigning a different priority to each instance of the process or activity. Expression must evaluate to a number in the Java `long` range.
 The concrete value can be the result of a complex calculation and be based on user-provided data (resulting from a task form or other sources).
 
 
@@ -156,7 +156,7 @@ In the above example the priority is determined based on the property `status` o
 #### Resolution Context of Priority Expressions
 
 This section explains which context variables and functions are available when evaluating priority expressions.
-For some general documentation on this, see the corresponding [documentation section]({{< relref "user-guide/process-engine/expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
+For some general documentation on this, see the corresponding [documentation section]({{< ref "/user-guide/process-engine/expression-language.md#availability-of-variables-and-functions-inside-expression-language" >}}).
 
 All priority expressions are evaluated in the context of an existing execution. This means that variable `execution` is implicitly defined as well as all of the execution's variables by their name.
 
@@ -171,7 +171,7 @@ Examples:
 
 When starting a process instance via a call activity, you sometimes want the process instance to "inherit" the priority of the calling process instance.
 The easiest way to achieve this is by passing the priority using a variable and referencing it using an expression in the called process.
-See also [Call Activity Parameters]({{< relref "reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}) for details on how to pass variables using call activities.
+See also [Call Activity Parameters]({{< ref "/reference/bpmn20/subprocesses/call-activity.md#passing-variables" >}}) for details on how to pass variables using call activities.
 
 
 ### Set Job Definition Priorities via ManagementService API
@@ -365,7 +365,7 @@ For example:
 
 Acquired jobs are executed by a thread pool. The thread pool consumes jobs from the acquired jobs queue. The acquired jobs queue is an in-memory queue with a fixed capacity. When an executor starts executing a job, it is first removed from the queue.
 
-In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/_index.md" >}}) section on how this achieved.
+In the scenario of an embedded process engine, the default implementation for this thread pool is a `java.util.concurrent.ThreadPoolExecutor`. However, this is not allowed in Java EE environments. There we hook into the application server capabilities of thread management. See the platform-specific information in the [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) section on how this achieved.
 
 
 ## Failed Jobs
@@ -380,7 +380,7 @@ is exhausted (the value of the RETRIES&#95; column equals 0), the job is not exe
 While all failed jobs are retried, there is one case in which a job's retries are not decremented. This is, if a job fails due to an optimistic locking exception. Optimistic Locking is the process engine's mechanism to resolve conflicting resource updates, for example when two jobs of a process instance are executed in parallel (see the following sections on [concurrent job execution]({{< relref "#concurrent-job-execution" >}})). As an optimistic locking exception is no exceptional situation from an operator's point of view and resolves eventually, it does not cause a retry decrement.
 {{< /note >}}
 
-If incident creation is enabled for jobs, then once job retries are depleted, an incident is created (see [(De-)Activate Incidents]({{< relref "user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
+If incident creation is enabled for jobs, then once job retries are depleted, an incident is created (see [(De-)Activate Incidents]({{< ref "/user-guide/process-engine/incidents.md#de-activate-incidents" >}})).
 Incidents and historic incidents related to the job can be requested via Java API like this:
 ```java
 List<Incident> incidents = engineRule.getRuntimeService()
@@ -468,7 +468,7 @@ Reminder: a retry may be required if there are any failures during the transacti
 
 #### Use a Custom Job Retry Configuration for Multi-Instance Activities
 
-If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element.
+If the retry configuration is set for a multi-instance activity then the configuration is applied to the [multi-instance body]({{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations-of-multi-instance-activities" >}}). Additionally, the retries of the inner activities can also be configured using the extension element as child of the `multiInstanceLoopCharacteristics` element.
 
 The following example defines the retries of a multi-instance service task with asynchronous continuation of the multi-instance body and the inner activity. If a failure occur during one of the five parallel instances then the job of the failed instance will be retried up to 3 times with a delay of 5 seconds. In case all instances ended successful and a failure occur during the transaction which follows the task, the job will be retried up to 5 times with a delay of 5 minutes.
 
@@ -536,7 +536,7 @@ The Job Executor makes sure that **jobs from a single process instance are never
 
 {{< img src="../img/job-executor-exclusive-jobs.png" title="Exclusive Jobs" >}}
 
-We have a parallel gateway followed by three service tasks which all perform an [asynchronous continuation]({{< relref "user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}). As a result of this, three jobs are added to the database. Once such a job is present in the database it can be processed by the job executor. It acquires the jobs and delegates them to a thread pool of worker threads which actually process the jobs. This means that using an asynchronous continuation, you can distribute the work to this thread pool (and in a clustered scenario even across multiple thread pools in the cluster).
+We have a parallel gateway followed by three service tasks which all perform an [asynchronous continuation]({{< ref "/user-guide/process-engine/transactions-in-processes.md#asynchronous-continuations" >}}). As a result of this, three jobs are added to the database. Once such a job is present in the database it can be processed by the job executor. It acquires the jobs and delegates them to a thread pool of worker threads which actually process the jobs. This means that using an asynchronous continuation, you can distribute the work to this thread pool (and in a clustered scenario even across multiple thread pools in the cluster).
 
 This is usually a good thing. However it also bears an inherent problem: consistency. Consider the parallel join after the service tasks. When the execution of a service task is completed, we arrive at the parallel join and need to decide whether to wait for the other executions or whether we can move forward. That means, for each branch arriving at the parallel join, we need to take a decision whether we can continue or whether we need to wait for one or more other executions from the other branches.
 
@@ -574,7 +574,7 @@ In larger deployments however, this quickly leads to a poorly manageable situati
 {{< img src="../img/job-executor-multiple-engines.png" title="Multiple Engines" >}}
 
 **This setup enables centralized monitoring of job acquisition and execution**.
-See the platform-specific information in the [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/_index.md" >}}) section on how the thread pooling is implemented on the different platforms.
+See the platform-specific information in the [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) section on how the thread pooling is implemented on the different platforms.
 
 Different job acquisitions can also be configured differently, e.g. to meet business requirements like SLAs. For example, the acquisition's timeout when no more executable jobs are present can be configured differently per acquisition.
 
@@ -587,7 +587,7 @@ To which job acquisition a process engine is assigned can be specified in the de
 </process-engine>
 ```
 
-Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< relref "user-guide/runtime-container-integration/_index.md" >}}).
+Job acquisitions have to be declared in the BPM platform's deployment descriptor, see [the container-specific configuration options]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}).
 
 
 # Cluster Setups

@@ -49,15 +49,15 @@ Camunda supports the 1.1 version of DMN.
 
 
 [OMG]: http://www.omg.org/
-[modelers]: {{< relref "modeler/_index.md" >}}
+[modelers]: {{< ref "/modeler/_index.md" >}}
 [BPMN Modeling Tutorial]: https://camunda.org/bpmn/tutorial/
 [BPMN Modeling Reference]: https://camunda.org/bpmn/reference/
 [Quick Start (Java / JS)]: /get-started/quick-start/
-[BPMN Implementation Reference]: {{< relref "reference/bpmn20/_index.md" >}}
-[CMMN Implementation Reference]: {{< relref "reference/cmmn11/_index.md" >}}
+[BPMN Implementation Reference]: {{< ref "/reference/bpmn20/_index.md" >}}
+[CMMN Implementation Reference]: {{< ref "/reference/cmmn11/_index.md" >}}
 [CMMN Getting Started]: /get-started/cmmn11/
 [DMN Getting Started]: /get-started/dmn11/
-[DMN Implementation Reference]: {{< relref "reference/dmn11/_index.md" >}}
+[DMN Implementation Reference]: {{< ref "/reference/dmn11/_index.md" >}}
 [DMN Modeling Tutorial]: https://camunda.org/dmn/tutorial/
-[Process Engine]: {{< relref "user-guide/process-engine/_index.md" >}}
-[DMN Engine]: {{< relref "user-guide/dmn-engine/_index.md" >}}
+[Process Engine]: {{< ref "/user-guide/process-engine/_index.md" >}}
+[DMN Engine]: {{< ref "/user-guide/dmn-engine/_index.md" >}}

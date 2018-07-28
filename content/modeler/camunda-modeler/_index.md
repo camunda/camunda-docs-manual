@@ -17,7 +17,7 @@ Camunda Modeler is a desktop application for modeling BPMN, DMN and CMMN. It all
 
 {{< img src="../img/camunda-modeler.png" title="Camunda Modeler" >}}
 
-This is a guide to get you started with modeling BPMN and CMMN diagrams and DMN decision tables. Make sure to [Install the Camunda Modeler]({{< relref "installation/camunda-modeler.md" >}}) first.
+This is a guide to get you started with modeling BPMN and CMMN diagrams and DMN decision tables. Make sure to [Install the Camunda Modeler]({{< ref "/installation/camunda-modeler.md" >}}) first.
 
 {{< note class="info" title="Matching Process Engine Versions" >}}
 For executing BPMN Diagrams created using Camunda Modeler, Process Engine version 7.4.0, 7.3.3, 7.2.6 and above is required.

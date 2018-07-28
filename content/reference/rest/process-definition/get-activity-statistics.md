@@ -70,7 +70,7 @@ GET `/process-definition/key/{key}/tenant-id/{tenant-id}/statistics` (returns st
   </tr>
   <tr>
     <td>incidentsForType</td>
-    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>If this property has been set with any incident type (i.e., a String value) the result will only include the number of incidents for the assigned incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
 </table>
 
@@ -108,7 +108,7 @@ Each object has the following properties:
     <td>Array</td>
     <td>Each item in the resulting array is an object which contains the following properties:
         <ul>
-          <li>incidentType: The type of the incident the number of incidents is aggregated for. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</li>
+          <li>incidentType: The type of the incident the number of incidents is aggregated for. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</li>
           <li>incidentCount: The total number of incidents for the corresponding incident type.</li>
         </ul>
         <strong>Note:</strong> Will be an empty array, if <code>incidents</code> or <code>incidentsForType</code> were excluded. Furthermore, the array will be also empty if no incidents were found.
@@ -133,12 +133,12 @@ Each object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>If both query parameters <code>incidents</code> and <code>incidentsForType</code> were set. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Process definition with given key does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Process definition with given key does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

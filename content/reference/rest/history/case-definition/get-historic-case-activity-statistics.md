@@ -105,7 +105,7 @@ Each object has the following properties:
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -216,7 +216,7 @@ There are three types of authorizations:
     <td>Revoke Authorization (<code>AUTH_TYPE_REVOKE</code>)</td>
     <td>Ranges over users and groups and revokes a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group that the global authorization grants.</td>
     <td>2</td>
-  </tr>  
+  </tr>
 </table>
 
 {{< note class="warning" title="Performance of REVOKE Authorizations" >}}
@@ -371,7 +371,7 @@ The following table gives an overview for which resources they are available:
   </tbody>
 </table>
 
-To execute an operation [asynchronously]({{< relref "user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked. 
+To execute an operation [asynchronously]({{< ref "/user-guide/process-engine/batch.md">}}), only a "Create" permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. "Delete" on Process Instance Resource) are checked.
 
 For example, an user without the "Update" permission on the Process Instance Resource and granted "Create" permission on the Batch Resource can modify multiple Process Instances asynchronously by creating a batch, although he could not execute this operation synchronously.
 
@@ -476,7 +476,7 @@ GRANT and REVOKE authorizations with Task Work and Task Assign permissions prece
 ### Default Task Permissions
 
 When a user is related to a task by being an assignee, a candidate user, a part of a candidate group or an owner, then these users
-get the default permission as either "Task Work" or "Update", based on the configuration setting "defaultUserPermissionNameForTask". 
+get the default permission as either "Task Work" or "Update", based on the configuration setting "defaultUserPermissionNameForTask".
 
 If the "defaultUserPermissionNameForTask" is not set, then by default UPDATE permission is granted.
 
@@ -531,7 +531,7 @@ Camunda BPM has no explicit concept of "administrator" beyond it being a user wh
 
 When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources.
 
 {{< note title="LDAP" class="info" >}}
 The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
@@ -667,7 +667,7 @@ authorizationService.saveAuthorization(authProcessInstance);
 ```
 # Camunda Admin Webapp
 
-The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< relref "webapps/admin/authorization-management.md" >}}).
+The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< ref "/webapps/admin/authorization-management.md" >}}).
 
 # Performance Considerations
 

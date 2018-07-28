@@ -26,12 +26,12 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.7:
 
-* [Deploy Processes, Decisions and Cases from Cockpit]({{< relref "webapps/cockpit/deployment-view.md#create-deployment" >}})
-* [New Batch API for modification of multiple process instances]({{< relref "user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
-* [Process instance restart + Batch API]({{< relref "user-guide/process-engine/process-instance-restart.md" >}})
-* [Automatic cleanup of historic data based on TTL]({{< relref "user-guide/process-engine/history.md#history-cleanup" >}})
-* [New cryptographic hash function with salt] ({{< relref "user-guide/process-engine/password-hashing.md" >}})
-* [External tasks history]({{< relref "reference/rest/history/external-task-log/_index.md" >}})
+* [Deploy Processes, Decisions and Cases from Cockpit]({{< ref "/webapps/cockpit/deployment-view.md#create-deployment" >}})
+* [New Batch API for modification of multiple process instances]({{< ref "/user-guide/process-engine/process-instance-modification.md#modification-of-multiple-process-instances" >}})
+* [Process instance restart + Batch API]({{< ref "/user-guide/process-engine/process-instance-restart.md" >}})
+* [Automatic cleanup of historic data based on TTL]({{< ref "/user-guide/process-engine/history.md#history-cleanup" >}})
+* [New cryptographic hash function with salt] ({{< ref "/user-guide/process-engine/password-hashing.md" >}})
+* [External tasks history]({{< ref "/reference/rest/history/external-task-log/_index.md" >}})
 
 # Database Updates
 
@@ -39,7 +39,7 @@ Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.6_patch_?.sql`.
@@ -63,7 +63,7 @@ To circumvent that problem you can either update all engines to the version >= 7
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -77,10 +77,10 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.7 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/76-to-77/tomcat.md" >}})
-* [JBoss AS/Wildfly]({{< relref "update/minor/76-to-77/jboss.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/76-to-77/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/76-to-77/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss AS/Wildfly]({{< relref "jboss.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -101,7 +101,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 1. Undeploy the current version of the standalone web application
 2. Update the database to the new schema as described in the [database update](#database-updates) section
-3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
 

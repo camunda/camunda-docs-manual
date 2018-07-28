@@ -47,7 +47,7 @@ public class MyBusinessProcessTest {
 ```
 
 {{< note title="" class="info" >}}
-  Our [Project Templates for Maven]({{< relref "user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
+  Our [Project Templates for Maven]({{< ref "/user-guide/process-applications/maven-archetypes.md" >}}) give you a complete running project including a JUnit test out of the box.
 {{< /note >}}
 
 
@@ -88,7 +88,7 @@ The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 
 
 ## Specify the required History Level
 
-If a test requires a specific history level (e.g., because it uses the HistoryService) then you can annotate the test class or method with {{< javadocref page="?org/camunda/bpm/engine/test/RequiredHistoryLevel.html" text="@RequiredHistoryLevel" >}} and specify the required history level (e.g., "activity", "full"). Before the test is run, it checks the current history level of the process engine and skip the test if the history level is lower than the specified one.  
+If a test requires a specific history level (e.g., because it uses the HistoryService) then you can annotate the test class or method with {{< javadocref page="?org/camunda/bpm/engine/test/RequiredHistoryLevel.html" text="@RequiredHistoryLevel" >}} and specify the required history level (e.g., "activity", "full"). Before the test is run, it checks the current history level of the process engine and skip the test if the history level is lower than the specified one.
 
 A JUnit 4 style test can look as follows:
 
@@ -110,13 +110,13 @@ public class MyBusinessProcessTest {
     HistoricVariableInstance variable = historyService
       .createHistoricVariableInstanceQuery()
       .singleResult();
-      
+
     assertEquals("value", variable.getValue());
   }
 }
 ```
 
-The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.  
+The annotation is supported for [JUnit 3]({{< relref "#junit-3" >}}) and [JUnit 4]({{< relref "#junit-4" >}}) style of testing. Note that a skipped test is marked as passed for JUnit 3 style tests since JUnit 3 doesn't support skipping of tests.
 
 ## Debug Unit Tests
 
@@ -196,13 +196,13 @@ Now the named bean is exposed and can be used within the process:
 <serviceTask id="serviceTask" camunda:expression="#{myBean.invokeMethod()}" />
 ```
 
-**The mocked beans feature should be used for testing purposes only.** Beans that are stored with `Mocks` are exclusively available within the respective storing thread as it is based on `ThreadLocal`. In most productive environments, it is not possible to access mocked beans during process execution due to the reason that jobs are executed by the multi-threaded Job Executor. Since the [Job Executor is disabled in unit test scenarios]({{< relref "user-guide/process-engine/the-job-executor.md#job-executor-in-a-unit-test" >}}), the thread of process execution is the same that creates mocked bean instances.
+**The mocked beans feature should be used for testing purposes only.** Beans that are stored with `Mocks` are exclusively available within the respective storing thread as it is based on `ThreadLocal`. In most productive environments, it is not possible to access mocked beans during process execution due to the reason that jobs are executed by the multi-threaded Job Executor. Since the [Job Executor is disabled in unit test scenarios]({{< ref "/user-guide/process-engine/the-job-executor.md#job-executor-in-a-unit-test" >}}), the thread of process execution is the same that creates mocked bean instances.
 
 # Best Practice
 
 ## Write Focused Tests
 
-The feature to [start a process instance at a set of activities]({{< relref "user-guide/process-engine/process-engine-concepts.md#start-a-process-instance-at-any-set-of-activities" >}}) can be used to to create a very specific scenario without much setup. Similarly, certain activities can be skipped by using [process instance modification]({{< relref "user-guide/process-engine/process-instance-modification.md" >}}).
+The feature to [start a process instance at a set of activities]({{< ref "/user-guide/process-engine/process-engine-concepts.md#start-a-process-instance-at-any-set-of-activities" >}}) can be used to to create a very specific scenario without much setup. Similarly, certain activities can be skipped by using [process instance modification]({{< ref "/user-guide/process-engine/process-instance-modification.md" >}}).
 
 ## Scoping Tests
 

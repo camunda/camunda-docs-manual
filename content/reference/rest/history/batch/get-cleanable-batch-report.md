@@ -11,13 +11,13 @@ menu:
 
 ---
 
-Retrieves a report about a historic batch operations relevant to history cleanup (see <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live.
+Retrieves a report about a historic batch operations relevant to history cleanup (see <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup" >}}">History cleanup</a>) so that you can tune the history time to live.
 These reports include the count of the finished batches, cleanable batches and type of the batch.
-The size of the result set can be retrieved by using the [Get Cleanable Batch Report Count]({{< relref "reference/rest/history/batch/get-cleanable-batch-report-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Cleanable Batch Report Count]({{< ref "/reference/rest/history/batch/get-cleanable-batch-report-count.md" >}}) method.
 
 {{< note title="" class="info" >}}
   **Please note:**
-  The history time to live for batch operations does not support [Multi-Tenancy]({{< relref "user-guide/process-engine/multi-tenancy.md" >}}).
+  The history time to live for batch operations does not support [Multi-Tenancy]({{< ref "/user-guide/process-engine/multi-tenancy.md" >}}).
 The report will return an information for all batch operations (for all tenants) if you have permissions to see the history.
 {{< /note >}}
 
@@ -104,7 +104,7 @@ A JSON array containing finished batches information relevant to history cleanup
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -31,10 +31,10 @@ This guide covers mandatory migration steps as well as optional considerations f
 
 Noteworthy new Features and Changes in 7.9:
 
-* [Transient Variables]({{< relref "user-guide/process-engine/variables.md#transient-variables" >}})
-* [Long Polling for Fetch and Lock External Tasks]({{< relref "user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}})
-* [Conditional start events]({{< relref "reference/bpmn20/events/conditional-events.md#conditional-start-event" >}})
-* [Sending a payload when throwing a signal]({{< relref "reference/bpmn20/events/signal-events.md#passing-variables" >}})
+* [Transient Variables]({{< ref "/user-guide/process-engine/variables.md#transient-variables" >}})
+* [Long Polling for Fetch and Lock External Tasks]({{< ref "/user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}})
+* [Conditional start events]({{< ref "/reference/bpmn20/events/conditional-events.md#conditional-start-event" >}})
+* [Sending a payload when throwing a signal]({{< ref "/reference/bpmn20/events/signal-events.md#passing-variables" >}})
 
 # Database Updates
 
@@ -42,7 +42,7 @@ Every Camunda installation requires a database schema update.
 
 ## Procedure
 
-1. Check for [available database patch scripts]({{< relref "update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
+1. Check for [available database patch scripts]({{< ref "/update/patch-level.md#database-patches" >}}) for your database that are within the bounds of your update path.
  Locate the scripts at `$DISTRIBUTION_PATH/sql/upgrade` in the pre-packaged distribution (where `$DISTRIBUTION_PATH` is the path of an unpacked distribution) or in the [Camunda Nexus](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/distro/camunda-sql-scripts/).
  We highly recommend to execute these patches before updating. Execute them in ascending order by version number.
  The naming pattern is `$DATABASENAME_engine_7.8_patch_?.sql`.
@@ -57,7 +57,7 @@ Every Camunda installation requires a database schema update.
 
 # Full Distribution
 
-This section is applicable if you installed the [Full Distribution]({{< relref "introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
+This section is applicable if you installed the [Full Distribution]({{< ref "/introduction/downloading-camunda.md#full-distribution" >}}) with a **shared process engine**.
 
 The following steps are required:
 
@@ -70,10 +70,10 @@ Before starting, make sure that you have downloaded the Camunda BPM 7.9 distribu
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]({{< relref "update/minor/78-to-79/tomcat.md" >}})
-* [JBoss AS/Wildfly]({{< relref "update/minor/78-to-79/jboss.md" >}})
-* [IBM WebSphere]({{< relref "update/minor/78-to-79/was.md" >}})
-* [Oracle WebLogic]({{< relref "update/minor/78-to-79/wls.md" >}})
+* [Apache Tomcat]({{< relref "tomcat.md" >}})
+* [JBoss AS/Wildfly]({{< relref "jboss.md" >}})
+* [IBM WebSphere]({{< relref "was.md" >}})
+* [Oracle WebLogic]({{< relref "wls.md" >}})
 
 ## Custom Process Applications
 
@@ -94,7 +94,7 @@ If a database other than the default H2 database is used, the following steps mu
 
 1. Undeploy the current version of the standalone web application
 2. Update the database to the new schema as described in the [database update](#database-updates) section
-3. Reconfigure the database as described in the [installation]({{< relref "installation/standalone-webapplication.md#database-configuration" >}})
+3. Reconfigure the database as described in the [installation]({{< ref "/installation/standalone-webapplication.md#database-configuration" >}})
    section
 4. Deploy the new and configured standalone web application to the server
 
@@ -102,11 +102,11 @@ If a database other than the default H2 database is used, the following steps mu
 
 If you are using Camunda Spring Boot Starter(s) within you Spring Boot application, then you would need to:
 
-1. Check [Version compatibility]({{< relref "user-guide/spring-boot-integration/version-compatibility.md" >}}) matrix in the docs.
+1. Check [Version compatibility]({{< ref "/user-guide/spring-boot-integration/version-compatibility.md" >}}) matrix in the docs.
 2. Update Spring Boot Starter and, when required, Spring Boot versions in your `pom.xml`.
 3. Update Camunda version in your `pom.xml` in case you override it before (e.g. when using enterprise version or patch releases).
 
-Please also check [Spring Boot Starter update guide]({{< relref "update/spring-boot-starter/_index.md" >}}).
+Please also check [Spring Boot Starter update guide]({{< ref "/update/spring-boot-starter/_index.md" >}}).
 
 # Base Delegate Execution
 
@@ -143,7 +143,7 @@ runtimeService.setVariable(processInstanceId, "varName",
           .objectTypeName("com.example.MyObject")
           .create());
 ```
-In this case you will need to use another serialization format (JSON or XML) or to explicitly enable Java serialization with the help of [this configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
+In this case you will need to use another serialization format (JSON or XML) or to explicitly enable Java serialization with the help of [this configuration parameter]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}):
 
 ```xml
 <property name="javaSerializationFormatEnabled">true</property>
@@ -165,12 +165,12 @@ This feature can be configured in two ways:
 1. The default timer period can be changed to `this week`, `this month` or `complete`
 2. The manual selection of the time period within Cockpit can be disabled.
 
-These attributes can be modifed in the [configuration file]({{< relref "webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
+These attributes can be modifed in the [configuration file]({{< ref "/webapps/cockpit/extend/configuration.md#historic-activity-instance-metrics" >}})
 
 # Throttle login attempts
 
 We introduce a special mechanism for consecutive unsuccessful login attempts.
-A user will be delayed in trying to login after an unsuccessful login attempt for a certain amount of time (in seconds). This delay is calculated through a formula, and the contributing values are configurable. Please read more in the [Identity service]({{< relref "user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) section.
+A user will be delayed in trying to login after an unsuccessful login attempt for a certain amount of time (in seconds). This delay is calculated through a formula, and the contributing values are configurable. Please read more in the [Identity service]({{< ref "/user-guide/process-engine/identity-service.md#throttle-login-attempts" >}}) section.
 
 The default values are:
 ```java

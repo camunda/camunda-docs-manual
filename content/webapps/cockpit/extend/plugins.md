@@ -145,8 +145,8 @@ The dashboard navigation plugins can be used to define custom menu entries.
 
 #### `weight`
 
-Takes a number and will defined where the plugin should be placed.  
-The bigger the value is the most left it will be placed.  
+Takes a number and will defined where the plugin should be placed.
+The bigger the value is the most left it will be placed.
 A value smaller than 0 will put the menu point within the dropdown.
 
 #### `pagePath`
@@ -318,7 +318,7 @@ var ViewConfig = [ 'ViewsProvider', function(ViewsProvider) {
 
 This plugin should contain an initialize function recieving a data object with the following fields:
 
-* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< relref "reference/rest/decision-definition/get.md#result" >}})
+* `decisionDefinition`: The data about the decision definition corresponding to the [REST response]({{< ref "/reference/rest/decision-definition/get.md#result" >}})
 * `decisionData`: The data-depend object for the decision definition
 * `tableControl`: Control object for the rendered dmn-table corresponding to the [dmn-table widget](http://camunda.github.io/camunda-commons-ui/cam-widget-dmn-viewer.html)
 
@@ -417,7 +417,7 @@ ViewsProvider.registerDefaultView('cockpit.decisionDefinition.table', {
 
 {{< img src="../../img/plugin-points/plugin-point-task-dashboard.png" title="Open Task Dashboard" >}}
 
-See the [Open Tasks Dashboard]({{< relref "webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task
+See the [Open Tasks Dashboard]({{< ref "/webapps/cockpit/tasks-dashboard.md" >}}) section for an example open task
 dashboard plugin.
 
 
@@ -425,7 +425,7 @@ dashboard plugin.
 
 **Name:** `cockpit.report`
 
-See the [Reports]({{< relref "webapps/cockpit/reporting.md" >}}) section for an example report plugin.
+See the [Reports]({{< ref "/webapps/cockpit/reporting.md" >}}) section for an example report plugin.
 
 ## Incident Action
 

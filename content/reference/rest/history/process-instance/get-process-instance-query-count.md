@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of historic process instances that fulfill the given parameters.
-Takes the same parameters as the [Get Process Instances]({{< relref "reference/rest/history/process-instance/get-process-instance-query.md" >}}) method.
+Takes the same parameters as the [Get Process Instances]({{< ref "/reference/rest/history/process-instance/get-process-instance-query.md" >}}) method.
 
 
 # Method
@@ -97,7 +97,7 @@ GET `/history/process-instance/count`
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>withIncidents</td>
@@ -204,7 +204,7 @@ GET `/history/process-instance/count`
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Result
 
@@ -240,7 +240,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

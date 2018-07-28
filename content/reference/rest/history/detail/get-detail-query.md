@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic details that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get Historic Detail Count]({{< relref "reference/rest/history/detail/get-detail-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Historic Detail Count]({{< ref "/reference/rest/history/detail/get-detail-query-count.md" >}}) method.
 
 
 # Method
@@ -61,7 +61,7 @@ GET `/history/detail`
   </tr>
   <tr>
     <td>variableTypeIn</td>
-    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< relref "user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
+    <td>Only include historic details where the variable updates belong to one of the passed and comma-separated variable types. A list of all supported variable types can be found <a href="{{< ref "/user-guide/process-engine/variables.md#supported-variable-values" >}}">here</a>. <b>Note:</b> All non-primitive variables are assoziated with the type "serializable".</td>
   </tr>
   <tr>
     <td>tenantIdIn</td>
@@ -197,7 +197,7 @@ Each historic detail object has the following properties:
   <tr>
     <td>userOperationId</td>
     <td>String</td>
-    <td>The id of user operation which links historic detail with <a href="{{< relref "reference/rest/history/user-operation-log/_index.md" >}}">user operation log</a> entries.</td>
+    <td>The id of user operation which links historic detail with <a href="{{< ref "/reference/rest/history/user-operation-log/_index.md" >}}">user operation log</a> entries.</td>
   </tr>
   <tr>
     <td>time</td>
@@ -206,7 +206,7 @@ Each historic detail object has the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 Depending on the type of the historic detail it contains further properties. In case of an <code>HistoricVariableUpdate</code> the following properties are also provided:
 
@@ -290,7 +290,7 @@ In case of an <code>HistoricFormField</code> the following properties are also p
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

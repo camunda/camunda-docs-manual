@@ -13,7 +13,7 @@ menu:
 ---
 
 Validates a migration plan statically without executing it. This
-corresponds to the [creation time validation]({{< relref "user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}) described in the user
+corresponds to the [creation time validation]({{< ref "/user-guide/process-engine/process-instance-migration.md#creation-time-validation" >}}) described in the user
 guide.
 
 
@@ -161,7 +161,7 @@ The properties of a instruction report are as follows:
     <td>
       In case additional parameters of the request are unexpected, an exception
       of type <code>InvalidRequestException</code> is returned. See the <a
-      href="{{< relref "reference/rest/overview/_index.md#error-handling">}}">
+      href="{{< ref "/reference/rest/overview/_index.md#error-handling">}}">
       Introduction</a> for the error response format.
     </td>
   </tr>

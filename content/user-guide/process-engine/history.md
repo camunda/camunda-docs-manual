@@ -95,15 +95,15 @@ There are the following History entities, which - in contrast to the runtime dat
 
 ## State of HistoricProcessInstances
 
-For every process instance process engine will create single record in history database and will keep updating this record during process execution. Every HistoricProcessInstance record can get one of the following states assigned: 
+For every process instance process engine will create single record in history database and will keep updating this record during process execution. Every HistoricProcessInstance record can get one of the following states assigned:
 
-*  ACTIVE - running process instance                                                         
-*  SUSPENDED - suspended process instances                                                   
-*  COMPLETED - completed through normal end event                                            
-*  EXTERNALLY_TERMINATED - terminated externally, for instance through REST API              
-*  INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event  
+*  ACTIVE - running process instance
+*  SUSPENDED - suspended process instances
+*  COMPLETED - completed through normal end event
+*  EXTERNALLY_TERMINATED - terminated externally, for instance through REST API
+*  INTERNALLY_TERMINATED - terminated internally, for instance by terminating boundary event
 
-Among them following states can be triggered externally, for example through REST API or Cockpit: ACTIVE, SUSPENDED, EXTERNALLY_TERMINATED. 
+Among them following states can be triggered externally, for example through REST API or Cockpit: ACTIVE, SUSPENDED, EXTERNALLY_TERMINATED.
 
 ## Query History
 
@@ -307,7 +307,7 @@ historyService.createHistoricExternalTaskLogQuery()
   .failureLog()
   .list();
 ```
- 
+
 ## History Report
 
 You can use the reports section to retrieve custom statistics and reports. Currently, we support the following kinds of reports:
@@ -337,10 +337,10 @@ To narrow down the report query, one can use the following methods from ``Histor
 * ``processDefinitionIdIn``: Only takes historic process instances into account for given process definition ids.
 * ``processDefinitionKeyIn``: Only takes historic process instances into account for given process definition keys.
 
-where `startedBefore` and `startedAfter` use `java.util.Date` (depricated) or `java.util.Calendar` objects for the input. 
+where `startedBefore` and `startedAfter` use `java.util.Date` (depricated) or `java.util.Calendar` objects for the input.
 
-For instance, one could query for all historic process instances which were started before now and get their duration: 
- 
+For instance, one could query for all historic process instances which were started before now and get their duration:
+
  ```java
 Calendar calendar = Calendar.getInstance();
 historyService.createHistoricProcessInstanceReport()
@@ -436,7 +436,7 @@ If it is desired that operations are logged regardless whether they are performe
 
 ## Access the User Operation Log
 
-The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< relref "reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
+The user operation log can be accessed via the Java API. The history service can be used to execute a `UserOperationLogQuery` by calling `historyService.createUserOperationLogQuery().execute()`. The query can be restricted with various filtering options. The query is also [exposed in the REST API]({{< ref "/reference/rest/history/user-operation-log/get-user-operation-log-query.md" >}}).
 
 
 ## User Operation Log Entries
@@ -948,7 +948,7 @@ public boolean isHistoryEventProduced(HistoryEventType eventType, Object entity)
 
 # History Cleanup
 
-When used intensively, the process engine can produce a huge amount of historic data. The history cleanup functionality helps to regularly remove "outdated" 
+When used intensively, the process engine can produce a huge amount of historic data. The history cleanup functionality helps to regularly remove "outdated"
 data from history tables. It deletes:
 
 * Historic process instances plus all related historic data (e.g., historic variable instances, historic task instances, all comments and attachments related to them, etc.)
@@ -958,15 +958,15 @@ data from history tables. It deletes:
 
 History cleanup can be used on a regular basis (automatically) or for a single cleanup (manual call).
 
-Only [camunda-admins]({{< relref "user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
+Only [camunda-admins]({{< ref "/user-guide/process-engine/authorization-service.md#the-camunda-admin-group">}}) have permissions to execute history cleanup.
 
 ## History Time to Live
 
-You must specify "history time to live" for each process definition, decision definition and case definition which should be affected by the cleanup. 
-For process and case definitions "history time to live" means the amount of days that pass, after the process/case instance has finished, before its history 
+You must specify "history time to live" for each process definition, decision definition and case definition which should be affected by the cleanup.
+For process and case definitions "history time to live" means the amount of days that pass, after the process/case instance has finished, before its history
 is removed from the database. For decision definitions, evaluation time is taken into account.
 
-Use the ["historyTimeToLive" extension attribute]({{< relref "reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of the process definition:
+Use the ["historyTimeToLive" extension attribute]({{< ref "/reference/bpmn20/custom-extensions/extension-attributes.md#historytimetolive">}}) of the process definition:
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="5">
 ...
@@ -976,10 +976,10 @@ You can also update "historyTimeToLive" for already deployed process definitions
 ```java
   processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
 ```
-or via the [REST API]({{< relref "reference/rest/process-definition/put-history-time-to-live.md">}}).
+or via the [REST API]({{< ref "/reference/rest/process-definition/put-history-time-to-live.md">}}).
 
 
-The "historyTimeToLive" field can also define the number of days using a time specified by the ISO-8601 date format. 
+The "historyTimeToLive" field can also define the number of days using a time specified by the ISO-8601 date format.
 The function only accepts the notation to define a number of days.
 ```xml
 <process id="oneTaskProcess" name="The One Task Process" isExecutable="true" camunda:historyTimeToLive="P5D">
@@ -1019,7 +1019,7 @@ the global configuration of the batch operations will be taken into account.
 
 ## Periodic Run
 
-To use history cleanup on a regular basis, a batch window(s) must be configured - the period of time during the day when the cleanup is to run. 
+To use history cleanup on a regular basis, a batch window(s) must be configured - the period of time during the day when the cleanup is to run.
 It is possible to configure one and the same batch window for every day:
 ```xml
 <property name="historyCleanupBatchWindowStartTime">20:00</property>
@@ -1048,7 +1048,7 @@ The same in XML format:
 <property name="saturdayHistoryCleanupBatchWindowEndTime">06:00</property>
 <property name="sundayHistoryCleanupBatchWindowStartTime">06:00</property>
 <property name="sundayHistoryCleanupBatchWindowEndTime">06:00</property>
-``` 
+```
 
 See [Configuration options][configuration-options] for details.
 
@@ -1058,30 +1058,30 @@ When you only want to run the cleanup a single time, then use:
 ```java
   processEngine.getHistoryService().cleanUpHistoryAsync(true);
 ```
-Also available via [REST API]({{< relref "reference/rest/history/history-cleanup/post-history-cleanup.md">}}).
+Also available via [REST API]({{< ref "/reference/rest/history/history-cleanup/post-history-cleanup.md">}}).
 
 ## Internal Implementation
 
-History cleanup is implemented via jobs. The cleanup jobs run in the background every day at the batch window time or immediately when called manually. 
-The jobs remove all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of 
-configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding 
+History cleanup is implemented via jobs. The cleanup jobs run in the background every day at the batch window time or immediately when called manually.
+The jobs remove all historic data for process (or decision or case) instances that finished "history time to live" days ago. The data is removed in batches of
+configurable size (see [Configuration options][configuration-options]). Only top-level objects (e.g., historic process instances) are counted when finding
 a batch of data to be deleted.
 
-In cases when a history cleanup job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches 
-the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour 
+In cases when a history cleanup job can't find anything to delete (or not enough data to surpass the threshold), it is rescheduled for a later time, until it reaches
+the end time of the batch window. The delay between such runs increases twofold, until it reaches the maximum value (1 hour). This backoff behaviour
 only happens in case of regular scheduled runs. In case of a manual run, cleanup stops when there is no more data to be deleted.
 
-If the job execution fails for some reason, execution is retried several times, similar to any other job (see the `defaultNumberOfRetries` configuration 
-parameter [here]({{< relref "reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after 
+If the job execution fails for some reason, execution is retried several times, similar to any other job (see the `defaultNumberOfRetries` configuration
+parameter [here]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#configuration-properties">}}) ). When still failing after
 several retries, an incident is created. After this, the job isn't triggered unless one of the following actions is performed:
 
 * History cleanup is called manually
 * Engine is restarted (this resets the number of job retries to the default value)
-* Manually set the number of retries to >0 for the history cleanup job(s) (e.g., via the [REST API]({{< relref "reference/rest/job/put-set-job-retries.md">}})) 
+* Manually set the number of retries to >0 for the history cleanup job(s) (e.g., via the [REST API]({{< ref "/reference/rest/job/put-set-job-retries.md">}}))
 
 ## Job Progress
 
-History cleanup is performed via fixed amount of jobs (can be configured via `historyCleanupDegreeOfParallelism` configuration parameter). 
+History cleanup is performed via fixed amount of jobs (can be configured via `historyCleanupDegreeOfParallelism` configuration parameter).
 Each job runs several times and has a unique id which can be found like this:
 ```java
 List<Job> historyCleanupJobs = processEngine.getHistoryService().findHistoryCleanupJobs();
@@ -1091,9 +1091,9 @@ for (Job job: historyCleanupJobs) {
 }
 ```
 
-The `jobId` can be used to request [job logs]({{< relref "reference/rest/history/job-log/get-job-log-query.md">}}) 
-and [information about incidents]({{< relref "user-guide/process-engine/the-job-executor.md#failed-jobs">}}).
+The `jobId` can be used to request [job logs]({{< ref "/reference/rest/history/job-log/get-job-log-query.md">}})
+and [information about incidents]({{< ref "/user-guide/process-engine/the-job-executor.md#failed-jobs">}}).
 
-[configuration-options]: {{< relref "reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
+[configuration-options]: {{< ref "/reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}}
 [1]: http://docs.camunda.org/latest/api-references/javadoc/org/camunda/bpm/engine/impl/history/event/HistoryEventTypes.html
 [2]: https://github.com/camunda/camunda-bpm-examples/tree/master/process-engine-plugin/custom-history-level

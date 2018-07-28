@@ -89,7 +89,7 @@ DmnDecision decision = dmnEngine.parseDecision("second-decision", inputStream);
 
 ## Parse Decision Requirements Graph
 
-In addition to parsing all contained decisions of a [decision requirements graph]({{< relref "reference/dmn11/drg/_index.md" >}}) (DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
+In addition to parsing all contained decisions of a [decision requirements graph]({{< ref "/reference/dmn11/drg/_index.md" >}}) (DRG), the DMN engine can also parse the DRG itself from an `InputStream` or a `DmnModelInstance`.
 
 ```java
 // parse the drg from an input stream
@@ -290,11 +290,11 @@ The [hit policy] of a required decision can affect the result that is passed as 
 
 In case of a hit policy with multiple matched rules (i.e., [COLLECT] without aggregator or [RULE ORDER]), the output variable is mapped to a list of output values, even if only one rule matched.
 
-[decision table]: {{< relref "reference/dmn11/decision-table/_index.md" >}}
-[decision literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md" >}}
-[decision requirements graph]: {{< relref "reference/dmn11/drg/_index.md" >}}
-[decision requirements diagram]: {{< relref "reference/dmn11/drg/_index.md" >}}
-[required decisions]: {{< relref "reference/dmn11/drg/_index.md#required-decisions" >}}
-[hit policy]: {{< relref "reference/dmn11/decision-table/hit-policy.md" >}}
-[COLLECT]: {{< relref "reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}
-[RULE ORDER]: {{< relref "reference/dmn11/decision-table/hit-policy.md#rule-order-hit-policy" >}}
+[decision table]: {{< ref "/reference/dmn11/decision-table/_index.md" >}}
+[decision literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md" >}}
+[decision requirements graph]: {{< ref "/reference/dmn11/drg/_index.md" >}}
+[decision requirements diagram]: {{< ref "/reference/dmn11/drg/_index.md" >}}
+[required decisions]: {{< ref "/reference/dmn11/drg/_index.md#required-decisions" >}}
+[hit policy]: {{< ref "/reference/dmn11/decision-table/hit-policy.md" >}}
+[COLLECT]: {{< ref "/reference/dmn11/decision-table/hit-policy.md#collect-hit-policy" >}}
+[RULE ORDER]: {{< ref "/reference/dmn11/decision-table/hit-policy.md#rule-order-hit-policy" >}}

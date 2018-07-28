@@ -18,7 +18,7 @@ Camunda BPM process engine and standalone usage via API.
 # Connectors
 
 Camunda Connect provides a HTTP and a SOAP HTTP connector. If you want to
-add an own connector to Connect please have a look at the [extending Connect]({{< relref "reference/connect/extending-connect.md" >}})
+add an own connector to Connect please have a look at the [extending Connect]({{< ref "/reference/connect/extending-connect.md" >}})
 section. This section also describes the usage of a `ConnectorConfigurator` to
 configure the connector instances.
 

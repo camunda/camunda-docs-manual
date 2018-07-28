@@ -13,7 +13,7 @@ menu:
 ---
 
 
-Queries for the number of executions that fulfill given parameters. This method takes the same message body as the [Get Executions (POST)]({{< relref "reference/rest/execution/post-query.md" >}}) method and therefore it is slightly more powerful than the [Get Execution Count]({{< relref "reference/rest/execution/get-query-count.md" >}}) method.
+Queries for the number of executions that fulfill given parameters. This method takes the same message body as the [Get Executions (POST)]({{< ref "/reference/rest/execution/post-query.md" >}}) method and therefore it is slightly more powerful than the [Get Execution Count]({{< ref "/reference/rest/execution/get-query-count.md" >}}) method.
 
 
 # Method
@@ -74,7 +74,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -149,7 +149,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

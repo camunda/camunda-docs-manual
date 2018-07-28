@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< relref "user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< relref "user-guide/data-formats/_index.md" >}}). This section describes under which conditions the process engine looks up resources on process application level and how that lookup can be enforced.
+Process applications provide and logically group resources specific to the processes they contain. There are resources that are part of the application itself, like a classloader and its classes and resources, as well as resources managed by the process engine at runtime, like a set of [scripting engines]({{< ref "/user-guide/process-engine/scripting.md" >}}) or [Spin data formats]({{< ref "/user-guide/data-formats/_index.md" >}}). This section describes under which conditions the process engine looks up resources on process application level and how that lookup can be enforced.
 
 {{< img src="../img/process-application-context.png" title="Process Application Context" >}}
 
@@ -25,7 +25,7 @@ When executing a process instance, the process engine has to know which process 
 For example, before invoking a Java Delegate, the process engine performs a context switch into the respective process application. It is therefore able to set the thread context classloader to the process application classloader. If no context switch is performed, only those resources are available that are accessible on the process engine level. This is typically a different classloader and a different set of managed resources.
 
 {{< note title="Mechanics behind the Context Switch" >}}
-Note that the actual mechanics behind the context switch are platform dependent. For example: in a servlet container like Apache Tomcat, it is only necessary to set the Thread's current Context Classloader to the web application Classloader. Context specific operations like the resolution of application-local JNDI names all build on this. In an EJB container, this is more complex. This is why the ProcessApplication class is an EJB itself in that environment (see: [Ejb Process Application]({{< relref "user-guide/process-applications/the-process-application-class.md#invocation-semantics-of-the-ejbprocessapplication" >}})). The process engine can then add an invocation of a business method of that EJB to the call stack and have the Application Server perform its specific logic behind the scenes.
+Note that the actual mechanics behind the context switch are platform dependent. For example: in a servlet container like Apache Tomcat, it is only necessary to set the Thread's current Context Classloader to the web application Classloader. Context specific operations like the resolution of application-local JNDI names all build on this. In an EJB container, this is more complex. This is why the ProcessApplication class is an EJB itself in that environment (see: [Ejb Process Application]({{< ref "/user-guide/process-applications/the-process-application-class.md#invocation-semantics-of-the-ejbprocessapplication" >}})). The process engine can then add an invocation of a business method of that EJB to the call stack and have the Application Server perform its specific logic behind the scenes.
 {{</ note >}}
 
 A context switch is guaranteed in the following cases:
@@ -39,7 +39,7 @@ Process application context must be declared whenevever custom code uses the eng
 
 ## Example
 
-To clarify the use case, we assume that a process application employs the [feature to serialize object-type variables in the JSON format]({{< relref "user-guide/data-formats/json.md#serializing-process-variables" >}}). However, for that application JSON serialization shall be customized (think about the numerous ways to serialize a date as a JSON string). The process application therefore contains a Camunda Spin data format configurator implementation that configures the Spin JSON data format in the desired way. In turn, the process engine manages a Spin data format for that specific process application to serialize object values with. Now, we assume that a Java servlet calls the process engine API to submit a Java object and serialize it with the JSON format. The code might look as follows:
+To clarify the use case, we assume that a process application employs the [feature to serialize object-type variables in the JSON format]({{< ref "/user-guide/data-formats/json.md#serializing-process-variables" >}}). However, for that application JSON serialization shall be customized (think about the numerous ways to serialize a date as a JSON string). The process application therefore contains a Camunda Spin data format configurator implementation that configures the Spin JSON data format in the desired way. In turn, the process engine manages a Spin data format for that specific process application to serialize object values with. Now, we assume that a Java servlet calls the process engine API to submit a Java object and serialize it with the JSON format. The code might look as follows:
 
 ```java
 public class ObjectValueServlet extends HttpServlet {

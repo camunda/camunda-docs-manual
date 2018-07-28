@@ -62,7 +62,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the request parameters are invalid, for example if the <code>processDefinitionId</code> parameter is null. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the request parameters are invalid, for example if the <code>processDefinitionId</code> parameter is null. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -14,7 +14,7 @@ menu:
 
 
 Retrieves a variable from the context of a given task.
-The variable must be visible from the task. It is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< relref "user-guide/process-engine/variables.md" >}}).
+The variable must be visible from the task. It is visible from the task if it is a local task variable or declared in a parent scope of the task. See documentation on [visiblity of variables]({{< ref "/user-guide/process-engine/variables.md" >}}).
 
 
 # Method
@@ -79,12 +79,12 @@ A JSON object with the following properties:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Variable with given id does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Variable with given id does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Task id is null or does not exist. See the <a href="{{< relref "reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Task id is null or does not exist. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -178,6 +178,6 @@ information. The description text is set inside the `description` XML element.
 ```
 
 
-[supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
-[default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
-[FEEL]: {{< relref "reference/dmn11/feel/_index.md" >}}
+[supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
+[default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
+[FEEL]: {{< ref "/reference/dmn11/feel/_index.md" >}}

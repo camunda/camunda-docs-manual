@@ -136,11 +136,11 @@ are listed in the [User Guide][supported DT].
 Note that the type is not required but recommended since it provides a type
 safety of the expression result.
 
-[literal expression]: {{< relref "reference/dmn11/decision-literal-expression/_index.md#literal-expression" >}}
-[variable]: {{< relref "reference/dmn11/decision-literal-expression/_index.md#variable" >}}
-[supported EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
-[default EL]: {{< relref "user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
-[supported DT]: {{< relref "user-guide/dmn-engine/data-types.md#supported-data-types" >}}
-[deployed]: {{< relref "user-guide/process-engine/decisions/repository.md" >}}
-[required decisions]: {{< relref "reference/dmn11/drg/_index.md#required-decisions" >}}
+[literal expression]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md#literal-expression" >}}
+[variable]: {{< ref "/reference/dmn11/decision-literal-expression/_index.md#variable" >}}
+[supported EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#supported-expression-languages" >}}
+[default EL]: {{< ref "/user-guide/dmn-engine/expressions-and-scripts.md#default-expression-languages" >}}
+[supported DT]: {{< ref "/user-guide/dmn-engine/data-types.md#supported-data-types" >}}
+[deployed]: {{< ref "/user-guide/process-engine/decisions/repository.md" >}}
+[required decisions]: {{< ref "/reference/dmn11/drg/_index.md#required-decisions" >}}
 
