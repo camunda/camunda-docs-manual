@@ -1,5 +1,5 @@
 ---
-baseurl: "/manual/develop/"
+baseURL: "https://docs.camunda.org/manual/develop/"
 languageCode: "en-us"
 title: "Camunda BPM documentation"
 theme: "camunda"
