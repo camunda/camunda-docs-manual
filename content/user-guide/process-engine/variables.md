@@ -341,7 +341,6 @@ TypedValue typedTransientFileValue = Variables.fileValue("file.txt", true)
   .encoding("UTF-8")
   .create();
 ``` 
-Please note that the transient variables cannot be updated or deleted.
 
 Transient variables can be used via REST API, e.g. [when starting a new process instance]({{< relref "reference/rest/process-definition/post-start-process-instance.md">}}).
 
