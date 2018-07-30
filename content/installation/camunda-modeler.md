@@ -1,7 +1,7 @@
 ---
 
 title: "Install the Camunda Modeler"
-weight: 01  
+weight: 01
 
 menu:
   main:
@@ -34,8 +34,26 @@ Note that you do not need to install the Process Engine if you do not want to ex
 
 # Download
 
-The latest Camunda Modeler release can be downloaded on [camunda.org](https://camunda.org/download/modeler/).
+Get the latest release from the [Camunda Modeler download page](https://camunda.com/download/modeler/).
 
-# Instructions
+Find older versions of the modeler in our [release archive](https://camunda.org/download/modeler/).
 
-After downloading unpack the modeler. It can then be started by running the executable named *camunda-modeler*.
+# Install
+
+Unpack the modeler into a location of your choice.
+
+# Run the Application
+
+Run the application via the executable `Camunda Modeler.exe` (Windows), `Camunda Modeler.app` (Mac) or `camunda-modeler` (Linux).
+
+# Wire File Associations
+
+On Windows and Linux you must carry out additional steps to register the modeler as the default editor for BPMN, CMMN and DMN files.
+
+### Windows
+
+To make the modeler the default editor for `.bpmn`, `.cmmn` and `.dmn` files execute `support/register_fileassoc.bat`.
+
+### Linux
+
+To create a [desktop file](https://specifications.freedesktop.org/desktop-entry-spec/latest/) and make the modeler the default editor for `.bpmn`, `.cmmn` and `.dmn` files execute `support/xdg_register.sh`.
