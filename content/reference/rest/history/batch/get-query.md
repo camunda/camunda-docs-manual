@@ -152,9 +152,9 @@ Each historic batch object has the following properties:
     <td>The tenant id of the batch.</td>
   </tr>
   <tr>
-    <td>userId</td>
+    <td>createUserId</td>
     <td>String</td>
-    <td>The creater's user id of the batch.</td>
+    <td>The batch creator's user id.</td>
   </tr>
   <tr>
     <td>startTime</td>

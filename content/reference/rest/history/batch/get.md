@@ -103,6 +103,11 @@ Its properties are as follows:
     <td>The tenant id of the batch.</td>
   </tr>
   <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
+  </tr>
+  <tr>
     <td>startTime</td>
     <td>String</td>
     <td>The time the batch was started. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
