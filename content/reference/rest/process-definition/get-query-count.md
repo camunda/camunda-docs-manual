@@ -141,11 +141,11 @@ GET `/process-definition/count`
   </tr>
   <tr>
     <td>startablePermissionCheck</td>
-    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have permissions the result will be 0.<br/>
-    The permission are:<br/>
-        * CREATE permission for all Process instance<br/>
+    <td>Filter by process definitions which the user is allowed to start in Tasklist. If the user doesn't have these permissions the result will be empty list.<br/>
+    The permissions are:<br/>
+        * CREATE permission for all Process instances<br/>
         * CREATE_INSTANCE and READ permission on Process definition level<br/>
-        </td>
+    </td>
   </tr>
   <tr>
     <td>notStartableInTasklist</td>
