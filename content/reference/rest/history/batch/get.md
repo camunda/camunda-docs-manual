@@ -166,6 +166,7 @@ Status 200.
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "tenantId": "aTenantId",
+  "createUserId": "aUserId",
   "startTime": "2016-04-12T15:29:33.000+0200",
   "endTime": "2016-04-12T16:23:34.000+0200"
 }
