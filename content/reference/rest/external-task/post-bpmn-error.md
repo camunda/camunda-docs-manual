@@ -52,6 +52,11 @@ A JSON object with the following properties:
     <td>errorCode</td>
     <td>A error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
   </tr>
+  <tr>
+    <td>variables</td>
+    <td>A JSON object containing the variables the process is to be initialized with. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
+    {{< rest-var-request transient="true">}}
+  </tr>
 </table>
 
 
@@ -97,12 +102,22 @@ This method returns no content.
 POST `/external-task/anId/bpmnError`
 
 Request Body:
-
+```json
     {
       "workerId": "aWorker",
-      "errorCode": "bpmn-error"
+      "errorCode": "bpmn-error",
+      "variables": {
+          "aVariable" : {
+              "value" : "aStringValue",
+              "type": "String"
+          },
+          "anotherVariable" : {
+              "value" : true,
+              "type": "Boolean"
+          }
+      }
     }
-
+```
 ## Response
 
 Status 204. No content.
