@@ -50,7 +50,11 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>errorCode</td>
-    <td>A error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
+    <td>An error code that indicates the predefined error. Is used to identify the BPMN error handler.</td>
+  </tr>
+  <tr>
+    <td>errorMessage</td>
+    <td>An error message that describes the error.</td>
   </tr>
   <tr>
     <td>variables</td>
@@ -106,6 +110,7 @@ Request Body:
     {
       "workerId": "aWorker",
       "errorCode": "bpmn-error",
+      "errorMessage": "anErrorMessage",
       "variables": {
           "aVariable" : {
               "value" : "aStringValue",
