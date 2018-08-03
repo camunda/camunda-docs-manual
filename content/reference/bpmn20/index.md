@@ -232,7 +232,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
       <div class="bpmn-symbol-container implemented">
         <svg height="60" version="1.1" width="60" xmlns="http://www.w3.org/2000/svg">
           <path fill="#ffffff" stroke="#333333" d="M5,25L25,5L45,25L25,45L5,25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
-          <text x="25" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+          <text x="13" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
             <tspan dy="4">XOR</tspan>
           </text>
           <path fill="#333333" stroke="#333333" d="M13.25,12.0625L18.5,20.5L13.25,28.9375L17.25,28.9375L20.5,23.6875L23.75,28.9375L27.65625,28.9375L22.4375,20.5L27.65625,12.0625L23.75,12.0625L20.5,17.3125L17.25,12.0625L13.25,12.0625Z" stroke-opacity="1" stroke-width="1" transform="matrix(1,0,0,1,5,5)" style="stroke-opacity: 1;"></path>
@@ -244,7 +244,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
       <div class="bpmn-symbol-container implemented">
         <svg height="60" version="1.1" width="60" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.875px;">
           <path fill="#ffffff" stroke="#333333" d="M5,25L25,5L45,25L25,45L5,25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
-          <text x="25" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+          <text x="15" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
             <tspan dy="4">OR</tspan>
           </text>
           <circle cx="25" cy="25" r="9.428571428571429" fill="none" stroke="#333333" stroke-opacity="1" stroke-width="3" style="stroke-opacity: 1;"></circle>
@@ -256,7 +256,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
       <div class="bpmn-symbol-container implemented">
         <svg height="60" version="1.1" width="60" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.75px;">
           <path fill="#ffffff" stroke="#333333" d="M5,25L25,5L45,25L25,45L5,25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
-          <text x="25" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+          <text x="13" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
             <tspan dy="4">AND</tspan>
           </text>
           <path fill="none" stroke="#333333" d="M11.25,20.5L30.25,20.5M20.5,11.25L20.5,30.25" stroke-opacity="1" stroke-width="4" transform="matrix(1,0,0,1,5,5)" style="stroke-opacity: 1;"></path>
@@ -268,7 +268,7 @@ The elements marked in <span class="label label-warning label-implemented">orang
       <div class="bpmn-symbol-container implemented">
         <svg height="60" version="1.1" width="60" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.625px;">
           <path fill="#ffffff" stroke="#333333" d="M5,25L25,5L45,25L25,45L5,25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
-          <text x="25" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+          <text x="11" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
             <tspan dy="4">Event</tspan>
           </text>
           <circle cx="25" cy="25" r="12.121212121212121" fill="none" stroke="#333333" stroke-opacity="1" stroke-width="1" style="stroke-opacity: 1;"></circle>
@@ -278,6 +278,17 @@ The elements marked in <span class="label label-warning label-implemented">orang
         <a href="{{< relref "reference/bpmn20/gateways/event-based-gateway.md" >}}">
           <span class="glyphicon glyphicon-eye-open"></span>
         </a>
+      </div>
+      <div class="bpmn-symbol-container">
+        <svg height="60" version="1.1" width="60" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.875px;">
+          <path fill="#ffffff" stroke="#333333" d="M5,25L25,5L45,25L25,45L5,25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" style="stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 1;"></path>
+          <text x="1" y="55" text-anchor="start" font="10px &quot;Arial&quot;" stroke="none" fill="#333333" style="text-anchor: start; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial, Helvetica, sans-serif;" font-size="12px" font-family="Arial, Helvetica, sans-serif">
+            <tspan dy="4">Complex</tspan>
+          </text>
+          <g transform="scale(0.75) translate(7.5, 7.5)">
+            <path d="m 23,13 0,7.116788321167883 -5.018248175182482,-5.018248175182482 -3.102189781021898,3.102189781021898 5.018248175182482,5.018248175182482 -7.116788321167883,0 0,4.37956204379562 7.116788321167883,0  -5.018248175182482,5.018248175182482 l 3.102189781021898,3.102189781021898 5.018248175182482,-5.018248175182482 0,7.116788321167883 4.37956204379562,0 0,-7.116788321167883 5.018248175182482,5.018248175182482 3.102189781021898,-3.102189781021898 -5.018248175182482,-5.018248175182482 7.116788321167883,0 0,-4.37956204379562 -7.116788321167883,0 5.018248175182482,-5.018248175182482 -3.102189781021898,-3.102189781021898 -5.018248175182482,5.018248175182482 0,-7.116788321167883 -4.37956204379562,0 z" style="fill: black; stroke-width: 1px; stroke: black;"></path>
+          </g>
+        </svg>
       </div>
     </div>
     <div class="col-md-3">
