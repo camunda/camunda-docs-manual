@@ -1,7 +1,7 @@
 ---
 
 title: "Tenant User Membership"
-weight: 0
+weight: 1
 
 menu:
   main:

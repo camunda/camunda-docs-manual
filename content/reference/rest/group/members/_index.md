@@ -1,7 +1,7 @@
 ---
 
 title: "Group Member"
-weight: 0
+weight: 1
 
 menu:
   main:
