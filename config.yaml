@@ -41,4 +41,11 @@ params:
   github:
     repositoryName: "camunda/camunda-docs-manual"
     branch: "master"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+  section:
+    - "HTML"
 ...
