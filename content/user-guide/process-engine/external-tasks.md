@@ -366,10 +366,13 @@ LockedExternalTask task = tasks.get(0);
 externalTaskService.handleBpmnError(
   task.getId(),
   "externalWorkerId",
-  "bpmn-error"); //errorCode
+  "bpmn-error", // errorCode
+  "Thrown BPMN Error during...", // errorMessage
+  variables);
 ```
 
 A BPMN error with the error code `bpmn-error` is propagated. If a boundary event with this error code exists, the BPMN error will be caught and handled.
+The error message and variables are optional. They can provide additional information for the error. The variables will be passed to the execution if the BPMN error is caught.
 
 ### Querying Tasks
 
