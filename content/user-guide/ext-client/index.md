@@ -68,6 +68,8 @@ Once a topic has been subscribed, the client can start receiving work items by p
 Handlers can be used to implement custom methods which are invoked whenever an External Task is fetched and locked successfully.
 For each topic subscription an External Task handler interface is provided.
 
+The handlers are invoked sequentially for each fetched-and-locked external task.
+
 ### Completing Tasks
 Once the custom methods specified in the handler are completed, the External Task can be completed. This means for the Workflow Engine that the execution will
 move on. For this purpose, all supported implementations have a `complete` method which can be called within the handler function. However, the
@@ -133,3 +135,12 @@ For more details, please check the documentation related to the client of intere
 
 Complete examples of how to set up the different External Task Clients can be found on GitHub ([Java](https://github.com/camunda/camunda-external-task-client-java/tree/master/examples),
 [JavaScript](https://github.com/camunda/camunda-external-task-client-js/tree/master/examples)).
+
+## External task thoughput
+
+For a high throughput of external tasks, you should balance between the number of external task instances, the number of clients and the duration of handling the work.
+
+A rule of thump for long running tasks (maybe more than 30 secs) would be, to fetch-and-lock the tasks one by one (maskTasks = 1) and adjust the Long Polling interval to your needs (maybe 60 secs, asyncResponseTime = 60000).
+The Java client supports exponential backoff, default by 500 ms with factor 2, limited by 60000 ms. This could be shorted to your needs, too.
+
+As the external task clients didn't use any threading internally, you should start as many clients as needed and balance the load with your operating system.
