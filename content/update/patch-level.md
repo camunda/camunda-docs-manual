@@ -201,7 +201,7 @@ The following list is an overview of all currently available patch scripts:
       <td>engine_7.7_patch_7.7.8_to_7.7.9_2.sql</td>
       <td>Add a missing index on foreign key to prevent deadlocks.</td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
     </tr>
     <tr>
       <td>7.8</td>
@@ -226,7 +226,14 @@ The following list is an overview of all currently available patch scripts:
       <strong>This is the same patch as engine_7.7_patch_7.7.8_to_7.7.9_2.sql.</strong>
       </td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
+    </tr>
+    <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.8_to_7.8.9.sql</td>
+      <td>Drop ACT_IDX_JOB_HANDLER index causing issues on DB2.</td>
+      <td>DB2</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
     </tr>
     <tr>
       <td>7.9</td>
@@ -242,7 +249,16 @@ The following list is an overview of all currently available patch scripts:
       <strong>This is the same patch as engine_7.8_patch_7.8.7_to_7.8.8.sql.</strong>
       </td>
       <td>DB2, SQL Server</td>
-      <td><a href="https://app.camunda.com/jira/browse/CAM-9006">CAM-9165</a></td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9165">CAM-9165</a></td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.2_to_7.9.3.sql</td>
+      <td>Drop ACT_IDX_JOB_HANDLER index causing issues on DB2.
+      <strong>This is the same patch as engine_7.8_patch_7.8.8_to_7.8.9.sql.</strong>
+      </td>
+      <td>DB2</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
     </tr>
   </tbody>
 </table>
