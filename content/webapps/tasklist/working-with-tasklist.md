@@ -16,8 +16,10 @@ In the following example we will walk through a typical human workflow scenario.
 
 # Start a Process
 
-To start a process instance via Tasklist, click on *Start process* in the header menu of the [dashboard][tasklist-dashboard] and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly. For our example, start the *Invoice Receipt* process.
+To start a process instance via Tasklist, click on *Start process* in the header menu of the [dashboard][tasklist-dashboard] and select a process out of the displayed list of process definitions. If no process definitions are listed here, please verify that your process application is deployed correctly and you have the required permissions* to start a process. For our example, start the *Invoice Receipt* process.
 After selecting the process to start, complete the start form. Hit `Start` to continue to the next step in our example.
+
+*Permissions: `CREATE_INSTANCE` and `READ` permissions on Process definition level, and `CREATE` permission for all Process instances.
 
 
 # Create a Filter
