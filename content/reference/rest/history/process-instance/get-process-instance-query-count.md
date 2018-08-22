@@ -145,6 +145,10 @@ GET `/history/process-instance/count`
     <td>Filter by a comma-separated list of tenant ids. A process instance must have one of the given tenant ids.</td>
   </tr>
   <tr>
+    <td>withoutTenantId</td>
+    <td>Only include historic process instances which belong to no tenant. Value may only be <code>true</code>, as <code>false</code> is the default behavior.</td>
+  </tr>
+  <tr>
     <td>variables</td>
     <td>Only include process instances that have/had variables with certain values.
     Variable filtering expressions are comma-separated and are structured as follows:<br/>
