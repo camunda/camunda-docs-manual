@@ -15,6 +15,8 @@ menu:
 
 Resolves a task and updates execution variables.
 
+Resolving a task marks that the assignee is done with the task delegated to them, and that it can be sent back to the owner. Can only be executed when the task has been delegated. The assignee will be set to the owner, who performed the delegation.
+
 
 # Method
 
