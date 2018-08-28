@@ -203,6 +203,7 @@ Each decision definition object has the following properties:
   </tr>
   <tr>
     <td>versionTagLike</td>
+    <td>String</td>
     <td>Filter by the version tag that the parameter is a substring of.</td>
   </tr>
   <tr>
