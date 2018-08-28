@@ -58,7 +58,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>variables</td>
-    <td>A JSON object containing the variables which will be passed to the execution if the error is caught. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
+    <td>A JSON object containing the variables which will be passed to the execution. Each key corresponds to a variable name and each value to a variable value. A variable value is a JSON object with the following properties:
     {{< rest-var-request transient="true">}}
   </tr>
 </table>
