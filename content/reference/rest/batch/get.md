@@ -115,6 +115,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The tenant id of the batch.</td>
   </tr>
+  <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
+  </tr>
 </table>
 
 
@@ -164,6 +169,7 @@ Status 200.
   "monitorJobDefinitionId": "aMonitorJobDefinitionId",
   "batchJobDefinitionId": "aBatchJobDefinitionId",
   "suspended": false,
-  "tenantId": "aTenantId"
+  "tenantId": "aTenantId",
+  "createUserId": "aUserId"
 }
 ```
