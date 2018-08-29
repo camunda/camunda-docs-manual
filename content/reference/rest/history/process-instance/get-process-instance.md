@@ -53,6 +53,11 @@ Its properties are as follows:
     <td>The id of the process instance.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process.</td>
+  </tr>
+  <tr>
     <td>superProcessInstanceId</td>
     <td>String</td>
     <td>The id of the parent process instance, if it exists.</td>
@@ -101,6 +106,11 @@ Its properties are as follows:
     <td>endTime</td>
     <td>String</td>
     <td>The time the instance ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
     <td>durationInMillis</td>

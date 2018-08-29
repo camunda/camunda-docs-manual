@@ -240,6 +240,11 @@ Each historic decision instance object has the following properties:
     <td>The time the instance was evaluated. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
   <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>processDefinitionId</td>
     <td>String</td>
     <td>The id of the process definition that this decision instance belongs to.</td>
@@ -317,6 +322,11 @@ Each historic decision instance object has the following properties:
     <td>rootDecisionInstanceId</td>
     <td>String</td>
     <td>The decision instance id of the evaluated root decision. Can be <code>null</code> if this instance is the root decision instance of the evaluation.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the evaluation of this decision. Can be <code>null</code> if this decision instance is not evaluated as part of a BPMN process.</td>
   </tr>
   <tr>
     <td>decisionRequirementsDefinitionId</td>
