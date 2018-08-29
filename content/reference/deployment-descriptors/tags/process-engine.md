@@ -545,6 +545,11 @@ The following is a list with the most commonly used process engine configuration
 
 <table class="table table-striped">
   <tr>
+    <td><code>hierarchicalHistoryCleanup</code></td>
+    <td>Boolean</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#internal-implementation">}}">History cleanup implementation</a> flag to determine which mechanism is to be used when performing cleanup. In case of <code>null</code>, the Hierarchical History cleanup implementation is used.</td>
+  </tr>
+  <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>
     <td>String</td>
     <td><a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a> batch window start time in the format <code>HH:mmZ</code> (Z is for RFC 822 time zone) or <code>HH:mm</code>. E.g., <code>20:00+0100</code> or <code>20:00</code>. In case of <code>null</code>, no batch window is considered to be configured 
