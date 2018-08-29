@@ -163,6 +163,11 @@ Each batch statistics object has the following properties:
     <td>The tenant id of the batch.</td>
   </tr>
   <tr>
+    <td>createUserId</td>
+    <td>String</td>
+    <td>The batch creator's user id.</td>
+  </tr>
+  <tr>
     <td>remainingJobs</td>
     <td>Number</td>
     <td>
@@ -238,6 +243,7 @@ Status 200.
     "batchJobDefinitionId": "aBatchJobDefinitionId",
     "suspened": false,
     "tenantId": "aTenantId",
+    "createUserId": "aUserId",
     "remainingJobs": 3,
     "completedJobs": 7,
     "failedJobs": 1
