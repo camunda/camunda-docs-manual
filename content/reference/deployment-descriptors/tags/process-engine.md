@@ -547,7 +547,7 @@ The following is a list with the most commonly used process engine configuration
   <tr>
     <td><code>hierarchicalHistoryCleanup</code></td>
     <td>Boolean</td>
-    <td><a href="{{< relref "user-guide/process-engine/history.md#internal-implementation">}}">History cleanup implementation</a> flag to determine which mechanism is to be used when performing cleanup. In case of <code>null</code>, the Hierarchical History cleanup implementation is used.</td>
+    <td><a href="{{< relref "user-guide/process-engine/history.md#internal-implementation">}}">History cleanup implementation</a> flag to determine which mechanism is to be used when performing cleanup. In case of <code>true</code> (default), the Hierarchical History cleanup implementation is used.</td>
   </tr>
   <tr>
     <td><code>historyCleanupBatchWindowStartTime</code></td>

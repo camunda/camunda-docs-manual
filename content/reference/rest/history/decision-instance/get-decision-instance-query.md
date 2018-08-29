@@ -386,13 +386,14 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
 ```json
 [
   {
-    "activityId": "assignApprover",
+      "activityId": "assignApprover",
       "activityInstanceId": "assignApprover:67e9de1e-579d-11e5-9848-f0def1e59da8",
       "collectResultValue": null,
       "decisionDefinitionId": "invoice-assign-approver:1:4c864d79-579d-11e5-9848-f0def1e59da8",
       "decisionDefinitionKey": "invoice-assign-approver",
       "decisionDefinitionName": "Assign Approver",
       "evaluationTime": "2015-09-10T11:22:06.000+0200",
+      "removalTime": null,
       "id": "67ea2c3f-579d-11e5-9848-f0def1e59da8",
       "inputs": [
       {
@@ -437,6 +438,7 @@ GET `/history/decision-instance?includeInputs=true&includeOutputs=true`
     "processDefinitionId": "invoice:1:4c6e3197-579d-11e5-9848-f0def1e59da8",
     "processDefinitionKey": "invoice",
     "processInstanceId": "67e98fec-579d-11e5-9848-f0def1e59da8",
+    "rootProcessInstanceId": "f8259e5d-ab9d-11e8-8449-e4a7a094a9d6",
     "caseDefinitionId": null,
     "caseDefinitionKey": null,
     "caseInstanceId": null,
