@@ -85,7 +85,7 @@ the server and the client side.
 Please also see the [REST API documentation]({{< relref "reference/rest/external-task/fetch.md" >}}).
 
 {{< note title="Heads Up!" class="info" >}}
-This feature is based on JAX-RS 2.0 and is therefore not available on **IBM WebSphere Application Server 8.0 / 8.5**.
+This feature is based on JAX-RS 2.0 and is therefore not available on **IBM WebSphere Application Server 8.5**.
 {{< /note >}}
 
 ## Java API
