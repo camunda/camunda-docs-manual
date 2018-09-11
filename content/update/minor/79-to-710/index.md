@@ -173,4 +173,17 @@ Version 7.10 of the Camunda BPM platform introduces a hierarchical structure to 
 
 Furthermore, a new History Cleanup mechanism was added, which is aware of this hierarchical structure, and performs cleanup only when the top level instance has finished and its "history time to live" expired (more [here]({{< relref "user-guide/process-engine/history.md#internal-implementation" >}})). The new mechanism is enabled by default, but can be disabled through the `hierarchicalHistoryCleanup` property (see the [Configuration options]({{< relref "reference/deployment-descriptors/tags/process-engine.md#history-cleanup-configuration-parameters">}})).
 
+# Support for JDK 9 / 10 / 11
+This release introduces support for JDK 9 / 10 / 11.
+## JRuby
+The Camunda BPM Platform [supports scripting]({{< relref "user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
+script engine implementations. 
 
+If the optional JRuby script engine implementation is used, the respective dependency needs to be updated to 
+[version 9.1.14.0](http://jruby.org/2017/11/08/jruby-9-1-14-0.html) or higher to work properly in conjunction with the 
+newly supported JDK versions.
+
+{{< note title="Heads Up!" class="info" >}}
+Please bear in mind, that the default language level of JRuby 9 is Ruby 2, whereas the default language level of the 
+previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break your scripts.
+{{< /note >}}
