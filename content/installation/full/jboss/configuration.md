@@ -119,3 +119,20 @@ configuration to the `web.xml` file of Camunda webapplication
 
 </web-app>
 ```
+
+# Add Custom Engine Plugins
+ 
+1.  Add an additional engine plugin as a module to the folder $JBOSS_HOME/modules/
+2.  Add the module dependency to the file `$JBOSS_HOME/modules/org/camunda/bpm/camunda-engine-plugins/main/module.xml` and set the attribute `export="true"` to make sure that the module is visible in the classpath of Camunda's subsystem
+      ```xml
+    <module xmlns="urn:jboss:module:1.0"
+            name="org.camunda.bpm.camunda-engine-plugins">
+      <dependencies>
+        <!-- ... -->
+        <module name="org.camunda.bpm.camunda-custom-engine-plugin" export="true" />
+      </dependencies>
+    </module>
+      ```
+      
+    The `module.xml` file is included in the Camunda BPM Platform distribution. If you install Camunda BPM Platform on a vanilla JBoss/Wildfly container, this file needs to be created manually.
+3. [Configure the process engine plugin]({{< relref "user-guide/runtime-container-integration/jboss.md#extend-a-process-engine-using-process-engine-plugins" >}}) in the standalone.xml/domain.xml configuration file
