@@ -451,8 +451,17 @@ The following is a list with the most commonly used process engine configuration
       <p>
         <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
       </p>
+  </td>
+  <tr id="skipHistoryOptimisticLockingExceptions">
+    <td><code>skipHistoryOptimisticLockingExceptions</code></td>
+    <td>Boolean</td>
+    <td>
+        Controls if the engine throws <a href="{{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}">OptimisticLockingException</a>s on UPDATE or DELETE operations for history data or not.
+      <p>
+        The default is <code><strong>true</strong></code>. To preserve the previous behavior (≤ 7.9), the flag must be set to <code><strong>false</strong></code>.
+      </p>
     </td>
-
+  </tr>
   <tr>
     <td><code>tenantCheckEnabled</code></td>
     <td>Boolean</td>

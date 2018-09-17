@@ -187,3 +187,10 @@ newly supported JDK versions.
 Please bear in mind, that the default language level of JRuby 9 is Ruby 2, whereas the default language level of the 
 previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break your scripts.
 {{< /note >}}
+
+# History Partitioning
+
+Starting with 7.10, the engine supports database partitioning for history data.
+
+Due to this reason, [`OptimisticLockingException`s]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) on UPDATE/DELETE operations for history data are prevented by default.
+There exist a [process engine configuration flag]({{< relref "reference/deployment-descriptors/tags/process-engine.md#skipHistoryOptimisticLockingExceptions" >}}) to preserve the previous behavior.
