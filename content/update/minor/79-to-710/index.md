@@ -190,7 +190,7 @@ previous version (JRuby 1.7) is Ruby 1.9. Updating the JRuby version might break
 
 # History Partitioning
 
-Starting with 7.10, the engine supports database partitioning for history data.
+Starting with 7.10, the engine supports database partitioning for historical data.
 
-Due to this reason, [`OptimisticLockingException`s]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) on UPDATE/DELETE operations for history data are prevented by default.
+Due to this reason, [`OptimisticLockingException`s]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking-in-camunda" >}}) on UPDATE/DELETE operations for historical data are prevented by default.
 There exist a [process engine configuration flag]({{< relref "reference/deployment-descriptors/tags/process-engine.md#skipHistoryOptimisticLockingExceptions" >}}) to preserve the previous behavior.
