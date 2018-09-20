@@ -480,5 +480,11 @@ Throwing a `BpmnError` in the delegation code behaves like modeling an error end
 
 {{< /note >}}
 
+{{< note title="" class="warning" >}}
+
+Beware that currently throwing `BpmnError`'s from execution listeners (but not Java delegates) has limitations. The error will be treated as a runtime exception and will not be matched using error code by the boundary event.
+
+{{< /note >}}
+
 [script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
