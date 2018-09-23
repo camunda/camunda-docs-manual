@@ -276,6 +276,14 @@ The following is a list with the most commonly used process engine configuration
         Specifies how many times a job will be executed before an incident is raised. Default value: <code>3</code>
     </td>
   </tr>
+  
+  <tr>
+    <td><code>defaultUserPermissionNameForTask</code></td>
+    <td>String</td>
+    <td>
+        Set the default <a href="{{< relref "process-engine/authorization-service/#default-task-permissions">}}">permisson to work on a task</a>. Allowed values are <code>UPDATE</code> or <code>TASK_WORK</code>. Default value: <code>UPDATE</code>.
+    </td>
+  </tr>
 
   <tr>
     <td><code>enableExceptionsAfterUnhandledBpmnError</code></td>
