@@ -93,6 +93,41 @@ require(config.deps, callback);
 
 You can find a complete example about how to use `customScripts` to develop a Cockpit Plugin in the [Camunda BPM examples repository](https://github.com/camunda/camunda-bpm-examples/tree/master/cockpit/js-only-plugin).
 
+# BPMN Diagram Viewer (bpmn.js)
+
+The diagram viewer (bpmn.js) can be either customized by moddle extensions or 
+[additional modules](https://bpmn.io/toolkit/bpmn-js/walkthrough/#extend-the-modeler). To extend the BPMN diagram viewer 
+of Cockpit, a `bpmnJs` property must be added to the `app/cockpit/scripts/config.js` file.
+
+## Additionl Modules
+To add modules, the `additionalModules` property needs to be specified, where each module has a unique name (key) and a 
+path (value) to the JavaScript file of the module. The path is relative to the `app/cockpit` folder in the .war file of
+the Camunda Webapp. The suffix `.js` of the file is added automatically and must not be specified.
+
+```json
+...
+bpmnJs: {
+  additionalModules: {
+    myCustomModule: 'my-custom-module/module'
+  }
+}
+...
+```
+
+## Moddle Extensions
+The BPMN moddle can be extended by adding a `moddleExtensions` property. Each moddle extension has a unique name (key) 
+and a path (value) to the JSON file of the moddle extension. The path is relative to the `app/cockpit` folder in the 
+.war file of the Camunda Webapp. The suffix `.json` of the file is added automatically and must not be specified.
+```json
+...
+bpmnJs: {
+  moddleExtensions: {
+    camunda: 'my-custom-moddle/camunda'
+  }
+}
+...
+```
+
 # skipCustomListeners Flag
 
 You can configure skipCustomListeners flag globally for cockpit by adding a `skipCustomListeners` property in `app/cockpit/scripts/config.js`:
