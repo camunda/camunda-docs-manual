@@ -65,6 +65,19 @@ In order to provide scale-up or fail-over capabilities, the process engine can b
 
 The individual process engine instances do not maintain session state across transactions. Whenever the process engine runs a transaction, the complete state is flushed out to the shared database. This makes it possible to route subsequent requests which do work in the same process instance to different cluster nodes. This model is very simple and easy to understand and imposes limited restrictions when it comes to deploying a cluster installation. As far as the process engine is concerned, there is no difference between setups for scale-up and setups for fail-over (as the process engine keeps no session state between transactions).
 
+## Session State in a Clustered Environment
+
+Camunda BPM doesn't provide load-balancing capabilities or session replication capabilities out of the box. The load-balancing function would need to be provided by a third-party system, and session replication would need to be provided by the host application server.
+
+In a clustered setup, if users are going to login to the web applications, an extra step will need to be taken to ensure that users aren't asked to login multiple times. Two options exist:
+
+1. "Sticky sessions" could be configured and enabled within your load balancing solution. This would ensure that all requests from a given user are directed to the same instance over a configurable period of time.
+2. Session sharing can be enabled in your application server such that the application server instances share session state. This would allow users to connect to multiple instances in the cluster without being asked to login multiple times.
+
+If neither of the above approaches are implemented in a cluster setup, connections to multiple nodes - intentionally or via a load-balancing solution - will result in multiple login requests.
+
+## The Job Executor in a Clustered Environment
+
 The process engine [job executor]({{< relref "user-guide/process-engine/the-job-executor.md" >}}) is also clustered and runs on each node. This way, there is no single point of failure as far as the process engine is concerned. The job executor can run in both [homogeneous and heterogeneous clusters]({{< relref "user-guide/process-engine/the-job-executor.md#cluster-setups" >}}).
 
 {{< note title="Time zones" class="info" >}}
