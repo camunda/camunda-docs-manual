@@ -281,7 +281,7 @@ The following is a list with the most commonly used process engine configuration
     <td><code>defaultUserPermissionNameForTask</code></td>
     <td>String</td>
     <td>
-        Set the default <a href="{{< relref "process-engine/authorization-service/#default-task-permissions">}}">permisson to work on a task</a>. Allowed values are <code>UPDATE</code> or <code>TASK_WORK</code>. Default value: <code>UPDATE</code>.
+        Set the default <a href="{{< relref "user-guide/process-engine/authorization-service.md#default-task-permissions">}}">permisson to work on a task</a>. Allowed values are <code>UPDATE</code> or <code>TASK_WORK</code>. Default value: <code>UPDATE</code>.
     </td>
   </tr>
 
