@@ -14,7 +14,7 @@ menu:
 
 
 Queries for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [Get Instances (POST)]({{< relref "reference/rest/process-instance/post-query.md" >}} method)
+This method takes the same message body as the [Get Instances (POST)]({{< relref "reference/rest/process-instance/post-query.md" >}}) method
 and therefore it is slightly more powerful than the [Get Instance Count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
