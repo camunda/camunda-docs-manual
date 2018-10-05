@@ -31,7 +31,7 @@ On JBoss / Wildfly, logging is directed to the JBoss logging infrastructure. SLF
 When using the Camunda Maven Modules in a custom application, only the [slf4j] API is pulled in transitively.
 If you do not provide any backend, nothing will be actually logged.
 
-In the following, we provide two alternative examples of how to set up logging. See the [SLF4J Documentation](slf4j-backends) for more detailed information on how to add a logging backend.
+In the following, we provide two alternative examples of how to set up logging. See the [SLF4J Documentation][slf4j-backends] for more detailed information on how to add a logging backend.
 
 ### Example using Java Util Logging
 

@@ -156,4 +156,4 @@ The errorCode is used to match the errors that are caught:
 ## Additional Resources
 
 *   [Error Events](http://camunda.org/bpmn/reference.html#events-error) in the [BPMN 2.0 Modeling Reference](http://camunda.org/bpmn/reference.html)
-*   [Incidents]({{< relref "user-guide/process-engine/incidents.md" >}}) in the [User Guide](red:/guides/user-guide/)
+*   [Incidents]({{< relref "user-guide/process-engine/incidents.md" >}}) in the [User Guide]({{< relref "user-guide/index.md" >}})
