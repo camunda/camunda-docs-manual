@@ -110,7 +110,7 @@ To exchange the preconfigured H2 database with your own, e.g., Oracle, you have 
 **Note**: This step is optional and can be skipped if you do not require Cycle to send a welcome email to newly created users.
 
 {{< note title="Java Mail Library" class="info" >}}
-  You need to install the java mail library when NOT using the prepackaged distribution. Download version 1.4.x manually from [http://mvnrepository.com/artifact/javax.mail/mail](href=http://mvnrepository.com/artifact/javax.mail/mail) and copy it into your `$TOMCAT_HOME/lib` folder.
+  You need to install the java mail library when NOT using the prepackaged distribution. Download version 1.4.x manually from [http://mvnrepository.com/artifact/javax.mail/mail](http://mvnrepository.com/artifact/javax.mail/mail) and copy it into your `$TOMCAT_HOME/lib` folder.
 {{< /note >}}
 
 In order to use the Cycle email service, you have to configure a mail session in the `META-INF/context.xml` file in the Cycle web application.
