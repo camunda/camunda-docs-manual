@@ -240,7 +240,7 @@ If we have started the process above and `UserTask B` and `UserTask A` are activ
        SubProcess
          UserTask B
 
-If a variable is set in the context of the `SubProcess` instance, then only the conditional boundary event of `UserTask B` is evaluated. The boundary event of `UserTask A` cannot trigger as the variable is not *visible* in its context. The user guide section on [variable scopes and variable visibility](({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility">}})) provides details on the general concept.
+If a variable is set in the context of the `SubProcess` instance, then only the conditional boundary event of `UserTask B` is evaluated. The boundary event of `UserTask A` cannot trigger as the variable is not *visible* in its context. The user guide section on [variable scopes and variable visibility]({{< relref "user-guide/process-engine/variables.md#variable-scopes-and-variable-visibility">}}) provides details on the general concept.
 
 # Camunda Extensions
 
