@@ -79,6 +79,22 @@ A JSON object with the following properties:
           <td>A <code>String</code> value which enables the filtering of tasks based on process instance business key.</td>
         </tr>
         <tr>
+        <td>processDefinitionId</td>
+          <td>Filter tasks based on process definition id.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionIdIn</td>
+          <td>Filter tasks based on process definition ids.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionKey</td>
+          <td>Filter tasks based on process definition key.</td>
+        </tr>
+        <tr>
+          <td>processDefinitionKeyIn</td>
+          <td>Filter tasks based on process definition keys.</td>
+        </tr>
+        <tr>
           <td>processVariables</td>
           <td>A <code>JSON</code> object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.</td>
         </tr>
