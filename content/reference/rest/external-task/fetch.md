@@ -94,6 +94,17 @@ A JSON object with the following properties:
           <td>processDefinitionKeyIn</td>
           <td>Filter tasks based on process definition keys.</td>
         </tr>
+        <td>withoutTenantId</td>
+          <td>Filter tasks without tenant id.</td>
+        </tr>
+        <tr>
+          <td>tenantId</td>
+          <td>Filter tasks based on tenant id.</td>
+        </tr>
+        <tr>
+          <td>tenantIdIn</td>
+          <td>Filter tasks based on tenant ids.</td>
+        </tr>
         <tr>
           <td>processVariables</td>
           <td>A <code>JSON</code> object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.</td>
@@ -317,17 +328,19 @@ Status 200.
 POST `/external-task/fetchAndLock`
 
 Request Body:
-
+```json
     {
       "workerId":"aWorkerId",
       "maxTasks":2,
       "usePriority":true,
       "topics":
           [{"topicName": "createOrder",
-          "lockDuration": 10000
+            "lockDuration": 10000,
+            "processDefinition": "aProcessDefinitionId",
+            "tenantId": "tenantOne"
           }]
     }
-
+```
 
 
 ## Response
@@ -345,7 +358,7 @@ Status 200.
       "processDefinitionId": "aProcessDefinitionId",
       "processDefinitionKey": "aProcessDefinitionKey",
       "processInstanceId": "aProcessInstanceId",
-      "tenantId": null,
+      "tenantId": "tenantOne",
       "retries": 3,
       "workerId": "aWorkerId",
       "priority": 4,
