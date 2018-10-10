@@ -98,10 +98,6 @@ A JSON object with the following properties:
           <td>Filter tasks without tenant id.</td>
         </tr>
         <tr>
-          <td>tenantId</td>
-          <td>Filter tasks based on tenant id.</td>
-        </tr>
-        <tr>
           <td>tenantIdIn</td>
           <td>Filter tasks based on tenant ids.</td>
         </tr>
@@ -337,7 +333,7 @@ Request Body:
           [{"topicName": "createOrder",
             "lockDuration": 10000,
             "processDefinition": "aProcessDefinitionId",
-            "tenantId": "tenantOne"
+            "tenantIdIn": "tenantOne"
           }]
     }
 ```
