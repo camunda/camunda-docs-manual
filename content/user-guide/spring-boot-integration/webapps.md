@@ -33,7 +33,7 @@ To use the enterprise Web applications, include another starter:
 <dependency>
   <groupId>org.camunda.bpm.springboot</groupId>
   <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId>
-  <version>{project-version}</version>
+  <version>${project-version}</version>
 </dependency>
 ```
 
