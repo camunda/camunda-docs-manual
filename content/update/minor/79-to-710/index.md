@@ -56,16 +56,22 @@ The following steps are required:
 1. Update the Camunda libraries and applications inside the application server
 2. Migrate custom process applications
 
-Before starting, make sure that you have downloaded the Camunda BPM 7.9 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+Before starting, make sure that you have downloaded the Camunda BPM 7.10 distribution for the application server you use. It contains the SQL scripts and libraries required for update. This guide assumes you have unpacked the distribution to a path named `$DISTRIBUTION_PATH`.
+
+## Wildfly distribution
+
+Starting from Camunda BPM 7.10, only a single WildFly distribution, packaged with the latest version of the WildFly application server will be provided. For WildFly 10+, the update process remains the same.
+
+For **WildFly 8** users, separate **`camunda-wildfly8-modules`** and **`camunda-wildfly8-subsystem`** archives have been provided.
 
 ## Camunda Libraries and Applications
 
 Please choose the application server you are working with from the following list:
 
-* [Apache Tomcat]
-* [JBoss AS/Wildfly]
-* [IBM WebSphere]
-* [Oracle WebLogic]
+<!--* [Apache Tomcat]-->
+* [Wildfly]({{< relref "update/minor/79-to-710/jboss.md" >}})
+<!--* [IBM WebSphere]-->
+<!--* [Oracle WebLogic]-->
 
 ## Custom Process Applications
 
@@ -175,7 +181,9 @@ Furthermore, a new History Cleanup mechanism was added, which is aware of this h
 
 # Support for JDK 9 / 10 / 11
 This release introduces support for JDK 9 / 10 / 11.
+
 ## JRuby
+
 The Camunda BPM Platform [supports scripting]({{< relref "user-guide/process-engine/scripting.md" >}}) with JSR-223 compatible 
 script engine implementations. 
 

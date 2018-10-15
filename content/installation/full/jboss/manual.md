@@ -150,11 +150,11 @@ These links point you to resources for other databases:
 
 This section explains how to perform the required setup steps for Wildfly Application Server.
 
-First, you need to download either the [Camunda Wildfly 8 distribution](http://camunda.org/release/camunda-bpm/wildfly8/), the [Camunda Wildfly 10 distribution](http://camunda.org/release/camunda-bpm/wildfly10/) or the [Camunda Wildfly 11 distribution](http://camunda.org/release/camunda-bpm/wildfly11/).
+First, you need to download the [Camunda WildFly distribution](http://camunda.org/release/camunda-bpm/wildfly/) or the [Camunda WildFly 8 Modules (camunda-wildfly8-modules)](https://app.camunda.com/nexus/content/groups/public/org/camunda/bpm/wildfly/camunda-wildfly8-modules/) archive if you're using WildFly 8.
 
 ## Copy Modules
 
-Copy the modules from the `modules/` folder of the Camunda distribution to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
+Copy the modules from the `modules/` folder of the Camunda distribution, or extract the `camunda-wildfly8-modules` archive, to the `$WILDFLY_HOME/modules/` of your Wildfly application server.
 
 {{< note title="Replace H2 Database" >}}
 The WildFly distribution ships a different version of the H2 database than the one that is shipped with Wildfly itself.
@@ -182,6 +182,9 @@ Add the Camunda subsystem as extension:
     <extension module="org.camunda.bpm.wildfly.camunda-wildfly-subsystem"/>
 ```
 
+{{< note title="Heads Up!" class="info" >}}
+The artifact name for the WildFly 8 subsystem has changed. If you're using WildFly 8, be sure to use `org.camunda.bpm.wildfly.camunda-wildfly8-subsystem` as the extension.
+{{< /note >}}
 
 Configure the thread pool for the Camunda BPM platform Job Executor:
 
