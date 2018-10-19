@@ -113,33 +113,6 @@ Replace the following module from the folder `$APP_SERVER_HOME/modules/` with it
 
 # 3. Update Camunda Web Applications
 
-## Choose the right REST API Artifact
-
-From now on there exist separate REST API artifacts (**W**eb **A**pplication **Ar**chives) for **Wildfly** as well as **JBoss AS 7**.
-Therefore the artifact with the right classifier needs to be chosen:
-
-- Wildfly requires the classifier: **wildfly**
-- JBoss AS 7 requires the classifier: **jbossas7**
-
-Please bear this in mind ...
-
-- on downloading the REST API from our [Maven Nexus Server][engine-rest]
-- on using the REST API dependency within your custom `pom.xml`
-
-The Maven coordinates need to be changed accordingly:
-
-```xml
-...
-<dependency>
-  <groupId>org.camunda.bpm</groupId>
-  <artifactId>camunda-engine-rest</artifactId>
-  <version>$PLATFORM_VERSION</version>
-  <classifier>$CLASSIFIER</classifier> <!-- HEADS-UP! THIS LINE IS NEW -->
-  <type>war</type>
-</dependency>
-...
-```
-
 ## Update REST API
 
 The following steps are required to update the Camunda REST API on a JBoss/Wildfly instance:
