@@ -118,6 +118,16 @@ Its properties are as follows:
     <td>String</td>
     <td>The time the variable was inserted. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the attachment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -196,6 +206,8 @@ Status 200.
     "description": "attachmentDescription",
     "type": "attachmentType",
     "url": "http://my-attachment-content-url.de",
-    "createTime":"2017-02-10T14:33:19.000+0200"
+    "createTime":"2017-02-10T14:33:19.000+0200",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

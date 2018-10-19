@@ -91,6 +91,16 @@ Its properties are as follows:
     <td>List</td>
     <td>Link to the newly created task comment with <code>method</code>, <code>href</code> and <code>rel</code>.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the comment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
 
@@ -147,6 +157,8 @@ Status 200.
   "userId": "userId",
   "taskId": "aTaskId",
   "time": "2013-01-02T21:37:03.887+0200",
-  "message": "comment message"
+  "message": "comment message",
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```

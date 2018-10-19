@@ -186,7 +186,6 @@ Each log entry has the following properties:
     <td>String</td>
     <td>The new value of the changed property.</td>
   </tr>
-
   <tr>
     <td>deploymentId</td>
     <td>String</td>
@@ -242,9 +241,19 @@ Each log entry has the following properties:
     <td></td>
     <td>If not null, the operation is restricted to entities in relation to this job definition.</td>
   </tr>
-
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the entry should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this entry.</td>
+  </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -293,7 +302,9 @@ GET `/history/user-operation?operationType=Claim&userId=demo&sortBy=timestamp&so
     "entityType": "Task",
     "property": "assignee",
     "orgValue": null,
-    "newValue": "demo"}]
+    "newValue": "demo",
+    "removalTime": "2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"}]
 
 ## (2) Request
 
@@ -319,4 +330,6 @@ GET `/history/user-operation?operationType=Suspend&userId=demo`
     "entityType": "ProcessInstance",
     "property": "suspensionState",
     "orgValue": null,
-    "newValue": "suspended"}]
+    "newValue": "suspended",
+    "removalTime": "2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"}]

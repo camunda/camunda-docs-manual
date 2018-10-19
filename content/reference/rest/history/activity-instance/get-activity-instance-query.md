@@ -231,6 +231,16 @@ Each historic activity instance object has the following properties:
     <td>String</td>
     <td>The tenant id of the activity instance.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the activity instance should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this activity instance.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -284,7 +294,9 @@ GET `/history/activity-instance?activityType=userTask&taskAssignee=peter`
     "processInstanceId": "aProcInstId",
     "startTime": "2013-04-23T11:20:43.000+0200",
     "taskId": "aTaskId",
-    "tenantId":null
+    "tenantId":null,
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```

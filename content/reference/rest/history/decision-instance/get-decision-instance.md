@@ -275,6 +275,8 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "id": "67ea2c41-579d-11e5-9848-f0def1e59da8",
             "type": "Double",
             "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": 123.0,
             "valueInfo": {}
         },
@@ -286,6 +288,8 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "id": "67ea2c40-579d-11e5-9848-f0def1e59da8",
             "type": "String",
             "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": "Misc",
             "valueInfo": {}
         }
@@ -301,6 +305,8 @@ GET `/history/decision-instance/aDecisionInstId?includeInput=true&includeOutputs
             "ruleOrder": 1,
             "type": "String",
             "createTime":"2015-09-10T11:22:06.000+0200",
+            "removalTime": null,
+            "rootProcessInstanceId": "aRootProcessInstanceId",
             "value": "accounting",
             "valueInfo": {},
             "variableName": "result"

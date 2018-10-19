@@ -58,6 +58,11 @@ A JSON object with the following properties:
     <td>The time when the log entry has been written.</td>
   </tr>
   <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the log entry should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
     <td>jobId</td>
     <td>String</td>
     <td>The id of the associated job.</td>
@@ -128,6 +133,11 @@ A JSON object with the following properties:
     <td>The id of the deployment which the associated job belongs to.</td>
   </tr>
   <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process which the associated job belongs to.</td>
+  </tr>
+  <tr>
     <td>tenantId</td>
     <td>String</td>
     <td>The id of the tenant that this historic job log entry belongs to.</td>
@@ -154,6 +164,7 @@ A JSON object with the following properties:
   </tr>
 </table>
 
+\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -190,6 +201,7 @@ Status 200.
 {
   "id" : "someId",
   "timestamp" : "2015-01-15T15:22:20.000+0200",
+  "removalTime": "2018-02-10T14:33:19.000+0200",
   "jobId" : "aJobId",
   "jobDefinitionId" : "aJobDefinitionId",
   "activityId" : "serviceTask",
@@ -204,6 +216,7 @@ Status 200.
   "processDefinitionId" : "aProcessDefinitionId",
   "processDefinitionKey" : "aProcessDefinitionKey",
   "deploymentId" : "aDeploymentId",
+  "rootProcessInstanceId": "aRootProcessInstanceId",
   "tenantId": null,
   "creationLog" : true,
   "failureLog" : false,

@@ -445,6 +445,16 @@ Each historic task object has the following properties:
     <td>String</td>
     <td>The tenant id of the task instance.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the task should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing this task.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -519,5 +529,8 @@ Response
      "due":"2013-01-23T13:49:42.000+0200",
      "parentTaskId":"aParentId",
      "followUp:":"2013-01-23T13:44:42.000+0200",
-     "tenantId":null}]
+     "tenantId":null,
+     "removalTime": "2018-02-10T14:33:19.000+0200",
+     "rootProcessInstanceId": "aRootProcessInstanceId"
+    }]
 

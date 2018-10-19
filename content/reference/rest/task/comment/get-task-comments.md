@@ -71,6 +71,16 @@ A JSON object containing a list of task comments.
     <td>String</td>
     <td>The content of the comment.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the comment should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
+  <tr>
+    <td>rootProcessInstanceId</td>
+    <td>String</td>
+    <td>The process instance id of the root process instance that initiated the process containing the task.</td>
+  </tr>
 </table>
 
 
@@ -110,21 +120,27 @@ GET `/task/aTaskId/comment`
     "userId": "userId",
     "taskId": "aTaskId",
     "time": "2013-01-02T21:37:03.764+0200",
-    "message": "message"
+    "message": "message",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "anotherCommentId",
     "userId": "anotherUserId",
     "taskId": "aTaskId",
     "time": "2013-02-23T20:37:43.975+0200",
-    "message": "anotherMessage"
+    "message": "anotherMessage",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   },
   {
     "id": "yetAnotherCommentId",
     "userId": "yetAnotherUserId",
     "taskId": "aTaskId",
     "time": "2013-04-21T10:15:23.764+0200",
-    "message": "yetAnotherMessage"
+    "message": "yetAnotherMessage",
+    "removalTime":"2018-02-10T14:33:19.000+0200",
+    "rootProcessInstanceId": "aRootProcessInstanceId"
   }
 ]
 ```
