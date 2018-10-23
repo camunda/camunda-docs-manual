@@ -236,6 +236,13 @@ The following list is an overview of all currently available patch scripts:
       <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
     </tr>
     <tr>
+      <td>7.8</td>
+      <td>engine_7.8_patch_7.8.11_to_7.8.12_1.sql</td>
+      <td>Add index to improve history cleanup performance.</td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9435">CAM-9435</a></td>
+    </tr>
+    <tr>
       <td>7.9</td>
       <td>engine_7.9_patch_7.9.0_to_7.9.1.sql</td>
       <td>Add index to improve historic operation logs performance.</td>
@@ -259,6 +266,15 @@ The following list is an overview of all currently available patch scripts:
       </td>
       <td>DB2</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-7676">CAM-7676</a></td>
+    </tr>
+    <tr>
+      <td>7.9</td>
+      <td>engine_7.9_patch_7.9.5_to_7.9.6_1.sql</td>
+      <td>Add index to improve history cleanup performance.
+      <strong>This is the same patch as engine_7.8_patch_7.8.11_to_7.8.12_1.sql.</strong>
+      </td>
+      <td>All databases</td>
+      <td><a href="https://app.camunda.com/jira/browse/CAM-9435">CAM-9435</a></td>
     </tr>
   </tbody>
 </table>
