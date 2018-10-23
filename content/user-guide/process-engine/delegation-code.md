@@ -482,3 +482,21 @@ Throwing a `BpmnError` in the delegation code behaves like modeling an error end
 
 [script-sources]: {{< relref "user-guide/process-engine/scripting.md#script-source" >}}
 [camunda-script]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-script" >}}
+
+
+# Set Business Key from Delegation Code
+
+The option to set a new value of business key to already running process instance is shown in the example below:
+
+```java
+public class BookOutGoodsDelegate implements JavaDelegate {
+
+  public void execute(DelegateExecution execution) throws Exception {
+    ...
+    String recalculatedKey = (String) execution.getVariable("recalculatedKeyVariable");
+    execution.setProcessBusinessKey(recalculatedKey);
+    ...
+  }
+
+}
+```
