@@ -237,7 +237,7 @@ The following list is an overview of all currently available patch scripts:
     </tr>
     <tr>
       <td>7.8</td>
-      <td>engine_7.8_patch_7.8.11_to_7.8.12_1.sql</td>
+      <td>engine_7.8_patch_7.8.11_to_7.8.12.sql</td>
       <td>Add index to improve history cleanup performance.</td>
       <td>All databases</td>
       <td><a href="https://app.camunda.com/jira/browse/CAM-9435">CAM-9435</a></td>
