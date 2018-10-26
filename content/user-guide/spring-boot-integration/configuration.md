@@ -327,7 +327,7 @@ takes place but the previous deployment is resumed.</td>
 
 <tr>
 <td><code>.type</code></td>
-<td>Yype of the underlying database. Possible values: <code>h2</code>, mysql, mariadb, oracle, postgres, mssql, db2.</td>
+<td>Type of the underlying database. Possible values: <code>h2</code>, mysql, mariadb, oracle, postgres, mssql, db2.</td>
 <td>Will be automatically determined from datasource</td>
 </tr>
 
