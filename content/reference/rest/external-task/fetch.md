@@ -332,7 +332,7 @@ Request Body:
       "topics":
           [{"topicName": "createOrder",
             "lockDuration": 10000,
-            "processDefinition": "aProcessDefinitionId",
+            "processDefinitionId": "aProcessDefinitionId",
             "tenantIdIn": "tenantOne"
           }]
     }
