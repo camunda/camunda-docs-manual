@@ -13,7 +13,7 @@ menu:
 ---
 
 
-This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat 8](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat 8 distribution](http://camunda.org/release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
+This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat distribution](http://camunda.org/release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
