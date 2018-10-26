@@ -1,6 +1,6 @@
 ---
 
-title: 'Install the Full Distribution on a Tomcat Application Server manually '
+title: 'Install the Full Distribution on a Tomcat Application Server manually'
 weight: 20
 
 menu:
@@ -13,12 +13,13 @@ menu:
 ---
 
 
-This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. Regardless, we recommend that you [download a Tomcat distribution](http://camunda.org/release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
+This section describes how you can install the Camunda BPM platform and its components on a vanilla [Apache Tomcat](http://tomcat.apache.org/), if you are not able to use the pre-packaged Tomcat distribution. In addition, download a [Tomcat distribution](http://camunda.org/release/camunda-bpm/tomcat/) or [Enterprise Edition Tomcat distribution](https://camunda.org/enterprise-release/camunda-bpm/tomcat/) to fetch the required Camunda modules.
 
 {{< note title="Reading the Guide" class="info" >}}
 Throughout this guide we will use a number of variables to denote common path names and constants:
 
 * `$TOMCAT_HOME` points to the main directory of the tomcat server.
+* `$TOMCAT_VERSION` denotes the version of Tomcat server.
 * `$PLATFORM_VERSION` denotes the version of the Camunda BPM platform you want to install or already have installed, e.g. `7.0.0`.
 * `$TOMCAT_DISTRIBUTION` represents the downloaded pre-packaged Camunda BPM distribution for Tomcat, e.g. `camunda-bpm-tomcat-$PLATFORM_VERSION.zip` or `camunda-bpm-tomcat-$PLATFORM_VERSION.tar.gz`.
 
@@ -83,12 +84,38 @@ To configure a JDBC Resource you have to edit the file `$TOMCAT_HOME/conf/server
               uniqueResourceName="process-engine"
               driverClassName="org.h2.Driver"
               url="jdbc:h2:./camunda-h2-dbs/process-engine;MVCC=TRUE;TRACE_LEVEL_FILE=0"
+              defaultTransactionIsolation="READ_COMMITTED"
               username="sa"
-              password=""
+              password="sa"
               maxActive="20"
-              minIdle="5" />
+              minIdle="5"
+              maxIdle="20" />
   </GlobalNamingResources>
 </Server>
+```
+
+For more information on the creation of JDBC datasources have a look at the documentation of your Tomcat version:
+[7.0](https://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html),
+[8.0](https://tomcat.apache.org/tomcat-8.0-doc/jndi-datasource-examples-howto.html),
+[8.5](https://tomcat.apache.org/tomcat-8.5-doc/jndi-datasource-examples-howto.html) or
+[9.0](https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html).
+
+
+## Add Camunda BPM Platform Services
+
+Copy the following blocks from `${TOMCAT_DISTRIBUTION}/server/apache-tomcat-${TOMCAT_VERSION}/conf/server.xml`
+  into `${TOMCAT_HOME}/conf/server.xml`:
+
+```xml
+     <Resource name="global/camunda-bpm-platform/process-engine/ProcessEngineService!org.camunda.bpm.ProcessEngineService" auth="Container"
+              type="org.camunda.bpm.ProcessEngineService"
+              description="camunda BPM platform Process Engine Service"
+              factory="org.camunda.bpm.container.impl.jndi.ProcessEngineServiceObjectFactory" />
+
+    <Resource name="global/camunda-bpm-platform/process-engine/ProcessApplicationService!org.camunda.bpm.ProcessApplicationService" auth="Container"
+              type="org.camunda.bpm.ProcessApplicationService"
+              description="camunda BPM platform Process Application Service"
+              factory="org.camunda.bpm.container.impl.jndi.ProcessApplicationServiceObjectFactory" />
 ```
 
 
@@ -131,6 +158,18 @@ You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or
 ```
 
 
+## Secure Tomcat
+
+Follow the Tomcat Security Howto of your Tomcat version:
+[7.0](https://tomcat.apache.org/tomcat-7.0-doc/security-howto.html),
+[8.0](https://tomcat.apache.org/tomcat-8.0-doc/security-howto.html),
+[8.5](https://tomcat.apache.org/tomcat-8.5-doc/security-howto.html) or
+[9.0](https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html).
+
+In particular, go to `${TOMCAT_HOME}/webapps/` and remove the directories
+`ROOT`, `docs`, `examples`, `manager` and `host-manager`.
+
+
 # Optional Components
 
 This section describes how to install optional Camunda dependencies onto a Tomcat server. None of these are required to work with the core platform.
@@ -161,6 +200,7 @@ The following steps are required to deploy the REST API:
 3. Startup Tomcat.
 4. Access the REST API on the context you configured.
     For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, provided that you deployed the application in the context `/engine-rest`.
+5. Enable authentication as described in the [REST API documentation]({{< relref "reference/rest/overview/authentication.md" >}})
 
 
 ## Camunda Connect
