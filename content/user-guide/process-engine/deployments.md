@@ -14,7 +14,7 @@ Before a process (or case, or decision) can be executed by the process engine, i
 
 # Deployments in a Clustered Scenario
 
-Before the process engine starts to perform a deployment, it tries to acquire an exclusive lock on a row in the table `ACT_RU_PROPERTY`. When the process engine is able to acquire the lock successfully, it starts to deploy and holds the exclusive lock as long as the execution of the deployment take place.
+Before the process engine starts to perform a deployment, it tries to acquire an exclusive lock on a row in the table `ACT_GE_PROPERTY`. When the process engine is able to acquire the lock successfully, it starts to deploy and holds the exclusive lock as long as the execution of the deployment take place.
 
 If a deployment of the same resources is performed on multiple nodes in a clustered scenario simultaneously, the acquired exclusive lock ensures that duplicate filtering works as expected. Otherwise, parallel deployments may result in multiple versions of the same process definition.
 
