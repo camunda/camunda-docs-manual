@@ -56,12 +56,12 @@ Each user object has the following properties:
   <tr>
     <td>firstName</td>
     <td>String</td>
-    <td>The firstname of the user.</td>
+    <td>The first name of the user.</td>
   </tr>
   <tr>
     <td>lastName</td>
     <td>String</td>
-    <td>The lastname of the user.</td>
+    <td>The last name of the user.</td>
   </tr>
   <tr>
     <td>email</td>
