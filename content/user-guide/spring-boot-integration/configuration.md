@@ -241,6 +241,7 @@ public class MyCustomConfiguration extends AbstractCamundaConfiguration {
   <li>from the file with the name <code>camunda-license.txt</code> from classpath (if present)</li> 
   <li>from path <i>${user.home}/.camunda/license.txt</i> (if present)</li>
  </ol>
+ The license must be exactly in the format as we sent it to you including the header and footer line.
 </td>
 </tr>
 
