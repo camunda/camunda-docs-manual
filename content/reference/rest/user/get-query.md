@@ -37,19 +37,19 @@ GET `/user`
   </tr>
   <tr>
     <td>firstName</td>
-    <td>Filter by the firstname of the user.</td>
+    <td>Filter by the first name of the user.</td>
   </tr>
   <tr>
     <td>firstNameLike</td>
-    <td>Filter by the firstname that the parameter is a substring of.</td>
+    <td>Filter by the first name that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>lastName</td>
-    <td>Filter by the lastname of the user.</td>
+    <td>Filter by the last name of the user.</td>
   </tr>
   <tr>
     <td>lastNameLike</td>
-    <td>Filter by the lastname that the parameter is a substring of.</td>
+    <td>Filter by the last name that the parameter is a substring of.</td>
   </tr>
   <tr>
     <td>email</td>
@@ -108,12 +108,12 @@ Each user object has the following properties:
   <tr>
     <td>firstName</td>
     <td>String</td>
-    <td>The firstname of the user.</td>
+    <td>The first name of the user.</td>
   </tr>
   <tr>
     <td>lastName</td>
     <td>String</td>
-    <td>The lastname of the user.</td>
+    <td>The last name of the user.</td>
   </tr>
   <tr>
     <td>email</td>

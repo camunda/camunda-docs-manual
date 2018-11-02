@@ -79,14 +79,14 @@ The Camunda process engine supports generating HTML task forms based on Form Dat
   <extensionElements>
     <camunda:formData>
         <camunda:formField
-            id="firstname" label="Firstname" type="string">
+            id="firstname" label="First Name" type="string">
             <camunda:validation>
                <camunda:constraint name="maxlength" config="25" />
                <camunda:constraint name="required" />
             </camunda:validation>
         </camunda:formField>
         <camunda:formField
-            id="lastname" label="Lastname" type="string">
+            id="lastname" label="Last Name" type="string">
             <camunda:validation>
                <camunda:constraint name="maxlength" config="25" />
                <camunda:constraint name="required" />
@@ -170,7 +170,7 @@ Validation can be configured for each form field in the BPMN 2.0 XML:
 
 ```xml
 <camunda:formField
-    id="firstname" name="Firstname" type="string">
+    id="firstname" name="First Name" type="string">
     <camunda:validation>
        <camunda:constraint name="maxlength" config="25" />
        <camunda:constraint name="required" />
@@ -262,7 +262,7 @@ Camunda BPM supports custom validators. Custom validators are referenced using t
 
 ```xml
 <camunda:formField
-    id="firstname" name="Firstname" type="string">
+    id="firstname" name="First Name" type="string">
     <camunda:validation>
        <camunda:constraint name="validator" config="com.asdf.MyCustomValidator" />
        <camunda:constraint name="validator" config="${validatorBean}" />
