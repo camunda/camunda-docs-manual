@@ -166,6 +166,11 @@ Each historic batch object has the following properties:
     <td>String</td>
     <td>The time the batch ended. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
   </tr>
+  <tr>
+    <td>removalTime</td>
+    <td>String</td>
+    <td>The time after which the historic batch should be removed by the History Cleanup job. Default format* <code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code>.</td>
+  </tr>
 </table>
 
 \* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
@@ -218,7 +223,8 @@ Status 200.
     "tenantId": "aTenantId",
     "createUserId": "aUserId",
     "startTime": "2016-04-12T15:29:33.000+0200",
-    "endTime": "2016-04-12T16:23:34.000+0200"
+    "endTime": "2016-04-12T16:23:34.000+0200",
+    "removalTime": "2016-04-15T16:23:34.000+0200"
   }
 ]
 ```
