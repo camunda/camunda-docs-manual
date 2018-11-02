@@ -206,6 +206,8 @@ Status 200.
   "creationLog" : false,
   "failureLog" : true,
   "successLog" : false,
-  "deletionLog" : false
+  "deletionLog" : false,
+  "removalTime":"2018-02-10T14:33:19.000+0200",
+  "rootProcessInstanceId": "aRootProcessInstanceId"
 }
 ```
