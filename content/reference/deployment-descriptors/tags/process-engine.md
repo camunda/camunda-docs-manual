@@ -325,7 +325,7 @@ The following is a list with the most commonly used process engine configuration
       <td>Boolean</td>
       <td>
         If set to <code>true</code>, enables XML eXternal Entity (XXE) Processing. When disabled, it provides protection against XXE Processing attacks.
-        Default value is <code>false</code>.
+        Default value is <code>true</code>.
         <p>
           <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
         </p>
