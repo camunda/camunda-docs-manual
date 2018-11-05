@@ -321,6 +321,18 @@ The following is a list with the most commonly used process engine configuration
   </tr>
 
   <tr>
+      <td><code>enableXxeProcessing</code></td>
+      <td>Boolean</td>
+      <td>
+        If set to <code>true</code>, enables XML eXternal Entity (XXE) Processing. When disabled, it provides protection against XXE Processing attacks.
+        Default value is <code>false</code>.
+        <p>
+          <strong>Values:</strong> <code>true</code>, <code>false</code> (Boolean).
+        </p>
+      </td>
+    </tr>
+
+  <tr>
     <td><code>enableScriptCompilation</code></td>
     <td>Boolean</td>
     <td>
