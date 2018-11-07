@@ -23,7 +23,7 @@ The Cockpit architecture is extensible allowing it to be extended through [plugi
 
 A big part of Cockpit's functionality relies on historical data, and some of this historical data is only provided through the `FULL` History Level.
 
-Therefore, to gain the full feature set of Cockpit, and not suffer any UX degradation due to unavailable data, [History Level `FULL` should be set][history-levels].
+Therefore, to gain the full feature set of Cockpit, and not suffer any UX degradation due to unavailable data, [History Level][history-levels] `FULL` should be set.
 
 [cockpit-plugins]: {{< relref "webapps/cockpit/extend/plugins.md" >}}
 [history-levels]: {{< relref "user-guide/process-engine/history.md#choose-a-history-level" >}}
