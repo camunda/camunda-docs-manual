@@ -48,6 +48,10 @@ GET `/history/process-instance`
     <td>Filter by process instance business key that the parameter is a substring of.</td>
   </tr>
   <tr>
+    <td>rootProcessInstances</td>
+    <td>Restrict the query to all process instances that are top level process instances.</td>
+  </tr>
+  <tr>
     <td>superProcessInstanceId</td>
     <td>Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.</td>
   </tr>
