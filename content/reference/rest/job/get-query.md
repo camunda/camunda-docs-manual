@@ -219,6 +219,11 @@ Each job object has the following properties:
     <td>String</td>
     <td>The id of the tenant which this job belongs to.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The date on which this job has been created.</td>
+  </tr>
 </table>
 
 
@@ -262,7 +267,8 @@ GET `/job?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.000+02
         "exceptionMessage": "An exception Message",
         "suspended": false,
         "priority": 10,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00"
       },
       {
         "id": "anotherJobId",
@@ -273,6 +279,7 @@ GET `/job?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.000+02
         "exceptionMessage": "Another exception Message",
         "suspended": true,
         "priority": 8,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00"
       }
     ]

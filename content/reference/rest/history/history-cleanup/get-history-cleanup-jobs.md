@@ -75,7 +75,8 @@ GET `/history/cleanup/jobs`
        "dueDate":"aDueDate",
        "suspended":false,
        "priority":0,
-       "tenantId":null
+       "tenantId":null,
+       "createTime": "2018-05-05T17:00:00"
    },
    {
        "id":"anotherJobId",
@@ -89,7 +90,8 @@ GET `/history/cleanup/jobs`
        "dueDate":"anotherDueDate",
        "suspended":false,
        "priority":0,
-       "tenantId":null
+       "tenantId":null,
+       "createTime": "2018-05-05T17:00:00"
    }
 ]
 ```

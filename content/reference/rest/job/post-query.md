@@ -238,6 +238,11 @@ Each job object has the following properties:
     <td>String</td>
     <td>The id of the tenant which this job belongs to.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The date on which this job has been created.</td>
+  </tr>
 </table>
 
 
@@ -308,7 +313,8 @@ Request Body:
         "exceptionMessage": "An exception Message",
         "suspended": false,
         "priority": 10,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00"
       },
       {
         "id": "anotherJobId",
@@ -319,6 +325,7 @@ Request Body:
         "exceptionMessage": "Another exception Message",
         "suspended": true,
         "priority": 8,
-        "tenantId": null
+        "tenantId": null,
+        "createTime": "2018-05-05T17:00:00"
       }
     ]

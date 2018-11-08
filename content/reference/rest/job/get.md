@@ -108,6 +108,11 @@ Its properties are as follows:
     <td>String</td>
     <td>The id of the tenant which this job belongs to.</td>
   </tr>
+  <tr>
+    <td>createTime</td>
+    <td>String</td>
+    <td>The date on which this job has been created.</td>
+  </tr>
 </table>
 
 
@@ -149,5 +154,6 @@ GET `/job/aJobId`
       "exceptionMessage": "An exception Message",
       "suspended": false,
       "priority": 10,
-      "tenantId": null
+      "tenantId": null,
+      "createTime": "2018-05-05T17:00:00"
     }
