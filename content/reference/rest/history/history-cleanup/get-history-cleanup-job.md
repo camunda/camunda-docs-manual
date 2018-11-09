@@ -76,6 +76,7 @@ GET `/history/cleanup/job`
     "dueDate":"2017-04-06T13:57:45.000+0200",
     "suspended":false,
     "priority":0,
-    "tenantId":null
+    "tenantId":null,
+    "createTime": "2017-05-05T17:00:00+0200"
 }
 ```

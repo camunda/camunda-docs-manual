@@ -253,33 +253,39 @@ Each job object has the following properties:
 ## Request
 
 <!-- TODO: Insert a 'real' example -->
-GET `/job?dueDates=gt_2012-07-17T17:00:00.000+0200,lt_2012-07-17T18:00:00.000+0200`
+GET `/job?dueDates=gt_2018-07-17T17:00:00.000+0200,lt_2018-07-17T18:00:00.000+0200`
 
 ## Response
 
     [
       {
         "id": "aJobId",
-        "dueDate": "2013-07-17T17:05:00.000+0200",
+        "jobDefinitionId": "aJobDefinitionId",
+        "dueDate": "2018-07-17T17:05:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
+        "processDefinitionId": "aProcessDefinitionId",
+        "processDefinitionKey": "aPDKey",
         "executionId": "anExecutionId",
         "retries": 0,
         "exceptionMessage": "An exception Message",
         "suspended": false,
         "priority": 10,
         "tenantId": null,
-        "createTime": "2018-05-05T17:00:00"
+        "createTime": "2018-05-05T17:00:00+0200"
       },
       {
         "id": "anotherJobId",
-        "dueDate": "2013-07-17T17:55:00.000+0200",
+        "jobDefinitionId": "anotherJobDefinitionId",
+        "dueDate": "2018-07-17T17:55:00.000+0200",
         "processInstanceId": "aProcessInstanceId",
+        "processDefinitionId": "anotherPDId",
+        "processDefinitionKey": "anotherPDKey",
         "executionId": "anotherExecutionId",
         "retries": 0,
         "exceptionMessage": "Another exception Message",
         "suspended": true,
         "priority": 8,
         "tenantId": null,
-        "createTime": "2018-05-05T17:00:00"
+        "createTime": "2018-05-05T17:00:00+0200"
       }
     ]

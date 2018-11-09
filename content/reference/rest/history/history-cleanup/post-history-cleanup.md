@@ -90,6 +90,8 @@ POST `/history/cleanup`
     "dueDate":"2017-04-06T13:57:45.000+0200",
     "suspended":false,
     "priority":0,
-    "tenantId":null
+    "tenantId":null,
+    "createTime": "2017-04-01T09:45:15.039+0100"
+
 }
 ```
