@@ -34,8 +34,10 @@ The following is a list of current (unsupported) community extensions:
 * [Apache Camel Integration](https://github.com/camunda/camunda-bpm-camel)
 * [AssertJ Testing Library](https://github.com/camunda/camunda-bpm-assert)
 * [Camunda Docker Images](https://github.com/camunda/docker-camunda-bpm-platform)
+* [Custom Batch](https://github.com/camunda/camunda-bpm-custom-batch)
 * [Cycle Ibo Prometheus Connector](https://github.com/camunda/ibo-prometheus-cycle-connector)
 * [Cycle Trisotech Connector](https://github.com/camunda/trisotech-cycle-connector)
+* [DMN Scala Extension](https://github.com/camunda/dmn-scala)
 * [Elastic Search Extension](https://github.com/camunda/camunda-bpm-elasticsearch)
 * [Email Connectors](https://github.com/camunda/camunda-bpm-mail)
 * [FEEL Scala Extension](https://github.com/camunda/feel-scala)
@@ -48,9 +50,10 @@ The following is a list of current (unsupported) community extensions:
 * [PHP SDK](http://camunda.github.io/camunda-bpm-php-sdk/)
 * [Process Test Coverage](https://github.com/camunda/camunda-process-test-coverage)
 * [Reactor Event Bus](https://github.com/camunda/camunda-bpm-reactor)
+* [Scenario Testing Library](https://github.com/camunda/camunda-bpm-assert-scenario/)
 * [Single Sign On for JBoss](https://github.com/camunda/camunda-sso-jboss)
-* [Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter)
 * [Tasklist Translations](https://github.com/camunda/camunda-tasklist-translations)
+* [Wildfly Swarm](https://github.com/camunda/camunda-bpm-wildfly-swarm)
 
 ## Building a Community Extension
 
