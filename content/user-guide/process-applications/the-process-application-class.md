@@ -54,24 +54,6 @@ This means that in case you deploy to a Servlet 3.0 compliant container (such as
 {{< /note >}}
 
 
-## Deploying to Apache Tomcat 6 or Other Pre-Servlet 3.0 Containers
-
-In a Pre-Servlet 3.0 container such as Apache Tomcat 6 (or JBoss Application Server 5 for that matter), you need manually register your ProcessApplication class as Servlet Context Listener in the Servlet Container. This can be achieved by adding a listener element to your `WEB-INF/web.xml` file:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-  <listener>
-    <listener-class>org.my.project.MyProcessApplication</listener-class>
-  </listener>
-
-</web-app>
-```
-
-
 ## Using the ServletProcessApplication Inside an EJB/Java EE Container such as JBoss
 
 You can use the ServletProcessApplication inside an EJB / Java EE Container such as JBoss. Process application bootstrapping and deployment will work in the same way. However, you will not be able to use all Java EE features at runtime. In contrast to the `EjbProcessApplication` (see the next section), the `ServletProcessApplication` does not perform proper Java EE cross-application context switching. When the process engine invokes Java Delegates from your application, only the Context Class Loader of the current Thread is set to the classloader of your application. This does allow the process engine to resolve Java Delegate implementations from your application but the container will not perform an EE context switch to your application. As a consequence, if you use the ServletProcessApplciation inside a Java EE container, you will not be able to use features like:

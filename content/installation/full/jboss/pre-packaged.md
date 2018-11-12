@@ -12,7 +12,7 @@ menu:
 
 ---
 {{< note title="Java 8 compatibility" class="info" >}}
-if you are using Java 8 please use Wildfly installation and not JBoss AS. In order to use JBoss AS you have to use Java 7 or Java 6.
+if you are using Java 8 please use Wildfly installation and not JBoss AS. In order to use JBoss AS you have to use Java 7.
 {{< /note >}}
 
 # Installation Procedure

@@ -22,7 +22,7 @@ This guide uses a number of variables to denote common path names and constants:
 {{< /note >}}
 
 {{< note title="Java 8 compatibility" class="info" >}}
-if you are using Java 8, then please use the Wildfly installation and not JBoss AS. To use JBoss AS, you have to use Java 7 or Java 6.
+if you are using Java 8, then please use the Wildfly installation and not JBoss AS. To use JBoss AS, you have to use Java 7.
 {{< /note >}}
 # Required Setup for JBoss AS 7 / JBoss EAP 6
 
