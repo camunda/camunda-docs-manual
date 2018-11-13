@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic variable instances that fulfill the given parameters.
-This method takes the same message body as the [Get Variable Instances (POST)]({{< relref "reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) method and therefore it is more powerful regarding variable values than the [Get Variable Instance Count]({{< relref "reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
+This method takes the same message body as the [Get Variable Instances (POST)]({{< ref "/reference/rest/history/variable-instance/post-variable-instance-query.md" >}}) method and therefore it is more powerful regarding variable values than the [Get Variable Instance Count]({{< ref "/reference/rest/history/variable-instance/get-variable-instance-query-count.md" >}}) method.
 
 
 # Method
@@ -126,7 +126,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

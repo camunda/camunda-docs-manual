@@ -14,7 +14,7 @@ menu:
 
 
 Queries for historic job logs that fulfill the given parameters.
-The size of the result set can be retrieved by using the [Get Job Log Count]({{< relref "reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
+The size of the result set can be retrieved by using the [Get Job Log Count]({{< ref "/reference/rest/history/job-log/get-job-log-query-count.md" >}}) method.
 
 
 # Method
@@ -49,7 +49,7 @@ GET `/history/job-log`
   </tr>
   <tr>
     <td>jobDefinitionType</td>
-    <td>Filter by job definition type. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
+    <td>Filter by job definition type. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
@@ -189,7 +189,7 @@ Each historic job log object has the following properties:
   <tr>
     <td>jobDefinitionType</td>
     <td>String</td>
-    <td>The job definition type of the associated job. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
+    <td>The job definition type of the associated job. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job definition types.</td>
   </tr>
   <tr>
     <td>jobDefinitionConfiguration</td>
@@ -258,7 +258,7 @@ Each historic job log object has the following properties:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -276,7 +276,7 @@ Each historic job log object has the following properties:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

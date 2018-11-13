@@ -14,8 +14,8 @@ menu:
 
 
 Queries for the number of process instances that fulfill the given parameters.
-This method takes the same message body as the [Get Instances (POST)]({{< relref "reference/rest/process-instance/post-query.md" >}}) method
-and therefore it is slightly more powerful than the [Get Instance Count]({{< relref "reference/rest/process-instance/get-query-count.md" >}}) method.
+This method takes the same message body as the [Get Instances (POST)]({{< ref "/reference/rest/process-instance/post-query.md" >}}) method
+and therefore it is slightly more powerful than the [Get Instance Count]({{< ref "/reference/rest/process-instance/get-query-count.md" >}}) method.
 
 
 # Method
@@ -92,7 +92,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
     <td>incidentType</td>
-    <td>Filter by the incident type. See the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
+    <td>Filter by the incident type. See the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types" >}}">User Guide</a> for a list of incident types.</td>
   </tr>
   <tr>
     <td>incidentMessage</td>
@@ -167,7 +167,7 @@ A JSON object that contains the count as the only property.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>, or if an invalid operator for variable comparison is used. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

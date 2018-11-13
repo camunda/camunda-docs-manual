@@ -44,7 +44,7 @@ A JSON object with the following properties:
   </tr>
   <tr>
 	<td>asyncResponseTimeout</td>
-	<td>The <a href="{{< relref "user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
+	<td>The <a href="{{< ref "/user-guide/process-engine/external-tasks.md#long-polling-to-fetch-and-lock-external-tasks" >}}">Long Polling</a> timeout in milliseconds.<br>
 	<strong>Note:</strong> The value cannot be set larger than 1.800.000 milliseconds (corresponds to 30 minutes).</td>
   </tr>
   <tr>
@@ -240,7 +240,7 @@ Each locked external task object has the following properties:
   <tr>
     <td>500</td>
     <td>application/json</td>
-    <td>Returned if fetching is not successful, for example due to missing parameters. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Returned if fetching is not successful, for example due to missing parameters. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

@@ -52,7 +52,7 @@ When you create the tables manually, then you have to configure the engine to **
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< relref "user-guide/process-engine/database.md#isolation-level-configuration" >}}).
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 
@@ -128,7 +128,7 @@ Furthermore, you have to merge your corresponding JDBC driver into the folder `$
 
 ## Add bpm-platform.xml
 
-You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}):
+You have to add the file `bpm-platform.xml` to the folder `$TOMCAT_HOME/conf` or, optionally, you can configure the location through some available mechanisms, see [Configure location of the bpm-platform.xml file]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}}):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -200,7 +200,7 @@ The following steps are required to deploy the REST API:
 3. Startup Tomcat.
 4. Access the REST API on the context you configured.
     For example, http://localhost:8080/engine-rest/engine should return the names of all engines of the platform, provided that you deployed the application in the context `/engine-rest`.
-5. Enable authentication as described in the [REST API documentation]({{< relref "reference/rest/overview/authentication.md" >}})
+5. Enable authentication as described in the [REST API documentation]({{< ref "/reference/rest/overview/authentication.md" >}})
 
 
 ## Camunda Connect

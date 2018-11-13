@@ -93,7 +93,7 @@ A JSON object containing a list of task attachments.
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response Codes
 
@@ -111,7 +111,7 @@ A JSON object containing a list of task attachments.
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>No task exists for the given task id. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>No task exists for the given task id. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

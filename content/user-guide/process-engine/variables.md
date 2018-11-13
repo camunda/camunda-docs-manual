@@ -16,7 +16,7 @@ This section describes the concepts of variables in processes. Variables can be 
 
 # Variable Scopes and Variable Visibility
 
-All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section]({{< relref "user-guide/process-engine/process-engine-concepts.md#executions" >}}), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
+All entities that can have variables are called *variable scopes*. These are executions (which include process instances) and tasks. As described in the  [Concepts section]({{< ref "/user-guide/process-engine/process-engine-concepts.md#executions" >}}), the runtime state of a process instance is represented by a tree of executions. Consider the following process model where the red dots mark active tasks:
 
 {{< img src="../img/variables-3.png" title="Variables" >}}
 
@@ -44,7 +44,7 @@ In general, variables are accessible in the following cases:
 * Delivering messages
 * Task lifecycle transitions, such as completion or resolution
 * Setting/getting variables from outside
-* Setting/getting variables in a [Delegate]({{< relref "user-guide/process-engine/delegation-code.md" >}})
+* Setting/getting variables in a [Delegate]({{< ref "/user-guide/process-engine/delegation-code.md" >}})
 * Expressions in the process model
 * Scripts in the process model
 * (Historic) Variable queries
@@ -136,7 +136,7 @@ configured charset, this length restriction can result in different quantities o
  it may be implemented separately and must happen before the Camunda API to set the variables is called.
 {{< /note >}}
 
-Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
+Process variables can be stored in formats like JSON and XML provided by the [Camunda Spin plugin]({{< ref "/user-guide/data-formats/_index.md" >}}). Spin provides serializers for the variables of type `object` such that Java variables can be persisted in these formats to the database. Furthermore, it is possible to store JSON and XML documents directly as a Spin object by the value types `xml` and `json`. Opposed to plain `string` variables, Spin objects provide a fluent API to perform common operations on such documents like reading and writing properties.
 
 
 ## Object Value Serialization
@@ -164,7 +164,7 @@ execution.setVariable("someVariable", customerDataValue);
 {{< /note >}}
 
 {{< note title="Serializing Objects to XML and JSON" class="info" >}}
-  The [Camunda Spin plugin]({{< relref "user-guide/data-formats/index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class. When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
+  The [Camunda Spin plugin]({{< ref "/user-guide/data-formats/_index.md" >}}) provides serializers that are capable of serializing object values to XML and JSON. They can be used when it is desired that the serialized objects values can be interpreted by humans or when the serialized value should be meaningful without having the corresponding Java class. When using a pre-built Camunda distribution, Camunda Spin is already preconfigured and you can try these formats without further configuration.
 {{< /note >}}
 
 
@@ -313,12 +313,12 @@ com.example.Order retrievedOrder = (com.example.Order) retrievedTypedObjectValue
 
 {{< note title="Java serialization format" class="warning" >}}
   Be aware, that when using a serialized representation of variables, the Java serialization format is forbidden by default. You should either use another format (JSON or XML), or explicitly enable the Java serialization
-  with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< relref "reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}). 
+  with the help of [`javaSerializationFormatEnabled` configuration parameter]({{< ref "/reference/deployment-descriptors/tags/process-engine.md#javaSerializationFormatEnabled" >}}). 
 {{< /note >}}
 
 ## JSON and XML Values
 
-The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< relref "user-guide/data-formats/index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< relref "user-guide/data-formats/index.md#native-xml-variable-value" >}}) for details.
+The Camunda Spin plugin provides an abstraction for JSON and XML documents that facilitate their processing and manipulation. This is often more convenient than storing such documents as plain `string` variables. See the documentation on Camunda SPIN for [storing JSON documents]({{< ref "/user-guide/data-formats/_index.md#json-native-json-variable-value" >}}) and [storing XML documents]({{< ref "/user-guide/data-formats/_index.md#native-xml-variable-value" >}}) for details.
 
 ## Transient variables
 
@@ -342,7 +342,7 @@ TypedValue typedTransientFileValue = Variables.fileValue("file.txt", true)
   .create();
 ``` 
 
-Transient variables can be used via REST API, e.g. [when starting a new process instance]({{< relref "reference/rest/process-definition/post-start-process-instance.md">}}).
+Transient variables can be used via REST API, e.g. [when starting a new process instance]({{< ref "/reference/rest/process-definition/post-start-process-instance.md">}}).
 
 ## Set Multiple Typed Values
 
@@ -476,9 +476,9 @@ Input mappings can also be used with multi-instance constructs, in which the map
   The engine does not support output mappings for multi-instance constructs. Every instance of the output mapping would overwrite the variables set by the previous instances and the final variable state would become hard to predict.
 {{< /note >}}
 
-[inputOutput]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
-[inputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
-[outputParameter]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-outputparameter" >}}
-[list]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-list" >}}
-[map]: {{< relref "reference/bpmn20/custom-extensions/extension-elements.md#camunda-map" >}}
-[script-io]: {{< relref "user-guide/process-engine/scripting.md#use-scripts-as-inputoutput-parameters" >}}
+[inputOutput]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputoutput" >}}
+[inputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-inputparameter" >}}
+[outputParameter]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-outputparameter" >}}
+[list]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-list" >}}
+[map]: {{< ref "/reference/bpmn20/custom-extensions/extension-elements.md#camunda-map" >}}
+[script-io]: {{< ref "/user-guide/process-engine/scripting.md#use-scripts-as-inputoutput-parameters" >}}

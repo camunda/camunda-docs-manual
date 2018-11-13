@@ -130,7 +130,7 @@ Its properties are as follows:
   </tr>
 </table>
 
-\* For further information, please see the <a href="{{< relref "reference/rest/overview/date-format.md" >}}"> documentation</a>.
+\* For further information, please see the <a href="{{< ref "/reference/rest/overview/date-format.md" >}}"> documentation</a>.
 
 # Response codes
 
@@ -148,12 +148,12 @@ Its properties are as follows:
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>The task does not exists or task id is null. No content or url to remote content exists. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The task does not exists or task id is null. No content or url to remote content exists. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
   <tr>
     <td>403</td>
     <td>application/json</td>
-    <td>The history of the engine is disabled. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>The history of the engine is disabled. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

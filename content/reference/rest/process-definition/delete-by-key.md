@@ -90,14 +90,14 @@ This method returns no content.
     <td>403</td>
     <td>application/json</td>
     <td>The process definitions with the given key cannot be deleted due to missing permissions. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
   <tr>
     <td>404</td>
     <td>application/json</td>
     <td>No process definition with the given key exists. 
-    See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+    See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
     for the error response format.</td>
   </tr>
 </table>

@@ -183,6 +183,6 @@ Examples:
 [ranges]: #range
 [disjunction]: #disjunction
 [negation]: #negation
-[FEEL data types]: {{< relref "reference/dmn11/feel/data-types.md" >}}
-[date types]: {{< relref "reference/dmn11/feel/data-types.md#date" >}}
-[input entries]: {{< relref "reference/dmn11/decision-table/rule.md#input-entry-condition" >}}
+[FEEL data types]: {{< ref "/reference/dmn11/feel/data-types.md" >}}
+[date types]: {{< ref "/reference/dmn11/feel/data-types.md#date" >}}
+[input entries]: {{< ref "/reference/dmn11/decision-table/rule.md#input-entry-condition" >}}

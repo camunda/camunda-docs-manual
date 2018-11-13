@@ -20,12 +20,12 @@ You manage the process engine as part of your application. The following ways ex
 
 * [Programmatically via Java API]({{< relref "#bootstrap-a-process-engine-using-the-java-api" >}})
 * [Via XML configuration]({{< relref "#configure-process-engine-using-spring-xml" >}})
-* [Via Spring]({{< relref "user-guide/spring-framework-integration/index.md" >}})
+* [Via Spring]({{< ref "/user-guide/spring-framework-integration/_index.md" >}})
 
 
 # Shared, Container Managed Process Engine
 
-A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< relref "user-guide/runtime-container-integration/index.md" >}}) for details.
+A container of your choice (e.g., Tomcat, JBoss or IBM WebSphere) manages the process engine for you. The configuration is carried out in a container specific way, see [Runtime Container Integration]({{< ref "/user-guide/runtime-container-integration/_index.md" >}}) for details.
 
 
 ## ProcessEngineConfiguration Bean
@@ -158,11 +158,11 @@ The `<process-engine ... />` xml tag allows you to define a process engine:
 </bpm-platform>
 ```
 
-See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
+See the [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md" >}}) for complete documentation of the syntax of the `bpm-platform.xml` file.
 
 
 ## Configure Process Engine in the processes.xml
 
-The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file]({{< relref "user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
+The process engine can also be configured and bootstrapped using the `META-INF/processes.xml` file. See [Section on processes.xml file]({{< ref "/user-guide/process-applications/the-processes-xml-deployment-descriptor.md" >}}) for details.
 
-See the [Deployment Descriptor Reference]({{< relref "reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.
+See the [Deployment Descriptor Reference]({{< ref "/reference/deployment-descriptors/descriptors/processes-xml.md" >}}) for complete documentation of the syntax of the `processes.xml` file.

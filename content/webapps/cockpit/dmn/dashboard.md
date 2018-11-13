@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which lets you see deployed decision definitions. Additional [plugins]({{< relref "webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
+The decisions dashboard of Cockpit is the entry point for decision monitoring. It comes with a pre-installed plugin, which lets you see deployed decision definitions. Additional [plugins]({{< ref "/webapps/cockpit/extend/plugins.md" >}}) can be added to the decisions dashboard.
 
 
 # Deployed Decisions
@@ -48,7 +48,7 @@ Furthermore, you can copy a link to the current search query to your clipboard b
   The decision instance search operates on the history endpoint of the engine. In case the requested historic data is not persisted to the database, then the search does not deliver the desired results.
 {{< /note >}}
 
-[decision-definition-view]: {{< relref "webapps/cockpit/dmn/decision-definition-view.md" >}}
-[decision-instance-view]: {{< relref "webapps/cockpit/dmn/decision-instance-view.md" >}}
-[decision-requirements-definition-view]: {{< relref "webapps/cockpit/dmn/decision-requirements-definition-view.md" >}}
-[decision-requirements-definition-instance-view]: {{< relref "webapps/cockpit/dmn/decision-requirements-instance-view.md" >}}
+[decision-definition-view]: {{< ref "/webapps/cockpit/dmn/decision-definition-view.md" >}}
+[decision-instance-view]: {{< ref "/webapps/cockpit/dmn/decision-instance-view.md" >}}
+[decision-requirements-definition-view]: {{< ref "/webapps/cockpit/dmn/decision-requirements-definition-view.md" >}}
+[decision-requirements-definition-instance-view]: {{< ref "/webapps/cockpit/dmn/decision-requirements-instance-view.md" >}}
