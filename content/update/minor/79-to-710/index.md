@@ -2,6 +2,7 @@
 
 title: "Update from 7.9 to 7.10"
 weight: 47
+
 menu:
   main:
     name: "7.9 to 7.10"
