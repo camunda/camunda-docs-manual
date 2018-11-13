@@ -71,7 +71,7 @@ Its properties are as follows:
   <tr>
     <td>jobType</td>
     <td>String</td>
-    <td>The type of the job which is running for this job definition. See the <a href="{{< relref "user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
+    <td>The type of the job which is running for this job definition. See the <a href="{{< ref "/user-guide/process-engine/the-job-executor.md#job-creation" >}}">User Guide</a> for more information about job types.</td>
   </tr>
   <tr>
     <td>jobConfiguration</td>
@@ -112,7 +112,7 @@ Its properties are as follows:
   <tr>
     <td>404</td>
     <td>application/json</td>
-    <td>Job definition with given id does not exist.  See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
+    <td>Job definition with given id does not exist.  See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.</td>
   </tr>
 </table>
 

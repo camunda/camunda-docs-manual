@@ -61,7 +61,7 @@ This method returns no content.
   <tr>
     <td>400</td>
     <td>application/json</td>
-    <td>Returned if an incident is not related to any execution or an incident is of type "failedJob" or "failedExternalTask". To resolve such an incident, please refer to the <a href="{{< relref "user-guide/process-engine/incidents.md#incident-types">}}">Incident Types</a> section.</td>
+    <td>Returned if an incident is not related to any execution or an incident is of type "failedJob" or "failedExternalTask". To resolve such an incident, please refer to the <a href="{{< ref "/user-guide/process-engine/incidents.md#incident-types">}}">Incident Types</a> section.</td>
   </tr>
 </table>
 

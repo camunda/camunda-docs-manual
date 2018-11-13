@@ -170,12 +170,12 @@ The following properties can be set, regardless of whether you are using the JDB
 
 * `databaseType`: It's normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the 'supported databases' section for an overview of which types are supported.</li>
 * `databaseSchemaUpdate`: Allows to set the strategy to handle the database schema on process engine boot and shutdown.
-  * `true` (default): Upon building the process engine, a check is performed whether the Camunda tables exist in the database. If they don't exist, they are created. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< relref "update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< relref "update/index.md" >}}).
-  * `false`: Does not perform any checks and assumes that the Camunda table exist in the database. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< relref "update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< relref "update/index.md" >}}).
+  * `true` (default): Upon building the process engine, a check is performed whether the Camunda tables exist in the database. If they don't exist, they are created. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
+  * `false`: Does not perform any checks and assumes that the Camunda table exist in the database. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a [Rolling Update]({{< ref "/update/rolling-update.md" >}}). Updates of the database schema have to be done manually as described in the [Update and Migration Guide]({{< ref "/update/_index.md" >}}).
   * `create-drop`: Creates the schema when the process engine is being created and drops the schema when the process engine is being closed.
 
 {{< note title="Supported Databases" class="info" >}}
-  For information on supported databases please refer to [Supported Environments]({{< relref "introduction/supported-environments.md#databases" >}})
+  For information on supported databases please refer to [Supported Environments]({{< ref "/introduction/supported-environments.md#databases" >}})
 {{< /note >}}
 
 Here are some sample JDBC urls:
@@ -279,7 +279,7 @@ The required isolation level to run Camunda with is **READ COMMITTED**, which ma
 
 Microsoft SQL Server implements the isolation level `READ_COMMITTED` different
 than most databases and does not interact well with the process engine's
-[optimistic locking]({{< relref "user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}) scheme. 
+[optimistic locking]({{< ref "/user-guide/process-engine/transactions-in-processes.md#optimistic-locking" >}}) scheme. 
 As a result you may suffer deadlocks when putting the process engine under high load.
 
 If you experience deadlocks in your MSSQL installation, you must execute the

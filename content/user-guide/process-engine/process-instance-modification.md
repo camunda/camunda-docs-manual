@@ -31,7 +31,7 @@ To perform such an operation, the process engine offers the *process instance mo
 {{< /note >}}
 
 {{< enterprise >}}
-  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< relref "webapps/cockpit/bpmn/process-instance-modification.md" >}})
+  The Camunda enterprise edition provides a user interface to compose process instance modifications visually on the BPMN diagram in [Camunda Cockpit]({{< ref "/webapps/cockpit/bpmn/process-instance-modification.md" >}})
 {{< /enterprise >}}
 
 # Process Instance Modification by Example
@@ -166,7 +166,7 @@ ProcessInstanceModificationBuilder#startBeforeActivity(String activityId)
 ProcessInstanceModificationBuilder#startBeforeActivity(String activityId, String ancestorActivityInstanceId)
 ```
 
-Starting before an activity  via `startBeforeActivity` means that execution is started before entering the activity. The instruction respects an `asyncBefore` flag, meaning that a job will be created if the activity is `asyncBefore`. In general, this instruction executes the process model beginning with the specified activity until a wait state is reached. See the documentation on [Transactions in Processes]({{< relref "user-guide/process-engine/transactions-in-processes.md" >}}) for details on wait states.
+Starting before an activity  via `startBeforeActivity` means that execution is started before entering the activity. The instruction respects an `asyncBefore` flag, meaning that a job will be created if the activity is `asyncBefore`. In general, this instruction executes the process model beginning with the specified activity until a wait state is reached. See the documentation on [Transactions in Processes]({{< ref "/user-guide/process-engine/transactions-in-processes.md" >}}) for details on wait states.
 
 
 ### Start After an Activity
@@ -228,7 +228,7 @@ The API offers the methods
 
 Variables are set **after** the [necessary scopes for instantiation are created]({{< relref "#nested-instantiation" >}}) and **before** the actual execution of the specified element begins. That means, in the process engine history these variables do not appear as if they were set during execution of the specified activity for `startBefore` and `startAfter` instructions. Local variables are set on the execution that is about to perform the instruction, i.e., that enters the activity etc.
 
-See the [variables section of this guide]({{< relref "user-guide/process-engine/variables.md" >}}) for details on variables and scopes in general.
+See the [variables section of this guide]({{< ref "/user-guide/process-engine/variables.md" >}}) for details on variables and scopes in general.
 
 
 ## Activity-Instance-based API
@@ -566,7 +566,7 @@ runtimeService.createModification("exampleProcessDefinitionId")
 
 The modification of multiple process instances can be executed synchronously or asynchronously.
 For more information about the difference between synchronous and asynchronous execution, please refer to the related
-section of the [user guide]({{< relref "user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
+section of the [user guide]({{< ref "/user-guide/process-engine/process-instance-migration.md#executing-a-migration-plan" >}}).
 
 An example for synchronous execution:
 

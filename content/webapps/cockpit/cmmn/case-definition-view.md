@@ -23,6 +23,6 @@ Furthermore, you can copy a link to the current search query to your clipboard b
 
 You can maximize the diagram view or the detailed information panel by clicking on the <button class="btn btn-xs"><i class="glyphicon glyphicon-resize-full"></i></button> button, respectively the <button class="btn btn-xs"><i class="glyphicon glyphicon-menu-up"></i></button> button, at the bottom left of the diagram view.
 
-[case-definition-view]: {{< relref "webapps/cockpit/cmmn/case-definition-view.md" >}}
-[case-instance-view]: {{< relref "webapps/cockpit/cmmn/case-instance-view.md" >}}
-[deployment-view]: {{< relref "webapps/cockpit/deployment-view.md" >}}
+[case-definition-view]: {{< ref "/webapps/cockpit/cmmn/case-definition-view.md" >}}
+[case-instance-view]: {{< ref "/webapps/cockpit/cmmn/case-instance-view.md" >}}
+[deployment-view]: {{< ref "/webapps/cockpit/deployment-view.md" >}}

@@ -16,7 +16,7 @@ menu:
 Queries for decision definitions that fulfill given parameters. Parameters may be
 the properties of decision definitions, such as the name, key or version.  The
 size of the result set can be retrieved by using the [Get Decision Definition Count]({{<
-relref "reference/rest/decision-definition/get-query-count.md" >}}) method.
+ref "/reference/rest/decision-definition/get-query-count.md" >}}) method.
 
 
 # Method
@@ -208,7 +208,7 @@ Each decision definition object has the following properties:
   <tr>
     <td>historyTimeToLive</td>
     <td>Number</td>
-    <td>History time to live value of the decision definition. Is used within <a href="{{< relref "user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
+    <td>History time to live value of the decision definition. Is used within <a href="{{< ref "/user-guide/process-engine/history.md#history-cleanup">}}">History cleanup</a>.</td>
   </tr>
 </table>
 
@@ -231,7 +231,7 @@ Each decision definition object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>sortOrder</code> parameter is supplied, but no <code>sortBy</code>.
-      See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> for the error response format.
+      See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> for the error response format.
     </td>
   </tr>
 </table>

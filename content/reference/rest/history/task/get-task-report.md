@@ -174,7 +174,7 @@ Each object has the following properties:
     <td>application/json</td>
     <td>
       Returned if some of the query parameters are invalid, for example if a <code>completedAfter</code> parameter is 
-      supplied, but the date format is wrong. See the <a href="{{< relref "reference/rest/overview/index.md#error-handling" >}}">Introduction</a> 
+      supplied, but the date format is wrong. See the <a href="{{< ref "/reference/rest/overview/_index.md#error-handling" >}}">Introduction</a> 
       for the error response format.
     </td>
   </tr>

@@ -68,7 +68,7 @@ When you create the tables manually, then you have to configure the engine to **
 {{< note title="Heads Up!" class="info" >}}
 If you have defined a specific prefix for the entities of your database, then you will have to manually adjust the `create` scripts accordingly so that the tables are created with the prefix.
 
-Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< relref "user-guide/process-engine/database.md#isolation-level-configuration" >}}).
+Please note further that READ COMMITED is the required isolation level for database systems to run Camunda with. You may have to change the default setting on your database when installing Camunda. For more information see the documentation on [isolation levels]({{< ref "/user-guide/process-engine/database.md#isolation-level-configuration" >}}).
 {{< /note >}}
 
 
@@ -85,7 +85,7 @@ The following screenshot shows the configuration of an XA datasource:
 
 {{< img src="../img/jdbc.png" title="JDBC Configuration" >}}
 
-Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< relref "user-guide/index.md" >}}) for details.
+Note that you may configure multiple datasources used by different process engine instances. See the [User Guide]({{< ref "/user-guide/_index.md" >}}) for details.
 
 
 ## Configure a WorkManager
@@ -238,7 +238,7 @@ The EAR must be installed to your IBM WebSphere Application Server:
 5. In **Step 1**, enter an application-name, eg. **"camunda-bpm-platform"**, customize other settings and click **"Next"**.
 6. Continue through **Steps 2-4**, customize to your liking and finish the installation in **Step 4** by clicking **"Finish"**.
 7. Save the configuration.
-8. (optional) [Configure location of the bpm-platform.xml file]({{< relref "reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
+8. (optional) [Configure location of the bpm-platform.xml file]({{< ref "/reference/deployment-descriptors/descriptors/bpm-platform-xml.md#configure-location-of-the-bpm-platform-xml-file" >}})
 9. Start the camunda-bpm-platform application. If this initially fails, try to restart the server. Also make sure the EAR does correctly reference the previously created 'Camunda' shared library.
     If it doesn't, make sure you have correctly created the shared library as 'Camunda' or assign the 'Camunda' shared library manually after the EAR installation.
 

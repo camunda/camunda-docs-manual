@@ -11,11 +11,11 @@ menu:
 
 ---
 
-**Can be used with**: [Task]({{< relref "reference/cmmn11/tasks/index.md" >}}), [Stage]({{< relref "reference/cmmn11/grouping-tasks/stage.md" >}})
+**Can be used with**: [Task]({{< ref "/reference/cmmn11/tasks/_index.md" >}}), [Stage]({{< ref "/reference/cmmn11/grouping-tasks/stage.md" >}})
 
 {{< cmmn-symbol type="marker-manual-activation" >}}
 
-Whether the actual work of a task or stage can be performed depends on its [entry criteria]({{< relref "reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Given that an entry criterion is fulfilled, there are two ways to activate a task:
+Whether the actual work of a task or stage can be performed depends on its [entry criteria]({{< ref "/reference/cmmn11/concepts/entry-exit-criteria.md" >}}). Given that an entry criterion is fulfilled, there are two ways to activate a task:
 
 * By manual activation
 * By automatic activation
@@ -68,4 +68,4 @@ As with any expression, you can use case variables to determine the result of a 
 </manualActivationRule>
 ```
 
-In terms of the [task/stage lifecycle]({{< relref "reference/cmmn11/concepts/lifecycle.md" >}}), manual activation corresponds to the transition from `AVAILABLE` to `ENABLED` when an entry criterion occurs, and from `ENABLED` to `ACTIVE` when the task is manually activated. In contrast, automatic activation corresponds to the direct transition from `AVAILABLE` to `ACTIVE` that fires immediately when an entry criterion occurs.
+In terms of the [task/stage lifecycle]({{< ref "/reference/cmmn11/concepts/lifecycle.md" >}}), manual activation corresponds to the transition from `AVAILABLE` to `ENABLED` when an entry criterion occurs, and from `ENABLED` to `ACTIVE` when the task is manually activated. In contrast, automatic activation corresponds to the direct transition from `AVAILABLE` to `ACTIVE` that fires immediately when an entry criterion occurs.

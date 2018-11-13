@@ -517,7 +517,7 @@ Camunda BPM has no explicit concept of "administrator" beyond it being a user wh
 
 When downloading the Camunda BPM distribution, the invoice example application creates a group with id `camunda-admin` and grants all authorizations on all resources to this group.
 
-In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< relref "webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
+In absense of the demo application, this task is performed by the [Camunda Admin Web Application]({{< ref "/webapps/admin/user-management.md#initial-user-setup" >}}). If the Camunda webapplication is started for the first time and no user exists in the database, it asks you to perform the "initial setup". In this process, the `camunda-admin` group is created and granted all permissions on all resources. 
 
 {{< note title="LDAP" class="info" >}}
 The group "camunda-admin" is not created when using LDAP (since LDAP is only accessed in a read-only way). Also see the below section on the administrator authorization plugin.
@@ -653,7 +653,7 @@ authorizationService.saveAuthorization(authProcessInstance);
 ```
 # Camunda Admin Webapp
 
-The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< relref "webapps/admin/authorization-management.md" >}}).
+The Camunda Admin Webapplication provides an out of the box [UI for configuring Authorizations]({{< ref "/webapps/admin/authorization-management.md" >}}).
 
 # Performance Considerations
 
